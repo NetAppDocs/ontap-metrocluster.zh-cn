@@ -1,0 +1,58 @@
+---
+permalink: install-fc/task_rack_the_hardware_components_mcc_fabric_and_ip.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, rack, hardware, components 
+summary: 如果您尚未收到机柜中已安装的设备，则必须将这些组件装入机架。 
+---
+= 将硬件组件安装在机架中
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您尚未收到机柜中已安装的设备，则必须将这些组件装入机架。
+
+必须在两个 MetroCluster 站点上执行此任务。
+
+.步骤
+. 规划 MetroCluster 组件的定位。
++
+机架空间取决于控制器模块的平台型号，交换机类型以及配置中的磁盘架堆栈数量。
+
+. 正确接地。
+. 在机架或机柜中安装控制器模块。
++
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+. 在机架或机柜中安装 FC 交换机。
+. 安装磁盘架，打开其电源，然后设置磁盘架 ID 。
++
+** 您必须重新启动每个磁盘架。
+** 每个 MetroCluster DR 组（包括两个站点）中的每个 SAS 磁盘架的磁盘架 ID 必须是唯一的。
+
+
+. 安装每个 FC-SAS 网桥：
++
+.. 使用四个螺钉将网桥前面的 "`L` " 支架固定到机架前面（嵌装）。
++
+网桥 "`L` " 支架上的开口符合 19 英寸（ 482.6 毫米）机架的机架标准 ETA-310-X 。
+
++
+适用于您的网桥型号的 _ATTO FibreBridge 安装和操作手册 _ 包含详细信息和安装示意图。
+
++
+
+NOTE: 要获得足够的端口空间访问和 FRU 可维护性，您必须在网桥对下方保留 1U 空间，并使用免工具空白面板覆盖此空间。
+
+.. 将每个网桥连接到可提供正确接地的电源。
+.. 打开每个网桥的电源。
++
+
+NOTE: 为了获得最大的故障恢复能力，必须将连接到同一磁盘架堆栈的网桥连接到不同的电源。
+
++
+网桥就绪 LED 可能需要长达 30 秒才能亮起，表示网桥已完成其开机自检序列。
+
+
+
+

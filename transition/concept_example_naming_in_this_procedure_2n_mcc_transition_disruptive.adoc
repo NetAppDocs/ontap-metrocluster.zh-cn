@@ -1,0 +1,73 @@
+---
+permalink: transition/concept_example_naming_in_this_procedure_2n_mcc_transition_disruptive.html 
+sidebar: sidebar 
+keywords: procedure, example, name, identify, dr, group, node, switch, involve, naming 
+summary: 此操作步骤会在整个过程中使用示例名称来标识涉及的 DR 组，节点和交换机。 
+---
+= 此操作步骤中的命名示例
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此操作步骤会在整个过程中使用示例名称来标识涉及的 DR 组，节点和交换机。
+
+原始配置中的节点具有后缀 -FC ，表示它们采用光纤连接或延伸型 MetroCluster 配置。
+
+[cols="3*"]
+|===
+| 组件 | cluster_A 位于 site_A | site_B 上的 cluster_B 
+
+
+ a| 
+dr_group_1-fc
+ a| 
+* node_A_1-FC
+* shelf_A_1
+* shelf_A_2
+
+ a| 
+* node_B_1-FC
+* shelf_B_1
+* 磁盘架 _B_2
+
+
+
+
+ a| 
+dr_group_2-ip
+ a| 
+* node_A_1-IP
+* node_A_2-IP
+* shelf_A_1
+* shelf_A_2
+* shelf_A_3-new
+* shelf_A_4-new
+
+ a| 
+* node_B_1-ip
+* node_B_2-ip
+* shelf_B_1
+* 磁盘架 _B_2
+* shelf_B_3-new
+* shelf_B_4-new
+
+
+
+
+ a| 
+交换机
+ a| 
+* switch_A_1-FC
+* switch_A_2-FC
+* switch_A_1-IP
+* switch_A_2-IP
+
+ a| 
+* switch_B_1-FC
+* switch_B_2-FC
+* switch_B_1-IP
+* switch_B_2-IP
+
+
+|===

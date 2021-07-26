@@ -1,0 +1,88 @@
+---
+permalink: manage/task_perform_a_switchback.html 
+sidebar: sidebar 
+keywords: metrocluster, configuration, switchback, operation, return, operating, operate, state, sync-source, storage, virtual, machine, svm, disaster, site, active, serving, local, disk, pool, perform 
+summary: 修复 MetroCluster 配置后，您可以执行 MetroCluster 切回操作。MetroCluster 切回操作会将配置恢复到其正常运行状态，灾难站点上的 sync-source Storage Virtual Machine \ （ SVM\ ）处于活动状态，并从本地磁盘池提供数据。 
+---
+= 执行切回
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+修复 MetroCluster 配置后，您可以执行 MetroCluster 切回操作。MetroCluster 切回操作会将配置恢复到其正常运行状态，灾难站点上的 sync-source Storage Virtual Machine （ SVM ）处于活动状态，并从本地磁盘池提供数据。
+
+* 灾难集群必须已成功切换到正常运行的集群。
+* 必须已对数据和根聚合执行修复。
+* 正常运行的集群节点不能处于 HA 故障转移状态（对于每个 HA 对，所有节点都必须已启动且正在运行）。
+* 灾难站点控制器模块必须完全启动，而不是处于 HA 接管模式。
+* 必须镜像根聚合。
+* 交换机间链路（ ISL ）必须处于联机状态。
+* 必须在系统上安装所有必需的许可证。
++
+.. 确认所有节点均处于已启用状态： `MetroCluster node show`
++
+以下示例显示了处于已启用状态的节点：
+
++
+[listing]
+----
+cluster_B::>  metrocluster node show
+
+DR                        Configuration  DR
+Group Cluster Node        State          Mirroring Mode
+----- ------- ----------- -------------- --------- --------------------
+1     cluster_A
+              node_A_1    configured     enabled   heal roots completed
+              node_A_2    configured     enabled   heal roots completed
+      cluster_B
+              node_B_1    configured     enabled   waiting for switchback recovery
+              node_B_2    configured     enabled   waiting for switchback recovery
+4 entries were displayed.
+----
+.. 确认所有 SVM 上的重新同步均已完成： `MetroCluster SVM show`
+.. 验证修复操作正在执行的任何自动 LIF 迁移是否已成功完成： MetroCluster check lif show
+.. 从运行正常的集群中的任何节点运行 MetroCluster switchback 命令，以执行切回。
+.. 检查切回操作的进度： `MetroCluster show`
++
+当输出显示 Waiting for-switchback 时，切回操作仍在进行中：
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_B         Configuration state configured
+                          Mode                switchover
+                          AUSO Failure Domain -
+Remote: cluster_A         Configuration state configured
+                          Mode                waiting-for-switchback
+                          AUSO Failure Domain -
+----
++
+当输出显示正常时，切回操作完成：
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_B         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain -
+Remote: cluster_A         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain -
+----
++
+如果切回需要很长时间才能完成，您可以使用 `MetroCluster config-replication resync-status show` 命令检查正在进行的基线的状态。此命令处于高级权限级别。
+
+.. 重新建立任何 SnapMirror 或 SnapVault 配置。
++
+在 ONTAP 8.3 中，您需要在执行 MetroCluster 切回操作后手动重新建立丢失的 SnapMirror 配置。在 ONTAP 9.0 及更高版本中，系统会自动重新建立此关系。
+
+
+
+

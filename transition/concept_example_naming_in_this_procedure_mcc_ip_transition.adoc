@@ -1,0 +1,73 @@
+---
+permalink: transition/concept_example_naming_in_this_procedure_mcc_ip_transition.html 
+sidebar: sidebar 
+keywords: procedure, example, name, throughout, identify, dr, group, node, switch, naming 
+summary: 此操作步骤会在整个过程中使用示例名称来标识涉及的 DR 组，节点和交换机。 
+---
+= 此操作步骤中的命名示例
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此操作步骤会在整个过程中使用示例名称来标识涉及的 DR 组，节点和交换机。
+
+[cols="3*"]
+|===
+| DR 组 | cluster_A 位于 site_A | site_B 上的 cluster_B 
+
+
+ a| 
+dr_group_1-fc
+ a| 
+* node_A_1-FC
+* node_A_2-FC
+
+ a| 
+* node_B_1-FC
+* node_B_2-FC
+
+
+
+
+ a| 
+dr_group_2-ip
+ a| 
+* node_A_3-IP
+* node_A_4-ip
+
+ a| 
+* node_B_3-ip
+* node_B_4-ip
+
+
+
+
+ a| 
+交换机
+ a| 
+初始交换机（如果采用光纤连接配置：）
+
+* switch_A_1-FC
+* switch_A_2-FC
+
+
+MetroCluster IP 交换机：
+
+* switch_A_1-IP
+* switch_A_2-IP
+
+ a| 
+初始交换机（如果采用光纤连接配置）：
+
+* switch_B_1-FC
+* switch_B_2-FC
+
+
+MetroCluster IP 交换机：
+
+* switch_B_1-IP
+* switch_B_2-IP
+
+
+|===

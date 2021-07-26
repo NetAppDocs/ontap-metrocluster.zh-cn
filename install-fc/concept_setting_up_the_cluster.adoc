@@ -1,0 +1,17 @@
+---
+permalink: install-fc/concept_setting_up_the_cluster.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, set, up, cluster 
+summary: 设置集群包括设置每个节点，在第一个节点上创建集群以及将任何剩余节点加入集群。 
+---
+= 设置集群
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+设置集群包括设置每个节点，在第一个节点上创建集群以及将任何剩余节点加入集群。
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["软件设置"]

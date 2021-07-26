@@ -1,0 +1,43 @@
+---
+permalink: transition/task_prepare_ip_controllers_4n_transition.html 
+sidebar: sidebar 
+keywords: Transitioning from MetroCluster FC to MetroCluster IP configurations, review, requirement, preparing, prepare, transition, perform, procedure, order, completing, complete, step, task, moving, move, controller, storage, shelves, shelf, exist, configuration, direct, metrocluster, fc, ip, verify, health, removing, remove, tiebreaker, monitor, software, generating, generate, apply, rcf, switch, controller, configure, prepare, preparing 
+summary: 您必须准备四个新的 MetroCluster IP 节点并安装正确的 ONTAP 版本。 
+---
+= 准备 MetroCluster IP 控制器
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须准备四个新的 MetroCluster IP 节点并安装正确的 ONTAP 版本。
+
+必须对每个新节点执行此任务：
+
+* node_A_1-IP
+* node_A_2-IP
+* node_B_1-ip
+* node_B_2-ip
+
+
+在这些步骤中，您可以清除节点上的配置并清除新驱动器上的邮箱区域。
+
+. 为 MetroCluster IP 配置将新控制器装入机架。
++
+此时， MetroCluster FC 节点（ node_A_x-FC 和 node_B_x-FC ）仍保持布线状态。
+
+. 使用缆线将 MetroCluster IP 节点连接到 IP 交换机，如所示 link:../install-ip/task_cable_ip_switches.html["为 IP 交换机布线"]。
+. 使用 MetroCluster 安装和配置指南 _ 的以下部分配置 MetroCluster IP 节点
++
+.. link:../install-ip/task_sw_config_gather_info["收集所需信息"]
+.. link:../install-ip/task_sw_config_restore_defaults["清除控制器模块上的配置"]
+.. link:../install-ip/task_sw_config_verify_haconfig["验证组件的 ha-config 状态"]
+.. link:../install-ip/task_sw_config_assign_pool0["手动为池 0 分配驱动器（ ONTAP 9.4 及更高版本）"]
+
+
+. 在维护模式下，问题描述 halt 命令退出维护模式，然后问题描述 boot_ontap 命令启动系统并进入集群设置。
++
+此时请勿完成集群向导或节点向导。
+
+. 在其他 MetroCluster IP 节点上重复上述步骤。
+

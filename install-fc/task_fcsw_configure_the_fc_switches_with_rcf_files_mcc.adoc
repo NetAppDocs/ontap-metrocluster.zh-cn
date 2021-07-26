@@ -1,0 +1,19 @@
+---
+permalink: install-fc/task_fcsw_configure_the_fc_switches_with_rcf_files_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, fc, switches, run, configuration, file 
+summary: 如果要简化配置交换机的过程，您可以下载并应用参考配置文件，这些文件可为某些配置提供完整的交换机设置。 
+---
+= 通过运行配置文件配置 FC 交换机
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要简化配置交换机的过程，您可以下载并应用参考配置文件，这些文件可为某些配置提供完整的交换机设置。
+
+参考配置文件（ RCF ）不支持使用八个 ISL 的配置。如果您使用的是八个 ISL ，则必须手动配置交换机。
+
+RCF 适用于双节点，四节点和八节点 MetroCluster 配置。默认情况下，这些文件会为网络结构配置按顺序交付（ IOD ）。
+
+RCF 下载页面指示不同交换机型号支持的节点数。

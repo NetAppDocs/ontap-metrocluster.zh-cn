@@ -1,0 +1,52 @@
+---
+permalink: install-ip/concept_considerations_layer_3.html 
+sidebar: sidebar 
+keywords: differences, eight-node, four-node, fabric-attached, stretch, metrocluster ip, storage, bridges, fc-to-sas, atto, fibrebridge, SAS, local HA, auso, automatic unplanned switchover, array luns, mediator, tiebreaker 
+summary: 从 ONTAP 9.1.1 开始，可以使用 IP 路由（第 3 层）后端连接实施 MetroCluster IP 配置。 
+---
+= 第 3 层广域网的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+从 ONTAP 9.1.1 开始，可以使用 IP 路由（第 3 层）后端连接实施 MetroCluster IP 配置。
+
+MetroCluster 后端交换机连接到路由的 IP 网络，可以直接连接到路由器（如以下简化示例所示），也可以通过其他中间交换机进行连接。
+
+image::../media/mcc_layer3_backend.png[MCC layer3 后端]
+
+
+NOTE: NetApp 仅支持经过 NetApp 验证的交换机。这些交换机由 NetApp 测试和销售。它们将在中列出 link:https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性表工具（ IMT ）"] 和中的 。
+
+MetroCluster 环境作为标准 MetroCluster IP 配置进行配置和布线，如中所述 link:task_configure_the_mcc_hardware_components_mcc_ip.html["配置 MetroCluster 硬件组件"]。在执行操作步骤安装和布线时，必须执行第 3 层配置专用的步骤：
+
+* MetroCluster 交换机可以直接连接到路由器，也可以连接到一个或多个中间交换机。VLAN 必须扩展到网关设备。
+* 您可以使用 ` -gateway` 参数为 MetroCluster IP （ MCC-IP ）接口地址配置 IP 网关地址。
+
+
+配置路由器和网关 IP 地址时，请确保满足以下要求：
+
+* 在每个节点上，两个接口不能具有相同的网关 IP 地址。
+* 每个站点的 HA 对上的相应接口必须具有相同的网关 IP 地址。
+* 节点上的相应接口及其 DR 和 AUX 配对节点不能具有相同的网关 IP 地址。
+* 节点上的相应接口及其 DR 和 AUX 配对节点必须具有相同的 VLAN ID 。
+
+
+MetroCluster VLAN 必须从边缘 MetroCluster 交换机扩展到网关路由器，以便 MetroCluster 流量到达网关（请参见上图）。每个站点上的 MetroCluster VLAN 的 VLAN ID 必须相同。但是，子网可能有所不同。
+
+您可以使用 RcfFileGenerator 工具创建的 RCF 文件。MetroCluster 节点和网关路由器之间的网络必须提供与 RCF 文件中设置的相同 VLAN ID 。
+
+
+
+== IP 路由的网络要求
+
+IP 路由网络必须满足以下要求：
+
+* link:../install-ip/concept_considerations_isls.html#basic-metrocluster-isl-requirements["MetroCluster ISL 的基本要求"]
+* link:../install-ip/concept_considerations_isls.html#isl-requirements-in-shared-layer-2-networks["共享第 2 层网络中的 ISL 要求"]
+* link:../install-ip/concept_considerations_layer_2.html#required-settings-on-intermediate-switches["中间交换机上的必需设置"]
+* MetroCluster 流量不支持动态路由。
+* 仅支持四节点 MetroCluster 配置（每个站点两个节点）。
+* 每个 MetroCluster 站点需要两个子网—每个网络一个子网。
+* 不支持自动 IP 分配。
+

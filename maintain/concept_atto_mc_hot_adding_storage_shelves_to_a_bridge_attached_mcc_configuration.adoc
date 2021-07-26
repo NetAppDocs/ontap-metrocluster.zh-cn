@@ -1,0 +1,19 @@
+---
+permalink: maintain/concept_atto_mc_hot_adding_storage_shelves_to_a_bridge_attached_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, hot, add, sas, storage, bridge, attached, fc, configuration 
+summary: 您可以将单个 SAS 磁盘架或一个堆栈和一组网桥热添加到现有 MetroCluster 系统中。 
+---
+= 将 SAS 存储热添加到网桥连接的 MetroCluster FC 配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将单个 SAS 磁盘架或一个堆栈和一组网桥热添加到现有 MetroCluster 系统中。
+
+这些过程适用于使用直接连接到存储控制器或连接到 FC 网络结构的 FC-SAS 网桥的 MetroCluster FC 配置。
+
+这些过程不会造成系统中断，大约需要 4 小时才能完成。
+
+您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。

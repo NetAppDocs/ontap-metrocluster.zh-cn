@@ -1,0 +1,26 @@
+---
+permalink: upgrade/task_disconnect_the_exist_dr_group_mcc_expansion.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, disconnect, existing, dr, group, fabric 
+summary: 您必须从网络结构中的 FC 交换机断开现有控制器模块的连接。 
+---
+= 断开现有 DR 组与网络结构的连接
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须从网络结构中的 FC 交换机断开现有控制器模块的连接。
+
+必须在每个 MetroCluster 站点上执行此任务。
+
+.步骤
+. 禁用将现有控制器模块连接到正在维护的交换机网络结构的 HBA 端口：
++
+` * 存储端口禁用 -node _node-name_ -port _port-number_*`
+
+. 在本地 FC 交换机上，从现有控制器模块的 HBA ， FC-VI 和 ATTO 网桥的端口上拔下缆线。
++
+您应为这些缆线贴上标签，以便在重新布线时轻松识别它们。只有 ISL 端口应保持布线状态。
+
+

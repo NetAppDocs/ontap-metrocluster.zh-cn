@@ -1,0 +1,20 @@
+---
+permalink: upgrade/task_rack_the_new_equipment_mcc_expansion.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, rack, new, equipment 
+summary: 您必须为新节点安装设备机架。 
+---
+= 将新设备安装在机架中
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须为新节点安装设备机架。
+
+.步骤
+. 使用《 MetroCluster 安装和配置指南》将新的存储系统，磁盘架和 FC-SAS 网桥装入机架。
++
+link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+
+

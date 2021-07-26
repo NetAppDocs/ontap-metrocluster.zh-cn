@@ -1,0 +1,63 @@
+---
+permalink: disaster-recovery/task_boot_new_mcfc.html 
+sidebar: sidebar 
+keywords: boot, controller, modules, fc 
+summary: 数据聚合和根聚合的聚合修复完成后，您必须启动灾难站点上的一个或多个节点。 
+---
+= 启动新控制器模块（ MetroCluster FC 配置）
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+数据聚合和根聚合的聚合修复完成后，您必须启动灾难站点上的一个或多个节点。
+
+此任务从显示 LOADER 提示符的节点开始。
+
+.步骤
+. 显示启动菜单：
++
+`boot_ontap 菜单`
+
+. 在启动菜单中，选择选项 6 * 从备份配置更新闪存 * 。
+. 对以下提示回答 `y` ：
++
+`此操作将使用上次备份到磁盘来替换所有基于闪存的配置。确实要继续？： y`
+
++
+系统将启动两次，第二次加载新配置。
+
++
+
+NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复 <<step2>> 将系统启动至 ONTAP 提示符。然后，您需要执行根恢复。请联系技术支持以获得帮助。
+
+. 在丛 0 上镜像根聚合：
++
+.. 将三个 pool0 磁盘分配给新控制器模块。
+.. 镜像根聚合 pool1 丛：
++
+`aggr mirror root-aggr-name`
+
+.. 将无主磁盘分配给本地节点上的 pool0
+
+
+. 刷新 MetroCluster 配置：
++
+.. 进入高级权限模式：
++
+`set -privilege advanced`
+
+.. 刷新配置：
++
+`MetroCluster configure -refresh true`
+
+.. 返回到管理权限模式：
++
+`set -privilege admin`
+
+
+
+. 如果您使用的是四节点配置，请在灾难站点的另一个节点上重复上述步骤。
+
+
+继续执行 link:../disaster-recovery/task_complete_recovery.html["完成灾难恢复过程"]。

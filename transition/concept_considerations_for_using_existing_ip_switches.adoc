@@ -1,0 +1,35 @@
+---
+permalink: transition/concept_considerations_for_using_existing_ip_switches.html 
+sidebar: sidebar 
+keywords: ensure, ip, switch, support, exist, model, metrocluster, fc, configuration, ip, consideration, support 
+summary: 您必须确保 IP 交换机受支持。如果原始 MetroCluster FC 配置和新的 MetroCluster IP 配置都支持现有交换机型号，则可以重复使用现有交换机。 
+---
+= IP 交换机注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须确保 IP 交换机受支持。如果原始 MetroCluster FC 配置和新的 MetroCluster IP 配置都支持现有交换机型号，则可以重复使用现有交换机。
+
+
+
+== 支持的交换机
+
+您必须使用 NetApp 提供的交换机。
+
+* 过渡时不支持使用符合 MetroCluster 要求的交换机（未经过 NetApp 验证和提供的交换机）。
+* MetroCluster FC 配置和 MetroCluster IP 配置都必须支持这些 IP 交换机作为集群交换机。
+* 如果 MetroCluster FC 是交换集群，并且 IP 集群交换机受 MetroCluster IP 配置支持，则可以在新的 MetroCluster IP 配置中重复使用这些 IP 交换机。
+* 在以下情况下，通常会使用新的 IP 交换机：
++
+** MetroCluster FC 是一个无交换机集群，因此需要新的交换机。
+** MetroCluster FC 是一个交换集群，但 MetroCluster IP 配置不支持现有 IP 交换机。
+** 您希望在 MetroCluster IP 配置中使用不同的交换机。
+
+
+
+
+有关平台型号和交换机支持的信息，请参见 _NetApp Hardware Universe 。
+
+https://hwu.netapp.com["NetApp Hardware Universe"]

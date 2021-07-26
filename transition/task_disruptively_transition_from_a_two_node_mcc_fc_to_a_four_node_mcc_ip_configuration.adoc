@@ -1,0 +1,32 @@
+---
+permalink: transition/task_disruptively_transition_from_a_two_node_mcc_fc_to_a_four_node_mcc_ip_configuration.html 
+sidebar: sidebar 
+keywords: start, ontap, transition, workload, data, exist, two-node, metrocluster, fc, configuration, four-node, ip, disk, shelves, shelf, disruptive, fc 
+summary: 从 ONTAP 9.8 开始，您可以将工作负载和数据从现有双节点 MetroCluster FC 配置过渡到新的四节点 MetroCluster IP 配置。将 MetroCluster FC 节点中的磁盘架移动到 IP 节点。 
+---
+= 从双节点 MetroCluster FC 中断过渡到四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 ONTAP 9.8 开始，您可以将工作负载和数据从现有双节点 MetroCluster FC 配置过渡到新的四节点 MetroCluster IP 配置。将 MetroCluster FC 节点中的磁盘架移动到 IP 节点。
+
+下图提供了此过渡操作步骤前后配置的简化视图。
+
+image::../media/transition_2n_begin_to_end.png[过渡 2n 将开始结束]
+
+* 运行 ONTAP 9.8 及更高版本的系统支持此操作步骤。
+* 此操作步骤会造成系统中断。
+* 此操作步骤仅适用于双节点 MetroCluster FC 配置。
++
+如果您使用的是四节点 MetroCluster FC 配置，请参见 xref:concept_choosing_your_transition_procedure_mcc_transition.adoc[选择过渡操作步骤]。
+
+* 此操作步骤创建的四节点 MetroCluster IP 配置不支持 ADP 。
+* 您必须满足所有要求并按照操作步骤中的所有步骤进行操作。
+* 现有存储架将移至新的 MetroCluster IP 节点。
+* 如有必要，可以向配置中添加更多存储架。
++
+请参见 xref:concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.adoc[驱动器架重复使用和驱动器要求，实现有中断的 FC-IP 过渡]。
+
+

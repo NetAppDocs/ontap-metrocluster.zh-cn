@@ -1,0 +1,44 @@
+---
+permalink: install-stretch/concept_choosing_the_correct_installation_procedure_for_your_configuration_mcc_install.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, correct, procedure, configuration 
+summary: 您必须根据是否使用 FlexArray LUN 以及存储控制器如何连接到存储架来选择正确的安装操作步骤。 
+---
+= 为您的配置选择正确的安装操作步骤
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须根据是否使用 FlexArray LUN 以及存储控制器如何连接到存储架来选择正确的安装操作步骤。
+
+image::../media/workflow_select_your_metrocluster_configuration_stretch.gif[工作流选择 MetroCluster 配置延伸型]
+
+|===
+| 此安装类型 ... | 使用以下过程 ... 
+
+
+ a| 
+采用 FC-SAS 网桥的双节点延伸型配置
+ a| 
+. link:task_configure_the_mcc_hardware_components_2_node_stretch_atto.html["为双节点桥接延伸型 MetroCluster 配置布线"]
+. link:concept_configuring_the_mcc_software_in_ontap.html["在 ONTAP 中配置 MetroCluster 软件"]
+
+
+
+
+ a| 
+采用直连 SAS 布线的双节点延伸型配置
+ a| 
+. link:task_configure_the_mcc_hardware_components_2_node_stretch_sas.html["为双节点 SAS 连接的延伸型 MetroCluster 配置布线"]
+. link:concept_configuring_the_mcc_software_in_ontap.html["在 ONTAP 中配置 MetroCluster 软件"]
+
+
+
+
+ a| 
+使用阵列 LUN 进行安装
+ a| 
+link:concept_stretch_mcc_configuration_with_array_luns.html["使用阵列 LUN 的延伸型 MetroCluster 配置中的连接"]
+
+|===

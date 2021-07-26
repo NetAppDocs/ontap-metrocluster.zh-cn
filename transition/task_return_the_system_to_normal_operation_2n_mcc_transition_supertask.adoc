@@ -1,0 +1,93 @@
+---
+permalink: transition/task_return_the_system_to_normal_operation_2n_mcc_transition_supertask.html 
+sidebar: sidebar 
+keywords: perform, final, configuration, return, metrocluster, normal, operation, system, verify, assign, drive, transition, install, license, module, complete, completing, node, send, custom, autosupport, message, maintenance 
+summary: 您必须执行最终配置步骤并将 MetroCluster 配置恢复正常运行。 
+---
+= 使系统恢复正常运行
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须执行最终配置步骤并将 MetroCluster 配置恢复正常运行。
+
+
+
+== 过渡后验证 MetroCluster 操作并分配驱动器
+
+[role="lead"]
+您必须验证 MetroCluster 是否运行正常，并将驱动器分配给第二对新节点（ node_A_2-IP 和 node_B_2-IP ）。
+
+. 确认 MetroCluster 配置类型为 ip-fabric ： `MetroCluster show`
+. 执行 MetroCluster 检查。
++
+.. 问题描述以下命令： `MetroCluster check run`
+.. 显示 MetroCluster 检查的结果： `MetroCluster check show`
+
+
+. 确认已配置具有 MetroCluster IP 节点的 DR 组： `MetroCluster node show`
+. 根据需要在每个站点为控制器 node_A_2-IP 和 node_B_2-IP 创建和镜像其他数据聚合。
+
+
+
+
+== 为新控制器模块安装许可证
+
+[role="lead"]
+您必须为需要标准（节点锁定）许可证的任何 ONTAP 服务添加新控制器模块的许可证。对于具有标准许可证的功能，集群中的每个节点都必须具有自己的功能密钥。
+
+有关许可的详细信息，请参见 NetApp 支持站点上的知识库文章 3013749 ： Data ONTAP 8.2 许可概述和参考以及 _System Administration References 。
+
+. 如有必要，请在 NetApp 支持站点的软件许可证下的我的支持部分中获取新节点的许可证密钥。
++
+如果站点没有所需的许可证密钥，请联系您的销售或支持代表。
+
+. 使用以下命令安装每个许可证密钥： `ssystem license add -license-code license_key` 问题描述
++
+license_key 的长度为 28 位数。
+
++
+对所需的每个标准（节点锁定）许可证重复此步骤。
+
+
+
+
+
+== 正在完成节点配置
+
+[role="lead"]
+在完成这些过程之前，可以执行其他配置步骤。其中某些步骤是可选的。
+
+. 配置服务处理器： `ssystem service-processor network modify`
+. 在新节点上设置 AutoSupport ： `ssystem node AutoSupport modify`
+. 在过渡过程中，可以选择重命名这些控制器。以下命令用于重命名控制器： `ssystem node rename -node <old-name> -newname <new-name>`
++
+完成重命名操作可能需要几分钟时间。使用 system show -fields node 命令确认所有名称更改均已传播到每个节点，然后再继续执行其他步骤。
+
+. 根据需要配置监控服务。
++
+链接： ./install-IP/concept_considerations_mediate.adoc
+
++
+link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["为计划外自动切换配置 ONTAP 调解器服务"]
+
++
+link:../tiebreaker/index.html["Tiebreaker 软件安装和配置指南"]
+
+
+
+
+
+== 维护后发送自定义 AutoSupport 消息
+
+[role="lead"]
+完成过渡后，您应发送一条 AutoSupport 消息，指示维护结束，以便可以恢复自动创建案例。
+
+. 要恢复自动生成支持案例，请发送 AutoSupport 消息以指示维护已完成。
++
+.. 问题描述以下命令： `ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
+.. 在配对集群上重复此命令。
+
+
+

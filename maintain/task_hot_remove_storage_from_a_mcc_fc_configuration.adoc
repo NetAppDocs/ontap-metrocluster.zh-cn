@@ -1,0 +1,140 @@
+---
+permalink: maintain/task_hot_remove_storage_from_a_mcc_fc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, hot, remove, storage, fc, configuration 
+summary: 您可以从已启动并提供数据的 MetroCluster FC 配置中热删除驱动器架，即物理删除已从驱动器中删除聚合的磁盘架。您可以从磁盘架堆栈中的任意位置热删除一个或多个磁盘架，也可以删除磁盘架堆栈。 
+---
+= 从 MetroCluster FC 配置中热删除存储
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以从已启动并提供数据的 MetroCluster FC 配置中热移除驱动器架，即物理移除已从驱动器中删除聚合的磁盘架。您可以从磁盘架堆栈中的任意位置热删除一个或多个磁盘架，也可以删除磁盘架堆栈。
+
+* 您的系统必须采用多路径 HA ，多路径，四路径 HA 或四路径配置。
+* 在四节点 MetroCluster FC 配置中，本地 HA 对不能处于接管状态。
+* 您必须已从要移除的磁盘架中的驱动器中删除所有聚合。
++
+
+IMPORTANT: 如果在要删除的磁盘架上包含聚合的非 MetroCluster FC 配置上尝试使用此操作步骤，则可能会对系统执行发生原因操作，使其出现故障，并出现多驱动器崩溃。
+
++
+删除聚合涉及拆分要删除的磁盘架上的镜像聚合，然后使用另一组驱动器重新创建镜像聚合。
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+
+* 从要移除的磁盘架中的驱动器中删除聚合后，您必须已删除驱动器所有权。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+
+* 如果要从堆栈中移除一个或多个磁盘架，则必须考虑距离因素，以绕过要移除的磁盘架。
++
+如果当前缆线不够长，则需要提供更长的缆线。
+
+
+
+此任务将适用场景以下 MetroCluster FC 配置：
+
+* 直连 MetroCluster FC 配置，其中存储架通过 SAS 缆线直接连接到存储控制器
+* 光纤连接或网桥连接的 MetroCluster FC 配置，其中存储架使用 FC-SAS 网桥进行连接
+
+
+.步骤
+. 在 ONTAP 中验证 MetroCluster 配置的运行情况：
++
+.. 检查系统是否为多路径： + ` * node run -node _node-name_ sysconfig -A*`
+.. 检查两个集群上是否存在任何运行状况警报：
++
+` * 系统运行状况警报 show*`
+
+.. 确认 MetroCluster 配置以及操作模式是否正常： + ` * MetroCluster show*`
+.. 执行 MetroCluster 检查：
++
+` * MetroCluster check run*`
+
+.. 显示 MetroCluster 检查的结果：
++
+` * MetroCluster check show*`
+
+.. 检查交换机上是否存在任何运行状况警报（如果存在）：
++
+` * 存储交换机显示 *`
+
+.. 运行 Config Advisor 。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+.. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
+
+
+. 将权限级别设置为高级：
++
+` * 设置 -privilege advanced*`
+
+. 确认磁盘架上没有邮箱驱动器： ` * storage failover mailbox-disk show*`
+. 根据相关场景中的步骤移除磁盘架。
++
+|===
+| 场景 | 步骤 
+
+
+ a| 
+在存储架包含未镜像聚合，镜像聚合或这两种类型的聚合时删除聚合 ...
+ a| 
+.. 使用 ` * storage aggregate delete -aggregate _aggregate name_*` 命令删除聚合。
+.. 使用标准操作步骤删除该磁盘架中所有驱动器的所有权，然后物理移除该磁盘架。
++
+按照适用于您的磁盘架型号的 _SAS 磁盘架服务指南 _ 中的说明热移除磁盘架。
+
+
+
+
+
+ a| 
+要从镜像聚合中删除丛，需要取消聚合镜像。
+ a| 
+.. 使用 ` * run -node local sysconfig -r*` 命令确定要删除的丛。
++
+在以下示例中，您可以从行 `Plex /dpg_mcc_8020_13_a1_aggr1/plex0` 中确定丛。在这种情况下，要指定的丛为 plex0 。
+
++
+[listing]
+----
+dpgmcc_8020_13_a1a2::storage aggregate> run -node local sysconfig -r
+*** This system has taken over dpg-mcc-8020-13-a1
+Aggregate dpg_mcc_8020_13_a1_aggr1 (online, raid_dp, mirrored) (block checksums)
+  Plex /dpg_mcc_8020_13_a1_aggr1/plex0 (online, normal, active, pool0)
+    RAID group /dpg_mcc_8020_13_a1_aggr1/plex0/rg0 (normal, block checksums)
+      RAID Disk Device                          HA  SHELF BAY CHAN Pool Type  RPM  Used (MB/blks)    Phys (MB/blks)
+      --------- ------                          ------------- ---- ---- ---- ----- --------------    --------------
+      dparity   mcc-cisco-8Gb-fab-2:1-1.126L16  0c    32  15  FC:B   0   SAS 15000 272000/557056000  274845/562884296
+      parity    mcc-cisco-8Gb-fab-2:1-1.126L18  0c    32  17  FC:B   0   SAS 15000 272000/557056000  274845/562884296
+      data      mcc-cisco-8Gb-fab-2:1-1.126L19  0c    32  18  FC:B   0   SAS 15000 272000/557056000  274845/562884296
+      data      mcc-cisco-8Gb-fab-2:1-1.126L21  0c    32  20  FC:B   0   SAS 15000 272000/557056000  274845/562884296
+      data      mcc-cisco-8Gb-fab-2:1-1.126L22  0c    32  21  FC:B   0   SAS 15000 272000/557056000  274845/562884296
+
+  Plex /dpg_mcc_8020_13_a1_aggr1/plex1 (online, normal, active, pool1)
+    RAID group /dpg_mcc_8020_13_a1_aggr1/plex1/rg0 (normal, block checksums)
+
+      RAID Disk Device                          HA  SHELF BAY CHAN Pool Type  RPM  Used (MB/blks)    Phys (MB/blks)
+      --------- ------                          ------------- ---- ---- ---- ----- --------------    --------------
+      dparity   mcc-cisco-8Gb-fab-3:1-1.126L37  0d    34  10  FC:A   1   SAS 15000 272000/557056000  280104/573653840
+      parity    mcc-cisco-8Gb-fab-3:1-1.126L14  0d    33  13  FC:A   1   SAS 15000 272000/557056000  280104/573653840
+      data      mcc-cisco-8Gb-fab-3:1-1.126L41  0d    34  14  FC:A   1   SAS 15000 272000/557056000  280104/573653840
+      data      mcc-cisco-8Gb-fab-3:1-1.126L15  0d    33  14  FC:A   1   SAS 15000 272000/557056000  280104/573653840
+      data      mcc-cisco-8Gb-fab-3:1-1.126L45  0d    34  18  FC:A   1   SAS 15000 272000/557056000  280104/573653840
+----
+.. 使用 ` * storage aggregate plex delete -aggregate _aggr_name_ -plex _plex_name_*` 命令删除丛。
++
+丛定义丛名称，例如 `plex3` 或 `plex6` 。
+
+.. 使用标准操作步骤删除该磁盘架中所有驱动器的所有权，然后物理移除该磁盘架。
++
+按照适用于您的磁盘架型号的 _SAS 磁盘架服务指南 _ 中的说明热移除磁盘架。
+
+
+
+|===
+

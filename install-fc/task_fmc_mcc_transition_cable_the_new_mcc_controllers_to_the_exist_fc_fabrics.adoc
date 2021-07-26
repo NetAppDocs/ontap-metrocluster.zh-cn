@@ -1,0 +1,156 @@
+---
+permalink: install-fc/task_fmc_mcc_transition_cable_the_new_mcc_controllers_to_the_exist_fc_fabrics.html 
+sidebar: sidebar 
+keywords: cabling, metrocluster, fabric, installation, fc, controllers 
+summary: 在集群模式 ONTAP MetroCluster 配置中的每个控制器上，必须使用缆线将 FC-VI 适配器和 HBA 连接到现有 FC 交换机上的特定端口。 
+---
+= 使用缆线将新的 MetroCluster 控制器连接到现有 FC 网络结构
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在集群模式 ONTAP MetroCluster 配置中的每个控制器上，必须使用缆线将 FC-VI 适配器和 HBA 连接到现有 FC 交换机上的特定端口。
+
+.步骤
+. 按照下表为 FC-VI 和 HBA 端口布线：
++
+|===
+2+| 站点 A 2+| 站点 B 
+
+
+| 连接此站点 A 组件和端口 ... | FC_switch_A_1 端口 ... | 连接此站点 B 组件和端口 ... | FC_switch_B_1 端口 ... 
+
+
+ a| 
+controller_A_1 FC-VI 端口 1
+ a| 
+32
+ a| 
+controller_B_1 FC-VI 端口 1
+ a| 
+32
+
+
+
+ a| 
+controller_A_1 HBA 端口 1
+ a| 
+33
+ a| 
+controller_B_1 HBA 端口 1
+ a| 
+33
+
+
+
+ a| 
+controller_A_1 HBA 端口 2
+ a| 
+34
+ a| 
+controller_B_1 HBA 端口 2
+ a| 
+34
+
+
+
+ a| 
+controller_A_2 FC-VI 端口 1
+ a| 
+35
+ a| 
+controller_B_2 FC-VI 端口 1
+ a| 
+35
+
+
+
+ a| 
+controller_A_2 HBA 1
+ a| 
+36
+ a| 
+controller_B_2 HBA 1
+ a| 
+36
+
+
+
+ a| 
+controller_A_2 HBA 2.
+ a| 
+37
+ a| 
+controller_B_2 HBA 2.
+ a| 
+37
+
+|===
+. 使用缆线将第一个交换机网络结构中的每个 FC-SAS 网桥连接到 FC 交换机。
++
+网桥数量因 SAS 存储堆栈数量而异。
+
++
+|===
+2+| 站点 A 2+| 站点 B 
+
+
+| 使用缆线连接此站点 A 网桥 ... | FC_switch_A_1 端口 ... | 使用缆线连接此站点 B 网桥 ... | FC_switch_B_1 端口 ... 
+
+
+ a| 
+bridge_A_1_38
+ a| 
+38
+ a| 
+Bridge_B_1_38
+ a| 
+38
+
+
+
+ a| 
+bridge_A_1_39
+ a| 
+39
+ a| 
+Bridge_B_1_39
+ a| 
+39
+
+|===
+. 使用缆线将第二个交换机网络结构中的每个网桥连接到 FC 交换机。
++
+网桥数量因 SAS 存储堆栈数量而异。
+
++
+|===
+2+| 站点 A 2+| 站点 B 
+
+
+| 使用缆线连接此站点 A 网桥 ... | FC_switch_A_2 端口 ... | 使用缆线连接此站点 B 网桥 ... | FC_switch_B_2 端口 ... 
+
+
+ a| 
+Bridge_A_2_38
+ a| 
+38
+ a| 
+Bridge_B_2_38
+ a| 
+38
+
+
+
+ a| 
+Bridge_A_2_39
+ a| 
+39
+ a| 
+Bridge_B_2_39
+ a| 
+39
+
+|===
+

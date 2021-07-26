@@ -1,0 +1,134 @@
+---
+permalink: upgrade/task_check_the_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, check, configuration 
+summary: 您可以检查 MetroCluster 配置中的组件和关系是否工作正常。您应在初始配置后以及对 MetroCluster 配置进行任何更改后执行检查。您还应在协商切换或切回操作之前执行检查。 
+---
+= 正在检查 MetroCluster 配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以检查 MetroCluster 配置中的组件和关系是否工作正常。您应在初始配置后以及对 MetroCluster 配置进行任何更改后执行检查。您还应在协商（计划内）切换或切回操作之前执行检查。
+
+如果在任一集群或同时在这两个集群上短时间内发出 `MetroCluster check run` 命令两次，则可能发生冲突，并且此命令可能无法收集所有数据。后续的 `MetroCluster check show` 命令不会显示预期输出。
+
+.步骤
+. 检查配置：
++
+` * MetroCluster check run*`
+
++
+此命令作为后台作业运行，可能无法立即完成。
+
++
+[listing]
+----
+cluster_A::> metrocluster check run
+The operation has been started and is running in the background. Wait for
+it to complete and run "metrocluster check show" to view the results. To
+check the status of the running metrocluster check operation, use the command,
+"metrocluster operation history show -job-id 2245"
+----
++
+[listing]
+----
+cluster_A::> metrocluster check show
+Last Checked On: 9/13/2018 20:41:37
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          ok
+clusters            ok
+connections         ok
+6 entries were displayed.
+----
+. 显示最近的 `MetroCluster check run` 命令的更详细结果：
++
+` * MetroCluster check aggregate show*`
+
++
+` * MetroCluster check cluster show*`
+
++
+` * MetroCluster check config-replication show*`
+
++
+` * MetroCluster check lif show*`
+
++
+` * MetroCluster check node show*`
+
++
+`MetroCluster check show` 命令可显示最新的 `MetroCluster check run` 命令的结果。在使用 `MetroCluster check show` 命令之前，应始终运行 `MetroCluster check run` 命令，以使显示的信息为最新信息。
+
++
+以下示例显示了运行正常的四节点 MetroCluster 配置的 `MetroCluster check aggregate show` 命令输出：
+
++
+[listing]
+----
+cluster_A::> metrocluster check aggregate show
+
+Last Checked On: 8/5/2014 00:42:58
+
+Node                  Aggregate                  Check                      Result
+---------------       --------------------       ---------------------      ---------
+controller_A_1        controller_A_1_aggr0
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+                      controller_A_1_aggr1
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+                      controller_A_1_aggr2
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+
+
+controller_A_2        controller_A_2_aggr0
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+                      controller_A_2_aggr1
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+                      controller_A_2_aggr2
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+
+18 entries were displayed.
+----
++
+以下示例显示了运行正常的四节点 MetroCluster 配置的 `MetroCluster check cluster show` 命令输出。它表示集群已准备好在必要时执行协商切换。
+
++
+[listing]
+----
+Last Checked On: 9/13/2017 20:47:04
+
+Cluster               Check                           Result
+--------------------- ------------------------------- ---------
+mccint-fas9000-0102
+                      negotiated-switchover-ready     not-applicable
+                      switchback-ready                not-applicable
+                      job-schedules                   ok
+                      licenses                        ok
+                      periodic-check-enabled          ok
+mccint-fas9000-0304
+                      negotiated-switchover-ready     not-applicable
+                      switchback-ready                not-applicable
+                      job-schedules                   ok
+                      licenses                        ok
+                      periodic-check-enabled          ok
+10 entries were displayed.
+----
+

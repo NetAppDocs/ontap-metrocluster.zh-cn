@@ -1,0 +1,65 @@
+---
+permalink: maintain/task_enable_ip_port_access_on_the_fibrebridge_7600n_bridge_guides.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, enable, ip, port, access, fibrebridge, bridge 
+summary: 如果您正在使用 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务 \ （ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。 
+---
+= 如有必要，在 FibreBridge 7600N 网桥上启用 IP 端口访问
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您使用的是 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务（ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。
+
+与 ATTO FibreBridge 7500N 和 6500N 网桥不同， FibreBridge 7600N 网桥在出厂时已禁用所有 IP 端口协议和服务。
+
+从 ONTAP 9.5 开始，支持网桥的带内管理。这意味着可以通过与网桥的 FC 连接从 ONTAP 命令行界面配置和监控网桥。不需要通过网桥以太网端口对网桥进行物理访问，也不需要网桥用户界面。
+
+从 ONTAP 9.8 开始，默认情况下支持网桥的带内管理，并弃用带外 SNMP 管理。
+
+如果您 * 不 * 使用带内管理来管理网桥，则需要执行此任务。在这种情况下，您需要通过以太网管理端口配置网桥。
+
+.步骤
+. 通过将串行缆线连接到 FibreBridge 7600N 网桥上的串行端口来访问网桥的控制台接口。
+. 使用控制台启用访问服务，然后保存配置：
++
+` * 设置 closePort none*`
+
++
+` * saveconfigur*`
+
++
+使用 `set closePort none` 命令可启用网桥上的所有访问服务。
+
+. 如果需要，可发出 `set closePort` 并根据需要重复执行命令，直到禁用所有所需服务为止，从而禁用服务：
++
+` * 设置 closePort _service_*`
+
++
+`set closePort` 命令一次禁用一项服务。
+
++
+`sservice` 可以指定以下项之一：
+
++
+** 快速报告
+** FTP
+** ICMP
+** QuickNAV
+** SNMP
+** Telnet 您可以使用 `get closePort` 命令检查特定协议是否已启用。
+
+
+. 如果要启用 SNMP ，还必须对 set snmp enabled 命令执行问题描述操作：
++
+` * 设置 SNMP enabled"`
+
++
+SNMP 是唯一需要单独的 enable 命令的协议。
+
+. 保存配置：
++
+` * saveconfigur*`
+
+

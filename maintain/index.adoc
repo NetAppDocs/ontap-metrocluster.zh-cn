@@ -1,0 +1,12 @@
+---
+permalink: maintain/index.html 
+sidebar: sidebar 
+keywords: metrocluster, mcc, service, guide 
+summary: 提供 MetroCluster 系统的维修过程，包括驱动器架， IP 交换机， FC 交换机， FC-SAS 网桥和 SAS 缆线的固件升级和硬件更换过程。 
+---
+= 《 MetroCluster ® 维护指南》
+:icons: font
+:imagesdir: ../media/
+
+
+此内容介绍了 MetroCluster 系统的维修过程，包括驱动器架， IP 交换机， FC 交换机， FC-SAS 网桥和 SAS 缆线的固件升级和硬件更换过程。

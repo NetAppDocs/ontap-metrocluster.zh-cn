@@ -1,0 +1,47 @@
+---
+permalink: tiebreaker/task_configure_snmp_setts_for_tiebreaker_software.html 
+sidebar: sidebar 
+keywords: snmp, tiebreaker, software, configure, setting 
+summary: 要在 Tiebreaker 软件中使用 SNMP ，必须配置 SNMP 设置。 
+---
+= 为 Tiebreaker 软件配置 SNMP 设置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要在 Tiebreaker 软件中使用 SNMP ，必须配置 SNMP 设置。
+
+. 使用 Tiebreaker CLI SNMP config 向导命令添加 MetroCluster 配置。
++
+以下示例显示了一个 SNMP 接收器的配置，该接收器支持 SNMP V1 ， IP 地址为 10.222.210.234 ，端口号为 162 的陷阱消息以及社区字符串设置为公有：
+
++
+[listing]
+----
+
+NetApp MetroCluster Tiebreaker :> snmp config wizard
+Enter SNMP Version [V1/V3]: V1
+Enter SNMP Host: 10.222.210.234
+Enter SNMP Port: 162
+Enter SNMP V1 Community: public
+Successfully added SNMP properties to NetApp MetroCluster Tiebreaker software.
+NetApp MetroCluster Tiebreaker :>
+----
++
+Tiebreaker 软件已准备好向您指定的 SNMP 接收器发送陷阱。
+
+. 验证是否已配置 SNMP 设置： `snmp config test`
++
+以下示例显示 Tiebreaker 软件可以为事件 test_snmp_config 发送 SNMP 陷阱：
+
++
+[listing]
+----
+
+NetApp MetroCluster Tiebreaker :> snmp config test
+Sending SNMP trap to localhost. Version : V1.
+Successfully sent SNMP trap for event TEST_SNMP_CONFIG
+NetApp MetroCluster Tiebreaker :>
+----
+

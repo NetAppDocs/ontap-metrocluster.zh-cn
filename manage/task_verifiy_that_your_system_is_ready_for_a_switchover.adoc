@@ -1,0 +1,43 @@
+---
+permalink: manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html 
+sidebar: sidebar 
+keywords: simulate, option, preview, result, switchover, operation, verification, check, precondition, succesful, verify, ready, example 
+summary: 您可以使用 -simulate 选项预览切换操作的结果。通过验证检查，您可以在开始操作之前验证是否满足成功运行的大部分前提条件。 
+---
+= 验证您的系统是否已做好切换准备
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ` -simulate` 选项预览切换操作的结果。通过验证检查，您可以在开始操作之前验证是否满足成功运行的大部分前提条件。通过问题描述从站点运行以下命令，这些命令将保持正常运行：
+
+. 将权限级别设置为 advanced ： `set -privilege advanced`
+. 在要保持正常运行的站点上，模拟切换操作： `MetroCluster switchover -simulate`
+. 查看返回的输出。
++
+输出将显示是否存在任何否决来阻止切换操作。每次执行 MetroCluster 操作时，您都必须验证一组标准，以确保操作成功。" `ve到` " 是一种机制，用于在未满足一个或多个条件时禁止此操作。有两种类型的否决： " 软 `s` " 否决和 "`硬` " 否决。您可以覆盖软否决，但不能覆盖硬否决。例如，要在四节点 MetroCluster 配置中执行协商切换，一个标准是所有节点均已启动且运行状况良好。假设一个节点已关闭并由其 HA 配对节点接管。切换操作将被硬否决，因为所有节点都必须正常运行是一个硬标准。由于这是一种硬否决，因此您无法覆盖此否决。
+
++
+
+IMPORTANT: 最好不要覆盖任何否决。
+
+
+
+
+
+== 示例：验证结果
+
+以下示例显示了在模拟切换操作时遇到的错误：
+
+[listing]
+----
+cluster4::*> metrocluster switchover -simulate
+
+[Job 126] Preparing the cluster for the switchover operation...
+[Job 126] Job failed: Failed to prepare the cluster for the switchover
+operation. Use the "metrocluster operation show" command to view detailed error
+information. Resolve the errors, then try the command again.
+----
+
+NOTE: 在更换所有故障磁盘之前，协商切换和切回将失败。您可以在更换故障磁盘后执行灾难恢复。如果要忽略有关故障磁盘的警告，可以为协商切换和切回添加软否决。

@@ -1,0 +1,25 @@
+---
+permalink: install-stretch/task_fb_new_install.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, fc, sas, bridge, disk, shelf 
+summary: 在向配置添加新存储时，您需要安装 ATTO FibreBridge 网桥和 SAS 磁盘架并为其布线。 
+---
+= 安装 FC-SAS 网桥和 SAS 磁盘架
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在向配置添加新存储时，您需要安装 ATTO FibreBridge 网桥和 SAS 磁盘架并为其布线。
+
+对于从工厂收到的系统， FC-SAS 网桥已进行预配置，不需要进行其他配置。
+
+编写此操作步骤时假定您使用的是建议的网桥管理界面： ATTO ExpressNAV 图形用户界面和 ATTO QuickNAV 实用程序。
+
+您可以使用 ATTO ExpressNAV 图形用户界面配置和管理网桥，以及更新网桥固件。您可以使用 ATTO QuickNAV 实用程序配置网桥以太网管理 1 端口。
+
+如果需要，您可以改用其他管理接口，例如串行端口或 Telnet 来配置和管理网桥并配置以太网管理 1 端口，以及使用 FTP 来更新网桥固件。
+
+此操作步骤使用以下工作流：
+
+image::../media/workflow_bridge_installation_and_configuration.gif[工作流网桥安装和配置]

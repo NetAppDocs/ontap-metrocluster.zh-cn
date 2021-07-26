@@ -1,0 +1,36 @@
+---
+permalink: install-fc/task_synchronize_the_system_time_us_ntp.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, synchronize, system, time, ntp 
+summary: 每个集群都需要自己的网络时间协议（ NTP ）服务器来同步节点与其客户端之间的时间。您可以使用 System Manager 中的编辑日期时间对话框配置 NTP 服务器。 
+---
+= 使用 NTP 同步系统时间
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+每个集群都需要自己的网络时间协议（ Network Time Protocol ， NTP ）服务器来同步节点与其客户端之间的时间。您可以使用 System Manager 中的编辑日期时间对话框配置 NTP 服务器。
+
+您必须已下载并安装 System Manager 。可以从 NetApp 支持站点获取 System Manager 。
+
+* 发生接管后，您无法修改故障节点或配对节点的时区设置。
+* MetroCluster FC 配置中的每个集群都应具有自己的单独 NTP 服务器，或该 MetroCluster 站点上的节点， FC 交换机和 FC-SAS 网桥使用的服务器。
++
+如果您使用的是 MetroCluster Tiebreaker 软件，则该软件还应具有自己单独的 NTP 服务器。
+
+
+
+.步骤
+. 在主页中，双击相应的存储系统。
+. 在左侧导航窗格中展开 * 集群 * 层次结构。
+. 在导航窗格中，单击 * 配置 * > * 系统工具 * > * 日期时间 * 。
+. 单击 * 编辑 * 。
+. 选择时区。
+. 指定时间服务器的 IP 地址，然后单击 * 添加 * 。
++
+您必须将 NTP 服务器添加到时间服务器列表中。域控制器可以是权威服务器。
+
+. 单击 * 确定 * 。
+. 验证您在日期和时间窗口中对日期和时间设置所做的更改。
+

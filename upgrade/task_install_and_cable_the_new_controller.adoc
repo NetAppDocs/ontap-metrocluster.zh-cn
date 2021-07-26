@@ -1,0 +1,91 @@
+---
+permalink: upgrade/task_install_and_cable_the_new_controller.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, install, cable, new, controller, module 
+summary: 您必须在机箱中物理安装新控制器模块，然后为其布线。 
+---
+= 安装新控制器模块并为其布线
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须在机箱中物理安装新控制器模块，然后为其布线。
+
+.步骤
+. 如果您的系统中有 I/O 扩展模块（ IOXM ），并且要创建单机箱 HA 对，则必须拔下 IOXM 的缆线并将其卸下。
++
+然后，您可以将空托架用于新控制器模块。但是，新配置不会具有 IOXM 提供的额外 I/O 。
+
+. 物理安装新控制器模块，并在必要时安装其他风扇：
++
+|===
+| 如果要添加控制器模块 ... | 然后执行以下步骤 ... 
+
+
+ a| 
+用于创建单机箱 HA 对的空托架，并且系统属于以下平台之一：
+ a| 
+.. 卸下机箱背面用于盖住要包含新控制器模块的空托架的空板。
+.. 将控制器模块轻轻推入机箱的一半。
++
+要防止控制器模块自动启动，请勿将其完全置于机箱中，直到稍后再进入此操作步骤。
+
+
+
+
+
+ a| 
+如果现有配置采用控制器 -IOX 模块配置，则在与其 HA 配对节点不同的机箱中创建双机箱 HA 对。
+
+** FAS8200
+** 80xx
+
+ a| 
+在机架或系统机柜中安装新系统。
+
+|===
+. 根据需要为集群网络连接布线：
++
+.. 确定控制器模块上用于集群连接的端口。
++
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-a320-install-setup/home.html["AFF A320 系统：安装和设置"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842666["《 AFF A220/FAS2700 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842668["《 AFF A800 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2469722["《 AFF A300 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["《 FAS8200 系统安装和设置说明》"]
+
+.. 如果要配置有交换机的集群，请确定要在集群网络交换机上使用的端口。
++
+请参见《适用于 Cisco 交换机的集群模式 Data ONTAP 交换机设置指南》，《 _NetApp 10G 集群模式交换机安装指南》或《 _NetApp 1G 集群模式交换机安装指南》，具体取决于您使用的交换机。
+
+.. 将缆线连接到集群端口：
+
+
++
+|===
+| 如果集群 ... | 那么 ... 
+
+
+ a| 
+双节点无交换机集群
+ a| 
+将现有控制器模块上的集群端口直接连接到新控制器模块上的相应集群端口。
+
+
+
+ a| 
+一个有交换机的集群
+ a| 
+将每个控制器上的集群端口连接到子步骤 b 中标识的集群网络交换机上的端口
+
+|===
+

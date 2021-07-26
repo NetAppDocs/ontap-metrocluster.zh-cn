@@ -1,0 +1,134 @@
+---
+permalink: disaster-recovery/task_prepare_the_nodes_for_switchback_in_a_mixed_configuration.html 
+sidebar: sidebar 
+keywords: perform, certain, task, prepare, metrocluster, ip, fc, configuration, switchback, recovery, during, transition, mix 
+summary: 您必须执行某些任务，以便为切回操作准备混合 MetroCluster IP 和 FC 配置。此操作步骤仅适用于在 MetroCluster FC 到 IP 过渡过程中遇到故障的适用场景配置。 
+---
+= 在混合配置中准备切回（过渡期间恢复）
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须执行某些任务，以便为切回操作准备混合 MetroCluster IP 和 FC 配置。此操作步骤仅适用于在 MetroCluster FC 到 IP 过渡过程中遇到故障的适用场景配置。
+
+只有在发生故障时处于过渡中的系统上执行恢复时，才应使用此操作步骤。
+
+在这种情况下， MetroCluster 是一种混合配置：
+
+* 一个 DR 组由光纤连接的 MetroCluster FC 节点组成。
++
+您必须对这些节点执行 MetroCluster FC 恢复步骤。
+
+* 一个 DR 组由 MetroCluster IP 节点组成。
++
+您必须对这些节点执行 MetroCluster IP 恢复步骤。
+
+
+
+按以下顺序执行步骤。
+
+. 通过按顺序执行以下任务，准备要切回的 FC 节点：
++
+.. link:task_verify_port_mcfc.html["验证端口配置（仅限 MetroCluster FC 配置）"]
+.. link:task_cfg_bridges_mcfc.html["配置 FC-SAS 网桥（仅限 MetroCluster FC 配置）"]
+.. link:task_cfg_switches_mcfc.html["配置 FC 交换机（仅限 MetroCluster FC 配置）"]
+.. link:task_verify_storage_mcfc.html["验证存储配置"] （仅对 MetroCluster FC 节点上更换的驱动器执行这些步骤）
+.. link:task_power_on_mcfc.html["启动灾难站点上的设备"] （仅对 MetroCluster FC 节点上更换的驱动器执行这些步骤）
+.. link:task_assign_ownership_mcfc.html["为更换的驱动器分配所有权"] （仅对 MetroCluster FC 节点上更换的驱动器执行这些步骤）
+.. 执行中的步骤 link:task_reassign_roots_mcfc.html["将根聚合的磁盘所有权重新分配给更换用的控制器模块（ MetroCluster FC 配置）"]，直到并包括对 mailbox destroy 命令执行问题描述的步骤。
+.. 销毁根聚合的本地丛（丛 0 ）：
++
+`aggr destroy plex-id`
+
+.. 如果根聚合未联机，请将其联机。
+
+
+. 启动 MetroCluster FC 节点。
++
+您必须在两个 MetroCluster FC 节点上执行这些步骤。
+
++
+.. 显示启动菜单：
++
+`boot_ontap 菜单`
+
+.. 从启动菜单中，选择选项 6 * 从备份配置更新闪存 * 。
+.. 对以下提示回答 `y` ：
++
+`此操作将使用上次备份到磁盘来替换所有基于闪存的配置。确实要继续？： y`
+
++
+系统将启动两次，第二次加载新配置。
+
++
+
+NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复这些子步骤，将系统启动到 ONTAP 提示符。然后，您需要执行根恢复。请联系技术支持以获得帮助。
+
+
+
+. 在丛 0 上镜像根聚合：
++
+您必须在两个 MetroCluster FC 节点上执行这些步骤。
+
++
+.. 将三个 pool0 磁盘分配给新控制器模块。
+.. 镜像根聚合 pool1 丛：
++
+`aggr mirror root-aggr-name`
+
+.. 将无主磁盘分配给本地节点上的 pool0
+
+
+. 返回维护模式。
++
+您必须在两个 MetroCluster FC 节点上执行这些步骤。
+
++
+.. 暂停节点：
++
+`halt`
+
+.. 将节点启动至维护：
++
+`mode ： boot_ontap maint`
+
+
+
+. 删除邮箱磁盘的内容：
++
+`m邮箱销毁本地`
+
++
+您必须在两个 MetroCluster FC 节点上执行这些步骤。
+
+. halt the nodes ： + `halt`
+. 节点启动后，验证节点的状态：
++
+`MetroCluster node show`
+
++
+[listing]
+----
+siteA::*> metrocluster node show
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     siteA
+              wmc66-a1           configured     enabled   waiting for switchback recovery
+              wmc66-a2           configured     enabled   waiting for switchback recovery
+      siteB
+              wmc66-b1           configured     enabled   switchover completed
+              wmc66-b2           configured     enabled   switchover completed
+2     siteA
+              wmc55-a1           -              -         -
+              wmc55-a2           unreachable    -         -
+      siteB
+              wmc55-b1           configured     enabled   switchover completed
+              wmc55-b2           configured
+----
+. 通过执行中的任务，准备要切回的 MetroCluster IP 节点 link:task_prepare_for_switchback_in_a_mcc_ip_configuration_supertask.html["在 MetroCluster IP 配置中准备切回"] 最高及包括 。
+. 在 MetroCluster FC 节点上，执行中的步骤 link:task_heal_restore_mcfc.html["执行聚合修复和还原镜像（ MetroCluster FC 配置）"]。
+. 在 MetroCluster IP 节点上，执行中的步骤 link:task_heal_restore_mcip.html["执行聚合修复和还原镜像（ MetroCluster IP 配置）"]。
+. 从开始，继续执行恢复过程的其余任务 link:task_complete_recovery.html#reestablishing-object-stores-for-fabricpool-configurations["为 FabricPool 配置重新建立对象存储"]。
+

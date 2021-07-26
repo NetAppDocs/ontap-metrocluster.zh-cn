@@ -1,0 +1,69 @@
+---
+permalink: maintain/task_secur_or_unsecur_a_fibrebridge_bridge.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, secure, unsecure, fibrebridge, bridge 
+summary: 要轻松禁用网桥上可能不安全的以太网协议，从 ONTAP 9.5 开始，您可以保护网桥。此操作将禁用网桥的以太网端口。您还可以重新启用以太网访问。 
+---
+= 固定或取消固定 FibreBridge 网桥
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要轻松禁用网桥上可能不安全的以太网协议，从 ONTAP 9.5 开始，您可以保护网桥。此操作将禁用网桥的以太网端口。您还可以重新启用以太网访问。
+
+* 保护网桥将禁用网桥上的 telnet 以及其他 IP 端口协议和服务（ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）。
+* 此操作步骤使用 ONTAP 提示符进行带外管理，此提示符从 ONTAP 9.5 开始提供。
++
+如果不使用带外管理，则可以从网桥命令行界面对命令进行问题描述。
+
+* 可以使用 ` * unsecurebridge*` 命令重新启用以太网端口。
+* 在 ONTAP 9.7 及更早版本中，在 ATTO FibreBridge 上运行 ` * securebridge*` 命令可能无法正确更新配对集群上的网桥状态。如果发生这种情况，请从配对集群运行 ` * securebridge*` 命令。
+
+
+
+NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+
+.步骤
+. 在包含网桥的集群的 ONTAP 提示符处，保护或取消安全网桥。
++
+以下命令可保护 bridge_A_1 的安全：
+
++
+[listing]
+----
+cluster_A> storage bridge run-cli -bridge bridge_A_1 -command securebridge
+----
++
+以下命令将取消 bridge_A_1 的安全保护：
+
++
+[listing]
+----
+cluster_A> storage bridge run-cli -bridge bridge_A_1 -command unsecurebridge
+----
+. 从包含网桥的集群的 ONTAP 提示符处，保存网桥配置：
++
+` * 存储网桥 run-cli -bridge _bridge-name_ -command saveconfigur*`
+
++
+以下命令可保护 bridge_A_1 的安全：
+
++
+[listing]
+----
+cluster_A> storage bridge run-cli -bridge bridge_A_1 -command saveconfiguration
+----
+. 从包含网桥的集群的 ONTAP 提示符处，重新启动网桥的固件：
++
+` * 存储网桥 run-cli -bridge _bridge-name_ -command firmwarerestart*`
+
++
+以下命令可保护 bridge_A_1 的安全：
+
++
+[listing]
+----
+cluster_A> storage bridge run-cli -bridge bridge_A_1 -command firmwarerestart
+----
+

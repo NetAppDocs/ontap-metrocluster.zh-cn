@@ -1,0 +1,85 @@
+---
+permalink: maintain/task_change_speed_of_isl_ports_on_a_cisco_fc_switch.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, change, speed, isl, ports, cisco, fc, switch 
+summary: 您可能需要更改交换机上 ISL 端口的速度，以提高 ISL 的质量。距离较远的 ISL 可能需要降低其速度以提高质量。 
+---
+= 更改 Cisco FC 交换机上 ISL 端口的速度
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能需要更改交换机上 ISL 端口的速度，以提高 ISL 的质量。距离较远的 ISL 可能需要降低其速度以提高质量。
+
+您必须在两台交换机上完成所有步骤，以确保 ISL 连接。
+
+. 在网络结构中的两个交换机上禁用要更改速度的 ISL 端口：
++
+` * FC_switch_A_1# config t*`
+
++
+输入配置命令，每行输入一个。输入完所有配置命令后，以 CTRL-Z 结尾。
+
++
+[listing]
+----
+
+ FC_switch_A_1(config)# interface fc1/36
+	FC_switch_A_1(config-if)# shut
+	FC_switch_A_1(config)# end
+----
+. 更改网络结构中两个交换机上 ISL 端口的速度：
++
+` * FC_switch_A_1# config t*`
+
++
+输入配置命令，每行输入一个。输入完所有配置命令后，以 CTRL-Z 结尾。
+
++
+[listing]
+----
+
+ FC_switch_A_1(config)# interface fc1/36
+	FC_switch_A_1(config-if)# switchport speed 16000
+----
++
+
+NOTE: 端口速度为 16 = 16 ， 000 Gbps ， 8 = 8 ， 000 Gbps ， 4 = 4 ， 000 Gbps 。
+
++
+确保您的交换机的这些 ISL 端口已在 _Fabric-attached MetroCluster 安装和配置指南 _ 中列出。
+
+. 在网络结构中的两个交换机上启用所有 ISL 端口（如果未启用）：
++
+` * FC_switch_A_1# config t*`
+
++
+输入配置命令，每行输入一个。输入完所有配置命令后，以 CTRL-Z 结尾。
+
++
+[listing]
+----
+
+ FC_switch_A_1(config)# interface fc1/36
+	FC_switch_A_1(config-if)# no shut
+	FC_switch_A_1(config)# end
+----
+. 验证两个交换机之间是否已建立 ISL ：
++
+` * 显示拓扑 ISL*`
+
++
+[listing]
+----
+--------------------------------------------------------------------------------
+	__________Local_________ _________Remote_________ VSAN Cost I/F  PC    I/F  Band
+	 PC Domain SwName   Port  Port   SwName Domain PC          Stat Stat Speed width
+	--------------------------------------------------------------------------------
+	  1   0x11 cisco9 fc1/36  fc1/36 cisco9 0xbc    1    1   15 up   up    16g   64g
+	  1   0x11 cisco9 fc1/40  fc1/40 cisco9 0xbc    1    1   15 up   up    16g   64g
+	  1   0x11 cisco9 fc1/44  fc1/44 cisco9 0xbc    1    1   15 up   up    16g   64g
+	  1   0x11 cisco9 fc1/48  fc1/48 cisco9 0xbc    1    1   15 up   up    16g   64g
+----
+. 对第二个交换机网络结构重复操作步骤。
+

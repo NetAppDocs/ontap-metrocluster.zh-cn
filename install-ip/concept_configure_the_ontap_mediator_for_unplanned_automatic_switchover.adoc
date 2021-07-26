@@ -1,0 +1,19 @@
+---
+permalink: install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html 
+sidebar: sidebar 
+keywords: ontap, mediator, service, assist, metrocluster, ip, configuration, perform, automatic, unplan, switchover, physical, repository, status, information, configuring, configure, install, configuring, configure, auso 
+summary: 从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信息提供物理上独立的存储库来协助 MetroCluster IP 配置执行自动计划外切换。 
+---
+= 为计划外自动切换配置 ONTAP 调解器服务
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信息提供物理上独立的存储库来协助 MetroCluster IP 配置执行自动计划外切换。
+
+注意
+
+* ONTAP 调解器服务和 MetroCluster Tiebreaker 软件不应同时使用相同的 MetroCluster 配置。
+* ONTAP 调解器服务最多可同时支持五个 MetroCluster 配置。
+

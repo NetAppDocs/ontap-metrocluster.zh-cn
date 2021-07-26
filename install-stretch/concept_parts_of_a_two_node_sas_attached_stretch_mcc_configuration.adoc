@@ -1,0 +1,43 @@
+---
+permalink: install-stretch/concept_parts_of_a_two_node_sas_attached_stretch_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, parts, two, node, sas, attached, configuration 
+summary: 双节点 MetroCluster SAS 连接配置需要多个部分，包括两个单节点集群，其中存储控制器使用 SAS 缆线直接连接到存储。 
+---
+= 双节点 SAS 连接延伸型 MetroCluster 配置的组成部分
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+双节点 MetroCluster SAS 连接配置需要多个部分，包括两个单节点集群，其中存储控制器使用 SAS 缆线直接连接到存储。
+
+MetroCluster 配置包括以下主要硬件元素：
+
+* 存储控制器
++
+存储控制器使用 SAS 缆线直接连接到存储。
+
++
+每个存储控制器都会配置为配对站点上某个存储控制器的 DR 配对节点。
+
++
+** SAS 铜缆可用于较短距离。
+** SAS 光缆可用于较长的距离。
++
+
+NOTE: 在使用 E 系列阵列 LUN 的系统中，存储控制器可以直接连接到 E 系列存储阵列。对于其他阵列 LUN ，需要通过 FC 交换机进行连接。
+
++
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
++
+在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
+
+
+
+* 集群对等网络
++
+集群对等网络可为 Storage Virtual Machine （ SVM ）配置的镜像提供连接。一个集群上所有 SVM 的配置都会镜像到配对集群。
+
+

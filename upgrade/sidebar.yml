@@ -1,0 +1,147 @@
+---
+section: upgrade
+title: 升级或扩展 MetroCluster 配置
+entries:
+- title: 选择升级或刷新方法
+  url: "/upgrade/concept_choosing_an_upgrade_method_mcc.html"
+- title: 使用切换和切回升级 MetroCluster FC 配置中的控制器
+  url: "/upgrade/task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html"
+- title: 使用切换和切回升级 MetroCluster IP 配置中的控制器（ ONTAP 9.8 及更高版本）
+  url: "/upgrade/task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html"
+- title: 刷新四节点 MetroCluster FC 配置
+  url: "/upgrade/task_refresh_4n_mcc_fc.html"
+- title: 刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
+  url: "/upgrade/task_refresh_4n_mcc_ip.html"
+- title: 将双节点 MetroCluster FC 配置扩展为四节点配置
+  url: "/upgrade/task_expand_a_two_node_mcc_fc_configuration_to_a_four_node_fc_configuration_supertask.html"
+  entries:
+  - title: 验证 MetroCluster 配置的状态
+    url: "/upgrade/task_verify_the_state_of_the_mcc_configuration_mcc_expansion.html"
+  - title: 在将节点添加到 MetroCluster 配置之前发送自定义 AutoSupport 消息
+    url: "/upgrade/task_send_a_custom_autosupport_message_before_add_nodes_to_the_mcc_configuration_2_node_to_4_node.html"
+  - title: 在光纤连接 MetroCluster 配置中添加控制器模块时为新控制器端口进行分区
+    url: "/upgrade/task_zone_for_the_new_controller_ports_in_a_fabric_attached_mcc_configuration_four_node_expansion.html"
+  - title: 向每个集群添加新控制器模块
+    url: "/upgrade/task_add_a_new_controller_to_each_cluster_mcc_expansion.html"
+    entries:
+    - title: 正在准备升级
+      url: "/upgrade/task_prepare_for_the_upgrade_add_2nd_controller_to_create_ha_pair.html"
+    - title: 清除控制器模块上的配置
+      url: "/upgrade/task_clear_the_configuration_on_a_controller_module_mcc.html"
+    - title: 正在准备现有控制器模块上的集群端口
+      url: "/upgrade/task_prepare_cluster_ports_on_the_exist_controller.html"
+    - title: 准备网络启动服务器以下载映像
+      url: "/upgrade/task_prepare_the_netboot_server_cluster_mode.html"
+    - title: 在现有控制器模块上设置 HA 模式
+      url: "/upgrade/task_enable_the_ha_mode_on_the_exist_controller_mcc_when_add_a_2nd_controller.html"
+    - title: 关闭现有控制器模块
+      url: "/upgrade/task_shut_down_the_exist_controller_when_add_a_2nd_controller_in_c_mode.html"
+    - title: 安装新控制器模块并为其布线
+      url: "/upgrade/task_install_and_cable_the_new_controller.html"
+      entries:
+      - title: 使用缆线将新控制器模块和 HBA 端口连接到 FC 交换机
+        url: "/upgrade/task_cable_the_controller_module_s_fc_vi_hba_ports_to_the_fc_switches_controller_to_fc_sw.html"
+      - title: '为新控制器模块布线和 #8217 的集群对等连接'
+        url: "/upgrade/task_cable_the_cluster_peering_connections.html"
+    - title: 同时启动两个控制器模块并显示 LOADER 提示符
+      url: "/upgrade/task_power_up_both_controller_modules_and_display_the_loader_prompt_2_node_mcc_expansion.html"
+    - title: 更改现有控制器模块和新控制器模块上的 ha-config 设置
+      url: "/upgrade/task_change_the_ha_config_setts_mcc_add_a_2nd_controller.html"
+    - title: 设置两个控制器模块的配对系统 ID
+      url: "/upgrade/task_set_the_partner_system_id_for_both_controller_modules.html"
+    - title: 启动现有控制器模块
+      url: "/upgrade/task_boot_the_exist_controller_module.html"
+    - title: 为新控制器模块分配磁盘
+      url: "/upgrade/task_assign_disks_to_the_new_controller_mcc_expansion.html"
+    - title: 在新控制器模块上通过网络启动和设置 ONTAP
+      url: "/upgrade/task_netboot_and_set_up_ontap_on_the_new_controller_module_mcc.html"
+    - title: 在新控制器上镜像根聚合
+      url: "/upgrade/task_mirror_the_root_aggregates_mcc_expansion_procedure.html"
+    - title: 配置集群间 LIF
+      url: "/upgrade/task_configure_intercluster_lifs.html"
+      entries:
+      - title: 在专用端口上配置集群间 LIF
+        url: "/upgrade/task_configure_intercluster_lifs_to_use_dedicated_intercluster_ports.html"
+      - title: 在共享数据端口上配置集群间 LIF
+        url: "/upgrade/task_configure_intercluster_lifs_to_share_data_ports.html"
+    - title: 在每个节点上创建镜像数据聚合
+      url: "/upgrade/task_create_a_mirrored_data_aggregate_on_each_node_mcc.html"
+    - title: 为新控制器模块安装许可证
+      url: "/upgrade/task_install_licenses_on_the_new_controller_module_cluster_mode.html"
+    - title: 创建未镜像的数据聚合
+      url: "/upgrade/task_create_unmirrored_data_aggregates_mcc.html"
+    - title: 添加控制器模块后安装固件
+      url: "/upgrade/task_install_firmware_after_add_a_controller_module.html"
+  - title: 使用新控制器刷新 MetroCluster 配置
+    url: "/upgrade/task_refresh_the_mcc_configuration_mcc_configure_refresh.html"
+  - title: 在两个控制器模块上启用存储故障转移并启用集群 HA
+    url: "/upgrade/task_enable_storage_failover_both_controller_modules_and_set_cluster_ha.html"
+  - title: 重新启动 SVM
+    url: "/upgrade/task_restart_the_svms.html"
+- title: 将四节点 MetroCluster FC 配置扩展为八节点配置
+  url: "/upgrade/task_expand_a_four_node_mcc_fc_configuration_to_an_eight_node_configuration.html"
+  entries:
+  - title: 确定新的布线布局
+    url: "/upgrade/task_determin_the_new_cable_layout_mcc_expansion.html"
+  - title: 将新设备安装在机架中
+    url: "/upgrade/task_rack_the_new_equipment_mcc_expansion.html"
+  - title: 验证 MetroCluster 配置的运行状况
+    url: "/upgrade/task_verify_the_health_of_the_mcc_configuration.html"
+  - title: 使用 Config Advisor 检查 MetroCluster 配置错误
+    url: "/upgrade/task_check_for_mcc_configuration_errors_with_config_advisor.html"
+  - title: 在将节点添加到 MetroCluster 配置之前发送自定义 AutoSupport 消息
+    url: "/upgrade/task_send_a_custom_autosupport_message_before_add_nodes_to_the_mcc_configuration.html"
+  - title: 为新节点的交换机网络结构重新布线和分区
+    url: "/upgrade/task_recable_and_zone_a_switch_fabric_mcc_expansion.html"
+    entries:
+    - title: 断开现有 DR 组与网络结构的连接
+      url: "/upgrade/task_disconnect_the_exist_dr_group_mcc_expansion.html"
+    - title: 应用 RCF 文件并重新为交换机布线
+      url: "/upgrade/task_apply_the_rcf_files_and_recable_the_switches.html"
+  - title: 在新控制器上配置 ONTAP
+    url: "/upgrade/task_configure_ontap_on_the_new_controllers_mcc_expansion.html"
+    entries:
+    - title: 清除控制器模块上的配置
+      url: "/upgrade/task_clear_the_configuration_on_a_controller_module_mcc.html"
+    - title: 在 AFF 系统中分配磁盘所有权
+      url: "/upgrade/task_assign_disk_ownership_in_aff_systems_mcc.html"
+    - title: 在非 AFF 系统中分配磁盘所有权
+      url: "/upgrade/task_assign_disk_ownership_to_non_aff_systems_mcc.html"
+    - title: 验证组件的 ha-config 状态
+      url: "/upgrade/task_verify_that_the_ha_state_of_components_is_mcc_dr_smok_crater_or_mcc_expansion.html"
+    - title: 启动新控制器并将其加入集群
+      url: "/upgrade/task_boot_the_new_controllers_and_join_them_to_the_cluster.html"
+    - title: 将集群配置为 MetroCluster 配置
+      url: "/upgrade/task_configure_the_clusters_into_a_mcc_configuration.html"
+      entries:
+      - title: 配置集群间 LIF
+        url: "/upgrade/task_configure_intercluster_lifs.html"
+        entries:
+        - title: 在专用端口上配置集群间 LIF
+          url: "/upgrade/task_configure_intercluster_lifs_to_use_dedicated_intercluster_ports.html"
+        - title: 在共享数据端口上配置集群间 LIF
+          url: "/upgrade/task_configure_intercluster_lifs_to_share_data_ports.html"
+      - title: 镜像根聚合
+        url: "/upgrade/task_mirror_the_root_aggregates_mcc.html"
+      - title: 实施 MetroCluster 配置
+        url: "/upgrade/task_implement_the_mcc_configuration_mcc_refresh_mcc_expansion.html"
+      - title: 在每个节点上创建镜像数据聚合
+        url: "/upgrade/task_create_a_mirrored_data_aggregate_on_each_node_mcc.html"
+      - title: 配置 FC-SAS 网桥以进行运行状况监控
+        url: "/upgrade/task_configure_the_fc_to_sas_bridges_for_health_monitor.html"
+      - title: 在 MetroCluster 配置中移动元数据卷
+        url: "/upgrade/task_move_a_metadata_volume_in_mcc_configurations.html"
+      - title: 正在检查 MetroCluster 配置
+        url: "/upgrade/task_check_the_mcc_configuration.html"
+  - title: 使用 Config Advisor 检查 MetroCluster 配置错误
+    url: "/upgrade/task_check_for_mcc_configuration_errors_with_config_advisor.html"
+  - title: 在将节点添加到 MetroCluster 配置之后发送自定义 AutoSupport 消息
+    url: "/upgrade/task_send_a_custom_autosupport_message_after_add_nodes_to_the_mcc_configuration.html"
+  - title: 验证切换，修复和切回
+    url: "/upgrade/task_verify_switchover_heal_and_switchback.html"
+- title: 将四节点 MetroCluster IP 配置扩展为八节点配置
+  url: "/upgrade/task_expand_a_four_node_mcc_ip_configuration.html"
+- title: 删除灾难恢复组
+  url: "/upgrade/concept_removing_a_disaster_recovery_group.html"
+- title: 从何处查找追加信息
+  url: "/upgrade/reference_where_to_find_additional_information_mcc_ug.html"

@@ -1,0 +1,18 @@
+---
+permalink: manage/task_perform_switchover_for_tests_or_maintenance.html 
+sidebar: sidebar 
+keywords: test, metrocluster, functionality, plan, maintenance, negotiate, switchover, cluster, partner, configuration, perform 
+summary: 如果要测试 MetroCluster 功能或执行计划内维护，您可以执行协商切换，其中一个集群将完全切换到配对集群。然后，您可以修复并切回配置。 
+---
+= 为测试或维护执行切换
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要测试 MetroCluster 功能或执行计划内维护，您可以执行协商切换，其中一个集群将完全切换到配对集群。然后，您可以修复并切回配置。
+
+image::../media/workflow_performing_nso_and_switchback.gif[执行 NSO 和切回的工作流]
+
+
+NOTE: 从 ONTAP 9.6 开始，可以使用 ONTAP System Manager 对 MetroCluster IP 配置执行切换和切回操作。

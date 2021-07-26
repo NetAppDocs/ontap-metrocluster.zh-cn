@@ -1,0 +1,35 @@
+---
+permalink: install-stretch/task_rack_the_hardware_components_2_node_stretch_sas.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, rack, hardware, components 
+summary: 如果您尚未收到机柜中已安装的设备，则必须将这些组件装入机架。 
+---
+= 将硬件组件安装在机架中
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您尚未收到机柜中已安装的设备，则必须将这些组件装入机架。
+
+必须在两个 MetroCluster 站点上执行此任务。
+
+.步骤
+. 规划 MetroCluster 组件的定位。
++
+所需的机架空间量取决于存储控制器的平台型号，交换机类型以及配置中的磁盘架堆栈数量。
+
+. 正确接地。
+. 在机架或机柜中安装存储控制器。
++
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+. 安装磁盘架，以菊花链方式连接每个堆栈中的磁盘架，打开磁盘架电源并设置磁盘架 ID 。
++
+有关以菊花链方式连接磁盘架和设置磁盘架 ID 的信息，请参见适用于您的磁盘架型号的相应指南。
+
++
+
+NOTE: 每个 MetroCluster DR 组（包括两个站点）中的每个 SAS 磁盘架的磁盘架 ID 必须是唯一的。手动设置磁盘架 ID 时，必须重新启动磁盘架。
+
+

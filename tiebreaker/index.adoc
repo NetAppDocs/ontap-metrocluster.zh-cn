@@ -1,0 +1,13 @@
+---
+permalink: tiebreaker/index.html 
+sidebar: sidebar 
+keywords: metrocluster, mccc, tiebreaker, software, installation, install, configure, configuration 
+summary: 介绍下载，安装和使用 MetroCluster Tiebreaker 软件的过程。 
+---
+= MetroCluster Tiebreaker 1.21 软件安装和配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此内容介绍了下载，安装和使用 MetroCluster Tiebreaker 软件的过程。

@@ -1,0 +1,30 @@
+---
+permalink: disaster-recovery/task_assign_pool1_survivingsite_mcip.html 
+sidebar: sidebar 
+keywords: adp, system, assign, surviving, site 
+summary: 在正常运行的站点上，您需要手动将位于灾难站点的远程驱动器分配给正常运行的节点的池 1 。 
+---
+= 在运行正常的站点上分配池 1 驱动器（ MetroCluster IP 配置）
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在灾难站点上更换了驱动器，并且系统未配置 ADP ，则在正常运行的站点上，您需要手动将位于灾难站点上的远程驱动器分配给正常运行的节点的池 1 。您必须确定要分配的驱动器数量。
+
+对于 ADP 系统，驱动器会自动分配。
+
+.步骤
+. 在正常运行的站点上，分配第一个节点的池 1 （远程）驱动器： `storage disk assign -n number-of-replacement disks -p 1 0m*`
++
+此命令将在灾难站点上分配新添加的驱动器和未分配的驱动器。
+
++
+以下命令分配 22 个驱动器：
+
++
+[listing]
+----
+cluster_B::> storage disk assign -n 22 -p 1 0m*
+----
+

@@ -1,0 +1,105 @@
+---
+permalink: transition/task_complete_transition.html 
+sidebar: sidebar 
+keywords: Generating and applying RCFs to the new IP switches, review, requirement, preparing, prepare, transition, perform, procedure, order, completing, complete, step, task, moving, move, controller, storage, shelves, shelf, exist, configuration, direct, metrocluster, fc, ip, verify, health, removing, remove, tiebreaker, monitor, software, generating, generate, apply, rcf, switch, controller, configure, prepare, preparing 
+summary: 要为过渡准备配置，请将新节点添加到现有 MetroCluster 配置中，然后将数据移动到新节点。 
+---
+= 完成过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要完成过渡，您必须验证新 MetroCluster IP 配置的运行情况。
+
+. 验证 MetroCluster IP 配置。
++
+您必须在每个集群上执行此步骤。
+
++
+以下示例显示了 cluster_A 的输出
+
++
+....
+cluster_A::> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node_A_1-IP          true    true          true
+node_A_2-IP          true    true          false
+2 entries were displayed.
+
+cluster_A::>
+....
++
+以下示例显示了 cluster_B 的输出
+
++
+....
+cluster_B::> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node_B_1-IP          true    true          true
+node_B_2-IP          true    true          false
+2 entries were displayed.
+
+cluster_B::>
+....
+. 启用集群 HA 和存储故障转移。
++
+您必须在每个集群上执行此步骤。
+
+. 验证是否已启用集群 HA 功能。
++
+....
+cluster_A::> cluster ha show
+High Availability Configured: true
+
+cluster_A::>
+
+
+cluster_A::> storage  failover show
+                              Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+node_A_1-IP    node_A_2-IP    true     Connected to node_A_2-IP
+node_A_2-IP    node_A_1-IP    true     Connected to node_A_1-IP
+2 entries were displayed.
+
+cluster_A::>
+....
+. 禁用 MetroCluster 过渡模式。
++
+.. 更改为高级权限级别： `set -privilege advanced`
+.. 禁用过渡模式：``metrocluster transition disable``
+.. 返回到管理权限级别： `set -privilege admin`
+
+
++
+....
+cluster_A::*> metrocluster transition disable
+
+cluster_A::*>
+....
+. 验证是否已禁用过渡：``metrocluster transition show-mode``
++
+您必须在两个集群上执行这些步骤。
+
++
+....
+cluster_A::> metrocluster transition show-mode
+Transition Mode
+--------------------------
+not-enabled
+
+cluster_A::>
+....
++
+....
+cluster_B::> metrocluster transition show-mode
+Transition Mode
+--------------------------
+not-enabled
+
+cluster_B::>
+....
+

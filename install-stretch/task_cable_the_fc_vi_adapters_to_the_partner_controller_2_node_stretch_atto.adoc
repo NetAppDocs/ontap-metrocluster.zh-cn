@@ -1,0 +1,33 @@
+---
+permalink: install-stretch/task_cable_the_fc_vi_adapters_to_the_partner_controller_2_node_stretch_atto.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, cable, controllers 
+summary: 每个控制器的 FC-VI 适配器都必须直接连接到其配对节点。 
+---
+= 使用缆线将控制器彼此连接
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+每个控制器的 FC-VI 适配器都必须直接连接到其配对节点。
+
+.步骤
+. 为 FC-VI 端口布线。
++
+image::../media/mcc_cabling_fc_vi_controller_to_partner.gif[通过 MCC 将 fc vi 控制器连接到配对节点]
+
++
+上图是典型的。具体的 FC-VI 端口因控制器模块而异。
+
++
+** AFF A300 和 FAS8200 控制器模块可以订购 FC-VI 连接的两个选项之一：
++
+*** 在 FC-VI 模式下配置的板载端口 0e 和 0f 。
+*** 插槽 1 中 FC-VI 卡上的端口 1a 和 1b 。
+
+
+** AFF A700 和 FAS9000 存储系统控制器模块各使用四个 FC-VI 端口。
+
+
+

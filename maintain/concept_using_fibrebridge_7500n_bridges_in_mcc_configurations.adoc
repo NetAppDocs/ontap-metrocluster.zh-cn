@@ -1,0 +1,55 @@
+---
+permalink: maintain/concept_using_fibrebridge_7500n_bridges_in_mcc_configurations.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, support, fibrebridge, configurations 
+summary: 支持使用 FibreBridge 7500N 网桥替代 FibreBridge 6500N 网桥，或者在向 MetroCluster 配置添加新存储时使用此网桥。支持的配置具有分区要求，并存在有关使用网桥 FC 端口以及堆栈和存储架限制的限制。 
+---
+= 支持 MetroCluster 配置中的 FibreBridge 7500N 网桥
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+支持使用 FibreBridge 7500N 网桥替代 FibreBridge 6500N 网桥，或者在向 MetroCluster 配置添加新存储时使用此网桥。支持的配置具有分区要求，并存在有关使用网桥 FC 端口以及堆栈和存储架限制的限制。
+
+
+NOTE: 运行 ONTAP 9.8 及更高版本的配置不支持 FibreBridge 6500N 网桥。
+
+|===
+| 用例 | 是否需要更改分区？ | 限制 | 操作步骤 
+
+
+ a| 
+将一个 FibreBridge 6500N 网桥更换为一个 FibreBridge 7500N 网桥
+ a| 
+否
+ a| 
+FibreBridge 7500N 网桥的配置必须与 FibreBridge 6500N 网桥完全相同，使用一个 FC 端口并连接到一个堆栈。不得使用 FibreBridge 7500N 上的第二个 FC 端口。
+ a| 
+xref:task_replace_a_sle_fc_to_sas_bridge.adoc[热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥]
+
+
+
+ a| 
+通过将多对 FibreBridge 6500N 网桥更换为一对 FibreBridge 7500N 网桥来整合多个堆栈
+ a| 
+是的。
+ a| 
+在这种情况下，您需要停止使用 FibreBridge 6500N 网桥，并将其更换为一对 FibreBridge 7500N 网桥。每对 FibreBridge 7500N 或 7600N 网桥最多可支持四个堆栈。
+
+在操作步骤的末尾，堆栈的顶部和底部都必须连接到 FibreBridge 7500N 网桥上的相应端口。
+ a| 
+xref:task_fb_consolidate_replace_a_pair_of_fibrebridge_6500n_bridges_with_7500n_bridges.adoc[将一对 FibreBridge 6500N 网桥更换为 7600N 或 7500N 网桥]
+
+
+
+ a| 
+通过添加新的一对 FibreBridge 7500N 网桥来添加新存储
+ a| 
+是的，您必须为新网桥的每个 FC 端口添加存储分区。
+ a| 
+您必须在 FC 交换机网络结构（在光纤连接的 MetroCluster 配置中）或存储控制器（在延伸型 MetroCluster 配置中）上具有可用端口。每对 FibreBridge 7500N 或 7600N 网桥最多可支持四个堆栈。
+ a| 
+xref:task_fb_hot_add_stack_of_shelves_and_bridges.adoc[将 SAS 磁盘架和网桥堆栈热添加到 MetroCluster 系统]
+
+|===

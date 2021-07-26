@@ -1,0 +1,31 @@
+---
+permalink: disaster-recovery/task_verify_storage_mcfc.html 
+sidebar: sidebar 
+keywords: verify, storage, configuration 
+summary: 您必须确认所有存储均可从正常运行的节点中查看。 
+---
+= 验证存储配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须确认所有存储均可从正常运行的节点中查看。
+
+.步骤
+. 确认灾难站点上的所有存储组件在正常运行的站点上的数量和类型都相同。
++
+正常运行的站点和灾难站点应具有相同数量的磁盘架堆栈，磁盘架和磁盘。在桥接或光纤连接的 MetroCluster 配置中，站点应具有相同数量的 FC-SAS 网桥。
+
+. 确认灾难站点上已更换的所有磁盘均为无主磁盘：
++
+`运行本地磁盘 show-n`
+
++
+磁盘应显示为未分配。
+
+. 如果未更换任何磁盘，请确认所有磁盘均存在：
++
+`d展示`
+
+

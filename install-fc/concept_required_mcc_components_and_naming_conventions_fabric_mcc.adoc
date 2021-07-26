@@ -1,0 +1,217 @@
+---
+permalink: install-fc/concept_required_mcc_components_and_naming_conventions_fabric_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, required, fc, components, naming, conventions 
+summary: 在规划 MetroCluster FC 配置时，您必须了解所需的和支持的硬件和软件组件。为了方便和清晰起见，您还应了解整个文档中的示例中用于组件的命名约定。例如，一个站点称为站点 A ，另一个站点称为站点 B 
+---
+= 所需的 MetroCluster FC 组件和命名约定
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在规划 MetroCluster FC 配置时，您必须了解所需的和支持的硬件和软件组件。为了方便和清晰起见，您还应了解整个文档中的示例中用于组件的命名约定。例如，一个站点称为站点 A ，另一个站点称为站点 B
+
+
+
+== 支持的软件和硬件
+
+MetroCluster FC 配置必须支持硬件和软件。
+
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+使用 AFF 系统时，必须将 MetroCluster 配置中的所有控制器模块配置为 AFF 系统。
+
+
+NOTE: MetroCluster 存储交换机不支持长波 SFP 。有关支持的 MetroCluster 技术报告的表，请参见 SPF 技术报告。
+
+
+
+== MetroCluster FC 配置中的硬件冗余
+
+由于 MetroCluster FC 配置中的硬件冗余，因此每个站点上的每个组件都有两个。随机地为站点分配字母 A 和 B ，并为各个组件分配编号 1 和 2 。
+
+
+
+== 两个 ONTAP 集群的要求
+
+光纤连接的 MetroCluster FC 配置需要两个 ONTAP 集群，每个 MetroCluster 站点一个。
+
+在 MetroCluster 配置中，命名必须是唯一的。
+
+示例名称：
+
+* 站点 A ： cluster_A
+* 站点 B ： cluster_B
+
+
+
+
+== 四个 FC 交换机的要求
+
+光纤连接的 MetroCluster FC 配置需要四个 FC 交换机（支持的 Brocade 或 Cisco 型号）。
+
+这四个交换机形成两个交换机存储网络结构，在 MetroCluster FC 配置中的每个集群之间提供 ISL 。
+
+在 MetroCluster 配置中，命名必须是唯一的。
+
+
+
+== 需要两个，四个或八个控制器模块
+
+光纤连接的 MetroCluster FC 配置需要两个，四个或八个控制器模块。
+
+在四节点或八节点 MetroCluster 配置中，每个站点的控制器模块形成一个或两个 HA 对。每个控制器模块在另一个站点上都有一个 DR 配对节点。
+
+控制器模块必须满足以下要求：
+
+* 在 MetroCluster 配置中，命名必须是唯一的。
+* MetroCluster 配置中的所有控制器模块都必须运行相同版本的 ONTAP 。
+* 一个灾难恢复组中的所有控制器模块必须具有相同的型号。
++
+但是，在具有两个 DR 组的配置中，每个 DR 组可以包含不同型号的控制器模块。
+
+* 一个 DR 组中的所有控制器模块都必须使用相同的 FC-VI 配置。
++
+某些控制器模块支持两个 FC-VI 连接选项：
+
++
+** 板载 FC-VI 端口
+** 不支持插槽 1 中的 FC-VI 卡一个控制器模块使用板载 FC-VI 端口，另一个控制器模块使用附加 FC-VI 卡。例如，如果一个节点使用板载 FC-VI 配置，则 DR 组中的所有其他节点也必须使用板载 FC-VI 配置。
+
+
+
+
+示例名称：
+
+* 站点 A ： controller_A_1
+* 站点 B ： controller_B_1
+
+
+
+
+== 四个集群互连交换机的要求
+
+光纤连接的 MetroCluster FC 配置需要四个集群互连交换机（如果您不使用双节点无交换机集群）
+
+这些交换机可在每个集群中的控制器模块之间提供集群通信。如果每个站点的控制器模块配置为双节点无交换机集群，则不需要这些交换机。
+
+
+
+== FC-SAS 网桥的要求
+
+光纤连接的 MetroCluster FC 配置要求每个 SAS 磁盘架堆栈组使用一对 FC-SAS 网桥。
+
+
+NOTE: 运行 ONTAP 9.8 及更高版本的配置不支持 FibreBridge 6500N 网桥。
+
+* FibreBridge 7600N 或 7500N 网桥最多支持四个 SAS 堆栈。
+* FibreBridge 6500N 网桥仅支持一个 SAS 堆栈。
+* 每个堆栈可以使用不同型号的 IOM 。
++
+不支持在同一存储堆栈中混合使用 IOM12 模块和 IOM3 模块。如果您的系统运行的是受支持的 ONTAP 版本，则可以在同一存储堆栈中混合使用 IOM12 模块和 IOM6 模块。
+
++
+支持的 IOM 模块取决于所运行的 ONTAP 版本。
+
+* 在 MetroCluster 配置中，命名必须是唯一的。
+
+
+本指南中用作示例的建议名称用于标识网桥连接到的控制器模块和堆栈，如下所示。
+
+
+
+== 池和驱动器要求（支持的最低要求）
+
+建议使用八个 SAS 磁盘架（每个站点四个磁盘架），以允许每个磁盘架拥有磁盘所有权。
+
+MetroCluster 配置要求每个站点至少配置以下内容：
+
+* 每个节点在站点上至少有一个本地池和一个远程池。
++
+例如，在每个站点具有两个节点的四节点 MetroCluster 配置中，每个站点需要四个池。
+
+* 每个池中至少有七个驱动器。
++
+在每个节点具有一个镜像数据聚合的四节点 MetroCluster 配置中，站点上的最低配置需要 24 个磁盘。
+
+
+
+在支持的最低配置中，每个池都具有以下驱动器布局：
+
+* 三个根驱动器
+* 三个数据驱动器
+* 一个备用驱动器
+
+
+在支持的最低配置中，每个站点至少需要一个磁盘架。
+
+MetroCluster 配置支持 RAID-DP 和 RAID4 。
+
+
+
+== 部分填充的磁盘架的驱动器位置注意事项
+
+要在使用半填充磁盘架（ 24 驱动器磁盘架中有 12 个驱动器）时正确地自动分配驱动器，驱动器应位于插槽 0-5 和 18-23 中。
+
+在磁盘架部分填充的配置中，驱动器必须均匀分布在磁盘架的四个象限中。
+
+
+
+== 在一个堆栈中混用 IOM12 和 IOM 6 模块
+
+您的 ONTAP 版本必须支持混用磁盘架。请参见互操作性表工具（ IMT ），了解您的 ONTAP 版本是否支持混用磁盘架。 https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性"]
+
+有关混用磁盘架的更多详细信息，请参见： https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["将带有 IOM12 模块的磁盘架热添加到带有 IOM6 模块的磁盘架堆栈中"]
+
+
+
+== 网桥命名约定
+
+网桥使用以下命名示例： bridge_site_stack groupocation in pair
+
+[cols="3*"]
+|===
+| 名称的这一部分 ... | 标识 ... | 可能值 ... 
+
+
+ a| 
+站点
+ a| 
+网桥对实际所在的站点。
+ a| 
+A 或 B
+
+
+
+ a| 
+堆栈组
+ a| 
+网桥对连接到的堆栈组的编号。
+
+* FibreBridge 7600N 或 7500N 网桥最多支持堆栈组中的四个堆栈。
++
+堆栈组包含的存储架不能超过 10 个。
+
+* FibreBridge 6500N 网桥仅支持堆栈组中的一个堆栈。
+
+ a| 
+1 ， 2 等
+
+
+
+ a| 
+成对位置
+ a| 
+网桥对中的网桥。一对网桥连接到特定的堆栈组。
+ a| 
+a 或 b
+
+|===
+每个站点上一个堆栈组的网桥名称示例：
+
+* bridge_A_1a
+* bridge_A_1b
+* bridge_B_1a
+* bridge_B_1b
+

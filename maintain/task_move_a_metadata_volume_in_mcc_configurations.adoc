@@ -1,0 +1,115 @@
+---
+permalink: maintain/task_move_a_metadata_volume_in_mcc_configurations.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, move, metadata, volume, configuration 
+summary: 您可以将元数据卷从 MetroCluster 配置中的一个聚合移动到另一个聚合。如果源聚合已停用或未镜像，或者由于其他原因使聚合不符合条件，您可能需要移动元数据卷。 
+---
+= 在 MetroCluster 配置中移动元数据卷
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将元数据卷从 MetroCluster 配置中的一个聚合移动到另一个聚合。如果源聚合已停用或未镜像，或者由于其他原因使聚合不符合条件，您可能需要移动元数据卷。
+
+* 要执行此任务，您必须具有集群管理员权限。
+* 目标聚合必须已镜像，并且不应处于已降级状态。
+* 目标聚合中的可用空间必须大于要移动的元数据卷。
+
+
+.步骤
+. 将权限级别设置为高级：
++
+` * 设置 -privilege advanced*`
+
+. 确定应移动的元数据卷：
++
+` * volume show mDV_CRS*`
+
++
+[listing]
+----
+Cluster_A::*> volume show MDV_CRS*
+Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+--------- ------------ ------------ ---------- ---- ---------- ---------- -----
+Cluster_A
+          MDV_CRS_14c00d4ac9f311e7922800a0984395f1_A
+                       Node_A_1_aggr1
+                                    online     RW         10GB     9.50GB    5%
+Cluster_A
+          MDV_CRS_14c00d4ac9f311e7922800a0984395f1_B
+                       Node_A_2_aggr1
+                                    online     RW         10GB     9.50GB    5%
+Cluster_A
+          MDV_CRS_15035e66c9f311e7902700a098439625_A
+                       Node_B_1_aggr1
+                                    -          RW            -          -     -
+Cluster_A
+          MDV_CRS_15035e66c9f311e7902700a098439625_B
+                       Node_B_2_aggr1
+                                    -          RW            -          -     -
+4 entries were displayed.
+
+Cluster_A::>
+----
+. 确定符合条件的目标聚合：
++
+` * MetroCluster check config-replication show-aggregate-eligibility*`
+
++
+以下命令标识 cluster_A 中符合托管元数据卷条件的聚合：
+
++
+[listing]
+----
+
+Cluster_A::*> metrocluster check config-replication show-aggregate-eligibility
+
+Aggregate Hosted Config Replication Vols Host Addl Vols Comments
+------------ ------------------------------------------ -------------- --------
+Node_A_1_aggr0 - false Root Aggregate
+Node_A_2_aggr0 - false Root Aggregate
+Node_A_1_aggr1 MDV_CRS_1bc7134a5ddf11e3b63f123478563412_A true -
+Node_A_2_aggr1 MDV_CRS_1bc7134a5ddf11e3b63f123478563412_B true -
+Node_A_1_aggr2 - true
+Node_A_2_aggr2 - true
+Node_A_1_Aggr3 - false Unable to determine available space of aggregate
+Node_A_1_aggr5 - false Unable to determine mirror configuration
+Node_A_2_aggr6 - false Mirror configuration does not match requirement
+Node_B_1_aggr4 - false NonLocal Aggregate
+----
++
+
+NOTE: 在上一示例中， Node_A_1_aggr2 和 Node_A_2_aggr2 均符合条件。
+
+. 启动卷移动操作：
++
+` * 卷移动开始 -vserver _svm_name_ -volume _metadata_volume_name_ -destination-aggregate _destination_aggregate_name_*`
+
++
+以下命令将元数据卷 `MDV_CRS_14c00d4ac9f311e7922800a0984395f1` 从 `aggregate Node_A_1_aggr1` 移动到 `aggregate Node_A_1_aggr2` ：
+
++
+[listing]
+----
+Cluster_A::*> volume move start -vserver svm_cluster_A -volume MDV_CRS_14c00d4ac9f311e7922800a0984395f1
+-destination-aggregate aggr_cluster_A_02_01
+
+Warning: You are about to modify the system volume
+         "MDV_CRS_9da04864ca6011e7b82e0050568be9fe_A".  This may cause severe
+         performance or stability problems.  Do not proceed unless directed to
+         do so by support.  Do you want to proceed? {y|n}: y
+[Job 109] Job is queued: Move "MDV_CRS_9da04864ca6011e7b82e0050568be9fe_A" in Vserver
+"svm_cluster_A" to aggregate "aggr_cluster_A_02_01".
+Use the "volume move show -vserver svm_cluster_A -volume
+MDV_CRS_9da04864ca6011e7b82e0050568be9fe_A" command to view the status of this operation.
+----
+. 验证卷移动操作的状态：
++
+` * volume move show -volume vol_constituent_name*`
+
+. 返回到管理权限级别：
++
+` * 设置 -privilege admin*`
+
+

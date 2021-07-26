@@ -1,0 +1,35 @@
+---
+permalink: install-fc/task_cable_the_cluster_peering_connections.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, cable, cluster, peering, connections 
+summary: 您必须为用于集群对等关系的控制器模块端口布线，使其能够连接到配对站点上的集群。 
+---
+= 为集群对等连接布线
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须为用于集群对等关系的控制器模块端口布线，使其能够连接到配对站点上的集群。
+
+必须对 MetroCluster 配置中的每个控制器模块执行此任务。
+
+每个控制器模块上至少应使用两个端口建立集群对等关系。
+
+端口和网络连接的建议最小带宽为 1 GbE 。
+
+.步骤
+. 确定至少两个端口并为其布线以建立集群对等关系，然后验证它们是否与配对集群建立了网络连接。
++
+可以在专用端口或数据端口上建立集群对等关系。使用专用端口可为集群对等流量提供更高的吞吐量。
+
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"]
+
+
+
+* 相关信息 *
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"]
+
+xref:concept_prepare_for_the_mcc_installation.adoc[配置集群对等的注意事项]

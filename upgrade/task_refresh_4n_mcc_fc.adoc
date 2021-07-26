@@ -1,0 +1,63 @@
+---
+permalink: upgrade/task_refresh_4n_mcc_fc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, refresh, four, node, fc, configuration 
+summary: 您可以通过将四节点 MetroCluster 配置扩展为八节点配置，然后删除旧的灾难恢复 \ （ DR\ ）组来升级四节点 配置中的控制器和存储。 
+---
+= 刷新四节点 MetroCluster FC 配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过将四节点 MetroCluster 配置扩展为八节点配置，然后删除旧的灾难恢复（ DR ）组来升级此配置中的控制器和存储。
+
+引用 " 旧节点 " 是指要替换的节点。
+
+.步骤
+. 从旧节点收集信息。
++
+在此阶段，四节点配置如下图所示：
+
++
+image::../media/mcc_dr_group_a.png[MCC DR 组 A]
+
+. 对您的 MetroCluster 类型执行四节点扩展操作步骤中的所有步骤。
++
+xref:task_expand_a_four_node_mcc_fc_configuration_to_an_eight_node_configuration.adoc[将四节点 MetroCluster FC 配置扩展为八节点配置]
+
++
+扩展操作步骤完成后，此配置将如下图所示：
+
++
+image::../media/mcc_dr_group_b.png[MCC DR 组 b]
+
+. 移动 CRS 卷。
++
+执行中的步骤 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-service/task_move_a_metadata_volume_in_mcc_configurations.html["在 MetroCluster 配置中移动元数据卷"]。
+
+. 按照控制器硬件升级快速指南 _ 中的以下三个过程将数据从旧节点移动到新节点。
++
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/home.html["其他平台过程：《控制器硬件升级快速指南》"]
+
++
+.. 执行中的所有步骤 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["创建聚合并将卷移动到新节点"]。
++
+
+NOTE: 您可以选择在创建聚合时或之后对其进行镜像。
+
+.. 执行中的所有步骤 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-95CA9262-327D-431D-81AA-C73DEFF3DEE2.html["将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点"]。
+.. 执行中的所有步骤 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-91EC7830-0C28-4C78-952F-6F956CC5A62F.html["从原始节点中删除 SAN LIF"]。
+
+
+. 按照操作步骤中的步骤删除旧 DR 组。
++
+xref:concept_removing_a_disaster_recovery_group.adoc[删除灾难恢复组]
+
++
+删除旧 DR 组（ DR 组 1 ）后，配置将显示为下图所示：
+
++
+image::../media/mcc_dr_group_d.png[MCC DR 组 d]
+
+

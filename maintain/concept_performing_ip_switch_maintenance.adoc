@@ -1,0 +1,13 @@
+---
+permalink: maintain/concept_performing_ip_switch_maintenance.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, performing, ip, switch, maintenance, replacement 
+summary: 如有必要，您可以无中断地升级，降级或更换 MetroCluster 配置中的 IP 交换机。 
+---
+= 执行 IP 交换机维护和更换
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如有必要，您可以无中断地升级，降级或更换 MetroCluster 配置中的 IP 交换机。

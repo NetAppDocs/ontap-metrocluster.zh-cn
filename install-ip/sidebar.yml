@@ -1,0 +1,114 @@
+---
+section: install-ip
+title: 安装 MetroCluster IP 配置
+entries:
+- title: 确定是否使用《 MetroCluster IP 安装和配置指南》
+  url: "/install-ip/concept_deciding_whether_to_use_this_guide_mcc_ip_installation_and_configuration_guide.html"
+- title: 准备 MetroCluster 安装
+  url: "/install-ip/concept_prepare_for_the_mcc_installation.html"
+  entries:
+  - title: ONTAP MetroCluster 配置之间的差异
+    url: "/install-ip/concept_considerations_differences.html"
+  - title: 在 ONTAP 调解器和 MetroCluster Tiebreaker 之间确定
+    url: "/install-ip/concept_considerations_mediator.html"
+  - title: MetroCluster IP 配置的注意事项
+    url: "/install-ip/concept_considerations_mcip.html"
+  - title: ONTAP 9.4 及更高版本中的驱动器自动分配和 ADP 系统
+    url: "/install-ip/concept_considerations_drive_assignment.html"
+  - title: 集群对等
+    url: "/install-ip/concept_considerations_peering.html"
+  - title: ISL 要求
+    url: "/install-ip/concept_considerations_isls.html"
+  - title: 使用第 3 层广域网
+    url: "/install-ip/concept_considerations_layer_3.html"
+  - title: 共享私有第 2 层网络
+    url: "/install-ip/concept_considerations_layer_2.html"
+  - title: 使用符合 MetroCluster 的交换机
+    url: "/install-ip/concept_considerations_mc_compliant_switches.html"
+  - title: 将 TDM/xWDM 和加密设备与 MetroCluster IP 配置结合使用
+    url: "/install-ip/concept_considerations_tdm_encryption.html"
+  - title: MetroCluster IP 配置中的未镜像聚合
+    url: "/install-ip/concept_considerations_unmirrored_aggrs.html"
+  - title: MetroCluster 站点上的防火墙使用情况
+    url: "/install-ip/concept_considerations_firewalls.html"
+  - title: 在 MetroCluster 配置中使用虚拟 IP 和边界网关协议的注意事项
+    url: "/install-ip/concept_considerations_for_using_virtual_ip_and_border_gateway_protocol_with_a_mcc_configuration.html"
+- title: 配置 MetroCluster 硬件组件
+  url: "/install-ip/task_configure_the_mcc_hardware_components_mcc_ip.html"
+  entries:
+  - title: MetroCluster IP 配置的组成部分
+    url: "/install-ip/concept_parts_of_an_ip_mcc_configuration_mcc_ip.html"
+  - title: 所需的 MetroCluster IP 组件和命名约定
+    url: "/install-ip/concept_required_mcc_ip_components_and_naming_guidelines_mcc_ip.html"
+  - title: 将硬件组件装入机架
+    url: "/install-ip/task_rack_hw_components.html"
+  - title: 为 MetroCluster IP 交换机布线
+    url: "/install-ip/task_cable_ip_switches.html"
+    entries:
+    - title: 在 RcfFileGenerator 工具或多个 MetroCluster 配置中使用端口表
+      url: "/install-ip/using_rcf_generator.html"
+    - title: Cisco 3132Q-V 交换机的平台端口分配
+      url: "/install-ip/port_usage_3132q.html"
+    - title: Cisco 3232C 或 Cisco 9336C 交换机的平台端口分配
+      url: "/install-ip/port_usage_3232c_9336c.html"
+    - title: 为 Broadcom 支持的 BES-53248 IP 交换机分配平台端口
+      url: "/install-ip/port_usage_bes53248.html"
+  - title: 为控制器数据和管理端口布线
+    url: "/install-ip/task_cable_other_connections.html"
+  - title: 配置 MetroCluster IP 交换机
+    url: "/install-ip/task_install_and_cable_the_mcc_components.html"
+    entries:
+    - title: 配置 Broadcom IP 交换机
+      url: "/install-ip/task_switch_config_broadcom.html"
+    - title: 配置 Cisco IP 交换机
+      url: "/install-ip/task_switch_config_cisco.html"
+- title: 在 ONTAP 中配置 MetroCluster 软件
+  url: "/install-ip/concept_configure_the_mcc_software_in_ontap.html"
+  entries:
+  - title: 处理八节点配置
+    url: "/install-ip/task_sw_config_8n.html"
+  - title: 收集所需信息
+    url: "/install-ip/task_sw_config_gather_info.html"
+  - title: 标准集群和 MetroCluster 配置之间的相似之处和不同之处
+    url: "/install-ip/task_sw_config_differences.html"
+  - title: 验证组件的 ha-config 状态
+    url: "/install-ip/task_sw_config_verify_haconfig.html"
+  - title: 还原控制器模块上的系统默认值
+    url: "/install-ip/task_sw_config_restore_defaults.html"
+  - title: 手动将驱动器分配给池 0
+    url: "/install-ip/task_sw_config_assign_pool0.html"
+  - title: 设置 ONTAP
+    url: "/install-ip/task_sw_config_setup_ontap.html"
+  - title: 将集群配置为 MetroCluster 配置
+    url: "/install-ip/task_sw_config_configure_clusters.html"
+  - title: 验证切换，修复和切回
+    url: "/install-ip/task_sw_config_verify_switchover.html"
+  - title: 配置 MetroCluster Tiebreaker 或 ONTAP 调解器软件
+    url: "/install-ip/task_sw_config_configure_mediator.html"
+  - title: 保护配置备份文件
+    url: "/install-ip/task_sw_config_protect_backup.html"
+- title: 为计划外自动切换配置 ONTAP 调解器服务
+  url: "/install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html"
+  entries:
+  - title: 准备安装 ONTAP 调解器服务
+    url: "/install-ip/concept_mediator_requirements.html"
+  - title: 安装或升级 ONTAP 调解器服务
+    url: "/install-ip/task_install_configure_mediator.html"
+  - title: 从 MetroCluster IP 配置配置 ONTAP 调解器服务
+    url: "/install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html"
+  - title: 将 MetroCluster 配置连接到其他 ONTAP 调解器实例
+    url: "/install-ip/task_connecting_mcc_to_different_mediator_instance.html"
+  - title: 更改 ONTAP 调解器密码
+    url: "/install-ip/task_changing_mediator_password.html"
+  - title: 更改 ONTAP 调解器用户名
+    url: "/install-ip/task_changing_mediator_username.html"
+  - title: 卸载 ONTAP 调解器服务
+    url: "/install-ip/task_uninstall_mediator.html"
+- title: 测试 MetroCluster 配置
+  url: "/install-ip/task_test_the_mcc_configuration.html"
+- title: 删除 MetroCluster 配置时的注意事项
+  url: "/install-ip/concept_considerations_when_removing_mcc_configurations.html"
+- title: 在 MetroCluster 配置中使用 ONTAP 时的注意事项
+  url: "/install-ip/concept_considerations_when_using_ontap_in_a_mcc_configuration.html"
+- title: 从何处查找追加信息
+  url: "/install-ip/reference_where_to_find_additional_information_mccip_icg.html"

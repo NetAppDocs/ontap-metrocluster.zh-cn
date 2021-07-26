@@ -1,0 +1,158 @@
+---
+permalink: upgrade/concept_removing_a_disaster_recovery_group.html 
+sidebar: sidebar 
+keywords:  
+summary: 从 ONTAP 9.8 开始，您可以从八节点 MetroCluster 配置中删除 DR 组，以创建四节点 MetroCluster 配置。 
+---
+= 删除灾难恢复组
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 ONTAP 9.8 开始，您可以从八节点 MetroCluster 配置中删除 DR 组，以创建四节点 MetroCluster 配置。
+
+ONTAP 9.8 及更高版本支持此操作步骤。在早期版本的 ONTAP 上，请联系技术支持以删除 DR 组。
+
+https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
+
+八节点配置包括八个节点，这些节点按两个四节点 DR 组进行组织。
+
+image::../media/mcc_dr_groups_8_node.gif[MCC DR 组 8 个节点]
+
+通过删除 DR 组，配置中仍保留四个节点。
+
+image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
+
+
+
+== 从每个集群中删除 DR 组节点
+
+* 您必须在两个集群上执行此步骤。
+* 只有 ONTAP 9.8 及更高版本才支持 `MetroCluster remove-dr-group` 命令。
++
+.. 如果尚未删除 DR 组，请做好删除准备。
++
+... 将所有数据卷移动到另一个 DR 组。
+... 将所有 MDV_CRS 元数据卷移动到另一个 DR 组。按照以下操作步骤中的步骤进行操作： https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-service/task_move_a_metadata_volume_in_mcc_configurations.html["在 MetroCluster 配置中移动元数据卷"]
+... 删除要删除的 DR 组中可能存在的所有 MDV_aud 元数据卷。
+... 删除 DR 组中要删除的所有数据聚合，如以下示例所示：
++
+[listing]
+----
+ClusterA::> storage aggregate show -node ClusterA-01, ClusterA-02 -fields aggregate ,node
+ClusterA::> aggr delete -aggregate aggregate_name
+ClusterB::> storage aggregate show -node ClusterB-01, ClusterB-02 -fields aggregate ,node
+ClusterB::> aggr delete -aggregate aggregate_name
+----
++
+
+NOTE: 不会删除根聚合。
+
+... 将所有数据 LIF 迁移到另一个 DR 组中的主节点。+ ` * 网络接口 show -home-node _old_node_*`
++
+` * 网络接口修改 -vserver _svm-name_ -lif _data-lif_ -home-port _port-id_*`
+
+... 将集群管理 LIF 迁移到另一个 DR 组中的主节点。+ ` * 网络接口 show -role cluster-mgm*`
++
+` * 网络接口修改 -vserver _svm-name_ -lif _data-lif_ -home-port _port-id_*`
+
++
+节点管理和集群间 LIF 不会迁移。
+
+... 如果需要，将 epsilon 传输到另一个 DR 组中的节点。
++
+[listing]
+----
+ClusterA::> set advanced
+ClusterA::*> cluster show
+Move epsilon if needed
+ClusterA::*> cluster modify -node nodename -epsilon false
+ClusterA::*> cluster modify -node nodename -epsilon true
+
+ClusterB::> set advanced
+ClusterB::*> cluster show
+ClusterB::*> cluster modify -node nodename -epsilon false
+ClusterB::*> cluster modify -node nodename -epsilon true
+ClusterB::*> set admin
+----
+
+
+.. 确定并删除 DR 组。
++
+... 确定要删除的正确 DR 组： + ` * MetroCluster node show*`
+... 删除 DR 组节点： + ` * MetroCluster remove-dr-group -dr-group-id 1*`
++
+以下示例显示了如何删除 cluster_A 上的 DR 组配置
+
++
+[listing]
+----
+cluster_A::*>
+
+Warning: Nodes in the DR group that are removed from the MetroCluster
+         configuration will lose their disaster recovery protection.
+
+         Local nodes "node_A_1-FC, node_A_2-FC"will be removed from the
+         MetroCluster configuration. You must repeat the operation on the
+         partner cluster "cluster_B"to remove the remote nodes in the DR group.
+Do you want to continue? {y|n}: y
+
+Info: The following preparation steps must be completed on the local and partner
+      clusters before removing a DR group.
+
+      1. Move all data volumes to another DR group.
+      2. Move all MDV_CRS metadata volumes to another DR group.
+      3. Delete all MDV_aud metadata volumes that may exist in the DR group to
+      be removed.
+      4. Delete all data aggregates in the DR group to be removed. Root
+      aggregates are not deleted.
+      5. Migrate all data LIFs to home nodes in another DR group.
+      6. Migrate the cluster management LIF to a home node in another DR group.
+      Node management and inter-cluster LIFs are not migrated.
+      7. Transfer epsilon to a node in another DR group.
+
+      The command is vetoed if the preparation steps are not completed on the
+      local and partner clusters.
+Do you want to continue? {y|n}: y
+[Job 513] Job succeeded: Remove DR Group is successful.
+
+cluster_A::*>
+----
+
+
+.. 在配对集群上重复上述步骤。
+.. 如果采用 MetroCluster IP 配置，请删除旧 DR 组节点上的 MetroCluster 连接。
++
+这些命令可以从任一集群发出，并应用于跨越两个集群的整个 DR 组。
+
++
+... 断开连接： + ` * MetroCluster configuration-settings connection disconnect _dr-group-id_*`
+... 删除旧 DR 组节点上的 MetroCluster 接口： + ` * MetroCluster configuration-settings interface delete*`
+... 删除旧 DR 组的配置。+ ` * MetroCluster configuration-settings dr-group delete*`
+
+
+.. 取消加入旧 DR 组中的节点。
++
+您必须在每个集群上执行此步骤。
+
++
+... 设置高级权限级别： + ` * 设置 -privilege advanced*`
+... 取消加入节点： + ` * cluster unjoin -node _node-name_*`
++
+对旧 DR 组中的另一个本地节点重复此步骤。
+
+... 设置管理员权限级别： + ` * 设置 -privilege admin*`
+
+
+.. 在新 DR 组中重新启用集群 HA ：
++
+` * cluster ha modify -configured true*`
+
++
+您必须在每个集群上执行此步骤。
+
+.. 暂停，关闭并卸下旧控制器模块和存储架。
+
+
+

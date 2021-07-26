@@ -1,0 +1,62 @@
+---
+permalink: upgrade/task_prepare_for_the_upgrade_add_2nd_controller_to_create_ha_pair.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, prepare, upgrade 
+summary: 在升级到 HA 对之前，您必须验证您的系统是否满足所有要求，并且您是否拥有所有必要的信息。 
+---
+= 正在准备升级
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在升级到 HA 对之前，您必须验证您的系统是否满足所有要求，并且您是否拥有所有必要的信息。
+
+.步骤
+. 您需要确定可分配给新控制器模块的未分配磁盘或备用磁盘。
+
+
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2427462["《物理存储管理指南》"]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+
+. 根据上一步的结果，执行以下任一操作：
++
+|===
+| 如果结果显示 ... | 那么 ... 
+
+
+ a| 
+在不使用根数据分区的系统上，没有足够的备用磁盘可用于新控制器模块
+ a| 
+有关详细信息，请联系技术支持。
+
+
+
+ a| 
+ a| 
+完成以下子步骤：
+
+.. 确定现有节点的聚合所在位置： + ` * storage aggregate show*`
+.. 如果磁盘所有权自动分配已启用，请将其关闭： + ` * 存储磁盘选项 modify -node _node_name_ -autodassign off*`
+.. 删除不含聚合的磁盘上的所有权： + ` * 存储磁盘删除所有者 _disk_name_*`
+.. 对新节点中所需数量的磁盘重复上述步骤。
+
+
+|===
+. 确认已为以下连接准备好缆线：
++
+** 集群连接
++
+如果要创建双节点无交换机集群，则需要使用两根缆线连接控制器模块。否则，您至少需要四根缆线，每个控制器模块连接到集群网络交换机需要两根缆线。其他系统（如 80xx 系列）的默认集群连接数为四个或六个。
+
+** HA 互连连接（如果系统位于双机箱 HA 对中）
+
+
+. 验证是否有可用于控制器模块的串行端口控制台。
+. 验证您的环境是否满足站点和系统要求。
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+. 收集新控制器模块的所有 IP 地址和其他网络参数。
+

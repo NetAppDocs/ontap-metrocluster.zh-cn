@@ -1,0 +1,24 @@
+---
+permalink: install-stretch/task_cable_the_management_and_data_connections.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, cable, management, data, connections 
+summary: 您必须使用缆线将每个存储控制器上的管理和数据端口连接到站点网络。 
+---
+= 为管理和数据连接布线
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须使用缆线将每个存储控制器上的管理和数据端口连接到站点网络。
+
+必须对两个 MetroCluster 站点上的每个新控制器重复执行此任务。
+
+您可以将控制器和集群交换机管理端口连接到网络中的现有交换机或新的专用网络交换机，例如 NetApp CN1601 集群管理交换机。
+
+.步骤
+. 使用缆线将控制器的管理和数据端口连接到本地站点的管理和数据网络。
++
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+

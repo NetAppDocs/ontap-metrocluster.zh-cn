@@ -1,0 +1,196 @@
+---
+permalink: tiebreaker/concept_configuring_the_tiebreaker_software.html 
+sidebar: sidebar 
+keywords: installation, tiebreaker, software, add, modify, metrocluster, configuration, remove, configuring, configure, launch, cli, add, command, modify, removing 
+summary: 安装 Tiebreaker 软件后，您可以添加或修改 MetroCluster 配置，或者将其从 Tiebreaker 软件中删除。 
+---
+= 配置 Tiebreaker 软件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+安装 Tiebreaker 软件后，您可以添加或修改 MetroCluster 配置，或者将其从 Tiebreaker 软件中删除。
+
+
+
+== 启动 Tiebreaker 软件 CLI
+
+[role="lead"]
+安装 Tiebreaker 软件后，您必须启动其命令行界面来配置该软件。
+
+. 从安装了该软件的主机的提示符处启动命令行界面：``NetApp-MetroCluster-Tiebreaker -software-CLI``
+
+
+
+
+== 正在添加 MetroCluster 配置
+
+[role="lead"]
+安装 NetApp MetroCluster Tiebreaker 软件后，您可以添加更多 MetroCluster 配置，一次添加一个。
+
+您必须已在 ONTAP 环境中安装 MetroCluster 配置并启用软件中的设置。
+
+. 使用 Tiebreaker 命令行界面（ CLI ） monitor add 命令添加 MetroCluster 配置。
++
+如果使用的是主机名，则该主机名必须是完全限定域名（ FQDN ）。
+
++
+以下示例显示了 cluster_A 的配置：
+
++
+[listing]
+----
+
+NetApp MetroCluster Tiebreaker :> monitor add wizard
+Enter monitor Name: cluster_A
+Enter Cluster IP Address: 10.222.196.130
+Enter Cluster Username: admin
+Enter Cluster Password:
+Enter Peer Cluster IP Address: 10.222.196.40
+Enter Peer Cluster Username: admin
+Enter Peer Cluster Password:
+Successfully added monitor to NetApp MetroCluster Tiebreaker software.
+----
+. 使用 Tiebreaker cli monitor show -status 命令确认已正确添加 MetroCluster 配置。
++
+[listing]
+----
+
+NetApp MetroCluster Tiebreaker :> monitor show -status
+----
+. 为 Tiebreaker 软件禁用观察模式，以便在检测到站点故障后自动启动切换： `monitor modify -monitor-name monitor_name -obery-mode false`
++
+[listing]
+----
+NetApp MetroCluster Tiebreaker :> monitor modify -monitor-name 8pack -observer-mode false
+Warning: If you are turning observer-mode to false, make sure to review the 'risks and limitations'
+as described in the MetroCluster Tiebreaker Installation and Configuration Guide.
+Are you sure you want to enable automatic switchover capability for monitor "8pack"? [Y/N]: y
+----
+
+
+* 相关信息 *
+
+xref:concept_risks_and_limitation_of_using_mcc_tiebreaker_in_active_mode.adoc[在主动模式下使用 MetroCluster Tiebreaker 的风险和限制]
+
+
+
+== 用于修改 MetroCluster Tiebreaker 配置的命令
+
+[role="lead"]
+您可以在需要更改设置时修改 MetroCluster 配置。
+
+Tiebreaker CLI monitor modify 命令可与以下任一选项结合使用。您可以使用 monitor show -status 命令确认所做的更改。
+
+[cols="2*"]
+|===
+| 选项 | 说明 
+
+
+ a| 
+-monitor-name
+ a| 
+MetroCluster 配置的名称
+
+
+
+ a| 
+-enable-monitor
+ a| 
+启用和禁用对 MetroCluster 配置的监控
+
+
+
+ a| 
+-silent-period
+ a| 
+检测到站点故障后， MetroCluster Tiebreaker 软件等待确认站点故障的时间段（以秒为单位）
+
+
+
+ a| 
+-observer 模式
+ a| 
+观察模式（ true ）仅提供监控功能，如果发生站点灾难，则不会触发切换。如果发生站点灾难，联机模式（ false ）将触发切换。
+
+* xref:concept_overview_of_the_tiebreaker_software.adoc[Tiebreaker 软件如何检测站点故障]
+* xref:concept_risks_and_limitation_of_using_mcc_tiebreaker_in_active_mode.adoc[在主动模式下使用 MetroCluster Tiebreaker 的风险和限制]
+
+
+|===
+以下示例将更改配置的静默期限。
+
+[listing]
+----
+
+NetApp MetroCluster Tiebreaker :> monitor modify -monitor-name cluster_A -silent-period 15
+Successfully modified monitor in NetApp MetroCluster Tiebreaker
+software.
+----
+Tiebreaker CLI debug 命令可用于更改日志记录模式。
+
+[cols="2*"]
+|===
+| 命令 | 说明 
+
+
+ a| 
+调试状态
+ a| 
+显示调试模式的状态
+
+
+
+ a| 
+启用调试
+ a| 
+启用日志记录调试模式
+
+
+
+ a| 
+禁用调试
+ a| 
+禁用日志记录的调试模式
+
+|===
+Tiebreaker CLI update-mcctb-password 命令可用于更新用户密码。
+
+|===
+| 命令 | 说明 
+
+
+ a| 
+update-mcctb-password
+ a| 
+已成功更新用户密码
+
+|===
+
+
+== 删除 MetroCluster 配置
+
+[role="lead"]
+如果您不再需要监控 MetroCluster 配置，则可以删除 Tiebreaker 软件正在监控的 MetroCluster 配置。
+
+. 使用 Tiebreaker CLI monitor remove 命令删除 MetroCluster 配置。
++
+在以下示例中，将从软件中删除 cluster_A ：
+
++
+[listing]
+----
+
+NetApp MetroCluster Tiebreaker :> monitor remove -monitor-name cluster_A
+Successfully removed monitor from NetApp MetroCluster Tiebreaker
+software.
+----
+. 使用 Tiebreaker cli monitor show -status 命令确认已正确删除 MetroCluster 配置。
++
+[listing]
+----
+
+NetApp MetroCluster Tiebreaker :> monitor show -status
+----
+

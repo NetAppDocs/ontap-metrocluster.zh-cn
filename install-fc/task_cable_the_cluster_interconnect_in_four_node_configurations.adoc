@@ -1,0 +1,28 @@
+---
+permalink: install-fc/task_cable_the_cluster_interconnect_in_four_node_configurations.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, cable, cluster, interconnect, four, node 
+summary: 在八节点或四节点 MetroCluster 配置中，必须为每个站点的本地控制器模块之间的集群互连布线。 
+---
+= 为八节点或四节点配置中的集群互连布线
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在八节点或四节点 MetroCluster 配置中，必须为每个站点的本地控制器模块之间的集群互连布线。
+
+双节点 MetroCluster 配置不需要执行此任务。
+
+必须在两个 MetroCluster 站点上执行此任务。
+
+.步骤
+. 使用缆线将集群互连从一个控制器模块连接到另一个控制器模块，或者如果使用了集群互连交换机，则使用缆线将每个控制器模块连接到交换机。
++
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]

@@ -1,0 +1,23 @@
+---
+permalink: install-fc/concept_redundant_fc_switch_fabrics.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, redundant, fc, switch, fabrics 
+summary: 每个交换机网络结构都包含连接站点的交换机间链路（ ISL ）。数据通过 ISL 从站点复制到站点。每个交换机网络结构都必须位于不同的物理路径上，以实现冗余。 
+---
+= 冗余 FC 交换机网络结构
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+每个交换机网络结构都包含用于连接站点的交换机间链路（ ISL ）。数据通过 ISL 从站点复制到站点。每个交换机网络结构都必须位于不同的物理路径上，以实现冗余。
+
+image::../media/mcc_hw_architecture_switch_fabrics.gif[MCC 硬件架构交换机网络结构]
+
+* 相关信息 *
+
+xref:concept_illustration_of_the_local_ha_pairs_in_a_mcc_configuration.adoc[MetroCluster 配置中的本地 HA 对示意图]
+
+xref:concept_illustration_of_redundant_fc_to_sas_bridges.adoc[冗余 FC-SAS 网桥的图示]
+
+xref:concept_cluster_peering_network_mcc.adoc[集群对等网络的图示]

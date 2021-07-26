@@ -1,0 +1,139 @@
+---
+permalink: disaster-recovery/task_power_on_mcfc.html 
+sidebar: sidebar 
+keywords: power, sas, storage, direct, attached, configuration, fabric 
+summary: 准备切回时，您必须打开灾难站点上的 MetroCluster 组件的电源。 
+---
+= 启动灾难站点上的设备
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+准备切回时，您必须打开灾难站点上的 MetroCluster 组件的电源。此外，您还必须在直连 MetroCluster 配置中重新连接 SAS 存储连接，并在光纤连接 MetroCluster 配置中启用非交换机间链路端口。
+
+您必须已更换 MetroCluster 组件并完全按照旧组件的方式为其布线。
+
+link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+
+link:../install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+
+此操作步骤中的示例假设如下：
+
+* 站点 A 是灾难站点。
++
+** 已更换 FC_switch_A_1 。
+** 已更换 FC_switch_A_2 。
+
+
+* 站点 B 是正常运行的站点。
++
+** FC_switch_B_1 运行状况良好。
+** FC_switch_B_2 运行状况良好。
+
+
+
+
+FC 交换机仅存在于光纤连接的 MetroCluster 配置中。
+
+.步骤
+. 在使用 SAS 布线的延伸型 MetroCluster 配置（不使用 FC 交换机网络结构或 FC-SAS 网桥）中，跨两个站点连接所有存储，包括远程存储。
++
+灾难站点上的控制器必须保持关闭状态，或者在 LOADER 提示符处保持关闭状态。
+
+. 在运行正常的站点上，禁用磁盘自动分配：
++
+`s存储磁盘选项 modify -autosign off *`
+
++
+[listing]
+----
+cluster_B::> storage disk option modify -autoassign off *
+2 entries were modified.
+----
+. 在正常运行的站点上，确认磁盘自动分配已关闭：
++
+`s存储磁盘选项 show`
+
++
+[listing]
+----
+cluster_B::> storage disk option show
+Node     BKg. FW. Upd.  Auto Copy   Auto Assign  Auto Assign Policy
+--------  -------------  -----------  -----------  ------------------
+node_B_1       on            on          off             default
+node_B_2       on            on          off             default
+2 entries were displayed.
+
+ cluster_B::>
+----
+. 打开灾难站点上的磁盘架，并确保所有磁盘都在运行。
+. 在桥接或光纤连接的 MetroCluster 配置中，打开灾难站点上的所有 FC-SAS 网桥。
+. 如果更换了任何磁盘，请保持控制器关闭或处于 LOADER 提示符处。
+. 在光纤连接的 MetroCluster 配置中，启用 FC 交换机上的非 ISL 端口。
++
+[cols="25,75"]
+|===
+| 交换机供应商 | 然后，按照以下步骤启用端口 ... 
+
+
+ a| 
+Brocade
+ a| 
+.. 持久启用连接到 FC-SAS 网桥的端口： `portpersistentenable port-number`
++
+在以下示例中，端口 6 和 7 已启用：
+
++
+[listing]
+----
+FC_switch_A_1:admin> portpersistentenable 6
+FC_switch_A_1:admin> portpersistentenable 7
+
+FC_switch_A_1:admin>
+----
+.. 持久启用连接到 HBA 和 FC-VI 适配器的端口： `portpersistentenable port-number`
++
+在以下示例中，端口 6 和 7 已启用：
+
++
+[listing]
+----
+FC_switch_A_1:admin> portpersistentenable 1
+FC_switch_A_1:admin> portpersistentenable 2
+FC_switch_A_1:admin> portpersistentenable 4
+FC_switch_A_1:admin> portpersistentenable 5
+FC_switch_A_1:admin>
+----
++
+
+NOTE: 对于 AFF A700 和 FAS9000 系统，必须使用 switchcfgpersistentenable 命令持久启用所有四个 FC-VI 端口。
+
+.. 对运行正常的站点上的第二个 FC 交换机重复子步骤 a 和 b 。
+
+
+
+
+ a| 
+Cisco
+ a| 
+.. 进入接口的配置模式，然后使用 no shut 命令启用端口。
++
+在以下示例中，禁用了端口 fc1/36 ：
+
++
+[listing]
+----
+FC_switch_A_1# conf t
+FC_switch_A_1(config)# interface fc1/36
+FC_switch_A_1(config)# no shut
+FC_switch_A_1(config-if)# end
+FC_switch_A_1# copy running-config startup-config
+----
+.. 验证交换机端口是否已启用： `sHow interface brief`
+.. 对连接到 FC-SAS 网桥， HBA 和 FC-VI 适配器的其他端口重复子步骤 a 和 b 。
+.. 对运行正常的站点上的第二个 FC 交换机重复子步骤 a ， b 和 c 。
+
+
+|===
+

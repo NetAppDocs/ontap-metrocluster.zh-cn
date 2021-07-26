@@ -1,0 +1,298 @@
+---
+permalink: disaster-recovery/task_delete_plexes_mcip.html 
+sidebar: sidebar 
+keywords: deleting, delete, fail, plex, own 
+summary: 您必须打开灾难站点上的磁盘架和 MetroCluster IP 交换机组件的电源。 
+---
+= 删除运行正常的站点拥有的故障丛（ MetroCluster IP 配置）
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+更换硬件并分配磁盘后，您必须删除故障远程丛，这些丛属于运行正常的站点节点，但位于灾难站点上。
+
+这些步骤将在运行正常的集群上执行。
+
+.步骤
+. 确定本地聚合： `storage aggregate show -is-home true`
++
+[listing]
+----
+cluster_B::> storage aggregate show -is-home true
+
+cluster_B Aggregates:
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+node_B_1_aggr0 1.49TB  74.12GB 95% online       1 node_B_1         raid4,
+                                                                   mirror
+                                                                   degraded
+node_B_2_aggr0 1.49TB  74.12GB 95% online       1 node_B_2         raid4,
+                                                                   mirror
+                                                                   degraded
+node_B_1_aggr1 2.99TB  2.88TB   3% online      15 node_B_1         raid_dp,
+                                                                   mirror
+                                                                   degraded
+node_B_1_aggr2 2.99TB  2.91TB   3% online      14 node_B_1         raid_tec,
+                                                                   mirror
+                                                                   degraded
+node_B_2_aggr1 2.95TB  2.80TB   5% online      37 node_B_2         raid_dp,
+                                                                   mirror
+                                                                   degraded
+node_B_2_aggr2 2.99TB  2.87TB   4% online      35 node_B_2         raid_tec,
+                                                                   mirror
+                                                                   degraded
+6 entries were displayed.
+
+cluster_B::>
+----
+. 确定发生故障的远程丛：
++
+`storage aggregate plex show`
+
++
+以下示例将调用处于远程状态（而不是 plex0 ）且状态为 "Failed" 的丛：
+
++
+[listing]
+----
+cluster_B::> storage aggregate plex show -fields aggregate,status,is-online,Plex,pool
+aggregate    plex  status        is-online pool
+------------ ----- ------------- --------- ----
+node_B_1_aggr0 plex0 normal,active true     0
+node_B_1_aggr0 plex4 failed,inactive false  - <<<<---Plex at remote site
+node_B_2_aggr0 plex0 normal,active true     0
+node_B_2_aggr0 plex4 failed,inactive false  - <<<<---Plex at remote site
+node_B_1_aggr1 plex0 normal,active true     0
+node_B_1_aggr1 plex4 failed,inactive false  - <<<<---Plex at remote site
+node_B_1_aggr2 plex0 normal,active true     0
+node_B_1_aggr2 plex1 failed,inactive false  - <<<<---Plex at remote site
+node_B_2_aggr1 plex0 normal,active true     0
+node_B_2_aggr1 plex4 failed,inactive false  - <<<<---Plex at remote site
+node_B_2_aggr2 plex0 normal,active true     0
+node_B_2_aggr2 plex1 failed,inactive false  - <<<<---Plex at remote site
+node_A_1_aggr1 plex0 failed,inactive false  -
+node_A_1_aggr1 plex4 normal,active true     1
+node_A_1_aggr2 plex0 failed,inactive false  -
+node_A_1_aggr2 plex1 normal,active true     1
+node_A_2_aggr1 plex0 failed,inactive false  -
+node_A_2_aggr1 plex4 normal,active true     1
+node_A_2_aggr2 plex0 failed,inactive false  -
+node_A_2_aggr2 plex1 normal,active true     1
+20 entries were displayed.
+
+cluster_B::>
+----
+. 使每个故障丛脱机，然后将其删除：
++
+.. 使故障丛脱机：
++
+`storage aggregate plex offline -aggregate aggregate-name -plex plex-id`
+
++
+以下示例显示了正在脱机的聚合 "node_B_2_aggr1/plex1" ：
+
++
+[listing]
+----
+cluster_B::> storage aggregate plex offline -aggregate node_B_1_aggr0 -plex plex4
+
+Plex offline successful on plex: node_B_1_aggr0/plex4
+----
+.. 删除故障丛：
++
+`storage aggregate plex delete -aggregate aggregate-name -plex plex-id`
+
++
+出现提示时，您可以销毁丛。
+
++
+以下示例显示了要删除的丛 node_B_2_aggr1/plex1 。
+
++
+[listing]
+----
+cluster_B::> storage aggregate plex delete -aggregate  node_B_1_aggr0 -plex plex4
+
+Warning: Aggregate "node_B_1_aggr0" is being used for the local management root
+         volume or HA partner management root volume, or has been marked as
+         the aggregate to be used for the management root volume after a
+         reboot operation. Deleting plex "plex4" for this aggregate could lead
+         to unavailability of the root volume after a disaster recovery
+         procedure. Use the "storage aggregate show -fields
+         has-mroot,has-partner-mroot,root" command to view such aggregates.
+
+Warning: Deleting plex "plex4" of mirrored aggregate "node_B_1_aggr0" on node
+         "node_B_1" in a MetroCluster configuration will disable its
+         synchronous disaster recovery protection. Are you sure you want to
+         destroy this plex? {y|n}: y
+[Job 633] Job succeeded: DONE
+
+cluster_B::>
+----
+
+
++
+您必须对每个故障丛重复这些步骤。
+
+. 确认已删除丛：
++
+`storage aggregate plex show -fields aggregate ， status ， is-online ， plex ， pool`
+
++
+[listing]
+----
+cluster_B::> storage aggregate plex show -fields aggregate,status,is-online,Plex,pool
+aggregate    plex  status        is-online pool
+------------ ----- ------------- --------- ----
+node_B_1_aggr0 plex0 normal,active true     0
+node_B_2_aggr0 plex0 normal,active true     0
+node_B_1_aggr1 plex0 normal,active true     0
+node_B_1_aggr2 plex0 normal,active true     0
+node_B_2_aggr1 plex0 normal,active true     0
+node_B_2_aggr2 plex0 normal,active true     0
+node_A_1_aggr1 plex0 failed,inactive false  -
+node_A_1_aggr1 plex4 normal,active true     1
+node_A_1_aggr2 plex0 failed,inactive false  -
+node_A_1_aggr2 plex1 normal,active true     1
+node_A_2_aggr1 plex0 failed,inactive false  -
+node_A_2_aggr1 plex4 normal,active true     1
+node_A_2_aggr2 plex0 failed,inactive false  -
+node_A_2_aggr2 plex1 normal,active true     1
+14 entries were displayed.
+
+cluster_B::>
+----
+. 确定已切换的聚合：
++
+`storage aggregate show -is-home false`
+
++
+您还可以使用 `storage aggregate plex show -fields aggregate ， status ， is-online ， plex ， pool` 命令来标识丛 0 已切换聚合。它们的状态将为 " 失败，非活动 " 。
+
++
+以下命令显示了四个已切换的聚合：
+
++
+** node_A_1_aggr1
+** node_A_1_aggr2
+** node_A_2_aggr1
+** node_A_2_aggr2.
+
+
++
+[listing]
+----
+cluster_B::> storage aggregate show -is-home false
+
+cluster_A Switched Over Aggregates:
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+node_A_1_aggr1 2.12TB  1.88TB   11% online      91 node_B_1        raid_dp,
+                                                                   mirror
+                                                                   degraded
+node_A_1_aggr2 2.89TB  2.64TB    9% online      90 node_B_1        raid_tec,
+                                                                   mirror
+                                                                   degraded
+node_A_2_aggr1 2.12TB  1.86TB   12% online      91 node_B_2        raid_dp,
+                                                                   mirror
+                                                                   degraded
+node_A_2_aggr2 2.89TB  2.64TB    9% online      90 node_B_2        raid_tec,
+                                                                   mirror
+                                                                   degraded
+4 entries were displayed.
+
+cluster_B::>
+----
+. 识别已切换的丛：
++
+`storage aggregate plex show -fields aggregate ， status ， is-online ， Plex ， pool`
+
++
+您希望确定状态为 " 失败，非活动 " 的丛。
+
++
+以下命令显示了四个已切换的聚合：
+
++
+[listing]
+----
+cluster_B::> storage aggregate plex show -fields aggregate,status,is-online,Plex,pool
+aggregate    plex  status        is-online pool
+------------ ----- ------------- --------- ----
+node_B_1_aggr0 plex0 normal,active true     0
+node_B_2_aggr0 plex0 normal,active true     0
+node_B_1_aggr1 plex0 normal,active true     0
+node_B_1_aggr2 plex0 normal,active true     0
+node_B_2_aggr1 plex0 normal,active true     0
+node_B_2_aggr2 plex0 normal,active true     0
+node_A_1_aggr1 plex0 failed,inactive false  -  <<<<-- Switched over aggr/Plex0
+node_A_1_aggr1 plex4 normal,active true     1
+node_A_1_aggr2 plex0 failed,inactive false  -  <<<<-- Switched over aggr/Plex0
+node_A_1_aggr2 plex1 normal,active true     1
+node_A_2_aggr1 plex0 failed,inactive false  -  <<<<-- Switched over aggr/Plex0
+node_A_2_aggr1 plex4 normal,active true     1
+node_A_2_aggr2 plex0 failed,inactive false  -  <<<<-- Switched over aggr/Plex0
+node_A_2_aggr2 plex1 normal,active true     1
+14 entries were displayed.
+
+cluster_B::>
+----
+. 删除故障丛：
++
+`storage aggregate plex delete -aggregate node_A_1_aggr1 -plex plex0`
+
++
+出现提示时，您可以销毁丛。
+
++
+以下示例显示了要删除的丛 node_A_1_aggr1/plex0 ：
+
++
+[listing]
+----
+cluster_B::> storage aggregate plex delete -aggregate node_A_1_aggr1 -plex plex0
+
+Warning: Aggregate "node_A_1_aggr1" hosts MetroCluster metadata volume
+         "MDV_CRS_e8457659b8a711e78b3b00a0988fe74b_A". Deleting plex "plex0"
+         for this aggregate can lead to the failure of configuration
+         replication across the two DR sites. Use the "volume show -vserver
+         <admin-vserver> -volume MDV_CRS*" command to verify the location of
+         such volumes.
+
+Warning: Deleting plex "plex0" of mirrored aggregate "node_A_1_aggr1" on node
+         "node_A_1" in a MetroCluster configuration will disable its
+         synchronous disaster recovery protection. Are you sure you want to
+         destroy this plex? {y|n}: y
+[Job 639] Job succeeded: DONE
+
+cluster_B::>
+----
++
+您必须对每个故障聚合重复这些步骤。
+
+. 验证运行正常的站点上是否没有剩余出现故障的丛。
++
+以下输出显示所有丛均为正常，活动和联机。
+
++
+[listing]
+----
+cluster_B::> storage aggregate plex show -fields aggregate,status,is-online,Plex,pool
+aggregate    plex  status        is-online pool
+------------ ----- ------------- --------- ----
+node_B_1_aggr0 plex0 normal,active true     0
+node_B_2_aggr0 plex0 normal,active true     0
+node_B_1_aggr1 plex0 normal,active true     0
+node_B_2_aggr2 plex0 normal,active true     0
+node_B_1_aggr1 plex0 normal,active true     0
+node_B_2_aggr2 plex0 normal,active true     0
+node_A_1_aggr1 plex4 normal,active true     1
+node_A_1_aggr2 plex1 normal,active true     1
+node_A_2_aggr1 plex4 normal,active true     1
+node_A_2_aggr2 plex1 normal,active true     1
+10 entries were displayed.
+
+cluster_B::>
+----
+

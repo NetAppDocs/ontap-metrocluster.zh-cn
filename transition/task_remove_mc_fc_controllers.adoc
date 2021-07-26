@@ -1,0 +1,267 @@
+---
+permalink: transition/task_remove_mc_fc_controllers.html 
+sidebar: sidebar 
+keywords: Generating and applying RCFs to the new IP switches, review, requirement, preparing, prepare, transition, perform, procedure, order, completing, complete, step, task, moving, move, controller, storage, shelves, shelf, exist, configuration, direct, metrocluster, fc, ip, verify, health, removing, remove, tiebreaker, monitor, software, generating, generate, apply, rcf, switch, controller, configure, prepare, preparing 
+summary: 要为过渡准备配置，请将新节点添加到现有 MetroCluster 配置中，然后将数据移动到新节点。 
+---
+= 删除 MetroCluster FC 控制器
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须执行清理任务，并从 MetroCluster 配置中删除旧控制器模块。
+
+. 要防止自动生成支持案例，请发送一条 AutoSupport 消息以指示正在进行维护。
++
+.. 问题描述以下命令： `ssystem node AutoSupport invoke -node * -type all -message MAIN=maintenance-window-in-hours`
++
+maintenance-window-in-hours 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：``ssystem node AutoSupport invoke -node * -type all -message MAINT=end``
+
+.. 在配对集群上重复此命令。
+
+
+. 确定 MetroCluster FC 配置上托管的需要删除的聚合。
++
+在此示例中，以下数据聚合由 MetroCluster FC cluster_B 托管，需要删除： aggr_data_A1 和 aggr_data_A2 。
+
++
+
+NOTE: 您需要执行这些步骤来确定，脱机和删除两个集群上的数据聚合。此示例仅适用于一个集群。
+
++
+....
+cluster_B::> aggr show
+
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+aggr0_node_A_1-FC
+           349.0GB   16.83GB   95% online       1 node_A_1-FC      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr0_node_A_2-FC
+           349.0GB   16.83GB   95% online       1 node_A_2-FC      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr0_node_A_3-IP
+           467.6GB   22.63GB   95% online       1 node_A_3-IP      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr0_node_A_3-IP
+           467.6GB   22.62GB   95% online       1 node_A_4-IP      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr_data_a1
+            1.02TB    1.02TB    0% online       0 node_A_1-FC      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr_data_a2
+            1.02TB    1.02TB    0% online       0 node_A_2-FC      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr_data_a3
+            1.37TB    1.35TB    1% online       3 node_A_3-IP      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr_data_a4
+            1.25TB    1.24TB    1% online       2 node_A_4-IP      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+8 entries were displayed.
+
+cluster_B::>
+....
+. 检查 FC 节点上的数据聚合是否包含任何 MDV_aud 卷，并在删除这些聚合之前将其删除。
++
+您必须删除 MDV_aud 卷，因为它们无法移动。
+
+. 使每个聚合脱机，然后将其删除：
++
+.. 使聚合脱机： `storage aggregate offline -aggregate aggregate-name`
++
+以下示例显示了聚合 node_B_1_aggr0 正在脱机：
+
++
+....
+cluster_B::> storage aggregate offline -aggregate node_B_1_aggr0
+
+Aggregate offline successful on aggregate: node_B_1_aggr0
+....
+.. 删除聚合： `storage aggregate delete -aggregate aggregate-name`
++
+出现提示时，您可以销毁丛。
+
++
+以下示例显示了要删除的聚合 node_B_1_aggr0 。
+
++
+....
+cluster_B::> storage aggregate delete -aggregate node_B_1_aggr0
+Warning: Are you sure you want to destroy aggregate "node_B_1_aggr0"? {y|n}: y
+[Job 123] Job succeeded: DONE
+
+cluster_B::>
+....
+
+
+. 确定需要删除的 MetroCluster FC DR 组。
++
+在以下示例中， MetroCluster FC 节点位于 DR 组 "1" 中，这是需要删除的 DR 组。
+
++
+....
+cluster_B::> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1-FC        configured     enabled   normal
+              node_A_2-FC        configured     enabled   normal
+      cluster_B
+              node_B_1-FC        configured     enabled   normal
+              node_B_2-FC        configured     enabled   normal
+2     cluster_A
+              node_A_3-IP        configured     enabled   normal
+              node_A_4-IP        configured     enabled   normal
+      cluster_B
+              node_B_3-IP        configured     enabled   normal
+              node_B_3-IP        configured     enabled   normal
+8 entries were displayed.
+
+cluster_B::>
+....
+. 将集群管理 LIF 从 MetroCluster FC 节点移动到 MetroCluster IP 节点： `cluster_B ：： > network interface migrate -vserver svm-name -lif cluster_mgmt -destination-node node-in-metrocluster-IP-dr-group -destination-port available-port`
+. 更改集群管理 LIF 的主节点和主端口： `cluster_B ：：： > network interface modify -vserver svm-name -lif cluster_mgmt -service-policy default-management -home-node node-in-metrocluster-IP-dr-group -home-port lif-port`
+. 将 epsilon 从 MetroCluster FC 节点移动到 MetroCluster IP 节点：
++
+.. 确定哪个节点当前具有 epsilon ： `cluster show -fields epsilon`
++
+....
+cluster_B::> cluster show -fields epsilon
+node             epsilon
+---------------- -------
+node_A_1-FC      true
+node_A_2-FC      false
+node_A_1-IP      false
+node_A_2-IP      false
+4 entries were displayed.
+....
+.. 在 MetroCluster FC 节点（ node_A_1-FC ）上将 epsilon 设置为 false ： `cluster modify -node fc-node -epsilon false`
+.. 在 MetroCluster IP 节点（ node_A_1-IP ）上将 epsilon 设置为 true ： `cluster modify -node IP-node -epsilon true`
+.. 验证 epsilon 是否已移至正确的节点： `cluster show -fields epsilon`
++
+....
+cluster_B::> cluster show -fields epsilon
+node             epsilon
+---------------- -------
+node_A_1-FC      false
+node_A_2-FC      false
+node_A_1-IP      true
+node_A_2-IP      false
+4 entries were displayed.
+....
+
+
+. 在每个集群上，从 MetroCluster FC 配置中删除包含旧节点的 DR 组。
++
+您必须在两个集群上执行此步骤，一次一个。
+
++
+....
+cluster_B::> metrocluster remove-dr-group -dr-group-id 1
+
+Warning: Nodes in the DR group that are removed from the MetroCluster
+         configuration will lose their disaster recovery protection.
+
+         Local nodes "node_A_1-FC, node_A_2-FC" will be removed from the
+         MetroCluster configuration. You must repeat the operation on the
+         partner cluster "cluster_B" to remove the remote nodes in the DR group.
+Do you want to continue? {y|n}: y
+
+Info: The following preparation steps must be completed on the local and partner
+      clusters before removing a DR group.
+
+      1. Move all data volumes to another DR group.
+      2. Move all MDV_CRS metadata volumes to another DR group.
+      3. Delete all MDV_aud metadata volumes that may exist in the DR group to
+      be removed.
+      4. Delete all data aggregates in the DR group to be removed. Root
+      aggregates are not deleted.
+      5. Migrate all data LIFs to home nodes in another DR group.
+      6. Migrate the cluster management LIF to a home node in another DR group.
+      Node management and inter-cluster LIFs are not migrated.
+      7. Transfer epsilon to a node in another DR group.
+
+      The command is vetoed ifthe preparation steps are not completed on the
+      local and partner clusters.
+Do you want to continue? {y|n}: y
+[Job 513] Job succeeded: Remove DR Group is successful.
+
+cluster_B::>
+....
+. 验证节点是否已准备好从集群中删除。
++
+您必须在两个集群上执行此步骤。
+
++
+
+NOTE: 此时， `MetroCluster node show` 命令仅显示本地 MetroCluster FC 节点，而不再显示属于配对集群的节点。
+
++
+....
+cluster_B::> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1-FC        ready to configure
+                                                -         -
+              node_A_2-FC        ready to configure
+                                                -         -
+2     cluster_A
+              node_A_3-IP        configured     enabled   normal
+              node_A_4-IP        configured     enabled   normal
+      cluster_B
+              node_B_3-IP        configured     enabled   normal
+              node_B_4-IP        configured     enabled   normal
+6 entries were displayed.
+
+cluster_B::>
+....
+. 为 MetroCluster FC 节点禁用存储故障转移。
++
+您必须在每个节点上执行此步骤。
+
++
+....
+cluster_A::> storage failover modify -node node_A_1-FC -enabled false
+cluster_A::> storage failover modify -node node_A_2-FC -enabled false
+cluster_A::>
+....
+. 从集群中取消加入 MetroCluster FC 节点： `cluster unjoin -node node-name`
++
+您必须在每个节点上执行此步骤。
+
++
+....
+cluster_A::> cluster unjoin -node node_A_1-FC
+
+Warning: This command will remove node "node_A_1-FC"from the cluster. You must
+         remove the failover partner as well. After the node is removed, erase
+         its configuration and initialize all disks by usingthe "Clean
+         configuration and initialize all disks (4)" option from the boot menu.
+Do you want to continue? {y|n}: y
+[Job 553] Job is queued: Cluster remove-node of Node:node_A_1-FC with UUID:6c87de7e-ff54-11e9-8371
+[Job 553] Checking prerequisites
+[Job 553] Cleaning cluster database
+[Job 553] Job succeeded: Node remove succeeded
+If applicable, also remove the node's HA partner, and then clean its configuration and initialize all disks with the boot menu.
+Run "debug vreport show" to address remaining aggregate or volume issues.
+
+cluster_B::>
+....
+. 关闭 MetroCluster FC 控制器模块和存储架。
+. 断开并卸下 MetroCluster FC 控制器模块和存储架。
+

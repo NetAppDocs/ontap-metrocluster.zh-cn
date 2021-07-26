@@ -1,0 +1,3762 @@
+---
+permalink: install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, port, assignemtns, fc, switches 
+summary: 在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。ONTAP 9.0 和更高版本的 ONTAP 之间的端口分配不同。 
+---
+= 使用 ONTAP 9.0 时 FC 交换机的端口分配
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。ONTAP 9.0 和更高版本的 ONTAP 之间的端口分配不同。
+
+不用于连接启动程序端口， FC-VI 端口或 ISL 的端口可以重新配置为用作存储端口。但是，如果正在使用受支持的 RCF ，则必须相应地更改分区。
+
+如果使用受支持的 RCF 文件， ISL 端口可能无法连接到此处所示的相同端口，可能需要手动重新配置。
+
+
+
+== 总体布线准则
+
+使用布线表时，应注意以下准则：
+
+* Brocade 和 Cisco 交换机使用不同的端口编号：
++
+** 在 Brocade 交换机上，第一个端口编号为 0 。
+** 在 Cisco 交换机上，第一个端口编号为 1 。
+
+
+* 交换机网络结构中的每个 FC 交换机的布线方式相同。
+* AFF A300 和 FAS8200 存储系统可通过以下两种 FC-VI 连接选项之一订购：
++
+** 在 FC-VI 模式下配置的板载端口 0e 和 0f 。
+** 插槽 1 中 FC-VI 卡上的端口 1a 和 1b 。
+
+
+
+
+
+
+== 运行 ONTAP 9.0 的八节点 MetroCluster 配置中用于控制器连接的 Brocade 端口使用情况
+
+交换机网络结构中的每个 FC 交换机的布线方式相同。
+
+下表显示了 Brocade 交换机上的控制器端口使用情况：
+
+|===
+4+| MetroCluster 八节点配置 
+
+
+.2+| 组件 .2+| 端口 2+| Brocade 6505 ， 6510 或 DCX 8510-8 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+controller_x_1
+ a| 
+FC-VI 端口 A
+ a| 
+0
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+0
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+1.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+1.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+2.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+2.
+
+
+
+ a| 
+controller_x_2
+ a| 
+FC-VI 端口 A
+ a| 
+3.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+3.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+4.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+4.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+5.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+5.
+
+
+
+ a| 
+controller_x_3
+ a| 
+FC-VI 端口 A
+ a| 
+6.
+ a| 
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+6.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+8.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+8.
+
+
+
+ a| 
+controller_x_4
+ a| 
+FC-VI 端口 A
+ a| 
+9
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+9
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+10
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+10
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+11.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+11.
+
+|===
+
+
+== 运行 ONTAP 9.0 的八节点 MetroCluster 配置中用于 FC-SAS 网桥连接的 Brocade 端口使用情况
+
+下表显示了使用 FibreBridge 7500 网桥时的网桥端口使用情况：
+
+|===
+4+| MetroCluster 八节点配置 
+
+
+.2+| FibreBridge 7500 网桥 .2+| 端口 2+| Brocade 6505 ， 6510 或 DCX 8510-8 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+12
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+12
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+13
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+13
+
+
+
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+14
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+15
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+15
+
+
+
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+16.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+16.
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+17
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+17
+
+
+
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+18
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+18
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+19
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+19
+
+|===
+下表显示了使用 FibreBridge 6500 网桥时的网桥端口使用情况：
+
+|===
+4+| MetroCluster 八节点配置 
+
+
+.2+| FibreBridge 6500 网桥 .2+| 端口 2+| Brocade 6505 ， 6510 或 DCX 8510-8 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+12
+ a| 
+-
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+-
+ a| 
+12
+
+
+
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+13
+ a| 
+-
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+-
+ a| 
+13
+
+
+
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+-
+ a| 
+14
+
+
+
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+15
+ a| 
+-
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+-
+ a| 
+15
+
+
+
+ a| 
+bridge_x_5a
+ a| 
+FC1
+ a| 
+16.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_5b
+ a| 
+FC1
+ a| 
+-
+ a| 
+16.
+
+
+
+ a| 
+bridge_x_6a
+ a| 
+FC1
+ a| 
+17
+ a| 
+-
+
+
+
+ a| 
+bridge_x_6b.
+ a| 
+FC1
+ a| 
+-
+ a| 
+17
+
+
+
+ a| 
+bridge_x_7a
+ a| 
+FC1
+ a| 
+18
+ a| 
+-
+
+
+
+ a| 
+bridge_x_7b
+ a| 
+FC1
+ a| 
+-
+ a| 
+18
+
+
+
+ a| 
+bridge_x_8a
+ a| 
+FC1
+ a| 
+19
+ a| 
+-
+
+
+
+ a| 
+bridge_x_8b
+ a| 
+FC1
+ a| 
+-
+ a| 
+19
+
+|===
+
+
+== 运行 ONTAP 9.0 的八节点 MetroCluster 配置中的 ISL 的 Brocade 端口使用情况
+
+下表显示了 ISL 端口使用情况：
+
+|===
+3+| MetroCluster 八节点配置 
+
+
+.2+| ISL 端口 2+| Brocade 6505 ， 6510 或 DCX 8510-8 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+ISL 端口 1
+ a| 
+20
+ a| 
+20
+
+
+
+ a| 
+ISL 端口 2
+ a| 
+21
+ a| 
+21
+
+
+
+ a| 
+ISL 端口 3
+ a| 
+22.
+ a| 
+22.
+
+
+
+ a| 
+ISL 端口 4
+ a| 
+23
+ a| 
+23
+
+|===
+
+
+== 运行 ONTAP 9.0 的四节点 MetroCluster 配置中控制器的 Brocade 端口使用情况
+
+交换机网络结构中的每个 FC 交换机的布线方式相同。
+
+|===
+4+| MetroCluster 四节点配置 
+
+
+.2+| 组件 .2+| 端口 2+| Brocade 6505 ， 6510 或 DCX 8510-8 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+controller_x_1
+ a| 
+FC-VI 端口 A
+ a| 
+0
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+0
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+1.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+1.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+2.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+2.
+
+
+
+ a| 
+controller_x_2
+ a| 
+FC-VI 端口 A
+ a| 
+3.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+3.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+4.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+4.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+5.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+5.
+
+|===
+
+
+== 运行 ONTAP 9.0 的四节点 MetroCluster 配置中网桥的 Brocade 端口使用情况
+
+交换机网络结构中的每个 FC 交换机的布线方式相同。
+
+下表显示了使用 FibreBridge 7500 网桥时网桥端口使用情况，最多可达端口 17 。可以使用缆线将其他网桥连接到端口 18 到 23 。
+
+|===
+6+| MetroCluster 四节点配置 
+
+
+.2+| FibreBridge 7500 网桥 .2+| 端口 2+| Brocade 6510 或 DCX 8510-8 2+| Brocade 6505 
+
+
+| FC_switch_x_1 | FC_switch_x_2 | FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+6.
+ a| 
+-
+ a| 
+6.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+6.
+ a| 
+-
+ a| 
+6.
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+7.
+ a| 
+-
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+7.
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+8.
+ a| 
+-
+ a| 
+12
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+8.
+ a| 
+-
+ a| 
+12
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+9
+ a| 
+-
+ a| 
+13
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+13
+
+
+
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+10
+ a| 
+-
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+14
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+11.
+ a| 
+-
+ a| 
+15
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+15
+
+
+
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+12
+ a| 
+-
+ a| 
+16.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+16.
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+13
+ a| 
+-
+ a| 
+17
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+17
+
+
+
+ a| 
+ a| 
+ a| 
+可以使用缆线将其他网桥连接到端口 19 ，然后连接到端口 24 到 47
+ a| 
+可以通过端口 23 为其他网桥布线
+
+|===
+下表显示了使用 FibreBridge 6500 网桥时的网桥端口使用情况：
+
+|===
+6+| MetroCluster 四节点配置 
+
+
+.2+| FibreBridge 6500 网桥 .2+| 端口 2+| Brocade 6510 ， DCX 8510-8 2+| Brocade 6505 
+
+
+| FC_switch_x_1 | FC_switch_x_2 | FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+6.
+ a| 
+-
+ a| 
+6.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+-
+ a| 
+6.
+ a| 
+-
+ a| 
+6.
+
+
+
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+7.
+ a| 
+-
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+-
+ a| 
+7.
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+8.
+ a| 
+-
+ a| 
+12
+ a| 
+-
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+-
+ a| 
+8.
+ a| 
+-
+ a| 
+12
+
+
+
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+9
+ a| 
+-
+ a| 
+13
+ a| 
+-
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+13
+
+
+
+ a| 
+bridge_x_5a
+ a| 
+FC1
+ a| 
+10
+ a| 
+-
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+bridge_x_5b
+ a| 
+FC1
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+14
+
+
+
+ a| 
+bridge_x_6a
+ a| 
+FC1
+ a| 
+11.
+ a| 
+-
+ a| 
+15
+ a| 
+-
+
+
+
+ a| 
+bridge_x_6b.
+ a| 
+FC1
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+15
+
+
+
+ a| 
+bridge_x_7a
+ a| 
+FC1
+ a| 
+12
+ a| 
+-
+ a| 
+16.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_7b
+ a| 
+FC1
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+16.
+
+
+
+ a| 
+bridge_x_8a
+ a| 
+FC1
+ a| 
+13
+ a| 
+-
+ a| 
+17
+ a| 
+-
+
+
+
+ a| 
+bridge_x_8b
+ a| 
+FC1
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+17
+
+
+
+ a| 
+ a| 
+ a| 
+可以使用缆线将其他网桥连接到端口 19 ，然后连接到端口 24 到 47
+ a| 
+可以通过端口 23 为其他网桥布线
+
+|===
+
+
+== 运行 ONTAP 9.0 的四节点 MetroCluster 配置中的 ISL 的 Brocade 端口使用情况
+
+下表显示了 ISL 端口使用情况：
+
+|===
+5+| MetroCluster 四节点配置 
+
+
+.2+| ISL 端口 2+| Brocade 6510 ， DCX 8510-8 2+| Brocade 6505 
+
+
+| FC_switch_x_1 | FC_switch_x_2 | FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+ISL 端口 1
+ a| 
+20
+ a| 
+20
+ a| 
+8.
+ a| 
+8.
+
+
+
+ a| 
+ISL 端口 2
+ a| 
+21
+ a| 
+21
+ a| 
+9
+ a| 
+9
+
+
+
+ a| 
+ISL 端口 3
+ a| 
+22.
+ a| 
+22.
+ a| 
+10
+ a| 
+10
+
+
+
+ a| 
+ISL 端口 4
+ a| 
+23
+ a| 
+23
+ a| 
+11.
+ a| 
+11.
+
+|===
+
+
+== 运行 ONTAP 9.0 的双节点 MetroCluster 配置中控制器的 Brocade 端口使用情况
+
+交换机网络结构中的每个 FC 交换机的布线方式相同。
+
+|===
+4+| MetroCluster 双节点配置 
+
+
+.2+| 组件 .2+| 端口 2+| Brocade 6505 ， 6510 或 DCX 8510-8 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+controller_x_1
+ a| 
+FC-VI 端口 A
+ a| 
+0
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+0
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+1.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+1.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+2.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+2.
+
+|===
+
+
+== 运行 ONTAP 9.0 的双节点 MetroCluster 配置中网桥的 Brocade 端口使用情况
+
+交换机网络结构中的每个 FC 交换机的布线方式相同。
+
+下表显示了使用 FibreBridge 7500 网桥时网桥端口使用情况，最多可达端口 17 。可以使用缆线将其他网桥连接到端口 18 到 23 。
+
+|===
+6+| MetroCluster 双节点配置 
+
+
+.2+| FibreBridge 7500 网桥 .2+| 端口 2+| Brocade 6510 ， DCX 8510-8 2+| Brocade 6505 
+
+
+| FC_switch_x_1 | FC_switch_x_2 | FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+6.
+ a| 
+-
+ a| 
+6.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+6.
+ a| 
+-
+ a| 
+6.
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+7.
+ a| 
+-
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+7.
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+8.
+ a| 
+-
+ a| 
+12
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+8.
+ a| 
+-
+ a| 
+12
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+9
+ a| 
+-
+ a| 
+13
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+13
+
+
+
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+10
+ a| 
+-
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+14
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+11.
+ a| 
+-
+ a| 
+15
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+15
+
+
+
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+12
+ a| 
+-
+ a| 
+16.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+16.
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+13
+ a| 
+-
+ a| 
+17
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+17
+
+
+
+ a| 
+ a| 
+ a| 
+可以使用缆线将其他网桥连接到端口 19 ，然后连接到端口 24 到 47
+ a| 
+可以通过端口 23 为其他网桥布线
+
+|===
+下表显示了使用 FibreBridge 6500 网桥时的网桥端口使用情况：
+
+|===
+6+| MetroCluster 双节点配置 
+
+
+.2+| FibreBridge 6500 网桥 .2+| 端口 2+| Brocade 6510 ， DCX 8510-8 2+| Brocade 6505 
+
+
+| FC_switch_x_1 | FC_switch_x_2 | FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+6.
+ a| 
+-
+ a| 
+6.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+-
+ a| 
+6.
+ a| 
+-
+ a| 
+6.
+
+
+
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+7.
+ a| 
+-
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+-
+ a| 
+7.
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+8.
+ a| 
+-
+ a| 
+12
+ a| 
+-
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+-
+ a| 
+8.
+ a| 
+-
+ a| 
+12
+
+
+
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+9
+ a| 
+-
+ a| 
+13
+ a| 
+-
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+13
+
+
+
+ a| 
+bridge_x_5a
+ a| 
+FC1
+ a| 
+10
+ a| 
+-
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+bridge_x_5b
+ a| 
+FC1
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+14
+
+
+
+ a| 
+bridge_x_6a
+ a| 
+FC1
+ a| 
+11.
+ a| 
+-
+ a| 
+15
+ a| 
+-
+
+
+
+ a| 
+bridge_x_6b.
+ a| 
+FC1
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+15
+
+
+
+ a| 
+bridge_x_7a
+ a| 
+FC1
+ a| 
+12
+ a| 
+-
+ a| 
+16.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_7b
+ a| 
+FC1
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+16.
+
+
+
+ a| 
+bridge_x_8a
+ a| 
+FC1
+ a| 
+13
+ a| 
+-
+ a| 
+17
+ a| 
+-
+
+
+
+ a| 
+bridge_x_8b
+ a| 
+FC1
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+17
+
+
+
+ a| 
+ a| 
+ a| 
+可以使用缆线将其他网桥连接到端口 19 ，然后连接到端口 24 到 47
+ a| 
+可以通过端口 23 为其他网桥布线
+
+|===
+
+
+== 运行 ONTAP 9.0 的双节点 MetroCluster 配置中的 ISL 的 Brocade 端口使用情况
+
+下表显示了 ISL 端口使用情况：
+
+|===
+5+| MetroCluster 双节点配置 
+
+
+.2+| ISL 端口 2+| Brocade 6510 ， DCX 8510-8 2+| Brocade 6505 
+
+
+| FC_switch_x_1 | FC_switch_x_2 | FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+ISL 端口 1
+ a| 
+20
+ a| 
+20
+ a| 
+8.
+ a| 
+8.
+
+
+
+ a| 
+ISL 端口 2
+ a| 
+21
+ a| 
+21
+ a| 
+9
+ a| 
+9
+
+
+
+ a| 
+ISL 端口 3
+ a| 
+22.
+ a| 
+22.
+ a| 
+10
+ a| 
+10
+
+
+
+ a| 
+ISL 端口 4
+ a| 
+23
+ a| 
+23
+ a| 
+11.
+ a| 
+11.
+
+|===
+
+
+== 运行 ONTAP 9.0 的八节点 MetroCluster 配置中控制器的 Cisco 端口使用情况
+
+下表显示了 Cisco 交换机上的控制器端口使用情况：
+
+|===
+4+| MetroCluster 八节点配置 
+
+
+.2+| 组件 .2+| 端口 2+| Cisco 9148 或 9148S 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+controller_x_1
+ a| 
+FC-VI 端口 A
+ a| 
+1.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+1.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+2.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+2.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+3.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+3.
+
+
+
+ a| 
+controller_x_2
+ a| 
+FC-VI 端口 A
+ a| 
+4.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+4.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+5.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+5.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+6.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+6.
+
+
+
+ a| 
+controller_x_3
+ a| 
+FC-VI 端口 A
+ a| 
+7.
+ a| 
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+8.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+8.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+9
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+9
+
+
+
+ a| 
+controller_x_4
+ a| 
+FC-VI 端口 A
+ a| 
+10
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+10
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+11.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+11.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+13
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+13
+
+|===
+
+
+== 运行 ONTAP 9.0 的八节点 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况
+
+下表显示了使用 FibreBridge 7500 网桥时网桥端口使用情况，最多可达端口 23 。可以使用端口 25 到 48 连接其他网桥。
+
+|===
+4+| MetroCluster 八节点配置 
+
+
+.2+| FibreBridge 7500 网桥 .2+| 端口 2+| Cisco 9148 或 9148S 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+14
+ a| 
+14
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+-
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+15
+ a| 
+15
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+-
+
+
+
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+17
+ a| 
+17
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+-
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+18
+ a| 
+18
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+-
+
+
+
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+19
+ a| 
+19
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+-
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+21
+ a| 
+21
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+-
+
+
+
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+22.
+ a| 
+22.
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+-
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+23
+ a| 
+23
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+-
+
+
+
+ a| 
+可以按相同模式使用端口 25 到 48 连接其他网桥。
+
+|===
+下表显示了使用 FibreBridge 6500 网桥时网桥端口使用情况，最多为端口 23 。可以使用端口 25-48 连接其他网桥。
+
+|===
+4+| MetroCluster 八节点 
+
+
+.2+| FibreBridge 6500 网桥 .2+| 端口 2+| Cisco 9148 或 9148S 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+-
+ a| 
+14
+
+
+
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+15
+ a| 
+-
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+-
+ a| 
+15
+
+
+
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+17
+ a| 
+-
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+-
+ a| 
+17
+
+
+
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+18
+ a| 
+-
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+-
+ a| 
+18
+
+
+
+ a| 
+bridge_x_5a
+ a| 
+FC1
+ a| 
+19
+ a| 
+-
+
+
+
+ a| 
+bridge_x_5b
+ a| 
+FC1
+ a| 
+-
+ a| 
+19
+
+
+
+ a| 
+bridge_x_6a
+ a| 
+FC1
+ a| 
+21
+ a| 
+-
+
+
+
+ a| 
+bridge_x_6b.
+ a| 
+FC1
+ a| 
+-
+ a| 
+21
+
+
+
+ a| 
+bridge_x_7a
+ a| 
+FC1
+ a| 
+22.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_7b
+ a| 
+FC1
+ a| 
+-
+ a| 
+22.
+
+
+
+ a| 
+bridge_x_8a
+ a| 
+FC1
+ a| 
+23
+ a| 
+-
+
+
+
+ a| 
+bridge_x_8b
+ a| 
+FC1
+ a| 
+-
+ a| 
+23
+
+
+
+ a| 
+可以按相同模式使用端口 25 到 48 连接其他网桥。
+
+|===
+
+
+== 运行 ONTAP 9.0 的八节点 MetroCluster 配置中 ISL 的 Cisco 端口使用情况
+
+下表显示了 ISL 端口使用情况：
+
+|===
+3+| MetroCluster 八节点配置 
+
+
+.2+| ISL 端口 2+| Cisco 9148 或 9148S 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+ISL 端口 1
+ a| 
+12
+ a| 
+12
+
+
+
+ a| 
+ISL 端口 2
+ a| 
+16.
+ a| 
+16.
+
+
+
+ a| 
+ISL 端口 3
+ a| 
+20
+ a| 
+20
+
+
+
+ a| 
+ISL 端口 4
+ a| 
+24
+ a| 
+24
+
+|===
+
+
+== 四节点 MetroCluster 配置中控制器的 Cisco 端口使用情况
+
+交换机网络结构中的每个 FC 交换机的布线方式相同。
+
+下表显示了 Cisco 交换机上的控制器端口使用情况：
+
+|===
+4+| MetroCluster 四节点配置 
+
+
+.2+| 组件 .2+| 端口 2+| Cisco 9148 ， 9148S 或 9250i 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+controller_x_1
+ a| 
+FC-VI 端口 A
+ a| 
+1.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+1.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+2.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+2.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+3.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+3.
+
+
+
+ a| 
+controller_x_2
+ a| 
+FC-VI 端口 A
+ a| 
+4.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+4.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+5.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+5.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+6.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+6.
+
+|===
+
+
+== 运行 ONTAP 9.0 的四节点 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况
+
+下表显示了使用 FibreBridge 7500 网桥时网桥端口使用情况，最多可达端口 14 。可以按相同模式将其他网桥连接到端口 15 到 32 。
+
+|===
+4+| MetroCluster 四节点配置 
+
+
+.2+| FibreBridge 7500 网桥 .2+| 端口 2+| Cisco 9148 ， 9148S 或 9250i 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+8.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+8.
+
+
+
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+9
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+9
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+10
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+10
+
+
+
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+11.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+11.
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+12
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+12
+
+
+
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+13
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+13
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+14
+
+|===
+下表显示了使用 FibreBridge 6500 网桥到端口 14 时的网桥端口使用情况。可以按相同模式将其他网桥连接到端口 15 到 32 。
+
+|===
+4+| MetroCluster 四节点配置 
+
+
+.2+| FibreBridge 6500 网桥 .2+| 端口 2+| Cisco 9148 ， 9148S 或 9250i 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+8.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+-
+ a| 
+8.
+
+
+
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+9
+ a| 
+-
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+-
+ a| 
+9
+
+
+
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+10
+ a| 
+-
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+-
+ a| 
+10
+
+
+
+ a| 
+bridge_x_5a
+ a| 
+FC1
+ a| 
+11.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_5b
+ a| 
+FC1
+ a| 
+-
+ a| 
+11.
+
+
+
+ a| 
+bridge_x_6a
+ a| 
+FC1
+ a| 
+12
+ a| 
+-
+
+
+
+ a| 
+bridge_x_6b.
+ a| 
+FC1
+ a| 
+-
+ a| 
+12
+
+
+
+ a| 
+bridge_x_7a
+ a| 
+FC1
+ a| 
+13
+ a| 
+-
+
+
+
+ a| 
+bridge_x_7b
+ a| 
+FC1
+ a| 
+-
+ a| 
+13
+
+
+
+ a| 
+bridge_x_8a
+ a| 
+FC1
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+bridge_x_8b
+ a| 
+FC1
+ a| 
+-
+ a| 
+14
+
+
+
+ a| 
+可以按相同模式将其他网桥连接到端口 15 到 32 。
+
+|===
+
+
+== 运行 ONTAP 9.0 的四节点 MetroCluster 配置中用于 ISL 的 Cisco 9148 和 9148S 端口使用情况
+
+交换机网络结构中的每个 FC 交换机的布线方式相同。
+
+下表显示了 ISL 端口使用情况：
+
+|===
+3+| MetroCluster 四节点配置 
+
+
+.2+| ISL 端口 2+| Cisco 9148 或 9148S 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+ISL 端口 1
+ a| 
+36
+ a| 
+36
+
+
+
+ a| 
+ISL 端口 2
+ a| 
+40
+ a| 
+40
+
+
+
+ a| 
+ISL 端口 3
+ a| 
+44
+ a| 
+44
+
+
+
+ a| 
+ISL 端口 4
+ a| 
+48
+ a| 
+48
+
+|===
+
+
+== 运行 ONTAP 9.0 的四节点 MetroCluster 配置中用于 ISL 的 Cisco 9250i 端口使用情况
+
+Cisco 9250i 交换机对 ISL 使用 FCIP 端口。
+
+端口 40 到 48 是 10 GbE 端口，不会在 MetroCluster 配置中使用。
+
+
+
+== 双节点 MetroCluster 配置中控制器的 Cisco 端口使用情况
+
+交换机网络结构中的每个 FC 交换机的布线方式相同。
+
+下表显示了 Cisco 交换机上的控制器端口使用情况：
+
+|===
+4+| MetroCluster 双节点配置 
+
+
+.2+| 组件 .2+| 端口 2+| Cisco 9148 ， 9148S 或 9250i 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+controller_x_1
+ a| 
+FC-VI 端口 A
+ a| 
+1.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+1.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+2.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+2.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+3.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+3.
+
+|===
+
+
+== 运行 ONTAP 9.0 的双节点 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况
+
+下表显示了使用 FibreBridge 7500 网桥时网桥端口使用情况，最多可达端口 14 。可以按相同模式将其他网桥连接到端口 15 到 32 。
+
+|===
+4+| MetroCluster 双节点配置 
+
+
+.2+| FibreBridge 7500 网桥 .2+| 端口 2+| Cisco 9148 ， 9148S 或 9250i 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+8.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+8.
+
+
+
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+9
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+9
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+10
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+10
+
+
+
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+11.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+11.
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+12
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+12
+
+
+
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+13
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+13
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+14
+
+|===
+下表显示了使用 FibreBridge 6500 网桥到端口 14 时的网桥端口使用情况。可以按相同模式将其他网桥连接到端口 15 到 32 。
+
+|===
+4+| MetroCluster 双节点配置 
+
+
+.2+| FibreBridge 6500 网桥 .2+| 端口 | Cisco 9148 ， 9148S 或 9250i |  
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+8.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+-
+ a| 
+8.
+
+
+
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+9
+ a| 
+-
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+-
+ a| 
+9
+
+
+
+ a| 
+bridge_x_4a
+ a| 
+FC1
+ a| 
+10
+ a| 
+-
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+FC1
+ a| 
+-
+ a| 
+10
+
+
+
+ a| 
+bridge_x_5a
+ a| 
+FC1
+ a| 
+11.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_5b
+ a| 
+FC1
+ a| 
+-
+ a| 
+11.
+
+
+
+ a| 
+bridge_x_6a
+ a| 
+FC1
+ a| 
+12
+ a| 
+-
+
+
+
+ a| 
+bridge_x_6b.
+ a| 
+FC1
+ a| 
+-
+ a| 
+12
+
+
+
+ a| 
+bridge_x_7a
+ a| 
+FC1
+ a| 
+13
+ a| 
+-
+
+
+
+ a| 
+bridge_x_7b
+ a| 
+FC1
+ a| 
+-
+ a| 
+13
+
+
+
+ a| 
+bridge_x_8a
+ a| 
+FC1
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+bridge_x_8b
+ a| 
+FC1
+ a| 
+-
+ a| 
+14
+
+
+
+ a| 
+可以按相同模式将其他网桥连接到端口 15 到 32 。
+
+|===
+
+
+== 运行 ONTAP 9.0 的双节点 MetroCluster 配置中用于 ISL 的 Cisco 9148 或 9148S 端口使用情况
+
+交换机网络结构中的每个 FC 交换机的布线方式相同。
+
+下表显示了 ISL 端口使用情况：
+
+|===
+3+| MetroCluster 双节点配置 
+
+
+.2+| ISL 端口 2+| Cisco 9148 或 9148S 
+
+
+| FC_switch_x_1 | FC_switch_x_2 
+
+
+ a| 
+ISL 端口 1
+ a| 
+36
+ a| 
+36
+
+
+
+ a| 
+ISL 端口 2
+ a| 
+40
+ a| 
+40
+
+
+
+ a| 
+ISL 端口 3
+ a| 
+44
+ a| 
+44
+
+
+
+ a| 
+ISL 端口 4
+ a| 
+48
+ a| 
+48
+
+|===
+
+
+== 运行 ONTAP 9.0 的双节点 MetroCluster 配置中用于 ISL 的 Cisco 9250i 端口使用情况
+
+Cisco 9250i 交换机对 ISL 使用 FCIP 端口。
+
+端口 40 到 48 是 10 GbE 端口，不会在 MetroCluster 配置中使用。

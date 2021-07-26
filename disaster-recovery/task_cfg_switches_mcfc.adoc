@@ -1,0 +1,390 @@
+---
+permalink: disaster-recovery/task_cfg_switches_mcfc.html 
+sidebar: sidebar 
+keywords: configure, fc, switches, metrocluster, configuration 
+summary: 如果您更换了灾难站点中的 FC 交换机，则必须使用供应商专用的过程对其进行配置。 
+---
+= 配置 FC 交换机（仅限 MetroCluster FC 配置）
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您更换了灾难站点中的 FC 交换机，则必须使用供应商专用的过程对其进行配置。您必须配置一个交换机，验证运行正常的站点上的存储访问不受影响，然后配置第二个交换机。
+
+link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 9.0 时 FC 交换机的端口分配"]
+
+link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
+
+
+
+=== 在站点灾难后配置 Brocade FC 交换机
+
+[role="lead"]
+您必须使用此 Brocade 专用的操作步骤配置替代交换机并启用 ISL 端口。
+
+此操作步骤中的示例基于以下假设：
+
+* 站点 A 是灾难站点。
+* 已更换 FC_switch_A_1 。
+* 已更换 FC_switch_A_2 。
+* 站点 B 是正常运行的站点。
+* FC_switch_B_1 运行状况良好。
+* FC_switch_B_2 运行状况良好。
+
+
+在为 FC 交换机布线时，您必须验证是否正在使用指定的端口分配：
+
+* link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]
+* link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
+
+
+这些示例显示了两个 FC-SAS 网桥。如果有更多网桥，则必须禁用并随后启用其他端口。
+
+.步骤
+. 启动并预配置新交换机：
++
+.. 启动新交换机并让其启动。
+.. 检查交换机上的固件版本以确认其与其他 FC 交换机的版本匹配：
++
+`固件`
+
+.. 按照以下主题中所述配置新交换机，跳过在交换机上配置分区的步骤。
++
+link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+
++
+link:../install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+
+.. 持久禁用交换机：
++
+`sswitchcfgpersistentdisable`
+
++
+重新启动或快速启动后，交换机将保持禁用状态。如果此命令不可用，则应使用 `sswitch- disable` 命令。
+
++
+以下示例显示了对 BrocadeSwitchA 执行的命令：
+
++
+[listing]
+----
+BrocadeSwitchA:admin> switchcfgpersistentdisable
+----
++
+以下示例显示了对 BrocadeSwitchB 执行的命令：
+
++
+[listing]
+----
+BrocadeSwitchA:admin> switchcfgpersistentdisable
+----
+
+
+. 完成新交换机的配置：
++
+.. 在运行正常的站点上启用 ISL ：
++
+`portcfgpersistentenable port-number`
+
++
+[listing]
+----
+FC_switch_B_1:admin> portcfgpersistentenable 10
+FC_switch_B_1:admin> portcfgpersistentenable 11
+----
+.. 在替代交换机上启用 ISL ：
++
+`portcfgpersistentenable port-number`
+
++
+[listing]
+----
+FC_switch_A_1:admin> portcfgpersistentenable 10
+FC_switch_A_1:admin> portcfgpersistentenable 11
+----
+.. 在替代交换机（在此示例中为 FC_switch_A_1 ）上，验证 ISL 是否联机：
++
+`sswitchshow`
+
++
+[listing]
+----
+FC_switch_A_1:admin> switchshow
+switchName: FC_switch_A_1
+switchType: 71.2
+switchState:Online
+switchMode: Native
+switchRole: Principal
+switchDomain:       4
+switchId:   fffc03
+switchWwn:  10:00:00:05:33:8c:2e:9a
+zoning:             OFF
+switchBeacon:       OFF
+
+Index Port Address Media Speed State  Proto
+==============================================
+...
+10   10    030A00 id   16G     Online  FC E-Port 10:00:00:05:33:86:89:cb "FC_switch_A_1"
+11   11    030B00 id   16G     Online  FC E-Port 10:00:00:05:33:86:89:cb "FC_switch_A_1" (downstream)
+...
+----
+
+
+. 持久启用交换机：
++
+`sswitchcfgpersistentenable`
+
+. 验证端口是否联机：
++
+`sswitchshow`
+
+
+
+
+
+=== 在站点灾难后配置 Cisco FC 交换机
+
+[role="lead"]
+您必须使用 Cisco 专用的操作步骤配置替代交换机并启用 ISL 端口。
+
+此操作步骤中的示例基于以下假设：
+
+* 站点 A 是灾难站点。
+* 已更换 FC_switch_A_1 。
+* 已更换 FC_switch_A_2 。
+* 站点 B 是正常运行的站点。
+* FC_switch_B_1 运行状况良好。
+* FC_switch_B_2 运行状况良好。
+
+
+.步骤
+. 配置交换机：
++
+.. 请参见 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+.. 按照中的步骤配置交换机 link:../install-fc/generaltask_fcsw_cisco_configure_the_cisco_fc_switches_with_rcf_files.html["配置 Cisco FC 交换机"] 第节 " 在 Cisco FC 交换机上配置分区 " 部分的 _except _ ：
++
+分区将在此操作步骤中稍后进行配置。
+
+
+
+. 在运行正常的交换机（在此示例中为 FC_switch_B_1 ）上，启用 ISL 端口。
++
+以下示例显示了用于启用端口的命令：
+
++
+[listing]
+----
+FC_switch_B_1# conf t
+FC_switch_B_1(config)# int fc1/14-15
+FC_switch_B_1(config)# no shut
+FC_switch_B_1(config)# end
+FC_switch_B_1# copy running-config startup-config
+FC_switch_B_1#
+----
+. 使用 show interface brief 命令验证 ISL 端口是否已启动。
+. 从网络结构中检索分区信息。
++
+以下示例显示了用于分发分区配置的命令：
+
++
+[listing]
+----
+FC_switch_B_1(config-zone)# zoneset distribute full vsan 10
+FC_switch_B_1(config-zone)# zoneset distribute full vsan 20
+FC_switch_B_1(config-zone)# end
+----
++
+FC_switch_B_1 将分发到 "vsan 10" 和 "vsan 20" 网络结构中的所有其他交换机，分区信息将从 FC_switch_A_1 中检索。
+
+. 在运行状况良好的交换机上，验证是否已从配对交换机正确检索分区信息：
++
+`s如何分区`
+
++
+[listing]
+----
+FC_switch_B_1# show zone
+zone name FC-VI_Zone_1_10 vsan 10
+  interface fc1/1 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/2 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/1 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/2 swwn 20:00:54:7f:ee:b8:24:c0
+
+zone name STOR_Zone_1_20_25A vsan 20
+  interface fc1/5 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/8 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/9 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/10 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/11 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/8 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/9 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/10 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/11 swwn 20:00:54:7f:ee:b8:24:c0
+
+zone name STOR_Zone_1_20_25B vsan 20
+  interface fc1/8 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/9 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/10 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/11 swwn 20:00:54:7f:ee:e3:86:50
+  interface fc1/5 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/8 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/9 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/10 swwn 20:00:54:7f:ee:b8:24:c0
+  interface fc1/11 swwn 20:00:54:7f:ee:b8:24:c0
+FC_switch_B_1#
+----
+. 确定交换机网络结构中交换机的全球通用名称（ WWN ）。
++
+在此示例中，两个交换机 WWN 如下所示：
+
++
+** FC_switch_A_1 ： 20 ： 00 ： 54 ： 7f ： ee ： B8 ： 24 ： c0
+** FC_switch_B_1 ： 20 ： 00 ： 54 ： 7f ： ee ： c6 ： 80 ： 78
+
+
++
+[listing]
+----
+FC_switch_B_1# show wwn switch
+Switch WWN is 20:00:54:7f:ee:c6:80:78
+FC_switch_B_1#
+
+FC_switch_A_1# show wwn switch
+Switch WWN is 20:00:54:7f:ee:b8:24:c0
+FC_switch_A_1#
+----
+. 进入分区的配置模式，然后删除不属于这两个交换机的交换机 WWN 的分区成员：
++
+--
+`无成员接口 interface-ide swwn WWN`
+
+在此示例中，以下成员不与网络结构中任一交换机的 WWN 关联，必须将其删除：
+
+** 分区名称 FC-VI_Zone_1_10 vsan 10
++
+*** 接口 fc1/1 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50
+*** 接口 fc1/2 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50
+
+
+
+
+
+NOTE: AFF A700 和 FAS9000 系统支持四个 FC-VI 端口。您必须从 FC-VI 区域中删除所有四个端口。
+
+** 分区名称 STOR_Zone_1_20_25 a vsan 20
++
+*** 接口 fc1/5 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50
+*** 接口 fc1/8 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50
+*** 接口 fc1/9 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50
+*** 接口 fc1/10 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50
+*** 接口 fc1/11 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50
+
+
+** 分区名称 STOR_Zone_1_20_25B vSAN 20
++
+*** 接口 fc1/8 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50
+*** 接口 fc1/9 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50
+*** 接口 fc1/10 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50
+*** 接口 fc1/11 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50
+
+
+
+
+以下示例显示了如何删除这些接口：
+
+[listing]
+----
+
+ FC_switch_B_1# conf t
+ FC_switch_B_1(config)# zone name FC-VI_Zone_1_10 vsan 10
+ FC_switch_B_1(config-zone)# no member interface fc1/1 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/2 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# zone name STOR_Zone_1_20_25A vsan 20
+ FC_switch_B_1(config-zone)# no member interface fc1/5 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/8 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/9 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/10 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/11 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# zone name STOR_Zone_1_20_25B vsan 20
+ FC_switch_B_1(config-zone)# no member interface fc1/8 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/9 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/10 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# no member interface fc1/11 swwn 20:00:54:7f:ee:e3:86:50
+ FC_switch_B_1(config-zone)# save running-config startup-config
+ FC_switch_B_1(config-zone)# zoneset distribute full 10
+ FC_switch_B_1(config-zone)# zoneset distribute full 20
+ FC_switch_B_1(config-zone)# end
+ FC_switch_B_1# copy running-config startup-config
+----
+--
+
+
+. 【第 8 步】将新交换机的端口添加到分区中。
++
+以下示例假设替代交换机上的布线与旧交换机上的布线相同：
+
++
+[listing]
+----
+
+ FC_switch_B_1# conf t
+ FC_switch_B_1(config)# zone name FC-VI_Zone_1_10 vsan 10
+ FC_switch_B_1(config-zone)# member interface fc1/1 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/2 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# zone name STOR_Zone_1_20_25A vsan 20
+ FC_switch_B_1(config-zone)# member interface fc1/5 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/8 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/9 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/10 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/11 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# zone name STOR_Zone_1_20_25B vsan 20
+ FC_switch_B_1(config-zone)# member interface fc1/8 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/9 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/10 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# member interface fc1/11 swwn 20:00:54:7f:ee:c6:80:78
+ FC_switch_B_1(config-zone)# save running-config startup-config
+ FC_switch_B_1(config-zone)# zoneset distribute full 10
+ FC_switch_B_1(config-zone)# zoneset distribute full 20
+ FC_switch_B_1(config-zone)# end
+ FC_switch_B_1# copy running-config startup-config
+----
+. 验证是否已正确配置分区： `show zone`
++
+以下示例输出显示了三个分区：
+
++
+[listing]
+----
+
+ FC_switch_B_1# show zone
+   zone name FC-VI_Zone_1_10 vsan 10
+     interface fc1/1 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/2 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/1 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/2 swwn 20:00:54:7f:ee:b8:24:c0
+
+   zone name STOR_Zone_1_20_25A vsan 20
+     interface fc1/5 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/8 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/9 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/10 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/11 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/8 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/9 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/10 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/11 swwn 20:00:54:7f:ee:b8:24:c0
+
+   zone name STOR_Zone_1_20_25B vsan 20
+     interface fc1/8 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/9 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/10 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/11 swwn 20:00:54:7f:ee:c6:80:78
+     interface fc1/5 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/8 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/9 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/10 swwn 20:00:54:7f:ee:b8:24:c0
+     interface fc1/11 swwn 20:00:54:7f:ee:b8:24:c0
+ FC_switch_B_1#
+----
+

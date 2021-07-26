@@ -1,0 +1,131 @@
+---
+permalink: install-stretch/reference_where_to_find_additional_information_icg.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, additional, information 
+summary: 您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作的更多信息。 
+---
+= 从何处查找追加信息
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作的更多信息。
+
+
+
+== MetroCluster 和其他指南
+
+|===
+
+
+| 指南 | 内容 
+
+
+ a| 
+https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"]
+ a| 
+* 所有 MetroCluster 指南
+
+
+
+
+ a| 
+ a| 
+* MetroCluster FC 配置和操作的技术概述。
+* MetroCluster FC 配置的最佳实践。
+
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+ a| 
+* 光纤连接的 MetroCluster 架构
+* 为配置布线
+* 配置 FC-SAS 网桥
+* 配置 FC 交换机
+* 在 ONTAP 中配置 MetroCluster
+
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/index.html["MetroCluster IP 安装和配置"]
+ a| 
+* MetroCluster IP 架构
+* 为配置布线
+* 在 ONTAP 中配置 MetroCluster
+
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster 管理和灾难恢复"]
+ a| 
+* 了解 MetroCluster 配置
+* 切换，修复和切回
+* 灾难恢复
+
+
+
+
+ a| 
+link:../maintain/index.html["维护 MetroCluster 组件"]
+ a| 
+* MetroCluster FC 配置维护准则
+* FC-SAS 网桥和 FC 交换机的硬件更换或升级以及固件升级过程
+* 在光纤连接或延伸型 MetroCluster FC 配置中热添加磁盘架
+* 在光纤连接或延伸型 MetroCluster FC 配置中热移除磁盘架
+* 在光纤连接或延伸型 MetroCluster FC 配置中更换灾难站点上的硬件
+* 将双节点光纤连接或延伸型 MetroCluster FC 配置扩展为四节点 MetroCluster 配置。
+* 将四节点光纤连接或延伸型 MetroCluster FC 配置扩展为八节点 MetroCluster FC 配置。
+
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-metrocluster/transition/index.html["《 MetroCluster 过渡指南》"]
+
+https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/index.html["《 MetroCluster 升级和扩展指南》"]
+ a| 
+* 升级或刷新 MetroCluster 配置
+* 从 MetroCluster FC 配置过渡到 MetroCluster IP 配置
+* 通过添加其他节点扩展 MetroCluster 配置
+
+
+
+
+ a| 
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/home.html["《 MetroCluster Tiebreaker 软件安装和配置指南》"]
+ a| 
+* 使用 MetroCluster Tiebreaker 软件监控 MetroCluster 配置
+
+
+
+
+ a| 
+Active IQ Unified Manager 文档
+
+https://www.netapp.com/support-and-training/documentation/["NetApp 文档：产品指南和资源"]
+ a| 
+* 监控 MetroCluster 配置和性能
+
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["基于副本的过渡"]
+ a| 
+* 将数据从 7- 模式存储系统过渡到集群模式存储系统
+
+
+
+
+ a| 
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"]
+ a| 
+* 镜像聚合的工作原理
+
+
+|===

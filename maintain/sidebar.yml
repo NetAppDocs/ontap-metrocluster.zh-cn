@@ -1,0 +1,125 @@
+---
+section: maintain
+title: 维护 MetroCluster 组件
+entries:
+- title: 确定是否使用《 MetroCluster 维护指南》
+  url: "/maintain/concept_deciding_whether_to_use_this_guide_mcc_service_guide.html"
+- title: 从何处查找 MetroCluster 维护任务的过程
+  url: "/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html"
+- title: MetroCluster 故障和恢复场景
+  url: "/maintain/reference_mcc_failure_scenarios.html"
+- title: 执行 FC-SAS 网桥维护
+  url: "/maintain/concept_performing_fc_to_sas_bridge_maintenance.html"
+  entries:
+  - title: 支持 MetroCluster 配置中的 FibreBridge 7600N 网桥
+    url: "/maintain/concept_using_fibrebridge_7600n_bridges_in_mcc_configurations.html"
+  - title: 支持 MetroCluster 配置中的 FibreBridge 7500N 网桥
+    url: "/maintain/concept_using_fibrebridge_7500n_bridges_in_mcc_configurations.html"
+  - title: 如有必要，在 FibreBridge 7600N 网桥上启用 IP 端口访问
+    url: "/maintain/task_enable_ip_port_access_on_the_fibrebridge_7600n_bridge_guides.html"
+  - title: 更新 FibreBridge 网桥上的固件
+    url: "/maintain/task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html"
+  - title: 更换单个 FC-SAS 网桥
+    url: "/maintain/task_replace_a_sle_fc_to_sas_bridge.html"
+  - title: 将一对 FibreBridge 6500N 网桥更换为 7600N 或 7500N 网桥
+    url: "/maintain/task_fb_consolidate_replace_a_pair_of_fibrebridge_6500n_bridges_with_7500n_bridges.html"
+  - title: 使用其他接口配置和管理 FibreBridge 网桥的要求
+    url: "/maintain/reference_requirements_for_using_other_interfaces_to_configure_and_manage_fibrebridge_bridges.html"
+  - title: 热更换发生故障的电源模块
+    url: "/maintain/reference_fb_replace_a_power_supply.html"
+  - title: FC-SAS 网桥的带内管理
+    url: "/maintain/concept_in_band_management_of_the_fc_to_sas_bridges.html"
+  - title: 固定或取消固定 FibreBridge 网桥
+    url: "/maintain/task_secur_or_unsecur_a_fibrebridge_bridge.html"
+- title: 执行 FC 交换机维护和更换
+  url: "/maintain/concept_performing_fc_switch_maintenance.html"
+  entries:
+  - title: 升级或降级 Brocade FC 交换机上的固件
+    url: "/maintain/task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html"
+  - title: 升级或降级 Cisco FC 交换机上的固件
+    url: "/maintain/task_upgrade_or_downgrad_the_firmware_on_a_cisco_fc_switch_mcc.html"
+  - title: 升级到新的 Brocade FC 交换机
+    url: "/maintain/task_upgrade_to_new_brocade_switches.html"
+  - title: 更换 Brocade FC 交换机
+    url: "/maintain/task_replace_a_brocade_fc_switch_mcc.html"
+  - title: 重命名 Brocade FC 交换机
+    url: "/maintain/task_rename_a_brocade_fc_switch.html"
+  - title: 在 Brocade FC 交换机上禁用加密
+    url: "/maintain/task_disable_encryption_on_brocade_fc_switches.html"
+  - title: 更改 Brocade 交换机上的 ISL 属性， ISL 端口或 IOD/OOD 配置
+    url: "/maintain/task_change_isl_properties_isl_ports_or_the_iod_ood_configuration_on_a_brocade_switch.html"
+  - title: 更换 Cisco FC 交换机
+    url: "/maintain/task_replace_a_cisco_fc_switch_mcc.html"
+  - title: 更改 Cisco FC 交换机上 ISL 端口的速度
+    url: "/maintain/task_change_speed_of_isl_ports_on_a_cisco_fc_switch.html"
+  - title: 将 LSLs 添加到 Cisco 交换机
+    url: "/maintain/task_add_lsls_to_a_cisco_fc_switch.html"
+- title: 执行 IP 交换机维护和更换
+  url: "/maintain/concept_performing_ip_switch_maintenance.html"
+  entries:
+  - title: 更换 IP 交换机
+    url: "/maintain/task_replace_an_ip_switch.html"
+  - title: 升级 MetroCluster IP 交换机上的固件
+    url: "/maintain/task_upgrade_firmware_on_mcc_ip_switches.html"
+  - title: 升级 MetroCluster IP 交换机上的 RCF 文件
+    url: "/maintain/task_upgrade_rcf_files_on_mcc_ip_switches.html"
+  - title: 重命名 Cisco IP 交换机
+    url: "/maintain/task_rename_a_cisco_ip_switch.html"
+- title: 无中断地添加，删除或更改 ISL 端口
+  url: "/maintain/task_add_remove_or_change_isl_ports_nondisruptively.html"
+- title: 确定 MetroCluster IP 配置中的存储
+  url: "/maintain/concept_identifying_storage_in_a_mcc_ip_configuration.html"
+- title: 将存储热添加到 MetroCluster FC 配置
+  url: "/maintain/task_hot_add_storage_to_a_mcc_fc_configuration_container_topic.html"
+  entries:
+  - title: 使用 SAS 光缆在直连 MetroCluster FC 配置中热添加 SAS 磁盘架
+    url: "/maintain/task_hot_add_a_sas_disk_shelf_in_a_direct_attached_mcc_configuration_us_sas_optical_cables.html"
+  - title: 将 SAS 存储热添加到网桥连接的 MetroCluster FC 配置
+    url: "/maintain/concept_atto_mc_hot_adding_storage_shelves_to_a_bridge_attached_mcc_configuration.html"
+    entries:
+    - title: 将 SAS 磁盘架堆栈热添加到一对现有 FibreBridge 7500N 网桥中
+      url: "/maintain/task_hot_add_a_stack_to_exist_7500n_pair.html"
+    - title: 将 SAS 磁盘架和网桥堆栈热添加到 MetroCluster 系统
+      url: "/maintain/task_fb_hot_add_stack_of_shelves_and_bridges.html"
+    - title: 将 SAS 磁盘架热添加到 SAS 磁盘架堆栈
+      url: "/maintain/task_fb_hot_add_shelf.html"
+      entries:
+      - title: 准备热添加 SAS 磁盘架
+        url: "/maintain/task_fb_hot_add_shelf_prepare_7500n.html"
+      - title: 热添加磁盘架
+        url: "/maintain/task_fb_hot_add_a_disk_shelf_install_7500n.html"
+    - title: 在桥接 MetroCluster 配置中将 IOM12 磁盘架热添加到 IOM6 磁盘架堆栈
+      url: "/maintain/task_hot_add_an_iom12_disk_shelf_to_a_stack_of_iom6_disk_shelves.html"
+- title: 从 MetroCluster FC 配置中热删除存储
+  url: "/maintain/task_hot_remove_storage_from_a_mcc_fc_configuration.html"
+- title: 在延伸型 MetroCluster 配置中无中断更换磁盘架
+  url: "/maintain/task_replace_a_shelf_nondisruptively_in_a_stretch_mcc_configuration.html"
+- title: 在光纤连接 MetroCluster 配置中无中断更换磁盘架
+  url: "/maintain/task_replace_a_shelf_nondisruptively_in_a_mcc_fc_configuration.html"
+- title: 何时将根卷迁移到新目标
+  url: "/maintain/concept_migrating_root_volumes_to_a_new_destination.html"
+- title: 在 MetroCluster 配置中移动元数据卷
+  url: "/maintain/task_move_a_metadata_volume_in_mcc_configurations.html"
+- title: 在 MetroCluster 配置中重命名集群
+  url: "/maintain/task_rename_the_cluster_for_mcc_configuration.html"
+- title: 关闭和启动数据中心
+  url: "/maintain/task_power_on_and_power_off_a_data_center.html"
+- title: 关闭整个 MetroCluster IP 配置
+  url: "/maintain/task_power_off_an_entire_mcc_ip_configuration.html"
+- title: 关闭整个 MetroCluster FC 配置
+  url: "/maintain/task_power_off_an_entire_mcc_fc_configuration.html"
+- title: 重新配置在 ONTAP 9.x 之前配置的 FC 交换机布局
+  url: "/maintain/task_do_not_use_for_9_8_and_later_reconfigure_the_fc_switch_layout_for_ontap_9_1_or_later.html"
+- title: FC 交换机的端口分配
+  url: "/maintain/concept_port_assignments_for_fc_switches_parent_topic.html"
+  entries:
+  - title: 使用两个启动程序端口的系统的端口分配
+    url: "/maintain/concept_port_assignments_for_systems_using_two_initiator_ports.html"
+  - title: 使用 ONTAP 9.0 时 FC 交换机的端口分配
+    url: "/maintain/concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html"
+  - title: 使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配
+    url: "/maintain/concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html"
+- title: 使用互操作性表工具查找 MetroCluster 信息
+  url: "/maintain/concept_using_the_interoperability_matrix_tool_to_find_mcc_information.html"
+- title: 从何处查找追加信息
+  url: "/maintain/reference_where_to_find_additional_information_mcc_service_guide.html"

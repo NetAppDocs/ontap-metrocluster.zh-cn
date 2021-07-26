@@ -1,0 +1,865 @@
+---
+permalink: install-ip/task_switch_config_cisco.html 
+sidebar: sidebar 
+keywords: ip, switch, configuring, configure, factory defaults, cisco, MACsec encryption, 9336C, 9336, forward error correction, fec 
+summary: 您必须将 Cisco IP 交换机配置为用作集群互连以及用于后端 MetroCluster IP 连接。 
+---
+= 配置 Cisco IP 交换机
+
+
+[role="lead"]
+您必须将 Cisco IP 交换机配置为用作集群互连以及用于后端 MetroCluster IP 连接。
+
+
+
+== 将 Cisco IP 交换机重置为出厂默认值
+
+[role="lead"]
+在安装新软件版本和 RCF 之前，必须擦除 Cisco 交换机配置并执行基本配置。
+
+您必须对 MetroCluster IP 配置中的每个 IP 交换机重复这些步骤。
+
+. 将交换机重置为出厂默认设置：
++
+.. 擦除现有配置： `write erase`
+.. 重新加载交换机软件： `reload`
++
+系统将重新启动并进入配置向导。在启动期间，如果您收到提示 Abort Auto Provisioning and continue with normal setup ？（ yes/no ） [n] ，则应回答 `yes` 以继续。
+
+.. 在配置向导中，输入基本交换机设置：
++
+*** 管理员密码
+*** 交换机名称
+*** 带外管理配置
+*** 默认网关
+*** SSH 服务（ RSA ）完成配置向导后，交换机将重新启动。
+
+
+.. 出现提示时，输入用户名和密码以登录到交换机。
++
+以下示例显示了配置交换机时的提示和系统响应。尖括号（` <<<` ）显示信息的输入位置。
+
++
+[listing]
+----
+---- System Admin Account Setup ----
+Do you want to enforce secure password standard (yes/no) [y]:y  **<<<**
+
+    Enter the password for "admin": password
+  Confirm the password for "admin": password
+         ---- Basic System Configuration Dialog VDC: 1 ----
+
+This setup utility will guide you through the basic configuration of
+the system. Setup configures only enough connectivity for management
+of the system.
+
+Please register Cisco Nexus3000 Family devices promptly with your
+supplier. Failure to register may affect response times for initial
+service calls. Nexus3000 devices must be registered to receive
+entitled support services.
+
+Press Enter at anytime to skip a dialog. Use ctrl-c at anytime
+to skip the remaining dialogs.
+----
++
+您可以在下一组提示中输入基本信息，包括交换机名称，管理地址和网关，然后选择 SSH with RSA 。
+
++
+[listing]
+----
+Would you like to enter the basic configuration dialog (yes/no): yes
+  Create another login account (yes/no) [n]:
+  Configure read-only SNMP community string (yes/no) [n]:
+  Configure read-write SNMP community string (yes/no) [n]:
+  Enter the switch name : switch-name **<<<**
+  Continue with Out-of-band (mgmt0) management configuration? (yes/no) [y]:
+    Mgmt0 IPv4 address : management-IP-address  **<<<**
+    Mgmt0 IPv4 netmask : management-IP-netmask  **<<<**
+  Configure the default gateway? (yes/no) [y]: y **<<<**
+    IPv4 address of the default gateway : gateway-IP-address  **<<<**
+  Configure advanced IP options? (yes/no) [n]:
+  Enable the telnet service? (yes/no) [n]:
+  Enable the ssh service? (yes/no) [y]: y  **<<<**
+    Type of ssh key you would like to generate (dsa/rsa) [rsa]: rsa **<<<**
+    Number of rsa key bits <1024-2048> [1024]:
+  Configure the ntp server? (yes/no) [n]:
+  Configure default interface layer (L3/L2) [L2]:
+  Configure default switchport interface state (shut/noshut) [noshut]: shut **<<<**
+  Configure CoPP system profile (strict/moderate/lenient/dense) [strict]:
+----
++
+最后一组提示将完成配置：
+
++
+[listing]
+----
+The following configuration will be applied:
+  password strength-check
+  switchname IP_switch_A_1
+vrf context management
+ip route 0.0.0.0/0 10.10.99.1
+exit
+  no feature telnet
+  ssh key rsa 1024 force
+  feature ssh
+  system default switchport
+  system default switchport shutdown
+  copp profile strict
+interface mgmt0
+ip address 10.10.99.10 255.255.255.0
+no shutdown
+
+Would you like to edit the configuration? (yes/no) [n]:
+
+Use this configuration and save it? (yes/no) [y]:
+2017 Jun 13 21:24:43 A1 %$ VDC-1 %$ %COPP-2-COPP_POLICY: Control-Plane is protected with policy copp-system-p-policy-strict.
+
+[########################################] 100%
+Copy complete.
+
+User Access Verification
+IP_switch_A_1 login: admin
+Password:
+Cisco Nexus Operating System (NX-OS) Software
+.
+.
+.
+IP_switch_A_1#
+----
+
+
+. 保存配置：
++
+[listing]
+----
+ IP_switch-A-1# copy running-config startup-config
+----
+. 重新启动交换机并等待交换机重新加载：
++
+[listing]
+----
+ IP_switch-A-1# reload
+----
+. 对 MetroCluster IP 配置中的其他三台交换机重复上述步骤。
+
+
+
+
+== 下载并安装 Cisco 交换机 NX-OS 软件
+
+[role="lead"]
+您必须将交换机操作系统文件和 RCF 文件下载到 MetroCluster IP 配置中的每个交换机。
+
+此任务需要使用文件传输软件，例如 FTP ， TFTP ， SFTP 或 SCP ， 将文件复制到交换机。
+
+必须对 MetroCluster IP 配置中的每个 IP 交换机重复执行这些步骤。
+
+您必须使用支持的交换机软件版本。
+
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+. 下载支持的 NX-OS 软件文件。
++
+https://software.cisco.com/download/home["Cisco 软件下载"]
+
+. 将交换机软件复制到交换机： ` +copy sftp ： //root@server-IP-address/tftpboot/NX-OS-file-name bootflash ： vRF management+`
++
+在此示例中， nxos.7.0.3.I4.6.bin 文件将从 SFTP 服务器 10.10.99.99 复制到本地 bootflash ：
+
++
+[listing]
+----
+IP_switch_A_1# copy sftp://root@10.10.99.99/tftpboot/nxos.7.0.3.I4.6.bin bootflash: vrf management
+root@10.10.99.99's password: password
+sftp> progress
+Progress meter enabled
+sftp> get   /tftpboot/nxos.7.0.3.I4.6.bin  /bootflash/nxos.7.0.3.I4.6.bin
+Fetching /tftpboot/nxos.7.0.3.I4.6.bin to /bootflash/nxos.7.0.3.I4.6.bin
+/tftpboot/nxos.7.0.3.I4.6.bin                 100%  666MB   7.2MB/s   01:32
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+----
+. 在每个交换机上验证交换机 NX-OS 文件是否位于每个交换机的 bootflash 目录中： `dir bootflash ：`
++
+以下示例显示文件位于 ip_switch_A_1 上：
+
++
+[listing]
+----
+IP_switch_A_1# dir bootflash:
+                  .
+                  .
+                  .
+  698629632    Jun 13 21:37:44 2017  nxos.7.0.3.I4.6.bin
+                  .
+                  .
+                  .
+
+Usage for bootflash://sup-local
+ 1779363840 bytes used
+13238841344 bytes free
+15018205184 bytes total
+IP_switch_A_1#
+----
+. 安装交换机软件： `install all nxos bootflash ： nxos.version-number.bin`
++
+安装交换机软件后，交换机将自动重新加载（重新启动）。
+
++
+以下示例显示了 IP_switch_A_1 上的软件安装：
+
++
+[listing]
+----
+IP_switch_A_1# install all nxos bootflash:nxos.7.0.3.I4.6.bin
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+
+Verifying image bootflash:/nxos.7.0.3.I4.6.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos.7.0.3.I4.6.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos.7.0.3.I4.6.bin.
+[####################] 100% -- SUCCESS       [####################] 100%            -- SUCCESS
+
+Performing module support checks.            [####################] 100%            -- SUCCESS
+
+Notifying services about system upgrade.     [####################] 100%            -- SUCCESS
+
+
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes      disruptive         reset  default upgrade is not hitless
+
+
+
+Images will be upgraded according to following table:
+Module       Image   Running-Version(pri:alt)         New-Version   Upg-Required
+------  ----------   ------------------------  ------------------   ------------
+     1        nxos                7.0(3)I4(1)         7.0(3)I4(6)   yes
+     1        bios         v04.24(04/21/2016)  v04.24(04/21/2016)   no
+
+
+Switch will be reloaded for disruptive upgrade.
+Do you want to continue with the installation (y/n)?  [n] y
+
+
+Install is in progress, please wait.
+
+Performing runtime checks.         [####################] 100%    -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+IP_switch_A_1#
+----
+. 等待交换机重新加载，然后登录到交换机。
++
+交换机重新启动后，将显示登录提示：
+
++
+[listing]
+----
+User Access Verification
+IP_switch_A_1 login: admin
+Password:
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2017, Cisco and/or its affiliates.
+All rights reserved.
+.
+.
+.
+MDP database restore in progress.
+IP_switch_A_1#
+
+The switch software is now installed.
+----
+. 验证是否已安装交换机软件： `show version`
++
+以下示例显示了输出：
+
++
+[listing]
+----
+IP_switch_A_1# show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2017, Cisco and/or its affiliates.
+All rights reserved.
+.
+.
+.
+
+Software
+  BIOS: version 04.24
+  NXOS: version 7.0(3)I4(6)   **<<< switch software version**
+  BIOS compile time:  04/21/2016
+  NXOS image file is: bootflash:///nxos.7.0.3.I4.6.bin
+  NXOS compile time:  3/9/2017 22:00:00 [03/10/2017 07:05:18]
+
+
+Hardware
+  cisco Nexus 3132QV Chassis
+  Intel(R) Core(TM) i3- CPU @ 2.50GHz with 16401416 kB of memory.
+  Processor Board ID FOC20123GPS
+
+  Device name: A1
+  bootflash:   14900224 kB
+  usb1:               0 kB (expansion flash)
+
+Kernel uptime is 0 day(s), 0 hour(s), 1 minute(s), 49 second(s)
+
+Last reset at 403451 usecs after  Mon Jun 10 21:43:52 2017
+
+  Reason: Reset due to upgrade
+  System version: 7.0(3)I4(1)
+  Service:
+
+plugin
+  Core Plugin, Ethernet Plugin
+IP_switch_A_1#
+----
+. 对 MetroCluster IP 配置中的其余三个 IP 交换机重复上述步骤。
+
+
+
+
+== 下载并安装 Cisco IP RCF 文件
+
+[role="lead"]
+您必须将 RCF 文件下载到 MetroCluster IP 配置中的每个交换机。
+
+此任务需要使用文件传输软件，例如 FTP ， TFTP ， SFTP 或 SCP ， 将文件复制到交换机。
+
+必须对 MetroCluster IP 配置中的每个 IP 交换机重复执行这些步骤。
+
+您必须使用支持的交换机软件版本。
+
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+有四个 RCF 文件， MetroCluster IP 配置中的四个交换机中的每个交换机一个。您必须为所使用的交换机型号使用正确的 RCF 文件。
+
+|===
+| 交换机 | RCF 文件 
+
+
+ a| 
+IP_switch_A_1
+ a| 
+NX3232_v1.80_Switch-A1.txt
+
+
+
+ a| 
+IP_switch_A_2
+ a| 
+NX3232_v1.80_Switch-A2.txt
+
+
+
+ a| 
+IP_switch_B_1
+ a| 
+NX3232_v1.80_Switch-B1.txt
+
+
+
+ a| 
+IP_switch_B_2
+ a| 
+NX3232_v1.80_Switch-B2.txt
+
+|===
+. 从下载 MetroCluster IP RCF 文件 https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["MetroCluster RCF 下载页面"]。
+. 将 RCF 文件复制到交换机：
++
+.. 将 RCF 文件复制到第一个交换机： ` +copy sftp ： //root@ftp-server-IP-address/tftpboot/switch-specific — rCF bootflash ： vrf management+`
++
+在此示例中， NX3232_v1.80_Switch-A1.txt RCF 文件将从位于 10.10.99.99 的 SFTP 服务器复制到本地 bootflash 。您必须使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 文件的文件名。
+
++
+[listing]
+----
+IP_switch_A_1# copy sftp://root@10.10.99.99/tftpboot/NX3232_v1.80_Switch-A1.txt bootflash: vrf management
+root@10.10.99.99's password: password
+sftp> progress
+Progress meter enabled
+sftp> get   /tftpboot/NX3232_v1.80_Switch-A1.txt /bootflash/NX3232_v1.80_Switch-A1.txt
+Fetching /tftpboot/NX3232_v1.80_Switch-A1.txt to /bootflash/NX3232_v1.80_Switch-A1.txt
+/tftpboot/NX3232_v1.80_Switch-A1.txt          100% 5141     5.0KB/s   00:00
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+IP_switch_A_1#
+----
+.. 对其他三个交换机中的每一个交换机重复上述子步骤，确保将匹配的 RCF 文件复制到相应的交换机。
+
+
+. 在每个交换机上验证 RCF 文件是否位于每个交换机的 bootflash 目录中： `dir bootflash ：`
++
+以下示例显示文件位于 ip_switch_A_1 上：
+
++
+[listing]
+----
+IP_switch_A_1# dir bootflash:
+                  .
+                  .
+                  .
+       5514    Jun 13 22:09:05 2017  NX3232_v1.80_Switch-A1.txt
+                  .
+                  .
+                  .
+
+Usage for bootflash://sup-local
+ 1779363840 bytes used
+13238841344 bytes free
+15018205184 bytes total
+IP_switch_A_1#
+----
+. 将匹配的 RCF 文件从本地 bootflash 复制到每个交换机上的运行配置： `copy bootflash ： switch-specific-RCF.txt running-config`
+. 将 RCF 文件从正在运行的配置复制到每个交换机上的启动配置： `copy running-config startup-config`
++
+您应看到类似于以下内容的输出：
+
++
+[listing]
+----
+IP_switch_A_1# copy bootflash:NX3232_v1.80_Switch-A1.txt running-config
+IP_switch-A-1# copy running-config startup-config
+----
+. 重新加载交换机： `reload`
++
+[listing]
+----
+IP_switch_A_1# reload
+----
+. 对 MetroCluster IP 配置中的其他三台交换机重复上述步骤。
+
+
+
+
+== 在 Cisco 9336C 交换机上配置 MACsec 加密
+
+[role="lead"]
+您只能在站点之间运行的 WAN ISL 端口上配置 MACsec 加密。在应用正确的 RCF 文件后，您必须配置 MACsec 。
+
+
+
+=== MAC 的许可要求
+
+MACsec 需要安全许可证。有关 Cisco NX-OS 许可方案以及如何获取和申请许可证的完整说明，请参见 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/nx-os/licensing/guide/b_Cisco_NX-OS_Licensing_Guide/b_Cisco_NX-OS_Licensing_Guide_chapter_01.html["《 Cisco NX-OS 许可指南》"]
+
+
+
+=== 在 MetroCluster IP 配置中启用 Cisco MACsec 加密 WAN ISL
+
+[role="lead"]
+您可以在 MetroCluster IP 配置中为 WAN ISL 上的 Cisco 9336C 交换机启用 MACsec 加密。
+
+. 进入全局配置模式： `configure terminal`
++
+[listing]
+----
+IP_switch_A_1# configure terminal
+IP_switch_A_1(config)#
+----
+. 在设备上启用 MACsec 和 MKA ： `feature MACsec`
++
+[listing]
+----
+IP_switch_A_1(config)# feature macsec
+----
+. 将运行配置复制到启动配置： `copy running-config startup-config`
++
+[listing]
+----
+IP_switch_A_1(config)# copy running-config startup-config
+----
+
+
+
+
+=== 在 MetroCluster IP 配置中禁用 Cisco MACsec 加密 WAN ISL
+
+[role="lead"]
+在 MetroCluster IP 配置中，您可能需要对 WAN ISL 上的 Cisco 9336C 交换机禁用 MACsec 加密。
+
+. 进入全局配置模式： `configure terminal`
++
+[listing]
+----
+IP_switch_A_1# configure terminal
+IP_switch_A_1(config)#
+----
+. 在设备上禁用 MACsec 配置： `mAcSEC shutdown`
++
+[listing]
+----
+IP_switch_A_1(config)# macsec shutdown
+----
++
+
+NOTE: 选择 no 选项将还原 MACsec 功能。
+
+. 选择已配置 MAC 的接口。
++
+您可以指定接口类型和标识。对于以太网端口，请使用以太网插槽 / 端口。
+
++
+[listing]
+----
+IP_switch_A_1(config)# interface ethernet 1/15
+switch(config-if)#
+----
+. 删除接口上配置的密钥链，策略和回退密钥链以删除 MACsec 配置： `no MACsec keychain keychain-name policy policy-name backfally-keychain keychain-name`
++
+[listing]
+----
+IP_switch_A_1(config-if)# no macsec keychain kc2 policy abc fallback-keychain fb_kc2
+----
+. 对配置了 MACsec 的所有接口重复步骤 3 和 4 。
+. 将运行配置复制到启动配置： `copy running-config startup-config`
++
+[listing]
+----
+IP_switch_A_1(config)# copy running-config startup-config
+----
+
+
+
+
+=== 配置 MACsec 密钥链和密钥
+
+[role="lead"]
+您可以在配置上创建一个或多个 MACsec 密钥链。
+
+* 密钥生命周期和无结果密钥滚动 *
+
+一个 MACsec 密钥链可以具有多个预共享密钥（ PSK ），每个密钥都配置有一个密钥 ID 和一个可选的生命周期。密钥生命周期用于指定密钥激活和到期的时间。如果没有生命周期配置，则默认生命周期为无限制。如果配置了生命周期，则在生命周期到期后， MKA 将转至密钥链中的下一个已配置的预共享密钥。密钥的时区可以是本地或 UTC 。默认时区为 UTC 。如果配置第二个密钥（在密钥链中）并为第一个密钥配置有效期，则密钥可以滚动到同一个密钥链中的第二个密钥。当第一个密钥的生命周期到期时，它会自动滚动到列表中的下一个密钥。如果在链路两端同时配置了同一个密钥，则密钥滚动将无中断（即，密钥在不中断流量的情况下进行回滚）。
+
+* 回退密钥 *
+
+由于密钥 / 密钥名称（ CKN ）不匹配或交换机与对等方之间的密钥持续时间有限， MACsec 会话可能会失败。如果 MAC 秒会话失败，则如果配置了回退密钥，则回退会话可以接管。回退会话可防止因主会话故障而导致停机，并允许用户有时间修复导致故障的密钥问题描述。如果主会话无法启动，回退密钥还会提供备份会话。此功能为可选功能。
+
+. 进入全局配置模式： `configure terminal`
++
+[listing]
+----
+IP_switch_A_1# configure terminal
+IP_switch_A_1(config)#
+----
+. 要隐藏加密的密钥八位字节字符串，请将 show running-config 和 show startup-config 命令输出中的字符串替换为通配符：
++
+[listing]
+----
+IP_switch_A_1(config)# key-chain macsec-psk no-show
+----
++
+注意
+
++
+将配置保存到文件时，八位组字符串也会隐藏。
+
++
+默认情况下， psk 密钥以加密格式显示，并且可以轻松解密。此命令仅适用于 MACsec 密钥链。
+
+. 创建一个 MACsec 密钥链以存放一组 MACsec 密钥并进入 MACsec 密钥链配置模式： `key chain name MACsec`
++
+[listing]
+----
+IP_switch_A_1(config)# key chain 1 macsec
+IP_switch_A_1(config-macseckeychain)#
+----
+. 创建一个 MACsec 密钥并进入 MACsec 密钥配置模式： `key key-id`
++
+此范围为 1 到 32 个十六进制数字键字符串，最大大小为 64 个字符。
+
++
+[listing]
+----
+IP_switch_A_1 switch(config-macseckeychain)# key 1000
+IP_switch_A_1 (config-macseckeychain-macseckey)#
+----
+. 配置密钥的八位字节字符串： `key-octet-string octet-string code-string code-oremorm AES_128_CMAC _ AES_256_CMAC`
++
+[listing]
+----
+IP_switch_A_1(config-macseckeychain-macseckey)# key-octet-string abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789
+cryptographic-algorithm AES_256_CMAC
+----
++
+
+NOTE: 八位字节字符串参数最多可包含 64 个十六进制字符。八位字节密钥在内部进行编码，因此明文中的密钥不会显示在 running-config MACsec 命令的输出中。
+
+. 配置密钥的发送生命周期（以秒为单位）： `sEnd-lifetime start-time duration`
++
+[listing]
+----
+IP_switch_A_1(config-macseckeychain-macseckey)# send-lifetime 00:00:00 Oct 04 2020 duration 100000
+----
++
+默认情况下，设备会将开始时间视为 UTC 。start-time 参数是密钥生效的日期和日期时间。duration 参数是指以秒为单位的生命周期长度。最大长度为 2147483646 秒（约为 68 年）。
+
+. 将运行配置复制到启动配置： `copy running-config startup-config`
++
+[listing]
+----
+IP_switch_A_1(config)# copy running-config startup-config
+----
+. 显示密钥链配置： `show keychain name`
++
+[listing]
+----
+IP_switch_A_1(config-macseckeychain-macseckey)# show key chain 1
+----
+
+
+
+
+=== 配置 MAC 秒策略
+
+. 进入全局配置模式： `configure terminal`
++
+[listing]
+----
+IP_switch_A_1# configure terminal
+IP_switch_A_1(config)#
+----
+. 创建一个 MACsec 策略： `mAcSEC policy name`
++
+[listing]
+----
+IP_switch_A_1(config)# macsec policy abc
+IP_switch_A_1(config-macsec-policy)#
+----
+. 配置以下密码之一 GCM-AES-128 ， GCM-AES-256 ， GCM-AES-XPN-128 或 GCM-AES-XPN-256 ： `ciphere-suite name`
++
+[listing]
+----
+IP_switch_A_1(config-macsec-policy)# cipher-suite GCM-AES-256
+----
+. 配置密钥服务器优先级以在密钥交换期间中断对等方之间的关系： `key-server-priority number`
++
+[listing]
+----
+switch(config-macsec-policy)# key-server-priority 0
+----
+. 配置安全策略以定义数据和控制数据包的处理方式： `secury-policy security policy`
++
+从以下选项中选择一个安全策略：
+
++
+** must secure —未传输 MAC 秒标头的数据包将被丢弃
+** should secure —允许未传输 MAC 秒标头的数据包（这是默认值）
+
+
++
+[listing]
+----
+IP_switch_A_1(config-macsec-policy)# security-policy should-secure
+----
+. 配置重放保护窗口，使安全接口不接受小于配置窗口大小的数据包： `window-size number`
++
+
+NOTE: 重放保护窗口大小表示 MACsec 接受且不丢弃的序列外帧的最大数量。范围为 0 到 596000000 。
+
++
+[listing]
+----
+IP_switch_A_1(config-macsec-policy)# window-size 512
+----
+. 配置以秒为单位的时间以强制重新设置 SAK 密钥： `sAK expiry-time`
++
+您可以使用此命令将会话密钥更改为可预测的时间间隔。默认值为 0 。
+
++
+[listing]
+----
+IP_switch_A_1(config-macsec-policy)# sak-expiry-time 100
+----
+. 在加密开始的第 2 层帧中配置以下机密性偏移之一： `conf-offsetconfidentiality offset`
++
+从以下选项中进行选择：
+
++
+** CONF 偏移 -0 。
+** CON-offset-30 。
+** CONF 偏移 -50 。
+
+
++
+[listing]
+----
+IP_switch_A_1(config-macsec-policy)# conf-offset CONF-OFFSET-0
+----
++
++ 注意：中间交换机可能需要使用此命令来使用 MPLS 标记等数据包标头（ DMAC ， SMaC ， etype ）。
+
+. 将运行配置复制到启动配置： `copy running-config startup-config`
++
+[listing]
+----
+IP_switch_A_1(config)# copy running-config startup-config
+----
+. 显示 MACsec 策略配置： `sHow MACsec policy`
++
+[listing]
+----
+IP_switch_A_1(config-macsec-policy)# show macsec policy
+----
+
+
+
+
+=== 验证 MACsec 配置
+
+. 在配置中的第二台交换机上重复上述所有过程以建立 MACsec 会话。
+. 运行以下命令以验证这两个交换机是否已成功加密：
++
+.. Run ： `s如何执行 MACsec MKA 摘要`
+.. Run ： `s如何执行 MACsec MKA 会话`
+.. Run ： `s如何处理 MACsec MKA 统计信息`
+
+
++
+您可以使用以下命令验证 MACsec 配置：
+
++
++
+
++
+|===
+| 命令 | 显示有关 ... 的信息 
+
+
+ a| 
+`s如何使用 MACsec MKA 会话接口键入 lot/ 端口号`
+ a| 
+特定接口或所有接口的 MACsec MKA 会话
+
+
+
+ a| 
+`s如何使用密钥链名称`
+ a| 
+密钥链配置
+
+
+
+ a| 
+`s如何执行 MACsec MKA 摘要`
+ a| 
+MACsec MKA 配置
+
+
+
+ a| 
+`s如何使用 MACsec policy policy-name`
+ a| 
+特定 MACsec 策略或所有 MACsec 策略的配置
+
+|===
+
+
+
+
+=== 在 WAN ISL 端口上配置 MACsec 回退密钥
+
+[role="lead"]
+如果主会话因密钥 / 密钥名称（ CKN ）不匹配或交换机与对等方之间的密钥持续时间有限而失败，您可以配置回退密钥以启动备份会话。
+
+. 进入全局配置模式： `configure terminal`
++
+[listing]
+----
+IP_switch_A_1# configure terminal
+IP_switch_A_1(config)#
+----
+. 指定要配置的接口。
++
+您可以指定接口类型和标识。对于以太网端口，请使用 `以太网插槽 / 端口`
+
++
+[listing]
+----
+IP_switch_A_1(config)# interface ethernet 1/15
+switch(config-if)#
+----
+. 指定因密钥 / 密钥 ID 不匹配或密钥到期而导致 MACsec 会话失败后使用的回退密钥链： `mAcSEC keychain keychain-name policy policy-name backfally-keychain keychain keychain-name`
++
+
+NOTE: 在继续此步骤之前，您应使用 _Configuring a MACsec key chain and keys_ 步骤配置回退密钥链。
+
++
+[listing]
+----
+IP_switch_A_1(config-if)# macsec keychain kc2 policy abc fallback-keychain fb_kc2
+----
+. 重复上述步骤，使用 MACsec 配置其他 WAN ISL 端口。
+. 将运行配置复制到启动配置： `copy running-config startup-config`
++
+[listing]
+----
+IP_switch_A_1(config)# copy running-config startup-config
+----
+
+
+
+
+== 为使用 25 Gbps 连接的和系统设置正向错误更正
+
+[role="lead"]
+如果您的系统配置为使用 25 Gbps 连接，则在应用 RCF 文件后，您需要手动将正向错误更正（ FEC ）参数设置为关闭。RCF 文件不应用此设置。
+
+在执行此操作步骤之前，必须为 25 Gbps 端口布线。
+
+link:port_usage_3232c_9336c.html["Cisco 3232C 或 Cisco 9336C 交换机的平台端口分配"]
+
+此任务仅限使用 25 Gbps 连接的适用场景 AFF A300 和 FAS8200 平台。
+
+必须对 MetroCluster IP 配置中的所有四台交换机执行此任务。
+
+. 在连接到控制器模块的每个 25 Gbps 端口上将 FEC 参数设置为 off ，然后将正在运行的配置复制到启动配置：
++
+.. 进入配置模式： `config t`
+.. 指定要配置的 25-Gbps 接口： `interface interface-ID`
+.. 将 FEC 设置为 off ： `fEC off`
+.. 对交换机上的每个 25 Gbps 端口重复上述步骤。
+.. 退出配置模式： `exit`
+
+
++
+以下示例显示了针对交换机 IP_switch_A_1 上的接口 Ethernet1/2/1 的命令：
+
++
++
+
++
+[listing]
+----
+IP_switch_A_1# conf t
+IP_switch_A_1(config)# interface Ethernet1/25/1
+IP_switch_A_1(config-if)# fec off
+IP_switch_A_1(config-if)# exit
+IP_switch_A_1(config-if)# end
+IP_switch_A_1# copy running-config startup-config
+----
+. 对 MetroCluster IP 配置中的其他三台交换机重复上述步骤。
+

@@ -1,0 +1,17 @@
+---
+permalink: install-ip/task_sw_config_verify_switchover.html 
+sidebar: sidebar 
+keywords: metrocluster, switchover, verify 
+summary: 您应验证 MetroCluster 配置的切换，修复和切回操作。 
+---
+= 验证切换，修复和切回
+
+
+[role="lead"]
+您应验证 MetroCluster 配置的切换，修复和切回操作。
+
+. 使用 _RAID MetroCluster 管理和灾难恢复指南 _ 中提到的协商切换，修复和切回过程。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-mgmt-dr/home.html["MetroCluster 管理和灾难恢复"]
+
+

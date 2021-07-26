@@ -1,0 +1,15 @@
+---
+permalink: manage/task_heal_the_configuration_choice_task.html 
+sidebar: sidebar 
+keywords: negotiate, switchover, operation, perform, heal, order, restore, metrocluster, functionality, configuration 
+summary: 在协商切换操作后，您必须按特定顺序执行修复操作，以还原 MetroCluster 功能。您使用的操作步骤取决于您的 MetroCluster 配置类型。 
+---
+= 修复配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在协商切换操作后，您必须按特定顺序执行修复操作，以还原 MetroCluster 功能。您使用的操作步骤取决于您的 MetroCluster 配置类型。
+
+在运行 ONTAP 9.5 的 MetroCluster IP 系统上，会自动执行修复，您可以跳过这些任务。

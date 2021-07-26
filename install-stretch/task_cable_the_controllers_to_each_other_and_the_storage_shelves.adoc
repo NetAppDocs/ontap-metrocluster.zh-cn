@@ -1,0 +1,43 @@
+---
+permalink: install-stretch/task_cable_the_controllers_to_each_other_and_the_storage_shelves.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, cable, controllers, storage, shelves 
+summary: 控制器 FC-VI 适配器必须直接连接到彼此。必须使用缆线将控制器 SAS 端口连接到远程和本地存储堆栈。 
+---
+= 使用缆线将控制器彼此连接并连接到存储架
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+控制器 FC-VI 适配器必须直接连接到彼此。必须使用缆线将控制器 SAS 端口连接到远程和本地存储堆栈。
+
+必须在两个 MetroCluster 站点上执行此任务。
+
+.步骤
+. 为 FC-VI 端口布线。
++
+image::../media/mcc_cabling_fc_vi_controller_to_partner.gif[通过 MCC 将 fc vi 控制器连接到配对节点]
+
++
+上图是典型的。具体的 FC-VI 端口因控制器模块而异。
+
++
+** FAS8200 和 AFF A300 控制器模块可通过以下两种 FC-VI 连接选项之一订购：
++
+*** 在 FC-VI 模式下配置的板载端口 0e 和 0f 。
+*** 插槽 1 中 FC-VI 卡上的端口 1a 和 1b 。
+
+
+** AFF A700 和 FAS9000 存储系统控制器模块各使用四个 FC-VI 端口。
+** AFF A400 和 FAS8300 存储系统控制器模块使用 FC-VI 端口 2a 和 2b 。
+
+
+. 为 SAS 端口布线。
++
+下图显示了连接。根据控制器模块上可用的 SAS 和 FC-VI 端口，您的端口使用情况可能会有所不同。
+
++
+image::../media/mcc_two_node_optical_sas_space_configuration.png[MCC 双节点光纤 SAS 空间配置]
+
+

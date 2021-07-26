@@ -1,0 +1,80 @@
+---
+permalink: transition/concept_switchover_and_switchback_operations_during_transition.html 
+sidebar: sidebar 
+keywords: stage, transition, process, metrocluster, switchover, heal, switchback, operation, fc, ip, workflow 
+summary: 根据过渡过程的阶段， MetroCluster 切换，修复和切回操作会使用 MetroCluster FC 或 MetroCluster IP 工作流。 
+---
+= 在无中断过渡期间执行切换，修复和切回操作
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+根据过渡过程的阶段， MetroCluster 切换，修复和切回操作会使用 MetroCluster FC 或 MetroCluster IP 工作流。
+
+下表显示了在过渡过程的不同阶段使用的工作流。在某些阶段，不支持切换和切回。
+
+* 在 MetroCluster FC 工作流中，切换，修复和切回步骤是 MetroCluster FC 配置使用的步骤。
+* 在 MetroCluster IP 工作流中，切换，修复和切回步骤是 MetroCluster IP 配置所使用的步骤。
+* 在统一工作流中，如果同时配置了 FC 和 IP 节点，则步骤取决于是执行 NSO 还是 USO 。详细信息显示在表中。
+
+
+有关用于切换，修复和切回的 MetroCluster FC 和 IP 工作流的信息，请参见 link:../manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html["了解 MetroCluster 数据保护和灾难恢复"]。
+
+
+NOTE: 在过渡过程中，自动计划外切换不可用。
+
+[cols="c*"]
+|===
+| 过渡阶段 | 协商切换使用 ... 此工作流 | 计划外切换使用此工作流 ... 
+
+
+ a| 
+MetroCluster IP 节点加入集群之前。
+ a| 
+MetroCluster FC
+ a| 
+MetroCluster FC
+
+
+
+ a| 
+MetroCluster IP 节点加入集群后，执行 MetroCluster configure 命令之前。
+ a| 
+不支持
+ a| 
+MetroCluster FC
+
+
+
+ a| 
+发出 MetroCluster configure 命令后。卷移动可能正在进行中。
+ a| 
+统一：所有远程站点节点均保持正常运行，并自动完成修复
+ a| 
+统一：
+
+* 如果可以访问存储，则会镜像 MetroCluster FC 节点拥有的镜像聚合，而所有其他聚合都会在切换后降级
+* 所有远程站点节点均可启动。
+* 必须手动运行 heal aggregate 和 heal root 命令。
+
+
+
+
+ a| 
+已取消配置 MetroCluster FC 节点。
+ a| 
+不支持
+ a| 
+MetroCluster IP
+
+
+
+ a| 
+已对 MetroCluster FC 节点执行 cluster unjoin 命令。
+ a| 
+MetroCluster IP
+ a| 
+MetroCluster IP
+
+|===

@@ -1,0 +1,13 @@
+---
+permalink: install-ip/task_sw_config_8n.html 
+sidebar: sidebar 
+keywords: metrocluster, configuration, eight-node 
+summary: 一个八节点配置将包含两个 DR 组。使用本节中的任务配置第一个 DR 组。 
+---
+= 处理八节点配置
+
+
+[role="lead"]
+一个八节点配置将包含两个 DR 组。使用本节中的任务配置第一个 DR 组。
+
+然后，执行中的任务 link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["将四节点 MetroCluster IP 配置扩展为八节点配置"]

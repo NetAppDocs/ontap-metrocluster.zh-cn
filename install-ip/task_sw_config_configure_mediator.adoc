@@ -1,0 +1,35 @@
+---
+permalink: install-ip/task_sw_config_configure_mediator.html 
+sidebar: sidebar 
+keywords: metrocluster ip, ontap, mediator, tiebreaker 
+summary: 您可以从第三个站点下载并安装 MetroCluster Tiebreaker 软件，或者从 ONTAP 9.7 开始安装 ONTAP 调解器。 
+---
+= 配置 MetroCluster Tiebreaker 或 ONTAP 调解器软件
+
+
+[role="lead"]
+您可以从第三个站点下载并安装 MetroCluster Tiebreaker 软件，或者从 ONTAP 9.7 开始安装 ONTAP 调解器。
+
+您必须有一个可用的 Linux 主机，该主机可通过网络连接到 MetroCluster 配置中的两个集群。具体要求请参见 MetroCluster Tiebreaker 或 ONTAP 调解器文档。
+
+如果要连接到现有 Tiebreaker 或 ONTAP 调解器实例，则需要 Tiebreaker 或调解器服务的用户名，密码和 IP 地址。
+
+如果您必须安装新的 ONTAP 调解器实例，请按照说明安装和配置软件。
+
+xref:concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html[为计划外自动切换配置 ONTAP 调解器服务]
+
+如果您必须安装 Tiebreaker 软件的新实例，请按照执行操作 link:../tiebreaker/index.html["安装和配置软件的说明"]。
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/home.html["《 MetroCluster Tiebreaker 软件安装和配置指南》"]
+
+您不能使用具有相同 MetroCluster 配置的 MetroCluster Tiebreaker 软件和 ONTAP 调解器。
+
+link:../install-ip/concept_considerations_mediator["使用 ONTAP 调解器或 MetroCluster Tiebreaker 的注意事项"]
+
+. 配置 ONTAP 调解器服务或 Tiebreaker 软件：
++
+** 如果您使用的是现有的 ONTAP 调解器实例，请使用以下命令将 ONTAP 调解器服务添加到 ONTAP ：``metrocluster configuration-settings mediator add -mediate-address IP-address-of -mediate-host``
+** 如果您使用的是 Tiebreaker 软件，请参见 link:../tiebreaker/index.html["Tiebreaker 文档"]。
+
+
+

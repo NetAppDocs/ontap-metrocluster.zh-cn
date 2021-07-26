@@ -1,0 +1,109 @@
+---
+permalink: maintain/task_rename_the_cluster_for_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, rename, cluster, configuration 
+summary: 重命名 MetroCluster 配置中的集群涉及进行更改，然后在本地和远程集群上验证更改是否已正确生效。 
+---
+= 在 MetroCluster 配置中重命名集群
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+重命名 MetroCluster 配置中的集群涉及进行更改，然后在本地和远程集群上验证更改是否已正确生效。
+
+.步骤
+. 使用查看集群名称
++
+` * MetroCluster node show*`
+
++
+命令：
+
++
+[listing]
+----
+cluster_1::*> metrocluster node show
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_1
+              node_A_1           configured     enabled   normal
+              node_A_2           configured     enabled   normal
+      cluster_2
+              node_B_1           configured     enabled   normal
+              node_B_2           configured     enabled   normal
+4 entries were displayed.
+----
+. 重命名集群：
++
+` * 集群标识修改 -name _new_name_*`
+
++
+在以下示例中， `cluster_1` cluster 已重命名为 `cluster_A` ：
+
++
+[listing]
+----
+cluster_1::*> cluster identity modify -name cluster_A
+----
+. 在本地集群上验证已重命名的集群是否运行正常：
++
+` * MetroCluster node show*`
+
++
+在以下示例中，新重命名的 `cluster_A` 运行正常：
+
++
+[listing]
+----
+cluster_A::*> metrocluster node show
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1           configured     enabled   normal
+              node_A_2           configured     enabled   normal
+      cluster_2
+              node_B_1           configured     enabled   normal
+              node_B_2           configured     enabled   normal
+4 entries were displayed.
+----
+. 重命名远程集群：
++
+` * cluster peer modify-local-name -name _cluster_2_ -new-name _cluster_B_*`
+
++
+在以下示例中， `cluster_2` 已重命名为 `cluster_B` ：
+
++
+[listing]
+----
+cluster_2::> cluster peer modify-local-name -name cluster_2 -new-name
+cluster_B
+----
+. 在远程集群上验证本地集群是否已重命名并正常运行：
++
+` MetroCluster node show_`
+
++
+在以下示例中，新重命名的 `cluster_B` 运行正常：
+
++
+[listing]
+----
+
+cluster_B::*> metrocluster node show
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_B
+              node_B_1           configured     enabled   normal
+              node_B_2           configured     enabled   normal
+      cluster_A
+              node_A_1           configured     enabled   normal
+              node_A_2           configured     enabled   normal
+4 entries were displayed.
+----
+. 对要重命名的每个集群重复上述步骤。
+

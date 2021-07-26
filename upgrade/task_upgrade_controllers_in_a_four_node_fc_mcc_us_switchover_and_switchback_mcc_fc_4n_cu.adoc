@@ -1,0 +1,1390 @@
+---
+permalink: upgrade/task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, fc, configuration, net, boot, root, aggregate 
+summary: 升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。 
+---
+= 使用切换和切回升级 MetroCluster FC 配置中的控制器
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。
+
+* 此操作步骤只能用于控制器升级。
++
+无法同时升级配置中的其他组件，例如存储架或交换机。
+
+* 您可以对某些 ONTAP 版本使用以下过程：
++
+** ONTAP 9.3 及更高版本支持双节点配置。
+** ONTAP 9.8 及更高版本支持四节点和八节点配置。
++
+请勿在运行 ONTAP 9.8 之前版本的四节点或八节点配置上使用此操作步骤。
+
+
+
+* 您的原始平台和新平台必须兼容并受支持。
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
++
+
+NOTE: 如果原始平台或新平台是使用 FC-VI 模式下端口 1c / 1d 的 8020 系统，请联系技术支持。
+
+* 此操作步骤适用场景控制器模块采用 MetroCluster FC 配置（双节点延伸型 MetroCluster 或双节点或四节点光纤连接 MetroCluster 配置）。
+* 配置中的所有控制器都应在同一维护期间进行升级。
++
+在此维护活动之外，不支持使用不同类型的控制器运行 MetroCluster 配置。
+
+* 支持的升级路径取决于原始平台型号。
++
+不支持使用内部磁盘架的平台型号。
+
++
+|===
+| 旧平台型号 | 新平台型号 
+
+
+ a| 
+** FAS80xx
+** FAS8200
+
+ a| 
+** FAS8300
+** FAS8700
+
+
+
+
+ a| 
+** AFF A300
+
+ a| 
+** AFF A400
+** AFF A700
+
+
+|===
+* 建议提前映射原始节点与新节点之间的存储， FC 和以太网连接。
+* 如果新平台的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。
++
+有关详细信息，请参见 https://hwu.netapp.com/["NetApp Hardware Universe"]
+
+
+
+此操作步骤使用以下示例名称：
+
+* site_A
++
+** 升级前：
++
+*** node_A_1-old
+*** node_A_2-old
+
+
+** 升级后：
++
+*** node_A_1-new
+*** node_A_2-new
+
+
+
+
+* 站点 B
++
+** 升级前：
++
+*** node_B_1-old
+*** node_B_2-old
+
+
+** 升级后：
++
+*** node_B_1-new
+*** node_B_2-new
+
+
+
+
+
+
+
+
+== 正在准备升级
+
+[role="lead"]
+在对现有 MetroCluster 配置进行任何更改之前，您必须检查此配置的运行状况，准备新平台并执行其他各种任务。
+
+
+
+=== 验证 MetroCluster 配置的运行状况
+
+[role="lead"]
+在执行升级之前，您必须验证 MetroCluster 配置的运行状况和连接。
+
+.步骤
+. 在 ONTAP 中验证 MetroCluster 配置的运行情况：
++
+.. 检查节点是否为多路径： + ` * node run -node _node-name_ sysconfig -A*`
++
+您应对 MetroCluster 配置中的每个节点使用此命令问题描述。
+
+.. 确认配置中没有损坏的磁盘： + ` * storage disk show -broken*`
++
+您应在 MetroCluster 配置中的每个节点上问题描述此命令。
+
+.. 检查是否存在任何运行状况警报： + ` * system health alert show*`
++
+您应在每个集群上问题描述此命令。
+
+.. 验证集群上的许可证： + ` * system license show*`
++
+您应在每个集群上问题描述此命令。
+
+.. 验证连接到节点的设备：
++
+` * 网络设备发现显示 *`
+
++
+您应在每个集群上问题描述此命令。
+
+.. 验证两个站点上的时区和时间设置是否正确： + ` * cluster date show*`
++
+您应在每个集群上问题描述此命令。您可以使用 `cluster date` 命令配置时间和时区。
+
+
+
+. 检查交换机上是否存在任何运行状况警报（如果存在）：
++
+` * 存储交换机显示 *`
+
++
+您应在每个集群上问题描述此命令。
+
+. 确认 MetroCluster 配置的运行模式并执行 MetroCluster 检查。
++
+.. 确认 MetroCluster 配置以及操作模式是否正常： + ` * MetroCluster show*`
+.. 确认显示所有预期节点： + ` * MetroCluster node show*`
+.. 问题描述以下命令： + ` * MetroCluster check run*`
+.. 显示 MetroCluster 检查的结果： + ` * MetroCluster check show*`
+
+
+. 使用 Config Advisor 工具检查 MetroCluster 布线。
++
+.. 下载并运行 Config Advisor 。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+.. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
+
+
+
+
+
+
+=== 将端口从旧节点映射到新节点
+
+[role="lead"]
+您必须规划旧节点上物理端口上的 LIF 到新节点上的物理端口的映射。
+
+在升级过程中首次启动新节点时，它将重放要替换的旧节点的最新配置。启动 node_A_1-new 时， ONTAP 会尝试在 node_A_1-old 上使用的相同端口上托管 LIF 。因此，在升级过程中，您必须调整端口和 LIF 配置，使其与旧节点的配置兼容。在升级操作步骤期间，您将对旧节点和新节点执行步骤，以确保正确配置集群，管理和数据 LIF 。
+
+下表显示了与新节点的端口要求相关的配置更改示例。
+
+|===
+2+| 集群互连物理端口 |  
+
+
+| 旧控制器 | 新控制器 | 所需操作 
+
+
+ a| 
+e0a ， e0b
+ a| 
+e3a ， e3b
+ a| 
+没有匹配的端口。升级后，您必须重新创建集群端口。
+
+
+
+ a| 
+e0c ， e0d
+ a| 
+e0a ， e0b ， e0c ， e0d
+ a| 
+e0c 和 e0d 是匹配的端口。您无需更改配置，但升级后，您可以将集群 LIF 分布在可用的集群端口上。
+
+|===
+.步骤
+. 确定新控制器上可用的物理端口以及这些端口上可以托管的 LIF 。
++
+控制器的端口使用情况取决于平台模块以及要在 MetroCluster IP 配置中使用的交换机。您可以从收集新平台的端口使用情况 link:https://hwu.netapp.com["NetApp Hardware Universe"]。
+
++
+此外，还要确定 FC-VI 卡插槽的使用情况。
+
+. 规划端口使用情况，如果需要，请填写下表，以供每个新节点参考。
++
+在执行升级操作步骤时，您将参考下表。
+
++
+|===
+|  3+| node_A_1-old 3+| node_A_1-new 
+
+
+| LIF | 端口 | IP 空间 | 广播域 | 端口 | IP 空间 | 广播域 
+
+
+ a| 
+集群 1
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+集群 2.
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+集群 3.
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+集群 4.
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+节点管理
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+集群管理
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+数据 1.
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+数据 2.
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+数据 3.
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+数据 4.
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+SAN
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+集群间端口
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+|===
+
+
+
+
+=== 升级前收集信息
+
+[role="lead"]
+在升级之前，您必须收集每个节点的信息，并在必要时调整网络广播域，删除任何 VLAN 和接口组以及收集加密信息。
+
+此任务将在现有 MetroCluster FC 配置上执行。
+
+.步骤
+. 为现有控制器的缆线贴上标签，以便在设置新控制器时轻松识别缆线。
+. 收集 MetroCluster 配置中节点的系统 ID ：
++
+` * MetroCluster node show -fields node-systemID ， dr-partner-systemID*`
+
++
+在更换操作步骤期间，您将使用新控制器模块的系统 ID 替换这些系统 ID 。
+
++
+在此示例中，对于四节点 MetroCluster FC 配置，将检索以下旧系统 ID ：
+
++
+** node_A_1-old ： 4068741258
+** node_A_2-old ： 4068741260
+** node_B_1-old ： 4068741254
+** node_B_2-old ： 4068741256
++
+[listing]
+----
+metrocluster-siteA::> metrocluster node show -fields node-systemid,ha-partner-systemid,dr-partner-systemid,dr-auxiliary-systemid
+dr-group-id   cluster                       node                   node-systemid          ha-partner-systemid     dr-partner-systemid    dr-auxiliary-systemid
+-----------        ------------------------- ------------------    -------------                   -------------------                 -------------------              ---------------------
+1                    Cluster_A                  Node_A_1-old   4068741258              4068741260                        4068741256                    4068741256
+1                    Cluster_A                    Node_A_2-old   4068741260              4068741258                        4068741254                    4068741254
+1                    Cluster_B                    Node_B_1-old   4068741254              4068741256                         4068741258                    4068741260
+1                    Cluster_B                    Node_B_2-old   4068741256              4068741254                        4068741260                    4068741258
+4 entries were displayed.
+----
++
+在此示例中，对于双节点 MetroCluster FC 配置，将检索以下旧系统 ID ：
+
+** node_A_1 ： 4068741258
+** node_B_1 ： 4068741254
+
+
++
+[listing]
+----
+metrocluster node show -fields node-systemid,dr-partner-systemid
+
+dr-group-id cluster    node      node-systemid dr-partner-systemid
+----------- ---------- --------  ------------- ------------
+1           Cluster_A  Node_A_1-old  4068741258    4068741254
+1           Cluster_B  node_B_1-old  -             -
+2 entries were displayed.
+----
+. 收集每个节点的端口和 LIF 信息。
++
+您应收集每个节点的以下命令输出：
+
++
+** `network interface show -role cluster ， node-mgmt`
+** `network port show -node _node-name_ -type physical`
+** `network port vlan show -node _node-name_`
+** `network port ifgrp show -node _node_name_ -instance`
+** `network port broadcast-domain show`
+** `网络端口可访问性 show -detail`
+** `network IPspace show`
+** `volume show`
+** `s存储聚合显示`
+** `ssystem node run -node _node-name_ sysconfig -a`
+
+
+. 如果 MetroCluster 节点采用 SAN 配置，请收集相关信息。
++
+您应收集以下命令的输出：
+
++
+** `fcp adapter show -instance`
+** `fcp interface show -instance`
+** `iscsi interface show`
+** `ucadmin show`
+
+
+. 如果根卷已加密，请收集并保存用于 key-manager 的密码短语：
++
+` * security key-manager backup show*`
+
+. 如果 MetroCluster 节点对卷或聚合使用加密，请复制有关密钥和密码短语的信息。
++
+对于追加信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-1677AE0A-FEF7-45FA-8616-885AA3283BCF.html["手动备份板载密钥管理信息"]。
+
++
+.. 如果配置了板载密钥管理器： + ` * security key-manager on板 载 show-backup*`
++
+您稍后将在升级操作步骤中需要此密码短语。
+
+.. 如果配置了企业密钥管理（ KMIP ），请对以下命令执行问题描述操作： + ` * security key-manager external show -instance*`
++
+` * 安全密钥管理器密钥查询 *`
+
+
+
+
+
+
+
+=== 从 Tiebreaker 或其他监控软件中删除现有配置
+
+[role="lead"]
+如果使用 MetroCluster Tiebreaker 配置或可启动切换的其他第三方应用程序（例如 ClusterLion ）监控现有配置，则必须在过渡之前从 Tiebreaker 或其他软件中删除 MetroCluster 配置。
+
+.步骤
+. 从 Tiebreaker 软件中删除现有 MetroCluster 配置。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-34C97A45-0BFF-46DD-B104-2AB2805A983D.html["删除 MetroCluster 配置"]
+
+. 从可以启动切换的任何第三方应用程序中删除现有 MetroCluster 配置。
++
+请参见该应用程序的文档。
+
+
+
+
+
+=== 在维护之前发送自定义 AutoSupport 消息
+
+[role="lead"]
+在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
+
+必须在每个 MetroCluster 站点上执行此任务。
+
+.步骤
+. 要防止自动生成支持案例，请发送一条 AutoSupport 消息以指示正在进行维护。
++
+.. 问题描述以下命令： + ` * 系统节点 AutoSupport invoke -node * -type all -message MAINT=_maintenance-window-in-hours__*`
++
+`maintenance-window-in-hours` 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：
+
++
+` * 系统节点 AutoSupport 调用 -node * -type all -message MAINT=end*`
+
+.. 在配对集群上重复此命令。
+
+
+
+
+
+
+== 切换 MetroCluster 配置
+
+[role="lead"]
+您必须将配置切换到 site_A ，以便可以升级 site_B 上的平台。
+
+必须在 site_A 上执行此任务
+
+完成此任务后， cluster_A 将处于活动状态，并为两个站点提供数据。cluster_B 处于非活动状态，并已准备好开始升级过程，如下图所示。
+
+image::../media/mcc_upgrade_cluster_a_in_switchover.png[MCC 升级集群 A 处于切换状态]
+
+.步骤
+. 将 MetroCluster 配置切换到 site_A ，以便可升级 site_B 的节点：
++
+.. 对 cluster_A 执行以下命令： + ` * MetroCluster switchover -controller-replacement true*` 问题描述
++
+此操作可能需要几分钟才能完成。
+
+.. 监控切换操作： + ` * MetroCluster operation show*`
+.. 操作完成后，确认节点处于切换状态： + ` * MetroCluster show*`
+.. 检查 MetroCluster 节点的状态： + ` * MetroCluster node show*`
+
+
+. 修复数据聚合。
++
+.. 修复数据聚合： + ` * MetroCluster heal data-aggregals*`
+.. 在运行正常的集群上运行 `MetroCluster operation show` 命令，以确认修复操作已完成：
++
+[listing]
+----
+
+cluster_A::> metrocluster operation show
+  Operation: heal-aggregates
+      State: successful
+ Start Time: 7/29/2020 20:54:41
+   End Time: 7/29/2020 20:54:42
+     Errors: -
+----
+
+
+. 修复根聚合。
++
+.. 修复数据聚合： + ` * MetroCluster heal root-aggreges*`
+.. 在运行正常的集群上运行 `MetroCluster operation show` 命令，以确认修复操作已完成：
++
+[listing]
+----
+
+cluster_A::> metrocluster operation show
+  Operation: heal-root-aggregates
+      State: successful
+ Start Time: 7/29/2020 20:58:41
+   End Time: 7/29/2020 20:59:42
+     Errors: -
+----
+
+
+
+
+
+
+== 准备旧控制器的网络配置
+
+[role="lead"]
+要确保新控制器上的网络连接恢复正常，必须将 LIF 移动到一个通用端口，然后删除旧控制器的网络配置。
+
+* 必须对每个旧节点执行此任务。
+* 您将使用中收集的信息 xref:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.adoc[将端口从旧节点映射到新节点]。
+
+
+.步骤
+. 启动旧节点，然后登录到这些节点：
++
+` * boot_ontap*`
+
+. 将旧控制器上所有数据 LIF 的主端口分配给新旧控制器模块上相同的通用端口。
++
+.. 显示 LIF ： + ` * 网络接口 show-*`
++
+包括 SAN 和 NAS 在内的所有数据 LIF 都将由管理员启动并在操作上关闭，因为这些 LIF 在切换站点（ cluster_A ）上已启动。
+
+.. 查看输出以查找未用作集群端口的旧控制器和新控制器上相同的通用物理网络端口。
++
+例如， e0d 是旧控制器上的一个物理端口，也存在于新控制器上。e0d 不会用作集群端口，也不会在新控制器上用作其他端口。
+
++
+有关平台型号的端口使用情况，请参见 https://hwu.netapp.com/["NetApp Hardware Universe"]
+
+.. 修改所有数据 LIF 以使用通用端口作为主端口：
++
+` * 网络接口修改 -vserver _svm-name_ -lif _data-lif_ -home-port _port-id_*`
+
++
+在我们的示例中，此值为 e0d 。
+
++
+例如：
+
++
+[listing]
+----
+network interface modify -vserver vs0 -lif datalif1 -home-port e0d
+----
+
+
+. 修改广播域以删除需要删除的 VLAN 和物理端口：
++
+` * 广播域删除端口 -broadcast-domain _broadcast-domain-name_ -ports _node-name ： port-id_*`
+
++
+对所有 VLAN 和物理端口重复此步骤。
+
+. 删除使用集群端口作为成员端口的所有 VLAN 端口，以及使用集群端口作为成员端口的 ifgrp 。
++
+.. 删除 VLAN 端口： + ` * 网络端口 vlan delete -node _node-name_ -vlan-name _portID-vlandid_*`
++
+例如：
+
++
+[listing]
+----
+network port vlan delete -node node1 -vlan-name e1c-80
+----
+.. 从接口组中删除物理端口： + ` * 网络端口 ifgrp remove-port -node _node-name_ -ifgrp _interface-group-name_ -port _portID_*`
++
+例如：
+
++
+[listing]
+----
+network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
+----
+.. 从广播域中删除 VLAN 和接口组端口： + ` * 网络端口 broadcast-domain remove-ports -ipspace _ipspace_ -broadcast-domain _broadcast-domain-name_ -ports _nodename ： portname ， nodename ： portname_ ， .*`
+.. 根据需要修改接口组端口以使用其他物理端口作为成员。： + ` * ifgrp add-port -node _node-name_ -ifgrp _interface-group-name_ -port _port-id_*`
+
+
+. 暂停节点：
++
+` * halt -inhibit-takeover true -node _node-name_*`
+
++
+必须在两个节点上执行此步骤。
+
+
+
+
+
+== 删除旧平台
+
+[role="lead"]
+必须从配置中删除旧控制器。
+
+此任务在 site_B 上执行
+
+.步骤
+. 连接到 site_B 上旧控制器（ node_B_1-old 和 node_B_2-old ）的串行控制台，并验证它是否显示 LOADER 提示符。
+. 断开 node_B_1-old 和 node_B_2-old 上的存储和网络连接，并为缆线贴上标签，以便可以将其重新连接到新节点。
+. 断开 node_B_1-old 和 node_B_2-old 的电源线。
+. 从机架中卸下 node_B_1-old 和 node_B_2-old 控制器。
+
+
+
+
+== 配置新控制器
+
+[role="lead"]
+您必须将控制器装入机架并进行安装，在维护模式下执行所需的设置，然后启动控制器并验证控制器上的 LIF 配置。
+
+
+
+=== 设置新控制器
+
+[role="lead"]
+您必须将新控制器装入机架并进行布线。
+
+.步骤
+. 根据需要规划新控制器模块和存储架的位置。
++
+机架空间取决于控制器模块的平台型号，交换机类型以及配置中的存储架数量。
+
+. 正确接地。
+. 在机架或机柜中安装控制器模块。
++
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+. 如果新控制器模块未附带自身的 FC-VI 卡，并且旧控制器中的 FC-VI 卡在新控制器上兼容，请交换 FC-VI 卡并将其安装在正确的插槽中。
++
+请参见 link:https://hwu.netapp.com["NetApp Hardware Universe"] 有关 FC-VI 卡的插槽信息。
+
+. 按照 _MetroCluster 安装和配置指南 _ 中所述，为控制器的电源，串行控制台和管理连接布线。
++
+此时，请勿连接与旧控制器断开连接的任何其他缆线。
+
++
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+. 打开新节点的电源，并在系统提示显示 LOADER 提示符时按 Ctrl-C 。
+
+
+
+
+=== 通过网络启动新控制器
+
+[role="lead"]
+安装新节点后，您需要通过网络启动来确保新节点运行的 ONTAP 版本与原始节点相同。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。
+
+此任务将对每个新控制器模块执行。
+
+.步骤
+. 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"] 下载用于执行系统网络启动的文件。
+. 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
+. 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
++
+[cols="1,2a"]
+|===
+| 平台型号 | 那么 ... 
+
+
+| FAS/AFF8000 系列系统  a| 
+将 ontap-version_image.tgzfile 的内容提取到目标目录： tar -zxvf ontap-version_image.tgz
+
+
+NOTE: 如果要在 Windows 上提取内容，请使用 7-Zip 或 WinRAR 提取网络启动映像。
+
+您的目录列表应包含一个包含内核文件 netboot/kernel 的 netboot 文件夹
+
+
+
+| 所有其他系统  a| 
+您的目录列表应包含一个包含内核文件 ontap-version_image.tgz 的 netboot 文件夹
+
+您不需要提取 ontap-version_image.tgz 文件。
+
+|===
+. 在 LOADER 提示符处，为管理 LIF 配置网络启动连接：
++
+** 如果 IP 地址为 DHCP ，请配置自动连接：
++
+`ifconfig e0M -auto`
+
+** 如果 IP 地址是静态的，请配置手动连接：
++
+`ifconfig e0M -addr=ip_addr -mask=netmask` ` gw=gateway`
+
+
+
+. 执行网络启动。
++
+** 如果平台是 80xx 系列系统，请使用以下命令：
++
+`netboot \http://web_server_ip/path_to_web-accessible_directory/netboot/kernel`
+
+** 如果平台是任何其他系统，请使用以下命令：
++
+`netboot \http://web_server_ip/path_to_web-accessible_directory/ontap-version_image.tgz`
+
+
+
+. 从启动菜单中，选择选项 * （ 7 ） Install new software first* ，将新软件映像下载并安装到启动设备。
++
+....
+Disregard the following message: "This procedure is not supported for Non-Disruptive Upgrade on an HA pair". It applies to nondisruptive upgrades of software, not to upgrades of controllers.
+....
+. 如果系统提示您继续运行操作步骤，请输入 `y` ，然后在系统提示您输入软件包时，输入映像文件的 URL ： ` \http://web_server_ip/path_to_web-accessible_directory/ontap-version_image.tgz`
++
+....
+Enter username/password if applicable, or press Enter to continue.
+....
+. 当您看到类似以下内容的提示时，请务必输入 `n` 以跳过备份恢复：
++
+....
+Do you want to restore the backup configuration now? {y|n}
+....
+. 当您看到类似以下内容的提示时，输入 `y` 以重新启动：
++
+....
+The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}
+....
+
+
+
+
+=== 清除控制器模块上的配置
+
+[role="lead"]
+在 MetroCluster 配置中使用新控制器模块之前，必须清除此配置。
+
+.步骤
+. 如有必要，暂停节点以显示 LOADER 提示符：
++
+`halt`
+
+. 在 LOADER 提示符处，将环境变量设置为默认值：
++
+`set-defaults`
+
+. 保存环境：
++
+`saveenv`
+
+. 在 LOADER 提示符处，启动启动菜单：
++
+`boot_ontap 菜单`
+
+. 在启动菜单提示符处，清除配置：
++
+`wipeconfig`
+
++
+对确认提示回答 `yes` 。
+
++
+节点将重新启动，并再次显示启动菜单。
+
+. 在启动菜单中，选择选项 * 5* 将系统启动至维护模式。
++
+对确认提示回答 `yes` 。
+
+
+
+
+
+=== 还原 HBA 配置
+
+[role="lead"]
+根据控制器模块中是否存在 HBA 卡以及 HBA 卡的配置，您需要根据站点的使用情况正确配置这些卡。
+
+.步骤
+. 在维护模式下，为系统中的任何 HBA 配置设置：
++
+.. 检查端口的当前设置： ` * ucadmin show*`
+.. 根据需要更新端口设置。
+
+
++
+|===
+| 如果您具有此类型的 HBA 和所需模式 ... | 使用此命令 ... 
+
+
+ a| 
+CNA FC
+ a| 
+`ucadmin modify -m fc -t initiator _adapter-name_`
+
+
+
+ a| 
+CNA 以太网
+ a| 
+`ucadmin modify -mode cna _adapter-name_`
+
+
+
+ a| 
+FC 目标
+ a| 
+`fcadmin config -t target _adapter-name_`
+
+
+
+ a| 
+FC 启动程序
+ a| 
+`fcadmin config -t initiator _adapter-name_`
+
+|===
+. 退出维护模式： ` * halt*`
++
+运行此命令后，请等待，直到节点停留在 LOADER 提示符处。
+
+. 将节点重新启动至维护模式，以使配置更改生效： ` * boot_ontap maint*`
+. 验证所做的更改：
++
+|===
+| 如果您使用的是此类型的 HBA... | 使用此命令 ... 
+
+
+ a| 
+CNA
+ a| 
+`ucadmin show`
+
+
+
+ a| 
+FC
+ a| 
+`fcadmin show`
+
+|===
+
+
+
+
+=== 在新控制器和机箱上设置 HA 状态
+
+[role="lead"]
+您必须验证控制器和机箱的 HA 状态，并在必要时更新此状态以匹配您的系统配置。
+
+.步骤
+. 在维护模式下，显示控制器模块和机箱的 HA 状态：
++
+` * ha-config show*`
+
++
+所有组件的 HA 状态均应为 mcc 。
+
++
+|===
+| 如果 MetroCluster 配置 ... | HA 状态应为 ... 
+
+
+ a| 
+两个节点
+ a| 
+MCC-2n
+
+
+
+ a| 
+四个或八个节点
+ a| 
+MCC
+
+|===
+. 如果显示的控制器系统状态不正确，请设置控制器模块和机箱的 HA 状态：
++
+|===
+| 如果 MetroCluster 配置 ... | 问题描述这些命令 ... 
+
+
+ a| 
+* 两个节点 *
+ a| 
+` * ha-config modify controller mcc-2n*`
+
+` * ha-config modify chassis mcc-2n*`
+
+
+
+ a| 
+* 四个或八个节点 *
+ a| 
+` * ha-config modify controller mcc*`
+
+` * ha-config modify chassis mcc*`
+
+|===
+
+
+
+
+=== 重新分配根聚合磁盘
+
+[role="lead"]
+使用先前收集的系统将根聚合磁盘重新分配给新控制器模块
+
+此任务在维护模式下执行。
+
+旧系统 ID 在中进行了标识 xref:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.adoc[升级前收集信息]。
+
+此操作步骤中的示例使用具有以下系统 ID 的控制器：
+
+|===
+| 节点 | 旧系统 ID | 新系统 ID 
+
+
+ a| 
+node_B_1
+ a| 
+4068741254
+ a| 
+1574774970
+
+|===
+.步骤
+. 使用缆线将所有其他连接连接到新控制器模块（ FC-VI ，存储，集群互连等）。
+. 暂停系统并从 LOADER 提示符启动到维护模式：
++
+` * boot_ontap maint*`
+
+. 显示 node_B_1-old 拥有的磁盘：
++
+` * disk show -A*`
+
++
+命令输出将显示新控制器模块（ 1574774970 ）的系统 ID 。但是，根聚合磁盘仍归旧系统 ID （ 4068741254 ）所有。此示例不显示 MetroCluster 配置中其他节点拥有的驱动器。
+
++
+[listing]
+----
+*> disk show -a
+Local System ID: 1574774970
+
+  DISK         OWNER                     POOL   SERIAL NUMBER    HOME                      DR HOME
+------------   -------------             -----  -------------    -------------             -------------
+...
+rr18:9.126L44 node_B_1-old(4068741254)   Pool1  PZHYN0MD         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:9.126L49 node_B_1-old(4068741254)   Pool1  PPG3J5HA         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:8.126L21 node_B_1-old(4068741254)   Pool1  PZHTDSZD         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:8.126L2  node_B_1-old(4068741254)   Pool0  S0M1J2CF         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:8.126L3  node_B_1-old(4068741254)   Pool0  S0M0CQM5         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:9.126L27 node_B_1-old(4068741254)   Pool0  S0M1PSDW         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+...
+----
+. 将驱动器架上的根聚合磁盘重新分配给新控制器：
++
+` * disk reassign -s _old-sysid_ -d _new-sysid_*`
+
++
+以下示例显示了驱动器的重新分配：
+
++
+[listing]
+----
+*> disk reassign -s 4068741254 -d 1574774970
+Partner node must not be in Takeover mode during disk reassignment from maintenance mode.
+Serious problems could result!!
+Do not proceed with reassignment if the partner is in takeover mode. Abort reassignment (y/n)? n
+
+After the node becomes operational, you must perform a takeover and giveback of the HA partner node to ensure disk reassignment is successful.
+Do you want to continue (y/n)? Jul 14 19:23:49 [localhost:config.bridge.extra.port:error]: Both FC ports of FC-to-SAS bridge rtp-fc02-41-rr18:9.126L0 S/N [FB7500N107692] are attached to this controller.
+y
+Disk ownership will be updated on all disks previously belonging to Filer with sysid 4068741254.
+Do you want to continue (y/n)? y
+----
+. 检查是否已按预期重新分配所有磁盘：
++
+` * 磁盘显示 *`
+
++
+[listing]
+----
+*> disk show
+Local System ID: 1574774970
+
+  DISK        OWNER                      POOL   SERIAL NUMBER   HOME                      DR HOME
+------------  -------------              -----  -------------   -------------             -------------
+rr18:8.126L18 node_B_1-new(1574774970)   Pool1  PZHYN0MD        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:9.126L49 node_B_1-new(1574774970)   Pool1  PPG3J5HA        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:8.126L21 node_B_1-new(1574774970)   Pool1  PZHTDSZD        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:8.126L2  node_B_1-new(1574774970)   Pool0  S0M1J2CF        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:9.126L29 node_B_1-new(1574774970)   Pool0  S0M0CQM5        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:8.126L1  node_B_1-new(1574774970)   Pool0  S0M1PSDW        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+*>
+----
+. 显示聚合状态：
++
+` * 聚合状态 *`
+
++
+[listing]
+----
+*> aggr status
+           Aggr            State       Status           Options
+aggr0_node_b_1-root    online      raid_dp, aggr    root, nosnap=on,
+                           mirrored                     mirror_resync_priority=high(fixed)
+                           fast zeroed
+                           64-bit
+----
+. 在配对节点（ node_B_2-new ）上重复上述步骤。
+
+
+
+
+=== 启动新控制器
+
+[role="lead"]
+您必须从启动菜单重新启动控制器，才能更新控制器闪存映像。如果配置了加密，则需要执行其他步骤。
+
+必须对所有新控制器执行此任务。
+
+.步骤
+. 暂停节点：
++
+` * 暂停 *`
+
+. 如果配置了外部密钥管理器，请设置相关的 boottargets ：
++
+` * setenv bootarg.kmip.init.ipaddr _ip-address_*`
+
++
+` * 设置 v bootarg.kmip.init.netmask _netmask_*`
+
++
+` * 设置 v bootarg.kmip.init.gateway _gateway-address_*`
+
++
+` * setenv bootarg.kmip.init.interface _interface-id_*`
+
+. 显示启动菜单：
++
+` * boot_ontap menu *`
+
+. 如果使用根加密，请对密钥管理配置使用问题描述启动菜单命令。
++
+|===
+| 如果您使用的是 ... | 在启动菜单提示符处问题描述此命令 ... 
+
+
+ a| 
+* 板载密钥管理 *
+ a| 
+`re封装板载密钥管理器`
+
+
+
+ a| 
+* 外部密钥管理 *
+ a| 
+`re封装 _external_keymanager`
+
+|===
+. 如果启用了自动启动，请按 control-C 中断自动启动
+. 从启动菜单中，运行选项（ 6 ）。
++
+
+NOTE: 选项 6 将重新启动节点两次，然后再完成
+
++
+对系统 ID 更改提示回答 y 。等待第二条重新启动消息：
+
++
+[listing]
+----
+Successfully restored env file from boot media...
+
+Rebooting to load the restored env file...
+----
+. 仔细检查 partner-sysid 是否正确：
++
+` * printenv partner-sysid*`
+
++
+如果 partner-sysid 不正确，请将其设置为：
+
++
+` * setenv partner-sysid _partner-sysID_*`
+
+. 如果使用根加密，请再次对密钥管理配置的启动菜单命令执行问题描述。
++
+|===
+| 如果您使用的是 ... | 在启动菜单提示符处问题描述此命令 ... 
+
+
+ a| 
+* 板载密钥管理 *
+ a| 
+`re封装板载密钥管理器`
+
+
+
+ a| 
+* 外部密钥管理 *
+ a| 
+`re封装 _external_keymanager`
+
+|===
++
+您可能需要多次在启动菜单提示符处对 recovery_xxxxxxxx_keymanager 命令和选项 6 执行问题描述操作，直到节点完全启动为止。
+
+. 启动节点：
++
+` * boot_ontap*`
+
+. 等待更换的节点启动。
++
+如果任一节点处于接管模式，请使用 `storage failover giveback` 命令执行交还。
+
+. 验证所有端口是否都位于广播域中：
++
+.. 查看广播域： + ` * 网络端口 broadcast-domain show*`
+.. 根据需要向广播域添加任何端口。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["从广播域添加或删除端口"]
+
+.. 将用于托管集群间 LIF 的物理端口添加到相应的广播域。
+.. 修改集群间 LIF 以使用新的物理端口作为主端口。
+.. 集群间 LIF 启动后，检查集群对等状态，并根据需要重新建立集群对等关系。
++
+您可能需要重新配置集群对等关系。
+
++
+link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#peering-the-clusters["创建集群对等关系"]
+
+.. 根据需要重新创建 VLAN 和接口组。
++
+VLAN 和接口组成员资格可能与旧节点不同。
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["创建 VLAN"]
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["组合物理端口以创建接口组"]
+
+
+
+. 如果使用加密，请使用适用于您的密钥管理配置的正确命令还原密钥。
++
+|===
+| 如果您使用的是 ... | 使用此命令 ... 
+
+
+ a| 
+* 板载密钥管理 *
+ a| 
+`sSecurity key-manager 板载同步`
+
+有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["还原板载密钥管理加密密钥"]。
+
+
+
+ a| 
+* 外部密钥管理 *
+ a| 
+` * security key-manager external restore -vserver _svm_ -node _node_-key-server _host_name_ip_address ： port_ -key-id key_id -key-tag key_tag * _node-name_`
+
+有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"]。
+
+|===
+
+
+
+
+=== 验证 LIF 配置
+
+[role="lead"]
+在切回之前，验证 LIF 是否托管在相应的节点 / 端口上。需要执行以下步骤
+
+此任务在 site_B 上执行，其中的节点已使用根聚合启动。
+
+.步骤
+. 在切回之前，验证 LIF 是否托管在相应的节点和端口上。
++
+.. 更改为高级权限级别： + ` * 设置 -privilege advanced*`
+.. 覆盖端口配置以确保 LIF 放置正确： + ` * vserver config override -command "network interface modify -vserver _vserver_name_ -home-port _active_port_after_upgrade_-lif _lif_name_ -home-node _new_node_name_"*`
++
+在 `vserver config override` 命令中输入 network interface modify 命令时，您不能使用选项卡自动完成功能。您可以使用 autoscomplete 创建 `network interface modify` ，然后将其括在 `vserver config override` 命令中。
+
+.. 返回到管理权限级别： + ` * 设置 -privilege admin*`
+
+
+. 将接口还原到其主节点：
++
+` * 网络接口还原 * -vserver _vserver-name_*`
+
++
+根据需要对所有 SVM 执行此步骤。
+
+
+
+
+
+== 切回 MetroCluster 配置
+
+[role="lead"]
+配置新控制器后，您可以切回 MetroCluster 配置，使配置恢复正常运行。
+
+在此任务中，您将执行切回操作，使 MetroCluster 配置恢复正常运行。site_A 上的节点仍在等待升级。
+
+image::../media/mcc_upgrade_cluster_a_switchback.png[MCC 升级集群 A 切回]
+
+.步骤
+. 在 site_B 上执行 `MetroCluster node show` 命令并检查输出。问题描述
++
+.. 验证新节点的表示是否正确。
+.. 验证新节点是否处于 " 正在等待切回状态 " 。
+
+
+. 切回集群： `MetroCluster switchback`
+. 检查切回操作的进度：
++
+` * MetroCluster show*`
+
++
+当输出显示 `waiting for-switchback` 时，切回操作仍在进行中：
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_B         Configuration state configured
+                          Mode                switchover
+                          AUSO Failure Domain -
+Remote: cluster_A         Configuration state configured
+                          Mode                waiting-for-switchback
+                          AUSO Failure Domain -
+----
++
+当输出显示 `normal` 时，切回操作完成：
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_B         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain -
+Remote: cluster_A         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain -
+----
++
+如果切回需要很长时间才能完成，您可以使用 `MetroCluster config-replication resync-status show` 命令检查正在进行的基线的状态。此命令处于高级权限级别。
+
+
+
+
+
+== 检查 MetroCluster 配置的运行状况
+
+[role="lead"]
+升级控制器模块后，您必须验证 MetroCluster 配置的运行状况。
+
+此任务可在 MetroCluster 配置中的任何节点上执行。
+
+.步骤
+. 验证 MetroCluster 配置的运行情况：
++
+.. 确认 MetroCluster 配置以及操作模式是否正常： + ` * MetroCluster show*`
+.. 执行 MetroCluster 检查： + ` * MetroCluster check run*`
+.. 显示 MetroCluster 检查的结果： + ` * MetroCluster check show*`
+
+
+
+
+
+
+== 升级 cluster_A 上的节点
+
+[role="lead"]
+您必须对 cluster_A 重复升级任务
+
+.步骤
+. 从开始，重复上述步骤升级 cluster_A 上的节点 xref:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.adoc[正在准备升级]。
++
+在执行任务时，对集群和节点的所有示例引用都将反转。例如，如果提供了从 cluster_A 切换的示例，则您将从 cluster_B 切换
+
+
+
+
+
+== 维护后发送自定义 AutoSupport 消息
+
+[role="lead"]
+完成升级后，您应发送一条 AutoSupport 消息，指示维护结束，以便可以恢复自动创建案例。
+
+.步骤
+. 要恢复自动生成支持案例，请发送 AutoSupport 消息以指示维护已完成。
++
+.. 问题描述以下命令： + ` * 系统节点 AutoSupport invoke -node * -type all -message MAINT=end*`
+.. 在配对集群上重复此命令。
+
+
+
+
+
+
+== 正在还原 Tiebreaker 监控
+
+[role="lead"]
+如果先前已将 MetroCluster 配置配置为由 Tiebreaker 软件监控，则可以还原 Tiebreaker 连接。
+
+. 使用中的步骤 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-7259BCA4-104C-49C6-BAD0-1068CA2A3DA5.html["正在添加 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中。
+

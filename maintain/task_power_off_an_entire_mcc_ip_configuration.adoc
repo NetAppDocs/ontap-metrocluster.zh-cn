@@ -1,0 +1,88 @@
+---
+permalink: maintain/task_power_off_an_entire_mcc_ip_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, power, off, entire, metrocluster, ip, configuration 
+summary: 您必须先关闭整个 MetroCluster IP 配置以及所有设备，然后才能开始维护或重新定位。 
+---
+= 关闭整个 MetroCluster IP 配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须先关闭整个 MetroCluster IP 配置以及所有设备，然后才能开始维护或重新定位。
+
+
+NOTE: 从 ONTAP 9.8 开始， ` * storage switch*` 命令将替换为 ` * system switch*` 。以下步骤显示了 ` * storage switch*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system switch*` 命令。
+
+. 从 MetroCluster 配置中的两个站点验证 MetroCluster 配置。
++
+.. 确认 MetroCluster 配置和操作模式正常。+ ` * MetroCluster show*`
+.. 运行以下命令： + ` * MetroCluster interconnect show*`
+.. 在任意一个 MetroCluster 节点上输入以下命令，以确认与磁盘的连接： + ` * 运行本地 sysconfig -v*`
+.. 运行以下命令： + ` * storage port show*`
+.. 运行以下命令： + ` * storage switch show*`
+.. 运行以下命令： + ` * network interface show*`
+.. 运行以下命令： + ` * network port show*`
+.. 运行以下命令： + ` * network device-discovery show*`
+.. 执行 MetroCluster 检查： + ` * MetroCluster check run*`
+.. 显示 MetroCluster 检查的结果： + ` * MetroCluster check show*`
+.. 运行以下命令： + ` * MetroCluster configuration-settings interface show*`
+
+
+. 如有必要，请将 AUSO 故障域修改为以禁用 AUSO
++
+` * auso-disabled"`
+
++
+[listing]
+----
+cluster_A_site_A::*>metrocluster modify -auto-switchover-failure-domain auso-disabled
+----
++
+
+NOTE: 在 MetroCluster IP 配置中， AUSO 故障域已设置为 "auso-disabled" ，除非此配置已配置 ONTAP 调解器。
+
+. 使用命令验证更改
++
+` * MetroCluster operation show*`
+
++
+[listing]
+----
+
+	cluster_A_site_A::*> metrocluster operation show
+       Operation: modify
+           State: successful
+      Start Time: 4/25/2020 20:20:36
+        End Time: 4/25/2020 20:20:36
+          Errors: -
+----
+. 暂停节点：
++
+` * 暂停 *`
+
++
+[listing]
+----
+system node halt -node node1_SiteA -inhibit-takeover true -ignore-quorum-warnings true
+----
+. 关闭站点上的以下设备：
++
+** 存储控制器
+** MetroCluster IP 交换机
+** 存储架
+
+
+. 等待 30 分钟，然后打开所有控制器的电源。
+. 打开控制器电源后，从两个站点验证 MetroCluster 配置。
++
+要验证配置，请重复步骤 1 。
+
+. 执行重新启动检查。
++
+.. 确认所有 sync-source SVM 均已联机： + ` * vserver show*`
+.. 启动任何未联机的 sync-source SVM ： + ` * vserver start*`
+
+
+

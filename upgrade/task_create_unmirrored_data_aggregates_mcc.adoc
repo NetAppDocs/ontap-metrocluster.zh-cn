@@ -1,0 +1,110 @@
+---
+permalink: upgrade/task_create_unmirrored_data_aggregates_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, create, unmirrored, data, aggregates 
+summary: 您可以选择为不需要 MetroCluster 配置提供的冗余镜像的数据创建未镜像数据聚合。 
+---
+= 创建未镜像的数据聚合
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以选择为不需要 MetroCluster 配置提供的冗余镜像的数据创建未镜像数据聚合。
+
+* 您应了解新聚合将使用哪些驱动器或阵列 LUN 。
+* 如果系统中有多种驱动器类型（异构存储），则应了解如何验证是否选择了正确的驱动器类型。
+
+
+重要
+
+在 MetroCluster IP 配置中，切换后无法访问未镜像的远程聚合
+
+
+NOTE: 未镜像聚合必须位于其所属节点的本地。
+
+* 驱动器和阵列 LUN 归特定节点所有；创建聚合时，该聚合中的所有驱动器都必须归同一节点所有，该节点将成为该聚合的主节点。
+* 聚合名称应符合您在规划 MetroCluster 配置时确定的命名方案。
+* 磁盘和聚合高级指南 _ 包含有关镜像聚合的详细信息。
++
+.. 启用未镜像聚合部署：
++
+` * MetroCluster modify -enable-unmirrored-aggr-deployment true*`
+
+.. 验证是否已禁用磁盘自动分配：
++
+` * 磁盘选项 show*`
+
+.. 安装要包含未镜像聚合的磁盘架并为其布线。
++
+您可以使用平台和磁盘架的安装和设置文档中的过程。
+
++
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+.. 手动将新磁盘架上的所有磁盘分配给相应的节点：
++
+` * disk assign -disk _disk-id_ -owner _owner-node-name_*`
+
+.. 创建聚合：
++
+` * 存储聚合 create*`
+
++
+如果您已通过集群管理界面登录到集群，则可以在集群中的任何节点上创建聚合。要验证是否已在特定节点上创建聚合，应使用 -node 参数或指定该节点所拥有的驱动器。
+
++
+此外，还必须确保仅在聚合中包含未镜像磁盘架上的驱动器。
+
++
+您可以指定以下选项：
+
++
+*** 聚合的主节点（即在正常操作下拥有聚合的节点）
+*** 要添加到聚合的特定驱动器或阵列 LUN 的列表
+*** 要包含的驱动器数量
+*** 要用于聚合的校验和模式
+*** 要使用的驱动器类型
+*** 要使用的驱动器大小
+*** 要使用的驱动器速度
+*** 聚合上 RAID 组的 RAID 类型
+*** 可包含在 RAID 组中的驱动器或阵列 LUN 的最大数量
+*** 有关这些选项的详细信息，请参见 `storage aggregate create` 手册页。
+
+
+
+
++
+以下命令将创建一个包含 10 个磁盘的未镜像聚合：
+
++
++
+
++
+[listing]
+----
+controller_A_1::> storage aggregate create aggr1_controller_A_1 -diskcount 10 -node controller_A_1
+[Job 15] Job is queued: Create aggr1_controller_A_1.
+[Job 15] The job is starting.
+[Job 15] Job succeeded: DONE
+----
++
+.. 验证新聚合的 RAID 组和驱动器：
++
+` * storage aggregate show-status -aggregate _aggregate-name_*`
+
+.. 禁用未镜像聚合部署：
++
+` * MetroCluster modify -enable-unmirrored-aggr-deployment false*`
+
+.. 验证是否已启用磁盘自动分配：
++
+` * 磁盘选项 show*`
+
+
+
+
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]

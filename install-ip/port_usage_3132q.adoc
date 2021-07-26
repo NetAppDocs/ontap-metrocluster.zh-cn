@@ -1,0 +1,31 @@
+---
+permalink: install-ip/port_usage_3132q.html 
+sidebar: sidebar 
+keywords: cabling, cable, component, sip, link, site, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure 
+summary: MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台类型。 
+---
+= Cisco 3132Q-V 交换机的平台端口分配
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台类型。
+
+
+
+== FAS2750 或 AFF A220 系统和 Cisco 3132Q-V 交换机的端口使用情况
+
+image::../media/mcc_ip_cabling_a_fas2750_or_a220_to_a_cisco_3132q_v_switch.png[通过 MCC IP 将 fas2750 或 a220 连接到 Cisco 3132q v 交换机]
+
+
+
+== FAS9000 ， AFF A700 和 Cisco 3132Q-V 交换机的端口使用情况
+
+image::../media/mcc_ip_cabling_a_fas9000_or_aff_a700_to_a_cisco_3132q_v_switch.png[通过 MCC IP 将 fas9000 或 AFF a700 连接到 Cisco 3132q v 交换机]
+
+
+
+== AFF A800 和 Cisco 3132Q-V 交换机的端口使用情况
+
+image::../media/cabling_an_aff_a800_to_a_cisco_3132q_v_switch.png[使用缆线将 AFF a800 连接到 Cisco 3132q v 交换机]

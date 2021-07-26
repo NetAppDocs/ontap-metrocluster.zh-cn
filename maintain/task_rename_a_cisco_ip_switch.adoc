@@ -1,0 +1,111 @@
+---
+permalink: maintain/task_rename_a_cisco_ip_switch.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, rename, cisco, ip, switch 
+summary: 您可能需要重命名 Cisco IP 交换机，以便在整个配置中提供一致的命名。 
+---
+= 重命名 Cisco IP 交换机
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能需要重命名 Cisco IP 交换机，以便在整个配置中提供一致的命名。
+
+在此任务的示例中，交换机名称将从 `myswitch` 更改为 `IP_switch_A_1` 。
+
+. 进入全局配置模式：
++
+` * 配置终端 *`
+
++
+以下示例显示了配置模式提示符。两个提示符均显示交换机名称 `myswitch` 。
+
++
+[listing]
+----
+myswitch# configure terminal
+myswitch(config)#
+----
+. 重命名交换机：
++
+` * 交换机名称 new-switch-name*`
+
++
+如果要重命名网络结构中的两个交换机，请对每个交换机使用相同的命令。
+
++
+此时， CLI 提示符将发生变化，以反映新名称：
+
++
+[listing]
+----
+myswitch(config)# switchname IP_switch_A_1
+IP_switch_A_1(config)#
+----
+. 退出配置模式：
++
+` * 退出 *`
+
++
+此时将显示顶级交换机提示符：
+
++
+[listing]
+----
+IP_switch_A_1(config)# exit
+IP_switch_A_1#
+----
+. 将当前运行的配置复制到启动配置文件：
++
+` * 复制 running-config startup-config *`
+
+. 验证交换机名称更改是否可从 ONTAP 集群提示符处看到。
++
+请注意，此时将显示新交换机名称，而不会显示旧交换机名称（ `myswitch` ）。
+
++
+.. 进入高级权限模式，出现提示时按 ` * y*` ： + ` * set -privilege advanced*`
+.. 显示连接的设备： + ` * network device-discovery show*`
+.. 返回到管理权限模式： + ` * 设置 -privilege admin*`
++
+以下示例显示了交换机以新名称 `ip_switch_A_1` 显示：
+
++
+[listing]
+----
+cluster_A::storage show> set advanced
+
+Warning: These advanced commands are potentially dangerous; use them only when directed to do so by NetApp personnel.
+Do you want to continue? {y|n}: y
+
+cluster_A::storage show*> network device-discovery show
+Node/       Local  Discovered
+Protocol    Port   Device                    Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node_A_2/cdp
+            e0M    LF01-410J53.mycompany.com(SAL18516DZY)
+                                             Ethernet125/1/28  N9K-C9372PX
+            e1a    IP_switch_A_1(FOC21211RBU)
+                                             Ethernet1/2       N3K-C3232C
+            e1b    IP_switch_A_1(FOC21211RBU)
+                                             Ethernet1/10      N3K-C3232C
+.
+.
+.                                             Ethernet1/18      N9K-C9372PX
+node_A_1/cdp
+            e0M    LF01-410J53.mycompany.com(SAL18516DZY)
+                                             Ethernet125/1/26  N9K-C9372PX
+            e0a    IP_switch_A_2(FOC21211RB5)
+                                             Ethernet1/1       N3K-C3232C
+            e0b    IP_switch_A_2(FOC21211RB5)
+                                             Ethernet1/9       N3K-C3232C
+            e1a    IP_switch_A_1(FOC21211RBU)
+.
+.
+.
+16 entries were displayed.
+----
+
+
+

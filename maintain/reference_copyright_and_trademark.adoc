@@ -1,0 +1,11 @@
+---
+permalink: maintain/reference_copyright_and_trademark.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, copyright, trademark, machine, translation 
+summary: 《 MetroCluster 维护指南》的版权，商标和机器翻译。 
+---
+= 版权，商标和机器翻译
+:icons: font
+:imagesdir: ../media/
+
+

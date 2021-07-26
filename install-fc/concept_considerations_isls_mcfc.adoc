@@ -1,0 +1,88 @@
+---
+permalink: install-fc/concept_considerations_isls_mcfc.html 
+sidebar: sidebar 
+keywords: preparing, prepare, metrocluster, mcc, installation, install, differences, configurations, between, considerations, all, san, array, asa, cluster, peering, prerequisites, dedicated, ports, sharing, data, ports, native, disk, shelves, array, luns, transitions, 7-mode, isls, tdm/wdm, fabric-attached, iod, ood, encryption, devices, unmirrored, aggregates, maintenance, requiring, power, shutdown, firewall, hardware, racking, cabling, setup, checklist, all san array, asa 
+summary: 您必须确定 MetroCluster 配置中每个 FC 交换机网络结构需要多少 ISL 。 
+---
+= ISL 注意事项
+
+
+[role="lead"]
+您必须确定 MetroCluster 配置中每个 FC 交换机网络结构需要多少 ISL 。从 ONTAP 9.2 开始，在某些情况下，您可以共享相同的四个交换机，而不是为每个 MetroCluster 配置使用专用的 FC 交换机和 ISL 。
+
+
+
+== ISL 共享注意事项（ ONTAP 9.2 ）
+
+从 ONTAP 9.2 开始，您可以在以下情况下使用 ISL 共享：
+
+* 一个双节点和一个四节点 MetroCluster 配置
+* 两个单独的四节点 MetroCluster 配置
+* 两个单独的双节点 MetroCluster 配置
+* 一个八节点 MetroCluster 配置中的两个 DR 组
+
+
+共享交换机之间所需的 ISL 数量取决于连接到共享交换机的平台型号的带宽。
+
+在确定需要多少 ISL 时，请考虑以下配置因素。
+
+* 非 MetroCluster 设备不应连接到提供后端 MetroCluster 连接的任何 FC 交换机。
+* 除 Cisco 9250i 和 Cisco 9148 交换机外，所有交换机均支持 ISL 共享。
+* 所有节点都必须运行 ONTAP 9.2 或更高版本。
+* 用于 ISL 共享的 FC 交换机布线与用于八节点 MetroCluster 布线的 FC 交换机布线相同。
+* 用于 ISL 共享的 RCF 文件与用于八节点 MetroCluster 布线的 RCF 文件相同。
+* 您应验证是否支持所有硬件和软件版本。
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* 必须调整 ISL 的速度和数量，以支持两个 MetroCluster 系统上的客户端负载。
+* 后端 ISL 和后端组件必须仅专用于 MetroCluster 配置。
+* ISL 必须使用以下支持的速度之一： 4 Gbps ， 8 Gbps ， 16 Gbps 或 32 Gbps 。
+* 一个网络结构上的 ISL 应具有相同的速度和长度。
+* 一个网络结构上的 ISL 都应具有相同的拓扑。例如，它们都应为直接链路，或者如果您的系统使用 WDM ，则它们都应使用 WDM 。
+
+
+
+
+== 平台特定的 ISL 注意事项
+
+建议的 ISL 数量因平台型号而异。下表按平台型号显示了每个网络结构的 ISL 要求。它假定每个 ISL 都具有 16 Gbps 的容量。
+
+[cols="2*"]
+|===
+| 平台型号 | 每个四节点 DR 组的建议 ISL 数（每个交换机网络结构） 
+
+
+ a| 
+AFF A700
+ a| 
+六个
+
+
+
+ a| 
+FAS9000
+ a| 
+六个
+
+
+
+ a| 
+8080
+ a| 
+四个
+
+
+
+ a| 
+所有其他
+ a| 
+两个
+
+|===
+如果交换机网络结构支持八个节点（一个八节点 MetroCluster 配置的一部分或两个共享 ISL 的四节点配置的一部分），则此网络结构的建议 ISL 总数等于每个四节点 DR 组所需的 ISL 总数之和。例如：
+
+* 如果 DR 组 1 包含四个 AFF A700 系统，则需要六个 ISL 。
+* 如果 DR 组 2 包含四个 FAS8200 系统，则需要两个 ISL 。
+* 交换机网络结构的建议 ISL 总数为八个。
+

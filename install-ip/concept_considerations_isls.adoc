@@ -1,0 +1,217 @@
+---
+permalink: install-ip/concept_considerations_isls.html 
+sidebar: sidebar 
+keywords: isl, isls, layer 2, layer 3, shared switch 
+summary: 您应了解配置的 ISL 要求。 
+---
+= ISL 注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+您应了解配置的 ISL 要求。
+
+
+
+== MetroCluster ISL 的基本要求
+
+对于所有 MetroCluster IP 配置上的 ISL ，必须满足以下要求：
+
+* 本机速度 ISL 交换机端口必须连接到本机速度 ISL 交换机端口。
++
+例如，一个 40 Gbps 端口连接到一个 40 Gbps 端口。
+
+* 处于原生模式（即不使用分支缆线）的 10 Gbps 端口可以连接到处于原生模式的 10 Gbps 端口。
+* MetroCluster IP 交换机和客户网络之间的 ISL 以及中间交换机之间的 ISL 在速度方面遵循相同的规则。
+* MetroCluster 交换机与客户网络交换机之间的 ISL 数量以及客户网络交换机之间的 ISL 数量不需要匹配。
++
+例如， MetroCluster 交换机可以使用两个 ISL 连接到中间交换机，而中间交换机可以使用 10 个 ISL 相互连接。
+
+* MetroCluster 交换机和客户网络交换机之间的 ISL 速度以及客户网络交换机之间的 ISL 速度不需要匹配。
++
+例如， MetroCluster 交换机可以使用 40-Gbps ISL 连接到中间交换机，而中间交换机可以使用 100-Gbps ISL 相互连接。
+
+* 在两个 MetroCluster 站点上，将每个 MetroCluster 交换机连接到中间交换机的 ISL 的数量和速度必须相同。
+
+
+
+
+== 共享第 2 层网络中的 ISL 要求
+
+[role="lead"]
+时间 link:../install-ip/concept_considerations_layer_2.html["在共享网络中共享 ISL 流量"]，您必须确保具有足够的容量并正确调整 ISL 的大小。低延迟对于在 MetroCluster 站点之间复制数据至关重要。这些连接上的延迟问题可能会影响客户端 I/O
+
+您应查看这些部分，以正确计算 ISL 所需的端到端容量。对于 MetroCluster 配置来说，持续的非易失性缓存和低延迟存储复制至关重要。后端网络中的延迟会影响客户端 IO 看到的延迟和吞吐量。
+
+
+
+=== ISL 中的延迟和数据包丢失限制
+
+如果 MetroCluster 配置处于稳定运行状态，则 site_A 和 site_B 的 MetroCluster IP 交换机之间的往返流量必须满足以下要求：
+
+* 往返延迟必须小于或等于 7 毫秒。
++
+最大距离为 700 公里，因此站点之间的距离受延迟或最大距离的限制，以先达到的为准。
+
++
+随着两个 MetroCluster 站点之间的距离增加，延迟也会增加，通常每 100 公里（ 62 英里）的往返延迟时间为 1 毫秒。此延迟还取决于网络服务级别协议（ SLA ）在 ISL 链路带宽，数据包丢弃率和网络抖动方面的情况。低带宽，高抖动和随机数据包丢弃会导致交换机或控制器模块上的 TCP 引擎采用不同的恢复机制，以确保成功传输数据包。这些恢复机制可以增加整体延迟。
+
++
+必须考虑导致延迟的任何设备。
+
+* 数据包丢失必须小于或等于 0.01% 。
++
+数据包丢失包括因拥塞或超额预订而导致的物理丢失或丢失。
+
++
+丢包可以通过发生原因重新传输并缩短拥塞窗口。
+
+* 对于往返，支持的抖动值为 3 毫秒（对于单向，支持 1.5 毫秒）。
+* 网络应根据 MetroCluster 流量所需的带宽分配和维护 SLA ，从而考虑流量中的微突发和峰值。
++
+低带宽可以在交换机上执行发生原因队列延迟和尾部丢弃。如果您使用的是 ONTAP 9.7 或更高版本，则两个站点之间的网络中间必须为 MetroCluster 配置提供 4.5 Gbps 的最小带宽。
+
+* MetroCluster 流量不应占用全部带宽，并对非 MetroCluster 流量产生负面影响。
+* 共享网络应配置网络监控，以监控 ISL 的利用率，错误（跌落，链路挡板，损坏等）和故障。
+
+
+
+
+=== 客户交换机中的连接限制和中继
+
+客户提供的中间交换机必须满足以下要求：
+
+* 中间交换机的数量不受限制，并且 MetroCluster IP 交换机之间支持两个以上的交换机。
++
+MetroCluster IP 交换机应尽可能靠近提供远程传输链路的中间交换机。路由中的所有 ISL 连接都必须满足 MetroCluster ISL 的所有要求。
+
+* 客户网络中的 ISL （客户交换机之间的 ISL ）必须配置为提供足够的带宽并保留交付顺序。
++
+可以通过中继足够数量的链路并强制执行负载平衡策略来保持顺序来完成此操作。
+
+
+
+
+
+=== 其他网络要求
+
+客户提供的中间交换机必须满足以下要求：
+
+* 客户网络必须在与 RCF 文件中设置的 MetroCluster VLAN 匹配的站点之间提供相同的 VLAN 。
++
+ID 与 MetroCluster VLAN ID 匹配的第 2 层 VLAN 必须跨越共享网络。
+
++
+** 在 ONTAP 9.7 及更早版本中， FAS2750 和 AFF A220 系统需要 VLAN 10 和 20 。
+** 在 ONTAP 9.8 及更高版本中， FAS2750 ， AFF A220 ， FAS500f ， AFF A250 ， 默认情况下， FAS8300 ， AFF A400 和 FAS8700 系统使用 VLAN 10 和 20 。您可以在创建接口期间配置其他 VLAN ，并且这些 VLAN 的范围必须介于 101-4096 之间。对于上述所有平台，您只能在创建接口期间指定 VLAN 。创建 MetroCluster 接口后，无法更改 VLAN ID 。对于之前未提及的所有其他平台，您可以使用任何 VLAN ，并且可以随时更改这些平台的 VLAN ID ，但需要创建并应用新的 RCF 文件。
+
+
+
+
+
+NOTE: RcfFileGenerator 不允许使用平台不支持的 VLAN 创建 RCF 文件。
+
+
+NOTE: RcfFileGenerator 可能会限制某些 VLAN ID 的使用（例如，如果这些 ID 供将来使用）。通常，预留的 VLAN 最多为 100 个，其中包括 100 个。
+
+* 端到端网络中的所有设备上的 MTU 大小必须设置为 9216 。
+* 任何其他流量都不能配置比服务级别（ COS ） 5 更高的优先级。
+* 必须在所有端到端路径上配置 ECN （显式拥塞通知）。
+
+
+
+
+=== 使用共享 ISL 时的布线要求
+
+[role="lead"]
+在 MetroCluster IP 配置中使用共享 ISL 时，您必须了解从站点 A 上的控制器端口到站点 B 上的控制器端口运行的端到端 MetroCluster ISL 的要求
+
+
+NOTE: 您必须遵循基本 ISL 要求： xref:concept_prepare_for_the_mcc_installation.html#considerations-for-isls[ISL 注意事项]
+
+
+
+=== 共享网络中的 ISL 和分支缆线的数量
+
+将 MetroCluster IP 交换机连接到共享网络的 ISL 数量因交换机型号和端口类型而异。
+
+[cols="3*"]
+|===
+| MetroCluster IP 交换机型号 | 端口类型 | ISL 的数量 
+
+
+ a| 
+Broadcom 支持的 BES-53248 交换机
+ a| 
+原生端口
+ a| 
+4 个 ISL ，使用 10 或 25 Gbps 端口
+
+
+
+ a| 
+Cisco 3132Q-V
+ a| 
+原生端口
+ a| 
+6 个 ISL ，使用 40-Gbps 端口
+
+
+
+ a| 
+Cisco 3132Q-V
+ a| 
+分支缆线
+ a| 
+16 个 10-Gbps ISL
+
+
+
+ a| 
+Cisco 3232C
+ a| 
+原生端口
+ a| 
+6 个 ISL ，使用 40 或 100 Gbps 端口
+
+
+
+ a| 
+Cisco 3232C
+ a| 
+分支缆线
+ a| 
+16 个 10-Gbps ISL
+
+|===
+* Cisco 交换机支持使用分支缆线（一个物理端口用作 4 个 10 Gbps 端口）。
+* IP 交换机的 RCF 文件配置了原生和分支模式下的端口。
++
+不支持在原生端口速度模式和分支模式下混合使用 ISL 端口。从 MetroCluster IP 交换机到一个网络中的中间交换机的所有 ISL 的速度和长度必须相同。
+
+* 只要往返延迟保持在上述要求范围内，就支持使用外部加密设备（例如通过 WDM 设备提供的外部链路加密或加密）。
+
+
+为了获得最佳性能，每个网络应至少使用 1 个 40 Gbps 或多个 10 Gbps ISL 。强烈建议不要为 AFF A800 系统的每个网络使用一个 10 Gbps ISL 。
+
+最佳情形是共享 ISL 的最大理论吞吐量（例如， 240 Gbps 与 6 个 40 Gbps ISL ）。使用多个 ISL 时，统计负载平衡可能会影响最大吞吐量。可能会出现不均衡的平衡，并会降低单个 ISL 的吞吐量。
+
+如果配置使用 L2 VLAN ，则它们必须本机跨越站点。不支持虚拟可扩展 LAN （ VXLAN ）等 VLAN 覆盖。
+
+传输 MetroCluster 流量的 ISL 必须是交换机之间的原生链路。不支持多协议标签交换（ MPLS ）链路等链路共享服务。
+
+
+
+=== 支持 Broadcom BES-53248 交换机上的 WAN ISL
+
+* 每个网络结构的最小 WAN ISL 数量： 1 个（ 10 GbE 或 25 GbE ， 40 GbE 或 100 GbE ）
+* 每个网络结构的 10-GbE WAN ISL 的最大数量： 4
+* 每个网络结构的最大 25 GbE WAN ISL 数： 4
+* 每个网络结构的 40-GbE WAN ISL 的最大数量： 2
+* 每个网络结构的 100-GbE WAN ISL 的最大数量： 2
+
+
+40-GbE 或 100-GbE WAN ISL 需要使用 RCF 文件版本 1.40 或更高版本。
+
+
+NOTE: 要使用其他端口，需要额外的许可证。

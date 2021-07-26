@@ -1,0 +1,214 @@
+---
+permalink: disaster-recovery/task_assign_ownership_mcfc.html 
+sidebar: sidebar 
+keywords: assign, ownership, drives, replaced 
+summary: 如果在灾难站点还原硬件时更换了驱动器，则必须为受影响的驱动器分配所有权。 
+---
+= 为更换的驱动器分配所有权
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在灾难站点还原硬件时更换了驱动器，或者必须将驱动器置零或删除所有权，则必须为受影响的驱动器分配所有权。
+
+灾难站点的可用驱动器数量必须至少与灾难发生前相同。
+
+驱动器架和驱动器布局必须满足中的要求 link:../install-ip/concept_required_mcc_ip_components_and_naming_guidelines_mcc_ip.html["所需的 MetroCluster IP 组件和命名约定"] 部分 。
+
+这些步骤在灾难站点的集群上执行。
+
+此操作步骤显示了所有驱动器的重新分配以及在灾难站点上创建新丛的情况。新丛是运行正常的站点的远程丛和灾难站点的本地丛。
+
+本节提供了双节点和四节点配置的示例。对于双节点配置，您可以忽略对每个站点上第二个节点的引用。对于八节点配置，您必须考虑第二个 DR 组上的其他节点。这些示例假设以下条件：
+
+* 站点 A 是灾难站点。
++
+** node_A_1 已更换。
+** node_A_2 已更换。
++
+仅存在于四节点 MetroCluster 配置中。
+
+
+
+* 站点 B 是正常运行的站点。
++
+** node_B_1 运行状况良好。
+** node_B_2 运行状况良好。
++
+仅存在于四节点 MetroCluster 配置中。
+
+
+
+
+
+控制器模块具有以下原始系统 ID ：
+
+|===
+| MetroCluster 配置中的节点数 | 节点 | 原始系统 ID 
+
+
+ a| 
+四个
+ a| 
+node_A_1
+ a| 
+4068741258
+
+
+
+ a| 
+node_A_2
+ a| 
+4068741260
+ a| 
+node_B_1
+
+
+
+ a| 
+4068741254
+ a| 
+node_B_2
+ a| 
+4068741256
+
+
+
+ a| 
+两个
+ a| 
+node_A_1
+ a| 
+4068741258
+
+|===
+在分配驱动器时，应记住以下几点：
+
+* 对于灾难发生前存在的每个节点， old-count-of-disks 必须至少具有相同数量的磁盘。
++
+如果指定的或存在的磁盘数量较少，则修复操作可能会由于空间不足而无法完成。
+
+* 要创建的新丛是属于正常运行的站点（ node_B_x pool1 ）的远程丛和属于灾难站点的本地丛（ node_B_x pool0 ）。
+* 所需驱动器总数不应包括根聚合磁盘。
++
+如果将 n 个磁盘分配给运行正常的站点的 pool1 ，则应将 n-3 个磁盘分配给灾难站点，并假设根聚合使用三个磁盘。
+
+* 不能将任何磁盘分配给与同一堆栈中所有其他磁盘分配到的池不同的池。
+* 属于正常运行的站点的磁盘将分配给池 1 ，属于灾难站点的磁盘将分配给池 0 。
+
+
+.步骤
+. 根据您使用的是四节点还是双节点 MetroCluster 配置，分配新的无主驱动器：
++
+** 对于四节点 MetroCluster 配置，请在替代节点上使用以下一系列命令将新的无主磁盘分配给相应的磁盘池：
++
+... 系统地将每个节点的已更换磁盘分配给各自的磁盘池：
++
+`dassign -s sysid -n old-count-of-disks -p pool`
+
++
+在运行正常的站点中，您可以为每个节点问题描述一个 disk assign 命令：
+
++
+[listing]
+----
+cluster_B::> disk assign -s node_B_1-sysid -n old-count-of-disks -p 1 **\(remote pool of surviving site\)**
+cluster_B::> disk assign -s node_B_2-sysid -n old-count-of-disks -p 1 **\(remote pool of surviving site\)**
+cluster_B::> disk assign -s node_A_1-old-sysid -n old-count-of-disks -p 0 **\(local pool of disaster site\)**
+cluster_B::> disk assign -s node_A_2-old-sysid -n old-count-of-disks -p 0 **\(local pool of disaster site\)**
+----
++
+以下示例显示了具有系统 ID 的命令：
+
++
+[listing]
+----
+cluster_B::> disk assign -s 4068741254 -n 21 -p 1
+cluster_B::> disk assign -s 4068741256 -n 21 -p 1
+cluster_B::> disk assign -s 4068741258 -n 21 -p 0
+cluster_B::> disk assign -s 4068741260 -n 21 -p 0
+----
+... 确认磁盘的所有权：
++
+`storage disk show -fields owner ， pool`
+
++
+[listing]
+----
+storage disk show -fields owner, pool
+cluster_A::> storage disk show -fields owner, pool
+disk     owner          pool
+-------- ------------- -----
+0c.00.1  node_A_1      Pool0
+0c.00.2  node_A_1      Pool0
+.
+.
+.
+0c.00.8  node_A_1      Pool1
+0c.00.9  node_A_1      Pool1
+.
+.
+.
+0c.00.15 node_A_2      Pool0
+0c.00.16 node_A_2      Pool0
+.
+.
+.
+0c.00.22 node_A_2      Pool1
+0c.00.23 node_A_2      Pool1
+.
+.
+.
+----
+
+
+** 对于双节点 MetroCluster 配置，请在替代节点上使用以下一系列命令将新的无主磁盘分配给相应的磁盘池：
++
+... 显示本地磁盘架 ID ：
++
+`运行 local storage show shelf`
+
+... 将运行状况良好的节点的已更换磁盘分配到池 1 ：
++
+`运行本地磁盘分配 -shelf shelf-id -n old-count-of-disks -p 1 -s node_B_1-sysid -f`
+
+... 将替代节点的已更换磁盘分配到池 0 ：
++
+`运行本地磁盘分配 -shelf shelf-id -n old-count-of-disks -p 0 -s node_A_1-sysid -f`
+
+
+
+
+
+. 在运行正常的站点上，再次启用自动磁盘分配：
++
+`storage disk option modify -autosassign on *`
+
++
+[listing]
+----
+cluster_B::> storage disk option modify -autoassign on *
+2 entries were modified.
+----
+. 在正常运行的站点上，确认自动磁盘分配已启用：
++
+`s存储磁盘选项 show`
+
++
+[listing]
+----
+ cluster_B::> storage disk option show
+ Node     BKg. FW. Upd.  Auto Copy   Auto Assign  Auto Assign Policy
+--------  -------------  -----------  -----------  ------------------
+node_B_1       on            on          on             default
+node_B_2       on            on          on             default
+2 entries were displayed.
+
+ cluster_B::>
+----
+
+
+xref:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html[磁盘和聚合管理]
+
+link:../manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#how-metrocluster-configurations-use-syncmirror-to-provide-data-redundancy["MetroCluster 配置如何使用 SyncMirror 提供数据冗余"]

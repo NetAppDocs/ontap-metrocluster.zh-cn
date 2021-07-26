@@ -1,0 +1,77 @@
+---
+permalink: upgrade/task_create_a_mirrored_data_aggregate_on_each_node_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, create, mirrored, data, aggregate, node 
+summary: 您必须在 DR 组中的每个节点上创建镜像数据聚合。 
+---
+= 在每个节点上创建镜像数据聚合
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须在 DR 组中的每个节点上创建镜像数据聚合。
+
+* 您应了解新聚合将使用哪些驱动器。
+* 如果系统中有多种驱动器类型（异构存储），则应了解如何确保选择正确的驱动器类型。
+* 驱动器由特定节点拥有；创建聚合时，该聚合中的所有驱动器都必须由同一节点拥有，该节点将成为该聚合的主节点。
++
+在使用 ADP 的系统中，聚合是使用分区创建的，其中每个驱动器都分区为 P1 ， P2 和 P3 分区。
+
+* 聚合名称应符合您在规划 MetroCluster 配置时确定的命名方案。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+
++
+.. 显示可用备件列表：
++
+` * storage disk show -spare -owner _node_name_*`
+
+.. 使用 `storage aggregate create -mirror true` 命令创建聚合。
++
+如果您已通过集群管理界面登录到集群，则可以在集群中的任何节点上创建聚合。要确保在特定节点上创建聚合，请使用 ` -node` 参数或指定该节点所拥有的驱动器。
+
++
+您可以指定以下选项：
+
++
+*** 聚合的主节点（即在正常操作下拥有聚合的节点）
+*** 要添加到聚合的特定驱动器的列表
+*** 要包含的驱动器数量
++
+
+NOTE: 在支持的最低配置中，可用驱动器数量有限，您必须使用 force-Small-aggregate 选项来创建三磁盘 RAID-DP 聚合。
+
+*** 要用于聚合的校验和模式
+*** 要使用的驱动器类型
+*** 要使用的驱动器大小
+*** 要使用的驱动器速度
+*** 聚合上 RAID 组的 RAID 类型
+*** 可包含在 RAID 组中的最大驱动器数
+*** 有关这些选项的详细信息，请参见 `storage aggregate create` 手册页。
+
+
+
+
++
+以下命令将创建包含 10 个磁盘的镜像聚合：
+
++
++
+
++
+[listing]
+----
+cluster_A::> storage aggregate create aggr1_node_A_1 -diskcount 10 -node node_A_1 -mirror true
+[Job 15] Job is queued: Create aggr1_node_A_1.
+[Job 15] The job is starting.
+[Job 15] Job succeeded: DONE
+----
++
+.. 验证新聚合的 RAID 组和驱动器：
++
+` * storage aggregate show-status -aggregate _aggregate-name_*`
+
+
+
+

@@ -1,0 +1,25 @@
+---
+permalink: install-fc/concept_example_of_a_four_node_mcc_configuration_with_disks_and_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, four, node, configuration, disks, array, luns 
+summary: 要设置使用原生磁盘和阵列 LUN 的四节点 MetroCluster 配置，必须使用 FC-SAS 网桥通过 FC 交换机将 ONTAP 系统与磁盘架连接起来。您可以通过 FC 交换机将阵列 LUN 连接到 ONTAP 系统。 
+---
+= 包含磁盘和阵列 LUN 的四节点 MetroCluster 配置示例
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要设置使用原生磁盘和阵列 LUN 的四节点 MetroCluster 配置，必须使用 FC-SAS 网桥通过 FC 交换机将 ONTAP 系统与磁盘架连接起来。您可以通过 FC 交换机将阵列 LUN 连接到 ONTAP 系统。
+
+要使 ONTAP 系统同时连接到原生磁盘和阵列 LUN ，至少需要八个启动程序端口。
+
+下图显示了使用磁盘和阵列 LUN 的 MetroCluster 配置示例。它们表示相同的 MetroCluster 配置；磁盘和阵列 LUN 的表示仅为简化而分开。
+
+下图显示了 ONTAP 系统与磁盘之间的连接，其中 HBA 端口 1a 到 1d 用于通过 FC-SAS 网桥与磁盘连接：
+
+image::../media/mcc_configuration_with_disks_and_array_luns_1.gif[使用磁盘和阵列 LUN 的 MCC 配置 1.]
+
+下图显示了 ONTAP 系统与阵列 LUN 之间的连接，其中 HBA 端口 0a 到 0d 用于与阵列 LUN 连接，因为端口 1a 到 1d 用于与磁盘连接：
+
+image::../media/mcc_configuration_with_disks_and_array_luns_ii.gif[此图显示了一个 MetroCluster 配置示例。图周围的文字对此进行了说明。]

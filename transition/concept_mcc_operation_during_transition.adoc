@@ -1,0 +1,25 @@
+---
+permalink: transition/concept_mcc_operation_during_transition.html 
+sidebar: sidebar 
+keywords: notice, alert, message, transition, alert, safe, ignore, tool, transition 
+summary: 过渡期间，您可能会注意到警报消息。可以安全地忽略这些警报。此外，某些工具在过渡期间不可用。 
+---
+= 过渡期间的警报消息和工具支持
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+过渡期间，您可能会注意到警报消息。可以安全地忽略这些警报。此外，某些工具在过渡期间不可用。
+
+* ARS 可能会在过渡期间发出警报。
++
+可以忽略这些警报，这些警报应在过渡完成后消失。
+
+* OnCommand Unified Manager 可能会在过渡期间发出警报。
++
+可以忽略这些警报，这些警报应在过渡完成后消失。
+
+* 过渡期间不支持 Config Advisor 。
+* 过渡期间不支持 System Manager 。
+

@@ -1,0 +1,13 @@
+---
+permalink: install-ip/index.html 
+sidebar: sidebar 
+keywords: metrocluster, mcc, ip, install, installing, installation, configure, configuration, configuring 
+summary: 介绍如何在 IP 配置中安装和配置 MetroCluster 硬件和软件组件。 
+---
+= 《 MetroCluster ® IP 安装和配置指南》
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此内容介绍如何在 IP 配置中安装和配置 MetroCluster 硬件和软件组件。

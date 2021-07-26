@@ -1,0 +1,65 @@
+---
+permalink: install-ip/task_rack_hw_components.html 
+sidebar: sidebar 
+keywords: metrocluster ip, rack hardware, components, racking 
+summary: 如果您尚未收到机柜中已安装的设备，则必须将这些组件装入机架。 
+---
+= 将硬件组件安装在机架中
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您尚未收到机柜中已安装的设备，则必须将这些组件装入机架。
+
+必须在两个 MetroCluster 站点上执行此任务。
+
+. 规划 MetroCluster 组件的定位。
++
+机架空间取决于控制器模块的平台型号，交换机类型以及配置中的磁盘架堆栈数量。
+
+. 正确接地。
+
+
+. 在机架或机柜中安装控制器模块。
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842666["《 AFF A220/FAS2700 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2870798["《 AFF A250 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2469722["《 AFF A300 系统安装和设置说明》"]
+
++
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-a320-install-setup/home.html["AFF A320 系统：安装和设置"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2858854["《 AFF A400 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2874463["《 AFF A700 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842668["《 AFF A800 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2872833["《 FAS500f 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["《 FAS8200 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2858856["《 FAS8300 和 FAS8700 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2874463["《 FAS9000 系统安装和设置说明》"]
+
+. 在机架或机柜中安装 IP 交换机。
+. 安装磁盘架，打开其电源，然后设置磁盘架 ID 。
++
+** 您必须重新启动每个磁盘架。
+** 每个 MetroCluster DR 组（包括两个站点）中的每个 SAS 磁盘架的磁盘架 ID 必须是唯一的。* 注： * 此时不要为要包含未镜像聚合的磁盘架布线。您必须等到 MetroCluster 配置完成后再部署用于未镜像聚合的磁盘架，并且只能在使用 `MetroCluster modify -enable-unmirrored-aggr-deployment true` 命令后再部署这些磁盘架。
+
+
+

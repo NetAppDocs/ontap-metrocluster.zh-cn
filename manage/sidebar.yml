@@ -1,0 +1,41 @@
+---
+section: manage
+title: 执行切换，修复和切回
+entries:
+- title: 为测试或维护执行切换
+  url: "/manage/task_perform_switchover_for_tests_or_maintenance.html"
+  entries:
+  - title: 验证您的系统是否已做好切换准备
+    url: "/manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html"
+  - title: 在协商切换之前发送自定义 AutoSupport 消息
+    url: "/manage/task_send_a_custom_autosupport_message_prior_to_negotiated_switchover.html"
+  - title: 执行协商切换
+    url: "/manage/task_perform_a_negotiated_switchover.html"
+  - title: 在 MetroCluster 切换后， storage aggregate plex show 命令的输出不确定
+    url: "/manage/concept_output_for_storage_aggregate_plex_show_after_a_mcc_switchover.html"
+  - title: 确认灾难恢复配对节点已联机
+    url: "/manage/task_confirm_that_dr_partners_have_come_online.html"
+  - title: 修复配置
+    url: "/manage/task_heal_the_configuration_choice_task.html"
+    entries:
+    - title: 修复 MetroCluster FC 配置中的配置
+      url: "/manage/task_heal_the_configuration_in_a_mcc_fc_configuration_supertask.html"
+      entries:
+      - title: 在协商切换后修复数据聚合
+        url: "/manage/task_heal_the_data_aggregates_after_negotiated_switchover.html"
+      - title: 在协商切换后修复根聚合
+        url: "/manage/task_heal_the_root_aggregates_after_negotiated_switchover.html"
+    - title: 修复 MetroCluster IP 配置中的配置（ ONTAP 9.4 及更早版本）
+      url: "/manage/task_heal_the_configuration_in_a_mcc_ip_configuration_ontap_9_4_and_earlier.html"
+  - title: 执行切回
+    url: "/manage/task_perform_a_switchback.html"
+  - title: 验证切回是否成功
+    url: "/manage/task_verify_a_successful_switchback.html"
+- title: 用于切换，修复和切回的命令
+  url: "/manage/reference_commands_for_switchover_healing_and_switchback.html"
+- title: 监控 MetroCluster 配置
+  url: "/manage/concept_monitoring_the_mcc_configuration.html"
+- title: 使用 NVFAIL 监控和保护文件系统一致性
+  url: "/manage/concept_monitoring_and_protecting_database_validity_by_using_nvfail.html"
+- title: 从何处查找追加信息
+  url: "/manage/reference_where_to_find_additional_information_dr_guide.html"

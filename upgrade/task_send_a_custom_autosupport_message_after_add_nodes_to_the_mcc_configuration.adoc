@@ -1,0 +1,24 @@
+---
+permalink: upgrade/task_send_a_custom_autosupport_message_after_add_nodes_to_the_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, send, custom, autosupport, message, add, nodes, configuration 
+summary: 您应问题描述发送 AutoSupport 消息，以通知 NetApp 技术支持维护已完成。 
+---
+= 在将节点添加到 MetroCluster 配置之后发送自定义 AutoSupport 消息
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您应问题描述发送 AutoSupport 消息，以通知 NetApp 技术支持维护已完成。
+
+必须在每个 MetroCluster 站点上执行此任务。
+
+.步骤
+. 登录到 Site_A 上的集群
+. 调用指示维护结束的 AutoSupport 消息：
++
+` * 系统节点 AutoSupport 调用 -node * -type all -message MAINT=end*`
+
+. 在配对站点上重复此步骤。
+

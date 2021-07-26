@@ -1,0 +1,32 @@
+---
+permalink: upgrade/task_mirror_the_root_aggregates_mcc_expansion_procedure.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, mirror, root, aggregate, new, controller 
+summary: 在向 MetroCluster 配置添加控制器时，您必须镜像根聚合以提供数据保护。 
+---
+= 在新控制器上镜像根聚合
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在向 MetroCluster 配置添加控制器时，您必须镜像根聚合以提供数据保护。
+
+必须对新控制器模块执行此任务。
+
+. 镜像根聚合：
++
+` * 存储聚合镜像 _aggr_name_*`
+
++
+以下命令镜像 controller_A_1 的根聚合：
+
++
+[listing]
+----
+controller_A_1::> storage aggregate mirror aggr0_controller_A_1
+----
++
+此操作会镜像聚合，因此它包含一个本地丛和一个位于远程 MetroCluster 站点的远程丛。
+
+

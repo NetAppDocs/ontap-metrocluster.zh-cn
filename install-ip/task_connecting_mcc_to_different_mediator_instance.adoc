@@ -1,0 +1,27 @@
+---
+permalink: install-ip/task_connecting_mcc_to_different_mediator_instance.html 
+sidebar: sidebar 
+keywords: metrocluster, mediator, configure, connect 
+summary: 如果要将 MetroCluster 节点连接到其他 ONTAP 调解器实例，则必须在 ONTAP 软件中取消配置调解器连接，然后重新配置该连接。 
+---
+= 将 MetroCluster 配置连接到其他 ONTAP 调解器实例
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要将 MetroCluster 节点连接到其他 ONTAP 调解器实例，则必须在 ONTAP 软件中取消配置调解器连接，然后重新配置该连接。
+
+* 开始之前 *
+
+您需要新 ONTAP 调解器实例的用户名，密码和 IP 地址。
+
+* 关于此任务 *
+
+可以从 MetroCluster 配置中的任何节点发出这些命令。
+
+* 操作步骤 *
+
+. 从 MetroCluster 配置中删除当前 ONTAP 调解器： MetroCluster configuration-settings mediator remove
+. 与 MetroCluster 配置建立新的 ONTAP 调解器连接： MetroCluster configuration-settings mediator add -medier-address IP-address-o-o-mediate-host
+

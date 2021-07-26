@@ -1,0 +1,25 @@
+---
+permalink: transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html 
+sidebar: sidebar 
+keywords: ontap, nondisruptive, transition, workload, data, exist, four-node, metrocluster, fc, configuration, ip, support 
+summary: 从 ONTAP 9.8 开始，支持将工作负载和数据从现有四节点 MetroCluster FC 配置无中断过渡到新的 MetroCluster IP 配置。 
+---
+= 无中断地从 MetroCluster FC 过渡到 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 ONTAP 9.8 开始，支持将工作负载和数据从现有四节点 MetroCluster FC 配置无中断过渡到新的 MetroCluster IP 配置。
+
+* 运行 ONTAP 9.8 及更高版本的系统支持此操作步骤。
+* 此操作步骤无中断。
++
+在此操作期间， MetroCluster 配置可以继续提供数据。
+
+* 此操作步骤仅适用于四节点 MetroCluster FC 配置。
++
+如果您使用的是双节点 MetroCluster FC 配置，请参见 xref:concept_choosing_your_transition_procedure_mcc_transition.adoc[选择过渡操作步骤]。
+
+* 您必须满足所有要求并按照操作步骤中的所有步骤进行操作。
+

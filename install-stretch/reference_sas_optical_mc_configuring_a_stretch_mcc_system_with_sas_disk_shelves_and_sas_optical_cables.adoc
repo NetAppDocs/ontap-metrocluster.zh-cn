@@ -1,0 +1,36 @@
+---
+permalink: install-stretch/reference_sas_optical_mc_configuring_a_stretch_mcc_system_with_sas_disk_shelves_and_sas_optical_cables.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, install, cable, components, two, node, sas, stretch, attached, configuration 
+summary: 存储控制器必须通过缆线连接到存储和彼此。此外，还必须使用缆线将存储控制器连接到数据和管理网络。 
+---
+= 为双节点 SAS 连接延伸型配置安装 MetroCluster 组件并为其布线
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+存储控制器必须通过缆线连接到存储和彼此。此外，还必须使用缆线将存储控制器连接到数据和管理网络。
+
+
+
+== 开始使用本文档中的任何操作步骤之前
+
+在完成此任务之前，必须满足以下总体要求：
+
+* 您必须已熟悉适用于您的磁盘架型号的磁盘架安装和布线注意事项和最佳实践。
+* 必须支持所有组件。
++
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
++
+在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
+
+
+
+
+
+== 关于此任务
+
+* 术语节点和控制器可互换使用。
+

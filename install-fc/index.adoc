@@ -1,0 +1,13 @@
+---
+permalink: install-fc/index.html 
+sidebar: sidebar 
+keywords: metrocluster, mcc, install, installation, installin, configure, configuration, configuring, fabric, attached 
+summary: 介绍如何在网络结构配置中安装和配置 MetroCluster 硬件和软件组件。 
+---
+= 《光纤连接 MetroCluster ® 安装和配置指南》
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此内容介绍如何在网络结构配置中安装和配置 MetroCluster 硬件和软件组件。

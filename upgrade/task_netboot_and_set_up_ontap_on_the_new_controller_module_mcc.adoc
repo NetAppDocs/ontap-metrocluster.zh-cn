@@ -1,0 +1,208 @@
+---
+permalink: upgrade/task_netboot_and_set_up_ontap_on_the_new_controller_module_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, netboot, set, up, ontap, new, controller, module 
+summary: 在向现有 MetroCluster 配置添加控制器模块时，您必须执行一系列特定步骤以通过网络启动并在新控制器模块上安装 ONTAP 操作系统。 
+---
+= 在新控制器模块上通过网络启动和设置 ONTAP
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在向现有 MetroCluster 配置添加控制器模块时，您必须执行一系列特定步骤以通过网络启动并在新控制器模块上安装 ONTAP 操作系统。
+
+* 此任务将从新控制器模块的 LOADER 提示符处开始。
+* 此任务包括初始化磁盘。
++
+初始化磁盘所需的时间量取决于磁盘的大小。
+
+* 系统会自动为新控制器模块分配两个磁盘。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+
+
+
+.步骤
+. 在 LOADER 提示符处，根据 DHCP 可用性配置新控制器模块的 IP 地址：
++
+|===
+| DHCP 是否为 ... | 然后输入以下命令 ... 
+
+
+ a| 
+可用
+ a| 
+` * ifconfig e0M -auto*`
+
+
+
+ a| 
+不可用
+ a| 
+` * ifconfig e0M -addr=_filer_addr_ -mask=_netmask__ -gw=_gateway_ -dns=_dns_addr_ -domain=_dns_domain___*`
+
+`filer_addr` 是存储系统的 IP 地址。
+
+`netmask` 是存储系统的网络掩码。
+
+`gateway` 是存储系统的网关。
+
+`dns_addr` 是网络上名称服务器的 IP 地址。
+
+`dns_domain` 是域名系统（ DNS ）域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。
+
+
+NOTE: 您的接口可能需要其他参数。有关详细信息，请在 LOADER 提示符处使用 `help ifconfig` 命令。
+
+|===
+. 在 LOADER 提示符处，通过网络启动新节点：
++
+|===
+| 针对 ... | 那么 ... 
+
+
+ a| 
+* FAS2200 ， FAS2500 ， FAS3200 ， FAS6200 ， FAS/AFF8000 系列系统 *
+ a| 
+` * 网络启动 http://__web_server_ip/path_to_web-accessible_directory__/netboot/kernel*`[]
+
+
+
+ a| 
+* 所有其他系统 *
+ a| 
+` * 网络启动 http://__web_server_ip/path_to_web-accessible_directory__/<ontap_version>_image.tgz*`[]
+
+|===
+
+
+` 的` path_to_the_web-accessible_directory_ ` 是下载的` <ontap_version>_image.tgz 文件的位置。
+
+. 从显示的菜单中选择 * 先安装新软件 * 选项。
++
+此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。
+
++
+** 当系统提示您在 HA 对上不支持无中断升级此操作步骤时，应输入 ` * y` * 。
+** 当系统发出警告，指出此过程将使用新软件替换现有 ONTAP 软件时，应输入 ` * y*` 。
+** 当系统提示您输入 image.tgz 文件的 URL 时，应按如下所示输入路径： + ` * http://__path_to_the_web-accessible_directory__/image.tgz*`
+
+
+. 出现有关无中断升级或更换软件的提示时，输入 ` * y*` 。
+. 在系统提示您输入软件包的 URL 时，输入 image.tgz 文件的路径。
++
+[listing]
+----
+What is the URL for the package? `http://path_to_web-accessible_directory/image.tgz`
+----
+. 在系统提示您还原备份配置时，输入 ` * n*` 可跳过备份恢复。
++
+[listing]
+----
+****************************************************************
+*             Restore Backup Configuration                     *
+*  This procedure only applies to storage controllers that     *
+*  are configured as an HA pair.                               *
+*                                                              *
+*  Choose Yes to restore the "varfs" backup configuration      *
+*  from the SSH server.  Refer to the Boot Device Replacement  *
+*  guide for more details.                                     *
+*  Choose No to skip the backup recovery and return to the     *
+*  boot menu.                                                  *
+****************************************************************
+
+Do you want to restore the backup configuration
+now? {y|n} `n`
+----
+. 在系统提示您立即重新启动时，输入 ` * y*` 。
++
+[listing]
+----
+The node must be rebooted to start using the newly installed software. Do you want to
+reboot now? {y|n} `y`
+----
+. 如有必要，请选择 * 清理配置并在节点启动后初始化所有磁盘 * 选项。
++
+由于您要配置新控制器模块且新控制器模块的磁盘为空，因此在系统警告您此操作将擦除所有磁盘时，您可以响应 ` * y*` 。
+
++
+
+NOTE: 初始化磁盘所需的时间取决于磁盘大小和配置。
+
+. 初始化磁盘并启动集群设置向导后，设置节点：
++
+.. 在控制台上输入节点管理 LIF 信息。
+
+
+. 登录到节点，输入 ` * cluster setup*` ，然后在系统提示您加入集群时输入 ` * join*` 。
++
+[listing]
+----
+Do you want to create a new cluster or join an existing cluster? {create, join}: `join`
+----
+. 根据您所在站点的具体情况，对其余提示进行响应。
++
+。 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["软件设置指南"] 对于您的 ONTAP 版本，还提供了其他详细信息。
+
+. 如果系统采用双节点无交换机集群配置，请使用 network interface create 命令在现有节点上创建集群接口，以便在集群端口上创建集群 LIF 。
++
+以下是在节点的一个集群端口上创建集群 LIF 的命令示例。auto 参数用于将 LIF 配置为使用链路本地 IP 地址。
+
++
+[listing]
+----
+cluster_A::> network interface create -vserver Cluster -lif clus1 -role cluster -home-node node_A_1 -home-port e1a -auto true
+----
+. 设置完成后，验证节点是否运行正常并符合加入集群的条件：
++
+` * 集群显示 *`
+
++
+以下示例显示了加入第二个节点（ cluster1-02 ）后的集群：
+
++
+[listing]
+----
+cluster_A::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+node_A_1              true    true
+node_A_2              true    true
+----
++
+您可以使用 cluster setup 命令访问集群设置向导以更改为管理 Storage Virtual Machine （ SVM ）或节点 SVM 输入的任何值。
+
+. 确认已将四个端口配置为集群互连：
++
+` * 网络端口显示 *`
+
++
+以下示例显示了 cluster_A 中两个控制器模块的输出：
+
++
+[listing]
+----
+cluster_A::> network port show
+                                                             Speed (Mbps)
+Node   Port      IPspace      Broadcast Domain Link   MTU    Admin/Oper
+------ --------- ------------ ---------------- ----- ------- ------------
+node_A_1
+       **e0a       Cluster      Cluster          up       9000  auto/1000
+       e0b       Cluster      Cluster          up       9000  auto/1000**
+       e0c       Default      Default          up       1500  auto/1000
+       e0d       Default      Default          up       1500  auto/1000
+       e0e       Default      Default          up       1500  auto/1000
+       e0f       Default      Default          up       1500  auto/1000
+       e0g       Default      Default          up       1500  auto/1000
+node_A_2
+       **e0a       Cluster      Cluster          up       9000  auto/1000
+       e0b       Cluster      Cluster          up       9000  auto/1000**
+       e0c       Default      Default          up       1500  auto/1000
+       e0d       Default      Default          up       1500  auto/1000
+       e0e       Default      Default          up       1500  auto/1000
+       e0f       Default      Default          up       1500  auto/1000
+       e0g       Default      Default          up       1500  auto/1000
+14 entries were displayed.
+----
+

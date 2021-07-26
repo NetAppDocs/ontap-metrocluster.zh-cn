@@ -1,0 +1,130 @@
+---
+permalink: install-stretch/reference_information_gathering_worksheet_for_fc_to_sas_bridges_2_node_atto.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, worksheet, fc, sas, bridges, information 
+summary: 在开始配置 MetroCluster 站点之前，您应收集所需的配置信息。 
+---
+= FC-SAS 网桥的信息收集工作表
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在开始配置 MetroCluster 站点之前，您应收集所需的配置信息。
+
+
+
+== 站点 A ， FC-SAS 网桥 1 （ FC_bridge_A_1a ）
+
+每个 SAS 堆栈至少需要两个 FC-SAS 网桥。
+
+每个网桥连接到 Controller_A_1_`` _port-number_`` 和 Controller_B_1_`` _port-number_`` 。
+
+|===
+| 站点 A | 您的价值 
+
+
+ a| 
+Bridge_A_1a IP 地址
+ a| 
+
+
+
+ a| 
+Bridge_A_1a 用户名
+ a| 
+
+
+
+ a| 
+Bridge_A_1a 密码
+ a| 
+
+|===
+
+
+== 站点 A ， FC-SAS 网桥 2 （ FC_bridge_A_1b ）
+
+每个 SAS 堆栈至少需要两个 FC-SAS 网桥。
+
+每个网桥连接到 Controller_A_1_`` _port-number_`` 和 Controller_B_1_`` _port-number_`` 。
+
+|===
+| 站点 A | 您的价值 
+
+
+ a| 
+bridge_A_1b IP 地址
+ a| 
+
+
+
+ a| 
+Bridge_A_1b 用户名
+ a| 
+
+
+
+ a| 
+Bridge_A_1b 密码
+ a| 
+
+|===
+
+
+== 站点 B ， FC-SAS 网桥 1 （ FC_bridge_B_1a ）
+
+每个 SAS 堆栈至少需要两个 FC-SAS 网桥。
+
+每个网桥连接到 Controller_A_1_`` _port-number_`` 和 Controller_B_1_`` _port-number_`` 。
+
+|===
+| 站点 B | 您的价值 
+
+
+ a| 
+Bridge_B_1a IP 地址
+ a| 
+
+
+
+ a| 
+Bridge_B_1a 用户名
+ a| 
+
+
+
+ a| 
+Bridge_B_1a 密码
+ a| 
+
+|===
+
+
+== 站点 B ， FC-SAS 网桥 2 （ FC_bridge_B_1b ）
+
+每个 SAS 堆栈至少需要两个 FC-SAS 网桥。
+
+每个网桥连接到 Controller_A_1_`` _port-number_`` 和 Controller_B_1_`` _port-number_`` 。
+
+|===
+| 站点 B | 您的价值 
+
+
+ a| 
+Bridge_B_1b IP 地址
+ a| 
+
+
+
+ a| 
+Bridge_B_1b 用户名
+ a| 
+
+
+
+ a| 
+Bridge_B_1b 密码
+ a| 
+
+|===

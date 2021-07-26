@@ -1,0 +1,113 @@
+= MetroCluster 和其他指南
+
+
+[role="lead"]
+您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作的更多信息。
+
+
+
+== MetroCluster 和其他指南
+
+|===
+| 指南 | 内容 
+
+
+ a| 
+link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+ a| 
+* 光纤连接的 MetroCluster 架构
+* 为配置布线
+* 配置 FC-SAS 网桥
+* 配置 FC 交换机
+* 在 ONTAP 中配置 MetroCluster
+
+
+
+
+ a| 
+link:../install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+ a| 
+* 延伸型 MetroCluster 架构
+* 为配置布线
+* 配置 FC-SAS 网桥
+* 在 ONTAP 中配置 MetroCluster
+
+
+
+
+ a| 
+link:../manage/index.html["MetroCluster 管理"]
+ a| 
+* 了解 MetroCluster 配置
+* 切换，修复和切回
+* 灾难恢复
+
+
+
+
+ a| 
+link:../maintain/index.html["《 MetroCluster 维护指南》"]
+ a| 
+* MetroCluster FC 配置维护准则
+* FC-SAS 网桥和 FC 交换机的硬件更换或升级以及固件升级过程
+* 在光纤连接或延伸型 MetroCluster FC 配置中热添加磁盘架
+* 在光纤连接或延伸型 MetroCluster FC 配置中热移除磁盘架
+* 在光纤连接或延伸型 MetroCluster FC 配置中更换灾难站点上的硬件
+* 将双节点光纤连接或延伸型 MetroCluster FC 配置扩展为四节点 MetroCluster 配置。
+* 将四节点光纤连接或延伸型 MetroCluster FC 配置扩展为八节点 MetroCluster FC 配置。
+
+
+
+
+ a| 
+link:../upgrade/index.html["《 MetroCluster 升级和扩展指南》"]
+ a| 
+* 升级或刷新 MetroCluster 配置
+* 通过添加其他节点扩展 MetroCluster 配置
+
+
+
+
+ a| 
+link:../transition/index.html["《 MetroCluster 过渡指南》"]
+ a| 
+* 从 MetroCluster FC 配置过渡到 MetroCluster IP 配置
+
+
+
+
+ a| 
+link:../tiebreaker/index.html["《 MetroCluster 升级，过渡和扩展指南》"]
+ a| 
+* 使用 MetroCluster Tiebreaker 软件监控 MetroCluster 配置
+
+
+
+
+ a| 
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+
+NOTE: 标准存储架维护过程可用于 MetroCluster IP 配置。
+ a| 
+* 热添加磁盘架
+* 热移除磁盘架
+
+
+
+
+ a| 
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基于副本的过渡"]
+ a| 
+* 将数据从 7- 模式存储系统过渡到集群模式存储系统
+
+
+
+
+ a| 
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"]
+ a| 
+* 镜像聚合的工作原理
+
+
+|===

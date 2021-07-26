@@ -1,0 +1,1063 @@
+---
+permalink: upgrade/task_expand_a_four_node_mcc_ip_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, refresh, four, node, ip, configuration, add, autosupport 
+summary: 您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。 
+---
+= 将四节点 MetroCluster IP 配置扩展为八节点配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 ONTAP 9.1.1 开始，您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。
+
+* 新旧节点必须运行相同版本的 ONTAP 。
+* 您必须确保旧平台型号和新平台型号支持平台混合。
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* 您必须确保旧平台型号和新平台型号均受 IP 交换机支持。
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* 新节点必须具有足够的存储空间来容纳旧节点的数据，并具有足够的磁盘来容纳根聚合和备用磁盘。
+
+
+
+
+== 此操作步骤中的命名示例
+
+[role="lead"]
+此操作步骤会在整个过程中使用示例名称来标识涉及的 DR 组，节点和交换机。
+
+[cols="3*"]
+|===
+| DR 组 | cluster_A 位于 site_A | site_B 上的 cluster_B 
+
+
+ a| 
+dr_group_1-old
+ a| 
+* node_A_1-old
+* node_A_2-old
+
+ a| 
+* node_B_1-old
+* node_B_2-old
+
+
+
+
+ a| 
+dr_group_2-new
+ a| 
+* node_A_3-new
+* node_A_4-new
+
+ a| 
+* node_B_3-new
+* node_B_4-new
+
+
+|===
+
+
+== 在维护之前发送自定义 AutoSupport 消息
+
+[role="lead"]
+在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
+
+必须在每个 MetroCluster 站点上执行此任务。
+
+.步骤
+. 要防止自动生成支持案例，请发送一条 AutoSupport 消息以指示升级正在进行中。
++
+.. 问题描述以下命令：
++
+` * 系统节点 AutoSupport 调用 -node * -type all -message "MAIN=10h upgrading _old-model_ to _new-model"_*`
+
++
+我们的示例指定了一个 10 小时的维护时段。根据您的计划，您可能需要留出更多时间。
+
++
+如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：
+
++
+` * 系统节点 AutoSupport 调用 -node * -type all -message MAINT=end*`
+
+.. 在配对集群上重复此命令。
+
+
+
+
+
+
+== 验证 MetroCluster 配置的运行状况
+
+[role="lead"]
+在执行过渡之前，您必须验证 MetroCluster 配置的运行状况和连接
+
+. 在 ONTAP 中验证 MetroCluster 配置的运行情况：
++
+.. 检查系统是否为多路径：
++
+` * 节点 run -node _node-name_ sysconfig -A*`
+
+.. 检查两个集群上是否存在任何运行状况警报： + ` * system health alert show*`
+.. 确认 MetroCluster 配置以及操作模式是否正常： + ` * MetroCluster show*`
+.. 执行 MetroCluster 检查：
++
+` * MetroCluster check run*`
+
+.. 显示 MetroCluster 检查的结果：
++
+` * MetroCluster check show*`
+
+.. 运行 Config Advisor 。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+.. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
+
+
+. 验证集群是否运行正常：
++
+` * cluster show -vserver Cluster*`
+
++
+[listing]
+----
+cluster_A::> cluster show -vserver Cluster
+Node           Health  Eligibility   Epsilon
+-------------- ------  -----------   -------
+node_A_1    true    true          false
+node_A_2    true    true          false
+
+cluster_A::>
+----
+. 验证所有集群端口是否均已启动：
++
+` * 网络端口 show -ipspace cluster*`
+
++
+[listing]
+----
+cluster_A::> network port show -ipspace cluster
+
+Node: node_A_1-old
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+Node: node_A_2-old
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+4 entries were displayed.
+
+cluster_A::>
+----
+. 验证所有集群 LIF 是否均已启动且正常运行：
++
+` * 网络接口 show -vserver Cluster*`
+
++
+每个集群 LIF 应为 "Is Home" 显示 true ，并且状态为 "Admin/Oper" 为 "up/up"
+
++
+[listing]
+----
+cluster_A::> network interface show -vserver cluster
+
+            Logical      Status     Network          Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- -----
+Cluster
+            node_A_1-old_clus1
+                       up/up      169.254.209.69/16  node_A_1   e0a     true
+            node_A_1-old_clus2
+                       up/up      169.254.49.125/16  node_A_1   e0b     true
+            node_A_2-old_clus1
+                       up/up      169.254.47.194/16  node_A_2   e0a     true
+            node_A_2-old_clus2
+                       up/up      169.254.19.183/16  node_A_2   e0b     true
+
+4 entries were displayed.
+
+cluster_A::>
+----
+. 验证是否已在所有集群 LIF 上启用自动还原：
++
+` * 网络接口 show -vserver cluster -fields auto-rever*`
+
++
+[listing]
+----
+cluster_A::> network interface show -vserver Cluster -fields auto-revert
+
+          Logical
+Vserver   Interface     Auto-revert
+--------- ------------- ------------
+Cluster
+           node_A_1-old_clus1
+                        true
+           node_A_1-old_clus2
+                        true
+           node_A_2-old_clus1
+                        true
+           node_A_2-old_clus2
+                        true
+
+    4 entries were displayed.
+
+cluster_A::>
+----
+
+
+
+
+== 从监控应用程序中删除配置
+
+[role="lead"]
+如果使用 MetroCluster Tiebreaker 软件， ONTAP 调解器或可启动切换的其他第三方应用程序（例如 ClusterLion ）监控现有配置，则必须在升级之前从监控软件中删除 MetroCluster 配置。
+
+. 从 Tiebreaker ，调解器或其他可启动切换的软件中删除现有 MetroCluster 配置。
++
+[cols="2*"]
+|===
+| 如果您使用的是 ... | 使用此操作步骤 ... 
+
+
+ a| 
+* Tiebreaker *
+ a| 
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for-modifying-metrocluster-tiebreaker-configurations["删除 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中
+
+
+
+ a| 
+* 调解器 *
+ a| 
+在 ONTAP 提示符处问题描述以下命令：
+
+` * MetroCluster configuration-settings mediator remove*`
+
+
+
+ a| 
+* 第三方应用程序 *
+ a| 
+请参见产品文档。
+
+|===
+. 从可以启动切换的任何第三方应用程序中删除现有 MetroCluster 配置。
++
+请参见该应用程序的文档。
+
+
+
+
+
+== 准备新控制器模块
+
+[role="lead"]
+您必须准备四个新的 MetroCluster 节点并安装正确的 ONTAP 版本。
+
+必须对每个新节点执行此任务：
+
+* node_A_3-new
+* node_A_4-new
+* node_B_3-new
+* node_B_4-new
+
+
+在这些步骤中，您可以清除节点上的配置并清除新驱动器上的邮箱区域。
+
+.步骤
+. 将新控制器装入机架。
+. 按照《 _IP MetroCluster 安装和配置指南》 _ 所示，使用缆线将新的 MetroCluster IP 节点连接到 IP 交换机
++
+link:../install-ip/task_cable_ip_switches.html["为 IP 交换机布线"]
+
+. 使用 MetroCluster 安装和配置指南 _ 的以下部分配置 MetroCluster IP 节点
++
+.. link:../install-ip/task_sw_config_gather_info.html["收集所需信息"]
+.. link:../install-ip/task_sw_config_restore_defaults.html["还原控制器模块上的系统默认值"]
+.. link:../install-ip/task_sw_config_verify_haconfig.html["验证组件的 ha-config 状态"]
+.. link:../install-ip/task_sw_config_assign_pool0.html#manually-assigning-drives-for-pool-0-ontap-9-4-and-later["手动为池 0 分配驱动器（ ONTAP 9.4 及更高版本）"]
+
+
+. 在维护模式下，问题描述 halt 命令退出维护模式，然后问题描述 boot_ontap 命令启动系统并进入集群设置。
++
+此时请勿完成集群向导或节点向导。
+
+
+
+
+
+== 将新节点加入集群
+
+[role="lead"]
+您必须将四个新的 MetroCluster IP 节点添加到现有 MetroCluster 配置中。
+
+您必须在两个集群上执行此任务。
+
+.步骤
+. 将新的 MetroCluster IP 节点添加到现有 MetroCluster 配置中。
++
+.. 将第一个新的 MetroCluster IP 节点（ node_A_1-new ）加入现有 MetroCluster IP 配置。
++
+[listing]
+----
+
+Welcome to the cluster setup wizard.
+
+You can enter the following commands at any time:
+  "help" or "?" - if you want to have a question clarified,
+  "back" - if you want to change previously answered questions, and
+  "exit" or "quit" - if you want to quit the cluster setup wizard.
+     Any changes you made before quitting will be saved.
+
+You can return to cluster setup at any time by typing "cluster setup".
+To accept a default or omit a question, do not enter a value.
+
+This system will send event messages and periodic reports to NetApp Technical
+Support. To disable this feature, enter
+autosupport modify -support disable
+within 24 hours.
+
+Enabling AutoSupport can significantly speed problem determination and
+resolution, should a problem occur on your system.
+For further information on AutoSupport, see:
+http://support.netapp.com/autosupport/
+
+Type yes to confirm and continue {yes}: yes
+
+Enter the node management interface port [e0M]: 172.17.8.93
+
+172.17.8.93 is not a valid port.
+
+The physical port that is connected to the node management network. Examples of
+node management ports are "e4a" or "e0M".
+
+You can type "back", "exit", or "help" at any question.
+
+
+Enter the node management interface port [e0M]:
+Enter the node management interface IP address: 172.17.8.93
+Enter the node management interface netmask: 255.255.254.0
+Enter the node management interface default gateway: 172.17.8.1
+A node management interface on port e0M with IP address 172.17.8.93 has been created.
+
+Use your web browser to complete cluster setup by accessing https://172.17.8.93
+
+Otherwise, press Enter to complete cluster setup using the command line
+interface:
+
+
+Do you want to create a new cluster or join an existing cluster? {create, join}:
+join
+
+
+Existing cluster interface configuration found:
+
+Port    MTU     IP              Netmask
+e0c     9000    169.254.148.217 255.255.0.0
+e0d     9000    169.254.144.238 255.255.0.0
+
+Do you want to use this configuration? {yes, no} [yes]: yes
+.
+.
+.
+----
+.. 将第二个新的 MetroCluster IP 节点（ node_A_2-new ）加入现有 MetroCluster IP 配置。
+
+
+. 重复上述步骤将 node_B_1-new 和 node_B_2-new 加入 cluster_B
+
+
+
+
+== 配置集群间 LIF ，创建 MetroCluster 接口以及镜像根聚合
+
+[role="lead"]
+您必须创建集群对等 LIF ，并在新的 MetroCluster IP 节点上创建 MetroCluster 接口。
+
+示例中使用的主端口是特定于平台的。您应使用特定于 MetroCluster IP 节点平台的相应主端口。
+
+. 在新的 MetroCluster IP 节点 MetroCluster 上，按照 _LIF IP 安装和配置指南 _ 中的过程配置集群间 LIF 。
++
+link:../install-ip/task_sw_config_configure_clusters.html#peering-the-clusters["在专用端口上配置集群间 LIF"]
+
++
+link:../install-ip/task_sw_config_configure_clusters.html#peering-the-clusters["在共享数据端口上配置集群间 LIF"]
+
+. 在每个站点上，验证是否已配置集群对等：
++
+` * 集群对等显示 *`
+
++
+以下示例显示了 cluster_A 上的集群对等配置：
+
++
+[listing]
+----
+cluster_A:> cluster peer show
+Peer Cluster Name         Cluster Serial Number Availability   Authentication
+------------------------- --------------------- -------------- --------------
+cluster_B                 1-80-000011           Available      ok
+----
++
+以下示例显示了 cluster_B 上的集群对等配置：
+
++
+[listing]
+----
+cluster_B:> cluster peer show
+Peer Cluster Name         Cluster Serial Number Availability   Authentication
+------------------------- --------------------- -------------- --------------
+cluster_A                 1-80-000011           Available      ok
+cluster_B::>
+----
+. 为 MetroCluster IP 节点创建 DR 组：
++
+` * MetroCluster configuration-settings dr-group create -partner-cluster*`
+
++
+有关 MetroCluster 配置设置和连接 MetroCluster 的详细信息，请参见 _Internet IP 安装和配置指南 _ 。
+
++
+链接： ./install-IP/concept_considerations_mcip.adoc
+
++
+link:../install-ip/task_sw_config_configure_clusters.html#creating-the-dr-group["正在创建 DR 组"]
+
++
+[listing]
+----
+cluster_A::> metrocluster configuration-settings dr-group create -partner-cluster
+cluster_B -local-node node_A_1-new -remote-node node_B_1-new
+[Job 259] Job succeeded: DR Group Create is successful.
+cluster_A::>
+----
+. 验证是否已创建灾难恢复组。
++
+` * MetroCluster configuration-settings dr-group show*`
+
++
+[listing]
+----
+cluster_A::> metrocluster configuration-settings dr-group show
+
+DR Group ID Cluster                    Node               DR Partner Node
+----------- -------------------------- ------------------ ------------------
+1           cluster_A
+                                       node_A_1-old        node_B_1-old
+                                       node_A_2-old        node_B_2-old
+            cluster_B
+                                       node_B_1-old        node_A_1-old
+                                       node_B_2-old        node_A_2-old
+2           cluster_A
+                                       node_A_1-new        node_B_1-new
+                                       node_A_2-new        node_B_2-new
+            cluster_B
+                                       node_B_1-new        node_A_1-new
+                                       node_B_2-new        node_A_2-new
+8 entries were displayed.
+
+cluster_A::>
+----
+. 为新加入的 MetroCluster IP 节点配置 MetroCluster IP 接口：
++
+` * MetroCluster configuration-settings interface create -cluster-name*`
+
++
+|===
+| 注释： 
+
+
+ a| 
+** 从 ONTAP 9.8 开始，某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。您也可以在 `MetroCluster configuration-settings interface create` 命令中使用 -vlan-id 参数指定一个大于 100 （ 101-4095 之间）的其他（非默认） VLAN 。
+** 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见链接： ./install-IP/concept_considerations_layer_3.html 。
+
+
+|===
+
+
+以下平台型号使用 VLAN 并允许配置非默认 VLAN ID 。
+
+|===
+
+
+| AFF 平台 | FAS 平台 
+
+
+ a| 
+* AFF A220
+* AFF A250
+* AFF A400
+
+ a| 
+* FAS2750
+* FAS500f
+* FAS8300
+* FAS8700
+
+
+|===
+
+NOTE: 您可以从任一集群配置 MetroCluster IP 接口。此外，从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则还必须指定 ` -gateway` 参数来创建 MetroCluster IP 接口。请参见 link:../install-ip/["第 3 层广域网的注意事项"].html 。
+
+[listing]
+----
+cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_A -home-node node_A_1-new -home-port e1a -address 172.17.26.10 -netmask 255.255.255.0
+[Job 260] Job succeeded: Interface Create is successful.
+
+cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_A -home-node node_A_1-new -home-port e1b -address 172.17.27.10 -netmask 255.255.255.0
+[Job 261] Job succeeded: Interface Create is successful.
+
+cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_A -home-node node_A_2-new -home-port e1a -address 172.17.26.11 -netmask 255.255.255.0
+[Job 262] Job succeeded: Interface Create is successful.
+
+cluster_A::> :metrocluster configuration-settings interface create -cluster-name cluster_A -home-node node_A_2-new -home-port e1b -address 172.17.27.11 -netmask 255.255.255.0
+[Job 263] Job succeeded: Interface Create is successful.
+
+cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_B -home-node node_B_1-new -home-port e1a -address 172.17.26.12 -netmask 255.255.255.0
+[Job 264] Job succeeded: Interface Create is successful.
+
+cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_B -home-node node_B_1-new -home-port e1b -address 172.17.27.12 -netmask 255.255.255.0
+[Job 265] Job succeeded: Interface Create is successful.
+
+cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_B -home-node node_B_2-new -home-port e1a -address 172.17.26.13 -netmask 255.255.255.0
+[Job 266] Job succeeded: Interface Create is successful.
+
+cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_B -home-node node_B_2-new -home-port e1b -address 172.17.27.13 -netmask 255.255.255.0
+[Job 267] Job succeeded: Interface Create is successful.
+----
+. 验证是否已创建 MetroCluster IP 接口：
++
+` * MetroCluster configuration-settings interface show*`
+
++
+[listing]
+----
+cluster_A::>metrocluster configuration-settings interface show
+
+DR                                                                    Config
+Group Cluster Node    Network Address Netmask         Gateway         State
+----- ------- ------- --------------- --------------- --------------- ---------
+1     cluster_A
+             node_A_1-old
+                 Home Port: e1a
+                      172.17.26.10    255.255.255.0   -               completed
+                 Home Port: e1b
+                      172.17.27.10    255.255.255.0   -               completed
+              node_A_2-old
+                 Home Port: e1a
+                      172.17.26.11    255.255.255.0   -               completed
+                 Home Port: e1b
+                      172.17.27.11    255.255.255.0   -               completed
+      cluster_B
+             node_B_1-old
+                 Home Port: e1a
+                      172.17.26.13    255.255.255.0   -               completed
+                 Home Port: e1b
+                      172.17.27.13    255.255.255.0   -               completed
+              node_B_1-old
+                 Home Port: e1a
+                      172.17.26.12    255.255.255.0   -               completed
+                 Home Port: e1b
+                      172.17.27.12    255.255.255.0   -               completed
+2     cluster_A
+             node_A_3-new
+                 Home Port: e1a
+                      172.17.28.10    255.255.255.0   -               completed
+                 Home Port: e1b
+                      172.17.29.10    255.255.255.0   -               completed
+              node_A_3-new
+                 Home Port: e1a
+                      172.17.28.11    255.255.255.0   -               completed
+                 Home Port: e1b
+                      172.17.29.11    255.255.255.0   -               completed
+      cluster_B
+             node_B_3-new
+                 Home Port: e1a
+                      172.17.28.13    255.255.255.0   -               completed
+                 Home Port: e1b
+                      172.17.29.13    255.255.255.0   -               completed
+              node_B_3-new
+                 Home Port: e1a
+                      172.17.28.12    255.255.255.0   -               completed
+                 Home Port: e1b
+                      172.17.29.12    255.255.255.0   -               completed
+8 entries were displayed.
+
+cluster_A>
+----
+. 连接 MetroCluster IP 接口：
++
+` * MetroCluster 配置设置连接连接 *`
+
++
+
+NOTE: 此命令可能需要几分钟才能完成。
+
++
+[listing]
+----
+cluster_A::> metrocluster configuration-settings connection connect
+
+cluster_A::>
+----
+. 确认已正确建立连接： `MetroCluster configuration-settings connection show`
++
+[listing]
+----
+cluster_A::> metrocluster configuration-settings connection show
+
+DR                    Source          Destination
+Group Cluster Node    Network Address Network Address Partner Type Config State
+----- ------- ------- --------------- --------------- ------------ ------------
+1     cluster_A
+              node_A_1-old
+                 Home Port: e1a
+                      172.17.28.10    172.17.28.11    HA Partner   completed
+                 Home Port: e1a
+                      172.17.28.10    172.17.28.12    DR Partner   completed
+                 Home Port: e1a
+                      172.17.28.10    172.17.28.13    DR Auxiliary completed
+                 Home Port: e1b
+                      172.17.29.10    172.17.29.11    HA Partner   completed
+                 Home Port: e1b
+                      172.17.29.10    172.17.29.12    DR Partner   completed
+                 Home Port: e1b
+                      172.17.29.10    172.17.29.13    DR Auxiliary completed
+              node_A_2-old
+                 Home Port: e1a
+                      172.17.28.11    172.17.28.10    HA Partner   completed
+                 Home Port: e1a
+                      172.17.28.11    172.17.28.13    DR Partner   completed
+                 Home Port: e1a
+                      172.17.28.11    172.17.28.12    DR Auxiliary completed
+                 Home Port: e1b
+                      172.17.29.11    172.17.29.10    HA Partner   completed
+                 Home Port: e1b
+                      172.17.29.11    172.17.29.13    DR Partner   completed
+                 Home Port: e1b
+                      172.17.29.11    172.17.29.12    DR Auxiliary completed
+
+DR                    Source          Destination
+Group Cluster Node    Network Address Network Address Partner Type Config State
+----- ------- ------- --------------- --------------- ------------ ------------
+1     cluster_B
+              node_B_2-old
+                 Home Port: e1a
+                      172.17.28.13    172.17.28.12    HA Partner   completed
+                 Home Port: e1a
+                      172.17.28.13    172.17.28.11    DR Partner   completed
+                 Home Port: e1a
+                      172.17.28.13    172.17.28.10    DR Auxiliary completed
+                 Home Port: e1b
+                      172.17.29.13    172.17.29.12    HA Partner   completed
+                 Home Port: e1b
+                      172.17.29.13    172.17.29.11    DR Partner   completed
+                 Home Port: e1b
+                      172.17.29.13    172.17.29.10    DR Auxiliary completed
+              node_B_1-old
+                 Home Port: e1a
+                      172.17.28.12    172.17.28.13    HA Partner   completed
+                 Home Port: e1a
+                      172.17.28.12    172.17.28.10    DR Partner   completed
+                 Home Port: e1a
+                      172.17.28.12    172.17.28.11    DR Auxiliary completed
+                 Home Port: e1b
+                      172.17.29.12    172.17.29.13    HA Partner   completed
+                 Home Port: e1b
+                      172.17.29.12    172.17.29.10    DR Partner   completed
+                 Home Port: e1b
+                      172.17.29.12    172.17.29.11    DR Auxiliary completed
+
+DR                    Source          Destination
+Group Cluster Node    Network Address Network Address Partner Type Config State
+----- ------- ------- --------------- --------------- ------------ ------------
+2     cluster_A
+              node_A_1-new**
+                 Home Port: e1a
+                      172.17.26.10    172.17.26.11    HA Partner   completed
+                 Home Port: e1a
+                      172.17.26.10    172.17.26.12    DR Partner   completed
+                 Home Port: e1a
+                      172.17.26.10    172.17.26.13    DR Auxiliary completed
+                 Home Port: e1b
+                      172.17.27.10    172.17.27.11    HA Partner   completed
+                 Home Port: e1b
+                      172.17.27.10    172.17.27.12    DR Partner   completed
+                 Home Port: e1b
+                      172.17.27.10    172.17.27.13    DR Auxiliary completed
+              node_A_2-new
+                 Home Port: e1a
+                      172.17.26.11    172.17.26.10    HA Partner   completed
+                 Home Port: e1a
+                      172.17.26.11    172.17.26.13    DR Partner   completed
+                 Home Port: e1a
+                      172.17.26.11    172.17.26.12    DR Auxiliary completed
+                 Home Port: e1b
+                      172.17.27.11    172.17.27.10    HA Partner   completed
+                 Home Port: e1b
+                      172.17.27.11    172.17.27.13    DR Partner   completed
+                 Home Port: e1b
+                      172.17.27.11    172.17.27.12    DR Auxiliary completed
+
+DR                    Source          Destination
+Group Cluster Node    Network Address Network Address Partner Type Config State
+----- ------- ------- --------------- --------------- ------------ ------------
+2     cluster_B
+              node_B_2-new
+                 Home Port: e1a
+                      172.17.26.13    172.17.26.12    HA Partner   completed
+                 Home Port: e1a
+                      172.17.26.13    172.17.26.11    DR Partner   completed
+                 Home Port: e1a
+                      172.17.26.13    172.17.26.10    DR Auxiliary completed
+                 Home Port: e1b
+                      172.17.27.13    172.17.27.12    HA Partner   completed
+                 Home Port: e1b
+                      172.17.27.13    172.17.27.11    DR Partner   completed
+                 Home Port: e1b
+                      172.17.27.13    172.17.27.10    DR Auxiliary completed
+              node_B_1-new
+                 Home Port: e1a
+                      172.17.26.12    172.17.26.13    HA Partner   completed
+                 Home Port: e1a
+                      172.17.26.12    172.17.26.10    DR Partner   completed
+                 Home Port: e1a
+                      172.17.26.12    172.17.26.11    DR Auxiliary completed
+                 Home Port: e1b
+                      172.17.27.12    172.17.27.13    HA Partner   completed
+                 Home Port: e1b
+                      172.17.27.12    172.17.27.10    DR Partner   completed
+                 Home Port: e1b
+                      172.17.27.12    172.17.27.11    DR Auxiliary completed
+48 entries were displayed.
+
+cluster_A::>
+----
+. 验证磁盘自动分配和分区：
++
+` * disk show -pool Pool1*`
+
++
+[listing]
+----
+cluster_A::> disk show -pool Pool1
+                     Usable           Disk    Container   Container
+Disk                   Size Shelf Bay Type    Type        Name      Owner
+---------------- ---------- ----- --- ------- ----------- --------- --------
+1.10.4                    -    10   4 SAS     remote      -         node_B_2
+1.10.13                   -    10  13 SAS     remote      -         node_B_2
+1.10.14                   -    10  14 SAS     remote      -         node_B_1
+1.10.15                   -    10  15 SAS     remote      -         node_B_1
+1.10.16                   -    10  16 SAS     remote      -         node_B_1
+1.10.18                   -    10  18 SAS     remote      -         node_B_2
+...
+2.20.0              546.9GB    20   0 SAS     aggregate   aggr0_rha1_a1 node_a_1
+2.20.3              546.9GB    20   3 SAS     aggregate   aggr0_rha1_a2 node_a_2
+2.20.5              546.9GB    20   5 SAS     aggregate   rha1_a1_aggr1 node_a_1
+2.20.6              546.9GB    20   6 SAS     aggregate   rha1_a1_aggr1 node_a_1
+2.20.7              546.9GB    20   7 SAS     aggregate   rha1_a2_aggr1 node_a_2
+2.20.10             546.9GB    20  10 SAS     aggregate   rha1_a1_aggr1 node_a_1
+...
+43 entries were displayed.
+
+cluster_A::>
+----
+. 镜像根聚合：
++
+` * 存储聚合镜像 -aggregate aggr0_node_A_1-new*`
+
++
+
+NOTE: 您必须在每个 MetroCluster IP 节点上完成此步骤。
+
++
+[listing]
+----
+cluster_A::> aggr mirror -aggregate aggr0_node_A_1-new
+
+Info: Disks would be added to aggregate "aggr0_node_A_1-new"on node "node_A_1-new"
+      in the following manner:
+
+      Second Plex
+
+        RAID Group rg0, 3 disks (block checksum, raid_dp)
+                                                            Usable Physical
+          Position   Disk                      Type           Size     Size
+          ---------- ------------------------- ---------- -------- --------
+          dparity    4.20.0                    SAS               -        -
+          parity     4.20.3                    SAS               -        -
+          data       4.20.1                    SAS         546.9GB  558.9GB
+
+      Aggregate capacity available forvolume use would be 467.6GB.
+
+Do you want to continue? {y|n}: y
+
+cluster_A::>
+----
+. 验证根聚合是否已镜像：
++
+` * 存储聚合显示 *`
+
++
+[listing]
+----
+cluster_A::> aggr show
+
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+aggr0_node_A_1-old
+           349.0GB   16.84GB   95% online       1 node_A_1-old      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr0_node_A_2-old
+           349.0GB   16.84GB   95% online       1 node_A_2-old      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr0_node_A_1-new
+           467.6GB   22.63GB   95% online       1 node_A_1-new      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr0_node_A_2-new
+           467.6GB   22.62GB   95% online       1 node_A_2-new      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr_data_a1
+            1.02TB    1.01TB    1% online       1 node_A_1-old      raid_dp,
+                                                                   mirrored,
+                                                                   normal
+aggr_data_a2
+            1.02TB    1.01TB    1% online       1 node_A_2-old      raid_dp,
+                                                                   mirrored,
+----
+
+
+
+
+== 完成新节点的添加
+
+[role="lead"]
+您必须将新的 DR 组加入 MetroCluster 配置，并在新节点上创建镜像数据聚合。
+
+. 在每个新 MetroCluster 节点上创建镜像数据聚合：
++
+` * 存储聚合 create -aggregate _aggregate-name_ -node _node-name_ -diskcount _no-of-disks_-mirror true*`
+
++
+
+NOTE: 每个站点必须至少创建一个镜像数据聚合。建议在 MetroCluster IP 节点上为每个站点配置两个镜像数据聚合以托管 MDV 卷，但支持每个站点一个聚合（但不建议这样做）。支持 MetroCluster 的一个站点具有一个镜像数据聚合，而另一个站点具有多个镜像数据聚合。
+
++
+以下示例显示了如何在 node_A_1-new 上创建聚合。
+
++
+[listing]
+----
+cluster_A::> storage aggregate create -aggregate data_a3 -node node_A_1-new -diskcount 10 -mirror t
+
+Info: The layout for aggregate "data_a3" on node "node_A_1-new" would be:
+
+      First Plex
+
+        RAID Group rg0, 5 disks (block checksum, raid_dp)
+                                                            Usable Physical
+          Position   Disk                      Type           Size     Size
+          ---------- ------------------------- ---------- -------- --------
+          dparity    5.10.15                   SAS               -        -
+          parity     5.10.16                   SAS               -        -
+          data       5.10.17                   SAS         546.9GB  547.1GB
+          data       5.10.18                   SAS         546.9GB  558.9GB
+          data       5.10.19                   SAS         546.9GB  558.9GB
+
+      Second Plex
+
+        RAID Group rg0, 5 disks (block checksum, raid_dp)
+                                                            Usable Physical
+          Position   Disk                      Type           Size     Size
+          ---------- ------------------------- ---------- -------- --------
+          dparity    4.20.17                   SAS               -        -
+          parity     4.20.14                   SAS               -        -
+          data       4.20.18                   SAS         546.9GB  547.1GB
+          data       4.20.19                   SAS         546.9GB  547.1GB
+          data       4.20.16                   SAS         546.9GB  547.1GB
+
+      Aggregate capacity available for volume use would be 1.37TB.
+
+Do you want to continue? {y|n}: y
+[Job 440] Job succeeded: DONE
+
+cluster_A::>
+----
+. 刷新 MetroCluster 配置：
++
+.. 进入高级权限模式： + ` * 设置 -privilege advanced*`
+.. 在以下新节点之一上刷新 MetroCluster 配置： + ` * MetroCluster configure*`
++
+以下示例显示了在两个 DR 组上刷新的 MetroCluster 配置：
+
++
+[listing]
+----
+cluster_A::*> metrocluster configure -refresh true
+
+[Job 726] Job succeeded: Configure is successful.
+----
+.. 返回到管理权限模式： + ` * 设置 -privilege admin*`
+
+
+. 验证节点是否已添加到其 DR 组。
++
+[listing]
+----
+cluster_A::*> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1-old        configured     enabled   normal
+              node_A_2-old        configured     enabled   normal
+      cluster_B
+              node_B_1-old        configured     enabled   normal
+              node_B_2-old        configured     enabled   normal
+2     cluster_A
+              node_A_3-new        configured     enabled   normal
+              node_A_4-new        configured     enabled   normal
+      cluster_B
+              node_B_3-new        configured     enabled   normal
+              node_B_4-new        configured     enabled   normal
+8 entries were displayed.
+
+cluster_A::*>
+----
+. 以高级权限将 MDV_CRS 卷从旧节点移动到新节点。
++
+.. 显示卷以标识 MDV 卷：
++
+
+NOTE: 如果每个站点有一个镜像数据聚合，则将两个 MDV 卷移动到此一个聚合。如果您有两个或更多镜像数据聚合，请将每个 MDV 卷移动到其他聚合。
+
++
+以下示例显示了 `volume show` 输出中的 MDV 卷：
+
++
+[listing]
+----
+cluster_A::> volume show
+Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+--------- ------------ ------------ ---------- ---- ---------- ---------- -----
+...
+
+cluster_A   MDV_CRS_2c78e009ff5611e9b0f300a0985ef8c4_A
+                       aggr_b1      -          RW            -          -     -
+cluster_A   MDV_CRS_2c78e009ff5611e9b0f300a0985ef8c4_B
+                       aggr_b2      -          RW            -          -     -
+cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_A
+                       aggr_a1      online     RW         10GB     9.50GB    0%
+cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
+                       aggr_a2      online     RW         10GB     9.50GB    0%
+...
+11 entries were displayed.mple
+----
+.. 设置高级权限级别：
++
+` * 设置 -privilege advanced*`
+
+.. 一次移动一个 MDV 卷：
++
+` * 卷移动开始 -volume _mDV-volume_ -destination-aggregate _aggr-on-new-node_ -vserver _vserver-name_*`
+
++
+以下示例显示了将 MDV_CRS_d6b0b313ff5611e9837100a098544e51_A 移动到 node_A_3 上聚合 data_A3 的命令和输出。
+
++
+[listing]
+----
+cluster_A::> vol move start -volume MDV_CRS_d6b0b313ff5611e9837100a098544e51_A -destination-aggregate data_a3 -vserver cluster_A
+
+Warning: You are about to modify the system volume
+         "MDV_CRS_d6b0b313ff5611e9837100a098544e51_A". This might cause severe
+         performance or stability problems. Do not proceed unless directed to
+         do so by support. Do you want to proceed? {y|n}: y
+[Job 494] Job is queued: Move "MDV_CRS_d6b0b313ff5611e9837100a098544e51_A" in Vserver "cluster_A" to aggregate "data_a3". Use the "volume move show -vserver cluster_A -volume MDV_CRS_d6b0b313ff5611e9837100a098544e51_A" command to view the status of this operation.
+----
+.. 使用 volume show 命令检查是否已成功移动 MDV 卷：
++
+` * volume show _mDV-name_*`
+
++
+以下输出显示 MDV 卷已成功移动。
+
++
+[listing]
+----
+cluster_A::> vol show MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
+Vserver     Volume       Aggregate    State      Type       Size  Available Used%
+---------   ------------ ------------ ---------- ---- ---------- ---------- -----
+cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
+                       aggr_a2      online     RW         10GB     9.50GB    0%
+----
+.. 返回到管理模式：
++
+` * 设置 -privilege admin*`
+
+
+
+. 将 epsilon 从旧节点移动到新节点：
++
+.. 确定哪个节点当前具有 epsilon ： + ` * cluster show -fields epsilon *`
++
+[listing]
+----
+cluster_B::> cluster show -fields epsilon
+node             epsilon
+---------------- -------
+node_A_1-old      true
+node_A_2-old      false
+node_A_3-new      false
+node_A_4-new      false
+4 entries were displayed.
+----
+.. 在旧节点（ node_A_1-old ）上将 epsilon 设置为 false ：
++
+` * cluster modify -node _old-nod_ -epsilon false*`
+
+.. 在新节点（ node_A_3-new ）上将 epsilon 设置为 true ：
++
+` * cluster modify -node _new-node_ -epsilon true*`
+
+.. 验证 epsilon 是否已移至正确的节点：
++
+` * cluster show -fields epsilon *`
+
++
+[listing]
+----
+cluster_A::> cluster show -fields epsilon
+node             epsilon
+---------------- -------
+node_A_1-old      false
+node_A_2-old      false
+node_A_3-new      true
+node_A_4-new      false
+4 entries were displayed.
+----
+
+
+

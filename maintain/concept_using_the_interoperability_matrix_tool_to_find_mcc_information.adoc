@@ -1,0 +1,21 @@
+---
+permalink: maintain/concept_using_the_interoperability_matrix_tool_to_find_mcc_information.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, interoperability, matrix, tool, information 
+summary: 在设置 MetroCluster 配置时，您可以使用互操作性工具来确保您使用的是受支持的软件和硬件版本。 
+---
+= 使用互操作性表工具查找 MetroCluster 信息
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在设置 MetroCluster 配置时，您可以使用互操作性工具来确保您使用的是受支持的软件和硬件版本。
+
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
+打开互操作性表后，您可以使用 "Storage 解决方案 " 字段选择 MetroCluster 解决方案。
+
+您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。
+
+您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。

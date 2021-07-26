@@ -1,0 +1,104 @@
+---
+sidebar:
+  entries:
+  - title: MetroCluster
+    url: "/index.html"
+  - title: 发行说明
+    url: "/releasenotes.html"
+  - section: install-fc
+  - section: install-ip
+  - section: install-stretch
+  - section: tiebreaker
+  - title: 了解 MetroCluster 数据保护和灾难恢复
+    entries:
+    - title: MetroCluster 如何保护数据并提供灾难恢复
+      url: "/manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html"
+  - section: manage
+  - section: maintain
+  - section: transition
+  - section: upgrade
+  - section: disaster-recovery
+  - title: 法律声明
+    url: "/reference_legal_notices.html"
+homepage:
+  tiles:
+  - title: 入门
+    links:
+    - title: 安装 MetroCluster IP
+      summary: 安装 MetroCluster IP 配置。
+      url: "/install-ip/index.html"
+    - title: 安装光纤连接的 MetroCluster
+      summary: 安装光纤连接的 MetroCluster 配置。
+      url: "/install-fc/index.html"
+    - title: 安装延伸型 MetroCluster
+      summary: 安装延伸型 MetroCluster 配置。
+      url: "/install-stretch/index.html"
+    - title: 安装 Tiebreaker
+      summary: 在第三个位置安装 MetroCluster Tiebreaker 软件以监控 MetroCluster 站点。
+      url: "/tiebreaker/index.html"
+    - title: 安装调解器（仅限 MetroCluster IP ）
+      summary: 在第三个位置安装 ONTAP 调解器软件，以监控 MetroCluster IP 站点。
+      url: "/install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html"
+  - title: 维护
+    links:
+    - title: FC 交换机
+      summary: 维护和更换 MetroCluster FC 配置中的 FC 交换机。
+      url: "/maintain/concept_performing_fc_switch_maintenance.html"
+    - title: IP 交换机
+      summary: 维护和更换 MetroCluster IP 配置中的 IP 交换机。
+      url: "/maintain/concept_performing_ip_switch_maintenance.html"
+    - title: ATTO 网桥
+      summary: 维护和更换 MetroCluster FC 配置中的 ATTO FC-SAS 网桥。
+      url: "/maintain/concept_performing_fc_to_sas_bridge_maintenance.html"
+    - title: 驱动器架
+      summary: 热添加和无中断更换驱动器架 MetroCluster FC 配置。
+      url: "/maintain/index.html"
+  - title: RCF 文件
+    links:
+    - title: MetroCluster RCF 文件
+      summary: 为 MetroCluster 交换机生成或下载 RCF 文件。
+      url: https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/docsandkb-tab
+  - title: 了解更多信息。
+    links:
+    - title: NetApp MetroCluster 解决方案架构和设计 | TR-4705
+      summary: 了解 MetroCluster FC 解决方案。
+      url: https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf
+    - title: MetroCluster IP 解决方案架构和设计 | TR-4689
+      summary: 了解 MetroCluster IP 解决方案。
+      url: https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf
+  - title: 升级，扩展和转换
+    links:
+    - title: 升级和刷新硬件
+      summary: 升级 MetroCluster 配置中的控制器。
+      url: "/upgrade/index.html"
+    - title: 展开
+      summary: 将控制器添加到 MetroCluster 配置中以创建四节点或八节点配置。
+      url: "/upgrade/index.html"
+    - title: 将 MetroCluster FC 转换为 MetroCluster IP
+      summary: 将现有 MetroCluster IP 配置过渡到 MetroCluster IP 配置。
+      url: "/transition/index.html"
+    - title: 升级 MetroCluster IP RCF 文件
+      summary: 升级 MetroCluster IP 配置中的交换机 RCF 文件。
+      url: "/maintain/task_upgrade_rcf_files_on_mcc_ip_switches.html"
+  - title: ATTO 网桥固件
+    links:
+    - title: FibreBridge 7600N
+      summary: 下载 7600 网桥的固件。
+      url: https://mysupport.netapp.com/NOW/cgi-bin/software/?product=Protocol+Bridge&platform=ATTO+FibreBridge+7600N
+    - title: FibreBridge 7500N
+      summary: 下载 7500 网桥的固件。
+      url: https://mysupport.netapp.com/NOW/cgi-bin/software/?product=Protocol+Bridge&platform=ATTO+FibreBridge+7500N
+    - title: FibreBridge 6500N
+      summary: 下载 6500 网桥的固件。
+      url: https://mysupport.netapp.com/NOW/cgi-bin/software/?product=Protocol+Bridge&platform=ATTO+FibreBridge+6500N
+  - title: 更多资源
+    links:
+    - title: NetApp Config Advisor
+      summary: 验证您的配置和布线。
+      url: https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor
+    - title: NetApp Hardware Universe
+      summary: 验证您的硬件是否受支持。
+      url: https://hwu.netapp.com/
+    - title: NetApp 支持知识库
+      summary: 搜索支持问题的答案。
+      url: https://kb.netapp.com/

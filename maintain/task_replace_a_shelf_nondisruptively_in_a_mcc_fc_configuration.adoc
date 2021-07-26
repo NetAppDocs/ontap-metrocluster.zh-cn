@@ -1,0 +1,300 @@
+---
+permalink: maintain/task_replace_a_shelf_nondisruptively_in_a_mcc_fc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, replace, shelf, nondisruptively, fabric, attached, configuration 
+summary: 您可能需要了解如何在光纤连接的 MetroCluster 配置中无中断更换磁盘架。 
+---
+= 在光纤连接 MetroCluster 配置中无中断更换磁盘架
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能需要了解如何在光纤连接的 MetroCluster 配置中无中断更换磁盘架。
+
+
+NOTE: 此操作步骤仅适用于光纤连接的 MetroCluster 配置。
+
+
+
+== 禁用对磁盘架的访问
+
+[role="lead"]
+在更换磁盘架模块之前，您必须禁用对磁盘架的访问。
+
+检查配置的整体运行状况。如果系统运行状况不正常，请先解决问题描述地址，然后再继续。
+
+.步骤
+. 使托管受影响丛的控制器上的受影响丛脱机：
++
+` * aggr offline _plex_name_*`
+
++
+此示例显示了用于使运行 cMode 的控制器的丛脱机的命令。
+
++
+[listing]
+----
+
+Cluster_A_1::> storage aggregate plex offline -aggr aggr1 -plex plex2
+Cluster_A_1::> storage aggregate plex offline -aggr aggr2 -plex plex6
+Cluster_A_1::> storage aggregate plex offline -aggr aggr3 -plex plex1
+----
+. 验证丛是否已脱机：
++
+` * aggr status _-raggr_name_*`
+
++
+此示例显示了用于验证运行 cMode 的控制器的聚合是否脱机的命令。
+
++
+[listing]
+----
+
+Cluster_A_1::> storage aggregate show -aggr aggr1
+Cluster_A_1::> storage aggregate show -aggr aggr2
+Cluster_A_1::> storage aggregate show -aggr aggr3
+----
+. 根据连接目标磁盘架的网桥是连接一个 SAS 堆栈还是两个或更多 SAS 堆栈，禁用 SAS 端口或交换机端口：
++
+** 如果网桥连接的是一个 SAS 堆栈，请使用适用于您的交换机的命令禁用网桥连接到的交换机端口。
++
+以下示例显示了一对连接单个 SAS 堆栈的网桥，该堆栈包含目标磁盘架：
+
++
+image::../media/mcc_shelf_replacement_bridges_with_a_single_stack.gif[MCC 磁盘架更换网桥，具有一个堆栈]
+
++
+每个交换机上的交换机端口 8 和 9 将网桥连接到网络。
+
++
+以下示例显示了 Brocade 交换机上禁用的端口 8 和 9 。
+
++
+[listing]
+----
+FC_switch_A_1:admin> portDisable 8
+FC_switch_A_1:admin> portDisable 9
+
+FC_switch_A_2:admin> portDisable 8
+FC_switch_A_2:admin> portDisable 9
+----
++
+以下示例显示了在 Cisco 交换机上禁用端口 8 和 9 。
+
++
+[listing]
+----
+FC_switch_A_1# conf t
+FC_switch_A_1(config)# int fc1/8
+FC_switch_A_1(config)# shut
+FC_switch_A_1(config)# int fc1/9
+FC_switch_A_1(config)# shut
+FC_switch_A_1(config)# end
+
+FC_switch_A_2# conf t
+FC_switch_A_2(config)# int fc1/8
+FC_switch_A_2(config)# shut
+FC_switch_A_2(config)# int fc1/9
+FC_switch_A_2(config)# shut
+FC_switch_A_2(config)# end
+----
+** 如果网桥连接两个或更多 SAS 堆栈，请禁用将网桥连接到目标磁盘架的 SAS 端口： + ` * SAsportDisable _port number_*`
++
+
+NOTE: 这不适用于 FibreBridge 6500 网桥。
+
++
+以下示例显示了连接四个 SAS 堆栈的一对网桥。SAS 堆栈 2 包含目标磁盘架：
+
++
+image::../media/mcc_shelf_replacement_bridges_with_four_stacks.gif[具有四个堆栈的 MCC 磁盘架更换网桥]
+
++
+SAS 端口 B 将网桥连接到目标磁盘架。通过仅禁用两个磁盘架上的 SAS 端口 B ，其他 SAS 堆栈可以在更换操作步骤期间继续提供数据。
+
++
+在这种情况下，请禁用将网桥连接到目标磁盘架的 SAS 端口：
+
++
+` * SAsportDisable _port number_*`
+
++
+以下示例显示 SAS 端口 B 已从网桥中禁用，并验证它是否已禁用。您必须对两个网桥重复此命令。
+
++
+[listing]
+----
+Ready. *
+SASPortDisable B
+
+SAS Port B has been disabled.
+----
+
+
+. 如果您先前已禁用交换机端口，请验证它们是否已禁用：
++
+` * switchshow*`
+
++
+此示例显示 Brocade 交换机上的交换机端口已禁用。
+
++
+[listing]
+----
+
+FC_switch_A_1:admin> switchShow
+FC_switch_A_2:admin> switchShow
+----
++
+此示例显示 Cisco 交换机上的交换机端口已禁用。
+
++
+[listing]
+----
+
+FC_switch_A_1# show interface fc1/6
+FC_switch_A_2# show interface fc1/6
+----
+. 等待 ONTAP 发现磁盘缺失。
+. 关闭要更换的磁盘架。
+
+
+
+
+== 更换磁盘架
+
+[role="lead"]
+在插入新磁盘架和磁盘架模块并为其布线之前，您必须物理移除所有缆线和磁盘架。
+
+.步骤
+. 卸下所有磁盘，并断开要更换的磁盘架上的所有缆线。
+. 卸下磁盘架模块。
+. 插入新磁盘架。
+. 将新磁盘插入新磁盘架。
+. 插入磁盘架模块。
+. 为磁盘架布线（ SAS 或电源）。
+. 打开磁盘架电源。
+
+
+
+
+== 重新启用访问并验证操作
+
+[role="lead"]
+更换磁盘架后，您需要重新启用访问并验证新磁盘架是否正常运行。
+
+.步骤
+. 确认磁盘架电源正常且 IOM 模块上存在链路。
+. 根据以下场景启用交换机端口或 SAS 端口：
++
+|===
+| 选项 | 步骤 
+
+
+ a| 
+* 如果先前已禁用交换机端口 *
+ a| 
+.. 启用交换机端口： ` * portEnable _port number_*` 此示例显示了 Brocade 交换机上正在启用的交换机端口。
++
+[listing]
+----
+
+Switch_A_1:admin> portEnable 6
+Switch_A_2:admin> portEnable 6
+----
++
+此示例显示了 Cisco 交换机上正在启用的交换机端口。
+
++
+[listing]
+----
+
+Switch_A_1# conf t
+Switch_A_1(config)# int fc1/6
+Switch_A_1(config)# no shut
+Switch_A_1(config)# end
+
+Switch_A_2# conf t
+Switch_A_2(config)# int fc1/6
+Switch_A_2(config)# no shut
+Switch_A_2(config)# end
+----
+
+
+
+
+ a| 
+* 如果先前已禁用 SAS 端口 *
+ a| 
+.. 启用将堆栈连接到磁盘架位置的 SAS 端口： + ` * SAsportEnable _port number_*`
+
+
+此示例显示正在从网桥启用 SAS 端口 A ，并验证它是否已启用。
+
+[listing]
+----
+Ready. *
+SASPortEnable A
+
+SAS Port A has been enabled.
+----
+
+NOTE: 这不适用于 ATTO 6500 FibreBridge 。
+
+|===
+. 如果您之前禁用了交换机端口，请验证这些端口是否已启用并联机，以及所有设备是否已正确登录：
++
+` * switchshow*`
+
++
+此示例显示了用于验证 Brocade 交换机是否联机的 ` * switchshow*` 命令。
+
++
+[listing]
+----
+
+Switch_A_1:admin> SwitchShow
+Switch_A_2:admin> SwitchShow
+----
++
+此示例显示了用于验证 Cisco 交换机是否联机的 ` * switchshow*` 命令。
+
++
+[listing]
+----
+
+Switch_A_1# show interface fc1/6
+Switch_A_2# show interface fc1/6
+----
++
+
+NOTE: 几分钟后， ONTAP 会检测到新磁盘已插入，并为每个新磁盘显示一条消息。
+
+. 验证 ONTAP 是否已检测到磁盘：
++
+` * sysconfig -a *`
+
+. 使先前脱机的丛联机：
++
+` * aggr online _丛 _name__*`
+
++
+此示例显示了在运行 cMode 恢复联机的控制器上放置丛的命令。
+
++
+[listing]
+----
+
+Cluster_A_1::> storage aggregate plex online -aggr aggr1 -plex plex2
+Cluster_A_1::> storage aggregate plex online -aggr aggr2 -plex plex6
+Cluster_A_1::> storage aggregate plex online -aggr aggr3 -plex plex1
+----
++
+丛开始重新同步。
+
++
+
+NOTE: 您可以使用 ` * aggr status _-raggr_name_*` 命令监控重新同步的进度。
+
+

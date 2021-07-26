@@ -1,0 +1,189 @@
+---
+permalink: maintain/task_fb_hot_add_a_disk_shelf_install_7500n.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, hot, add, disk, shelf 
+summary: 如果要在不降低性能的情况下增加存储，可以热添加磁盘架。 
+---
+= 热添加磁盘架
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要在不降低性能的情况下增加存储，可以热添加磁盘架。
+
+* 系统必须满足中的所有要求 xref:task_fb_hot_add_shelf_prepare_7500n.adoc[准备热添加 SAS 磁盘架]。
+* 要热添加磁盘架，您的环境必须满足以下情形之一：
++
+** 您已将两个 FibreBridge 7500N 网桥连接到一个 SAS 磁盘架堆栈。
+** 您已将一个 FibreBridge 7500N 网桥和一个 FibreBridge 6500N 网桥连接到一个 SAS 磁盘架堆栈。
+** 您已将两个 FibreBridge 6500N 网桥连接到一个 SAS 磁盘架堆栈。
+
+
+* 此操作步骤用于将磁盘架热添加到堆栈中的最后一个磁盘架。
++
+编写此操作步骤时，假设堆栈中的最后一个磁盘架是从 IOM A 连接到网桥 A 以及从 IOM B 连接到网桥 B 的
+
+* 这是一个无中断操作步骤。
+* 您应在每个站点热添加相同数量的磁盘架。
+* 如果要热添加多个磁盘架，则必须一次热添加一个磁盘架。
++
+
+NOTE: 每对 FibreBridge 7500N 或 7600N 网桥最多可支持四个堆栈。
+
+
+
+
+IMPORTANT: 热添加磁盘架要求您在高级模式下运行 `storage disk firmware update` 命令，以更新热添加磁盘架上的磁盘驱动器固件。如果系统中现有磁盘驱动器上的固件版本较旧，则运行此命令可能会造成中断。
+
+
+IMPORTANT: 如果将 SAS 缆线插入错误的端口，则在从 SAS 端口拔下缆线时，必须至少等待 120 秒，然后再将缆线插入其他 SAS 端口。如果您未能执行此操作，系统将无法识别此缆线已移至其他端口。
+
+.步骤
+. 正确接地。
+. 从任一控制器的系统控制台验证磁盘架连接：
++
+` * sysconfig -v*`
+
++
+输出类似于以下内容：
+
++
+** 每个网桥都位于一条单独的行上，并位于其可见的每个 FC 端口下；例如，将磁盘架热添加到一组 FibreBridge 7500N 网桥会生成以下输出：
++
+[listing]
+----
+FC-to-SAS Bridge:
+cisco_A_1-1:9.126L0: ATTO  FibreBridge7500N 2.10  FB7500N100189
+cisco_A_1-2:1.126L0: ATTO  FibreBridge7500N 2.10  FB7500N100162
+----
+** 每个磁盘架在其可见的每个 FC 端口下的单独行上：
++
+[listing]
+----
+Shelf   0: IOM6  Firmware rev. IOM6 A: 0173 IOM6 B: 0173
+Shelf   1: IOM6  Firmware rev. IOM6 A: 0173 IOM6 B: 0173
+----
+** 每个磁盘驱动器在其可见的每个 FC 端口下的单独行上：
++
+[listing]
+----
+cisco_A_1-1:9.126L1   : NETAPP   X421_HCOBD450A10 NA01 418.0GB (879097968 520B/sect)
+cisco_A_1-1:9.126L2   : NETAPP   X421_HCOBD450A10 NA01 418.0GB (879097968 520B/sect)
+----
+
+
+. 检查您的系统是否已从任一控制器的控制台启用磁盘自动分配：
++
+` * 存储磁盘选项 show*`
+
++
+自动分配策略显示在自动分配列中。
+
++
+[listing]
+----
+
+Node        BKg. FW. Upd.  Auto Copy   Auto Assign  Auto Assign Policy
+----------  -------------  ----------  -----------  ------------------
+node_A_1             on           on           on           default
+node_A_2             on           on           on           default
+2 entries were displayed.
+----
+. 如果您的系统未启用磁盘自动分配，或者同一堆栈中的磁盘驱动器由两个控制器所有，请将磁盘驱动器分配给相应的池。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+
++
+[NOTE]
+====
+如果要在两个控制器之间拆分一个磁盘架堆栈，则必须在分配磁盘所有权之前禁用磁盘自动分配；否则，在分配任何一个磁盘驱动器时，其余磁盘驱动器可能会自动分配给同一个控制器和池。
+
+`storage disk option modify -node _node-name_ -autosassign off` 命令可禁用磁盘自动分配。
+
+====
++
+
+NOTE: 在更新磁盘驱动器和磁盘架固件之前，不得将磁盘驱动器添加到聚合或卷中。
+
+. 按照所下载固件的说明将磁盘架固件更新为最新版本。
++
+您可以从任一控制器的系统控制台中运行操作步骤中的命令。
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"]
+
+. 安装磁盘架并为其布线：
++
+请注意以下注意事项：
+
++
+** 对于 FibreBridge 6500N 网桥：
++
+请至少等待 10 秒，然后再连接端口。SAS 缆线连接器具有方向性；正确连接到 SAS 端口时，连接器会卡入到位，磁盘架 SAS 端口 LNK LED 会呈绿色亮起。对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。
+
+** 对于 FibreBridge 7500N 网桥：
++
+请勿强制将连接器插入端口。迷你 SAS 缆线具有方向性；正确连接到 SAS 端口时， SAS 缆线会卡入到位，磁盘架 SAS 端口 LNK LED 会呈绿色亮起。对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝上（位于连接器的顶部）。
+
++
+... 安装磁盘架，打开其电源并设置磁盘架 ID 。
++
+适用于您的磁盘架型号的 _Installation Guide_ 提供了有关安装磁盘架的详细信息。
+
++
+
+NOTE: 您必须重新启动磁盘架，并保持整个存储系统中每个 SAS 磁盘架的磁盘架 ID 唯一。
+
+... 断开 SAS 缆线与堆栈中最后一个磁盘架的 IOM B 端口的连接，然后将其重新连接到新磁盘架中的同一端口。
++
+此缆线的另一端仍连接到网桥 B
+
+... 通过将新磁盘架 IOM 端口（ IOM A 和 IOM B ）连接到最后一个磁盘架 IOM 端口（ IOM A 和 IOM B ），以菊花链方式连接新磁盘架。
+
+
+
+
++
+适用于您的磁盘架型号的 _Installation Guide_ 提供了有关以菊花链方式连接磁盘架的详细信息。
+
+. 从系统控制台将磁盘驱动器固件更新为最新版本。
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"]
+
++
+.. 更改为高级权限级别： + ` * 设置 -privilege advanced*`
++
+当系统提示您继续进入高级模式并显示高级模式提示符（ * > ）时，您需要使用 ` * y*` 进行响应。
+
+.. 从系统控制台将磁盘驱动器固件更新为最新版本： + ` * 存储磁盘固件更新 *`
+.. 返回到管理权限级别： + ` * 设置 -privilege admin*`
+.. 对另一个控制器重复上述子步骤。
+
+
+. 在 ONTAP 中验证 MetroCluster 配置的运行情况：
++
+.. 检查系统是否为多路径：
++
+` * 节点 run -node _node-name_ sysconfig -A*`
+
+.. 检查两个集群上是否存在任何运行状况警报： + ` * system health alert show*`
+.. 确认 MetroCluster 配置以及操作模式是否正常： + ` * MetroCluster show*`
+.. 执行 MetroCluster 检查： + ` * MetroCluster check run*`
+.. 显示 MetroCluster 检查的结果：
++
+` * MetroCluster check show*`
+
+.. 检查交换机上是否存在任何运行状况警报（如果存在）：
++
+` * 存储交换机显示 *`
+
+.. 运行 Config Advisor 。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+.. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
+
+
+. 如果要热添加多个磁盘架，请对要热添加的每个磁盘架重复上述步骤。
+

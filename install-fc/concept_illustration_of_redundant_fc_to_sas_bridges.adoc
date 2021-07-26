@@ -1,0 +1,23 @@
+---
+permalink: install-fc/concept_illustration_of_redundant_fc_to_sas_bridges.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, illustration, redundant, fc, sas, bridges 
+summary: FC-SAS 网桥可在 SAS 连接的磁盘和 FC 交换机网络结构之间提供协议桥接。 
+---
+= 冗余 FC-SAS 网桥的图示
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC-SAS 网桥可在 SAS 连接的磁盘和 FC 交换机网络结构之间提供协议桥接。
+
+image::../media/mcc_hw_architecture_shelf_stacks.gif[MCC 硬件架构磁盘架堆栈]
+
+* 相关信息 *
+
+xref:concept_illustration_of_the_local_ha_pairs_in_a_mcc_configuration.adoc[MetroCluster 配置中的本地 HA 对示意图]
+
+xref:concept_redundant_fc_switch_fabrics.adoc[冗余 FC 交换机网络结构]
+
+xref:concept_cluster_peering_network_mcc.adoc[集群对等网络的图示]

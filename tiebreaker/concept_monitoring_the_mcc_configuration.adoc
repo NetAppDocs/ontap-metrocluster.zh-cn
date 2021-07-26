@@ -1,0 +1,321 @@
+---
+permalink: tiebreaker/concept_monitoring_the_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, tiebreaker, software, automate, recovery, process, enabling, enable, monitor, configuration, status, evaluate, snmp, event, trap, netapp, customer, support, operation, configuring, configure, autosupport, display, status, monitor, operation, information, creating, create, dump, file 
+summary: 通过 MetroCluster Tiebreaker 软件，您可以监控 MetroCluster 配置状态，评估发送给 NetApp 客户支持的 SNMP 事件和陷阱以及查看监控操作的状态，从而自动执行恢复过程。 
+---
+= 监控 MetroCluster 配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过 MetroCluster Tiebreaker 软件，您可以监控 MetroCluster 配置状态，评估发送给 NetApp 客户支持的 SNMP 事件和陷阱以及查看监控操作的状态，从而自动执行恢复过程。
+
+
+
+== 正在配置 AutoSupport
+
+[role="lead"]
+默认情况下， AutoSupport 消息会在安装 Tiebreaker 软件后一周发送给 NetApp 。触发 AutoSupport 通知的事件包括 Tiebreaker 软件崩溃，检测 MetroCluster 配置上的灾难情况或未知 MetroCluster 配置状态。
+
+您必须具有设置 AutoSupport 消息的直接访问权限。
+
+. 使用带有以下任一选项的 Tiebreaker CLI AutoSupport 命令：
++
+[cols="2*"]
+|===
+| 选项 | 说明 
+
+
+ a| 
+-invoke
+ a| 
+向客户支持发送 AutoSupport 消息
+
+
+
+ a| 
+配置向导
+ a| 
+向导以配置代理服务器凭据
+
+
+
+ a| 
+-delete 配置
+ a| 
+删除代理服务器凭据
+
+
+
+ a| 
+-enable
+ a| 
+启用 AutoSupport 通知（这是默认设置。）
+
+
+
+ a| 
+-disable
+ a| 
+禁用 AutoSupport 通知
+
+
+
+ a| 
+-show
+ a| 
+显示 AutoSupport 状态
+
+|===
++
+以下示例显示已启用或禁用 AutoSupport 以及将 AutoSupport 内容发布到的目标：
+
++
+[listing]
+----
+
+NetApp MetroCluster Tiebreaker :> autosupport enable
+AutoSupport already enabled.
+
+NetApp MetroCluster Tiebreaker :> autosupport disable
+AutoSupport status            : disabled
+Proxy Server IP Address       : 10.234.168.79
+Proxy Server Port Number      : 8090
+Proxy Server Username         : admin
+AutoSupport destination       : https://support.netapp.com/asupprod/post/1.0/postAsup
+
+NetApp MetroCluster Tiebreaker :> autosupport enable
+AutoSupport status            : enabled
+Proxy Server IP Address       : 10.234.168.79
+Proxy Server Port Number      : 8090
+Proxy Server Username         : admin
+AutoSupport destination       : https://support.netapp.com/asupprod/post/1.0/postAsup
+
+NetApp MetroCluster Tiebreaker :> autosupport invoke
+AutoSupport transmission      : success
+Proxy Server IP Address       : 10.234.168.79
+Proxy Server Port Number      : 8090
+Proxy Server Username         : admin
+AutoSupport destination       : https://support.netapp.com/asupprod/post/1.0/postAsup
+----
++
+以下示例显示了使用 IP 地址和端口号通过经过身份验证的代理服务器配置的 AutoSupport ：
+
++
+[listing]
+----
+NetApp MetroCluster Tiebreaker :> autosupport configure wizard
+Enter Proxy Server IP address :  10.234.168.79
+Enter Proxy Server port number :  8090
+Enter Proxy Server Username :  admin
+Enter Proxy Server Password : 123abc
+Autosupport configuration updated successfully.
+----
++
+以下示例显示了 AutoSupport 配置的删除：
+
++
+[listing]
+----
+NetApp MetroCluster Tiebreaker :> autosupport delete configuration
+Autosupport configuration deleted successfully.
+----
+
+
+
+
+=== SNMP 事件和陷阱
+
+[role="lead"]
+NetApp MetroCluster Tiebreaker 软件使用 SNMP 陷阱向您通知重大事件。这些陷阱是 NetApp MIB 文件的一部分。每个陷阱都包含以下信息：陷阱名称，严重性，影响级别，时间戳和消息。
+
+[cols="3*"]
+|===
+| 事件名称 | 事件详细信息 | 陷阱编号 
+
+
+ a| 
+MetroCluster 断路器无法访问 MetroCluster 配置
+ a| 
+警告管理员软件无法检测到灾难。如果两个集群均无法访问，则会发生此事件。
+ a| 
+25000
+
+
+
+ a| 
+MetroCluster 断路器无法访问集群
+ a| 
+警告管理员软件无法访问其中一个集群。
+ a| 
+25001
+
+
+
+ a| 
+MetroCluster 断路器检测到集群发生灾难
+ a| 
+通知管理员软件检测到站点故障。此时将发送通知。
+ a| 
+25002
+
+
+
+ a| 
+配对集群之间的所有链路均已切断。
+ a| 
+软件会检测到两个集群均可访问，但两个集群之间的所有网络路径均已关闭，并且集群无法彼此通信。
+ a| 
+25005
+
+
+
+ a| 
+SNMP 测试陷阱
+ a| 
+现在，可以运行 SNMP config test 命令来测试 SNMP 配置。
+ a| 
+2506
+
+|===
+
+
+== 显示监控操作的状态
+
+[role="lead"]
+您可以显示 MetroCluster 配置的监控操作的整体状态。
+
+. 使用 Tiebreaker CLI monitor show 命令使用以下任一选项显示 MetroCluster 操作的状态：
++
+[cols="2*"]
+|===
+| 选项 | 说明 
+
+
+ a| 
+-monitor-name
+ a| 
+显示指定监控器名称的状态
+
+
+
+ a| 
+-operation-history
+ a| 
+最多显示上次在集群上执行的 10 个监控操作
+
+
+
+ a| 
+-stats
+ a| 
+显示与指定集群相关的统计信息
+
+
+
+ a| 
+状态
+ a| 
+显示指定集群的状态 * 注意： * MetroCluster Tiebreaker 软件可能需要长达 10 分钟才能反映修复聚合，修复根或切回等操作的完成状态。
+
+|===
++
+以下示例显示集群 cluster_A 和 cluster_B 已连接且运行状况良好：
+
++
+[listing]
+----
+
+NetApp MetroCluster Tiebreaker:> monitor show -status
+MetroCluster: cluster_A
+    Disaster: false
+    Monitor State: Normal
+    Observer Mode: true
+    Silent Period: 15
+    Override Vetoes: false
+    Cluster: cluster_Ba(UUID:4d9ccf24-080f-11e4-9df2-00a098168e7c)
+        Reachable: true
+        All-Links-Severed: FALSE
+            Node: mcc5-a1(UUID:78b44707-0809-11e4-9be1-e50dab9e83e1)
+                Reachable: true
+                All-Links-Severed: FALSE
+                State: normal
+            Node: mcc5-a2(UUID:9a8b1059-0809-11e4-9f5e-8d97cdec7102)
+                Reachable: true
+                All-Links-Severed: FALSE
+                State: normal
+    Cluster: cluster_B(UUID:70dacd3b-0823-11e4-a7b9-00a0981693c4)
+        Reachable: true
+        All-Links-Severed: FALSE
+            Node: mcc5-b1(UUID:961fce7d-081d-11e4-9ebf-2f295df8fcb3)
+                Reachable: true
+                All-Links-Severed: FALSE
+                State: normal
+            Node: mcc5-b2(UUID:9393262d-081d-11e4-80d5-6b30884058dc)
+                Reachable: true
+                All-Links-Severed: FALSE
+                State: normal
+----
++
+在以下示例中，将显示在 cluster_B 上运行的最后七个操作：
+
++
+[listing]
+----
+
+NetApp MetroCluster Tiebreaker:> monitor show -operation-history
+MetroCluster: cluster_B
+ [ 2014-09-15 04:48:32.274 ] MetroCluster Monitor is initialized
+ [ 2014-09-15 04:48:32.278 ] Started Discovery and validation of MetroCluster Setup
+ [ 2014-09-15 04:48:35.078 ] Discovery and validation of MetroCluster Setup succeeded. Started monitoring.
+ [ 2014-09-15 04:48:35.246 ] NetApp MetroCluster Tiebreaker software is able to reach cluster "mcc5a"
+ [ 2014-09-15 04:48:35.256 ] NetApp MetroCluster Tiebreaker software is able to reach cluster "mcc5b"
+ [ 2014-09-15 04:48:35.298 ] Link to remote DR cluster is up for cluster "mcc5a"
+ [ 2014-09-15 04:48:35.308 ] Link to remote DR cluster is up for cluster "mcc5b"
+----
+
+
+
+
+== 显示 MetroCluster 配置信息
+
+[role="lead"]
+您可以显示 Tiebreaker 软件中所有 MetroCluster 配置实例的监控器名称和 IP 地址。
+
+. 使用 Tiebreaker CLI configuration show 命令显示 MetroCluster 配置信息。
++
+以下示例显示了集群 cluster_A 和 cluster_B 的信息：
+
++
+[listing]
+----
+MetroCluster: North America
+    Monitor Enabled: true
+    ClusterA name: cluster_A
+    ClusterA IpAddress: 10.222.196.130
+    ClusterB name: cluster_B
+    ClusterB IpAddress: 10.222.196.140
+----
+
+
+
+
+== 正在创建转储文件
+
+[role="lead"]
+您可以将 Tiebreaker 软件的整体状态保存到转储文件中，以便进行调试。
+
+. 使用 Tiebreaker CLI monitor dump -status 命令创建一个包含所有 MetroCluster 配置的整体状态的转储文件。
++
+以下示例显示了已成功创建 /var/log/netapp/mcctb/metrocluster-tiebreaker-status.xml 转储文件：
+
++
+[listing]
+----
+
+NetApp MetroCluster Tiebreaker :> monitor dump -status
+MetroCluster Tiebreaker status successfully dumped in file /var/log/netapp/mcctb/metrocluster-tiebreaker-status.xml
+----
+

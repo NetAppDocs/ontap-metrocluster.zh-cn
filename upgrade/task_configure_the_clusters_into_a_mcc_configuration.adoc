@@ -1,0 +1,13 @@
+---
+permalink: upgrade/task_configure_the_clusters_into_a_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, configure, clusters, configuration 
+summary: 您必须对集群建立对等关系，镜像根聚合，创建镜像数据聚合，然后问题描述命令以实施 MetroCluster 操作。 
+---
+= 将集群配置为 MetroCluster 配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须对集群建立对等关系，镜像根聚合，创建镜像数据聚合，然后问题描述命令以实施 MetroCluster 操作。

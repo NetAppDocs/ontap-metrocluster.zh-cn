@@ -1,0 +1,713 @@
+---
+permalink: disaster-recovery/task_replace_hardware_and_boot_new_controllers.html 
+sidebar: sidebar 
+keywords: hardware, component, replace, individual, replacement, installation, guide, replacing, controller, booting, new 
+summary: 如果需要更换硬件组件，您必须使用其各自的硬件更换和安装指南进行更换。 
+---
+= 更换硬件并启动新控制器
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 更换灾难站点上的硬件
+
+如果需要更换硬件组件，您必须使用其各自的硬件更换和安装指南进行更换。
+
+存储控制器必须关闭电源或保持暂停状态（显示 LOADER 提示符）。
+
+.步骤
+. 根据需要更换组件。
++
+
+NOTE: 在此步骤中，您可以完全按照发生灾难之前的布线方式更换组件并为其布线。您不能打开组件的电源。
+
++
+|===
+| 如果要更换 ... | 执行以下步骤 ... | 使用这些指南 ... 
+
+
+ a| 
+MetroCluster FC 配置中的 FC 交换机
+ a| 
+.. 安装新交换机。
+.. 为 ISL 链路布线。此时请勿打开 FC 交换机的电源。
+
+| link:../maintain/index.html["维护 MetroCluster 组件"] 
+
+
+ a| 
+MetroCluster IP 配置中的 IP 交换机
+ a| 
+.. 安装新交换机。
+.. 为 ISL 链路布线。此时请勿打开 IP 交换机的电源。
+
+ a| 
+link:../install-ip/index.html["MetroCluster IP 安装和配置"]
+
+
+
+ a| 
+磁盘架
+ a| 
+.. 安装磁盘架和磁盘。
++
+*** 磁盘架堆栈的配置应与正常运行的站点上的配置相同。
+*** 磁盘大小可以相同或更大，但类型必须相同（ SAS 或 SATA ）。
+
+
+.. 使用缆线将磁盘架连接到堆栈中的相邻磁盘架以及 FC-SAS 网桥。此时请勿打开磁盘架的电源。
+
+| link:http://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"] 
+
+
+ a| 
+SAS 缆线
+ a| 
+.. 安装新缆线。此时请勿打开磁盘架的电源。
+
+ a| 
+link:http://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+
+
+ a| 
+MetroCluster FC 配置中的 FC-SAS 网桥
+ a| 
+.. 安装 FC-SAS 网桥。
+.. 为 FC-SAS 网桥布线。
++
+根据您的 MetroCluster 配置类型，使用缆线将其连接到 FC 交换机或控制器模块。
+
++
+此时请勿打开 FC-SAS 网桥的电源。
+
+
+ a| 
+link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+
+link:../install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+
+
+
+ a| 
+控制器模块
+ a| 
+.. 安装新控制器模块：
++
+*** 控制器模块必须与要更换的模块型号相同。
++
+例如， 8080 控制器模块必须更换为 8080 控制器模块。
+
+*** 控制器模块先前不能属于 MetroCluster 配置中的任一集群，也不能属于先前已有的任何集群配置。
++
+如果是，则必须设置默认值并执行 "`wipeconfig` " 过程。
+
+*** 确保所有网络接口卡（例如以太网或 FC ）均位于旧控制器模块上使用的相同插槽中。
+
+
+.. 使用与旧控制器模块完全相同的缆线连接新控制器模块。
++
+将控制器模块连接到存储（通过连接到 IP 或 FC 交换机， FC-SAS 网桥或直接连接）的端口应与发生灾难之前使用的端口相同。
+
++
+此时请勿打开控制器模块的电源。
+
+
+ a| 
+link:http://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+|===
+. 根据适用于您的配置的 MetroCluster 安装和配置指南 _ ，验证所有组件是否已正确布线。
+
+
+
+
+== 确定旧控制器模块的系统 ID 和 VLAN ID
+
+在更换灾难站点上的所有硬件后，您必须确定已更换的控制器模块的系统 ID 。在将磁盘重新分配给新控制器模块时，您需要旧系统 ID 。如果系统为 AFF A220 ， AFF A250 ， AFF A400 ， AFF A800 ， FAS2750 ， 对于 FAS500f ， FAS8300 或 FAS8700 型号，您还必须确定 MetroCluster IP 接口使用的 VLAN ID 。
+
+灾难站点上的所有设备都必须关闭。
+
+本讨论提供了双节点和四节点配置的示例。对于八节点配置，您必须考虑第二个 DR 组上其他节点中的任何故障。
+
+对于双节点 MetroCluster 配置，您可以忽略对每个站点上第二个控制器模块的引用。
+
+此操作步骤中的示例基于以下假设：
+
+* 站点 A 是灾难站点。
+* node_A_1 出现故障，正在完全更换。
+* node_A_2 出现故障，正在完全更换。
++
+节点 _A_2 仅存在于四节点 MetroCluster 配置中。
+
+* 站点 B 是正常运行的站点。
+* node_B_1 运行状况良好。
+* node_B_2 运行状况良好。
++
+node_B_2 仅存在于四节点 MetroCluster 配置中。
+
+
+
+控制器模块具有以下原始系统 ID ：
+
+|===
+| MetroCluster 配置中的节点数 | 节点 | 原始系统 ID 
+
+
+ a| 
+四个
+ a| 
+node_A_1
+ a| 
+4068741258
+
+
+
+ a| 
+node_A_2
+ a| 
+4068741260
+
+
+
+ a| 
+node_B_1
+ a| 
+4068741254
+
+
+
+ a| 
+node_B_2
+ a| 
+4068741256
+
+
+
+ a| 
+两个
+ a| 
+node_A_1
+ a| 
+4068741258
+
+
+
+ a| 
+node_B_1
+ a| 
+4068741254
+
+|===
+.步骤
+. 在运行正常的站点中，显示 MetroCluster 配置中节点的系统 ID 。
++
+|===
+| MetroCluster 配置中的节点数 | 使用此命令 ... 
+
+
+ a| 
+四个或八个
+ a| 
+`MetroCluster node show -fields node-systemID ， ha-partner-systemID ， dr-partner-systemID ， dr-auxiliary-systemID`
+
+
+
+ a| 
+两个
+ a| 
+`MetroCluster node show -fields node-systemID ， dr-partner-systemID`
+
+|===
++
+在此示例中，对于四节点 MetroCluster 配置，将检索以下旧系统 ID ：
+
++
+** node_A_1 ： 4068741258
+** node_A_2 ： 4068741260
++
+旧控制器模块拥有的磁盘仍归这些系统 ID 所有。
+
++
+[listing]
+----
+metrocluster node show -fields node-systemid,ha-partner-systemid,dr-partner-systemid,dr-auxiliary-systemid
+
+dr-group-id cluster    node      node-systemid ha-partner-systemid dr-partner-systemid dr-auxiliary-systemid
+----------- ---------- --------  ------------- ------ ------------ ------ ------------ ------ --------------
+1           Cluster_A  Node_A_1  4068741258    4068741260          4068741254          4068741256
+1           Cluster_A  Node_A_2  4068741260    4068741258          4068741256          4068741254
+1           Cluster_B  Node_B_1  -             -                   -                   -
+1           Cluster_B  Node_B_2  -             -                   -                   -
+4 entries were displayed.
+----
+
+
++
+在此示例中，对于双节点 MetroCluster 配置，将检索以下旧系统 ID ：
+
++
+** node_A_1 ： 4068741258
++
+旧控制器模块拥有的磁盘仍归此系统 ID 所有。
+
++
+[listing]
+----
+metrocluster node show -fields node-systemid,dr-partner-systemid
+
+dr-group-id cluster    node      node-systemid dr-partner-systemid
+----------- ---------- --------  ------------- ------------
+1           Cluster_A  Node_A_1  4068741258    4068741254
+1           Cluster_B  Node_B_1  -             -
+2 entries were displayed.
+----
+
+
+. 对于使用 ONTAP 调解器服务的 MetroCluster IP 配置，请获取 ONTAP 调解器服务的 IP 地址：
++
+`storage iscsi-initiator show -node * -label mediator`
+
+. 如果系统型号为 AFF A220 ， AFF A400 ， FAS2750 ， FAS8300 或 FAS8700 ， 确定 VLAN ID ：
++
+`MetroCluster interconnect show`
+
++
+VLAN ID 包含在输出的适配器列中显示的适配器名称中。
+
++
+在此示例中， VLAN ID 为 120 和 130 ：
+
++
+[listing]
+----
+metrocluster interconnect show
+                          Mirror   Mirror
+                  Partner Admin    Oper
+Node Partner Name Type    Status   Status  Adapter Type   Status
+---- ------------ ------- -------- ------- ------- ------ ------
+Node_A_1 Node_A_2 HA      enabled  online
+                                           e0a-120 iWARP  Up
+                                           e0b-130 iWARP  Up
+         Node_B_1 DR      enabled  online
+                                           e0a-120 iWARP  Up
+                                           e0b-130 iWARP  Up
+         Node_B_2 AUX     enabled  offline
+                                           e0a-120 iWARP  Up
+                                           e0b-130 iWARP  Up
+Node_A_2 Node_A_1 HA      enabled  online
+                                           e0a-120 iWARP  Up
+                                           e0b-130 iWARP  Up
+         Node_B_2 DR      enabled  online
+                                           e0a-120 iWARP  Up
+                                           e0b-130 iWARP  Up
+         Node_B_1 AUX     enabled  offline
+                                           e0a-120 iWARP  Up
+                                           e0b-130 iWARP  Up
+12 entries were displayed.
+----
+
+
+
+
+== 将替代驱动器与正常运行的站点隔离（ MetroCluster IP 配置）
+
+您必须通过从运行正常的节点断开 MetroCluster iSCSI 启动程序连接来隔离任何替代驱动器。
+
+只有 MetroCluster IP 配置才需要此操作步骤。
+
+.步骤
+. 在任一正常运行的节点的提示符处，更改为高级权限级别：
++
+`set -privilege advanced`
+
++
+当系统提示您继续进入高级模式并显示高级模式提示符（ * > ）时，您需要使用 `y` 进行响应。
+
+. 断开 DR 组中两个运行正常的节点上的 iSCSI 启动程序：
++
+`storage iscsi-initiator disconnect -node s幸存 节点 -label *`
+
++
+此命令必须发出两次，每次针对每个正常运行的节点发出一次。
+
++
+以下示例显示了用于断开站点 B 上启动程序的命令：
+
++
+[listing]
+----
+site_B::*> storage iscsi-initiator disconnect -node node_B_1 -label *
+site_B::*> storage iscsi-initiator disconnect -node node_B_2 -label *
+----
+. 返回到管理权限级别：
++
+`set -privilege admin`
+
+
+
+
+
+== 清除控制器模块上的配置
+
+[role="lead"]
+在 MetroCluster 配置中使用新控制器模块之前，必须清除此配置。
+
+.步骤
+. 如有必要，暂停节点以显示 LOADER 提示符：
++
+`halt`
+
+. 在 LOADER 提示符处，将环境变量设置为默认值：
++
+`set-defaults`
+
+. 保存环境：
++
+`saveenv`
+
+. 在 LOADER 提示符处，启动启动菜单：
++
+`boot_ontap 菜单`
+
+. 在启动菜单提示符处，清除配置：
++
+`wipeconfig`
+
++
+对确认提示回答 `yes` 。
+
++
+节点将重新启动，并再次显示启动菜单。
+
+. 在启动菜单中，选择选项 * 5* 将系统启动至维护模式。
++
+对确认提示回答 `yes` 。
+
+
+
+
+
+== 通过网络启动新控制器模块
+
+[role="lead"]
+如果新控制器模块的 ONTAP 版本与正常运行的控制器模块上的版本不同，则必须通过网络启动新控制器模块。
+
+.开始之前
+* 您必须有权访问 HTTP 服务器。
+* 您必须有权访问 NetApp 支持站点，才能下载适用于您的平台及其所运行的 ONTAP 软件版本的必要系统文件。
++
+https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
+
+
+
+.步骤
+. 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"] 下载用于执行系统网络启动的文件。
+. 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
+. 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
++
+[cols="1,2a"]
+|===
+| 平台型号 | 那么 ... 
+
+
+| FAS/AFF8000 系列系统  a| 
+将 ontap-version_image.tgzfile 的内容提取到目标目录： tar -zxvf ontap-version_image.tgz
+
+
+NOTE: 如果要在 Windows 上提取内容，请使用 7-Zip 或 WinRAR 提取网络启动映像。
+
+您的目录列表应包含一个包含内核文件 netboot/kernel 的 netboot 文件夹
+
+
+
+| 所有其他系统  a| 
+您的目录列表应包含一个包含内核文件 ontap-version_image.tgz 的 netboot 文件夹
+
+您不需要提取 ontap-version_image.tgz 文件。
+
+|===
+. 在 LOADER 提示符处，为管理 LIF 配置网络启动连接：
++
+** 如果 IP 地址为 DHCP ，请配置自动连接：
++
+`ifconfig e0M -auto`
+
+** 如果 IP 地址是静态的，请配置手动连接：
++
+`ifconfig e0M -addr=ip_addr -mask=netmask` ` gw=gateway`
+
+
+
+. 执行网络启动。
++
+** 如果平台是 80xx 系列系统，请使用以下命令：
++
+`netboot \http://web_server_ip/path_to_web-accessible_directory/netboot/kernel`
+
+** 如果平台是任何其他系统，请使用以下命令：
++
+`netboot \http://web_server_ip/path_to_web-accessible_directory/ontap-version_image.tgz`
+
+
+
+. 从启动菜单中，选择选项 * （ 7 ） Install new software first* ，将新软件映像下载并安装到启动设备。
++
+....
+Disregard the following message: "This procedure is not supported for Non-Disruptive Upgrade on an HA pair". It applies to nondisruptive upgrades of software, not to upgrades of controllers.
+....
+. 如果系统提示您继续运行操作步骤，请输入 `y` ，然后在系统提示您输入软件包时，输入映像文件的 URL ： ` \http://web_server_ip/path_to_web-accessible_directory/ontap-version_image.tgz`
++
+....
+Enter username/password if applicable, or press Enter to continue.
+....
+. 当您看到类似以下内容的提示时，请务必输入 `n` 以跳过备份恢复：
++
+....
+Do you want to restore the backup configuration now? {y|n}
+....
+. 当您看到类似以下内容的提示时，输入 `y` 以重新启动：
++
+....
+The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}
+....
+. 从启动菜单中，选择 * 选项 5* 以进入维护模式。
+. 如果您使用的是四节点 MetroCluster 配置，请对另一个新控制器模块重复此操作步骤。
+
+
+
+
+== 确定替代控制器模块的系统 ID
+
+[role="lead"]
+更换灾难站点上的所有硬件后，您必须确定新安装的存储控制器模块的系统 ID 。
+
+您必须在更换用的控制器模块处于维护模式时执行此操作步骤。
+
+本节提供了双节点和四节点配置的示例。对于双节点配置，您可以忽略对每个站点上第二个节点的引用。对于八节点配置，您必须考虑第二个 DR 组上的其他节点。这些示例假设以下条件：
+
+* 站点 A 是灾难站点。
+* node_A_1 已更换。
+* node_A_2 已更换。
++
+仅存在于四节点 MetroCluster 配置中。
+
+* 站点 B 是正常运行的站点。
+* node_B_1 运行状况良好。
+* node_B_2 运行状况良好。
++
+仅存在于四节点 MetroCluster 配置中。
+
+
+
+此操作步骤中的示例使用具有以下系统 ID 的控制器：
+
+|===
+| MetroCluster 配置中的节点数 | 节点 | 原始系统 ID | 新系统 ID | 将作为 DR 配对节点与此节点配对 
+
+
+ a| 
+四个
+ a| 
+node_A_1
+ a| 
+4068741258
+ a| 
+1574774970
+ a| 
+node_B_1
+
+
+
+ a| 
+node_A_2
+ a| 
+4068741260
+ a| 
+1574774991
+ a| 
+node_B_2
+
+
+
+ a| 
+node_B_1
+ a| 
+4068741254
+ a| 
+未更改
+ a| 
+node_A_1
+
+
+
+ a| 
+node_B_2
+ a| 
+4068741256
+ a| 
+未更改
+ a| 
+node_A_2
+
+
+
+ a| 
+两个
+ a| 
+node_A_1
+ a| 
+4068741258
+ a| 
+1574774970
+ a| 
+node_B_1
+
+
+
+ a| 
+node_B_1
+ a| 
+4068741254
+ a| 
+未更改
+ a| 
+node_A_1
+
+|===
+* 注： * 在四节点 MetroCluster 配置中，系统会通过将 site_A 中系统 ID 最低的节点与 site_B 中系统 ID 最低的节点配对来确定 DR 配对关系由于系统 ID 会发生变化，因此在完成控制器更换后， DR 对可能会与发生灾难之前不同。
+
+在上述示例中：
+
+* node_A_1 （ 1574774970 ）将与 node_B_1 （ 4068741254 ）配对
+* node_A_2 （ 1574774991 ）将与 node_B_2 （ 4068741256 ）配对
+
+
+.步骤
+. 在节点处于维护模式的情况下，显示每个节点的节点本地系统 ID ： `disk show`
++
+在以下示例中，新的本地系统 ID 为 1574774970 ：
+
++
+[listing]
+----
+*> disk show
+ Local System ID: 1574774970
+ ...
+----
+. 在第二个节点上，重复上一步。
++
+
+NOTE: 双节点 MetroCluster 配置不需要执行此步骤。
+
++
+在以下示例中，新的本地系统 ID 为 1574774991 ：
+
++
+[listing]
+----
+*> disk show
+ Local System ID: 1574774991
+ ...
+----
+
+
+
+
+== 验证组件的 ha-config 状态
+
+在 MetroCluster 配置中，必须将控制器模块和机箱组件的 ha-config 状态设置为 "mcc" 或 "mcc-2n" ，以便它们可以正常启动。
+
+系统必须处于维护模式。
+
+必须对每个新控制器模块执行此任务。
+
+.步骤
+. 在维护模式下，显示控制器模块和机箱的 HA 状态：
++
+`ha-config show`
+
++
+正确的 HA 状态取决于您的 MetroCluster 配置。
+
++
+|===
+| MetroCluster 配置中的控制器数量 | 所有组件的 HA 状态应为 ... 
+
+
+ a| 
+八节点或四节点 MetroCluster FC 配置
+ a| 
+MCC
+
+
+
+ a| 
+双节点 MetroCluster FC 配置
+ a| 
+MCC-2n
+
+
+
+ a| 
+MetroCluster IP 配置
+ a| 
+mccip
+
+|===
+. 如果显示的控制器系统状态不正确，请设置控制器模块的 HA 状态：
++
+|===
+| MetroCluster 配置中的控制器数量 | 命令 
+
+
+ a| 
+八节点或四节点 MetroCluster FC 配置
+ a| 
+`ha-config modify controller mcc`
+
+
+
+ a| 
+双节点 MetroCluster FC 配置
+ a| 
+`ha-config modify controller mcc-2n`
+
+
+
+ a| 
+MetroCluster IP 配置
+ a| 
+`ha-config modify controller mccip`
+
+|===
+. 如果显示的机箱系统状态不正确，请设置机箱的 HA 状态：
++
+|===
+| MetroCluster 配置中的控制器数量 | 命令 
+
+
+ a| 
+八节点或四节点 MetroCluster FC 配置
+ a| 
+`ha-config modify chassis mcc`
+
+
+
+ a| 
+双节点 MetroCluster FC 配置
+ a| 
+`ha-config modify chassis mcc-2n`
+
+
+
+ a| 
+MetroCluster IP 配置
+ a| 
+`ha-config modify chassis mccip`
+
+|===
+. 在另一个替代节点上重复上述步骤。
+

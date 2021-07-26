@@ -1,0 +1,11 @@
+---
+permalink: upgrade/reference_copyright_and_trademark.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, copyright, trademark, machine, translation 
+summary: 《 MetroCluster 升级，过渡和扩展指南》的版权，商标和计算机以及翻译信息。 
+---
+= 版权，商标和机器翻译
+:icons: font
+:imagesdir: ../media/
+
+

@@ -1,0 +1,89 @@
+---
+permalink: disaster-recovery/task_verify_assignment_mcip.html 
+sidebar: sidebar 
+keywords: verify, adp, verify, drives, pool, automatically, assign 
+summary: 在配置了 ADP 的系统上，您必须验证是否已自动分配池 0 驱动器。 
+---
+= 验证自动分配或手动分配池 0 驱动器
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在配置了 ADP 的系统上，您必须验证是否已自动分配池 0 驱动器。在未配置 ADP 的系统上，您必须手动分配池 0 驱动器。
+
+
+
+== 验证灾难站点（ MetroCluster IP 系统）上 ADP 系统上池 0 驱动器的驱动器分配
+
+如果在灾难站点上更换了驱动器，并且系统配置了 ADP ，则必须确认远程驱动器对节点可见且已正确分配。
+
+.步骤
+. 验证是否自动分配池 0 驱动器：
++
+`d展示`
+
++
+在以下示例中，如果 AFF A800 系统没有外部磁盘架，则会自动将四分之一（ 8 个驱动器）分配给 node_A_1 ，并将四分之一自动分配给 node_A_2 。其余驱动器将是 node_B_1 和 node_B_2 的远程（ pool1 ）驱动器。
+
++
+[listing]
+----
+cluster_A::*> disk show
+                 Usable     Disk      Container           Container
+Disk             Size       Shelf Bay Type    Type        Name      Owner
+---------------- ---------- ----- --- ------- ----------- --------- --------
+node_A_1:0n.12   1.75TB     0     12  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.13   1.75TB     0     13  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.14   1.75TB     0     14  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.15   1.75TB     0     15  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.16   1.75TB     0     16  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.17   1.75TB     0     17  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.18   1.75TB     0     18  SSD-NVM shared      aggr0     node_A_1
+node_A_1:0n.19   1.75TB     0     19  SSD-NVM shared      -         node_A_1
+node_A_2:0n.0    1.75TB     0     0   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.1    1.75TB     0     1   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.2    1.75TB     0     2   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.3    1.75TB     0     3   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.4    1.75TB     0     4   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.5    1.75TB     0     5   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.6    1.75TB     0     6   SSD-NVM shared      aggr0_node_A_2_0 node_A_2
+node_A_2:0n.7    1.75TB     0     7   SSD-NVM shared      -         node_A_2
+node_A_2:0n.24   -          0     24  SSD-NVM unassigned  -         -
+node_A_2:0n.25   -          0     25  SSD-NVM unassigned  -         -
+node_A_2:0n.26   -          0     26  SSD-NVM unassigned  -         -
+node_A_2:0n.27   -          0     27  SSD-NVM unassigned  -         -
+node_A_2:0n.28   -          0     28  SSD-NVM unassigned  -         -
+node_A_2:0n.29   -          0     29  SSD-NVM unassigned  -         -
+node_A_2:0n.30   -          0     30  SSD-NVM unassigned  -         -
+node_A_2:0n.31   -          0     31  SSD-NVM unassigned  -         -
+node_A_2:0n.36   -          0     36  SSD-NVM unassigned  -         -
+node_A_2:0n.37   -          0     37  SSD-NVM unassigned  -         -
+node_A_2:0n.38   -          0     38  SSD-NVM unassigned  -         -
+node_A_2:0n.39   -          0     39  SSD-NVM unassigned  -         -
+node_A_2:0n.40   -          0     40  SSD-NVM unassigned  -         -
+node_A_2:0n.41   -          0     41  SSD-NVM unassigned  -         -
+node_A_2:0n.42   -          0     42  SSD-NVM unassigned  -         -
+node_A_2:0n.43   -          0     43  SSD-NVM unassigned  -         -
+32 entries were displayed.
+----
+
+
+
+
+== 在灾难站点的非 ADP 系统上分配池 0 驱动器（ MetroCluster IP 配置）
+
+如果已在灾难站点上更换驱动器，并且系统未配置 ADP ，则需要手动将新驱动器分配到池 0 。
+
+对于 ADP 系统，驱动器会自动分配。
+
+.步骤
+. 在灾难站点的一个替代节点上，重新分配节点的池 0 驱动器：
++
+`s存储磁盘 assign -n number-of-replacement disks -p 0`
+
++
+此命令将分配灾难站点上新添加的（无所有权的）驱动器。分配的驱动器数量和大小应与发生灾难之前节点所分配的驱动器数量和大小相同（或更大）。`storage disk assign` 手册页包含有关执行更精细的驱动器分配的详细信息。
+
+. 对灾难站点上的另一个替代节点重复此步骤。
+

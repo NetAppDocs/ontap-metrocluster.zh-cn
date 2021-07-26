@@ -1,0 +1,50 @@
+---
+permalink: upgrade/task_enable_storage_failover_both_controller_modules_and_set_cluster_ha.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, enable, storage, failover, both, controller, module, cluster, ha 
+summary: 向 MetroCluster 配置添加新控制器模块后，必须在两个控制器模块上启用存储故障转移并单独启用集群 HA 。 
+---
+= 在两个控制器模块上启用存储故障转移并启用集群 HA
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+向 MetroCluster 配置添加新控制器模块后，必须在两个控制器模块上启用存储故障转移并单独启用集群 HA 。
+
+必须事先使用 `MetroCluster configure -refresh true` 命令刷新 MetroCluster 配置。
+
+必须在每个 MetroCluster 站点上执行此任务。
+
+. 启用存储故障转移：
++
+` * storage failover modify -enabled true -node _existing-node-name_*`
+
++
+只需一个命令，即可在两个控制器模块上启用存储故障转移。
+
+. 验证是否已启用存储故障转移：
++
+` * 存储故障转移显示 *`
+
++
+输出应类似于以下内容：
+
++
+[listing]
+----
+
+Node           Partner        Possible State Description
+-------------- -------------- -------- ----------------------
+old-ctlr        new-ctlr      true      Connected to new-ctlr
+new-ctlr        old-ctlr      true      Connected to old-ctlr
+2 entries were displayed.
+----
+. 启用集群 HA ：
++
+` * cluster ha modify -configured true*`
+
++
+如果集群仅包含两个节点且与存储故障转移提供的 HA 不同，则必须在集群中配置集群高可用性（ HA ）。
+
+

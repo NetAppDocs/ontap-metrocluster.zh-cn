@@ -1,0 +1,41 @@
+---
+permalink: disaster-recovery/task_restore_connectivity_mcip.html 
+sidebar: sidebar 
+keywords: metrocluster, iscsi, connections, disaster, site, surviving, connectivity, restore 
+summary: 您必须从运行正常的节点还原 MetroCluster iSCSI 启动程序连接。 
+---
+= 将连接从正常运行的节点还原到灾难站点（ MetroCluster IP 配置）
+:icons: font
+:imagesdir: ../media/
+
+
+您必须从运行正常的节点还原 MetroCluster iSCSI 启动程序连接。
+
+只有 MetroCluster IP 配置才需要此操作步骤。
+
+.步骤
+. 在任一正常运行的节点的提示符处，更改为高级权限级别：
++
+`set -privilege advanced`
+
++
+当系统提示您继续进入高级模式并显示高级模式提示符（ * > ）时，您需要使用 `y` 进行响应。
+
+. 在 DR 组中的两个运行正常的节点上连接 iSCSI 启动程序：
++
+`storage iscsi-initiator connect -node n幸存 节点 -label *`
+
++
+以下示例显示了用于连接站点 B 上启动程序的命令：
+
++
+[listing]
+----
+site_B::*> storage iscsi-initiator connect -node node_B_1 -label *
+site_B::*> storage iscsi-initiator connect -node node_B_2 -label *
+----
+. 返回到管理权限级别：
++
+`set -privilege admin`
+
+

@@ -1,0 +1,1482 @@
+---
+permalink: maintain/task_hot_add_a_stack_to_exist_7500n_pair.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, hot, add, stack, sas, disk, shelves, existing, pair, fibrebridge, bridge 
+summary: 您可以将 SAS 磁盘架堆栈热添加到具有可用端口的一对现有 FibreBridge 7500N 网桥中。 
+---
+= 将 SAS 磁盘架堆栈热添加到一对现有 FibreBridge 7500N 网桥中
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将 SAS 磁盘架堆栈热添加到具有可用端口的一对现有 FibreBridge 7500N 网桥中。
+
+* 您必须已下载最新的磁盘和磁盘架固件。
+* MetroCluster 配置中的所有磁盘架（新磁盘架和现有磁盘架）都必须运行相同版本的固件。
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"]
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"]
+
+* FibreBridge 7500N 网桥必须已连接并具有可用的 SAS 端口。
+
+
+编写此操作步骤时假定您使用的是建议的网桥管理界面： ATTO ExpressNAV 图形用户界面和 ATTO QuickNAV 实用程序。
+
+您可以使用 ATTO ExpressNAV 图形用户界面配置和管理网桥，以及更新网桥固件。您可以使用 ATTO QuickNAV 实用程序配置网桥以太网管理 1 端口。
+
+如果需要，您可以使用其他管理界面。这些选项包括使用串行端口或 Telnet 配置和管理网桥，配置以太网管理 1 端口，以及使用 FTP 更新网桥固件。如果您选择其中任何一个管理界面，则必须满足中的适用要求 xref:reference_requirements_for_using_other_interfaces_to_configure_and_manage_fibrebridge_bridges.adoc[其他网桥管理接口]。
+
+
+IMPORTANT: 如果将 SAS 缆线插入错误的端口，则在从 SAS 端口拔下缆线时，必须至少等待 120 秒，然后再将缆线插入其他 SAS 端口。如果您未能执行此操作，系统将无法识别此缆线已移至其他端口。
+
+.步骤
+. 正确接地。
+. 从任一控制器的控制台中，验证您的系统是否已启用磁盘自动分配：
++
+` * 存储磁盘选项 show*`
+
++
+自动分配列指示是否已启用磁盘自动分配。
+
++
+[listing]
+----
+
+Node        BKg. FW. Upd.  Auto Copy   Auto Assign  Auto Assign Policy
+----------  -------------  ----------  -----------  ------------------
+node_A_1             on           on           on           default
+node_A_2             on           on           on           default
+2 entries were displayed.
+----
+. 禁用新堆栈的交换机端口。
+. 更新每个网桥上的 FibreBridge 固件。
++
+如果新网桥与配对网桥的类型相同，请升级到与配对网桥相同的固件。如果新网桥与配对网桥的类型不同，请升级到该网桥支持的最新固件以及 ONTAP 版本。请参见 _FibreBridge MetroCluster 维护指南 _ 中的 " 更新 FibreBridge 网桥上的固件 " 一节。
+
+. 在对中的每个网桥上，启用要连接到新堆栈的 SAS 端口：
++
+` * SASPortEnable _port-letter_*`
+
++
+两个网桥上必须使用相同的 SAS 端口（ B ， C 或 D ）。
+
+. 保存配置并重新启动每个网桥：
++
+` * 保存配置重新启动 *`
+
+. 使用缆线将磁盘架连接到网桥：
++
+.. 以菊花链方式连接每个堆栈中的磁盘架。
++
+适用于您的磁盘架型号的《安装和服务指南》提供了有关以菊花链方式连接磁盘架的详细信息。
+
+.. 对于每个磁盘架堆栈，使用缆线将第一个磁盘架的 IOM A 连接到 FibreBridge A 上的 SAS 端口 A ，然后使用缆线将最后一个磁盘架的 IOM B 连接到 FibreBridge B 上的 SAS 端口 A
++
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+
++
+https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+
++
+每个网桥都有一条路径通往其磁盘架堆栈；网桥 A 通过第一个磁盘架连接到堆栈的 A 侧，网桥 B 通过最后一个磁盘架连接到堆栈的 B 侧。
+
++
+
+NOTE: 网桥 SAS 端口 B 已禁用。
+
+
+
+. 验证每个网桥是否可以检测到网桥所连接的所有磁盘驱动器和磁盘架。
++
+|===
+| 如果您使用的是 ... | 那么 ... 
+
+
+ a| 
+ATTO ExpressNAV 图形用户界面
+ a| 
+.. 在支持的 Web 浏览器中，在浏览器框中输入网桥的 IP 地址。
++
+此时将转到 ATTO FibreBridge 主页，其中包含一个链接。
+
+.. 单击此链接，然后输入您的用户名以及在配置网桥时指定的密码。
++
+此时将显示 ATTO FibreBridge 状态页面，左侧有一个菜单。
+
+.. 单击菜单中的 * 高级 * 。
+.. 查看已连接的设备：
++
+` * sastargets*`
+
+.. 单击 * 提交 * 。
+
+
+
+
+ a| 
+串行端口连接
+ a| 
+查看已连接的设备：
+
+` * sastargets*`
+
+|===
++
+输出将显示网桥所连接的设备（磁盘和磁盘架）。输出行按顺序编号，以便您可以快速统计设备数量。
+
++
+
+NOTE: 如果输出开头显示文本 `reresponse truncated` ，则可以使用 Telnet 连接到网桥，然后使用 `sasargets` 命令查看所有输出。
+
++
+以下输出显示已连接 10 个磁盘：
+
++
+[listing]
+----
+Tgt VendorID ProductID        Type        SerialNumber
+  0 NETAPP   X410_S15K6288A15 DISK        3QP1CLE300009940UHJV
+  1 NETAPP   X410_S15K6288A15 DISK        3QP1ELF600009940V1BV
+  2 NETAPP   X410_S15K6288A15 DISK        3QP1G3EW00009940U2M0
+  3 NETAPP   X410_S15K6288A15 DISK        3QP1EWMP00009940U1X5
+  4 NETAPP   X410_S15K6288A15 DISK        3QP1FZLE00009940G8YU
+  5 NETAPP   X410_S15K6288A15 DISK        3QP1FZLF00009940TZKZ
+  6 NETAPP   X410_S15K6288A15 DISK        3QP1CEB400009939MGXL
+  7 NETAPP   X410_S15K6288A15 DISK        3QP1G7A900009939FNTT
+  8 NETAPP   X410_S15K6288A15 DISK        3QP1FY0T00009940G8PA
+  9 NETAPP   X410_S15K6288A15 DISK        3QP1FXW600009940VERQ
+----
+. 验证命令输出是否显示网桥已连接到堆栈中所有适当的磁盘和磁盘架。
++
+|===
+| 如果输出为 ... | 那么 ... 
+
+
+ a| 
+正确
+ a| 
+对其余每个网桥重复上述步骤。
+
+
+
+ a| 
+不正确
+ a| 
+.. 重复此步骤，使用缆线将磁盘架连接到网桥，以检查 SAS 缆线是否松动或更正 SAS 布线。
+.. 对其余每个网桥重复上述步骤。
+
+
+|===
+. 按照适用于您的配置，交换机型号和 FC-SAS 网桥型号的表中所示的布线方式，使用缆线将每个网桥连接到本地 FC 交换机：
++
+[NOTE]
+====
+Brocade 和 Cisco 交换机使用不同的端口编号，如下表所示
+
+** 在 Brocade 交换机上，第一个端口编号为 "`0` " 。
+** 在 Cisco 交换机上，第一个端口编号为 "`1` " 。
+
+
+====
++
+|===
+13+| 使用两个 FC 端口（ FC1 和 FC2 ）的 FibreBridge 7500N 或 7600N 的配置 
+
+
+13+| DR 组 1 
+
+
+3+|  2+| Brocade 6505 2+| Brocade 6510 ， Brocade DCX 8510-8 2+| Brocade 6520 2+| Brocade G620 ， Brocade G620-1 ， Brocade G630 ， Brocade G630-1 2+| Brocade G720 
+
+
+2+| 组件 | 端口 | 交换机 1 | 交换机 2 | 交换机 1 | 交换机 2 | 交换机 1 | 交换机 2 | 交换机 1 | 交换机 2 | 交换机 1 | 交换机 2 
+
+
+ a| 
+堆栈 1
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+8.
+ a| 
+ a| 
+8.
+ a| 
+ a| 
+8.
+ a| 
+ a| 
+8.
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+8.
+ a| 
+-
+ a| 
+8.
+ a| 
+-
+ a| 
+8.
+ a| 
+-
+ a| 
+8.
+ a| 
+-
+ a| 
+10
+
+
+
+ a| 
+bridge_x_1B
+ a| 
+FC1
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+11.
+
+
+
+ a| 
+堆栈 2
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+14
+
+
+
+ a| 
+bridge_x_2B
+ a| 
+FC1
+ a| 
+11.
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+17
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+17
+
+
+
+ a| 
+堆栈 3
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+12
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+18
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+12
+ a| 
+-
+ a| 
+18
+
+
+
+ a| 
+bridge_x_3B
+ a| 
+FC1
+ a| 
+13
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+19
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+13
+ a| 
+-
+ a| 
+19
+
+
+
+ a| 
+堆栈 y
+ a| 
+bridge_x_ya
+ a| 
+FC1
+ a| 
+14
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+20
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+14
+ a| 
+-
+ a| 
+20
+
+
+
+ a| 
+bridge_x_YB
+ a| 
+FC1
+ a| 
+15
+ a| 
+-
+ a| 
+15
+ a| 
+-
+ a| 
+15
+ a| 
+-
+ a| 
+15
+ a| 
+-
+ a| 
+21
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+--
+
+-- a| 
+15
+ a| 
+--
+
+-- a| 
+15
+ a| 
+--
+
+-- a| 
+15
+ a| 
+-
+ a| 
+15
+ a| 
+-
+ a| 
+21
+
+
+
+ a| 
+
+NOTE: 可以使用缆线将其他网桥连接到 G620 ， G630 ， G620-1 和 G630-1 交换机中的端口 16 ， 17 ， 20 和 21 。
+
+|===
++
+|===
+11+| 使用两个 FC 端口（ FC1 和 FC2 ）的 FibreBridge 7500N 或 7600N 的配置 
+
+
+11+| DR 组 2 
+
+
+3+|  2+| Brocade G620 ， Brocade G620-1 ， Brocade G630 ， Brocade G630-1 2+| Brocade 6510 ， Brocade DCX 8510-8 2+| Brocade 6520 2+| Brocade G720 
+
+
+2+| 组件 | 端口 | 交换机 1 | 交换机 2 | 交换机 1 | 交换机 2 | 交换机 1 | 交换机 2 | 交换机 1 | 交换机 2 
+
+
+ a| 
+堆栈 1
+ a| 
+bridge_x_51a
+ a| 
+FC1
+ a| 
+26
+ a| 
+-
+ a| 
+32
+ a| 
+-
+ a| 
+56
+ a| 
+-
+ a| 
+32
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+26
+ a| 
+-
+ a| 
+32
+ a| 
+-
+ a| 
+56
+ a| 
+-
+ a| 
+32
+
+
+
+ a| 
+bridge_x_51b
+ a| 
+FC1
+ a| 
+27
+ a| 
+-
+ a| 
+33
+ a| 
+-
+ a| 
+57
+ a| 
+-
+ a| 
+33
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+27
+ a| 
+-
+ a| 
+33
+ a| 
+-
+ a| 
+57
+ a| 
+-
+ a| 
+33
+
+
+
+ a| 
+堆栈 2
+ a| 
+bridge_x_52a
+ a| 
+FC1
+ a| 
+30 个
+ a| 
+-
+ a| 
+34
+ a| 
+-
+ a| 
+58
+ a| 
+-
+ a| 
+34
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+30 个
+ a| 
+-
+ a| 
+34
+ a| 
+-
+ a| 
+58
+ a| 
+-
+ a| 
+34
+
+
+
+ a| 
+bridge_x_52b
+ a| 
+FC1
+ a| 
+31
+ a| 
+-
+ a| 
+35
+ a| 
+-
+ a| 
+59
+ a| 
+-
+ a| 
+35
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+31
+ a| 
+-
+ a| 
+35
+ a| 
+-
+ a| 
+59
+ a| 
+-
+ a| 
+35
+
+
+
+ a| 
+堆栈 3
+ a| 
+bridge_x_53a
+ a| 
+FC1
+ a| 
+32
+ a| 
+-
+ a| 
+36
+ a| 
+-
+ a| 
+60
+ a| 
+-
+ a| 
+36
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+32
+ a| 
+-
+ a| 
+36
+ a| 
+-
+ a| 
+60
+ a| 
+-
+ a| 
+36
+
+
+
+ a| 
+bridge_x_53B
+ a| 
+FC1
+ a| 
+33
+ a| 
+-
+ a| 
+37
+ a| 
+-
+ a| 
+61.
+ a| 
+-
+ a| 
+37
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+33
+ a| 
+-
+ a| 
+37
+ a| 
+-
+ a| 
+61.
+ a| 
+-
+ a| 
+37
+
+
+
+ a| 
+堆栈 y
+ a| 
+bridge_x_5ya
+ a| 
+FC1
+ a| 
+34
+ a| 
+-
+ a| 
+38
+ a| 
+-
+ a| 
+62.
+ a| 
+-
+ a| 
+38
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+34
+ a| 
+-
+ a| 
+38
+ a| 
+-
+ a| 
+62.
+ a| 
+-
+ a| 
+38
+
+
+
+ a| 
+bridge_x_5yb.
+ a| 
+FC1
+ a| 
+35
+ a| 
+-
+ a| 
+39
+ a| 
+-
+ a| 
+63.
+ a| 
+-
+ a| 
+39
+ a| 
+-
+
+
+
+ a| 
+FC2
+ a| 
+-
+ a| 
+35
+ a| 
+-
+ a| 
+39
+ a| 
+-
+ a| 
+63.
+ a| 
+-
+ a| 
+39
+
+
+
+ a| 
+
+NOTE: 可以使用缆线将其他网桥连接到 G620 ， G630 ， G620-1 和 G-630-1 交换机中的端口 36 - 39 。
+
+|===
++
+|===
+12+| 仅使用一个 FC 端口（ FC1 或 FC2 ）的 FibreBridge 6500N 网桥或 FibreBridge 7500N 或 7600N 配置 
+
+
+12+| DR 组 1 
+
+
+2+|  2+| Brocade 6505 2+| Brocade 6510 ， Brocade DCX 8510-8 2+| Brocade 6520 2+| Brocade G620 ， Brocade G620-1 ， Brocade G630 ， Brocade G630-1 2+| Brocade G720 
+
+
+| 组件 | 端口 | 交换机 1 | 交换机 2 | 交换机 1 | 交换机 2 | 交换机 1 | 交换机 2 | 交换机 1 | 交换机 2 | 交换机 1 | 交换机 2 
+
+
+ a| 
+堆栈 1
+ a| 
+bridge_x_1a
+ a| 
+8.
+ a| 
+ a| 
+8.
+ a| 
+ a| 
+8.
+ a| 
+ a| 
+8.
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+-
+ a| 
+8.
+ a| 
+-
+ a| 
+8.
+ a| 
+-
+ a| 
+8.
+ a| 
+-
+ a| 
+8.
+ a| 
+-
+ a| 
+10
+
+
+
+ a| 
+堆栈 2
+ a| 
+bridge_x_2a
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+9
+ a| 
+-
+ a| 
+11.
+
+
+
+ a| 
+堆栈 3
+ a| 
+bridge_x_3a
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+14
+ a| 
+-
+
+
+
+ a| 
+bridge_x_4b
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+10
+ a| 
+-
+ a| 
+14
+
+
+
+ a| 
+堆栈 y
+ a| 
+bridge_x_ya
+ a| 
+11.
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+15
+ a| 
+-
+
+
+
+ a| 
+bridge_x_YB
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+11.
+ a| 
+-
+ a| 
+15
+
+
+
+ a| 
+
+NOTE: 可以使用缆线将其他网桥连接到 G620 ， G630 ， G620-1 和 G630-1 交换机中的端口 12 - 17 ， 20 和 21 。可以使用缆线将其他网桥连接到端口 16 - 17 ， 20 和 21 G720 交换机。
+
+|===
++
+|===
+10+| 仅使用一个 FC 端口（ FC1 或 FC2 ）的 FibreBridge 6500N 网桥或 FibreBridge 7500N 或 7600N 配置 
+
+
+10+| DR 组 2 
+
+
+2+|  2+| Brocade G720 2+| Brocade G620 ， Brocade G620-1 ， Brocade G630 ， Brocade G630-1 2+| Brocade 6510 ， Brocade DCX 8510-8 2+| Brocade 6520 
+
+
+ a| 
+堆栈 1
+ a| 
+bridge_x_51a
+ a| 
+32
+ a| 
+-
+ a| 
+26
+ a| 
+-
+ a| 
+32
+ a| 
+-
+ a| 
+56
+ a| 
+-
+
+
+
+ a| 
+bridge_x_51b
+ a| 
+-
+ a| 
+32
+ a| 
+-
+ a| 
+26
+ a| 
+-
+ a| 
+32
+ a| 
+-
+ a| 
+56
+
+
+
+ a| 
+堆栈 2
+ a| 
+bridge_x_52a
+ a| 
+33
+ a| 
+-
+ a| 
+27
+ a| 
+-
+ a| 
+33
+ a| 
+-
+ a| 
+57
+ a| 
+-
+
+
+
+ a| 
+bridge_x_52b
+ a| 
+-
+ a| 
+33
+ a| 
+-
+ a| 
+27
+ a| 
+-
+ a| 
+33
+ a| 
+-
+ a| 
+57
+
+
+
+ a| 
+堆栈 3
+ a| 
+bridge_x_53a
+ a| 
+34
+ a| 
+-
+ a| 
+30 个
+ a| 
+-
+ a| 
+34
+ a| 
+-
+ a| 
+58
+ a| 
+-
+
+
+
+ a| 
+bridge_x_54b
+ a| 
+-
+ a| 
+34
+ a| 
+-
+ a| 
+30 个
+ a| 
+-
+ a| 
+34
+ a| 
+-
+ a| 
+58
+
+
+
+ a| 
+堆栈 y
+ a| 
+bridge_x_ya
+ a| 
+35
+ a| 
+-
+ a| 
+31
+ a| 
+-
+ a| 
+35
+ a| 
+-
+ a| 
+59
+ a| 
+-
+
+
+
+ a| 
+bridge_x_YB
+ a| 
+-
+ a| 
+35
+ a| 
+-
+ a| 
+31
+ a| 
+-
+ a| 
+35
+ a| 
+-
+ a| 
+59
+
+
+
+ a| 
+
+NOTE: 可以使用缆线将其他网桥连接到 G620 ， G630 ， G620-1 和 G630-1 交换机中的端口 32 - 39 。可以使用缆线将其他网桥连接到 G720 交换机中的端口 36 - 39 。
+
+|===
+. 从系统控制台将磁盘驱动器固件更新为最新版本：
++
+` * disk_FW_update*`
+
++
+您必须在两个控制器上运行此命令。
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"]
+
+. 按照所下载固件的说明将磁盘架固件更新为最新版本。
++
+您可以从任一控制器的系统控制台中运行操作步骤中的命令。
+
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"]
+
+. 如果您的系统未启用磁盘自动分配，请分配磁盘驱动器所有权。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+
++
+
+NOTE: 如果要在多个控制器之间拆分一个磁盘架堆栈的所有权，则必须在分配磁盘所有权之前禁用磁盘自动分配（ `s存储磁盘选项 modify -autodassign off *` from both nodes in the cluster ）； 否则，在分配任何一个磁盘驱动器时，其余磁盘驱动器可能会自动分配给同一个控制器和池。
+
++
+
+NOTE: 在更新磁盘驱动器固件和磁盘架固件并完成此任务中的验证步骤之前，不得向聚合或卷添加磁盘驱动器。
+
+. 为新堆栈启用交换机端口。
+. 在 ONTAP 中验证 MetroCluster 配置的运行情况：
++
+.. 检查系统是否为多路径：
++
+` * 节点 run -node _node-name_ sysconfig -A*`
+
+.. 检查两个集群上是否存在任何运行状况警报：
++
+` * 系统运行状况警报 show*`
+
+.. 确认 MetroCluster 配置以及操作模式是否正常：
++
+` * MetroCluster show*`
+
+.. 执行 MetroCluster 检查：
++
+` * MetroCluster check run*`
+
+.. 显示 MetroCluster 检查的结果：
++
+` * MetroCluster check show*`
+
+.. 检查交换机上是否存在任何运行状况警报（如果存在）：
++
+` * 存储交换机显示 *`
+
+.. 运行 Config Advisor 。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+.. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
+
+
+. 如果适用，请对配对站点重复此操作步骤。
+

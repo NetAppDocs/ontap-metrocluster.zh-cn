@@ -1,0 +1,61 @@
+---
+permalink: manage/task_heal_the_data_aggregates_after_negotiated_switchover.html 
+sidebar: sidebar 
+keywords: heal, data, aggregate, completing, complete, maintenance, test, process, resynchronize, prepare, disaster, operation, root, negotiate, switchover 
+summary: 完成任何维护或测试后，您必须修复数据聚合。此过程会重新同步数据聚合，并使灾难站点做好正常运行的准备。在修复根聚合之前，您必须修复数据聚合。 
+---
+= 在协商切换后修复数据聚合
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+完成任何维护或测试后，您必须修复数据聚合。此过程会重新同步数据聚合，并使灾难站点做好正常运行的准备。在修复根聚合之前，您必须修复数据聚合。
+
+远程集群中的所有配置更新均已成功复制到本地集群。您在此操作步骤中启动灾难站点上的存储，但不会也不能启动灾难站点上的控制器模块。
+
+.步骤
+. 运行 MetroCluster operation show 命令，确保切换已完成。
++
+[listing]
+----
+controller_A_1::> metrocluster operation show
+  Operation: switchover
+      State: successful
+ Start Time: 7/25/2014 20:01:48
+   End Time: 7/25/2014 20:02:14
+     Errors: -
+----
+. 在运行正常的集群中运行 MetroCluster heal -phase aggregates 命令，以重新同步数据聚合。
++
+[listing]
+----
+controller_A_1::> metrocluster heal -phase aggregates
+[Job 130] Job succeeded: Heal Aggregates is successful.
+----
++
+如果修复被否决，您可以使用 -override-vetoes 参数重新发出 MetroCluster heal 命令。如果使用此可选参数，则系统将覆盖任何阻止修复操作的软否决。
+
+. 运行 MetroCluster operation show 命令以验证操作是否已完成。
++
+[listing]
+----
+controller_A_1::> metrocluster operation show
+    Operation: heal-aggregates
+      State: successful
+Start Time: 7/25/2014 18:45:55
+   End Time: 7/25/2014 18:45:56
+     Errors: -
+----
+. 运行 storage aggregate show 命令以检查聚合的状态。
++
+[listing]
+----
+controller_A_1::> storage aggregate show
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+...
+aggr_b2    227.1GB   227.1GB    0% online       0 mcc1-a2          raid_dp, mirrored, normal...
+----
+. 如果已在灾难站点上更换存储，您可能需要重新镜像聚合。
+

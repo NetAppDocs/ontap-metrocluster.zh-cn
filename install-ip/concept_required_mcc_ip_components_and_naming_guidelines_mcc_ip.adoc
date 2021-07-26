@@ -1,0 +1,299 @@
+---
+permalink: install-ip/concept_required_mcc_ip_components_and_naming_guidelines_mcc_ip.html 
+sidebar: sidebar 
+keywords: plan, metrocluster, ip, configuration, require, hardware, software, clarity, conventions, component, documentation, naming, name, requirement, support, redundancy, switch, ontap, cluster, controller, module, gigabit, ethernet, adapter, pool, drive, drive, location, consideration, partial, populate, shelves, shelf, aff, a800, internal, iom12, iom, module, stack, four-node, raid-dp, raid4, AFF A800 internal drives 
+summary: 在规划 MetroCluster IP 配置时，您必须了解所需的和支持的硬件和软件组件。为了方便和清晰起见，您还应了解整个文档中的示例中用于组件的命名约定。 
+---
+= 所需的 MetroCluster IP 组件和命名约定
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在规划 MetroCluster IP 配置时，您必须了解所需的和支持的硬件和软件组件。为了方便和清晰起见，您还应了解整个文档中的示例中用于组件的命名约定。
+
+
+
+== 支持的软件和硬件
+
+MetroCluster IP 配置必须支持硬件和软件。
+
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+使用 AFF 系统时，必须将 MetroCluster 配置中的所有控制器模块配置为 AFF 系统。
+
+
+
+== MetroCluster IP 配置中的硬件冗余要求
+
+由于 MetroCluster IP 配置中的硬件冗余，因此每个站点上的每个组件都有两个。系统会任意为站点分配字母 A 和 B ，并为各个组件分配编号 1 和 2 。
+
+
+
+== MetroCluster IP 配置中的 ONTAP 集群要求
+
+MetroCluster IP 配置需要两个 ONTAP 集群，每个 MetroCluster 站点一个。
+
+在 MetroCluster 配置中，命名必须是唯一的。
+
+示例名称：
+
+* 站点 A ： cluster_A
+* 站点 B ： cluster_B
+
+
+
+
+== MetroCluster IP 配置中的 IP 交换机要求
+
+MetroCluster IP 配置需要四个 IP 交换机。这四个交换机形成两个交换机存储网络结构，在 MetroCluster IP 配置中的每个集群之间提供 ISL 。
+
+IP 交换机还可在每个集群中的控制器模块之间提供集群内通信。
+
+在 MetroCluster 配置中，命名必须是唯一的。
+
+示例名称：
+
+* 站点 A ： cluster_A
++
+** IP_switch_A_1
+** IP_switch_A_2
+
+
+* 站点 B ： cluster_B
++
+** IP_switch_B_1
+** IP_switch_B_2
+
+
+
+
+
+
+== MetroCluster IP 配置中的控制器模块要求
+
+MetroCluster IP 配置需要四个或八个控制器模块。
+
+每个站点的控制器模块构成一个 HA 对。每个控制器模块在另一个站点上都有一个 DR 配对节点。
+
+每个控制器模块必须运行相同的 ONTAP 版本。支持的平台型号取决于 ONTAP 版本：
+
+* ONTAP 9.4 不支持在 FAS 系统上安装新的 MetroCluster IP 。
++
+FAS 系统上的现有 MetroCluster IP 配置可以升级到 ONTAP 9.4 。
+
+* 从 ONTAP 9.5 开始，支持在 FAS 系统上安装新的 MetroCluster IP 。
+* 从 ONTAP 9.4 开始，支持为 ADP 配置的控制器模块。
+
+
+
+
+=== 控制器型号仅限于四节点配置
+
+在 MetroCluster 配置中，这些型号限制为四个。
+
+* AFF A220
+* AFF A250
+* FAS2750
+* FAS500f
+
+
+例如，不支持以下配置：
+
+* 一种由八个 AFF A250 控制器组成的八节点配置。
+* 一种八节点配置，由四个 AFF 220 控制器和四个 FAS500f 控制器组成。
+* 两个四节点 MetroCluster IP 配置，每个配置包含 AFF A250 控制器，并共享相同的后端交换机。
+* 一种八节点配置，由具有 AFF A250 控制器的 DR 组 1 和具有 FAS9000 控制器的 DR 组 2 组成。
+
+
+如果第二个 MetroCluster 不包括上述任何型号，则可以使用相同的后端交换机配置两个单独的四节点 MetroCluster IP 配置。
+
+
+
+=== 示例名称
+
+文档中使用了以下示例名称：
+
+* 站点 A ： cluster_A
++
+** controller_A_1
+** controller_A_2
+
+
+* 站点 B ： cluster_B
++
+** controller_B_1
+** controller_B_2
+
+
+
+
+
+
+== MetroCluster IP 配置中的千兆以太网适配器要求
+
+MetroCluster IP 配置使用 40/100 Gbps 或 10/25 Gbps 以太网适配器作为 MetroCluster IP 网络结构所用 IP 交换机的 IP 接口。
+
+|===
+| 平台型号 | 需要千兆以太网适配器 | 适配器所需的插槽 | 端口 
+
+
+ a| 
+AFF A700 和 FAS9000
+ a| 
+X91146A-C
+ a| 
+插槽 5
+ a| 
+e5a ， e5b
+
+
+
+ a| 
+AFF A800
+ a| 
+X1146A/ 板载端口
+ a| 
+插槽 1
+ a| 
+e0be1b
+
+
+
+ a| 
+AFF A400 和 FAS8300
+ a| 
+X1146A
+ a| 
+插槽 1
+ a| 
+e0b ， e1b
+
+
+
+ a| 
+AFF A300 和 FAS8200
+ a| 
+X1116A
+ a| 
+插槽 1
+ a| 
+e1a ， e1b
+
+
+
+ a| 
+AFF A220 和 FAS2750
+ a| 
+板载端口
+ a| 
+插槽 0
+ a| 
+e0a ， e0b
+
+
+
+ a| 
+AFF A250 和 FAS500f
+ a| 
+板载端口
+ a| 
+插槽 0
+ a| 
+e0c ， e0d
+
+
+
+ a| 
+AFF A320
+ a| 
+板载端口
+ a| 
+插槽 0
+ a| 
+e0g ， e0h
+
+|===
+
+
+== 池和驱动器要求（支持的最低要求）
+
+建议使用八个 SAS 磁盘架（每个站点四个磁盘架），以允许每个磁盘架拥有磁盘所有权。
+
+四节点 MetroCluster IP 配置要求每个站点至少配置以下内容：
+
+* 每个节点在站点上至少有一个本地池和一个远程池。
+* 每个池中至少有七个驱动器。
++
+在每个节点具有一个镜像数据聚合的四节点 MetroCluster 配置中，站点上的最低配置需要 24 个磁盘。
+
+
+
+在支持的最低配置中，每个池都具有以下驱动器布局：
+
+* 三个根驱动器
+* 三个数据驱动器
+* 一个备用驱动器
+
+
+在支持的最低配置中，每个站点至少需要一个磁盘架。
+
+MetroCluster 配置支持 RAID-DP 和 RAID4 。
+
+
+
+== 部分填充的磁盘架的驱动器位置注意事项
+
+要在使用半填充磁盘架（ 24 驱动器磁盘架中有 12 个驱动器）时正确地自动分配驱动器，驱动器应位于插槽 0-5 和 18-23 中。
+
+在磁盘架部分填充的配置中，驱动器必须均匀分布在磁盘架的四个象限中。
+
+
+
+== AFF A800 内部驱动器的驱动器位置注意事项
+
+要正确实施 ADP 功能， AFF A800 系统磁盘插槽必须划分为四分位，并且磁盘必须对称分布在四分位。
+
+AFF A800 系统具有 48 个驱动器托架。托架可以划分为四个季度：
+
+* 第一季度：
++
+** 托架 0 - 5
+** 托架 24 - 29
+
+
+* 第二个季度：
++
+** 托架 6 - 11
+** 托架 30 - 35
+
+
+* 第三个季度：
++
+** 托架 12 - 17
+** 托架 36 - 41
+
+
+* 第四个季度：
++
+** 托架 18 - 23
+** 托架 42 - 47
+
+
+
+
+如果此系统中安装了 16 个驱动器，则这些驱动器必须对称分布在以下四个四等分之间：
+
+* 第一季度有四个驱动器： 0 ， 1 ， 2 ， 3
+* 第二季度有四个驱动器： 12 ， 13 ， 14 ， 15
+* 第三季度有四个驱动器： 24 ， 25 ， 26 ， 27
+* 第四季度有四个驱动器： 36 ， 37 ， 38 ， 39
+
+
+
+
+== 在一个堆栈中混用 IOM12 和 IOM 6 模块
+
+您的 ONTAP 版本必须支持混用磁盘架。请参见 https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性表工具（ IMT ）"] 查看您的 ONTAP 版本是否支持混用磁盘架。
+
+有关混用磁盘架的更多详细信息，请参见 https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["将带有 IOM12 模块的磁盘架热添加到带有 IOM6 模块的磁盘架堆栈中"]

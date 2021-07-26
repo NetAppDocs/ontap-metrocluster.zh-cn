@@ -1,0 +1,49 @@
+---
+permalink: install-fc/concept_considerations_firewalls.html 
+sidebar: sidebar 
+keywords: preparing, prepare, metrocluster, mcc, installation, install, differences, configurations, between, considerations, all, san, array, asa, cluster, peering, prerequisites, dedicated, ports, sharing, data, ports, native, disk, shelves, array, luns, transitions, 7-mode, isls, tdm/wdm, fabric-attached, iod, ood, encryption, devices, unmirrored, aggregates, maintenance, requiring, power, shutdown, firewall, hardware, racking, cabling, setup, checklist, all san array, asa 
+summary: 在准备 MetroCluster 安装时，您应了解 MetroCluster 硬件架构和所需的组件。 
+---
+= MetroCluster 站点上的防火墙使用情况
+
+
+如果您在 MetroCluster 站点上使用防火墙，则必须确保能够访问某些所需端口。
+
+下表显示了位于两个 MetroCluster 站点之间的外部防火墙中的 TCP/UDP 端口使用情况。
+
+[cols="2*"]
+|===
+| 流量类型 | 端口 / 服务 
+
+
+ a| 
+集群对等
+ a| 
+11104/TCP
+
+11105/TCP
+
+
+
+ a| 
+ONTAP 系统管理器
+ a| 
+443/ TCP
+
+
+
+ a| 
+MetroCluster IP 集群间 LIF
+ a| 
+65200/ TCP
+
+10006/TCP 和 UDP
+
+
+
+ a| 
+硬件辅助
+ a| 
+44444/TCP
+
+|===

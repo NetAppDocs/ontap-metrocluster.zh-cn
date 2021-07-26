@@ -1,0 +1,44 @@
+---
+permalink: disaster-recovery/task_verify_connectivity_mcip.html 
+sidebar: sidebar 
+keywords: metrocluster, ip, configuration, verify, storage, connectivity, remote 
+summary: 您必须确认已更换的节点已连接到运行正常的站点上的磁盘架。 
+---
+= 验证与远程站点的存储连接（ MetroCluster IP 配置）
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须确认已更换的节点已连接到运行正常的站点上的磁盘架。
+
+此任务将在灾难站点的替代节点上执行。
+
+此任务在维护模式下执行。
+
+.步骤
+. 显示原始系统 ID 所拥有的磁盘。
++
+`disk show -s old-system-ID`
+
++
+远程磁盘可由 0m 设备识别。0m 表示磁盘已通过 MetroCluster iSCSI 连接进行连接。这些磁盘稍后必须在恢复操作步骤中重新分配。
+
++
+[listing]
+----
+*> disk show -s 4068741256
+Local System ID: 1574774970
+
+  DISK     OWNER                 POOL  SERIAL NUMBER   HOME                  DR HOME
+---------- --------------------- ----- -------------   --------------------- ----------------------
+0m.i0.0L11 node_A_2 (4068741256) Pool1 S396NA0HA02128  node_A_2 (4068741256) node_A_2  (4068741256)
+0m.i0.1L38 node_A_2 (4068741256) Pool1 S396NA0J148778  node_A_2 (4068741256) node_A_2  (4068741256)
+0m.i0.0L52 node_A_2 (4068741256) Pool1 S396NA0J148777  node_A_2 (4068741256) node_A_2  (4068741256)
+...
+...
+NOTE: Currently 49 disks are unowned. Use 'disk show -n' for additional information.
+*>
+----
+. 对其他替代节点重复此步骤
+

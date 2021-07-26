@@ -1,0 +1,94 @@
+---
+permalink: maintain/task_power_off_an_entire_mcc_fc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, power, off, entire, metrocluster, fc, configuration 
+summary: 您必须先关闭整个 MetroCluster FC 配置以及所有设备，然后才能开始站点维护或重新定位。 
+---
+= 关闭整个 MetroCluster FC 配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须先关闭整个 MetroCluster FC 配置以及所有设备，然后才能开始站点维护或重新定位。
+
+
+NOTE: 从 ONTAP 9.8 开始， ` * storage switch*` 命令将替换为 ` * system switch*` 。以下步骤显示了 ` * storage switch*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system switch*` 命令。
+
+. 从 MetroCluster 配置中的两个站点验证 MetroCluster 配置。
++
+.. 确认 MetroCluster 配置以及操作模式是否正常。+ ` * MetroCluster show*`
+.. 在任意一个 MetroCluster 节点上输入以下命令，以确认与磁盘的连接： + ` * 运行本地 sysconfig -v*`
+.. 运行以下命令： + ` * storage bridge show*`
+.. 运行以下命令： + ` * storage port show*`
+.. 运行以下命令： + ` * storage switch show*`
+.. 运行以下命令： + ` * network port show*`
+.. 执行 MetroCluster 检查： + ` * MetroCluster check run*`
+.. 显示 MetroCluster 检查的结果： + ` * MetroCluster check show*`
+
+
+. 通过将 AUSO 故障域修改为来禁用 AUSO
++
+` * auso-disabled"`
+
++
+[listing]
+----
+cluster_A_site_A::*>metrocluster modify -auto-switchover-failure-domain auso-disabled
+----
+. 使用命令验证更改
++
+` * MetroCluster operation show*`
+
++
+[listing]
+----
+
+	cluster_A_site_A::*> metrocluster operation show
+       Operation: modify
+           State: successful
+      Start Time: 4/25/2020 20:20:36
+        End Time: 4/25/2020 20:20:36
+          Errors: -
+----
+. 使用以下命令暂停节点：
++
+` * hal*` * 对于四节点或八节点 MetroCluster 配置，请使用参数 + ` * inhibit-takeover*`
+
++
++
+
++
+[listing]
+----
+system node halt -node node1_SiteA -inhibit-takeover true -ignore-quorum-warnings true
+----
++
+** 对于双节点 MetroCluster 配置，请使用命令：
++
+[listing]
+----
+system node halt -node node1_SiteA -ignore-quorum-warnings true
+----
+
+
+. 关闭站点上的以下设备：
++
+** 存储控制器
+** MetroCluster FC 交换机
+** ATTO FibreBridge
+** 存储架
+
+
+. 等待 30 分钟，然后打开所有控制器的电源。
+. 打开控制器电源后，从两个站点验证 MetroCluster 配置。
++
+要验证配置，请重复步骤 1 。
+
+. 执行重新启动检查。
++
+.. 确认所有 sync-source SVM 均已联机： + ` * vserver show*`
+.. 启动任何未联机的 sync-source SVM ： + ` * vserver start*`
+
+
+

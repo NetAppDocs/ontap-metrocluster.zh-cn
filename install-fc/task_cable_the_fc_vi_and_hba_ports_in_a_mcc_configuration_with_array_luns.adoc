@@ -1,0 +1,13 @@
+---
+permalink: install-fc/task_cable_the_fc_vi_and_hba_ports_in_a_mcc_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, cable, fc, vi, hba, ports, array, luns 
+summary: 对于使用阵列 LUN 的光纤连接 MetroCluster 配置，必须通过 FC 交换机将 MetroCluster 配置中的控制器连接到存储阵列。 
+---
+= 使用缆线连接使用阵列 LUN 的 MetroCluster 配置中的 FC-VI 和 HBA 端口
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+对于使用阵列 LUN 的光纤连接 MetroCluster 配置，必须通过 FC 交换机将 MetroCluster 配置中的控制器连接到存储阵列。

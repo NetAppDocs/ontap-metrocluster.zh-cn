@@ -1,0 +1,105 @@
+---
+permalink: upgrade/task_assign_disk_ownership_in_aff_systems_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, assign, disk, ownership, aff, systems 
+summary: 如果在具有镜像聚合的配置中使用 AFF 系统，并且节点未正确分配磁盘 \ （ SSD\ ），则应将每个磁盘架上一半的磁盘分配给一个本地节点，另一半磁盘分配给其 HA 配对节点。您应创建一种配置，使每个节点在其本地和远程磁盘池中具有相同数量的磁盘。 
+---
+= 在 AFF 系统中分配磁盘所有权
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在具有镜像聚合的配置中使用 AFF 系统，并且节点未正确分配磁盘（ SSD ），则应将每个磁盘架上一半的磁盘分配给一个本地节点，另一半磁盘分配给其 HA 配对节点。您应创建一种配置，使每个节点在其本地和远程磁盘池中具有相同数量的磁盘。
+
+存储控制器必须处于维护模式。
+
+这不适用于具有未镜像聚合，主动 / 被动配置或本地和远程池中磁盘数量不等的配置。
+
+如果从工厂收到磁盘时已正确分配磁盘，则不需要执行此任务。
+
+
+NOTE: 池 0 始终包含与拥有磁盘的存储系统位于同一站点的磁盘，而池 1 始终包含拥有这些磁盘的存储系统远程的磁盘。
+
+.步骤
+. 如果尚未启动，请将每个系统启动至维护模式。
+. 将磁盘分配给位于第一个站点（站点 A ）的节点：
++
+您应为每个池分配相同数量的磁盘。
+
++
+.. 在第一个节点上，系统地将每个磁盘架上一半的磁盘分配给池 0 ，而将另一半磁盘分配给 HA 配对节点的池 0 ： + ` * disk assign -disk _disk-name_ -p _pool_ -n _number-of-disks_*`
++
+如果存储控制器 Controller_A_1 有四个磁盘架，每个磁盘架具有 8 个 SSD ，则您可以问题描述执行以下命令：
+
++
+[listing]
+----
+*> disk assign -shelf FC_switch_A_1:1-4.shelf1 -p 0 -n 4
+*> disk assign -shelf FC_switch_A_1:1-4.shelf2 -p 0 -n 4
+
+*> disk assign -shelf FC_switch_B_1:1-4.shelf1 -p 1 -n 4
+*> disk assign -shelf FC_switch_B_1:1-4.shelf2 -p 1 -n 4
+----
+.. 对本地站点的第二个节点重复此过程，系统地将每个磁盘架上一半的磁盘分配给池 1 ，另一半磁盘分配给 HA 配对节点的池 1 ： + ` * disk assign -disk _disk-name_ -p _pool_*`
++
+如果存储控制器 Controller_A_1 有四个磁盘架，每个磁盘架具有 8 个 SSD ，则您可以问题描述执行以下命令：
+
++
+[listing]
+----
+*> disk assign -shelf FC_switch_A_1:1-4.shelf3 -p 0 -n 4
+*> disk assign -shelf FC_switch_B_1:1-4.shelf4 -p 1 -n 4
+
+*> disk assign -shelf FC_switch_A_1:1-4.shelf3 -p 0 -n 4
+*> disk assign -shelf FC_switch_B_1:1-4.shelf4 -p 1 -n 4
+----
+
+
+. 将磁盘分配给位于第二个站点（站点 B ）的节点：
++
+您应为每个池分配相同数量的磁盘。
+
++
+.. 在远程站点的第一个节点上，系统地将每个磁盘架上一半的磁盘分配给池 0 ，而将另一半磁盘分配给 HA 配对节点的池 0 ： + ` * disk assign -disk _disk-name_ -p _pool_*`
++
+如果存储控制器 Controller_B_1 有四个磁盘架，每个磁盘架具有 8 个 SSD ，则您可以问题描述执行以下命令：
+
++
+[listing]
+----
+*> disk assign -shelf FC_switch_B_1:1-5.shelf1 -p 0 -n 4
+*> disk assign -shelf FC_switch_B_1:1-5.shelf2 -p 0 -n 4
+
+*> disk assign -shelf FC_switch_A_1:1-5.shelf1 -p 1 -n 4
+*> disk assign -shelf FC_switch_A_1:1-5.shelf2 -p 1 -n 4
+----
+.. 对远程站点的第二个节点重复此过程，系统地将每个磁盘架上一半的磁盘分配给池 1 ，另一半磁盘分配给 HA 配对节点的池 1 ： + ` * disk assign -disk _disk-name_ -p _pool_*`
++
+如果存储控制器 Controller_B_2 有四个磁盘架，每个磁盘架具有 8 个 SSD ，则您可以问题描述执行以下命令：
+
++
+[listing]
+----
+*> disk assign -shelf FC_switch_B_1:1-5.shelf3 -p 0 -n 4
+*> disk assign -shelf FC_switch_B_1:1-5.shelf4 -p 0 -n 4
+
+*> disk assign -shelf FC_switch_A_1:1-5.shelf3 -p 1 -n 4
+*> disk assign -shelf FC_switch_A_1:1-5.shelf4 -p 1 -n 4
+----
+
+
+. 确认磁盘分配：
++
+` * storage show disk*`
+
+. 退出维护模式：
++
+` * 暂停 *`
+
+. 显示启动菜单：
++
+` * boot_ontap menu *`
+
+. 在每个节点上，选择选项 * 。 4* 以初始化所有磁盘。
+

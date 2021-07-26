@@ -1,0 +1,37 @@
+---
+permalink: install-fc/task_prepare_a_storage_array_for_use_with_ontap_systems.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, prepare, storage, array, systems 
+summary: 在使用阵列 LUN 的 MetroCluster 配置中设置 ONTAP 系统之前，存储阵列管理员必须准备用于 ONTAP 的存储。 
+---
+= 准备用于 ONTAP 系统的存储阵列
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用阵列 LUN 的 MetroCluster 配置中设置 ONTAP 系统之前，存储阵列管理员必须准备用于 ONTAP 的存储。
+
+您计划在配置中使用的存储阵列，固件和交换机必须受特定 ONTAP 版本支持。
+
+* https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性"]
++
+在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
+
+* https://hwu.netapp.com["NetApp Hardware Universe"]
+
+
+要在存储阵列上执行此任务，您必须与存储阵列管理员进行协调。
+
+.步骤
+. 根据 MetroCluster 配置中的节点数在存储阵列上创建 LUN 。
++
+MetroCluster 配置中的每个节点都需要为根聚合，数据聚合和备用磁盘配置阵列 LUN 。
+
+. 在存储阵列上配置使用 ONTAP 所需的参数。
++
+** https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-ig-third/home.html["第三方存储的 FlexArray 虚拟化实施"]
+** https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-ig-es/home.html["适用于 NetApp E 系列存储的 FlexArray 虚拟化实施"]
+
+
+

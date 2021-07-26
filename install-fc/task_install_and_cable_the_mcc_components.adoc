@@ -1,0 +1,13 @@
+---
+permalink: install-fc/task_install_and_cable_the_mcc_components.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, cable, components 
+summary: 必须使用缆线将存储控制器连接到 FC 交换机，并且必须使用缆线将 ISL 连接到 MetroCluster 站点。此外，还必须使用缆线将存储控制器连接到集群对等，数据和管理网络。 
+---
+= 安装 MetroCluster 组件并为其布线
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+必须使用缆线将存储控制器连接到 FC 交换机，并且必须使用缆线将 ISL 连接到 MetroCluster 站点。此外，还必须使用缆线将存储控制器连接到集群对等，数据和管理网络。

@@ -1,0 +1,17 @@
+---
+permalink: install-ip/task_sw_config_gather_info.html 
+sidebar: sidebar 
+keywords: metrocluster, configuration, gather information 
+summary: 在开始配置过程之前，您需要收集控制器模块所需的 IP 地址。 
+---
+= 收集所需信息
+
+
+[role="lead"]
+在开始配置过程之前，您需要收集控制器模块所需的 IP 地址。
+
+您可以使用这些链接下载 csv 文件并在表中填写站点特定的信息。
+
+link:../media/metrocluster_ip_setup_worksheet_site-a.csv["MetroCluster IP 设置工作表， site_A"]
+
+link:../media/metrocluster_ip_setup_worksheet_site-b.csv["MetroCluster IP 设置工作表， site_B"]

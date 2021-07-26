@@ -1,0 +1,42 @@
+---
+permalink: upgrade/task_add_a_new_controller_to_each_cluster_mcc_expansion.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, add, new, controller, module, cluster 
+summary: 您必须向每个站点添加一个新的控制器模块，以便在每个站点中创建一个 HA 对。这是一个多步骤过程，涉及硬件和软件更改，必须在每个站点上按正确顺序执行。 
+---
+= 向每个集群添加新控制器模块
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须向每个站点添加一个新的控制器模块，以便在每个站点中创建一个 HA 对。这是一个多步骤过程，涉及硬件和软件更改，必须在每个站点上按正确顺序执行。
+
+* 新控制器模块必须作为升级套件的一部分从 NetApp 收到。
++
+您应验证新控制器模块中的 PCIe 卡是否兼容并受新控制器模块支持。
+
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* 升级到单机箱 HA 对（两个控制器模块位于同一机箱中的 HA 对）时，系统必须为新控制器模块提供一个空插槽。
++
+
+NOTE: 并非所有系统都支持此配置。ONTAP 9 支持单机箱配置的平台包括 AFF A300 ， FAS8200 ， FAS8300 ， AFF A400 ， AFF80xx ， FAS8020 ， FAS8060 ， FAS8080 和 FAS9000 。
+
+* 升级到双机箱 HA 对（即控制器模块位于不同机箱中的 HA 对）时，新控制器模块必须具有机架空间和缆线。
++
+
+NOTE: 并非所有系统都支持此配置。
+
+* 您必须通过每个控制器模块的 e0a 端口将其连接到管理网络，或者，如果您的系统有一个控制器模块，则可以将其连接到 e0M 端口作为管理端口。
+* 必须在每个站点上重复执行这些任务。
+* 原有的控制器模块称为 _existent_ 控制器模块。
++
+此操作步骤中的示例具有控制台提示符 `existing_ctlr>` 。
+
+* 要添加的控制器模块称为 _new_ 控制器模块；此操作步骤中的示例具有控制台提示符 `new_ctlr>` 。
+* 此任务使用以下工作流：
+
+
+image::../media/workflow_mcc_2_to_4_node_expansion_adding_nodes.gif[工作流 MCC 2 到 4 节点扩展添加节点]

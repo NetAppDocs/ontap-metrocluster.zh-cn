@@ -1,0 +1,121 @@
+---
+permalink: maintain/task_replace_an_ip_switch.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, replace, ip, switch 
+summary: 您可能需要更换发生故障的交换机，或者升级或降级交换机。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。 
+---
+= 更换 IP 交换机
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能需要更换发生故障的交换机，或者升级或降级交换机。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。
+
+如果要将故障交换机更换为相同类型的交换机，则只需更换故障交换机。如果要升级或降级交换机，则需要调整同一网络中的两个交换机。如果两个交换机使用交换机间链路（ ISL ）连接，并且不位于同一站点，则它们位于同一网络中。例如，网络 1 包括 IP_switch_A_1 和 IP_switch_B_1 。网络 2 包括 IP_switch_A_2 和 IP_switch_B_2 ，如下图所示：
+
+image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[MCC IP 硬件架构 IP 互连]
+
+此操作步骤适用于 Cisco 或 Broadcom 交换机。如果要更改交换机供应商，则需要执行进一步的步骤。
+
+如果要升级或降级网络，则必须对第二个网络重复此操作步骤。
+
+.步骤
+. 检查配置的运行状况。
++
+.. 检查是否已在每个集群上配置 MetroCluster 并使其处于正常模式： ` * MetroCluster show*`
++
+[listing]
+----
+cluster_A::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_A         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain auso-on-cluster-disaster
+Remote: cluster_B         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain auso-on-cluster-disaster
+----
+.. 检查是否已在每个节点上启用镜像： ` * MetroCluster node show*`
++
+[listing]
+----
+cluster_A::> metrocluster node show
+DR                           Configuration  DR
+Group Cluster Node           State          Mirroring Mode
+----- ------- -------------- -------------- --------- --------------------
+1     cluster_A
+              node_A_1       configured     enabled   normal
+      cluster_B
+              node_B_1       configured     enabled   normal
+2 entries were displayed.
+----
+.. 检查 MetroCluster 组件是否运行正常： ` * MetroCluster check run*`
++
+[listing]
+----
+cluster_A::> metrocluster check run
+
+Last Checked On: 10/1/2014 16:03:37
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          ok
+4 entries were displayed.
+
+Command completed. Use the "metrocluster check show -instance" command or sub-commands in "metrocluster check" directory for detailed results.
+To check if the nodes are ready to do a switchover or switchback operation, run "metrocluster switchover -simulate" or "metrocluster switchback -simulate", respectively.
+----
+.. 检查是否没有运行状况警报： ` * system health alert show*`
+
+
+. 在安装之前配置新交换机。
++
+
+NOTE: 如果要升级或降级交换机，则必须配置网络中的所有交换机。
+
++
+按照中 _Configuring the IP switches_ 一节中的步骤进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/index.html["《 MetroCluster IP 安装和配置指南》。"]
+
++
+确保为交换机 _A_1 ， _A_2 ， _B_1 或 _B_2 应用正确的 RCF 文件。如果新交换机与旧交换机相同，则需要应用相同的 RCF 文件。
+
++
+如果要升级或降级交换机，请为新交换机应用支持的最新 RCF 文件。
+
+. 运行 port show 命令查看有关网络端口的信息：
++
+` * 网络端口显示 *`
+
+. 从连接到旧交换机的远程交换机断开 ISL 连接。
++
+您应断开 ISL 连接与 IP_switch_A_1 上连接到 IP_switch_B_1 的端口的连接。
+
+. 关闭交换机电源，拔下缆线并物理拔下 IP_switch_B_1 。
+. 安装新交换机。
++
+按照中的 _Cabling the IP switchs_ 一节中的步骤，首先为新交换机（包括 ISL ）布线 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/index.html["《 MetroCluster IP 安装和配置指南》"]。
+
++
+[NOTE]
+====
+如果交换机类型不同，则已用端口可能与旧交换机上的端口不同。如果要升级或降级交换机，请勿 * 使用 * 不 * 缆线连接本地 ISL 。如果要升级或降级第二个网络中的交换机，并且一个站点上的两个交换机的类型相同，则只能为本地 ISL 布线。
+
+====
+. 打开交换机的电源。
++
+如果新交换机相同，请启动新交换机。如果要升级或降级交换机，请同时启动两个交换机。在更新第二个网络之前，此配置可以在每个站点使用两个不同的交换机运行。
+
+. 重复步骤 1 ，验证 MetroCluster 配置是否运行正常。
++
+如果要升级或降级第一个网络中的交换机，您可能会看到一些与本地集群相关的警报。
+
++
+
+NOTE: 如果要升级或降级网络，请对第二个网络重复所有步骤。
+
+

@@ -1,0 +1,259 @@
+---
+permalink: install-fc/task_install_the_brocade_fc_switch_rcf_file.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, brocade, fc, switch, rcf, file 
+summary: 配置 Brocade FC 交换机时，您可以安装交换机配置文件，这些文件可为某些配置提供完整的交换机设置。 
+---
+= 安装 Brocade FC 交换机 RCF 文件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+配置 Brocade FC 交换机时，您可以安装交换机配置文件，这些文件可为某些配置提供完整的交换机设置。
+
+必须对 MetroCluster 网络结构配置中的每个 Brocade FC 交换机重复执行这些步骤。
+
+.步骤
+. 启动下载和配置过程：
++
+` * 配置下载 *`
+
++
+对提示进行响应，如以下示例所示。
+
++
+[listing]
+----
+FC_switch_A_1:admin> configDownload
+Protocol (scp, ftp, sftp, local) [ftp]:
+Server Name or IP Address [host]: <user input>
+User Name [user]:<user input>
+Path/Filename [<home dir>/config.txt]:path to configuration file
+Section (all|chassis|switch [all]): all
+.
+.
+.
+Do you want to continue [y/n]: y
+Password: <user input>
+----
++
+输入密码后，交换机将下载并执行配置文件。
+
+. 持久启用交换机： ` * switchcfgpersistentenable*`
++
+此示例显示了如何持久启用 FC switch_A_1 。
+
++
+[listing]
+----
+FC_switch_A_1:admin> switchcfgpersistentenable
+----
+. 运行以下命令以确认配置文件已设置交换机域：
++
+` * switchshow*`
+
++
+根据交换机使用的配置文件，系统会为每个交换机分配一个不同的域名。
+
++
+[listing]
+----
+FC_switch_A_1:admin> switchShow
+switchName: FC_switch_A_1
+switchType: 109.1
+switchState: Online
+switchMode: Native
+switchRole: Subordinate
+switchDomain: 5
+----
+. 验证是否已为交换机分配正确的域值，如下表所示。
++
+|===
+| 网络结构 | 交换机 | 交换机域 
+
+
+ a| 
+1.
+ a| 
+A_1
+ a| 
+5.
+
+
+
+ a| 
+B_1
+ a| 
+7.
+
+
+
+ a| 
+2.
+ a| 
+A_2.
+ a| 
+6.
+
+
+
+ a| 
+B_2
+ a| 
+8.
+
+|===
+. 更改端口速度： ` * portcfgspeed*`
++
+[listing]
+----
+FC_switch_A_1:admin> portcfgspeed port number port speed
+----
++
+默认情况下，所有端口都配置为以 16 Gbps 的速率运行。您可能会出于以下原因更改端口速度：
+
++
+** 使用 8-Gbps FC-VI 适配器时，应更改互连交换机端口速度，并且交换机端口速度应设置为 8 Gbps 。
+** 在 ATTO FibreBridge 6500N 中使用 8-Gbps HBA 适配器时，应更改交换机端口速度。
+** 如果 ISL 无法以 16 Gbps 的速度运行，则必须更改 ISL 端口的速度。
+
+
+. 计算 ISL 距离。
++
+由于 FC-VI 的行为，您必须将此距离设置为实际距离的 1.5 倍，最小值为 10 （ LE ）。ISL 的距离计算如下，并取整为下一个完整公里： 1.5 × 实际距离 = 距离。
+
++
+如果距离为 3 公里，则 1.5 × 3 公里 = 4.5 公里。此值小于 10 ；因此，您必须将 ISL 设置为 LE 距离级别。
+
++
+距离为 20 公里， 1.5 × 20 公里 = 30 。您必须将 ISL 设置为 LS 距离级别。
+
+. 使用以下命令设置每个 ISL 端口的距离： ` * portcfglongdistance* _port levelvc_link_initdistance_`
++
+默认情况下， vc_link_init 值 1 使用填充字 "ARB " 。如果值为 0 ，则使用文件名 "idall" 。所需值可能因所使用的链接而异。在此示例中，设置了默认值，并假设距离为 20 公里因此，设置为 "30" ， vc_link_init 值为 1 ， ISL 端口为 21 。
+
++
+示例： LS
+
++
+[listing]
+----
+FC_switch_A_1:admin> portcfglongdistance 21 LS 1 -distance 30
+----
++
+示例： LE
+
++
+[listing]
+----
+FC_switch_A_1:admin> portcfglongdistance 21 LE 1
+----
+. 验证 IP 地址是否设置正确： ` * ipAddrshow*`
++
+[listing]
+----
+FC_switch_A_1:admin> ipAddrshow
+----
++
+如果需要，可以使用以下命令设置 IP 地址： ` * ipAddrSet*`
+
+. 从交换机提示符处设置时区： ` * tstimezone -interactive*`
++
+您应根据需要对提示做出响应。
+
++
+[listing]
+----
+FC_switch_A_1:admin>  tstimezone --interactive
+----
+. 重新启动交换机： ` * 重新启动 *`
++
+此示例显示了如何重新启动 FC 交换机 _A_1 。
+
++
+[listing]
+----
+FC_switch_A_1:admin> reboot
+----
+. 验证距离设置： ` * portbuffershow*`
++
+LE 的距离设置显示为 10 公里
+
++
+[listing]
+----
+FC_Switch_A_1:admin> portbuffershow
+User Port Lx   Max/Resv Buffer Needed  Link     Remaining
+Port Type Mode Buffers  Usage  Buffers Distance Buffers
+---- ---- ---- ------- ------ ------- --------- ----------
+...
+21    E    -      8      67     67      30 km
+22    E    -      8      67     67      30 km
+...
+23    -    8      0       -      -      466
+----
+. 将 ISL 缆线重新连接到已将其卸下的交换机上的端口。
++
+将出厂设置重置为默认设置后， ISL 缆线断开连接。
+
++
+xref:task_reset_the_brocade_fc_switch_to_factory_defaults.adoc[将 Brocade FC 交换机重置为出厂默认值]
+
+. 验证配置。
++
+.. 验证交换机是否构成一个网络结构： ` * switchshow*`
++
+以下示例显示了在端口 20 和 21 上使用 ISL 的配置的输出。
+
++
+[listing]
+----
+FC_switch_A_1:admin> switchshow
+switchName: FC_switch_A_1
+switchType: 109.1
+switchState:Online
+switchMode: Native
+switchRole: Subordinate
+switchDomain:       5
+switchId:   fffc01
+switchWwn:  10:00:00:05:33:86:89:cb
+zoning:             OFF
+switchBeacon:       OFF
+
+Index Port Address Media Speed State  Proto
+===========================================
+...
+20   20  010C00   id    16G  Online FC  LE E-Port  10:00:00:05:33:8c:2e:9a "FC_switch_B_1" (downstream)(trunk master)
+21   21  010D00   id    16G  Online FC  LE E-Port  (Trunk port, master is Port 20)
+...
+----
+.. 确认网络结构的配置： ` * fabricshow*`
++
+[listing]
+----
+FC_switch_A_1:admin> fabricshow
+   Switch ID   Worldwide Name      Enet IP Addr FC IP Addr Name
+-----------------------------------------------------------------
+1: fffc01 10:00:00:05:33:86:89:cb 10.10.10.55  0.0.0.0    "FC_switch_A_1"
+3: fffc03 10:00:00:05:33:8c:2e:9a 10.10.10.65  0.0.0.0   >"FC_switch_B_1"
+----
+.. ISL 是否正常工作： ` * islshow*`
++
+[listing]
+----
+FC_switch_A_1:admin> islshow
+----
+.. 运行以下命令，确认分区已正确复制： + ` * cfgshow*` + ` * zonesshow-*`
++
+两个输出应显示两个交换机的相同配置信息和分区信息。
+
+.. 如果使用中继，则可以使用以下命令确认中继： ` * trunkShow*`
++
+[listing]
+----
+FC_switch_A_1:admin> trunkshow
+----
+
+
+

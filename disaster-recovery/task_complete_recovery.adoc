@@ -1,0 +1,577 @@
+---
+permalink: disaster-recovery/task_complete_recovery.html 
+sidebar: sidebar 
+keywords: object, fabricpool, mirror, co-located, metrocluster, disaster, site, destroy, reestablish, store, reestablish, store, configuration, verify, license, replace, node, perform, switchback, successful, root, aggregates, replacement, health, reconfiguring, reconfigure, ontap, mediator, service, ip, configuration 
+summary: 如果 FabricPool 镜像中的某个对象存储与 MetroCluster 灾难站点位于同一位置并被销毁，则必须重新建立对象存储和 FabricPool 镜像。 
+---
+= 正在完成恢复
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 为 FabricPool 配置重新建立对象存储
+
+[role="lead"]
+如果 FabricPool 镜像中的某个对象存储与 MetroCluster 灾难站点位于同一位置并被销毁，则必须重新建立对象存储和 FabricPool 镜像。
+
+.关于此任务
+* 如果对象存储是远程的，并且 MetroCluster 站点已被销毁，则无需重建对象存储，原始对象存储配置以及冷数据内容会保留下来。
+* 有关 FabricPool 配置的详细信息，请参见 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合高级指南"]。
+
+
+.步骤
+. 按照中的操作步骤 " 更换 MetroCluster 配置上的 FabricPool 镜像 " 进行操作 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合高级指南"]。
+
+
+
+
+== 验证已更换节点上的许可证
+
+[role="lead"]
+如果受损节点正在使用需要标准（节点锁定）许可证的 ONTAP 功能，则必须为更换节点安装新许可证。对于具有标准许可证的功能，集群中的每个节点都应具有自己的功能密钥。
+
+在安装许可证密钥之前，需要标准许可证的功能仍可供替代节点使用。但是，如果受损节点是集群中唯一具有此功能许可证的节点，则不允许更改此功能的配置。此外，在节点上使用未经许可的功能可能会使您不符合您的许可协议，因此您应尽快在替代节点上安装替代许可证密钥。
+
+许可证密钥必须采用 28 个字符的格式。
+
+您有 90 天的宽限期来安装许可证密钥。宽限期过后，所有旧许可证将失效。安装有效的许可证密钥后，您可以在 24 小时内安装所有密钥，直到宽限期结束。
+
+
+NOTE: 如果已更换站点上的所有节点（对于双节点 MetroCluster 配置，为单个节点），则必须在切回之前在替代节点上安装许可证密钥。
+
+.步骤
+. 确定节点上的许可证：
++
+`许可证显示`
+
++
+以下示例显示了有关系统中许可证的信息：
+
++
+[listing]
+----
+cluster_B::>  license show
+         (system license show)
+
+Serial Number: 1-80-00050
+Owner: site1-01
+Package           Type       Description             Expiration
+-------          -------     -------------           -----------
+Base             license     Cluster Base License        -
+NFS              site        NFS License                 -
+CIFS             site        CIFS License                -
+iSCSI            site        iSCSI License               -
+FCP              site        FCP License                 -
+FlexClone        site        FlexClone License           -
+
+6 entries were displayed.
+----
+. 在切回后验证这些许可证是否适用于节点：
++
+`MetroCluster check license show`
+
++
+以下示例显示了适用于此节点的许可证：
+
++
+[listing]
+----
+cluster_B::> metrocluster check license show
+
+Cluster           Check                             Result
+-------           -------                           -------------
+Cluster_B         negotiated-switchover-ready       not-applicable
+NFS               switchback-ready                  not-applicable
+CIFS              job-schedules                     ok
+iSCSI             licenses                          ok
+FCP               periodic-check-enabled            ok
+----
+. 如果您需要新的许可证密钥，请在 NetApp 支持站点的软件许可证下的我的支持部分中获取替代许可证密钥。
++
+
+NOTE: 系统会自动生成所需的新许可证密钥，并将其发送到文件中的电子邮件地址。如果您未能在 30 天内收到包含许可证密钥的电子邮件，应联系技术支持。
+
+. 安装每个许可证密钥：
++
+`ssystem license add -license-code license-key ， license-key...+`
+
+. 如果需要，删除旧许可证：
++
+.. 检查未使用的许可证：
++
+`license clean-up -unused -simulate`
+
+.. 如果列表显示正确，请删除未使用的许可证：
++
+`license clean-up -unused`
+
+
+
+
+
+
+
+== 执行切回
+
+[role="lead"]
+修复 MetroCluster 配置后，您可以执行 MetroCluster 切回操作。MetroCluster 切回操作会将配置恢复到其正常运行状态，灾难站点上的 sync-source Storage Virtual Machine （ SVM ）处于活动状态，并从本地磁盘池提供数据。
+
+.开始之前
+* 灾难集群必须已成功切换到正常运行的集群。
+* 必须已对数据和根聚合执行修复。
+* 正常运行的集群节点不能处于 HA 故障转移状态（对于每个 HA 对，所有节点都必须已启动且正在运行）。
+* 灾难站点控制器模块必须完全启动，而不是处于 HA 接管模式。
+* 必须镜像根聚合。
+* 交换机间链路（ ISL ）必须处于联机状态。
+* 必须在系统上安装所有必需的许可证。
+
+
+.步骤
+. 确认所有节点均处于已启用状态：
++
+`MetroCluster node show`
+
++
+以下示例显示了处于已启用状态的节点：
+
++
+[listing]
+----
+cluster_B::>  metrocluster node show
+
+DR                        Configuration  DR
+Group Cluster Node        State          Mirroring Mode
+----- ------- ----------- -------------- --------- --------------------
+1     cluster_A
+              node_A_1    configured     enabled   heal roots completed
+              node_A_2    configured     enabled   heal roots completed
+      cluster_B
+              node_B_1    configured     enabled   waiting for switchback recovery
+              node_B_2    configured     enabled   waiting for switchback recovery
+4 entries were displayed.
+----
+. 确认所有 SVM 上的重新同步均已完成：
++
+`MetroCluster SVM show`
+
+. 验证修复操作正在执行的任何自动 LIF 迁移是否已成功完成：
++
+`MetroCluster check lif show`
+
+. 从运行正常的集群中的任何节点运行 `MetroCluster switchback` 命令，以执行切回。
+. 检查切回操作的进度：
++
+`MetroCluster show`
+
++
+当输出显示 "waiting for-switchback" 时，切回操作仍在进行中：
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_B         Configuration state configured
+                          Mode                switchover
+                          AUSO Failure Domain -
+Remote: cluster_A         Configuration state configured
+                          Mode                waiting-for-switchback
+                          AUSO Failure Domain -
+----
++
+当输出显示 "Normal" 时，切回操作完成：
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_B         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain -
+Remote: cluster_A         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain -
+----
++
+如果切回需要很长时间才能完成，您可以在高级权限级别使用以下命令来检查正在进行的基线的状态：
+
++
+`MetroCluster config-replication resync-status show`
+
+. 重新建立任何 SnapMirror 或 SnapVault 配置。
++
+在 ONTAP 8.3 中，您需要在执行 MetroCluster 切回操作后手动重新建立丢失的 SnapMirror 配置。在 ONTAP 9.0 及更高版本中，系统会自动重新建立此关系。
+
+
+
+
+
+== 验证切回是否成功
+
+[role="lead"]
+执行切回后，您需要确认所有聚合和 Storage Virtual Machine （ SVM ）均已切回并联机。
+
+.步骤
+. 验证切换后的数据聚合是否已切回：
++
+`s存储聚合显示`
+
++
+在以下示例中，节点 B2 上的 aggr_b2 已切回：
+
++
+[listing]
+----
+node_B_1::> storage aggregate show
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+...
+aggr_b2    227.1GB   227.1GB    0% online       0 node_B_2   raid_dp,
+                                                                   mirrored,
+                                                                   normal
+
+node_A_1::> aggr show
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+...
+aggr_b2          -         -     - unknown      - node_A_1
+----
++
+如果灾难站点包含未镜像聚合，而未镜像聚合不再存在，则该聚合可能会在 storage aggregate show 命令的输出中显示为 "unknown" 状态。请联系技术支持以删除未镜像聚合的过期条目。
+
+. 验证运行正常的集群上的所有 sync-destination SVM 是否均处于休眠状态（显示 Admin State 为 "stopped" ），以及灾难集群上的 sync-source SVM 是否已启动且正在运行：
++
+`vserver show -subtype sync-source`
+
++
+[listing]
+----
+node_B_1::> vserver show -subtype sync-source
+                               Admin      Root                       Name    Name
+Vserver     Type    Subtype    State      Volume     Aggregate       Service Mapping
+----------- ------- ---------- ---------- ---------- ----------      ------- -------
+...
+vs1a        data    sync-source
+                               running    vs1a_vol   node_B_2        file    file
+                                                                     aggr_b2
+
+node_A_1::> vserver show -subtype sync-destination
+                               Admin      Root                         Name    Name
+Vserver            Type    Subtype    State      Volume     Aggregate  Service Mapping
+-----------        ------- ---------- ---------- ---------- ---------- ------- -------
+...
+cluster_A-vs1a-mc  data    sync-destination
+                                      stopped    vs1a_vol   sosb_      file    file
+                                                                       aggr_b2
+----
++
+MetroCluster 配置中的 sync-destination 聚合会在其名称中自动附加后缀 "-mc" ，以帮助标识它们。
+
+. 使用 `MetroCluster operation show` 命令确认切回操作成功。
++
+[cols="2*"]
+|===
+| 如果命令输出显示 ... | 那么 ... 
+
+
+ a| 
+切回操作状态为成功。
+ a| 
+切回过程已完成，您可以继续操作系统。
+
+
+
+ a| 
+切回操作或切回 - 继续 - 代理操作已部分成功。
+ a| 
+执行 MetroCluster operation show 命令输出中建议的修复操作。
+
+|===
+
+
+您必须重复前面的部分，以反向执行切回。如果 site_A 已切换 site_B ，请让 site_B 切换 site_A
+
+
+
+== 镜像替代节点的根聚合
+
+[role="lead"]
+如果更换了磁盘，则必须镜像灾难站点上新节点的根聚合。
+
+.步骤
+. 在灾难站点上，确定未镜像的聚合：
++
+`s存储聚合显示`
+
++
+[listing]
+----
+cluster_A::> storage aggregate show
+
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+node_A_1_aggr0
+            1.49TB   74.12GB   95% online       1 node_A_1         raid4,
+                                                                   normal
+node_A_2_aggr0
+            1.49TB   74.12GB   95% online       1 node_A_2         raid4,
+                                                                   normal
+node_A_1_aggr1
+            1.49TB   74.12GB   95% online       1 node_A_1         raid 4, normal
+                                                                   mirrored
+node_A_2_aggr1
+            1.49TB   74.12GB   95% online       1 node_A_2         raid 4, normal
+                                                                   mirrored
+4 entries were displayed.
+
+cluster_A::>
+----
+. 镜像其中一个根聚合：
++
+`storage aggregate mirror -aggregate root-aggregate`
+
++
+以下示例显示了在镜像聚合时命令如何选择磁盘并提示确认。
+
++
+[listing]
+----
+cluster_A::> storage aggregate mirror -aggregate node_A_2_aggr0
+
+Info: Disks would be added to aggregate "node_A_2_aggr0" on node "node_A_2" in
+      the following manner:
+
+      Second Plex
+
+        RAID Group rg0, 3 disks (block checksum, raid4)
+          Position   Disk                      Type                  Size
+          ---------- ------------------------- ---------- ---------------
+          parity     2.10.0                    SSD                      -
+          data       1.11.19                   SSD                894.0GB
+          data       2.10.2                    SSD                894.0GB
+
+      Aggregate capacity available for volume use would be 1.49TB.
+
+Do you want to continue? {y|n}: y
+
+cluster_A::>
+----
+. 验证根聚合的镜像是否已完成：
++
+`s存储聚合显示`
+
++
+以下示例显示根聚合已镜像。
+
++
+[listing]
+----
+cluster_A::> storage aggregate show
+
+Aggregate     Size Available Used% State   #Vols  Nodes       RAID Status
+--------- -------- --------- ----- ------- ------ ----------- ------------
+node_A_1_aggr0
+            1.49TB   74.12GB   95% online       1 node_A_1    raid4,
+                                                              mirrored,
+                                                              normal
+node_A_2_aggr0
+            2.24TB   838.5GB   63% online       1 node_A_2    raid4,
+                                                              mirrored,
+                                                              normal
+node_A_1_aggr1
+            1.49TB   74.12GB   95% online       1 node_A_1    raid4,
+                                                              mirrored,
+                                                              normal
+node_A_2_aggr1
+            1.49TB   74.12GB   95% online       1 node_A_2    raid4
+                                                              mirrored,
+                                                              normal
+4 entries were displayed.
+
+cluster_A::>
+----
+. 对其他根聚合重复上述步骤。
++
+任何状态不为已镜像的根聚合都必须进行镜像。
+
+
+
+
+
+== 重新配置 ONTAP 调解器服务（ MetroCluster IP 配置）
+
+[role="lead"]
+如果您的 MetroCluster IP 配置已配置 ONTAP 调解器服务，则必须删除并重新配置与调解器的关联。
+
+.开始之前
+* 您必须具有 ONTAP 调解器服务的 IP 地址，用户名和密码。
+* 必须在 Linux 主机上配置 ONTAP 调解器服务并使其正常运行。
+
+
+.步骤
+. 删除现有 ONTAP 调解器配置：
++
+`MetroCluster configuration-settings mediator remove`
+
+. 重新配置 ONTAP 调解器配置：
++
+`MetroCluster configuration-settings mediator add -mediate-address mediate-ip-address`
+
+
+
+
+
+== 验证 MetroCluster 配置的运行状况
+
+[role="lead"]
+您应检查 MetroCluster 配置的运行状况以验证是否正常运行。
+
+.步骤
+. 检查每个集群上是否已配置 MetroCluster 并处于正常模式：
++
+`MetroCluster show`
+
++
+[listing]
+----
+cluster_A::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_A         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain auso-on-cluster-disaster
+Remote: cluster_B         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain auso-on-cluster-disaster
+----
+. 检查是否已在每个节点上启用镜像：
++
+`MetroCluster node show`
+
++
+[listing]
+----
+cluster_A::> metrocluster node show
+DR                           Configuration  DR
+Group Cluster Node           State          Mirroring Mode
+----- ------- -------------- -------------- --------- --------------------
+1     cluster_A
+              node_A_1       configured     enabled   normal
+      cluster_B
+              node_B_1       configured     enabled   normal
+2 entries were displayed.
+----
+. 检查 MetroCluster 组件是否运行正常：
++
+`MetroCluster check run`
+
++
+[listing]
+----
+cluster_A::> metrocluster check run
+
+Last Checked On: 10/1/2014 16:03:37
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          ok
+4 entries were displayed.
+
+Command completed. Use the "metrocluster check show -instance" command or sub-commands in "metrocluster check" directory for detailed results.
+To check if the nodes are ready to do a switchover or switchback operation, run "metrocluster switchover -simulate" or "metrocluster switchback -simulate", respectively.
+----
+. 检查是否没有运行状况警报：
++
+`s系统运行状况警报显示`
+
+. 模拟切换操作：
++
+.. 在任何节点的提示符处，更改为高级权限级别：
++
+`set -privilege advanced`
+
++
+当系统提示您继续进入高级模式并显示高级模式提示符（ * > ）时，您需要使用 `y` 进行响应。
+
+.. 使用 ` -simulate` 参数执行切换操作：
++
+`MetroCluster switchover -simulate`
+
+.. 返回到管理权限级别：
++
+`set -privilege admin`
+
+
+
+. 对于使用 ONTAP 调解器服务的 MetroCluster IP 配置，请确认调解器服务已启动且正在运行。
++
+.. 检查调解器磁盘是否对系统可见：
++
+`storage failover mailbox-disk show`
+
++
+以下示例显示已识别邮箱磁盘。
+
++
+[listing]
+----
+node_A_1::*> storage failover mailbox-disk show
+                 Mailbox
+Node             Owner     Disk    Name        Disk UUID
+-------------     ------   -----   -----        ----------------
+sti113-vsim-ucs626g
+.
+.
+     local     0m.i2.3L26      7BBA77C9:AD702D14:831B3E7E:0B0730EE:00000000:00000000:00000000:00000000:00000000:00000000
+     local     0m.i2.3L27      928F79AE:631EA9F9:4DCB5DE6:3402AC48:00000000:00000000:00000000:00000000:00000000:00000000
+     local     0m.i1.0L60      B7BCDB3C:297A4459:318C2748:181565A3:00000000:00000000:00000000:00000000:00000000:00000000
+.
+.
+.
+     partner   0m.i1.0L14      EA71F260:D4DD5F22:E3422387:61D475B2:00000000:00000000:00000000:00000000:00000000:00000000
+     partner   0m.i2.3L64      4460F436:AAE5AB9E:D1ED414E:ABF811F7:00000000:00000000:00000000:00000000:00000000:00000000
+28 entries were displayed.
+----
+.. 更改为高级权限级别：
++
+`set -privilege advanced`
+
+.. 检查邮箱 LUN 是否对系统可见：
++
+`storage iscsi-initiator show`
+
++
+输出将显示存在邮箱 LUN ：
+
++
+[listing]
+----
+
+Node    Type       Label      Target Portal     Target Name                                 Admin/Op
+----    ----       --------   ---------    --------- --------------------------------       --------
+.
+.
+.
+.node_A_1
+               mailbox
+                     mediator 172.16.254.1    iqn.2012-05.local:mailbox.target.db5f02d6-e3d3    up/up
+.
+.
+.
+17 entries were displayed.
+----
+.. 返回到管理权限级别：
++
+`set -privilege admin`
+
+
+
+

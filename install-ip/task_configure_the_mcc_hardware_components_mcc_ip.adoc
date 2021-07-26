@@ -1,0 +1,13 @@
+---
+permalink: install-ip/task_configure_the_mcc_hardware_components_mcc_ip.html 
+sidebar: sidebar 
+keywords: metrocluster, component, physical, install, cable, configure, geographic, site, configuring, hardware 
+summary: MetroCluster 组件必须在两个地理站点上进行物理安装，布线和配置。 
+---
+= 配置 MetroCluster 硬件组件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MetroCluster 组件必须在两个地理站点上进行物理安装，布线和配置。

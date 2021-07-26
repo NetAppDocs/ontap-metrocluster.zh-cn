@@ -1,0 +1,17 @@
+---
+permalink: install-fc/task_fcsw_brocade_configure_the_brocade_fc_switches_with_rcf_files.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, configure, fc, switches, rcf, files 
+summary: 要配置 Brocade FC 交换机，您必须将交换机设置重置为出厂默认值，安装交换机软件，并下载并应用参考配置 \ （ RCF\ ）文件，这些文件可为某些配置提供完整的交换机设置。 
+---
+= 使用 RCF 文件配置 Brocade FC 交换机
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要配置 Brocade FC 交换机，您必须将交换机设置重置为出厂默认值，安装交换机软件，并下载并应用参考配置（ RCF ）文件，这些文件可为某些配置提供完整的交换机设置。
+
+您必须有权访问 FTP 服务器。交换机必须与 FTP 服务器建立连接。
+
+每个配置文件都不同，必须与正确的交换机结合使用。每个交换机网络结构只有一个配置文件包含分区命令。

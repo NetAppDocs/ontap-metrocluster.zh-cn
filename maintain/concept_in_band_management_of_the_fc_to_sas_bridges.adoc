@@ -1,0 +1,69 @@
+---
+permalink: maintain/concept_in_band_management_of_the_fc_to_sas_bridges.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, in, band, management, fc, sas, bridges 
+summary: 从使用 FibreBridge 7500N 或 7600N 网桥的 ONTAP 9.5 开始，支持使用网桥的带内管理作为网桥 IP 管理的替代方案。从 ONTAP 9.8 开始，已弃用带外管理。 
+---
+= FC-SAS 网桥的带内管理
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从使用 FibreBridge 7500N 或 7600N 网桥的 ONTAP 9.5 开始，支持使用网桥的带内管理作为网桥 IP 管理的替代方案。从 ONTAP 9.8 开始，已弃用带外管理。
+
+
+NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+
+使用带内管理时，可以通过 ONTAP 命令行界面通过与网桥的 FC 连接来管理和监控网桥。无需通过网桥以太网端口对网桥进行物理访问，从而减少网桥的安全漏洞。
+
+网桥的带内管理是否可用取决于 ONTAP 的版本：
+
+* 从 ONTAP 9.8 开始，默认情况下，网桥通过带内连接进行管理，而不再使用通过 SNMP 对网桥进行带外管理。
+* ONTAP 9.5 至 9.7 ：支持带内管理或带外 SNMP 管理。
+* 在 ONTAP 9.5 之前的版本中，仅支持带外 SNMP 管理。
+
+
+可以从 ONTAP 界面上的 ONTAP interface `storage bridge run-cli -name _bridge-name_ -command _bridge-command-name_` 命令发出网桥命令行界面命令。
+
+
+NOTE: 建议在禁用 IP 访问的情况下使用带内管理，以通过限制网桥的物理连接来提高安全性。
+
+* 相关信息 *
+
+link:task_replace_a_sle_fc_to_sas_bridge.html#hot-swapping-a-bridge-with-a-replacement-bridge-of-the-same-model["将网桥热插拔为同一型号的替代网桥"]
+
+link:task_replace_a_sle_fc_to_sas_bridge.html#hot-swapping-a-fibrebridge-7500n-with-a-7600n-bridge["热插拔 FibreBridge 7500N 和 7600N 网桥"]
+
+link:task_replace_a_sle_fc_to_sas_bridge.html#hot-swapping-a-fibrebridge-a-6500n-bridge-with-a-fibrebrdige-7600n-or-7500n-bridge["热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥"]
+
+link:task_fb_hot_add_stack_of_shelves_and_bridges.html#hot-adding-a-stack-of-sas-disk-shelves-and-bridges["热添加 SAS 磁盘架和网桥堆栈"]
+
+
+
+== 从 ONTAP 管理 FibreBridge 网桥
+
+[role="lead"]
+从 ONTAP 9.5 开始，您可以使用 ONTAP 命令行界面将 FibreBridge 命令传递到网桥并显示这些命令的结果。
+
+
+NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+
+.步骤
+. 在 `storage bridge run-cli` 命令中运行适用的 FibreBridge 命令：
++
+` * 存储网桥 run-cli -name _bridge-name_ -command _"command-text"_*`
+
++
+以下命令从 ONTAP 提示符处运行 FibreBridge `SasportDisable` 命令，以禁用网桥上的 SAS 端口 b ：
+
++
+[listing]
+----
+cluster_A::> storage bridge run-cli -name "SASPortDisable b"
+
+SAS Port B has been disabled.
+Ready
+cluster_A::>
+----
+

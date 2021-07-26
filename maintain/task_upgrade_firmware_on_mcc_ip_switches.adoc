@@ -1,0 +1,81 @@
+---
+permalink: maintain/task_upgrade_firmware_on_mcc_ip_switches.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, upgrade, firmware. ip, switches 
+summary: 升级 MetroCluster IP 交换机上的固件。 
+---
+= 升级 MetroCluster IP 交换机上的固件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能需要升级 MetroCluster IP 交换机上的固件。
+
+在每个交换机上安装交换机软件时，必须先检查配置的运行状况。
+
+您必须连续对每个交换机重复此任务，以确保所有 MetroCluster 组件运行正常。
+
+.步骤
+. 检查配置的运行状况。
++
+.. 检查是否已在每个集群上配置 MetroCluster 并使其处于正常模式： ` * MetroCluster show*`
++
+[listing]
+----
+cluster_A::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_A         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain auso-on-cluster-disaster
+Remote: cluster_B         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain auso-on-cluster-disaster
+----
+.. 检查是否已在每个节点上启用镜像： ` * MetroCluster node show*`
++
+[listing]
+----
+cluster_A::> metrocluster node show
+DR                           Configuration  DR
+Group Cluster Node           State          Mirroring Mode
+----- ------- -------------- -------------- --------- --------------------
+1     cluster_A
+              node_A_1       configured     enabled   normal
+      cluster_B
+              node_B_1       configured     enabled   normal
+2 entries were displayed.
+----
+.. 检查 MetroCluster 组件是否运行正常： ` * MetroCluster check run*`
++
+[listing]
+----
+cluster_A::> metrocluster check run
+
+Last Checked On: 10/1/2014 16:03:37
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          ok
+4 entries were displayed.
+
+Command completed. Use the "metrocluster check show -instance" command or sub-commands in "metrocluster check" directory for detailed results.
+To check if the nodes are ready to do a switchover or switchback operation, run "metrocluster switchover -simulate" or "metrocluster switchback -simulate", respectively.
+----
+.. 检查是否没有运行状况警报： ` * system health alert show*`
+
+
+. 在第一台交换机上安装软件。
++
+根据交换机类型是 MetroCluster 还是 Broadcom ，按照 _Broadcom IP 安装和配置指南 _ 相关部分中的步骤安装交换机软件：
+
++
+link:../install-ip/task_install_and_cable_the_mcc_components.html["《 MetroCluster IP 安装和配置指南》"]
+
+. 对每个交换机重复上述步骤。
+. 重复步骤 1 以检查配置的运行状况。
+

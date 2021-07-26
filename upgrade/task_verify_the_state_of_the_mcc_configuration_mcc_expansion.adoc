@@ -1,0 +1,81 @@
+---
+permalink: upgrade/task_verify_the_state_of_the_mcc_configuration_mcc_expansion.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, verify, state, configuration 
+summary: 您应确定现有控制器并确认它们之间的灾难恢复 \ （ DR\ ）关系，控制器处于正常模式以及聚合已镜像。 
+---
+= 验证 MetroCluster 配置的状态
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您应确定现有控制器并确认它们之间的灾难恢复（ DR ）关系，控制器处于正常模式以及聚合已镜像。
+
+.步骤
+. 显示 MetroCluster 配置中任一节点的节点详细信息：
++
+` * MetroCluster node show -fields node ， dr-partner ， dr-partner-systemID*`
+
++
+以下输出显示此 MetroCluster 配置在每个集群中有一个 DR 组和一个节点。
+
++
+[listing]
+----
+cluster_A::> metrocluster node show -fields node,dr-partner,dr-partner-systemid
+
+dr-group-id  cluster         node            dr-partner      dr-partner-systemid
+-----------  -------------   -------         ----------      -------------------
+1            cluster_A       controller_A_1  controller_B_1  536946192
+1            cluster_B       controller_B_1  controller_A_1  536946165
+2 entries were displayed.
+----
+. 显示 MetroCluster 配置的状态：
++
+` * MetroCluster show*`
+
++
+以下输出显示 MetroCluster 配置中的现有节点处于正常模式：
+
++
+[listing]
+----
+
+cluster_A::> metrocluster show
+
+Configuration: two-node-fabric
+
+Cluster                        Entry Name             State
+------------------------------ ---------------------- ---------------------
+Local: cluster_A               Configuration State    configured
+                               Mode                   normal
+                               AUSO Failure Domain    auso-on-cluster-disaster
+Remote: controller_B_1_siteB
+                               Configuration State    configured
+                               Mode                   normal
+                               AUSO Failure Domain    auso-on-cluster-disaster
+----
+. 检查 MetroCluster 配置中每个节点上聚合的状态：
++
+` * 存储聚合显示 *`
+
++
+以下输出显示 cluster_A 上的聚合已联机并已镜像：
+
++
+[listing]
+----
+cluster_A::> storage aggregate show
+
+
+Aggregate                Size     Available Used%  State   #Vols  Nodes            RAID Status
+---------                -------- --------- -----  ------- ------ ---------------- ------------
+aggr0_controller_A_1_0   1.38TB   68.63GB   95%    online    1    controller_A_1   raid_dp,mirrored
+controller_A_1_aggr1     4.15TB   4.14TB    0%     online    2    controller_A_1   raid_dp,mirrored
+controller_A_1_aggr2     4.15TB   4.14TB    0%     online    1    controller_A_1   raid_dp,mirrored
+3 entries were displayed.
+
+cluster_A::>
+----
+

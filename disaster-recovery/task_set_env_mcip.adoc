@@ -1,0 +1,542 @@
+---
+permalink: disaster-recovery/task_set_env_mcip.html 
+sidebar: sidebar 
+keywords: metrocluster, ip, configuration, setting, require, environmental, variable 
+summary: 在 MetroCluster IP 配置中，您可以检索以太网端口上 MetroCluster 接口的 IP 地址，然后使用它们配置替代控制器模块上的接口。 
+---
+= 在 MetroCluster IP 配置中设置所需的环境变量
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 MetroCluster IP 配置中，您必须检索以太网端口上 MetroCluster 接口的 IP 地址，然后使用它们配置替代控制器模块上的接口。
+
+只有在 MetroCluster IP 配置中才需要执行此任务。
+
+此任务中的命令可从运行正常的站点的集群提示符和灾难站点节点的 LOADER 提示符执行。
+
+这些示例中的节点的 MetroCluster IP 连接具有以下 IP 地址：
+
+
+NOTE: 这些示例适用于 AFF A700 或 FAS9000 系统。接口因平台型号而异。
+
+[cols="3*"]
+|===
+| 节点 | 端口 | IP 地址 
+
+
+ a| 
+node_A_1
+ a| 
+e5a
+ a| 
+172.17.26.10
+
+
+
+ a| 
+e5b
+ a| 
+172.17.27.10
+ a| 
+node_A_2
+
+
+
+ a| 
+e5a
+ a| 
+172.17.26.11
+ a| 
+e5b
+
+
+
+ a| 
+172.17.27.11
+ a| 
+node_B_1
+ a| 
+e5a
+
+
+
+ a| 
+172.17.26.13
+ a| 
+e5b
+ a| 
+172.17.27.13
+
+
+
+ a| 
+node_B_2
+ a| 
+e5a
+ a| 
+172.17.26.12
+
+|===
+下表总结了节点与每个节点的 MetroCluster IP 地址之间的关系。
+
+|===
+| 节点 | HA 配对节点 | DR 配对节点 | DR 辅助配对节点 
+
+
+ a| 
+node_A_1
+
+* e5a ： 172.17.26.10
+* e5b ： 172.17.27.10
+
+ a| 
+node_A_2
+
+* e5a ： 172.17.26.11
+* e5b ： 172.17.27.11
+
+ a| 
+node_B_1
+
+* e5a ： 172.17.26.13
+* e5b ： 172.17.27.13
+
+ a| 
+node_B_2
+
+* e5a ： 172.17.26.12
+* e5b ： 172.17.27.12
+
+
+
+
+ a| 
+node_A_2
+
+* e5a ： 172.17.26.11
+* e5b ： 172.17.27.11
+
+ a| 
+node_A_1
+
+* e5a ： 172.17.26.10
+* e5b ： 172.17.27.10
+
+ a| 
+node_B_2
+
+* e5a ： 172.17.26.12
+* e5b ： 172.17.27.12
+
+ a| 
+node_B_1
+
+* e5a ： 172.17.26.13
+* e5b ： 172.17.27.13
+
+
+
+
+ a| 
+node_B_1
+
+* e5a ： 172.17.26.13
+* e5b ： 172.17.27.13
+
+ a| 
+node_B_2
+
+* e5a ： 172.17.26.12
+* e5b ： 172.17.27.12
+
+ a| 
+node_A_1
+
+* e5a ： 172.17.26.10
+* e5b ： 172.17.27.10
+
+ a| 
+node_A_2
+
+* e5a ： 172.17.26.11
+* e5b ： 172.17.27.11
+
+
+
+
+ a| 
+node_B_2
+
+* e5a ： 172.17.26.12
+* e5b ： 172.17.27.12
+
+ a| 
+node_B_1
+
+* e5a ： 172.17.26.13
+* e5b ： 172.17.27.13
+
+ a| 
+node_A_2
+
+* e5a ： 172.17.26.11
+* e5b ： 172.17.27.11
+
+ a| 
+node_A_1
+
+* e5a ： 172.17.26.10
+* e5b ： 172.17.27.10
+
+
+|===
+下表列出了在 MetroCluster IP 接口上使用 VLAN ID 的平台型号。如果您不使用默认 VLAN ID ，则这些型号可能需要执行其他步骤。
+
+|===
+2+| 使用 MetroCluster IP 接口的 VLAN ID 的平台型号 
+
+
+ a| 
+* AFF A220
+* AFF A250
+* AFF A400
+* AFF A800
+
+ a| 
+* FAS500f
+* FAS2750
+* FAS8300
+* FAS8700
+
+
+|===
+.步骤
+. 从正常运行的站点收集灾难站点上 MetroCluster 接口的 IP 地址：
++
+`MetroCluster configuration-settings connection show`
+
++
+所需地址为 * 目标网络地址 * 列中显示的 DR 配对节点地址。
+
++
+以下输出显示了 AFF A700 和 FAS9000 系统配置的 IP 地址，这些系统的 MetroCluster IP 接口位于端口 e5a 和 e5b 上。接口因平台类型而异。
+
++
+[listing]
+----
+cluster_B::*> metrocluster configuration-settings connection show
+DR                    Source          Destination
+DR                    Source          Destination
+Group Cluster Node    Network Address Network Address Partner Type Config State
+----- ------- ------- --------------- --------------- ------------ ------------
+1     cluster_B
+              node_B_1
+                 Home Port: e5a
+                      172.17.26.13    172.17.26.12    HA Partner   completed
+                 Home Port: e5a
+                      172.17.26.13    172.17.26.10    DR Partner   completed
+                 Home Port: e5a
+                      172.17.26.13    172.17.26.11    DR Auxiliary completed
+                 Home Port: e5b
+                      172.17.27.13    172.17.27.12    HA Partner   completed
+                 Home Port: e5b
+                      172.17.27.13    172.17.27.10    DR Partner   completed
+                 Home Port: e5b
+                      172.17.27.13    172.17.27.11    DR Auxiliary completed
+              node_B_2
+                 Home Port: e5a
+                      172.17.26.12    172.17.26.13    HA Partner   completed
+                 Home Port: e5a
+                      172.17.26.12    172.17.26.11    DR Partner   completed
+                 Home Port: e5a
+                      172.17.26.12    172.17.26.10    DR Auxiliary completed
+                 Home Port: e5b
+                      172.17.27.12    172.17.27.13    HA Partner   completed
+                 Home Port: e5b
+                      172.17.27.12    172.17.27.11    DR Partner   completed
+                 Home Port: e5b
+                      172.17.27.12    172.17.27.10    DR Auxiliary completed
+12 entries were displayed.
+----
+. 如果需要确定接口的 VLAN ID 或网关地址，请从正常运行的站点确定 VLAN ID ：
++
+`MetroCluster configuration-settings interface show`
+
++
+** 如果平台型号使用 VLAN ID （请参见上面的列表），而您不使用默认 VLAN ID ，则需要 VLAN ID 。
+** 如果使用，则需要网关地址 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网"]。
++
+VLAN ID 包含在输出的 * 网络地址 * 列中。* 网关 * 列显示网关 IP 地址。
+
++
+在此示例中，接口为 VLAN ID 为 120 的 e0a 和 VLAN ID 为 130 的 e0b ：
+
++
+[listing]
+----
+Cluster-A::*> metrocluster configuration-settings interface show
+DR                                                                     Config
+Group Cluster Node     Network Address Netmask         Gateway         State
+----- ------- ------- --------------- --------------- --------------- ---------
+1
+      cluster_A
+              node_A_1
+                  Home Port: e0a-120
+                          172.17.26.10  255.255.255.0  -            completed
+                  Home Port: e0b-130
+                          172.17.27.10  255.255.255.0  -            completed
+----
+
+
+. 如果灾难站点节点使用 VLAN ID （请参见上面的列表），请在每个灾难站点节点的 LOADER 提示符处设置以下 bootarg ：
++
+--
+....
+setenv bootarg.mcc.port_a_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
+
+setenv bootarg.mcc.port_b_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
+....
+[NOTE]
+====
+** 如果接口使用默认 VLAN ，或者平台型号不需要 VLAN （请参见上面的列表），则不需要 _vlan-id_ 。
+** 如果配置未使用 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网"]， _gateway-ip-address_ 的值为 * 0 * （零）。
+
+
+====
+** 如果接口使用默认 VLAN ，或者平台型号不需要 VLAN （请参见上面的列表），则不需要 _vlan-id_ 。
+** 如果配置未使用 link:../install-ip/concept_considerations_layer_3.html["第 3 层后端连接"]， _gateway-ip-address_ 的值为 * 0 * （零）。
++
+以下命令使用 VLAN 120 为第一个网络设置 node_A_1 的值，并使用 VLAN 130 为第二个网络设置 VLAN 130 ：
+
+
+
+....
+setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,172.17.26.11,172.17.26.13,172.17.26.12,120
+
+setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,172.17.27.11,172.17.27.13,172.17.27.12,130
+....
+以下示例显示了不带 VLAN ID 的 node_A_1 的命令：
+
+....
+setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,172.17.26.11,172.17.26.13,172.17.26.12
+
+setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,172.17.27.11,172.17.27.13,172.17.27.12
+....
+--
+. 如果灾难站点节点不是使用 VLAN ID 的系统，请在每个灾难节点的 LOADER 提示符处，使用 local_IP/mask ， gateway 设置以下 bootarg ：
++
+....
+setenv bootarg.mcc.port_a_ip_config local-IP-address/local-IP-mask,0,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address
+
+
+setenv bootarg.mcc.port_b_ip_config local-IP-address/local-IP-mask,0,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address
+....
++
+[NOTE]
+====
+** 如果接口使用默认 VLAN ，或者平台型号不需要 VLAN （请参见上面的列表），则不需要 _vlan-id_ 。
+** 如果配置未使用 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网"]， _gateway-ip-address_ 的值为 * 0 * （零）。
+
+
+====
++
+以下命令用于设置 node_A_1 的值。在此示例中，不使用 _gateway-ip-address_ 和 _vlan-id_ 值。
+
++
+....
+setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,172.17.26.11,172.17.26.13,172.17.26.12
+
+setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,172.17.27.11,172.17.27.13,172.17.27.12
+....
+. 从正常运行的站点收集灾难站点的 UUID ：
++
+`MetroCluster node show -fields node-cluster-uuid ， node-uuid`
+
++
+[listing]
+----
+cluster_B::> metrocluster node show -fields node-cluster-uuid, node-uuid
+
+  (metrocluster node show)
+dr-group-id cluster     node     node-uuid                            node-cluster-uuid
+----------- ----------- -------- ------------------------------------ ------------------------------
+1           cluster_A   node_A_1 f03cb63c-9a7e-11e7-b68b-00a098908039 ee7db9d5-9a82-11e7-b68b-00a098
+                                                                        908039
+1           cluster_A   node_A_2 aa9a7a7a-9a81-11e7-a4e9-00a098908c35 ee7db9d5-9a82-11e7-b68b-00a098
+                                                                        908039
+1           cluster_B   node_B_1 f37b240b-9ac1-11e7-9b42-00a098c9e55d 07958819-9ac6-11e7-9b42-00a098
+                                                                        c9e55d
+1           cluster_B   node_B_2 bf8e3f8f-9ac4-11e7-bd4e-00a098ca379f 07958819-9ac6-11e7-9b42-00a098
+                                                                        c9e55d
+4 entries were displayed.
+cluster_A::*>
+----
++
+|===
+| 节点 | UUID 
+
+
+ a| 
+集群 B
+ a| 
+07958819-9ac6-11e7-9b42-00a098c9e55d
+
+
+
+ a| 
+node_B_1
+ a| 
+f37b240b-9ac1-11e7-9b42-00a098c9e55d
+
+
+
+ a| 
+node_B_2
+ a| 
+bf8e3f8f-9ac4-11e7-bd4e-00a098ca379f
+
+
+
+ a| 
+cluster_A
+ a| 
+ee7db9d5-9a82-11e7-b68b-00a098908039
+
+
+
+ a| 
+node_A_1
+ a| 
+f03cb63c-9a7e-11e7-b68b-00a098908039
+
+
+
+ a| 
+node_A_2
+ a| 
+aa9a7a7a-9a81-11e7-a4e9-00a098908c35
+
+|===
+. 在替代节点的 LOADER 提示符处，设置 UUID ：
++
+....
+setenv bootarg.mgwd.partner_cluster_uuid partner-cluster-UUID
+
+setenv bootarg.mgwd.cluster_uuid local-cluster-UUID
+
+setenv bootarg.mcc.pri_partner_uuid DR-partner-node-UUID
+
+setenv bootarg.mcc.aux_partner_uuid DR-aux-partner-node-UUID
+
+setenv bootarg.mcc_iscsi.node_uuid local-node-UUID`
+....
++
+.. 设置 node_A_1 上的 UUID 。
++
+以下示例显示了用于设置 node_A_1 上的 UUID 的命令：
+
++
+....
+setenv bootarg.mgwd.cluster_uuid ee7db9d5-9a82-11e7-b68b-00a098908039
+
+setenv bootarg.mgwd.partner_cluster_uuid 07958819-9ac6-11e7-9b42-00a098c9e55d
+
+setenv bootarg.mcc.pri_partner_uuid f37b240b-9ac1-11e7-9b42-00a098c9e55d
+
+setenv bootarg.mcc.aux_partner_uuid bf8e3f8f-9ac4-11e7-bd4e-00a098ca379f
+
+setenv bootarg.mcc_iscsi.node_uuid f03cb63c-9a7e-11e7-b68b-00a098908039
+....
+.. 设置 node_A_2 上的 UUID ：
++
+以下示例显示了用于设置 node_A_2 上的 UUID 的命令：
+
++
+....
+setenv bootarg.mgwd.cluster_uuid ee7db9d5-9a82-11e7-b68b-00a098908039
+
+setenv bootarg.mgwd.partner_cluster_uuid 07958819-9ac6-11e7-9b42-00a098c9e55d
+
+setenv bootarg.mcc.pri_partner_uuid bf8e3f8f-9ac4-11e7-bd4e-00a098ca379f
+
+setenv bootarg.mcc.aux_partner_uuid f37b240b-9ac1-11e7-9b42-00a098c9e55d
+
+setenv bootarg.mcc_iscsi.node_uuid aa9a7a7a-9a81-11e7-a4e9-00a098908c35
+....
+
+
+. 如果原始系统配置了 ADP ，请在每个替代节点的 LOADER 提示符处启用 ADP ：
++
+`setenv bootarg.mcc.ADP 启用 true`
+
+. 如果运行的是 ONTAP 9.5 ， 9.6 或 9.7 ，请在每个替代节点的 LOADER 提示符处启用以下变量：
++
+`setenv bootarg.mcc.lun_part true`
+
++
+.. 设置 node_A_1 上的变量。
++
+以下示例显示了在运行 ONTAP 9.6 时用于设置 node_A_1 上的值的命令：
+
++
+[listing]
+----
+setenv bootarg.mcc.lun_part true
+----
+.. 设置 node_A_2 上的变量。
++
+以下示例显示了在运行 ONTAP 9.6 时用于设置 node_A_2 上的值的命令：
+
++
+[listing]
+----
+setenv bootarg.mcc.lun_part true
+----
+
+
+. 如果原始系统配置了 ADP ，请在每个替代节点的 LOADER 提示符处设置原始系统 ID （ * 不 * 替代控制器模块的系统 ID ）和节点的 DR 配对节点的系统 ID ：
++
+`setenv bootarg.mcc.local_config_id original-sysID`
+
++
+`setenv bootarg.mcc.dr_partner dr_partner-sysID`
+
++
+link:task_replace_hardware_and_boot_new_controllers.html#determining-the-system-ids-of-the-replacement-controller-modules["确定旧控制器模块的系统 ID 和 VLAN ID"]
+
++
+.. 设置 node_A_1 上的变量。
++
+以下示例显示了用于设置 node_A_1 上的系统 ID 的命令：
+
++
+*** node_A_1 的旧系统 ID 为 4068741258 。
+*** node_B_1 的系统 ID 为 4068741254 。
++
+[listing]
+----
+setenv bootarg.mcc.local_config_id 4068741258
+setenv bootarg.mcc.dr_partner 4068741254
+----
+
+
+.. 设置 node_A_2 上的变量。
++
+以下示例显示了用于设置 node_A_2 上的系统 ID 的命令：
+
++
+*** node_A_1 的旧系统 ID 为 4068741260 。
+*** node_B_1 的系统 ID 为 4068741256 。
++
+[listing]
+----
+setenv bootarg.mcc.local_config_id 4068741260
+setenv bootarg.mcc.dr_partner 4068741256
+----
+
+
+
+
+

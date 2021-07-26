@@ -1,0 +1,455 @@
+---
+permalink: install-stretch/concept_considerations_when_using_ontap_in_a_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, ontap, considerations, configuration 
+summary: 在 MetroCluster 配置中使用 ONTAP 时，您应了解有关许可，与 MetroCluster 配置之外的集群建立对等关系，执行卷操作， NVFAIL 操作以及其他 ONTAP 操作的某些注意事项。 
+---
+= 在 MetroCluster 配置中使用 ONTAP 时的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 MetroCluster 配置中使用 ONTAP 时，您应了解有关许可，与 MetroCluster 配置之外的集群建立对等关系，执行卷操作， NVFAIL 操作以及其他 ONTAP 操作的某些注意事项。
+
+
+
+== 许可注意事项
+
+* 两个站点都应获得相同站点许可功能的许可。
+* 所有节点都应获得相同节点锁定功能的许可。
+
+
+
+
+== SnapMirror 注意事项
+
+* 只有运行 ONTAP 9.5 或更高版本的 MetroCluster 配置才支持 SnapMirror SVM 灾难恢复。
+
+
+
+
+== ONTAP System Manager 中的 MetroCluster 操作
+
+[role="lead"]
+根据您的 ONTAP 版本，可以使用 ONTAP 系统管理器执行某些特定于 MetroCluster 的操作。
+
+* 在 MetroCluster IP 配置中切换和切回（从 ONTAP 9.7 开始）。
+* 在 MetroCluster IP 配置中配置和扩展镜像聚合（从 ONTAP 9.8 开始）。
++
+System Manager 不支持未镜像聚合。
+
+
+
+
+
+== MetroCluster 配置中的 FlexCache 支持
+
+[role="lead"]
+从 ONTAP 9.7 开始， MetroCluster 配置支持 FlexCache 卷。您应了解切换或切回操作后手动重复的要求。
+
+
+
+=== 如果 FlexCache 源站点和缓存位于同一 MetroCluster 站点中，则 SVM 会在切换后重复
+
+在协商或计划外切换后，必须手动配置集群中的任何 SVM FlexCache 对等关系。
+
+例如， SVM vs1 （缓存）和 vs2 （原始）位于 site_A 上这些 SVM 已建立对等关系。
+
+切换后， SVM vs1-mc 和 vs2-mc 将在配对站点（ site_B ）上激活。必须手动重复这些设置， FlexCache 才能使用 `vserver peer repeer` 命令运行。
+
+
+
+=== 当 FlexCache 目标位于第三个集群上且处于断开连接模式时， SVM 会在切换或切回后重复
+
+对于与 MetroCluster 配置以外的集群的 FlexCache 关系，如果相关集群在切换期间处于断开连接模式，则必须在切换后手动重新配置对等关系。
+
+例如：
+
+* FlexCache 的一端（ vs1 上的 cache_1 ）位于 MetroCluster site_A 上，有一端是 FlexCache
+* FlexCache 的另一端（ vs2 上的 original_1 ）位于 site_C 上（不在 MetroCluster 配置中）
+
+
+触发切换后，如果 site_A 和 site_C 未连接，则必须在切换后使用 `vserver peer repeer` 命令手动重复 site_B （切换集群）和 site_C 上的 SVM 。
+
+执行切回时，您必须再次重复 site_A （原始集群）和 site_C 上的 SVM
+
+
+
+== MetroCluster 配置中的 FabricPool 支持
+
+[role="lead"]
+从 ONTAP 9.7 开始， MetroCluster 配置支持 FabricPool 存储层。
+
+有关使用 FabricPool 的常规信息，请参见 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合高级指南"]。
+
+
+
+=== 使用 FabricPool 时的注意事项
+
+* 集群必须具有具有匹配容量限制的 FabricPool 许可证。
+* 集群必须具有名称匹配的 IP 空间。
++
+这可以是默认 IP 空间，也可以是管理员创建的 IP 空间。此 IP 空间将用于 FabricPool 对象存储配置设置。
+
+* 对于选定 IP 空间，每个集群都必须定义一个可访问外部对象存储的集群间 LIF
+
+
+
+
+=== 配置要在镜像 FabricPool 中使用的聚合
+
+
+NOTE: 在配置聚合之前，必须按照中的 " 在 MetroCluster 配置中为 FabricPool 设置对象存储 " 中所述设置对象存储 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合高级指南"]。
+
+要配置要在 FabricPool 中使用的聚合，请执行以下操作：
+
+. 创建聚合或选择现有聚合。
+. 将聚合镜像为 MetroCluster 配置中的典型镜像聚合。
+. 创建包含聚合的 FabricPool 镜像，如中所述 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合高级指南"]：
++
+.. 附加主对象存储。
++
+此对象存储在物理上更接近集群。
+
+.. 添加镜像对象存储。
++
+此对象存储在物理上与集群的距离要比主对象存储更远。
+
+
+
+
+
+
+
+== MetroCluster 配置中的 FlexGroup 支持
+
+从 ONTAP 9.6 开始， MetroCluster 配置支持 FlexGroup 卷。
+
+
+
+== MetroCluster 配置中的作业计划
+
+[role="lead"]
+在 ONTAP 9.3 及更高版本中，用户创建的作业计划会自动在 MetroCluster 配置中的集群之间复制。如果在集群上创建，修改或删除作业计划，则会使用配置复制服务（ CRS ）在配对集群上自动创建相同的计划。
+
+
+NOTE: 系统创建的计划不会复制，您必须在配对集群上手动执行相同的操作，以使两个集群上的作业计划相同。
+
+
+
+== 从 MetroCluster 站点与第三个集群建立集群对等关系
+
+[role="lead"]
+由于不会复制对等配置，因此，如果您将 MetroCluster 配置中的一个集群与该配置之外的第三个集群建立对等关系，则还必须在配对 MetroCluster 集群上配置对等关系。这样，在发生切换时可以保持对等关系。
+
+非 MetroCluster 集群必须运行 ONTAP 8.3 或更高版本。否则，即使已在两个 MetroCluster 配对系统上配置对等关系，如果发生切换，对等关系也会丢失。
+
+
+
+== MetroCluster 配置中的 LDAP 客户端配置复制
+
+在本地集群上的 Storage Virtual Machine （ SVM ）上创建的 LDAP 客户端配置将复制到远程集群上的配对数据 SVM 。例如，如果 LDAP 客户端配置是在本地集群上的管理 SVM 上创建的，则会将其复制到远程集群上的所有管理数据 SVM 。此 MetroCluster 功能旨在使 LDAP 客户端配置在远程集群上的所有配对 SVM 上处于活动状态。
+
+
+
+== MetroCluster 配置的网络连接和 LIF 创建准则
+
+[role="lead"]
+您应了解如何在 MetroCluster 配置中创建和复制 LIF 。您还必须了解一致性要求，以便在配置网络时做出正确的决策。
+
+* 相关信息 *
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"]
+
+
+
+=== IP 空间对象复制和子网配置要求
+
+[role="lead"]
+您应了解将 IP 空间对象复制到配对集群以及在 MetroCluster 配置中配置子网和 IPv6 的要求。
+
+
+
+==== IP 空间复制
+
+在将 IP 空间对象复制到配对集群时，必须考虑以下准则：
+
+* 两个站点的 IP 空间名称必须匹配。
+* 必须手动将 IP 空间对象复制到配对集群。
++
+在复制 IP 空间之前创建并分配给此 IP 空间的任何 Storage Virtual Machine （ SVM ）都不会复制到配对集群。
+
+
+
+
+
+==== 子网配置
+
+在 MetroCluster 配置中配置子网时，必须考虑以下准则：
+
+* MetroCluster 配置的两个集群必须在同一 IP 空间中有一个子网，并且子网名称，子网，广播域和网关都相同。
+* 两个集群的 IP 范围必须不同。
++
+在以下示例中， IP 范围不同：
+
++
+[listing]
+----
+cluster_A::> network subnet show
+
+IPspace: Default
+Subnet                     Broadcast                   Avail/
+Name      Subnet           Domain    Gateway           Total    Ranges
+--------- ---------------- --------- ------------      -------  ---------------
+subnet1   192.168.2.0/24   Default   192.168.2.1       10/10    192.168.2.11-192.168.2.20
+
+cluster_B::> network subnet show
+ IPspace: Default
+Subnet                     Broadcast                   Avail/
+Name      Subnet           Domain    Gateway           Total    Ranges
+--------- ---------------- --------- ------------     --------  ---------------
+subnet1   192.168.2.0/24   Default   192.168.2.1       10/10    192.168.2.21-192.168.2.30
+----
+
+
+
+
+==== IPv6 配置
+
+如果在一个站点上配置了 IPv6 ，则在另一个站点上也必须配置 IPv6 。
+
+
+
+=== 在 MetroCluster 配置中创建 LIF 的要求
+
+[role="lead"]
+在 MetroCluster 配置中配置网络时，您应了解创建 LIF 的要求。
+
+创建 LIF 时，必须考虑以下准则：
+
+* 光纤通道：必须使用延伸型 VSAN 或延伸型网络结构
+* IP/iSCSI ：必须使用第 2 层延伸型网络
+* ARP 广播：必须在两个集群之间启用 ARP 广播
+* 重复 LIF ：不能在一个 IP 空间中创建多个具有相同 IP 地址的 LIF （重复 LIF ）
+* NFS 和 SAN 配置：必须对未镜像聚合和镜像聚合使用不同的 Storage Virtual Machine （ SVM ）
+
+
+
+
+==== 验证 LIF 创建
+
+您可以运行 `MetroCluster check lif show` 命令来确认是否已在 MetroCluster 配置中成功创建 LIF 。如果在创建 LIF 时遇到任何问题，您可以使用 `MetroCluster check lif repair-placement` 命令修复这些问题。
+
+
+
+=== LIF 复制和放置要求和问题
+
+[role="lead"]
+您应了解 MetroCluster 配置中的 LIF 复制要求。您还应了解复制的 LIF 如何放置在配对集群上，并应了解 LIF 复制或 LIF 放置失败时会出现的问题。
+
+
+
+==== 将 LIF 复制到配对集群
+
+在 MetroCluster 配置中的集群上创建 LIF 时， LIF 会复制到配对集群上。LIF 不会按一对一名称进行放置。为了在切换操作后 LIF 的可用性， LIF 放置过程会根据可访问性和端口属性检查来验证端口是否能够托管 LIF 。
+
+要将复制的 LIF 放置在配对集群上，系统必须满足以下条件：
+
+|===
+| 条件 | LIF 类型： FC | LIF 类型： IP/iSCSI 
+
+
+ a| 
+节点标识
+ a| 
+ONTAP 会尝试将复制的 LIF 放置在创建该 LIF 的节点的灾难恢复（ DR ）配对节点上。
+
+如果 DR 配对节点不可用，则会使用 DR 辅助配对节点进行放置。
+ a| 
+ONTAP 会尝试将复制的 LIF 放置在创建该 LIF 的节点的 DR 配对节点上。
+
+如果 DR 配对节点不可用，则会使用 DR 辅助配对节点进行放置。
+
+
+
+ a| 
+端口标识
+ a| 
+ONTAP 标识 DR 集群上连接的 FC 目标端口。
+ a| 
+将选择 DR 集群上与源 LIF 位于同一 IP 空间中的端口进行可访问性检查。
+
+如果 DR 集群中的同一 IP 空间中没有端口，则无法放置 LIF 。
+
+灾难恢复集群中已在同一 IP 空间和子网中托管 LIF 的所有端口都会自动标记为可访问，并可用于放置。这些端口不包括在可访问性检查中。
+
+
+
+ a| 
+可访问性检查
+ a| 
+可访问性可通过检查源网络结构 WWN 在 DR 集群中端口上的连接来确定。
+
+如果灾难恢复站点上不存在相同的网络结构，则会将 LIF 随机放置在灾难恢复配对节点上的端口上。
+ a| 
+可访问性取决于对从 DR 集群上先前标识的每个端口到要放置的 LIF 的源 IP 地址的地址解析协议（ ARP ）广播的响应。
+
+要成功执行可访问性检查，必须允许在两个集群之间进行 ARP 广播。
+
+接收源 LIF 响应的每个端口都将标记为可能放置。
+
+
+
+ a| 
+端口选择
+ a| 
+ONTAP 会根据适配器类型和速度等属性对端口进行分类，然后选择具有匹配属性的端口。
+
+如果未找到具有匹配属性的端口，则 LIF 将放置在 DR 配对节点上的随机连接端口上。
+ a| 
+在可访问性检查期间标记为可访问的端口中， ONTAP 首选与 LIF 子网关联的广播域中的端口。
+
+如果 DR 集群上没有与 LIF 的子网关联的广播域中的可用网络端口，则 ONTAP 会选择可访问源 LIF 的端口。
+
+如果没有可访问源 LIF 的端口，则会从与源 LIF 的子网关联的广播域中选择一个端口，如果不存在此类广播域，则会随机选择一个端口。
+
+ONTAP 会根据适配器类型，接口类型和速度等属性对端口进行分类，然后选择具有匹配属性的端口。
+
+
+
+ a| 
+LIF 放置
+ a| 
+在可访问的端口中， ONTAP 会选择负载最低的端口进行放置。
+ a| 
+从选定端口中， ONTAP 将选择负载最低的端口进行放置。
+
+|===
+
+
+==== 在 DR 配对节点关闭时放置复制的 LIF
+
+在 DR 配对节点已被接管的节点上创建 iSCSI 或 FC LIF 时，复制的 LIF 将放置在 DR 辅助配对节点上。在后续交还操作之后， LIF 不会自动移动到 DR 配对节点。这可能会导致 LIF 集中在配对集群中的单个节点上。在 MetroCluster 切换操作期间，后续映射属于 Storage Virtual Machine （ SVM ）的 LUN 的尝试将失败。
+
+在执行接管操作或交还操作后，应运行 `MetroCluster check lif show` 命令，以验证 LIF 放置是否正确。如果存在错误，您可以运行 `MetroCluster check lif repair-placement` 命令来解决这些问题。
+
+
+
+==== LIF 放置错误
+
+执行切换操作后， `MetroCluster check lif show` 命令显示的 LIF 放置错误将保留下来。如果对存在放置错误 MetroCluster 的 LIF 发出 `network interface modify` ， `network interface rename` 或 `network interface delete` 命令，则该错误将被删除，并且不会显示在 `lIF check lif show` 命令的输出中。
+
+
+
+==== LIF 复制失败
+
+您也可以使用 `lf check lif show` 命令检查 MetroCluster 复制是否成功。如果 LIF 复制失败，则会显示一条 EMS 消息。
+
+您可以通过对未找到正确端口的任何 LIF 运行 `MetroCluster check lif repair-placement` 命令来更正复制失败。您应尽快解决任何 LIF 复制失败问题，以便在 MetroCluster 切换操作期间验证 LIF 的可用性。
+
+
+NOTE: 即使源 SVM 已关闭，但如果目标 SVM 中具有相同 IP 空间和网络的端口中存在属于不同 SVM 的 LIF ，则 LIF 放置可能会正常进行。
+
+
+
+=== 在根聚合上创建卷
+
+[role="lead"]
+系统不允许在 MetroCluster 配置中节点的根聚合（具有 CFO HA 策略的聚合）上创建新卷。
+
+由于存在此限制，无法使用 `vserver add-aggregates` 命令将根聚合添加到 SVM 中。
+
+
+
+== MetroCluster 配置中的 SVM 灾难恢复
+
+[role="lead"]
+从 ONTAP 9.5 开始， MetroCluster 配置中的活动 Storage Virtual Machine （ SVM ）可用作 SnapMirror SVM 灾难恢复功能的源。目标 SVM 必须位于 MetroCluster 配置之外的第三个集群上。
+
+在使用 SVM 进行 SnapMirror 灾难恢复时，您应了解以下要求和限制：
+
+* 只有 MetroCluster 配置中的活动 SVM 才能成为 SVM 灾难恢复关系的源。
++
+源可以是切换前的 sync-source SVM ，也可以是切换后的 sync-destination SVM 。
+
+* 当 MetroCluster 配置处于稳定状态时， MetroCluster sync-destination SVM 不能作为 SVM 灾难恢复关系的源，因为卷未联机。
++
+下图显示了 SVM 在稳定状态下的灾难恢复行为：
+
++
+image::../media/svm_dr_normal_behavior.gif[SVM DR 正常行为]
+
+* 如果 sync-source SVM 是 SVM DR 关系的源，则源 SVM DR 关系信息将复制到 MetroCluster 配对节点。
++
+这样， SVM 灾难恢复更新就可以在切换后继续进行，如下图所示：
+
++
+image::../media/svm_dr_image_2.gif[SVM DR 映像 2]
+
+* 在切换和切回过程中，复制到 SVM DR 目标可能会失败。
++
+但是，切换或切回过程完成后，下一次 SVM DR 计划更新将成功。
+
+
+
+请参见中的 "`复制 SVM 配置` " 一节 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/GUID-983EDECC-A085-46DC-AF11-6FF9C474ABAE.html["数据保护高级指南"] 有关配置 SVM DR 关系的详细信息。
+
+
+
+=== 在灾难恢复站点重新同步 SVM
+
+[role="lead"]
+在重新同步期间， MetroCluster 配置上的 Storage Virtual Machine （ SVM ）灾难恢复（ DR ）源将从非 MetroCluster 站点上的目标 SVM 进行还原。
+
+在重新同步期间，源 SVM （ cluster_A ）会暂时用作目标 SVM ，如下图所示：
+
+image::../media/svm_dr_resynchronization.gif[SVM DR 重新同步]
+
+
+
+==== 如果在重新同步期间发生计划外切换
+
+重新同步期间发生的计划外切换将暂停重新同步传输。如果发生计划外切换，则满足以下条件：
+
+* MetroCluster 站点上的目标 SVM （在重新同步之前是源 SVM ）仍作为目标 SVM 。配对集群上的 SVM 将继续保留其子类型并保持非活动状态。
+* 必须手动重新创建 SnapMirror 关系，并将 sync-destination SVM 作为目标。
+* 在幸存站点执行切换后， SnapMirror 关系不会显示在 SnapMirror show 输出中，除非执行 SnapMirror 创建操作。
+
+
+
+
+==== 在重新同步期间执行计划外切换后的切回
+
+要成功执行切回过程，必须断开并删除重新同步关系。如果 MetroCluster 配置中存在任何 SnapMirror DR 目标 SVM ，或者集群的 SVM 子类型为 `dp-destination` ，则不允许切回。
+
+
+
+== 双节点延伸型 MetroCluster 配置中 storage disk show 和 storage shelf show 命令的输出
+
+[role="lead"]
+在双节点延伸型 MetroCluster 配置中， `storage disk show` 和 `storage shelf show` 命令的 `is-local-attach` 字段会将所有磁盘和存储架显示为本地，而不管其连接到哪个节点。
+
+
+
+== 在 MetroCluster 切换后， storage aggregate plex show 命令的输出不确定
+
+[role="lead"]
+在 MetroCluster 切换后运行 `storage aggregate plex show` 命令时，切换后的根聚合的 plex0 状态不确定，并显示为 `failed` 。在此期间，切换后的根不会更新。只有在 MetroCluster 修复阶段之后才能确定此丛的实际状态。
+
+
+
+== 修改卷以在发生切换时设置 NVFAIL 标志
+
+[role="lead"]
+您可以修改卷，以便在发生 MetroCluster 切换时在卷上设置 NVFAIL 标志。NVFAIL 标志会使卷无法进行任何修改。对于需要处理的卷，这是必需的，就好像在切换后丢失了对卷提交的写入一样。
+
+
+NOTE: 在 ONTAP 9.0 之前的版本中，每次切换都会使用 NVFAIL 标志。在 ONTAP 9.0 及更高版本中，使用计划外切换（ USO ）。
+
+.步骤
+. 通过将 `vol -dr-force-nvfail` 参数设置为 on ，启用 MetroCluster 配置以在切换时触发 NVFAIL ：
++
+` * vol modify -vserver _vserver-name_ -volume _volume-name_ -dr-force-nvfail on*`
+
+

@@ -1,0 +1,16 @@
+---
+permalink: install-ip/concept_considerations_when_removing_mcc_configurations.html 
+sidebar: sidebar 
+keywords: remove, removing, metrocluster, configuration, disk, connectivity, interconnect, adjust, support, state, remove, technical, support, consideration, contact 
+summary: 删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。 
+---
+= 删除 MetroCluster 配置时的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。
+
+
+IMPORTANT: 您不能反转 MetroCluster 取消配置。此过程只能在技术支持的协助下完成。

@@ -1,0 +1,65 @@
+---
+permalink: transition/concept_choosing_your_transition_procedure_mcc_transition.html 
+sidebar: sidebar 
+keywords: select, transition, procedure, depend, exist, metrocluster, fc, configuration, choosing, choose 
+summary: 您必须根据现有 MetroCluster FC 配置选择过渡操作步骤。 
+---
+= 选择过渡操作步骤
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须根据现有 MetroCluster FC 配置选择过渡操作步骤。
+
+过渡操作步骤将后端 FC 交换机网络结构或 FC-VI 连接替换为 IP 交换机网络。确切的操作步骤取决于您的初始配置。
+
+在过渡操作步骤结束时，原始平台和 FC 交换机（如果存在）将停用。
+
+|===
+| 正在启动配置 | 无中断或无中断 | 要求 | 操作步骤 
+
+
+ a| 
+四节点
+ a| 
+无中断
+ a| 
+新平台支持新存储架。
+ a| 
+xref:concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.adoc[无中断地从 MetroCluster FC 过渡到 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）]
+
+
+
+ a| 
+双节点
+ a| 
+造成中断
+ a| 
+原始平台和新平台均支持新存储架。
+ a| 
+xref:task_disruptively_transition_from_a_two_node_mcc_fc_to_a_four_node_mcc_ip_configuration.adoc[从双节点 MetroCluster FC 中断过渡到四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）]
+
+
+
+ a| 
+双节点
+ a| 
+造成中断
+ a| 
+原始平台和新平台均支持新存储架。必须弃用旧存储架。
+ a| 
+xref:task_disruptively_transition_while_move_volumes_from_old_shelves_to_new_shelves.adoc[停用存储架时从 MetroCluster FC 中断过渡到 MetroCluster IP （ ONTAP 9.8 及更高版本）]
+
+
+
+ a| 
+双节点
+ a| 
+造成中断
+ a| 
+新平台不支持旧存储架。必须弃用旧存储架。
+ a| 
+xref:task_disruptively_transition_when_exist_shelves_are_not_supported_on_new_controllers.adoc[在新控制器不支持现有磁盘架时进行中断过渡（ ONTAP 9.8 及更高版本）]
+
+|===

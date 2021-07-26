@@ -1,0 +1,25 @@
+---
+permalink: manage/task_heal_the_configuration_in_a_mcc_fc_configuration_supertask.html 
+sidebar: sidebar 
+keywords: switchover, perform, heal, operation, restore, metrocluster, functionality, fc, configuration 
+summary: 切换后，您必须按特定顺序执行修复操作，才能还原 MetroCluster 功能。 
+---
+= 修复 MetroCluster FC 配置中的配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+切换后，您必须按特定顺序执行修复操作，才能还原 MetroCluster 功能。
+
+* 必须已执行切换，并且正常运行的站点必须正在提供数据。
+* 灾难站点上的节点必须暂停或保持关闭状态。
++
+在修复过程中，不能完全启动它们。
+
+* 灾难站点上的存储必须可访问（磁盘架已启动，正常运行且可访问）。
+* 在光纤连接的 MetroCluster 配置中，交换机间链路（ ISL ）必须已启动且正在运行。
+* 在四节点 MetroCluster 配置中，运行正常的站点中的节点不能处于 HA 故障转移状态（对于每个 HA 对，所有节点都必须已启动且正在运行）。
+
+
+必须先对数据聚合执行修复操作，然后再对根聚合执行此操作。

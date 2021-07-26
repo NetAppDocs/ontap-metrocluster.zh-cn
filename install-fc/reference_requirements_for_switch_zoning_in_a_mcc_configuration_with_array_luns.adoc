@@ -1,0 +1,48 @@
+---
+permalink: install-fc/reference_requirements_for_switch_zoning_in_a_mcc_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, switch, zoning, array, luns, requirements 
+summary: 在使用阵列 LUN 的 MetroCluster 配置中使用交换机分区时，必须确保满足某些基本要求。 
+---
+= 使用阵列 LUN 的 MetroCluster 配置中的交换机分区要求
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用阵列 LUN 的 MetroCluster 配置中使用交换机分区时，必须确保满足某些基本要求。
+
+使用阵列 LUN 的 MetroCluster 配置中的交换机分区要求如下：
+
+* MetroCluster 配置必须遵循单启动程序到单目标分区方案。
++
+单启动程序到单目标分区会将每个分区限制为一个 FC 启动程序端口和一个目标端口。
+
+* FC-VI 端口必须在网络结构中进行端到端分区。
+* 与单个目标端口共享多个启动程序端口可能会出现发生原因性能问题。
++
+同样，与一个启动程序端口共享多个目标端口也可能会出现发生原因性能问题。
+
+* 您必须已对 MetroCluster 配置中使用的 FC 交换机执行基本配置。
++
+xref:task_fcsw_configure_the_cisco_or_brocade_fc_switches_manually.adoc[手动配置 Cisco 或 Brocade FC 交换机]
+
+
+
+
+
+== 为使用阵列 LUN 的 MetroCluster 配置提供共享启动程序和共享目标支持
+
+能够共享给定的 FC 启动程序端口或目标端口对于希望最大程度地减少所用启动程序或目标端口数量的组织非常有用。例如，如果企业希望 FC 启动程序端口或目标端口的 I/O 使用率较低，则可能更愿意共享 FC 启动程序端口或目标端口，而不是将每个 FC 启动程序端口专用于一个目标端口。
+
+但是，共享启动程序或目标端口可能会对性能产生不利影响。
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_support_Shared_Initiator_and_Shared_Target_configuration_with_Array_LUNs_in_a_MetroCluster_environment["如何在 MetroCluster 环境中支持使用阵列 LUN 的共享启动程序和共享目标配置"]
+
+* 相关信息 *
+
+xref:concept_example_of_switch_zoning_in_a_two_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的双节点 MetroCluster 配置中的交换机分区示例]
+
+xref:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例]
+
+xref:concept_example_of_switch_zoning_in_an_eight_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例]

@@ -1,0 +1,119 @@
+---
+permalink: tiebreaker/reference_firewall_requirements_for_mcc_tiebreaker.html 
+sidebar: sidebar 
+keywords: metrocluster, tiebreaker, port, communicate, specific, service, firewall, requirement 
+summary: MetroCluster Tiebreaker 使用多个端口与特定服务进行通信。 
+---
+= MetroCluster Tiebreaker 的防火墙要求
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MetroCluster Tiebreaker 使用多个端口与特定服务进行通信。
+
+下表列出了防火墙中必须允许的端口：
+
+[cols="4*"]
+|===
+| 端口 / 服务 | 源 | 目标 | 目的 
+
+
+ a| 
+443/ TCP
+ a| 
+Tiebreaker
+ a| 
+互联网
+ a| 
+向 NetApp 发送 AutoSupport 消息
+
+
+
+ a| 
+22 TCP
+ a| 
+管理主机
+ a| 
+Tiebreaker
+ a| 
+Tiebreaker 管理
+
+
+
+ a| 
+443/ TCP
+ a| 
+Tiebreaker
+ a| 
+MetroCluster 管理 LIF
+ a| 
+通过 HTTP （ SSL ）进行安全通信
+
+
+
+ a| 
+22 TCP
+ a| 
+Tiebreaker
+ a| 
+MetroCluster 管理 LIF
+ a| 
+通过 SSH 实现安全通信
+
+
+
+ a| 
+443/ TCP
+ a| 
+Tiebreaker
+ a| 
+MetroCluster 管理 LIF
+ a| 
+通过 HTTP （ SSL ）进行安全通信
+
+
+
+ a| 
+22 TCP
+ a| 
+Tiebreaker
+ a| 
+MetroCluster 管理 LIF
+ a| 
+通过 SSH 实现安全通信
+
+
+
+ a| 
+162/UDP
+ a| 
+Tiebreaker
+ a| 
+SNMP 陷阱主机
+ a| 
+用于发送警报通知 SNMP 陷阱
+
+
+
+ a| 
+ICMP （ ping ）
+ a| 
+Tiebreaker
+ a| 
+MetroCluster 管理 LIF
+ a| 
+检查集群 IP 是否可访问
+
+
+
+ a| 
+ICMP （ ping ）
+ a| 
+Tiebreaker
+ a| 
+MetroCluster 管理 LIF
+ a| 
+检查节点 IP 是否可访问
+
+|===

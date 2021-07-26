@@ -1,0 +1,157 @@
+---
+permalink: disaster-recovery/task_cfg_bridges_mcfc.html 
+sidebar: sidebar 
+keywords: fc, sas, bridge, configure, metrocluster, configuration 
+summary: 如果您更换了 FC-SAS 网桥，则必须在还原 MetroCluster 配置时对其进行配置。 
+---
+= 配置 FC-SAS 网桥（仅限 MetroCluster FC 配置）
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您更换了 FC-SAS 网桥，则必须在还原 MetroCluster 配置时对其进行配置。操作步骤与 FC-SAS 网桥的初始配置相同。
+
+.步骤
+. 打开 FC-SAS 网桥的电源。
+. 使用 `set IPAddress port ipaddress` 命令设置以太网端口上的 IP 地址。
++
+** `端口` 可以是 "MP1" 或 "MP2" 。
+** `ipaddress` 可以是 xxx.xxx.xxx.xxx 格式的 IP 地址。
++
+在以下示例中，以太网端口 1 上的 IP 地址为 10.10.10.55 ：
+
++
+[listing]
+----
+
+Ready.
+set IPAddress MP1 10.10.10.55
+
+Ready. *
+----
+
+
+. 使用 `set IPSubnetMask port mask` 命令设置以太网端口上的 IP 子网掩码。
++
+** `端口` 可以是 "MP1" 或 "MP2" 。
+** `mAsk` 可以是 xxx.xxx.xxx.xxx 格式的子网掩码。
++
+在以下示例中，以太网端口 1 上的 IP 子网掩码为 255.255.255.0 ：
+
++
+[listing]
+----
+
+Ready.
+set IPSubnetMask MP1 255.255.255.0
+
+Ready. *
+----
+
+
+. 使用 `set EthernetSpeed port speed` 命令设置以太网端口上的速度。
++
+** `端口` 可以是 "MP1" 或 "MP2" 。
+** `s对等` 可以是 "100" ， "1000" 或 "auto" 。
++
+在以下示例中，以太网端口 1 上的以太网速度设置为 1000 。
+
++
+[listing]
+----
+
+Ready.
+set EthernetSpeed MP1 1000
+
+Ready. *
+----
+
+
+. 使用 `saveConfiguration` 命令保存配置，并在系统提示时重新启动网桥。
++
+通过在配置以太网端口后保存配置，您可以使用 Telnet 继续配置网桥，并可以使用 FTP 访问网桥以执行固件更新。
+
++
+以下示例显示了 `saveConfiguration` 命令以及重新启动网桥的提示。
+
++
+[listing]
+----
+
+Ready.
+SaveConfiguration
+  Restart is necessary....
+  Do you wish to restart (y/n) ?
+Confirm with 'y'. The bridge will save and restart with the new settings.
+----
+. 在 FC-SAS 网桥重新启动后，重新登录。
+. 使用 `set fcdatarate port speed` 命令设置 FC 端口的速度。
++
+** `端口` 可以是 "1" 或 "2" 。
+** `s对等` 可以是 "2 GB" ， "4 GB" ， "8 GB" 或 "16 GB" ，具体取决于您的网桥型号。
++
+在以下示例中，端口 FC1 速度设置为 "8 GB" 。
+
++
+[listing]
+----
+
+Ready.
+set fcdatarate 1 8Gb
+
+Ready. *
+----
+
+
+. 使用 `set FCConnMode port mode` 命令设置 FC 端口上的拓扑。
++
+** `端口` 可以是 "1" 或 "2" 。
+** `mode` 可以是 "PTp" ， "loop " ， "PTP-loop " 或 "autode" 。
++
+在以下示例中，端口 FC1 拓扑设置为 "PPT" 。
+
++
+[listing]
+----
+
+Ready.
+set FCConnMode 1 ptp
+
+Ready. *
+----
+
+
+. 使用 `saveConfiguration` 命令保存配置，并在系统提示时重新启动网桥。
++
+以下示例显示了 `saveConfiguration` 命令以及重新启动网桥的提示。
+
++
+[listing]
+----
+
+ Ready.
+ SaveConfiguration
+    Restart is necessary....
+    Do you wish to restart (y/n) ?
+ Confirm with 'y'. The bridge will save and restart with the new settings.
+----
+. 在 FC-SAS 网桥重新启动后，重新登录。
+. 如果 FC-SAS 网桥运行的是固件 1.60 或更高版本，请启用 SNMP 。
++
+[listing]
+----
+
+Ready.
+set snmp enabled
+
+Ready. *
+saveconfiguration
+
+Restart is necessary....
+Do you wish to restart (y/n) ?
+
+Verify with 'y' to restart the FibreBridge.
+----
+. 关闭 FC-SAS 网桥的电源。
+

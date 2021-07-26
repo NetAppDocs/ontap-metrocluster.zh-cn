@@ -1,0 +1,50 @@
+---
+permalink: install-fc/task_rack_the_hardware_components_in_a_mcc_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, rack, hardware, components, array, luns 
+summary: 您必须确保使用阵列 LUN 设置 MetroCluster 配置所需的硬件组件已正确装入机架。 
+---
+= 使用阵列 LUN 的 MetroCluster 配置中的硬件组件机架安装
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须确保使用阵列 LUN 设置 MetroCluster 配置所需的硬件组件已正确装入机架。
+
+您必须在两个 MetroCluster 站点上执行此任务。
+
+.步骤
+. 规划 MetroCluster 组件的定位。
++
+机架空间取决于存储控制器的平台型号，交换机类型以及配置中的磁盘架堆栈数量。
+
+. 正确接地。
+. 在机架或机柜中安装存储控制器。
++
+
+NOTE: 阵列 LUN 不支持 AFF 系统。
+
++
+http://docs.netapp.com/platstor/index.jsp?topic=%2Fcom.netapp.doc.hw-9000-install-setup%2Fhome.html["AFF A700 和 FAS9000 安装和设置"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["《 FAS8200 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1199907["《 FAS8040/FAS8060 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1504186["《使用 I/O 扩展模块的 FAS80xx 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1199906["《 FAS8020 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1147995["《 62xx 系统安装和设置说明》"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1213632["《 32xx 系统安装和设置说明》"]
+
+. 在机架或机柜中安装 FC 交换机。
+

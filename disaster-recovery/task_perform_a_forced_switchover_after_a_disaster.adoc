@@ -1,0 +1,114 @@
+---
+permalink: disaster-recovery/task_perform_a_forced_switchover_after_a_disaster.html 
+sidebar: sidebar 
+keywords: disaster, occur, perform, surviving, cluster, survive, switchover, ensure, safe, data, service, force, fence, fencing, off, site, access, volume, nvfail, state, output, storage, aggregate, plex, show, command, indeterminate, metroxluster 
+summary: 如果发生灾难，则必须在切换后对灾难集群和正常运行的集群执行一些步骤，以确保安全，持续地提供数据服务。 
+---
+= 在发生灾难后执行强制切换
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果发生灾难，则必须在切换后对灾难集群和正常运行的集群执行一些步骤，以确保安全，持续地提供数据服务。
+
+确定是否发生灾难的方法是：
+
+* 管理员
+* MetroCluster Tiebreaker 软件（如果已配置）
+* ONTAP 调解器软件（如果已配置）
+
+
+
+
+== 隔离灾难站点
+
+发生灾难后，如果必须更换灾难站点节点，则必须暂停这些节点，以防止站点恢复服务。否则，如果客户端在替换操作步骤完成之前开始访问节点，您将面临数据损坏的风险。
+
+.步骤
+. 暂停灾难站点上的节点并使其保持关闭状态或停留在 LOADER 提示符处，直到指示启动 ONTAP 为止：
++
+`ssystem node halt -node disaster -site-node-name`
+
++
+如果灾难站点节点已被销毁或无法暂停，请关闭节点的电源，在恢复操作步骤中指示之前不要启动替代节点。
+
+
+
+
+
+== 执行强制切换
+
+除了在测试和维护期间提供无中断操作之外，切换过程还允许您通过一条命令从站点故障中恢复。
+
+.开始之前
+* 在执行切换之前，必须至少有一个运行正常的站点节点已启动并正在运行。
+* 在执行切回操作之前，必须完成所有先前的配置更改。
++
+这是为了避免与协商切换或切回操作产生竞争。
+
+
+
+
+NOTE: 系统会自动删除 SnapMirror 和 SnapVault 配置。
+
+`MetroCluster switchover` 命令可切换 MetroCluster 配置中所有 DR 组中的节点。例如，在八节点 MetroCluster 配置中，它会切换两个 DR 组中的节点。
+
+.步骤
+. 实施切换：
++
+`MetroCluster switchover -forced-on-disaster true`
+
++
+此操作可能需要几分钟时间才能完成。
+
+. 系统提示您继续切换时，请选择问题解答 `y` 。
+. 运行 MetroCluster operation show 命令，验证切换是否已成功完成。
++
+....
+mcc1A::> metrocluster operation show
+  Operation: switchover
+ Start time: 10/4/2012 19:04:13
+      State: in-progress
+   End time: -
+     Errors:
+
+mcc1A::> metrocluster operation show
+  Operation: switchover
+ Start time: 10/4/2012 19:04:13
+      State: successful
+   End time: 10/4/2012 19:04:22
+     Errors: -
+....
++
+如果切换被否决，您可以使用 ` -override-vetoes` 选项重新发出 `MetroCluster switchover-forced-on-disaster true` 命令。如果您使用此可选参数，则系统将覆盖阻止切换的任何软否决。
+
+
+
+需要在切换后重新建立 SnapMirror 关系。
+
+
+
+== 在 MetroCluster 切换后， storage aggregate plex show 命令的输出不确定
+
+在 MetroCluster 切换后运行 `storage aggregate plex show` 命令时，切换后的根聚合的 plex0 状态不确定，并显示为 failed 。在此期间，切换后的根不会更新。只有在 MetroCluster 修复阶段之后才能确定此丛的实际状态。
+
+
+
+== 在切换后访问处于 NVFAIL 状态的卷
+
+切换后，您必须通过重置 `volume modify` 命令的 ` in-nvfailed-state` 参数来清除 NVFAIL 状态，以取消客户端访问数据的限制。
+
+数据库或文件系统不得正在运行或尝试访问受影响的卷。
+
+设置 ` in-nvfailed-state` 参数需要高级权限。
+
+.步骤
+. 使用 `volume modify` 命令并将 ` in-nvfailed-state` 参数设置为 false ，以恢复卷。
+
+
+有关检查数据库文件有效性的说明，请参见特定数据库软件的文档。
+
+如果数据库使用 LUN ，请查看相关步骤，以便在 NVRAM 出现故障后使主机可以访问这些 LUN 。
+
+link:../manage/concept_monitoring_and_protecting_database_validity_by_using_nvfail.html["使用 NVFAIL 监控和保护数据库有效性"]

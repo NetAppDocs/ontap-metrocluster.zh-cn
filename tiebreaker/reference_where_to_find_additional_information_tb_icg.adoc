@@ -1,0 +1,103 @@
+---
+permalink: tiebreaker/reference_where_to_find_additional_information_tb_icg.html 
+sidebar: sidebar 
+keywords: metrocluster, configuration, operation, netapp, documentation, library, additional, information, miscellaneous, guide 
+summary: 您可以从 NetApp 文档库中了解有关 MetroCluster 配置和操作的更多信息。 
+---
+= 从何处查找追加信息
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以从 NetApp 文档库中了解有关 MetroCluster 配置和操作的更多信息。
+
+
+
+== MetroCluster 和其他指南
+
+|===
+| 指南 | 内容 
+
+
+ a| 
+https://www.netapp.com/data-management/oncommand-system-documentation/["ONTAP 9 文档中心"]
+ a| 
+* 所有 MetroCluster 指南
+
+
+
+
+ a| 
+http://www.netapp.com/us/media/tr-4375.pdf["NetApp 技术报告 4375 ：《适用于 ONTAP 9.3 的 NetApp MetroCluster 》"]
+ a| 
+* MetroCluster 配置和操作的技术概述。
+* MetroCluster 配置最佳实践。
+
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+ a| 
+* 光纤连接的 MetroCluster 架构
+* 为配置布线
+* 配置 FC-SAS 网桥
+* 配置 FC 交换机
+* 在 ONTAP 中配置 MetroCluster
+
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+ a| 
+* 延伸型 MetroCluster 架构
+* 为配置布线
+* 配置 FC-SAS 网桥
+* 在 ONTAP 中配置 MetroCluster
+
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/index.html["MetroCluster IP 安装和配置"]
+ a| 
+* MetroCluster IP 架构
+* 为 MetroCluster IP 配置布线
+* 在 ONTAP 中配置 MetroCluster
+
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["《 MetroCluster 维护指南》"]
+ a| 
+* MetroCluster 配置中的维护准则
+* FC-SAS 网桥和 FC 交换机的硬件更换或升级以及固件升级过程
+* 在光纤连接或延伸型 MetroCluster 配置中热添加磁盘架
+* 在光纤连接或延伸型 MetroCluster 配置中热移除磁盘架
+* 在光纤连接或延伸型 MetroCluster 配置中更换灾难站点上的硬件
+* 将双节点光纤连接或延伸型 MetroCluster 配置扩展为四节点 MetroCluster 配置。
+* 将四节点光纤连接或延伸型 MetroCluster 配置扩展为八节点 MetroCluster 配置。
+
+
+
+
+ a| 
+Active IQ Unified Manager 文档
+
+https://docs.netapp.com["NetApp 文档：产品指南和资源"]
+ a| 
+* 监控 MetroCluster 配置和性能
+
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["基于副本的过渡"]
+ a| 
+* 将数据从 7- 模式存储系统过渡到集群模式存储系统
+
+
+|===

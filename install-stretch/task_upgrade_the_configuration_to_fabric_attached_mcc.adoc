@@ -1,0 +1,62 @@
+---
+permalink: install-stretch/task_upgrade_the_configuration_to_fabric_attached_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, transition, stretch, fabric, attacjed, configuration 
+summary: 在光纤连接的 MetroCluster 配置中，节点位于不同位置。这种地理差异可提高灾难保护能力。要从延伸型 MetroCluster 配置过渡到光纤连接的 配置，您必须在配置中添加 FC 交换机以及 FC-SAS 网桥（如果需要）。 
+---
+= 从延伸型 MetroCluster 配置过渡到光纤连接的 配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在光纤连接的 MetroCluster 配置中，节点位于不同位置。这种地理差异可提高灾难保护能力。要从延伸型 MetroCluster 配置过渡到光纤连接的 配置，您必须在配置中添加 FC 交换机以及 FC-SAS 网桥（如果需要）。
+
+* 您必须已通过运行 `MetroCluster modify -auto-switchover-failure-domain auto-disabled` 命令在两个集群上禁用自动切换。
+* 您必须已关闭节点。
++
+此操作步骤会造成系统中断。
+
+
+
+必须在两个站点上过渡 MetroCluster 配置。升级 MetroCluster 配置后，必须在两个集群上启用自动切换。此外，您还必须运行 `MetroCluster check run` 命令来验证配置。
+
+此操作步骤概述了所需步骤。有关详细步骤，您必须参阅中的特定章节 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["《光纤连接的 MetroCluster 安装和配置指南》"]。您无需执行完整安装和配置。
+
+.步骤
+. 仔细查看的 " 准备 MetroCluster 安装 " 一节，为升级做准备 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["《光纤连接的 MetroCluster 安装和配置指南》"]。
+. 安装，连接和配置所需的交换机和 FC-SAS 网桥。
++
+
+NOTE: 您应使用的 " 为光纤连接的 MetroCluster 配置布线 " 一节中的过程 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["《光纤连接的 MetroCluster 安装和配置指南》"]。
+
+. 按照以下步骤刷新 MetroCluster 配置。
++
+请勿使用链接 https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html[Fabric-attached 《 MetroCluster 安装和配置指南》中 " 在 ONTAP 中配置 MetroCluster 软件 " 一节中的过程。
+
++
+.. 进入高级权限模式： + ` * 设置 -privilege advanced*`
+.. 刷新 MetroCluster 配置： + ` * MetroCluster configure -refresh true*`
++
+以下命令将刷新包含 controller_A_1 的 DR 组中所有节点上的 MetroCluster 配置：
+
++
+[listing]
+----
+controller_A_1::*> metrocluster configure -refresh true
+[Job 009] Job succeeded: Configure is successful.
+----
+.. 返回到管理权限模式： + ` * 设置 -privilege admin*`
+
+
+. 检查 MetroCluster 配置是否存在错误，并验证其是否正常运行。
++
+您应使用的以下部分中的过程 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["《光纤连接的 MetroCluster 安装和配置指南》"]：
+
++
+** 使用 Config Advisor 检查 MetroCluster 配置错误
+** 验证本地 HA 操作
+** 验证切换，修复和切回
+
+
+

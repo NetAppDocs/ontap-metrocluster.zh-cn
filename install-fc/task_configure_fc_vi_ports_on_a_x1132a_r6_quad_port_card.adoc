@@ -1,0 +1,112 @@
+---
+permalink: install-fc/task_configure_fc_vi_ports_on_a_x1132a_r6_quad_port_card.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, fc, vi, ports, quad, port, card 
+summary: 如果在 FAS8020 系统上使用 X1132A-R6 四端口卡，则可以进入维护模式来配置 1a 和 1b 端口以供 FC-VI 和启动程序使用。从工厂收到的 MetroCluster 系统不需要执行此操作，这些端口已根据您的配置进行了相应设置。 
+---
+= 在 FAS8020 系统上的 X1132A-R6 四端口卡上配置 FC-VI 端口
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在 FAS8020 系统上使用 X1132A-R6 四端口卡，则可以进入维护模式来配置 1a 和 1b 端口以供 FC-VI 和启动程序使用。从工厂收到的 MetroCluster 系统不需要执行此操作，这些端口已根据您的配置进行了相应设置。
+
+此任务必须在维护模式下执行。
+
+
+NOTE: 仅 FAS8020 和 AFF 8020 系统支持使用 `ucadmin` 命令将 FC 端口转换为 FC-VI 端口。任何其他平台均不支持将 FC 端口转换为 FCVI 端口。
+
+.步骤
+. 禁用端口：
++
+` * 存储禁用适配器 1a*`
+
++
+` * 存储禁用适配器 1b*`
+
++
+[listing]
+----
+*> storage disable adapter 1a
+Jun 03 02:17:57 [controller_B_1:fci.adapter.offlining:info]: Offlining Fibre Channel adapter 1a.
+Host adapter 1a disable succeeded
+Jun 03 02:17:57 [controller_B_1:fci.adapter.offline:info]: Fibre Channel adapter 1a is now offline.
+*> storage disable adapter 1b
+Jun 03 02:18:43 [controller_B_1:fci.adapter.offlining:info]: Offlining Fibre Channel adapter 1b.
+Host adapter 1b disable succeeded
+Jun 03 02:18:43 [controller_B_1:fci.adapter.offline:info]: Fibre Channel adapter 1b is now offline.
+*>
+----
+. 验证端口是否已禁用：
++
+` * ucadmin show*`
+
++
+[listing]
+----
+*> ucadmin show
+         Current  Current    Pending  Pending    Admin
+Adapter  Mode     Type       Mode     Type       Status
+-------  -------  ---------  -------  ---------  -------
+  ...
+  1a     fc       initiator  -        -          offline
+  1b     fc       initiator  -        -          offline
+  1c     fc       initiator  -        -          online
+  1d     fc       initiator  -        -          online
+----
+. 将 a 和 b 端口设置为 FC-VI 模式：
++
+` * ucadmin modify -adapter 1a -type fcvi*`
+
++
+命令会在端口对 1a 和 1b 中的两个端口上设置模式（即使在命令中仅指定 1a ）。
+
++
+[listing]
+----
+
+*> ucadmin modify -t fcvi 1a
+Jun 03 02:19:13 [controller_B_1:ucm.type.changed:info]: FC-4 type has changed to fcvi on adapter 1a. Reboot the controller for the changes to take effect.
+Jun 03 02:19:13 [controller_B_1:ucm.type.changed:info]: FC-4 type has changed to fcvi on adapter 1b. Reboot the controller for the changes to take effect.
+----
+. 确认此更改处于待定状态：
++
+` * ucadmin show*`
+
++
+[listing]
+----
+*> ucadmin show
+         Current  Current    Pending  Pending    Admin
+Adapter  Mode     Type       Mode     Type       Status
+-------  -------  ---------  -------  ---------  -------
+  ...
+  1a     fc       initiator  -        fcvi       offline
+  1b     fc       initiator  -        fcvi       offline
+  1c     fc       initiator  -        -          online
+  1d     fc       initiator  -        -          online
+----
+. 关闭控制器，然后重新启动到维护模式。
+. 确认配置更改：
++
+` * ucadmin show local*`
+
++
+[listing]
+----
+
+Node           Adapter  Mode     Type       Mode     Type       Status
+------------   -------  -------  ---------  -------  ---------  -----------
+...
+controller_B_1
+               1a       fc       fcvi       -        -          online
+controller_B_1
+               1b       fc       fcvi       -        -          online
+controller_B_1
+               1c       fc       initiator  -        -          online
+controller_B_1
+               1d       fc       initiator  -        -          online
+6 entries were displayed.
+----
+

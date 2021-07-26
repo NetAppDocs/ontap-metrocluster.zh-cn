@@ -1,0 +1,113 @@
+---
+permalink: transition/task_verify_mcc_health_fc_to_ip.html 
+sidebar: sidebar 
+keywords: Verifying the health of the MetroCluster configuration, review, requirement, preparing, prepare, transition, perform, procedure, order, completing, complete, step, task, moving, move, controller, storage, shelves, shelf, exist, configuration, direct, metrocluster, fc, ip, verify, health, removing, remove, tiebreaker, monitor, software, generating, generate, apply, rcf, switch, controller, configure, prepare, preparing 
+summary: 在执行过渡之前，您必须验证 MetroCluster 配置的运行状况和连接。 
+---
+= 验证 MetroCluster 配置的运行状况
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在执行过渡之前，您必须验证 MetroCluster 配置的运行状况和连接
+
+. 在 ONTAP 中验证 MetroCluster 配置的运行情况：
++
+.. 检查系统是否为多路径：``node run -node node-name sysconfig -a``
+.. 检查两个集群上是否存在任何运行状况警报： `ssystem health alert show`
+.. 确认 MetroCluster 配置以及操作模式是否正常： `MetroCluster show`
+.. 执行 MetroCluster 检查： `MetroCluster check run`
+.. 显示 MetroCluster 检查的结果： `MetroCluster check show`
+.. 检查交换机上是否存在任何运行状况警报（如果存在）： `storage switch show`
+.. 运行 Config Advisor 。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+.. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
+
+
+. 验证集群是否运行正常： `cluster show`
++
+....
+cluster_A::> cluster show
+Node           Health  Eligibility   Epsilon
+-------------- ------  -----------   -------
+node_A_1_FC    true    true          false
+node_A_2_FC    true    true          false
+
+cluster_A::>
+....
+. 验证所有集群端口是否均已启动： `network port show -ipspace cluster`
++
+....
+cluster_A::> network port show -ipspace cluster
+
+Node: node_A_1_FC
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+Node: node_A_2_FC
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+4 entries were displayed.
+
+cluster_A::>
+....
+. 确认所有集群 LIF 均已启动且正常运行： `network interface show -vserver cluster`
++
+对于 "Is Home" ，每个集群 LIF 都应显示 "true" ；对于 "Status Admin/Oper" ，每个集群 LIF 都应显示 "up/up" 。
+
++
+....
+cluster_A::> network interface show -vserver cluster
+
+            Logical      Status     Network          Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- -----
+Cluster
+            node_A-1_FC_clus1
+                       up/up      169.254.209.69/16  node_A-1_FC   e0a     true
+            node_A_1_FC_clus2
+                       up/up      169.254.49.125/16  node_A_1_FC   e0b     true
+            node_A_2_FC_clus1
+                       up/up      169.254.47.194/16  node_A_2_FC   e0a     true
+            node_A_2_FC_clus2
+                       up/up      169.254.19.183/16  node_A_2_FC   e0b     true
+
+4 entries were displayed.
+
+cluster_A::>
+....
+. 验证是否已在所有集群 LIF 上启用自动还原： `network interface show -vserver cluster -fields auto-revert`
++
+....
+cluster_A::> network interface show -vserver Cluster -fields auto-revert
+
+          Logical
+Vserver   Interface     Auto-revert
+--------- ------------- ------------
+Cluster
+           node_A_1_FC_clus1
+                        true
+           node_A_1_FC_clus2
+                        true
+           node_A_2_FC_clus1
+                        true
+           node_A_2_FC_clus2
+                        true
+
+    4 entries were displayed.
+
+cluster_A::>
+....
+

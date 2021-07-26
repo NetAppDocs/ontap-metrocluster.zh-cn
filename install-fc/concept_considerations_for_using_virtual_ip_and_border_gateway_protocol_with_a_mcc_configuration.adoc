@@ -1,0 +1,55 @@
+---
+permalink: install-fc/concept_considerations_for_using_virtual_ip_and_border_gateway_protocol_with_a_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, virtual, ip, border, gateway, protocol, configuration 
+summary: 从 ONTAP 9.5 开始， ONTAP 支持使用虚拟 IP （ VIP\ ）和边界网关协议（ BGP ）的第 3 层连接。前端网络中用于冗余的 VIP 和 BGP 与后端 MetroCluster 冗余相结合，可提供第 3 层灾难恢复解决方案。 
+---
+= 在 MetroCluster 配置中使用虚拟 IP 和边界网关协议的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 ONTAP 9.5 开始， ONTAP 支持使用虚拟 IP （ VIP ）和边界网关协议（ BGP ）的第 3 层连接。前端网络中用于冗余的 VIP 和 BGP 与后端 MetroCluster 冗余相结合，可提供第 3 层灾难恢复解决方案。
+
+规划第 3 层解决方案时，请查看以下准则和图示。有关在 ONTAP 中实施 VIP 和 BGP 的详细信息，请参阅以下部分：
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-A8EF6D34-1717-4813-BBFA-AA33E104CF6F.html["* 配置虚拟 IP （ VIP ） LIF*"]
+
+image::../media/vip_and_bgp_in_metrocluster_2.png[MetroCluster 2 中的 VIP 和 BGP]
+
+* ONTAP 限制 *
+
+ONTAP 不会自动验证 MetroCluster 配置的两个站点上的所有节点是否均已配置 BGP 对等。
+
+ONTAP 不会执行路由聚合，但会始终将所有单个虚拟 LIF IP 作为唯一的主机路由进行公布。
+
+ONTAP 不支持 true anycast —集群中只有一个节点提供特定的虚拟 LIF IP （但所有物理接口都可接受，无论它们是否为 BGP LIF ，前提是物理端口属于正确的 IP 空间）。不同的 LIF 可以彼此独立迁移到不同的托管节点。
+
+* 在 MetroCluster 配置中使用此第 3 层解决方案的准则 *
+
+您必须正确配置 BGP 和 VIP 以提供所需的冗余。
+
+与更复杂的架构（例如， BGP 对等路由器可通过中间非 BGP 路由器访问）相比，部署方案更简单。但是， ONTAP 不会强制实施网络设计或拓扑限制。
+
+VIP LIF 仅涵盖前端 / 数据网络。
+
+根据您的 ONTAP 版本，您必须在节点 SVM 中配置 BGP 对等 LIF ，而不是在系统或数据 SVM 中配置 BGP 对等 LIF 。在 9.8 中， BGP LIF 显示在集群（系统） SVM 中，节点 SVM 不再存在。
+
+每个数据 SVM 都需要配置所有可能的第一跃点网关地址（通常为 BGP 路由器对等 IP 地址），以便在发生 LIF 迁移或 MetroCluster 故障转移时可以使用返回数据路径。
+
+BGP LIF 是特定于节点的，类似于集群间 LIF —每个节点都有一个唯一的配置，无需复制到灾难恢复站点节点。
+
+配置后， v0a （ v0b 等）的存在将持续验证连接，从而确保 LIF 迁移或故障转移成功（与 L2 不同， L2 仅在中断后才会显示损坏的配置）。
+
+一个主要的架构差异是，客户端不应再与数据 SVM 的 VIP 共享同一 IP 子网。要使 VIP 正常运行，启用了适当企业级故障恢复能力和冗余功能（例如 VRRP/HSRP ）的 L3 路由器应位于存储和客户端之间的路径上。
+
+BGP 的可靠更新过程可以使 LIF 迁移更顺畅，因为它们速度稍快，并且对某些客户端的中断几率较低
+
+如果相应配置，您可以将 BGP 配置为比 LACP 更快地检测某些类别的网络或交换机错误行为。
+
+外部 BGP （ EBGP ）在 ONTAP 节点和对等路由器之间使用不同的数字，是简化路由器上路由聚合和重新分布的首选部署。内部 BGP （ IBGP ）和路由反映器的使用并非不可能，但不在简单的 VIP 设置范围内。
+
+部署后，如果在每个站点的所有节点之间迁移关联的虚拟 LIF （包括 MetroCluster 切换），则必须检查数据 SVM 是否可访问，以验证连接到同一数据 SVM 的静态路由配置是否正确。
+
+VIP 适用于大多数基于 IP 的协议（ NFS ， SMB ， iSCSI ）。

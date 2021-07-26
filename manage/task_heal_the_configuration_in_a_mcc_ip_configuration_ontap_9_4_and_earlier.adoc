@@ -1,0 +1,64 @@
+---
+permalink: manage/task_heal_the_configuration_in_a_mcc_ip_configuration_ontap_9_4_and_earlier.html 
+sidebar: sidebar 
+keywords: heal, aggregate, preparation, switchback, operation, configuration, metrocluster, ip, ontap 
+summary: 您必须修复聚合，以便为切回操作做好准备。 
+---
+= 修复 MetroCluster IP 配置中的配置（ ONTAP 9.4 及更早版本）
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须修复聚合，以便为切回操作做好准备。
+
+在执行修复操作步骤之前，必须满足以下条件：
+
+* 必须已执行切换，并且正常运行的站点必须正在提供数据。
+* 灾难站点上的存储架必须已启动，正常运行且可访问。
+* ISL 必须已启动并正常运行。
+* 正常运行的站点中的节点不能处于 HA 故障转移状态（两个节点必须均已启动且正在运行）。
+
+
+此任务仅限运行 ONTAP 9.5 之前版本的适用场景 MetroCluster IP 配置。
+
+此操作步骤与适用于 MetroCluster FC 配置的修复操作步骤不同。
+
+.步骤
+. 打开已切换站点上的每个控制器模块的电源，并使其完全启动。
++
+如果系统显示 LOADER 提示符，请运行 `boot_ontap` 命令。
+
+. 执行根聚合修复阶段： `MetroCluster heal root-aggregates`
++
+[listing]
+----
+cluster_A::> metrocluster heal root-aggregates
+[Job 137] Job succeeded: Heal Root-Aggregates is successful
+----
++
+如果修复被否决，您可以使用 -override-vetoes 参数重新发出 MetroCluster heal root-aggregates 命令。如果使用此可选参数，则系统将覆盖任何阻止修复操作的软否决。
+
+. 重新同步聚合： `MetroCluster heal aggregates`
++
+[listing]
+----
+cluster_A::> metrocluster heal aggregates
+[Job 137] Job succeeded: Heal Aggregates is successful
+----
++
+如果修复被否决，您可以使用 -override-vetoes 参数重新发出 MetroCluster heal 命令。如果使用此可选参数，则系统将覆盖任何阻止修复操作的软否决。
+
+. 在运行正常的集群上运行 MetroCluster operation show 命令，以确认修复操作已完成：
++
+[listing]
+----
+
+cluster_A::> metrocluster operation show
+  Operation: heal-aggregates
+      State: successful
+ Start Time: 7/29/2017 20:54:41
+   End Time: 7/29/2017 20:54:42
+     Errors: -
+----
+

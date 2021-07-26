@@ -1,0 +1,23 @@
+---
+permalink: install-fc/reference_example_of_a_two_node_fabric_attached_mcc_configuration_with_disks_and_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, two, node, array, luns, disks 
+summary: 要设置使用原生磁盘和阵列 LUN 的双节点光纤连接 MetroCluster 配置，必须使用 FC-SAS 网桥通过 FC 交换机将 ONTAP 系统与磁盘架连接起来。您可以通过 FC 交换机将阵列 LUN 连接到 ONTAP 系统。 
+---
+= 使用磁盘和阵列 LUN 的双节点光纤连接 MetroCluster 配置示例
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要设置使用原生磁盘和阵列 LUN 的双节点光纤连接 MetroCluster 配置，必须使用 FC-SAS 网桥通过 FC 交换机将 ONTAP 系统与磁盘架连接起来。您可以通过 FC 交换机将阵列 LUN 连接到 ONTAP 系统。
+
+下图显示了使用磁盘和阵列 LUN 的双节点光纤连接 MetroCluster 配置示例。它们表示相同的 MetroCluster 配置；磁盘和阵列 LUN 的表示仅为简化而分开。
+
+下图显示了 ONTAP 系统与磁盘之间的连接，其中 HBA 端口 1a 到 1d 用于通过 FC-SAS 网桥与磁盘连接：
+
+image::../media/two_node_mcc_combined_fabric_disks.gif[双节点 MCC 组合阵列磁盘]
+
+下图显示了 ONTAP 系统与阵列 LUN 之间的连接，其中 HBA 端口 0a 到 0d 用于与阵列 LUN 连接，因为端口 1a 到 1d 用于与磁盘连接：
+
+image::../media/two_node_mcc_combined_fabric_arrayluns.gif[双节点 MCC 组合阵列]

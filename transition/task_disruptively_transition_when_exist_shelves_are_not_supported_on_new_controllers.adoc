@@ -1,0 +1,335 @@
+---
+permalink: transition/task_disruptively_transition_when_exist_shelves_are_not_supported_on_new_controllers.html 
+sidebar: sidebar 
+keywords: start, ontap, disruptive, transition, two-node, metrocluster, fc, configuration, data, exist, drive, shelves, shelf, ip, node, requirement, support, workflow, preparing, prepare, controller, module, controller, migrate 
+summary: 从 ONTAP 9.8 开始，您可以中断过渡双节点 MetroCluster FC 配置，并从现有驱动器架移动数据，即使新的 MetroCluster IP 节点不支持现有存储架也是如此。 
+---
+= 在新控制器不支持现有磁盘架时进行中断过渡（ ONTAP 9.8 及更高版本）
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 ONTAP 9.8 开始，您可以中断过渡双节点 MetroCluster FC 配置，并从现有驱动器架移动数据，即使新的 MetroCluster IP 节点不支持现有存储架也是如此。
+
+* 只有在新的 MetroCluster IP 平台型号不支持现有存储架型号时，才应使用此操作步骤。
+* 运行 ONTAP 9.8 及更高版本的系统支持此操作步骤。
+* 此操作步骤会造成系统中断。
+* 此操作步骤仅适用于双节点 MetroCluster FC 配置。
++
+如果您使用的是四节点 MetroCluster FC 配置，请参见 xref:concept_choosing_your_transition_procedure_mcc_transition.adoc[选择过渡操作步骤]。
+
+* 您必须满足所有要求并按照操作步骤中的所有步骤进行操作。
+
+
+
+
+== 新节点不支持磁盘架时的过渡要求
+
+[role="lead"]
+在开始过渡过程之前，您必须确保配置满足要求。
+
+* 现有配置必须为双节点光纤连接或延伸型 MetroCluster 配置，并且所有节点都必须运行 ONTAP 9.8 或更高版本。
++
+新的 MetroCluster IP 控制器模块应运行相同版本的 ONTAP 9.8 。
+
+* 现有平台和新平台必须是过渡支持的组合。
++
+xref:concept_supported_platforms_for_transition.adoc[支持无中断过渡的平台]
+
+* 它必须满足 _MetroCluster 安装和配置指南 _ 中所述的所有要求和布线。
++
+link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+
+* 旧控制器（ node_A_1-IP ， node_A_2-IP ， node_B_1-IP 和 node_B_2-IP ）必须支持随新控制器提供的新存储架（ node_A_1-FC 和 node_B_1-FC ）。
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* 新的 MetroCluster IP 平台型号 * 不 * 支持旧存储架。
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* 根据现有磁盘架中的可用备用磁盘，必须添加更多驱动器。
++
+这可能需要额外的驱动器架。
+
++
+每个控制器还需要额外的 14 到 18 个驱动器：
+
++
+** 三个 pool0 驱动器
+** 三个 pool1 驱动器
+** 两个备用驱动器
+** 系统卷需要六到十个驱动器
+
+
+* 您必须确保配置（包括新节点）不超过配置的平台限制，包括驱动器数，根聚合大小容量等
++
+有关每个平台型号的信息，请访问 _NetApp Hardware Universe 。
+
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* 您必须能够从 MetroCluster 站点对所有六个节点进行远程控制台访问，或者根据操作步骤的要求计划在站点之间进行传输。
+
+
+
+
+== 当新控制器不支持磁盘架时用于中断过渡的工作流
+
+[role="lead"]
+如果新平台型号不支持现有磁盘架型号，则必须将新磁盘架连接到旧配置，将数据移动到新磁盘架上，然后过渡到新配置。
+
+在准备过渡时，请规划站点之间的差旅。请注意，在对远程节点进行机架安装和布线后，您需要对这些节点进行串行终端访问。只有在配置节点后，才能访问服务处理器。
+
+image::../media/workflow_2n_transition_old_shelves_not_supported.png[不支持工作流 2n 过渡旧磁盘架]
+
+
+
+== 准备新控制器模块
+
+[role="lead"]
+您必须清除新控制器模块和新存储架上的配置和磁盘所有权。
+
+. 将新存储架连接到新的 MetroCluster IP 控制器模块后，执行此分配中的所有步骤 link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#preparing-the-metrocluster-ip-controllers["准备 MetroCluster IP 控制器"]。
+. 断开新存储架与新 MetroCluster IP 控制器模块的连接。
+
+
+
+
+== 将新磁盘架连接到现有 MetroCluster FC 控制器
+
+[role="lead"]
+在过渡到 MetroCluster IP 配置之前，您必须将新驱动器架连接到现有控制器模块。
+
+下图显示了连接到 MetroCluster FC 配置的新磁盘架。
+
+image::../media/transition_2n_unsupported_old_new_shelves_to_old_controllers.png[将不支持的 2 个新旧磁盘架过渡到旧控制器]
+
+. 在 node_A_1-FC 和 node_A_2-FC 上禁用磁盘自动分配： `disk option modify -node node-name -autodassign off`
++
+必须在每个节点上发出此命令。
+
++
+已禁用磁盘自动分配，以避免分配要添加到 node_A_1-FC 和 node_B_1-FC 的磁盘架。在过渡过程中，节点 node_A_1-IP 和 node_B_2-IP 需要磁盘，如果允许自动分配，则稍后需要删除磁盘所有权，然后才能将磁盘分配给 node_A_1-IP 和 node_B_2-IP 。
+
+. 如有必要，使用 FC-SAS 网桥将新磁盘架连接到现有 MetroCluster FC 节点。
++
+请参见 _MetroCluster 维护指南 _ 中所述的要求和过程。
+
++
+link:../maintain/task_hot_add_storage_to_a_mcc_fc_configuration_container_topic.html["将存储热添加到 MetroCluster FC 配置"]
+
+
+
+
+
+== 迁移根聚合并将数据移动到新磁盘架
+
+[role="lead"]
+您必须将根聚合从旧驱动器架移至 MetroCluster IP 节点将使用的新驱动器架。
+
+此任务会在现有节点（ node_A_1-FC 和 node_B_1-FC ）过渡之前执行。
+
+. 从控制器 node_B_1-FC 执行协商切换： `MetroCluster switchover`
+. 从 node_B_1-FC 执行修复聚合并修复恢复的根步骤： `MetroCluster heal -phase aggregates``metrocluster heal -phase root-aggregates`
+. 启动控制器 node_A_1-FC ： `boot_ontap`
+. 将新磁盘架上的无主磁盘分配给控制器 node_A_1-FC 的相应池：
++
+.. 确定磁盘架上的磁盘： `disk show -shelf pool_0_shelf -fields container-type ， diskpathnames``disk show -shelf pool_1_shelf -fields container-type ， diskpathnames`
+.. 进入本地模式，以便在本地节点上运行命令： `run local`
+.. `d磁盘：… assign disk1disk2disk3disk -p 0``ddisk assign disk4disk5disk6disk… -p 1`
+.. 退出本地模式： `exit`
+
+
+. 创建一个新的镜像聚合，使其成为控制器 node_A_1-FC 的新根聚合：
++
+.. 将权限模式设置为 advanced ： `set priv advanced`
+.. 创建聚合： `aggregate create -aggregate new_aggr -disklist disk1 ， disk2 ， disk3 ，… -mirror-disklist disk4disk5 ， disk6 ，… -raidtypesame-as-existing-root -force-sact-Small-aggregate true aggr show -aggregate new_aggr -fields percent-snapshot-space`
++
+如果 percent-snapshot-space 值小于 5% ，则必须将其增加到高于 5% 的值： `aggr modify new_aggr -percent-snapshot-space 5`
+
+.. 将权限模式重新设置为 admin ： `set priv admin`
+
+
+. 确认已正确创建新聚合： `node run -node local sysconfig -r`
+. 创建节点和集群级别配置备份：
++
+
+NOTE: 在切换期间创建备份时，集群可以识别恢复时的切换状态。您必须确保系统配置的备份和上传成功，因为如果没有此备份， * 无法 * 在集群之间修改 MetroCluster 配置。
+
++
+.. 创建集群备份： `ssystem configuration backup create -node local -backup-type cluster -backup-name cluster-backup-name`
+.. 检查集群备份创建 `job show -id job-idstatus`
+.. 创建节点备份： `ssystem configuration backup create -node local -backup-type node -backup-name node-backup-name`
+.. 检查集群和节点备份： `ssystem configuration backup show`
++
+您可以重复此命令，直到输出中显示这两个备份为止。
+
+
+
+. 为备份创建副本。
++
+这些备份必须存储在一个单独的位置，因为在启动新根卷时，它们将在本地丢失。
+
++
+您可以将备份上传到 FTP 或 HTTP 服务器，也可以使用 scp 命令复制备份。
+
++
+|===
+| 方法 |  
+
+
+ a| 
+* 将备份上传到 FTP 或 HTTP 服务器 *
+ a| 
+.. 上传集群备份： `ssystem configuration backup upload -node local -backup cluster-backup-name -destination URL`
+.. 上传节点备份： `ssystem configuration backup upload -node local -backup node-backup-name -destination URL`
+
+
+
+
+ a| 
+* 使用安全副本将备份复制到远程服务器 *
+ a| 
+....
+From the remote server use the following scp commands:
+....
+.. 复制集群备份： `scp diagnode-mgmt-FC ： /mroot/etc/backups/config/cluster-backup-name.7z 。`
+.. 复制节点备份： `scp diag@node-mgmt-FC ： /mroot/etc/backups/config/node-backup-name.7z 。`
+
+
+|===
+. halt node_A_1-FC ： `halt -node local -ignore-quorum-warnings true`
+. 将 node_A_1-FC 启动至维护模式： `boot_ontap maint`
+. 在维护模式下，进行必要的更改以将聚合设置为 root ：
++
+.. 将 HA 策略设置为 CFO ： `aggr options new_aggr ha_policy CFO`
++
+在系统提示您继续时，回答 `yes` 。
+
++
+[listing]
+----
+Are you sure you want to proceed (y/n)?
+----
+.. 将新聚合设置为 root ： `aggr options new_aggr root`
+.. 暂停到 LOADER 提示符： `halt`
+
+
+. 启动控制器并备份系统配置。
++
+检测到新根卷后，节点将在恢复模式下启动
+
++
+.. 启动控制器： `boot_ontap`
+.. 登录并备份配置。
++
+登录时，您将看到以下警告：
+
++
+[listing]
+----
+Warning: The correct cluster system configuration backup must be restored. If a backup
+from another cluster or another system state is used then the root volume will need to be
+recreated and NGS engaged for recovery assistance.
+----
+.. 进入高级权限模式： `set -privilege advanced`
+.. 将集群配置备份到服务器： `ssystem configuration backup download -node local -source URL of server/cluster-backup-name.7z`
+.. 将节点配置备份到服务器： `ssystem configuration backup download -node local -source URL of server/node-backup-name.7z`
+.. 返回到管理模式： `set -privilege admin`
+
+
+. 检查集群的运行状况：
++
+.. 问题描述以下命令： `cluster show`
+.. 将权限模式设置为 advanced ： `set -privilege advanced`
+.. 验证集群配置详细信息： `cluster ring show`
+.. 返回到管理权限级别： `set -privilege admin`
+
+
+. 确认 MetroCluster 配置的运行模式并执行 MetroCluster 检查。
++
+.. 确认 MetroCluster 配置以及操作模式是否正常： `MetroCluster show`
+.. 确认显示所有预期节点： `MetroCluster node show`
+.. 问题描述以下命令： `MetroCluster check run`
+.. 显示 MetroCluster 检查的结果： `MetroCluster check show`
+
+
+. 从控制器 node_B_1-FC 执行切回： `MetroCluster switchback`
+. 验证 MetroCluster 配置的运行情况：
++
+.. 确认 MetroCluster 配置以及操作模式是否正常： `MetroCluster show`
+.. 执行 MetroCluster 检查： `MetroCluster check run`
+.. 显示 MetroCluster 检查的结果： `MetroCluster check show`
+
+
+. 将新根卷添加到卷位置数据库。
++
+.. 将权限模式设置为 advanced ： `set -privilege advanced`
+.. 将卷添加到节点： `volume add-other-volumes – node node_A_1-FC`
+.. 返回到管理权限级别： `set -privilege admin`
+
+
+. 检查此卷现在是否可见且具有 mroot 。
++
+.. 显示聚合： `storage aggregate show`
+.. 验证根卷是否包含 mroot ： `storage aggregate show -fields has -mroot`
+.. 显示卷： `volume show`
+
+
+. 创建新的安全证书以重新启用对 System Manager 的访问： `ssecurity certificate create -common-name name -type server -size 2048`
+. 重复上述步骤，迁移 node_A_1-FC 所拥有的磁盘架上的聚合。
+. 执行清理。
++
+要删除旧的根卷和根聚合，您必须同时对 node_A_1-FC 和 node_B_1-FC 执行以下步骤。
+
++
+.. 删除旧根卷： `run local``vol offline old_vol0``vol destroy old_vol0``exit``volume remove-other-volume -vserver node_name -volume old_vol0`
+.. 删除原始根聚合： `aggr offline -aggregate old_aggr0_site``aggr delete -aggregate old_aggr0_site`
+
+
+. 将数据卷迁移到新控制器上的聚合，一次迁移一个卷。
++
+请使用控制器升级快速指南 _ 的以下部分。
+
++
+http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["创建聚合并将卷移动到新节点"]
+
+. 执行部分中的所有步骤，停用旧磁盘架 xref:task_disruptively_transition_while_move_volumes_from_old_shelves_to_new_shelves.adoc[停用从 node_A_1-FC 和 node_A_2-FC 移动的磁盘架]。
+
+
+
+
+== 正在过渡配置
+
+[role="lead"]
+您必须遵循详细的过渡操作步骤。
+
+在以下步骤中，您将转到本指南的其他部分。您必须按给定顺序执行每个引用部分中的步骤。
+
+. 规划端口映射。
++
+执行部分中的所有步骤 link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#mapping-ports-from-the-metrocluster-fc-nodes-to-the-metrocluster-ip-nodes["将端口从 MetroCluster FC 节点映射到 MetroCluster IP 节点"]。
+
+. 准备 MetroCluster IP 控制器。
++
+执行部分中的所有步骤 link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#preparing-the-metrocluster-ip-controllers["准备 MetroCluster IP 控制器"]。
+
+. 验证 MetroCluster 配置的运行状况。
++
+执行部分中的所有步骤 link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#verifying-the-health-of-the-metrocluster-fc-configuration["验证 MetroCluster FC 配置的运行状况"]
+
+. 准备并删除现有 MetroCluster FC 节点。
++
+执行部分中的所有步骤 link:../transition/task_transition_the_mcc_fc_nodes_2n_mcc_transition_supertask.html["过渡 MetroCluster FC 节点"]。
+
+. 添加新的 MetroCluster IP 节点。
++
+执行部分中的所有步骤 xref:task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.adoc[连接 MetroCluster IP 控制器模块]。
+
+. 完成新 MetroCluster IP 节点的过渡和初始配置。
++
+执行部分中的所有步骤 xref:task_configure_the_new_nodes_and_complete_transition.doc[配置新节点并完成过渡]。
+
+

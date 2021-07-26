@@ -1,0 +1,22 @@
+---
+section: tiebreaker
+title: 安装和配置 MetroCluster Tiebreaker
+entries:
+- title: 确定是否使用《 MetroCluster Tiebreaker 软件安装和配置指南》
+  url: "/tiebreaker/concept_deciding_whether_to_use_this_guide_mcc_tiebreaker_installation_and_configuration_guide.html"
+- title: Tiebreaker 软件概述
+  url: "/tiebreaker/concept_overview_of_the_tiebreaker_software.html"
+- title: 安装 Tiebreaker 软件
+  url: "/tiebreaker/task_install_the_tiebreaker_software.html"
+- title: 配置 Tiebreaker 软件
+  url: "/tiebreaker/concept_configuring_the_tiebreaker_software.html"
+- title: 为 Tiebreaker 软件配置 SNMP 设置
+  url: "/tiebreaker/task_configure_snmp_setts_for_tiebreaker_software.html"
+- title: 监控 MetroCluster 配置
+  url: "/tiebreaker/concept_monitoring_the_mcc_configuration.html"
+- title: 在主动模式下使用 MetroCluster Tiebreaker 的风险和限制
+  url: "/tiebreaker/concept_risks_and_limitation_of_using_mcc_tiebreaker_in_active_mode.html"
+- title: MetroCluster Tiebreaker 的防火墙要求
+  url: "/tiebreaker/reference_firewall_requirements_for_mcc_tiebreaker.html"
+- title: 从何处查找追加信息
+  url: "/tiebreaker/reference_where_to_find_additional_information_tb_icg.html"

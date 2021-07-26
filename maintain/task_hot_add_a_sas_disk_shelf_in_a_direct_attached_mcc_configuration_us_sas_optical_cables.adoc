@@ -1,0 +1,31 @@
+---
+permalink: maintain/task_hot_add_a_sas_disk_shelf_in_a_direct_attached_mcc_configuration_us_sas_optical_cables.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, hot, add, sas, disk, shelf, direct, attached, fc, configuration, optical, cables 
+summary: 您可以使用 SAS 光缆将 SAS 磁盘架热添加到直连 MetroCluster FC 配置中的现有 SAS 磁盘架堆栈，或者将其作为新堆栈添加到控制器上的 SAS HBA 或板载 SAS 端口。 
+---
+= 使用 SAS 光缆在直连 MetroCluster FC 配置中热添加 SAS 磁盘架
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 SAS 光缆将 SAS 磁盘架热添加到直连 MetroCluster FC 配置中的现有 SAS 磁盘架堆栈，或者将其作为新堆栈添加到控制器上的 SAS HBA 或板载 SAS 端口。
+
+* 此操作步骤不会造成系统中断，大约需要两小时才能完成。
+* 您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。
+* 如果要向 IOM6 磁盘架堆栈添加 IOM12 磁盘架，请参见 link:https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["将 IOM12 磁盘架热添加到 IOM6 磁盘架堆栈中"]。
+
+
+此任务将对一种 MetroCluster FC 配置进行适用场景处理，在此配置中，存储将使用 SAS 缆线直接连接到存储控制器。它不适用于使用 FC-SAS 网桥或 FC 交换机网络结构的 MetroCluster FC 配置。
+
+.步骤
+. 按照适用于您的磁盘架型号的 _Installation Guide_ 中有关热添加 SAS 磁盘架的说明执行以下任务以热添加磁盘架：
++
+.. 安装用于热添加的磁盘架。
+.. 打开电源并设置用于热添加的磁盘架 ID 。
+.. 为热添加的磁盘架布线。
+.. 验证 SAS 连接。
+
+
+

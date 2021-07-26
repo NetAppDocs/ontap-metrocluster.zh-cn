@@ -1,0 +1,153 @@
+---
+permalink: install-fc/task_reset_the_brocade_fc_switch_to_factory_defaults.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, reset, brocade, fc, switch, factory, defaults 
+summary: 在安装新软件版本和 RCF 文件之前，您必须擦除当前交换机配置并执行基本配置。 
+---
+= 将 Brocade FC 交换机重置为出厂默认值
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在安装新软件版本和 RCF 文件之前，您必须擦除当前交换机配置并执行基本配置。
+
+您必须对 MetroCluster 网络结构配置中的每个 FC 交换机重复这些步骤。
+
+. 以管理员身份登录到交换机。
+. 禁用 Brocade 虚拟网络结构（ VF ）功能： ` * fosconfig options*`
++
+[listing]
+----
+FC_switch_A_1:admin> fosconfig --disable vf
+WARNING:  This is a disruptive operation that requires a reboot to take effect.
+Would you like to continue  [Y/N]: y
+----
+. 断开 ISL 缆线与交换机端口的连接。
+. 禁用交换机： ` * switchcfgpersistentdisable*`
++
+[listing]
+----
+FC_switch_A_1:admin> switchcfgpersistentdisable
+----
+. 禁用配置： ` * cfgDisable*`
++
+[listing]
+----
+FC_switch_A_1:admin> cfgDisable
+You are about to disable zoning configuration. This action will disable any previous zoning configuration enabled.
+Do you want to disable zoning configuration? (yes, y, no, n): [no] y
+Updating flash ...
+Effective configuration is empty. "No  Access" default zone mode is ON.
+----
+. 清除配置： ` * cfgClear*`
++
+[listing]
+----
+FC_switch_A_1:admin> cfgClear
+The Clear All action will clear all Aliases, Zones, FA Zones
+and configurations in the Defined configuration.
+Run cfgSave to commit the transaction or cfgTransAbort to
+cancel the transaction.
+Do you really want to clear all configurations?  (yes, y, no, n): [no] y
+----
+. 保存配置： ` * cfgSave*`
++
+[listing]
+----
+FC_switch_A_1:admin> cfgSave
+You are about to save the Defined zoning configuration. This
+action will only save the changes on Defined configuration.
+Do you want to save the Defined zoning configuration only?  (yes, y, no, n): [no] y
+Updating flash ...
+----
+. 设置默认配置： ` * 配置默认 *`
++
+[listing]
+----
+FC_switch_A_1:admin> configDefault
+WARNING:  This is a disruptive operation that requires a switch reboot.
+Would you like to continue [Y/N]: y
+Executing configdefault...Please wait
+2020/10/05-08:04:08, [FCR-1069], 1016, FID 128, INFO, FC_switch_A_1, The FC Routing service is enabled.
+2020/10/05-08:04:08, [FCR-1068], 1017, FID 128, INFO, FC_switch_A_1, The FC Routing service is disabled.
+2020/10/05-08:04:08, [FCR-1070], 1018, FID 128, INFO, FC_switch_A_1, The FC Routing configuration is set to default.
+Committing configuration ... done.
+2020/10/05-08:04:12, [MAPS-1113], 1019, FID 128, INFO, FC_switch_A_1, Policy dflt_conservative_policy activated.
+2020/10/05-08:04:12, [MAPS-1145], 1020, FID 128, INFO, FC_switch_A_1, FPI Profile dflt_fpi_profile is activated for E-Ports.
+2020/10/05-08:04:12, [MAPS-1144], 1021, FID 128, INFO, FC_switch_A_1, FPI Profile dflt_fpi_profile is activated for F-Ports.
+The switch has to be rebooted to allow the changes to take effect.
+2020/10/05-08:04:12, [CONF-1031], 1022, FID 128, INFO, FC_switch_A_1, configDefault completed successfully for switch.
+----
+. 将所有端口的端口配置设置为默认值：
++
+` * portcfgdefault _port-number_*`
+
++
+[listing]
+----
+FC_switch_A_1:admin> portcfgdefault <port number>
+----
++
+您必须为每个端口完成此步骤。
+
+. 验证交换机是否正在使用动态端口按需（ Port on Demand ， POD ）方法。
++
+
+NOTE: 对于 8.0 之前的 Brocade Fabric OS 版本，您可以以 admin 身份运行以下命令；对于 8.0 及更高版本，您可以以 root 身份运行这些命令。
+
++
+.. 运行命令 ` * licenseport -show*`
++
+[listing]
+----
+FC_switch_A_1:admin> licenseport -show
+24 ports are available in this switch
+Full POD license is installed
+Dynamic POD method is in use
+----
+.. 如果 root 用户已被 Brocade 禁用，请启用此用户。
++
+[listing]
+----
+FC_switch_A_1:admin> userconfig --change root -e yes
+FC_switch_A_1:admin> rootaccess --set consoleonly
+----
+.. 运行 license 命令： ` * licenseport -show*`
++
+[listing]
+----
+FC_switch_A_1:root> licenseport -show
+24 ports are available in this switch
+Full POD license is installed
+Dynamic POD method is in use
+----
+.. 将许可证方法更改为 dynamic ： ` * licenseport -method dynamic*`
++
+
+NOTE: 如果未使用动态 POD 方法（如果 POD 方法为静态），则必须将许可证分配方法更改为动态。如果正在使用动态 POD 方法，请跳过此步骤。
+
++
+[listing]
+----
+FC_switch_A_1:admin> licenseport --method dynamic
+The POD method has been changed to dynamic.
+Please reboot the switch now for this change to take effect
+----
+
+
+. 重新启动交换机： ` * fastBOOT*`
++
+[listing]
+----
+FC_switch_A_1:admin> fastboot
+Warning: This command would cause the switch to reboot
+and result in traffic disruption.
+Are you sure you want to reboot the switch [y/n]?y
+----
+. 确认已实施默认设置： ` * switchshow*`
+. 验证是否已正确设置 IP 地址： ` * ipAddrShow*`
++
+如果需要，可以使用以下命令设置 IP 地址： ` * ipAddrSet*`
+
+

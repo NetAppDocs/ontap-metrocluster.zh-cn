@@ -1,0 +1,1741 @@
+---
+permalink: install-fc/concept_switch_ports_required_for_a_eight_node_mcc_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: ontap, metrocluster, 
+summary: 在将 ONTAP 系统连接到 FC 交换机以设置使用阵列 LUN 的 MetroCluster 配置时，必须将每个控制器中的 FC-VI 和 HBA 端口连接到特定交换机端口。 
+---
+= 使用阵列 LUN 的 MetroCluster 配置所需的交换机端口
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在将 ONTAP 系统连接到 FC 交换机以设置使用阵列 LUN 的 MetroCluster 配置时，必须将每个控制器中的 FC-VI 和 HBA 端口连接到特定交换机端口。
+
+如果在 MetroCluster 配置中同时使用阵列 LUN 和磁盘，则必须确保将控制器端口连接到为使用磁盘配置而建议的交换机端口，然后使用其余端口配置阵列 LUN 。
+
+下表列出了在使用阵列 LUN 的八节点 MetroCluster 配置中必须将不同控制器端口连接到的特定 FC 交换机端口。
+
+
+
+== 阵列 LUN 的总体布线准则
+
+使用布线表时，应注意以下准则：
+
+* Brocade 和 Cisco 交换机使用不同的端口编号：
++
+** 在 Brocade 交换机上，第一个端口编号为 0 。
+** 在 Cisco 交换机上，第一个端口编号为 1 。
+
+
+* 交换机网络结构中的每个 FC 交换机的布线方式相同。
+* FAS8200 存储系统可以订购两个 FC-VI 连接选项之一：
++
+** 在 FC-VI 模式下配置的板载端口 0e 和 0f 。
+** 插槽 1 中 FC-VI 卡上的端口 1a 和 1b 。
+
+
+* FAS9000 存储系统需要四个 FC-VI 端口。下表显示了每个控制器上具有四个 FC-VI 端口的 FC 交换机的布线情况。
++
+对于其他存储系统，请使用表中所示的布线方式，但忽略 FC-VI 端口 c 和 d 的布线方式
+
++
+您可以将这些端口留空。
+
+
+
+
+
+== MetroCluster 配置中控制器的 Brocade 端口使用情况
+
+下表显示了 Brocade 交换机上的端口使用情况。下表显示了支持的最大配置，其中两个 DR 组包含八个控制器模块。对于较小的配置，请忽略其他控制器模块对应的行。请注意， Brocade 6510 和 G620 交换机支持八个 ISL 。
+
+
+NOTE: 未显示八节点 MetroCluster 配置中 Brocade 6505 交换机的端口使用情况。由于端口数量有限，必须根据控制器模块型号以及所使用的 ISL 和网桥对的数量逐个站点分配端口。
+
+下表显示了第一个 DR 组的布线：
+
+[cols="4*"]
+|===
+2+|  2+| Brocade 6520 ， 6510 ， 6505 ， G620 ， G610 ， 或 7840 交换机 
+
+
+| * 组件 * | * 端口 * | * 交换机 1* | * 交换机 2* 
+
+
+.8+| controller_x_1  a| 
+FC-VI 端口 A
+ a| 
+0
+ a| 
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+0
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+1.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+1.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+2.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+2.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+3.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+3.
+
+
+
+.8+| controller_x_2  a| 
+FC-VI 端口 A
+ a| 
+4.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+4.
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+5.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+5.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+6.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+6.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+7.
+
+|===
+下表显示了第二个 DR 组的布线：
+
+[cols="*8"]
+|===
+2+|  2+| Brocade 6510 2+| Brocade 6520 2+| Brocade G620 
+
+
+| * 组件 * | * 端口 * | * 交换机 1* | * 交换机 2* | * 交换机 1* | * 交换机 2* | * 交换机 1* | * 交换机 2* 
+
+
+.8+| controller_x_3  a| 
+FC-VI 端口 A
+ a| 
+24
+ a| 
+-
+ a| 
+48
+ a| 
+-
+ a| 
+18
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+24
+ a| 
+-
+ a| 
+48
+ a| 
+-
+ a| 
+18
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+25.
+ a| 
+-
+ a| 
+49
+ a| 
+-
+ a| 
+19
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+25.
+ a| 
+-
+ a| 
+49
+ a| 
+-
+ a| 
+19
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+26
+ a| 
+-
+ a| 
+50
+ a| 
+-
+ a| 
+24
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+26
+ a| 
+-
+ a| 
+50
+ a| 
+-
+ a| 
+24
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+27
+ a| 
+-
+ a| 
+51
+ a| 
+-
+ a| 
+25.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+27
+ a| 
+-
+ a| 
+51
+ a| 
+-
+ a| 
+25.
+
+
+
+.8+| controller_x_4  a| 
+FC-VI 端口 A
+ a| 
+28
+ a| 
+-
+ a| 
+52
+ a| 
+-
+ a| 
+22.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+28
+ a| 
+-
+ a| 
+52
+ a| 
+-
+ a| 
+22.
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+29
+ a| 
+-
+ a| 
+53.
+ a| 
+-
+ a| 
+23
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+29
+ a| 
+-
+ a| 
+53.
+ a| 
+-
+ a| 
+23
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+30 个
+ a| 
+-
+ a| 
+54
+ a| 
+-
+ a| 
+28
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+30 个
+ a| 
+-
+ a| 
+54
+ a| 
+-
+ a| 
+28
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+31
+ a| 
+-
+ a| 
+55
+ a| 
+-
+ a| 
+29
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+31
+ a| 
+-
+ a| 
+55
+ a| 
+-
+ a| 
+29
+
+
+
+.2+| * ISL *  a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+ISL 1
+
+
+
+ a| 
+40
+ a| 
+40
+ a| 
+23
+ a| 
+23
+ a| 
+40
+ a| 
+40
+ a| 
+ISL 2.
+
+
+
+ a| 
+41.
+ a| 
+41.
+ a| 
+47
+ a| 
+47
+ a| 
+41.
+ a| 
+41.
+ a| 
+ISL 3.
+ a| 
+42
+
+
+
+ a| 
+42
+ a| 
+71.
+ a| 
+71.
+ a| 
+42
+ a| 
+42
+ a| 
+ISL 4.
+ a| 
+43
+ a| 
+43
+
+
+
+ a| 
+95
+ a| 
+95
+ a| 
+43
+ a| 
+43
+ a| 
+ISL 5.
+ a| 
+44
+ a| 
+44
+.4+| 不支持 
+
+
+ a| 
+44
+ a| 
+44
+ a| 
+ISL 6.
+ a| 
+45
+ a| 
+45
+ a| 
+45
+ a| 
+45
+
+
+
+ a| 
+ISL 7.
+ a| 
+46
+ a| 
+46
+ a| 
+46
+ a| 
+46
+ a| 
+ISL 8.
+ a| 
+47
+
+|===
+
+
+== 运行 ONTAP 9.4 或更高版本的 MetroCluster 配置中控制器的 Cisco 端口使用情况
+
+下表显示了支持的最大配置，其中两个 DR 组包含八个控制器模块。对于较小的配置，请忽略其他控制器模块对应的行。
+
+[cols="4*"]
+|===
+4+| Cisco 9396S 
+
+
+| * 组件 * | * 端口 * | * 交换机 1* | * 交换机 2* 
+
+
+.8+| controller_x_1  a| 
+FC-VI 端口 A
+ a| 
+1.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+1.
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+2.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+2.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+3.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+3.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+4.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+4.
+
+
+
+.8+| controller_x_2  a| 
+FC-VI 端口 A
+ a| 
+5.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+5.
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+6.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+6.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+8.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+8.
+
+
+
+.8+| controller_x_3  a| 
+FC-VI 端口 A
+ a| 
+49
+ a| 
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+49
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+50
+ a| 
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+50
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+51
+ a| 
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+51
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+52
+ a| 
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+52
+
+
+
+.8+| controller_x_4  a| 
+FC-VI 端口 A
+ a| 
+53.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+53.
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+54
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+54
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+55
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+55
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+56
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+56
+
+|===
+[cols="4*"]
+|===
+
+
+4+| Cisco 9148S 
+
+
+| * 组件 * | * 端口 * | * 交换机 1* | * 交换机 2* 
+
+
+.8+| controller_x_1  a| 
+FC-VI 端口 A
+ a| 
+1.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+1.
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+2.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+2.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+3.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+3.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+4.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+4.
+
+
+
+.8+| controller_x_2  a| 
+FC-VI 端口 A
+ a| 
+5.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+5.
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+6.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+6.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+8.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+8.
+
+
+
+.8+| controller_x_3  a| 
+FC-VI 端口 A
+ a| 
+25.
+ a| 
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+25.
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+26
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+26
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+27
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+27
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+28
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+28
+
+
+
+.8+| controller_x_4  a| 
+FC-VI 端口 A
+ a| 
+29
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+29
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+30 个
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+30 个
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+31
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+31
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+32
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+32
+
+|===
+[cols="4*"]
+|===
+4+| Cisco 9132T 
+
+
+4+| MDS 模块 1 
+
+
+| * 组件 * | * 端口 * | * 交换机 1* | * 交换机 2* 
+
+
+.8+| controller_x_1  a| 
+FC-VI 端口 A
+ a| 
+1.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+1.
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+2.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+2.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+3.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+3.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+4.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+4.
+
+
+
+.8+| controller_x_2  a| 
+FC-VI 端口 A
+ a| 
+5.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+5.
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+6.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+-
+ a| 
+6.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+8.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+8+4
+
+
+
+| * MDS 模块 2*  a| 
+* 组件 *
+ a| 
+* 端口 *
+ a| 
+* 交换机 1*
+
+
+
+ a| 
+* 交换机 2*
+.8+| controller_x_3  a| 
+FC-VI 端口 A
+ a| 
+1.
+
+
+
+ a| 
+-
+ a| 
+FC-VI 端口 b
+ a| 
+-
+
+
+
+ a| 
+1.
+ a| 
+FC-VI 端口 c
+ a| 
+2.
+
+
+
+ a| 
+-
+ a| 
+FC-VI 端口 d
+ a| 
+-
+
+
+
+ a| 
+2.
+ a| 
+HBA 端口 A
+ a| 
+3.
+
+
+
+ a| 
+-
+ a| 
+HBA 端口 b
+ a| 
+-
+
+
+
+ a| 
+3.
+ a| 
+HBA 端口 c
+ a| 
+4.
+
+
+
+ a| 
+-
+ a| 
+HBA 端口 d
+ a| 
+-
+
+
+
+ a| 
+4.
+.8+| controller_x_4  a| 
+FC-VI 端口 A
+ a| 
+5.
+
+
+
+ a| 
+-
+ a| 
+FC-VI 端口 b
+ a| 
+-
+
+
+
+ a| 
+5.
+ a| 
+FC-VI 端口 c
+ a| 
+6.
+
+
+
+ a| 
+-
+ a| 
+FC-VI 端口 d
+ a| 
+-
+
+
+
+ a| 
+6.
+ a| 
+HBA 端口 A
+ a| 
+7.
+
+
+
+ a| 
+-
+ a| 
+HBA 端口 b
+ a| 
+-
+
+
+
+ a| 
+7.
+ a| 
+HBA 端口 c
+ a| 
+8.
+
+
+
+ a| 
+-
+ a| 
+HBA 端口 d
+ a| 
+-
+
+|===
+* 注： * 下表显示了具有两个 FC-VI 端口的系统。AFF A700 和 FAS9000 系统具有四个 FC-VI 端口（ a ， b ， c 和 d ）。如果使用的是 AFF A700 或 FAS9000 系统，则端口分配会移动一个位置。例如， FC-VI 端口 c 和 d 转到交换机端口 2 ， HBA 端口 a 和 b 转到交换机端口 3 。
+
+[cols="4*"]
+|===
+4+| Cisco 9250i* 
+
+
+| * 组件 * | * 端口 * | * 交换机 1* | * 交换机 2* 
+
+
+.6+| controller_x_1  a| 
+FC-VI 端口 A
+ a| 
+1.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+1.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+2.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+2.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+3.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+3.
+
+
+
+.6+| controller_x_2  a| 
+FC-VI 端口 A
+ a| 
+4.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+4.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+5.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+5.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+6.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+6.
+
+
+
+.6+| controller_x_3  a| 
+FC-VI 端口 A
+ a| 
+7.
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+7.
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+8.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+8.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+9
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+9
+
+
+
+.6+| controller_x_4  a| 
+FC-VI 端口 A
+ a| 
+10
+ a| 
+-
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+-
+ a| 
+10
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+11.
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+-
+ a| 
+11.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+13
+ a| 
+-
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+-
+ a| 
+13
+
+|===
+* 注 * ：八节点 MetroCluster 配置不支持 Cisco 9250i 交换机。
+
+
+
+== 为使用阵列 LUN 的 MetroCluster 配置提供共享启动程序和共享目标支持
+
+能够共享给定的 FC 启动程序端口或目标端口对于希望最大程度地减少所用启动程序或目标端口数量的组织非常有用。例如，如果企业希望 FC 启动程序端口或目标端口的 I/O 使用率较低，则可能更愿意共享 FC 启动程序端口或目标端口，而不是将每个 FC 启动程序端口专用于一个目标端口。
+
+但是，共享启动程序或目标端口可能会对性能产生不利影响。
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_support_Shared_Initiator_and_Shared_Target_configuration_with_Array_LUNs_in_a_MetroCluster_environment["如何在 MetroCluster 环境中支持使用阵列 LUN 的共享启动程序和共享目标配置"]

@@ -1,0 +1,63 @@
+---
+permalink: upgrade/task_change_the_ha_config_setts_mcc_add_a_2nd_controller.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, change, ha, config, sett, existing, new, controller, modules 
+summary: 扩展 MetroCluster 配置时，必须更新现有控制器模块和新控制器模块的 ha-config 设置。您还必须确定新控制器模块的系统 ID 。 
+---
+= 更改现有控制器模块和新控制器模块上的 ha-config 设置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+扩展 MetroCluster 配置时，必须更新现有控制器模块和新控制器模块的 ha-config 设置。您还必须确定新控制器模块的系统 ID 。
+
+此任务将在现有和新控制器模块的维护模式下执行。
+
+.步骤
+. 更改现有控制器模块的 ha-config 设置：
++
+.. 显示现有控制器模块和机箱的 ha-config 设置： + ` * ha-config show*`
++
+所有组件的 ha-config 设置均为 `mcc-2n` ，因为控制器模块采用双节点 MetroCluster 配置。
+
+.. 将现有控制器模块的 ha-config 设置更改为 mcc ： + ` * ha-config modify controller mcc*`
+.. 将现有机箱的 ha-config 设置更改为 mcc ：
++
+` * ha-config modify chassis mcc*`
+
+.. 检索现有控制器模块的系统 ID ：
++
+` * sysconfig*`
+
++
+记下系统 ID 。在新控制器模块上设置配对 ID 时需要此 ID 。
+
+.. 退出维护模式以返回到 LOADER 提示符：
++
+` * 暂停 *`
+
+
+
+. 更改 ha-config 设置并检索新控制器模块的系统 ID ：
++
+.. 如果新控制器模块尚未处于维护模式，请将其启动至维护模式： + ` * boot_ontap maint*`
+.. 将新控制器模块的 ha-config 设置更改为 mcc ：
++
+` * ha-config modify controller mcc*`
+
+.. 将新机箱的 ha-config 设置更改为 mcc ：
++
+` * ha-config modify chassis mcc*`
+
+.. 检索新控制器模块的系统 ID ：
++
+` * sysconfig*`
+
++
+记下系统 ID 。在设置配对 ID 并将磁盘分配给新控制器模块时，您需要此 ID 。
+
+.. 退出维护模式以返回到 LOADER 提示符： + ` * halt*`
+
+
+

@@ -1,0 +1,20 @@
+---
+permalink: upgrade/task_boot_the_exist_controller_module.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, boot, existing, controller, module 
+summary: 您必须将现有控制器模块启动到 ONTAP 。 
+---
+= 启动现有控制器模块
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须将现有控制器模块启动到 ONTAP 。
+
+.步骤
+. 在 LOADER 提示符处，将现有控制器模块启动到 ONTAP ：
++
+` * boot_ontap*`
+
+

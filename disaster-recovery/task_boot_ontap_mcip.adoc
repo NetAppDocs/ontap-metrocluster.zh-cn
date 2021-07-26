@@ -1,0 +1,192 @@
+---
+permalink: disaster-recovery/task_boot_ontap_mcip.html 
+sidebar: sidebar 
+keywords: metrocluster, ip, configuration, replacement, controller, module, disaster, site, boot 
+summary: 您必须将灾难站点上的替代节点启动到 ONTAP 操作系统。 
+---
+= 在 MetroCluster IP 配置中的替代控制器模块上启动到 ONTAP
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须将灾难站点上的替代节点启动到 ONTAP 操作系统。
+
+此任务从处于维护模式的灾难站点上的节点开始。
+
+.步骤
+. 在一个替代节点上，退出到 LOADER 提示符： `halt`
+. 显示启动菜单： `boot_ontap menu`
+. 从启动菜单中，选择选项 6 * 从备份配置更新闪存 * 。
++
+系统启动两次。系统提示您继续时，您应回答 `yes` 。在第二次启动后，当系统 ID 不匹配时，您应响应 `y` 。
+
++
+
+NOTE: 如果未清除已用替代控制器模块的 NVRAM 内容，则可能会看到以下崩溃消息： `panic ： NVRAM 内容无效 ...` 如果发生这种情况，请将系统重新启动到 ONTAP 提示符（`boot_ontap menu` ）。然后，您需要执行根恢复。请联系技术支持以获得帮助。
+
++
+** 确认继续提示：
++
+[listing]
+----
+Selection (1-9)? 6
+
+This will replace all flash-based configuration with the last backup to
+disks. Are you sure you want to continue?: yes
+----
+** 系统 ID 不匹配提示：
++
+[listing]
+----
+WARNING: System ID mismatch. This usually occurs when replacing a boot device or NVRAM cards!
+Override system ID? {y|n} y
+----
+
+
+. 在正常运行的站点中，验证是否已将正确的配对系统 ID 应用于节点：
++
+`MetroCluster node show -fields node-systemID ， ha-partner-systemID ， dr-partner-systemID ， dr-auxiliary-systemID`
+
++
+--
+在此示例中，输出中应显示以下新的系统 ID ：
+
+** node_A_1 ： 1574774970
+** node_A_2 ： 1574774991
+
+
+"ha-partner-systemID" 列应显示新的系统 ID 。
+
+[listing]
+----
+metrocluster node show -fields node-systemid,ha-partner-systemid,dr-partner-systemid,dr-auxiliary-systemid
+
+dr-group-id cluster    node      node-systemid ha-partner-systemid dr-partner-systemid dr-auxiliary-systemid
+----------- ---------- --------  ------------- ------ ------------ ------ ------------ ------ --------------
+1           Cluster_A  Node_A_1  1574774970    1574774991          4068741254          4068741256
+1           Cluster_A  Node_A_2  1574774991    1574774970          4068741256          4068741254
+1           Cluster_B  Node_B_1  -             -                   -                   -
+1           Cluster_B  Node_B_2  -             -                   -                   -
+4 entries were displayed.
+----
+--
+. 如果未正确设置配对系统 ID ，则必须手动设置正确的值：
++
+.. 暂停并显示节点上的 LOADER 提示符。
+.. 验证 partner-sysID bootarg 的当前值：
++
+`printenv`
+
+.. 将此值设置为正确的配对系统 ID ：
++
+`setenv partner-sysid partner-sysID`
+
+.. 启动节点：
++
+`boot_ontap`
+
+.. 如有必要，在另一节点上重复这些子步骤。
+
+
+. 确认灾难站点上的替代节点已做好切回准备：
++
+`MetroCluster node show`
+
++
+替代节点应处于等待切回恢复模式。如果它们处于正常模式，则可以重新启动替代节点。启动后，节点应处于等待切回恢复模式。
+
++
+以下示例显示替代节点已做好切回准备：
+
++
+[listing]
+----
+cluster_B::> metrocluster node show
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_B
+              node_B_1           configured     enabled   switchover completed
+              node_B_2           configured     enabled   switchover completed
+      cluster_A
+              node_A_1           configured     enabled   waiting for switchback recovery
+              node_A_2           configured     enabled   waiting for switchback recovery
+4 entries were displayed.
+
+cluster_B::>
+----
+. 验证 MetroCluster 连接配置设置：
++
+`MetroCluster configuration-settings connection show`
+
++
+配置状态应指示已完成。
+
++
+[listing]
+----
+cluster_B::*> metrocluster configuration-settings connection show
+DR                    Source          Destination
+Group Cluster Node    Network Address Network Address Partner Type Config State
+----- ------- ------- --------------- --------------- ------------ ------------
+1     cluster_B
+              node_B_2
+                 Home Port: e5a
+                      172.17.26.13    172.17.26.12    HA Partner   completed
+                 Home Port: e5a
+                      172.17.26.13    172.17.26.10    DR Partner   completed
+                 Home Port: e5a
+                      172.17.26.13    172.17.26.11    DR Auxiliary completed
+                 Home Port: e5b
+                      172.17.27.13    172.17.27.12    HA Partner   completed
+                 Home Port: e5b
+                      172.17.27.13    172.17.27.10    DR Partner   completed
+                 Home Port: e5b
+                      172.17.27.13    172.17.27.11    DR Auxiliary completed
+              node_B_1
+                 Home Port: e5a
+                      172.17.26.12    172.17.26.13    HA Partner   completed
+                 Home Port: e5a
+                      172.17.26.12    172.17.26.11    DR Partner   completed
+                 Home Port: e5a
+                      172.17.26.12    172.17.26.10    DR Auxiliary completed
+                 Home Port: e5b
+                      172.17.27.12    172.17.27.13    HA Partner   completed
+                 Home Port: e5b
+                      172.17.27.12    172.17.27.11    DR Partner   completed
+                 Home Port: e5b
+                      172.17.27.12    172.17.27.10    DR Auxiliary completed
+      cluster_A
+              node_A_2
+                 Home Port: e5a
+                      172.17.26.11    172.17.26.10    HA Partner   completed
+                 Home Port: e5a
+                      172.17.26.11    172.17.26.12    DR Partner   completed
+                 Home Port: e5a
+                      172.17.26.11    172.17.26.13    DR Auxiliary completed
+                 Home Port: e5b
+                      172.17.27.11    172.17.27.10    HA Partner   completed
+                 Home Port: e5b
+                      172.17.27.11    172.17.27.12    DR Partner   completed
+                 Home Port: e5b
+                      172.17.27.11    172.17.27.13    DR Auxiliary completed
+              node_A_1
+                 Home Port: e5a
+                      172.17.26.10    172.17.26.11    HA Partner   completed
+                 Home Port: e5a
+                      172.17.26.10    172.17.26.13    DR Partner   completed
+                 Home Port: e5a
+                      172.17.26.10    172.17.26.12    DR Auxiliary completed
+                 Home Port: e5b
+                      172.17.27.10    172.17.27.11    HA Partner   completed
+                 Home Port: e5b
+                      172.17.27.10    172.17.27.13    DR Partner   completed
+                 Home Port: e5b
+                      172.17.27.10    172.17.27.12    DR Auxiliary completed
+24 entries were displayed.
+
+cluster_B::*>
+----
+. 在灾难站点的另一个节点上重复上述步骤。
+

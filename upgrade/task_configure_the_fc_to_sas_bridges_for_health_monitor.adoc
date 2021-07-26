@@ -1,0 +1,66 @@
+---
+permalink: upgrade/task_configure_the_fc_to_sas_bridges_for_health_monitor.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, configure, fc, sas, bridges, health, monitoring 
+summary: FibreBridge 网桥不支持第三方 SNMP 监控工具。从 ONTAP 9.8 开始，默认情况下， FC-SAS 网桥通过带内连接进行监控，不需要进行其他配置。 
+---
+= 配置 FC-SAS 网桥以进行运行状况监控
+:icons: font
+:imagesdir: ../media/
+
+
+* FibreBridge 网桥不支持第三方 SNMP 监控工具。
+* 从 ONTAP 9.8 开始，默认情况下， FC-SAS 网桥通过带内连接进行监控，不需要进行其他配置。
+
+
+
+NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+
+.步骤
+. 在 ONTAP 集群提示符处，将此网桥添加到运行状况监控：
++
+.. 使用适用于您的 ONTAP 版本的命令添加网桥：
++
+|===
+| ONTAP 版本 | 命令 
+
+
+ a| 
+9.5 及更高版本
+ a| 
+` * 存储网桥 add -address 0.0.0.0 -managed-by 带内 -name _bridge-name_*`
+
+
+
+ a| 
+9.4 及更早版本
+ a| 
+` * 存储网桥 add -address _bridge-ip-address_ -name _bridge-name_*`
+
+|===
+.. 确认已添加网桥并已正确配置： + ` * storage bridge show*`
++
+由于轮询间隔，可能需要长达 15 分钟才能反映所有数据。如果 ` * 状态 *` 列中的值为 ` * ok*` ，并且显示了其他信息，例如全球通用名称（ WWN ），则 ONTAP 运行状况监控器可以联系并监控网桥。
+
++
+以下示例显示已配置 FC-SAS 网桥：
+
++
+[listing]
+----
+controller_A_1::> storage bridge show
+
+Bridge              Symbolic Name Is Monitored  Monitor Status  Vendor Model                Bridge WWN
+------------------  ------------- ------------  --------------  ------ -----------------    ----------
+ATTO_10.10.20.10  atto01        true          ok              Atto   FibreBridge 7500N   	20000010867038c0
+ATTO_10.10.20.11  atto02        true          ok              Atto   FibreBridge 7500N   	20000010867033c0
+ATTO_10.10.20.12  atto03        true          ok              Atto   FibreBridge 7500N   	20000010867030c0
+ATTO_10.10.20.13  atto04        true          ok              Atto   FibreBridge 7500N   	2000001086703b80
+
+4 entries were displayed
+
+ controller_A_1::>
+----
+
+
+

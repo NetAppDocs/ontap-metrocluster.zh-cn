@@ -1,0 +1,26 @@
+---
+permalink: upgrade/task_set_the_partner_system_id_for_both_controller_modules.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, set, up, partner, system, id, controller, module 
+summary: 您必须在两个控制器模块上设置配对系统 ID ，以便它们可以形成 HA 对。 
+---
+= 设置两个控制器模块的配对系统 ID
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须在两个控制器模块上设置配对系统 ID ，以便它们可以形成 HA 对。
+
+此任务将在 LOADER 提示符处对两个控制器模块执行。
+
+.步骤
+. 在现有控制器模块上，将配对系统 ID 设置为新控制器模块的配对系统 ID ：
++
+` * setenv partner-sysid _sysID_of_new_controller_*`
+
+. 在新控制器模块上，将配对系统 ID 设置为现有控制器模块的配对系统 ID ：
++
+` * setenv partner-sysid _sysID_of_existing_controller_*`
+
+

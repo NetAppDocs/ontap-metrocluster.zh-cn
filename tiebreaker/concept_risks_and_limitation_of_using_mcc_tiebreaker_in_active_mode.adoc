@@ -1,0 +1,25 @@
+---
+permalink: tiebreaker/concept_risks_and_limitation_of_using_mcc_tiebreaker_in_active_mode.html 
+sidebar: sidebar 
+keywords: switchover, upon, detection, site, failure, automatic, metrocluster, tiebreaker, active, mode, supplement, ontap, fas, capability, risk, limitation 
+summary: 检测到站点故障时自动切换， MetroCluster Tiebreaker 处于活动模式。此模式可用于补充 ONTAP/FAS 自动切换功能。 
+---
+= 在主动模式下使用 MetroCluster Tiebreaker 的风险和限制
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+检测到站点故障时自动切换， MetroCluster Tiebreaker 处于活动模式。此模式可用于补充 ONTAP/FAS 自动切换功能。
+
+在主动模式下实施 MetroCluster Tiebreaker 时，以下已知问题可能会导致数据丢失：
+
+* 当站点间链路出现故障时，每个站点上的控制器将继续为客户端提供服务。但是，控制器不会进行镜像。一个站点中的控制器故障被确定为站点故障， MetroCluster Tiebreaker 将启动切换。在远程站点发生站点间链路故障后未镜像的数据将丢失。
+* 如果远程站点中的聚合处于已降级状态，则会发生切换。如果在聚合重新同步之前发生切换，则不会复制数据。
+* 正在进行切换时，远程存储发生故障。
+* 存储控制器中的非易失性内存（ NVRAM 或 NVMEM ，具体取决于平台型号）不会镜像到配对站点上的远程灾难恢复（ DR ）配对节点。
+* 如果集群对等网络长时间关闭，并且在切换后元数据卷未联机，则元数据将丢失。
+
+
+
+NOTE: 您可能会遇到未提及的情形。对于在主动模式下使用 MetroCluster Tiebreaker 可能造成的任何损坏， NetApp 概不负责。如果您无法接受风险和限制，请勿在主动模式下使用 MetroCluster Tiebreaker 。

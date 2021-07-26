@@ -1,0 +1,26 @@
+---
+permalink: transition/concept_supported_platforms_for_transition.html 
+sidebar: sidebar 
+keywords: transition, metrocluster, ip, configuration, combination, support, platform, model, nondisruptive 
+summary: 然后过渡到 MetroCluster IP 配置，您必须同时拥有受支持的平台型号。 
+---
+= 支持无中断过渡的平台
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+然后过渡到 MetroCluster IP 配置，您必须同时拥有受支持的平台型号。
+
+下表显示了支持的平台组合。您可以从左侧列中的平台过渡到右侧列中列出的受支持平台，如绿色表单元格所示。
+
+* 绿色单元格显示支持此组合。
+* 白色（空白）单元格表示此组合不受支持。
+
+
+例如，支持从包含 AFF8060 控制器模块的 MetroCluster FC 配置过渡到包含 AFF A400 控制器模块的 IP 配置。
+
+
+NOTE: 不支持过渡到 Cisco 9336C-x2 共享交换机配置。
+
+image::../media/transition_supported_platform_combinations.png[过渡支持的平台组合]

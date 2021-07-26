@@ -1,0 +1,20 @@
+---
+permalink: upgrade/task_install_firmware_after_add_a_controller_module.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, install, firmware, add, controller, module 
+summary: 添加控制器模块后，您必须在新控制器模块上安装最新固件，以使控制器模块能够在 ONTAP 中正常运行。 
+---
+= 添加控制器模块后安装固件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+添加控制器模块后，您必须在新控制器模块上安装最新固件，以使控制器模块能够在 ONTAP 中正常运行。
+
+.步骤
+. 下载适用于您的系统的最新版本固件，并按照说明下载和安装新固件。
++
+https://mysupport.netapp.com/site/downloads/firmware/system-firmware-diagnostics["NetApp 下载：系统固件和诊断"]
+
+

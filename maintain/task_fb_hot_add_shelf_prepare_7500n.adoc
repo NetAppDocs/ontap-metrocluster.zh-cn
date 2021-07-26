@@ -1,0 +1,59 @@
+---
+permalink: maintain/task_fb_hot_add_shelf_prepare_7500n.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, prepare, hot, add, sas, disk, shelves 
+summary: 准备热添加 SAS 磁盘架包括下载文档以及磁盘驱动器和磁盘架固件。 
+---
+= 准备热添加 SAS 磁盘架
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+准备热添加 SAS 磁盘架包括下载文档以及磁盘驱动器和磁盘架固件。
+
+* 您的系统必须是受支持的配置，并且必须运行受支持的 ONTAP 版本。
+* 系统中的所有磁盘驱动器和磁盘架都必须运行最新版本的固件。
++
+您可能希望在添加磁盘架之前更新整个 MetroCluster 配置中的磁盘和磁盘架固件。
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["升级，还原或降级"]
+
+
+
+
+NOTE: 如果您的系统运行的是受支持的 ONTAP 版本，则在同一个堆栈中支持混合使用 IOM12 模块和 IOM6 模块。要确定您的 ONTAP 版本是否支持混用磁盘架， 请参阅互操作性表工具（ IMT ）。 https://mysupport.netapp.com/NOW/products/interoperability[NetApp 互操作性 ] 如果您的 ONTAP 版本不受支持，并且您无法升级或降级现有堆栈或要添加到受支持的 IOM 模块组合中的新磁盘架上的 IOM 模块， 您需要执行以下操作之一：
+
+* 在新 SAS 端口上启动新堆栈（如果网桥对支持）。
+* 在另一个网桥对上启动新堆栈。
+
+
+.步骤
+. 从 NetApp 支持站点下载或查看以下文档：
++
+** https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+** 适用于您的磁盘架型号的安装指南 _ 。
+
+
+. 验证您要热添加的磁盘架是否受支持。
++
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
+. 下载最新的磁盘和磁盘架固件：
++
+
+NOTE: 在此步骤中，您只能完成链接中提供的说明的下载部分。您需要按照中的步骤进行操作 xref:task_fb_hot_add_a_disk_shelf_install_7500n.adoc[热添加磁盘架] 有关安装磁盘架的章节。
+
++
+.. 下载磁盘固件并为磁盘固件说明创建一份副本，以供日后参考。
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"]
+
+.. 下载磁盘架固件并为磁盘架固件说明创建一份副本，以供日后参考。
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"]
+
+
+
+

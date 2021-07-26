@@ -1,0 +1,294 @@
+---
+permalink: manage/concept_monitoring_the_mcc_configuration.html 
+sidebar: sidebar 
+keywords: ontap, metrocluster, command, active, iq, unified, manager, oncommand, unified, monitor, health, software, state, component, operation, check, configuration, configuration, detect, failure, netapp, tiebreaker, software 
+summary: 您可以使用 ONTAP MetroCluster 命令和 Active IQ Unified Manager （以前称为 OnCommand Unified Manager ）监控各种软件组件的运行状况以及 MetroCluster 操作的状态。 
+---
+= 监控 MetroCluster 配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 ONTAP MetroCluster 命令和 Active IQ Unified Manager （以前称为 OnCommand Unified Manager ）监控各种软件组件的运行状况以及 MetroCluster 操作的状态。
+
+
+
+== 正在检查 MetroCluster 配置
+
+[role="lead"]
+您可以检查 MetroCluster 配置中的组件和关系是否工作正常。您应在初始配置后以及对 MetroCluster 配置进行任何更改后执行检查。您还应在协商（计划内）切换或切回操作之前执行检查。
+
+如果在任一集群或同时在这两个集群上短时间内发出 `MetroCluster check run` 命令两次，则可能发生冲突，并且此命令可能无法收集所有数据。后续的 `MetroCluster check show` 命令不会显示预期输出。
+
+.步骤
+. 检查配置：
++
+`MetroCluster check run`
+
++
+此命令作为后台作业运行，可能无法立即完成。
+
++
+[listing]
+----
+cluster_A::> metrocluster check run
+The operation has been started and is running in the background. Wait for
+it to complete and run "metrocluster check show" to view the results. To
+check the status of the running metrocluster check operation, use the command,
+"metrocluster operation history show -job-id 2245"
+----
+. 显示最近一次运行 MetroCluster check run 命令的更详细结果：
++
+`MetroCluster check aggregate show`
+
++
+`MetroCluster check cluster show`
+
++
+`MetroCluster check config-replication show`
+
++
+`MetroCluster check lif show`
+
++
+`MetroCluster check node show`
+
++
+`MetroCluster check show` 命令可显示最新的 `MetroCluster check run` 命令的结果。在使用 `MetroCluster check show` 命令之前，应始终运行 `MetroCluster check run` 命令，以使显示的信息为最新信息。
+
++
+以下示例显示了运行正常的四节点 MetroCluster 配置的 `MetroCluster check aggregate show` 命令输出：
+
++
+[listing]
+----
+cluster_A::> metrocluster check aggregate show
+
+Last Checked On: 8/5/2014 00:42:58
+
+Node                  Aggregate                  Check                      Result
+---------------       --------------------       ---------------------      ---------
+controller_A_1        controller_A_1_aggr0
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+                      controller_A_1_aggr1
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+                      controller_A_1_aggr2
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+
+
+controller_A_2        controller_A_2_aggr0
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+                      controller_A_2_aggr1
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+                      controller_A_2_aggr2
+                                                 mirroring-status           ok
+                                                 disk-pool-allocation       ok
+                                                 ownership-state            ok
+
+18 entries were displayed.
+----
++
+以下示例显示了运行正常的四节点 MetroCluster 配置的 `MetroCluster check cluster show` 命令输出。它表示集群已准备好在必要时执行协商切换。
+
++
+[listing]
+----
+Last Checked On: 9/13/2017 20:47:04
+
+Cluster               Check                           Result
+--------------------- ------------------------------- ---------
+mccint-fas9000-0102
+                      negotiated-switchover-ready     not-applicable
+                      switchback-ready                not-applicable
+                      job-schedules                   ok
+                      licenses                        ok
+                      periodic-check-enabled          ok
+mccint-fas9000-0304
+                      negotiated-switchover-ready     not-applicable
+                      switchback-ready                not-applicable
+                      job-schedules                   ok
+                      licenses                        ok
+                      periodic-check-enabled          ok
+10 entries were displayed.
+----
+
+
+
+
+== 用于检查和监控 MetroCluster 配置的命令
+
+[role="lead"]
+您可以使用特定的 ONTAP 命令来监控 MetroCluster 配置和检查 MetroCluster 操作。
+
+
+
+=== 用于检查 MetroCluster 操作的命令
+
+|===
+| 如果您要 ... | 使用此命令 ... 
+
+
+ a| 
+对 MetroCluster 操作执行检查。
+
+* 注： * 不应将此命令用作执行灾难恢复前操作系统验证的唯一命令。
+ a| 
+`MetroCluster check run`
+
+
+
+ a| 
+查看上次检查 MetroCluster 操作的结果。
+ a| 
+`MetroCluster show`
+
+
+
+ a| 
+查看站点间配置复制检查的结果。
+ a| 
+`MetroCluster check config-replication show MetroCluster check config-replication show-aggregate-eligibility`
+
+
+
+ a| 
+查看节点配置检查的结果。
+ a| 
+`MetroCluster check node show`
+
+
+
+ a| 
+查看对聚合配置的检查结果。
+ a| 
+`MetroCluster check aggregate show`
+
+
+
+ a| 
+查看 MetroCluster 配置中的 LIF 放置故障。
+ a| 
+`MetroCluster check lif show`
+
+|===
+
+
+=== 用于监控 MetroCluster 互连的命令
+
+|===
+| 如果您要 ... | 使用此命令 ... 
+
+
+ a| 
+显示集群中 MetroCluster 节点的 HA 和 DR 镜像状态以及信息。
+ a| 
+`MetroCluster 互连镜像显示`
+
+|===
+
+
+=== 用于监控 MetroCluster SVM 的命令
+
+|===
+| 如果您要 ... | 使用此命令 ... 
+
+
+ a| 
+查看 MetroCluster 配置中两个站点中的所有 SVM 。
+ a| 
+`MetroCluster SVM show`
+
+|===
+
+
+== 使用 NetApp MetroCluster Tiebreaker 软件检测故障
+
+[role="lead"]
+Tiebreaker 软件位于 Linux 主机上。只有当您要从第三个站点监控两个集群及其连接状态时，才需要 Tiebreaker 软件。这样可以使集群中的每个配对节点区分站点间链路关闭时的 ISL 故障与站点故障。
+
+在 Linux 主机上安装 Tiebreaker 软件后，您可以在 MetroCluster 配置中配置集群以监控灾难情况。
+
+
+
+=== Tiebreaker 软件如何检测站点间连接故障
+
+[role="lead"]
+如果站点之间的所有连接都丢失， MetroCluster Tiebreaker 软件将向您发出警报。
+
+
+
+==== 网络路径的类型
+
+根据配置的不同， MetroCluster 配置中的两个集群之间有三种类型的网络路径：
+
+* * FC 网络（位于光纤连接的 MetroCluster 配置中） *
++
+此类网络由两个冗余 FC 交换机网络结构组成。每个交换机网络结构都有两个 FC 交换机，每个交换机网络结构有一个交换机与一个集群共存。每个集群都有两个 FC 交换机，每个交换机网络结构一个。所有节点都与每个主机代管 IP 交换机建立了 FC （ NV 互连和 FCP 启动程序）连接。数据通过 ISL 从集群复制到集群。
+
+* * 集群间对等网络 *
++
+此类网络由两个集群之间的冗余 IP 网络路径组成。集群对等网络可提供镜像 Storage Virtual Machine （ SVM ）配置所需的连接。一个集群上所有 SVM 的配置都会由配对集群进行镜像。
+
+* * IP 网络（存在于 MetroCluster IP 配置中） *
++
+此类网络由两个冗余 IP 交换机网络组成。每个网络都有两个 IP 交换机，每个交换机网络结构有一个交换机与一个集群共存。每个集群都有两个 IP 交换机，每个交换机网络结构一个。所有节点均可连接到每个主机代管 FC 交换机。数据通过 ISL 从集群复制到集群。
+
+
+
+
+
+==== 监控站点间连接
+
+Tiebreaker 软件会定期从节点检索站点间连接的状态。如果 NV 互连连接丢失，并且集群间对等不响应 ping ，则集群会假定站点已隔离， Tiebreaker 软件会触发警报 "AllLinksSevered" 。如果某个集群发现 "AllLinksSevered" 状态，而另一个集群无法通过网络访问，则 Tiebreaker 软件将触发警报 "disaster " 。
+
+
+
+=== Tiebreaker 软件如何检测站点故障
+
+[role="lead"]
+NetApp MetroCluster Tiebreaker 软件会检查 MetroCluster 配置和集群中节点的可访问性，以确定是否发生了站点故障。在某些情况下， Tiebreaker 软件还会触发警报。
+
+
+
+==== Tiebreaker 软件监控的组件
+
+Tiebreaker 软件可通过 IP 网络上托管的节点管理 LIF 和集群管理 LIF 的多条路径建立冗余连接，从而监控 MetroCluster 配置中的每个控制器。
+
+Tiebreaker 软件可监控 MetroCluster 配置中的以下组件：
+
+* 通过本地节点接口连接的节点
+* 通过集群指定的接口进行集群
+* 正常运行的集群，用于评估它是否与灾难站点（ NV 互连，存储和集群间对等）建立连接
+
+
+如果 Tiebreaker 软件与集群中的所有节点之间以及与集群本身之间的连接断开， Tiebreaker 软件将将此集群声明为 "`无法访问` " 。检测到连接故障大约需要三到五秒。如果无法从 Tiebreaker 软件访问某个集群，则正常运行的集群（仍可访问的集群）必须指示与配对集群的所有链路都已切断，然后 Tiebreaker 软件才会触发警报。
+
+
+NOTE: 如果正常运行的集群无法再通过 FC （ NV 互连和存储）和集群间对等与灾难站点上的集群通信，则所有链路都将切断。
+
+
+
+==== Tiebreaker 软件触发警报的故障情形
+
+如果灾难站点上的集群（所有节点）已关闭或无法访问，并且正常运行的站点上的集群指示 "AllLinksSeved" 状态，则 Tiebreaker 软件将触发警报。
+
+在以下情况下， Tiebreaker 软件不会触发警报（或警报被否决）：
+
+* 在八节点 MetroCluster 配置中，如果灾难站点上的一个 HA 对已关闭
+* 在灾难站点上的所有节点均已关闭的集群中，运行正常的站点上的一个 HA 对已关闭，而运行正常的站点上的集群指示 "AllLinksSeved" 状态
++
+Tiebreaker 软件会触发警报，但 ONTAP 会否决此警报。在这种情况下，手动切换也会被否决
+
+* 如果 Tiebreaker 软件至少可以访问灾难站点上的一个节点或集群接口，或者正常运行的站点仍然可以通过 FC （ NV 互连和存储）或集群间对等访问灾难站点上的任一节点，则可以执行此操作
+

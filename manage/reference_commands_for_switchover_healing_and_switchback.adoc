@@ -1,0 +1,67 @@
+---
+permalink: manage/reference_commands_for_switchover_healing_and_switchback.html 
+sidebar: sidebar 
+keywords: ontap, command, perform, metrocluster, disaster, recovery, process, switchover, heal, switchback 
+summary: 您可以使用特定的 ONTAP 命令来执行 MetroCluster 灾难恢复过程。 
+---
+= 用于切换，修复和切回的命令
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用特定的 ONTAP 命令来执行 MetroCluster 灾难恢复过程。
+
+[cols="2*"]
+|===
+| 如果您要 ... | 使用此命令 ... 
+
+
+ a| 
+验证是否可以执行切换，而不会出现错误或否决。
+ a| 
+`MetroCluster switchover -simulate` 在高级权限级别
+
+
+
+ a| 
+验证是否可以执行切回而不出现错误或否决。
+ a| 
+`MetroCluster switchback -simulate` 在高级权限级别
+
+
+
+ a| 
+切换到配对节点（协商切换）。
+ a| 
+`MetroCluster switchover`
+
+
+
+ a| 
+切换到配对节点（强制切换）。
+ a| 
+`MetroCluster switchover -forced-on-disaster true`
+
+
+
+ a| 
+执行数据聚合修复。
+ a| 
+`MetroCluster heal -phase aggregates`
+
+
+
+ a| 
+执行根聚合修复。
+ a| 
+`MetroCluster heal -phase root-aggregates`
+
+
+
+ a| 
+切换回主节点。
+ a| 
+`MetroCluster 切回`
+
+|===

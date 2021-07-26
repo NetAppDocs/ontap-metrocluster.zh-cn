@@ -1,0 +1,32 @@
+---
+permalink: upgrade/task_install_licenses_on_the_new_controller_module_cluster_mode.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, install, license, new, controller, module 
+summary: 您必须为需要标准 \ （节点锁定 \ ）许可证的任何 ONTAP 服务添加新控制器模块的许可证。对于具有标准许可证的功能，集群中的每个节点都必须具有自己的功能密钥。 
+---
+= 为新控制器模块安装许可证
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须为需要标准（节点锁定）许可证的任何 ONTAP 服务添加新控制器模块的许可证。对于具有标准许可证的功能，集群中的每个节点都必须具有自己的功能密钥。
+
+有关许可的详细信息，请参见 NetApp 支持站点上的知识库文章 3013749 ： Data ONTAP 8.2 许可概述和参考以及 _System Administration References 。
+
+.步骤
+. 如有必要，请在 NetApp 支持站点的软件许可证下的我的支持部分中获取新节点的许可证密钥。
++
+如果站点没有所需的许可证密钥，请联系您的销售或支持代表。
+
+. 问题描述使用以下命令安装每个许可证密钥：
++
+` * 系统许可证添加 -license-code _license_key_*`
+
++
+` _license_key_` 的长度为 28 位数。
+
++
+对所需的每个标准（节点锁定）许可证重复此步骤。
+
+

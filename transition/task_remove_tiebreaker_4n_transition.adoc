@@ -1,0 +1,23 @@
+---
+permalink: transition/task_remove_tiebreaker_4n_transition.html 
+sidebar: sidebar 
+keywords: Transitioning from MetroCluster FC to MetroCluster IP configurations, review, requirement, preparing, prepare, transition, perform, procedure, order, completing, complete, step, task, moving, move, controller, storage, shelves, shelf, exist, configuration, direct, metrocluster, fc, ip, verify, health, removing, remove, tiebreaker, monitor, software, generating, generate, apply, rcf, switch, controller, configure, prepare, preparing 
+summary: 如果使用 MetroCluster Tiebreaker 配置或可启动切换的其他第三方应用程序（例如 ClusterLion ）监控现有配置，则必须在过渡之前从 Tiebreaker 或其他软件中删除 MetroCluster 配置。 
+---
+= 从 Tiebreaker 或其他监控软件中删除现有配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果使用 MetroCluster Tiebreaker 配置或可启动切换的其他第三方应用程序（例如 ClusterLion ）监控现有配置，则必须在过渡之前从 Tiebreaker 或其他软件中删除 MetroCluster 配置。
+
+. 从 Tiebreaker 软件中删除现有 MetroCluster 配置。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-34C97A45-0BFF-46DD-B104-2AB2805A983D.html["删除 MetroCluster 配置"]
+
+. 从可以启动切换的任何第三方应用程序中删除现有 MetroCluster 配置。
++
+请参见该应用程序的文档。
+
+

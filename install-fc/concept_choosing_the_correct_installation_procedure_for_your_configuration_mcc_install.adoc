@@ -1,0 +1,41 @@
+---
+permalink: install-fc/concept_choosing_the_correct_installation_procedure_for_your_configuration_mcc_install.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, correct, procedure, configuration 
+summary: 您必须根据是否使用 FlexArray LUN ， MetroCluster 配置中的节点数以及是否共享 7- 模式光纤 MetroCluster 使用的现有 FC 交换机网络结构来选择正确的安装操作步骤。 
+---
+= 为您的配置选择正确的安装操作步骤
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须根据是否使用 FlexArray LUN ， MetroCluster 配置中的节点数以及是否共享 7- 模式光纤 MetroCluster 使用的现有 FC 交换机网络结构来选择正确的安装操作步骤。
+
+image::../media/workflow_select_your_metrocluster_configuration_fabric.gif[工作流选择 MetroCluster 配置网络结构]
+
+[cols="2*"]
+|===
+| 此安装类型 ... | 使用以下过程 ... 
+
+
+ a| 
+使用 NetApp （原生）磁盘的光纤连接配置
+ a| 
+. xref:task_configure_the_mcc_hardware_components_fabric.adoc[为光纤连接的 MetroCluster 配置布线]
+. xref:concept_configure_the_mcc_software_in_ontap.adoc[在 ONTAP 中配置 MetroCluster 软件]
+
+
+
+
+ a| 
+与现有 FC 交换机网络结构共享时的光纤连接配置
+
+此配置仅支持作为使用 Brocade 6510 交换机的 7- 模式光纤 MetroCluster 配置的临时配置。
+ a| 
+. xref:task_configure_the_mcc_hardware_components_fabric.adoc[为光纤连接的 MetroCluster 配置布线]
+. xref:task_fmc_mcc_transition_configure_the_mcc_hardware_for_share_a_7_mode_brocade_6510_fc_fabric_dure_transition.adoc[配置 MetroCluster 硬件以在过渡期间共享 7- 模式 Brocade 6510 FC 网络结构]
+. xref:concept_configure_the_mcc_software_in_ontap.adoc[在 ONTAP 中配置 MetroCluster 软件]
+
+
+|===

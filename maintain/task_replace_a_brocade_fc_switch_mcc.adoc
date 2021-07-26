@@ -1,0 +1,248 @@
+---
+permalink: maintain/task_replace_a_brocade_fc_switch_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, replace, brocade, fc, switch 
+summary: 您必须使用此 Brocade 专用操作步骤来更换发生故障的交换机。 
+---
+= 更换 Brocade FC 交换机
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须使用此 Brocade 专用操作步骤来更换发生故障的交换机。
+
+您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。
+
+在以下示例中， FC_switch_A_1 是运行正常的交换机， FC_switch_B_1 是受损的交换机。下表显示了示例中的交换机端口使用情况：
+
+|===
+| 端口连接 | 端口 
+
+
+ a| 
+FC-VI 连接
+ a| 
+0 ， 3.
+
+
+
+ a| 
+HBA 连接
+ a| 
+1 ， 2 ， 4 ， 5
+
+
+
+ a| 
+FC-SAS 网桥连接
+ a| 
+6 ， 7.
+
+
+
+ a| 
+ISL 连接
+ a| 
+10 ， 11
+
+|===
+这些示例显示了两个 FC-SAS 网桥。如果您拥有更多端口，则必须禁用并随后启用其他端口。
+
+
+NOTE: 此操作步骤不会造成系统中断，大约需要两小时才能完成。
+
+您的交换机端口使用情况应遵循建议的分配。
+
+* xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.adoc[使用 ONTAP 9.0 时 FC 交换机的端口分配]
+* xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.adoc[使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配]
+
+
+.步骤
+. 通过禁用网络结构中运行正常的交换机上的 ISL 端口以及受损交换机上的 FC-VI 和 HBA 端口来隔离正在更换的交换机（如果受损交换机仍在运行）：
++
+.. 在运行正常的交换机上为每个端口禁用 ISL 端口： + ` * portcfgpersistentdisable _port-number_*`
++
+[listing]
+----
+FC_switch_A_1:admin> portcfgpersistentdisable 10
+FC_switch_A_1:admin> portcfgpersistentdisable 11
+----
+.. 如果受损交换机仍在运行，请为每个端口禁用该交换机上的 FC-VI 和 HBA 端口： + ` * portcfgpersistentdisable _port-number_*`
++
+[listing]
+----
+FC_switch_B_1:admin> portcfgpersistentdisable 0
+FC_switch_B_1:admin> portcfgpersistentdisable 1
+FC_switch_B_1:admin> portcfgpersistentdisable 2
+FC_switch_B_1:admin> portcfgpersistentdisable 3
+FC_switch_B_1:admin> portcfgpersistentdisable 4
+FC_switch_B_1:admin> portcfgpersistentdisable 5
+----
+
+
+. 如果受损交换机仍在运行，请从 ` * switchshow*` 命令收集输出。
++
+[listing]
+----
+FC_switch_B_1:admin> switchshow
+    switchName: FC_switch_B_1
+    switchType: 71.2
+    switchState:Online
+    switchMode: Native
+    switchRole: Subordinate
+    switchDomain:       2
+    switchId:   fffc01
+    switchWwn:  10:00:00:05:33:86:89:cb
+    zoning:             OFF
+    switchBeacon:       OFF
+----
+. 在物理安装新交换机之前，启动并预配置此交换机：
++
+.. 启动新交换机并让其启动。
+.. 检查交换机上的固件版本以确认其与其他 FC 交换机的版本匹配： + ` * FirmwareShow *`
+.. 按照 _Brocade 安装和配置指南 _ 中所述配置新交换机，但跳过 "`在 MetroCluster FC 交换机上配置分区` " 一节。
++
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+
++
+您可以稍后在此操作步骤中配置分区。
+
++
+
+NOTE: 此时，新交换机未连接到 MetroCluster 配置。
+
+.. 禁用新交换机上的 FC-VI ， HBA 和存储端口以及连接到 FC-SAS 网桥的端口。
++
+[listing]
+----
+FC_switch_B_1:admin> portcfgpersistentdisable 0
+FC_switch_B_1:admin> portcfgpersistentdisable 1
+FC_switch_B_1:admin> portcfgpersistentdisable 2
+FC_switch_B_1:admin> portcfgpersistentdisable 3
+FC_switch_B_1:admin> portcfgpersistentdisable 4
+FC_switch_B_1:admin> portcfgpersistentdisable 5
+
+FC_switch_B_1:admin> portcfgpersistentdisable 6
+FC_switch_B_1:admin> portcfgpersistentdisable 7
+----
+
+
+. 物理更换交换机：
++
+.. 关闭受损 FC 交换机的电源。
+.. 关闭替代 FC 交换机的电源。
+.. 拔下受损交换机的缆线并将其卸下，仔细记下连接到哪些端口的缆线。
+.. 在机架中安装替代交换机。
+.. 完全按照旧交换机的布线方式为替代交换机布线。
+.. 打开新 FC 交换机的电源。
+
+
+. 如果要启用 ISL 加密，请完成中的适用任务 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["《光纤连接的 MetroCluster 安装和配置指南》"]。
++
+如果要启用 ISL 加密，则需要完成以下任务：
+
++
+** 禁用虚拟网络结构
+** 设置有效负载
+** 设置身份验证策略
+** 在 Brocade 交换机上启用 ISL 加密
+
+
+. 完成新交换机的配置：
++
+.. 启用 ISL ： + ` * 端口 cfgpersistentenable _port-number_*`
++
+[listing]
+----
+FC_switch_B_1:admin> portcfgpersistentenable 10
+FC_switch_B_1:admin> portcfgpersistentenable 11
+----
+.. 在替代交换机（示例中为 FC_switch_B_1 ）上，验证 ISL 是否联机： + ` * switchshow*`
++
+[listing]
+----
+FC_switch_B_1:admin> switchshow
+switchName: FC_switch_B_1
+switchType: 71.2
+switchState:Online
+switchMode: Native
+switchRole: Principal
+switchDomain:       4
+switchId:   fffc03
+switchWwn:  10:00:00:05:33:8c:2e:9a
+zoning:             OFF
+switchBeacon:       OFF
+
+Index Port Address Media Speed State  Proto
+==============================================
+...
+10   10    030A00 id   16G     Online  FC E-Port 10:00:00:05:33:86:89:cb "FC_switch_A_1"
+11   11    030B00 id   16G     Online  FC E-Port 10:00:00:05:33:86:89:cb "FC_switch_A_1" (downstream)
+...
+----
+.. 启用连接到 FC 网桥的存储端口。
++
+[listing]
+----
+FC_switch_B_1:admin> portcfgpersistentenable 6
+FC_switch_B_1:admin> portcfgpersistentenable 7
+----
+.. 启用存储， HBA 和 FC-VI 端口。
++
+以下示例显示了用于启用连接 HBA 适配器的端口的命令：
+
++
+[listing]
+----
+FC_switch_B_1:admin> portcfgpersistentenable 1
+FC_switch_B_1:admin> portcfgpersistentenable 2
+FC_switch_B_1:admin> portcfgpersistentenable 4
+FC_switch_B_1:admin> portcfgpersistentenable 5
+----
++
+以下示例显示了用于启用连接 FC-VI 适配器的端口的命令：
+
++
+[listing]
+----
+FC_switch_B_1:admin> portcfgpersistentenable 0
+FC_switch_B_1:admin> portcfgpersistentenable 3
+----
+
+
+. 验证端口是否联机：
++
+` * switchshow*`
+
+. 在 ONTAP 中验证 MetroCluster 配置的运行情况：
++
+.. 检查系统是否为多路径： + ` * node run -node _node-name_ sysconfig -A*`
+.. 检查两个集群上是否存在任何运行状况警报：
++
+` * 系统运行状况警报 show*`
+
+.. 确认 MetroCluster 配置以及操作模式是否正常：
++
+` * MetroCluster show*`
+
+.. 执行 MetroCluster 检查：
++
+` * MetroCluster check run*`
+
+.. 显示 MetroCluster 检查的结果：
++
+` * MetroCluster check show*`
+
+.. 检查交换机上是否存在任何运行状况警报（如果存在）：
++
+` * 存储交换机显示 *`
+
+.. 运行 Config Advisor 。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+.. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
+
+
+

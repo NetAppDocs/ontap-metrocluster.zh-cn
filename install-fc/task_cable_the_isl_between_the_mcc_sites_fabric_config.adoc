@@ -1,0 +1,28 @@
+---
+permalink: install-fc/task_cable_the_isl_between_the_mcc_sites_fabric_config.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, cable, isl, sites 
+summary: 您必须通过光纤交换机间链路（ ISL ）连接每个站点的 FC 交换机，以形成连接 MetroCluster 组件的交换机网络结构。 
+---
+= 为 MetroCluster 站点之间的 ISL 布线
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须通过光纤交换机间链路（ ISL ）连接每个站点的 FC 交换机，以形成连接 MetroCluster 组件的交换机网络结构。
+
+必须同时对两个交换机网络结构执行此操作。
+
+.步骤
+. 使用表中与您的配置和交换机型号对应的布线方式，将每个站点的 FC 交换机连接到所有 ISL 。
++
+** xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.adoc[使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配]
+** xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.adoc[使用 ONTAP 9.0 时 FC 交换机的端口分配]
+
+
+
+
+* 相关信息 *
+
+xref:concept_prepare_for_the_mcc_installation.adoc[ISL 注意事项]

@@ -1,0 +1,27 @@
+---
+permalink: install-fc/concept_illustration_of_the_local_ha_pairs_in_a_mcc_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, local, ha, pairs, configuration, illustration 
+summary: 在八节点或四节点 MetroCluster 配置中，每个站点都包含配置为一个或两个 HA 对的存储控制器。这样可以实现本地冗余，以便在一个存储控制器发生故障时，其本地 HA 配对节点可以接管。可以在不执行 MetroCluster 切换操作的情况下处理此类故障。 
+---
+= MetroCluster 配置中的本地 HA 对示意图
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在八节点或四节点 MetroCluster 配置中，每个站点都包含配置为一个或两个 HA 对的存储控制器。这样可以实现本地冗余，以便在一个存储控制器发生故障时，其本地 HA 配对节点可以接管。可以在不执行 MetroCluster 切换操作的情况下处理此类故障。
+
+本地 HA 故障转移和交还操作可使用 storage failover 命令执行，与非 MetroCluster 配置的方式相同。
+
+image::../media/mcc_hw_architecture_local_ha.gif[MCC 硬件架构本地 ha]
+
+* 相关信息 *
+
+xref:concept_illustration_of_redundant_fc_to_sas_bridges.adoc[冗余 FC-SAS 网桥的图示]
+
+xref:concept_redundant_fc_switch_fabrics.adoc[冗余 FC 交换机网络结构]
+
+xref:concept_cluster_peering_network_mcc.adoc[集群对等网络的图示]
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"]

@@ -1,0 +1,38 @@
+---
+permalink: maintain/concept_migrating_root_volumes_to_a_new_destination.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, migrate, root, volumes, new, destination 
+summary: 您可能需要将根卷移动到双节点或四节点 MetroCluster 配置中的另一个根聚合。 
+---
+= 何时将根卷迁移到新目标
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能需要将根卷移动到双节点或四节点 MetroCluster 配置中的另一个根聚合。
+
+
+
+== 在双节点 MetroCluster 配置中迁移根卷
+
+要在双节点 MetroCluster 配置中将根卷迁移到新的根聚合，应参见 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_move_mroot_to_a_new_root_aggregate_in_a_2-node_Clustered_MetroCluster_with_Switchover["如何通过切换将 mroot 移动到双节点集群模式 MetroCluster 中的新根聚合"]。此操作步骤介绍了如何在 MetroCluster 切换操作期间无中断迁移根卷。此操作步骤与四节点配置中使用的操作步骤略有不同。
+
+
+
+== 在四节点 MetroCluster 配置中迁移根卷
+
+要将根卷迁移到四节点 MetroCluster 配置中的新根聚合，您可以使用 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-930/system%5F%5Fnode%5F%5Fmigrate-root.html["系统节点 migrate-root"] 命令，同时满足以下要求。
+
+* 您可以使用 system node migrate-root 在四节点 MetroCluster 配置中移动根聚合。
+* 必须镜像所有根聚合。
+* 您可以在两个站点上添加驱动器较小的新磁盘架来托管根聚合。
+* 在连接新驱动器之前，必须检查平台支持的驱动器限制。
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+* 如果将根聚合移动到较小的驱动器，则需要满足平台的最小根卷大小要求，以确保保存所有核心文件。
+
+
+
+NOTE: 四节点操作步骤也可以应用于八节点配置。

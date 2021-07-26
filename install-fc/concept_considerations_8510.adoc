@@ -1,0 +1,48 @@
+---
+permalink: install-fc/concept_considerations_8510.html 
+sidebar: sidebar 
+keywords: preparing, prepare, metrocluster, mcc, installation, install, differences, configurations, between, considerations, all, san, array, asa, cluster, peering, prerequisites, dedicated, ports, sharing, data, ports, native, disk, shelves, array, luns, transitions, 7-mode, isls, tdm/wdm, fabric-attached, iod, ood, encryption, devices, unmirrored, aggregates, maintenance, requiring, power, shutdown, firewall, hardware, racking, cabling, setup, checklist, all san array, asa 
+summary: 在准备 MetroCluster 安装时，您应了解 MetroCluster 硬件架构和所需的组件。 
+---
+= 使用 Brocade DCX 8510-8 交换机的要求
+
+
+* MetroCluster 配置中使用的 DCX 8510-8 交换机必须从 NetApp 购买。
+* 为了实现可扩展性，如果在 4x48 端口模块中仅为两个 MetroCluster 布线，则应在 MetroCluster 配置之间保留一个端口块。这样，您就可以在不重新布线的情况下扩展 MetroCluster 配置中的端口使用情况。
+* 必须为 MetroCluster 配置中的每个 Brocade DCX 8510-8 交换机正确配置 ISL 端口和存储连接。有关端口使用情况，请参见以下部分： xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.adoc[使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配]。
+* ISL 不能共享，每个 MetroCluster 需要为每个网络结构配置两个 ISL 。
+* 用于后端 MetroCluster 连接的 DCX 8510-8 交换机不应用于任何其他连接。
++
+非 MetroCluster 设备不应连接到这些交换机，非 MetroCluster 流量不应流经 DCX 8510-8 交换机。
+
+* 一个线卡可以连接到 ONTAP MetroCluster * 或 * ONTAP 7- 模式 MetroCluster 。
+
+
+
+NOTE: 此交换机没有可用的 RCF 文件。
+
+以下是使用两台 Brocade DCX 8510-8 交换机的要求：
+
+* 每个站点必须有一个 DCX 8510-8 交换机。
+* 您必须至少使用两个 48 端口刀片式服务器，这些刀片式服务器在每个交换机中包含 16 Gb SFP 。
+
+
+以下是在 MetroCluster 配置中的每个站点上使用四个 DCX 8510-8 交换机的要求：
+
+* 每个站点必须有两个 DCX 8510-8 交换机。
+* 每个 DCX 8510-8 交换机必须至少使用一个 48 端口刀片式服务器。
+* 每个刀片式服务器都使用虚拟网络结构配置为一个虚拟交换机。
+
+
+Brocade DCX 8510-8 交换机不支持以下 NetApp 产品：
+
+* Config Advisor
+* 光纤运行状况监控器
+* MyAutoSupport （系统风险可能显示误报）
+* Active IQ Unified Manager （原 OnCommand Unified Manager ）
+
+
+
+NOTE: 确保此配置所需的所有组件均位于互操作性表工具中。有关支持的配置的信息，请阅读互操作性表工具中的注释部分。
+
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]

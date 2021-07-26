@@ -1,0 +1,29 @@
+---
+permalink: transition/concept_transition_workflow_fc_to_ip_transition.html 
+sidebar: sidebar 
+keywords: follow, workflow, ensure, successful, nondisruptive, transition, metrocluster 
+summary: 您必须遵循特定工作流，以确保成功实现无中断过渡。 
+---
+= 无中断 MetroCluster 过渡的工作流
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须遵循特定工作流，以确保成功实现无中断过渡。
+
+过渡过程从运行正常的四节点 MetroCluster FC 配置开始。
+
+image::../media/transition_dr_group_1_fc_nodes.png[过渡 DR 组 1 的 FC 节点]
+
+新的 MetroCluster IP 节点将作为第二个 DR 组添加。
+
+image::../media/transition_dr_groups_fc_and_ip.png[过渡 DR 组 fc 和 IP]
+
+数据将从旧 DR 组传输到新 DR 组，然后从配置中删除旧节点及其存储并停用。此过程以四节点 MetroCluster IP 配置结束。
+
+image::../media/transition_dr_group_2_ip.png[过渡 DR 组 2 IP]
+
+您将使用以下工作流过渡 MetroCluster 配置。
+
+image::../media/workflow_4n_transition_nondisruptive.png[工作流 4n 无中断过渡]

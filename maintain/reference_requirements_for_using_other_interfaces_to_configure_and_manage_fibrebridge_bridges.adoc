@@ -1,0 +1,64 @@
+---
+permalink: maintain/reference_requirements_for_using_other_interfaces_to_configure_and_manage_fibrebridge_bridges.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, requirements, interfaces, fibrebridge, bridges, manage, configures 
+summary: 您可以组合使用串行端口， Telnet 和 FTP 来管理 FibreBridge 网桥，而不是使用建议的管理接口。在安装网桥之前，您的系统必须满足相应接口的要求。 
+---
+= 使用其他接口配置和管理 FibreBridge 网桥的要求
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以组合使用串行端口， Telnet 和 FTP 来管理 FibreBridge 网桥，而不是使用建议的管理接口。在安装网桥之前，您的系统必须满足相应接口的要求。
+
+您可以使用串行端口或 Telnet 来配置网桥和以太网管理 1 端口，并管理网桥。您可以使用 FTP 更新网桥固件。
+
+
+NOTE: 适用于您的型号网桥的 _ATTO FibreBridge 安装和操作手册 _ 提供了有关管理接口的详细信息。
+
+您可以使用 ATTO Fibrebridge 问题描述页面上提供的链接在 ATTO 网站上访问此文档。
+
+
+
+== 串行端口
+
+使用串行端口配置和管理网桥以及配置以太网管理 1 端口时，系统必须满足以下要求：
+
+* 串行缆线（用于从网桥串行端口连接到要用于设置的计算机上的串行（ COM ）端口）
++
+网桥串行端口为 RJ-45 ，与控制器具有相同的引脚输出。
+
+* 用于访问控制台的终端模拟程序，例如 Hyperterminal ， Teraterm 或 PuTTY
++
+终端程序应能够将屏幕输出记录到文件中。
+
+
+
+
+
+== Telnet
+
+使用 Telnet 配置和管理网桥时，系统必须满足以下要求：
+
+* 串行缆线（用于从网桥串行端口连接到要用于设置的计算机上的串行（ COM ）端口）
++
+网桥串行端口为 RJ-45 ，与控制器具有相同的引脚输出。
+
+* （建议）非默认用户名和密码（用于访问网桥）
+* 用于访问控制台的终端模拟程序，例如 Hyperterminal ， Teraterm 或 PuTTY
++
+终端程序应能够将屏幕输出记录到文件中。
+
+* 每个网桥上以太网管理 1 端口的 IP 地址，子网掩码和网关信息
+
+
+
+
+== FTP
+
+使用 FTP 更新网桥固件时，您的系统必须满足以下要求：
+
+* 标准以太网缆线（用于从网桥以太网管理 1 端口连接到您的网络）
+* （建议）非默认用户名和密码（用于访问网桥）
+

@@ -1,0 +1,221 @@
+---
+permalink: transition/task_transition_the_mcc_fc_nodes_2n_mcc_transition_supertask.html 
+sidebar: sidebar 
+keywords: information, exist, metrocluster, fc, node, autosupport, message, announcing, announce, maintenance, transition, node, gather, controller, module, send, custom, message, prior, shut, down, removing, remove 
+summary: 您必须从现有 MetroCluster FC 节点收集信息，发送 AutoSupport 消息以宣布开始维护以及过渡节点。 
+---
+= 过渡 MetroCluster FC 节点
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须从现有 MetroCluster FC 节点收集信息，发送 AutoSupport 消息以宣布开始维护以及过渡节点。
+
+
+
+== 过渡前从现有控制器模块收集信息
+
+[role="lead"]
+过渡之前，您必须收集每个节点的信息。
+
+此任务将在现有节点上执行：
+
+* node_A_1-FC
+* node_B_1-FC
++
+.. 收集下表中命令的输出。
+
+
+
+
+|===
+| 类别 | 命令 | 注释： 
+
+
+| 许可证 | system license show |  
+
+
+| 每个磁盘架中的磁盘架和磁盘数量以及闪存存储详细信息以及内存和 NVRAM 以及网卡 | system node run -node node_name sysconfig |  
+
+
+| 集群网络和节点管理 LIF | system node run -node node_name sysconfig network interface show -role "cluster ， node-mgmt ， data" |  
+
+
+| SVM 信息 | vserver show |  
+
+
+| 协议信息 | nfs show iscsi show cifs show |  
+
+
+| 物理端口 | network port show -node node_name -type physical network port show |  
+
+
+| 故障转移组 | network interface failover-groups show -vserver vserver_name | 记录集群范围之外的故障转移组的名称和端口。 
+
+
+| VLAN 配置 | 网络端口 vlan show -node node_name | 记录每个网络端口和 VLAN ID 配对。 
+
+
+| 接口组配置 | network port ifgrp show -node node_name -instance | 记录接口组的名称以及分配给这些接口组的端口。 
+
+
+| 广播域 | network port broadcast-domain show |  
+
+
+| IP 空间 | network ipspace show |  
+
+
+| 卷信息 | volume show 和 volume show -fields encrypt |  
+
+
+| 聚合信息 | storage aggregate show 和 storage aggr encryption show 和 storage aggregate object-store show |  
+
+
+| 磁盘所有权信息 | storage aggregate show 和 storage aggr encryption show 和 storage aggregate object-store show |  
+
+
+| 加密 | storage failover mailbox-disk show 和 security key-manager backup show | 同时，保留用于启用密钥管理器的密码短语。对于外部密钥管理器，您需要客户端和服务器的身份验证信息。 
+
+
+| 加密 | security key-manager show |  
+
+
+| 加密 | security key-manager external show |  
+
+
+| 加密 | systemshell local kenv kmip.init.ipaddr IP 地址 |  
+
+
+| 加密 | systemshell local kenv kmip.init.netmask 网络掩码 |  
+
+
+| 加密 | systemshell 本地 kenv kmip.init.gateway 网关 |  
+
+
+| 加密 | systemshell local kenv kmip.init.interface 接口 |  
+|===
+
+
+== 在维护之前发送自定义 AutoSupport 消息
+
+[role="lead"]
+在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。这样，他们就无法在假定已发生中断的情况下创建案例。
+
+必须在每个 MetroCluster 站点上执行此任务。
+
+. 要防止自动生成支持案例，请发送一条 AutoSupport 消息以指示正在进行维护。
++
+.. 问题描述以下命令： `ssystem node AutoSupport invoke -node * -type all -message MAIN=maintenance-window-in-hours`
++
+maintenance-window-in-hours 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：``ssystem node AutoSupport invoke -node * -type all -message MAINT=end``
+
+.. 在配对集群上重复此命令。
+
+
+
+
+
+
+== 过渡，关闭和删除 MetroCluster FC 节点
+
+[role="lead"]
+除了在 MetroCluster FC 节点上发出命令之外，此任务还包括物理断开和删除每个站点的控制器模块。
+
+必须对每个旧节点执行此任务：
+
+* node_A_1-FC
+* node_B_1-FC
++
+.. 停止所有客户端流量。
+.. 在任一 MetroCluster FC 节点上，例如 node_A_1-FC 上，启用过渡。
++
+... 设置高级权限级别： `set -priv advanced`
+... 启用过渡： `MetroCluster transition enable -transition-mode disruptive`
+... 返回到管理模式： `set -priv admin`
+
+
+.. 通过删除根聚合的远程丛来取消镜像根聚合。
++
+... 确定根聚合： `storage aggregate show -root true`
+... 显示 pool1 聚合： `storage aggregate plex show -pool 1`
+... 删除根聚合的本地丛： `aggr plex delete aggr-name -plex plex-name`
+... 使根聚合的远程丛脱机： `aggr plex offline root-aggregate -plex remote-plex-for-root-aggregate`
++
+例如：
+
++
+[listing]
+----
+ # aggr plex offline aggr0_node_A_1-FC_01 -plex plex4
+----
+
+
+.. 在每个控制器上继续使用以下命令之前，请确认邮箱计数，磁盘自动分配和过渡模式：
++
+... 设置高级权限级别： `set -priv advanced`
+... 确认每个控制器模块仅显示三个邮箱驱动器： `storage failover mailbox-disk show`
+... 返回到管理模式： `set -priv admin`
+... 确认过渡模式具有中断性： MetroCluster transition show
+
+
+.. 检查是否有任何损坏的磁盘： `disk show -broken`
+.. 卸下或更换任何损坏的磁盘
+.. 在 node_A_1-FC 和 node_B_1-FC 上使用以下命令确认聚合运行状况良好：``storage aggregate show```storage aggregate plex show`
++
+storage aggregate show 命令指示根聚合已取消镜像。
+
+.. 检查是否存在任何 VLAN 或接口组： `network port ifgrp show``network port vlan show`
++
+如果不存在，请跳过以下两个步骤。
+
+.. 显示使用 VLAN 或 ifgrp 的 LIF 列表： `network interface show -fields home-port ， curr-port``network port show -type if-group | vlan`
+.. 删除所有 VLAN 和接口组。
++
+您必须对所有 SVM 中的所有 LIF 执行这些步骤，包括后缀为 -mc 的 SVM 。
+
++
+... 使用 VLAN 或接口组将任何 LIF 移动到可用端口： `network interface modify -vserver vserver-name -lif lif_name -home-port port`
+... 显示不在其主端口上的 LIF ： `network interface show -is-home false`
+... 将所有 LIF 还原到其各自的主端口： `network interface revert -vserver vserver_name -lif lif_name`
+... 验证所有 LIF 是否位于其主端口上： `network interface show -is-home false`
++
+输出中不应显示任何 LIF 。
+
+... 从广播域中删除 VLAN 和 ifgrp 端口： `network port broadcast-domain remove-ports -ipspace ipspace -broadcast-domain broadcast-domain-name -ports nodename ： portname ， nodename ： portname ， ...`
+... 确认所有 VLAN 和 ifgrp 端口均未分配给广播域： `network port show -type if-group | vlan`
+... 删除所有 VLAN ： `network port vlan delete -node nodename -vlan-name vlan-name`
+... 删除接口组： `network port ifgrp delete -node nodename -ifgrp ifgrp-name`
+
+
+.. 根据需要移动任何 LIF 以解决与 MetroCluster IP 接口端口的冲突。
++
+您必须移动第 1 步中标识的 LIF xref:concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.adoc[将端口从 MetroCluster FC 节点映射到 MetroCluster IP 节点]。
+
++
+... 将所需端口上托管的任何 LIF 移动到另一个端口： `network interface modify -lif lifname -vserver vserver-name -home-port new-homport``network interface revert -lif lifname -vserver vservername`
+... 如有必要，请将目标端口移动到适当的 IP 空间和广播域。`network port broadcast-domain remove-ports -ipspace current-ipspace -broadcast-domain current-broadcast-domain -ports controller-name ： current-port``network port broadcast-domain add-ports -ipspace new-ipspace -broadcast-domain new-broadcast-domain -ports controller-name ： new-port`
+
+
+.. 暂停 MetroCluster FC 控制器（ node_A_1-FC 和 node_B_1-FC ）： `ssystem node halt`
+.. 在 LOADER 提示符处，同步 FC 和 IP 控制器模块之间的硬件时钟。
++
+... 在旧的 MetroCluster FC 节点（ node_A_1-FC ）上，显示日期： `show date`
+... 在新的 MetroCluster IP 控制器（ node_A_1-IP 和 node_B_1-IP ）上，设置原始控制器上显示的日期： `set date MM/dd/yy`
+... 在新的 MetroCluster IP 控制器（ node_A_1-IP 和 node_B_1-IP ）上，验证日期： `show date`
+
+
+.. 暂停并关闭 MetroCluster FC 控制器模块（ node_A_1-FC 和 node_B_1-FC ）， FC-SAS 网桥（如果存在）， FC 交换机（如果存在）以及连接到这些节点的每个存储架。
+.. 断开磁盘架与 MetroCluster FC 控制器的连接，并记录每个集群的本地存储空间。
++
+如果此配置使用 FC-SAS 网桥或 FC 后端交换机，请断开连接并将其卸下。
+
+.. 在 MetroCluster FC 节点（ node_A_1-FC 和 node_B_1-FC ）的维护模式下，确认未连接磁盘： `disk show -v`
+.. 关闭并删除 MetroCluster FC 节点。
+
+
+
+
+此时， MetroCluster FC 控制器已被移除，磁盘架已与所有控制器断开连接。
+
+image::../media/transition_2n_remove_fc_nodes.png[过渡 2n 会删除 FC 节点]

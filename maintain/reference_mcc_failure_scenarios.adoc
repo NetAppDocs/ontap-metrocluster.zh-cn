@@ -1,0 +1,108 @@
+---
+permalink: maintain/reference_mcc_failure_scenarios.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, failure, recovery, scenarios 
+summary: 您应了解 MetroCluster 配置如何响应不同的故障事件。 
+---
+= MetroCluster 故障和恢复场景
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您应了解 MetroCluster 配置如何响应不同的故障事件。
+
+
+NOTE: 有关从节点故障中恢复的追加信息，请参见中的 " 选择正确的恢复操作步骤 " 一节 link:https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/index.html["《 MetroCluster 管理和灾难恢复指南》"]。
+
+|===
+| 事件 | 影响 | 恢复 
+
+
+ a| 
+单节点故障
+ a| 
+此时将触发故障转移。
+ a| 
+此配置通过本地接管进行恢复。RAID 不受影响。查看系统消息并根据需要更换出现故障的 FRU 。
+
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+
+
+ a| 
+一个站点上的两个节点出现故障
+ a| 
+只有在 MetroCluster Tiebreaker 软件中启用了自动切换后，两个节点才会发生故障。
+ a| 
+如果未在 MetroCluster Tiebreaker 软件中启用自动切换，请手动执行 USO 。
+
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+
+
+ a| 
+MetroCluster IP 接口—一个端口出现故障
+ a| 
+系统已降级。其他端口故障会影响 HA 镜像。
+ a| 
+此时将使用第二个端口。如果与端口的物理链路断开，则运行状况监控器会生成警报。查看系统消息并根据需要更换出现故障的 FRU 。
+
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+
+
+ a| 
+MetroCluster IP 接口—两个端口均出现故障
+ a| 
+HA 功能受到影响。节点的 RAID SyncMirror 将停止同步。
+ a| 
+由于不存在 HA 接管，因此需要立即手动恢复。查看系统消息并根据需要更换出现故障的 FRU 。
+
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+
+
+ a| 
+一个 MetroCluster IP 交换机出现故障
+ a| 
+无影响。冗余通过第二个网络提供。
+ a| 
+根据需要更换故障交换机。
+
+xref:task_replace_an_ip_switch.adoc[更换 IP 交换机]
+
+
+
+ a| 
+同一网络中的两个 MetroCluster IP 交换机出现故障
+ a| 
+无影响。冗余通过第二个网络提供。
+ a| 
+根据需要更换故障交换机。
+
+xref:task_replace_an_ip_switch.adoc[更换 IP 交换机]
+
+
+
+ a| 
+一个站点上的两个 MetroCluster IP 交换机出现故障
+ a| 
+节点的 RAID SyncMirror 将停止同步。HA 功能受到影响，集群将失去仲裁。
+ a| 
+根据需要更换故障交换机。
+
+xref:task_replace_an_ip_switch.adoc[更换 IP 交换机]
+
+
+
+ a| 
+位于不同站点且不在同一网络上的两个 MetroCluster IP 交换机出现故障（对角故障）
+ a| 
+节点的 RAID SyncMirror 将停止同步。
+ a| 
+节点的 RAID SyncMirror 将停止同步。集群和 HA 功能不受影响。根据需要更换故障交换机。
+
+xref:task_replace_an_ip_switch.adoc[更换 IP 交换机]
+
+|===

@@ -1,0 +1,144 @@
+---
+permalink: upgrade/concept_choosing_an_upgrade_method_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, choose, upgrade, refresh, method 
+summary: 您使用的升级或刷新操作步骤取决于平台型号，升级范围和 MetroCluster 配置类型。 
+---
+= 选择升级或刷新方法
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您使用的升级或刷新操作步骤取决于平台型号，升级范围和 MetroCluster 配置类型。
+
+升级和刷新过程有不同的类型。
+
+* 升级过程仅适用于控制器模块。这些控制器将替换为新的控制器型号。
++
+存储架型号未升级。
+
++
+** 在切换和切回过程中， MetroCluster 切换操作用于在升级配对集群上的控制器模块时为客户端提供无中断服务。
+** 在基于 ARL 的控制器升级操作步骤中，聚合重新定位操作用于无中断地将数据从旧配置移动到升级后的新配置。
+
+
+* 更新过程适用于控制器和存储架。
++
+在刷新过程中，会将新控制器和磁盘架添加到 MetroCluster 配置中，从而创建第二个 DR 组，然后无中断地将数据迁移到新节点。
+
++
+然后，原始控制器将停用。
+
+
+
+
+
+== 选择不使用聚合重新定位的操作步骤
+
+|===
+| 升级或刷新的类型 | MetroCluster 类型 | 首款 ONTAP 版本支持 | 操作步骤 
+
+
+ a| 
+* 范围：仅限平台（控制器模块）
+* 方法：切换 / 切回
+
+ a| 
+FC
+ a| 
+9.8
+ a| 
+xref:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.adoc[使用切换和切回升级 MetroCluster FC 配置中的控制器]
+
+
+
+ a| 
+* 范围：仅限平台（控制器模块）
+* 方法：切换 / 切回
+
+ a| 
+IP
+ a| 
+9.8
+ a| 
+xref:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.adoc[使用切换和切回升级 MetroCluster IP 配置中的控制器（ ONTAP 9.8 及更高版本）]
+
+
+
+ a| 
+* 范围：平台（控制器模块）和存储架
+* 方法：展开 MetroCluster 配置，然后删除旧节点
+
+ a| 
+FC
+ a| 
+9.6 及更高版本
+ a| 
+xref:task_refresh_4n_mcc_fc.adoc[刷新四节点 MetroCluster FC 配置]
+
+
+
+ a| 
+* 范围：平台（控制器模块）和存储架
+* 方法：展开 MetroCluster 配置，然后删除旧节点
+
+ a| 
+IP
+ a| 
+9.8
+ a| 
+xref:task_refresh_4n_mcc_ip.adoc[刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）]
+
+|===
+
+
+== 使用聚合重新定位选择操作步骤
+
+|===
+| 聚合重新定位操作步骤 | MetroCluster 类型 | 首款 ONTAP 版本支持 | 操作步骤 
+
+
+ a| 
+使用 `ssystem controller replace` 命令
+ a| 
+FC
+ a| 
+9.8 及更高版本
+ a| 
+https://docs.netapp.com/us-en/ontap-systems/upgrade-arl-auto-app/["使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 的控制器硬件"]
+
+
+
+ a| 
+使用 `ssystem controller replace` 命令
+ a| 
+FC
+ a| 
+9.5 到 9.7
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2848956["使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7"]
+
+
+
+ a| 
+使用手动 ARL 命令
+ a| 
+FC
+ a| 
+9.8
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2659356["使用聚合重新定位手动升级运行 ONTAP 9.8 及更高版本的控制器硬件"]
+
+
+
+ a| 
+使用手动 ARL 命令
+ a| 
+FC
+ a| 
+9.7 及更早版本
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2875250["将具有聚合重新定位的控制器升级到手动升级运行 ONTAP 9.7 及更早版本的控制器硬件"]
+
+|===

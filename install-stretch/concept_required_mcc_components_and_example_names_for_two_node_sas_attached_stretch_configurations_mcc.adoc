@@ -1,0 +1,101 @@
+---
+permalink: install-stretch/concept_required_mcc_components_and_example_names_for_two_node_sas_attached_stretch_configurations_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, required, hardware, components, naming, guidelines, two, node, sas, configuration 
+summary: MetroCluster 配置需要多种硬件组件。为了方便和清晰起见， MetroCluster 文档中会使用标准组件名称。此外，一个站点称为站点 A ，另一个站点称为站点 B 
+---
+= 双节点 SAS 连接延伸型配置所需的 MetroCluster 硬件组件和命名准则
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MetroCluster 配置需要多种硬件组件。为了方便和清晰起见， MetroCluster 文档中会使用标准组件名称。此外，一个站点称为站点 A ，另一个站点称为站点 B
+
+
+
+== 支持的软件和硬件
+
+MetroCluster FC 配置必须支持硬件和软件。
+
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+使用 AFF 系统时，必须将 MetroCluster 配置中的所有控制器模块配置为 AFF 系统。
+
+
+
+== MetroCluster 配置中的硬件冗余
+
+由于 MetroCluster 配置中的硬件冗余，因此每个站点上的每个组件都有两个。随机地为站点分配字母 A 和 B ，并为各个组件分配编号 1 和 2 。
+
+
+
+== 两个单节点 ONTAP 集群
+
+SAS 连接的延伸型 MetroCluster 配置需要两个单节点 ONTAP 集群。
+
+在 MetroCluster 配置中，命名必须是唯一的。
+
+示例名称：
+
+* 站点 A ： cluster_A
+* 站点 B ： cluster_B
+
+
+
+
+== 两个存储控制器模块
+
+SAS 连接的延伸型 MetroCluster 配置需要两个存储控制器模块。
+
+* 在 MetroCluster 配置中，命名必须是唯一的。
+* MetroCluster 配置中的所有控制器模块都必须运行相同版本的 ONTAP 。
+* 一个灾难恢复组中的所有控制器模块必须具有相同的型号。
+* 一个 DR 组中的所有控制器模块都必须使用相同的 FC-VI 配置。
++
+某些控制器模块支持两个 FC-VI 连接选项：
+
++
+** 板载 FC-VI 端口
+** 不支持插槽 1 中的 FC-VI 卡一个控制器模块使用板载 FC-VI 端口，另一个控制器模块使用附加 FC-VI 卡。例如，如果一个节点使用板载 FC-VI 配置，则 DR 组中的所有其他节点也必须使用板载 FC-VI 配置。
+
+
+
+
+示例名称：
+
+* 站点 A ： controller_A_1
+* 站点 B ： controller_B_1
+
+
+
+
+== 至少四个 SAS 磁盘架（建议）
+
+SAS 连接的延伸型 MetroCluster 配置至少需要两个 SAS 磁盘架。建议使用四个 SAS 磁盘架。
+
+建议在每个站点上使用两个磁盘架，以便每个磁盘架都拥有磁盘所有权。每个站点至少支持一个磁盘架。
+
+示例名称：
+
+* 站点 A ：
++
+** shelf_A_1_1
+** shelf_A_1_2
+
+
+* 站点 B ：
++
+** shelf_B_1_1
+** shelf_B_1_2
+
+
+
+
+
+
+== 在一个堆栈中混用 IOM12 和 IOM 6 模块
+
+您的 ONTAP 版本必须支持混用磁盘架。请参见互操作性表工具（ IMT ），了解您的 ONTAP 版本是否支持混用磁盘架。 https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性"]
+
+有关混用磁盘架的更多详细信息，请参见： https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["将带有 IOM12 模块的磁盘架热添加到带有 IOM6 模块的磁盘架堆栈中"]

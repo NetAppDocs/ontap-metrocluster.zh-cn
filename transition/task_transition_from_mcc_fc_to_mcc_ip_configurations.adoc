@@ -1,0 +1,13 @@
+---
+permalink: transition/task_transition_from_mcc_fc_to_mcc_ip_configurations.html 
+sidebar: sidebar 
+keywords: Transitioning from MetroCluster FC to MetroCluster IP configurations, review, requirement, preparing, prepare, transition, perform, procedure, order, completing, complete, step, task, moving, move, controller, storage, shelves, shelf, exist, configuration, direct, metrocluster, fc, ip, verify, health, removing, remove, tiebreaker, monitor, software, generating, generate, apply, rcf, switch, controller, configure, prepare, preparing 
+summary: 在查看所有要求并为过渡做准备之后，您可以执行过渡操作步骤。您必须按顺序执行每个任务，完成每个任务中的所有步骤，然后再转到下一个任务。在发出指示之前，不应将新控制器或存储架连接到现有配置。 
+---
+= 从 MetroCluster FC 过渡到 MetroCluster IP 配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在查看所有要求并为过渡做准备之后，您可以执行过渡操作步骤。您必须按顺序执行每个任务，完成每个任务中的所有步骤，然后再转到下一个任务。在发出指示之前，不应将新控制器或存储架连接到现有配置。

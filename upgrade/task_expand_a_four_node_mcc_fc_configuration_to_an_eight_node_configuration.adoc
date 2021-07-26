@@ -1,0 +1,38 @@
+---
+permalink: upgrade/task_expand_a_four_node_mcc_fc_configuration_to_an_eight_node_configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, expand, four, node, eight, configuration 
+summary: 要将四节点 MetroCluster FC 配置扩展为八节点 MetroCluster FC 配置，需要向每个集群添加两个控制器，以便在每个 MetroCluster 站点上形成第二个 HA 对，然后运行 MetroCluster FC 配置操作。 
+---
+= 将四节点 MetroCluster FC 配置扩展为八节点配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要将四节点 MetroCluster FC 配置扩展为八节点 MetroCluster FC 配置，需要向每个集群添加两个控制器，以便在每个 MetroCluster 站点上形成第二个 HA 对，然后运行 MetroCluster FC 配置操作。
+
+* 节点必须在 MetroCluster FC 配置中运行 ONTAP 9 。
++
+早期版本的 ONTAP 或 MetroCluster IP 配置不支持此操作步骤。
+
+* 现有 MetroCluster FC 配置必须运行状况良好。
+* 您要添加的设备必须受支持并满足 _Fabric-Attached MetroCluster 安装和配置指南 _ 中所述的所有要求。
++
+link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+
+* 您必须具有可用的 FC 交换机端口以容纳新控制器和任何新网桥。
+* 您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。
+* 此操作步骤仅适用于 MetroCluster FC 配置。
+* 此操作步骤不会造成系统中断，在磁盘置零后，大约需要一天时间完成（不包括机架和堆栈）。
+
+
+在执行此操作步骤之前， MetroCluster FC 配置由四个节点组成，每个站点一个 HA 对：
+
+image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
+
+此操作步骤结束时， MetroCluster FC 配置在每个站点上包含两个 HA 对：
+
+image::../media/mcc_dr_groups_8_node.gif[MCC DR 组 8 个节点]
+
+这两个站点必须均衡扩展。MetroCluster FC 配置不能包含数量不均的节点。

@@ -1,0 +1,61 @@
+---
+permalink: install-ip/concept_considerations_unmirrored_aggrs.html 
+sidebar: sidebar 
+keywords: differences, eight-node, four-node, fabric-attached, stretch, metrocluster ip, storage, bridges, fc-to-sas, atto, fibrebridge, SAS, local HA, auso, automatic unplanned switchover, array luns, mediator, tiebreaker 
+summary: 如果您的配置包含未镜像聚合，则必须注意在执行切换操作后可能出现的访问问题。 
+---
+= 使用未镜像聚合
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您的配置包含未镜像聚合，则必须注意在执行切换操作后可能出现的访问问题。
+
+
+
+== 执行需要关闭电源的维护时的未镜像聚合注意事项
+
+如果出于维护原因而执行协商切换，需要在站点范围内关闭电源，则应首先手动使灾难站点拥有的任何未镜像聚合脱机。
+
+否则，运行正常的站点上的节点可能会因多磁盘崩溃而关闭。如果切换后的未镜像聚合脱机或由于断电或 ISL 丢失而与灾难站点上的存储断开连接，则可能发生这种情况。
+
+
+
+== 未镜像聚合和分层命名空间的注意事项
+
+如果您使用的是分层命名空间，则应配置接合路径，以使该路径中的所有卷要么仅位于镜像聚合上，要么仅位于未镜像聚合上。在接合路径中混合配置未镜像聚合和镜像聚合可能会阻止在切换操作后访问未镜像聚合。
+
+
+
+== 未镜像聚合和 CRS 元数据卷以及数据 SVM 根卷的注意事项
+
+配置复制服务（ CRS ）元数据卷和数据 SVM 根卷必须位于镜像聚合上。您不能将这些卷移动到未镜像聚合。如果它们位于未镜像聚合上，则协商切换和切回操作将被否决。此时， MetroCluster check 命令会发出警告。
+
+
+
+== 未镜像聚合和 SVM 的注意事项
+
+SVM 只能在镜像聚合上配置，也只能在未镜像聚合上配置。配置未镜像聚合和镜像聚合可能会导致切换操作超过 120 秒，如果未镜像聚合未联机，则会导致数据中断。
+
+
+
+== 未镜像聚合和 SAN 的注意事项
+
+在 ONTAP 9.1.1 之前的版本中， LUN 不应位于未镜像聚合上。在未镜像聚合上配置 LUN 可能会导致切换操作超过 120 秒并导致数据中断。
+
+
+
+== 为未镜像聚合添加存储架的注意事项
+
+
+NOTE: 如果要添加要用于 MetroCluster IP 配置中未镜像聚合的磁盘架，则必须执行以下操作：
+
+. 在启动操作步骤以添加磁盘架之前，问题描述请运行以下命令： `MetroCluster modify -enable-unmirrored-aggr-deployment true`
+. 验证自动磁盘分配是否已关闭： `disk option show`
+. 按照操作步骤中的步骤添加磁盘架。
+. 手动将新磁盘架中的所有磁盘分配给将拥有未镜像聚合的节点。
+. 使用 storage aggregate create 命令创建聚合。。
+. 完成操作步骤后问题描述，请运行以下命令： `MetroCluster modify -enable-unmirrored-aggr-deployment false`
+. 验证是否已启用自动磁盘分配： `disk option show`
+

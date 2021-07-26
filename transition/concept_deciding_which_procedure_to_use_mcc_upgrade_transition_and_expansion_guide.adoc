@@ -1,0 +1,78 @@
+---
+permalink: transition/concept_deciding_which_procedure_to_use_mcc_upgrade_transition_and_expansion_guide.html 
+sidebar: sidebar 
+keywords: difference, metrocluster, upgrade, expansion, transition, procedure, match, goal, deciding, decide 
+summary: 您必须了解 MetroCluster 升级，扩展或过渡之间的差异，并选择与您的目标匹配的操作步骤。 
+---
+= 确定要使用的操作步骤
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须了解 MetroCluster 升级，扩展或过渡之间的差异，并选择与您的目标匹配的操作步骤。
+
+* * 升级 *
++
+在升级操作步骤中，您要将控制器模块更换为新型号的控制器模块。
+
++
+** 旧控制器模块已停用。
+** 存储未升级。
+** 存储交换机基础架构技术不变。
++
+它仍为 MetroCluster IP ，光纤连接 MetroCluster 或延伸型 MetroCluster 配置。
+
++
+link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"]
+
+
+
+* * 刷新 *
++
+在刷新操作步骤中，您需要将控制器模块更换为新型号的控制器模块，同时更换存储架。
+
++
+** 旧控制器模块和存储架已停用。
+** 存储交换机基础架构技术不会改变，除非需要使用新交换机来适应新平台型号。
++
+此配置仍为其原始类型：
+
++
+*** MetroCluster IP
+*** 光纤连接 MetroCluster
+*** 延伸型 MetroCluster 配置 +link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"]
+
+
+
+
+* * 过渡 *
++
+在过渡操作步骤中，后端交换机基础架构从 FC 交换机或连接到 IP 交换机进行了更改，并更换了平台型号。
+
++
+** 此时将向配置中添加新的控制器模块。
+** 原始控制器模块将在操作步骤之后停用。
+** 如果原始配置使用集群互连交换机，则可以根据交换机和平台型号重复使用这些交换机。
+** 存储可以重复使用或更换，具体取决于平台型号。
++
+如果不重复使用存储架，则数据将从旧磁盘架移至新磁盘架。
+
++
+链接： ./transition/index.html
+
+
+
+* * 扩展 *
++
+在扩展操作步骤中，会向 MetroCluster FC 配置中添加更多节点和存储。
+
++
+** link:../upgrade/task_expand_a_two_node_mcc_fc_configuration_to_a_four_node_fc_configuration_supertask.html["将双节点 MetroCluster FC 配置扩展为四节点配置"]
+** link:../upgrade/task_expand_a_four_node_mcc_fc_configuration_to_an_eight_node_configuration.html["将四节点 MetroCluster FC 配置扩展为八节点配置"]
++
+已删除要迁移的链接
+
+
+
+

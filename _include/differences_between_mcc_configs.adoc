@@ -1,0 +1,233 @@
+= 支持 MetroCluster 配置中的所有 SAN 阵列系统
+
+
+各种 MetroCluster 配置在所需组件方面存在主要差异。
+
+在所有配置中，两个 MetroCluster 站点中的每个站点都配置为 ONTAP 集群。在双节点 MetroCluster 配置中，每个节点均配置为单节点集群。
+
+[cols="6*"]
+|===
+| 功能 | IP 配置 2+| 光纤连接配置 2+| 延伸型配置 
+
+
+ a| 
+ a| 
+ a| 
+* 四节点或八节点 *
+ a| 
+* 双节点 *
+ a| 
+* 双节点网桥连接 *
+ a| 
+* 双节点直连 *
+
+
+
+ a| 
+控制器数量
+ a| 
+四个或八个 *
+ a| 
+四个或八个
+ a| 
+两个
+ a| 
+两个
+ a| 
+两个
+
+
+
+ a| 
+使用 FC 交换机存储网络结构
+ a| 
+否
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+否
+ a| 
+否
+
+
+
+ a| 
+使用 IP 交换机存储网络结构
+ a| 
+是的。
+ a| 
+否
+ a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+ a| 
+使用 FC-SAS 网桥
+ a| 
+否
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+否
+
+
+
+ a| 
+使用直连 SAS 存储
+ a| 
+是（仅限本地连接）
+ a| 
+否
+ a| 
+否
+ a| 
+否
+ a| 
+是的。
+
+
+
+ a| 
+支持 ADP
+ a| 
+是（从 ONTAP 9.4 开始）
+ a| 
+否
+ a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+ a| 
+支持本地 HA
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+ a| 
+支持 ONTAP AUSO
+ a| 
+否
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+
+
+
+ a| 
+支持未镜像聚合
+ a| 
+是（从 ONTAP 9.8 开始）
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+
+
+
+ a| 
+支持阵列 LUN
+ a| 
+否
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+
+
+
+ a| 
+支持 ONTAP 调解器
+ a| 
+是（从 ONTAP 9.7 开始）
+ a| 
+否
+ a| 
+否
+ a| 
+否
+ a| 
+否
+
+
+
+ a| 
+支持 MetroCluster Tiebreaker
+ a| 
+是（不与 ONTAP 调解器结合使用）
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+
+
+
+| 支持 <<Support for All SAN Array systems in MetroCluster configurations,所有 SAN 阵列>>  a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+
+|===
+对于八节点 MetroCluster IP 配置，请注意以下注意事项：
+
+* 从 ONTAP 9.1.1 开始，支持八节点配置。
+* 仅支持经过 NetApp 验证的 MetroCluster 交换机（从 NetApp 订购）。
+* 不支持使用 IP 路由（第 3 层）后端连接的配置。
+* 不支持使用共享私有第 2 层网络的配置。
+* 不支持使用 Cisco 9336C-x2 共享交换机的配置。
+
+
+
+
+== 支持 MetroCluster 配置中的所有 SAN 阵列系统
+
+MetroCluster 配置支持某些全 SAN 阵列（ ASA ）。在 MetroCluster 文档中， AFF 型号的信息会对相应的 ASA 系统进行适用场景。例如， AFF A400 系统的所有布线和其他信息也会对 ASA AFF A400 系统进行适用场景。
+
+中列出了支持的平台配置 https://hwu.netapp.com["NetApp Hardware Universe"]。

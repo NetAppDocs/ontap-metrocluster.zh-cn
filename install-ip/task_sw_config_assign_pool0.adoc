@@ -1,0 +1,172 @@
+---
+permalink: install-ip/task_sw_config_assign_pool0.html 
+sidebar: sidebar 
+keywords: metrocluster, controller, assign drives, pool 0, disk assign 
+summary: 如果您未收到出厂时预配置的系统，则可能需要手动分配池 0 驱动器。根据平台型号以及系统是否使用 ADP ，您必须为 MetroCluster IP 配置中的每个节点手动将驱动器分配到池 0 。您使用的操作步骤取决于所使用的 ONTAP 版本。 
+---
+= 手动将驱动器分配给池 0
+
+
+[role="lead"]
+如果您未收到出厂时预配置的系统，则可能需要手动分配池 0 驱动器。根据平台型号以及系统是否使用 ADP ，您必须为 MetroCluster IP 配置中的每个节点手动将驱动器分配到池 0 。您使用的操作步骤取决于所使用的 ONTAP 版本。
+
+
+
+== 手动为池 0 分配驱动器（ ONTAP 9.4 及更高版本）
+
+[role="lead"]
+如果系统在出厂时尚未进行预配置，并且不满足自动驱动器分配的要求，则必须手动分配池 0 驱动器。
+
+此操作步骤适用场景配置运行 ONTAP 9.4 或更高版本。
+
+要确定您的系统是否需要手动分配磁盘，应查看 xref:concept_prepare_for_the_mcc_installation.html#considerations-for-automatic-drive-assignment-and-adp-systems-in-ontap-9-4-and-later[ONTAP 9.4 及更高版本中的自动驱动器分配和 ADP 系统注意事项]。
+
+您可以在维护模式下执行这些步骤。必须对配置中的每个节点执行操作步骤。
+
+本节中的示例基于以下假设：
+
+* node_A_1 和 node_A_2 在以下位置拥有驱动器：
++
+** site_A-shelf_1 （本地）
+** site_B-shelf_2 （远程）
+
+
+* node_B_1 和 node_B_2 在以下位置拥有驱动器：
++
+** site_B-shelf_1 （本地）
+** site_A-shelf_2 （远程）
++
+... 显示启动菜单： `boot_ontap menu`
+... 选择选项 9a 。
++
+以下屏幕将显示启动菜单提示符：
+
++
+[listing]
+----
+
+Please choose one of the following:
+
+    (1) Normal Boot.
+    (2) Boot without /etc/rc.
+    (3) Change password.
+    (4) Clean configuration and initialize all disks.
+    (5) Maintenance mode boot.
+    (6) Update flash from backup config.
+    (7) Install new software first.
+    (8) Reboot node.
+    (9) Configure Advanced Drive Partitioning.
+    Selection (1-9)?  9a
+########## WARNING ##########
+
+    This is a disruptive operation and will result in the
+    loss of all filesystem data. Before proceeding further,
+    make sure that:
+    1) This option (9a) has been executed or will be executed
+    on the HA partner node (and DR/DR-AUX partner nodes if
+    applicable), prior to reinitializing any system in the
+    HA-pair (or MetroCluster setup).
+    2) The HA partner node (and DR/DR-AUX partner nodes if
+    applicable) is currently waiting at the boot menu.
+
+    Do you still want to continue (yes/no)? yes
+----
+... 节点重新启动时，在系统提示显示启动菜单时按 Ctrl-C ，然后选择 * 维护模式启动 * 选项。
+... 在维护模式下，手动为节点上的本地聚合分配驱动器： `disk assign disk-id -p 0 -s local-node-sysid`
++
+应对称分配驱动器，以便每个节点具有相同数量的驱动器。以下步骤适用于每个站点具有两个存储架的配置。
+
++
+.... 配置 node_A_1 时，从 site_A-shelf_1 手动将插槽 0 到 11 的驱动器分配给节点 A1 的 pool0 。
+.... 配置 node_A_2 时，手动将插槽 12 中的驱动器分配给 site_A-shelf_1 中节点 A2 的 pool0 。
+.... 配置 node_B_1 时，手动将插槽 0 到 11 的驱动器分配给 site_B-shelf_1 中节点 B1 的 pool0 。
+.... 配置 node_B_2 时，手动将插槽 12 中的驱动器分配给 site_B-shelf_1 中节点 B2 的 pool0 。
+
+
+... 退出维护模式： `halt`
+... 显示启动菜单： `boot_ontap menu`
+... 从启动菜单中选择选项 4 ，然后让系统启动。
+... 在 MetroCluster IP 配置中的其他节点上重复上述步骤。
+... 继续执行 xref:concept_configure_the_mcc_software_in_ontap.html#setting-up-ontap[设置 ONTAP]。
+
+
+
+
+
+
+
+
+== 手动为池 0 分配驱动器（ ONTAP 9.3 ）
+
+[role="lead"]
+如果每个节点至少有两个磁盘架，则可以使用 ONTAP 的自动分配功能自动分配本地（池 0 ）磁盘。当节点处于维护模式时，您必须先将相应磁盘架上的单个磁盘分配给池 0 。然后， ONTAP 会自动将磁盘架上的其余磁盘分配到同一个池。从工厂收到的系统不需要执行此任务，这些系统的池 0 包含预配置的根聚合。
+
+此操作步骤适用场景配置运行 ONTAP 9.3 。
+
+如果您是从工厂收到 MetroCluster 配置的，则不需要此操作步骤。出厂时，节点配置了池 0 磁盘和根聚合。
+
+只有当每个节点至少有两个磁盘架时，才可以使用此操作步骤，从而可以在磁盘架级别自动分配磁盘。如果不能使用磁盘架级别的自动分配，则必须手动分配本地磁盘，以便每个节点都有一个本地磁盘池（池 0 ）。
+
+必须在维护模式下执行这些步骤。
+
+本节中的示例假定使用以下磁盘架：
+
+* node_A_1 拥有以下位置的磁盘：
++
+** site_A-shelf_1 （本地）
+** site_B-shelf_2 （远程）
+
+
+* node_A_2 连接到：
++
+** site_A-shelf_3 （本地）
+** site_B-shelf_4 （远程）
+
+
+* node_B_1 连接到：
++
+** site_B-shelf_1 （本地）
+** site_A-shelf_2 （远程）
+
+
+* node_B_2 连接到：
++
+** site_B-shelf_3 （本地）
+** site_A-shelf_4 （远程）
++
+... 在每个节点上为根聚合手动分配一个磁盘： `disk assign disk-id -p 0 -s local-node-sysid`
++
+通过手动分配这些磁盘， ONTAP 自动分配功能可以分配每个磁盘架上的其余磁盘。
+
++
+.... 在 node_A_1 上，手动将一个磁盘从本地 site_A-shelf_1 分配到池 0 。
+.... 在 node_A_2 上，手动将一个磁盘从 local site_A-shelf_3 分配到池 0 。
+.... 在 node_B_1 上，手动将一个磁盘从 local site_B-shelf_1 分配到池 0 。
+.... 在 node_B_2 上，手动将一个磁盘从 local site_B-shelf_3 分配给池 0 。
+
+
+... 使用启动菜单上的选项 4 启动站点 A 上的每个节点：
++
+您应先在节点上完成此步骤，然后再继续下一个节点。
+
++
+.... 退出维护模式： `halt`
+.... 显示启动菜单： `boot_ontap menu`
+.... 从启动菜单中选择选项 4 并继续。
+
+
+... 使用启动菜单上的选项 4 启动站点 B 上的每个节点：
++
+您应先在节点上完成此步骤，然后再继续下一个节点。
+
++
+.... 退出维护模式： `halt`
+.... 显示启动菜单： `boot_ontap menu`
+.... 从启动菜单中选择选项 4 并继续。
+
+
+
+
+
+
+

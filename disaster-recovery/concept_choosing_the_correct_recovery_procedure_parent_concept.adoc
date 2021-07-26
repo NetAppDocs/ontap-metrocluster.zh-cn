@@ -1,0 +1,176 @@
+---
+permalink: disaster-recovery/concept_choosing_the_correct_recovery_procedure_parent_concept.html 
+sidebar: sidebar 
+keywords: failure, metrocluster, configuration, correct, recovery, procedure, choosing, choose, controller, module, scenarios, two-node 
+summary: 在 MetroCluster 配置中发生故障后，您必须根据故障范围选择正确的恢复操作步骤。 
+---
+= 选择正确的恢复操作步骤
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 MetroCluster 配置出现故障后，您必须选择正确的恢复操作步骤。使用下表和示例选择相应的恢复操作步骤。
+
+[cols="2*"]
+|===
+| 灾难站点的故障范围 | 操作步骤 
+
+
+ a| 
+* 无控制器模块故障
+* 其他硬件出现故障
+
+ a| 
+xref:task_recover_from_a_non_controller_failure_mcc_dr.adoc[从非控制器故障中恢复]
+
+
+
+ a| 
+* 单控制器模块故障或控制器模块中的 FRU 组件出现故障
+* 驱动器未出现故障
+
+ a| 
+如果故障仅限于单个控制器模块，则必须使用适用于此平台型号的控制器模块 FRU 更换操作步骤。在四节点或八节点 MetroCluster 配置中，此类故障将被隔离到本地 HA 对。
+
+* 注： * 如果没有驱动器或其他硬件故障，则可以在双节点 MetroCluster 配置中使用控制器模块 FRU 更换操作步骤。
+
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+
+
+ a| 
+* 单控制器模块故障或控制器模块中的 FRU 组件出现故障
+* 驱动器出现故障
+
+ a| 
+xref:task_recover_from_a_multi_controller_and_or_storage_failure.adoc[从多控制器或存储故障中恢复]
+
+
+
+ a| 
+* 单控制器模块故障或控制器模块中的 FRU 组件出现故障
+* 驱动器未出现故障
+* 控制器模块外部的其他硬件出现故障
+
+ a| 
+xref:task_recover_from_a_multi_controller_and_or_storage_failure.adoc[从多控制器或存储故障中恢复]
+
+您应跳过驱动器分配的所有步骤。
+
+
+
+ a| 
+* 一个 DR 组中的多个控制器模块出现故障（存在或不存在其他故障）
+
+ a| 
+xref:task_recover_from_a_multi_controller_and_or_storage_failure.adoc[从多控制器或存储故障中恢复]
+
+|===
+
+
+== MetroCluster FC-IP 过渡期间的控制器模块故障场景
+
+如果过渡期间发生站点故障，可以使用恢复操作步骤。但是，只有在配置为稳定的混合配置且 FC DR 组和 IP DR 组均已完全配置的情况下，才能使用此配置。`MetroCluster node show` 命令的输出应显示两个 DR 组以及全部八个节点。
+
+
+IMPORTANT: 如果在过渡期间添加或删除节点时发生故障，您必须联系技术支持。
+
+
+
+== 八节点 MetroCluster 配置中的控制器模块故障情形
+
+故障情形：
+
+* <<Single controller module failures in a single DR group>>
+* <<Two controller module failures in a single DR group>>
+* <<Single controller module failures in separate DR groups>>
+* <<Three controller module failures spread across the DR groups>>
+
+
+
+
+=== 单个 DR 组中的单个控制器模块出现故障
+
+在这种情况下，故障仅限于 HA 对。
+
+* 如果没有需要更换的存储，您可以使用适用于此平台型号的控制器模块 FRU 更换操作步骤。
++
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+* 如果存储需要更换，您可以使用多控制器模块恢复操作步骤。
++
+xref:task_recover_from_a_multi_controller_and_or_storage_failure.adoc[从多控制器或存储故障中恢复]
+
++
+这种情况下，适用场景四节点 MetroCluster 配置也是如此。
+
++
+image::../media/mcc_dr_groups_8_node_with_a_single_controller_failure.gif[MCC DR 将 8 个节点分组，其中一个控制器出现故障]
+
+
+
+
+
+=== 一个 DR 组中的两个控制器模块出现故障
+
+在这种情况下，故障需要切换。您可以使用多控制器模块故障恢复操作步骤。
+
+xref:task_recover_from_a_multi_controller_and_or_storage_failure.adoc[从多控制器或存储故障中恢复]
+
+这种情况下，适用场景四节点 MetroCluster 配置也是如此。
+
+image::../media/mcc_dr_groups_8_node_with_a_multi_controller_failure.gif[MCC DR 组 8 个节点，多控制器出现故障]
+
+
+
+=== 单独 DR 组中的单个控制器模块出现故障
+
+在这种情况下，故障仅限于单独的 HA 对。
+
+* 如果没有需要更换的存储，您可以使用适用于此平台型号的控制器模块 FRU 更换操作步骤。
++
+FRU 更换操作步骤会执行两次，每个故障控制器模块一次。
+
++
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+* 如果存储需要更换，您可以使用多控制器模块恢复操作步骤。
++
+xref:task_recover_from_a_multi_controller_and_or_storage_failure.adoc[从多控制器或存储故障中恢复]
+
+
+
+image::../media/mcc_dr_groups_8_node_with_two_single_controller_failures.gif[MCC DR 将 8 个节点分组，并存在两个单控制器故障]
+
+
+
+=== 三个控制器模块故障分布在 DR 组中
+
+在这种情况下，故障需要切换。您可以对 DR 组 1 使用多控制器模块故障恢复操作步骤。
+
+xref:task_recover_from_a_multi_controller_and_or_storage_failure.adoc[从多控制器或存储故障中恢复]
+
+您可以对 DR 组 2 使用平台专用的控制器模块 FRU 更换操作步骤。
+
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+image::../media/mcc_dr_groups_8_node_with_a_3_controller_failure.gif[MCC DR 组包含 8 个节点，其中 3 个控制器出现故障]
+
+
+
+== 双节点 MetroCluster 配置中的控制器模块故障情形
+
+您使用的操作步骤取决于故障的程度。
+
+* 如果没有需要更换的存储，您可以使用适用于此平台型号的控制器模块 FRU 更换操作步骤。
++
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+
+* 如果存储需要更换，您可以使用多控制器模块恢复操作步骤。
++
+xref:task_recover_from_a_multi_controller_and_or_storage_failure.adoc[从多控制器或存储故障中恢复]
+
+
+
+image::../media/mcc_dr_groups_2_node_with_a_single_controller_failure.gif[MCC DR 将 2 个节点与一个控制器发生故障分组在一起]

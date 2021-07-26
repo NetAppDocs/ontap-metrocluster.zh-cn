@@ -1,0 +1,388 @@
+---
+permalink: install-ip/concept_considerations_mc_compliant_switches.html 
+sidebar: sidebar 
+keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, requirements 
+summary: 从 ONTAP 9.7 开始， MetroCluster IP 配置可以支持未经 NetApp 验证的交换机，但前提是它们符合 NetApp 规格。 
+---
+= 使用符合 MetroCluster 的交换机的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp 提供的 MetroCluster IP 交换机已通过 NetApp 验证。从 ONTAP 9.7 开始， MetroCluster IP 配置可以支持未经 NetApp 验证的交换机，但前提是它们符合 NetApp 规格。
+
+
+
+== 一般要求
+
+这些要求显示了如何在不使用参考配置（ Reference Configuration ， RCF ）文件的情况下配置符合 MetroCluster 的交换机。
+
+* 仅支持为无交换机集群互连提供专用端口的平台。不支持 FAS2750 和 AFF A220 等平台，因为 MetroCluster 流量和 MetroCluster 互连流量共享相同的网络端口。
++
+不支持将本地集群连接连接到符合 MetroCluster 要求的交换机。
+
+* MetroCluster IP 接口可以连接到可配置为满足要求的任何交换机端口。
+* 对于 FAS8200 和 AFF A300 平台，交换机端口的速度必须为 25 Gbps ，而对于所有其他平台，交换机端口的速度必须至少为 40 Gbps （ 40 Gbps 或 100 Gbps ）。
+* ISL 必须为 10 Gbps 或更高，并且必须根据 MetroCluster 配置上的负载调整适当的大小。
+* MetroCluster 配置必须连接到两个网络。不支持将两个 MetroCluster 接口连接到同一网络或交换机。每个 MetroCluster 节点都必须连接到两个网络交换机。
+* 网络必须满足以下要求：
++
+** link:../install-ip/concept_considerations_isls.html#basic-metrocluster-isl-requirements["MetroCluster ISL 的基本要求"]
+** link:../install-ip/concept_considerations_isls.html#isl-requirements-in-shared-layer-2-networks["共享第 2 层网络中的 ISL 要求"]
+** link:../install-ip/concept_considerations_layer_2.html#required-settings-on-intermediate-switches["中间交换机上的必需设置"]
+
+
+* 在使用开放网络的 MetroCluster IP 配置中，不支持还原到 ONTAP 9.6 或更早版本。
+* 必须在传输 MetroCluster IP 流量的所有交换机上配置 MTU 9216 。
+
+
+
+
+== 交换机和布线要求
+
+* 交换机必须支持 QoS/traffic 分类。
+* 交换机必须支持显式拥塞通知（ ECN ）。
+* 交换机必须支持 L4 端口 -VLAN 负载平衡策略，才能保持路径上的顺序。
+* 这些交换机必须支持 L2 流量控制（ L2 FC ）。
+* 将节点连接到交换机的缆线必须从 NetApp 购买。交换机供应商必须支持我们提供的缆线。
+
+
+
+
+== 限制
+
+不支持要求将本地集群连接到交换机的任何配置或功能。例如，不支持以下配置和过程：
+
+* 八节点 MetroCluster 配置
+* 从 MetroCluster FC 过渡到 MetroCluster IP 配置
+* 刷新四节点 MetroCluster IP 配置
+
+
+
+
+== MetroCluster 兼容交换机的平台特定网络速度
+
+下表提供了 MetroCluster 兼容交换机的平台专用网络速度。
+
+
+NOTE: 缺少值表示不支持此平台。
+
+[cols="2*"]
+|===
+| 平台 | 网络速度（ Gbps ） 
+
+
+ a| 
+AFF A800
+ a| 
+40 或 100
+
+
+
+ a| 
+AFF A700
+ a| 
+40
+
+
+
+ a| 
+AFF A400
+ a| 
+100
+
+
+
+ a| 
+AFF A320
+ a| 
+100
+
+
+
+ a| 
+AFF A300
+ a| 
+25.
+
+
+
+ a| 
+AFF A250
+ a| 
+-
+
+
+
+ a| 
+AFF A220
+ a| 
+-
+
+
+
+ a| 
+FAS9000
+ a| 
+40
+
+
+
+ a| 
+FAS8700
+ a| 
+100
+
+
+
+ a| 
+FAS8300
+ a| 
+100
+
+
+
+ a| 
+FAS8200
+ a| 
+25.
+
+
+
+ a| 
+FAS2750
+ a| 
+-
+
+
+
+ a| 
+FAS500f
+ a| 
+-
+
+|===
+
+
+== 这些示例的假设
+
+提供的示例适用于 Cisco NX31xx 和 NX32xx 交换机。如果使用其他交换机，则可以使用这些命令作为指导，但这些命令可能有所不同。如果示例中显示的某个功能在交换机上不可用，则表示此交换机不满足最低要求，无法用于部署 MetroCluster 配置。对于任何正在连接 MetroCluster 配置的交换机以及这些交换机之间路径上的所有交换机，都是如此。
+
+* ISL 端口为 15 和 16 ，运行速度为 40 Gbps 。
+* 网络 1 中的 VLAN 为 10 ，网络 2 中的 VLAN 为 20 。可能仅显示一个网络的示例。
+* MetroCluster 接口连接到每个交换机上的端口 9 ，并以 100 Gbps 的速度运行。
+* 未设置或显示示例的完整上下文。要执行这些命令，您可能需要输入更多配置信息，例如配置文件， VLAN 或接口。
+
+
+
+
+== 通用交换机配置
+
+必须在每个网络中配置一个 VLAN 。此示例显示了如何在网络 10 中配置 VLAN 。
+
+示例
+
+[listing]
+----
+# vlan 10
+----
+应设置负载平衡策略，以便保留顺序。
+
+示例
+
+[listing]
+----
+# port-channel load-balance src-dst ip-l4port-vlan
+----
+您必须配置访问映射和类映射，以便将 RDMA 和 iSCSI 流量映射到相应的类。
+
+端口 65200 之间的所有 TCP 流量都会映射到存储（ iSCSI ）类。端口 10006 与端口 10006 之间的所有 TCP 流量都映射到 RDMA 类。
+
+示例
+
+[listing]
+----
+
+ip access-list storage
+  10 permit tcp any eq 65200 any
+  20 permit tcp any any eq 65200
+ip access-list rdma
+  10 permit tcp any eq 10006 any
+  20 permit tcp any any eq 10006
+
+class-map type qos match-all storage
+  match access-group name storage
+class-map type qos match-all rdma
+  match access-group name rdma
+----
+您必须配置传入策略。传入策略会将已分类的流量映射到不同的 COS 组。在此示例中， RDMA 流量映射到 COS 组 5 ， iSCSI 流量映射到 COS 组 4 。
+
+示例
+
+[listing]
+----
+
+policy-map type qos MetroClusterIP_Ingress
+class rdma
+  set dscp 40
+  set cos 5
+  set qos-group 5
+class storage
+  set dscp 32
+  set cos 4
+  set qos-group 4
+----
+您必须在交换机上配置传出策略。传出策略会将流量映射到传出队列。在此示例中， RDMA 流量映射到队列 5 ， iSCSI 流量映射到队列 4 。
+
+示例
+
+[listing]
+----
+
+policy-map type queuing MetroClusterIP_Egress
+class type queuing c-out-8q-q7
+  priority level 1
+class type queuing c-out-8q-q6
+  priority level 2
+class type queuing c-out-8q-q5
+  priority level 3
+  random-detect threshold burst-optimized ecn
+class type queuing c-out-8q-q4
+  priority level 4
+  random-detect threshold burst-optimized ecn
+class type queuing c-out-8q-q3
+  priority level 5
+class type queuing c-out-8q-q2
+  priority level 6
+class type queuing c-out-8q-q1
+  priority level 7
+class type queuing c-out-8q-q-default
+  bandwidth remaining percent 100
+  random-detect threshold burst-optimized ecn
+----
+您需要配置一个交换机，使其在 ISL 上具有 MetroCluster 流量，但不连接到任何 MetroCluster 接口。在这种情况下，流量已分类，只需映射到相应的队列即可。在以下示例中，所有 COS5 流量都映射到 RDMA 类，所有 COS4 流量都映射到 iSCSI 类。请注意，这将影响到 COS5 和 COS4 流量的 * 全部 * ，而不仅仅是 MetroCluster 流量。如果您只想映射 MetroCluster 流量，则必须使用上述类映射来使用访问组标识流量。
+
+示例
+
+[listing]
+----
+
+class-map type qos match-all rdma
+  match cos 5
+class-map type qos match-all storage
+  match cos 4
+----
+
+
+== 配置 ISL
+
+您可以在设置允许的 VLAN 时配置 " 中继 " 模式端口。
+
+有两个命令，一个命令用于 * 设置 * 允许的 VLAN 列表，一个命令用于 * 添加 * 到现有允许的 VLAN 列表。
+
+您可以 * 设置 * 允许的 VLAN ，如示例所示。
+
+示例
+
+[listing]
+----
+switchport trunk allowed vlan 10
+----
+您可以将 VLAN * 添加到允许列表中，如示例所示。
+
+示例
+
+[listing]
+----
+switchport trunk allowed vlan add 10
+----
+在此示例中，为 VLAN 10 配置了端口通道 10 。
+
+示例
+
+[listing]
+----
+
+interface port-channel10
+switchport mode trunk
+switchport trunk allowed vlan 10
+mtu 9216
+service-policy type queuing output MetroClusterIP_Egress
+----
+ISL 端口应配置为端口通道的一部分，并分配出队列，如示例所示。
+
+示例
+
+[listing]
+----
+
+interface eth1/15-16
+switchport mode trunk
+switchport trunk allowed vlan 10
+no lldp transmit
+no lldp receive
+mtu 9216
+channel-group 10 mode active
+service-policy type queuing output MetroClusterIP_Egress
+no shutdown
+----
+
+
+== 配置节点端口
+
+您可能需要在分支模式下配置节点端口。在此示例中，端口 25 和 26 配置为 4 x 25 Gbps 分支模式。
+
+示例
+
+[listing]
+----
+interface breakout module 1 port 25-26 map 25g-4x
+----
+您可能需要配置 MetroCluster 接口端口速度。此示例显示了如何将速度配置为 "auto" 。
+
+示例
+
+[listing]
+----
+speed auto
+----
+以下示例显示了如何将速度固定为 40 Gbps 。
+
+示例
+
+[listing]
+----
+speed 40000
+----
+您可能需要配置接口。在以下示例中，接口速度设置为 "auto" 。
+
+此端口在 VLAN 10 中处于访问模式， MTU 设置为 9216 并分配 MetroCluster 传入策略。
+
+示例
+
+[listing]
+----
+
+interface eth1/9
+description MetroCluster-IP Node Port
+speed auto
+switchport access vlan 10
+spanning-tree port type edge
+spanning-tree bpduguard enable
+mtu 9216
+flowcontrol receive on
+flowcontrol send on
+service-policy type qos input MetroClusterIP_Ingress
+no shutdown
+----
+在 25 Gbps 端口上，可能需要将 FEC 设置设置为 "off" ，如示例所示。
+
+示例
+
+[listing]
+----
+fec off
+----
+
+NOTE: 必须始终在配置接口后 * 运行此命令。要使命令正常运行，可能需要插入收发器模块。

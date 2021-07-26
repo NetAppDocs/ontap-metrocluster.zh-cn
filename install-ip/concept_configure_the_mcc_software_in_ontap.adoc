@@ -1,0 +1,15 @@
+---
+permalink: install-ip/concept_configure_the_mcc_software_in_ontap.html 
+sidebar: sidebar 
+keywords: metrocluster, configuration, ontap, node-level, configuration, node, site, relationship, configuring, configure, 
+summary: 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。 
+---
+= 在 ONTAP 中配置 MetroCluster 软件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。
+
+image::../media/workflow_mcc_ip_high_level_node_and_cluster_configuration_software.svg[Workflow MCC IP 高级节点和集群配置软件]

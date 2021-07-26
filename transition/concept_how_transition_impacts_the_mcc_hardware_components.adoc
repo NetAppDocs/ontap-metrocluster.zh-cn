@@ -1,0 +1,40 @@
+---
+permalink: transition/concept_how_transition_impacts_the_mcc_hardware_components.html 
+sidebar: sidebar 
+keywords: complete, completing, transition, procedure, key, component, exist, metrocluster, configuration, replace, reconfigure, impact, hardware, component 
+summary: 完成过渡操作步骤后，已更换或重新配置现有 MetroCluster 配置的关键组件。 
+---
+= 过渡如何影响 MetroCluster 硬件组件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+完成过渡操作步骤后，已更换或重新配置现有 MetroCluster 配置的关键组件。
+
+* * 控制器模块 *
++
+现有控制器模块将替换为新的控制器模块。现有控制器模块将在过渡过程结束时停用。
+
+* * 存储架 *
++
+数据将从旧磁盘架移动到新磁盘架。在过渡过程结束时，旧磁盘架将停用。
+
+* * MetroCluster （后端）和集群交换机 *
++
+后端交换机功能由 IP 交换机网络结构取代。如果 MetroCluster FC 配置包含 FC 交换机和 FC-SAS 网桥，则这些交换机将在此操作步骤末尾停用。
+
++
+如果 MetroCluster FC 配置使用集群交换机进行集群互连，则在某些情况下，可以重复使用这些交换机来提供后端 IP 交换机网络结构。重复使用的集群交换机必须使用平台和交换机专用的 RCF 进行重新配置。过程。
+
++
+如果 MetroCluster FC 配置不使用集群交换机，则会添加新的 IP 交换机以提供后端交换机网络结构。
+
++
+xref:concept_considerations_for_using_existing_ip_switches.adoc[IP 交换机注意事项]
+
+* * 集群对等网络 *
++
+客户提供的现有集群对等网络可用于新的 MetroCluster IP 配置。集群对等是在过渡操作步骤中的 MetroCluster IP 节点上配置的。
+
+

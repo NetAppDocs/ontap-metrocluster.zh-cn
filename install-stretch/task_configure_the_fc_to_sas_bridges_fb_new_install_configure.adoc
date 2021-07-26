@@ -1,0 +1,221 @@
+---
+permalink: install-stretch/task_configure_the_fc_to_sas_bridges_fb_new_install_configure.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, configuration, fc, sas, bridges 
+summary: 在为您的 FC-SAS 网桥型号布线之前，您必须在 FibreBridge 软件中配置设置。 
+---
+= 配置 FC-SAS 网桥
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在为您的 FC-SAS 网桥型号布线之前，您必须在 FibreBridge 软件中配置设置。
+
+您应决定是否使用网桥的带内管理。
+
+
+NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+
+如果要使用网桥的带内管理而不是 IP 管理，则可以跳过配置以太网端口和 IP 设置的步骤，如相关步骤中所述。
+
+.步骤
+. 如果配置为带内管理，请使用缆线从 FibreBridge RS -232 串行端口连接到个人计算机上的串行（ COM ）端口。
++
+串行连接将用于初始配置，然后通过 ONTAP 进行带内管理， FC 端口可用于监控和管理网桥。
+
+. 如果配置 IP 管理，请使用以太网缆线将每个网桥上的以太网管理 1 端口连接到您的网络。
++
+在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
+
++
+通过以太网管理 1 端口，您可以快速下载网桥固件（使用 ATTO ExpressNAV 或 FTP 管理界面），并检索核心文件和提取日志。
+
+. 如果要配置 IP 管理，请按照适用于您的网桥型号的 _ATTO FibreBridge 安装和操作手册 _ 第 2.0 节中的操作步骤配置每个网桥的以太网管理 1 端口。
++
+在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
+
++
+在运行 QuickNAV 配置以太网管理端口时，仅会配置通过以太网缆线连接的以太网管理端口。例如，如果您还希望配置以太网管理 2 端口，则需要将以太网缆线连接到端口 2 并运行 QuickNAV 。
+
+. 配置网桥。
++
+您应记下指定的用户名和密码。
+
++
+
+NOTE: 请勿在 ATTO FibreBridge 7600N 或 7500N 上配置时间同步。在 ONTAP 发现网桥后， ATTO FibreBridge 7600N 或 7500N 的时间同步设置为集群时间。它还会每天定期同步一次。使用的时区为 GMT ，不可更改。
+
++
+.. 如果要配置 IP 管理，请配置网桥的 IP 设置。
++
+在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
+
++
+要在不使用 QuickNAV 实用程序的情况下设置 IP 地址，您需要与 FibreBridge 建立串行连接。
+
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+` * 设置 IP 地址 MP1 _IP-address_*`
+
++
+` * 设置 ipsubnetmask MP1 _subnet-mask_*`
+
++
+` * 设置 ipgateway MP1 x.x.x.x*`
+
++
+` * 设置 ipdhcp MP1 已禁用 *`
+
++
+` * 设置以太网速度 MP1 1000*`
+
+.. 配置网桥名称。
++
+在 MetroCluster 配置中，每个网桥都应具有唯一的名称。
+
++
+每个站点上一个堆栈组的网桥名称示例：
+
++
+*** bridge_A_1a
+*** bridge_A_1b
+*** bridge_B_1a
+*** bridge_B_1b 如果使用命令行界面，则必须运行以下命令：
++
+` * 设置 bridgename _bridgenename_*`
+
+
+
+.. 如果运行的是 ONTAP 9.4 或更早版本，请在网桥上启用 SNMP ： + ` * 设置 SNMP enabled"`
++
+在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
+
+
+
+. 配置网桥 FC 端口。
++
+.. 配置网桥 FC 端口的数据速率 / 速度。
++
+支持的 FC 数据速率取决于您的网桥型号。
+
++
+*** FibreBridge 7600 网桥最多支持 32 ， 16 或 8 Gbps 。
+*** FibreBridge 7500 网桥最多支持 16 ， 8 或 4 Gbps 。
+*** FibreBridge 6500 网桥最多支持 8 ， 4 或 2 Gbps 。
++
+
+NOTE: 您选择的 FCDataRate 速度限制为网桥端口所连接的控制器模块的网桥和 FC 端口均支持的最大速度。布线距离不得超过 SFP 和其他硬件的限制。
+
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+` * 设置 FCDataRate _port-numberport-speed _ *`
+
+
+
+.. 如果要配置 FibreBridge 7500N 或 6500N 网桥，请配置端口用于 ptp 的连接模式。
++
+
+NOTE: 配置 FibreBridge 7600N 网桥时，不需要 FCConnMode 设置。
+
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+` * 设置 FCConnMode _port-number_ PTP*`
+
+.. 如果要配置 FibreBridge 7600N 或 7500N 网桥，则必须配置或禁用 FC2 端口。
++
+*** 如果使用的是第二个端口，则必须对 FC2 端口重复上述子步骤。
+*** 如果不使用第二个端口，则必须禁用端口： + ` * FCPortDisable port-number*` 以下示例显示了禁用 FC 端口 2 ：
+
+
+
+
++
+[listing]
+----
+FCPortDisable 2
+
+Fibre Channel Port 2 has been disabled.
+----
++
+.. 如果要配置 FibreBridge 7600N 或 7500N 网桥，请禁用未使用的 SAS 端口： + ` * SASPortDisable _SAS-Port_*`
++
+
+NOTE: 默认情况下， SAS 端口 A 到 D 处于启用状态。您必须禁用未使用的 SAS 端口。
+
++
+如果仅使用 SAS 端口 A ，则必须禁用 SAS 端口 B ， C 和 D 。以下示例显示了禁用 SAS 端口 B您必须同样禁用 SAS 端口 C 和 D ：
+
++
+[listing]
+----
+SASPortDisable b
+
+SAS Port B has been disabled.
+----
+
+
+. 安全访问网桥并保存网桥的配置。根据您的系统运行的 ONTAP 版本，从下方选择一个选项。
++
+|===
+| ONTAP 版本 | 步骤 
+
+
+ a| 
+* ONTAP 9.5 或更高版本 *
+ a| 
+.. 查看网桥的状态： ` * storage bridge show*`
++
+输出将显示哪个网桥未受保护。
+
+.. 保护网桥： + ` * securebridge*`
+
+
+
+
+ a| 
+* ONTAP 9.4 或更早版本 *
+ a| 
+.. 查看网桥的状态： ` * storage bridge show*`
++
+输出将显示哪个网桥未受保护。
+
+.. 检查不安全网桥端口的状态： info
++
+输出将显示以太网端口 MP1 和 MP2 的状态。
+
+.. 如果启用了以太网端口 MP1 ，请运行： ` * 设置 EthernetPort MP1 disabled" *`
++
+如果以太网端口 MP2 也已启用，请对端口 MP2 重复上述子步骤。
+
+.. 保存网桥的配置。
++
+您必须运行以下命令：
+
++
+` * 保存配置 *`
+
++
+` * FirmwareRestart*`
+
++
+系统将提示您重新启动网桥。
+
+
+
+|===
+. 完成 MetroCluster 配置后，使用 `flashimages` 命令检查您的 FibreBridge 固件版本，如果网桥未使用支持的最新版本，请更新配置中所有网桥上的固件。
++
+link:../maintain/index.html["维护 MetroCluster 组件"]
+
+
+
+* 相关信息 *
+
+xref:concept_in_band_management_of_the_fc_to_sas_bridges.adoc[FC-SAS 网桥的带内管理]

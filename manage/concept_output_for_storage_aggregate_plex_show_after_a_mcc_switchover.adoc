@@ -1,0 +1,13 @@
+---
+permalink: manage/concept_output_for_storage_aggregate_plex_show_after_a_mcc_switchover.html 
+sidebar: sidebar 
+keywords: storage, aggregate, plex, show, command, metrocluster, switchover, plex0, root, display, update, output, indeterminate 
+summary: 在 MetroCluster 切换后运行 storage aggregate plex show 命令时，切换后的根聚合的 plex0 状态不确定，并显示为 failed 。在此期间，切换后的根不会更新。只有在 MetroCluster 修复阶段之后才能确定此丛的实际状态。 
+---
+= 在 MetroCluster 切换后， storage aggregate plex show 命令的输出不确定
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 MetroCluster 切换后运行 storage aggregate plex show 命令时，切换后的根聚合的 plex0 状态不确定，并显示为 failed 。在此期间，切换后的根不会更新。只有在 MetroCluster 修复阶段之后才能确定此丛的实际状态。

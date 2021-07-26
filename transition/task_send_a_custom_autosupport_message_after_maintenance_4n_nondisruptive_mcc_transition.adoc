@@ -1,0 +1,21 @@
+---
+permalink: transition/task_send_a_custom_autosupport_message_after_maintenance_4n_nondisruptive_mcc_transition.html 
+sidebar: sidebar 
+keywords: complete, completing, transition, autosupport, message, indicating, indicate, maintenance, automatic, case, creation, resume, send 
+summary: 完成过渡后，您应发送一条 AutoSupport 消息，指示维护结束，以便可以恢复自动创建案例。 
+---
+= 维护后发送自定义 AutoSupport 消息
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+完成过渡后，您应发送一条 AutoSupport 消息，指示维护结束，以便可以恢复自动创建案例。
+
+. 要恢复自动生成支持案例，请发送 AutoSupport 消息以指示维护已完成。
++
+.. 问题描述以下命令： `ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
+.. 在配对集群上重复此命令。
+
+
+

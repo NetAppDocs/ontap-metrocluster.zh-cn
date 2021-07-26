@@ -1,0 +1,17 @@
+---
+permalink: install-fc/reference_configuration_gathering_worksheet_for_fc_switches_and_fc_to_sas_bridges.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, configuration, worksheets, fc, switches, sas, bridges 
+summary: 在开始配置 MetroCluster 站点之前，您应收集所需的配置信息。 
+---
+= FC 交换机和 FC-SAS 网桥的配置工作表
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在开始配置 MetroCluster 站点之前，您可以使用以下工作表记录站点信息：
+
+link:media/MetroCluster-FC_setup_worksheet_site-A.csv["站点 A 工作表"]
+
+link:media/MetroCluster-FC_setup_worksheet_site-B.csv["站点 B 工作表"]

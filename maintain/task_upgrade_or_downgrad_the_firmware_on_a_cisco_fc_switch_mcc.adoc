@@ -1,0 +1,96 @@
+---
+permalink: maintain/task_upgrade_or_downgrad_the_firmware_on_a_cisco_fc_switch_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, upgrade, downgrade, firmware, cisco, fc, switch 
+summary: 要升级或降级 Cisco FC 交换机上的固件，必须使用 Cisco 专用的命令禁用交换机，执行并验证升级，然后重新启动并重新启用交换机。 
+---
+= 升级或降级 Cisco FC 交换机上的固件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要升级或降级 Cisco FC 交换机上的固件，必须使用 Cisco 专用的命令禁用交换机，执行并验证升级，然后重新启动并重新启用交换机。
+
+* 系统必须已正确布线。
+* 存储架的所有路径都必须可用。
+* 磁盘架堆栈必须稳定。
+* FC 交换机网络结构必须运行状况良好。
+* 系统中的所有组件都必须运行正常。
+* 系统必须正常运行。
+* 您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。
+
+
+在固件升级或降级期间，交换机网络结构将被禁用， MetroCluster 配置将依靠第二个网络结构继续运行。
+
+您必须连续对每个交换机网络结构重复此任务，以确保所有交换机都运行相同版本的固件。
+
+您必须具有固件文件。
+
+
+NOTE: 此操作步骤不会造成系统中断，大约需要一小时才能完成。
+
+.步骤
+. 登录到网络结构中的每个交换机。
++
+在示例中，这些交换机称为 FC_switch_A_1 和 FC_switch_B_1 。
+
+. 确定每个交换机上的 bootflash 目录是否有足够的空间：
++
+` * 目录 bootflash*`
+
++
+如果不是，请使用 `delete bootflash ： file_name` 命令删除不需要的固件文件。
+
+. 将 kickstart 和系统文件复制到交换机：
++
+` * copy _source_filetarget_file_*`
+
++
+在以下示例中， kickstart 文件（ `m 9200-s2ek9-kickstart-mz.5.2.1.bin` ）和系统文件（ `m 9200-s2ek9-mz.5.2.1.bin` ）位于 FTP 服务器 10.10.10.55 上的 ` firmware/` 路径中。
+
++
+以下示例显示了对 FC_switch_A_1 发出的命令：
+
++
+[listing]
+----
+FC_switch_A_1# copy ftp://10.10.10.55/firmware/m9200-s2ek9-kickstart-mz.5.2.1.bin bootflash:m9200-s2ek9-kickstart-mz.5.2.1.bin
+FC_switch_A_1# copy ftp://10.10.10.55/firmware/m9200-s2ek9-mz.5.2.1.bin bootflash:m9200-s2ek9-mz.5.2.1.bin
+----
+. 禁用此网络结构中两个交换机上的所有 VSAN 。
+. 在交换机上安装所需的固件：
++
+` * 安装所有系统 bootflash ： _systemfile_name__ kickstart bootflash ： _kickstartfile_name__*`
+
++
+以下示例显示了对 FC_switch_A_1 发出的命令：
+
++
+[listing]
+----
+FC_switch_A_1# install all system bootflash:m9200-s2ek9-mz.5.2.1.bin kickstart bootflash:m9200-s2ek9-kickstart-mz.5.2.1.bin
+Enter Yes to confirm the installation.
+----
+. 检查每个交换机上的固件版本，以确保安装的版本正确：
++
+` * 显示版本 *`
+
+. 在此网络结构中的两个交换机上启用所有 VSAN 。
+. 在 ONTAP 中验证 MetroCluster 配置的运行情况：
++
+.. 检查系统是否为多路径： + ` * node run -node _node-name_ sysconfig -A*`
+.. 检查两个集群上是否存在任何运行状况警报： + ` * system health alert show*`
+.. 确认 MetroCluster 配置以及操作模式是否正常： + ` * MetroCluster show*`
+.. 执行 MetroCluster 检查： + ` * MetroCluster check run*`
+.. 显示 MetroCluster 检查的结果： + ` * MetroCluster check show*`
+.. 检查交换机上是否存在任何运行状况警报（如果存在）： + ` * storage switch show*`
+.. 运行 Config Advisor 。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+.. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
+
+
+. 对第二个交换机网络结构重复此操作步骤。
+

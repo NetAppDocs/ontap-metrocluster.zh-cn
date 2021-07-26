@@ -1,0 +1,15 @@
+---
+permalink: install-stretch/concept_stretch_mcc_configuration_with_array_luns.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation, connections, stretch, configuration, array, lun 
+summary: 在使用阵列 LUN 的延伸型 MetroCluster 配置中，您必须在控制器之间连接 FC-VI 端口。控制器和 E 系列存储阵列之间支持直接连接。对于所有其他阵列 LUN 配置，您必须在配置中使用 FC 交换机。 
+---
+= 使用阵列 LUN 的延伸型 MetroCluster 配置中的连接
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用阵列 LUN 的延伸型 MetroCluster 配置中，您必须在控制器之间连接 FC-VI 端口。控制器和 E 系列存储阵列之间支持直接连接。对于所有其他阵列 LUN 配置，您必须在配置中使用 FC 交换机。
+
+您还可以设置同时包含磁盘和阵列 LUN 的延伸型 MetroCluster 配置。在此类配置中，您必须使用 FC-SAS 网桥或 SAS 光缆将控制器连接到磁盘。

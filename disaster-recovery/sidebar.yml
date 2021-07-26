@@ -1,0 +1,67 @@
+---
+section: disaster-recovery
+title: 从灾难中恢复
+entries:
+- title: 灾难恢复工作流
+  url: "/disaster-recovery/concept_dr_workflow.html"
+- title: 在发生灾难后执行强制切换
+  url: "/disaster-recovery/task_perform_a_forced_switchover_after_a_disaster.html"
+- title: 选择正确的恢复操作步骤
+  url: "/disaster-recovery/concept_choosing_the_correct_recovery_procedure_parent_concept.html"
+- title: 从多控制器或存储故障中恢复
+  url: "/disaster-recovery/task_recover_from_a_multi_controller_and_or_storage_failure.html"
+  entries:
+  - title: 更换硬件并启动新控制器
+    url: "/disaster-recovery/task_replace_hardware_and_boot_new_controllers.html"
+  - title: 在 MetroCluster IP 配置中准备切回
+    url: "/disaster-recovery/task_prepare_for_switchback_in_a_mcc_ip_configuration_supertask.html"
+    entries:
+    - title: 在 MetroCluster IP 配置中设置所需的环境变量
+      url: "/disaster-recovery/task_set_env_mcip.html"
+    - title: 启动灾难站点上的设备（ MetroCluster IP 配置）
+      url: "/disaster-recovery/task_power_on_mcip.html"
+    - title: 配置 IP 交换机（ MetroCluster IP 配置）
+      url: "/disaster-recovery/task_config_switches_mcip.html"
+    - title: 验证与远程站点的存储连接（ MetroCluster IP 配置）
+      url: "/disaster-recovery/task_verify_connectivity_mcip.html"
+    - title: 为灾难站点上的池 1 磁盘重新分配磁盘所有权（ MetroCluster IP 配置）
+      url: "/disaster-recovery/task_reassign_pool1_disastersite_mcip.html"
+    - title: 在 MetroCluster IP 配置中的替代控制器模块上启动到 ONTAP
+      url: "/disaster-recovery/task_boot_ontap_mcip.html"
+    - title: 将连接从正常运行的节点还原到灾难站点（ MetroCluster IP 配置）
+      url: "/disaster-recovery/task_restore_connectivity_mcip.html"
+    - title: 验证自动分配或手动分配池 0 驱动器
+      url: "/disaster-recovery/task_verify_assignment_mcip.html"
+    - title: 在运行正常的站点上分配池 1 驱动器（ MetroCluster IP 配置）
+      url: "/disaster-recovery/task_assign_pool1_survivingsite_mcip.html"
+    - title: 删除运行正常的站点拥有的故障丛（ MetroCluster IP 配置）
+      url: "/disaster-recovery/task_delete_plexes_mcip.html"
+    - title: 执行聚合修复和还原镜像（ MetroCluster IP 配置）
+      url: "/disaster-recovery/task_heal_restore_mcip.html"
+  - title: 在 MetroCluster FC 配置中准备切回
+    url: "/disaster-recovery/task_prepare_for_switchback_in_a_mcc_fc_configuration_supertask.html"
+    entries:
+    - title: 验证端口配置（仅限 MetroCluster FC 配置）
+      url: "/disaster-recovery/task_verify_port_mcfc.html"
+    - title: 配置 FC-SAS 网桥（仅限 MetroCluster FC 配置）
+      url: "/disaster-recovery/task_cfg_bridges_mcfc.html"
+    - title: 配置 FC 交换机（仅限 MetroCluster FC 配置）
+      url: "/disaster-recovery/task_cfg_switches_mcfc.html"
+    - title: 验证存储配置
+      url: "/disaster-recovery/task_verify_storage_mcfc.html"
+    - title: 启动灾难站点上的设备
+      url: "/disaster-recovery/task_power_on_mcfc.html"
+    - title: 为更换的驱动器分配所有权
+      url: "/disaster-recovery/task_assign_ownership_mcfc.html"
+    - title: 执行聚合修复和还原镜像（ MetroCluster FC 配置）
+      url: "/disaster-recovery/task_heal_restore_mcfc.html"
+    - title: 将根聚合的磁盘所有权重新分配给更换用的控制器模块（ MetroCluster FC 配置）
+      url: "/disaster-recovery/task_reassign_roots_mcfc.html"
+    - title: 启动新控制器模块（ MetroCluster FC 配置）
+      url: "/disaster-recovery/task_boot_new_mcfc.html"
+  - title: 在混合配置中准备要切回的节点（过渡期间恢复）
+    url: "/disaster-recovery/task_prepare_the_nodes_for_switchback_in_a_mixed_configuration.html"
+  - title: 正在完成恢复
+    url: "/disaster-recovery/task_complete_recovery.html"
+- title: 从非控制器故障中恢复
+  url: "/disaster-recovery/task_recover_from_a_non_controller_failure_mcc_dr.html"

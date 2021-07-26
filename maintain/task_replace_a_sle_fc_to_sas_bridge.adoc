@@ -1,0 +1,1374 @@
+---
+permalink: maintain/task_replace_a_sle_fc_to_sas_bridge.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, replace, single, fc, sas, bridge 
+summary: 您可以无中断地将网桥替换为相同型号的网桥或新型号的网桥。 
+---
+= 更换单个 FC-SAS 网桥
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以无中断地将网桥替换为相同型号的网桥或新型号的网桥。
+
+您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。
+
+此操作步骤不会造成系统中断，大约需要 60 分钟才能完成。
+
+此操作步骤使用网桥命令行界面配置和管理网桥，并更新网桥固件和 ATTO QuickNAV 实用程序以配置网桥以太网管理 1 端口。如果其他接口满足要求，您可以使用这些接口。
+
+xref:reference_requirements_for_using_other_interfaces_to_configure_and_manage_fibrebridge_bridges.adoc[使用其他接口配置和管理 FibreBridge 网桥的要求]
+
+* 相关信息 *
+
+xref:task_fb_consolidate_replace_a_pair_of_fibrebridge_6500n_bridges_with_7500n_bridges.adoc[将一对 FibreBridge 6500N 网桥更换为 7600N 或 7500N 网桥]
+
+
+
+== 验证存储连接
+
+[role="lead"]
+在更换网桥之前，您应验证网桥和存储连接。熟悉命令输出后，您可以在更改配置后确认连接。
+
+您可以从正在维护的站点上 MetroCluster 配置中任何控制器模块的管理提示符处问题描述这些命令。
+
+.步骤
+. 在任意一个 MetroCluster 节点上输入以下命令，以确认与磁盘的连接：
++
+` * 运行本地 sysconfig -v*`
+
++
+输出显示了连接到控制器上启动程序端口的磁盘，并标识了连接到 FC-SAS 网桥的磁盘架：
+
++
+[listing]
+----
+
+node_A_1> run local sysconfig -v
+NetApp Release 9.3.2X18: Sun Dec 13 01:23:24 PST 2017
+System ID: 4068741258 (node_A_1); partner ID: 4068741260 (node_B_1)
+System Serial Number: 940001025471 (node_A_1)
+System Rev: 70
+System Storage Configuration: Multi-Path HA**<=== Configuration should be multi-path HA**
+.
+.
+.
+slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator port**
+		Firmware rev:      7.5.0
+		Flash rev:         0.0.0
+		Host Port Id:      0x60130
+		FC Node Name:      5:00a:098201:bae312
+		FC Port Name:      5:00a:098201:bae312
+		SFP Vendor:        UTILITIES CORP.
+		SFP Part Number:   FTLF8529P3BCVAN1
+		SFP Serial Number: URQ0Q9R
+		SFP Capabilities:  4, 8 or 16 Gbit
+		Link Data Rate:    16 Gbit
+		Switch Port:       brcd6505-fcs40:1
+  **<List of disks visible to port\>**
+		 ID     Vendor   Model            FW    Size
+		brcd6505-fcs29:12.126L1527     : NETAPP   X302_HJUPI01TSSM NA04 847.5GB (1953525168 512B/sect)
+		brcd6505-fcs29:12.126L1528     : NETAPP   X302_HJUPI01TSSA NA02 847.5GB (1953525168 512B/sect)
+		.
+		.
+		.
+		**<List of FC-to-SAS bridges visible to port\>**
+		FC-to-SAS Bridge:
+		brcd6505-fcs40:12.126L0        : ATTO     FibreBridge6500N 1.61  FB6500N102980
+		brcd6505-fcs42:13.126L0        : ATTO     FibreBridge6500N 1.61  FB6500N102980
+		brcd6505-fcs42:6.126L0         : ATTO     FibreBridge6500N 1.61  FB6500N101167
+		brcd6505-fcs42:7.126L0         : ATTO     FibreBridge6500N 1.61  FB6500N102974
+		.
+		.
+		.
+  **<List of storage shelves visible to port\>**
+		brcd6505-fcs40:12.shelf6: DS4243  Firmware rev. IOM3 A: 0200  IOM3 B: 0200
+		brcd6505-fcs40:12.shelf8: DS4243  Firmware rev. IOM3 A: 0200  IOM3 B: 0200
+		.
+		.
+		.
+----
+
+
+
+
+== 将网桥热插拔为同一型号的替代网桥
+
+[role="lead"]
+您可以将出现故障的网桥热插拔到同一型号的另一个网桥。
+
+如果要使用网桥的带内管理而不是 IP 管理，则可以跳过配置以太网端口和 IP 设置的步骤，如相关步骤中所述。
+
+
+NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+
+.步骤
+. 如果可以访问旧网桥，则可以检索配置信息。
++
+|===
+| 条件 | 那么 ... 
+
+
+ a| 
+* 您正在使用 IP 管理 *
+ a| 
+使用 Telnet 连接连接连接到旧网桥，然后复制网桥配置的输出。
+
+
+
+ a| 
+* 您正在使用带内管理 *
+ a| 
+使用 ONTAP 命令行界面使用以下命令检索配置信息：
+
+` * 存储网桥 run-cli -name _bridge-name_ -command "info"*`
+
+` * 存储网桥 run-cli -name _bridge-name_ -command "sasportlist"*`
+
+|===
++
+输入命令：
+
++
+` * 存储网桥 run-cli -name bridge_A1 -command "info"*`
+
++
+[listing]
+----
+info
+
+Device Status         = Good
+Unsaved Changes       = None
+Device                = "FibreBridge 7500N"
+Serial Number         = FB7500N100000
+Device Version        = 3.10
+Board Revision        = 7
+Build Number          = 007A
+Build Type            = Release
+Build Date            = "Aug 20 2019" 11:01:24
+Flash Revision        = 0.02
+Firmware Version      = 3.10
+BCE Version (FPGA 1)  = 15
+BAU Version (FPGA 2)  = 33
+User-defined name     = "bridgeA1"
+World Wide Name       = 20 00 00 10 86 A1 C7 00
+MB of RAM Installed   = 512
+FC1 Node Name         = 20 00 00 10 86 A1 C7 00
+FC1 Port Name         = 21 00 00 10 86 A1 C7 00
+FC1 Data Rate         = 16Gb
+FC1 Connection Mode   = ptp
+FC1 FW Revision       = 11.4.337.0
+FC2 Node Name         = 20 00 00 10 86 A1 C7 00
+FC2 Port Name         = 22 00 00 10 86 A1 C7 00
+FC2 Data Rate         = 16Gb
+FC2 Connection Mode   = ptp
+FC2 FW Revision       = 11.4.337.0
+SAS FW Revision       = 3.09.52
+MP1 IP Address        = 10.10.10.10
+MP1 IP Subnet Mask    = 255.255.255.0
+MP1 IP Gateway        = 10.10.10.1
+MP1 IP DHCP           = disabled
+MP1 MAC Address       = 00-10-86-A1-C7-00
+MP2 IP Address        = 0.0.0.0 (disabled)
+MP2 IP Subnet Mask    = 0.0.0.0
+MP2 IP Gateway        = 0.0.0.0
+MP2 IP DHCP           = enabled
+MP2 MAC Address       = 00-10-86-A1-C7-01
+SNMP                  = enabled
+SNMP Community String = public
+PS A Status           = Up
+PS B Status           = Up
+Active Configuration  = NetApp
+
+Ready.
+----
++
+输入命令：
+
++
+` * 存储网桥 run-cli -name bridge_A1 -command "sasportlist"*`
+
++
+[listing]
+----
+
+
+SASPortList
+
+;Connector      PHY     Link            Speed   SAS Address
+;=============================================================
+Device  A       1       Up              6Gb     5001086000a1c700
+Device  A       2       Up              6Gb     5001086000a1c700
+Device  A       3       Up              6Gb     5001086000a1c700
+Device  A       4       Up              6Gb     5001086000a1c700
+Device  B       1       Disabled        12Gb    5001086000a1c704
+Device  B       2       Disabled        12Gb    5001086000a1c704
+Device  B       3       Disabled        12Gb    5001086000a1c704
+Device  B       4       Disabled        12Gb    5001086000a1c704
+Device  C       1       Disabled        12Gb    5001086000a1c708
+Device  C       2       Disabled        12Gb    5001086000a1c708
+Device  C       3       Disabled        12Gb    5001086000a1c708
+Device  C       4       Disabled        12Gb    5001086000a1c708
+Device  D       1       Disabled        12Gb    5001086000a1c70c
+Device  D       2       Disabled        12Gb    5001086000a1c70c
+Device  D       3       Disabled        12Gb    5001086000a1c70c
+Device  D       4       Disabled        12Gb    5001086000a1c70c
+----
+. 如果网桥采用光纤连接 MetroCluster 配置，请禁用连接到网桥 FC 端口的所有交换机端口。
+. 从 ONTAP 集群提示符处，从运行状况监控中删除正在维护的网桥：
++
+.. 删除网桥： + ` * 存储网桥 remove -name _bridge-name_*`
+.. 查看受监控网桥的列表并确认已删除的网桥不存在： + ` * storage bridge show*`
+
+
+. 正确接地。
+. 关闭 ATTO 网桥。
++
+|===
+| 如果您使用的是 ... | 那么 ... 
+
+
+ a| 
+FibreBridge 7600N 或 7500N 网桥
+ a| 
+拔下连接到网桥的电源线。
+
+
+
+ a| 
+FibreBridge 6500N 网桥
+ a| 
+关闭网桥的电源开关。
+
+|===
+. 断开连接到旧网桥的缆线。
++
+您应记下每条缆线连接到的端口。
+
+. 从机架中卸下旧网桥。
+. 将新网桥安装到机架中。
+. 重新连接电源线，如果为网桥的 IP 访问配置了屏蔽以太网缆线，则重新连接该缆线。
++
+
+IMPORTANT: 此时不能重新连接 SAS 或 FC 缆线。
+
+. 将网桥连接到电源，然后打开。
++
+网桥就绪 LED 可能需要长达 30 秒才能亮起，表示网桥已完成其开机自检序列。
+
+. 如果配置为带内管理，请使用缆线从 FibreBridge RS -232 串行端口连接到个人计算机上的串行（ COM ）端口。
++
+串行连接将用于初始配置，然后通过 ONTAP 进行带内管理， FC 端口可用于监控和管理网桥。
+
+. 如果要配置 IP 管理，请按照适用于您的网桥型号的 _ATTO FibreBridge 安装和操作手册 _ 第 2.0 节中的操作步骤配置每个网桥的以太网管理 1 端口。
++
+在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
+
++
+在运行 QuickNAV 配置以太网管理端口时，仅会配置通过以太网缆线连接的以太网管理端口。例如，如果您还希望配置以太网管理 2 端口，则需要将以太网缆线连接到端口 2 并运行 QuickNAV 。
+
+. 配置网桥。
++
+如果您从旧网桥中检索到配置信息，请使用此信息配置新网桥。
+
++
+请务必记下您指定的用户名和密码。
+
++
+适用于您的网桥型号的 _ATTO FibreBridge 安装和操作手册 _ 提供了有关可用命令及其使用方法的最新信息。
+
++
+
+NOTE: 请勿在 ATTO FibreBridge 7600N 或 7500N 上配置时间同步。在 ONTAP 发现网桥后， ATTO FibreBridge 7600N 或 7500N 的时间同步设置为集群时间。它还会每天定期同步一次。使用的时区为 GMT ，不可更改。
+
++
+.. 如果要配置 IP 管理，请配置网桥的 IP 设置。
++
+要在不使用 QuickNAV 实用程序的情况下设置 IP 地址，您需要与 FibreBridge 建立串行连接。
+
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+` * 设置 IP 地址 MP1 _IP-address*`
+
++
+` * 设置 ipsubnetmask MP1 _subnet-mask_*`
+
++
+` * 设置 ipgateway MP1 x.x.x.x*`
+
++
+` * 设置 ipdhcp MP1 已禁用 *`
+
++
+` * 设置以太网速度 MP1 1000*`
+
+.. 配置网桥名称。
++
+在 MetroCluster 配置中，每个网桥都应具有唯一的名称。
+
++
+每个站点上一个堆栈组的网桥名称示例：
+
++
+*** bridge_A_1a
+*** bridge_A_1b
+*** bridge_B_1a
+*** bridge_B_1b
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+* 设置 bridgename _bridgenename_*`
+
+
+
+.. 如果运行的是 ONTAP 9.4 或更早版本，请在网桥上启用 SNMP ： + ` * 设置 SNMP enabled"`
++
+在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
+
+
+
+. 配置网桥 FC 端口。
++
+.. 配置网桥 FC 端口的数据速率 / 速度。
++
+支持的 FC 数据速率取决于您的网桥型号。
+
++
+*** FibreBridge 7600 网桥最多支持 32 ， 16 或 8 Gbps 。
+*** FibreBridge 7500 网桥最多支持 16 ， 8 或 4 Gbps 。
+*** FibreBridge 6500 网桥最多支持 8 ， 4 或 2 Gbps 。
++
+
+NOTE: 您选择的 FCDataRate 速度限制为网桥和网桥端口所连接的交换机均支持的最大速度。布线距离不得超过 SFP 和其他硬件的限制。
+
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+` * 设置 FCDataRate _port-number port-speed_*`
+
+
+
+.. 如果要配置 FibreBridge 7500N 或 6500N 网桥，请配置端口用于 ptp 的连接模式。
++
+
+NOTE: 配置 FibreBridge 7600N 网桥时，不需要 FCConnMode 设置。
+
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+` * 设置 FCConnMode _port-number_ PTP*`
+
+.. 如果要配置 FibreBridge 7600N 或 7500N 网桥，则必须配置或禁用 FC2 端口。
++
+*** 如果使用的是第二个端口，则必须对 FC2 端口重复上述子步骤。
+*** 如果不使用第二个端口，则必须禁用端口： + ` * FCPortDisable _port-number_*`
+
+
+.. 如果要配置 FibreBridge 7600N 或 7500N 网桥，请禁用未使用的 SAS 端口： + ` * SASPortDisable _SAS-Port_*`
++
+
+NOTE: 默认情况下， SAS 端口 A 到 D 处于启用状态。您必须禁用未使用的 SAS 端口。如果仅使用 SAS 端口 A ，则必须禁用 SAS 端口 B ， C 和 D 。
+
+
+
+. 安全访问网桥并保存网桥的配置。
++
+.. 在控制器提示符处，检查网桥的状态： ` * storage bridge show*`
++
+输出将显示哪个网桥未受保护。
+
+.. 检查不安全网桥端口的状态： ` * info*`
++
+输出将显示以太网端口 MP1 和 MP2 的状态。
+
+.. 如果启用了以太网端口 MP1 ，请运行以下命令： + ` * 设置 EthernetPort MP1 disabled" *`
++
+
+NOTE: 如果以太网端口 MP2 也已启用，请对端口 MP2 重复上述子步骤。
+
+.. 保存网桥的配置。
++
+您必须运行以下命令：
+
++
+` * 保存配置 *`
+
++
+` * FirmwareRestart*`
+
++
+系统将提示您重新启动网桥。
+
+
+
+. 更新每个网桥上的 FibreBridge 固件。
++
+如果新网桥与配对网桥的类型相同，请升级到与配对网桥相同的固件。如果新网桥与配对网桥的类型不同，请升级到该网桥支持的最新固件以及 ONTAP 版本。请参见 _FibreBridge MetroCluster 维护指南 _ 中的 " 更新 FibreBridge 网桥上的固件 " 一节。
+
+. 将 SAS 和 FC 缆线重新连接到新网桥上的相同端口。
++
+如果新网桥是 FibreBridge 7600N 或 7500N ，则必须更换将网桥连接到磁盘架堆栈顶部或底部的缆线。FibreBridge 6500N 网桥使用 SAS 缆线； FibreBridge 7600N 和 7500N 网桥需要使用迷你 SAS 缆线进行这些连接。
+
++
+
+NOTE: 请至少等待 10 秒，然后再连接端口。SAS 缆线连接器具有方向性；正确连接到 SAS 端口时，连接器会卡入到位，磁盘架 SAS 端口 LNK LED 会呈绿色亮起。对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。对于控制器， SAS 端口的方向可能因平台型号而异；因此，正确的 SAS 缆线连接器方向会有所不同。
+
+. 验证每个网桥是否均可识别网桥所连接的所有磁盘驱动器和磁盘架。
++
+|===
+| 如果您使用的是 ... | 那么 ... 
+
+
+ a| 
+ATTO ExpressNAV 图形用户界面
+ a| 
+.. 在支持的 Web 浏览器中，在浏览器框中输入网桥的 IP 地址。
++
+此时将转到 ATTO FibreBridge 主页，其中包含一个链接。
+
+.. 单击此链接，然后输入您的用户名以及在配置网桥时指定的密码。
++
+此时将显示 ATTO FibreBridge 状态页面，左侧有一个菜单。
+
+.. 单击菜单中的 * 高级 * 。
+.. 查看已连接的设备： + ` * sastargets*`
+.. 单击 * 提交 * 。
+
+
+
+
+ a| 
+串行端口连接
+ a| 
+查看已连接的设备：
+
+` * sastargets*`
+
+|===
++
+输出将显示网桥所连接的设备（磁盘和磁盘架）。输出行按顺序编号，以便您可以快速统计设备数量。
+
++
+
+NOTE: 如果输出开头显示文本响应已截断，则可以使用 Telnet 连接到网桥，然后使用 sastargets 命令查看所有输出。
+
++
+以下输出显示已连接 10 个磁盘：
+
++
+[listing]
+----
+Tgt VendorID ProductID        Type        SerialNumber
+  0 NETAPP   X410_S15K6288A15 DISK        3QP1CLE300009940UHJV
+  1 NETAPP   X410_S15K6288A15 DISK        3QP1ELF600009940V1BV
+  2 NETAPP   X410_S15K6288A15 DISK        3QP1G3EW00009940U2M0
+  3 NETAPP   X410_S15K6288A15 DISK        3QP1EWMP00009940U1X5
+  4 NETAPP   X410_S15K6288A15 DISK        3QP1FZLE00009940G8YU
+  5 NETAPP   X410_S15K6288A15 DISK        3QP1FZLF00009940TZKZ
+  6 NETAPP   X410_S15K6288A15 DISK        3QP1CEB400009939MGXL
+  7 NETAPP   X410_S15K6288A15 DISK        3QP1G7A900009939FNTT
+  8 NETAPP   X410_S15K6288A15 DISK        3QP1FY0T00009940G8PA
+  9 NETAPP   X410_S15K6288A15 DISK        3QP1FXW600009940VERQ
+----
+. 验证命令输出是否显示网桥已连接到堆栈中所有适当的磁盘和磁盘架。
++
+|===
+
+
+| 如果输出为 ... | 那么 ... 
+
+
+ a| 
+正确
+ a| 
+重复步骤 xref:task_replace_a_sle_fc_to_sas_bridge.html[更换 SLE FC 到 SAS 网桥] 其余每个网桥。
+
+
+
+ a| 
+不正确
+ a| 
+.. 重复步骤，检查 SAS 缆线是否松动或更正 SAS 布线 xref:task_replace_a_sle_fc_to_sas_bridge.html[更换 SLE FC 到 SAS 网桥]。
+.. 重复步骤 xref:task_replace_a_sle_fc_to_sas_bridge.html[更换 SLE FC 到 SAS 网桥]。
+
+
+|===
+. 如果网桥采用光纤连接的 MetroCluster 配置，请重新启用在此操作步骤开头禁用的 FC 交换机端口。
++
+此端口应为连接到网桥的端口。
+
+. 从这两个控制器模块的系统控制台中，验证所有控制器模块是否均可通过新网桥访问磁盘架（即系统已通过缆线连接到多路径 HA ）：
++
+` * 运行本地 sysconfig*`
+
++
+
+NOTE: 系统可能需要长达一分钟才能完成发现。
+
++
+如果输出未指示多路径 HA ，则必须更正 SAS 和 FC 布线，因为并非所有磁盘驱动器都可通过新网桥进行访问。
+
++
+以下输出指出系统已为多路径 HA 布线：
+
++
+[listing]
+----
+NetApp Release 8.3.2: Tue Jan 26 01:41:49 PDT 2016
+System ID: 1231231231 (node_A_1); partner ID: 4564564564 (node_A_2)
+System Serial Number: 700000123123 (node_A_1); partner Serial Number: 700000456456 (node_A_2)
+System Rev: B0
+System Storage Configuration: Multi-Path HA
+System ACP Connectivity: NA
+----
++
+
+IMPORTANT: 如果系统未以多路径 HA 的形式进行布线，则重新启动网桥可能发生原因会导致无法访问磁盘驱动器，并导致多磁盘崩溃。
+
+. 如果运行的是 ONTAP 9.4 或更早版本，请验证是否已为网桥配置 SNMP 。
++
+如果您使用的是网桥命令行界面，请运行以下命令：
+
++
+[listing]
+----
+get snmp
+----
+. 在 ONTAP 集群提示符处，将此网桥添加到运行状况监控：
++
+.. 使用适用于您的 ONTAP 版本的命令添加网桥：
++
+|===
+| ONTAP 版本 | 命令 
+
+
+ a| 
+9.5 及更高版本
+ a| 
+` * 存储网桥 add -address 0.0.0.0 -managed-by 带内 -name _bridge-name_*`
+
+
+
+ a| 
+9.4 及更早版本
+ a| 
+` * 存储网桥 add -address _bridge-ip-address_ -name _bridge-name_*`
+
+|===
+.. 确认已添加网桥并已正确配置： + ` * storage bridge show*`
++
+由于轮询间隔，可能需要长达 15 分钟才能反映所有数据。如果 `S状态` 列中的值为 `ok` ，并且显示了其他信息，例如全球通用名称（ WWN ），则 ONTAP 运行状况监控器可以联系并监控网桥。
+
++
+以下示例显示已配置 FC-SAS 网桥：
+
++
+[listing]
+----
+controller_A_1::> storage bridge show
+
+Bridge              Symbolic Name Is Monitored  Monitor Status  Vendor Model                Bridge WWN
+------------------  ------------- ------------  --------------  ------ -----------------    ----------
+ATTO_10.10.20.10  atto01        true          ok              Atto   FibreBridge 7500N   	20000010867038c0
+ATTO_10.10.20.11  atto02        true          ok              Atto   FibreBridge 7500N   	20000010867033c0
+ATTO_10.10.20.12  atto03        true          ok              Atto   FibreBridge 7500N   	20000010867030c0
+ATTO_10.10.20.13  atto04        true          ok              Atto   FibreBridge 7500N   	2000001086703b80
+
+4 entries were displayed
+
+ controller_A_1::>
+----
+
+
+. 在 ONTAP 中验证 MetroCluster 配置的运行情况：
++
+.. 检查系统是否为多路径： + ` * node run -node _node-name_ sysconfig -A*`
+.. 检查两个集群上是否存在任何运行状况警报： + ` * system health alert show*`
+.. 确认 MetroCluster 配置以及操作模式是否正常： + ` * MetroCluster show*`
+.. 执行 MetroCluster 检查： + ` * MetroCluster check run*`
+.. 显示 MetroCluster 检查的结果： + ` * MetroCluster check show*`
+.. 检查交换机上是否存在任何运行状况警报（如果存在）： + ` * storage switch show*`
+.. 运行 Config Advisor 。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+.. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
+
+
+
+
+* 相关信息 *
+
+xref:concept_in_band_management_of_the_fc_to_sas_bridges.adoc[FC-SAS 网桥的带内管理]
+
+
+
+== 热插拔 FibreBridge 7500N 和 7600N 网桥
+
+[role="lead"]
+您可以将 FibreBridge 7500N 网桥热插拔为 7600N 网桥。
+
+如果要使用网桥的带内管理而不是 IP 管理，则可以跳过配置以太网端口和 IP 设置的步骤，如相关步骤中所述。
+
+
+NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+
+.步骤
+. 如果网桥采用光纤连接 MetroCluster 配置，请禁用连接到网桥 FC 端口的所有交换机端口。
+. 从 ONTAP 集群提示符处，从运行状况监控中删除正在维护的网桥：
++
+.. 删除网桥： + ` * 存储网桥 remove -name _bridge-name_*`
+.. 查看受监控网桥的列表并确认已删除的网桥不存在： + ` * storage bridge show*`
+
+
+. 正确接地。
+. 拔下连接到网桥的电源线以关闭网桥的电源。
+. 断开连接到旧网桥的缆线。
++
+您应记下每条缆线连接到的端口。
+
+. 从机架中卸下旧网桥。
+. 将新网桥安装到机架中。
+. 重新连接电源线和屏蔽以太网缆线。
++
+
+IMPORTANT: 此时不能重新连接 SAS 或 FC 缆线。
+
+. 将网桥连接到电源，然后打开。
++
+网桥就绪 LED 可能需要长达 30 秒才能亮起，表示网桥已完成其开机自检序列。
+
+. 如果配置为带内管理，请使用缆线从 FibreBridge RS -232 串行端口连接到个人计算机上的串行（ COM ）端口。
++
+串行连接将用于初始配置，然后通过 ONTAP 进行带内管理， FC 端口可用于监控和管理网桥。
+
+. 如果配置为带内管理，请使用缆线从 FibreBridge RS -232 串行端口连接到个人计算机上的串行（ COM ）端口。
++
+串行连接将用于初始配置，然后通过 ONTAP 进行带内管理， FC 端口可用于监控和管理网桥。
+
+. 如果要配置 IP 管理，请按照适用于您的网桥型号的 _ATTO FibreBridge 安装和操作手册 _ 第 2.0 节中的操作步骤配置每个网桥的以太网管理 1 端口。
++
+在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
+
++
+在运行 QuickNAV 配置以太网管理端口时，仅会配置通过以太网缆线连接的以太网管理端口。例如，如果您还希望配置以太网管理 2 端口，则需要将以太网缆线连接到端口 2 并运行 QuickNAV 。
+
+. 配置网桥。
++
+请务必记下您指定的用户名和密码。
+
++
+适用于您的网桥型号的 _ATTO FibreBridge 安装和操作手册 _ 提供了有关可用命令及其使用方法的最新信息。
+
++
+
+NOTE: 请勿在 FibreBridge 7600N 上配置时间同步。在 ONTAP 发现 FibreBridge 7600N 网桥后，该网桥的时间同步设置为集群时间。它还会每天定期同步一次。使用的时区为 GMT ，不可更改。
+
++
+.. 如果要配置 IP 管理，请配置网桥的 IP 设置。
++
+要在不使用 QuickNAV 实用程序的情况下设置 IP 地址，您需要与 FibreBridge 建立串行连接。
+
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+` * 设置 IP 地址 MP1 _IP-address_*`
+
++
+` * 设置 ipsubnetmask MP1 _subnet-mask_*`
+
++
+` * 设置 ipgateway MP1 x.x.x.x*`
+
++
+` * 设置 ipdhcp MP1 已禁用 *`
+
++
+` * 设置以太网速度 MP1 1000*`
+
+.. 配置网桥名称。
++
+在 MetroCluster 配置中，每个网桥都应具有唯一的名称。
+
++
+每个站点上一个堆栈组的网桥名称示例：
+
++
+*** bridge_A_1a
+*** bridge_A_1b
+*** bridge_B_1a
+*** bridge_B_1b
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+` * 设置桥名称 " _bridgenename_*`
+
+
+
+.. 如果运行的是 ONTAP 9.4 或更早版本，请在网桥上启用 SNMP ： + ` * 设置 SNMP enabled"`
++
+在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
+
+
+
+. 配置网桥 FC 端口。
++
+.. 配置网桥 FC 端口的数据速率 / 速度。
++
+支持的 FC 数据速率取决于您的网桥型号。
+
++
+*** FibreBridge 7600 网桥最多支持 32 ， 16 或 8 Gbps 。
+*** FibreBridge 7500 网桥最多支持 16 ， 8 或 4 Gbps 。
+*** FibreBridge 6500 网桥最多支持 8 ， 4 或 2 Gbps 。
++
+
+NOTE: 您选择的 FCDataRate 速度仅限于网桥以及网桥端口所连接的控制器模块或交换机的 FC 端口所支持的最大速度。布线距离不得超过 SFP 和其他硬件的限制。
+
+
+
+
+
++
+如果使用命令行界面，则必须运行以下命令： ` * 设置 FCDataRate _port-number port-speed_*`
+
++
+.. 您必须配置或禁用 FC2 端口。
++
+*** 如果使用的是第二个端口，则必须对 FC2 端口重复上述子步骤。
+*** 如果不使用第二个端口，则必须禁用未使用的端口： + ` * FCPortDisable port-number*` 以下示例显示了禁用 FC 端口 2 ：
++
+[listing]
+----
+`FCPortDisable 2`
+
+Fibre Channel Port 2 has been disabled.
+----
+
+
+.. 禁用未使用的 SAS 端口： + ` * SASPortDisable _SAS-Port_*`
++
+
+NOTE: 默认情况下， SAS 端口 A 到 D 处于启用状态。您必须禁用未使用的 SAS 端口。
+
++
+如果仅使用 SAS 端口 A ，则必须禁用 SAS 端口 B ， C 和 D 。以下示例显示了禁用 SAS 端口 B您必须同样禁用 SAS 端口 C 和 D ：
+
++
+[listing]
+----
+`SASPortDisable b`
+
+SAS Port B has been disabled.
+----
+
+
+. 安全访问网桥并保存网桥的配置。
++
+.. 在控制器提示符处，检查网桥的状态： ` * storage bridge show*`
++
+输出将显示哪个网桥未受保护。
+
+.. 检查不安全网桥端口的状态： ` * info*`
++
+输出将显示以太网端口 MP1 和 MP2 的状态。
+
+.. 如果启用了以太网端口 MP1 ，请运行以下命令： + ` * 设置 EthernetPort MP1 disabled" *`
++
+
+NOTE: 如果以太网端口 MP2 也已启用，请对端口 MP2 重复上述子步骤。
+
+.. 保存网桥的配置。
++
+您必须运行以下命令： +
+
++
+` * 保存配置 *`
+
++
+` * FirmwareRestart*`
+
++
+系统将提示您重新启动网桥。
+
+
+
+. 更新每个网桥上的 FibreBridge 固件。
++
+xref:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.adoc[更新运行 ONTAP 9.4 及更高版本的配置中 FibreBridge 7600N 或 7500N 网桥上的固件]
+
+. 将 SAS 和 FC 缆线重新连接到新网桥上的相同端口。
++
+
+NOTE: 请至少等待 10 秒，然后再连接端口。SAS 缆线连接器具有方向性；正确连接到 SAS 端口时，连接器会卡入到位，磁盘架 SAS 端口 LNK LED 会呈绿色亮起。对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。对于控制器， SAS 端口的方向可能因平台型号而异；因此，正确的 SAS 缆线连接器方向会有所不同。
+
+. 验证每个网桥是否均可识别网桥所连接的所有磁盘驱动器和磁盘架：
++
+` * sastargets*`
+
++
+输出将显示网桥所连接的设备（磁盘和磁盘架）。输出行按顺序编号，以便您可以快速统计设备数量。
+
++
+以下输出显示已连接 10 个磁盘：
+
++
+[listing]
+----
+Tgt VendorID ProductID        Type        SerialNumber
+  0 NETAPP   X410_S15K6288A15 DISK        3QP1CLE300009940UHJV
+  1 NETAPP   X410_S15K6288A15 DISK        3QP1ELF600009940V1BV
+  2 NETAPP   X410_S15K6288A15 DISK        3QP1G3EW00009940U2M0
+  3 NETAPP   X410_S15K6288A15 DISK        3QP1EWMP00009940U1X5
+  4 NETAPP   X410_S15K6288A15 DISK        3QP1FZLE00009940G8YU
+  5 NETAPP   X410_S15K6288A15 DISK        3QP1FZLF00009940TZKZ
+  6 NETAPP   X410_S15K6288A15 DISK        3QP1CEB400009939MGXL
+  7 NETAPP   X410_S15K6288A15 DISK        3QP1G7A900009939FNTT
+  8 NETAPP   X410_S15K6288A15 DISK        3QP1FY0T00009940G8PA
+  9 NETAPP   X410_S15K6288A15 DISK        3QP1FXW600009940VERQ
+----
+. 验证命令输出是否显示网桥已连接到堆栈中所有适当的磁盘和磁盘架。
++
+|===
+| 如果输出为 ... | 那么 ... 
+
+
+ a| 
+正确
+ a| 
+对其余每个网桥重复上述步骤。
+
+
+
+ a| 
+不正确
+ a| 
+.. 重复步骤，检查 SAS 缆线是否松动或更正 SAS 布线 xref:task_replace_a_sle_fc_to_sas_bridge.adocSTEP_CD84065D8F3B43F192919B0CD6FDC1A6[task_replace _A_SLE_FC_to_sas_bridge.md#sted_CD84065D8F3B43F192919B0CD6FDC1a6]。
+.. 重复上一步。
+
+
+|===
+. 如果网桥采用光纤连接的 MetroCluster 配置，请重新启用在此操作步骤开头禁用的 FC 交换机端口。
++
+此端口应为连接到网桥的端口。
+
+. 从这两个控制器模块的系统控制台中，验证所有控制器模块是否均可通过新网桥访问磁盘架（即系统已通过缆线连接到多路径 HA ）：
++
+` * 运行本地 sysconfig*`
+
++
+
+NOTE: 系统可能需要长达一分钟才能完成发现。
+
++
+如果输出未指示多路径 HA ，则必须更正 SAS 和 FC 布线，因为并非所有磁盘驱动器都可通过新网桥进行访问。
+
++
+以下输出指出系统已为多路径 HA 布线：
+
++
+[listing]
+----
+NetApp Release 8.3.2: Tue Jan 26 01:41:49 PDT 2016
+System ID: 1231231231 (node_A_1); partner ID: 4564564564 (node_A_2)
+System Serial Number: 700000123123 (node_A_1); partner Serial Number: 700000456456 (node_A_2)
+System Rev: B0
+System Storage Configuration: Multi-Path HA
+System ACP Connectivity: NA
+----
++
+
+IMPORTANT: 如果系统未以多路径 HA 的形式进行布线，则重新启动网桥可能发生原因会导致无法访问磁盘驱动器，并导致多磁盘崩溃。
+
+. 如果运行的是 ONTAP 9.4 或更早版本，请验证是否已为网桥配置 SNMP 。
++
+如果您使用的是网桥命令行界面，请运行以下命令：
+
++
+[listing]
+----
+get snmp
+----
+. 在 ONTAP 集群提示符处，将此网桥添加到运行状况监控：
++
+.. 使用适用于您的 ONTAP 版本的命令添加网桥：
++
+|===
+| ONTAP 版本 | 命令 
+
+
+ a| 
+9.5 及更高版本
+ a| 
+` * 存储网桥 add -address 0.0.0.0 -managed-by 带内 -name _bridge-name_*`
+
+
+
+ a| 
+9.4 及更早版本
+ a| 
+` * 存储网桥 add -address _bridge-ip-address_ -name _bridge-name_*`
+
+|===
+.. 确认已添加网桥并已正确配置： + ` * storage bridge show*`
++
+由于轮询间隔，可能需要长达 15 分钟才能反映所有数据。如果 `S状态` 列中的值为 `ok` ，并且显示了其他信息，例如全球通用名称（ WWN ），则 ONTAP 运行状况监控器可以联系并监控网桥。
+
++
+以下示例显示已配置 FC-SAS 网桥：
+
++
+[listing]
+----
+controller_A_1::> storage bridge show
+
+Bridge              Symbolic Name Is Monitored  Monitor Status  Vendor Model                Bridge WWN
+------------------  ------------- ------------  --------------  ------ -----------------    ----------
+ATTO_10.10.20.10  atto01        true          ok              Atto   FibreBridge 7500N   	20000010867038c0
+ATTO_10.10.20.11  atto02        true          ok              Atto   FibreBridge 7500N   	20000010867033c0
+ATTO_10.10.20.12  atto03        true          ok              Atto   FibreBridge 7500N   	20000010867030c0
+ATTO_10.10.20.13  atto04        true          ok              Atto   FibreBridge 7500N   	2000001086703b80
+
+4 entries were displayed
+
+ controller_A_1::>
+----
+
+
+. 在 ONTAP 中验证 MetroCluster 配置的运行情况：
++
+.. 检查系统是否为多路径： + ` * node run -node _node-name_ sysconfig -A*`
+.. 检查两个集群上是否存在任何运行状况警报： + ` * system health alert show*`
+.. 确认 MetroCluster 配置以及操作模式是否正常： + ` * MetroCluster show*`
+.. 执行 MetroCluster 检查： + ` * MetroCluster check run*`
+.. 显示 MetroCluster 检查的结果： +
++
+` * MetroCluster check show*`
+
+.. 检查交换机上是否存在任何运行状况警报（如果存在）： + ` * storage switch show*`
+.. 运行 Config Advisor 。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+.. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
+
+
+
+
+* 相关信息 *
+
+xref:concept_in_band_management_of_the_fc_to_sas_bridges.adoc[FC-SAS 网桥的带内管理]
+
+
+
+== 热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥
+
+[role="lead"]
+您可以将 FibreBridge 6500N 网桥热插拔为 FibreBridge 7600N 或 7500N 网桥，以更换发生故障的网桥，或者在光纤连接或网桥连接的 MetroCluster 配置中升级网桥。
+
+* 此操作步骤用于热插拔一个 FibreBridge 6500N 网桥和一个 FibreBridge 7600N 或 7500N 网桥。
+* 在热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥时，您只能使用 FibreBridge 7600N 或 7500N 网桥上的一个 FC 端口和一个 SAS 端口。
+* 如果要使用网桥的带内管理而不是 IP 管理，则可以跳过配置以太网端口和 IP 设置的步骤，如相关步骤中所述。
+
+
+
+IMPORTANT: 如果要热插拔一对中的两个 FibreBridge 6500N 网桥，则必须使用 xref:task_fb_consolidate_replace_a_pair_of_fibrebridge_6500n_bridges_with_7500n_bridges.adoc[整合多个存储堆栈] 操作步骤中的分区说明。通过更换网桥上的两个 FibreBridge 6500N 网桥，您可以利用 FibreBridge 7600N 或 7500N 网桥上的其他端口。
+
+
+NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+
+.步骤
+. 执行以下操作之一：
++
+** 如果发生故障的网桥采用光纤连接的 MetroCluster 配置，请禁用连接到网桥 FC 端口的交换机端口。
+** 如果故障网桥采用延伸型 MetroCluster 配置，请使用任一可用 FC 端口。
+
+
+. 从 ONTAP 集群提示符处，从运行状况监控中删除正在维护的网桥：
++
+.. 删除网桥： + ` * 存储网桥 remove -name _bridge-name_*`
+.. 查看受监控网桥的列表并确认已删除的网桥不存在： + ` * storage bridge show*`
+
+
+. 正确接地。
+. 关闭网桥的电源开关。
+. 断开从磁盘架连接到 FibreBridge 6500N 网桥端口的缆线以及电源线。
++
+您应记下每个缆线连接到的端口。
+
+. 从机架中卸下需要更换的 FibreBridge 6500N 网桥。
+. 将新的 FibreBridge 7600N 或 7500N 网桥安装到机架中。
+. 重新连接电源线以及屏蔽以太网缆线（如有必要）。
++
+
+IMPORTANT: 此时请勿重新连接 SAS 或 FC 缆线。
+
+. 如果配置为带内管理，请使用缆线从 FibreBridge RS -232 串行端口连接到个人计算机上的串行（ COM ）端口。
++
+串行连接将用于初始配置，然后通过 ONTAP 进行带内管理， FC 端口可用于监控和管理网桥。
+
+. 如果配置 IP 管理，请使用以太网缆线将每个网桥上的以太网管理 1 端口连接到您的网络。
++
+在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
+
++
+通过以太网管理 1 端口，您可以快速下载网桥固件（使用 ATTO ExpressNAV 或 FTP 管理界面），并检索核心文件和提取日志。
+
+. 如果要配置 IP 管理，请按照适用于您的网桥型号的 _ATTO FibreBridge 安装和操作手册 _ 第 2.0 节中的操作步骤配置每个网桥的以太网管理 1 端口。
++
+在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
+
++
+在运行 QuickNAV 配置以太网管理端口时，仅会配置通过以太网缆线连接的以太网管理端口。例如，如果您还希望配置以太网管理 2 端口，则需要将以太网缆线连接到端口 2 并运行 QuickNAV 。
+
+. 配置网桥。
++
+如果您从旧网桥中检索到配置信息，请使用此信息配置新网桥。
+
++
+请务必记下您指定的用户名和密码。
+
++
+适用于您的网桥型号的 _ATTO FibreBridge 安装和操作手册 _ 提供了有关可用命令及其使用方法的最新信息。
+
++
+
+NOTE: 请勿在 ATTO FibreBridge 7600N 或 7500N 上配置时间同步。在 ONTAP 发现网桥后， ATTO FibreBridge 7600N 或 7500N 的时间同步设置为集群时间。它还会每天定期同步一次。使用的时区为 GMT ，不可更改。
+
++
+.. 如果要配置 IP 管理，请配置网桥的 IP 设置。
++
+要在不使用 QuickNAV 实用程序的情况下设置 IP 地址，您需要与 FibreBridge 建立串行连接。
+
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+` * 设置 IP 地址 MP1 _IP-address_*`
+
++
+` * 设置 ipsubnetmask MP1 _subnet-mask_*`
+
++
+` * 设置 ipgateway MP1 x.x.x.x*`
+
++
+` * 设置 ipdhcp MP1 已禁用 *`
+
++
+` * 设置以太网速度 MP1 1000*`
+
+.. 配置网桥名称。
++
+在 MetroCluster 配置中，每个网桥都应具有唯一的名称。
+
++
+每个站点上一个堆栈组的网桥名称示例：
+
++
+*** bridge_A_1a
+*** bridge_A_1b
+*** bridge_B_1a
+*** bridge_B_1b
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+` * 设置 bridgename _bridgenename_*`
+
+
+
+.. 如果运行的是 ONTAP 9.4 或更早版本，请在网桥上启用 SNMP ： + ` * 设置 SNMP enabled"`
++
+在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
+
+
+
+. 配置网桥 FC 端口。
++
+.. 配置网桥 FC 端口的数据速率 / 速度。
++
+支持的 FC 数据速率取决于您的网桥型号。
+
++
+*** FibreBridge 7600 网桥最多支持 32 ， 16 或 8 Gbps 。
+*** FibreBridge 7500 网桥最多支持 16 ， 8 或 4 Gbps 。
+*** FibreBridge 6500 网桥最多支持 8 ， 4 或 2 Gbps 。
++
+
+NOTE: 您选择的 FCDataRate 速度限制为网桥和网桥端口所连接的交换机均支持的最大速度。布线距离不得超过 SFP 和其他硬件的限制。
+
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+` * 设置 FCDataRate _port-number port-speed_*`
+
+
+
+.. 如果要配置 FibreBridge 7500N 或 6500N 网桥，请配置端口用于 ptp 的连接模式。
++
+
+NOTE: 配置 FibreBridge 7600N 网桥时，不需要 FCConnMode 设置。
+
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+` * 设置 FCConnMode _port-number_ PTP*`
+
+.. 如果要配置 FibreBridge 7600N 或 7500N 网桥，则必须配置或禁用 FC2 端口。
++
+*** 如果使用的是第二个端口，则必须对 FC2 端口重复上述子步骤。
+*** 如果不使用第二个端口，则必须禁用端口： + ` * FCPortDisable _port-number_*`
+
+
+.. 如果要配置 FibreBridge 7600N 或 7500N 网桥，请禁用未使用的 SAS 端口： + ` * SASPortDisable _SAS-Port_*`
++
+
+NOTE: 默认情况下， SAS 端口 A 到 D 处于启用状态。您必须禁用未使用的 SAS 端口。如果仅使用 SAS 端口 A ，则必须禁用 SAS 端口 B ， C 和 D 。
+
+
+
+. 安全访问网桥并保存网桥的配置。
++
+.. 在控制器提示符处，检查网桥的状态： + ` * storage bridge show*`
++
+输出将显示哪个网桥未受保护。
+
+.. 检查不安全网桥端口的状态： ` * info*`
++
+输出将显示以太网端口 MP1 和 MP2 的状态。
+
+.. 如果启用了以太网端口 MP1 ，请运行以下命令： + ` * 设置 EthernetPort MP1 disabled" *`
++
+
+NOTE: 如果以太网端口 MP2 也已启用，请对端口 MP2 重复上述子步骤。
+
+.. 保存网桥的配置。
++
+您必须运行以下命令：
+
++
+` * 保存配置 *`
+
++
+` * FirmwareRestart*`
+
++
+系统将提示您重新启动网桥。
+
+
+
+. 为 FibreBridge 7600N 或 7500N 网桥打开运行状况监控。
+. 更新每个网桥上的 FibreBridge 固件。
++
+如果新网桥与配对网桥的类型相同，请升级到与配对网桥相同的固件。如果新网桥与配对网桥的类型不同，请升级到该网桥支持的最新固件以及 ONTAP 版本。请参见 _FibreBridge MetroCluster 维护指南 _ 中的 " 更新 FibreBridge 网桥上的固件 " 一节。
+
+. 将 SAS 和 FC 缆线重新连接到新网桥上的 SAS A 和光纤通道 1 端口。
++
+SAS 端口必须连接到 FibreBridge 6500N 网桥所连接的同一磁盘架端口。
+
++
+FC 端口必须连接到 FibreBridge 6500N 网桥所连接的同一交换机或控制器端口。
+
++
+
+NOTE: 请勿强制将连接器插入端口。迷你 SAS 缆线具有方向性；正确连接到 SAS 端口时， SAS 缆线会卡入到位，磁盘架 SAS 端口 LNK LED 会呈绿色亮起。对于磁盘架，您可以插入一个 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。对于控制器， SAS 端口的方向可能因平台型号而异；因此， SAS 缆线连接器的正确方向会有所不同。
+
+. 验证网桥是否可以识别它所连接的所有磁盘驱动器和磁盘架。
++
+|===
+| 如果您使用的是 ... | 那么 ... 
+
+
+ a| 
+ATTO ExpressNAV 图形用户界面
+ a| 
+.. 在支持的 Web 浏览器中，在浏览器框中输入网桥的 IP 地址。
++
+此时将转到 ATTO FibreBridge 主页，其中包含一个链接。
+
+.. 单击此链接，然后输入您的用户名以及在配置网桥时指定的密码。
++
+此时将显示 ATTO FibreBridge 状态页面，左侧有一个菜单。
+
+.. 单击菜单中的 * 高级 * 。
+.. 输入以下命令，然后单击 * 提交 * 以查看网桥可见的磁盘列表： + ` * sastargets*`
+
+
+
+
+ a| 
+串行端口连接
+ a| 
+显示网桥可见的磁盘列表：
+
+` * sastargets*`
+
+|===
++
+输出将显示网桥连接到的设备（磁盘和磁盘架）。输出行按顺序编号，以便您可以快速统计设备数量。例如，以下输出显示已连接 10 个磁盘：
+
++
+[listing]
+----
+
+Tgt VendorID ProductID        Type        SerialNumber
+  0 NETAPP   X410_S15K6288A15 DISK        3QP1CLE300009940UHJV
+  1 NETAPP   X410_S15K6288A15 DISK        3QP1ELF600009940V1BV
+  2 NETAPP   X410_S15K6288A15 DISK        3QP1G3EW00009940U2M0
+  3 NETAPP   X410_S15K6288A15 DISK        3QP1EWMP00009940U1X5
+  4 NETAPP   X410_S15K6288A15 DISK        3QP1FZLE00009940G8YU
+  5 NETAPP   X410_S15K6288A15 DISK        3QP1FZLF00009940TZKZ
+  6 NETAPP   X410_S15K6288A15 DISK        3QP1CEB400009939MGXL
+  7 NETAPP   X410_S15K6288A15 DISK        3QP1G7A900009939FNTT
+  8 NETAPP   X410_S15K6288A15 DISK        3QP1FY0T00009940G8PA
+  9 NETAPP   X410_S15K6288A15 DISK        3QP1FXW600009940VERQ
+----
++
+
+NOTE: 如果输出开头显示文本 `reresponse truncated` ，则可以使用 Telnet 访问网桥并输入相同的命令来查看所有输出。
+
+. 验证命令输出是否显示网桥已连接到堆栈中所有必要的磁盘和磁盘架。
++
+|===
+| 如果输出为 ... | 那么 ... 
+
+
+ a| 
+正确
+ a| 
+重复步骤 xref:task_replace_a_sle_fc_to_sas_bridge.html[更换 SLE FC 到 SAS 网桥] 其余每个网桥。 ]
+
+
+
+ a| 
+不正确
+ a| 
+.. 重复步骤，检查 SAS 缆线是否松动或更正 SAS 布线 xref:task_replace_a_sle_fc_to_sas_bridge.adocSTEP_CD84065D8F3B43F192919B0CD6FDC1A6[task_replace _A_SLE_FC_to_sas_bridge.md#sted_CD84065D8F3B43F192919B0CD6FDC1a6]。
+.. 重复步骤 xref:task_replace_a_sle_fc_to_sas_bridge.html[更换 SLE FC 到 SAS 网桥] 用于剩余的每个网桥。 ] 。
+
+
+|===
+. 重新启用连接到网桥的 FC 交换机端口。
+. 在这两个控制器的系统控制台上，验证所有控制器是否均可通过新网桥访问磁盘架（即系统已通过缆线连接到多路径 HA ）： `run local sysconfig`
++
+
+NOTE: 系统可能需要长达一分钟才能完成发现。
+
++
+例如，以下输出显示系统已为多路径 HA 布线：
+
++
+[listing]
+----
+NetApp Release 8.3.2: Tue Jan 26 01:23:24 PST 2016
+System ID: 1231231231 (node_A_1); partner ID: 4564564564 (node_A_2)
+System Serial Number: 700000123123 (node_A_1); partner Serial Number: 700000456456 (node_A_2)
+System Rev: B0
+System Storage Configuration: Multi-Path HA
+System ACP Connectivity: NA
+----
++
+如果命令输出指示配置为混合路径或单路径 HA ，则必须更正 SAS 和 FC 布线，因为并非所有磁盘驱动器都可通过新网桥进行访问。
+
++
+
+IMPORTANT: 如果系统未以多路径 HA 的形式进行布线，则重新启动网桥可能发生原因会导致无法访问磁盘驱动器，并导致多磁盘崩溃。
+
+. 在 ONTAP 集群提示符处，将此网桥添加到运行状况监控：
++
+.. 使用适用于您的 ONTAP 版本的命令添加网桥：
++
+|===
+
+
+| ONTAP 版本 | 命令 
+
+
+ a| 
+9.5 及更高版本
+ a| 
+` * 存储网桥 add -address 0.0.0.0 -managed-by 带内 -name _bridge-name_*`
+
+
+
+ a| 
+9.4 及更早版本
+ a| 
+` * 存储网桥 add -address _bridge-ip-address_ -name _bridge-name_*`
+
+|===
+.. 确认已添加网桥并已正确配置： + ` * storage bridge show*`
++
+由于轮询间隔，可能需要长达 15 分钟才能反映所有数据。如果 `S状态` 列中的值为 `ok` ，并且显示了其他信息，例如全球通用名称（ WWN ），则 ONTAP 运行状况监控器可以联系并监控网桥。
+
++
+以下示例显示已配置 FC-SAS 网桥：
+
++
+[listing]
+----
+controller_A_1::> storage bridge show
+
+Bridge              Symbolic Name Is Monitored  Monitor Status  Vendor Model                Bridge WWN
+------------------  ------------- ------------  --------------  ------ -----------------    ----------
+ATTO_10.10.20.10  atto01        true          ok              Atto   FibreBridge 7500N   	20000010867038c0
+ATTO_10.10.20.11  atto02        true          ok              Atto   FibreBridge 7500N   	20000010867033c0
+ATTO_10.10.20.12  atto03        true          ok              Atto   FibreBridge 7500N   	20000010867030c0
+ATTO_10.10.20.13  atto04        true          ok              Atto   FibreBridge 7500N   	2000001086703b80
+
+4 entries were displayed
+
+ controller_A_1::>
+----
+
+
+. 在 ONTAP 中验证 MetroCluster 配置的运行情况：
++
+.. 检查系统是否为多路径：
++
+` * 节点 run -node _node-name_ sysconfig -A*`
+
+.. 检查两个集群上是否存在任何运行状况警报： + ` * system health alert show*`
+.. 确认 MetroCluster 配置以及操作模式是否正常：
++
+` * MetroCluster show*`
+
+.. 执行 MetroCluster 检查：
++
+` * MetroCluster check run*`
+
+.. 显示 MetroCluster 检查的结果：
++
+` * MetroCluster check show*`
+
+.. 检查交换机上是否存在任何运行状况警报（如果存在）：
++
+` * 存储交换机显示 *`
+
+.. 运行 Config Advisor 。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+.. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
+
+
+. 按照套件随附的 RMA 说明将故障部件退回 NetApp 。
++
+请通过联系技术支持 https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]， 888-463-8277 （北美）， 00-800-44-638277 （欧洲）或 +800-800-80-800 （亚太地区）（如果您需要 RMA 编号或有关更换操作步骤的其他帮助）。
+
+
+
+* 相关信息 *
+
+xref:concept_in_band_management_of_the_fc_to_sas_bridges.adoc[FC-SAS 网桥的带内管理]

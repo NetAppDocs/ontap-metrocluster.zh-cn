@@ -1,0 +1,14 @@
+---
+permalink: upgrade/generic_machine_translation_disclaimer.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, machine, translation 
+summary: 《 MetroCluster 升级，过渡和扩展指南》中的机器翻译信息。 
+---
+= 机器翻译
+:icons: font
+:imagesdir: ../media/
+
+
+有关本地化内容的重要信息，请参见 netapp.com 。
+
+https://www.netapp.com/company/legal/machine-translation/[]

@@ -1,0 +1,17 @@
+---
+permalink: install-ip/task_cable_ip_switches.html 
+sidebar: sidebar 
+keywords: cabling, cable, component, sip, isl, link, site, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure 
+summary: 您必须使用缆线将每个 IP 交换机连接到本地控制器模块和 ISL 。 
+---
+= 为 IP 交换机布线
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须使用缆线将每个 IP 交换机连接到本地控制器模块和 ISL 。
+
+* 必须对 MetroCluster 配置中的每个交换机重复执行此任务。
+* 控制器模块以太网端口使用情况取决于控制器模块的型号。
+

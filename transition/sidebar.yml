@@ -1,0 +1,76 @@
+---
+section: transition
+title: 从 MetroCluster FC 过渡到 MetroCluster IP
+entries:
+- title: 支持无中断过渡的平台
+  url: "/transition/concept_supported_platforms_for_transition.html"
+- title: 无中断地从 MetroCluster FC 过渡到 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
+  url: "/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html"
+  entries:
+  - title: 准备从 MetroCluster FC 过渡到 MetroCluster IP 配置
+    url: "/transition/concept_preparing_for_transitioning_from_mcc_fc_to_an_mcc_ip_configuration.html"
+    entries:
+    - title: 无中断 FC-IP 过渡的要求
+      url: "/transition/concept_requirements_for_fc_to_ip_transition_mcc.html"
+    - title: 过渡如何影响 MetroCluster 硬件组件
+      url: "/transition/concept_how_transition_impacts_the_mcc_hardware_components.html"
+    - title: 无中断 MetroCluster 过渡的工作流
+      url: "/transition/concept_transition_workflow_fc_to_ip_transition.html"
+    - title: IP 交换机注意事项
+      url: "/transition/concept_considerations_for_using_existing_ip_switches.html"
+    - title: 在无中断过渡期间执行切换，修复和切回操作
+      url: "/transition/concept_switchover_and_switchback_operations_during_transition.html"
+    - title: 过渡期间的警报消息和工具支持
+      url: "/transition/concept_mcc_operation_during_transition.html"
+    - title: 此操作步骤中的命名示例
+      url: "/transition/concept_example_naming_in_this_procedure_mcc_ip_transition.html"
+  - title: 从 MetroCluster FC 过渡到 MetroCluster IP 配置
+    url: "/transition/task_transition_from_mcc_fc_to_mcc_ip_configurations.html"
+    entries:
+    - title: 验证 MetroCluster 配置的运行状况
+      url: "/transition/task_verify_mcc_health_fc_to_ip.html"
+    - title: 从 Tiebreaker 或其他监控软件中删除现有配置
+      url: "/transition/task_remove_tiebreaker_4n_transition.html"
+    - title: 生成 RCF 并将其应用于新的 IP 交换机
+      url: "/transition/task_apply_rcfs.html"
+    - title: 移动本地集群连接
+      url: "/transition/task_move_cluster_connections.html"
+    - title: 准备 MetroCluster IP 控制器
+      url: "/transition/task_prepare_ip_controllers_4n_transition.html"
+    - title: 配置 MetroCluster 以进行过渡
+      url: "/transition/task_configure_transition.html"
+    - title: 将数据移动到新驱动器架
+      url: "/transition/task_move_data_to_new_drive_shelves.html"
+    - title: 删除 MetroCluster FC 控制器
+      url: "/transition/task_remove_mc_fc_controllers.html"
+    - title: 完成过渡
+      url: "/transition/task_complete_transition.html"
+  - title: 维护后发送自定义 AutoSupport 消息
+    url: "/transition/task_send_a_custom_autosupport_message_after_maintenance_4n_nondisruptive_mcc_transition.html"
+  - title: 还原 Tiebreaker 或调解器监控
+    url: "/transition/task_restore_tiebreaker_monitor_4n_nondisruptive_mcc_transition.html"
+- title: 从双节点 MetroCluster FC 中断过渡到四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
+  url: "/transition/task_disruptively_transition_from_a_two_node_mcc_fc_to_a_four_node_mcc_ip_configuration.html"
+  entries:
+  - title: 此操作步骤中的命名示例
+    url: "/transition/concept_example_naming_in_this_procedure_2n_mcc_transition_disruptive.html"
+  - title: 为中断 FC-IP 过渡做准备
+    url: "/transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html"
+  - title: 过渡 MetroCluster FC 节点
+    url: "/transition/task_transition_the_mcc_fc_nodes_2n_mcc_transition_supertask.html"
+  - title: 连接 MetroCluster IP 控制器模块
+    url: "/transition/task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.html"
+  - title: 配置新节点并完成过渡
+    url: "/transition/task_configure_the_new_nodes_and_complete_transition.html"
+  - title: 使系统恢复正常运行
+    url: "/transition/task_return_the_system_to_normal_operation_2n_mcc_transition_supertask.html"
+- title: 停用存储架时从 MetroCluster FC 中断过渡到 MetroCluster IP （ ONTAP 9.8 及更高版本）
+  url: "/transition/task_disruptively_transition_while_move_volumes_from_old_shelves_to_new_shelves.html"
+- title: 在新控制器不支持现有磁盘架时进行中断过渡（ ONTAP 9.8 及更高版本）
+  url: "/transition/task_disruptively_transition_when_exist_shelves_are_not_supported_on_new_controllers.html"
+- title: 将 FC SAN 工作负载从 MetroCluster FC 移动到 MetroCluster IP 节点
+  url: "/transition/task_move_an_fc_san_workload_from_mcc_fc_to_mcc_ip_nodes.html"
+- title: 将 Linux iSCSI 主机从 MetroCluster FC 移动到 MetroCluster IP 节点
+  url: "/transition/task_move_linux_iscsi_hosts_from_mcc_fc_to_mcc_ip_nodes.html"
+- title: 从何处查找追加信息
+  url: "/transition/reference_where_to_find_additional_information_mcc_ug.html"

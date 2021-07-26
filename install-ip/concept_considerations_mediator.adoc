@@ -1,0 +1,52 @@
+---
+permalink: install-ip/concept_considerations_mediator.html 
+sidebar: sidebar 
+keywords: differences, eight-node, four-node, fabric-attached, stretch, metrocluster ip, storage, bridges, fc-to-sas, atto, fibrebridge, SAS, local HA, auso, automatic unplanned switchover, array luns, mediator, tiebreaker 
+summary: 各种 MetroCluster 配置在所需组件方面存在主要差异。 
+---
+= ONTAP 调解器与 MetroCluster Tiebreaker 之间的区别
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从 ONTAP 9.7 开始，您可以在 MetroCluster IP 配置中使用 ONTAP 调解器辅助自动计划外切换（ MAUSO ），也可以使用 MetroCluster Tiebreaker 软件。MetroCluster IP 配置只能使用这两种服务中的一种。
+
+不同的 MetroCluster 配置会在不同情况下执行自动切换：
+
+* * 使用 AUSO 功能的 MetroCluster FC 配置（在 MetroCluster IP 配置中不存在） *
++
+在这些配置中，如果控制器发生故障，但存储（和网桥，如果存在）仍可运行，则会启动 AUSO 。
+
+* * 使用 ONTAP 调解器服务的 MetroCluster IP 配置（ ONTAP 9.7 及更高版本） *
++
+在这些配置中， MAUSO 会在与 AUSO 相同的情况下启动，如上所述，也会在站点完全发生故障（控制器，存储和交换机）后启动。
+
++
+
+NOTE: 只有在非易失性缓存镜像（ _DR 镜像 _ ）和 SyncMirror 丛镜像在发生故障时处于同步状态时，才会启动 MAUSO 。
+
+* * 在活动模式下使用 Tiebreaker 软件的 MetroCluster IP 或 FC 配置 *
++
+在这些配置中， Tiebreaker 会在站点完全发生故障后启动计划外切换。
+
++
+在使用 Tiebreaker 软件之前，请查看 link:../tiebreaker/index.html["《 MetroCluster Tiebreaker 软件安装和配置指南》"]
+
+
+
+
+
+== ONTAP 调解器与其他应用程序和设备的互操作性
+
+您不能使用可与 ONTAP 调解器结合使用触发切换的任何第三方应用程序或设备。此外，使用 ONTAP 调解器时，不支持使用 MetroCluster Tiebreaker 软件监控 MetroCluster 配置。
+
+
+
+== ONTAP 调解器如何支持自动计划外切换
+
+ONTAP 调解器将有关 MetroCluster 节点的状态信息存储在调解器主机上的邮箱中。MetroCluster 节点可以使用此信息监控其 DR 配对节点的状态，并在发生灾难时实施调解器辅助的自动计划外切换（ MAUSO ）。
+
+当节点检测到需要切换的站点故障时，它会执行相应的步骤来确认切换是否合适，如果是，则会执行切换。
+
+只有在每个节点的非易失性缓存的 SyncMirror 镜像和 DR 镜像均处于运行状态且缓存和镜像在发生故障时保持同步时，才会启动 MAUSO 。

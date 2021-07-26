@@ -1,0 +1,21 @@
+---
+permalink: install-fc/concept_using_the_oncommand_management_tools_for_further_configuration_and_monitoring.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, active, iq, unified, manager, configuration, monitoring 
+summary: Active IQ Unified Manager 和 ONTAP 系统管理器可用于集群的 GUI 管理和配置监控。 
+---
+= 使用 Active IQ Unified Manager 和 ONTAP 系统管理器进行进一步配置和监控
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Active IQ Unified Manager 和 ONTAP 系统管理器可用于集群的 GUI 管理和配置监控。
+
+每个节点都预安装了 ONTAP System Manager 。要加载 System Manager ，请在连接到节点的 Web 浏览器中输入集群管理 LIF 地址作为 URL 。
+
+您也可以使用 Active IQ Unified Manager 监控 MetroCluster 配置。
+
+* 相关信息 *
+
+http://docs.netapp.com["Active IQ Unified Manager 和 ONTAP System Manager 文档"]

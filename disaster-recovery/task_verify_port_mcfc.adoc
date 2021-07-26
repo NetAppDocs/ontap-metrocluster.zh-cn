@@ -1,0 +1,64 @@
+---
+permalink: disaster-recovery/task_verify_port_mcfc.html 
+sidebar: sidebar 
+keywords: verify, port, environmental, metrocluster, configuration 
+summary: 您必须在节点上设置环境变量，然后将其关闭，以便为 MetroCluster 配置做好准备。 
+---
+= 验证端口配置（仅限 MetroCluster FC 配置）
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须在节点上设置环境变量，然后将其关闭，以便为 MetroCluster 配置做好准备。
+
+在更换用的控制器模块处于维护模式时执行此操作步骤。
+
+只有在启动程序模式下使用 FC 或 CNA 端口的系统上，才需要执行检查端口配置的步骤。
+
+.步骤
+. 在维护模式下，输入以下命令以还原 FC 端口配置：
++
+`ucadmin modify -m fc -t initiatoradapter_name`
+
++
+如果您只想在启动程序配置中使用端口对之一，请输入精确的适配器名称。
+
+. 根据您的配置，执行以下操作之一：
++
+[cols="35,65"]
+|===
+| FC 端口配置 | 那么 ... 
+
+
+ a| 
+这两个端口相同
+ a| 
+问题解答 `y` 在系统提示时，因为修改端口对中的一个端口也会修改另一个端口。
+
+
+
+ a| 
+不同
+ a| 
+.. 系统提示时，问题解答 `n` 。
+.. 输入以下命令以还原 FC 端口配置：
+
+
+`ucadmin modify -m fc -t initiators|targetadapter_name`
+
+|===
+. 输入以下命令退出维护模式： `halt`
++
+问题描述命令后，请等待，直到系统停留在 LOADER 提示符处。
+
+. 将节点重新启动至维护模式，以使配置更改生效：
++
+`boot_ontap maint`
+
+. 输入以下命令以验证变量的值：
++
+`ucadmin show`
+
+. 退出维护模式并显示 LOADER 提示符： `halt`
+

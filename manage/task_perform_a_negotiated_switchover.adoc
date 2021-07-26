@@ -1,0 +1,91 @@
+---
+permalink: manage/task_perform_a_negotiated_switchover.html 
+sidebar: sidebar 
+keywords: negotiate, switchover, clean, shut, down, partner, site, operation, metrocluster, perform 
+summary: 协商切换会完全关闭配对站点上的进程，然后从配对站点切换操作。您可以使用协商切换在 MetroCluster 站点上执行维护或测试切换功能。 
+---
+= 执行协商切换
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+协商切换会完全关闭配对站点上的进程，然后从配对站点切换操作。您可以使用协商切换在 MetroCluster 站点上执行维护或测试切换功能。
+
+* 在执行切回操作之前，必须完成先前的所有配置更改。
++
+这是为了避免与协商切换或切回操作产生竞争。
+
+* 先前已关闭的所有节点都必须启动并处于集群仲裁状态。
++
+系统管理参考 _ 在 "`了解仲裁和 epsilon` " 一节中提供了有关集群仲裁的详细信息。
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
+
+* 集群对等网络必须可从两个站点访问。
+* MetroCluster 配置中的所有节点都必须运行相同版本的 ONTAP 软件。
+* 在创建新的 SnapMirror 关系之前，必须在 MetroCluster 配置中的两个站点上将选项 replication.create_data_protection_rels.enable 设置为 on 。
+* 对于双节点 MetroCluster 配置，如果站点之间的 ONTAP 版本不匹配，则不应在升级期间创建新的 SnapMirror 关系。
+* 对于四节点 MetroCluster 配置，不支持站点之间的 ONTAP 版本不匹配。
+
+
+恢复站点可能需要几个小时才能执行切回操作。
+
+MetroCluster switchover 命令可切换 MetroCluster 配置中所有 DR 组中的节点。例如，在八节点 MetroCluster 配置中，它会切换两个 DR 组中的节点。
+
+在准备和执行协商切换时，您不能更改任一集群的配置，也不能执行任何接管或交还操作。
+
+对于 MetroCluster FC 配置：
+
+* 如果可以访问远程存储，则镜像聚合将保持正常状态。
+* 如果无法访问远程存储，则在协商切换后，镜像聚合将降级。
+* 如果无法访问远程存储，则位于灾难站点的未镜像聚合将不可用。这可能会导致控制器中断。
+
+
+对于 MetroCluster IP 配置：
+
+* 对于 ONTAP 9.4 及更早版本：
++
+** 在协商切换后，镜像聚合将降级。
+
+
+* 对于 ONTAP 9.5 及更高版本：
++
+** 如果可以访问远程存储，则镜像聚合将保持正常状态。
+** 如果无法访问远程存储，则在协商切换后，镜像聚合将降级。
+
+
+* 对于 ONTAP 9.8 及更高版本：
++
+** 如果无法访问远程存储，则位于灾难站点的未镜像聚合将不可用。这可能会导致控制器中断。
++
+... 使用 MetroCluster check run ， MetroCluster check show 和 MetroCluster check config-replication show 命令可确保没有正在进行的或待定的配置更新。通过问题描述访问站点上的这些命令，这些命令将保持正常运行。
+... 在要保持正常运行的站点上，实施切换： `MetroCluster switchover`
++
+此操作可能需要几分钟才能完成。
+
+... 监控切换完成情况： `MetroCluster operation show`
++
+[listing]
+----
+cluster_A::*> metrocluster operation show
+  Operation: Switchover
+ Start time: 10/4/2012 19:04:13
+      State: in-progress
+   End time: -
+     Errors:
+
+cluster_A::*> metrocluster operation show
+  Operation: Switchover
+ Start time: 10/4/2012 19:04:13
+      State: successful
+   End time: 10/4/2012 19:04:22
+     Errors: -
+----
+... 重新建立任何 SnapMirror 或 SnapVault 配置。
+
+
+
+
+

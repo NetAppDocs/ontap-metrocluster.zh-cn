@@ -1,0 +1,94 @@
+---
+permalink: install-fc/reference_requirements_for_a_mcc_configuration_with_array_luns_reference.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, requirements, array, luns 
+summary: MetroCluster 配置中使用的 ONTAP 系统，存储阵列和 FC 交换机必须满足此类配置的要求。此外，还必须考虑使用阵列 LUN 的 MetroCluster 配置的 SyncMirror 要求。 
+---
+= 使用阵列 LUN 的 MetroCluster 配置的要求
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MetroCluster 配置中使用的 ONTAP 系统，存储阵列和 FC 交换机必须满足此类配置的要求。此外，还必须考虑使用阵列 LUN 的 MetroCluster 配置的 SyncMirror 要求。
+
+
+
+== ONTAP 系统的要求
+
+* 必须确定 ONTAP 系统支持 MetroCluster 配置。
++
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
++
+在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
+
++
+
+NOTE: 您必须参考与您在互操作性表中选择的任何配置相关的警报详细信息。
+
+* MetroCluster 配置中的所有 ONTAP 系统必须使用相同型号。
+* 根据型号的不同，必须在每个 ONTAP 系统的相应插槽中安装 FC-VI 适配器。
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+
+
+
+
+== 存储阵列的要求
+
+* 必须确定存储阵列受 MetroCluster 配置支持。
++
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
+* MetroCluster 配置中的存储阵列必须对称：
++
+** 这两个存储阵列必须来自相同受支持的供应商系列，并且安装的固件版本必须相同。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-ig-es/home.html["适用于 NetApp E 系列存储的 FlexArray 虚拟化实施"]
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-ig-third/home.html["第三方存储的 FlexArray 虚拟化实施"]
+
+** 两个存储阵列上用于镜像存储的磁盘类型（例如 SATA ， SSD 或 SAS ）必须相同。
+** 用于配置存储阵列的参数（例如 RAID 类型和分层）在两个站点上必须相同。
+
+
+
+
+
+
+== FC 交换机的要求
+
+* 必须确定交换机和交换机固件受 MetroCluster 配置支持。
++
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+
+* 每个网络结构必须有两个 FC 交换机。
+* 每个 ONTAP 系统都必须使用冗余组件连接到存储，以便在发生设备和路径故障时提供冗余。
+* FAS9000 存储系统支持每个网络结构最多八个 ISL 。其他存储系统型号支持每个网络结构最多四个 ISL 。
+
+
+交换机必须使用 MetroCluster 基本交换机配置， ISL 设置和 FC-VI 配置。
+
+xref:task_fcsw_configure_the_cisco_or_brocade_fc_switches_manually.adoc[手动配置 Cisco 或 Brocade FC 交换机]
+
+
+
+== SyncMirror 要求
+
+* MetroCluster 配置需要使用 SyncMirror 。
+* 镜像存储需要两个单独的存储阵列，每个站点一个。
+* 需要两组阵列 LUN 。
++
+本地存储阵列（ pool0 ）上的聚合需要一组，而远程存储阵列需要另一组用于聚合的镜像（聚合的另一丛， pool1 ）。
+
++
+要镜像聚合，阵列 LUN 的大小必须相同。
+
+* MetroCluster 配置也支持未镜像聚合。
++
+发生站点灾难时，它们不受保护。
+
+

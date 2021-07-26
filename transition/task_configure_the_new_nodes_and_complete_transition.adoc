@@ -1,0 +1,226 @@
+---
+permalink: transition/task_configure_the_new_nodes_and_complete_transition.html 
+sidebar: sidebar 
+keywords: node, complete, transition, configure, metrocluster, ip, node, configuring, disabling, disable, data, set, up, lif, bring, svm, moving, move, system, volume 
+summary: 添加新节点后，您必须完成过渡步骤并配置 MetroCluster IP 节点。 
+---
+= 配置新节点并完成过渡
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+添加新节点后，您必须完成过渡步骤并配置 MetroCluster IP 节点。
+
+
+
+== 配置 MetroCluster IP 节点并禁用过渡
+
+[role="lead"]
+您必须实施 MetroCluster IP 连接，刷新 MetroCluster 配置并禁用过渡模式。
+
+. 从 controller node_A_1-IP `MetroCluster configuration-settings dr-group create -partner-cluster peer-cluster-name -local-node local-controller-name -remote-node remote-controller-name``metrocluster configuration-settings dr-group show` 发出以下命令，将新节点组成 DR 组
+. 创建 MetroCluster IP 接口（ node_A_1-IP ， node_A_2-IP ， node_B_1-IP ， node_B_2-IP ）—每个控制器需要创建两个接口；使用以下命令总共八个接口： `MetroCluster vlan configuration-settings interface create -cluster-name cluster-name -home-node controller-name -home-port netmask address -ip-netmask address``mnetmask address -show interface`
++
+
+NOTE: 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
+
++
+只有在未使用默认 VLAN ID 时，才需要 -vlan-id 参数。只有某些系统支持非默认 VLAN ID 。
+
+
+
+|===
+| 注释： 
+
+
+ a| 
+* 从 ONTAP 9.8 开始，某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。您也可以在 `MetroCluster configuration-settings interface create` 命令中使用 -vlan-id 参数指定一个大于 100 （ 101-4095 之间）的其他（非默认） VLAN 。
+* 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见链接： ./install-IP/concept_considerations_layer_3.html 。
+
+
+|===
+以下平台型号使用 VLAN 并允许配置非默认 VLAN ID 。
+
+|===
+
+
+| AFF 平台 | FAS 平台 
+
+
+ a| 
+* AFF A220
+* AFF A250
+* AFF A400
+
+ a| 
+* FAS2750
+* FAS500f
+* FAS8300
+* FAS8700
+
+
+|===
+. 从控制器 node_A_1-IP 执行 MetroCluster 连接操作以连接 MetroCluster 站点 - 此操作可能需要几分钟才能完成。`MetroCluster configuration-settings connection connect`
+. 验证是否可通过 iSCSI 连接从每个控制器中看到远程集群磁盘： `disk show`
++
+您应看到属于配置中其他节点的远程磁盘。
+
+. 镜像 node_A_1-IP 和 node_B_1-IP 的根聚合： `aggregate mirror -aggregate root-aggr`
+. 为 node_A_2-IP 和 node_B_2-IP 分配磁盘。
++
+在启动菜单中发出 boot_after_mcc_transtion 命令时，池 1 的磁盘分配已针对 node_A_1-IP 和 node_B_1-IP 进行。
+
++
+.. 对 node_A_2-IP 执行以下命令： ` +disk assign disk1disk2disk3 ... diskn -sysid node_B_2-ip-controller-sysid -pool 1 -force+` 问题描述
+.. 对 node_B_2-ip 执行问题描述以下命令： ` +disk assign disk1disk2disk3 ... diskn -sysid node_A_2-ip-controller-sysid -pool 1 -force+`
+
+
+. 确认已更新远程磁盘的所有权： `disk show`
+. 如有必要，请使用以下命令刷新所有权信息：
++
+.. 转到高级权限模式，并在系统提示您继续时输入 y ： `set priv advanced`
+.. 刷新磁盘所有权： `disk refresh-ownership controller-name`
+.. 返回到管理模式： `spriv et priv admin`
+
+
+. 镜像 node_A_2-IP 和 node_B_2-IP 的根聚合： `aggregate mirror -aggregate root-aggr`
+. 验证根聚合和数据聚合的聚合重新同步是否已完成： `aggr show``aggr plex show`
++
+重新同步可能需要一段时间，但必须完成才能继续执行以下步骤。
+
+. 刷新 MetroCluster 配置以加入新节点：
++
+.. 转到高级权限模式，并在系统提示您继续时输入 y ： `set priv advanced`
+.. 刷新配置：
++
+|===
+| 如果已配置 ... | 问题描述此命令 ... 
+
+
+ a| 
+每个集群中的一个聚合：
+ a| 
+`MetroCluster configure -refresh true -allow-with-one-aggregate true`
+
+
+
+ a| 
+每个集群中有多个聚合
+ a| 
+`MetroCluster configure -refresh true`
+
+|===
+.. 返回到管理模式： `spriv et priv admin`
+
+
+. 禁用 MetroCluster 过渡模式：
++
+.. 进入高级权限模式，并在系统提示您继续时输入 y ： `set priv advanced`
+.. 禁用过渡模式： `MetroCluster transition disable`
+.. 返回到管理模式： `spriv et priv admin`
+
+
+
+
+
+
+== 在新节点上设置数据 LIF
+
+[role="lead"]
+您必须在新节点 node_A_2-IP 和 node_B_2-IP 上配置数据 LIF 。
+
+如果尚未分配给广播域，则必须将新控制器上可用的任何新端口添加到广播域中。如果需要，请在新端口上创建 VLAN 或接口组。请参见 _Network Management Guide_ 。
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]
+
+. 运行以下命令以确定当前端口使用情况和广播域： `network port show``network port broadcast-domain show`
+. 根据需要向广播域和 VLAN 添加端口。
++
+.. 查看 IP 空间： `network ipspace show`
+.. 创建 IP 空间并根据需要分配数据端口。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-69120CF0-F188-434F-913E-33ACB8751A5D.html["配置 IP 空间（仅限集群管理员）"]
+
+.. 查看广播域： `network port broadcast-domain show`
+.. 根据需要将任何数据端口添加到广播域。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["从广播域添加或删除端口"]
+
+.. 根据需要重新创建 VLAN 和接口组。
++
+VLAN 和接口组成员资格可能与旧节点不同。
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["创建 VLAN"]
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["组合物理端口以创建接口组"]
+
+
+
+. 根据需要验证 LIF 是否托管在 MetroCluster IP 节点（包括带有 -mc SVM 的 SVM ）上的相应节点和端口上。
++
+请参见中收集的信息 xref:task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.adoc[正在创建网络配置]。
+
++
+.. 运行以下命令以检查 LIF 的主端口： `network interface show -field home-port`
+.. 如有必要，请修改 LIF 配置： `vserver config override -command "network interface modify -vserver vserver_name -home-port active_port_after_upgrade -lif lif_name -home-node new_node_name"`
+.. 将 LIF 还原到其主端口： `network interface revert * -vserver vserver_name`
+
+
+
+
+
+
+== 正在启动 SVM
+
+[role="lead"]
+由于 LIF 配置发生更改，您必须在新节点上重新启动 SVM 。
+
+. 检查 SVM 的状态： `MetroCluster SVM show`
+. 在不具有 -mc 后缀的 cluster_A 上重新启动 SVM ： `vserver start -vserver svm-name -force true`
+. 在配对集群上重复上述步骤。
+. 检查所有 SVM 是否均处于运行状况良好的状态： `MetroCluster SVM show`
+. 确认所有数据 LIF 均已联机： `network interface show`
+
+
+
+
+== 将系统卷移动到新节点
+
+[role="lead"]
+要提高故障恢复能力，应将系统卷从控制器 node_A_1-IP 移至控制器 node_A_2-IP ，并将系统卷从 node_B_1-IP 移至 node_B_2-IP 。您必须在系统卷的目标节点上创建镜像聚合。
+
+系统卷的名称格式为 MDV_CRS_*_A 或 MDV_CRS_*_B_A 和 _B 与本节中使用的 site_A 和 site_B 引用无关；例如， MDV_CRS_*_A 与 site_A 无关
+
+. 根据需要为控制器 node_A_2-IP 和 node_B_2-IP 至少分配三个池 0 磁盘和三个池 1 磁盘。
+. 启用磁盘自动分配。
+. 使用 site_A 中的以下步骤将 _B 系统卷从 node_A_1-IP 移动到 node_A_2-IP
++
+.. 在控制器 node_A_2-IP 上创建一个镜像聚合以存放系统卷： `aggr create -aggregate new_node_A_2-ip_aggr -diskcount 10 -mirror true -node nodename_node_A_2-ip``aggr show`
++
+镜像聚合需要五个池 0 和五个池 1 备用磁盘，这些磁盘属于控制器 node_A_2-IP 。
+
++
+高级选项 "-force-Small-aggregate true" 可用于在磁盘供应不足的情况下将磁盘使用限制为 3 个池 0 磁盘和 3 个池 1 磁盘。
+
+.. 列出与管理 SVM 关联的系统卷： `vserver show``volume show -vserver admin-vserver-name`
++
+您应标识 site_A 拥有的聚合所包含的卷此外，还会显示 site_B 系统卷。
+
+
+
+. 将 site_A 的 MDV_CRS_*_B 系统卷移动到在控制器 node_A_2-IP 上创建的镜像聚合
++
+.. 检查可能的目标聚合： `volume move target-aggr show -vserver admin-vserver-name -volume system_vol_mDV_B`
++
+应列出 node_A_2-IP 上新创建的聚合。
+
+.. 将卷移动到 node_A_2-ip 上新创建的聚合： `set advanced``volume move start -vserver admin-vserver -volume system_vol_mDV_B -destination-aggregate new_node_A_2-ip_aggr -cutover-window 40`
+.. 检查移动操作的状态： `volume move show -vserver admin-vserver-name -volume system_vol_mDV_B`
+.. 移动操作完成后，验证 node_A_2-IP 上的新聚合是否包含 MDV_CRS_*_B 系统： `set admin``volume show -vserver admin-vserver`
+
+
+. 对 site_B （ node_B_1-IP 和 node_B_2-IP ）重复上述步骤。
+

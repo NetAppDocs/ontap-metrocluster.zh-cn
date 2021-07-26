@@ -1,0 +1,87 @@
+---
+permalink: install-fc/concept_tdm_wdm.html 
+sidebar: sidebar 
+keywords: preparing, prepare, metrocluster, mcc, installation, install, differences, configurations, between, considerations, all, san, array, asa, cluster, peering, prerequisites, dedicated, ports, sharing, data, ports, native, disk, shelves, array, luns, transitions, 7-mode, isls, tdm/wdm, fabric-attached, iod, ood, encryption, devices, unmirrored, aggregates, maintenance, requiring, power, shutdown, firewall, hardware, racking, cabling, setup, checklist, all san array, asa 
+summary: 在准备 MetroCluster 安装时，您应了解 MetroCluster 硬件架构和所需的组件。 
+---
+= 在光纤连接 MetroCluster 配置中使用 TDM/WDM 设备的注意事项
+
+
+[role="lead"]
+Hardware Universe 工具提供了一些有关使用光纤连接 MetroCluster 配置时，时分多路复用（ TDM ）或波长分多路复用（ WDM ）设备必须满足的要求的说明。这些说明还包括有关各种配置的信息，这些信息有助于您确定何时使用帧的按顺序交付（ IOD ）或帧的无序交付（ OOD ）。
+
+例如， TDM/WDM 设备必须支持具有路由策略的链路聚合（中继）功能。帧的交付顺序（ IOD 或 OOD ）在交换机中保持不变，并由有效的路由策略确定。
+
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+下表提供了包含 Brocade 交换机和 Cisco 交换机的配置的路由策略：
+
+[cols="3*"]
+|===
+| 交换机 | 为 IOD 配置 MetroCluster 配置 | 为 OOD 配置 MetroCluster 配置 
+
+
+ a| 
+Brocade
+ a| 
+* AptPolicy 必须设置为 1
+* DLS 必须设置为 off
+* IOD 必须设置为 on
+
+ a| 
+* AptPolicy 必须设置为 3
+* DLS 必须设置为 on
+* IOD 必须设置为 off
+
+
+
+
+ a| 
+Cisco
+ a| 
+FCVI 指定的 VSAN 的策略：
+
+* 负载平衡策略： srcid 和 dstid
+* IOD 必须设置为 on
+
+
+存储指定的 VSAN 的策略：
+
+* 负载平衡策略： srcid ， dstid 和 oxid
+* vSAN 不能设置 in-order-guarantee 选项
+
+ a| 
+不适用
+
+|===
+
+
+== 何时使用 IOD
+
+如果链接支持 IOD ，则最好使用它。以下配置支持 IOD ：
+
+* 一个 ISL
+* ISL 和链路（以及链路设备，例如 TDM/WDM ，如果使用）支持 IOD 配置。
+* 单个中继以及 ISL 和链路（以及链路设备，例如 TDM/WDM ，如果使用）支持 IOD 配置。
+
+
+
+
+== 何时使用 OOD
+
+* 您可以对不支持 IOD 的所有配置使用 OOD 。
+* 对于不支持中继功能的配置，您可以使用 OOD 。
+
+
+
+
+== 使用加密设备
+
+在 ISL 上使用专用加密设备或在 MetroCluster 配置中对 WDM 设备使用加密时，必须满足以下要求：
+
+* 外部加密设备或 WDM 设备已由供应商自行通过相关 FC 交换机的认证。
++
+自认证应涵盖操作模式（例如中继和加密）。
+
+* 由于加密而增加的延迟不应超过 10 微秒。
+

@@ -1,0 +1,478 @@
+---
+permalink: disaster-recovery/task_recover_from_a_non_controller_failure_mcc_dr.html 
+sidebar: sidebar 
+keywords: equipment, disaster, site, undergone, require, maintenance, replacement, controller, replace, process, metrocluster, configuration, data, aggregate, switchback, operation, recover, non-controller, failure, heal, configuration, metrocluster, fc, data, aggregate, root, disaster, verify, system, switchback, verification, result, perform, successful, delete, deleting, stale, listing 
+summary: 在灾难站点上的设备进行了任何必要的维护或更换，但未更换任何控制器后，您可以开始将 MetroCluster 配置恢复为完全冗余状态的过程。其中包括修复配置（首先修复数据聚合，然后修复根聚合）以及执行切回操作。 
+---
+= 从非控制器故障中恢复
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在灾难站点上的设备进行了任何必要的维护或更换，但未更换任何控制器后，您可以开始将 MetroCluster 配置恢复为完全冗余状态的过程。其中包括修复配置（首先修复数据聚合，然后修复根聚合）以及执行切回操作。
+
+.开始之前
+* 灾难集群中的所有 MetroCluster 硬件都必须正常运行。
+* 整个 MetroCluster 配置必须处于切换状态。
+* 在光纤连接的 MetroCluster 配置中， ISL 必须在 MetroCluster 站点之间正常运行。
+
+
+
+
+== 修复 MetroCluster FC 配置中的配置
+
+[role="lead"]
+切换后，您必须按特定顺序执行修复操作，才能还原 MetroCluster 功能。
+
+.开始之前
+* 必须已执行切换，并且正常运行的站点必须正在提供数据。
+* 灾难站点上的节点必须暂停或保持关闭状态。
++
+在修复过程中，不能完全启动它们。
+
+* 灾难站点上的存储必须可访问（磁盘架已启动，正常运行且可访问）。
+* 在光纤连接的 MetroCluster 配置中，交换机间链路（ ISL ）必须已启动且正在运行。
+* 在四节点 MetroCluster 配置中，运行正常的站点中的节点不能处于 HA 故障转移状态（对于每个 HA 对，所有节点都必须已启动且正在运行）。
+
+
+必须先对数据聚合执行修复操作，然后再对根聚合执行此操作。
+
+
+
+=== 修复数据聚合
+
+[role="lead"]
+修复并更换灾难站点上的任何硬件后，您必须修复数据聚合。此过程会重新同步数据聚合，并使（现已修复）灾难站点做好正常运行的准备。在修复根聚合之前，您必须修复数据聚合。
+
+以下示例显示了强制切换，在此可以使已切换的聚合联机。远程集群中的所有配置更新均已成功复制到本地集群。您在此操作步骤中启动灾难站点上的存储，但不会也不能启动灾难站点上的控制器模块。
+
+.步骤
+. 验证切换是否已完成：
++
+`MetroCluster 操作显示`
+
++
+[listing]
+----
+controller_A_1::> metrocluster operation show
+  Operation: switchover
+      State: successful
+ Start Time: 7/25/2014 20:01:48
+   End Time: 7/25/2014 20:02:14
+     Errors: -
+----
+. 在运行正常的集群中运行以下命令，以重新同步数据聚合：
++
+`MetroCluster heal -phase aggregates`
+
++
+[listing]
+----
+controller_A_1::> metrocluster heal -phase aggregates
+[Job 130] Job succeeded: Heal Aggregates is successful.
+----
++
+如果修复被否决，您可以使用 ` -override-vetoes` 参数重新发出 `MetroCluster heal` 命令。如果使用此可选参数，则系统将覆盖任何阻止修复操作的软否决。
+
+. 验证操作是否已完成：
++
+`MetroCluster 操作显示`
+
++
+[listing]
+----
+controller_A_1::> metrocluster operation show
+    Operation: heal-aggregates
+      State: successful
+Start Time: 7/25/2014 18:45:55
+   End Time: 7/25/2014 18:45:56
+     Errors: -
+----
+. 检查聚合的状态：
++
+`storage aggregate show` 命令。
+
++
+[listing]
+----
+controller_A_1::> storage aggregate show
+Aggregate Size     Available Used% State   #Vols  Nodes        RAID Status
+--------- -------- --------- ----- ------- ------ ------------ ------------
+...
+aggr_b2   227.1GB  227.1GB   0%    online  0      mcc1-a2      raid_dp, mirrored, normal...
+----
+. 如果已在灾难站点上更换存储，您可能需要重新镜像聚合。
+
+
+
+
+=== 发生灾难后修复根聚合
+
+[role="lead"]
+修复数据聚合之后，您必须修复根聚合，以便为切回操作做好准备。
+
+MetroCluster 修复过程的数据聚合阶段必须已成功完成。
+
+.步骤
+. 切回镜像聚合：
++
+`MetroCluster heal -phase root-aggregates`
+
++
+[listing]
+----
+mcc1A::> metrocluster heal -phase root-aggregates
+[Job 137] Job succeeded: Heal Root Aggregates is successful
+----
++
+如果修复被否决，您可以使用 ` -override-vetoes` 参数重新发出 `MetroCluster heal` 命令。如果使用此可选参数，则系统将覆盖任何阻止修复操作的软否决。
+
+. 在目标集群上运行以下命令，以确保修复操作已完成：
++
+`MetroCluster 操作显示`
+
++
+[listing]
+----
+
+mcc1A::> metrocluster operation show
+  Operation: heal-root-aggregates
+      State: successful
+ Start Time: 7/29/2014 20:54:41
+   End Time: 7/29/2014 20:54:42
+     Errors: -
+----
+. 启动灾难站点上的每个控制器模块。
+. 启动节点后，验证根聚合是否已镜像。
++
+如果两个丛都存在，则任何重新同步都将自动启动。如果一个丛出现故障，则必须销毁该丛并使用以下命令重新创建镜像，以重新建立镜像关系。
+
++
+`storage aggregate mirror -aggregate <aggregate-name>`
+
+
+
+
+
+== 验证您的系统是否已做好切回准备
+
+[role="lead"]
+如果您的系统已处于切换状态，您可以使用 ` -simulate` 选项预览切回操作的结果。
+
+.步骤
+. 模拟切回操作：
++
+.. 在任一正常运行的节点的提示符处，更改为高级权限级别：
++
+`set -privilege advanced`
+
++
+当系统提示您继续进入高级模式并显示高级模式提示符（ * > ）时，您需要使用 `y` 进行响应。
+
+.. 使用 ` -simulate` 参数执行切回操作：
++
+`MetroCluster switchback -simulate`
+
+.. 返回到管理权限级别：
++
+`set -privilege admin`
+
+
+
+. 查看返回的输出。
++
+输出将显示切回操作是否会出错。
+
+
+
+
+
+=== 验证结果示例
+
+以下示例显示了对切回操作的成功验证：
+
+[listing]
+----
+cluster4::*> metrocluster switchback -simulate
+  (metrocluster switchback)
+[Job 130] Setting up the nodes and cluster components for the switchback operation...DBG:backup_api.c:327:backup_nso_sb_vetocheck : MetroCluster Switch Back
+[Job 130] Job succeeded: Switchback simulation is successful.
+
+cluster4::*> metrocluster op show
+  (metrocluster operation show)
+  Operation: switchback-simulate
+      State: successful
+ Start Time: 5/15/2014 16:14:34
+   End Time: 5/15/2014 16:15:04
+     Errors: -
+
+cluster4::*> job show -name Me*
+                            Owning
+Job ID Name                 Vserver    Node           State
+------ -------------------- ---------- -------------- ----------
+130    MetroCluster Switchback
+                            cluster4
+                                       cluster4-01
+                                                      Success
+       Description: MetroCluster Switchback Job - Simulation
+----
+
+
+== 执行切回
+
+[role="lead"]
+修复 MetroCluster 配置后，您可以执行 MetroCluster 切回操作。MetroCluster 切回操作会将配置恢复到其正常运行状态，灾难站点上的 sync-source Storage Virtual Machine （ SVM ）处于活动状态，并从本地磁盘池提供数据。
+
+.开始之前
+* 灾难集群必须已成功切换到正常运行的集群。
+* 必须已对数据和根聚合执行修复。
+* 正常运行的集群节点不能处于 HA 故障转移状态（对于每个 HA 对，所有节点都必须已启动且正在运行）。
+* 灾难站点控制器模块必须完全启动，而不是处于 HA 接管模式。
+* 必须镜像根聚合。
+* 交换机间链路（ ISL ）必须处于联机状态。
+* 必须在系统上安装所有必需的许可证。
+
+
+.步骤
+. 确认所有节点均处于已启用状态：
++
+`MetroCluster node show`
+
++
+以下示例显示了处于 "enabled" 状态的节点：
+
++
+[listing]
+----
+cluster_B::>  metrocluster node show
+
+DR                        Configuration  DR
+Group Cluster Node        State          Mirroring Mode
+----- ------- ----------- -------------- --------- --------------------
+1     cluster_A
+              node_A_1    configured     enabled   heal roots completed
+              node_A_2    configured     enabled   heal roots completed
+      cluster_B
+              node_B_1    configured     enabled   waiting for switchback recovery
+              node_B_2    configured     enabled   waiting for switchback recovery
+4 entries were displayed.
+----
+. 确认所有 SVM 上的重新同步均已完成：
++
+`MetroCluster SVM show`
+
+. 验证修复操作正在执行的任何自动 LIF 迁移是否已成功完成：
++
+`MetroCluster check lif show`
+
+. 从运行正常的集群中的任何节点运行以下命令，以执行切回。
++
+`MetroCluster 切回`
+
+. 检查切回操作的进度：
++
+`MetroCluster show`
+
++
+当输出显示 "waiting for-switchback" 时，切回操作仍在进行中：
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_B         Configuration state configured
+                          Mode                switchover
+                          AUSO Failure Domain -
+Remote: cluster_A         Configuration state configured
+                          Mode                waiting-for-switchback
+                          AUSO Failure Domain -
+----
++
+当输出显示 "Normal" 时，切回操作完成：
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_B         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain -
+Remote: cluster_A         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain -
+----
++
+如果切回需要很长时间才能完成，您可以在高级权限级别使用以下命令来检查正在进行的基线的状态。
+
++
+`MetroCluster config-replication resync-status show`
+
+. 重新建立任何 SnapMirror 或 SnapVault 配置。
++
+在 ONTAP 8.3 中，您需要在执行 MetroCluster 切回操作后手动重新建立丢失的 SnapMirror 配置。在 ONTAP 9.0 及更高版本中，系统会自动重新建立此关系。
+
+
+
+
+
+== 验证切回是否成功
+
+执行切回后，您需要确认所有聚合和 Storage Virtual Machine （ SVM ）均已切回并联机。
+
+.步骤
+. 验证切换后的数据聚合是否已切回：
++
+`s存储聚合显示`
+
++
+在以下示例中，节点 B2 上的 aggr_b2 已切回：
+
++
+[listing]
+----
+node_B_1::> storage aggregate show
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+...
+aggr_b2    227.1GB   227.1GB    0% online       0 node_B_2   raid_dp,
+                                                                   mirrored,
+                                                                   normal
+
+node_A_1::> aggr show
+Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
+--------- -------- --------- ----- ------- ------ ---------------- ------------
+...
+aggr_b2          -         -     - unknown      - node_A_1
+----
++
+如果灾难站点包含未镜像聚合且未镜像聚合不再存在，则聚合可能会在 `storage aggregate show` 命令的输出中显示为 "unknown" 状态。请联系技术支持以删除未镜像聚合的过期条目。
+
+. 验证运行正常的集群上的所有 sync-destination SVM 是否均处于休眠状态（显示管理状态为 "stopped" ），以及灾难集群上的 sync-source SVM 是否已启动且正在运行：
++
+`vserver show -subtype sync-source`
+
++
+[listing]
+----
+node_B_1::> vserver show -subtype sync-source
+                               Admin      Root                       Name    Name
+Vserver     Type    Subtype    State      Volume     Aggregate       Service Mapping
+----------- ------- ---------- ---------- ---------- ----------      ------- -------
+...
+vs1a        data    sync-source
+                               running    vs1a_vol   node_B_2        file    file
+                                                                     aggr_b2
+
+node_A_1::> vserver show -subtype sync-destination
+                               Admin      Root                         Name    Name
+Vserver            Type    Subtype    State      Volume     Aggregate  Service Mapping
+-----------        ------- ---------- ---------- ---------- ---------- ------- -------
+...
+cluster_A-vs1a-mc  data    sync-destination
+                                      stopped    vs1a_vol   sosb_      file    file
+                                                                       aggr_b2
+----
++
+MetroCluster 配置中的 sync-destination 聚合会在其名称中自动附加后缀 "-mc" ，以帮助标识它们。
+
+. 确认切回操作成功：
++
+`MetroCluster 操作显示`
+
++
+|===
+| 如果命令输出显示 ... | 那么 ... 
+
+
+ a| 
+切回操作状态为成功。
+ a| 
+切回过程已完成，您可以继续操作系统。
+
+
+
+ a| 
+切回操作或 `sswitchback-continuation-agent` 操作已部分成功。
+ a| 
+执行 `MetroCluster operation show` 命令输出中建议的修复操作。
+
+|===
+
+
+您必须重复前面的部分，以反向执行切回。如果 site_A 已切换 site_B ，请让 site_B 切换 site_A
+
+
+
+== 在切回后删除陈旧的聚合列表
+
+[role="lead"]
+在某些情况下，切回后，您可能会注意到存在 _stal_ 聚合。陈旧的聚合是指已从 ONTAP 中删除但其信息仍记录在磁盘上的聚合。陈旧的聚合会使用 `nodeshell aggr status -r` 命令显示，但不会使用 `storage aggregate show` 命令显示。您可以删除这些记录，使其不再显示。
+
+如果在 MetroCluster 配置处于切换状态时重新定位了聚合，则可能会发生陈旧的聚合。例如：
+
+. 站点 A 切换到站点 B
+. 删除聚合的镜像并将聚合从 node_B_1 重新定位到 node_B_2 以实现负载平衡。
+. 您可以执行聚合修复。
+
+
+此时， node_B_1 上会显示一个陈旧的聚合，即使已从该节点中删除实际聚合也是如此。此聚合显示在 `nodeshell aggr status -r` 命令的输出中。它不会显示在 `storage aggregate show` 命令的输出中。
+
+. 比较以下命令的输出：
++
+`s存储聚合显示`
+
++
+`run local aggr status -r`
+
++
+陈旧的聚合显示在 `run local aggr status -r` 输出中，但不显示在 `storage aggregate show` 输出中。例如，以下聚合可能显示在 `run local aggr status -r` 输出中：
+
++
+[listing]
+----
+
+Aggregate aggr05 (failed, raid_dp, partial) (block checksums)
+Plex /aggr05/plex0 (offline, failed, inactive)
+  RAID group /myaggr/plex0/rg0 (partial, block checksums)
+
+ RAID Disk Device  HA  SHELF BAY CHAN Pool Type  RPM  Used (MB/blks)  Phys (MB/blks)
+ --------- ------  ------------- ---- ---- ----  ----- --------------  --------------
+ dparity   FAILED          N/A                        82/ -
+ parity    0b.5    0b    -   -   SA:A   0 VMDISK  N/A 82/169472      88/182040
+ data      FAILED          N/A                        82/ -
+ data      FAILED          N/A                        82/ -
+ data      FAILED          N/A                        82/ -
+ data      FAILED          N/A                        82/ -
+ data      FAILED          N/A                        82/ -
+ data      FAILED          N/A                        82/ -
+ Raid group is missing 7 disks.
+----
+. 删除陈旧的聚合：
++
+.. 在任一节点的提示符处，更改为高级权限级别：
++
+`set -privilege advanced`
+
++
+当系统提示您继续进入高级模式并显示高级模式提示符（ * > ）时，您需要使用 `y` 进行响应。
+
+.. 删除陈旧的聚合：
++
+`aggregate remove-stale-record -aggregate aggregate_name`
+
+.. 返回到管理权限级别：
++
+`set -privilege admin`
+
+
+
+. 确认已删除陈旧的聚合记录：
++
+`run local aggr status -r`
+
+

@@ -1,0 +1,13 @@
+---
+permalink: maintain/concept_performing_fc_switch_maintenance.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, perform, fc, switch, maintenance, replacement 
+summary: 如有必要，您可以在 MetroCluster 配置中无中断更换 FC 交换机或升级其固件。 
+---
+= 执行 FC 交换机维护和更换
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如有必要，您可以在 MetroCluster 配置中无中断更换 FC 交换机或升级其固件。

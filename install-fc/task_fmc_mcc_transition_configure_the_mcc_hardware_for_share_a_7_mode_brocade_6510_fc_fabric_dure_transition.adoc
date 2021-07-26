@@ -1,0 +1,40 @@
+---
+permalink: install-fc/task_fmc_mcc_transition_configure_the_mcc_hardware_for_share_a_7_mode_brocade_6510_fc_fabric_dure_transition.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, hardware, brocade, fc, transition 
+summary: 如果 7- 模式光纤 MetroCluster 配置使用 Brocade 6510 交换机，则可以与新的集群模式 MetroCluster 配置共享现有交换机网络结构。共享交换机网络结构意味着新的 MetroCluster 配置不需要单独的新交换机网络结构。只有 Brocade 6510 交换机才支持此临时配置，以便进行过渡。 
+---
+= 配置硬件以在过渡期间共享 Brocade 6510 FC 网络结构
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果 7- 模式光纤 MetroCluster 配置使用 Brocade 6510 交换机，则可以与新的集群模式 MetroCluster 配置共享现有交换机网络结构。共享交换机网络结构意味着新的 MetroCluster 配置不需要单独的新交换机网络结构。只有 Brocade 6510 交换机才支持此临时配置，以便进行过渡。
+
+* 7- 模式光纤 MetroCluster 必须使用 Brocade 6510 交换机。
++
+如果 MetroCluster 配置当前未使用 Brocade 6510 交换机，则必须先将交换机升级到 Brocade 6510 ，然后再使用此操作步骤。
+
+* 7- 模式光纤 MetroCluster 配置必须仅使用 SAS 存储架。
++
+如果现有配置包含 FC 存储架（例如 DS14mk4 FC ），则不支持 FC 交换机网络结构共享。
+
+* 新的集群模式 MetroCluster 配置所使用的交换机端口上的 SFP 必须支持 16-Gbps 的速率。
++
+现有的 7- 模式光纤 MetroCluster 仍可连接到使用 8-Gbps 或 16-Gbps SFP 的端口。
+
+* 在四个 Brocade 6510 交换机中的每一个交换机上，端口 24 到 45 必须可用于连接新 MetroCluster 组件的端口。
+* 您应验证现有交换机间链路（ ISL ）是否位于端口 46 和 47 上。
+* Brocade 6510 交换机必须运行 7- 模式光纤 MetroCluster 和集群模式 ONTAP MetroCluster 配置均支持的 FOS 固件版本。
+
+
+共享网络结构并完成 MetroCluster 配置后，您可以从 7- 模式网络结构 MetroCluster 配置过渡数据。
+
+过渡数据后，您可以移除 7- 模式光纤 MetroCluster 布线，如果需要，可将集群模式 ONTAP MetroCluster 布线移至先前用于 7- 模式 MetroCluster 布线的编号较低的端口。这些端口显示在 " 查看四节点 MetroCluster 的 FC 交换机端口分配 " 一节中。 您必须调整重新排列的端口的分区。
+
+xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.adoc[使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配]
+
+* 相关信息 *
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基于副本的过渡"]

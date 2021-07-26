@@ -1,0 +1,15 @@
+---
+permalink: maintain/concept_deciding_whether_to_use_this_guide_mcc_service_guide.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, decide, service, guide 
+summary: 本指南介绍如何对 MetroCluster 硬件组件执行维护。 
+---
+= 确定是否使用《 MetroCluster 维护指南》
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+本指南介绍如何对 MetroCluster 硬件组件执行维护。
+
+您应使用本指南维护 MetroCluster 配置中的 MetroCluster 专用硬件组件。

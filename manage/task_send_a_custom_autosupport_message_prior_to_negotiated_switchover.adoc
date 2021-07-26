@@ -1,0 +1,24 @@
+---
+permalink: manage/task_send_a_custom_autosupport_message_prior_to_negotiated_switchover.html 
+sidebar: sidebar 
+keywords: perform, negotiate, switchover, autosupport, message, netapp, technical, support, maintenance, underway, failure, trigger, support, prevent, disruption, custom, prior 
+summary: 在执行协商切换之前，您应问题描述发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。协商切换可能会导致丛或 MetroCluster 操作失败，从而触发 AutoSupport 消息。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。 
+---
+= 在协商切换之前发送自定义 AutoSupport 消息
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在执行协商切换之前，您应问题描述发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。协商切换可能会导致丛或 MetroCluster 操作失败，从而触发 AutoSupport 消息。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
+
+必须在每个 MetroCluster 站点上执行此任务。
+
+.步骤
+. 登录到 Site_A 上的集群
+. 调用指示维护开始的 AutoSupport 消息： `ssystem node AutoSupport invoke -node * -type all -message MAINT=maintenance-window-in-hours`
++
+maintenance-window-in-hours 指定维护时段的长度，最长可为 72 小时。如果在此时间之前完成维护，您可以通过问题描述命令指示维护期已结束：``ssystem node AutoSupport invoke -node * -type all -message MAIN=end``
+
+. 在配对站点上重复此步骤。
+
