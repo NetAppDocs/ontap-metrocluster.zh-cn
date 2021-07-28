@@ -54,12 +54,12 @@ summary: 在规划用于磁盘和阵列 LUN 的 MetroCluster 配置时，必须�
 |===
 * 相关信息 *
 
-xref:task_fcsw_configure_the_cisco_or_brocade_fc_switches_manually.adoc[手动配置 Cisco 或 Brocade FC 交换机]
+link:task_fcsw_configure_the_cisco_or_brocade_fc_switches_manually.html["手动配置 Cisco 或 Brocade FC 交换机"]
 
-xref:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例]
+link:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例"]
 
-xref:concept_example_of_switch_zoning_in_an_eight_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例]
+link:concept_example_of_switch_zoning_in_an_eight_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例"]
 
-xref:task_fb_new_install.adoc[安装 FC-SAS 网桥和 SAS 磁盘架]
+link:task_fb_new_install.html["安装 FC-SAS 网桥和 SAS 磁盘架"]
 
 https://hwu.netapp.com["NetApp Hardware Universe"]

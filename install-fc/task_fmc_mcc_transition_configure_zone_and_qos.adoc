@@ -12,9 +12,10 @@ summary: 您必须删除交换机网络结构上的现有 TI 分区并重新配�
 [role="lead"]
 您必须删除交换机网络结构上的现有 TI 分区并重新配置按顺序交付（ IOD ）设置。
 
+.步骤
 . 确定在网络结构上配置的 TI 分区：
 +
-` * 分区– -show*`
+`zone -show`
 
 +
 以下示例显示了分区 FCVI_TI_FAB_2 。
@@ -31,7 +32,7 @@ Brocade-6510:admin> zone --show
 ----
 . 删除 TI 分区：
 +
-` * zone - – delete zone-name*`
+`zone -delete _zone-name_`
 
 +
 以下示例显示了删除区域 FCVI_TI_FAB_2 的情况。
@@ -43,7 +44,7 @@ Brocade-6510:admin> zone --delete FCVI_TI_FAB_2
 ----
 . 确认分区已删除：
 +
-` * 分区– -show*`
+`zone -show`
 
 +
 输出应类似于以下内容：
@@ -58,29 +59,29 @@ Brocade-6510:admin> zone -–show
 ----
 . 保存配置：
 +
-` * cfgsave*`
+`cfgsave`
 
 . 启用按顺序交付：
 +
-` * 定期集 *`
+`iodset`
 
 . 选择高级性能调整（ APT ）策略 1 ，即基于端口的路由策略：
 +
-` * aptpolicy 1*`
+`aptpolicy 1`
 
 . 禁用动态负载共享（ DLS ）：
 +
-` * dlsreset*`
+`dlsreset`
 
 . 使用以下命令验证 IOD 设置：
 +
-` * iodshow*`
+`iodshow`
 
 +
-` * aptpolicy*`
+`aptpolicy`
 
 +
-` * dlsshow*`
+`dlsshow`
 
 +
 输出应类似于以下内容：

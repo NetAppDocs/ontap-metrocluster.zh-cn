@@ -14,16 +14,10 @@ summary: 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，�
 
 image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[工作流高级节点和集群配置软件]
 
+.步骤
+. 收集所需信息开始配置过程之前，需要收集控制器模块所需的 IP 地址。
+. 站点 A 的 IP 网络信息工作表
 
-
-== 收集所需信息
-
-[role="lead"]
-在开始配置过程之前，您需要收集控制器模块所需的 IP 地址。
-
-
-
-=== 站点 A 的 IP 网络信息工作表
 
 [role="lead"]
 在配置系统之前，您必须从网络管理员处获取第一个 MetroCluster 站点（站点 A ）的 IP 地址和其他网络信息。
@@ -500,82 +494,83 @@ MetroCluster 配置基于两个标准集群构建。在物理上，配置必须�
 
 == 还原系统默认值并在控制器模块上配置 HBA 类型
 
-[role="lead"]
 要确保 MetroCluster 安装成功，请重置和还原控制器模块上的默认值。只有使用 FC-SAS 网桥的延伸型配置才需要执行此任务。
 
-. 在 LOADER 提示符处，将环境变量返回到其默认设置： `set-defaults`
+.步骤
+. 在 LOADER 提示符处，将环境变量返回到其默认设置：
++
+`set-defaults`
+
 . 将节点启动至维护模式，然后为系统中的任何 HBA 配置设置：
 +
-.. 启动到维护模式： `boot_ontap maint`
-.. 检查端口的当前设置： `ucadmin show`
+.. 启动至维护模式：
++
+`boot_ontap maint`
+
+.. 检查端口的当前设置：
++
+`ucadmin show`
+
 .. 根据需要更新端口设置。
 
 
 +
 |===
-
-
 | 如果您具有此类型的 HBA 和所需模式 ... | 使用此命令 ... 
 
 
- a| 
-CNA FC
- a| 
-ucadmin modify -m fc -t initiator adapter_name
+| CNA FC | `ucadmin modify -m fc -t initiator _adapter_name_` 
 
 
-
- a| 
-CNA 以太网
- a| 
-ucadmin modify -mode cna adapter_name
+| CNA 以太网 | `ucadmin modify -mode cna _adapter_name_` 
 
 
-
- a| 
-FC 目标
- a| 
-fcadmin config -t 目标 adapter_name
+| FC 目标 | `fcadmin config -t target _adapter_name_` 
 
 
-
- a| 
-FC 启动程序
- a| 
-fcadmin config -t 启动程序 adapter_name
-
+| FC 启动程序 | `fcadmin config -t initiator _adapter_name_` 
 |===
-. 退出维护模式： `halt`
+. 退出维护模式：
++
+`halt`
+
 +
 运行此命令后，请等待，直到节点停留在 LOADER 提示符处。
 
-. 将节点重新启动到维护模式，以使配置更改生效： `boot_ontap maint`
+. 将节点重新启动至维护模式，以使配置更改生效：
++
+`boot_ontap maint`
+
 . 验证所做的更改：
 +
 |===
-
-
 | 如果您使用的是此类型的 HBA... | 使用此命令 ... 
 
 
  a| 
 CNA
  a| 
-ucadmin show
+`ucadmin show`
 
 
 
  a| 
 FC
  a| 
-fcadmin show
+`fcadmin show`
 
 |===
-. 退出维护模式： `halt`
+. 退出维护模式：
++
+`halt`
+
 +
 运行此命令后，请等待，直到节点停留在 LOADER 提示符处。
 
-. 将节点启动至启动菜单： `boot_ontap menu`
+. 将节点启动至启动菜单：
++
+`boot_ontap 菜单`
+
 +
 运行此命令后，请等待，直到显示启动菜单为止。
 
@@ -584,11 +579,10 @@ fcadmin show
 以下屏幕将显示启动菜单提示符：
 
 +
-....
+[listing]
+----
 Please choose one of the following:
-....
-+
-....
+
      (1) Normal Boot.
      (2) Boot without /etc/rc.
      (3) Change password.
@@ -603,8 +597,7 @@ Please choose one of the following:
  Warning: do not run this option on a HA node that has been taken over.
  Are you sure you want to continue?: yes
  Rebooting to finish wipeconfig request.
-// end include reference
-....
+----
 
 
 
@@ -861,7 +854,7 @@ DR 配对节点的池 1
 == 验证组件的 HA 状态
 
 [role="lead"]
-在出厂时未预配置的延伸型 MetroCluster 配置中，您必须验证控制器和机箱组件的 HA 状态是否设置为 mcc-2n ，以便它们可以正常启动。对于从工厂收到的系统，此值是预配置的，您无需对其进行验证。
+在出厂时未预配置的延伸型 MetroCluster 配置中，您必须验证控制器和机箱组件的 HA 状态是否设置为 `mcc-2n` ，以便它们可以正常启动。对于从工厂收到的系统，此值是预配置的，您无需对其进行验证。
 
 系统必须处于维护模式。
 
@@ -871,15 +864,21 @@ DR 配对节点的池 1
 ` * ha-config show*`
 
 +
-控制器模块和机箱应显示值 mcc-2n 。
+控制器模块和机箱应显示值 `mcc-2n` 。
 
-. 如果显示的控制器系统状态不是 mcc-2n ，请设置控制器的 HA 状态：
+. 如果显示的控制器系统状态不是 `mcc-2n` ，请设置控制器的 HA 状态：
 +
 ` * ha-config modify controller mcc-2n*`
 
 . 如果显示的机箱系统状态不是 mcc-2n ，请设置机箱的 HA 状态：
 +
-` * ha-config modify chassis mcc-2n*` .暂停节点。...等待节点返回 LOADER 提示符。
+` * ha-config modify chassis mcc-2n*`
+
++
+暂停节点。
+
++
+等待节点返回 LOADER 提示符。
 
 . 对 MetroCluster 配置中的每个节点重复上述步骤。
 
@@ -2264,7 +2263,10 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 [role="lead"]
 您可以通过指定一个远程 URL （ HTTP 或 FTP ）来为集群配置备份文件提供额外保护，除了本地集群中的默认位置之外，还可以将配置备份文件上传到该远程 URL 。
 
-. 为配置备份文件设置远程目标的 URL ： `ssystem configuration backup settings modify url-of-destination`
+. 为配置备份文件设置远程目标的 URL ：
++
+` * 系统配置备份设置 modify url-of-destination*`
+
 +
 。 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["《系统管理指南》"] 在 _Manag管理 配置备份 _ 一节下包含追加信息。
 

@@ -14,6 +14,7 @@ summary: 如果您尚未收到机柜中已安装的设备，则必须将这些�
 
 必须在两个 MetroCluster 站点上执行此任务。
 
+.步骤
 . 规划 MetroCluster 组件的定位。
 +
 机架空间取决于控制器模块的平台型号，交换机类型以及配置中的磁盘架堆栈数量。
@@ -59,7 +60,11 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2874463["《 FAS9000 系�
 . 安装磁盘架，打开其电源，然后设置磁盘架 ID 。
 +
 ** 您必须重新启动每个磁盘架。
-** 每个 MetroCluster DR 组（包括两个站点）中的每个 SAS 磁盘架的磁盘架 ID 必须是唯一的。* 注： * 此时不要为要包含未镜像聚合的磁盘架布线。您必须等到 MetroCluster 配置完成后再部署用于未镜像聚合的磁盘架，并且只能在使用 `MetroCluster modify -enable-unmirrored-aggr-deployment true` 命令后再部署这些磁盘架。
+** 每个 MetroCluster DR 组（包括两个站点）中的每个 SAS 磁盘架的磁盘架 ID 必须是唯一的。
++
+
+IMPORTANT: 此时，请勿为要包含未镜像聚合的磁盘架布线。您必须等到 MetroCluster 配置完成后再部署用于未镜像聚合的磁盘架，并且只能在使用 `MetroCluster modify -enable-unmirrored-aggr-deployment true` 命令后再部署这些磁盘架。
+
 
 
 

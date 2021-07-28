@@ -5717,15 +5717,6 @@
   <block id="ecc3c63773dfd77b9d5b176a0c62df8c" category="paragraph">要确保 MetroCluster 安装成功，请重置和还原控制器模块上的默认值。只有使用 FC-SAS 网桥的延伸型配置才需要执行此任务。</block>
   <block id="f5b8d377f3ad8ababc4151bb0096be2b" category="list-text">在 LOADER 提示符处，将环境变量返回到其默认设置： `set-defaults`</block>
   <block id="0ce2df03477d50ca63ec251e07f2f503" category="list-text">将节点启动至维护模式，然后为系统中的任何 HBA 配置设置：</block>
-  <block id="40245b357dc53742848428e800dc7b3d" category="list-text">启动到维护模式： `boot_ontap maint`</block>
-  <block id="f3fced65783d96fe674e1249b62fdd67" category="list-text">检查端口的当前设置： `ucadmin show`</block>
-  <block id="2c8f25cb974f5d5b1e520b768a31cde6" category="paragraph">ucadmin modify -m fc -t initiator adapter_name</block>
-  <block id="333ccd02b219d90738f7412ad6931d1e" category="paragraph">ucadmin modify -mode cna adapter_name</block>
-  <block id="3e2c87a594f3ed8b91b522e06415ff2c" category="paragraph">fcadmin config -t 目标 adapter_name</block>
-  <block id="c7acc23f8130c597ba037122acdf8408" category="paragraph">fcadmin config -t 启动程序 adapter_name</block>
-  <block id="c90bf4c8b3457d5933849e1e2f829ae8" category="list-text">将节点重新启动到维护模式，以使配置更改生效： `boot_ontap maint`</block>
-  <block id="773b5d44fd1b5ae080ff3a379be13169" category="paragraph">ucadmin show</block>
-  <block id="611719ae664ef7a7c4c4fd49a81e1235" category="paragraph">fcadmin show</block>
   <block id="ee576c01fd9d6961677d0a6255745ad9" category="list-text">将节点启动至启动菜单： `boot_ontap menu`</block>
   <block id="535a1b9f22b2c711bbc48344a4608a4b" category="paragraph">运行此命令后，请等待，直到显示启动菜单为止。</block>
   <block id="232c16efc4d84c46ccfc89a04e035514" category="list-text">在启动菜单提示符处键入 wipeconfig 以清除节点配置，然后按 Enter 键。</block>
@@ -5770,7 +5761,6 @@
   <block id="0e995c97f3b22b40ead1cd1d04acc18a" category="list-text">如果数据协议（ CIFS ， NFS 和 iSCSI ）生成的网络利用率高于 50% ，则应使用专用端口进行复制，以便在发生节点故障转移时不会降低性能。</block>
   <block id="0ebccf69427307ed7494cedd8f7c0948" category="list-text">如果将物理 10 GbE 或更快的端口用于数据和复制，则可以创建用于复制的 VLAN 端口，并将逻辑端口专用于集群间复制。</block>
   <block id="79d91e913975fc329d8ae33119484ed2" category="paragraph">端口的带宽在所有 VLAN 和基础端口之间共享。</block>
-  <block id="3aa7e8ae7349bc59d3a82d0af614f15d" category="list-text">请考虑数据更改率和复制间隔，以及在每个间隔上必须复制的数据量是否需要足够的带宽，以便在共享数据端口时，发生原因可能会与数据协议发生争用。</block>
   <block id="e05c72993234b6b1017e6a310e604770" category="section-title">共享数据端口时的注意事项</block>
   <block id="a1c8a5444aacaa7cfd42246ae52fa0c0" category="paragraph">在确定共享数据端口以进行集群间复制是否是正确的集群间网络解决方案时，您应考虑 LAN 类型，可用 WAN 带宽，复制间隔，更改率和端口数等配置和要求。</block>
   <block id="25af3811c2dc5445e9a082d14b2dc460" category="paragraph">请考虑网络的以下方面，以确定共享数据端口是否是最佳的集群间连接解决方案：</block>
@@ -5783,10 +5773,7 @@
   <block id="91e18356a7709afa40abb10b89a17636" category="summary">您必须启用 FC 交换机网络结构并确保交换机和设备正常运行。</block>
   <block id="f13634024af264ddbe547a9da8dbbb1b" category="doc">重新启用交换机网络结构并验证其运行情况</block>
   <block id="21f54be83889ba54c8cee60b4b4b417e" category="paragraph">如果此命令不可用，则在发出 `fastBOOT` 命令后，交换机应处于已启用状态。</block>
-  <block id="1853a367c8e4b964ac98ef1a23a46cc7" category="paragraph">以下示例显示了对 `FC_switch_A_1` 发出的命令：</block>
-  <block id="1262b377c31251b8e4e7ec8b90211a69" category="paragraph">以下示例显示了对 `FC_switch_B_1` 发出的命令：</block>
   <block id="ed047f67ef60ac18f59b00defcbe2e63" category="list-text">验证交换机是否联机以及所有设备是否均已正确登录：</block>
-  <block id="a6c10438eb1796b7bf490287a20a8ce7" category="list-text">运行 `FMC_dc 实用程序` 以确保 7- 模式网络结构 MetroCluster 正常运行。</block>
   <block id="f2a62a2226a776063a92a12ed167e429" category="paragraph">您可以忽略与流量隔离（ TI ）分区和中继相关的错误。</block>
   <block id="ee964d83d74573b3328048ead7b3c04e" category="list-text">对第二个交换机网络结构重复执行这些任务。</block>
   <block id="538b94639e6cbcf51578ca8e73fa1108" category="summary">在规划用于磁盘和阵列 LUN 的 MetroCluster 配置时，必须考虑各种因素，例如设置存储访问权限的顺序，根聚合位置以及 FC 启动程序端口，交换机和 FC-SAS 网桥的使用情况。</block>
@@ -5804,7 +5791,6 @@
   <block id="2cf96570d05093e79354fdebf6a25c6f" category="paragraph">在四节点配置和双节点光纤连接配置中，需要使用 FC-SAS 网桥才能通过交换机将 ONTAP 系统连接到磁盘架。</block>
   <block id="f1b073b17d11b6a85cff8fafe775f23e" category="paragraph">您必须使用相同的交换机连接到存储阵列和 FC-SAS 网桥。</block>
   <block id="209a28f98adf7a11fd98e407f778da76" category="paragraph">使用 FC 启动程序端口</block>
-  <block id="c53c79bcf01f9a7375b139b3ec4c33ff" category="paragraph">用于连接到 FC-SAS 网桥的启动程序端口必须与用于连接到交换机的端口不同，这些端口会连接到存储阵列。要将 ONTAP 系统同时连接到磁盘和阵列 LUN ，至少需要八个启动程序端口。</block>
   <block id="9e5e027fd19574761ea3d87eebdedffa" category="inline-xref-macro">手动配置 Cisco 或 Brocade FC 交换机</block>
   <block id="41b7ae60bb479f449c93266b5502b54e" category="paragraph"><block ref="41b7ae60bb479f449c93266b5502b54e" category="inline-xref-macro-rx"></block></block>
   <block id="db08f81e8313778dec890ddaca5cb3d3" category="inline-xref-macro">使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例</block>
@@ -5812,23 +5798,14 @@
   <block id="207c024d1855ef3c7e08eb0a0aceac8f" category="inline-xref-macro">使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例</block>
   <block id="4ad28c9cee9d0c027227166b0286d343" category="paragraph"><block ref="4ad28c9cee9d0c027227166b0286d343" category="inline-xref-macro-rx"></block></block>
   <block id="a9ed40443a225cecce5742ada138b243" category="inline-xref-macro">安装 FC-SAS 网桥和 SAS 磁盘架</block>
-  <block id="272ff0966f995c2bb76ec9a9a32b3fa7" category="paragraph"><block ref="272ff0966f995c2bb76ec9a9a32b3fa7" category="inline-xref-macro-rx"></block></block>
   <block id="257df35fd3fbc9a63102dd0f6f026234" category="summary">您必须确保交换机间链路（ ISL ）位于同一端口组中，并为 MetroCluster 配置配置配置分区以成功共享交换机网络结构。</block>
   <block id="0d5aa6202df4a0c6cdd0be57f7686057" category="doc">确保 ISL 位于同一端口组中并配置分区</block>
   <block id="7c696c89bb9e1077a5f5aa7f1aa1cdac" category="paragraph">您必须确保交换机间链路（ ISL ）位于同一端口组中，并为 MetroCluster 配置配置配置分区以成功共享交换机网络结构。</block>
   <block id="14038cfc02361d0022c1b06e91cf2e65" category="list-text">如果 ISL 不在同一端口组中，请将其中一个 ISL 端口移至与另一个 ISL 端口相同的端口组。</block>
   <block id="025d4fdb30387e506bc23ebe1a2b948c" category="paragraph">您可以使用除 32 到 45 之外的任何可用端口，这些端口将由新的 MetroCluster 配置使用。建议的 ISL 端口为 46 和 47 。</block>
-  <block id="1e534f5713c2629d516760f7629372b4" category="list-text">按照在 Brocade FC 交换机上配置分区一节中的步骤启用中继和 QoS 分区。</block>
   <block id="e0be7ea022244db5d1c1da820a4f5ad8" category="inline-xref-macro">在 Brocade FC 交换机上配置分区</block>
-  <block id="e0950d88a0e85fc25c6ae822bdf459b0" category="paragraph"><block ref="e0950d88a0e85fc25c6ae822bdf459b0" category="inline-xref-macro-rx"></block></block>
-  <block id="98527fd326045a5bf0213cc531d850b9" category="paragraph">共享网络结构时的端口号与一节中显示的端口号不同。共享时，请使用端口 46 和 47 作为 ISL 端口。如果移动了 ISL 端口，则需要使用在 Brocade FC 交换机上配置 E 端口（ ISL 端口）一节中的操作步骤来配置这些端口。</block>
   <block id="b5b548972cd6ad9de463f417a7b88d65" category="inline-xref-macro">在 Brocade FC 交换机上配置 E 端口（ ISL 端口）</block>
-  <block id="d6aa859227f0f65853f6603eddb6f32a" category="paragraph"><block ref="d6aa859227f0f65853f6603eddb6f32a" category="inline-xref-macro-rx"></block></block>
-  <block id="3a1589c18a886903bf44a1d82ae96114" category="list-text">按照在 Brocade 交换机上配置非 E 端口一节中的步骤配置非 E 端口。</block>
   <block id="f9fb6c5e4b8031455acc4725fedc46e3" category="inline-xref-macro">在 Brocade 交换机上配置非 E 端口</block>
-  <block id="77c6cc6179ff6211750dfa047615096d" category="paragraph"><block ref="77c6cc6179ff6211750dfa047615096d" category="inline-xref-macro-rx"></block></block>
-  <block id="bdc931b4047bdd0b3b23932fc9f7aeb1" category="list-text">请勿删除后端交换机（对于 7- 模式网络结构 MetroCluster ）中已存在的分区或分区集，但步骤 3 中的流量隔离（ TI ）分区除外。</block>
-  <block id="2c53846185b6f02fbe5c66b18927b2d8" category="list-text">按照在 Brocade FC 交换机上配置 E 端口（ ISL 端口）一节中的步骤，将新 MetroCluster 所需的分区添加到现有分区集。</block>
   <block id="e94a402556eac1e8c6946a1a93250c32" category="paragraph">以下示例显示了用于创建分区的命令和系统输出：</block>
   <block id="a3661db3c5039bc04c7fae548c92950e" category="summary">您必须将交换机操作系统文件和 RCF 文件下载到 MetroCluster 网络结构配置中的每个交换机。</block>
   <block id="bfa98b16040a9e239a71e4da0eb6a7b1" category="doc">下载并安装 Cisco FC 交换机 NX-OS 软件</block>
@@ -7466,7 +7443,6 @@
   <block id="b412172ec9aaa2e4dbce1dbd11dd273c" category="paragraph">发出 `reload` 命令后，交换机将重新启动，然后提示您输入设置问题。此时，请继续下一节。</block>
   <block id="21e9f97afa228fcfdec83ab38cc3b40e" category="paragraph">以下示例显示了由 FC_switch_A_1 和 FC_switch_B_1 组成的网络结构上的进程。</block>
   <block id="9106738b7e15570fe32974d0ea64f006" category="section-title">配置 Cisco FC 交换机的基本设置和社区字符串</block>
-  <block id="d8e8703980282dc68679023babbd6acf" category="paragraph">您必须使用 setup 命令或在发出 `reload` 命令后指定基本设置。</block>
   <block id="923d8c3d586663540fcbfb79186fe00c" category="list-text">如果交换机未显示设置问题，请配置基本交换机设置：</block>
   <block id="e2867941fa542adda8bb5534ba980c01" category="paragraph">`s设置`</block>
   <block id="3996cdaf66c79d975cda9aea406c8844" category="list-text">接受对设置问题的默认回答，直到系统提示您输入 SNMP 社区字符串为止。</block>
@@ -8090,22 +8066,13 @@
   <block id="bda671bafb9e307e601d1f48d41ee87e" category="doc">删除 TI 分区并配置 IOD 设置</block>
   <block id="393345450fdab1c4a8707cdc5ac357e1" category="paragraph">您必须删除交换机网络结构上的现有 TI 分区并重新配置按顺序交付（ IOD ）设置。</block>
   <block id="9593ac79e77c9f1bdc7761a29356b43b" category="list-text">确定在网络结构上配置的 TI 分区：</block>
-  <block id="622d99e1b5934550adcaae64cf2c9d9e" category="paragraph">` * 分区– -show*`</block>
   <block id="e76a2e6193256d5905ebdad93c975dac" category="paragraph">以下示例显示了分区 FCVI_TI_FAB_2 。</block>
   <block id="872fd99863394fd03b49ac281e05c37f" category="list-text">删除 TI 分区：</block>
-  <block id="47d7e52914f512fe53790ea28afa6b0b" category="paragraph">` * zone - – delete zone-name*`</block>
   <block id="d541030421372525eadee31c0c3196d3" category="paragraph">以下示例显示了删除区域 FCVI_TI_FAB_2 的情况。</block>
   <block id="8dd2ba92d37be5f033feede59afb1372" category="list-text">确认分区已删除：</block>
-  <block id="53cd546a45a0488b99274052e03268c6" category="paragraph">` * cfgsave*`</block>
   <block id="ac0321498317235c480942be9e861d45" category="list-text">启用按顺序交付：</block>
-  <block id="20ceb2d5008d08557636d9c5cbfec4ac" category="paragraph">` * 定期集 *`</block>
   <block id="4f3c80eb4c7058a48ce3a8802614c67e" category="list-text">选择高级性能调整（ APT ）策略 1 ，即基于端口的路由策略：</block>
-  <block id="c01b9112686c18c348f4c07863c1bcf5" category="paragraph">` * aptpolicy 1*`</block>
-  <block id="ee221abb98dcd1d6f6d1b88c9def440f" category="paragraph">` * dlsreset*`</block>
   <block id="a78d281785ea2bd13454ff34ccad5ffd" category="list-text">使用以下命令验证 IOD 设置：</block>
-  <block id="5d84744c1d593ea1a6ddc296de4b7bb9" category="paragraph">` * iodshow*`</block>
-  <block id="861366fdec4ac252c3df6339f909237c" category="paragraph">` * aptpolicy*`</block>
-  <block id="eb110c75b04a501ee5bdf909fe6f3716" category="paragraph">` * dlsshow*`</block>
   <block id="34ba78cbd58ca4736a4ec9afcd4a2529" category="summary">设置集群包括设置每个节点，在第一个节点上创建集群以及将任何剩余节点加入集群。</block>
   <block id="b418e6f88f4c95341a5b126a8b9b98f9" category="doc">设置集群</block>
   <block id="713771fbe82877a6f1defe1e3ba7da98" category="summary">您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。使用原生磁盘架的系统的步骤与使用阵列 LUN 的系统的步骤稍有不同。</block>
@@ -8661,9 +8628,6 @@
   <block id="3cf3eae7898bc6f0eec737e6a68a9cec" category="paragraph">以下示例显示了对 FC_switch_A_1 发出的命令：</block>
   <block id="fdf602b3f6a177da696cbba4294a693a" category="paragraph">以下示例显示了对 FC_switch_B_1 发出的命令：</block>
   <block id="a147ba77b587976b23efb0cab251ec49" category="list-text">使用冗余网络结构确保 7- 模式 MetroCluster 配置正常运行：</block>
-  <block id="80a6a7bddcce939fbcc52c47d20bb7ae" category="list-text">确认控制器故障转移运行状况良好： + ` * cf status*`</block>
-  <block id="7b75cbfee2ac2e60652d00b892b60962" category="list-text">确认磁盘可见： + ` * storage show disk – p*`</block>
-  <block id="6ccf0987cc2c4c0489b80c30b5c30214" category="list-text">确认聚合运行状况良好： + ` * aggr status*`</block>
   <block id="a84d3843dc1716053ed4001478a35595" category="summary">您必须在要与阵列 LUN 结合使用的每个 MetroCluster 节点上安装 V_StorageAttach 许可证。在安装许可证之前，您不能在聚合中使用阵列 LUN 。</block>
   <block id="9d61f0176cee0faa3e591c2beb64eb10" category="doc">安装许可证以在 MetroCluster 配置中使用阵列 LUN</block>
   <block id="6dce6a8d34576d6e6d2f961c8b413963" category="list-text">必须安装集群。</block>
@@ -9066,7 +9030,6 @@
   <block id="debcaec1013f2e0bd0f4aa34b2ae6797" category="list-text">将调解器服务添加到 ONTAP 配置： MetroCluster configuration-settings add -addressmedier-IP-address</block>
   <block id="4d8cac4d4c182ff6fe50e9fb53cc4d82" category="summary">您必须重置和还原控制器模块上的默认设置，以确保配置清晰。</block>
   <block id="88e93acfeced73f4407df4da34dadb16" category="list-text">在机架或机柜中安装 IP 交换机。</block>
-  <block id="bbceba78e8b9f4fb8278c6466ed0d621" category="list-text">每个 MetroCluster DR 组（包括两个站点）中的每个 SAS 磁盘架的磁盘架 ID 必须是唯一的。* 注： * 此时不要为要包含未镜像聚合的磁盘架布线。您必须等到 MetroCluster 配置完成后再部署用于未镜像聚合的磁盘架，并且只能在使用 `MetroCluster modify -enable-unmirrored-aggr-deployment true` 命令后再部署这些磁盘架。</block>
   <block id="1ff31a738d26e47dfa5c26bac0568556" category="summary">启动每个节点后，系统将提示您执行基本节点和集群配置。配置集群后，您可以返回到 ONTAP 命令行界面以创建聚合并创建 MetroCluster 配置。</block>
   <block id="da6a152013b01d35131c7e6a0a834b28" category="paragraph">如果需要通过网络启动新控制器，请参见 <block ref="3b790cf59184cbd534b9cbce1ed9244d" category="inline-link-macro-rx"></block>。</block>
   <block id="6ac62fa13c69ad320702cd9a98f97b12" category="list-text">如果尚未启动本地站点上的每个节点，请将其启动并让其完全启动。</block>
@@ -9952,7 +9915,6 @@
   <block id="4e2a74077bbd5fca1dbb44a978af04e6" category="list-text">显示调解器虚拟磁盘： storage disk show -container-type mediator</block>
   <block id="32767fa2a61ee9f6c9a0312245bad351" category="list-text">将权限模式设置为高级：设置高级</block>
   <block id="a0edb243d454f9cc9dceb98adc5f0212" category="list-text">显示标记为调解器的启动程序： storage iscsi-initiator show -label mediator</block>
-  <block id="55fa09618c06093a4dfb6c2a9e7ec8b0" category="paragraph">如果您在 MetroCluster 站点上使用防火墙，则必须确保能够访问某些所需端口。如果您在 MetroCluster 站点上使用防火墙，则必须确保能够访问某些所需端口。</block>
   <block id="0117afe22c63962c403e6d0f8df5d7b4" category="paragraph">您可以使用这些链接下载 csv 文件并在表中填写站点特定的信息。</block>
   <block id="8b35f29360a9d2b60ae33f98eff4cbf9" category="inline-link-macro">MetroCluster IP 设置工作表， site_A</block>
   <block id="acaaad9afa094fcde3c31cd0610a8bdc" category="paragraph"><block ref="acaaad9afa094fcde3c31cd0610a8bdc" category="inline-link-macro-rx"></block></block>
@@ -10264,12 +10226,8 @@
   <block id="73b4da1e7e8476bbfe143085a77d9a59" category="list-text">在远程站点（站点 B ）的节点上，系统地将其本地磁盘架分配给池 0 ，并将其远程磁盘架分配给池 1 ： + ` * disk assign -shelf _disk_shelf_name_ -p _pool_*`</block>
   <block id="3ba532807979c68c38503cda65a92480" category="list-text">显示每个磁盘的磁盘架 ID 和托架： + ` * disk show – v*`</block>
   <block id="c0733073fff8f3c7ab3cd47d2775efb1" category="section-title">验证组件的 HA 状态</block>
-  <block id="c290e20d041e5a6a7b52b01f8be42d5c" category="paragraph">在出厂时未预配置的延伸型 MetroCluster 配置中，您必须验证控制器和机箱组件的 HA 状态是否设置为 mcc-2n ，以便它们可以正常启动。对于从工厂收到的系统，此值是预配置的，您无需对其进行验证。</block>
   <block id="2b376aac1e7dcf4390e11b46a4e6e913" category="list-text">在维护模式下，查看控制器模块和机箱的 HA 状态：</block>
-  <block id="cf6601ae6c49d5519d7088d6d86cabf0" category="paragraph">控制器模块和机箱应显示值 mcc-2n 。</block>
-  <block id="401a9ef40438029195228488cb960405" category="list-text">如果显示的控制器系统状态不是 mcc-2n ，请设置控制器的 HA 状态：</block>
   <block id="cb9ace09c8ee6a5240066fe2ce43f20d" category="list-text">如果显示的机箱系统状态不是 mcc-2n ，请设置机箱的 HA 状态：</block>
-  <block id="cc9cdec1dad1843080e9053d081e8e19" category="paragraph">` * ha-config modify chassis mcc-2n*` .暂停节点。...等待节点返回 LOADER 提示符。</block>
   <block id="4c286a4533c555f62039858a256b6e7f" category="paragraph">在双节点 MetroCluster 配置中，您必须在每个集群上启动节点，退出集群设置向导，然后使用 `cluster setup` 命令将节点配置为单节点集群。</block>
   <block id="4b77f8dd22eb71a4a884c38f69ed2712" category="paragraph">有关设置 ONTAP 的更多常规信息，请参见 <block ref="39ec742296367dad8e6bedc6cb9bf24d" category="inline-link-macro-rx"></block></block>
   <block id="d9f3ab96436f17c451e6061b251f6d2b" category="list-text">创建新集群： ` * 创建 *`</block>
@@ -11304,4 +11262,231 @@
   <block id="ad7387359f9a0a6887a964296353e137" category="sidebar">安装延伸型 MetroCluster 配置</block>
   <block id="e36a6837628a0758c6b3c069f31a53c0" category="sidebar">从灾难中恢复</block>
   <block id="d16bf4eb1fd969f9028df132c9c07f30" category="sidebar">在混合配置中准备要切回的节点（过渡期间恢复）</block>
+  <block id="2a2f14d553a58533b16ebe9c6aeee86d" category="paragraph">如果出于维护原因而执行协商切换，需要在站点范围内关闭电源，则应首先手动使灾难站点拥有的任何未镜像聚合脱机。</block>
+  <block id="f8bac1205d2628ae0fd0223718acf748" category="paragraph">如果不使任何未镜像聚合脱机，则运行正常的站点上的节点可能会因多磁盘崩溃而关闭。如果切换后的未镜像聚合因与灾难站点上的存储的连接断开而脱机或丢失，则可能会发生这种情况。这是由于关闭电源或丢失 ISL 而导致的。</block>
+  <block id="6b5467a9956ace91b616b23ace89db2c" category="paragraph">SVM 只能在镜像聚合上配置，也只能在未镜像聚合上配置。配置未镜像聚合和镜像聚合可能会导致切换操作超过 120 秒，如果未镜像聚合未联机，则会导致数据中断。</block>
+  <block id="e472488b3c694fa7ae83295a2d67fb13" category="doc">MetroCluster 站点上使用防火墙的注意事项</block>
+  <block id="54524f3dc132abd75ac6cf279d1dda18" category="list-text">在 LOADER 提示符处，将环境变量返回到其默认设置：</block>
+  <block id="6eec7560cd4752f8ddf75211e6467414" category="list-text">启动至维护模式：</block>
+  <block id="4914915cce8730456110c7e52223f703" category="list-text">检查端口的当前设置：</block>
+  <block id="cf840124d991f1d708724a49439fb05b" category="cell">`ucadmin modify -m fc -t initiator _adapter_name_`</block>
+  <block id="70df5f6c905f9325d51ad77db93cd9b4" category="cell">`ucadmin modify -mode cna _adapter_name_`</block>
+  <block id="775a2d0d83c571be0b76c4e395f27684" category="cell">`fcadmin config -t target _adapter_name_`</block>
+  <block id="6508ac38a759a2469f0ed09eeed815e2" category="cell">`fcadmin config -t initiator _adapter_name_`</block>
+  <block id="8c0bbb823c7e0336b0660d2f9ca518ae" category="list-text">将节点重新启动至维护模式，以使配置更改生效：</block>
+  <block id="161c64322f806c6fa66fcfcc4f963ca2" category="list-text">将节点启动至启动菜单：</block>
+  <block id="5bae28607ab909fded5f84571983474a" category="list-text">请考虑数据更改率和复制间隔，以及每个间隔必须复制的数据量是否需要足够的带宽。如果共享数据端口，则发生原因可能会与数据协议争用。</block>
+  <block id="812485d2987632a33cf46fd5403f564d" category="doc">重新启用交换机网络结构并验证操作</block>
+  <block id="c941b5c4cf46259dd41b222aa38a58f3" category="paragraph">`sswitchcfgpersistentenable`</block>
+  <block id="f22c92f3b10744efbd0e82db9d85f42a" category="paragraph">`sswitchshow`</block>
+  <block id="bad3a2380613a08cffd8b317771de374" category="list-text">运行 fmc_dc 实用程序以确保 7- 模式网络结构 MetroCluster 正常运行。</block>
+  <block id="4978f288150f90bc93a9c6e4dbf29d16" category="paragraph">用于连接到 FC-SAS 网桥的启动程序端口必须与用于连接到交换机的端口不同，这些端口会连接到存储阵列。要将 ONTAP 系统同时连接到磁盘和阵列 LUN ，至少需要八个启动程序端口。</block>
+  <block id="d6d64090fd47c5235492fd5cc4f11ff5" category="paragraph"><block ref="d6d64090fd47c5235492fd5cc4f11ff5" category="inline-link-macro-rx"></block></block>
+  <block id="da94a7db0f9882c4b3c67c4b02d65a87" category="paragraph"><block ref="da94a7db0f9882c4b3c67c4b02d65a87" category="inline-link-macro-rx"></block></block>
+  <block id="6e2b6e2786426e2aeed4db0ecc5b8890" category="paragraph"><block ref="6e2b6e2786426e2aeed4db0ecc5b8890" category="inline-link-macro-rx"></block></block>
+  <block id="5d80f4634e8ee066c641d17f726ec994" category="paragraph"><block ref="5d80f4634e8ee066c641d17f726ec994" category="inline-link-macro-rx"></block></block>
+  <block id="46a269d62cd3204ce0aa89cea343e7c4" category="list-text">按照中的步骤进行操作 <block ref="a5ca6a12c3ed982c2f78ca4fe7177a1e" category="inline-link-macro-rx"></block> 部分以启用中继和 QoS 区域。</block>
+  <block id="d93163b5014ff5ad6739d350a8c7903c" category="paragraph">共享网络结构时的端口号与一节中显示的端口号不同。共享时，请使用端口 46 和 47 作为 ISL 端口。如果移动了 ISL 端口，则需要在中使用操作步骤 <block ref="0e899b1f6fdfcd9c6cafeb8bc3b27ec9" category="inline-link-macro-rx"></block> 部分以配置端口。</block>
+  <block id="705ae676b0dee65294c4f39e97d680c9" category="list-text">【第 3 步 _zones 】按照中的步骤进行操作 <block ref="847f9e3d892249337cc6faffac8f9d66" category="inline-link-macro-rx"></block> 部分以配置非 E 端口。</block>
+  <block id="853e75cf2478dbfaa7c7c69dda1f99f1" category="list-text">请勿删除后端交换机中已存在的分区或分区集（对于 7- 模式网络结构 MetroCluster ），但中的流量隔离（ TI ）分区除外 <block ref="bcf6119e8b5b0fd52fe08bbf1a5147d1" category="inline-xref-macro-rx"></block>。</block>
+  <block id="efd445097a0a023354fd3f07f73e8435" category="list-text">按照中的步骤进行操作 <block ref="0e899b1f6fdfcd9c6cafeb8bc3b27ec9" category="inline-link-macro-rx"></block> 一节，将新 MetroCluster 所需的分区添加到现有分区集。</block>
+  <block id="4ccd90dc79f14c8bccfaf7a7d8f3cfb6" category="paragraph"><block ref="4ccd90dc79f14c8bccfaf7a7d8f3cfb6" category="inline-link-macro-rx"></block></block>
+  <block id="e824a21e3028938aa47fe624ef80f849" category="paragraph">可以从 ONTAP 界面上的 ONTAP interface `storage bridge run-cli -name _bridge_name_ -command _bridge_command_name_` 命令发出网桥命令行界面命令。</block>
+  <block id="4f8b49fd2c78185a429537ccca6bc9b8" category="paragraph">`set closePort none`</block>
+  <block id="ffdbfa0a92ef89961619af0cb24c5631" category="paragraph">`saveConfiguration`</block>
+  <block id="1e8206865cb252a04679247d1188be9c" category="list-text">如果需要，可发出 `set closePort` 命令并根据需要重复执行此命令，直到禁用所有所需服务为止，以禁用服务：</block>
+  <block id="bd05a9df46ef5cee378e7385dd47e249" category="paragraph">`set closePort _service_`</block>
+  <block id="29474f6710b14a872e72407d70c21d89" category="paragraph">参数 ` service_` 可以指定为以下值之一：</block>
+  <block id="03583cd75bf401944b018f81b3f6916d" category="list-text">Telnet</block>
+  <block id="18dbb64a12017d20307bc641212dbd77" category="paragraph">您可以使用 `get closePort` 命令检查特定协议是否已启用。</block>
+  <block id="dd260fceadc543756cd15e2830c9ea71" category="list-text">如果要启用 SNMP ，还必须对以下命令执行问题描述：</block>
+  <block id="c4d438b2e2bd0896f2b695f62760125c" category="paragraph">`s设置 SNMP 已启用`</block>
+  <block id="5ba93b1d1631308a58a7b506c740bfa2" category="paragraph">`set ipaddress MP1 ip-address`</block>
+  <block id="698baf99e373b8d4f943031badc7d3e7" category="paragraph">`set ipsubnetmask MP1 subnet-mask`</block>
+  <block id="63b777de805b8a219f4b0dfbbddb6d76" category="paragraph">`set ipgateway MP1 x.x.x.x`</block>
+  <block id="cf615bea984a3d84b84000ef7a11de6d" category="paragraph">`set ipdhcp MP1 disabled`</block>
+  <block id="b4e24055c6990c249536cf83d67a87f0" category="paragraph">`s设定网络速度 MP1 1000`</block>
+  <block id="d239a1837adf4e352883e5bb91938a87" category="paragraph">`set bridgename _bridge_name_`</block>
+  <block id="0d77538b2ad1e8b5f624512685596cda" category="list-text">如果运行的是 ONTAP 9.4 或更早版本，请在网桥上启用 SNMP ：</block>
+  <block id="63f92d601e0f07d76d9c59bbdcfeed47" category="paragraph">`set FCDataRate _port-number_ _port-speed_`</block>
+  <block id="0d75f039d58b1a4c51a1e6fa7f5db62a" category="paragraph">`s设置 FCConnMode _port-number_ ptp`</block>
+  <block id="e0a5f23db1ea016ca393b0dc436ce2f7" category="list-text">如果不使用第二个端口，则必须禁用此端口：</block>
+  <block id="a21a379f45bf979b7778722f7375ec61" category="paragraph">`FCPortDisable _port-number_`</block>
+  <block id="08492a50f188b83f3605c3b28b1cc22f" category="list-text">如果要配置 FibreBridge 7600N 或 7500N 网桥，请禁用未使用的 SAS 端口：</block>
+  <block id="6034c41ee64b1c1443ab14b13a6b7527" category="paragraph">`sasportDisable _SAS-port_`</block>
+  <block id="4bba2584f57904f148583d5ad0ce4a34" category="list-text">查看网桥的状态：</block>
+  <block id="50353645f43a4a7ccdced7165b02cc34" category="paragraph">`storage bridge show`</block>
+  <block id="65fa1c3adc48a668ee3f79b2e28fb92f" category="list-text">检查不安全网桥端口的状态：</block>
+  <block id="c1cfcf486927345ca5a36825e44e61a8" category="paragraph">`信息`</block>
+  <block id="29431d66f3109c0b5ee445b6502a5c33" category="list-text">如果已启用以太网端口 MP1 ，请运行：</block>
+  <block id="ce912b7c813332cfeb20e9cdecbe7dd1" category="paragraph">`sET EthernetPort MP1 disabled`</block>
+  <block id="98e83072472ff49bb361fe30e4df171e" category="paragraph"><block ref="98e83072472ff49bb361fe30e4df171e" category="inline-link-macro-rx"></block></block>
+  <block id="6ef697f11922be2e4de0971f7d70997f" category="list-title">选项</block>
+  <block id="4e14469d1b9cb5857e2b83704c8ab8d4" category="list-text"><block ref="d277051460abcb0f3a19fb6f4b09af32" category="inline-xref-macro-rx"></block></block>
+  <block id="1098ebf3ac123d908705a49af90988ba" category="inline-xref">使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架</block>
+  <block id="572e966b8fd8a186b019d7c5d26ff32c" category="list-text"><block ref="f3f03af6d08c988efd686559fcd15483" category="inline-xref-macro-rx"></block></block>
+  <block id="6db0710ae16bb03fe4ed9188d32a68ab" category="list-text"><block ref="5ee3dd6cfd52247d8b37207cfaf13e9b" category="inline-xref-macro-rx"></block></block>
+  <block id="8bfac37f0565c6922aeced47caf18f6a" category="list-text">【【第 1 步网桥】验证每个网桥是否都能检测到它所连接的所有磁盘驱动器和磁盘架：</block>
+  <block id="9dd06574fbddaf5fab3ebc3605d80dae" category="paragraph">`s星网`</block>
+  <block id="95bd57504503ef8aadd7879d71388413" category="admonition">如果输出开头显示文本 response truncated ，则可以使用 Telnet 连接到网桥并输入相同的命令来查看所有输出。</block>
+  <block id="eb443924112f8c71329400ac78de9284" category="paragraph">重复 <block ref="2f9ed640880ac5dd95c2cb30edbb02d0" category="inline-xref-macro-rx"></block> 其余每个网桥。</block>
+  <block id="0aeba4fd83ea38faeb00ddbf389be6ad" category="paragraph"><block ref="48f604bdf2d3bf06f58ee9f10e668948" category="inline-xref-macro-rx"></block></block>
+  <block id="2c0892c11c37aec07e0a746c4c7fbe0d" category="list-text">重复 <block ref="2f9ed640880ac5dd95c2cb30edbb02d0" category="inline-xref-macro-rx"></block>。</block>
+  <block id="572a82a065071260bd29294d70eec95f" category="paragraph"><block ref="572a82a065071260bd29294d70eec95f" category="inline-link-macro-rx"></block></block>
+  <block id="979780f3d72e1e779c1418145ea73bcb" category="paragraph">在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。ONTAP 9.0 和更高版本的 ONTAP 之间的端口分配不同。</block>
+  <block id="896822419043c00441403336af7e4108" category="paragraph">`cluster_A&gt; storage bridge run-cli -bridge bridge_A_1 -command securebridge`</block>
+  <block id="347f47cb38d61664308e2cc323981b92" category="paragraph">`cluster_A&gt; storage bridge run-cli -bridge bridge_A_1 -command unsecurebridge`</block>
+  <block id="68e3506a2ff45bf22418c9f70fdecb49" category="paragraph">`storage bridge run-cli -bridge _bridge-name_ -command saveconfiguration`</block>
+  <block id="9b29c7d440706a3b6701509f3b6512fe" category="paragraph">`cluster_A&gt; storage bridge run-cli -bridge bridge_A_1 -command saveconfiguration`</block>
+  <block id="2622744a230b337241ab6444c641a6cb" category="paragraph">`storage bridge run-cli -bridge _bridge-name_ -command firmwarerestart`</block>
+  <block id="def2bebf11566298ccfc0636cb9cff59" category="paragraph">`cluster_A&gt; storage bridge run-cli -bridge bridge_A_1 -command firmwarerestart`</block>
+  <block id="c022e2c952252114af09b9b4a57622ae" category="paragraph">您必须使用 `setup` 命令或在发出 `reload` 命令后指定基本设置。</block>
+  <block id="5f8a45ca57172ced1169e3976bdce692" category="paragraph"><block ref="5f8a45ca57172ced1169e3976bdce692" category="inline-link-macro-rx"></block></block>
+  <block id="865ddca429147e4550622a4faf410a07" category="paragraph">`zone -show`</block>
+  <block id="bf3eac6d426cdce2672ed22591953fd5" category="paragraph">`zone -delete _zone-name_`</block>
+  <block id="7cca3aa0690568dbd959faace4d4bde1" category="paragraph">`iodshow`</block>
+  <block id="431f5b1374f309f2d879bfefd088097b" category="paragraph">`aptpolicy`</block>
+  <block id="1e70080b98ddae7448b1d47e364336a4" category="paragraph">`dlsshow`</block>
+  <block id="19c1762fb3b7bcd893229fa7f09c0fdf" category="paragraph">`s存储禁用适配器 1a`</block>
+  <block id="81e9c6efb735b32f459249f759d36e7f" category="paragraph">`s存储禁用适配器 1b`</block>
+  <block id="c3bea398f4129c3838c0129f1009cd08" category="paragraph">`ucadmin modify -adapter 1a -type fcvi`</block>
+  <block id="a56063dfa914abdb7fb0780e0ca676b6" category="paragraph">`ucadmin show local`</block>
+  <block id="9cd42a5631953faa458518cebea26463" category="paragraph">* 站点 A 的磁盘架 *</block>
+  <block id="aa5e90893b7f412ef5c52dd995d1a238" category="paragraph">* 站点 B 的磁盘架 *</block>
+  <block id="b30199893f935433fe7873de197dac50" category="paragraph">`d` 展示– v</block>
+  <block id="f271a505e3d3d46c62979906b1ac4922" category="paragraph">通过在命令中使用通配符，您可以使用一个命令分配磁盘架上的所有磁盘。您可以使用 `storage show disk -x` 命令来确定每个磁盘的磁盘架 ID 和托架。</block>
+  <block id="42cee3a86fb831661e8609f43e2dde49" category="list-text">在第一个节点上，系统地将本地磁盘架分配给池 0 ，并将远程磁盘架分配给池 1 ：</block>
+  <block id="1c2447a21682cf0f42e2be323da1c301" category="paragraph">`dassign -shelf _local-switch-name ： shelf-name.port_ -p _pool_`</block>
+  <block id="d041e05c9855dafc814c110fb30bdfe4" category="list-text">对本地站点的第二个节点重复此过程，系统地将本地磁盘架分配给池 0 ，并将远程磁盘架分配给池 1 ：</block>
+  <block id="2ca8dece2916dae1feb076d5d600835b" category="list-text">在远程站点的第一个节点上，系统地将本地磁盘架分配给池 0 ，并将远程磁盘架分配给池 1 ：</block>
+  <block id="42596de0d2678743337674a50df1b297" category="paragraph">`dassign -shelf _local-switch-namelf-name_ -p _pool_`</block>
+  <block id="876b81d6c6fffe8bff52d6604a764837" category="list-text">对远程站点的第二个节点重复此过程，系统地将其本地磁盘架分配给池 0 ，并将其远程磁盘架分配给池 1 ：</block>
+  <block id="80cc4ce49659e5c8205005beac265611" category="paragraph">`d` assign -shelf _shelf-name_ -p _pool_</block>
+  <block id="e016389a608a4c287976977e83b0db58" category="paragraph">`s存储显示磁盘架`</block>
+  <block id="5b3b3befc8a90dad61024595c4cace3e" category="list-text">在第一个节点上，系统地将每个磁盘架上一半的磁盘分配给池 0 ，而将另一半磁盘分配给 HA 配对节点的池 0 ：</block>
+  <block id="cc1fc0be4e8cd8fa55b631956b8bd17f" category="paragraph">`ddisk assign -disk _disk-name_ -p _pool_ -n _number-of-disks_m`</block>
+  <block id="07bc435bec5058b71ef961e81ee33a7c" category="list-text">对本地站点的第二个节点重复此过程，系统地将每个磁盘架上一半的磁盘分配给池 1 ，另一半磁盘分配给 HA 配对节点的池 1 ：</block>
+  <block id="7500666b9c58ee4ff02426972c6492db" category="paragraph">`d` assign -disk disk-name -p pool</block>
+  <block id="9240741eb15c91445a4b51a6edb97945" category="list-text">在远程站点的第一个节点上，系统地将每个磁盘架上一半的磁盘分配给池 0 ，而将另一半磁盘分配给 HA 配对节点的池 0 ：</block>
+  <block id="d8e8cbde53561fc27103594742b35498" category="paragraph">`dassign -disk _disk-name_ -p _pool_`</block>
+  <block id="b37eae2bd035ce7b240b661eaa1136a7" category="list-text">对远程站点的第二个节点重复此过程，系统地将每个磁盘架上一半的磁盘分配给池 1 ，另一半磁盘分配给 HA 配对节点的池 1 ：</block>
+  <block id="517c9f7214db1d3a85dacb3357ddbead" category="paragraph">`storage show disk`</block>
+  <block id="d62104b14c9d01be53e30302968da071" category="list-text">在站点 A 的节点上，系统地将本地磁盘架分配给池 0 ，并将远程磁盘架分配给池 1 ：</block>
+  <block id="7e902fb75b9d2939fe12e5e54d005da1" category="paragraph">`d` assign -shelf _disk_shelf_name_ -p _pool_</block>
+  <block id="71c0737f02cd1b953ecdde530bf520ff" category="list-text">在远程站点（站点 B ）的节点上，系统地将本地磁盘架分配给池 0 ，并将远程磁盘架分配给池 1 ：</block>
+  <block id="a7fbdb6c8e7d959be4d5a89782a63dc8" category="list-text">显示每个磁盘的磁盘架 ID 和托架：</block>
+  <block id="f96aff9bb92f47a99bb9e80c8aefd182" category="list-text"><block ref="0ce177c637860f04ef435f1d4df8c7a1" category="inline-xref-macro-rx"></block></block>
+  <block id="80f5aa2c1fd8d40ec861adc9b8554601" category="inline-xref">在八模式或四节点 MetroCluster 配置中设置 ONTAP</block>
+  <block id="9b21ad21eb9282dd4e397a5ca93023dc" category="list-text"><block ref="07c1a2d7d8220345e0719327013f6d09" category="inline-xref-macro-rx"></block></block>
+  <block id="fbc13e9ac26fb171512590aef1109360" category="paragraph">有关设置 ONTAP 的更多常规信息，请参见<block ref="eafebaeb253e4c4c582f9c3584dfed1b" category="inline-link-rx"></block></block>
+  <block id="c68c06ff931ba76b602732f3df8c7901" category="list-text">创建新集群：</block>
+  <block id="e49cf31f5ed35f0eb694c7714e8c3234" category="paragraph">`创建`</block>
+  <block id="bcec59bd19f9004ed7aa5ea7424752d3" category="list-text">按照提示完成 * 集群设置 * 向导，按 Enter 接受默认值，或者键入您自己的值，然后按 Enter 。</block>
+  <block id="6cf5d5492a2e7185b3efc5a5df46334b" category="list-text">完成 * 集群设置 * 向导并退出后，请验证集群是否处于活动状态且第一个节点是否运行正常： `</block>
+  <block id="494cb4f7976c64f111b74e9089d5bbd5" category="paragraph">`cluster show`</block>
+  <block id="6d530840262e7aff1dcc42cae9872ef7" category="paragraph">如果系统处于维护模式，请使用问题描述 halt 命令退出维护模式，然后问题描述从 LOADER 提示符处运行以下命令：</block>
+  <block id="7d191b34c9144d68eb2fae3f407083be" category="paragraph">`s存储故障转移 show -fields mode`</block>
+  <block id="2693510ae2d3dbae248418d358047f1e" category="paragraph">如果不是，则必须在每个节点上执行问题描述以下命令并重新启动节点：</block>
+  <block id="0f68bcf6db23f619a99e94a2fc9e080a" category="paragraph">`storage failover modify -mode ha -node localhost`</block>
+  <block id="47cd03a2fa721b9f4f83dca38829afea" category="paragraph">`network port show`</block>
+  <block id="b2ede78eeadccf7a2964d2eb92cebe8b" category="list-text">启用无交换机集群模式：</block>
+  <block id="ad2fe5bd0b1ed16a69e3bb29b59b4ba0" category="paragraph">`network options switchless-cluster modify -enabled true`</block>
+  <block id="dd8c5249263ec9d9387eb89d479386db" category="list-text"><block ref="411c2872850deed59c904124c3df5b0e" category="inline-xref-macro-rx"></block></block>
+  <block id="0d602c230a46295cfc602300167e27b6" category="list-text"><block ref="8cfbb5114495ced27bfaac04cfd46bf0" category="inline-xref-macro-rx"></block></block>
+  <block id="9962213aeca3e8ba4538c090e761fb85" category="paragraph">以下示例显示了 "cluster01" 中的网络端口：</block>
+  <block id="e6cb071f8a244db1351ac565291d36f3" category="paragraph">`network interface show -fields home-port ， curr-port`</block>
+  <block id="e08e39afa4898b5f543dffadbcd1b683" category="paragraph">以下示例显示尚未为端口 e0e 和 e0f 分配 LIF ：</block>
+  <block id="4bcc1ddddbaa37c32f2ba04fb0eb9ca0" category="paragraph">`network interface failover-groups create -vserver _system_svm_ -failover-group _failover_group_ -targets _physical_or_logical_ports_`</block>
+  <block id="ee435f89d284f68ad97e19b07724a100" category="paragraph">以下示例将端口 "e0e" 和 "e0f" 分配给系统 "SVMcluster01" 上的故障转移组 intercluster01 ：</block>
+  <block id="b60d742c0bb409f0ebcb8588e87621e0" category="paragraph">`network interface failover-groups show`</block>
+  <block id="e3221c2ee50e00b2632dae809cebb3a2" category="paragraph">`network interface create -vserver _system_svm_ -lif _LIF_name_ -service-policy default-intercluster -home-node _node_-home-port _port_ -address _port_ip_ -netmask _netmask_ -failover-group _failover_group_`</block>
+  <block id="09f9a0a57df0b1b8661b2301c9e515cc" category="paragraph">`network interface create -vserver _system_svm_ -lif _LIF_name_ -role intercluster -home-node _node_-home-port _port_ -address _port_ip_ -netmask _netmask_ -failover-group _failover_group_`</block>
+  <block id="a96b46d6c220e82969d9ba10b064f72d" category="paragraph">以下示例将在故障转移组 "intercluster01" 中创建集群间 LIF "cluster01_icl01" 和 "cluster01_icl02" ：</block>
+  <block id="1456cda5fcdd4ba6dc58aaeb75ae33ca" category="paragraph">以下示例显示 SVM "e0e" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0f" 端口。</block>
+  <block id="c2855a4e382ca947a7cba6fe1a1e9aba" category="paragraph"><block ref="c2855a4e382ca947a7cba6fe1a1e9aba" category="inline-link-macro-rx"></block></block>
+  <block id="2c473c2b0dd7e7fd0a780aba4f6b52cb" category="paragraph">在确定使用专用端口进行集群间复制是否是正确的集群间网络解决方案时，您应考虑 LAN 类型，可用 WAN 带宽，复制间隔，更改率和端口数等配置和要求。</block>
+  <block id="376d4fd6163673e8ce3ef73b91ff9c9d" category="cell">`network interface create -vserver _system_svm_ -lif _LIF_name_ -service-policy default-intercluster -home-node _node_-home-port _port_ -address _port_ip_ -netmask _netmask_`</block>
+  <block id="121791834cc106d1f75cc10ba9274408" category="cell">* 在 ONTAP 9.6 及更高版本中 * ：</block>
+  <block id="70368afdba29ef090427320b39d6868b" category="paragraph">以下示例显示 "e0c" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0d" 端口。</block>
+  <block id="1153589901f8b05e163abd80c1c6774a" category="paragraph"><block ref="1153589901f8b05e163abd80c1c6774a" category="inline-link-macro-rx"></block></block>
+  <block id="d3895c0d50943a96774ef267cc45ca30" category="paragraph">`cluster peer create -generate-passphrase -offer-expiration _MM/DD/YYYY HH ： MM ： SS|1...7 天 |1...168 小时 _ -peer-Addrs _peer_LIF_IP_ -IPspace _IPspace _IPspace _`</block>
+  <block id="797647e34bade9092632b77423181a50" category="list-text">在源集群上，将源集群身份验证到目标集群：</block>
+  <block id="5568705314477e94eb7c24806ca7b453" category="paragraph">`cluster peer create -peer-addrs peer_LIF_ips -ipspace IPspace`</block>
+  <block id="08df3af694898542d5e94b82b293d7ae" category="paragraph">以下示例将本地集群通过集群间 LIF IP 地址 "192.140.112.101" 和 "192.140.112.102" 的远程集群进行身份验证：</block>
+  <block id="9a4e9740be039f71b2229a1d11e289af" category="paragraph">`cluster peer show -instance`</block>
+  <block id="5a87c7a36a914594b9c2cd2aef148eee" category="paragraph">`集群对等运行状况显示`</block>
+  <block id="f227beeb960f3332c7459a76dc3a00f7" category="list-text">集群管理员必须已就每个集群用于向另一集群进行身份验证的密码短语达成一致。</block>
+  <block id="dac6502ed506b3d5b0a3b39ecb11e365" category="paragraph">`cluster peer create -peer-addrs _peer_LIF_IPs_ -ipspace _ipspace_s`</block>
+  <block id="5daa9d83f0ef8ad584a04c9f6589730a" category="paragraph">如果您不使用自定义 IP 空间，则可以忽略 _-IPSpace_ 选项。有关完整的命令语法，请参见手册页。</block>
+  <block id="d93f79a987bba3304695b6a783f4a705" category="paragraph">以下示例将与集群间 LIF IP 地址为 "192.168.2.201" 和 "192.168.2.202" 的远程集群创建集群对等关系：</block>
+  <block id="7775c1757d41f1e18ee45e04fab5a916" category="paragraph">以下示例将本地集群通过集群间 LIF IP 地址 192.140.112.203 和 192.140.112.204 进行身份验证：</block>
+  <block id="ca18ac8e66a059a9a89c326e9dad9d7d" category="paragraph">`cluster peer show – instance`</block>
+  <block id="bc79ba4747158e531dea5a77e367aa47" category="paragraph">`集群对等运行状况显示``</block>
+  <block id="7229c2240727fa0976a719ef2950e038" category="paragraph">`s存储聚合镜像 aggr_name`</block>
+  <block id="154ebb71084bf22add00430e4fa08d7d" category="paragraph">`storage disk show -spare -owner node_name`</block>
+  <block id="3f2e8b786a2072dd4bd108ff8d047526" category="admonition">在最低支持配置中，可用驱动器数量有限，您必须使用 `force-Small-aggregate` 选项创建三磁盘 RAID-DP 聚合。</block>
+  <block id="e7a03f2f3e8f71322cf786741c368e71" category="paragraph">`storage aggregate show-status -aggregate _aggregate-name_`</block>
+  <block id="f6d7b348eb50ac463eb2cc91d02f51b4" category="paragraph">`storage disk show -spare -owner _node_name_`</block>
+  <block id="aee39fa61ef32d1a40e13054914c36df" category="paragraph">有关这些选项的详细信息，请参见 storage aggregate create 手册页。</block>
+  <block id="a6dc0a04536717d4478be204a9eedac4" category="admonition">如果要使用单个镜像数据聚合，请参见 <block ref="68dbb28d16b2f5ad0b139d60008a1b90" category="inline-xref-macro-rx"></block> 有关说明，请参见。</block>
+  <block id="909bcad662bf67b01f5028f61e1ca6f4" category="list-text">控制器和机箱的 ha-config 状态必须为 "mcc" 。</block>
+  <block id="d7f15f09df4ff19cfec06353603aa12d" category="paragraph">`MetroCluster configure` 命令会自动将两个集群中每个集群中系统 ID 最低的两个节点配对，作为灾难恢复（ DR ）配对节点。在四节点 MetroCluster 配置中，存在两个 DR 配对节点对。第二个 DR 对是从系统 ID 较高的两个节点创建的。</block>
+  <block id="dc4149179c2be4216122ce38c26d988a" category="list-text">【第 1 步 _aggr]] 按照以下格式配置 MetroCluster ：</block>
+  <block id="a9694210aee07751d2c398edcb8235e6" category="paragraph">`MetroCluster configure node-name`</block>
+  <block id="3467cd3aa5926d9ec0c5a8458a722f99" category="paragraph">`MetroCluster configure -allow-with-one-aggregate true _node-name_`</block>
+  <block id="36d2c013b12e8a43d8d64ee6fba4e912" category="admonition">最佳实践是具有多个数据聚合。如果第一个 DR 组只有一个聚合，而您要添加一个具有一个聚合的 DR 组，则必须将元数据卷从单个数据聚合中移出。有关此操作步骤的详细信息，请参见<block ref="0bd01eb056439b4f751a4e1410c13ebf" category="inline-link-rx"></block>。</block>
+  <block id="1ab9e9aadaaef04dc9de70053de7c057" category="paragraph">您必须根据光纤通道（ FC ）交换机配置来配置帧的按顺序交付（ IOD ）或无序交付（ OOD ）。</block>
+  <block id="177f79b7f42518cbd6ed3a48de1f222b" category="paragraph">如果为 FC 交换机配置了 IOD ，则必须为 ONTAP 软件配置 IOD 。同样，如果为 FC 交换机配置了 OOD ，则必须为 ONTAP 配置 OOD 。</block>
+  <block id="d5cca01c587441940cbf9506abe67c60" category="list-text">进入高级模式：</block>
+  <block id="248f892426f89c07bc5999439096f3e0" category="paragraph">`set advanced`</block>
+  <block id="823eab722f92d2115c2effb645f5bc93" category="paragraph">`MetroCluster 互连适配器 show`</block>
+  <block id="214f6d964c1923698862576e1de7ed1a" category="list-text">验证 MetroCluster 配置设置：</block>
+  <block id="ac054e502f25f5713b21dda9c908f901" category="list-text">在节点 `mCC4-B1` 和节点 `mCC4-B2` 上启用 OOD ：</block>
+  <block id="0a9b432f5f5621ba3d2bafdaa8d5be41" category="paragraph">`MetroCluster 互连适配器 modify -node _node_name_ -is-ood-enabled true`</block>
+  <block id="df5566493ce43130608af35ff9c2f4d8" category="paragraph">`s安全性登录 create`</block>
+  <block id="34d50950463bd9deb8050c6afe5d8652" category="paragraph">`ssecurity login show`</block>
+  <block id="8877f60294cec4f344b4ffc0df4449c3" category="paragraph">`snmpconfig —设置 SNMPv3`</block>
+  <block id="f9f9baab7ad1908bd1cdbdf27a3f1041" category="paragraph">如果需要 RO 访问，请在 "User （ ro ）： " 之后指定 "snmpv3user" ，如示例所示：</block>
+  <block id="7c36b0e12ce814681762efb6b2ec6cc4" category="paragraph">此示例显示了如何配置只读用户。如果需要，您可以调整 RW 用户。</block>
+  <block id="046a4dbe28831449e896740fded1c064" category="paragraph">您还应在未使用的帐户上设置密码，以保护这些帐户的安全，并使用 ONTAP 版本中提供的最佳加密方法。</block>
+  <block id="2699745f7ba3417d015d2b62691bd3b8" category="list-text">将具有 IP 地址的交换机添加到每个 MetroCluster 节点：</block>
+  <block id="6efb794ecca356d1adc84930ec9dbd7a" category="paragraph">`s存储交换机 add -address ipaddress`</block>
+  <block id="3f95f8b8f676b17c68543286b93fa696" category="admonition">运行状况监控支持 Brocade 7840 FC 交换机和所有警报，但 NoISLPresent_Alert 除外</block>
+  <block id="a6472f6e895ca995bc578243ec1beba2" category="list-text">验证是否已正确配置所有交换机：</block>
+  <block id="6b6109ea4090362986aae43ef89da70c" category="paragraph">`s存储开关显示`</block>
+  <block id="40ce80e89a1b21d3817972fd9d2600a3" category="paragraph">`storage bridge add -address 0.0.0.0 -managed-by in-band -name _bridge-name_`</block>
+  <block id="d71c71e1fa8d4f7f4ada6c16c73fda7e" category="paragraph">`storage bridge add -address _bridge-ip-address_ -name _bridge-name_`</block>
+  <block id="9aa100213ac06e4996c83aafb9f55bca" category="paragraph">由于轮询间隔，可能需要长达 15 分钟才能反映所有数据。如果 "Status" 列中的值为 "ok" ，并且显示了其他信息，例如全球通用名称（ WWN ），则 ONTAP 运行状况监控器可以联系并监控网桥。</block>
+  <block id="6002be2e075c56f18d1738b11fc6e4f4" category="paragraph">您可以检查 MetroCluster 配置中的组件和关系是否工作正常。</block>
+  <block id="220a5f3f86ae97f0476676c92a412f16" category="paragraph">您应在初始配置后以及对 MetroCluster 配置进行任何更改后执行检查。您还应在协商（计划内）切换或切回操作之前执行检查。</block>
+  <block id="ac8270e817c97c45a74fde32ae003705" category="paragraph">如果在任一集群或同时在这两个集群上短时间内发出 `MetroCluster check run` 命令两次，则可能发生冲突，并且此命令可能无法收集所有数据。后续的 `MetroCluster check show` 命令不会显示预期输出。</block>
+  <block id="064c86204120abbda01a8b134afb703c" category="list-text">确认已启用存储故障转移：</block>
+  <block id="751035e5db88d172e881299c202d9b13" category="paragraph">`s存储故障转移显示`</block>
+  <block id="08285d6c96227697fdda9d18c08ea7a7" category="list-text">从 controller_A_1 接管 controller_A_2 ：</block>
+  <block id="53bf633839a3bafcd256922de80f18c7" category="paragraph">`s存储故障转移接管 controller_A_2`</block>
+  <block id="a26b9771af44d4e48055c3e6d562f26b" category="paragraph">您可以使用 `storage failover show-takeover` 命令监控接管操作的进度。</block>
+  <block id="ad72ca37973f7e44bd51123c01b47ffb" category="list-text">确认接管已完成：</block>
+  <block id="ae5bfae285fdcc9683e2d71dc6ccf392" category="list-text">交还 controller_A_2 ：</block>
+  <block id="6497fd7fe4a45c40d438c92081d595cb" category="paragraph">`s存储故障转移交还 controller_A_2`</block>
+  <block id="6e24f6c5151072bd83cb92d1874784d0" category="paragraph">您可以使用 `storage failover show-giveback` 命令监控交还操作的进度。</block>
+  <block id="f4f91b70141dc9efb919484e27a495c8" category="list-text">确认存储故障转移已恢复正常状态：</block>
+  <block id="0f241d19bede29bfe38871e579cb6260" category="list-text">使用中所述的协商切换，修复和切回过程<block ref="4b5609d077d5648c586ac94849bc4545" category="inline-link-rx"></block>。</block>
+  <block id="d459dc1ddad8d856203ba30b84fd6675" category="list-text">为配置备份文件设置远程目标的 URL ：</block>
+  <block id="267f48079d5a0c20b3bac37bdeae2c4e" category="paragraph">`s系统配置备份设置 modify _url-of-destination_s`</block>
+  <block id="d4803a66d205578ad754ddd30430c872" category="paragraph">= 在 FAS8020 系统上的 X1132A-R6 四端口卡上配置 FC-VI 端口</block>
+  <block id="4028a8e16d4b841012a85c08963c7c51" category="paragraph">`sswitchcfgpersistentdisable`</block>
+  <block id="c5a261fd95941fcb6c642a92e85a9c7f" category="list-text">确认控制器故障转移运行状况良好： + `cf status`</block>
+  <block id="303ac55e6ca0222f3e4f7511c42b6d50" category="list-text">确认磁盘可见： + `storage show disk – p`</block>
+  <block id="a4624bf4e4cb6a15bc97fd7c39d6b621" category="list-text">确认聚合运行状况良好： + `aggr status`</block>
+  <block id="b392ae8268e3acac3f8918c2f70f55fe" category="admonition">此时，请勿为要包含未镜像聚合的磁盘架布线。您必须等到 MetroCluster 配置完成后再部署用于未镜像聚合的磁盘架，并且只能在使用 `MetroCluster modify -enable-unmirrored-aggr-deployment true` 命令后再部署这些磁盘架。</block>
+  <block id="885feea646ab9a1af011b086328eabb6" category="paragraph">如果您在 MetroCluster 站点上使用防火墙，则必须确保能够访问某些所需端口。= MetroCluster 站点上使用防火墙的注意事项</block>
+  <block id="8d3d41bad87a31195e4ce8080361725c" category="paragraph">根据您的 ONTAP 版本，您必须在节点 SVM 中配置 BGP 对等 LIF ，而不是在系统或数据 SVM 中配置 BGP 对等 LIF 。在 ONTAP 9.8 中， BGP LIF 显示在集群（系统） SVM 中，节点 SVM 不再存在。</block>
+  <block id="b310c02e6f3ce7879b405d0b4fabd46d" category="paragraph">BGP 的可靠更新过程可以使 LIF 迁移更顺畅，因为它们速度稍快，并且对某些客户端的中断几率较低</block>
+  <block id="09870878497be948f2e366ff8dba6b8d" category="list-text">收集所需信息开始配置过程之前，需要收集控制器模块所需的 IP 地址。</block>
+  <block id="462659be8756bb697f4e83fd4bac0a49" category="paragraph">在出厂时未预配置的延伸型 MetroCluster 配置中，您必须验证控制器和机箱组件的 HA 状态是否设置为 `mcc-2n` ，以便它们可以正常启动。对于从工厂收到的系统，此值是预配置的，您无需对其进行验证。</block>
+  <block id="d96c4be4fcc4f664c3840e7051d91396" category="paragraph">控制器模块和机箱应显示值 `mcc-2n` 。</block>
+  <block id="bdb22cc59d3dc69687f8f3f638ffbed6" category="list-text">如果显示的控制器系统状态不是 `mcc-2n` ，请设置控制器的 HA 状态：</block>
+  <block id="2b93070a46a84c0954f4fe7f1e6920d9" category="paragraph">暂停节点。</block>
+  <block id="56d9ec4c28d3901ce1d9efd0668aff81" category="paragraph">等待节点返回 LOADER 提示符。</block>
+  <block id="61da79f1c2b8f939cc2f91ab428c275b" category="paragraph">` * 系统配置备份设置 modify url-of-destination*`</block>
 </blocks>

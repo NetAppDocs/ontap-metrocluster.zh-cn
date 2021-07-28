@@ -674,82 +674,83 @@ MetroCluster 配置基于两个标准集群构建。在物理上，配置必须�
 
 == 还原系统默认值并在控制器模块上配置 HBA 类型
 
-[role="lead"]
 要确保 MetroCluster 安装成功，请重置和还原控制器模块上的默认值。只有使用 FC-SAS 网桥的延伸型配置才需要执行此任务。
 
-. 在 LOADER 提示符处，将环境变量返回到其默认设置： `set-defaults`
+.步骤
+. 在 LOADER 提示符处，将环境变量返回到其默认设置：
++
+`set-defaults`
+
 . 将节点启动至维护模式，然后为系统中的任何 HBA 配置设置：
 +
-.. 启动到维护模式： `boot_ontap maint`
-.. 检查端口的当前设置： `ucadmin show`
+.. 启动至维护模式：
++
+`boot_ontap maint`
+
+.. 检查端口的当前设置：
++
+`ucadmin show`
+
 .. 根据需要更新端口设置。
 
 
 +
 |===
-
-
 | 如果您具有此类型的 HBA 和所需模式 ... | 使用此命令 ... 
 
 
- a| 
-CNA FC
- a| 
-ucadmin modify -m fc -t initiator adapter_name
+| CNA FC | `ucadmin modify -m fc -t initiator _adapter_name_` 
 
 
-
- a| 
-CNA 以太网
- a| 
-ucadmin modify -mode cna adapter_name
+| CNA 以太网 | `ucadmin modify -mode cna _adapter_name_` 
 
 
-
- a| 
-FC 目标
- a| 
-fcadmin config -t 目标 adapter_name
+| FC 目标 | `fcadmin config -t target _adapter_name_` 
 
 
-
- a| 
-FC 启动程序
- a| 
-fcadmin config -t 启动程序 adapter_name
-
+| FC 启动程序 | `fcadmin config -t initiator _adapter_name_` 
 |===
-. 退出维护模式： `halt`
+. 退出维护模式：
++
+`halt`
+
 +
 运行此命令后，请等待，直到节点停留在 LOADER 提示符处。
 
-. 将节点重新启动到维护模式，以使配置更改生效： `boot_ontap maint`
+. 将节点重新启动至维护模式，以使配置更改生效：
++
+`boot_ontap maint`
+
 . 验证所做的更改：
 +
 |===
-
-
 | 如果您使用的是此类型的 HBA... | 使用此命令 ... 
 
 
  a| 
 CNA
  a| 
-ucadmin show
+`ucadmin show`
 
 
 
  a| 
 FC
  a| 
-fcadmin show
+`fcadmin show`
 
 |===
-. 退出维护模式： `halt`
+. 退出维护模式：
++
+`halt`
+
 +
 运行此命令后，请等待，直到节点停留在 LOADER 提示符处。
 
-. 将节点启动至启动菜单： `boot_ontap menu`
+. 将节点启动至启动菜单：
++
+`boot_ontap 菜单`
+
 +
 运行此命令后，请等待，直到显示启动菜单为止。
 
@@ -758,11 +759,10 @@ fcadmin show
 以下屏幕将显示启动菜单提示符：
 
 +
-....
+[listing]
+----
 Please choose one of the following:
-....
-+
-....
+
      (1) Normal Boot.
      (2) Boot without /etc/rc.
      (3) Change password.
@@ -777,9 +777,10 @@ Please choose one of the following:
  Warning: do not run this option on a HA node that has been taken over.
  Are you sure you want to continue?: yes
  Rebooting to finish wipeconfig request.
-// end include reference
-== Configuring FC-VI ports on a X1132A-R6 quad-port card on FAS8020 systems
-....
+----
++
+= 在 FAS8020 系统上的 X1132A-R6 四端口卡上配置 FC-VI 端口
+
 
 
 [role="lead"]

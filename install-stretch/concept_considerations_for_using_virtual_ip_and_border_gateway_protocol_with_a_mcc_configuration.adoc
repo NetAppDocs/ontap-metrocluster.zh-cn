@@ -34,7 +34,7 @@ ONTAP 不支持 true anycast —集群中只有一个节点提供特定的虚拟
 
 VIP LIF 仅涵盖前端 / 数据网络。
 
-根据您的 ONTAP 版本，您必须在节点 SVM 中配置 BGP 对等 LIF ，而不是在系统或数据 SVM 中配置 BGP 对等 LIF 。在 9.8 中， BGP LIF 显示在集群（系统） SVM 中，节点 SVM 不再存在。
+根据您的 ONTAP 版本，您必须在节点 SVM 中配置 BGP 对等 LIF ，而不是在系统或数据 SVM 中配置 BGP 对等 LIF 。在 ONTAP 9.8 中， BGP LIF 显示在集群（系统） SVM 中，节点 SVM 不再存在。
 
 每个数据 SVM 都需要配置所有可能的第一跃点网关地址（通常为 BGP 路由器对等 IP 地址），以便在发生 LIF 迁移或 MetroCluster 故障转移时可以使用返回数据路径。
 

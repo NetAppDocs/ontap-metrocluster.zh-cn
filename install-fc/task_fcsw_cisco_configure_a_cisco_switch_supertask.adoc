@@ -138,7 +138,7 @@ FC_Switch_B_1# write erase
 == 配置 Cisco FC 交换机的基本设置和社区字符串
 
 [role="lead"]
-您必须使用 setup 命令或在发出 `reload` 命令后指定基本设置。
+您必须使用 `setup` 命令或在发出 `reload` 命令后指定基本设置。
 
 .步骤
 . 如果交换机未显示设置问题，请配置基本交换机设置：
@@ -656,7 +656,7 @@ FC_switch_B_1# show vsan member
 NOTE: 建议使用标准 IOD 设置。只有在必要时，才应配置 OOD 。
 
 +
-xref:concept_prepare_for_the_mcc_installation.adoc[在光纤连接 MetroCluster 配置中使用 TDM/WDM 设备的注意事项]
+link:concept_prepare_for_the_mcc_installation.html["在光纤连接 MetroCluster 配置中使用 TDM/WDM 设备的注意事项"]
 
 +
 ** 要配置按顺序交付帧，必须执行以下步骤：

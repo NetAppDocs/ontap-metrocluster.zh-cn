@@ -44,9 +44,7 @@ summary: 如果在灾难站点上更换了一个或两个控制器模块或 NVRA
 | 节点数 | 节点 | 原始系统 ID | 新系统 ID 
 
 
- a| 
-四个
- a| 
+.4+| 四个  a| 
 node_A_1
  a| 
 4068741258
@@ -61,41 +59,35 @@ node_A_2
 4068741260
  a| 
 1574774991
+
+
+
  a| 
 node_B_1
-
-
-
  a| 
 4068741254
  a| 
 未更改
+
+
+
  a| 
 node_B_2
  a| 
 4068741256
-
-
-
  a| 
 未更改
+
+
+
  a| 
 两个
  a| 
 node_A_1
  a| 
 4068741258
-
-
-
  a| 
 1574774970
- a| 
-node_B_1
- a| 
-4068741254
- a| 
-未更改
 
 |===
 .步骤
@@ -124,14 +116,14 @@ node_B_1
 *> disk show
 Local System ID: 1574774970
 
-  DISK             OWNER             POOL   SERIAL NUMBER         HOME                DR HOME
-------------       -------------     -----  -------------         -------------       -------------
-sw_A_1:6.126L19 node_A_1(1574774970) Pool0  serial-number  node_A_1(1574774970)
-sw_A_1:6.126L3  node_A_1(1574774970) Pool0  serial-number  node_A_1(1574774970)
-sw_A_1:6.126L7  node_A_1(1574774970) Pool0  serial-number  node_A_1(1574774970)
-sw_B_1:6.126L8  node_A_1(1574774970) Pool1  serial-number  node_A_1(1574774970)
-sw_B_1:6.126L24 node_A_1(1574774970) Pool1  serial-number  node_A_1(1574774970)
-sw_B_1:6.126L2  node_A_1(1574774970) Pool1  serial-number  node_A_1(1574774970)
+  DISK             OWNER                POOL   SERIAL NUMBER   HOME                DR HOME
+------------       -------------        -----  -------------   -------------       -------------
+sw_A_1:6.126L19    node_A_1(1574774970) Pool0  serial-number   node_A_1(1574774970)
+sw_A_1:6.126L3     node_A_1(1574774970) Pool0  serial-number   node_A_1(1574774970)
+sw_A_1:6.126L7     node_A_1(1574774970) Pool0  serial-number   node_A_1(1574774970)
+sw_B_1:6.126L8     node_A_1(1574774970) Pool1  serial-number   node_A_1(1574774970)
+sw_B_1:6.126L24    node_A_1(1574774970) Pool1  serial-number   node_A_1(1574774970)
+sw_B_1:6.126L2     node_A_1(1574774970) Pool1  serial-number   node_A_1(1574774970)
 
 *> aggr status
          Aggr State           Status

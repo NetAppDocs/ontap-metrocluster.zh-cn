@@ -19,30 +19,29 @@ summary: 您必须禁用其中一个交换机网络结构，才能修改其配�
 .步骤
 . 禁用网络结构中的每个交换机：
 +
-` * switchCfgPersistentDisable*`
+`sswitchcfgpersistentdisable`
 
 +
 如果此命令不可用，请使用 `sswitchDisable` 命令。
 
 +
-以下示例显示了对 FC_switch_A_1 发出的命令：
-
+** 以下示例显示了对 FC_switch_A_1 发出的命令：
 +
 [listing]
 ----
 FC_switch_A_1:admin> switchCfgPersistentDisable
 ----
-+
-以下示例显示了对 FC_switch_B_1 发出的命令：
-
+** 以下示例显示了对 FC_switch_B_1 发出的命令：
 +
 [listing]
 ----
 FC_switch_B_1:admin> switchCfgPersistentDisable
 ----
+
+
 . 使用冗余网络结构确保 7- 模式 MetroCluster 配置正常运行：
 +
-.. 确认控制器故障转移运行状况良好： + ` * cf status*`
+.. 确认控制器故障转移运行状况良好： + `cf status`
 +
 [listing]
 ----
@@ -50,7 +49,7 @@ node_A> cf status
 Controller Failover enabled, node_A is up.
 VIA Interconnect is up (link 0 down, link 1 up).
 ----
-.. 确认磁盘可见： + ` * storage show disk – p*`
+.. 确认磁盘可见： + `storage show disk – p`
 +
 [listing]
 ----
@@ -68,7 +67,7 @@ Brocade-6510-2K0GG:5.126L31  B                              1    4
 .
 .
 ----
-.. 确认聚合运行状况良好： + ` * aggr status*`
+.. 确认聚合运行状况良好： + `aggr status`
 +
 [listing]
 ----

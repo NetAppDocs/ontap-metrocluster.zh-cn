@@ -9,7 +9,10 @@ summary: 如果您在 MetroCluster 站点上使用防火墙，则必须确保能
 :imagesdir: ../media/
 
 
-[role="lead"]
+
+
+== MetroCluster 站点上使用防火墙的注意事项
+
 如果您在 MetroCluster 站点上使用防火墙，则必须确保能够访问某些所需端口。
 
 下表显示了位于两个 MetroCluster 站点之间的外部防火墙中的 TCP/UDP 端口使用情况。

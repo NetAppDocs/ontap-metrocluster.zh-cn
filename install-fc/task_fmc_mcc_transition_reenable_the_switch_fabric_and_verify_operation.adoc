@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, reenable, switch, fabric, verify, operation 
 summary: 您必须启用 FC 交换机网络结构并确保交换机和设备正常运行。 
 ---
-= 重新启用交换机网络结构并验证其运行情况
+= 重新启用交换机网络结构并验证操作
 :icons: font
 :imagesdir: ../media/
 
@@ -15,33 +15,32 @@ summary: 您必须启用 FC 交换机网络结构并确保交换机和设备正�
 .步骤
 . 启用交换机：
 +
-` * switchCfgPersistentEnable*`
+`sswitchcfgpersistentenable`
 
 +
 如果此命令不可用，则在发出 `fastBOOT` 命令后，交换机应处于已启用状态。
 
 +
-以下示例显示了对 `FC_switch_A_1` 发出的命令：
-
+** 以下示例显示了对 FC_switch_A_1 发出的命令：
 +
 [listing]
 ----
 FC_switch_A_1:admin> switchCfgPersistentEnable
 ----
-+
-以下示例显示了对 `FC_switch_B_1` 发出的命令：
-
+** 以下示例显示了对 FC_switch_B_1 发出的命令：
 +
 [listing]
 ----
 FC_switch_B_1:admin> switchCfgPersistentEnable
 ----
+
+
 . 验证交换机是否联机以及所有设备是否均已正确登录：
 +
-` * switchshow*`
+`sswitchshow`
 
 +
-以下示例显示了对 `FC_switch_A_1` 发出的命令：
+以下示例显示了对 FC_switch_A_1 发出的命令：
 
 +
 [listing]
@@ -49,14 +48,14 @@ FC_switch_B_1:admin> switchCfgPersistentEnable
 FC_switch_A_1:admin> switchShow
 ----
 +
-以下示例显示了对 `FC_switch_B_1` 发出的命令：
+以下示例显示了对 FC_switch_B_1 发出的命令：
 
 +
 [listing]
 ----
 FC_switch_B_1:admin> switchShow
 ----
-. 运行 `FMC_dc 实用程序` 以确保 7- 模式网络结构 MetroCluster 正常运行。
+. 运行 fmc_dc 实用程序以确保 7- 模式网络结构 MetroCluster 正常运行。
 +
 您可以忽略与流量隔离（ TI ）分区和中继相关的错误。
 
