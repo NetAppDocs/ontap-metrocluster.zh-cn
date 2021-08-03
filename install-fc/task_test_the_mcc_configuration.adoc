@@ -27,7 +27,7 @@ summary:
 
 * `MetroCluster switchover` 命令将显示警告提示符。
 +
-如果对提示符回答 ` * 是 *` ，则发出命令的站点将切换配对站点。
+如果对提示符回答 `yes` ，则发出命令的站点将切换配对站点。
 
 
 
@@ -47,10 +47,14 @@ summary:
 * 对于 ONTAP 9.8 及更高版本：
 +
 ** 如果无法访问远程存储，则位于灾难站点的未镜像聚合将不可用。这可能会导致控制器中断。
+
+
+
+
+.步骤
+. 确认所有节点均处于已配置状态和正常模式：
 +
-... 确认所有节点均处于已配置状态和正常模式：
-+
-` * MetroCluster node show*`
+`MetroCluster node show`
 
 +
 [listing]
@@ -62,9 +66,9 @@ Cluster                        Configuration State    Mode
  Local: cluster_A               configured             normal
 Remote: cluster_B               configured             normal
 ----
-... 开始切换操作：
+. 开始切换操作：
 +
-` * MetroCluster switchover*`
+`MetroCluster switchover`
 
 +
 [listing]
@@ -73,9 +77,9 @@ cluster_A::> metrocluster switchover
 Warning: negotiated switchover is about to start. It will stop all the data Vservers on cluster "cluster_B" and
 automatically re-start them on cluster "cluster_A". It will finally gracefully shutdown cluster "cluster_B".
 ----
-... 确认本地集群处于已配置状态和切换模式：
+. 确认本地集群处于已配置状态和切换模式：
 +
-` * MetroCluster node show*`
+`MetroCluster node show`
 
 +
 [listing]
@@ -88,9 +92,9 @@ Local: cluster_A                configured             switchover
 Remote: cluster_B               not-reachable          -
               configured             normal
 ----
-... 确认切换操作已成功：
+. 确认切换操作已成功：
 +
-` * MetroCluster operation show*`
+`MetroCluster 操作显示`
 
 +
 [listing]
@@ -104,11 +108,7 @@ cluster_A::> metrocluster operation show
    End Time: 2/6/2016 13:29:41
      Errors: -
 ----
-... 使用 `vserver show` 和 `network interface show` 命令验证灾难恢复 SVM 和 LIF 是否已联机。
-
-
-
-
+. 使用 `vserver show` 和 `network interface show` 命令验证灾难恢复 SVM 和 LIF 是否已联机。
 
 
 
@@ -122,7 +122,11 @@ cluster_A::> metrocluster operation show
 
 此操作步骤的预期结果是，应将服务切换回其主节点。
 
-. 确认修复已完成： `MetroCluster node show`
+.步骤
+. 验证修复是否已完成：
++
+`MetroCluster node show`
+
 +
 以下示例显示了命令的成功完成：
 
@@ -139,7 +143,10 @@ Group Cluster Node               State          Mirroring Mode
               node_B_2         unreachable    -         switched over
 42 entries were displayed.metrocluster operation show
 ----
-. 验证所有聚合是否均已镜像： `storage aggregate show`
+. 验证所有聚合是否均已镜像：
++
+`s存储聚合显示`
+
 +
 以下示例显示所有聚合的 RAID 状态均为已镜像：
 
@@ -168,7 +175,10 @@ data_cluster_B
 root_cluster_B    -         -     - unknown      - node_A_1   -
 ----
 . 从灾难站点启动节点。
-. 检查切回恢复的状态： `MetroCluster node show`
+. 检查切回恢复的状态：
++
+`MetroCluster node show`
+
 +
 [listing]
 ----
@@ -183,14 +193,20 @@ Group Cluster Node               State          Mirroring Mode
                                                           recovery
 2 entries were displayed.
 ----
-. 执行切回： `MetroCluster switchback`
+. 执行切回：
++
+`MetroCluster 切回`
+
 +
 [listing]
 ----
 cluster_A::> metrocluster switchback
 [Job 938] Job succeeded: Switchback is successful.Verify switchback
 ----
-. 确认节点状态： `MetroCluster node show`
+. 确认节点的状态：
++
+`MetroCluster node show`
+
 +
 [listing]
 ----
@@ -205,7 +221,10 @@ Group Cluster Node               State          Mirroring Mode
 
 2 entries were displayed.
 ----
-. 确认 MetroCluster 操作的状态： `MetroCluster operation show`
+. 确认 MetroCluster 操作的状态` ：
++
+`MetroCluster 操作显示`
+
 +
 输出应显示成功状态。
 
@@ -240,8 +259,12 @@ cluster_A::> metrocluster operation show
 
 NOTE: 从 ONTAP 9.8 开始， `storage bridge` 命令将替换为 `ssystem bridge` 。以下步骤显示了 `storage bridge` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 `ssystem bridge` 命令。
 
+.步骤
 . 关闭网桥的电源。
-. 确认网桥监控指示错误： `storage bridge show`
+. 确认网桥监控指示出现错误：
++
+`storage bridge show`
+
 +
 [listing]
 ----
@@ -254,7 +277,10 @@ ATTO_10.65.57.145
 	     bridge_A_1    Atto    FibreBridge 6500N
                                            200000108662d46c true      error
 ----
-. 确认网桥后面的驱动器可通过单个路径使用： `storage disk error show`
+. 确认网桥后面的驱动器可通过一条路径使用：
++
+`s存储磁盘错误显示`
+
 +
 [listing]
 ----
@@ -286,9 +312,17 @@ Disk             Error Type        Error Text
 
 * 当 PDU 断开连接时，应生成错误。
 * 不应发生故障转移或服务丢失。
+
+
+.步骤
+. 关闭包含 MetroCluster 组件的机架左侧 PDU 的电源。
+. 使用以下命令在控制台上监控结果：
 +
-.. 关闭包含 MetroCluster 组件的机架左侧 PDU 的电源。
-.. 使用 system environment sensors show -state fault 和 storage shelf show -errors 命令在控制台上监控结果。
+`s系统环境传感器显示 -state fault`
+
++
+`s存储架 show -errors`
+
 +
 [listing]
 ----
@@ -317,11 +351,9 @@ Error Type          Description
 ------------------  ---------------------------
 Power               Critical condition is detected in storage shelf power supply unit "1". The unit might fail.Reconnect PSU1
 ----
-.. 重新打开左侧 PDU 的电源。
-.. 确保 ONTAP 清除错误情况。
-.. 对右侧 PDU 重复上述步骤。
-
-
+. 重新打开左侧 PDU 的电源。
+. 确保 ONTAP 清除错误情况。
+. 对右侧 PDU 重复上述步骤。
 
 
 
@@ -339,16 +371,24 @@ Power               Critical condition is detected in storage shelf power supply
 
 * cluster_A 上的 FC_switch_A_1
 * cluster_B 上的 FC_switch_B_1
+
+
+.步骤
+. 禁用与 MetroCluster 配置中两个交换机网络结构之一的连接：
 +
-.. 禁用与 MetroCluster 配置中两个交换机网络结构之一的连接：
+.. 禁用网络结构中的第一个交换机：
 +
-... 禁用网络结构中的第一个交换机： `sswitchDisable`
+`sswitchdisable`
+
 +
 [listing]
 ----
 FC_switch_A_1::> switchdisable
 ----
-... 禁用网络结构中的第二个交换机： `sswitchable disable`
+.. 禁用网络结构中的第二个交换机：
++
+`sswitchdisable`
+
 +
 [listing]
 ----
@@ -356,27 +396,33 @@ FC_switch_B_1::> switchdisable
 ----
 
 
-.. 在控制器模块的控制台上监控结果。
+. 在控制器模块的控制台上监控结果。
 +
 您可以使用以下命令检查集群节点，以确保仍在提供所有数据。命令输出显示磁盘的路径缺失。这是预期的。
 
 +
-*** vserver show
-*** network interface show
-*** aggr show
-*** system node runnodename 命令 storage show disk -p
-*** 存储磁盘错误显示
+** vserver show
+** network interface show
+** aggr show
+** system node runnodename 命令 storage show disk -p
+** 存储磁盘错误显示
 
 
-.. 重新启用与 MetroCluster 配置中两个交换机网络结构之一的连接：
+. 重新启用与 MetroCluster 配置中两个交换机网络结构之一的连接：
 +
-... 重新启用网络结构中的第一个交换机： `sswitchenable`
+.. 重新启用网络结构中的第一个交换机：
++
+`sswitchenable`
+
 +
 [listing]
 ----
 FC_switch_A_1::> switchenable
 ----
-... 重新启用网络结构中的第二个交换机： `sswitchenable`
+.. 重新启用网络结构中的第二个交换机：
++
+`sswitchenable`
+
 +
 [listing]
 ----
@@ -384,9 +430,7 @@ FC_switch_B_1::> switchenable
 ----
 
 
-.. 至少等待 10 分钟，然后对另一个交换机网络结构重复上述步骤。
-
-
+. 至少等待 10 分钟，然后对另一个交换机网络结构重复上述步骤。
 
 
 
@@ -401,8 +445,13 @@ FC_switch_B_1::> switchenable
 * 监控软件应报告错误消息。
 * 不应发生故障转移或服务丢失。
 * 硬件故障恢复后，镜像重新同步将自动启动。
+
+
+.步骤
+. 检查存储故障转移状态：
 +
-.. 检查存储故障转移状态： `storage failover show`
+`s存储故障转移显示`
+
 +
 [listing]
 ----
@@ -414,7 +463,10 @@ node_A_1       node_A_2       true     Connected to node_A_2
 node_A_2       node_A_1       true     Connected to node_A_1
 2 entries were displayed.
 ----
-.. 检查聚合状态： `storage aggregate show`
+. 检查聚合状态：
++
+`s存储聚合显示`
+
 +
 [listing]
 ----
@@ -443,7 +495,16 @@ node_A_2_root
                                                                    mirrored,
                                                                    normal
 ----
-.. 确认所有数据 SVM 和数据卷均已联机并提供数据： `vserver show -type data``network interface show -fields is-home false``volume show ！ vol0 ，！ mDV*`
+. 验证所有数据 SVM 和数据卷是否均已联机并提供数据：
++
+`vserver show -type data`
+
++
+`network interface show -fields is-home false`
+
++
+`volume show ！ vol0 ，！ mdv*`
+
 +
 [listing]
 ----
@@ -479,7 +540,10 @@ SVM2
                        node_A_2_data02_unmirrored
                                     online     RW          1GB    972.6MB    5%
 ----
-.. 在池 1 中为 node node_A_2 确定一个磁盘架以关闭电源以模拟突发硬件故障： `storage aggregate show -r -node node-name ！ * root`
+. 确定池 1 中用于节点 node_A_2 的磁盘架以关闭电源以模拟突然发生的硬件故障：
++
+`storage aggregate show -r -node _node-name_ ！ * root`
+
 +
 您选择的磁盘架必须包含镜像数据聚合中的驱动器。
 
@@ -527,10 +591,16 @@ Owner Node: node_A_2
      data     2.30.14                      0   BSAS    7200  827.7GB  828.0GB (normal)
 15 entries were displayed.
 ----
-.. 物理关闭选定磁盘架的电源。
-.. 再次检查聚合状态： `storage aggregate show``storage aggregate show -r -node node_A_2 ！ * root`
+. 物理关闭选定磁盘架的电源。
+. 再次检查聚合状态：
 +
-驱动器位于已关闭电源架上的聚合应具有 `degraded` RAID 状态，而受影响丛上的驱动器应具有 `Failed` 状态，如以下示例所示：
+`s存储聚合显示`
+
++
+`storage aggregate show -r -node node_A_2 ！ * root`
+
++
+驱动器位于已关闭电源架上的聚合应具有 " 已降级 " RAID 状态，而受影响丛上的驱动器应具有 " 故障 " 状态，如以下示例所示：
 
 +
 [listing]
@@ -595,7 +665,16 @@ Owner Node: node_A_2
      data     2.30.14                      0   BSAS    7200  827.7GB  828.0GB (normal)
 15 entries were displayed.
 ----
-.. 确认正在提供数据且所有卷仍处于联机状态： `vserver show -type data``network interface show -fields is-home false``volume show ！ vol0 ，！ mDV*`
+. 验证是否正在提供数据，以及所有卷是否仍处于联机状态：
++
+`vserver show -type data`
+
++
+`network interface show -fields is-home false`
+
++
+`volume show ！ vol0 ，！ mdv*`
+
 +
 [listing]
 ----
@@ -631,13 +710,16 @@ SVM2
                        node_A_2_data02_unmirrored
                                     online     RW          1GB    972.6MB    5%
 ----
-.. 物理启动磁盘架。
+. 物理启动磁盘架。
 +
 重新同步将自动启动。
 
-.. 确认重新同步已启动： `storage aggregate show`
+. 验证重新同步是否已启动：
 +
-受影响的聚合应具有 `resyncing` RAID 状态，如以下示例所示：
+`s存储聚合显示`
+
++
+受影响的聚合应具有 "resyning" RAID 状态，如以下示例所示：
 
 +
 [listing]
@@ -664,9 +746,12 @@ node_A_2_root
            707.7GB   34.27GB   95% online       1 node_A_2       raid_dp,
                                                                    resyncing
 ----
-.. 监控聚合以确认重新同步已完成： `storage aggregate show`
+. 监控聚合以确认重新同步已完成：
 +
-受影响的聚合应具有 `normal` RAID 状态，如以下示例所示：
+`s存储聚合显示`
+
++
+受影响的聚合应具有 " 正常 "RAID 状态，如以下示例所示：
 
 +
 [listing]
@@ -693,6 +778,4 @@ node_A_2_root
            707.7GB   34.27GB   95% online       1 node_A_2       raid_dp,
                                                                    resyncing
 ----
-
-
 

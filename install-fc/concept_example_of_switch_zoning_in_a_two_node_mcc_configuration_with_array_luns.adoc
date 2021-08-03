@@ -44,9 +44,7 @@ image::../media/zoning_two_node_mcc_fabric_attached.gif[对连接的双节点 MC
 | 分区 | ONTAP 控制器和启动程序端口 | 存储阵列端口 
 
 
- a| 
-* FC_switch_A_1*
-
+3+| * FC_switch_A_1* 
 
 
  a| 
@@ -67,9 +65,7 @@ Z3
 
 
 
- a| 
-* FC_switch_A_2*
-
+3+| * FC_switch_A_2* 
 
 
  a| 
@@ -90,10 +86,7 @@ Z4
 
 
 
- a| 
-* FC_switch_B_1*
- a| 
-
+3+| * FC_switch_B_1* 
 
 
  a| 
@@ -116,7 +109,6 @@ Z7
 
  a| 
 * FC_switch_B_2*
- a| 
 
 
 
@@ -143,10 +135,7 @@ Z8.
 | 分区 | ONTAP 控制器和启动程序端口 | 交换机 
 
 
- a| 
-* 站点 A*
- a| 
-
+3+| * 站点 A* 
 
 
  a| 
@@ -167,10 +156,7 @@ FC_switch_A_2
 
 
 
- a| 
-* 站点 B*
- a| 
-
+3+| * 站点 B* 
 
 
  a| 
@@ -190,10 +176,16 @@ ZY
 FC_switch_B_2
 
 |===
-* 相关信息 *
+.相关信息
+* 交换机分区用于定义已连接节点之间的路径。通过配置分区，您可以定义特定 ONTAP 系统可以查看哪些阵列 LUN 。
++
+link:reference_requirements_for_switch_zoning_in_a_mcc_configuration_with_array_luns.html["使用阵列 LUN 的 MetroCluster 配置中的交换机分区要求"]
 
-xref:reference_requirements_for_switch_zoning_in_a_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的 MetroCluster 配置中的交换机分区要求]
++
+link:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例"]
 
-xref:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例]
+* 在使用阵列 LUN 的 MetroCluster 配置中使用交换机分区时，必须确保满足某些基本要求。
++
+link:concept_example_of_switch_zoning_in_an_eight_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例"]
 
-xref:concept_example_of_switch_zoning_in_an_eight_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例]
+

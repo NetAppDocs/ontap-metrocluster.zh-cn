@@ -10,15 +10,16 @@ summary: 在 MetroCluster 配置中配置存储系统时，必须确保控制器
 
 
 [role="lead"]
-在 MetroCluster 配置中配置存储系统时，必须确保控制器模块和机箱组件的高可用性（ HA ）状态为 `mcc` 或 `mcc-2n` ，以便这些组件可以正常启动。
+在 MetroCluster 配置中配置存储系统时，您必须确保控制器模块和机箱组件的高可用性（ HA ）状态为 "mcc" 或 "mcc-2n" ，以便这些组件可以正常启动。
 
 系统必须处于维护模式。
 
 从工厂收到的系统不需要执行此任务。
 
+.步骤
 . 在维护模式下，显示控制器模块和机箱的 HA 状态：
 +
-` * ha-config show*`
+`ha-config show`
 
 +
 正确的 HA 状态取决于您的 MetroCluster 配置。
@@ -102,7 +103,7 @@ MetroCluster IP 配置
 |===
 . 将节点启动至 ONTAP ：
 +
-` * boot_ontap*`
+`boot_ontap`
 
 . 对 MetroCluster 配置中的每个节点重复上述步骤。
 

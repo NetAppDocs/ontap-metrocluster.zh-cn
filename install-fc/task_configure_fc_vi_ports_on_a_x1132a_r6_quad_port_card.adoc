@@ -20,10 +20,10 @@ NOTE: 仅 FAS8020 和 AFF 8020 系统支持使用 `ucadmin` 命令将 FC 端口�
 .步骤
 . 禁用端口：
 +
-` * 存储禁用适配器 1a*`
+`s存储禁用适配器 1a`
 
 +
-` * 存储禁用适配器 1b*`
+`s存储禁用适配器 1b`
 
 +
 [listing]
@@ -40,7 +40,7 @@ Jun 03 02:18:43 [controller_B_1:fci.adapter.offline:info]: Fibre Channel adapter
 ----
 . 验证端口是否已禁用：
 +
-` * ucadmin show*`
+`ucadmin show`
 
 +
 [listing]
@@ -57,7 +57,7 @@ Adapter  Mode     Type       Mode     Type       Status
 ----
 . 将 a 和 b 端口设置为 FC-VI 模式：
 +
-` * ucadmin modify -adapter 1a -type fcvi*`
+`ucadmin modify -adapter 1a -type fcvi`
 
 +
 命令会在端口对 1a 和 1b 中的两个端口上设置模式（即使在命令中仅指定 1a ）。
@@ -72,7 +72,7 @@ Jun 03 02:19:13 [controller_B_1:ucm.type.changed:info]: FC-4 type has changed to
 ----
 . 确认此更改处于待定状态：
 +
-` * ucadmin show*`
+`ucadmin show`
 
 +
 [listing]
@@ -90,7 +90,7 @@ Adapter  Mode     Type       Mode     Type       Status
 . 关闭控制器，然后重新启动到维护模式。
 . 确认配置更改：
 +
-` * ucadmin show local*`
+`ucadmin show local`
 
 +
 [listing]

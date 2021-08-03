@@ -30,14 +30,20 @@ summary: 交换机分区用于定义已连接节点之间的路径。通过配�
 
 要配置交换机分区，您可以使用第一个 DR 组的四节点 MetroCluster 配置的分区示例。
 
-xref:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例]
+link:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例"]
 
 要为第二个 DR 组配置分区，请按照与第二个 DR 组中控制器所属的 FC 启动程序端口和阵列 LUN 相同的示例和要求进行操作。
 
-* 相关信息 *
+.相关信息
+* 交换机分区用于定义已连接节点之间的路径。通过配置分区，您可以定义特定 ONTAP 系统可以查看哪些阵列 LUN 。
++
+link:concept_example_of_switch_zoning_in_a_two_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的双节点 MetroCluster 配置中的交换机分区示例"]
 
-xref:reference_requirements_for_switch_zoning_in_a_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的 MetroCluster 配置中的交换机分区要求]
++
+link:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例"]
 
-xref:concept_example_of_switch_zoning_in_a_two_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的双节点 MetroCluster 配置中的交换机分区示例]
+* 在使用阵列 LUN 的 MetroCluster 配置中使用交换机分区时，必须确保满足某些基本要求。
++
+link:reference_requirements_for_switch_zoning_in_a_mcc_configuration_with_array_luns.html["使用阵列 LUN 的 MetroCluster 配置中的交换机分区要求"]
 
-xref:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例]
+

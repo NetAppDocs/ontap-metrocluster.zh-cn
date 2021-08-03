@@ -34,7 +34,6 @@ image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[
 
 在为系统布线时，您需要为每个集群交换机提供主机名和管理 IP 地址。如果您使用的是双节点无交换机集群或双节点 MetroCluster 配置（每个站点一个节点），则不需要此信息。
 
-[cols="5*"]
 |===
 | 集群交换机 | 主机名 | IP 地址 | 网络掩码 | 默认网关 
 
@@ -228,7 +227,6 @@ NTP 服务器 2.
 
  a| 
 发件人电子邮件地址
- a| 
  a| 
 
 
@@ -513,10 +511,7 @@ NTP 服务器 2.
 2+| 信息类型 | 您的价值 
 
 
- a| 
-发件人电子邮件地址
- a| 
- a| 
+2+| 发件人电子邮件地址  a| 
 
 
 
@@ -601,39 +596,19 @@ MetroCluster 配置基于两个标准集群构建。在物理上，配置必须�
 | 配置步骤 | 标准集群配置 | MetroCluster 配置 
 
 
- a| 
-在每个节点上配置管理，集群和数据 LIF 。
- a| 
-这两种类型的集群都相同
+| 在每个节点上配置管理，集群和数据 LIF 。 2+| 这两种类型的集群都相同 
 
 
-
- a| 
-配置根聚合。
- a| 
-这两种类型的集群都相同
+| 配置根聚合。 2+| 这两种类型的集群都相同 
 
 
-
- a| 
-将集群中的节点配置为 HA 对
- a| 
-这两种类型的集群都相同
+| 将集群中的节点配置为 HA 对 2+| 这两种类型的集群都相同 
 
 
-
- a| 
-在集群中的一个节点上设置集群。
- a| 
-这两种类型的集群都相同
+| 在集群中的一个节点上设置集群。 2+| 这两种类型的集群都相同 
 
 
-
- a| 
-将另一个节点加入集群。
- a| 
-这两种类型的集群都相同
-
+| 将另一个节点加入集群。 2+| 这两种类型的集群都相同 
 
 
  a| 
@@ -691,16 +666,32 @@ MetroCluster 配置基于两个标准集群构建。在物理上，配置必须�
 | 如果您具有此类型的 HBA 和所需模式 ... | 使用此命令 ... 
 
 
-| CNA FC | `ucadmin modify -m fc -t initiator _adapter_name_` 
+ a| 
+CNA FC
+ a| 
+`ucadmin modify -m fc -t initiator _adapter_name_`
 
 
-| CNA 以太网 | `ucadmin modify -mode cna _adapter_name_` 
+
+ a| 
+CNA 以太网
+ a| 
+`ucadmin modify -mode cna _adapter_name_`
 
 
-| FC 目标 | `fcadmin config -t target _adapter_name_` 
+
+ a| 
+FC 目标
+ a| 
+`fcadmin config -t target _adapter_name_`
 
 
-| FC 启动程序 | `fcadmin config -t initiator _adapter_name_` 
+
+ a| 
+FC 启动程序
+ a| 
+`fcadmin config -t initiator _adapter_name_`
+
 |===
 . 退出维护模式：
 +
@@ -751,8 +742,8 @@ FC
 以下屏幕将显示启动菜单提示符：
 
 +
-[listing]
-----
+--
+....
 Please choose one of the following:
 
      (1) Normal Boot.
@@ -769,7 +760,8 @@ Please choose one of the following:
  Warning: do not run this option on a HA node that has been taken over.
  Are you sure you want to continue?: yes
  Rebooting to finish wipeconfig request.
-----
+....
+--
 
 
 
@@ -1063,7 +1055,10 @@ controller_B_1
 +
 `d` 展示– v
 
-. 如有必要，请使用 `disk assign` 命令将连接的磁盘架上的磁盘明确分配给相应的池。
+. 如有必要，明确将所连接磁盘架上的磁盘分配给相应的池：
++
+`d磁盘分配`
+
 +
 通过在命令中使用通配符，您可以使用一个命令分配磁盘架上的所有磁盘。您可以使用 `storage show disk -x` 命令来确定每个磁盘的磁盘架 ID 和托架。
 

@@ -12,10 +12,8 @@ MetroCluster 配置仅支持安装原生（ NetApp ）磁盘架，仅安装阵�
 
 AFF 系统不支持阵列 LUN 。
 
-* 相关信息 *
+link:task_configure_the_mcc_hardware_components_fabric.html["为光纤连接的 MetroCluster 配置布线"]
 
-xref:task_configure_the_mcc_hardware_components_fabric.adoc[为光纤连接的 MetroCluster 配置布线]
-
-xref:concept_planning_and_installing_a_mcc_configuration_with_array_luns.adoc[规划和安装使用阵列 LUN 的 MetroCluster 配置]
+link:concept_planning_and_installing_a_mcc_configuration_with_array_luns.html["规划和安装使用阵列 LUN 的 MetroCluster 配置"]
 
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-irrg/home.html["FlexArray 虚拟化安装要求和参考"]

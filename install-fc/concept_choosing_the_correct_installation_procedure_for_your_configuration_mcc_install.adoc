@@ -22,8 +22,8 @@ image::../media/workflow_select_your_metrocluster_configuration_fabric.gif[工�
  a| 
 使用 NetApp （原生）磁盘的光纤连接配置
  a| 
-. xref:task_configure_the_mcc_hardware_components_fabric.adoc[为光纤连接的 MetroCluster 配置布线]
-. xref:concept_configure_the_mcc_software_in_ontap.adoc[在 ONTAP 中配置 MetroCluster 软件]
+. link:task_configure_the_mcc_hardware_components_fabric.html["为光纤连接的 MetroCluster 配置布线"]
+. link:concept_configure_the_mcc_software_in_ontap.html["在 ONTAP 中配置 MetroCluster 软件"]
 
 
 
@@ -33,9 +33,9 @@ image::../media/workflow_select_your_metrocluster_configuration_fabric.gif[工�
 
 此配置仅支持作为使用 Brocade 6510 交换机的 7- 模式光纤 MetroCluster 配置的临时配置。
  a| 
-. xref:task_configure_the_mcc_hardware_components_fabric.adoc[为光纤连接的 MetroCluster 配置布线]
-. xref:task_fmc_mcc_transition_configure_the_mcc_hardware_for_share_a_7_mode_brocade_6510_fc_fabric_dure_transition.adoc[配置 MetroCluster 硬件以在过渡期间共享 7- 模式 Brocade 6510 FC 网络结构]
-. xref:concept_configure_the_mcc_software_in_ontap.adoc[在 ONTAP 中配置 MetroCluster 软件]
+. link:task_configure_the_mcc_hardware_components_fabric.html["为光纤连接的 MetroCluster 配置布线"]
+. link:task_fmc_mcc_transition_configure_the_mcc_hardware_for_share_a_7_mode_brocade_6510_fc_fabric_dure_transition.html["配置 MetroCluster 硬件以在过渡期间共享 7- 模式 Brocade 6510 FC 网络结构"]
+. link:concept_configure_the_mcc_software_in_ontap.html["在 ONTAP 中配置 MetroCluster 软件"]
 
 
 |===

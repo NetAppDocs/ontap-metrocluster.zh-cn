@@ -44,9 +44,8 @@ image::../media/v_series_metrocluster_zoning_example.gif[此图显示了使用�
 
 
 
-== FC_switch_A_1
+=== FC_switch_A_1 的分区
 
-[cols="3*"]
 |===
 | 分区 | ONTAP 控制器和启动程序端口 | 存储阵列端口 
 
@@ -88,9 +87,8 @@ controller_A_2 ：端口 0c
 |===
 
 
-== FC_switch_A_2
+=== FC_switch_A_2 的分区
 
-[cols="3*"]
 |===
 | 分区 | ONTAP 控制器和启动程序端口 | 存储阵列端口 
 
@@ -132,9 +130,8 @@ controller_A_2 ：端口 0d
 |===
 
 
-== FC_switch_B_1
+=== FC_switch_B_1 的分区
 
-[cols="3*"]
 |===
 | 分区 | ONTAP 控制器和启动程序端口 | 存储阵列端口 
 
@@ -176,9 +173,8 @@ controller_B_2 ：端口 0c
 |===
 
 
-== FC_switch_B_2
+=== FC_switch_B_2 的分区
 
-[cols="3*"]
 |===
 | 分区 | ONTAP 控制器和启动程序端口 | 存储阵列端口 
 
@@ -220,7 +216,7 @@ controller_B_2 ：端口 0d
 |===
 
 
-== 站点 A 上 FC-VI 连接的分区
+=== 站点 A 上 FC-VI 连接的分区
 
 |===
 | 分区 | ONTAP 控制器和 FC 启动程序端口 | 交换机 
@@ -263,7 +259,7 @@ FC_switch_A_2
 |===
 
 
-== 站点 B 上 FC-VI 连接的分区
+=== 站点 B 上 FC-VI 连接的分区
 
 |===
 | 分区 | ONTAP 控制器和 FC 启动程序端口 | 交换机 
@@ -304,10 +300,16 @@ controller_B_2 ：端口 FC-VI b
 FC_switch_B_2
 
 |===
-* 相关信息 *
+.相关信息
+* 交换机分区用于定义已连接节点之间的路径。通过配置分区，您可以定义特定 ONTAP 系统可以查看哪些阵列 LUN 。
++
+link:concept_example_of_switch_zoning_in_a_two_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的双节点 MetroCluster 配置中的交换机分区示例"]
 
-xref:reference_requirements_for_switch_zoning_in_a_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的 MetroCluster 配置中的交换机分区要求]
++
+link:concept_example_of_switch_zoning_in_an_eight_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例"]
 
-xref:concept_example_of_switch_zoning_in_a_two_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的双节点 MetroCluster 配置中的交换机分区示例]
+* 在使用阵列 LUN 的 MetroCluster 配置中使用交换机分区时，必须确保满足某些基本要求。
++
+link:reference_requirements_for_switch_zoning_in_a_mcc_configuration_with_array_luns.html["使用阵列 LUN 的 MetroCluster 配置中的交换机分区要求"]
 
-xref:concept_example_of_switch_zoning_in_an_eight_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例]
+

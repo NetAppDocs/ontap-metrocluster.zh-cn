@@ -12,6 +12,7 @@ summary: 您必须将存储阵列连接到 FC 交换机，以便 MetroCluster �
 [role="lead"]
 您必须将存储阵列连接到 FC 交换机，以便 MetroCluster 配置中的 ONTAP 系统可以通过至少两个路径访问特定阵列 LUN 。
 
+.开始之前
 * 必须对存储阵列进行设置，以便向 ONTAP 提供阵列 LUN 。
 * ONTAP 控制器必须连接到 FC 交换机。
 * 必须在 MetroCluster 站点的 FC 交换机之间使用缆线连接 ISL 。
@@ -26,12 +27,19 @@ summary: 您必须将存储阵列连接到 FC 交换机，以便 MetroCluster �
 
 
 
-* 相关信息 *
+.相关信息
+* 通过配置交换机分区，您可以定义 MetroCluster 配置中的特定 ONTAP 系统可以查看哪些阵列 LUN 。
++
+link:concept_switch_zoning_in_a_mcc_configuration_with_array_luns.html["使用阵列 LUN 的 MetroCluster 配置中的交换机分区"]
 
-xref:concept_switch_zoning_in_a_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的 MetroCluster 配置中的交换机分区]
+* 在使用阵列 LUN 的 MetroCluster 配置中，必须将构成冗余端口对的存储阵列端口连接到备用 FC 交换机。
++
+link:reference_example_of_cabling_array_luns_to_fc_switches_in_a_two_node_mcc_configuration.html["在双节点 MetroCluster 配置中使用缆线将存储阵列端口连接到 FC 交换机的示例"]
 
-xref:reference_example_of_cabling_array_luns_to_fc_switches_in_a_two_node_mcc_configuration.adoc[在双节点 MetroCluster 配置中使用缆线将存储阵列端口连接到 FC 交换机的示例]
++
+link:reference_example_of_cabling_array_luns_to_fc_switches_in_a_four_node_mcc_configuration.html["在四节点 MetroCluster 配置中使用缆线将存储阵列端口连接到 FC 交换机的示例"]
 
-xref:reference_example_of_cabling_array_luns_to_fc_switches_in_a_four_node_mcc_configuration.adoc[在四节点 MetroCluster 配置中使用缆线将存储阵列端口连接到 FC 交换机的示例]
++
+link:reference_example_of_cabling_array_luns_to_fc_switches_in_an_eight_node_mcc_configuration.html["在八节点 MetroCluster 配置中使用缆线将存储阵列端口连接到 FC 交换机的示例"]
 
-xref:reference_example_of_cabling_array_luns_to_fc_switches_in_an_eight_node_mcc_configuration.adoc[在八节点 MetroCluster 配置中使用缆线将存储阵列端口连接到 FC 交换机的示例]
+

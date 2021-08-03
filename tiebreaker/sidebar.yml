@@ -1,9 +1,8 @@
 ---
 section: tiebreaker
 title: 安装和配置 MetroCluster Tiebreaker
+url: "/tiebreaker/index.html"
 entries:
-- title: 确定是否使用《 MetroCluster Tiebreaker 软件安装和配置指南》
-  url: "/tiebreaker/concept_deciding_whether_to_use_this_guide_mcc_tiebreaker_installation_and_configuration_guide.html"
 - title: Tiebreaker 软件概述
   url: "/tiebreaker/concept_overview_of_the_tiebreaker_software.html"
 - title: 安装 Tiebreaker 软件

@@ -12,13 +12,13 @@ summary: 从 ONTAP 9.5 开始， ONTAP 支持使用虚拟 IP （ VIP\ ）和边�
 [role="lead"]
 从 ONTAP 9.5 开始， ONTAP 支持使用虚拟 IP （ VIP ）和边界网关协议（ BGP ）的第 3 层连接。前端网络中用于冗余的 VIP 和 BGP 与后端 MetroCluster 冗余相结合，可提供第 3 层灾难恢复解决方案。
 
-规划第 3 层解决方案时，请查看以下准则和图示。有关在 ONTAP 中实施 VIP 和 BGP 的详细信息，请参阅以下部分：
-
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-A8EF6D34-1717-4813-BBFA-AA33E104CF6F.html["* 配置虚拟 IP （ VIP ） LIF*"]
+规划第 3 层解决方案时，请查看以下准则和图示。有关在 ONTAP 中实施 VIP 和 BGP 的详细信息，请参见 link:../networking/configure_virtual_ip_@vip@_lifs.html["配置虚拟 IP LIF"]。
 
 image::../media/vip_and_bgp_in_metrocluster_2.png[MetroCluster 2 中的 VIP 和 BGP]
 
-* ONTAP 限制 *
+
+
+== ONTAP 限制
 
 ONTAP 不会自动验证 MetroCluster 配置的两个站点上的所有节点是否均已配置 BGP 对等。
 
@@ -26,7 +26,9 @@ ONTAP 不会执行路由聚合，但会始终将所有单个虚拟 LIF IP 作为
 
 ONTAP 不支持 true anycast —集群中只有一个节点提供特定的虚拟 LIF IP （但所有物理接口都可接受，无论它们是否为 BGP LIF ，前提是物理端口属于正确的 IP 空间）。不同的 LIF 可以彼此独立迁移到不同的托管节点。
 
-* 在 MetroCluster 配置中使用此第 3 层解决方案的准则 *
+
+
+== 在 MetroCluster 配置中使用此第 3 层解决方案的准则
 
 您必须正确配置 BGP 和 VIP 以提供所需的冗余。
 

@@ -12,6 +12,7 @@ summary: 您必须在要与阵列 LUN 结合使用的每个 MetroCluster 节点�
 [role="lead"]
 您必须在要与阵列 LUN 结合使用的每个 MetroCluster 节点上安装 V_StorageAttach 许可证。在安装许可证之前，您不能在聚合中使用阵列 LUN 。
 
+.开始之前
 * 必须安装集群。
 * 您必须具有 V_StorageAttach 许可证的许可证密钥。
 
@@ -19,11 +20,17 @@ summary: 您必须在要与阵列 LUN 结合使用的每个 MetroCluster 节点�
 您必须为要安装 V_StorageAttach 许可证的每个节点使用单独的许可证密钥。
 
 .步骤
-. 使用 `ssystem license add` 命令安装 V_StorageAttach 许可证。
+. 安装 V_StorageAttach 许可证。
++
+`s系统许可证添加`
+
 +
 对要安装许可证的每个集群节点重复此步骤。
 
-. 使用 `ssystem license show` 命令验证是否已在集群中所有必需的节点上安装 V_StorageAttach 许可证。
+. 验证是否已在集群中所有必需的节点上安装 V_StorageAttach 许可证。
++
+`s系统许可证显示`
+
 +
 以下示例输出显示了 V_StorageAttach 许可证已安装在 cluster_A 的节点上：
 

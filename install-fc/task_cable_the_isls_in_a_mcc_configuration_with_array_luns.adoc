@@ -187,8 +187,7 @@ ge7 （ 10-Gbps ）
  a| 
 Brocade 7840
 
-
-NOTE: Brocade 7840 交换机支持每个交换机使用两个 40 Gbps VE 端口或最多四个 10 Gbps VE 端口来创建 FCIP ISL 。
+* 注 * ： Brocade 7840 交换机支持每个交换机使用两个 40 Gbps VE 端口或最多四个 10 Gbps VE 端口来创建 FCIP ISL 。
  a| 
 ISL 端口 1
  a| 
@@ -303,19 +302,21 @@ ISL 端口 8
  a| 
 47
 
-|===
 
 
-|===
+3+|  
 
 
-| 交换机型号 | ISL 端口 | 交换机端口 a.4+ | Cisco 9396S 
+| 交换机型号 | ISL 端口 | 交换机端口 
 
 
- a| 
+.4+| Cisco 9396S  a| 
 ISL 1
  a| 
 44
+
+
+
  a| 
 ISL 2.
  a| 
@@ -327,6 +328,9 @@ ISL 2.
 ISL 3.
  a| 
 92.
+
+
+
  a| 
 ISL 4.
  a| 
@@ -340,13 +344,16 @@ ISL 4.
 ISL 1
  a| 
 12
+
+
+
  a| 
 ISL 2.
-
-
-
  a| 
 16.
+
+
+
  a| 
 ISL 3.
  a| 
@@ -358,11 +365,11 @@ ISL 3.
 ISL 4.
  a| 
 24
+
+
+
  a| 
 Cisco 9148S
-
-
-
  a| 
 ISL 1
  a| 
@@ -374,13 +381,16 @@ ISL 1
 ISL 2.
  a| 
 24
+
+
+
  a| 
 ISL 3.
-
-
-
  a| 
 44
+
+
+
  a| 
 ISL 4.
  a| 
@@ -388,29 +398,37 @@ ISL 4.
 
 
 
- a| 
-Cisco 9132T
- a| 
+.4+| Cisco 9132T  a| 
 ISL 1
  a| 
 MDS 模块 1 端口 13
+
+
+
  a| 
 ISL 2.
-
-
-
  a| 
 MDS 模块 1 端口 14
+
+
+
  a| 
 ISL 3.
  a| 
 MDS 模块 1 端口 15
+
+
+
  a| 
 ISL 4.
+ a| 
+MDS 模块 1 端口 16
 
+
+
+3+| * Cisco 9250i 交换机对 ISL 使用 FCIP 端口。使用 FCIP 端口时存在某些限制和过程。 
+
+
+3+| 端口 40 到 48 是 10 GbE 端口，不会在 MetroCluster 配置中使用。 
 |===
-* Cisco 9250i 交换机对 ISL 使用 FCIP 端口。使用 FCIP 端口时存在某些限制和过程。
-+
-端口 40 到 48 是 10 GbE 端口，不会在 MetroCluster 配置中使用。
-
 

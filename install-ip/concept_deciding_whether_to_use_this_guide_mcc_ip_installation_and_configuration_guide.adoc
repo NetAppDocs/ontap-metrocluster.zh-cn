@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: guide, describe, install, configure, metrocluster, ip, hardware, software, component, deciding, decide, installation, configuration, guide 
 summary: 本指南介绍如何安装和配置 MetroCluster IP 硬件和软件组件。 
 ---
-= 确定是否使用《 MetroCluster IP 安装和配置指南》
+= 《 MetroCluster IP 安装和配置指南》
 :icons: font
 :imagesdir: ../media/
 

@@ -14,6 +14,7 @@ summary: 在规划用于磁盘和阵列 LUN 的 MetroCluster 配置时，必须�
 
 在规划配置时，请考虑下表中的信息：
 
+[cols="35,65"]
 |===
 | 注意事项 | 准则 
 
@@ -49,17 +50,29 @@ summary: 在规划用于磁盘和阵列 LUN 的 MetroCluster 配置时，必须�
  a| 
 使用 FC 启动程序端口
  a| 
-用于连接到 FC-SAS 网桥的启动程序端口必须与用于连接到交换机的端口不同，这些端口会连接到存储阵列。要将 ONTAP 系统同时连接到磁盘和阵列 LUN ，至少需要八个启动程序端口。
+用于连接到 FC-SAS 网桥的启动程序端口必须与用于连接到交换机的端口不同，这些端口会连接到存储阵列。
+
+要将 ONTAP 系统同时连接到磁盘和阵列 LUN ，至少需要八个启动程序端口。
 
 |===
-* 相关信息 *
+.相关信息
+* 交换机配置过程和命令因交换机供应商而异。
++
+link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["手动配置 Brocade FC 交换机"]
 
-link:task_fcsw_configure_the_cisco_or_brocade_fc_switches_manually.html["手动配置 Cisco 或 Brocade FC 交换机"]
++
+link:task_fcsw_cisco_configure_a_cisco_switch_supertask.html["手动配置 Cisco FC 交换机"]
 
-link:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例"]
-
-link:concept_example_of_switch_zoning_in_an_eight_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例"]
-
+* 在向配置添加新存储时，您需要安装 ATTO FibreBridge 网桥和 SAS 磁盘架并为其布线。
++
 link:task_fb_new_install.html["安装 FC-SAS 网桥和 SAS 磁盘架"]
 
-https://hwu.netapp.com["NetApp Hardware Universe"]
+* 交换机分区用于定义已连接节点之间的路径。通过配置分区，您可以定义特定 ONTAP 系统可以查看哪些阵列 LUN 。
++
+link:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例"]
+
++
+link:concept_example_of_switch_zoning_in_an_eight_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例"]
+
+* https://hwu.netapp.com["NetApp Hardware Universe"]
+

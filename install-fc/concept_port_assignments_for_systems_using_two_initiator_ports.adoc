@@ -28,18 +28,16 @@ https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["《 MetroC
 4+| 仅使用一个 FC 端口（ FC1 或 FC2 ）的 FibreBridge 6500N 网桥或 FibreBridge 7500N 或 7600N 配置 
 
 
-4+| MetroCluster 1 或 DR 组 1 
+4+| * MetroCluster 1 或 DR 组 1* 
 
 
-.2+| 组件 .2+| 端口 2+| Brocade 交换机型号 6505 ， 6510 ， 6520 ， 7840 ， G620 ， G610 和 DCX 8510-8 
+.2+| * 组件 * .2+| * 端口 * 2+| * Brocade 交换机型号 6505 ， 6510 ， 6520 ， 7840 ， G620 ， G610 和 DCX 8510-8* 
 
 
-| 连接到 FC 交换机 ... | 连接到交换机端口 ... 
+| * 连接到 FC 交换机 ...* | * 连接到交换机端口 ...* 
 
 
- a| 
-controller_x_1
- a| 
+.8+| controller_x_1  a| 
 FC-VI 端口 A
  a| 
 1.
@@ -153,13 +151,15 @@ bridge_x_YB
 下表显示了使用 ONTAP 9.0 时 FC 交换机的端口分配。
 
 |===
-4+| MetroCluster 双节点配置 
 
 
-.2+| 组件 .2+| 端口 2+| Brocade 6505 ， 6510 或 DCX 8510-8 
+4+| * MetroCluster 双节点配置 * 
 
 
-| FC_switch_x_1 | FC_switch_x_2 
+.2+| * 组件 * .2+| * 端口 * 2+| * Brocade 6505 ， 6510 或 DCX 8510-8* 
+
+
+| * FC_switch_x_1* | * FC_switch_x_2* 
 
 
  a| 

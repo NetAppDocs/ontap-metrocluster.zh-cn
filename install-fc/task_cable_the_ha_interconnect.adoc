@@ -1,10 +1,10 @@
 ---
 permalink: install-fc/task_cable_the_ha_interconnect.html 
 sidebar: sidebar 
-keywords: metrocluster, fabric, installation, cable, ha, interconnect 
+keywords: metrocluster, fabric, installation, cable, ha, interconnect, cabling 
 summary: 如果您采用八节点或四节点 MetroCluster 配置，并且 HA 对中的存储控制器位于不同的机箱中，则必须为控制器之间的 HA 互连布线。 
 ---
-= 如有必要，为 HA 互连布线
+= 为 HA 互连布线
 :icons: font
 :imagesdir: ../media/
 
@@ -12,6 +12,7 @@ summary: 如果您采用八节点或四节点 MetroCluster 配置，并且 HA �
 [role="lead"]
 如果您采用八节点或四节点 MetroCluster 配置，并且 HA 对中的存储控制器位于不同的机箱中，则必须为控制器之间的 HA 互连布线。
 
+.关于此任务
 * 此任务不适用于双节点 MetroCluster 配置。
 * 必须在两个 MetroCluster 站点上执行此任务。
 * 只有当 HA 对中的存储控制器位于单独的机箱中时，才必须为 HA 互连布线。

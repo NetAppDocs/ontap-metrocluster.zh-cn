@@ -18,11 +18,8 @@ summary: 在八节点或四节点 MetroCluster 配置中，必须为每个站点
 
 .步骤
 . 使用缆线将集群互连从一个控制器模块连接到另一个控制器模块，或者如果使用了集群互连交换机，则使用缆线将每个控制器模块连接到交换机。
-+
+
+
 https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
-
-
-
-* 相关信息 *
 
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]

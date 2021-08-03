@@ -17,7 +17,6 @@ summary: 如果您在 MetroCluster 站点上使用防火墙，则必须确保能
 
 下表显示了位于两个 MetroCluster 站点之间的外部防火墙中的 TCP/UDP 端口使用情况。
 
-[cols="2*"]
 |===
 | 流量类型 | 端口 / 服务 
 

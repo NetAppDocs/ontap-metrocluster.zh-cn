@@ -12,21 +12,36 @@ summary: 您必须在每个节点上创建数据聚合，并实施和验证 Metr
 [role="lead"]
 您必须在每个节点上创建数据聚合，并实施和验证 MetroCluster 配置。
 
+.步骤
 . 在每个节点上创建数据聚合：
 +
-.. 使用中的操作步骤在每个节点上创建镜像数据聚合 xref:task_mirror_the_root_aggregates_mcc_with_array_luns.adoc[镜像根聚合]。
-.. 如果需要，请使用中的操作步骤创建未镜像的数据聚合 xref:concept_configure_the_mcc_software_in_ontap.adoc[在每个节点上创建镜像数据聚合]。
+.. 在每个节点上创建镜像数据聚合：
++
+link:task_mirror_the_root_aggregates_mcc_with_array_luns.html["镜像根聚合："]。
+
+.. 如果需要，可创建未镜像的数据聚合：
++
+link:concept_configure_the_mcc_software_in_ontap.html#creating-a-mirrored-data-aggregate-on-each-node["在每个节点上创建镜像数据聚合"]。
 
 
-. 使用中的操作步骤实施 MetroCluster 配置 xref:concept_configure_the_mcc_software_in_ontap.adoc[实施 MetroCluster 配置]。
-. 使用中的操作步骤配置 MetroCluster FC 交换机以进行运行状况监控 xref:concept_configure_the_mcc_software_in_ontap.adoc[配置 MetroCluster FC 交换机以进行运行状况监控]。
+
+. link:concept_configure_the_mcc_software_in_ontap.html#implementing-the-metrocluster-configuration["实施 MetroCluster 配置"]。
+. link:concept_configure_the_mcc_software_in_ontap.html#configuring-metrocluster-components-for-health-monitoring["配置 MetroCluster FC 交换机以进行运行状况监控"]。
 . 检查并验证配置：
 +
-.. 使用中的操作步骤检查 MetroCluster 配置 xref:concept_configure_the_mcc_software_in_ontap.adoc[正在检查 MetroCluster 配置]。
-.. 使用中的操作步骤检查 Config Advisor 是否存在 MetroCluster 配置错误 xref:concept_configure_the_mcc_software_in_ontap.adoc[使用 Config Advisor 检查 MetroCluster 配置错误]。
-.. 使用中的操作步骤验证切换，修复和切回 xref:concept_configure_the_mcc_software_in_ontap.doc[验证切换，修复和切回]。
+.. link:concept_configure_the_mcc_software_in_ontap.html#checking-the-metrocluster-configuration["检查 MetroCluster 配置"]。
+.. link:concept_configure_the_mcc_software_in_ontap.html#checking-for-metrocluster-configuration-errors-with-config-advisor["使用 Config Advisor 检查 MetroCluster 配置错误"]。
+.. link:concept_configure_the_mcc_software_in_ontap.html#verifying-switchover-healing-and-switchback["验证切换，修复和切回"]。
 
 
-. 使用中的操作步骤安装 MetroCluster Tiebreaker 软件 http://ie-docs.rtp.openeng.netapp.com/ontap-9_dugong/topic/com.netapp.doc.dot-mcc-inst-cnfg-ip/task_configure_the_mcc_tiebreaker_or_ontap_mediator_software.html["配置 MetroCluster Tiebreaker 软件"]。
-. 使用中的操作步骤设置配置备份文件的目标 xref:concept_configure_the_mcc_software_in_ontap.adoc[保护配置备份文件]。
+. 安装和配置 MetroCluster Tiebreaker 软件：
++
+.. link:../tiebreaker/task_install_the_tiebreaker_software.html["安装 Tiebreaker 软件"]
+.. link:../tiebreaker/concept_configuring_the_tiebreaker_software.html["配置 Tiebreaker 软件"]
+
+
+. 设置配置备份文件的目标：
++
+link:concept_configure_the_mcc_software_in_ontap.html#protecting-coonfiguration-backup-files["保护配置备份文件"]。
+
 

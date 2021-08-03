@@ -48,7 +48,6 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 建议的 ISL 数量因平台型号而异。下表按平台型号显示了每个网络结构的 ISL 要求。它假定每个 ISL 都具有 16 Gbps 的容量。
 
-[cols="2*"]
 |===
 | 平台型号 | 每个四节点 DR 组的建议 ISL 数（每个交换机网络结构） 
 

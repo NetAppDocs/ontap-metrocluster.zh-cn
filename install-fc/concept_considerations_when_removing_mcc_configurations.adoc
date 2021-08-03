@@ -1,8 +1,8 @@
 ---
 permalink: install-fc/concept_considerations_when_removing_mcc_configurations.html 
 sidebar: sidebar 
-keywords: metrocluster, fabric, installation, remove, configuration 
-summary: 您可以从 MetroCluster 配置中的所有节点或灾难恢复 \ （ DR\ ）组中的所有节点中删除 MetroCluster 配置。删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。 
+keywords: metrocluster, fabric, installation, remove, configuration, disk connectivity, interconnects, adjust 
+summary: 您可以从 MetroCluster 配置中的所有节点或灾难恢复 \ （ DR\ ）组中的所有节点中删除 MetroCluster 配置。 
 ---
 = 删除 MetroCluster 配置时的注意事项
 :icons: font

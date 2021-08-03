@@ -25,7 +25,7 @@ summary: 在使用阵列 LUN 的 MetroCluster 配置中使用交换机分区时�
 
 * 您必须已对 MetroCluster 配置中使用的 FC 交换机执行基本配置。
 +
-xref:task_fcsw_configure_the_cisco_or_brocade_fc_switches_manually.adoc[手动配置 Cisco 或 Brocade FC 交换机]
+link:task_fcsw_configure_the_cisco_or_brocade_fc_switches_manually.html["手动配置 Cisco 或 Brocade FC 交换机"]
 
 
 
@@ -39,10 +39,14 @@ xref:task_fcsw_configure_the_cisco_or_brocade_fc_switches_manually.adoc[手动�
 
 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_support_Shared_Initiator_and_Shared_Target_configuration_with_Array_LUNs_in_a_MetroCluster_environment["如何在 MetroCluster 环境中支持使用阵列 LUN 的共享启动程序和共享目标配置"]
 
-* 相关信息 *
+* 交换机分区用于定义已连接节点之间的路径。通过配置分区，您可以定义特定 ONTAP 系统可以查看哪些阵列 LUN 。
++
+link:concept_example_of_switch_zoning_in_a_two_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的双节点 MetroCluster 配置中的交换机分区示例"]
 
-xref:concept_example_of_switch_zoning_in_a_two_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的双节点 MetroCluster 配置中的交换机分区示例]
++
+link:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例"]
 
-xref:concept_example_of_switch_zoning_in_a_four_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例]
++
+link:concept_example_of_switch_zoning_in_an_eight_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例"]
 
-xref:concept_example_of_switch_zoning_in_an_eight_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例]
+

@@ -15,6 +15,8 @@ summary: 您可以设置包含阵列 LUN 的 MetroCluster 配置。支持延伸�
 MetroCluster 配置支持的功能因配置类型而异。下表列出了使用阵列 LUN 的不同类型的 MetroCluster 配置支持的功能：
 
 |===
+
+
 .2+| 功能 3+| 光纤连接配置 | 延伸型配置 
 
 
@@ -34,49 +36,15 @@ MetroCluster 配置支持的功能因配置类型而异。下表列出了使用�
 
 
 
- a| 
-使用 FC 交换机存储网络结构
- a| 
-是的。
- a| 
-是的。
- a| 
-是的。
+| 使用 FC 交换机存储网络结构 | 是的。 | 是的。 | 是的。 | 是的。 
 
 
-
- a| 
-使用 FC-SAS 网桥
- a| 
-是的。
- a| 
-是的。
- a| 
-是的。
+| 使用 FC-SAS 网桥 | 是的。 | 是的。 | 是的。 | 是的。 
 
 
-
- a| 
-支持本地 HA
- a| 
-是的。
- a| 
-否
- a| 
-否
+| 支持本地 HA | 是的。 | 是的。 | 否 | 否 
 
 
-
- a| 
-支持自动切换
- a| 
-是的。
- a| 
-是的。
- a| 
-是的。
-
+| 支持自动切换 | 是的。 | 是的。 | 是的。 | 是的。 
 |===
-* 相关信息 *
-
-xref:concept_considerations_differences.adoc[ONTAP MetroCluster 配置之间的差异]
+link:concept_considerations_differences.html["ONTAP MetroCluster 配置之间的差异"]

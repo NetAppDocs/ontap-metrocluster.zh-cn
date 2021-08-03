@@ -15,8 +15,8 @@ summary: 如果要设置使用阵列 LUN 的四节点光纤连接 MetroCluster �
 * 您必须对两个 MetroCluster 站点上的每个控制器重复此任务。
 * 如果您计划在 MetroCluster 配置中除了使用阵列 LUN 外还使用磁盘，则必须使用为使用磁盘配置而指定的 HBA 端口和交换机端口。
 +
-** xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.adoc[使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配]
-** xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.adoc[使用 ONTAP 9.0 时 FC 交换机的端口分配]
+** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
+** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]
 
 
 
@@ -44,12 +44,12 @@ image::../media/four_node_mcc_hba_switch_connections.gif[四节点 MCC HBA 交�
 
 +
 |===
+
+
 | HBA 端口 | 交换机端口 
 
 
- a| 
-* 端口对 *
-
+2+| * 端口对 * 
 
 
  a| 
@@ -66,9 +66,7 @@ FC_switch_A_2 ，端口 3
 
 
 
- a| 
-* 端口对 *
-
+2+| * 端口对 * 
 
 
  a| 
@@ -89,12 +87,12 @@ FC_switch_A_1 ，端口 3
 
 +
 |===
+
+
 | HBA 端口 | 交换机端口 
 
 
- a| 
-* 端口对 *
-
+2+| * 端口对 * 
 
 
  a| 
@@ -111,9 +109,7 @@ FC_switch_A_2 ，端口 6
 
 
 
- a| 
-* 端口对 *
-
+2+| * 端口对 * 
 
 
  a| 
@@ -133,6 +129,6 @@ FC_switch_A_1 ，端口 6
 
 您应使用缆线连接 MetroCluster 站点中 FC 交换机之间的 ISL 。
 
-* 相关信息 *
+在将 ONTAP 系统连接到 FC 交换机以设置使用阵列 LUN 的 MetroCluster 配置时，必须将每个控制器中的 FC-VI 和 HBA 端口连接到特定交换机端口。
 
-xref:concept_switch_ports_required_for_a_eight_node_mcc_configuration_with_array_luns.adoc[使用阵列 LUN 的 MetroCluster 配置所需的交换机端口]
+link:concept_switch_ports_required_for_a_eight_node_mcc_configuration_with_array_luns.html["使用阵列 LUN 的 MetroCluster 配置所需的交换机端口"]

@@ -26,16 +26,32 @@
 | 如果您具有此类型的 HBA 和所需模式 ... | 使用此命令 ... 
 
 
-| CNA FC | `ucadmin modify -m fc -t initiator _adapter_name_` 
+ a| 
+CNA FC
+ a| 
+`ucadmin modify -m fc -t initiator _adapter_name_`
 
 
-| CNA 以太网 | `ucadmin modify -mode cna _adapter_name_` 
+
+ a| 
+CNA 以太网
+ a| 
+`ucadmin modify -mode cna _adapter_name_`
 
 
-| FC 目标 | `fcadmin config -t target _adapter_name_` 
+
+ a| 
+FC 目标
+ a| 
+`fcadmin config -t target _adapter_name_`
 
 
-| FC 启动程序 | `fcadmin config -t initiator _adapter_name_` 
+
+ a| 
+FC 启动程序
+ a| 
+`fcadmin config -t initiator _adapter_name_`
+
 |===
 . 退出维护模式：
 +
@@ -86,8 +102,8 @@ FC
 以下屏幕将显示启动菜单提示符：
 
 +
-[listing]
-----
+--
+....
 Please choose one of the following:
 
      (1) Normal Boot.
@@ -104,5 +120,6 @@ Please choose one of the following:
  Warning: do not run this option on a HA node that has been taken over.
  Are you sure you want to continue?: yes
  Rebooting to finish wipeconfig request.
-----
+....
+--
 

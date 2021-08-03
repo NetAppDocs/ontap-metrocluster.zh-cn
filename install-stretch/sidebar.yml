@@ -1,9 +1,8 @@
 ---
 section: install-stretch
 title: 安装延伸型 MetroCluster 配置
+url: "/install-stretch/index.html"
 entries:
-- title: 确定是否使用《延伸型 MetroCluster 安装和配置指南》
-  url: "/install-stretch/concept_deciding_whether_to_use_this_guide_stretch_mcc_installation_and_configuration_guide.html"
 - title: 准备 MetroCluster 安装
   url: "/install-stretch/concept_preparing_for_the_mcc_installation.html"
   entries:

@@ -1,6 +1,7 @@
 ---
 section: disaster-recovery
 title: 从灾难中恢复
+url: "/disaster-recovery/index.html"
 entries:
 - title: 灾难恢复工作流
   url: "/disaster-recovery/concept_dr_workflow.html"
