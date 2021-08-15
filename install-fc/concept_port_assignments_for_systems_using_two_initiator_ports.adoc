@@ -23,6 +23,8 @@ summary: 您可以使用每个网络结构的一个启动程序端口和每个�
 下表显示了使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配。
 
 |===
+
+
 4+| 仅使用一个 FC 端口（ FC1 或 FC2 ）的 FibreBridge 6500N 网桥或 FibreBridge 7500N 或 7600N 配置 
 
 

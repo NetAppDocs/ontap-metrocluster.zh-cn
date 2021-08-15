@@ -2,7 +2,7 @@
 permalink: install-stretch/concept_configuring_the_mcc_software_in_ontap.html 
 sidebar: sidebar 
 keywords: metrocluster, stretch, installation, configure, software 
-summary: 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。 
+summary: 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点。其中包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。 
 ---
 = 在 ONTAP 中配置 MetroCluster 软件
 :icons: font
@@ -19,7 +19,10 @@ image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[
 . 站点 A 的 IP 网络信息工作表
 
 
-[role="lead"]
+
+
+== 站点 A 的 IP 网络信息工作表
+
 在配置系统之前，您必须从网络管理员处获取第一个 MetroCluster 站点（站点 A ）的 IP 地址和其他网络信息。
 
 
@@ -206,7 +209,7 @@ HTTP ， HTTPS 或 SMTP
 
 ==== 站点 A SP 信息
 
-您必须启用对每个节点的服务处理器（ Service Processor ， SP ）的访问以进行故障排除和维护，这要求每个节点具有以下网络信息：
+您必须启用对每个节点的服务处理器（ Service Processor ， SP ）的访问，以便进行故障排除和维护。这需要每个节点的以下网络信息：
 
 |===
 | 节点 | IP 地址 | 网络掩码 | 默认网关 
@@ -494,7 +497,11 @@ MetroCluster 配置基于两个标准集群构建。在物理上，配置必须�
 
 == 还原系统默认值并在控制器模块上配置 HBA 类型
 
-要确保 MetroCluster 安装成功，请重置和还原控制器模块上的默认值。只有使用 FC-SAS 网桥的延伸型配置才需要执行此任务。
+要确保 MetroCluster 安装成功，请重置和还原控制器模块上的默认值。
+
+* 重要 * ：
+
+只有使用 FC-SAS 网桥的延伸型配置才需要执行此任务。
 
 .步骤
 . 在 LOADER 提示符处，将环境变量返回到其默认设置：
@@ -516,6 +523,8 @@ MetroCluster 配置基于两个标准集群构建。在物理上，配置必须�
 
 +
 |===
+
+
 | 如果您具有此类型的 HBA 和所需模式 ... | 使用此命令 ... 
 
 
@@ -560,6 +569,8 @@ FC 启动程序
 . 验证所做的更改：
 +
 |===
+
+
 | 如果您使用的是此类型的 HBA... | 使用此命令 ... 
 
 
@@ -623,6 +634,8 @@ Please choose one of the following:
 
 [role="lead"]
 如果在 FAS8020 系统上使用 X1132A-R6 四端口卡，则可以进入维护模式来配置 1a 和 1b 端口以供 FC-VI 和启动程序使用。从工厂收到的 MetroCluster 系统不需要执行此操作，这些端口已根据您的配置进行了相应设置。
+
+* 关于此任务 *
 
 此任务必须在维护模式下执行。
 
@@ -730,7 +743,11 @@ controller_B_1
 [role="lead"]
 在将系统完全启动到 ONTAP 之前，您可以选择将系统启动到维护模式并验证节点上的磁盘分配。应分配磁盘以创建完全对称的配置，其中两个站点都拥有自己的磁盘架并提供数据，其中每个节点和每个池都分配了相同数量的镜像磁盘。
 
+* 开始之前 *
+
 系统必须处于维护模式。
+
+* 关于此任务 *
 
 新的 MetroCluster 系统在发货前已完成磁盘分配。
 
@@ -873,6 +890,8 @@ DR 配对节点的池 1
 [role="lead"]
 在出厂时未预配置的延伸型 MetroCluster 配置中，您必须验证控制器和机箱组件的 HA 状态是否设置为 `mcc-2n` ，以便它们可以正常启动。对于从工厂收到的系统，此值是预配置的，您无需对其进行验证。
 
+* 开始之前 *
+
 系统必须处于维护模式。
 
 .步骤
@@ -907,7 +926,11 @@ DR 配对节点的池 1
 [role="lead"]
 在双节点 MetroCluster 配置中，您必须在每个集群上启动节点，退出集群设置向导，然后使用 `cluster setup` 命令将节点配置为单节点集群。
 
+* 开始之前 *
+
 您不能事先配置服务处理器。
+
+* 关于此任务 *
 
 此任务适用于使用原生 NetApp 存储的双节点 MetroCluster 配置。
 
@@ -970,11 +993,11 @@ Do you want to create a new cluster or join an existing cluster? {create, join}:
 Do you intend for this node to be used as a single node cluster? {yes, no} [yes]:
 ----
 . 按 Enter 接受系统默认值 ` * 是 *` ，或者键入 ` * 否 *` 并按 Enter 输入您自己的值。
-. 按照提示完成集群设置向导，按 Enter 接受默认值，或者键入您自己的值，然后按 Enter 。
+. 按照提示完成 * 集群设置 * 向导，按 Enter 接受默认值，或者键入您自己的值，然后按 Enter 。
 +
 默认值将根据您的平台和网络配置自动确定。
 
-. 完成集群设置向导并退出后，验证集群是否处于活动状态且第一个节点是否运行正常：
+. 完成 * 集群设置 * 向导并退出后，验证集群是否处于活动状态且第一个节点是否运行正常：
 +
 ` * 集群显示 *`
 
@@ -990,7 +1013,7 @@ Node                  Health  Eligibility
 cluster1-01           true    true
 ----
 +
-如果需要更改为管理 SVM 或节点 SVM 输入的任何设置，您可以使用 `cluster setup` 命令访问集群设置向导。
+如果需要更改为管理 SVM 或节点 SVM 输入的任何设置，您可以使用 `cluster setup` 命令访问 * 集群设置 * 向导。
 
 
 
@@ -1437,6 +1460,8 @@ xref:concept_preparing_for_the_mcc_installation.adoc[共享数据端口时的注
 [role="lead"]
 您可以使用 `cluster peer create` 命令在本地和远程集群之间创建对等关系。创建对等关系后，您可以在远程集群上运行 `cluster peer create` ，以便向本地集群进行身份验证。
 
+* 开始之前 *
+
 * 您必须已在要建立对等关系的集群中的每个节点上创建集群间 LIF 。
 * 集群必须运行 ONTAP 9.3 或更高版本。
 
@@ -1550,6 +1575,8 @@ cluster01-02
 [role="lead"]
 您可以使用 `cluster peer create` 命令在本地和远程集群之间启动对等关系请求。在本地集群请求建立对等关系后，您可以在远程集群上运行 `cluster peer create` 来接受此关系。
 
+* 开始之前 *
+
 * 您必须已在要建立对等关系的集群中的每个节点上创建集群间 LIF 。
 * 集群管理员必须已就每个集群用于向另一集群进行身份验证的密码短语达成一致。
 +
@@ -1651,6 +1678,8 @@ cluster01-02
 [role="lead"]
 您必须镜像根聚合以提供数据保护。
 
+* 关于此任务 *
+
 默认情况下，根聚合创建为 RAID-DP 类型的聚合。您可以将根聚合从 RAID-DP 更改为 RAID4 类型的聚合。以下命令修改 RAID4 类型聚合的根聚合：
 
 `storage aggregate modify – aggregate _aggr_name_ -RAIDType RAID4`
@@ -1690,8 +1719,14 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["
 [role="lead"]
 您必须在 DR 组中的每个节点上创建镜像数据聚合。
 
+* 开始之前 *
+
 * 您应了解新聚合将使用哪些驱动器或阵列 LUN 。
 * 如果系统中有多种驱动器类型（异构存储），则应了解如何确保选择正确的驱动器类型。
+
+
+* 关于此任务 *
+
 * 驱动器和阵列 LUN 归特定节点所有；创建聚合时，该聚合中的所有驱动器都必须归同一节点所有，该节点将成为该聚合的主节点。
 * 聚合名称应符合您在规划 MetroCluster 配置时确定的命名方案。
 +
@@ -1752,9 +1787,13 @@ cluster_A::> storage aggregate create aggr1_node_A_1 -diskcount 10 -node node_A_
 [role="lead"]
 您可以选择为不需要 MetroCluster 配置提供的冗余镜像的数据创建未镜像数据聚合。
 
+* 开始之前 *
+
 * 您应了解新聚合将使用哪些驱动器或阵列 LUN 。
 * 如果系统中有多种驱动器类型（异构存储），则应了解如何验证是否选择了正确的驱动器类型。
 
+
+* 关于此任务 *
 
 ====
 在 MetroCluster FC 配置中，只有当聚合中的远程磁盘可访问时，未镜像聚合才会在切换后联机。如果 ISL 发生故障，本地节点可能无法访问未镜像远程磁盘中的数据。聚合故障可能会导致本地节点重新启动。
@@ -1820,6 +1859,8 @@ controller_A_1::> storage aggregate create aggr1_controller_A_1 -diskcount 10 -n
 [role="lead"]
 要在 MetroCluster 配置中启动数据保护，必须运行 `MetroCluster configure` 命令。
 
+* 开始之前 *
+
 * 每个集群上应至少有两个非根镜像数据聚合。
 +
 其他数据聚合可以是镜像聚合，也可以是未镜像聚合。
@@ -1834,7 +1875,9 @@ NOTE: 如果要使用单个镜像数据聚合，请参见 xref:concept_configuri
 * 控制器和机箱的 ha-config 状态必须为 `mcc-2n` 。
 
 
-您可以在任何节点上问题描述一次 `MetroCluster configure` 命令，以启用 MetroCluster 配置。您无需在每个站点或节点上对命令执行问题描述，也无需选择对哪个节点或站点执行问题描述命令。
+* 关于此任务 *
+
+您可以在任何节点上对 MetroCluster configure` 命令执行一次问题描述操作，以启用 MetroCluster 配置。您无需在每个站点或节点上对命令执行问题描述，也无需选择对哪个节点或站点执行问题描述命令。
 
 .步骤
 . 按以下格式配置 MetroCluster ：

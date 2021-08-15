@@ -13,7 +13,7 @@ summary: 从使用 FibreBridge 7500N 或 7600N 网桥的 ONTAP 9.5 开始，支�
 从使用 FibreBridge 7500N 或 7600N 网桥的 ONTAP 9.5 开始，支持使用网桥的带内管理作为网桥 IP 管理的替代方案。从 ONTAP 9.8 开始，已弃用带外管理。
 
 
-NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 命令。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
 
 使用带内管理时，可以通过 ONTAP 命令行界面通过与网桥的 FC 连接来管理和监控网桥。无需通过网桥以太网端口对网桥进行物理访问，从而减少网桥的安全漏洞。
 

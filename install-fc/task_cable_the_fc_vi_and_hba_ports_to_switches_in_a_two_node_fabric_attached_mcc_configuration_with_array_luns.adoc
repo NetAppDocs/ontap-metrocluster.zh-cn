@@ -39,6 +39,8 @@ image::../media/two_node_mcc_hba_connections.gif[双节点 MCC HBA 连接]
 
 +
 |===
+
+
 | HBA 端口 | 交换机端口 
 
 

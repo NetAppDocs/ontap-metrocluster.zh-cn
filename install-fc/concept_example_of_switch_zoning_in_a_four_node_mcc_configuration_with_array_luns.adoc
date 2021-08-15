@@ -47,6 +47,8 @@ image::../media/v_series_metrocluster_zoning_example.gif[此图显示了使用�
 === FC_switch_A_1 的分区
 
 |===
+
+
 | 分区 | ONTAP 控制器和启动程序端口 | 存储阵列端口 
 
 
@@ -90,6 +92,8 @@ controller_A_2 ：端口 0c
 === FC_switch_A_2 的分区
 
 |===
+
+
 | 分区 | ONTAP 控制器和启动程序端口 | 存储阵列端口 
 
 
@@ -133,6 +137,8 @@ controller_A_2 ：端口 0d
 === FC_switch_B_1 的分区
 
 |===
+
+
 | 分区 | ONTAP 控制器和启动程序端口 | 存储阵列端口 
 
 
@@ -176,6 +182,8 @@ controller_B_2 ：端口 0c
 === FC_switch_B_2 的分区
 
 |===
+
+
 | 分区 | ONTAP 控制器和启动程序端口 | 存储阵列端口 
 
 
@@ -219,6 +227,8 @@ controller_B_2 ：端口 0d
 === 站点 A 上 FC-VI 连接的分区
 
 |===
+
+
 | 分区 | ONTAP 控制器和 FC 启动程序端口 | 交换机 
 
 
@@ -262,6 +272,8 @@ FC_switch_A_2
 === 站点 B 上 FC-VI 连接的分区
 
 |===
+
+
 | 分区 | ONTAP 控制器和 FC 启动程序端口 | 交换机 
 
 

@@ -17,6 +17,8 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 下表提供了包含 Brocade 交换机和 Cisco 交换机的配置的路由策略：
 
 |===
+
+
 | 交换机 | 为 IOD 配置 MetroCluster 配置 | 为 OOD 配置 MetroCluster 配置 
 
 

@@ -168,10 +168,13 @@ MetroCluster 配置支持 RAID-DP 和 RAID4 。
 
 == 网桥命名约定
 
-网桥使用以下命名示例： bridge_site_stack groupocation in pair
+网桥使用以下示例命名：
 
-[cols="3*"]
+`bridge_site_stack groupocation in pair`
+
 |===
+
+
 | 名称的这一部分 ... | 标识 ... | 可能值 ... 
 
 

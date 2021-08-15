@@ -51,8 +51,6 @@ summary: 必须为 MetroCluster 配置中的每个 Cisco 交换机正确配置 I
 ====
 
 
-* 相关信息 *
-
 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 
 
@@ -209,7 +207,7 @@ FC_switch_B_1# setup
 +
 `interface _interface-name_`
 
-.. 使用以下命令从端口中删除许可证：
+.. 从端口删除许可证：
 +
 `未获取端口许可证`
 
@@ -353,8 +351,8 @@ switch(config-if)# end
 
 请参阅以下各节以确定适用于您的配置的 F 端口（交换机到节点）：
 
-* xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.adoc[使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配]
-* xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.adoc[使用 ONTAP 9.0 时 FC 交换机的端口分配]
+* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
+* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]
 
 
 必须对 MetroCluster 配置中的每个交换机执行此任务。
@@ -546,9 +544,11 @@ fc1/39                                      1        8.0 dedicated
 
 VSAN 应具有唯一的编号和名称。如果要使用两个 ISL 并按顺序交付帧，则必须进行额外配置。
 
-此处的示例使用以下命名约定：
+此任务的示例使用以下命名约定：
 
 |===
+
+
 | 交换机网络结构 | VSAN 名称 | ID 编号 
 
 
@@ -959,6 +959,8 @@ FC_switch_B_1# copy running-config startup-config
 
 +
 |===
+
+
 | 速度（以 Gbps 为单位） | 每公里所需的 BBC | 调整后的所需 BBC （每公里 BBC x 1.5 ） 
 
 
@@ -1006,60 +1008,59 @@ FC_switch_B_1# copy running-config startup-config
 12
 
 |===
-+
+
+
 例如，要计算 4-Gbps 链路上 30 公里距离所需的信用值数，请进行以下计算：
 
+* 以 Gbps 为 `s的` 对等为 4
+* `调整后的所需 BBC` 为 3
+* `d之间的距离为` 30 公里
+* 3 x 30 = 90
 +
-** 以 Gbps 为 `s的` 对等为 4
-** `调整后的所需 BBC` 为 3
-** `d之间的距离为` 30 公里
-** 3 x 30 = 90
-
-
-. 进入配置模式：
+.. 进入配置模式：
 +
 `配置 t`
 
-. 指定要配置的端口：
+.. 指定要配置的端口：
 +
 `interface _port-name_`
 
-. 关闭端口：
+.. 关闭端口：
 +
 `s下行`
 
-. 将端口的速率模式设置为 "dedicated ：
+.. 将端口的速率模式设置为 "dedicated ：
 +
 `s切换端口速率模式专用`
 
-. 设置端口的速度：
+.. 设置端口的速度：
 +
 `sswitchs port speed _speed-value_`
 
-. 设置端口的缓冲区到缓冲区信用值：
+.. 设置端口的缓冲区到缓冲区信用值：
 +
 `sswitchs port fcrxbbcredit _number_of_buffers_`
 
-. 将端口设置为 E 模式：
+.. 将端口设置为 E 模式：
 +
 `s切换端口模式 E`
 
-. 为端口启用中继模式：
+.. 为端口启用中继模式：
 +
 `s切换端口中继模式 on`
 
-. 将 ISL 虚拟存储区域网络（ VSAN ）添加到中继：
+.. 将 ISL 虚拟存储区域网络（ VSAN ）添加到中继：
 +
 `s允许使用 SVM 端口中继 vSAN 10`
 
 +
 `s允许使用的主端口中继， vsan add 20`
 
-. 将端口添加到端口通道 1 ：
+.. 将端口添加到端口通道 1 ：
 +
 `通道组 1`
 
-. 对网络结构中配对交换机上的匹配 ISL 端口重复上述步骤。
+.. 对网络结构中配对交换机上的匹配 ISL 端口重复上述步骤。
 +
 以下示例显示了端口 fc1/41 ，该端口的距离配置为 30 公里， 8 Gbps ：
 
@@ -1090,38 +1091,37 @@ FC_switch_B_1# switchport trunk allowed vsan add 20
 FC_switch_B_1# channel-group 1
 fc1/36 added to port-channel 1 and disabled
 ----
-. 对两个交换机执行问题描述以下命令以重新启动端口：
+.. 对两个交换机执行问题描述以下命令以重新启动端口：
 +
 `无关闭`
 
-. 对网络结构中的其他 ISL 端口重复上述步骤。
-. 将原生 VSAN 添加到同一网络结构中两台交换机上的端口通道接口：
+.. 对网络结构中的其他 ISL 端口重复上述步骤。
+.. 将原生 VSAN 添加到同一网络结构中两台交换机上的端口通道接口：
 +
 `interface port-channel _number_`
 
 +
 `s允许使用的主端口中继 vsan add _native_san_id_`
 
-. 验证端口通道的配置：
+.. 验证端口通道的配置：
 +
 `s如何使用接口 port-channel _number_`
 
 +
 端口通道应具有以下属性：
 
-+
-** 端口通道为 " 中继 " 。
-** 管理端口模式为 E ，中继模式为 ON 。
-** 速度显示所有 ISL 链路速度的累积值。
+
+
+* 端口通道为 " 中继 " 。
+* 管理端口模式为 E ，中继模式为 ON 。
+* 速度显示所有 ISL 链路速度的累积值。
 +
 例如，两个以 4 Gbps 速度运行的 ISL 端口应显示 8 Gbps 的速度。
 
-** `中继 VSAN （允许管理员且处于活动状态）` 显示所有允许的 VSAN 。
-** `中继 VSAN （ UP ）` 显示所有允许的 VSAN 。
-** 成员列表显示已添加到端口通道的所有 ISL 端口。
-** 端口 VSAN 编号应与包含 ISL 的 VSAN 相同（通常为原生 vSAN 1 ）。
-
-
+* `中继 VSAN （允许管理员且处于活动状态）` 显示所有允许的 VSAN 。
+* `中继 VSAN （ UP ）` 显示所有允许的 VSAN 。
+* 成员列表显示已添加到端口通道的所有 ISL 端口。
+* 端口 VSAN 编号应与包含 ISL 的 VSAN 相同（通常为原生 vSAN 1 ）。
 +
 [listing]
 ----
@@ -1152,11 +1152,12 @@ port-channel 1 is trunking
     Member[2] : fc1/40
     Interface last changed at Thu Oct 16 11:48:00 2014
 ----
-. 在两台交换机上退出接口配置：
++
+.. 在两台交换机上退出接口配置：
 +
 `结束`
 
-. 将更新后的配置复制到两个网络结构上的启动配置：
+.. 将更新后的配置复制到两个网络结构上的启动配置：
 +
 `copy running-config startup-config`
 
@@ -1169,18 +1170,17 @@ FC_switch_A_1# copy running-config startup-config
 FC_switch_B_1(config-if)# end
 FC_switch_B_1# copy running-config startup-config
 ----
-. 对第二个交换机网络结构重复上述步骤。
+.. 对第二个交换机网络结构重复上述步骤。
 
 
-* 相关信息 *
 
-如果使用的是 ONTAP 9.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。请参见 link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.adoc["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
+
+如果使用的是 ONTAP 9.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。请参见 link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
 
 
 
 === 为 Cisco 9250i FC 交换机上的单个 ISL 配置 FCIP 端口
 
-[role="lead"]
 您必须通过创建 FCIP 配置文件和接口，然后将其分配给 IPStorage1/1 GbE 接口来配置连接 ISL 的 FCIP 交换机端口（ E 端口）。
 
 此任务仅适用于每个交换机网络结构使用一个 ISL 并在每个交换机上使用 IPStorage1/1 接口的配置。
@@ -1606,6 +1606,8 @@ image::../media/fcip_ports_dual_isl.gif[FCIP 端口双 ISL]
 * 阵列 1 配置文件配置表 *
 
 |===
+
+
 | 交换机网络结构 | IP 存储接口 | IP 地址 | 端口类型 | FCIP 接口 | FCIP 配置文件 | 端口 | 对等 IP/ 端口 | vSAN ID 
 
 
@@ -1731,6 +1733,8 @@ b.b.B.b/3223
 * 网络结构 2 配置文件配置表 *
 
 |===
+
+
 | 交换机网络结构 | IP 存储接口 | IP 地址 | 端口类型 | FCIP 接口 | FCIP 配置文件 | 端口 | 对等 IP/ 端口 | vSAN ID 
 
 
@@ -2472,8 +2476,8 @@ NOTE: 请仅对每个网络结构中的一个交换机执行这些步骤。
 
 +
 --
-** link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.adoc["使用一个 FC 端口对 FibreBridge 6500N 网桥， FibreBridge 7500N 或 7600N 网桥进行分区"]
-** link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.adoc["使用两个 FC 端口的 FibreBridge 7500N 网桥的分区"]
+** link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["使用一个 FC 端口对 FibreBridge 6500N 网桥， FibreBridge 7500N 或 7600N 网桥进行分区"]
+** link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["使用两个 FC 端口的 FibreBridge 7500N 网桥的分区"]
 
 
 --
@@ -2557,8 +2561,8 @@ NOTE: 仅对网络结构中的一个交换机执行这些步骤。
 
 +
 --
-** link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.adoc["使用一个 FC 端口对 FibreBridge 6500N 网桥， FibreBridge 7500N 或 7600N 网桥进行分区"]
-** link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.adoc["使用两个 FC 端口的 FibreBridge 7500N 网桥的分区"]
+** link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["使用一个 FC 端口对 FibreBridge 6500N 网桥， FibreBridge 7500N 或 7600N 网桥进行分区"]
+** link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["使用两个 FC 端口的 FibreBridge 7500N 网桥的分区"]
 
 
 --

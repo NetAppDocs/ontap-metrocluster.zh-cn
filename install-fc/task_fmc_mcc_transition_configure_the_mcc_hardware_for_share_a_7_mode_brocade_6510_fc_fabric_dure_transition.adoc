@@ -34,6 +34,6 @@ summary: 如果 7- 模式光纤 MetroCluster 配置使用 Brocade 6510 交换机
 
 过渡数据后，您可以移除 7- 模式光纤 MetroCluster 布线，如果需要，可将集群模式 ONTAP MetroCluster 布线移至先前用于 7- 模式 MetroCluster 布线的编号较低的端口。这些端口显示在 " 查看四节点 MetroCluster 的 FC 交换机端口分配 " 一节中。 您必须调整重新排列的端口的分区。
 
-link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.adoc["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
+link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
 
 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基于副本的过渡"]

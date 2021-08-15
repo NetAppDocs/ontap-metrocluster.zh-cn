@@ -25,6 +25,8 @@ NOTE: 在此步骤中，您可以完全按照发生灾难之前的布线方式�
 
 +
 |===
+
+
 | 如果要更换 ... | 执行以下步骤 ... | 使用这些指南 ... 
 
 
@@ -153,6 +155,8 @@ node_B_2 仅存在于四节点 MetroCluster 配置中。
 控制器模块具有以下原始系统 ID ：
 
 |===
+
+
 | MetroCluster 配置中的节点数 | 节点 | 原始系统 ID 
 
 
@@ -205,6 +209,8 @@ node_B_1
 . 在运行正常的站点中，显示 MetroCluster 配置中节点的系统 ID 。
 +
 |===
+
+
 | MetroCluster 配置中的节点数 | 使用此命令 ... 
 
 
@@ -408,26 +414,16 @@ https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
 . 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
 . 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
 +
-[cols="1,2a"]
 |===
+
+
 | 平台型号 | 那么 ... 
 
 
-| FAS/AFF8000 系列系统  a| 
-将 ontap-version_image.tgzfile 的内容提取到目标目录： tar -zxvf ontap-version_image.tgz
+| FAS/AFF8000 系列系统 | 将 ontap-version_image.tgzfile 的内容提取到目标目录： tar -zxvf ontap-version_image.tgz 注：如果要在 Windows 上提取内容，请使用 7-Zip 或 WinRAR 提取网络启动映像。您的目录列表应包含一个包含内核文件 netboot/kernel 的 netboot 文件夹 
 
 
-NOTE: 如果要在 Windows 上提取内容，请使用 7-Zip 或 WinRAR 提取网络启动映像。
-
-您的目录列表应包含一个包含内核文件 netboot/kernel 的 netboot 文件夹
-
-
-
-| 所有其他系统  a| 
-您的目录列表应包含一个包含内核文件 ontap-version_image.tgz 的 netboot 文件夹
-
-您不需要提取 ontap-version_image.tgz 文件。
-
+| 所有其他系统 | 您的目录列表应包含一个包含内核文件的 netboot 文件夹： ontap-version_image.tgz 您无需提取 ontap-version_image.tgz 文件。 
 |===
 . 在 LOADER 提示符处，为管理 LIF 配置网络启动连接：
 +
@@ -505,6 +501,8 @@ The node must be rebooted to start using the newly installed software. Do you wa
 此操作步骤中的示例使用具有以下系统 ID 的控制器：
 
 |===
+
+
 | MetroCluster 配置中的节点数 | 节点 | 原始系统 ID | 新系统 ID | 将作为 DR 配对节点与此节点配对 
 
 
@@ -577,7 +575,8 @@ node_B_1
 node_A_1
 
 |===
-* 注： * 在四节点 MetroCluster 配置中，系统会通过将 site_A 中系统 ID 最低的节点与 site_B 中系统 ID 最低的节点配对来确定 DR 配对关系由于系统 ID 会发生变化，因此在完成控制器更换后， DR 对可能会与发生灾难之前不同。
+
+NOTE: 在四节点 MetroCluster 配置中，系统通过将 site_A 中系统 ID 最低的节点与 site_B 中系统 ID 最低的节点配对来确定 DR 配对关系由于系统 ID 会发生变化，因此在完成控制器更换后， DR 对可能会与发生灾难之前不同。
 
 在上述示例中：
 
@@ -634,6 +633,8 @@ NOTE: 双节点 MetroCluster 配置不需要执行此步骤。
 
 +
 |===
+
+
 | MetroCluster 配置中的控制器数量 | 所有组件的 HA 状态应为 ... 
 
 
@@ -660,6 +661,8 @@ mccip
 . 如果显示的控制器系统状态不正确，请设置控制器模块的 HA 状态：
 +
 |===
+
+
 | MetroCluster 配置中的控制器数量 | 命令 
 
 
@@ -686,6 +689,8 @@ MetroCluster IP 配置
 . 如果显示的机箱系统状态不正确，请设置机箱的 HA 状态：
 +
 |===
+
+
 | MetroCluster 配置中的控制器数量 | 命令 
 
 

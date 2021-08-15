@@ -10,7 +10,7 @@ summary: Active IQ Unified Manager 和 ONTAP 系统管理器可用于集群的 G
 
 
 [role="lead"]
-Active IQ Unified Manager 和 ONTAP 系统管理器可用于集群的 GUI 管理和配置监控。
+Active IQ Unified Manager 和 ONTAP 系统管理器可用于集群的 GUI 管理和监控配置。
 
 每个节点都预安装了 ONTAP System Manager 。要加载 System Manager ，请在连接到节点的 Web 浏览器中输入集群管理 LIF 地址作为 URL 。
 

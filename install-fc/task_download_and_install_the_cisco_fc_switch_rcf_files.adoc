@@ -23,6 +23,8 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 有四个 RCF 文件， MetroCluster 网络结构配置中的四个交换机中的每个交换机一个。您必须为所使用的交换机型号使用正确的 RCF 文件。
 
 |===
+
+
 | 交换机 | RCF 文件 
 
 
@@ -60,7 +62,10 @@ NOTE: 显示的输出适用于 Cisco IP 交换机；但是，这些步骤也适�
 . 从下载 Cisco FC RCF 文件 https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["MetroCluster RCF 下载页面"]。
 . 将 RCF 文件复制到交换机。
 +
-.. 将 RCF 文件复制到第一个交换机： + ` * copy sftp ： //_root@ftp-server-IP-address/tftpboot/switch-specific RCF_ bootflash ： vrf management*`
+.. 将 RCF 文件复制到第一个交换机：
++
+`copy sftp ： //_root@ftp-server-ip-address/tftpboot/switch-specific RCF_ bootflash ： vRF management`
+
 +
 在此示例中，将 `NX3232_v1.80% Switch-A1.txt` RCF 文件从 `10.10.99.99` 的 SFTP 服务器复制到本地 bootflash 。您必须使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 文件的文件名。
 
@@ -83,7 +88,7 @@ IP_switch_A_1#
 
 . 在每个交换机上验证 RCF 文件是否位于每个交换机的 `bootflash` 目录中：
 +
-` * 目录 bootflash ： *`
+`d的 bootflash ：`
 
 +
 以下示例显示文件位于 ip_switch_A_1 上：
@@ -108,11 +113,11 @@ IP_switch_A_1#
 ----
 . 将匹配的 RCF 文件从本地 bootflash 复制到每个交换机上的运行配置：
 +
-` * 复制 bootflash ： __switch-specific-RCF__.txt running-config *`
+`copy bootflash ： __switch-specific-RCF__.txt running-config`
 
 . 将 RCF 文件从正在运行的配置复制到每个交换机上的启动配置：
 +
-` * 复制 running-config startup-config *`
+`copy running-config startup-config`
 
 +
 您应看到类似于以下内容的输出：
@@ -123,7 +128,10 @@ IP_switch_A_1#
 IP_switch_A_1# copy bootflash:NX3232_v1.80_Switch-A1.txt running-config
 IP_switch_A_1# copy running-config startup-config
 ----
-. 重新加载交换机： ` * reload *`
+. 重新加载交换机：
++
+`re负载`
+
 +
 [listing]
 ----

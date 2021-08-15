@@ -1,11 +1,15 @@
-= 支持 MetroCluster 配置中的所有 SAN 阵列系统
+= ONTAP MetroCluster 配置之间的差异
+:firstname: The various MetroCluster configurations have key differences in the required components.
+:author: The various MetroCluster configurations have key differences in the required components.
+:authorinitials: T
+:authors: The various MetroCluster configurations have key differences in the required components.
 
-
-各种 MetroCluster 配置在所需组件方面存在主要差异。
 
 在所有配置中，两个 MetroCluster 站点中的每个站点都配置为 ONTAP 集群。在双节点 MetroCluster 配置中，每个节点均配置为单节点集群。
 
 |===
+
+
 | 功能 | IP 配置 2+| 光纤连接配置 2+| 延伸型配置 
 
 
@@ -204,6 +208,8 @@
 是的。
 
 |===
+* 重要 * ：
+
 对于八节点 MetroCluster IP 配置，请注意以下注意事项：
 
 * 从 ONTAP 9.1.1 开始，支持八节点配置。
@@ -217,6 +223,6 @@
 
 == 支持 MetroCluster 配置中的所有 SAN 阵列系统
 
-MetroCluster 配置支持某些全 SAN 阵列（ ASA ）。在 MetroCluster 文档中， AFF 型号的信息会对相应的 ASA 系统进行适用场景。例如， AFF A400 系统的所有布线和其他信息也会对 ASA AFF A400 系统进行适用场景。
+MetroCluster 配置支持部分全 SAN 阵列（ ASA ）。在 MetroCluster 文档中， AFF 型号的信息会对相应的 ASA 系统进行适用场景。例如， AFF A400 系统的所有布线和其他信息也会对 ASA AFF A400 系统进行适用场景。
 
 中列出了支持的平台配置 https://hwu.netapp.com["NetApp Hardware Universe"]。

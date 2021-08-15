@@ -2,7 +2,7 @@
 permalink: install-stretch/task_install_the_fc_to_sas_bridge_and_sas_shelves_fb_new_install_parent.html 
 sidebar: sidebar 
 keywords: metrocluster, stretch, installation, install, fc, sas, bridge, shelves 
-summary: 确保系统满足 " 准备安装 " 一节中的所有要求后，您可以安装新系统。 
+summary: '确保系统满足 " 准备安装 " 一节中的所有要求后，您可以安装新系统。' 
 ---
 = 安装 FC-SAS 网桥和 SAS 磁盘架
 :icons: font

@@ -46,6 +46,8 @@ link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.htm
 下表列出了示例 MetroCluster 图中存储阵列端口和 FC 交换机之间的连接：
 
 |===
+
+
 | 阵列 LUN 端口 | FC 交换机端口 | 交换机网络结构 
 
 

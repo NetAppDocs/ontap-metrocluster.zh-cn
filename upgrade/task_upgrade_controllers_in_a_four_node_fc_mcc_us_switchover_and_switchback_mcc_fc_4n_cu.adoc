@@ -732,26 +732,16 @@ https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
 . 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
 . 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
 +
-[cols="1,2a"]
 |===
+
+
 | 平台型号 | 那么 ... 
 
 
-| FAS/AFF8000 系列系统  a| 
-将 ontap-version_image.tgzfile 的内容提取到目标目录： tar -zxvf ontap-version_image.tgz
+| FAS/AFF8000 系列系统 | 将 ontap-version_image.tgzfile 的内容提取到目标目录： tar -zxvf ontap-version_image.tgz 注：如果要在 Windows 上提取内容，请使用 7-Zip 或 WinRAR 提取网络启动映像。您的目录列表应包含一个包含内核文件 netboot/kernel 的 netboot 文件夹 
 
 
-NOTE: 如果要在 Windows 上提取内容，请使用 7-Zip 或 WinRAR 提取网络启动映像。
-
-您的目录列表应包含一个包含内核文件 netboot/kernel 的 netboot 文件夹
-
-
-
-| 所有其他系统  a| 
-您的目录列表应包含一个包含内核文件 ontap-version_image.tgz 的 netboot 文件夹
-
-您不需要提取 ontap-version_image.tgz 文件。
-
+| 所有其他系统 | 您的目录列表应包含一个包含内核文件的 netboot 文件夹： ontap-version_image.tgz 您无需提取 ontap-version_image.tgz 文件。 
 |===
 . 在 LOADER 提示符处，为管理 LIF 配置网络启动连接：
 +

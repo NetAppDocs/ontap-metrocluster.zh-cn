@@ -27,6 +27,8 @@ cluster_B::> metrocluster heal -phase root aggregates
 
 +
 |===
+
+
 | 如果聚合显示此状态 ... | 那么 ... 
 
 
@@ -40,7 +42,7 @@ cluster_B::> metrocluster heal -phase root aggregates
  a| 
 镜像已降级
  a| 
-继续执行步骤 xref:task_prepare_for_switchback_in_a_mcc_fc_configuration_supertask.adocSTEP_0192B6F128114A77837D1BB5AAB8A770[3.]。
+继续执行 <<step3_fc_aggr_healing,第 3 步>>
 
 
 
@@ -84,6 +86,8 @@ cluster_B::>
 
 +
 |===
+
+
 | 节点 | 状态 
 
 
@@ -107,7 +111,7 @@ node_B_1_aggr3.
 已镜像，正常
 
 |===
-. 如果一个或多个丛保持脱机，则需要执行其他步骤来重建镜像。
+. 【第 3 步 _fc_aggr_healing 】如果一个或多个丛保持脱机状态，则需要执行其他步骤来重建镜像。
 +
 在上表中，必须重建 node_B_1_aggr2 的镜像。
 

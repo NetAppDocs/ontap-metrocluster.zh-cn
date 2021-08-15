@@ -23,13 +23,14 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 NOTE: 显示的输出适用于 Cisco IP 交换机；但是，这些步骤也适用于 Cisco FC 交换机。
 
+.步骤
 . 下载支持的 NX-OS 软件文件。
 +
 https://software.cisco.com/download/home["Cisco 下载页面"]
 
 . 将交换机软件复制到交换机：
 +
-` * + 复制 sftp ： //root@server-IP-address/tftpboot/NX-OS-file-name bootflash ： vRF management++`
+`copy sftp ： //root@server-IP-address/tftpboot/NX-os-file-name bootflash ： vRF management`
 
 +
 在此示例中，将 `nxos.7.0.3.I4.6.bin` 文件从 SFTP 服务器 10.10.99.99 复制到本地 bootflash ：
@@ -49,7 +50,7 @@ Copy complete, now saving to disk (please wait)...
 ----
 . 在每个交换机上验证交换机 NX-OS 文件是否位于每个交换机的 bootflash 目录中：
 +
-` * 目录 bootflash*`
+`d其 bootflash`
 
 +
 以下示例显示文件位于 `ip_switch_A_1` 上：
@@ -74,7 +75,7 @@ IP_switch_A_1#
 ----
 . 安装交换机软件：
 +
-` * 安装所有系统 bootflash ： nxos.version-number.bin kickstart bootflash ： nxos.version-kickstart-number.bin*`
+`安装所有系统 bootflash ： nxos.version-number.bin kickstart bootflash ： nxos.version-kickstart-number.bin`
 
 +
 [listing]
@@ -127,7 +128,7 @@ The switch software is now installed.
 ----
 . 验证是否已安装交换机软件：
 +
-` * 显示版本 *`
+`s如何使用版本`
 
 +
 以下示例显示了输出：

@@ -39,8 +39,9 @@ NOTE: 如果正常运行的站点上的存储访问受到影响，则不能继�
 以下示例显示了适用于 Broadcom IP 交换机或 Cisco IP 交换机的命令。
 
 +
-[cols="25,75"]
 |===
+
+
 | 交换机供应商 | 命令 
 
 
@@ -78,8 +79,9 @@ IP_switch_A_1(config)# show interface brief
 以下示例显示了适用于 Broadcom IP 交换机或 Cisco IP 交换机的命令。
 
 +
-[cols="25,75"]
 |===
+
+
 | 交换机供应商 | 命令 
 
 

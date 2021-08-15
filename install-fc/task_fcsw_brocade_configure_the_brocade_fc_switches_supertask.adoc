@@ -37,7 +37,7 @@ NOTE: 如果满足以下所有条件，您可以为 FAS8020 ， AFF8020 ， FAS8
 .关于此任务
 * 如果链路支持交换机间链路（ ISL ）中继，则应启用该中继。
 +
-xref:concept_tdm_wdm.adoc[在光纤连接 MetroCluster 配置中使用 TDM/WDM 设备的注意事项]
+link:concept_tdm_wdm.html["在光纤连接 MetroCluster 配置中使用 TDM/WDM 设备的注意事项"]
 
 * 在一个网络结构中，所有 ISL 都必须具有相同的长度和速度。
 +
@@ -63,7 +63,6 @@ https://mysupport.netapp.com/matrix["NetApp 互操作性表工具（ IMT ）"]
 
 == 查看 Brocade 许可证要求
 
-[role="lead"]
 MetroCluster 配置中的交换机需要特定许可证。您必须在所有四台交换机上安装这些许可证。
 
 MetroCluster 配置具有以下 Brocade 许可证要求：
@@ -76,22 +75,32 @@ MetroCluster 配置具有以下 Brocade 许可证要求：
 
 
 
-您可以使用 `licenseshow` 命令验证是否已安装这些许可证。如果您没有这些许可证，应先联系您的销售代表，然后再继续操作。
+.步骤
+. 验证是否已安装许可证：
++
+`许可说明`
+
++
+如果您没有这些许可证，应先联系您的销售代表，然后再继续操作。
+
+
 
 
 
 == 将 Brocade FC 交换机值设置为出厂默认值
 
-[role="lead"]
 您必须将交换机设置为出厂默认值，以确保配置成功。您还必须为每个交换机分配一个唯一的名称。
 
 在此操作步骤的示例中，网络结构由 BrocadeSwitchA 和 BrocadeSwitchB 组成。
 
 .步骤
 . 建立控制台连接并登录到一个网络结构中的两个交换机。
-. 持久禁用交换机： `sswitchcfgpersistentdisable`
+. 持久禁用交换机：
 +
-这样可确保交换机在重新启动或快速启动后仍保持禁用状态。如果此命令不可用，请使用 switchdisable 命令。
+`sswitchcfgpersistentdisable`
+
++
+这样可确保交换机在重新启动或快速启动后仍保持禁用状态。如果此命令不可用，请使用 `sswitchDisable` 命令。
 
 +
 以下示例显示了对 BrocadeSwitchA 执行的命令：
@@ -109,7 +118,10 @@ BrocadeSwitchA:admin> switchcfgpersistentdisable
 ----
 BrocadeSwitchA:admin> switchcfgpersistentdisable
 ----
-. 输入 `sswitchname switch_name` 设置交换机名称。
+. 设置交换机名称：
++
+`sswitchname switch_name`
+
 +
 每个交换机都应具有唯一的名称。设置名称后，提示符将相应地发生更改。
 
@@ -131,7 +143,10 @@ FC_switch_A_1:admin>
 BrocadeSwitchB:admin> switchname "FC_Switch_B_1"
 FC_switch_B_1:admin>
 ----
-. 对每个端口发出以下命令，将所有端口设置为其默认值： `portcfgdefault`
+. 将所有端口设置为其默认值：
++
+`portcfgdefault`
+
 +
 必须对交换机上的所有端口执行此操作。
 
@@ -157,7 +172,16 @@ FC_switch_B_1:admin> portcfgdefault 1
 ...
 FC_switch_B_1:admin> portcfgdefault 39
 ----
-. 发出以下命令以清除分区信息： `cfgdisable``cfgclear``cfgsave`
+. 清除分区信息：
++
+`cfgdisable`
+
++
+`cfgclear`
+
++
+`cfgsave`
+
 +
 以下示例显示了对 FC_switch_A_1 执行的命令：
 
@@ -178,7 +202,10 @@ FC_switch_B_1:admin> cfgdisable
 FC_switch_B_1:admin> cfgclear
 FC_switch_B_1:admin> cfgsave
 ----
-. 将常规交换机设置设置为 default ： `configdefault`
+. 将常规交换机设置设置为默认值：
++
+`configdefault`
+
 +
 以下示例显示了对 FC_switch_A_1 执行的命令：
 
@@ -195,7 +222,10 @@ FC_switch_A_1:admin> configdefault
 ----
 FC_switch_B_1:admin> configdefault
 ----
-. 将所有端口设置为非中继模式： `sswitchcfgtrunk 0`
+. 将所有端口设置为非中继模式：
++
+`sswitchcfgtrunk 0`
+
 +
 以下示例显示了对 FC_switch_A_1 执行的命令：
 
@@ -212,7 +242,10 @@ FC_switch_A_1:admin> switchcfgtrunk 0
 ----
 FC_switch_B_1:admin> switchcfgtrunk 0
 ----
-. 在 Brocade 6510 交换机上，禁用 Brocade 虚拟网络结构（ VF ）功能： `fosconfig options`
+. 在 Brocade 6510 交换机上，禁用 Brocade 虚拟网络结构（ VF ）功能：
++
+`fosconfig 选项`
+
 +
 以下示例显示了对 FC_switch_A_1 执行的命令：
 
@@ -229,7 +262,10 @@ FC_switch_A_1:admin> fosconfig --disable vf
 ----
 FC_switch_B_1:admin> fosconfig --disable vf
 ----
-. 清除管理域（ AD ）配置： `ad options`
+. 清除管理域（ AD ）配置：
++
+`AD 选项`
+
 +
 以下示例显示了对 FC_switch_A_1 执行的命令：
 
@@ -260,7 +296,10 @@ FC_switch_B_1:admin> ad --apply
 FC_switch_B_1:admin> ad --save
 FC_switch_B_1:admin> exit
 ----
-. 发出以下命令，重新启动交换机： `reboot`
+. 重新启动交换机：
++
+`re启动`
+
 +
 以下示例显示了对 FC_switch_A_1 执行的命令：
 
@@ -283,7 +322,6 @@ FC_switch_B_1:admin> reboot
 
 == 配置基本交换机设置
 
-[role="lead"]
 您必须为 Brocade 交换机配置基本全局设置，包括域 ID 。
 
 此任务包含必须在两个 MetroCluster 站点的每个交换机上执行的步骤。
@@ -334,7 +372,7 @@ RDP Polling Cycle(hours)[0 = Disable Polling]: (0..24) [1] 0
 NOTE: 建议使用标准 IOD 设置。只有在必要时，才应配置 OOD 。
 
 +
-xref:concept_prepare_for_the_mcc_installation.adoc[在光纤连接 MetroCluster 配置中使用 TDM/WDM 设备的注意事项]
+link:concept_prepare_for_the_mcc_installation.html["在光纤连接 MetroCluster 配置中使用 TDM/WDM 设备的注意事项"]
 
 +
 .. 要配置帧的 IOD ，必须对每个交换机网络结构执行以下步骤：
@@ -391,7 +429,16 @@ FC_switch_A_1:admin> iodshow
 +
 `dlsreset`
 
-... 使用 `iodshow` ， `aptpolicy` 和 `dlsshow` 命令验证 OOD 设置。
+... 验证 OOD 设置：
++
+`iodshow`
+
++
+`aptpolicy`
+
++
+`dlsshow`
+
 +
 例如，对 FC_switch_A_1 执行问题描述命令：
 
@@ -428,8 +475,11 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_configure_th
 
 . 验证交换机是否正在使用动态端口许可方法。
 +
-.. 运行 `licensePort -show` 命令。
+.. 运行 license 命令：
 +
+--
+`licensePort -show`
+
 [listing]
 ----
 FC_switch_A_1:admin> licenseport -show
@@ -437,10 +487,10 @@ FC_switch_A_1:admin> licenseport -show
 Full POD license is installed
 Dynamic POD method is in use
 ----
-+
 
 NOTE: Brocade FabricOS 8.0 之前的版本运行以下命令，因为 admin 和 8.0 及更高版本以 root 身份运行这些命令。
 
+--
 .. 启用 root 用户。
 +
 如果 Brocade 已禁用 root 用户，请启用 root 用户，如以下示例所示：
@@ -493,7 +543,7 @@ Please reboot the switch now for this change to take effect
 .. 对第二个交换机网络结构重复上述步骤。
 
 
-. * 可选 * ：如果将社区字符串设置为 "`公有` " 以外的值，则必须使用指定的社区字符串配置 ONTAP 运行状况监控器：
+. * 可选 * ：如果将社区字符串设置为非公有值，则必须使用指定的社区字符串配置 ONTAP 运行状况监控器：
 +
 .. 更改现有社区字符串：
 +
@@ -515,9 +565,8 @@ Community (rw): [OrigEquipMfr]
 Trap Recipient's IP address : [0.0.0.0]
 Community (rw): [private]
 Trap Recipient's IP address : [0.0.0.0]
-Community (ro): [public] mcchm                        <<<<<<<<<<<<< change the community string to the
-desired value, in this example it is set to 'mcchm'
-Trap Recipient's IP address : [0.0.0.0]
+Community (ro): [public] mcchm     <<<<<< change the community string to the desired value,
+Trap Recipient's IP address : [0.0.0.0]    in this example it is set to "mcchm"
 Community (ro): [common]
 Trap Recipient's IP address : [0.0.0.0]
 Community (ro): [FibreChannel]
@@ -539,9 +588,8 @@ Community (rw): [OrigEquipMfr]
 Trap Recipient's IP address : [0.0.0.0]
 Community (rw): [private]
 Trap Recipient's IP address : [0.0.0.0]
-Community (ro): [public] mcchm                        <<<<<<<<<<<<< change the community string to the
-desired value, in this example it is set to 'mcchm'
-Trap Recipient's IP address : [0.0.0.0]
+Community (ro): [public] mcchm      <<<<<< change the community string to the desired value,
+Trap Recipient's IP address : [0.0.0.0]     in this example it is set to "mcchm"
 Community (ro): [common]
 Trap Recipient's IP address : [0.0.0.0]
 Community (ro): [FibreChannel]
@@ -597,7 +645,6 @@ FC_switch_B_1:admin> switchcfgpersistentenable
 
 == 在 Brocade DCX 8510-8 交换机上配置基本交换机设置
 
-[role="lead"]
 您必须为 Brocade 交换机配置基本全局设置，包括域 ID 。
 
 您必须对两个 MetroCluster 站点的每个交换机执行这些步骤。在此操作步骤中，您可以为每个交换机设置域 ID ，如以下示例所示：
@@ -690,15 +737,12 @@ switchenable
 ----
 
 
-* 相关信息 *
-
-xref:concept_prepare_for_the_mcc_installation.adoc[使用 Brocade DCX 8510-8 交换机的要求]
+link:concept_prepare_for_the_mcc_installation.html["使用 Brocade DCX 8510-8 交换机的要求"]
 
 
 
 == 使用 FC 端口在 Brocade FC 交换机上配置 E 端口
 
-[role="lead"]
 对于使用 FC 端口配置交换机间链路（ ISL ）的 Brocade 交换机，必须在连接 ISL 的每个交换机网络结构上配置交换机端口。这些 ISL 端口也称为 E 端口。
 
 .开始之前
@@ -727,6 +771,8 @@ https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 您必须为配置使用所需数量的 ISL 。
 
 |===
+
+
 | 交换机型号 | ISL 端口 | 交换机端口 
 
 
@@ -925,7 +971,7 @@ ISL 端口 7
 
 |===
 .步骤
-. 【第 1-Brocade-config ，第 1 步 ]] 配置端口速度：
+. 【 ｛ step1_Brocade_config]] 配置端口速度：
 +
 `portcfgspeed port-numberspeed`
 
@@ -1162,7 +1208,7 @@ FC_switch_B_1:admin> fabricshow
 
 3: fffc03 10:00:00:05:33:8c:2e:9a 10.10.10.65  0.0.0.0    >"FC_switch_B_1
 ----
-. 【步骤 10-Brocade-config ，步骤 10]] 确认 ISL 的中继：
+. 【第 10 步 _Brocade_config]] 确认 ISL 的中继：
 +
 `Trunkshow`
 
@@ -1191,18 +1237,15 @@ FC_switch_B_1:admin> trunkshow
 ----
 
 
-. 重复 <<step1-brocade-config>> 到 <<step10-brocade-config>> 用于第二个 FC 交换机网络结构。
+. 重复 <<step1_brocade_config,第 1 步>> 到 <<step10_brocade_config,第 10 步>> 用于第二个 FC 交换机网络结构。
 
 
-* 相关信息 *
-
-xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.adoc[使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配]
+link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
 
 
 
 == 在 Brocade FC 7840 交换机上配置 10 Gbps VE 端口
 
-[role="lead"]
 如果要对 ISL 使用 10 Gbps VE 端口（使用 FCIP ），则必须在每个端口上创建 IP 接口，并在每个通道中配置 FCIP 通道和电路。
 
 必须对 MetroCluster 配置中的每个交换机网络结构执行此操作步骤。
@@ -1358,7 +1401,6 @@ FC_switch_A_1:root> portshow fcipcircuit all
 
 == 在 Brocade 7810 和 7840 FC 交换机上配置 40 Gbps VE 端口
 
-[role="lead"]
 如果要对 ISL 使用两个 40 GbE VE 端口（使用 FCIP ），则必须在每个端口上创建 IP 接口，并在每个通道中配置 FCIP 通道和电路。
 
 必须对 MetroCluster 配置中的每个交换机网络结构执行此操作步骤。
@@ -1511,15 +1553,18 @@ FC_switch_A_1:root> portshow fcipcircuit all
 
 == 在 Brocade 交换机上配置非 E 端口
 
-[role="lead"]
 您必须在 FC 交换机上配置非 E 端口。在 MetroCluster 配置中，这些端口用于将交换机连接到 HBA 启动程序， FC-VI 互连和 FC-SAS 网桥。必须对每个端口执行这些步骤。
 
 在以下示例中，这些端口用于连接 FC-SAS 网桥：
 
+--
 * 站点 A 的 FC_FC_switch_A_1 上的端口 6
 * 站点 B 的 FC_FC_switch_B_1 上的端口 6
-+
-.. 配置每个非 E 端口的端口速度：
+
+
+--
+.步骤
+. 配置每个非 E 端口的端口速度：
 +
 `portcfgspeed portspeed`
 
@@ -1530,9 +1575,9 @@ FC_switch_A_1:root> portshow fcipcircuit all
 例如，这些组件可能支持以下速度：
 
 +
-*** SFP 支持 4 GB ， 8 GB 或 16 GB 。
-*** 交换机端口支持 4 GB ， 8 GB 或 16 GB 。
-*** 连接的 HBA 最大速度为 16 GB 。在这种情况下，最高通用速度为 16 GB ，因此应将端口的速度配置为 16 GB 。
+** SFP 支持 4 GB ， 8 GB 或 16 GB 。
+** 交换机端口支持 4 GB ， 8 GB 或 16 GB 。
+** 连接的 HBA 最大速度为 16 GB 。在这种情况下，最高通用速度为 16 GB ，因此应将端口的速度配置为 16 GB 。
 +
 [listing]
 ----
@@ -1542,7 +1587,7 @@ FC_switch_B_1:admin> portcfgspeed 6 16
 ----
 
 
-.. 验证设置：
+. 验证设置：
 +
 `portcfgshow`
 
@@ -1595,11 +1640,8 @@ Non-DFE                             ..  ..  ..  ..  ..  ..  ..  ..  ..
 
 
 
-
-
 == 在 Brocade G620 交换机的 ISL 端口上配置数据压缩
 
-[role="lead"]
 如果您使用的是 Brocade G620 交换机并在 ISL 上启用了数据压缩，则必须在交换机上的每个 E 端口上对其进行配置。
 
 必须使用 ISL 对两个交换机上的 ISL 端口执行此任务。
@@ -1661,14 +1703,12 @@ Port   Configured    Active   Configured   Active  Speed
 
 == 在 Brocade FC 交换机上配置分区
 
-[role="lead"]
 您必须将交换机端口分配给不同的分区，以隔离控制器和存储流量。根据您使用的是 FibreBridge 7500N 网桥还是 FibreBridge 6500N 网桥，操作步骤会有所不同。
 
 
 
 === FC-VI 端口的分区
 
-[role="lead"]
 对于 MetroCluster 中的每个 DR 组，您必须为 FC-VI 连接配置两个分区，以允许控制器到控制器的流量。这些分区包含连接到控制器模块 FC-VI 端口的 FC 交换机端口。这些分区是服务质量（ QoS ）分区。
 
 QoS 分区名称以前缀 QOSHid_ 开头，后跟用户定义的字符串，以便与常规分区区分开。无论所使用的 FibreBridge 网桥型号如何，这些 QoS 分区都是相同的。
@@ -1707,6 +1747,8 @@ QoS 分区名称以前缀 QOSHid_ 开头，后跟用户定义的字符串，以�
 | FC_switch_B_1 | B | 7. | 5. | 5. | 5. | controller_B_2 端口 FC-VI c 
 |===
 |===
+
+
 | Fabric_1 中的分区 | 成员端口 
 
 
@@ -1742,6 +1784,8 @@ QoS 分区名称以前缀 QOSHid_ 开头，后跟用户定义的字符串，以�
 |  |  |  | 5. | 5. | 5. | controller_B_2 端口 FC-VI d 
 |===
 |===
+
+
 | Fabric_1 中的分区 | 成员端口 
 
 
@@ -1780,6 +1824,8 @@ QoS 分区名称以前缀 QOSHid_ 开头，后跟用户定义的字符串，以�
 |  |  |  | 29 | 53. | 23 | controller_B_4 端口 FC-VI c 
 |===
 |===
+
+
 | Fabric_1 中的分区 | 成员端口 
 
 
@@ -1818,6 +1864,8 @@ QoS 分区名称以前缀 QOSHid_ 开头，后跟用户定义的字符串，以�
 | FC_switch_B_2 | B | 8. | 29 | 53. | 23 | controller_B_4 端口 FC-VI d 
 |===
 |===
+
+
 | Fabric_2 中的分区 | 成员端口 
 
 
@@ -1829,6 +1877,8 @@ QoS 分区名称以前缀 QOSHid_ 开头，后跟用户定义的字符串，以�
 下表汇总了 FC-VI 分区：
 
 |===
+
+
 | 网络结构 | 分区名称 | 成员端口 
 
 
@@ -1877,7 +1927,6 @@ QOSH2_MC1_FAB_2_FCVI （ 6520 ）
 
 === 使用一个 FC 端口为 FibreBridge 6500N 网桥， FibreBridge 7500N 或 7600N 网桥分区
 
-[role="lead"]
 如果您仅使用两个 FC 端口之一使用 FibreBridge 6500N 网桥，或 FibreBridge 7500N 或 7600N 网桥，则需要为网桥端口创建存储分区。在配置分区之前，您应了解分区和关联的端口。
 
 这些示例仅显示 DR 组 1 的分区。如果您的配置包含第二个 DR 组，请使用控制器和网桥的相应端口以相同的方式为第二个 DR 组配置分区。
@@ -1905,6 +1954,8 @@ QOSH2_MC1_FAB_2_FCVI （ 6520 ）
 网桥使用以下命名示例： bridge_site_stack groupocation in pair
 
 |===
+
+
 | 名称的这一部分 ... | 标识 ... | 可能值 ... 
 
 
@@ -1986,6 +2037,8 @@ a 或 b
 | FC_switch_B_1 | B | 7. | 7. | controller_B_2 端口 0c 
 |===
 |===
+
+
 | Fabric_1 中的分区 | 成员端口 
 
 
@@ -2024,6 +2077,8 @@ a 或 b
 | FC_switch_B_1 | B | 8. | 7. | controller_B_2 端口 0d 
 |===
 |===
+
+
 | Fabric_2 中的分区 | 成员端口 
 
 
@@ -2066,6 +2121,8 @@ a 或 b
 | FC_switch_B_1 | B | 7. | 7. | controller_B_2 端口 0c 
 |===
 |===
+
+
 | Fabric_1 中的分区 | 成员端口 
 
 
@@ -2104,6 +2161,8 @@ a 或 b
 | FC_switch_B_1 | B | 8. | 7. | controller_B_2 端口 0d 
 |===
 |===
+
+
 | Fabric_2 中的分区 | 成员端口 
 
 
@@ -2146,6 +2205,8 @@ a 或 b
 | FC_switch_B_1 | B | 7. | 8. | bridge_B_1a FC1 
 |===
 |===
+
+
 | Fabric_1 中的分区 | 成员端口 
 
 
@@ -2184,6 +2245,8 @@ a 或 b
 | FC_switch_B_1 | B | 8. | 8. | Bridge_B_1b FC1 
 |===
 |===
+
+
 | Fabric_2 中的分区 | 成员端口 
 
 
@@ -2226,6 +2289,8 @@ a 或 b
 | FC_switch_B_1 | B | 7. | 9 | bridge_b_2a FC1 
 |===
 |===
+
+
 | Fabric_1 中的分区 | 成员端口 
 
 
@@ -2264,6 +2329,8 @@ a 或 b
 | FC_switch_B_1 | B | 8. | 9 | Bridge_B_1b FC1 
 |===
 |===
+
+
 | Fabric_2 中的分区 | 成员端口 
 
 
@@ -2274,6 +2341,8 @@ a 或 b
 ==== 存储分区摘要
 
 |===
+
+
 | 网络结构 | 分区名称 | 成员端口 
 
 
@@ -2304,7 +2373,6 @@ a 或 b
 
 === 使用两个 FC 端口的 FibreBridge 7500N 网桥的分区
 
-[role="lead"]
 如果您使用的是具有两个 FC 端口的 FibreBridge 7500N 网桥，则需要为网桥端口创建存储分区。在配置分区之前，您应了解分区和关联的端口。
 
 
@@ -2330,6 +2398,8 @@ a 或 b
 网桥使用以下命名示例： bridge_site_stack groupocation in pair
 
 |===
+
+
 | 名称的这一部分 ... | 标识 ... | 可能值 ... 
 
 
@@ -2381,6 +2451,8 @@ a 或 b
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC1 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G620 端口 | 6520 端口 | 连接到 ... 
 
 
@@ -2459,6 +2531,8 @@ controller_B_2 端口 0a
 
 |===
 |===
+
+
 | Fabric_1 中的分区 | 成员端口 
 
 
@@ -2471,6 +2545,8 @@ MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC1
 * DR 组 1 ： MC1_INIT_GRP_2_SITE_A_STK_GRP_1_TOP_FC1 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
@@ -2559,6 +2635,8 @@ controller_B_2 端口 0c
 
 |===
 |===
+
+
 | Fabric_2 中的分区 | 成员端口 
 
 
@@ -2571,6 +2649,8 @@ MC1_INIT_GRP_2_SITE_A_STK_GRP_1_BOT_FC1
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_A_STK_GRP_1_BOT_FC1 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 | 6520 | G620 | 连接到 ... 
 
 
@@ -2659,6 +2739,8 @@ controller_B_2 端口 0b
 
 |===
 |===
+
+
 | Fabric_1 中的分区 | 成员端口 
 
 
@@ -2671,6 +2753,8 @@ MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC2
 * DR 组 1 ： MC1_INIT_GRP_2_SITE_A_STK_GRP_1_BOT_FC2 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 | 6520 | G620 | 连接到 ... 
 
 
@@ -2759,6 +2843,8 @@ controller_B_2 端口 0b
 
 |===
 |===
+
+
 | Fabric_2 中的分区 | 成员端口 
 
 
@@ -2775,6 +2861,8 @@ MC1_INIT_GRP_2_SITE_A_STK_GRP_1_BOT_FC2
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_A_STK_GRP_2_TOP_FC1 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
@@ -2863,7 +2951,9 @@ controller_B_2 端口 0a
 
 |===
 |===
-| Fabric_1 中的分区 | 成员端口 
+
+
+| Fabric_1 hh 中的分区 | 成员端口 
 
 
  a| 
@@ -2875,6 +2965,8 @@ MC1_INIT_GRP_1_SITE_A_STK_GRP_2_TOP_FC1
 * DR 组 1 ： MC1_INIT_GRP_2_SITE_A_STK_GRP_2_TOP_FC1 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
@@ -2959,6 +3051,8 @@ controller_B_2 端口 0c
 
 |===
 |===
+
+
 | Fabric_2 中的分区 | 成员端口 
 
 
@@ -2971,6 +3065,8 @@ MC1_INIT_GRP_2_SITE_A_STK_GRP_2_BOT_FC1
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_A_STK_GRP_2_BOT_FC2 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
@@ -3059,6 +3155,8 @@ controller_B_2 端口 0b
 
 |===
 |===
+
+
 | Fabric_1 中的分区 | 成员端口 
 
 
@@ -3071,6 +3169,8 @@ MC1_INIT_GRP_1_SITE_A_STK_GRP_2_TOP_FC2
 * DR 组 1 ： MC1_INIT_GRP_2_SITE_A_STK_GRP_2_BOT_FC2 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
@@ -3177,6 +3277,8 @@ MC1_INIT_GRP_2_SITE_A_STK_GRP_2_BOT_FC2
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_B_STK_GRP_1_TOP_FC1 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
@@ -3265,6 +3367,8 @@ bridge_B_1a FC1
 
 |===
 |===
+
+
 | Fabric_1 中的分区 | 成员端口 
 
 
@@ -3277,6 +3381,8 @@ MC1_INIT_GRP_1_SITE_B_STK_GRP_1_TOP_FC1
 * DR 组 1 ： MC1_INIT_GRP_2_SITE_B_STK_GRP_1_TOP_FC1 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
@@ -3365,6 +3471,8 @@ Bridge_B_1b FC1
 
 |===
 |===
+
+
 | Fabric_2 中的分区 | 成员端口 
 
 
@@ -3377,6 +3485,8 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_1_BOT_FC1
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_B_STK_GRP_1_BOT_FC2 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
@@ -3477,6 +3587,8 @@ MC1_INIT_GRP_1_SITE_B_STK_GRP_1_TOP_FC2
 * DR 组 1 ： MC1_INIT_GRP_2_SITE_B_STK_GRP_1_BOT_FC2 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
@@ -3565,6 +3677,8 @@ bridge_A_1b FC2
 
 |===
 |===
+
+
 | Fabric_2 中的分区 | 成员端口 
 
 
@@ -3581,6 +3695,8 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_1_BOT_FC2
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_B_STK_GRP_2_TOP_FC1 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
@@ -3669,6 +3785,8 @@ bridge_B_2a FC1
 
 |===
 |===
+
+
 | Fabric_1 中的分区 | 成员端口 
 
 
@@ -3681,6 +3799,8 @@ MC1_INIT_GRP_1_SITE_B_STK_GRP_2_TOP_FC1
 * DR 组 1 ： MC1_INIT_GRP_2_SITE_B_STK_GRP_2_TOP_FC1 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
@@ -3769,7 +3889,9 @@ bridge_B_2b FC1
 
 |===
 |===
-| Fabric_2 中的分区 | 成员端口 
+
+
+| Fabric_2 hh 中的分区 | 成员端口 
 
 
  a| 
@@ -3781,6 +3903,8 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_2_BOT_FC1
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_B_STK_GRP_2_BOT_FC2 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
@@ -3869,6 +3993,8 @@ bridge_B_2a FC2
 
 |===
 |===
+
+
 | Fabric_1 中的分区 | 成员端口 
 
 
@@ -3881,6 +4007,8 @@ MC1_INIT_GRP_1_SITE_B_STK_GRP_2_TOP_FC2
 * DR 组 1 ： MC1_INIT_GRP_2_SITE_B_STK_GRP_2_BOT_FC2 ： *
 
 |===
+
+
 | FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
@@ -3969,6 +4097,8 @@ bridge_B_2b FC2
 
 |===
 |===
+
+
 | Fabric_2 中的分区 | 成员端口 
 
 
@@ -3983,6 +4113,8 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_2_BOT_FC2
 ==== 存储分区摘要
 
 |===
+
+
 | 网络结构 | 分区名称 | 成员端口 
 
 
@@ -4133,21 +4265,20 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_2_BOT_FC2
 
 === 在 Brocade FC 交换机上配置分区
 
-[role="lead"]
 您必须将交换机端口分配给不同的分区，以隔离控制器和存储流量，并为 FC-VI 端口分配分区，为存储端口分配分区。
 
 以下步骤对 MetroCluster 配置使用标准分区。
 
-xref:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.adoc[FC-VI 端口的分区]
+link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["FC-VI 端口的分区"]
 
-xref:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.adoc[使用一个 FC 端口为 FibreBridge 6500N 网桥， FibreBridge 7500N 或 7600N 网桥分区]
+link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["使用一个 FC 端口为 FibreBridge 6500N 网桥， FibreBridge 7500N 或 7600N 网桥分区"]
 
-xref:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.adoc[使用两个 FC 端口的 FibreBridge 7500N 网桥的分区]
+link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["使用两个 FC 端口的 FibreBridge 7500N 网桥的分区"]
 
 .步骤
 . 在每个交换机上创建 FC-VI 分区：
 +
-` +zonecreate "QOSH1_FCVI_1" ， member ； member ...+`
+`zonecreate "QOSH1_FCVI_1" ， member ； member ...`
 
 +
 在此示例中，创建了一个 QoS FCVI 区域，其中包含端口 5 ， 0 ； 5 ， 1 ； 5 ， 4 ； 5 ， 5 ； 7 ， 0 ； 7 ， 1 ； 7 ， 4 ； 7 ， 5 ：
@@ -4188,7 +4319,7 @@ Switch_A_1:admin> cfgcreate "CFG_1", "QOSH1_MC1_FAB_1_FCVI; MC1_INIT_GRP_1_SITE_
 ----
 .. 根据需要向配置中添加分区：
 +
-` +cfgadd config_namezone ； zone...+`
+`cfgadd config_namezone ； zone...`
 
 .. 启用配置：
 +
@@ -4252,7 +4383,6 @@ zone: MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC1
 
 == 在 Brocade 6510 或 G620 交换机上设置 ISL 加密
 
-[role="lead"]
 在 Brocade 6510 或 G620 交换机上，您可以选择在 ISL 连接上使用 Brocade 加密功能。如果要使用加密功能，必须对 MetroCluster 配置中的每个交换机执行其他配置步骤。
 
 .开始之前
@@ -4271,13 +4401,12 @@ NOTE: 只有 ONTAP 9.4 及更高版本才支持在 Brocade G620 交换机上使�
 
 === 正在禁用虚拟网络结构
 
-[role="lead"]
 要设置 ISL 加密，必须在 MetroCluster 配置中使用的所有四个交换机上禁用虚拟网络结构。
 
 .步骤
 . 在交换机控制台中输入以下命令，以禁用虚拟网络结构：
 +
-`fosconfig -disable vf``
+`fosconfig -disable vf`
 
 . 重新启动交换机。
 
@@ -4313,7 +4442,6 @@ NOTE: 只有 ONTAP 9.4 及更高版本才支持在 Brocade G620 交换机上使�
 
 === 设置身份验证策略
 
-[role="lead"]
 您必须设置身份验证策略和关联参数。
 
 必须在交换机控制台上执行这些命令。
@@ -4406,7 +4534,6 @@ Auth Policy is set to ON
 
 === 在 Brocade 交换机上启用 ISL 加密
 
-[role="lead"]
 设置身份验证策略和身份验证密钥后，必须在端口上启用 ISL 加密，才能使其生效。
 
 .关于此任务
@@ -4423,7 +4550,10 @@ Auth Policy is set to ON
 在以下示例中，在端口 8 和 12 上启用加密：
 
 +
-`portCfgEncrypt — enable 8``portCfgEncrypt —启用 12`
+`portCfgEncrypt —启用 8`
+
++
+`portCfgEncrypt —启用 12`
 
 . 启用交换机：
 +

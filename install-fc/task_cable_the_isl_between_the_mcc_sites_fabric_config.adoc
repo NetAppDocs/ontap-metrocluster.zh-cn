@@ -23,6 +23,4 @@ summary: 您必须通过光纤交换机间链路（ ISL ）连接每个站点的
 
 
 
-* 相关信息 *
-
 link:concept_considerations_isls_mcfc.html["ISL 注意事项"]

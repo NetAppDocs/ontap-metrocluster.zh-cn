@@ -14,8 +14,9 @@ summary: 您必须根据是否使用 FlexArray LUN ， MetroCluster 配置中的
 
 image::../media/workflow_select_your_metrocluster_configuration_fabric.gif[工作流选择 MetroCluster 配置网络结构]
 
-[cols="2*"]
 |===
+
+
 | 此安装类型 ... | 使用以下过程 ... 
 
 

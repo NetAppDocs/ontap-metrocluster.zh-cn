@@ -19,7 +19,7 @@ summary: 您必须在每个节点上创建数据聚合，并实施和验证 Metr
 +
 link:task_mirror_the_root_aggregates_mcc_with_array_luns.html["镜像根聚合："]。
 
-.. 如果需要，可创建未镜像的数据聚合：
+.. 如果需要，请创建未镜像的数据聚合：
 +
 link:concept_configure_the_mcc_software_in_ontap.html#creating-a-mirrored-data-aggregate-on-each-node["在每个节点上创建镜像数据聚合"]。
 
@@ -36,12 +36,12 @@ link:concept_configure_the_mcc_software_in_ontap.html#creating-a-mirrored-data-a
 
 . 安装和配置 MetroCluster Tiebreaker 软件：
 +
-.. link:../tiebreaker/task_install_the_tiebreaker_software.html["安装 Tiebreaker 软件"]
-.. link:../tiebreaker/concept_configuring_the_tiebreaker_software.html["配置 Tiebreaker 软件"]
+.. link:../tiebreaker/task_install_the_tiebreaker_software.html["安装 Tiebreaker 软件"]。
+.. link:../tiebreaker/concept_configuring_the_tiebreaker_software.html["配置 Tiebreaker 软件"]。
 
 
 . 设置配置备份文件的目标：
 +
-link:concept_configure_the_mcc_software_in_ontap.html#protecting-coonfiguration-backup-files["保护配置备份文件"]。
+link:concept_configure_the_mcc_software_in_ontap.html#protecting-configuration-backup-files["保护配置备份文件"]。
 
 

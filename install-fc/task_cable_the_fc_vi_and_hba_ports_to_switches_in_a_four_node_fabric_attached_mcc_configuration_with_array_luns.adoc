@@ -12,6 +12,7 @@ summary: 如果要设置使用阵列 LUN 的四节点光纤连接 MetroCluster �
 [role="lead"]
 如果要设置使用阵列 LUN 的四节点光纤连接 MetroCluster 配置，则必须使用缆线将 FC-VI 端口和 HBA 端口连接到交换机端口。
 
+.关于此任务
 * 您必须对两个 MetroCluster 站点上的每个控制器重复此任务。
 * 如果您计划在 MetroCluster 配置中除了使用阵列 LUN 外还使用磁盘，则必须使用为使用磁盘配置而指定的 HBA 端口和交换机端口。
 +

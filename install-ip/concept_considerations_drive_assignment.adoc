@@ -58,8 +58,9 @@ NOTE: 从 ONTAP 9.5 开始，必须启用 `disk auto_assignment` 才能自动进
 
 下表显示了如何在 48 个驱动器内部磁盘架中放置 24 个磁盘的示例。此外，还会显示驱动器的所有权。
 
-[cols="2*"]
 |===
+
+
 | 48 个驱动器托架分为四个部分： | 在每个季度的前六个托架中安装六个驱动器 ... 
 
 
@@ -150,7 +151,7 @@ NOTE: 从 ONTAP 9.5 开始，必须启用 `disk auto_assignment` 才能自动进
 
 * 相关信息 *
 
-xref:concept_required_mcc_ip_components_and_naming_guidelines_mcc_ip.adoc[所需的 MetroCluster IP 组件和命名约定]
+link:concept_required_mcc_ip_components_and_naming_guidelines_mcc_ip.html["所需的 MetroCluster IP 组件和命名约定"]
 
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
@@ -172,8 +173,9 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 === AFF A320 系统上的 ADP 和磁盘分配
 
-[cols="4*"]
 |===
+
+
 | 准则 | 每个站点的磁盘架数 | 驱动器分配规则 | 根分区的 ADP 布局 
 
 
@@ -218,8 +220,9 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 === AFF A220 系统上的 ADP 和磁盘分配
 
-[cols="4*"]
 |===
+
+
 | 准则 | 每个站点的磁盘架数 | 驱动器分配规则 | 根分区的 ADP 布局 
 
 
@@ -280,8 +283,9 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 
 === AFF A250 系统上的 ADP 和磁盘分配
 
-[cols="4*"]
 |===
+
+
 | 准则 | 每个站点的磁盘架数 | 驱动器分配规则 | 根分区的 ADP 布局 
 
 
@@ -322,8 +326,9 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 
 === AFF A300 系统上的 ADP 和磁盘分配
 
-[cols="4*"]
 |===
+
+
 | 准则 | 每个站点的磁盘架数 | 驱动器分配规则 | 根分区的 ADP 布局 
 
 
@@ -364,8 +369,9 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 
 === AFF A400 系统上的 ADP 和磁盘分配
 
-[cols="4*"]
 |===
+
+
 | 准则 | 每个站点的磁盘架数 | 驱动器分配规则 | 根分区的 ADP 布局 
 
 
@@ -404,7 +410,6 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 
 === AFF A700 系统上的 ADP 和磁盘分配
 
-[cols="4*"]
 |===
 | 准则 | 每个站点的磁盘架数 | 驱动器分配规则 | 根分区的 ADP 布局 
 
@@ -444,8 +449,9 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 
 === AFF A800 系统上的 ADP 和磁盘分配
 
-[cols="4*"]
 |===
+
+
 | 准则 | 每个站点的磁盘架数 | 驱动器分配规则 | 根聚合的 ADP 布局 
 
 
@@ -488,8 +494,9 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 
 === 在 FAS2750 系统上分配磁盘
 
-[cols="4*"]
 |===
+
+
 | 准则 | 每个站点的磁盘架数 | 驱动器分配规则 | 根分区的 ADP 布局 
 
 
@@ -507,8 +514,9 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 
 === 在 FAS8200 系统上分配磁盘
 
-[cols="4*"]
 |===
+
+
 | 准则 | 每个站点的磁盘架数 | 驱动器分配规则 | 根分区的 ADP 布局 
 
 
@@ -526,8 +534,9 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 
 === FAS500f 系统上的磁盘分配
 
-[cols="4*"]
 |===
+
+
 | 准则 | 每个站点的磁盘架数 | 驱动器分配规则 | 根分区的 ADP 布局 
 
 
@@ -545,8 +554,9 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 
 === 在 FAS9000 系统上分配磁盘
 
-[cols="4*"]
 |===
+
+
 | 准则 | 每个站点的磁盘架数 | 驱动器分配规则 | 根分区的 ADP 布局 
 
 

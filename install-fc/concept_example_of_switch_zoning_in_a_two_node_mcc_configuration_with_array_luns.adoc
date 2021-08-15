@@ -41,6 +41,8 @@ image::../media/zoning_two_node_mcc_fabric_attached.gif[对连接的双节点 MC
 下表显示了图中的分区：
 
 |===
+
+
 | 分区 | ONTAP 控制器和启动程序端口 | 存储阵列端口 
 
 
@@ -107,9 +109,7 @@ Z7
 
 
 
- a| 
-* FC_switch_B_2*
-
+3+| * FC_switch_B_2* 
 
 
  a| 
@@ -132,6 +132,8 @@ Z8.
 下表显示了 FC-VI 连接的分区：
 
 |===
+
+
 | 分区 | ONTAP 控制器和启动程序端口 | 交换机 
 
 

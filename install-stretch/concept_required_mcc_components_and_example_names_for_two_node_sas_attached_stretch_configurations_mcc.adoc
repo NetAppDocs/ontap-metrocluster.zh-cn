@@ -2,7 +2,7 @@
 permalink: install-stretch/concept_required_mcc_components_and_example_names_for_two_node_sas_attached_stretch_configurations_mcc.html 
 sidebar: sidebar 
 keywords: metrocluster, stretch, installation, required, hardware, components, naming, guidelines, two, node, sas, configuration 
-summary: MetroCluster 配置需要多种硬件组件。为了方便和清晰起见， MetroCluster 文档中会使用标准组件名称。此外，一个站点称为站点 A ，另一个站点称为站点 B 
+summary: MetroCluster 配置需要多种硬件组件。为了方便和清晰起见， MetroCluster 文档中会使用标准组件名称。一个站点称为站点 A ，另一个站点称为站点 B 
 ---
 = 双节点 SAS 连接延伸型配置所需的 MetroCluster 硬件组件和命名准则
 :icons: font
@@ -10,7 +10,7 @@ summary: MetroCluster 配置需要多种硬件组件。为了方便和清晰起�
 
 
 [role="lead"]
-MetroCluster 配置需要多种硬件组件。为了方便和清晰起见， MetroCluster 文档中会使用标准组件名称。此外，一个站点称为站点 A ，另一个站点称为站点 B
+MetroCluster 配置需要多种硬件组件。为了方便和清晰起见， MetroCluster 文档中会使用标准组件名称。一个站点称为站点 A ，另一个站点称为站点 B
 
 
 
@@ -26,7 +26,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 == MetroCluster 配置中的硬件冗余
 
-由于 MetroCluster 配置中的硬件冗余，因此每个站点上的每个组件都有两个。随机地为站点分配字母 A 和 B ，并为各个组件分配编号 1 和 2 。
+由于 MetroCluster 配置中的硬件冗余，因此每个站点都有两个组件。随机地为站点分配字母 A 和 B ，并为各个组件分配编号 1 和 2 。
 
 
 
@@ -57,7 +57,10 @@ SAS 连接的延伸型 MetroCluster 配置需要两个存储控制器模块。
 
 +
 ** 板载 FC-VI 端口
-** 不支持插槽 1 中的 FC-VI 卡一个控制器模块使用板载 FC-VI 端口，另一个控制器模块使用附加 FC-VI 卡。例如，如果一个节点使用板载 FC-VI 配置，则 DR 组中的所有其他节点也必须使用板载 FC-VI 配置。
+** 插槽 1 中的 FC-VI 卡
++
+不支持一个控制器模块使用板载 FC-VI 端口，另一个控制器模块使用附加 FC-VI 卡。例如，如果一个节点使用板载 FC-VI 配置，则 DR 组中的所有其他节点也必须使用板载 FC-VI 配置。
+
 
 
 

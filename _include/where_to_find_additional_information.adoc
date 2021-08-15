@@ -9,6 +9,8 @@
 == MetroCluster 和其他指南
 
 |===
+
+
 | 指南 | 内容 
 
 
@@ -87,8 +89,7 @@ link:../tiebreaker/index.html["《 MetroCluster 升级，过渡和扩展指南�
  a| 
 https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
 
-
-NOTE: 标准存储架维护过程可用于 MetroCluster IP 配置。
+* 注： * 标准存储架维护过程可用于 MetroCluster IP 配置。
  a| 
 * 热添加磁盘架
 * 热移除磁盘架

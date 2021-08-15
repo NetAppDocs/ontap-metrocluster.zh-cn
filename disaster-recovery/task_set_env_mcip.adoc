@@ -21,8 +21,9 @@ summary: 在 MetroCluster IP 配置中，您可以检索以太网端口上 Metro
 
 NOTE: 这些示例适用于 AFF A700 或 FAS9000 系统。接口因平台型号而异。
 
-[cols="3*"]
 |===
+
+
 | 节点 | 端口 | IP 地址 
 
 
@@ -82,6 +83,8 @@ e5a
 下表总结了节点与每个节点的 MetroCluster IP 地址之间的关系。
 
 |===
+
+
 | 节点 | HA 配对节点 | DR 配对节点 | DR 辅助配对节点 
 
 
@@ -195,6 +198,8 @@ node_A_1
 下表列出了在 MetroCluster IP 接口上使用 VLAN ID 的平台型号。如果您不使用默认 VLAN ID ，则这些型号可能需要执行其他步骤。
 
 |===
+
+
 2+| 使用 MetroCluster IP 接口的 VLAN ID 的平台型号 
 
 
@@ -375,6 +380,8 @@ cluster_A::*>
 ----
 +
 |===
+
+
 | 节点 | UUID 
 
 
