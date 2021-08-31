@@ -17,10 +17,10 @@ summary: 您必须在两个控制器模块上设置配对系统 ID ，以便它�
 .步骤
 . 在现有控制器模块上，将配对系统 ID 设置为新控制器模块的配对系统 ID ：
 +
-` * setenv partner-sysid _sysID_of_new_controller_*`
+`setenv partner-sysid _sysID_of_new_controller_`
 
 . 在新控制器模块上，将配对系统 ID 设置为现有控制器模块的配对系统 ID ：
 +
-` * setenv partner-sysid _sysID_of_existing_controller_*`
+`setenv partner-sysid _sysID_of_existing_controller_`
 
 

@@ -15,7 +15,7 @@ summary: 扩展 MetroCluster 配置后，必须重新启动 SVM 。
 .步骤
 . 确定需要重新启动的 SVM ：
 +
-` * MetroCluster SVM show*`
+`MetroCluster SVM show`
 
 +
 此命令显示两个 MetroCluster 集群上的 SVM 。
@@ -24,21 +24,21 @@ summary: 扩展 MetroCluster 配置后，必须重新启动 SVM 。
 +
 .. 进入高级权限模式，出现提示时按 ` * y*` ：
 +
-` * 设置 -privilege advanced*`
+`set -privilege advanced`
 
 .. 重新启动 SVM ：
 +
-` * vserver start -vserver _svm_name_ -force true*`
+`vserver start -vserver _svm_name_ -force true`
 
 .. 返回到管理权限模式：
 +
-` * 设置 -privilege admin*`
+`set -privilege admin`
 
 
 
 . 在配对集群上重复上述步骤。
 . 验证 SVM 是否处于运行状况良好的状态：
 +
-` * MetroCluster SVM show*`
+`MetroCluster SVM show`
 
 

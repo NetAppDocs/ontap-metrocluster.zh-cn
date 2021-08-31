@@ -1,6 +1,7 @@
 ---
 section: manage
 title: 执行切换，修复和切回
+url: "/manage/index.html"
 entries:
 - title: 为测试或维护执行切换
   url: "/manage/task_perform_switchover_for_tests_or_maintenance.html"

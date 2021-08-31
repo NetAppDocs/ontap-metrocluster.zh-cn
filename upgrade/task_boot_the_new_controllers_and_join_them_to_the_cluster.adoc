@@ -21,10 +21,10 @@ summary: 要将新控制器加入集群，您必须启动每个新控制器模�
 .步骤
 . 如果尚未启动，请启动每个节点并让其完全启动。
 +
-如果系统处于维护模式，请使用问题描述命令 ` * halt*` 退出维护模式，然后问题描述从加载程序提示符处运行以下命令：
+如果系统处于维护模式，请问题描述 `halt` 命令退出维护模式，然后问题描述从加载程序提示符处运行以下命令：
 
 +
-` * boot_ontap*`
+`boot_ontap`
 
 +
 控制器模块进入节点设置向导。
@@ -63,20 +63,20 @@ Enter the node management interface default gateway: 10.228.160.1
 ----
 . 确认节点已配置为高可用性模式：
 +
-` * 存储故障转移 show -fields mode*`
+`s存储故障转移 show -fields mode`
 
 +
 如果不是，则必须在每个节点上执行问题描述以下命令，然后重新启动节点：
 
 +
-` * storage failover modify -mode ha -node localhost*`
+`storage failover modify -mode ha -node localhost`
 
 +
 此命令可配置高可用性模式，但不会启用存储故障转移。在配置过程的稍后部分问题描述 the `MetroCluster configure` 命令时，存储故障转移会自动启用。
 
 . 确认已将四个端口配置为集群互连：
 +
-` * 网络端口显示 *`
+`network port show`
 
 +
 以下示例显示了 cluster_A 中两个控制器的输出如果是双节点 MetroCluster 配置，则输出仅显示一个节点。
@@ -108,10 +108,13 @@ node_A_2
 ----
 . 由于您正在使用命令行界面设置集群，请退出节点设置向导：
 +
-` * 退出 *`
+`退出`
 
-. 使用 ` * admin*` 用户名登录到管理员帐户。
-. 启动集群设置向导，然后加入现有集群： ` * 集群设置 *`
+. 使用 `admin` 用户名登录到 admin 帐户。
+. 启动集群设置向导，然后加入现有集群：
++
+`集群设置`
+
 +
 [listing]
 ----
@@ -133,7 +136,7 @@ Do you want to create a new cluster or join an existing cluster? {create, join}:
 ----
 . 完成 * 集群设置 * 向导并退出后，验证集群是否处于活动状态且节点是否运行正常：
 +
-` * 集群显示 *`
+`cluster show`
 
 +
 以下示例显示了一个集群，其中第一个节点（ cluster1-01 ）运行状况良好且符合参与条件：
@@ -149,6 +152,6 @@ node_A_2           true    true
 node_A_3           true    true
 ----
 +
-如果需要更改为管理 SVM 或节点 SVM 输入的任何设置，您可以使用 ` * 集群设置命令 *` 访问 * 集群设置 * 向导。
+如果需要更改为管理 SVM 或节点 SVM 输入的任何设置，您可以使用 `cluster setup 命令` 访问 * 集群设置 * 向导。
 
 

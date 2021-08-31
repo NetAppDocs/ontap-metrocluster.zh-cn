@@ -76,8 +76,6 @@ System Manager 不支持未镜像聚合。
 
 执行切回时，您必须再次重复 site_A （原始集群）和 site_C 上的 SVM
 
-* 相关信息 *
-
 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["FlexCache 卷管理"]
 
 
@@ -143,7 +141,6 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁�
 
 == MetroCluster 配置中的作业计划
 
-[role="lead"]
 在 ONTAP 9.3 及更高版本中，用户创建的作业计划会自动在 MetroCluster 配置中的集群之间复制。如果在集群上创建，修改或删除作业计划，则会使用配置复制服务（ CRS ）在配对集群上自动创建相同的计划。
 
 
@@ -153,7 +150,6 @@ NOTE: 系统创建的计划不会复制，您必须在配对集群上手动执�
 
 == 从 MetroCluster 站点与第三个集群建立集群对等关系
 
-[role="lead"]
 由于不会复制对等配置，因此，如果您将 MetroCluster 配置中的一个集群与该配置之外的第三个集群建立对等关系，则还必须在配对 MetroCluster 集群上配置对等关系。这样，在发生切换时可以保持对等关系。
 
 非 MetroCluster 集群必须运行 ONTAP 8.3 或更高版本。否则，即使已在两个 MetroCluster 配对系统上配置对等关系，如果发生切换，对等关系也会丢失。
@@ -168,24 +164,20 @@ NOTE: 系统创建的计划不会复制，您必须在配对集群上手动执�
 
 == MetroCluster 配置的网络连接和 LIF 创建准则
 
-[role="lead"]
 您应了解如何在 MetroCluster 配置中创建和复制 LIF 。您还必须了解一致性要求，以便在配置网络时做出正确的决策。
-
-* 相关信息 *
 
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]
 
-xref:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#ipspace-object-replication-and-subnet-configuration-requirements[IP 空间对象复制和子网配置要求]
+link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#ipspace-object-replication-and-subnet-configuration-requirements["IP 空间对象复制和子网配置要求"]
 
-xref:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#requirements-for-lif-creation-in-a-metrocluster-configuration[在 MetroCluster 配置中创建 LIF 的要求]
+link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#requirements-for-lif-creation-in-a-metrocluster-configuration["在 MetroCluster 配置中创建 LIF 的要求"]
 
-xref:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#lif-replication-and-placement-requirements-and-issues[LIF 复制和放置要求和问题]
+link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#lif-replication-and-placement-requirements-and-issues["LIF 复制和放置要求和问题"]
 
 
 
 === IP 空间对象复制和子网配置要求
 
-[role="lead"]
 您应了解将 IP 空间对象复制到配对集群以及在 MetroCluster 配置中配置子网和 IPv6 的要求。
 
 
@@ -238,17 +230,14 @@ subnet1   192.168.2.0/24   Default   192.168.2.1       10/10    192.168.2.21-192
 
 如果在一个站点上配置了 IPv6 ，则在另一个站点上也必须配置 IPv6 。
 
-* 相关信息 *
+link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#requirements-for-lif-creation-in-a-metrocluster-configuration["在 MetroCluster 配置中创建 LIF 的要求"]
 
-xref:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#requirements-for-lif-creation-in-a-metrocluster-configuration[在 MetroCluster 配置中创建 LIF 的要求]
-
-xref:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#lif-replication-and-placement-requirements-and-issues[LIF 复制和放置要求和问题]
+link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#lif-replication-and-placement-requirements-and-issues["LIF 复制和放置要求和问题"]
 
 
 
 === 在 MetroCluster 配置中创建 LIF 的要求
 
-[role="lead"]
 在 MetroCluster 配置中配置网络时，您应了解创建 LIF 的要求。
 
 创建 LIF 时，必须考虑以下准则：
@@ -266,17 +255,14 @@ xref:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#lif-rep
 
 您可以运行 lIF MetroCluster check lif show 命令来确认是否已在 MetroCluster 配置中成功创建 LIF 。如果在创建 LIF 时遇到任何问题，可以使用 MetroCluster check lif repair-placement 命令修复这些问题。
 
-* 相关信息 *
+link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#ipspace-object-replication-and-subnet-configuration-requirements["IP 空间对象复制和子网配置要求"]
 
-xref:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#ipspace-object-replication-and-subnet-configuration-requirements[IP 空间对象复制和子网配置要求]
-
-xref:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#lif-replication-and-placement-requirements-and-issues[LIF 复制和放置要求和问题]
+link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#lif-replication-and-placement-requirements-and-issues["LIF 复制和放置要求和问题"]
 
 
 
 === LIF 复制和放置要求和问题
 
-[role="lead"]
 您应了解 MetroCluster 配置中的 LIF 复制要求。您还应了解复制的 LIF 如何放置在配对集群上，并应了解 LIF 复制或 LIF 放置失败时会出现的问题。
 
 
@@ -288,6 +274,8 @@ xref:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#lif-rep
 要将复制的 LIF 放置在配对集群上，系统必须满足以下条件：
 
 |===
+
+
 | 条件 | LIF 类型： FC | LIF 类型： IP/iSCSI 
 
 
@@ -349,45 +337,41 @@ LIF 放置
 
 在 DR 配对节点已被接管的节点上创建 iSCSI 或 FC LIF 时，复制的 LIF 将放置在 DR 辅助配对节点上。在后续交还操作之后， LIF 不会自动移动到 DR 配对节点。这可能会导致 LIF 集中在配对集群中的单个节点上。在 MetroCluster 切换操作期间，后续映射属于 Storage Virtual Machine （ SVM ）的 LUN 的尝试将失败。
 
-在执行接管操作或交还操作后，您应运行 MetroCluster check lif show 命令，以验证 LIF 放置是否正确。如果存在错误，您可以运行 MetroCluster check lif repair-placement 命令来解决这些问题。
+在执行接管操作或交还操作后，应运行 `MetroCluster check lif show` 命令，以验证 LIF 放置是否正确。如果存在错误，您可以运行 `MetroCluster check lif repair-placement` 命令来解决这些问题。
 
 
 
 ==== LIF 放置错误
 
-切换操作后， MetroCluster check lif show 命令显示的 LIF 放置错误将保留下来。如果对存在放置错误的 LIF 发出 network interface modify ， network interface rename 或 network interface delete 命令，则该错误将被删除，并且不会显示在 MetroCluster check lif show 命令的输出中。
+执行切换操作后， `MetroCluster check lif show` 命令显示的 LIF 放置错误将保留下来。如果对存在放置错误 MetroCluster 的 LIF 发出 `network interface modify` ， `network interface rename` 或 `network interface delete` 命令，则该错误将被删除，并且不会显示在 `lIF check lif show` 命令的输出中。
 
 
 
 ==== LIF 复制失败
 
-您还可以使用 lIF check lif show 命令检查 MetroCluster 复制是否成功。如果 LIF 复制失败，则会显示一条 EMS 消息。
+您也可以使用 `lf check lif show` 命令检查 MetroCluster 复制是否成功。如果 LIF 复制失败，则会显示一条 EMS 消息。
 
-您可以通过对未找到正确端口的任何 LIF 运行 MetroCluster check lif repair-placement 命令来更正复制失败。您应尽快解决任何 LIF 复制失败问题，以便在 MetroCluster 切换操作期间验证 LIF 的可用性。
+您可以通过对未找到正确端口的任何 LIF 运行 `MetroCluster check lif repair-placement` 命令来更正复制失败。您应尽快解决任何 LIF 复制失败问题，以便在 MetroCluster 切换操作期间验证 LIF 的可用性。
 
 
 NOTE: 即使源 SVM 已关闭，但如果目标 SVM 中具有相同 IP 空间和网络的端口中存在属于不同 SVM 的 LIF ，则 LIF 放置可能会正常进行。
 
-* 相关信息 *
+link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#ipspace-object-replication-and-subnet-configuration-requirements["IP 空间对象复制和子网配置要求"]
 
-xref:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#ipspace-object-replication-and-subnet-configuration-requirements[IP 空间对象复制和子网配置要求]
-
-xref:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#requirements-for-lif-creation-in-a-metrocluster-configuration[在 MetroCluster 配置中创建 LIF 的要求]
+link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#requirements-for-lif-creation-in-a-metrocluster-configuration["在 MetroCluster 配置中创建 LIF 的要求"]
 
 
 
 === 在根聚合上创建卷
 
-[role="lead"]
 系统不允许在 MetroCluster 配置中节点的根聚合（具有 CFO HA 策略的聚合）上创建新卷。
 
-由于存在此限制，无法使用 vserver add-aggregates 命令将根聚合添加到 SVM 中。
+由于存在此限制，无法使用 `vserver add-aggregates` 命令将根聚合添加到 SVM 中。
 
 
 
 == MetroCluster 配置中的 SVM 灾难恢复
 
-[role="lead"]
 从 ONTAP 9.5 开始， MetroCluster 配置中的活动 Storage Virtual Machine （ SVM ）可用作 SnapMirror SVM 灾难恢复功能的源。目标 SVM 必须位于 MetroCluster 配置之外的第三个集群上。
 
 在使用 SVM 进行 SnapMirror 灾难恢复时，您应了解以下要求和限制：
@@ -416,9 +400,7 @@ image::../media/svm_dr_image_2.gif[SVM DR 映像 2]
 
 
 
-有关配置 SVM DR 关系的详细信息，请参见 _Data Protection 高级指南 _ 中的`复制 SVM 配置` 一节。
-
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["数据保护"]
+请参见中的 "`复制 SVM 配置` " http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["数据保护"] 有关配置 SVM DR 关系的详细信息。
 
 
 
@@ -465,5 +447,8 @@ image::../media/svm_dr_resynchronization.gif[SVM DR 重新同步]
 
 NOTE: 在 ONTAP 9.0 之前的版本中，每次切换都会使用 NVFAIL 标志。在 ONTAP 9.0 及更高版本中，使用计划外切换（ USO ）。
 
-. 通过将 vol -dr-force-nvfail 参数设置为 on ，启用 MetroCluster 配置以在切换时触发 NVFAIL ： `vol modify -vserver vserver-name -volume volume-name -dr-force-nvfail on`
+. 通过将 `vol -dr-force-nvfail` 参数设置为 on ，启用 MetroCluster 配置以在切换时触发 NVFAIL ：
++
+`vol modify -vserver vserver-name -volume volume-name -dr-force-nvfail on`
+
 

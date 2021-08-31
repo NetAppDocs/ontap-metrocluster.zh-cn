@@ -24,7 +24,7 @@ image::../media/mcc_dr_group_a.png[MCC DR 组 A]
 
 . 对您的 MetroCluster 类型执行四节点扩展操作步骤中的所有步骤。
 +
-xref:task_expand_a_four_node_mcc_fc_configuration_to_an_eight_node_configuration.adoc[将四节点 MetroCluster FC 配置扩展为八节点配置]
+link:task_expand_a_four_node_mcc_fc_configuration_to_an_eight_node_configuration.html["将四节点 MetroCluster FC 配置扩展为八节点配置"]
 
 +
 扩展操作步骤完成后，此配置将如下图所示：
@@ -52,10 +52,10 @@ NOTE: 您可以选择在创建聚合时或之后对其进行镜像。
 
 . 按照操作步骤中的步骤删除旧 DR 组。
 +
-xref:concept_removing_a_disaster_recovery_group.adoc[删除灾难恢复组]
+link:concept_removing_a_disaster_recovery_group.html["删除灾难恢复组"]
 
 +
-删除旧 DR 组（ DR 组 1 ）后，配置将显示为下图所示：
+删除旧 DR 组（ DR 组 1 ）后，此配置将显示为下图所示：
 
 +
 image::../media/mcc_dr_group_d.png[MCC DR 组 d]

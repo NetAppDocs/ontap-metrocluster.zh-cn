@@ -11,6 +11,7 @@
 
 . 清除节点配置：
 +
+--
 ** 如果您使用的系统配置了 ADP ，请从启动菜单中选择选项 `9a` ，并在出现提示时回答 `yes` 。
 +
 
@@ -49,7 +50,11 @@ Please choose one of the following:
 
     Do you still want to continue (yes/no)? yes
 ----
-** 如果您的系统未配置 ADP ，请在启动菜单提示符处键入 wipeconfig ，然后按 Enter 键。
+
+
+--
++
+** 如果您的系统未配置 ADP ，请在启动菜单提示符处键入 `wipeconfig` ，然后按 Enter 键。
 +
 以下屏幕将显示启动菜单提示符：
 

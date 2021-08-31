@@ -16,16 +16,17 @@ summary: 向 MetroCluster 配置添加新控制器模块后，必须在两个控
 
 必须在每个 MetroCluster 站点上执行此任务。
 
+.步骤
 . 启用存储故障转移：
 +
-` * storage failover modify -enabled true -node _existing-node-name_*`
+`storage failover modify -enabled true -node _existing-node-name_`
 
 +
 只需一个命令，即可在两个控制器模块上启用存储故障转移。
 
 . 验证是否已启用存储故障转移：
 +
-` * 存储故障转移显示 *`
+`s存储故障转移显示`
 
 +
 输出应类似于以下内容：
@@ -42,7 +43,7 @@ new-ctlr        old-ctlr      true      Connected to old-ctlr
 ----
 . 启用集群 HA ：
 +
-` * cluster ha modify -configured true*`
+`cluster ha modify -configured true`
 
 +
 如果集群仅包含两个节点且与存储故障转移提供的 HA 不同，则必须在集群中配置集群高可用性（ HA ）。

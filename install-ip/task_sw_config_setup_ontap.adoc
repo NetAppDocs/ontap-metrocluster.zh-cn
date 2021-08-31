@@ -10,6 +10,7 @@ summary: 启动每个节点后，系统将提示您执行基本节点和集群�
 [role="lead"]
 启动每个节点后，系统将提示您执行基本节点和集群配置。配置集群后，您可以返回到 ONTAP 命令行界面以创建聚合并创建 MetroCluster 配置。
 
+.开始之前
 * 您必须已为 MetroCluster 配置布线。
 * 您不能事先配置服务处理器。
 
@@ -18,9 +19,10 @@ summary: 启动每个节点后，系统将提示您执行基本节点和集群�
 
 必须对 MetroCluster 配置中的两个集群执行此任务。
 
+.步骤
 . 如果尚未启动本地站点上的每个节点，请将其启动并让其完全启动。
 +
-如果系统处于维护模式问题描述，则需要使用问题描述 halt 命令退出维护模式，然后使用 boot_ontap 命令启动系统并进入集群设置。
+如果系统处于维护模式，则需要使用问题描述 halt 命令退出维护模式，然后使用问题描述 `boot_ontap` 命令启动系统并进入集群设置。
 
 . 在每个集群中的第一个节点上，按照提示继续配置集群
 +
@@ -53,7 +55,6 @@ Welcome to the cluster setup wizard.
     http://support.netapp.com/autosupport/
 
     Type yes to confirm and continue {yes}: yes
-
 .
 .
 .
@@ -185,19 +186,31 @@ Where is the controller located []: site_A
 您可以使用 ONTAP 系统管理器将 Web 浏览器指向集群管理 IP 地址 (https://172.17.12.153)[]。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["使用 System Manager 进行集群管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["使用 System Manager 进行集群管理（ 9.0 到 9.6 版）"]
+
++
+https://docs.netapp.com/us-en/ontap/index.html#about-ontap-system-manager["ONTAP System Manager （ 9.7 及更高版本）"]
 
 
 
 . 按照提示启动下一个控制器并将其加入集群。
-. 确认节点已配置为高可用性模式： `storage failover show -fields mode`
+. 确认节点已配置为高可用性模式：
 +
-否则，您必须在每个节点上配置 HA 模式，然后重新启动节点： `storage failover modify -mode ha -node localhost`
+`s存储故障转移 show -fields mode`
+
++
+如果没有，则必须在每个节点上配置 HA 模式，然后重新启动节点：
+
++
+`storage failover modify -mode ha -node localhost`
 
 +
 此命令可配置高可用性模式，但不会启用存储故障转移。如果稍后配置 MetroCluster 配置，则会自动启用存储故障转移。
 
-. 确认已将四个端口配置为集群互连： `network port show`
+. 确认已将四个端口配置为集群互连：
++
+`network port show`
+
 +
 此时未配置 MetroCluster IP 接口，并且此接口不会显示在命令输出中。
 

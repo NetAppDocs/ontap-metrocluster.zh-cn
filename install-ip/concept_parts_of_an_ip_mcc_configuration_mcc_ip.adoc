@@ -56,14 +56,11 @@ image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
 
 == MetroCluster 配置中的本地 HA 对示意图
 
-[role="lead"]
 每个 MetroCluster 站点都包含配置为 HA 对的存储控制器。这样可以实现本地冗余，以便在一个存储控制器发生故障时，其本地 HA 配对节点可以接管。可以在不执行 MetroCluster 切换操作的情况下处理此类故障。
 
 本地 HA 故障转移和交还操作可使用 storage failover 命令执行，与非 MetroCluster 配置的方式相同。
 
 image::../media/mcc_ip_hardware_architecture_ha_pairs.gif[MCC IP 硬件架构 ha 对]
-
-* 相关信息 *
 
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"]
 
@@ -71,7 +68,6 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["
 
 == MetroCluster IP 和集群互连网络图示
 
-[role="lead"]
 ONTAP 集群通常包含一个集群互连网络，用于传输集群中节点之间的流量。在 MetroCluster IP 配置中，此网络还用于在 MetroCluster 站点之间传输数据复制流量。
 
 image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[MCC IP 硬件架构 IP 互连]
@@ -86,27 +82,22 @@ MetroCluster IP 配置中的每个节点都具有专用的 LIF ，用于连接�
 
 image::../media/mcc_ip_lif_usage.gif[MCC IP LIF 使用情况]
 
-* 相关信息 *
-
-xref:concept_prepare_for_the_mcc_installation.html#considerations-for-metrocluster-ip-configuration[MetroCluster IP 配置的注意事项]
+link:concept_considerations_mcip.html["MetroCluster IP 配置的注意事项"]
 
 
 
 == 集群对等网络的图示
 
-[role="lead"]
 MetroCluster 配置中的两个集群通过客户提供的集群对等网络建立对等关系。集群对等支持站点之间的 Storage Virtual Machine （ SVM ，以前称为 Vserver ）的同步镜像。
 
 必须在 MetroCluster 配置中的每个节点上配置集群间 LIF ，并且必须为集群配置对等关系。具有集群间 LIF 的端口将连接到客户提供的集群对等网络。通过配置复制服务在此网络上执行 SVM 配置复制。
 
 image::../media/mcc_ip_hardware_architecture_cluster_peering_network.gif[MCC IP 硬件架构集群对等网络]
 
-* 相关信息 *
-
 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"]
 
-link:concept_prepare_for_the_mcc_installation.html#considerations-for-configuring-cluster-peering["配置集群对等的注意事项"]
+link:concept_considerations_peering.html["配置集群对等的注意事项"]
 
-link:task_install_and_cable_the_mcc_components.html#cabling-the-cluster-peering-connections["为集群对等连接布线"]
+link:task_cable_ip_switches.html["为集群对等连接布线"]
 
-link:concept_configure_the_mcc_software_in_ontap.html#peering-the-clusters["为集群建立对等关系"]
+link:task_sw_config_configure_clusters.html#peering-the-clusters["为集群建立对等关系"]

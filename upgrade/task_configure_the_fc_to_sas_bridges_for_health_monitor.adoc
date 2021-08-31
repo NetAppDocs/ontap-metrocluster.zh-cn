@@ -9,12 +9,13 @@ summary: FibreBridge 网桥不支持第三方 SNMP 监控工具。从 ONTAP 9.8 
 :imagesdir: ../media/
 
 
+.关于此任务
 * FibreBridge 网桥不支持第三方 SNMP 监控工具。
 * 从 ONTAP 9.8 开始，默认情况下， FC-SAS 网桥通过带内连接进行监控，不需要进行其他配置。
 
 
 
-NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+NOTE: 从 ONTAP 9.8 开始， `storage bridge` 命令将替换为 `ssystem bridge` 。以下步骤显示了 `storage bridge` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 `ssystem bridge` 命令。
 
 .步骤
 . 在 ONTAP 集群提示符处，将此网桥添加到运行状况监控：
@@ -22,25 +23,30 @@ NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system
 .. 使用适用于您的 ONTAP 版本的命令添加网桥：
 +
 |===
+
+
 | ONTAP 版本 | 命令 
 
 
  a| 
 9.5 及更高版本
  a| 
-` * 存储网桥 add -address 0.0.0.0 -managed-by 带内 -name _bridge-name_*`
+`storage bridge add -address 0.0.0.0 -managed-by in-band -name _bridge-name_`
 
 
 
  a| 
 9.4 及更早版本
  a| 
-` * 存储网桥 add -address _bridge-ip-address_ -name _bridge-name_*`
+`storage bridge add -address _bridge-ip-address_ -name _bridge-name_`
 
 |===
-.. 确认已添加网桥并已正确配置： + ` * storage bridge show*`
+.. 验证是否已添加此网桥并已正确配置：
 +
-由于轮询间隔，可能需要长达 15 分钟才能反映所有数据。如果 ` * 状态 *` 列中的值为 ` * ok*` ，并且显示了其他信息，例如全球通用名称（ WWN ），则 ONTAP 运行状况监控器可以联系并监控网桥。
+`storage bridge show`
+
++
+由于轮询间隔，可能需要长达 15 分钟才能反映所有数据。如果 "Status" 列中的值为 "ok" ，并且显示了其他信息，例如全球通用名称（ WWN ），则 ONTAP 运行状况监控器可以联系并监控网桥。
 
 +
 以下示例显示已配置 FC-SAS 网桥：

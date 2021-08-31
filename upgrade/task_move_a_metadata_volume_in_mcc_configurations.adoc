@@ -12,6 +12,7 @@ summary: 您可以将元数据卷从 MetroCluster 配置中的一个聚合移动
 [role="lead"]
 您可以将元数据卷从 MetroCluster 配置中的一个聚合移动到另一个聚合。如果源聚合已停用或未镜像，或者由于其他原因使聚合不符合条件，您可能需要移动元数据卷。
 
+.关于此任务
 * 要执行此任务，您必须具有集群管理员权限。
 * 目标聚合必须已镜像，并且不应处于已降级状态。
 * 目标聚合中的可用空间必须大于要移动的元数据卷。
@@ -20,11 +21,11 @@ summary: 您可以将元数据卷从 MetroCluster 配置中的一个聚合移动
 .步骤
 . 将权限级别设置为高级：
 +
-` * 设置 -privilege advanced*`
+`set -privilege advanced`
 
 . 确定应移动的元数据卷：
 +
-` * volume show mDV_CRS*`
+`volume show mDV_CRS*`
 
 +
 [listing]
@@ -54,7 +55,7 @@ Cluster_A::>
 ----
 . 确定符合条件的目标聚合：
 +
-` * MetroCluster check config-replication show-aggregate-eligibility*`
+MetroCluster check config-replication show-aggregate-eligibility`
 
 +
 以下命令标识 cluster_A 中符合托管元数据卷条件的聚合：
@@ -84,10 +85,10 @@ NOTE: 在上一示例中， Node_A_1_aggr2 和 Node_A_2_aggr2 均符合条件。
 
 . 启动卷移动操作：
 +
-` * 卷移动开始 -vserver _svm_name_ -volume _metadata_volume_name_ -destination-aggregate _destination_aggregate_name_*`
+`volume move start -vserver _svm_name_ -volume _metadata_volume_name_ -destination-aggregate _destination_aggregate_name_*`
 
 +
-以下命令将元数据卷 `MDV_CRS_14c00d4ac9f311e7922800a0984395f1` 从 `aggregate Node_A_1_aggr1` 移动到 `aggregate Node_A_1_aggr2` ：
+以下命令将元数据卷 "mdv_CRS_14c00d4ac9f311e7922800a0984395f1" 从 "aggregate Node_A_1_aggr1" 移动到 "aggregate Node_A_1_aggr2" ：
 
 +
 [listing]
@@ -106,10 +107,10 @@ MDV_CRS_9da04864ca6011e7b82e0050568be9fe_A" command to view the status of this o
 ----
 . 验证卷移动操作的状态：
 +
-` * volume move show -volume vol_constituent_name*`
+`volume move show -volume vol_constituent_name`
 
 . 返回到管理权限级别：
 +
-` * 设置 -privilege admin*`
+`set -privilege admin`
 
 

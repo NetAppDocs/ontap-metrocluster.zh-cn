@@ -12,32 +12,33 @@ summary: 安装 ONTAP 调解器服务后，您可能需要更改密码。您可�
 [role="lead"]
 安装 ONTAP 调解器服务后，您可能需要更改用户名。您可以通过两种方式更改密码。
 
-* 关于此任务 *
-
 此任务在安装了 ONTAP 调解器服务的 Linux 主机上执行。
 
-如果无法访问此命令，则可能需要使用完整路径运行此命令，如以下示例所示： /usr/local/bin/medier_username
+如果无法访问此命令，则可能需要使用完整路径运行此命令，如以下示例所示：
 
-* 操作步骤 *
+` /usr/local/bin/medier_username`
 
 通过选择以下选项之一更改用户名：
 
 * 运行命令 mediate_change_user 并响应提示，如以下示例所示：
 +
 ....
-[root@mediator-host ~]# mediator_change_user
-Modify the Mediator API username by entering the following values:
-    Mediator API User Name: mediatoradmin
-                  Password:
-New Mediator API User Name: mediator
-The account username has been modified successfully.
-[root@mediator-host ~]#
+ [root@mediator-host ~]# mediator_change_user
+ Modify the Mediator API username by entering the following values:
+     Mediator API User Name: mediatoradmin
+                   Password:
+ New Mediator API User Name: mediator
+ The account username has been modified successfully.
+ [root@mediator-host ~]#
 ....
-* 运行以下命令： mediator_username=mediator mediator_password=mediator2 mediator_new_username=mediatoradmin mediator_change_user ，如以下示例所示：
+* 运行以下命令：
++
+`mEDIATOR_USERNAME=mediator mediator_password=mediator2 mediator_new_username=mediatoradmin mediator_change_user`
+
 +
 ....
-[root@mediator-host ~]# MEDIATOR_USERNAME= mediator MEDIATOR_PASSWORD='mediator2' MEDIATOR_NEW_USERNAME= mediatoradmin mediator_change_user
-The account username has been modified successfully.
-[root@mediator-host ~]#
+ [root@mediator-host ~]# MEDIATOR_USERNAME= mediator MEDIATOR_PASSWORD='mediator2' MEDIATOR_NEW_USERNAME= mediatoradmin mediator_change_user
+ The account username has been modified successfully.
+ [root@mediator-host ~]#
 ....
 

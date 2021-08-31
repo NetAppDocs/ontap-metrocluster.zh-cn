@@ -15,14 +15,14 @@ summary: 在为您的 FC-SAS 网桥型号布线之前，您必须在 FibreBridge
 您应决定是否使用网桥的带内管理。
 
 
-NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令。但是，如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
 
-如果要使用网桥的带内管理而不是 IP 管理，则可以跳过配置以太网端口和 IP 设置的步骤，如相关步骤中所述。
+如果要使用网桥的带内管理而不是 IP 管理，则可以跳过配置以太网端口和 IP 设置的步骤。
 
 .步骤
 . 如果配置为带内管理，请使用缆线从 FibreBridge RS -232 串行端口连接到个人计算机上的串行（ COM ）端口。
 +
-串行连接将用于初始配置，然后通过 ONTAP 进行带内管理， FC 端口可用于监控和管理网桥。
+此串行连接将用于初始配置。然后，可以使用 ONTAP 和 FC 端口的带内管理来监控和管理网桥。
 
 . 如果配置 IP 管理，请使用以太网缆线将每个网桥上的以太网管理 1 端口连接到您的网络。
 +
@@ -83,7 +83,10 @@ NOTE: 请勿在 ATTO FibreBridge 7600N 或 7500N 上配置时间同步。在 ONT
 *** bridge_A_1a
 *** bridge_A_1b
 *** bridge_B_1a
-*** bridge_B_1b 如果使用命令行界面，则必须运行以下命令：
+*** bridge_B_1b
++
+如果使用命令行界面，则必须运行以下命令：
+
 +
 ` * 设置 bridgename _bridgenename_*`
 

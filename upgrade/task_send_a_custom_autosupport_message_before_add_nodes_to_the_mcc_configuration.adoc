@@ -18,13 +18,13 @@ summary: 您应问题描述发送 AutoSupport 消息，通知 NetApp 技术支�
 . 登录到 Site_A 上的集群
 . 调用指示维护开始的 AutoSupport 消息：
 +
-` * 系统节点 AutoSupport 调用 -node * -type all -message MAIN=_maintenance-window-in-hours__*`
+`ssystem node AutoSupport invoke -node * -type all -message MAIN=_maintenance-window-in-hours_`
 
 +
-maintenance-window-in-hours 指定维护时段的长度，最长可为 72 小时。如果在该时间过后完成维护，您可以通过问题描述命令指示维护期已结束：
+`mmaintenance-window-in-hours` 参数指定维护窗口的长度，最长可为 72 小时。如果在该时间过后完成维护，您可以通过问题描述执行以下命令来指示维护期已结束：
 
 +
-` * 系统节点 AutoSupport 调用 -node * -type all -message MAINT=end*`
+`ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
 
 . 在配对站点上重复此步骤。
 

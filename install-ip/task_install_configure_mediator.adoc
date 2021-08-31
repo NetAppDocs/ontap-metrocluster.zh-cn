@@ -12,9 +12,12 @@ summary: 要安装 ONTAP 调解器服务，必须确保满足所有前提条件�
 [role="lead"]
 要安装 ONTAP 调解器服务，必须确保满足所有前提条件，获取安装包并在主机上运行安装程序。
 
-* 开始之前 * 必须满足以下前提条件。
+您必须满足以下前提条件。
 
+[cols="30,70"]
 |===
+
+
 | 调解器版本 | 支持的 Linux 版本 
 
 
@@ -53,19 +56,22 @@ NOTE: 内核版本必须与操作系统版本匹配。
 ** 3260
 
 
-* 如果使用第三方防火墙：请参见 xref:concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html#firewall-requirements-for-ontap-mediator[ONTAP 调解器的防火墙要求]
+* 如果使用第三方防火墙：请参见 link:concept_mediator_requirements.html#firewall-requirements-for-ontap-mediator["ONTAP 调解器的防火墙要求"]
 * 如果 Linux 主机所在位置无法访问 Internet ，您可以手动安装这些软件包，也可以确保所需的软件包在本地存储库中可用。
 +
 您可以使用以下链接获取有关设置存储库的信息。
 
 +
-如果您在 Linux 环境中使用链路聚合控制协议（ Link Aggregation Control Protocol ， LACP ），则必须正确配置内核，并确保 sysctl net.IPv4.conf.all.arp_ignore 设置为 `2` 。
+如果您在 Linux 环境中使用链路聚合控制协议（ Link Aggregation Control Protocol ， LACP ），则必须正确配置内核，并确保 `sysctl net.IPv4.conf.all.arp_ignore` 设置为 "2" 。
 
 +
 ONTAP 调解器服务需要以下软件包：
 
 +
+[cols="25,35,40"]
 |===
+
+
 | 所有 RHEL/CentOS 版本 | 适用于 RHEL/CentOS 7.x 的其他软件包 | 适用于 RHEL/CentOS 8.x 的其他软件包 
 
 
@@ -102,7 +108,10 @@ ONTAP 调解器服务需要以下软件包：
 +
 ... 打开 /etc/default/grub 文件。
 ... 将字符串 module.sig_enforce 添加到 Grub_CMDLINE_Linux 语句末尾。
-... 重新生成 grub.cfg 文件以实施更改： `update-bootloader || update-grub || grub2-mkconfig -o /boot/grub2/grub.cfg`
+... 重新生成 grub.cfg 文件以实施更改：
++
+`update-bootloader || update-grub || grub2-mkconfig -o /boot/grub2/grub.cfg`
+
 ... 重新启动主机。
 
 
@@ -120,13 +129,15 @@ ONTAP 调解器服务需要以下软件包：
 
 此操作步骤用于安装或升级现有安装。
 
-xref:concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html#guidelines-for-upgrading-the-ontap-mediator-in-a-metrocluster-configuration[在 MetroCluster 配置中升级 ONTAP 调解器的准则]
+link:concept_mediator_requirements.html#guidelines-for-upgrading-the-ontap-mediator-in-a-metrocluster-configuration["在 MetroCluster 配置中升级 ONTAP 调解器的准则"]
 
 
 
 == 启用对存储库的访问
 
 |===
+
+
 | 操作系统 | 您必须提供对这些存储库的访问权限 ... 
 
 
@@ -161,9 +172,23 @@ CentOS 8.0
 |===
 启用对上述存储库的访问，以便调解器可以在安装过程中访问所需的软件包。请根据您的操作系统使用以下操作步骤。
 
+* 适用于的操作步骤 <<rhel7x,RHEL 7.x>> 操作系统
+* 适用于的操作步骤 <<rhel8x,RHEL 8.x>> 操作系统
+* 适用于的操作步骤 <<centos7x,CentOS 7.x>> 操作系统
+* 适用于的操作步骤 <<centos8x,CentOS 8.0.1095 或更高版本>> 操作系统
+
+
+
+
+=== 适用于 RHEL 7.x 操作系统的操作步骤
+
 如果您的操作系统为 * RHEL 7.x* ：
 
-. 订阅所需的存储库： `ssubscription-manager repos-enable rhel-7-server-optional-rpms`
+.步骤
+. 订阅所需的存储库：
++
+`ssubscription-manager repos-enable rhel-7-server-optional-rpms`
+
 +
 以下示例显示了此命令的执行情况：
 
@@ -173,7 +198,7 @@ CentOS 8.0
 [root@localhost ~]# subscription-manager repos --enable rhel-7-server-optional-rpms
 Repository 'rhel-7-server-optional-rpms' is enabled for this system.
 ----
-. 运行 yum repolist 命令。
+. 运行 `yum repolist` 命令。
 +
 以下示例显示了此命令的执行情况。列表中应显示 rhel-7-server-optional -rpms 存储库。
 
@@ -195,9 +220,20 @@ repolist: 46,205
 ----
 
 
+
+
+=== 适用于 RHEL 8.x 操作系统的操作步骤
+
 如果您的操作系统为 * RHEL 8.x * ：
 
-. 订阅所需的存储库： `ssubscription-manager repos--enable rhel-8-for-x86_64 basos-rpms``ssubscription-manager repos-enable rhel-8-for-x86_64 -AppStream -rpms`
+.步骤
+. 订阅所需的存储库：
++
+`ssubscription-manager repos-enable rhel-8-for-x86_64 basos-rpms`
+
++
+`ssubscription-manager repos-enable rhel-8-for-x86_64 -AppStream -rpms`
+
 +
 以下示例显示了此命令的执行情况：
 
@@ -209,14 +245,19 @@ repolist: 46,205
 Repository 'rhel-8-for-x86_64-baseos-rpms' is enabled for this system.
 Repository 'rhel-8-for-x86_64-appstream-rpms' is enabled for this system.
 ----
-. 运行 yum repolist 命令。
+. 运行 `yum repolist` 命令。
 +
 新订阅的存储库应显示在列表中。
 
 
 
+
+
+=== 适用于 CentOS 7.x 操作系统的操作步骤
+
 如果您的操作系统为 * CentOS 7.x * ：
 
+.步骤
 . 添加 C7.6.1810 —基本存储库。C7.6.1810 —基础存储库包含 ONTAP 调解器所需的 kernel-devel 软件包。
 . 将以下行添加到 /etc/yum.repos.d/Centos-vault.repo.
 +
@@ -229,7 +270,7 @@ basearch/gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 enabled=1
 ----
-. 运行 yum repolist 命令。
+. 运行 `yum repolist` 命令。
 +
 以下示例显示了此命令的执行情况。CentOS-7.6.1810 —基本存储库应显示在列表中。
 
@@ -254,27 +295,49 @@ repolist: 21,433
 ----
 
 
+
+
+=== 适用于 CentOS 8.0.1905 或更高版本操作系统的操作步骤
+
 如果您的操作系统为 * CentOS 8.0.1905 或更高版本 * ：
 
-由于最新版本的 8.0 （ CentOS 8.0.1905 ）核心位于 CentOS 存储中，因此您必须提供对匹配的 kernel-devel 软件包的访问权限，以编译所需的内核模块。使用以下命令通过问题描述直接安装 kernel-devel 软件包：
+因为最新版本的 8.0 （ CentOS 8.0.1905 ）核心位于中 https://vault.centos.org["CentOS 存储"]，您必须提供对匹配的 kernel-devel 软件包的访问权限，以编译所需的内核模块。
 
-`rpm -i http://vault.centos.org/8.0.1905/BaseOS/x86_64/os/Packages/kernel-devel-$(uname[] -r ） .rpm`
+.步骤
+. 【 ｛ step1-rpm]] 通过问题描述执行以下命令直接安装 kernel-devel 软件包：
++
+`rpm -i \http://vault.centos.org/8.0.1905/BaseOS/x86_64/os/Packages/kernel-devel-$(uname -r ） .rpm`
 
-如果系统显示错误，指出软件包已安装，请删除该软件包并重试：
++
+--
 
-. 删除 kernel-devel 软件包： `yum remove kernel-devel`
-. 重复上述 rpm 命令。
+NOTE: 上述命令是一个特定于 CentOS 8.0.1905 的示例。根据其他 CentoOS 8.x 版本的需要更改路径。
+
+--
+. 如果系统显示错误，指出软件包已安装，请删除该软件包并重试：
++
+.. 删除 kernel-devel 软件包：
++
+`yum remove kernel-devel`
+
+.. 重复中所示的 `rpm` 命令 <<step1-rpm,第 1 步>>。
+
+
 
 
 
 
 == 下载调解器安装包
 
+.步骤
 . 从 ONTAP 调解器页面下载调解器安装包。
 +
 https://mysupport.netapp.com/site/products/all/details/ontap-mediator/downloads-tab["ONTAP 调解器下载页面"]
 
-. 确认调解器安装包位于目标目录 `ls` 中
+. 确认调解器安装包位于目标目录中：
++
+`ls`
+
 +
 [listing]
 ----
@@ -291,7 +354,11 @@ https://mysupport.netapp.com/site/products/all/details/ontap-mediator/downloads-
 
 == 安装 ONTAP 调解器安装包
 
-. 安装调解器安装包并根据需要响应提示： ` ./ontap-mediate_1.3`
+.步骤
+. 安装调解器安装包并根据需要响应提示：
++
+` 。 /ontap-mediate_1.3`
+
 +
 安装过程将继续创建所需的帐户并安装所需的软件包。如果主机上安装了先前版本的调解器，系统将提示您确认是否要升级。
 
@@ -303,8 +370,12 @@ link:../media/console_output_mediator_installation.txt["ONTAP 调解器安装示
 
 == 验证安装。
 
-运行以下命令以查看 ONTAP 调解器服务的状态： systemctl
+.步骤
+. 运行以下命令以查看 ONTAP 调解器服务的状态：
++
+`systemctl`
 
++
 [listing]
 ----
  [root@scspr1915530002 ~]# systemctl status ontap_mediator mediator-scst
@@ -362,8 +433,7 @@ link:../media/console_output_mediator_installation.txt["ONTAP 调解器安装示
          [root@scspr1915530002 ~]#
 ----
 . 确认 ONTAP 调解器服务正在使用的端口： netstat
-
-
++
 [listing]
 ----
          [root@scspr1905507001 ~]# netstat -anlt | grep -E '3260|31784'
@@ -374,6 +444,8 @@ link:../media/console_output_mediator_installation.txt["ONTAP 调解器安装示
 
          tcp6       0      0 :::3260                 :::*                    LISTEN
 ----
+
+
 
 
 == 结果

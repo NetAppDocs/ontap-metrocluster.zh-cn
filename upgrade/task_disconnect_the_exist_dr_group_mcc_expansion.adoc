@@ -17,7 +17,7 @@ summary: 您必须从网络结构中的 FC 交换机断开现有控制器模块�
 .步骤
 . 禁用将现有控制器模块连接到正在维护的交换机网络结构的 HBA 端口：
 +
-` * 存储端口禁用 -node _node-name_ -port _port-number_*`
+`storage port disable -node _node-name_ -port _port-number_`
 
 . 在本地 FC 交换机上，从现有控制器模块的 HBA ， FC-VI 和 ATTO 网桥的端口上拔下缆线。
 +

@@ -17,7 +17,7 @@ summary: 您可以检查 MetroCluster 配置中的组件和关系是否工作正
 .步骤
 . 检查配置：
 +
-` * MetroCluster check run*`
+`MetroCluster check run`
 
 +
 此命令作为后台作业运行，可能无法立即完成。
@@ -49,19 +49,19 @@ connections         ok
 ----
 . 显示最近的 `MetroCluster check run` 命令的更详细结果：
 +
-` * MetroCluster check aggregate show*`
+`MetroCluster check aggregate show`
 
 +
-` * MetroCluster check cluster show*`
+`MetroCluster check cluster show`
 
 +
-` * MetroCluster check config-replication show*`
+`MetroCluster check config-replication show`
 
 +
-` * MetroCluster check lif show*`
+`MetroCluster check lif show`
 
 +
-` * MetroCluster check node show*`
+`MetroCluster check node show`
 
 +
 `MetroCluster check show` 命令可显示最新的 `MetroCluster check run` 命令的结果。在使用 `MetroCluster check show` 命令之前，应始终运行 `MetroCluster check run` 命令，以使显示的信息为最新信息。

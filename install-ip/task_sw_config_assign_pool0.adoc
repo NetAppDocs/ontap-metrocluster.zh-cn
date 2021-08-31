@@ -14,12 +14,11 @@ summary: 如果您未收到出厂时预配置的系统，则可能需要手动�
 
 == 手动为池 0 分配驱动器（ ONTAP 9.4 及更高版本）
 
-[role="lead"]
 如果系统在出厂时尚未进行预配置，并且不满足自动驱动器分配的要求，则必须手动分配池 0 驱动器。
 
 此操作步骤适用场景配置运行 ONTAP 9.4 或更高版本。
 
-要确定您的系统是否需要手动分配磁盘，应查看 xref:concept_prepare_for_the_mcc_installation.html#considerations-for-automatic-drive-assignment-and-adp-systems-in-ontap-9-4-and-later[ONTAP 9.4 及更高版本中的自动驱动器分配和 ADP 系统注意事项]。
+要确定您的系统是否需要手动分配磁盘，应查看 link:concept_considerations_drive_assignment.html["ONTAP 9.4 及更高版本中的自动驱动器分配和 ADP 系统注意事项"]。
 
 您可以在维护模式下执行这些步骤。必须对配置中的每个节点执行操作步骤。
 
@@ -35,9 +34,16 @@ summary: 如果您未收到出厂时预配置的系统，则可能需要手动�
 +
 ** site_B-shelf_1 （本地）
 ** site_A-shelf_2 （远程）
+
+
+
+
+.步骤
+. 显示启动菜单：
 +
-... 显示启动菜单： `boot_ontap menu`
-... 选择选项 9a 。
+`boot_ontap 菜单`
+
+. 选择选项 9a 。
 +
 以下屏幕将显示启动菜单提示符：
 
@@ -71,35 +77,41 @@ Please choose one of the following:
 
     Do you still want to continue (yes/no)? yes
 ----
-... 节点重新启动时，在系统提示显示启动菜单时按 Ctrl-C ，然后选择 * 维护模式启动 * 选项。
-... 在维护模式下，手动为节点上的本地聚合分配驱动器： `disk assign disk-id -p 0 -s local-node-sysid`
+. 节点重新启动时，在系统提示显示启动菜单时按 Ctrl-C ，然后选择 * 维护模式启动 * 选项。
+. 在维护模式下，手动为节点上的本地聚合分配驱动器：
++
+`ddisk assign _disk-id_ -p 0 -s _local-node-sysid_`
+
 +
 应对称分配驱动器，以便每个节点具有相同数量的驱动器。以下步骤适用于每个站点具有两个存储架的配置。
 
 +
-.... 配置 node_A_1 时，从 site_A-shelf_1 手动将插槽 0 到 11 的驱动器分配给节点 A1 的 pool0 。
-.... 配置 node_A_2 时，手动将插槽 12 中的驱动器分配给 site_A-shelf_1 中节点 A2 的 pool0 。
-.... 配置 node_B_1 时，手动将插槽 0 到 11 的驱动器分配给 site_B-shelf_1 中节点 B1 的 pool0 。
-.... 配置 node_B_2 时，手动将插槽 12 中的驱动器分配给 site_B-shelf_1 中节点 B2 的 pool0 。
+.. 配置 node_A_1 时，从 site_A-shelf_1 手动将插槽 0 到 11 的驱动器分配给节点 A1 的 pool0 。
+.. 配置 node_A_2 时，手动将插槽 12 中的驱动器分配给 site_A-shelf_1 中节点 A2 的 pool0 。
+.. 配置 node_B_1 时，手动将插槽 0 到 11 的驱动器分配给 site_B-shelf_1 中节点 B1 的 pool0 。
+.. 配置 node_B_2 时，手动将插槽 12 中的驱动器分配给 site_B-shelf_1 中节点 B2 的 pool0 。
 
 
-... 退出维护模式： `halt`
-... 显示启动菜单： `boot_ontap menu`
-... 从启动菜单中选择选项 4 ，然后让系统启动。
-... 在 MetroCluster IP 配置中的其他节点上重复上述步骤。
-... 继续执行 xref:concept_configure_the_mcc_software_in_ontap.html#setting-up-ontap[设置 ONTAP]。
+. 退出维护模式：
++
+`halt`
 
+. 显示启动菜单：
++
+`boot_ontap 菜单`
 
-
-
+. 从启动菜单中选择选项 4 ，然后让系统启动。
+. 在 MetroCluster IP 配置中的其他节点上重复上述步骤。
+. 继续执行 link:task_sw_config_setup_ontap.html["设置 ONTAP"]。
 
 
 
 
 == 手动为池 0 分配驱动器（ ONTAP 9.3 ）
 
-[role="lead"]
-如果每个节点至少有两个磁盘架，则可以使用 ONTAP 的自动分配功能自动分配本地（池 0 ）磁盘。当节点处于维护模式时，您必须先将相应磁盘架上的单个磁盘分配给池 0 。然后， ONTAP 会自动将磁盘架上的其余磁盘分配到同一个池。从工厂收到的系统不需要执行此任务，这些系统的池 0 包含预配置的根聚合。
+如果每个节点至少有两个磁盘架，则可以使用 ONTAP 的自动分配功能自动分配本地（池 0 ）磁盘。
+
+当节点处于维护模式时，您必须先将相应磁盘架上的单个磁盘分配给池 0 。然后， ONTAP 会自动将磁盘架上的其余磁盘分配到同一个池。从工厂收到的系统不需要执行此任务，这些系统的池 0 包含预配置的根聚合。
 
 此操作步骤适用场景配置运行 ONTAP 9.3 。
 
@@ -133,40 +145,55 @@ Please choose one of the following:
 +
 ** site_B-shelf_3 （本地）
 ** site_A-shelf_4 （远程）
+
+
+
+
+.步骤
+. 在每个节点上手动为根聚合分配一个磁盘：
 +
-... 在每个节点上为根聚合手动分配一个磁盘： `disk assign disk-id -p 0 -s local-node-sysid`
+`ddisk assign _disk-id_ -p 0 -s _local-node-sysid_`
+
 +
 通过手动分配这些磁盘， ONTAP 自动分配功能可以分配每个磁盘架上的其余磁盘。
 
 +
-.... 在 node_A_1 上，手动将一个磁盘从本地 site_A-shelf_1 分配到池 0 。
-.... 在 node_A_2 上，手动将一个磁盘从 local site_A-shelf_3 分配到池 0 。
-.... 在 node_B_1 上，手动将一个磁盘从 local site_B-shelf_1 分配到池 0 。
-.... 在 node_B_2 上，手动将一个磁盘从 local site_B-shelf_3 分配给池 0 。
+.. 在 node_A_1 上，手动将一个磁盘从本地 site_A-shelf_1 分配到池 0 。
+.. 在 node_A_2 上，手动将一个磁盘从 local site_A-shelf_3 分配到池 0 。
+.. 在 node_B_1 上，手动将一个磁盘从 local site_B-shelf_1 分配到池 0 。
+.. 在 node_B_2 上，手动将一个磁盘从 local site_B-shelf_3 分配给池 0 。
 
 
-... 使用启动菜单上的选项 4 启动站点 A 上的每个节点：
+. 使用启动菜单上的选项 4 启动站点 A 上的每个节点：
 +
 您应先在节点上完成此步骤，然后再继续下一个节点。
 
 +
-.... 退出维护模式： `halt`
-.... 显示启动菜单： `boot_ontap menu`
-.... 从启动菜单中选择选项 4 并继续。
+.. 退出维护模式：
++
+`halt`
+
+.. 显示启动菜单：
++
+`boot_ontap 菜单`
+
+.. 从启动菜单中选择选项 4 并继续。
 
 
-... 使用启动菜单上的选项 4 启动站点 B 上的每个节点：
+. 使用启动菜单上的选项 4 启动站点 B 上的每个节点：
 +
 您应先在节点上完成此步骤，然后再继续下一个节点。
 
 +
-.... 退出维护模式： `halt`
-.... 显示启动菜单： `boot_ontap menu`
-.... 从启动菜单中选择选项 4 并继续。
+.. 退出维护模式：
++
+`halt`
 
+.. 显示启动菜单：
++
+`boot_ontap 菜单`
 
-
-
+.. 从启动菜单中选择选项 4 并继续。
 
 
 

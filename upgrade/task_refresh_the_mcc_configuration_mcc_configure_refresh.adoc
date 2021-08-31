@@ -12,10 +12,11 @@ summary: 将 MetroCluster 配置从双节点配置扩展为四节点配置时，
 [role="lead"]
 将 MetroCluster 配置从双节点配置扩展为四节点配置时，必须刷新该配置。
 
+.步骤
 . 刷新 MetroCluster 配置：
 +
-.. 进入高级权限模式： + ` * 设置 -privilege advanced*`
-.. 刷新 MetroCluster 配置： + ` * MetroCluster configure -refresh true -allow-with-one-aggregate true*`
+.. 进入高级权限模式： + `set -privilege advanced`
+.. 刷新 MetroCluster 配置： + MetroCluster configure -refresh true -allow-with-one-aggregate true`
 +
 以下命令将刷新包含 controller_A_1 的 DR 组中所有节点上的 MetroCluster 配置：
 
@@ -26,12 +27,15 @@ controller_A_1::*> metrocluster configure -refresh true -allow-with-one-aggregat
 
 [Job 726] Job succeeded: Configure is successful.
 ----
-.. 返回到管理权限模式： + ` * 设置 -privilege admin*`
+.. 返回到管理权限模式：
++
+`set -privilege admin`
+
 
 
 . 验证站点 A 上的网络连接状态：
 +
-` * 网络端口显示 *`
+`network port show`
 
 +
 以下示例显示了四节点 MetroCluster 配置中的网络端口使用情况：
@@ -65,7 +69,7 @@ controller_A_2
 +
 .. 从站点 A 验证配置：
 +
-` * MetroCluster show*`
+`MetroCluster show`
 
 +
 [listing]
@@ -82,7 +86,7 @@ Remote: cluster_B         Configuration state configured
 ----
 .. 从站点 B 验证配置：
 +
-` * MetroCluster show*`
+`MetroCluster show`
 
 +
 [listing]
@@ -97,7 +101,10 @@ Remote: cluster_A         Configuration state configured
                           Mode                normal
                           AUSO Failure Domain auso-on-cluster-disaster
 ----
-.. 验证是否已正确创建 DR 关系： + ` * MetroCluster node show -fields dr-cluster ， dr-auxiliary ， node-object-limit ， auto-uso ， ha-partner ， dr-partner*`
+.. 验证是否已正确创建灾难恢复关系：
++
+MetroCluster node show -fields dr-cluster ， dr-auxiliary ， node-object-limit ， auto-uso ， ha-partner ， dr-partner`
+
 +
 [listing]
 ----

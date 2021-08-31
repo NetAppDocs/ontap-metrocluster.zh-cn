@@ -1,6 +1,7 @@
 ---
 section: transition
 title: 从 MetroCluster FC 过渡到 MetroCluster IP
+url: "/transition/index.html"
 entries:
 - title: 支持无中断过渡的平台
   url: "/transition/concept_supported_platforms_for_transition.html"

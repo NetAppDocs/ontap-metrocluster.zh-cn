@@ -135,6 +135,8 @@ FAS 系统上的现有 MetroCluster IP 配置可以升级到 ONTAP 9.4 。
 MetroCluster IP 配置使用 40/100 Gbps 或 10/25 Gbps 以太网适配器作为 MetroCluster IP 网络结构所用 IP 交换机的 IP 接口。
 
 |===
+
+
 | 平台型号 | 需要千兆以太网适配器 | 适配器所需的插槽 | 端口 
 
 
@@ -167,7 +169,7 @@ X1146A
  a| 
 插槽 1
  a| 
-e0b ， e1b
+e1a ， e1b
 
 
 

@@ -10,7 +10,7 @@ summary: 如果您正在使用 9.5 之前的 ONTAP 版本，或者计划使用 t
 
 
 [role="lead"]
-如果您使用的是 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务（ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。
+如果您正在使用 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务（ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。
 
 与 ATTO FibreBridge 7500N 和 6500N 网桥不同， FibreBridge 7600N 网桥在出厂时已禁用所有 IP 端口协议和服务。
 
@@ -48,7 +48,7 @@ summary: 如果您正在使用 9.5 之前的 ONTAP 版本，或者计划使用 t
 ** ICMP
 ** QuickNAV
 ** SNMP
-** Telnet 您可以使用 `get closePort` 命令检查特定协议是否已启用。
+** Telnet + 您可以使用 `get closePort` 命令检查特定协议是否已启用。
 
 
 . 如果要启用 SNMP ，还必须对 set snmp enabled 命令执行问题描述操作：

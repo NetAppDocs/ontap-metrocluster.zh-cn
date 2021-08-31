@@ -10,7 +10,11 @@ summary: 您可以通过指定一个远程 URL （ HTTP 或 FTP ）来为集群�
 [role="lead"]
 您可以通过指定一个远程 URL （ HTTP 或 FTP ）来为集群配置备份文件提供额外保护，除了本地集群中的默认位置之外，还可以将配置备份文件上传到该远程 URL 。
 
-. 为配置备份文件设置远程目标的 URL ： `ssystem configuration backup settings modify url-of-destination`
+.步骤
+. 为配置备份文件设置远程目标的 URL ：
++
+`s系统配置备份设置修改目标 URL`
+
 
 
 。 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["《系统管理指南》"] 在 _Manag管理 配置备份 _ 一节下包含追加信息。

@@ -15,6 +15,6 @@ summary: 您必须将现有控制器模块启动到 ONTAP 。
 .步骤
 . 在 LOADER 提示符处，将现有控制器模块启动到 ONTAP ：
 +
-` * boot_ontap*`
+`boot_ontap`
 
 

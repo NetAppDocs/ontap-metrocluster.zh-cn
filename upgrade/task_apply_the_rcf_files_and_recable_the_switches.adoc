@@ -34,6 +34,8 @@ NOTE: 如果您的环境无法使用 RCF 文件进行布线，请联系技术支
 . 使用适用于您的交换机的正确命令验证端口是否联机。
 +
 |===
+
+
 | 交换机供应商 | 命令 
 
 
@@ -63,23 +65,23 @@ NOTE: 如果您的环境无法使用 RCF 文件进行布线，请联系技术支
 
 . 从现有节点中，验证 FC-VI 端口是否联机：
 +
-` * MetroCluster 互连适配器显示 *`
+`MetroCluster 互连适配器 show`
 
 +
-` * MetroCluster 互连镜像显示 *`
+`MetroCluster 互连镜像显示`
 
 . 为当前控制器和新控制器中的 HBA 端口布线。
 . 在现有控制器模块上，启用连接到正在维护的交换机网络结构的端口：
 +
-` * 存储端口 enable -node _node-name_ -port _port-ID_*`
+`storage port enable -node _node-name_ -port _port-ID_`
 
 . 启动新控制器并将其启动至维护模式：
 +
-` * boot_ontap maint*`
+`boot_ontap maint`
 
 . 验证新控制器模块是否只能看到新 DR 组要使用的存储。
 +
 其他 DR 组使用的任何存储都不应可见。
 
-. 返回到此过程的开头，重新对第二个交换机网络结构进行布线。
+. 返回到此过程的开头，为第二个交换机网络结构重新布线。
 

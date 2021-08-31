@@ -31,7 +31,6 @@ CAUTION: 如果使用共享网络，则客户负责满足共享网络中的 Metr
 
 == 中间交换机上的必需设置
 
-[role="lead"]
 在共享网络中共享 ISL 流量时，客户提供的中间交换机配置必须确保 MetroCluster 流量（ RDMA 和存储）在 MetroCluster 站点之间的整个路径上满足所需的服务级别。
 
 以下示例适用于 Cisco Nexus 3000 交换机和 IP Broadcom 交换机。根据交换机供应商和型号，您必须确保中间交换机具有等效配置。
@@ -114,12 +113,14 @@ image::../media/switch_traffic_with_broadcom_switches.png[使用 Broadcom 交换
 使用 MetroCluster IP Broadcom 交换机进行配置需要额外配置：
 
 * 对于外部交换机，您必须配置访问和类映射，以便对传入客户网络的流量进行分类。
-
-
++
 
 NOTE: 使用 MetroCluster IP 交换机的配置不需要执行此操作。
 
++
 以下示例显示了如何在第一个和最后一个客户交换机上配置访问和类映射，这些交换机在 MetroCluster IP Broadcom 交换机之间连接 ISL 。
+
+
 
 [listing]
 ----
@@ -136,13 +137,14 @@ class-map type qos match-all rdma
   match access-group name rdma
 ----
 * 您需要将此传入策略分配给第一个客户交换机上的 ISL 交换机端口。
-
-
++
 以下示例显示了类映射定义：
 
++
 
 NOTE: 此示例适用于使用 Cisco MetroCluster IP 交换机的配置。无论传输未连接到 MetroCluster IP 交换机的 MetroCluster 流量的交换机类型如何，您都可以按照此示例进行操作。
 
++
 [listing]
 ----
 class-map type qos match-all rdma
@@ -150,8 +152,10 @@ class-map type qos match-all rdma
 class-map type qos match-all storage
    match cos 4
 ----
++
 以下示例显示了策略映射定义：
 
++
 [listing]
 ----
 policy-map type qos MetroClusterIP_Ingress
@@ -186,6 +190,8 @@ policy-map type queuing MetroClusterIP_Egress
 ----
 
 
+
+
 === 中间客户交换机
 
 * 对于中间客户交换机，您必须将出口策略分配给 ISL 交换机端口。
@@ -196,7 +202,6 @@ policy-map type queuing MetroClusterIP_Egress
 
 == MetroCluster 网络拓扑示例
 
-[role="lead"]
 从 ONTAP 9.6 开始， MetroCluster IP 配置支持某些共享 ISL 网络配置。
 
 

@@ -12,6 +12,7 @@ summary: 您可以将四个新节点作为第二个 DR 组添加到 MetroCluster
 [role="lead"]
 从 ONTAP 9.1.1 开始，您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。
 
+.开始之前
 * 新旧节点必须运行相同版本的 ONTAP 。
 * 您必须确保旧平台型号和新平台型号支持平台混合。
 +
@@ -28,11 +29,11 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 == 此操作步骤中的命名示例
 
-[role="lead"]
 此操作步骤会在整个过程中使用示例名称来标识涉及的 DR 组，节点和交换机。
 
-[cols="3*"]
 |===
+
+
 | DR 组 | cluster_A 位于 site_A | site_B 上的 cluster_B 
 
 
@@ -65,7 +66,6 @@ dr_group_2-new
 
 == 在维护之前发送自定义 AutoSupport 消息
 
-[role="lead"]
 在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
 
 必须在每个 MetroCluster 站点上执行此任务。
@@ -75,16 +75,16 @@ dr_group_2-new
 +
 .. 问题描述以下命令：
 +
-` * 系统节点 AutoSupport 调用 -node * -type all -message "MAIN=10h upgrading _old-model_ to _new-model"_*`
+`ssystem node AutoSupport invoke -node * -type all -message "MAIN=10h upgrading _old-model_ to _new-model"_`
 
 +
-我们的示例指定了一个 10 小时的维护时段。根据您的计划，您可能需要留出更多时间。
+此示例指定了一个 10 小时的维护时段。根据您的计划，您可能需要留出更多时间。
 
 +
 如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：
 
 +
-` * 系统节点 AutoSupport 调用 -node * -type all -message MAINT=end*`
+`ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
 
 .. 在配对集群上重复此命令。
 
@@ -95,24 +95,30 @@ dr_group_2-new
 
 == 验证 MetroCluster 配置的运行状况
 
-[role="lead"]
 在执行过渡之前，您必须验证 MetroCluster 配置的运行状况和连接
 
+.步骤
 . 在 ONTAP 中验证 MetroCluster 配置的运行情况：
 +
 .. 检查系统是否为多路径：
 +
-` * 节点 run -node _node-name_ sysconfig -A*`
+`node run -node _node-name_ sysconfig -a`
 
-.. 检查两个集群上是否存在任何运行状况警报： + ` * system health alert show*`
-.. 确认 MetroCluster 配置以及操作模式是否正常： + ` * MetroCluster show*`
+.. 检查两个集群上是否存在任何运行状况警报：
++
+`s系统运行状况警报显示`
+
+.. 确认 MetroCluster 配置以及操作模式是否正常：
++
+`MetroCluster show`
+
 .. 执行 MetroCluster 检查：
 +
-` * MetroCluster check run*`
+`MetroCluster check run`
 
 .. 显示 MetroCluster 检查的结果：
 +
-` * MetroCluster check show*`
+MetroCluster check show`
 
 .. 运行 Config Advisor 。
 +
@@ -123,7 +129,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 . 验证集群是否运行正常：
 +
-` * cluster show -vserver Cluster*`
+`cluster show -vserver cluster`
 
 +
 [listing]
@@ -138,7 +144,7 @@ cluster_A::>
 ----
 . 验证所有集群端口是否均已启动：
 +
-` * 网络端口 show -ipspace cluster*`
+`network port show -ipspace cluster`
 
 +
 [listing]
@@ -167,7 +173,7 @@ cluster_A::>
 ----
 . 验证所有集群 LIF 是否均已启动且正常运行：
 +
-` * 网络接口 show -vserver Cluster*`
+`network interface show -vserver cluster`
 
 +
 每个集群 LIF 应为 "Is Home" 显示 true ，并且状态为 "Admin/Oper" 为 "up/up"
@@ -196,7 +202,7 @@ cluster_A::>
 ----
 . 验证是否已在所有集群 LIF 上启用自动还原：
 +
-` * 网络接口 show -vserver cluster -fields auto-rever*`
+`network interface show - vserver cluster -fields auto-revert`
 
 +
 [listing]
@@ -226,34 +232,36 @@ cluster_A::>
 
 == 从监控应用程序中删除配置
 
-[role="lead"]
 如果使用 MetroCluster Tiebreaker 软件， ONTAP 调解器或可启动切换的其他第三方应用程序（例如 ClusterLion ）监控现有配置，则必须在升级之前从监控软件中删除 MetroCluster 配置。
 
+.步骤
 . 从 Tiebreaker ，调解器或其他可启动切换的软件中删除现有 MetroCluster 配置。
 +
 [cols="2*"]
 |===
+
+
 | 如果您使用的是 ... | 使用此操作步骤 ... 
 
 
  a| 
-* Tiebreaker *
+Tiebreaker
  a| 
 link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for-modifying-metrocluster-tiebreaker-configurations["删除 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中
 
 
 
  a| 
-* 调解器 *
+调解器
  a| 
 在 ONTAP 提示符处问题描述以下命令：
 
-` * MetroCluster configuration-settings mediator remove*`
+`MetroCluster configuration-settings mediator remove`
 
 
 
  a| 
-* 第三方应用程序 *
+第三方应用程序
  a| 
 请参见产品文档。
 
@@ -305,7 +313,6 @@ link:../install-ip/task_cable_ip_switches.html["为 IP 交换机布线"]
 
 == 将新节点加入集群
 
-[role="lead"]
 您必须将四个新的 MetroCluster IP 节点添加到现有 MetroCluster 配置中。
 
 您必须在两个集群上执行此任务。
@@ -388,11 +395,11 @@ Do you want to use this configuration? {yes, no} [yes]: yes
 
 == 配置集群间 LIF ，创建 MetroCluster 接口以及镜像根聚合
 
-[role="lead"]
 您必须创建集群对等 LIF ，并在新的 MetroCluster IP 节点上创建 MetroCluster 接口。
 
 示例中使用的主端口是特定于平台的。您应使用特定于 MetroCluster IP 节点平台的相应主端口。
 
+.步骤
 . 在新的 MetroCluster IP 节点 MetroCluster 上，按照 _LIF IP 安装和配置指南 _ 中的过程配置集群间 LIF 。
 +
 link:../install-ip/task_sw_config_configure_clusters.html#peering-the-clusters["在专用端口上配置集群间 LIF"]
@@ -402,7 +409,7 @@ link:../install-ip/task_sw_config_configure_clusters.html#peering-the-clusters["
 
 . 在每个站点上，验证是否已配置集群对等：
 +
-` * 集群对等显示 *`
+`cluster peer show`
 
 +
 以下示例显示了 cluster_A 上的集群对等配置：
@@ -429,13 +436,13 @@ cluster_B::>
 ----
 . 为 MetroCluster IP 节点创建 DR 组：
 +
-` * MetroCluster configuration-settings dr-group create -partner-cluster*`
+MetroCluster configuration-settings dr-group create -partner-cluster`
 
 +
 有关 MetroCluster 配置设置和连接 MetroCluster 的详细信息，请参见 _Internet IP 安装和配置指南 _ 。
 
 +
-链接： ./install-IP/concept_considerations_mcip.adoc
+link:../install-ip/concept_considerations_mcip.html["MetroCluster IP 配置的注意事项"]
 
 +
 link:../install-ip/task_sw_config_configure_clusters.html#creating-the-dr-group["正在创建 DR 组"]
@@ -450,7 +457,7 @@ cluster_A::>
 ----
 . 验证是否已创建灾难恢复组。
 +
-` * MetroCluster configuration-settings dr-group show*`
+`MetroCluster configuration-settings dr-group show`
 
 +
 [listing]
@@ -477,23 +484,22 @@ cluster_A::>
 ----
 . 为新加入的 MetroCluster IP 节点配置 MetroCluster IP 接口：
 +
-` * MetroCluster configuration-settings interface create -cluster-name*`
+MetroCluster configuration-settings interface create -cluster-name`
 
 +
-|===
-| 注释： 
+--
+[NOTE]
+====
+** 从 ONTAP 9.8 开始，某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。您也可以在 MetroCluster configuration-settings interface create` 命令中使用 ` -vlan-id 参数` 指定一个大于 100 （ 101 到 4095 之间）的其他（非默认） VLAN 。
+** 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
 
 
- a| 
-** 从 ONTAP 9.8 开始，某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。您也可以在 `MetroCluster configuration-settings interface create` 命令中使用 -vlan-id 参数指定一个大于 100 （ 101-4095 之间）的其他（非默认） VLAN 。
-** 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见链接： ./install-IP/concept_considerations_layer_3.html 。
-
-
-|===
-
-
+====
+--
++
 以下平台型号使用 VLAN 并允许配置非默认 VLAN ID 。
 
++
 |===
 
 
@@ -501,21 +507,25 @@ cluster_A::>
 
 
  a| 
-* AFF A220
-* AFF A250
-* AFF A400
+** AFF A220
+** AFF A250
+** AFF A400
 
  a| 
-* FAS2750
-* FAS500f
-* FAS8300
-* FAS8700
+** FAS2750
+** FAS500f
+** FAS8300
+** FAS8700
 
 
 |===
++
+--
 
-NOTE: 您可以从任一集群配置 MetroCluster IP 接口。此外，从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则还必须指定 ` -gateway` 参数来创建 MetroCluster IP 接口。请参见 link:../install-ip/["第 3 层广域网的注意事项"].html 。
+NOTE: 您可以从任一集群配置 MetroCluster IP 接口。此外，从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则还必须指定 ` -gateway` 参数来创建 MetroCluster IP 接口。请参见 link:..install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
 
+--
++
 [listing]
 ----
 cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_A -home-node node_A_1-new -home-port e1a -address 172.17.26.10 -netmask 255.255.255.0
@@ -542,9 +552,11 @@ cluster_A::> metrocluster configuration-settings interface create -cluster-name 
 cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_B -home-node node_B_2-new -home-port e1b -address 172.17.27.13 -netmask 255.255.255.0
 [Job 267] Job succeeded: Interface Create is successful.
 ----
+
+
 . 验证是否已创建 MetroCluster IP 接口：
 +
-` * MetroCluster configuration-settings interface show*`
+`MetroCluster configuration-settings interface show`
 
 +
 [listing]
@@ -604,7 +616,7 @@ cluster_A>
 ----
 . 连接 MetroCluster IP 接口：
 +
-` * MetroCluster 配置设置连接连接 *`
+`MetroCluster configuration-settings connection connect`
 
 +
 
@@ -752,7 +764,7 @@ cluster_A::>
 ----
 . 验证磁盘自动分配和分区：
 +
-` * disk show -pool Pool1*`
+`disk show -pool Pool1`
 
 +
 [listing]
@@ -781,7 +793,7 @@ cluster_A::>
 ----
 . 镜像根聚合：
 +
-` * 存储聚合镜像 -aggregate aggr0_node_A_1-new*`
+`storage aggregate mirror -aggregate aggr0_node_A_1-new`
 
 +
 
@@ -813,7 +825,7 @@ cluster_A::>
 ----
 . 验证根聚合是否已镜像：
 +
-` * 存储聚合显示 *`
+`s存储聚合显示`
 
 +
 [listing]
@@ -852,12 +864,12 @@ aggr_data_a2
 
 == 完成新节点的添加
 
-[role="lead"]
 您必须将新的 DR 组加入 MetroCluster 配置，并在新节点上创建镜像数据聚合。
 
+.步骤
 . 在每个新 MetroCluster 节点上创建镜像数据聚合：
 +
-` * 存储聚合 create -aggregate _aggregate-name_ -node _node-name_ -diskcount _no-of-disks_-mirror true*`
+`storage aggregate create -aggregate _aggregate-name_ -node _node-name_ -diskcount _no-of-disks_-mirror true`
 
 +
 
@@ -906,8 +918,14 @@ cluster_A::>
 ----
 . 刷新 MetroCluster 配置：
 +
-.. 进入高级权限模式： + ` * 设置 -privilege advanced*`
-.. 在以下新节点之一上刷新 MetroCluster 配置： + ` * MetroCluster configure*`
+.. 进入高级权限模式：
++
+`set -privilege advanced`
+
+.. 在其中一个新节点上刷新 MetroCluster 配置：
++
+MetroCluster configure`
+
 +
 以下示例显示了在两个 DR 组上刷新的 MetroCluster 配置：
 
@@ -918,7 +936,10 @@ cluster_A::*> metrocluster configure -refresh true
 
 [Job 726] Job succeeded: Configure is successful.
 ----
-.. 返回到管理权限模式： + ` * 设置 -privilege admin*`
+.. 返回到管理权限模式：
++
+`set -privilege admin`
+
 
 
 . 验证节点是否已添加到其 DR 组。
@@ -977,14 +998,14 @@ cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 ----
 .. 设置高级权限级别：
 +
-` * 设置 -privilege advanced*`
+`set -privilege advanced`
 
 .. 一次移动一个 MDV 卷：
 +
-` * 卷移动开始 -volume _mDV-volume_ -destination-aggregate _aggr-on-new-node_ -vserver _vserver-name_*`
+`volume move start -volume _mDV-volume" -destination-aggregate _aggr-on-new-node" -vserver _vserver-name_`
 
 +
-以下示例显示了将 MDV_CRS_d6b0b313ff5611e9837100a098544e51_A 移动到 node_A_3 上聚合 data_A3 的命令和输出。
+以下示例显示了将 "MDV_CRS_d6b0b313ff5611e9837100a098544e51_a" 移动到 "node_A_3" 上的 "data_a3" 的命令和输出。
 
 +
 [listing]
@@ -999,7 +1020,7 @@ Warning: You are about to modify the system volume
 ----
 .. 使用 volume show 命令检查是否已成功移动 MDV 卷：
 +
-` * volume show _mDV-name_*`
+`volume show _mDV-name_`
 
 +
 以下输出显示 MDV 卷已成功移动。
@@ -1015,13 +1036,16 @@ cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 ----
 .. 返回到管理模式：
 +
-` * 设置 -privilege admin*`
+`set -privilege admin`
 
 
 
 . 将 epsilon 从旧节点移动到新节点：
 +
-.. 确定哪个节点当前具有 epsilon ： + ` * cluster show -fields epsilon *`
+.. 确定哪个节点当前具有 epsilon ：
++
+`cluster show -fields epsilon`
+
 +
 [listing]
 ----
@@ -1036,15 +1060,15 @@ node_A_4-new      false
 ----
 .. 在旧节点（ node_A_1-old ）上将 epsilon 设置为 false ：
 +
-` * cluster modify -node _old-nod_ -epsilon false*`
+`cluster modify -node _old-nodge_ -epsilon false*`
 
 .. 在新节点（ node_A_3-new ）上将 epsilon 设置为 true ：
 +
-` * cluster modify -node _new-node_ -epsilon true*`
+`cluster modify -node _new-nodge_ -epsilon true`
 
 .. 验证 epsilon 是否已移至正确的节点：
 +
-` * cluster show -fields epsilon *`
+`cluster show -fields epsilon`
 
 +
 [listing]

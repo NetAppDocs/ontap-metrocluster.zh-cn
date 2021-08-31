@@ -38,7 +38,6 @@ summary: 您应了解配置的 ISL 要求。
 
 == 共享第 2 层网络中的 ISL 要求
 
-[role="lead"]
 时间 link:../install-ip/concept_considerations_layer_2.html["在共享网络中共享 ISL 流量"]，您必须确保具有足够的容量并正确调整 ISL 的大小。低延迟对于在 MetroCluster 站点之间复制数据至关重要。这些连接上的延迟问题可能会影响客户端 I/O
 
 您应查看这些部分，以正确计算 ISL 所需的端到端容量。对于 MetroCluster 配置来说，持续的非易失性缓存和低延迟存储复制至关重要。后端网络中的延迟会影响客户端 IO 看到的延迟和吞吐量。
@@ -108,12 +107,15 @@ ID 与 MetroCluster VLAN ID 匹配的第 2 层 VLAN 必须跨越共享网络。
 
 
 
+--
+[NOTE]
+====
+RcfFileGenerator 不允许使用平台不支持的 VLAN 创建 RCF 文件。
 
-NOTE: RcfFileGenerator 不允许使用平台不支持的 VLAN 创建 RCF 文件。
+RcfFileGenerator 可能会限制某些 VLAN ID 的使用（例如，如果这些 ID 供将来使用）。通常，预留的 VLAN 最多为 100 个，其中包括 100 个。
 
-
-NOTE: RcfFileGenerator 可能会限制某些 VLAN ID 的使用（例如，如果这些 ID 供将来使用）。通常，预留的 VLAN 最多为 100 个，其中包括 100 个。
-
+====
+--
 * 端到端网络中的所有设备上的 MTU 大小必须设置为 9216 。
 * 任何其他流量都不能配置比服务级别（ COS ） 5 更高的优先级。
 * 必须在所有端到端路径上配置 ECN （显式拥塞通知）。
@@ -127,7 +129,7 @@ NOTE: RcfFileGenerator 可能会限制某些 VLAN ID 的使用（例如，如果
 在 MetroCluster IP 配置中使用共享 ISL 时，您必须了解从站点 A 上的控制器端口到站点 B 上的控制器端口运行的端到端 MetroCluster ISL 的要求
 
 
-NOTE: 您必须遵循基本 ISL 要求： xref:concept_prepare_for_the_mcc_installation.html#considerations-for-isls[ISL 注意事项]
+NOTE: 您必须遵循 <<Basic MetroCluster ISL requirements>>。
 
 
 
@@ -135,8 +137,9 @@ NOTE: 您必须遵循基本 ISL 要求： xref:concept_prepare_for_the_mcc_insta
 
 将 MetroCluster IP 交换机连接到共享网络的 ISL 数量因交换机型号和端口类型而异。
 
-[cols="3*"]
 |===
+
+
 | MetroCluster IP 交换机型号 | 端口类型 | ISL 的数量 
 
 

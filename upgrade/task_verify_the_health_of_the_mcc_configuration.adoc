@@ -15,7 +15,7 @@ summary: 您应检查 MetroCluster 配置的运行状况以验证是否正常运
 .步骤
 . 检查每个集群上是否已配置 MetroCluster 并处于正常模式：
 +
-` * MetroCluster show*`
+`MetroCluster show`
 
 +
 [listing]
@@ -32,7 +32,7 @@ Remote: cluster_B         Configuration state configured
 ----
 . 检查是否已在每个节点上启用镜像：
 +
-` * MetroCluster node show*`
+`MetroCluster node show`
 
 +
 [listing]
@@ -49,7 +49,7 @@ Group Cluster Node           State          Mirroring Mode
 ----
 . 检查 MetroCluster 组件是否运行正常：
 +
-` * MetroCluster check run*`
+`MetroCluster check run`
 
 +
 [listing]
@@ -71,16 +71,16 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 ----
 . 检查是否没有运行状况警报：
 +
-` * 系统运行状况警报 show*`
+`s系统运行状况警报显示`
 
 . 模拟切换操作：
 +
-.. 在任何节点的提示符处，更改为高级权限级别： + ` * 设置 -privilege advanced*`
+.. 在任何节点的提示符处，更改为高级权限级别： + `set -privilege advanced`
 +
 当系统提示您继续进入高级模式并显示高级模式提示符（ * > ）时，您需要使用 ` * y*` 进行响应。
 
-.. 使用 -simulate 参数执行切换操作： + ` * MetroCluster switchover -simulate *`
-.. 返回到管理权限级别： + ` * 设置 -privilege admin*`
+.. 使用 -simulate 参数执行切换操作： + MetroCluster switchover -simulate`
+.. 返回到管理权限级别： + `set -privilege admin`
 
 
 

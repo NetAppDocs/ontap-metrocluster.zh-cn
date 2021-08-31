@@ -212,7 +212,19 @@ mccint-fas9000-0304
 |===
 
 
-== 使用 NetApp MetroCluster Tiebreaker 软件检测故障
+== 使用 MetroCluster Tiebreaker 或 ONTAP 调解器监控配置
+
+请参见 link:../install-ip/concept_considerations_mediator.html["ONTAP 调解器与 MetroCluster Tiebreaker 之间的区别"] 了解这两种监控 MetroCluster 配置和启动自动切换的方法之间的区别。
+
+使用以下链接安装和配置 Tiebreaker 或调解器：
+
+* link:../tiebreaker/index.html["安装和配置 MetroCluster Tiebreaker 软件："]
+* link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["为计划外自动切换配置 ONTAP 调解器服务"]
+
+
+
+
+== NetApp MetroCluster Tiebreaker 软件如何检测故障
 
 [role="lead"]
 Tiebreaker 软件位于 Linux 主机上。只有当您要从第三个站点监控两个集群及其连接状态时，才需要 Tiebreaker 软件。这样可以使集群中的每个配对节点区分站点间链路关闭时的 ISL 故障与站点故障。
@@ -292,3 +304,14 @@ Tiebreaker 软件会触发警报，但 ONTAP 会否决此警报。在这种情�
 
 * 如果 Tiebreaker 软件至少可以访问灾难站点上的一个节点或集群接口，或者正常运行的站点仍然可以通过 FC （ NV 互连和存储）或集群间对等访问灾难站点上的任一节点，则可以执行此操作
 
+
+
+
+=== ONTAP 调解器如何支持自动计划外切换
+
+[role="lead"]
+ONTAP 调解器将有关 MetroCluster 节点的状态信息存储在调解器主机上的邮箱中。MetroCluster 节点可以使用此信息监控其 DR 配对节点的状态，并在发生灾难时实施调解器辅助的自动计划外切换（ MAUSO ）。
+
+当节点检测到需要切换的站点故障时，它会执行相应的步骤来确认切换是否合适，如果是，则会执行切换。
+
+只有当每个节点的非易失性缓存的 SyncMirror 镜像和 DR 镜像均在运行且缓存和镜像在发生故障时保持同步时，才会启动 MAUSO 。

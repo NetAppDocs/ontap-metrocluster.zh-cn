@@ -12,15 +12,13 @@ summary: 要将四节点 MetroCluster FC 配置扩展为八节点 MetroCluster F
 [role="lead"]
 要将四节点 MetroCluster FC 配置扩展为八节点 MetroCluster FC 配置，需要向每个集群添加两个控制器，以便在每个 MetroCluster 站点上形成第二个 HA 对，然后运行 MetroCluster FC 配置操作。
 
+.关于此任务
 * 节点必须在 MetroCluster FC 配置中运行 ONTAP 9 。
 +
 早期版本的 ONTAP 或 MetroCluster IP 配置不支持此操作步骤。
 
 * 现有 MetroCluster FC 配置必须运行状况良好。
-* 您要添加的设备必须受支持并满足 _Fabric-Attached MetroCluster 安装和配置指南 _ 中所述的所有要求。
-+
-link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
-
+* 您要添加的设备必须受支持并满足中所述的所有要求 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 * 您必须具有可用的 FC 交换机端口以容纳新控制器和任何新网桥。
 * 您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。
 * 此操作步骤仅适用于 MetroCluster FC 配置。

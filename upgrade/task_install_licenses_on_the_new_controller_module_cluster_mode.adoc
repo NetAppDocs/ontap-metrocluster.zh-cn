@@ -21,12 +21,10 @@ summary: 您必须为需要标准 \ （节点锁定 \ ）许可证的任何 ONTA
 
 . 问题描述使用以下命令安装每个许可证密钥：
 +
-` * 系统许可证添加 -license-code _license_key_*`
+`ssystem license add -license-code _license_key_`
 
 +
 ` _license_key_` 的长度为 28 位数。
 
-+
-对所需的每个标准（节点锁定）许可证重复此步骤。
-
+. 对所需的每个标准（节点锁定）许可证重复此步骤。
 

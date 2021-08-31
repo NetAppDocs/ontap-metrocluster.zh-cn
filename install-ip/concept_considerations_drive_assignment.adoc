@@ -149,8 +149,6 @@ NOTE: 从 ONTAP 9.5 开始，必须启用 `disk auto_assignment` 才能自动进
 
 添加新磁盘架后，系统会对新添加的磁盘架应用相同的分配策略。例如，如果每个站点一个磁盘架，则如果添加了额外的磁盘架，则系统会对新磁盘架应用四分之一磁盘架分配规则。
 
-* 相关信息 *
-
 link:concept_required_mcc_ip_components_and_naming_guidelines_mcc_ip.html["所需的 MetroCluster IP 组件和命名约定"]
 
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
@@ -411,6 +409,8 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 === AFF A700 系统上的 ADP 和磁盘分配
 
 |===
+
+
 | 准则 | 每个站点的磁盘架数 | 驱动器分配规则 | 根分区的 ADP 布局 
 
 

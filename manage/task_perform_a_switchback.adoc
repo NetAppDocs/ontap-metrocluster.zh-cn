@@ -42,7 +42,7 @@ Group Cluster Node        State          Mirroring Mode
 ----
 .. 确认所有 SVM 上的重新同步均已完成： `MetroCluster SVM show`
 .. 验证修复操作正在执行的任何自动 LIF 迁移是否已成功完成： MetroCluster check lif show
-.. 从运行正常的集群中的任何节点运行 MetroCluster switchback 命令，以执行切回。
+.. 从运行正常的集群中的任何节点运行 MetroCluster switchback 命令来执行切回： MetroCluster switchback`
 .. 检查切回操作的进度： `MetroCluster show`
 +
 当输出显示 Waiting for-switchback 时，切回操作仍在进行中：

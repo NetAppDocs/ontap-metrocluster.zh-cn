@@ -42,7 +42,16 @@ link:../manage/index.html["MetroCluster 管理"]
  a| 
 * 了解 MetroCluster 配置
 * 切换，修复和切回
+
+
+
+
+ a| 
+link:../disaster-recovery/index.html["《灾难恢复指南》"]
+ a| 
 * 灾难恢复
+* 强制切换
+* 从多控制器或存储故障中恢复
 
 
 

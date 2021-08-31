@@ -28,7 +28,7 @@ NOTE: 池 0 始终包含与拥有磁盘的存储系统位于同一站点的磁�
 您应为每个池分配相同数量的磁盘。
 
 +
-.. 在第一个节点上，系统地将每个磁盘架上一半的磁盘分配给池 0 ，而将另一半磁盘分配给 HA 配对节点的池 0 ： + ` * disk assign -disk _disk-name_ -p _pool_ -n _number-of-disks_*`
+.. 在第一个节点上，系统地将每个磁盘架上一半的磁盘分配给池 0 ，而将另一半磁盘分配给 HA 配对节点的池 0 ： + `disk assign -disk _disk-name_ -p _pool_ -n _number-of-disks_`
 +
 如果存储控制器 Controller_A_1 有四个磁盘架，每个磁盘架具有 8 个 SSD ，则您可以问题描述执行以下命令：
 
@@ -41,7 +41,7 @@ NOTE: 池 0 始终包含与拥有磁盘的存储系统位于同一站点的磁�
 *> disk assign -shelf FC_switch_B_1:1-4.shelf1 -p 1 -n 4
 *> disk assign -shelf FC_switch_B_1:1-4.shelf2 -p 1 -n 4
 ----
-.. 对本地站点的第二个节点重复此过程，系统地将每个磁盘架上一半的磁盘分配给池 1 ，另一半磁盘分配给 HA 配对节点的池 1 ： + ` * disk assign -disk _disk-name_ -p _pool_*`
+.. 对本地站点的第二个节点重复此过程，系统地将每个磁盘架上一半的磁盘分配给池 1 ，另一半磁盘分配给 HA 配对节点的池 1 ： + `disk assign -disk _disk-name_ -p _pool_`
 +
 如果存储控制器 Controller_A_1 有四个磁盘架，每个磁盘架具有 8 个 SSD ，则您可以问题描述执行以下命令：
 
@@ -61,7 +61,7 @@ NOTE: 池 0 始终包含与拥有磁盘的存储系统位于同一站点的磁�
 您应为每个池分配相同数量的磁盘。
 
 +
-.. 在远程站点的第一个节点上，系统地将每个磁盘架上一半的磁盘分配给池 0 ，而将另一半磁盘分配给 HA 配对节点的池 0 ： + ` * disk assign -disk _disk-name_ -p _pool_*`
+.. 在远程站点的第一个节点上，系统地将每个磁盘架上一半的磁盘分配给池 0 ，而将另一半磁盘分配给 HA 配对节点的池 0 ： + `disk assign -disk _disk-name_ -p _pool_`
 +
 如果存储控制器 Controller_B_1 有四个磁盘架，每个磁盘架具有 8 个 SSD ，则您可以问题描述执行以下命令：
 
@@ -74,7 +74,10 @@ NOTE: 池 0 始终包含与拥有磁盘的存储系统位于同一站点的磁�
 *> disk assign -shelf FC_switch_A_1:1-5.shelf1 -p 1 -n 4
 *> disk assign -shelf FC_switch_A_1:1-5.shelf2 -p 1 -n 4
 ----
-.. 对远程站点的第二个节点重复此过程，系统地将每个磁盘架上一半的磁盘分配给池 1 ，另一半磁盘分配给 HA 配对节点的池 1 ： + ` * disk assign -disk _disk-name_ -p _pool_*`
+.. 对远程站点的第二个节点重复此过程，系统地将每个磁盘架上一半的磁盘分配给池 1 ，另一半磁盘分配给 HA 配对节点的池 1 ：
++
+`dassign -disk _disk-name_ -p _pool_`
+
 +
 如果存储控制器 Controller_B_2 有四个磁盘架，每个磁盘架具有 8 个 SSD ，则您可以问题描述执行以下命令：
 
@@ -91,15 +94,15 @@ NOTE: 池 0 始终包含与拥有磁盘的存储系统位于同一站点的磁�
 
 . 确认磁盘分配：
 +
-` * storage show disk*`
+`storage show disk`
 
 . 退出维护模式：
 +
-` * 暂停 *`
+`halt`
 
 . 显示启动菜单：
 +
-` * boot_ontap menu *`
+`boot_ontap 菜单`
 
 . 在每个节点上，选择选项 * 。 4* 以初始化所有磁盘。
 

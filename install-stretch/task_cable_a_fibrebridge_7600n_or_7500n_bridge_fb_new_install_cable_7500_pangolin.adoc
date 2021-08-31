@@ -2,7 +2,7 @@
 permalink: install-stretch/task_cable_a_fibrebridge_7600n_or_7500n_bridge_fb_new_install_cable_7500_pangolin.html 
 sidebar: sidebar 
 keywords: metrocluster, stretch, installation, cable, fibrebridge, iom3, iom6, modules, shelves, bridge 
-summary: 配置网桥后，您可以开始为新系统布线。FibreBridge 7600N 或 7500N 网桥使用迷你 SAS 连接器，并支持使用 IOM6 或 IOM3 模块的磁盘架。 
+summary: 配置网桥后，您可以开始为系统布线。FibreBridge 7600N 或 7500N 网桥使用迷你 SAS 连接器，并支持使用 IOM6 或 IOM3 模块的磁盘架。 
 ---
 = 使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架
 :icons: font
@@ -10,7 +10,7 @@ summary: 配置网桥后，您可以开始为新系统布线。FibreBridge 7600N
 
 
 [role="lead"]
-配置网桥后，您可以开始为新系统布线。FibreBridge 7600N 或 7500N 网桥使用迷你 SAS 连接器，并支持使用 IOM6 或 IOM3 模块的磁盘架。
+配置网桥后，您可以开始为系统布线。FibreBridge 7600N 或 7500N 网桥使用迷你 SAS 连接器，并支持使用 IOM6 或 IOM3 模块的磁盘架。
 
 FibreBridge 7600N 网桥不支持 IOM3 模块。
 
@@ -35,7 +35,7 @@ image::../media/mcc_cabling_bridge_and_sas_stack_with_7500n_and_single_stack.gif
 
 
 
-. 对于其他磁盘架堆栈，请使用 FibreBridge 网桥上的下一个可用 SAS 端口重复上述步骤，第二个堆栈使用端口 B ，第三个堆栈使用端口 C ，第四个堆栈使用端口 D 。
+. 对于其他磁盘架堆栈，请使用 FibreBridge 网桥上的下一个可用 SAS 端口重复上述步骤。使用端口 B 表示第二个堆栈，使用端口 C 表示第三个堆栈，使用端口 D 表示第四个堆栈。
 +
 下图显示了连接到一对 FibreBridge 7600N 或 7500N 网桥的四个堆栈。
 

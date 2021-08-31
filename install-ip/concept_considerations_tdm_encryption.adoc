@@ -45,6 +45,6 @@ MetroCluster ISL 支持设备供应商支持的任何 SFP 或 QSFP 。SFP 和 QS
 
 一个网络结构上的 ISL 都应具有相同的拓扑。例如，它们都应为直接链路，或者如果配置使用 WDM ，则它们都应使用 WDM 。
 
-如果要与非 MetroCluster 网络共享 ISL ，则必须遵循一节中的准则 xref:concept_prepare_for_the_mcc_installation.html#considerations-for-sharing-private-layer-2-networks[共享私有第 2 层网络的注意事项]。
+如果要与非 MetroCluster 网络共享 ISL ，则必须遵循一节中的准则 link:concept_considerations_layer_2.html["共享私有第 2 层网络的注意事项"]。
 
 网络结构 1 和网络结构 2 之间支持的最大距离差为 20 公里

@@ -1,9 +1,8 @@
 ---
 section: maintain
 title: 维护 MetroCluster 组件
+url: maintain/index.html
 entries:
-- title: 确定是否使用《 MetroCluster 维护指南》
-  url: "/maintain/concept_deciding_whether_to_use_this_guide_mcc_service_guide.html"
 - title: 从何处查找 MetroCluster 维护任务的过程
   url: "/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html"
 - title: MetroCluster 故障和恢复场景

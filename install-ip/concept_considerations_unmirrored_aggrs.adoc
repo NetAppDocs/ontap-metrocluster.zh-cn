@@ -51,11 +51,26 @@ SVM 只能在镜像聚合上配置，也只能在未镜像聚合上配置。配�
 
 NOTE: 如果要添加要用于 MetroCluster IP 配置中未镜像聚合的磁盘架，则必须执行以下操作：
 
-. 在启动操作步骤以添加磁盘架之前，问题描述请运行以下命令： `MetroCluster modify -enable-unmirrored-aggr-deployment true`
-. 验证自动磁盘分配是否已关闭： `disk option show`
+. 在启动操作步骤以添加磁盘架之前，问题描述请执行以下命令：
++
+MetroCluster modify -enable-unmirrored-aggr-deployment true`
+
+. 验证自动磁盘分配是否已关闭：
++
+`d` 选项显示
+
 . 按照操作步骤中的步骤添加磁盘架。
 . 手动将新磁盘架中的所有磁盘分配给将拥有未镜像聚合的节点。
-. 使用 storage aggregate create 命令创建聚合。。
-. 完成操作步骤后问题描述，请运行以下命令： `MetroCluster modify -enable-unmirrored-aggr-deployment false`
-. 验证是否已启用自动磁盘分配： `disk option show`
+. 创建聚合。
++
+`s存储聚合创建`
+
+. 完成操作步骤后问题描述，运行以下命令：
++
+MetroCluster modify -enable-unmirrored-aggr-deployment false`
+
+. 验证是否已启用自动磁盘分配：
++
+`d` 选项显示
+
 

@@ -12,6 +12,7 @@ summary: 从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配�
 [role="lead"]
 从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配置扩展为临时八节点配置，然后删除旧的灾难恢复（ DR ）组来升级此配置中的控制器和存储。
 
+.关于此任务
 * 运行 ONTAP 9.8 及更高版本的系统支持此操作步骤。
 * 如果要升级 IP 交换机，则应在执行此刷新操作步骤之前对其进行升级。
 * 引用 " 旧节点 " 是指要替换的节点。
@@ -28,15 +29,15 @@ image::../media/mcc_dr_group_a.png[MCC DR 组 A]
 
 . 要防止自动生成支持案例，请发送一条 AutoSupport 消息以指示升级正在进行中。
 +
-.. 问题描述以下命令： + ` * 系统节点 AutoSupport invoke -node * -type all -message "MAINT=10h upgrading _old-model_ to _new-model"_*`
+.. 问题描述以下命令： + `ssystem node AutoSupport invoke -node * -type all -message "MAIN=10h upgrading _old-model_ to _new-model"_`
 +
-我们的示例指定了一个 10 小时的维护时段。根据您的计划，您可能需要留出更多时间。
+以下示例指定了一个 10 小时的维护时段。根据您的计划，您可能需要留出更多时间。
 
 +
 如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：
 
 +
-` * 系统节点 AutoSupport 调用 -node * -type all -message MAINT=end*`
+`ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
 
 .. 在配对集群上重复此命令。
 
@@ -45,27 +46,29 @@ image::../media/mcc_dr_group_a.png[MCC DR 组 A]
 +
 [cols="2*"]
 |===
+
+
 | 如果您使用的是 ... | 使用此操作步骤 ... 
 
 
  a| 
-* Tiebreaker *
+Tiebreaker
  a| 
 link:..tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for-modifying-metrocluster-tiebreaker-configurations["删除 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中
 
 
 
  a| 
-* 调解器 *
+调解器
  a| 
 在 ONTAP 提示符处问题描述以下命令：
 
-` * MetroCluster configuration-settings mediator remove*`
+`MetroCluster configuration-settings mediator remove`
 
 
 
  a| 
-* 第三方应用程序 *
+第三方应用程序
  a| 
 请参见产品文档。
 
@@ -96,7 +99,7 @@ NOTE: 您可以选择在创建聚合时或之后对其进行镜像。
 
 . 按照操作步骤中的步骤删除旧 DR 组。
 +
-xref:concept_removing_a_disaster_recovery_group.adoc[删除灾难恢复组]
+link:concept_removing_a_disaster_recovery_group.html["删除灾难恢复组"]
 
 +
 删除旧 DR 组（ DR 组 1 ）后，此配置将显示为下图所示：
@@ -108,19 +111,19 @@ image::../media/mcc_dr_group_d.png[MCC DR 组 d]
 +
 .. 确认 MetroCluster 配置以及操作模式是否正常：
 +
-` * MetroCluster show*`
+`MetroCluster show`
 
 .. 确认显示所有预期节点：
 +
-` * MetroCluster node show*`
+`MetroCluster node show`
 
 .. 问题描述以下命令：
 +
-` * MetroCluster check run*`
+`MetroCluster check run`
 
 .. 显示 MetroCluster 检查的结果：
 +
-` * MetroCluster check show*`
+MetroCluster check show`
 
 
 
@@ -128,25 +131,27 @@ image::../media/mcc_dr_group_d.png[MCC DR 组 d]
 +
 [cols="2*"]
 |===
+
+
 | 如果您使用的是 ... | 使用此操作步骤 
 
 
  a| 
-* Tiebreaker *
+Tiebreaker
  a| 
 link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["正在添加 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中
 
 
 
  a| 
-* 调解器 *
+调解器
  a| 
 link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"] 在 _IP MetroCluster 安装和配置指南 _ 中
 
 
 
  a| 
-* 第三方应用程序 *
+第三方应用程序
  a| 
 请参见产品文档。
 
@@ -155,7 +160,7 @@ link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_
 +
 .. 问题描述以下命令：
 +
-` * 系统节点 AutoSupport 调用 -node * -type all -message MAINT=end*`
+`ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
 
 .. 在配对集群上重复此命令。
 

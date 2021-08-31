@@ -49,13 +49,16 @@ ClusterB::> aggr delete -aggregate aggregate_name
 
 NOTE: 不会删除根聚合。
 
-... 将所有数据 LIF 迁移到另一个 DR 组中的主节点。+ ` * 网络接口 show -home-node _old_node_*`
+... 将所有数据 LIF 迁移到另一个 DR 组中的主节点。+ `network interface show -home-node _old_node_s`
 +
-` * 网络接口修改 -vserver _svm-name_ -lif _data-lif_ -home-port _port-id_*`
+`network interface modify -vserver _svm-name_ -lif _data-lif_ -home-port _port-id_`
 
-... 将集群管理 LIF 迁移到另一个 DR 组中的主节点。+ ` * 网络接口 show -role cluster-mgm*`
+... 将集群管理 LIF 迁移到另一个 DR 组中的主节点。
 +
-` * 网络接口修改 -vserver _svm-name_ -lif _data-lif_ -home-port _port-id_*`
+`network interface show -role cluster-mgmt`
+
++
+`network interface modify -vserver _svm-name_ -lif _data-lif_ -home-port _port-id_`
 
 +
 节点管理和集群间 LIF 不会迁移。
@@ -80,8 +83,11 @@ ClusterB::*> set admin
 
 .. 确定并删除 DR 组。
 +
-... 确定要删除的正确 DR 组： + ` * MetroCluster node show*`
-... 删除 DR 组节点： + ` * MetroCluster remove-dr-group -dr-group-id 1*`
+... 确定要删除的正确 DR 组：
++
+`MetroCluster node show`
+
+... 删除 DR 组节点： + MetroCluster remove-dr-group -dr-group-id 1`
 +
 以下示例显示了如何删除 cluster_A 上的 DR 组配置
 
@@ -127,9 +133,15 @@ cluster_A::*>
 这些命令可以从任一集群发出，并应用于跨越两个集群的整个 DR 组。
 
 +
-... 断开连接： + ` * MetroCluster configuration-settings connection disconnect _dr-group-id_*`
-... 删除旧 DR 组节点上的 MetroCluster 接口： + ` * MetroCluster configuration-settings interface delete*`
-... 删除旧 DR 组的配置。+ ` * MetroCluster configuration-settings dr-group delete*`
+... 断开连接：
++
+MetroCluster configuration-settings connection disconnect _dr-group-id_`
+
+... 删除旧 DR 组节点上的 MetroCluster 接口：
++
+MetroCluster configuration-settings interface delete`
+
+... 删除旧 DR 组的配置。+ MetroCluster configuration-settings dr-group delete`
 
 
 .. 取消加入旧 DR 组中的节点。
@@ -137,17 +149,20 @@ cluster_A::*>
 您必须在每个集群上执行此步骤。
 
 +
-... 设置高级权限级别： + ` * 设置 -privilege advanced*`
-... 取消加入节点： + ` * cluster unjoin -node _node-name_*`
+... 设置高级权限级别：
++
+`set -privilege advanced`
+
+... Unjoin the node ： + `cluster unjoin -node _node-name_`
 +
 对旧 DR 组中的另一个本地节点重复此步骤。
 
-... 设置管理员权限级别： + ` * 设置 -privilege admin*`
+... 设置管理员权限级别： + `set -privilege admin`
 
 
 .. 在新 DR 组中重新启用集群 HA ：
 +
-` * cluster ha modify -configured true*`
+`cluster ha modify -configured true`
 
 +
 您必须在每个集群上执行此步骤。

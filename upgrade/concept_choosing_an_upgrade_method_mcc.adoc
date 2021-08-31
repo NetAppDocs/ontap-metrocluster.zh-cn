@@ -37,6 +37,8 @@ summary: 您使用的升级或刷新操作步骤取决于平台型号，升级�
 == 选择不使用聚合重新定位的操作步骤
 
 |===
+
+
 | 升级或刷新的类型 | MetroCluster 类型 | 首款 ONTAP 版本支持 | 操作步骤 
 
 
@@ -49,7 +51,7 @@ FC
  a| 
 9.8
  a| 
-xref:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.adoc[使用切换和切回升级 MetroCluster FC 配置中的控制器]
+link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["使用切换和切回升级 MetroCluster FC 配置中的控制器"]
 
 
 
@@ -62,7 +64,7 @@ IP
  a| 
 9.8
  a| 
-xref:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.adoc[使用切换和切回升级 MetroCluster IP 配置中的控制器（ ONTAP 9.8 及更高版本）]
+link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html["使用切换和切回升级 MetroCluster IP 配置中的控制器（ ONTAP 9.8 及更高版本）"]
 
 
 
@@ -75,7 +77,7 @@ FC
  a| 
 9.6 及更高版本
  a| 
-xref:task_refresh_4n_mcc_fc.adoc[刷新四节点 MetroCluster FC 配置]
+link:task_refresh_4n_mcc_fc.html["刷新四节点 MetroCluster FC 配置"]
 
 
 
@@ -88,7 +90,7 @@ IP
  a| 
 9.8
  a| 
-xref:task_refresh_4n_mcc_ip.adoc[刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）]
+link:task_refresh_4n_mcc_ip.html["刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）"]
 
 |===
 
@@ -106,7 +108,7 @@ FC
  a| 
 9.8 及更高版本
  a| 
-https://docs.netapp.com/us-en/ontap-systems/upgrade-arl-auto-app/["使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 的控制器硬件"]
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 及更高版本的控制器硬件"]
 
 
 
@@ -117,7 +119,7 @@ FC
  a| 
 9.5 到 9.7
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2848956["使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7"]
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html["使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7"]
 
 
 
@@ -128,7 +130,7 @@ FC
  a| 
 9.8
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2659356["使用聚合重新定位手动升级运行 ONTAP 9.8 及更高版本的控制器硬件"]
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["手动升级运行 ONTAP 9.8 及更高版本的控制器硬件"]
 
 
 
@@ -139,6 +141,6 @@ FC
  a| 
 9.7 及更早版本
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2875250["将具有聚合重新定位的控制器升级到手动升级运行 ONTAP 9.7 及更早版本的控制器硬件"]
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html["手动升级运行 ONTAP 9.7 及更早版本的控制器硬件"]
 
 |===

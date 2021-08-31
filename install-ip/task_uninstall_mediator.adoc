@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: mediator, uninstall 
 summary: 如有必要，您可以删除 ONTAP 调解器服务。 
 ---
-= 更改 ONTAP 调解器用户名
+= 卸载 ONTAP 调解器服务
 :icons: font
 :imagesdir: ../media/
 
@@ -12,28 +12,27 @@ summary: 如有必要，您可以删除 ONTAP 调解器服务。
 [role="lead"]
 如有必要，您可以删除 ONTAP 调解器服务。
 
-* 开始之前 *
-
 在删除调解器服务之前，必须断开调解器与 ONTAP 的连接。
-
-* 关于此任务 *
 
 此任务在安装了 ONTAP 调解器服务的 Linux 主机上执行。
 
-如果无法访问此命令，则可能需要使用完整路径运行此命令，如以下示例所示： /usr/local/bin/uninstall_ontap_mediator
+如果无法访问此命令，则可能需要使用完整路径运行此命令，如以下示例所示：
 
-* 操作步骤 *
+` /usr/local/bin/uninstall_ontap_mediator`
 
-使用命令卸载 ONTAP 调解器服务，如以下示例所示： uninstall_ontap_mediator
+.步骤
+. 卸载 ONTAP 调解器服务：
++
+`uninstall_ontap_mediator`
 
++
 ....
-[root@mediator-host ~]# uninstall_ontap_mediator
+ [root@mediator-host ~]# uninstall_ontap_mediator
+
+ ONTAP Mediator: Self Extracting Uninstaller
+
+ + Removing ONTAP Mediator. (Log: /tmp/ontap_mediator.GmRGdA/uninstall_ontap_mediator/remove.log)
+ + Remove successful.
+ [root@mediator-host ~]#
 ....
-....
-ONTAP Mediator: Self Extracting Uninstaller
-....
-....
-+ Removing ONTAP Mediator. (Log: /tmp/ontap_mediator.GmRGdA/uninstall_ontap_mediator/remove.log)
-+ Remove successful.
-[root@mediator-host ~]#
-....
+

@@ -60,7 +60,11 @@ entries:
     - title: 配置 Broadcom IP 交换机
       url: "/install-ip/task_switch_config_broadcom.html"
     - title: 配置 Cisco IP 交换机
-      url: "/install-ip/task_switch_config_cisco.html"
+      entries:
+      - title: 配置基本设置
+        url: "/install-ip/task_switch_config_cisco.html"
+      - title: 在 Cisco 9336C 交换机上配置 MACsec 加密
+        url: "/install-ip/task_switch_config_cisco_macsec.html"
 - title: 在 ONTAP 中配置 MetroCluster 软件
   url: "/install-ip/concept_configure_the_mcc_software_in_ontap.html"
   entries:

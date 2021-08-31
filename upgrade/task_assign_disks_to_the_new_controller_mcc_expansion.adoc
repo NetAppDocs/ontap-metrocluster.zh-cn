@@ -14,28 +14,28 @@ summary: 在通过网络启动完成新控制器模块的配置之前，必须�
 
 您必须确保现有聚合中有足够的备用磁盘，未分配磁盘或已分配磁盘。
 
-xref:task_prepare_for_the_upgrade_add_2nd_controller_to_create_ha_pair.adoc[正在准备升级]
+link:task_prepare_for_the_upgrade_add_2nd_controller_to_create_ha_pair.html["正在准备升级"]
 
 这些步骤将在现有控制器模块上执行。
 
 .步骤
 . 将根磁盘分配给新控制器模块：
 +
-` * 存储磁盘分配 -disk _disk_name_ -sysid _new_controller_sysID_ -force true*`
+`s存储磁盘分配 -disk _disk_name_ -sysid _new_controller_sysID_ -force true`
 
 +
 如果您的平台型号使用高级驱动器分区（ ADP ）功能，则必须包含 -root true 参数：
 
 +
-` * 存储磁盘分配 -disk _disk_name_ -root true -sysid _new_controller_sysID_ -force true*`
+`s存储磁盘分配 -disk _disk_name_ -root true -sysid _new_controller_sysID_ -force true`
 
 . 通过为每个磁盘输入以下命令，将其余所需磁盘分配给新控制器模块：
 +
-` * 存储磁盘分配 -disk _disk_name_ -sysid _new_controller_sysID_ -force true*`
+`s存储磁盘分配 -disk _disk_name_ -sysid _new_controller_sysID_ -force true`
 
 . 验证磁盘分配是否正确：
 +
-` * storage disk show -partitionownerage*`
+`storage disk show -partitionownerage*`
 
 +
 

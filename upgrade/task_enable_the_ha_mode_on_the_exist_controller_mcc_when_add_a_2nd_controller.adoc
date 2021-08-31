@@ -15,6 +15,6 @@ summary: 您必须使用 storage failover modify 命令在现有控制器模块�
 .步骤
 . 将模式设置为 HA ：
 +
-` * storage failover modify -mode ha -node _existing_node_name_*`
+`storage failover modify -mode ha -node _existing_node_name_`
 
 

@@ -16,7 +16,6 @@ summary: 从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信�
 
 == 在 MetroCluster 配置中使用调解器的网络要求
 
-[role="lead"]
 要在 MetroCluster 配置中安装 ONTAP 调解器服务，您必须确保此配置满足多个网络要求。
 
 * 往返延迟
@@ -41,7 +40,6 @@ MTU 大小必须至少为 1400 。
 
 == ONTAP 调解器的防火墙要求
 
-[role="lead"]
 ONTAP 调解器使用多个端口与特定服务进行通信。
 
 * 如果您使用的是第三方防火墙：
@@ -58,6 +56,8 @@ ONTAP 调解器使用多个端口与特定服务进行通信。
 下表列出了防火墙中必须允许的端口：
 
 |===
+
+
 | 端口 / 服务 | 源 | 目标 | 目的 
 
 
@@ -86,7 +86,6 @@ ONTAP 调解器 iSCSI 目标
 
 == 在 MetroCluster 配置中升级 ONTAP 调解器的准则
 
-[role="lead"]
 如果要升级 ONTAP 调解器，则必须满足 Linux 版本要求并遵循升级准则。
 
 * 调解器服务可以从 1.0 版升级到 1.1 版。
@@ -99,7 +98,10 @@ ONTAP 调解器 iSCSI 目标
 
 下表提供了从 RHEL/CentOS 7.6 升级到更高版本 RHEL/CentOS 以及升级调解器版本的升级准则。
 
+[cols="20,20,60"]
 |===
+
+
 | 目标 Linux 版本 | 目标调解器版本 | 升级说明 
 
 
@@ -112,13 +114,12 @@ RHEL/CentOS 7.7
 +
 .. 将操作系统从 RHEL/CentOS 7.6 版升级到 7.7 版。
 +
-
-NOTE: 在操作系统升级期间， ONTAP 调解器和调解器辅助的自动计划外切换不可用。调解器将脱机，直到调解器版本 1.0 到 1.1 升级过程完成为止。
+* 注 * ：在操作系统升级期间， ONTAP 调解器和调解器辅助的自动计划外切换不可用。调解器将脱机，直到调解器版本 1.0 到 1.1 升级过程完成为止。
 
 .. 重新启动主机以应用内核模块更改。
 .. 将调解器从 1.0 版升级到 1.1 版。
 +
-xref:concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html#installing-or-upgrading-the-ontap-mediator-service[安装或升级 ONTAP 调解器服务]
+link:task_install_configure_mediator.html["安装或升级 ONTAP 调解器服务"]
 
 
 
@@ -136,7 +137,10 @@ RHEL/CentOS 8.0 或 8.1
  a| 
 没有直接升级路径。您必须在操作系统升级后删除 1.0 版并安装 1.1 版：
 
-. 从 ONTAP 配置中删除调解器服务： MetroCluster configuration-settings mediator remove
+. 从 ONTAP 配置中删除调解器服务：
++
+`MetroCluster configuration-settings mediator remove`
+
 . 卸载调解器服务 1.0 版。
 +
 link:../install-ip/task_uninstall_mediator.html["卸载 ONTAP 调解器服务"]
@@ -144,9 +148,12 @@ link:../install-ip/task_uninstall_mediator.html["卸载 ONTAP 调解器服务"]
 . 将 Linux 操作系统升级到 8.0 或 8.1 版。
 . 安装调解器服务 1.1 版。
 +
-xref:concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html#installing-or-upgrading-the-ontap-mediator-service[安装或升级 ONTAP 调解器服务]
+link:task_uninstall_mediator.html["安装或升级 ONTAP 调解器服务"]
 
-. 将调解器服务添加到 ONTAP 配置： MetroCluster configuration-settings add -addressmedier-1.1-ip-address
+. 将调解器服务添加到 ONTAP 配置：
++
+MetroCluster configuration-settings add -addressmedier-1.1-ip-address`
+
 
 
 |===
@@ -154,7 +161,7 @@ xref:concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.htm
 
 == 升级后
 
-调解器和操作系统升级完成后，您应使用问题描述 storage iscsi-initiator show 命令确认调解器连接已启动。
+完成调解器和操作系统升级后，您应使用问题描述 `storage iscsi-initiator show` 命令确认调解器连接已启动。
 
 
 
@@ -162,16 +169,22 @@ xref:concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.htm
 
 不支持从调解器 1.1 版直接还原到 1.0 版。您必须删除 1.1 版并重新安装 1.0 版。
 
-. 从 ONTAP 配置中删除调解器服务： MetroCluster configuration-settings mediator remove
+. 从 ONTAP 配置中删除调解器服务：
++
+`MetroCluster configuration-settings mediator remove`
+
 . 卸载调解器服务 1.1 版。
 +
 link:../install-ip/task_uninstall_mediator.html["卸载 ONTAP 调解器服务"]
 
 . 安装 1.0 版的调解器服务。
 +
-xref:concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html#installing-or-upgrading-the-ontap-mediator-service[安装或升级 ONTAP 调解器服务]
+link:task_install_configure_mediator.html["安装或升级 ONTAP 调解器服务"]
 
-. 将调解器服务添加到 ONTAP 配置： MetroCluster configuration-settings add -addressmedier-1.0-ip-address
+. 将调解器服务添加到 ONTAP 配置：
++
+MetroCluster configuration-settings add -addressmedier-1.0-ip-address`
+
 
 
 
@@ -180,15 +193,19 @@ xref:concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.htm
 
 ONTAP 调解器需要使用 SCST 内核模块。如果更新了 Linux 内核，此依赖关系可能会导致服务丢失。强烈建议您在更改任何内核软件包时重建 SCST 内核模块。
 
-注意
-
+[NOTE]
+====
 * 从 ONTAP 调解器 1.0 版升级到 1.1 版将重新构建 SCST 模块。
 * 重新启动 Linux 内核后，将应用内核模块更改。
 
 
+====
 您可以使用以下任一过程从导致调解器服务丢失的内核升级中恢复。
 
+[cols="30,70"]
 |===
+
+
 | 操作步骤 | 步骤 
 
 
@@ -237,12 +254,18 @@ reboot
  a| 
 删除并重新安装 ONTAP 调解器
 
-+ * 。注： * 此操作需要在 ONTAP 中重新配置调解器。
+* 注： * 这需要重新配置 ONTAP 中的调解器。
  a| 
-. 从 ONTAP 配置中删除调解器服务： MetroCluster configuration-settings mediator remove
+. 从 ONTAP 配置中删除调解器服务：
++
+`MetroCluster configuration-settings mediator remove`
+
 . link:../install-ip/task_uninstall_mediator.html["卸载 ONTAP 调解器服务"]。
-. link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html#installing-or-upgrading-the-ontap-mediator-service["重新安装调解器服务"]。
-. 将调解器服务添加到 ONTAP 配置： MetroCluster configuration-settings add -addressmedier-IP-address
+. link:../install-ip/task_install__configure_mediator.html["重新安装调解器服务"]。
+. 将调解器服务添加到 ONTAP 配置：
++
+MetroCluster configuration-settings add -addressmedier-ip-address`
+
 
 
 |===

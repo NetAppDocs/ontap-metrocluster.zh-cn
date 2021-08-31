@@ -12,7 +12,7 @@ summary: 在光纤连接的 MetroCluster 配置中，节点位于不同位置。
 [role="lead"]
 在光纤连接的 MetroCluster 配置中，节点位于不同位置。这种地理差异可提高灾难保护能力。要从延伸型 MetroCluster 配置过渡到光纤连接的 配置，您必须在配置中添加 FC 交换机以及 FC-SAS 网桥（如果需要）。
 
-* 您必须已通过运行 `MetroCluster modify -auto-switchover-failure-domain auto-disabled` 命令在两个集群上禁用自动切换。
+* 您必须通过运行 MetroCluster modify -auto-switchover-failure-domain auto-disabled` 命令在两个集群上禁用自动切换。
 * 您必须已关闭节点。
 +
 此操作步骤会造成系统中断。

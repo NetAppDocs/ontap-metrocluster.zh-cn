@@ -65,7 +65,7 @@ https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster
  a| 
 * 了解 MetroCluster 配置
 * 切换，修复和切回
-* 灾难恢复
+* 灾难恢复（ DR ）
 
 
 
@@ -74,10 +74,10 @@ https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster
 link:../maintain/index.html["维护 MetroCluster 组件"]
  a| 
 * MetroCluster FC 配置维护准则
-* FC-SAS 网桥和 FC 交换机的硬件更换或升级以及固件升级过程
+* 硬件更换或升级。FC-SAS 网桥和 FC 交换机的固件升级过程
 * 在光纤连接或延伸型 MetroCluster FC 配置中热添加磁盘架
 * 在光纤连接或延伸型 MetroCluster FC 配置中热移除磁盘架
-* 在光纤连接或延伸型 MetroCluster FC 配置中更换灾难站点上的硬件
+* 更换光纤连接或延伸型 MetroCluster FC 配置中灾难恢复站点的硬件
 * 将双节点光纤连接或延伸型 MetroCluster FC 配置扩展为四节点 MetroCluster 配置。
 * 将四节点光纤连接或延伸型 MetroCluster FC 配置扩展为八节点 MetroCluster FC 配置。
 

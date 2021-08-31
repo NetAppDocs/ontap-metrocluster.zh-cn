@@ -18,7 +18,7 @@ summary: 您应问题描述发送 AutoSupport 消息，以通知 NetApp 技术�
 . 登录到 Site_A 上的集群
 . 调用指示维护结束的 AutoSupport 消息：
 +
-` * 系统节点 AutoSupport 调用 -node * -type all -message MAINT=end*`
+`ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
 
 . 在配对站点上重复此步骤。
 

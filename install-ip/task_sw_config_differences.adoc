@@ -13,6 +13,8 @@ summary: 在 MetroCluster 配置中，每个集群中的节点配置与标准集
 MetroCluster 配置基于两个标准集群构建。在物理上，配置必须对称，每个节点都具有相同的硬件配置，并且所有 MetroCluster 组件都必须进行布线和配置。但是， MetroCluster 配置中节点的基本软件配置与标准集群中节点的基本软件配置相同。
 
 |===
+
+
 | 配置步骤 | 标准集群配置 | MetroCluster 配置 
 
 

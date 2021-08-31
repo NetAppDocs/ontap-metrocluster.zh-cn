@@ -192,9 +192,7 @@ NOTE: 在切换期间创建备份时，集群可以识别恢复时的切换状�
  a| 
 * 使用安全副本将备份复制到远程服务器 *
  a| 
-....
-From the remote server use the following scp commands:
-....
+ From the remote server use the following scp commands:
 .. 复制集群备份： `scp diagnode-mgmt-FC ： /mroot/etc/backups/config/cluster-backup-name.7z 。`
 .. 复制节点备份： `scp diag@node-mgmt-FC ： /mroot/etc/backups/config/node-backup-name.7z 。`
 

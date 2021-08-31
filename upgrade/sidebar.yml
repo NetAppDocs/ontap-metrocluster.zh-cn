@@ -1,6 +1,7 @@
 ---
 section: upgrade
 title: 升级或扩展 MetroCluster 配置
+url: "/upgrade/index.html"
 entries:
 - title: 选择升级或刷新方法
   url: "/upgrade/concept_choosing_an_upgrade_method_mcc.html"

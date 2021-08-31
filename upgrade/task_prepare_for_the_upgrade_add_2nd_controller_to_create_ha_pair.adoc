@@ -14,15 +14,17 @@ summary: 在升级到 HA 对之前，您必须验证您的系统是否满足所�
 
 .步骤
 . 您需要确定可分配给新控制器模块的未分配磁盘或备用磁盘。
-
-
++
 https://library.netapp.com/ecm/ecm_download_file/ECMLP2427462["《物理存储管理指南》"]
 
++
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
 . 根据上一步的结果，执行以下任一操作：
 +
 |===
+
+
 | 如果结果显示 ... | 那么 ... 
 
 
@@ -34,12 +36,22 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁�
 
 
  a| 
+其他结果
  a| 
 完成以下子步骤：
 
-.. 确定现有节点的聚合所在位置： + ` * storage aggregate show*`
-.. 如果磁盘所有权自动分配已启用，请将其关闭： + ` * 存储磁盘选项 modify -node _node_name_ -autodassign off*`
-.. 删除不含聚合的磁盘上的所有权： + ` * 存储磁盘删除所有者 _disk_name_*`
+.. 确定现有节点的聚合所在位置：
++
+`s存储聚合显示`
+
+.. 如果磁盘所有权自动分配已启用，请将其关闭：
++
+`s存储磁盘选项 modify -node _node_name_ -autosassign off`
+
+.. 删除不包含聚合的磁盘上的所有权：
++
+`s存储磁盘 removeowner _disk_name_`
+
 .. 对新节点中所需数量的磁盘重复上述步骤。
 
 

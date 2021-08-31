@@ -359,7 +359,7 @@ site_B::*> storage iscsi-initiator disconnect -node node_B_2 -label *
 == 清除控制器模块上的配置
 
 [role="lead"]
-在 MetroCluster 配置中使用新控制器模块之前，必须清除此配置。
+在 MetroCluster 配置中使用新控制器模块之前，必须清除现有配置。
 
 .步骤
 . 如有必要，暂停节点以显示 LOADER 提示符：
@@ -412,7 +412,7 @@ https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
 .步骤
 . 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"] 下载用于执行系统网络启动的文件。
 . 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
-. 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
+. 转到可通过 Web 访问的目录，并验证所需文件是否可用。
 +
 |===
 
@@ -451,9 +451,7 @@ https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
 
 . 从启动菜单中，选择选项 * （ 7 ） Install new software first* ，将新软件映像下载并安装到启动设备。
 +
-....
-Disregard the following message: "This procedure is not supported for Non-Disruptive Upgrade on an HA pair". It applies to nondisruptive upgrades of software, not to upgrades of controllers.
-....
+ Disregard the following message: "This procedure is not supported for Non-Disruptive Upgrade on an HA pair". It applies to nondisruptive upgrades of software, not to upgrades of controllers.
 . 如果系统提示您继续运行操作步骤，请输入 `y` ，然后在系统提示您输入软件包时，输入映像文件的 URL ： ` \http://web_server_ip/path_to_web-accessible_directory/ontap-version_image.tgz`
 +
 ....

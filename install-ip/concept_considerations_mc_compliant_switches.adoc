@@ -68,8 +68,9 @@ NetApp 提供的 MetroCluster IP 交换机已通过 NetApp 验证。从 ONTAP 9.
 
 NOTE: 缺少值表示不支持此平台。
 
-[cols="2*"]
 |===
+
+
 | 平台 | 网络速度（ Gbps ） 
 
 

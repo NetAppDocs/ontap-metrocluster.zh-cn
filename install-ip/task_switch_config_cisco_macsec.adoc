@@ -1,0 +1,106 @@
+---
+permalink: install-ip/task_switch_config_cisco_macsec.html 
+sidebar: sidebar 
+keywords: cisco, MACsec encryption 
+summary: 您只能在站点之间运行的 WAN ISL 端口上配置 MACsec 加密。在应用正确的 RCF 文件后，您必须配置 MACsec 。 
+---
+= 在 Cisco 9336C 交换机上配置 MACsec 加密
+
+
+[role="lead"]
+如果需要，您可以在站点之间运行的 WAN ISL 端口上配置 MACsec 加密。在应用正确的 RCF 文件后，您必须配置 MACsec 。
+
+
+NOTE: MACsec 加密只能应用于 WAN ISL 端口。
+
+
+
+== MAC 的许可要求
+
+MACsec 需要安全许可证。有关 Cisco NX-OS 许可方案以及如何获取和申请许可证的完整说明，请参见 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/nx-os/licensing/guide/b_Cisco_NX-OS_Licensing_Guide/b_Cisco_NX-OS_Licensing_Guide_chapter_01.html["《 Cisco NX-OS 许可指南》"]
+
+
+
+== 在 MetroCluster IP 配置中启用 Cisco MACsec 加密 WAN ISL
+
+[role="lead"]
+您可以在 MetroCluster IP 配置中为 WAN ISL 上的 Cisco 9336C 交换机启用 MACsec 加密。
+
+. 进入全局配置模式： `configure terminal`
++
+[listing]
+----
+IP_switch_A_1# configure terminal
+IP_switch_A_1(config)#
+----
+. 在设备上启用 MACsec 和 MKA ： `feature MACsec`
++
+[listing]
+----
+IP_switch_A_1(config)# feature macsec
+----
+. 将运行配置复制到启动配置： `copy running-config startup-config`
++
+[listing]
+----
+IP_switch_A_1(config)# copy running-config startup-config
+----
+
+
+
+
+== 禁用 Cisco MAC 秒加密
+
+[role="lead"]
+在 MetroCluster IP 配置中，您可能需要对 WAN ISL 上的 Cisco 9336C 交换机禁用 MACsec 加密。
+
+
+NOTE: 如果禁用加密，则还必须删除密钥，如 XXX 中所述。
+
+. 进入全局配置模式： `configure terminal`
++
+[listing]
+----
+IP_switch_A_1# configure terminal
+IP_switch_A_1(config)#
+----
+. 在设备上禁用 MACsec 配置： `mAcSEC shutdown`
++
+[listing]
+----
+IP_switch_A_1(config)# macsec shutdown
+----
++
+
+NOTE: 选择 no 选项将还原 MACsec 功能。
+
+. 选择已配置 MAC 的接口。
++
+您可以指定接口类型和标识。对于以太网端口，请使用以太网插槽 / 端口。
+
++
+[listing]
+----
+IP_switch_A_1(config)# interface ethernet 1/15
+switch(config-if)#
+----
+. 删除接口上配置的密钥链，策略和回退密钥链以删除 MACsec 配置： `no MACsec keychain keychain-name policy policy-name backfally-keychain keychain-name`
++
+[listing]
+----
+IP_switch_A_1(config-if)# no macsec keychain kc2 policy abc fallback-keychain fb_kc2
+----
+. 对配置了 MACsec 的所有接口重复步骤 3 和 4 。
+. 将运行配置复制到启动配置： `copy running-config startup-config`
++
+[listing]
+----
+IP_switch_A_1(config)# copy running-config startup-config
+----
+
+
+
+
+== 配置 MACsec 密钥链和密钥
+
+有关配置 MACsec 密钥链的详细信息，请参见适用于您的交换机的 Cisco 文档。

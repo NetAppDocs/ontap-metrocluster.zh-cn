@@ -16,7 +16,7 @@ summary: 您可以从第三个站点下载并安装 MetroCluster Tiebreaker 软�
 
 如果您必须安装新的 ONTAP 调解器实例，请按照说明安装和配置软件。
 
-xref:concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html[为计划外自动切换配置 ONTAP 调解器服务]
+link:concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["为计划外自动切换配置 ONTAP 调解器服务"]
 
 如果您必须安装 Tiebreaker 软件的新实例，请按照执行操作 link:../tiebreaker/index.html["安装和配置软件的说明"]。
 
@@ -24,11 +24,15 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/
 
 您不能使用具有相同 MetroCluster 配置的 MetroCluster Tiebreaker 软件和 ONTAP 调解器。
 
-link:../install-ip/concept_considerations_mediator["使用 ONTAP 调解器或 MetroCluster Tiebreaker 的注意事项"]
+link:../install-ip/concept_considerations_mediator.html["使用 ONTAP 调解器或 MetroCluster Tiebreaker 的注意事项"]
 
+.步骤
 . 配置 ONTAP 调解器服务或 Tiebreaker 软件：
 +
-** 如果您使用的是现有的 ONTAP 调解器实例，请使用以下命令将 ONTAP 调解器服务添加到 ONTAP ：``metrocluster configuration-settings mediator add -mediate-address IP-address-of -mediate-host``
+** 如果您使用的是现有的 ONTAP 调解器实例，请使用以下命令将 ONTAP 调解器服务添加到 ONTAP ：
++
+MetroCluster configuration-settings mediator add -mediate-address ip-address-o-o-medier-host`
+
 ** 如果您使用的是 Tiebreaker 软件，请参见 link:../tiebreaker/index.html["Tiebreaker 文档"]。
 
 

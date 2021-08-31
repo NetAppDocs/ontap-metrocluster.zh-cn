@@ -26,6 +26,8 @@ summary: 如果 MetroCluster 节点未正确分配磁盘，或者您在配置中
 如果您的配置包含 DS460C 磁盘架，则应按照以下准则为每个 12 磁盘抽盒手动分配磁盘：
 
 |===
+
+
 | 在抽盒中分配这些磁盘 ... | 到此节点和池 ... 
 
 
@@ -68,7 +70,10 @@ HA 配对节点池 1 的 DR 配对节点
 您应为每个池分配相同数量的磁盘架。
 
 +
-.. 在第一个节点上，系统地将本地磁盘架分配给池 0 ，并将远程磁盘架分配给池 1 ： + ` * disk assign -shelf _local-switch-name ： shelf-name.port_ -p _pool_*`
+.. 在第一个节点上，系统地将本地磁盘架分配给池 0 ，并将远程磁盘架分配给池 1 ：
++
+`dassign -shelf _local-switch-name ： shelf-name.port_ -p _pool_`
+
 +
 如果存储控制器 Controller_A_1 有四个磁盘架，则问题描述以下命令：
 
@@ -81,7 +86,10 @@ HA 配对节点池 1 的 DR 配对节点
 *> disk assign -shelf FC_switch_B_1:1-4.shelf1 -p 1
 *> disk assign -shelf FC_switch_B_1:1-4.shelf2 -p 1
 ----
-.. 对本地站点的第二个节点重复此过程，系统地将本地磁盘架分配给池 0 ，并将远程磁盘架分配给池 1 ： + ` * disk assign -shelf _local-switch-name ： shelf-name.port_ -p _pool_*`
+.. 对本地站点的第二个节点重复此过程，系统地将本地磁盘架分配给池 0 ，并将远程磁盘架分配给池 1 ：
++
+`dassign -shelf _local-switch-name ： shelf-name.port_ -p _pool_`
+
 +
 如果存储控制器 Controller_A_2 有四个磁盘架，则问题描述以下命令：
 
@@ -104,7 +112,10 @@ HA 配对节点池 1 的 DR 配对节点
 您应为每个池分配相同数量的磁盘架。
 
 +
-.. 在远程站点的第一个节点上，系统地将其本地磁盘架分配给池 0 ，并将其远程磁盘架分配给池 1 ： + ` * disk assign -shelf _local-switch-namelf-name_ -p _pool_*`
+.. 在远程站点的第一个节点上，系统地将本地磁盘架分配给池 0 ，并将远程磁盘架分配给池 1 ：
++
+`dassign -shelf _local-switch-namelf-name_ -p _pool_`
+
 +
 如果存储控制器 Controller_B_1 有四个磁盘架，则问题描述以下命令：
 
@@ -117,7 +128,10 @@ HA 配对节点池 1 的 DR 配对节点
 *> disk assign -shelf FC_switch_A_1:1-5.shelf1 -p 1
 *> disk assign -shelf FC_switch_A_1:1-5.shelf2 -p 1
 ----
-.. 对远程站点的第二个节点重复此过程，系统地将其本地磁盘架分配给池 0 ，并将其远程磁盘架分配给池 1 ： + ` * disk assign -shelf _shelf-name_ -p _pool_*`
+.. 对远程站点的第二个节点重复此过程，系统地将其本地磁盘架分配给池 0 ，并将其远程磁盘架分配给池 1 ：
++
+`d` assign -shelf _shelf-name_ -p _pool_
+
 +
 如果存储控制器 Controller_B_2 有四个磁盘架，则问题描述以下命令：
 
@@ -134,15 +148,15 @@ HA 配对节点池 1 的 DR 配对节点
 
 . 确认磁盘架分配：
 +
-` * 存储显示磁盘架 *`
+`s存储显示磁盘架`
 
 . 退出维护模式：
 +
-` * 暂停 *`
+`halt`
 
 . 显示启动菜单：
 +
-` * boot_ontap menu *`
+`boot_ontap 菜单`
 
 . 在每个节点上，选择选项 * 。 4* 以初始化所有磁盘。
 

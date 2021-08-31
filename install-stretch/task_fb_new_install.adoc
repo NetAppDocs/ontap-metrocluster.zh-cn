@@ -14,9 +14,9 @@ summary: 在向配置添加新存储时，您需要安装 ATTO FibreBridge 网�
 
 对于从工厂收到的系统， FC-SAS 网桥已进行预配置，不需要进行其他配置。
 
-编写此操作步骤时假定您使用的是建议的网桥管理界面： ATTO ExpressNAV 图形用户界面和 ATTO QuickNAV 实用程序。
+此操作步骤假定您使用的是建议的网桥管理界面： ATTO ExpressNAV GUI 和 ATTO QuickNAV 实用程序。
 
-您可以使用 ATTO ExpressNAV 图形用户界面配置和管理网桥，以及更新网桥固件。您可以使用 ATTO QuickNAV 实用程序配置网桥以太网管理 1 端口。
+使用 ATTO ExpressNAV 图形用户界面配置和管理网桥，并更新网桥固件。您可以使用 ATTO QuickNAV 实用程序配置网桥以太网管理 1 端口。
 
 如果需要，您可以改用其他管理接口，例如串行端口或 Telnet 来配置和管理网桥并配置以太网管理 1 端口，以及使用 FTP 来更新网桥固件。
 

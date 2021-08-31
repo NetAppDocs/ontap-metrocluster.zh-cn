@@ -12,6 +12,7 @@ summary: 升级配对集群上的控制器模块时，您可以使用 MetroClust
 [role="lead"]
 升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。
 
+.关于此任务
 * 此操作步骤只能用于控制器升级。
 +
 无法同时升级配置中的其他组件，例如存储架或交换机。
@@ -44,6 +45,8 @@ NOTE: 如果原始平台或新平台是使用 FC-VI 模式下端口 1c / 1d 的 
 
 +
 |===
+
+
 | 旧平台型号 | 新平台型号 
 
 
@@ -612,7 +615,7 @@ cluster_A::> metrocluster operation show
 ` * 网络接口修改 -vserver _svm-name_ -lif _data-lif_ -home-port _port-id_*`
 
 +
-在我们的示例中，此值为 e0d 。
+在以下示例中，此值为 "e0d" 。
 
 +
 例如：
@@ -730,7 +733,7 @@ https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
 .步骤
 . 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"] 下载用于执行系统网络启动的文件。
 . 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
-. 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
+. 转到可通过 Web 访问的目录，并验证所需文件是否可用。
 +
 |===
 
@@ -769,9 +772,7 @@ https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
 
 . 从启动菜单中，选择选项 * （ 7 ） Install new software first* ，将新软件映像下载并安装到启动设备。
 +
-....
-Disregard the following message: "This procedure is not supported for Non-Disruptive Upgrade on an HA pair". It applies to nondisruptive upgrades of software, not to upgrades of controllers.
-....
+ Disregard the following message: "This procedure is not supported for Non-Disruptive Upgrade on an HA pair". It applies to nondisruptive upgrades of software, not to upgrades of controllers.
 . 如果系统提示您继续运行操作步骤，请输入 `y` ，然后在系统提示您输入软件包时，输入映像文件的 URL ： ` \http://web_server_ip/path_to_web-accessible_directory/ontap-version_image.tgz`
 +
 ....
@@ -794,7 +795,7 @@ The node must be rebooted to start using the newly installed software. Do you wa
 === 清除控制器模块上的配置
 
 [role="lead"]
-在 MetroCluster 配置中使用新控制器模块之前，必须清除此配置。
+在 MetroCluster 配置中使用新控制器模块之前，必须清除现有配置。
 
 .步骤
 . 如有必要，暂停节点以显示 LOADER 提示符：

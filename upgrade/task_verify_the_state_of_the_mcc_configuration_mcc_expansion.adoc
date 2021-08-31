@@ -15,7 +15,7 @@ summary: 您应确定现有控制器并确认它们之间的灾难恢复 \ （ D
 .步骤
 . 显示 MetroCluster 配置中任一节点的节点详细信息：
 +
-` * MetroCluster node show -fields node ， dr-partner ， dr-partner-systemID*`
+MetroCluster node show -fields node ， dr-partner ， dr-partner-systemID`
 
 +
 以下输出显示此 MetroCluster 配置在每个集群中有一个 DR 组和一个节点。
@@ -33,7 +33,7 @@ dr-group-id  cluster         node            dr-partner      dr-partner-systemid
 ----
 . 显示 MetroCluster 配置的状态：
 +
-` * MetroCluster show*`
+`MetroCluster show`
 
 +
 以下输出显示 MetroCluster 配置中的现有节点处于正常模式：
@@ -58,7 +58,7 @@ Remote: controller_B_1_siteB
 ----
 . 检查 MetroCluster 配置中每个节点上聚合的状态：
 +
-` * 存储聚合显示 *`
+`s存储聚合显示`
 
 +
 以下输出显示 cluster_A 上的聚合已联机并已镜像：
