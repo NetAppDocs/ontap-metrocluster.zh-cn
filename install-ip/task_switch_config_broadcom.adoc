@@ -24,41 +24,48 @@ summary: 您必须将 Broadcom IP 交换机配置为用作集群互连并用于�
 
 
 .步骤
-. 更改为提升的命令提示符（` #` ）：
+. 更改为提升的命令提示符（` #` ）： `enable`
 +
-`启用`
+[listing]
+----
+(IP_switch_A_1)> enable
+(IP_switch_A_1) #
+----
+. 擦除启动配置并删除横幅
++
+.. 擦除启动配置：
++
+*`擦除启动配置` *
 
 +
 [listing]
 ----
-(Routing)> enable
-(Routing) #
-----
-. 擦除启动配置：
-+
-`erase startup-config`
+(IP_switch_A_1) #erase startup-config
 
-+
-[listing]
-----
-(Routing) #erase startup-config
 Are you sure you want to clear the configuration? (y/n) y
 
-
-(Routing) #
+(IP_switch_A_1) #
 ----
 +
 此命令不会擦除横幅。
 
-. 重新启动交换机：
+.. 删除横幅：
 +
-`re负载`
+*`无设置剪贴画` *
 
 +
 [listing]
 ----
-(IP_switch_A_1) #reload
 
+(IP_switch_A_1) # no set clibanner
+(IP_switch_A_1) #
+----
+
+
+. 重新启动交换机： *` （ IP_switch_A_1 ） #reload *`
++
+[listing]
+----
 Are you sure you would like to reset the system? (y/n) y
 ----
 +
@@ -148,12 +155,19 @@ NOTE: RCF 文件将禁用 Telnet 协议。如果不配置 SSH 服务器，则只
 (Routing) #configure
 (Routing) (Config)#crypto key generate rsa
 ----
-.. 生成 DSA 密钥。
+.. 生成 DSA 密钥（可选）
 +
 [listing]
 ----
 (Routing) #configure
 (Routing) (Config)#crypto key generate dsa
+----
+.. 如果您使用的是符合 FIPS 的 EFOS 版本，请生成 ECDSA 密钥。以下示例将创建长度为 256 的密钥。有效值为 256 ， 384 或 521 。
++
+[listing]
+----
+(Routing) #configure
+(Routing) (Config)#crypto key generate ecdsa 256
 ----
 .. 启用 SSH 服务器。
 +
@@ -250,24 +264,67 @@ Configuration Saved!
 
 必须对 MetroCluster IP 配置中的每个交换机重复执行此任务。
 
-.步骤
-. 将交换机软件复制到交换机：
-+
-`copy sftp ： //user@50.50.50.50 switchsoftware/EFOS-3.4.3.1.stk backup`
+====
+* 请注意以下事项： *
 
+* 从 EFOS 3.4.x.x 升级到 EFOS 3.7.x.x 时，交换机必须运行 EFOS 3.4.4.6 （或更高版本 3.4.x.x ）。如果您运行的是之前的版本，请先将交换机升级到 EFOS 3.4.4.6 （或更高版本 3.4.x.x ），然后再将交换机升级到 EFOS 3.7.x.x
+* EFOS 3.4.x.x 和 3.7.x.x 的配置不同。要将 EFOS 版本从 3.4.x.x 更改为 3.7.x.x 或反之，需要将交换机重置为出厂默认值，并将相应 EFOS 版本的 RCF 文件重新应用。此操作步骤需要通过串行控制台端口进行访问。
+* 从 EFOS 3.7.x.x 版开始，可以使用非 FIPS 兼容版本和 FIPS 兼容版本。从不符合 FIPS 的版本迁移到符合 FIPS 的版本时，需执行不同的步骤，反之亦然。将 EFOS 从不符合 FIPS 的版本更改为符合 FIPS 的版本，或者反之，则会将交换机重置为出厂默认值。此操作步骤需要通过串行控制台端口进行访问。
+
+
+====
+|===
+| * 操作步骤 * | * 当前 EFOS 版本 * | * 新 EFOS 版本 * | * 高级步骤 * 
+
+
+.5+| 在两个（非） FIPS 兼容版本之间升级 EFOS 的步骤 | 3.4.x.x | 3.4.x.x | 使用方法 1 安装新的 EFOS 映像）配置和许可证信息将保留 
+
+
+| 3.4.4.6 （或更高版本 3.4.x.x ） | 3.7.x.x 不符合 FIPS | 使用方法 1 升级 EFOS 。将交换机重置为出厂默认设置，并对 EFOS 3.7.x.x 应用 RCF 文件 
+
+
+.2+| 3.7.x.x 不符合 FIPS | 3.4.4.6 （或更高版本 3.4.x.x ） | 使用方法 1 降级 EFOS 。将交换机重置为出厂默认设置，并对 EFOS 3.4.x.x 应用 RCF 文件 
+
+
+| 3.7.x.x 不符合 FIPS | 使用方法 1 安装新的 EFOS 映像。配置和许可证信息会保留下来 
+
+
+| 符合 3.7.x.x FIPS | 符合 3.7.x.x FIPS | 使用方法 1 安装新的 EFOS 映像。配置和许可证信息会保留下来 
+
+
+.2+| 升级到 / 从 FIPS 兼容 EFOS 版本的步骤 | 不符合 FIPS | 符合 FIPS .2+| 使用方法 2 安装 EFOS 映像。交换机配置和许可证信息将丢失。 
+
+
+| 符合 FIPS | 不符合 FIPS 
+|===
+* 方法 1 ： <<Steps to upgrade EFOS with downloading the software image to the backup boot partition>>
+* 方法 2 ： <<Steps to upgrade EFOS using the ONIE OS installation>>
+
+
+
+
+=== 通过将软件映像下载到备份启动分区来升级 EFOS 的步骤
+
+只有当两个 EFOS 版本均不符合 FIPS 或两个 EFOS 版本均符合 FIPS 时，才能执行以下步骤。
+
+
+NOTE: 如果一个版本符合 FIPS ，而另一个版本不符合 FIPS ，请勿使用这些步骤。
+
+.步骤
+. 将交换机软件复制到交换机： ` +copy sftp ： //user@50.50.50.50 switchsoftware/EFOS-3.4.6.stk backup+`
 +
-在此示例中，将 EFOS-3.4.3.1.stk 操作系统文件从位于 "50.050.50" 的 SFTP 服务器复制到备份分区。您需要使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 文件的文件名。
+在此示例中， EFOS-3.4.6.stk 操作系统文件将从地址为 50.5 的 SFTP 服务器复制到备份分区。您需要使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 文件的文件名。
 
 +
 [listing]
 ----
-(IP_switch_A_1) #copy sftp://user@50.50.50.50/switchsoftware/efos-3.4.3.1.stk backup
+(IP_switch_A_1) #copy sftp://user@50.50.50.50/switchsoftware/efos-3.4.4.6.stk backup
 Remote Password:*************
 
 Mode........................................... SFTP
 Set Server IP.................................. 50.50.50.50
 Path........................................... /switchsoftware/
-Filename....................................... efos-3.4.3.1.stk
+Filename....................................... efos-3.4.4.6.stk
 Data Type...................................... Code
 Destination Filename........................... backup
 
@@ -315,7 +372,7 @@ Image Descriptions
  unit       active    backup   current-active   next-active
  ----  -----------  --------  ---------------  ------------
 
-	1       3.4.3.0      3.4.3.1      3.4.3.0          3.4.3.1
+	1       3.4.4.2    3.4.4.6      3.4.4.2        3.4.4.6
 
 (IP_switch_A_1) #
 ----
@@ -350,7 +407,165 @@ Configuration Saved!
 Are you sure you would like to reset the system? (y/n) y
 ----
 . 等待交换机重新启动。
++
+
+NOTE: 在极少数情况下，交换机可能无法启动。按照 <<Steps to upgrade EFOS using the ONIE OS installation>> 以安装新映像。
+
+. 如果将交换机从 EFOS 3.4.x.x 更改为 EFOS 3.7.x.x 或反之，请按照以下两个过程应用正确的配置（ RCF ）：
++
+.. <<Resetting the Broadcom IP switch to factory defaults>>
+.. <<Downloading and installing the Broadcom RCF files>>
+
+
 . 对 MetroCluster IP 配置中的其余三个 IP 交换机重复上述步骤。
+
+
+
+
+=== 使用 ONIE 操作系统安装升级 EFOS 的步骤
+
+如果一个 EFOS 版本符合 FIPS ，而另一个 EFOS 版本不符合 FIPS ，则可以执行以下步骤。如果交换机无法启动，可通过以下步骤从 ONIE 安装非 FIPS 或 FIPS 兼容 EFOS 3.7.x.x 映像。
+
+.步骤
+. 将交换机启动至 ONIE 安装模式。
++
+在启动期间，如果出现以下屏幕，请选择 ONIE ：
+
++
+[listing]
+----
+ +--------------------------------------------------------------------+
+ |EFOS                                                                |
+ |*ONIE                                                               |
+ |                                                                    |
+ |                                                                    |
+ |                                                                    |
+ |                                                                    |
+ |                                                                    |
+ |                                                                    |
+ |                                                                    |
+ |                                                                    |
+ |                                                                    |
+ |                                                                    |
+ +--------------------------------------------------------------------+
+
+----
++
+选择 "ONIE" 后，交换机将加载并向您提供以下选项：
+
++
+[listing]
+----
+ +--------------------------------------------------------------------+
+ |*ONIE: Install OS                                                   |
+ | ONIE: Rescue                                                       |
+ | ONIE: Uninstall OS                                                 |
+ | ONIE: Update ONIE                                                  |
+ | ONIE: Embed ONIE                                                   |
+ | DIAG: Diagnostic Mode                                              |
+ | DIAG: Burn-In Mode                                                 |
+ |                                                                    |
+ |                                                                    |
+ |                                                                    |
+ |                                                                    |
+ |                                                                    |
+ +--------------------------------------------------------------------+
+
+----
++
+此时，交换机将启动至 ONIE 安装模式。
+
+. 停止 ONIE 发现并配置以太网接口
++
+出现以下消息后，按 <ENTER> 以调用 ONIE 控制台：
+
++
+[listing]
+----
+ Please press Enter to activate this console. Info: eth0:  Checking link... up.
+ ONIE:/ #
+----
++
+
+NOTE: ONIE 发现将继续，并将消息打印到控制台。
+
++
+[listing]
+----
+Stop the ONIE discovery
+ONIE:/ # onie-discovery-stop
+discover: installer mode detected.
+Stopping: discover... done.
+ONIE:/ #
+----
+. 配置以太网接口并使用 `ifconfig eth0 <ipAddress> netmask <netmask> up` 和 `route add default gw <gatewayAddress>` 添加路由
++
+[listing]
+----
+ONIE:/ # ifconfig eth0 10.10.10.10 netmask 255.255.255.0 up
+ONIE:/ # route add default gw 10.10.10.1
+----
+. 验证托管 ONIE 安装文件的服务器是否可访问：
++
+[listing]
+----
+ONIE:/ # ping 50.50.50.50
+PING 50.50.50.50 (50.50.50.50): 56 data bytes
+64 bytes from 50.50.50.50: seq=0 ttl=255 time=0.429 ms
+64 bytes from 50.50.50.50: seq=1 ttl=255 time=0.595 ms
+64 bytes from 50.50.50.50: seq=2 ttl=255 time=0.369 ms
+^C
+--- 50.50.50.50 ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max = 0.369/0.464/0.595 ms
+ONIE:/ #
+----
+. 安装新的交换机软件
++
+[listing]
+----
+
+ONIE:/ # onie-nos-install http:// 50.50.50.50/Software/onie-installer-x86_64
+discover: installer mode detected.
+Stopping: discover... done.
+Info: Fetching http:// 50.50.50.50/Software/onie-installer-3.7.0.4 ...
+Connecting to 50.50.50.50 (50.50.50.50:80)
+installer            100% |*******************************| 48841k  0:00:00 ETA
+ONIE: Executing installer: http:// 50.50.50.50/Software/onie-installer-3.7.0.4
+Verifying image checksum ... OK.
+Preparing image archive ... OK.
+----
++
+软件将安装并重新启动交换机。让交换机正常重新启动到新的 EFOS 版本。
+
+. 验证是否已安装新的交换机软件
++
+* `s如何 bootvar` *
+
++
+[listing]
+----
+
+(Routing) #show bootvar
+Image Descriptions
+active :
+backup :
+Images currently available on Flash
+---- 	----------- -------- --------------- ------------
+unit 	active 	   backup   current-active  next-active
+---- 	----------- -------- --------------- ------------
+1 	3.7.0.4     3.7.0.4  3.7.0.4         3.7.0.4
+(Routing) #
+----
+. 完成安装
++
+交换机将在未应用任何配置的情况下重新启动，并重置为出厂默认值。按照以下两个文档所述，按照两个过程配置交换机基本设置并应用 RCF 文件：
+
++
+.. 配置交换机基本设置。按照步骤 4 及更高版本进行操作： <<Resetting the Broadcom IP switch to factory defaults>>
+.. 创建并应用 RCF 文件，如中所述 <<Downloading and installing the Broadcom RCF files>>
+
+
 
 
 
@@ -374,34 +589,48 @@ Are you sure you would like to reset the system? (y/n) y
  a| 
 IP_switch_A_1
  a| 
-BES-53248_v1.32_Switch-A1.txt
+v1.32_Switch-A1.txt
 
 
 
  a| 
 IP_switch_A_2
  a| 
-BES-53248_v1.32_Switch-A2.txt
+v1.32_Switch-A2.txt
 
 
 
  a| 
 IP_switch_B_1
  a| 
-BES-53248_v1.32_Switch-B1.txt
+v1.32_Switch-B1.txt
 
 
 
  a| 
 IP_switch_B_2
  a| 
-BES-53248_v1.32_Switch-B2.txt
+v1.32_Switch-B2.txt
 
 |===
+
+NOTE: EFOS 3.4.4.6 或更高版本 3.4.x.x 的 RCF 文件版本和 EFOS 版本 3.7.0.4 不同。您需要确保为交换机运行的 EFOS 版本创建了正确的 RCF 文件。
+
+|===
+| EFOS 版本 | RCF 文件版本 
+
+
+| 3.4.x.x | v1.3x ， v1.4x 
+
+
+| 3.7.x.x | v2.x 
+|===
 .步骤
-. 下载 Broadcom 交换机的 MetroCluster IP RCF 文件。
+. 为 MetroCluster IP 生成 Broadcom RCF 文件。
 +
-https://mysupport.netapp.com/NOW/download/software/metrocluster_ip/rcfs/download.shtml["适用于 MetroCluster IP 的 Broadcom 集群和管理网络交换机参考配置文件下载"]
+.. 下载 https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["适用于 MetroCluster IP 的 RcfFileGenerator"]
+.. 使用适用于 MetroCluster IP 的 RcfFileGenerator 为您的配置生成 RCF 文件
+
 
 . 将 RCF 文件复制到交换机：
 +
@@ -434,7 +663,7 @@ Validating configuration script...
 
 config
 
-set clibanner "********************************************************************************
+set clibanner "***************************************************************************
 
 * NetApp Reference Configuration File (RCF)
 

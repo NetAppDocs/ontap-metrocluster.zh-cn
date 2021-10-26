@@ -2096,9 +2096,7 @@
   <block id="b91e5154a426753ab0a5ef0ad93dc50f" category="paragraph">` * ha-config show*`</block>
   <block id="9c1c5be053b28ba5edd13b92cac80497" category="paragraph">所有组件的 HA 状态均应为 mcc 。</block>
   <block id="4d351c058255d9e92bee9f8e2a84a787" category="list-text">如果显示的控制器系统状态不正确，请设置控制器模块的 HA 状态：</block>
-  <block id="01e7a344e3da2c997fcf3fd84955ed3c" category="paragraph">` * ha-config modify controller mcc*`</block>
   <block id="cb35018d5cef7c3ad9e89b5330f139ef" category="list-text">如果显示的机箱系统状态不正确，请设置机箱的 HA 状态：</block>
-  <block id="ca7827bc97d99e0ad5a5a8f54f72a594" category="paragraph">` * ha-config modify chassis mcc*`</block>
   <block id="91815ef3813bb758babf1c11a5114e45" category="list-text">在另一个替代节点上重复上述步骤。</block>
   <block id="31c65a2058e5394cf4f67afa9634685a" category="summary">要将新控制器加入集群，您必须启动每个新控制器模块，并使用 ONTAP 集群设置向导确定要加入的集群。</block>
   <block id="c97ffd8c62ff7f9d8c843c6e65672330" category="doc">启动新控制器并将其加入集群</block>
@@ -2106,7 +2104,6 @@
   <block id="2e296e5ecea65075de45f381533dc47d" category="paragraph">在执行此任务之前，不得配置服务处理器。</block>
   <block id="2238a54f1b4ff094935ad3dd0c8e3822" category="paragraph">必须对 MetroCluster 配置中两个集群上的每个新控制器执行此任务。</block>
   <block id="e34ba975c040f0be96016a884d817053" category="list-text">如果尚未启动，请启动每个节点并让其完全启动。</block>
-  <block id="68a5be9f5a40e2300214ec2b33d1c463" category="paragraph">` * boot_ontap*`</block>
   <block id="ba77af2183290b60946161f6b50ee7c2" category="paragraph">控制器模块进入节点设置向导。</block>
   <block id="a68c3c53417789e724bdb983d1b29d52" category="paragraph">输出应类似于以下内容：</block>
   <block id="8f198ce518110cefc8dfed42a2c4ddaa" category="list-text">按照系统提供的说明启用 AutoSupport 工具。</block>
@@ -2309,20 +2306,11 @@
   <block id="a6a2bfa5b0368feae00b3711d6fe107d" category="section-title">正在准备升级</block>
   <block id="39636ee3d838e1ad79f4b6b17f397cb2" category="paragraph">在对现有 MetroCluster 配置进行任何更改之前，您必须检查此配置的运行状况，准备新平台并执行其他各种任务。</block>
   <block id="e53a7c24d7a4423f5e6dc1e0489f4650" category="paragraph">在执行升级之前，您必须验证 MetroCluster 配置的运行状况和连接。</block>
-  <block id="4cafa36de3ea00508e4060ea6d8c8b83" category="list-text">检查节点是否为多路径： + ` * node run -node _node-name_ sysconfig -A*`</block>
   <block id="542da501ed6fd2c5eec24de28539644a" category="paragraph">您应对 MetroCluster 配置中的每个节点使用此命令问题描述。</block>
-  <block id="a860b562e4096e7ec096f8bffe52aad1" category="list-text">确认配置中没有损坏的磁盘： + ` * storage disk show -broken*`</block>
   <block id="05773fb8201f74749fc7fddd4cdad50f" category="paragraph">您应在 MetroCluster 配置中的每个节点上问题描述此命令。</block>
-  <block id="d3b0527e02c3c6284089f4ad8e588145" category="list-text">检查是否存在任何运行状况警报： + ` * system health alert show*`</block>
   <block id="872b35f8fd9135eedd74d22d1a0c40db" category="paragraph">您应在每个集群上问题描述此命令。</block>
-  <block id="8777d08fe4cc4cafe8bc5c02f98c06fa" category="list-text">验证集群上的许可证： + ` * system license show*`</block>
   <block id="550ab8bb7280dae626ad9e9e27497ca8" category="list-text">验证连接到节点的设备：</block>
-  <block id="cc43d6aee07be3ba37a79278536728c0" category="paragraph">` * 网络设备发现显示 *`</block>
-  <block id="35094998af1b0c5000d5467cddb5400a" category="list-text">验证两个站点上的时区和时间设置是否正确： + ` * cluster date show*`</block>
-  <block id="644ffaafab2320ae2052c604034cd07b" category="paragraph">您应在每个集群上问题描述此命令。您可以使用 `cluster date` 命令配置时间和时区。</block>
   <block id="90b0a3ccc3e8c57b53e0e6746a09336a" category="list-text">确认 MetroCluster 配置的运行模式并执行 MetroCluster 检查。</block>
-  <block id="260d1d265a0f8d6348948962f7dcdeb2" category="list-text">确认显示所有预期节点： + ` * MetroCluster node show*`</block>
-  <block id="e036d4c1eb94d5d92e6c2aa43ad06d64" category="list-text">问题描述以下命令： + ` * MetroCluster check run*`</block>
   <block id="aac5384a5dcc4e59accf30153a8b7d7e" category="list-text">使用 Config Advisor 工具检查 MetroCluster 布线。</block>
   <block id="933923ae8bf973656d61d56922e3ef32" category="list-text">下载并运行 Config Advisor 。</block>
   <block id="2a372adca69c8c9dbcba25f7ba412726" category="section-title">将端口从旧节点映射到新节点</block>
@@ -2364,7 +2352,6 @@
   <block id="bd644239cebf0eee7e6c7d4b4e3a0c40" category="paragraph">此任务将在现有 MetroCluster FC 配置上执行。</block>
   <block id="45eedb3b70627315a33ac77a1f76c1b9" category="list-text">为现有控制器的缆线贴上标签，以便在设置新控制器时轻松识别缆线。</block>
   <block id="3894726aa348d9a18ddd016a54497034" category="list-text">收集 MetroCluster 配置中节点的系统 ID ：</block>
-  <block id="77950f8cbf4380677db9e3d96d5bf298" category="paragraph">` * MetroCluster node show -fields node-systemID ， dr-partner-systemID*`</block>
   <block id="3cd530184990375ba5ce23dfb543233c" category="paragraph">在更换操作步骤期间，您将使用新控制器模块的系统 ID 替换这些系统 ID 。</block>
   <block id="783c0ee630587e0a74bf53bfb650c2e7" category="paragraph">在此示例中，对于四节点 MetroCluster FC 配置，将检索以下旧系统 ID ：</block>
   <block id="1cd4744ff6d97a425af9a0e34512335b" category="list-text">node_A_1-old ： 4068741258</block>
@@ -2393,14 +2380,10 @@
   <block id="2fdab4f50b91e9173d8fd09c9243b0c3" category="list-text">`iscsi interface show`</block>
   <block id="5344ecb990fb0b0e60a7b979eeca26cd" category="list-text">`ucadmin show`</block>
   <block id="8b1a6434b118fdab6cffd5eef984796d" category="list-text">如果根卷已加密，请收集并保存用于 key-manager 的密码短语：</block>
-  <block id="dba3a3236057e093ad59f087fcd00287" category="paragraph">` * security key-manager backup show*`</block>
   <block id="0c41288b073bc8667b15931457adf7c0" category="list-text">如果 MetroCluster 节点对卷或聚合使用加密，请复制有关密钥和密码短语的信息。</block>
   <block id="db8057baa0e3040863709dc299c0a2b6" category="inline-link">手动备份板载密钥管理信息</block>
   <block id="353024e475a7604e40871e8aa07253b1" category="paragraph">对于追加信息，请参见<block ref="17c328b6561af0ba38f0debcfa14ec48" category="inline-link-rx"></block>。</block>
-  <block id="f5390578c3625d55b65a6effe830fee7" category="list-text">如果配置了板载密钥管理器： + ` * security key-manager on板 载 show-backup*`</block>
   <block id="b9284138ad08224a8431291e2a54805d" category="paragraph">您稍后将在升级操作步骤中需要此密码短语。</block>
-  <block id="43527543655406abd7a9789e7818472e" category="list-text">如果配置了企业密钥管理（ KMIP ），请对以下命令执行问题描述操作： + ` * security key-manager external show -instance*`</block>
-  <block id="c089e0b20954f58c799ce5d284a5a604" category="paragraph">` * 安全密钥管理器密钥查询 *`</block>
   <block id="0680bb5259d11fc9085b95eff42515e4" category="section-title">从 Tiebreaker 或其他监控软件中删除现有配置</block>
   <block id="996ae2958095991e77250398220eb3d5" category="paragraph">如果使用 MetroCluster Tiebreaker 配置或可启动切换的其他第三方应用程序（例如 ClusterLion ）监控现有配置，则必须在过渡之前从 Tiebreaker 或其他软件中删除 MetroCluster 配置。</block>
   <block id="8db7c34118d5425403025b6210cacb71" category="list-text">从 Tiebreaker 软件中删除现有 MetroCluster 配置。</block>
@@ -2411,7 +2394,6 @@
   <block id="33b42dde3af7fa60ce4cdf4e33ceebb3" category="section-title">在维护之前发送自定义 AutoSupport 消息</block>
   <block id="cff1f1e3d1bd4979f788b1439a65b093" category="paragraph">在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。</block>
   <block id="4f2a0c0685e8129ff9ccf99a0212fda8" category="list-text">要防止自动生成支持案例，请发送一条 AutoSupport 消息以指示正在进行维护。</block>
-  <block id="908f8927e08f0953e611ad717b7e62fe" category="list-text">问题描述以下命令： + ` * 系统节点 AutoSupport invoke -node * -type all -message MAINT=_maintenance-window-in-hours__*`</block>
   <block id="22a619e2119eac132eeee61c7997aae7" category="paragraph">`maintenance-window-in-hours` 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：</block>
   <block id="84e33342856c02e8a00ad96f47bd4d9f" category="list-text">在配对集群上重复此命令。</block>
   <block id="89e7124fca5c192493e832d03a3de9d2" category="section-title">切换 MetroCluster 配置</block>
@@ -2420,38 +2402,23 @@
   <block id="11f455c88de297768de186a1110cfdf6" category="paragraph">完成此任务后， cluster_A 将处于活动状态，并为两个站点提供数据。cluster_B 处于非活动状态，并已准备好开始升级过程，如下图所示。</block>
   <block id="803c81253d05dfea0833a4f1be138dea" category="image-alt">MCC 升级集群 A 处于切换状态</block>
   <block id="19e5fa2e94382f90d18bf6ea6ee57e9a" category="list-text">将 MetroCluster 配置切换到 site_A ，以便可升级 site_B 的节点：</block>
-  <block id="cc4efd59a89f7d212c84ad824f034e92" category="list-text">对 cluster_A 执行以下命令： + ` * MetroCluster switchover -controller-replacement true*` 问题描述</block>
-  <block id="0a0cb78ac4e32f4d2fc1c58e984c803b" category="list-text">监控切换操作： + ` * MetroCluster operation show*`</block>
-  <block id="dd9df98413892bcfcb4d4ae308246c4d" category="list-text">操作完成后，确认节点处于切换状态： + ` * MetroCluster show*`</block>
-  <block id="7653e2511bf3631040106efba85c9c17" category="list-text">检查 MetroCluster 节点的状态： + ` * MetroCluster node show*`</block>
   <block id="a169e8347f5fcb162ab3b35a2bfe8bb2" category="list-text">修复数据聚合。</block>
-  <block id="05545db10743b5a463d1fe77a8542844" category="list-text">修复数据聚合： + ` * MetroCluster heal data-aggregals*`</block>
   <block id="fd56eef3a229dc89f4583f9f02a2f52e" category="list-text">在运行正常的集群上运行 `MetroCluster operation show` 命令，以确认修复操作已完成：</block>
   <block id="33e64bb1016dec9153a09112c1918728" category="list-text">修复根聚合。</block>
-  <block id="8801df7a11b897b3b1849b2524ac7a90" category="list-text">修复数据聚合： + ` * MetroCluster heal root-aggreges*`</block>
   <block id="5e744c4240b735a2a086be5884b09ed3" category="section-title">准备旧控制器的网络配置</block>
   <block id="f02f75fbbe89500c3766deab4ccf2d4d" category="paragraph">要确保新控制器上的网络连接恢复正常，必须将 LIF 移动到一个通用端口，然后删除旧控制器的网络配置。</block>
   <block id="dd3d39a72e683fc82c6e4dd4c8f79169" category="list-text">必须对每个旧节点执行此任务。</block>
-  <block id="1d3c93a436750613370f7a5d11810cfe" category="list-text">您将使用中收集的信息 <block ref="e8e561b545bb2dcc587cb381a3e75353" category="inline-xref-macro-rx"></block>。</block>
   <block id="222865f12c5217fc8874b26cdd58fd1e" category="list-text">启动旧节点，然后登录到这些节点：</block>
   <block id="ba77a2c608c7c3d0b48158b1141a5d60" category="list-text">将旧控制器上所有数据 LIF 的主端口分配给新旧控制器模块上相同的通用端口。</block>
-  <block id="fe0525f8f26560f8507eeab69304e8c0" category="list-text">显示 LIF ： + ` * 网络接口 show-*`</block>
   <block id="a435dd2235e07057dcaedb205b5512bc" category="paragraph">包括 SAN 和 NAS 在内的所有数据 LIF 都将由管理员启动并在操作上关闭，因为这些 LIF 在切换站点（ cluster_A ）上已启动。</block>
   <block id="de300d23f1d76028b547f5e2d80ae21c" category="list-text">查看输出以查找未用作集群端口的旧控制器和新控制器上相同的通用物理网络端口。</block>
   <block id="ed83b408ff26c6639c42df9053bd18df" category="paragraph">例如， e0d 是旧控制器上的一个物理端口，也存在于新控制器上。e0d 不会用作集群端口，也不会在新控制器上用作其他端口。</block>
   <block id="caa0bb28d7e90a537d89a447ec00dffc" category="paragraph">有关平台型号的端口使用情况，请参见<block ref="bf137fbaca3418d969a7cbbc6acb278c" category="inline-link-rx"></block></block>
   <block id="028b25f6521e5676c4e9361429c13f69" category="list-text">修改所有数据 LIF 以使用通用端口作为主端口：</block>
-  <block id="4c0ea8d88c35e853c024aa5882284d6f" category="paragraph">` * 网络接口修改 -vserver _svm-name_ -lif _data-lif_ -home-port _port-id_*`</block>
   <block id="506c2c0c7f5b70af3df68c45c46f45a7" category="paragraph">例如：</block>
   <block id="5db2619ab3a7ccb178b98644ee1d4e05" category="list-text">修改广播域以删除需要删除的 VLAN 和物理端口：</block>
-  <block id="5d70449e8a41c7f3bfb924ae7e309262" category="paragraph">` * 广播域删除端口 -broadcast-domain _broadcast-domain-name_ -ports _node-name ： port-id_*`</block>
   <block id="846a67f7610ea48d1f27cb5f81030c71" category="paragraph">对所有 VLAN 和物理端口重复此步骤。</block>
   <block id="accd214a61f142828c1572a8d975d7b3" category="list-text">删除使用集群端口作为成员端口的所有 VLAN 端口，以及使用集群端口作为成员端口的 ifgrp 。</block>
-  <block id="c71d74ff6ce4a489f45836cd28162a5a" category="list-text">删除 VLAN 端口： + ` * 网络端口 vlan delete -node _node-name_ -vlan-name _portID-vlandid_*`</block>
-  <block id="531366c7da5d6919f6a039e63cbfa6c5" category="list-text">从接口组中删除物理端口： + ` * 网络端口 ifgrp remove-port -node _node-name_ -ifgrp _interface-group-name_ -port _portID_*`</block>
-  <block id="a8db68dfd5befbe408b52f6b71b58190" category="list-text">从广播域中删除 VLAN 和接口组端口： + ` * 网络端口 broadcast-domain remove-ports -ipspace _ipspace_ -broadcast-domain _broadcast-domain-name_ -ports _nodename ： portname ， nodename ： portname_ ， .*`</block>
-  <block id="2437cf2b0733707e1d7908919d8e457a" category="list-text">根据需要修改接口组端口以使用其他物理端口作为成员。： + ` * ifgrp add-port -node _node-name_ -ifgrp _interface-group-name_ -port _port-id_*`</block>
-  <block id="389db99ca5818d6a761f2a86b22cfd95" category="paragraph">` * halt -inhibit-takeover true -node _node-name_*`</block>
   <block id="30ee2c11e0c555918a60d26e605302e8" category="paragraph">必须在两个节点上执行此步骤。</block>
   <block id="9c72ecff6f02b2c92e12130effa540d4" category="section-title">删除旧平台</block>
   <block id="fb7af1863497df9dda3e65ea0159d317" category="paragraph">必须从配置中删除旧控制器。</block>
@@ -2496,7 +2463,6 @@
   <block id="8154d55f73ab64571f60299356015117" category="section-title">还原 HBA 配置</block>
   <block id="a8635badf0c3725452ad27dcb306f849" category="paragraph">根据控制器模块中是否存在 HBA 卡以及 HBA 卡的配置，您需要根据站点的使用情况正确配置这些卡。</block>
   <block id="8afdaf07ff0e43cdf1c5459d3d9ff0e6" category="list-text">在维护模式下，为系统中的任何 HBA 配置设置：</block>
-  <block id="7a3169bf2c76c200ce63b1da5de720e3" category="list-text">检查端口的当前设置： ` * ucadmin show*`</block>
   <block id="3d18b9cf776b5c427daf082dba906596" category="list-text">根据需要更新端口设置。</block>
   <block id="903261617945a1d21234eaec2864ef96" category="cell">如果您具有此类型的 HBA 和所需模式 ...</block>
   <block id="394247ac369fff4729d586172906244e" category="cell">使用此命令 ...</block>
@@ -2508,9 +2474,7 @@
   <block id="229409cd38416b2524ab94f2178cfd1a" category="paragraph">`fcadmin config -t target _adapter-name_`</block>
   <block id="77771fb5b4c9e84f66cbf17c35e783a4" category="paragraph">FC 启动程序</block>
   <block id="dab2c0f4d4e624133deb1fb1f48d6dfa" category="paragraph">`fcadmin config -t initiator _adapter-name_`</block>
-  <block id="4deaf4c77cb6e87bfa4bbde1cce250e2" category="list-text">退出维护模式： ` * halt*`</block>
   <block id="b44ed2bc8a7bdf8a760e4cae02235f11" category="paragraph">运行此命令后，请等待，直到节点停留在 LOADER 提示符处。</block>
-  <block id="0a107640d5e6e8d38c79b86e5bf27b50" category="list-text">将节点重新启动至维护模式，以使配置更改生效： ` * boot_ontap maint*`</block>
   <block id="c42d23f9a11ad642e5cc74575eea80c6" category="list-text">验证所做的更改：</block>
   <block id="059f24f8c2a01e5ecc7ae13169039c24" category="cell">如果您使用的是此类型的 HBA...</block>
   <block id="68b3177cae966fde225c197ecb4fd253" category="paragraph">CNA</block>
@@ -2532,7 +2496,6 @@
   <block id="e97c2d73dc1c54dfe8c4452dcb629eb7" category="section-title">重新分配根聚合磁盘</block>
   <block id="57564146ad523d55130a77527db0c457" category="paragraph">使用先前收集的系统将根聚合磁盘重新分配给新控制器模块</block>
   <block id="656b3430f6aeb54a5747ced587d5f2ef" category="paragraph">此任务在维护模式下执行。</block>
-  <block id="a12288d03dca5847769993cef345548e" category="paragraph">旧系统 ID 在中进行了标识 <block ref="e763731c02ff388d518a447d5f9fe4b0" category="inline-xref-macro-rx"></block>。</block>
   <block id="ad3d8189e8e55c3028771da773eed75a" category="paragraph">此操作步骤中的示例使用具有以下系统 ID 的控制器：</block>
   <block id="e791539ee9176ad79d314a9cd36bba19" category="cell">旧系统 ID</block>
   <block id="959f559d380ae4cad20f5e8bb59190c9" category="cell">新系统 ID</block>
@@ -2541,29 +2504,19 @@
   <block id="5044817e631ea533d8d80b535c92072c" category="paragraph">1574774970</block>
   <block id="a6a4f4053eaa04563d9fd9c8607480e5" category="list-text">使用缆线将所有其他连接连接到新控制器模块（ FC-VI ，存储，集群互连等）。</block>
   <block id="f512860c2fb2587692f9d8aaa69ad4c4" category="list-text">暂停系统并从 LOADER 提示符启动到维护模式：</block>
-  <block id="85fe417581ad7ca454ec87185f2c67b2" category="paragraph">` * boot_ontap maint*`</block>
   <block id="5220669e72568a29d959d212e2ddfa10" category="list-text">显示 node_B_1-old 拥有的磁盘：</block>
-  <block id="67b3caa2b18724c595238a998c373548" category="paragraph">` * disk show -A*`</block>
   <block id="13d299a335ec1c1e871a639aa098008a" category="paragraph">命令输出将显示新控制器模块（ 1574774970 ）的系统 ID 。但是，根聚合磁盘仍归旧系统 ID （ 4068741254 ）所有。此示例不显示 MetroCluster 配置中其他节点拥有的驱动器。</block>
   <block id="63ad2e5ed6b9f2d89a593a084eda6f7e" category="list-text">将驱动器架上的根聚合磁盘重新分配给新控制器：</block>
-  <block id="340cce1ecd87a88f27ed4af13feb30bd" category="paragraph">` * disk reassign -s _old-sysid_ -d _new-sysid_*`</block>
   <block id="7c28fb51a05155ee2c83b25a8b1837ba" category="paragraph">以下示例显示了驱动器的重新分配：</block>
   <block id="591e50b47782b75bd730ace525401a46" category="list-text">检查是否已按预期重新分配所有磁盘：</block>
-  <block id="bf4dee6b57a68bd691f916ec8fc55799" category="paragraph">` * 磁盘显示 *`</block>
   <block id="400779b1fb33958b56a5d711fd6576f5" category="list-text">显示聚合状态：</block>
-  <block id="003d9ea14cbb19cec4a2b2160eaae8d7" category="paragraph">` * 聚合状态 *`</block>
   <block id="a45adb2cc03a7b6b2f8aad0f0a988893" category="list-text">在配对节点（ node_B_2-new ）上重复上述步骤。</block>
   <block id="7a6002540ecd362954aac55e62be8b2d" category="section-title">启动新控制器</block>
   <block id="f2e258fab466f759085e8337708390d7" category="paragraph">您必须从启动菜单重新启动控制器，才能更新控制器闪存映像。如果配置了加密，则需要执行其他步骤。</block>
   <block id="558c0a7f72f16f49bd860bfff6928871" category="paragraph">必须对所有新控制器执行此任务。</block>
   <block id="d74abfb55f46e179952b0f9d29ab5c58" category="list-text">暂停节点：</block>
   <block id="f08f2a629e02fddb1ce77481e388117c" category="list-text">如果配置了外部密钥管理器，请设置相关的 boottargets ：</block>
-  <block id="5db8314a5bbb1e18306d03139458a714" category="paragraph">` * setenv bootarg.kmip.init.ipaddr _ip-address_*`</block>
-  <block id="cd4b33f60592f2447d9e845ff83438aa" category="paragraph">` * 设置 v bootarg.kmip.init.netmask _netmask_*`</block>
-  <block id="d2bd8dc41f1fd24a8e34b430e5ed436b" category="paragraph">` * 设置 v bootarg.kmip.init.gateway _gateway-address_*`</block>
-  <block id="06a15940bc70698ec96900f0ee71334b" category="paragraph">` * setenv bootarg.kmip.init.interface _interface-id_*`</block>
   <block id="825dcccec9fe8d386a6e1fe932104cdc" category="list-text">显示启动菜单：</block>
-  <block id="64fa5c268b3e86c2a8bd6042f3628e69" category="paragraph">` * boot_ontap menu *`</block>
   <block id="a0a7d863d75d1083974d54de25a20b2b" category="list-text">如果使用根加密，请对密钥管理配置使用问题描述启动菜单命令。</block>
   <block id="7fc17decf9554a362d80ff8052528439" category="cell">如果您使用的是 ...</block>
   <block id="8cb7388f916ea57692be4e2442a4bb6e" category="cell">在启动菜单提示符处问题描述此命令 ...</block>
@@ -2573,19 +2526,13 @@
   <block id="e606299b52f4f296d9e1024342b77a75" category="paragraph">`re封装 _external_keymanager`</block>
   <block id="05dabbb60a366bf9343eccdf7f33e3d8" category="list-text">如果启用了自动启动，请按 control-C 中断自动启动</block>
   <block id="9caedf166198ce0f30b4afaef9a9b698" category="list-text">从启动菜单中，运行选项（ 6 ）。</block>
-  <block id="ac39825fa61f58fed3b2c63d885be080" category="admonition">选项 6 将重新启动节点两次，然后再完成</block>
-  <block id="cc8ce1f138883e784523187cc361fcf6" category="paragraph">对系统 ID 更改提示回答 y 。等待第二条重新启动消息：</block>
   <block id="1971b81ef4689f1794a2e3edb64225db" category="list-text">仔细检查 partner-sysid 是否正确：</block>
-  <block id="a7f7298a148cbacda94e1085870bcba8" category="paragraph">` * printenv partner-sysid*`</block>
   <block id="9d4b30ae7318acd33ae33208c5ab8460" category="paragraph">如果 partner-sysid 不正确，请将其设置为：</block>
-  <block id="80f38e7c48faec193c4e3fff10222b91" category="paragraph">` * setenv partner-sysid _partner-sysID_*`</block>
   <block id="cb62cebec2ec9936b30ed5baac0d78c7" category="list-text">如果使用根加密，请再次对密钥管理配置的启动菜单命令执行问题描述。</block>
-  <block id="5b11c323244dec08fdad26addb2c17eb" category="paragraph">您可能需要多次在启动菜单提示符处对 recovery_xxxxxxxx_keymanager 命令和选项 6 执行问题描述操作，直到节点完全启动为止。</block>
   <block id="ff5d57d1c306e7fe421eefff36f821cd" category="list-text">启动节点：</block>
   <block id="0076499bf0665482ee0c069821eab630" category="list-text">等待更换的节点启动。</block>
   <block id="91795395e1cb68a9afce1f21b96272fa" category="paragraph">如果任一节点处于接管模式，请使用 `storage failover giveback` 命令执行交还。</block>
   <block id="ba9306a784ea50cffb5495b1554f7cb4" category="list-text">验证所有端口是否都位于广播域中：</block>
-  <block id="0100fe44619a92f7a72b265b071a81e8" category="list-text">查看广播域： + ` * 网络端口 broadcast-domain show*`</block>
   <block id="7891ca9ce66a6010c0a0c81f73c751a7" category="list-text">根据需要向广播域添加任何端口。</block>
   <block id="af2cff7842d78b021641e08a464843b0" category="inline-link">从广播域添加或删除端口</block>
   <block id="c65b5a40a33c87dbddaf6f6ae7b632bb" category="paragraph"><block ref="c65b5a40a33c87dbddaf6f6ae7b632bb" category="inline-link-rx"></block></block>
@@ -2605,17 +2552,13 @@
   <block id="0a83ed732b07426c840d56d0ee6e648b" category="paragraph">`sSecurity key-manager 板载同步`</block>
   <block id="5bf2f359266fb5938e485eea48778d7e" category="inline-link">还原板载密钥管理加密密钥</block>
   <block id="69687d9e117e78e71f70786c5e0c9c43" category="paragraph">有关详细信息，请参见<block ref="86f91be7985367f70a4a919a829a9f9e" category="inline-link-rx"></block>。</block>
-  <block id="e73a746f9fcbf0a847c4d69567aabd65" category="paragraph">` * security key-manager external restore -vserver _svm_ -node _node_-key-server _host_name_ip_address ： port_ -key-id key_id -key-tag key_tag * _node-name_`</block>
   <block id="58c1a66269a7ccc7b04879a387e7c3ae" category="inline-link">还原外部密钥管理加密密钥</block>
   <block id="9fb51d4d13437ec63f1213f3923021a6" category="paragraph">有关详细信息，请参见<block ref="776d197cbf08d1a48ca3c854fbecd090" category="inline-link-rx"></block>。</block>
   <block id="80d9624a4e183629cc80dcaae44aedaa" category="section-title">验证 LIF 配置</block>
   <block id="34e041fe9ecda3607a3bb424cba8d99b" category="paragraph">在切回之前，验证 LIF 是否托管在相应的节点 / 端口上。需要执行以下步骤</block>
   <block id="87706eccebcd85e1210a84c72b5e2c9b" category="paragraph">此任务在 site_B 上执行，其中的节点已使用根聚合启动。</block>
   <block id="24f91f070271318621e83fbab3117da8" category="list-text">在切回之前，验证 LIF 是否托管在相应的节点和端口上。</block>
-  <block id="1c5ec4e4e59db26529c2f8ff0f8e2be6" category="list-text">覆盖端口配置以确保 LIF 放置正确： + ` * vserver config override -command "network interface modify -vserver _vserver_name_ -home-port _active_port_after_upgrade_-lif _lif_name_ -home-node _new_node_name_"*`</block>
-  <block id="428ee66dafd445173489775996c06151" category="paragraph">在 `vserver config override` 命令中输入 network interface modify 命令时，您不能使用选项卡自动完成功能。您可以使用 autoscomplete 创建 `network interface modify` ，然后将其括在 `vserver config override` 命令中。</block>
   <block id="c0ba3201f16158e00581af8a4e633953" category="list-text">将接口还原到其主节点：</block>
-  <block id="a754d4144e3c4883440e55a6461663c4" category="paragraph">` * 网络接口还原 * -vserver _vserver-name_*`</block>
   <block id="79db05c6325341be1f197094f1f39dfe" category="paragraph">根据需要对所有 SVM 执行此步骤。</block>
   <block id="101eb63fc89b71f07d6fd64ec364e567" category="section-title">切回 MetroCluster 配置</block>
   <block id="dca37c43ff68fc6fc781f9dccaf1eb93" category="paragraph">配置新控制器后，您可以切回 MetroCluster 配置，使配置恢复正常运行。</block>
@@ -2624,7 +2567,6 @@
   <block id="6020286e609621d7a51cfb1ca1931a66" category="list-text">在 site_B 上执行 `MetroCluster node show` 命令并检查输出。问题描述</block>
   <block id="ca9c56ab0bb83d382fd25049223670de" category="list-text">验证新节点的表示是否正确。</block>
   <block id="432c93ecd647e7ed568dae42c320bb9a" category="list-text">验证新节点是否处于 " 正在等待切回状态 " 。</block>
-  <block id="7791309c0348368421c8efb950b2e77f" category="list-text">切回集群： `MetroCluster switchback`</block>
   <block id="0abe5f2dd8b580fd08af082649f79e71" category="list-text">检查切回操作的进度：</block>
   <block id="867c64f0b04ea0a720229d699e306466" category="paragraph">当输出显示 `waiting for-switchback` 时，切回操作仍在进行中：</block>
   <block id="4e13d70ad15aa48ae9a770aa54dd268d" category="paragraph">当输出显示 `normal` 时，切回操作完成：</block>
@@ -2635,12 +2577,10 @@
   <block id="bb8721e2ff2df30ad696bfea212b7dad" category="list-text">验证 MetroCluster 配置的运行情况：</block>
   <block id="f181d34cde32a783c686d54cd89b5f4f" category="section-title">升级 cluster_A 上的节点</block>
   <block id="0c3130a0855ad337dbe1f4a605eaacf9" category="paragraph">您必须对 cluster_A 重复升级任务</block>
-  <block id="d26e184d7d9c0404bfa5c22e30fb61a4" category="list-text">从开始，重复上述步骤升级 cluster_A 上的节点 <block ref="2ed2205735b9667161eca223b1f59941" category="inline-xref-macro-rx"></block>。</block>
   <block id="491f4a55b5ac3a5330d799d5311315e8" category="paragraph">在执行任务时，对集群和节点的所有示例引用都将反转。例如，如果提供了从 cluster_A 切换的示例，则您将从 cluster_B 切换</block>
   <block id="d60c50580eca8ffa48386ace1436021b" category="section-title">维护后发送自定义 AutoSupport 消息</block>
   <block id="a00b322f5fbb0ab63d64eb15f5fd23e9" category="paragraph">完成升级后，您应发送一条 AutoSupport 消息，指示维护结束，以便可以恢复自动创建案例。</block>
   <block id="9553eead12b025935c7e52654c9fb212" category="list-text">要恢复自动生成支持案例，请发送 AutoSupport 消息以指示维护已完成。</block>
-  <block id="a65505403a8abbcd1def2d96eb5f63b6" category="list-text">问题描述以下命令： + ` * 系统节点 AutoSupport invoke -node * -type all -message MAINT=end*`</block>
   <block id="b7e5b55538476224f8195437bdd6b155" category="section-title">正在还原 Tiebreaker 监控</block>
   <block id="cf01be10c4ad6c0e087f2447c096712d" category="paragraph">如果先前已将 MetroCluster 配置配置为由 Tiebreaker 软件监控，则可以还原 Tiebreaker 连接。</block>
   <block id="0c3de4f48f152830cf54a3c7110e5b3e" category="inline-link">正在添加 MetroCluster 配置</block>
@@ -4556,10 +4496,6 @@
   <block id="10b2b202b4f1c5644f1599057a061bcf" category="list-text">为 MetroCluster IP 配置将新控制器装入机架。</block>
   <block id="012f755687424dd2475cf31eee8a99ff" category="paragraph">此时， MetroCluster FC 节点（ node_A_x-FC 和 node_B_x-FC ）仍保持布线状态。</block>
   <block id="80fb7c4e88412c0982a4f4059276c495" category="list-text">使用缆线将 MetroCluster IP 节点连接到 IP 交换机，如所示 <block ref="a7e57dc2daac4f7cbe505174567577f3" category="inline-link-macro-rx"></block>。</block>
-  <block id="6720b5c057fe1d1c1d63c77e5da7df04" category="list-text"><block ref="6720b5c057fe1d1c1d63c77e5da7df04" category="inline-link-macro-rx"></block></block>
-  <block id="21951a806d543d93a8a39490e66d6801" category="list-text"><block ref="21951a806d543d93a8a39490e66d6801" category="inline-link-macro-rx"></block></block>
-  <block id="13b45985c7d4f73a159b1be3433457f1" category="list-text"><block ref="13b45985c7d4f73a159b1be3433457f1" category="inline-link-macro-rx"></block></block>
-  <block id="f9ae9b1da7153f8853bc9632935b45b9" category="list-text"><block ref="f9ae9b1da7153f8853bc9632935b45b9" category="inline-link-macro-rx"></block></block>
   <block id="fbb3c6ac39d170b58b6e9006735f762f" category="list-text">在其他 MetroCluster IP 节点上重复上述步骤。</block>
   <block id="a1dc95b2dccfd24df8e5f465b41ca7bb" category="summary">过渡期间，您会将数据从 MetroCluster FC 配置中的驱动器架移动到新的 MetroCluster IP 配置。</block>
   <block id="6b2201b255bf7619b40525eabcf640ce" category="doc">将数据移动到新驱动器架</block>
@@ -8262,7 +8198,6 @@
   <block id="c2a6f21d9468636e0845f2fa91c6865a" category="paragraph">NX3232_v1.80_Switch-B1.txt</block>
   <block id="6e4e89c7b914560c1a65ea32734c6bfc" category="paragraph">IP_switch_B_2</block>
   <block id="fed227599b689943135c765d47b6045a" category="paragraph">NX3232_v1.80_Switch-B2.txt</block>
-  <block id="313409fa2cdb57ceaac7a401d3a7ec13" category="list-text">从下载 MetroCluster IP RCF 文件<block ref="47f7dd3b2352c1e61640eee11f081c5a" category="inline-link-rx"></block>。</block>
   <block id="516e7c19b1a750a903f4fd9e3624c57a" category="list-text">将 RCF 文件复制到交换机：</block>
   <block id="1f80196ab142297bfad1ce7658281aa4" category="section-title">在 Cisco 9336C 交换机上配置 MACsec 加密</block>
   <block id="c2cd808fc4b0d9e71ea89cc518cef164" category="paragraph">您只能在站点之间运行的 WAN ISL 端口上配置 MACsec 加密。在应用正确的 RCF 文件后，您必须配置 MACsec 。</block>
@@ -8315,12 +8250,10 @@
   <block id="cc9f85a6f649e0f320a34bda0a52ee70" category="list-text">指定要配置的接口。</block>
   <block id="e2c6e6641c86366c32776348c1d19335" category="paragraph">您可以指定接口类型和标识。对于以太网端口，请使用 `以太网插槽 / 端口`</block>
   <block id="dcf432534686dfbd4a5057ebd44a4d2a" category="list-text">重复上述步骤，使用 MACsec 配置其他 WAN ISL 端口。</block>
-  <block id="c3f183d6d5c99219fe1e9b69c1afc9ec" category="section-title">为使用 25 Gbps 连接的和系统设置正向错误更正</block>
   <block id="85b091192b5f7d8d84eccf6181fd6ae8" category="paragraph">如果您的系统配置为使用 25 Gbps 连接，则在应用 RCF 文件后，您需要手动将正向错误更正（ FEC ）参数设置为关闭。RCF 文件不应用此设置。</block>
   <block id="21b34813f1e8c3819fcd4c2d1a97dc87" category="paragraph">在执行此操作步骤之前，必须为 25 Gbps 端口布线。</block>
   <block id="de42a51018ae76cdec0d5104c4b44724" category="inline-link-macro">Cisco 3232C 或 Cisco 9336C 交换机的平台端口分配</block>
   <block id="0ef715bbddac71aad2d1af3b2ccf8056" category="paragraph"><block ref="0ef715bbddac71aad2d1af3b2ccf8056" category="inline-link-macro-rx"></block></block>
-  <block id="c0ed856ba627a4789c1f7874241a234d" category="paragraph">此任务仅限使用 25 Gbps 连接的适用场景 AFF A300 和 FAS8200 平台。</block>
   <block id="ec97d870f267a6b1f7a705a6c44b8e6b" category="paragraph">必须对 MetroCluster IP 配置中的所有四台交换机执行此任务。</block>
   <block id="80541a6761449841eef5dece61e66f64" category="list-text">对交换机上的每个 25 Gbps 端口重复上述步骤。</block>
   <block id="36459777ccad4388b153a5c6dd47cecf" category="paragraph">以下示例显示了针对交换机 IP_switch_A_1 上的接口 Ethernet1/2/1 的命令：</block>
@@ -8338,7 +8271,6 @@
   <block id="f279cda33d8658b285d1ba4a42773651" category="list-text">如果需要，请配置 SSH 服务器。</block>
   <block id="f0630dda98a33b3b99be916ac28603b0" category="admonition">RCF 文件将禁用 Telnet 协议。如果不配置 SSH 服务器，则只能使用串行端口连接访问网桥。</block>
   <block id="4cbd2061568d423e0fdf461dfa55b473" category="list-text">生成 RSA 密钥。</block>
-  <block id="fe87f6bbbe2ba1deef28e443d948319d" category="list-text">生成 DSA 密钥。</block>
   <block id="2adc88e53d20b1a61cccff951117e58f" category="list-text">启用 SSH 服务器。</block>
   <block id="a3fec8a700961f2756fa87e70ed3f889" category="paragraph">如有必要，退出配置上下文。</block>
   <block id="b5a5b3a0219f19569613cb2962fe0ab6" category="admonition">如果密钥已存在，则可能会要求您覆盖这些密钥。</block>
@@ -8348,13 +8280,6 @@
   <block id="2820fb4a624285c62742b62da6679fb8" category="paragraph">必须对 MetroCluster IP 配置中的每个交换机重复执行此任务。</block>
   <block id="1ff36fa740a0902025854b326dfe57e6" category="list-text">等待交换机重新启动。</block>
   <block id="5d975c1dd11d51c95b55f14295457c6d" category="paragraph">您必须将交换机 RCF 文件下载并安装到 MetroCluster IP 配置中的每个交换机。</block>
-  <block id="8a9ce1e3217b7fa80d1aeb5ef1bbd2ad" category="paragraph">BES-53248_v1.32_Switch-A1.txt</block>
-  <block id="c3e4b7619e95d4024e440983ff7c285c" category="paragraph">BES-53248_v1.32_Switch-A2.txt</block>
-  <block id="395668868fa80dabcce058176006196e" category="paragraph">BES-53248_v1.32_Switch-B1.txt</block>
-  <block id="b10d7825d4307d9546b94a0633833c2d" category="paragraph">BES-53248_v1.32_Switch-B2.txt</block>
-  <block id="3c93b2795775d303ec2cf758f997e05b" category="list-text">下载 Broadcom 交换机的 MetroCluster IP RCF 文件。</block>
-  <block id="47e34e39a6e39d638a81f772626beb76" category="inline-link">适用于 MetroCluster IP 的 Broadcom 集群和管理网络交换机参考配置文件下载</block>
-  <block id="adc4a8df4165d2df1d347cc6705c6cb4" category="paragraph"><block ref="adc4a8df4165d2df1d347cc6705c6cb4" category="inline-link-rx"></block></block>
   <block id="8dbef93c578a2dd1a148ce7a8e7ed428" category="list-text">对其他三个交换机中的每一个交换机重复上述步骤，确保将匹配的 RCF 文件复制到相应的交换机。</block>
   <block id="2ac5b29f2d20bbfbdc32651d31618463" category="summary">一个八节点配置将包含两个 DR 组。使用本节中的任务配置第一个 DR 组。</block>
   <block id="146d142d8ea797f93d593a6fe9556787" category="doc">处理八节点配置</block>
@@ -8460,13 +8385,10 @@
   <block id="4dbae59f3cbe15012d73996ea5e7efd7" category="cell">调解器版本</block>
   <block id="7086defea73bc85dfa4588f2db92a805" category="cell">支持的 Linux 版本</block>
   <block id="0b0ec9f1cc28b3c19dc6c36dcd5af7cc" category="paragraph">1.3</block>
-  <block id="10dd3d995ff982bab7e234061e07f38a" category="paragraph">Red Hat Enterprise Linux 或 CentOS 7.6 ， 7.7 ， 7.8 ， 7.9 ， 8.0 ， 8.1 ， 8.2 ， 8.3</block>
   <block id="56765472680401499c79732468ba4340" category="paragraph">1.2</block>
-  <block id="fa2c13af91b78242d6ba511e5b050fd5" category="paragraph">Red Hat Enterprise Linux 或 CentOS 7.6 ， 7.7 ， 7.8 ， 8.0 ， 8.1</block>
   <block id="d55d8aaf12099eb46ec871f4ea80b39d" category="list-text">64 位物理安装或虚拟机</block>
   <block id="83626eda7582435cdf0eb139d5cc8972" category="list-text">8 GB RAM</block>
   <block id="2774e53c6d33bb76442da628f467bbda" category="paragraph">下面列出了在系统上安装 Red Hat Enterprise Linux 或 CentOS 以及关联存储库的最佳实践。以不同方式安装或配置的系统可能需要执行其他步骤。</block>
-  <block id="1360477285b396de86390013198f1324" category="list-text">您必须根据 Red Hat 最佳实践安装 Red Hat Enterprise Linux 或 CentOS 。</block>
   <block id="d78f805366335574fe9a7a8a768188ec" category="list-text">在 Red Hat Enterprise Linux 或 CentOS 上安装 ONTAP 调解器服务时，系统必须能够访问相应的存储库，以便安装程序可以访问和安装所有必需的软件依赖项。</block>
   <block id="177124ed5a050ade35cf0ca9bbfbea42" category="list-text">要使 yum 安装程序在 Red Hat Enterprise Linux 存储库中查找相关软件，您必须在 Red Hat Enterprise Linux 安装期间或之后使用有效的 Red Hat 订阅注册系统。</block>
   <block id="3fd0a1c0edf135c3937e76bd17a097d3" category="paragraph">有关 Red Hat 订阅管理器的信息，请参见 Red Hat 文档。</block>
@@ -11338,84 +11260,8 @@
   <block id="e39c1c9f6137c6dbe9a36e7da08ce525" category="paragraph"><block ref="e39c1c9f6137c6dbe9a36e7da08ce525" category="inline-link-macro-rx"></block></block>
   <block id="d6c1b26afb87081a7358d272268afbf0" category="paragraph"><block ref="d6c1b26afb87081a7358d272268afbf0" category="inline-link-macro-rx"></block></block>
   <block id="a72d2a4ca552186cbf62f182a7dfbe82" category="paragraph"><block ref="a72d2a4ca552186cbf62f182a7dfbe82" category="inline-link-macro-rx"></block></block>
-  <block id="8d34b4267d2886cdba19cbddeba8d3ad" category="list-text">擦除现有配置：</block>
-  <block id="cfd72c932abb8432b8e6b711659ed1d7" category="list-text">重新加载交换机软件：</block>
-  <block id="375e567de438a1579363c1113e698778" category="paragraph">系统将重新启动并进入配置向导。在启动期间，如果您收到提示 `Abort Auto Provisioning and continue with normal setup ？（ yes/no ） [n]` ，则应回答 `yes` 以继续。</block>
-  <block id="bee24b783e44923012afab506584e701" category="list-text">SSH 服务（ RSA ）</block>
-  <block id="4c20f2b5dfebba1daad521c7b3ab4c3b" category="paragraph">完成配置向导后，交换机将重新启动。</block>
-  <block id="409fac5d109b0d42d6ed8afc0c600cfc" category="paragraph">`ip_switch-a-1# copy running-config startup-config`</block>
-  <block id="3ff80a946baa0d415de97e7c2a95793c" category="paragraph">`IP_switch-A-1# reload`</block>
-  <block id="5c4c8c1895f38dc1fdb21afaba86791a" category="paragraph">在此示例中， "nxos.7.0.3.I4.6.bin" 文件将从 SFTP 服务器 "10.10.99.99" 复制到本地 bootflash ：</block>
-  <block id="53ba93fa19131cf981212cb45141b793" category="paragraph">`安装所有 nxos bootflash ： nxos.version-number.bin`</block>
-  <block id="8ae0cf2d345fd4c294935ff37267c786" category="paragraph">以下示例显示了 "ip_switch_A_1" 上的软件安装：</block>
-  <block id="d40094c20302b8d483bb43b07d043c82" category="paragraph">`copy sftp ： //root@ftp-server-ip-address/tftpboot/switch-specific — rCF bootflash ： vrf management`</block>
-  <block id="6a3f120af5c1d85a0507a40cd533ba2a" category="paragraph">在此示例中， "NX3232_v1.80 交换机 -A1.txt" RCF 文件将从位于 10.10.99.99 的 SFTP 服务器复制到本地 bootflash 。您必须使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 文件的文件名。</block>
-  <block id="424828326c99a0f69f26ea55cae96665" category="list-text">在每个交换机上验证 RCF 文件是否位于每个交换机的 bootflash 目录中：</block>
-  <block id="9907713d23e4a8ccaed056f63f830b76" category="paragraph">`copy bootflash ： switch-specific-RCF.txt running-config`</block>
-  <block id="3b321938f361b3ec64e24c0f958cdcfe" category="list-text">对 MetroCluster IP 配置中的其他三台交换机重复上述步骤。= 在 Cisco 9336C 交换机上配置 MACsec 加密</block>
-  <block id="fc64fd2d443f2692e38496e1702188bb" category="list-text">进入全局配置模式：</block>
-  <block id="bab249fe542bdf368ff67708f1ae39d2" category="paragraph">`配置终端`</block>
-  <block id="0a911607fcdb2a0895663c58e11b5e20" category="list-text">在设备上启用 MACsec 和 MKA ：</block>
-  <block id="0af698a47e630dbe25ea48f66be32472" category="paragraph">`功能 MACsec`</block>
-  <block id="94d3b8e178343e5848889ce109b92d67" category="list-text">将正在运行的配置复制到启动配置：</block>
-  <block id="8593f4ba6cc280cf6c5bf594528f3eb4" category="list-text">在设备上禁用 MACsec 配置：</block>
-  <block id="cdb4bb93b3a531a567e11665f5148cc9" category="paragraph">`mAcSEC shutdown`</block>
-  <block id="898bf60bbd95cf3f64c28667c3e8a485" category="list-text">删除接口上配置的密钥链，策略和回退密钥链，以删除 MACsec 配置：</block>
-  <block id="0e24ecf998582fa5d382f0964ae2c5ac" category="paragraph">`no MACsec keychain _keychain-name_ policy _policy-name_ backfall-keychain _backfally-keychain-name_`</block>
-  <block id="09d2459b8ba15bdb94703e39490766cf" category="list-text">要隐藏加密的密钥八位字节字符串，请在 `show running-config` and `show startup-config` 命令的输出中将此字符串替换为通配符：</block>
-  <block id="74e0480b8ca480716d1a5cd50a1ceb85" category="list-text">创建一个 MACsec 密钥链以存放一组 MACsec 密钥并进入 MACsec 密钥链配置模式：</block>
-  <block id="1b5dce8a5e1076414ab0a1f651e86626" category="paragraph">`密钥链名称 MACsec`</block>
-  <block id="9a771e89df39dc68718b01f345679ce5" category="list-text">创建一个 MACsec 密钥并进入 MACsec 密钥配置模式：</block>
-  <block id="2d511bdd9854a103c38901022287d59c" category="paragraph">`key key-id`</block>
-  <block id="6567e1b453ff61d555a46da46fe529c1" category="list-text">配置密钥的八位字节字符串：</block>
-  <block id="463b6468e4cb988d617139c73a1c60d1" category="paragraph">`key-octet-string octet-string Cryptographic -orl AES-128_CMAC` AES_256_CMAC</block>
-  <block id="a45d06d420691a658540c392805b5464" category="admonition">`octet-string` 参数最多可包含 64 个十六进制字符。八位字节密钥在内部进行编码，因此明文形式的密钥不会显示在 `show running-config MACsec` 命令的输出中。</block>
-  <block id="33c68d550ed8b40ce4dff6fec3e12299" category="list-text">为密钥配置 `sEnd lifetime` （以秒为单位）：</block>
-  <block id="8a9b310c495b3588575c00947aa2ca98" category="paragraph">`s终生开始时间 duration _duration _`</block>
-  <block id="f8c468a51ba3a591f7435f5a9536be6c" category="paragraph">默认情况下，设备会将开始时间视为 UTC 。`sSTART-Time` 参数是密钥处于活动状态的日期和日期时间。`do uration` 参数是指生命周期的长度，以秒为单位。最大长度为 2147483646 秒（约为 68 年）。</block>
-  <block id="9b371153b822dd35e01e4e8dc2c04cb3" category="list-text">将正在运行的配置复制到启动配置： `</block>
-  <block id="10b1c3cc1af07c7992049ba1819d36e1" category="paragraph">复制 running-config startup-config`</block>
-  <block id="fb3e989a4bad213c9adbd3e7bcd9b00b" category="list-text">显示密钥链配置：</block>
-  <block id="49a66a48bbc301445b1c144ea99c4dbf" category="paragraph">`s如何使用密钥链名称`</block>
-  <block id="dde20920c9bc2285cedc0171616ad91e" category="list-text">创建 MAC 秒策略：</block>
-  <block id="3ec088691927601a692a22de57f7b714" category="paragraph">`mAcSEC 策略名称`</block>
-  <block id="edbb49331be136350bda417cf5ba839b" category="list-text">配置以下密码之一：</block>
-  <block id="5200e1f851b574e5208b4f68b18772c2" category="list-text">GCM-AES-128</block>
-  <block id="645cf4421cc879e6a5c22e9a16087526" category="list-text">GCM-AES-256</block>
-  <block id="6a406bf53b8b298ea85321874a731035" category="list-text">GCM-AES-XPN-128</block>
-  <block id="1f7b8fb74d7aa4c3ede5728afd5b65a9" category="list-text">GCM-AES-XPN-256</block>
-  <block id="b82e01eb60b60c5e942d1d8575a7f37b" category="paragraph">`密码套件名称`</block>
-  <block id="2ae857e42c8cd18b28af888037935783" category="list-text">配置密钥服务器优先级，以便在密钥交换期间中断对等方之间的联系：</block>
-  <block id="ca7b955b9b346d60ed4f0dc1e64cfc64" category="paragraph">`key-server-priority _number_`</block>
-  <block id="7a44b8ff86b7a95660b772757f2bc282" category="list-text">配置安全策略以定义数据和控制数据包的处理方式：</block>
-  <block id="eaa440a91bcc4e3ed54414d4ff0fe828" category="paragraph">`secury-policy _securation-policy_`</block>
-  <block id="cc937ddb780d152554ff3383c19de7be" category="list-text">配置重放保护窗口，以使安全接口不接受小于所配置窗口大小的数据包：</block>
-  <block id="f8b96974276de6fe5c8382764281e2fd" category="paragraph">`window-size _number_`</block>
-  <block id="b77da47450f6ae2b04de653478f79b10" category="list-text">配置强制重新设置 SAK 密钥的时间（以秒为单位）：</block>
-  <block id="d2bc3601262ff6548f8d78a57c0f911e" category="paragraph">`sk-expiry-time _time_`</block>
-  <block id="878cd2d60f70843a5aefc73f923ae706" category="paragraph">您可以使用此命令将会话密钥更改为可预测的时间间隔。默认值为 "0" 。</block>
-  <block id="06db921aa0f25025beb44d21cecefecd" category="list-text">在开始加密的第 2 层帧中配置以下机密性偏移之一：</block>
-  <block id="e11afee8dde4674d7948e54940ebcd3e" category="paragraph">`conf-offsetconfidentiality offset`</block>
-  <block id="525c239c40e177bc999f4c865c626a7f" category="list-text">CONF 偏移 -0 。</block>
-  <block id="ab26673470b0caab104eac4decc2e17c" category="list-text">CON-offset-30 。</block>
-  <block id="05db52bfb6d2943365f1b71093eaa6ec" category="list-text">CONF 偏移 -50 。</block>
-  <block id="5382d2282494796171738f35b9361ab8" category="admonition">中间交换机可能需要使用此命令来使用 MPLS 标记等数据包标头（ DMAC ， SMaC ， etype ）。</block>
-  <block id="dbedb7cefba22d6d33123561705f89d7" category="list-text">显示 MACsec 策略配置：</block>
-  <block id="388f63f7d6fad1c81c4ee48ef9a6717c" category="paragraph">`s如何使用 MACsec 策略`</block>
-  <block id="28ba3b68e72bb285464a03a6f72b3130" category="paragraph">`s如何使用 MACsec MKA 会话`</block>
-  <block id="5c6b1b259ec3aba881887ad2bcf464d9" category="paragraph">`s如何处理 MACsec MKA 统计信息`</block>
-  <block id="963f5eadacb40d1c09a8a4b55061def7" category="list-text">指定因密钥 / 密钥 ID 不匹配或密钥到期而导致 MACsec 会话失败后使用的回退密钥链：</block>
-  <block id="81c48e6ea46a92849eb960d98501aa40" category="paragraph">`mAcSEC keychain _keychain-name_ policy _policy-name_ backfall-keychain _backfally-keychain-name_`</block>
-  <block id="0c2b1f7fa7ee12cd2f5a1f5ec06f4758" category="admonition">您应使用以下步骤配置回退密钥链： <block ref="f83d7d21f0fb632f54556f98d0714ad7" category="inline-xref-macro-rx"></block> 然后再继续执行此步骤。</block>
-  <block id="06110669353ab55366cb47ba607b386f" category="list-text">在连接到控制器模块的每个 25 Gbps 端口上将 `FEC` 参数设置为 "off" ，然后将运行配置复制到启动配置：</block>
-  <block id="c9255debd80b3435af53b4d7c8b851a6" category="list-text">指定要配置的 25 Gbps 接口：</block>
-  <block id="47368044094e980e212e51e53f653cf2" category="paragraph">`interface _interface-ID_`</block>
-  <block id="600097752216c9cf1a91d5c60102bcf8" category="list-text">将 `FEC` 设置为 "off" ：</block>
-  <block id="aaa283892de0705f6292714e2ecb4234" category="paragraph">`FEC 关闭`</block>
-  <block id="61210a89394e7cdd681d2a54c94960bf" category="list-text">更改为提升的命令提示符（` #` ）：</block>
   <block id="237ceede529524160f9215c07a41b01a" category="paragraph">`启用`</block>
   <block id="56c0e77173118d9438d0428e9dc7a715" category="list-text">擦除启动配置：</block>
-  <block id="91f81f9cd1a23a248e317b6b22a84ce3" category="paragraph">`erase startup-config`</block>
   <block id="ec5c3bc0d9af5e6eaa0a026335b11755" category="list-text">更改为提升后的命令提示符：</block>
   <block id="4fee2f5aadc66b5f313f985dffa0efdf" category="list-text">将服务端口协议设置为 `none` ：</block>
   <block id="e080aeaf0a61fd1dc4cdb4d64b02bc7d" category="paragraph">`s服务端口协议无`</block>
@@ -11430,8 +11276,6 @@
   <block id="8093e28dbe8feb9bac45f540897d8548" category="list-text">配置交换机名称：</block>
   <block id="7cdf3ef23b7a4de21ce5416002e31840" category="paragraph">`主机名 ip_switch_A_1`</block>
   <block id="05811097becdf827e7905c7085aac958" category="paragraph">`写入内存`</block>
-  <block id="bc3112ce4af28e5fc2407cd354855514" category="paragraph">`copy sftp ： //user@50.50.50.50 switchsoftware/EFOS-3.4.3.1.stk backup`</block>
-  <block id="d0c876b8f4ab728e9ccdcdd287e60f0a" category="paragraph">在此示例中，将 EFOS-3.4.3.1.stk 操作系统文件从位于 "50.050.50" 的 SFTP 服务器复制到备份分区。您需要使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 文件的文件名。</block>
   <block id="f7967e1b793d9c2b1f509f5a8239b08e" category="list-text">将交换机设置为在下次重新启动交换机时从备份分区启动：</block>
   <block id="ae791522c9f7834f0edc56277ffe2340" category="paragraph">`启动系统备份`</block>
   <block id="59ddc72eeb53790ebf968ba8067ff5bc" category="list-text">验证新启动映像是否将在下次启动时处于活动状态：</block>
@@ -11484,10 +11328,8 @@
   <block id="aa3f631fc5c50fd8386f95cdb6d4a080" category="section-title">适用于 CentOS 7.x 操作系统的操作步骤</block>
   <block id="e77417f9b3a025db5c9b897480397f05" category="section-title">适用于 CentOS 8.0.1905 或更高版本操作系统的操作步骤</block>
   <block id="776b863d23f8f3c1ad323efc746ad581" category="inline-link">CentOS 存储</block>
-  <block id="5a4aa16205942bd9340779622f5def36" category="paragraph">因为最新版本的 8.0 （ CentOS 8.0.1905 ）核心位于中<block ref="0ea159b669197108632fac010ad6fa88" category="inline-link-rx"></block>，您必须提供对匹配的 kernel-devel 软件包的访问权限，以编译所需的内核模块。</block>
   <block id="5ec56967e7b14b3a1c46f079c162fa14" category="list-text">【 ｛ step1-rpm]] 通过问题描述执行以下命令直接安装 kernel-devel 软件包：</block>
   <block id="9a57fec066e0a61fb842162f033faf88" category="paragraph">`rpm -i \http://vault.centos.org/8.0.1905/BaseOS/x86_64/os/Packages/kernel-devel-$(uname -r ） .rpm`</block>
-  <block id="7a745c5ac74bae295d044a75f9948f75" category="admonition">上述命令是一个特定于 CentOS 8.0.1905 的示例。根据其他 CentoOS 8.x 版本的需要更改路径。</block>
   <block id="5842c617760ec88e74403fcbbdac12a9" category="list-text">删除 kernel-devel 软件包：</block>
   <block id="6d97c3b1955e8f90cdc265fad38ddb79" category="paragraph">`yum remove kernel-devel`</block>
   <block id="99bb9681cb725875d0be400f49eca9d6" category="list-text">重复中所示的 `rpm` 命令 <block ref="fd049611d5f23ebb101acec1a21657d5" category="inline-xref-macro-rx"></block>。</block>
@@ -11775,4 +11617,165 @@
   <block id="0a479816abce55af3acdeba610f5c4aa" category="list-text">对于第一个磁盘架堆栈，使用缆线将第一个磁盘架的 IOM A 连接到 FibreBridge A 上的 SAS 端口 A使用缆线将最后一个磁盘架的 IOM B 连接到 FibreBridge B 上的 SAS 端口 A</block>
   <block id="84a335bc70808c0497de1c62a99aaf43" category="sidebar">配置基本设置</block>
   <block id="175313fe612a432e5a51082817a697f1" category="sidebar">在 Cisco 9336C 交换机上配置 MACsec 加密</block>
+  <block id="d0a21ff59a32489a592aeb50ea891e1c" category="list-text">验证配置中是否没有损坏的磁盘：</block>
+  <block id="9c2ea476b2663febaae7e92749da7877" category="paragraph">`storage disk show -broken`</block>
+  <block id="23a6830e0b1f38beb4090d86d31d8532" category="list-text">验证两个站点上的时区和时间设置是否正确：</block>
+  <block id="696b64bc323bdd13e4a324fd384d294c" category="list-text">如果配置了板载密钥管理器：</block>
+  <block id="c497a6b930105164567b744840c21e94" category="paragraph">`s安全密钥管理器板载 show-backup`</block>
+  <block id="1b8b021695a2698fadae5c009b0b6295" category="paragraph">`security key-manager external show -instance`</block>
+  <block id="2a4a9d693caa859153f77cf2204d30cc" category="paragraph">`s安全密钥管理器密钥查询`</block>
+  <block id="996bebf7afd4ff3c1c2c76a361bb12a0" category="list-text">修复数据聚合。</block>
+  <block id="b784ced918e2a1928ccd95f5122fb01c" category="paragraph">`MetroCluster heal data-aggregates`</block>
+  <block id="64a2c948ff5f5a4a19945315df55d3f1" category="list-text">您将使用中收集的信息 <block ref="1ed1cd4ef8bd2fcdaf4ac61e442842fa" category="inline-link-macro-rx"></block>。</block>
+  <block id="87166f8e0dd70fc53689b3264b8c5818" category="paragraph">`broadcast-domain remove-ports -broadcast-domain _broadcast-domain-name_ -ports _node-name ： port-id_`</block>
+  <block id="9480d1ded0239cd558c2bc055e038641" category="list-text">删除 VLAN 端口：</block>
+  <block id="632030e35d20edc0183144e7ba2d0207" category="paragraph">`network port vlan delete -node _node-name_ -vlan-name _portID-vlandid_`</block>
+  <block id="19450cbfa926e998bbf8df4c2acf2202" category="paragraph">`halt -inhibit-takeover true -node _node-name_`</block>
+  <block id="f3fced65783d96fe674e1249b62fdd67" category="list-text">检查端口的当前设置： `ucadmin show`</block>
+  <block id="b7f8567690eb07abe3c00b52e12c1a3d" category="paragraph">旧系统 ID 在中进行了标识 <block ref="93760c38050596c2d594606b232570b5" category="inline-link-macro-rx"></block>。</block>
+  <block id="662d33ac7104caf3274f5065dd2768ba" category="list-text">仔细检查 partner-sysid 是否正确：</block>
+  <block id="ecb784a0d718480cf2373a1c93d92d6b" category="list-text">如果使用根加密，问题描述请针对您的密钥管理配置重新输入启动菜单命令。</block>
+  <block id="a60ee6def67cd983574ca038af2a7f12" category="paragraph">您可能需要多次在启动菜单提示符处对 recovery_xxxxxxxx_keymanager 命令和选项 6 执行问题描述操作，直到节点完全启动为止。</block>
+  <block id="9deac6774fee62e9b27bd1c0ab01281e" category="paragraph">`vserver config override -command "network interface modify -vserver _vserver_name_ -home-port _active_port_after_upgrade_-lif _lif_name_ -home-node _new_node_name_"`</block>
+  <block id="ad9ebc2907a38b9af9ba1c13b826403a" category="paragraph">在 `vserver config override` 命令中输入 `network interface modify` 命令时，您不能使用选项卡自动完成功能。您可以使用 autoscomplete 创建 `network interface modify` ，然后将其括在 `vserver config override` 命令中。</block>
+  <block id="ac95cad470acdacec0fa69881c030cfb" category="list-text">从开始，重复上述步骤升级 cluster_A 上的节点 <block ref="355740dbae62093c04ee9cfd151fed4a" category="inline-link-macro-rx"></block>。</block>
+  <block id="4852598a3e684943b3bfcba06307b21d" category="list-text">使用以下部分配置 MetroCluster IP 节点：</block>
+  <block id="87389a8ef852aa6f8fecae947cf8fd86" category="list-text"><block ref="87389a8ef852aa6f8fecae947cf8fd86" category="inline-link-macro-rx"></block></block>
+  <block id="42aa3219583515464abe8c61ef6c61d3" category="list-text"><block ref="42aa3219583515464abe8c61ef6c61d3" category="inline-link-macro-rx"></block></block>
+  <block id="1356b65b4f6b8c9d44f63f1a27688ae1" category="list-text">擦除现有配置： `write erase`</block>
+  <block id="367b53240482fbcdbee9063ed854bf15" category="list-text">重新加载交换机软件： `reload`</block>
+  <block id="e0bfe71bd782e6d91af553d237abef6d" category="paragraph">系统将重新启动并进入配置向导。在启动期间，如果您收到提示 Abort Auto Provisioning and continue with normal setup ？（ yes/no ） [n] ，则应回答 `yes` 以继续。</block>
+  <block id="6c318ffbc180197704306f081944e62d" category="list-text">SSH 服务（ RSA ）完成配置向导后，交换机将重新启动。</block>
+  <block id="ecb8253128cc37a7b8d7407356a9c79e" category="list-text">将交换机软件复制到交换机： ` +copy sftp ： //root@server-IP-address/tftpboot/NX-OS-file-name bootflash ： vRF management+`</block>
+  <block id="170843e6f61a9a5c90fed2eb71e3c3b1" category="paragraph">在此示例中， nxos.7.0.3.I4.6.bin 文件将从 SFTP 服务器 10.10.99.99 复制到本地 bootflash ：</block>
+  <block id="9aa699d44bac6ea6e8d882e1cb6cdd6b" category="list-text">在每个交换机上验证交换机 NX-OS 文件是否位于每个交换机的 bootflash 目录中： `dir bootflash ：`</block>
+  <block id="f8749c965ed2c1726c2137bc6a8da847" category="list-text">安装交换机软件： `install all nxos bootflash ： nxos.version-number.bin`</block>
+  <block id="4f9c0725d0d15a8e91511fc6c394410b" category="paragraph">以下示例显示了 IP_switch_A_1 上的软件安装：</block>
+  <block id="2abfbcb3b6483942c4afa57d53f93914" category="list-text">验证是否已安装交换机软件： `show version`</block>
+  <block id="837bb09325ae9b33d183f31d5f605c2f" category="list-text">下载 MetroCluster IP RCF 文件。</block>
+  <block id="30aedc47c67cc53b73d2b851aeb4ee3b" category="list-text">将 RCF 文件复制到第一个交换机： ` +copy sftp ： //root@ftp-server-IP-address/tftpboot/switch-specific — rCF bootflash ： vrf management+`</block>
+  <block id="6f1e191c9822753ed22d3be112079696" category="paragraph">在此示例中， NX3232_v1.80_Switch-A1.txt RCF 文件将从位于 10.10.99.99 的 SFTP 服务器复制到本地 bootflash 。您必须使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 文件的文件名。</block>
+  <block id="0da5316cb4b80fbf39811ca0d685075c" category="list-text">在每个交换机上验证 RCF 文件是否位于每个交换机的 bootflash 目录中： `dir bootflash ：`</block>
+  <block id="aa2b4a7618116e3e8d57f32b079650e7" category="list-text">在 Cisco 3132Q-V 和 Cisco 3232C 交换机上配置 TCAM 区域。</block>
+  <block id="11f4fcfb5097e0ea2628fb4a1004ccde" category="admonition">如果您没有 Cisco 3132Q-V 或 Cisco 3232C 交换机，请跳过此步骤。</block>
+  <block id="8be72409348b473e65897fad7fc10ecb" category="list-text">在 Cisco 3132Q-V 交换机上，设置以下 TCAM 区域：</block>
+  <block id="efb8c1fbbf863af4171bcf90c577ed9e" category="list-text">在 Cisco 3232C 交换机上，设置以下 TCAM 区域：</block>
+  <block id="778cd8c0308c5b50a6c5c457a4fba024" category="list-text">设置 TCAM 区域后，保存配置并重新加载交换机：</block>
+  <block id="a704f35ceae3f24027e6fab1247539e6" category="list-text">将匹配的 RCF 文件从本地 bootflash 复制到每个交换机上的运行配置： `copy bootflash ： switch-specific-RCF.txt running-config`</block>
+  <block id="913b36bab9792039b74e6c334b1502a4" category="list-text">将 RCF 文件从正在运行的配置复制到每个交换机上的启动配置： `copy running-config startup-config`</block>
+  <block id="404736ec3387f1d401f0b3bf7a1971ba" category="list-text">重新加载交换机： `reload`</block>
+  <block id="d417e41e5c667f563421f48cdd5a7d1b" category="list-text">要隐藏加密的密钥八位字节字符串，请将 show running-config 和 show startup-config 命令输出中的字符串替换为通配符：</block>
+  <block id="f6f14a474d7b7a8fa9fd9a02f8a06383" category="list-text">创建一个 MACsec 密钥链以存放一组 MACsec 密钥并进入 MACsec 密钥链配置模式： `key chain name MACsec`</block>
+  <block id="6cf615f0c902c8e8b02876d2f83c44f2" category="list-text">创建一个 MACsec 密钥并进入 MACsec 密钥配置模式： `key key-id`</block>
+  <block id="40bcb53b55bbb1631cf10fee21041f9e" category="list-text">配置密钥的八位字节字符串： `key-octet-string octet-string code-string code-oremorm AES_128_CMAC _ AES_256_CMAC`</block>
+  <block id="aeaceee5eaeaf6e1e6283009aa0c5c82" category="admonition">八位字节字符串参数最多可包含 64 个十六进制字符。八位字节密钥在内部进行编码，因此明文中的密钥不会显示在 running-config MACsec 命令的输出中。</block>
+  <block id="c3e05689119735e416dc843608b76c4e" category="list-text">配置密钥的发送生命周期（以秒为单位）： `sEnd-lifetime start-time duration`</block>
+  <block id="d2294acb2c54a8144dcb00a8f1554fab" category="paragraph">默认情况下，设备会将开始时间视为 UTC 。start-time 参数是密钥生效的日期和日期时间。duration 参数是指以秒为单位的生命周期长度。最大长度为 2147483646 秒（约为 68 年）。</block>
+  <block id="49fe1389ce523869db2a9c7281bdc944" category="list-text">显示密钥链配置： `show keychain name`</block>
+  <block id="c81eaea618dc53aae33980b9b6607fcb" category="list-text">创建一个 MACsec 策略： `mAcSEC policy name`</block>
+  <block id="f40333d0be95b55d3e72ad6c00bf7527" category="list-text">配置以下密码之一 GCM-AES-128 ， GCM-AES-256 ， GCM-AES-XPN-128 或 GCM-AES-XPN-256 ： `ciphere-suite name`</block>
+  <block id="77e598cb536f72c1171ba71e93786958" category="list-text">配置密钥服务器优先级以在密钥交换期间中断对等方之间的关系： `key-server-priority number`</block>
+  <block id="60687e7f208cdbe0de5b9f174e28ffdc" category="list-text">配置安全策略以定义数据和控制数据包的处理方式： `secury-policy security policy`</block>
+  <block id="b9bc02d3db58af61799a45782173b6d1" category="list-text">配置重放保护窗口，使安全接口不接受小于配置窗口大小的数据包： `window-size number`</block>
+  <block id="5942ba255ee228f02524f01cb54b7cc6" category="list-text">配置以秒为单位的时间以强制重新设置 SAK 密钥： `sAK expiry-time`</block>
+  <block id="e29ea881400d81af18089cbdab8aa15e" category="paragraph">您可以使用此命令将会话密钥更改为可预测的时间间隔。默认值为 0 。</block>
+  <block id="9ec782d4fb1aa846fff599297b99292d" category="list-text">在加密开始的第 2 层帧中配置以下机密性偏移之一： `conf-offsetconfidentiality offset`</block>
+  <block id="0a79b7a1b6f48bed182b2301018842e0" category="list-text">CONF 偏移 -0 。</block>
+  <block id="0c1a2236f90ef9dcec0e268b250bbbac" category="list-text">CON-offset-30 。</block>
+  <block id="3fe34808cffc91d098fc57e4456c8c78" category="list-text">CONF 偏移 -50 。</block>
+  <block id="c0ef1887283836aa960334f4225a094c" category="paragraph">+ 注意：中间交换机可能需要使用此命令来使用 MPLS 标记等数据包标头（ DMAC ， SMaC ， etype ）。</block>
+  <block id="c2f579b676b733824968b7ac12bc3e2e" category="list-text">显示 MACsec 策略配置： `sHow MACsec policy`</block>
+  <block id="9284c86c82929cc854bc1886a966ff6f" category="list-text">Run ： `s如何执行 MACsec MKA 摘要`</block>
+  <block id="3db9b1ed217c4d51bc9eb8d1b2a88879" category="list-text">Run ： `s如何执行 MACsec MKA 会话`</block>
+  <block id="56cfbbd408a7b951d0c7de29a7686f39" category="list-text">Run ： `s如何处理 MACsec MKA 统计信息`</block>
+  <block id="ac6af7efb666b42eda2885b4e7f44986" category="list-text">指定因密钥 / 密钥 ID 不匹配或密钥到期而导致 MACsec 会话失败后使用的回退密钥链： `mAcSEC keychain keychain-name policy policy-name backfally-keychain keychain keychain-name`</block>
+  <block id="4bde0aa2d051642ac37cec5ee626a8c5" category="admonition">在继续此步骤之前，您应使用 _Configuring a MACsec key chain and keys_ 步骤配置回退密钥链。</block>
+  <block id="ffe1f559bee6f65df8232945e7f1517d" category="section-title">为使用 25 Gbps 连接的系统设置正向错误更正</block>
+  <block id="b22352ed85b6b2a829683807066af496" category="paragraph">此任务仅适用于使用 25 Gbps 连接的适用场景平台：• AFF A300 • FAS 8200 • FAS 500f • AFF A250</block>
+  <block id="55847fe0c50cc0b24f2766a0f17dcb5e" category="list-text">在连接到控制器模块的每个 25 Gbps 端口上将 FEC 参数设置为 off ，然后将正在运行的配置复制到启动配置：</block>
+  <block id="4e435c962be317de1557265dfbacc427" category="list-text">进入配置模式： `config t`</block>
+  <block id="03afbf28e660c550f09da5f3436dd99d" category="list-text">指定要配置的 25-Gbps 接口： `interface interface-ID`</block>
+  <block id="df181c6434803cd5a18218c45eca6655" category="list-text">将 FEC 设置为 off ： `fEC off`</block>
+  <block id="344fc0c43530ccad90a38944b632b1e4" category="list-text">退出配置模式： `exit`</block>
+  <block id="7903ea9f597270ba2cf2405fbc17ebd8" category="list-text">更改为提升的命令提示符（` #` ）： `enable`</block>
+  <block id="4be4d4968b5e919059610e2ee4b965ce" category="list-text">擦除启动配置并删除横幅</block>
+  <block id="4995c150e07b7ecfa34c3c0fbef2e928" category="paragraph">*`擦除启动配置` *</block>
+  <block id="2f7236901427b3d791b59473a9846d56" category="list-text">删除横幅：</block>
+  <block id="45fcd6873eadf29e5cd4cc3b0c7d3340" category="paragraph">*`无设置剪贴画` *</block>
+  <block id="ff0270664e36de08ce3d4ea34091e33b" category="list-text">重新启动交换机： *` （ IP_switch_A_1 ） #reload *`</block>
+  <block id="bb618b144b7c6895aa5a8818fa66c1b2" category="list-text">生成 DSA 密钥（可选）</block>
+  <block id="d034cc5a3446b99507240baca90266a0" category="list-text">如果您使用的是符合 FIPS 的 EFOS 版本，请生成 ECDSA 密钥。以下示例将创建长度为 256 的密钥。有效值为 256 ， 384 或 521 。</block>
+  <block id="640245482ba700e57c1029dc983e60c0" category="paragraph">* 请注意以下事项： *</block>
+  <block id="9928b888bac1559e9f0e9346dbea1add" category="list-text">从 EFOS 3.4.x.x 升级到 EFOS 3.7.x.x 时，交换机必须运行 EFOS 3.4.4.6 （或更高版本 3.4.x.x ）。如果您运行的是之前的版本，请先将交换机升级到 EFOS 3.4.4.6 （或更高版本 3.4.x.x ），然后再将交换机升级到 EFOS 3.7.x.x</block>
+  <block id="950d2c12c917ccd4448e8129f6486720" category="list-text">EFOS 3.4.x.x 和 3.7.x.x 的配置不同。要将 EFOS 版本从 3.4.x.x 更改为 3.7.x.x 或反之，需要将交换机重置为出厂默认值，并将相应 EFOS 版本的 RCF 文件重新应用。此操作步骤需要通过串行控制台端口进行访问。</block>
+  <block id="a2488c6615db2943025c77bde1fb97db" category="list-text">从 EFOS 3.7.x.x 版开始，可以使用非 FIPS 兼容版本和 FIPS 兼容版本。从不符合 FIPS 的版本迁移到符合 FIPS 的版本时，需执行不同的步骤，反之亦然。将 EFOS 从不符合 FIPS 的版本更改为符合 FIPS 的版本，或者反之，则会将交换机重置为出厂默认值。此操作步骤需要通过串行控制台端口进行访问。</block>
+  <block id="6a02b7e242bcf6c784d6c8daac02baa6" category="cell">* 操作步骤 *</block>
+  <block id="b0bed1183d501e8f5e8cef18312355bd" category="cell">* 当前 EFOS 版本 *</block>
+  <block id="9fd2304d8bb7f51dca46074189d5f8ae" category="cell">* 新 EFOS 版本 *</block>
+  <block id="b3ff3b45f32605868a96adebb4c90952" category="cell">* 高级步骤 *</block>
+  <block id="f006b7ce8707168edc6de44d5892d3b3" category="cell">在两个（非） FIPS 兼容版本之间升级 EFOS 的步骤</block>
+  <block id="dec3c0c9392c8aad6548083f4fbd795e" category="cell">3.4.x.x</block>
+  <block id="ee5585b24e7eb8cfaf4b6f31be5bbf61" category="cell">使用方法 1 安装新的 EFOS 映像）配置和许可证信息将保留</block>
+  <block id="86068e8f997360c7719398195b4d7266" category="cell">3.4.4.6 （或更高版本 3.4.x.x ）</block>
+  <block id="fd7621afc846acb974f51fd7cc7f37b3" category="cell">3.7.x.x 不符合 FIPS</block>
+  <block id="28d075b38fc6680137c178cbdee9da28" category="cell">使用方法 1 升级 EFOS 。将交换机重置为出厂默认设置，并对 EFOS 3.7.x.x 应用 RCF 文件</block>
+  <block id="b7ba7b194e9311fde1586ba024bb2947" category="cell">使用方法 1 降级 EFOS 。将交换机重置为出厂默认设置，并对 EFOS 3.4.x.x 应用 RCF 文件</block>
+  <block id="9982a812721a559f942a3f06d478b606" category="cell">使用方法 1 安装新的 EFOS 映像。配置和许可证信息会保留下来</block>
+  <block id="f53a18737f48f5ce8e1f4d01778cfc0d" category="cell">符合 3.7.x.x FIPS</block>
+  <block id="b38cac38b832f137e90ae855c9dd276a" category="cell">使用方法 1 安装新的 EFOS 映像。配置和许可证信息会保留下来</block>
+  <block id="30a8444e655e4e0bf64147ad36bf643d" category="cell">升级到 / 从 FIPS 兼容 EFOS 版本的步骤</block>
+  <block id="80b55ca217bc15869588b0a1c2c982e5" category="cell">不符合 FIPS</block>
+  <block id="f3f7e5eecbbda44d56a585304c3a8d15" category="cell">符合 FIPS</block>
+  <block id="060692aeab7f7695796a574ac52f650d" category="cell">使用方法 2 安装 EFOS 映像。交换机配置和许可证信息将丢失。</block>
+  <block id="91428f6fff17493b50c9f07745550fd6" category="list-text">方法 1 ： <block ref="2fc0ede30626cc39cccf4cd8f9cc8ec0" category="inline-xref-macro-rx"></block></block>
+  <block id="6c4a76f96f424665ce4ba9abebba6560" category="list-text">方法 2 ： <block ref="2ad7d3090168c487b5ef2594d96632d3" category="inline-xref-macro-rx"></block></block>
+  <block id="fc5f9831d8502e7112e42fcf4ffde230" category="section-title">通过将软件映像下载到备份启动分区来升级 EFOS 的步骤</block>
+  <block id="a423ff7ce52391dfc904949db9dcd42d" category="paragraph">只有当两个 EFOS 版本均不符合 FIPS 或两个 EFOS 版本均符合 FIPS 时，才能执行以下步骤。</block>
+  <block id="1ffec0276e8109d8bb5723502a74cc82" category="admonition">如果一个版本符合 FIPS ，而另一个版本不符合 FIPS ，请勿使用这些步骤。</block>
+  <block id="47c5c37991cea3e2b8fcd2aaac084432" category="list-text">将交换机软件复制到交换机： ` +copy sftp ： //user@50.50.50.50 switchsoftware/EFOS-3.4.6.stk backup+`</block>
+  <block id="cdf7504e2a9fbdd3fac02ec87078cd2e" category="paragraph">在此示例中， EFOS-3.4.6.stk 操作系统文件将从地址为 50.5 的 SFTP 服务器复制到备份分区。您需要使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 文件的文件名。</block>
+  <block id="a90fbd9c614e05faef33928727c3285e" category="admonition">在极少数情况下，交换机可能无法启动。按照 <block ref="2ad7d3090168c487b5ef2594d96632d3" category="inline-xref-macro-rx"></block> 以安装新映像。</block>
+  <block id="52c363aaa62cde3b51f4563a47ea47db" category="list-text">如果将交换机从 EFOS 3.4.x.x 更改为 EFOS 3.7.x.x 或反之，请按照以下两个过程应用正确的配置（ RCF ）：</block>
+  <block id="cf0e39c341423faf4b847b9ee0db33c2" category="list-text"><block ref="81dd2e7703b01026953a118a21c6d543" category="inline-xref-macro-rx"></block></block>
+  <block id="716edc6043fd94aaea96c7a8a643e70a" category="list-text"><block ref="15d7dec1f8455303bd6b922890dd2535" category="inline-xref-macro-rx"></block></block>
+  <block id="a08d4c3e16b285220a3f2bad28e6df8c" category="section-title">使用 ONIE 操作系统安装升级 EFOS 的步骤</block>
+  <block id="ab294700c76cf4ac38435e5559388b24" category="paragraph">如果一个 EFOS 版本符合 FIPS ，而另一个 EFOS 版本不符合 FIPS ，则可以执行以下步骤。如果交换机无法启动，可通过以下步骤从 ONIE 安装非 FIPS 或 FIPS 兼容 EFOS 3.7.x.x 映像。</block>
+  <block id="f2f7238803d92fa15143c2e71a85f284" category="list-text">将交换机启动至 ONIE 安装模式。</block>
+  <block id="7e35ff99cb4dd1650a8a3173677ca240" category="paragraph">在启动期间，如果出现以下屏幕，请选择 ONIE ：</block>
+  <block id="5f4e38b8b984f3405510d5f1e9ccac3c" category="paragraph">选择 "ONIE" 后，交换机将加载并向您提供以下选项：</block>
+  <block id="7d2ab5ba69a94356a73ec7835742de08" category="paragraph">此时，交换机将启动至 ONIE 安装模式。</block>
+  <block id="0617e62c462754a882315e49408a1c87" category="list-text">停止 ONIE 发现并配置以太网接口</block>
+  <block id="bd98a32e3b0ad244a0a4d7b76ad024f9" category="paragraph">出现以下消息后，按 &lt;ENTER&gt; 以调用 ONIE 控制台：</block>
+  <block id="6fe451b7fd6d2b055b9bce7e26e2d63c" category="admonition">ONIE 发现将继续，并将消息打印到控制台。</block>
+  <block id="433ed97155d2e40b3a82ad6d176cc1e7" category="list-text">配置以太网接口并使用 `ifconfig eth0 &lt;ipAddress&gt; netmask &lt;netmask&gt; up` 和 `route add default gw &lt;gatewayAddress&gt;` 添加路由</block>
+  <block id="8f9711a7318f4700b907c76b986e81c0" category="list-text">验证托管 ONIE 安装文件的服务器是否可访问：</block>
+  <block id="22f11099e51d7c76098c5ab8cde04323" category="list-text">安装新的交换机软件</block>
+  <block id="71b9c26449ab4ad810a47a6840dd69e1" category="paragraph">软件将安装并重新启动交换机。让交换机正常重新启动到新的 EFOS 版本。</block>
+  <block id="33c2ae32e0d65432693ff576a235043c" category="list-text">验证是否已安装新的交换机软件</block>
+  <block id="f98f1819551b5d5aa9360adf8d17b911" category="paragraph">* `s如何 bootvar` *</block>
+  <block id="bf33fd7d9aa50d16f9f68ac0bd179b19" category="list-text">完成安装</block>
+  <block id="29ffc83995ade13850f29b957a9174c8" category="paragraph">交换机将在未应用任何配置的情况下重新启动，并重置为出厂默认值。按照以下两个文档所述，按照两个过程配置交换机基本设置并应用 RCF 文件：</block>
+  <block id="21503dd058c083f2c8288ad1b831c098" category="list-text">配置交换机基本设置。按照步骤 4 及更高版本进行操作： <block ref="81dd2e7703b01026953a118a21c6d543" category="inline-xref-macro-rx"></block></block>
+  <block id="6203ae92559f362819dad2bdb9d3f689" category="list-text">创建并应用 RCF 文件，如中所述 <block ref="15d7dec1f8455303bd6b922890dd2535" category="inline-xref-macro-rx"></block></block>
+  <block id="96bc7e386002b4dc974033398a2a3df2" category="paragraph">v1.32_Switch-A1.txt</block>
+  <block id="6596521956b6496dffb9f5e9a7463b91" category="paragraph">v1.32_Switch-A2.txt</block>
+  <block id="eb451e7e039cd76a8d46e5e9948b30c5" category="paragraph">v1.32_Switch-B1.txt</block>
+  <block id="f367e5b17d625ad5b8aa1b212728b32b" category="paragraph">v1.32_Switch-B2.txt</block>
+  <block id="f7d95a4bb657d25d70b13952d3655067" category="admonition">EFOS 3.4.4.6 或更高版本 3.4.x.x 的 RCF 文件版本和 EFOS 版本 3.7.0.4 不同。您需要确保为交换机运行的 EFOS 版本创建了正确的 RCF 文件。</block>
+  <block id="c98b57720d007eea3bac1ec42393b6b2" category="cell">EFOS 版本</block>
+  <block id="288d914a22bb182e0acdd542f5b93566" category="cell">RCF 文件版本</block>
+  <block id="60f22de62563dd09612c167bc0c3a3a7" category="cell">v1.3x ， v1.4x</block>
+  <block id="30fb21972afba53cd103c9063e54815b" category="cell">3.7.x.x</block>
+  <block id="ca06807503101d86e21d40fd5c8ff94b" category="cell">v2.x</block>
+  <block id="ab4a2de3931dbed092e0d44be3c87116" category="list-text">为 MetroCluster IP 生成 Broadcom RCF 文件。</block>
+  <block id="fd550a9c3a7b7c6106ae07bc6bb69106" category="list-text">下载<block ref="166489b3c340ece1eccb5706fda90624" category="inline-link-rx"></block></block>
+  <block id="7d5c4b7a8cb7bc598a3b2eb9fb74fe60" category="list-text">使用适用于 MetroCluster IP 的 RcfFileGenerator 为您的配置生成 RCF 文件</block>
+  <block id="fcc29e51109ca100014a87a9b9694411" category="list-text">Red Hat Enterprise Linux ： 7.6 ， 7.7 ， 7.8 ， 7.9 ， 8.0 ， 8.1 ， 8.2 ， 8.3</block>
+  <block id="7756ed262f2157ad61f237289d31648e" category="list-text">CentOS ： 7.6 ， 7.7 ， 7.8 ， 7.9</block>
+  <block id="070add3768287c5f5f5f77d13c4a72af" category="list-text">Red Hat Enterprise Linux ： 7.6 ， 7.7 ， 7.8 ， 8.0 ， 8.1</block>
+  <block id="a565f362dbb8e1b9f57a08e86e8f79c8" category="list-text">CentOS ： 7.6 ， 7.7 ， 7.8</block>
+  <block id="8e6d01361c0a0174b1932a821de7a679" category="list-text">您必须根据 Red Hat 最佳实践安装 Red Hat Enterprise Linux 或 CentOS 。由于 CentOS 8.x 版本的支持已停止使用，因此不建议使用 RHEL 或兼容的 CentOS 7.x 版本</block>
+  <block id="81c7a3cb2e63f472014dfe2b68d0038b" category="admonition">CentOS 8.x 的生命周期支持将于 2021 年 12 月 31 日结束。如果将 CentOS 与 ONTAP 结合使用，建议您还原到 <block ref="d65b2d64eb8a246b44f850f01d3b24a4" category="inline-xref-macro-rx"></block> 操作系统或使用 RHEL 。</block>
+  <block id="6ba27586854ba0abe529cf9dfcdd935e" category="paragraph">在中<block ref="ca696ba3aa939e934b2df752c3821404" category="inline-link-rx"></block>下，找到与您的操作系统匹配的 kernel-devel 软件包。因为最新版本的 8.0 （ CentOS 8.0.1905 及更高版本）核心位于中<block ref="0ea159b669197108632fac010ad6fa88" category="inline-link-rx"></block>，您必须提供对匹配的 kernel-devel 软件包的访问权限，以编译所需的内核模块。</block>
+  <block id="2699fab59dd92a1ee8ec7edfb1c53cc2" category="admonition">上述命令是一个特定于 CentOS 8.0.1905 的示例。根据其他 CentoOS 8.x 版本的需要更改路径。</block>
 </blocks>

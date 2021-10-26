@@ -1,7 +1,7 @@
 ---
 section: maintain
 title: 维护 MetroCluster 组件
-url: maintain/index.html
+url: "/maintain/index.html"
 entries:
 - title: 从何处查找 MetroCluster 维护任务的过程
   url: "/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html"

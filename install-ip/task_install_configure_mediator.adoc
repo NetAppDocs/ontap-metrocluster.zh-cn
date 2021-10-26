@@ -24,14 +24,18 @@ summary: 要安装 ONTAP 调解器服务，必须确保满足所有前提条件�
  a| 
 1.3
  a| 
-Red Hat Enterprise Linux 或 CentOS 7.6 ， 7.7 ， 7.8 ， 7.9 ， 8.0 ， 8.1 ， 8.2 ， 8.3
+* Red Hat Enterprise Linux ： 7.6 ， 7.7 ， 7.8 ， 7.9 ， 8.0 ， 8.1 ， 8.2 ， 8.3
+* CentOS ： 7.6 ， 7.7 ， 7.8 ， 7.9
+
 
 
 
  a| 
 1.2
  a| 
-Red Hat Enterprise Linux 或 CentOS 7.6 ， 7.7 ， 7.8 ， 8.0 ， 8.1
+* Red Hat Enterprise Linux ： 7.6 ， 7.7 ， 7.8 ， 8.0 ， 8.1
+* CentOS ： 7.6 ， 7.7 ， 7.8
+
 
 |===
 
@@ -44,7 +48,7 @@ NOTE: 内核版本必须与操作系统版本匹配。
 
 下面列出了在系统上安装 Red Hat Enterprise Linux 或 CentOS 以及关联存储库的最佳实践。以不同方式安装或配置的系统可能需要执行其他步骤。
 
-* 您必须根据 Red Hat 最佳实践安装 Red Hat Enterprise Linux 或 CentOS 。
+* 您必须根据 Red Hat 最佳实践安装 Red Hat Enterprise Linux 或 CentOS 。由于 CentOS 8.x 版本的支持已停止使用，因此不建议使用 RHEL 或兼容的 CentOS 7.x 版本
 * 在 Red Hat Enterprise Linux 或 CentOS 上安装 ONTAP 调解器服务时，系统必须能够访问相应的存储库，以便安装程序可以访问和安装所有必需的软件依赖项。
 * 要使 yum 安装程序在 Red Hat Enterprise Linux 存储库中查找相关软件，您必须在 Red Hat Enterprise Linux 安装期间或之后使用有效的 Red Hat 订阅注册系统。
 +
@@ -299,9 +303,12 @@ repolist: 21,433
 
 === 适用于 CentOS 8.0.1905 或更高版本操作系统的操作步骤
 
+
+CAUTION: CentOS 8.x 的生命周期支持将于 2021 年 12 月 31 日结束。如果将 CentOS 与 ONTAP 结合使用，建议您还原到 <<centos7x,CentOS 7.x>> 操作系统或使用 RHEL 。
+
 如果您的操作系统为 * CentOS 8.0.1905 或更高版本 * ：
 
-因为最新版本的 8.0 （ CentOS 8.0.1905 ）核心位于中 https://vault.centos.org["CentOS 存储"]，您必须提供对匹配的 kernel-devel 软件包的访问权限，以编译所需的内核模块。
+在中 http://vault.centos.org["CentOS 存储"]下，找到与您的操作系统匹配的 kernel-devel 软件包。因为最新版本的 8.0 （ CentOS 8.0.1905 及更高版本）核心位于中，您必须提供对匹配的 kernel-devel 软件包的访问权限，以编译所需的内核模块。
 
 .步骤
 . 【 ｛ step1-rpm]] 通过问题描述执行以下命令直接安装 kernel-devel 软件包：

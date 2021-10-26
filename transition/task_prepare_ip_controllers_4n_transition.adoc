@@ -27,12 +27,12 @@ summary: 您必须准备四个新的 MetroCluster IP 节点并安装正确的 ON
 此时， MetroCluster FC 节点（ node_A_x-FC 和 node_B_x-FC ）仍保持布线状态。
 
 . 使用缆线将 MetroCluster IP 节点连接到 IP 交换机，如所示 link:../install-ip/task_cable_ip_switches.html["为 IP 交换机布线"]。
-. 使用 MetroCluster 安装和配置指南 _ 的以下部分配置 MetroCluster IP 节点
+. 使用以下部分配置 MetroCluster IP 节点：
 +
-.. link:../install-ip/task_sw_config_gather_info["收集所需信息"]
-.. link:../install-ip/task_sw_config_restore_defaults["清除控制器模块上的配置"]
-.. link:../install-ip/task_sw_config_verify_haconfig["验证组件的 ha-config 状态"]
-.. link:../install-ip/task_sw_config_assign_pool0["手动为池 0 分配驱动器（ ONTAP 9.4 及更高版本）"]
+.. link:../install-ip/task_sw_config_gather_info.html["收集所需信息"]
+.. link:../install-ip/task_sw_config_restore_defaults.html["清除控制器模块上的配置"]
+.. link:../install-ip/task_sw_config_verify_haconfig.html["验证组件的 ha-config 状态"]
+.. link:../install-ip/task_sw_config_assign_pool0.html["手动为池 0 分配驱动器（ ONTAP 9.4 及更高版本）"]
 
 
 . 在维护模式下，问题描述 halt 命令退出维护模式，然后问题描述 boot_ontap 命令启动系统并进入集群设置。
