@@ -7,6 +7,9 @@ entries:
   url: "/upgrade/concept_choosing_an_upgrade_method_mcc.html"
 - title: 使用切换和切回升级 MetroCluster FC 配置中的控制器
   url: "/upgrade/task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html"
+- title: 使用切换和切回命令使用 system controller replace 升级四节点 MetroCluster FC 配置中的控制器（ ONTAP
+    9.10.1 及更高版本）
+  url: "/upgrade/task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_fc.html"
 - title: 使用切换和切回升级 MetroCluster IP 配置中的控制器（ ONTAP 9.8 及更高版本）
   url: "/upgrade/task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html"
 - title: 刷新四节点 MetroCluster FC 配置

@@ -48,6 +48,19 @@ summary: 《 MetroCluster 升级，过渡和扩展指南》索引。
 
  a| 
 * 范围：仅限平台（控制器模块）
+* 方法：自动切换 / 切回
+
+ a| 
+FC
+ a| 
+9.10.1
+ a| 
+link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_fc.html["使用切换和切回命令使用 system controller replace 升级四节点 MetroCluster FC 配置中的控制器（ ONTAP 9.10.1 及更高版本）"]
+
+
+
+ a| 
+* 范围：仅限平台（控制器模块）
 * 方法：切换 / 切回
 
  a| 

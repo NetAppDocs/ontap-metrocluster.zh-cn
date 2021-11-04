@@ -1,0 +1,702 @@
+---
+permalink: maintain/task_add_shelves_using_shared_storage.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, shelf, shelves, add, ns224, 
+summary: 您可能需要使用共享 Storage MetroCluster 交换机将 NS224 磁盘架添加到 MetroCluster 中。 
+---
+= 使用共享 Storage MetroCluster 交换机向 MetroCluster IP 添加磁盘架
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能需要使用共享 Storage MetroCluster 交换机将 NS224 磁盘架添加到 MetroCluster 中。
+
+从 ONTAP 9.10.1 开始，您可以使用共享存储 /NS224 MetroCluster 交换机从 MetroCluster 添加 NS224 磁盘架。您可以一次添加多个磁盘架。
+
+.开始之前
+* 节点必须运行 ONTAP 9.9.1 或更高版本。
+* 当前连接的所有 NS224 磁盘架都必须与 MetroCluster （共享存储 /NS224 MetroCluster 交换机配置）连接到相同的交换机。
+* 不能使用此操作步骤将直接连接的 NS224 磁盘架或 NS224 磁盘架连接到专用以太网交换机的配置转换为使用共享存储 /NS224 MetroCluster 交换机的配置。
+
+
+
+
+== 在维护之前发送自定义 AutoSupport 消息
+
+在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
+
+必须在每个 MetroCluster 站点上执行此任务。
+
+.步骤
+. 要防止自动生成支持案例，请发送一条 AutoSupport 消息以指示升级正在进行中。
++
+.. 问题描述以下命令：
++
+`ssystem node AutoSupport invoke -node * -type all -message "MAIN=10h Adding or Removing NS224 SHELVES"_`
+
++
+此示例指定了一个 10 小时的维护时段。根据您的计划，您可能需要留出更多时间。
+
++
+如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：
+
++
+`ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
+
+.. 在配对集群上重复此命令。
+
+
+
+
+
+
+== 验证 MetroCluster 配置的运行状况
+
+在执行过渡之前，您必须验证 MetroCluster 配置的运行状况和连接。
+
+.步骤
+. 在 ONTAP 中验证 MetroCluster 配置的运行情况：
++
+.. 检查系统是否为多路径：
++
+`node run -node _node-name_ sysconfig -a`
+
+.. 检查两个集群上是否存在任何运行状况警报：
++
+`s系统运行状况警报显示`
+
+.. 确认 MetroCluster 配置以及操作模式是否正常：
++
+`MetroCluster show`
+
+.. 执行 MetroCluster 检查：
++
+`MetroCluster check run`
+
+.. 显示 MetroCluster 检查的结果：
++
+MetroCluster check show`
+
+.. 运行 Config Advisor 。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+.. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
+
+
+. 验证集群是否运行正常：
++
+`cluster show -vserver cluster`
+
++
+[listing]
+----
+cluster_A::> cluster show -vserver Cluster
+Node           Health  Eligibility   Epsilon
+-------------- ------  -----------   -------
+node_A_1    true    true          false
+node_A_2    true    true          false
+
+cluster_A::>
+----
+. 验证所有集群端口是否均已启动：
++
+`network port show -ipspace cluster`
+
++
+[listing]
+----
+cluster_A::> network port show -ipspace cluster
+
+Node: node_A_1-old
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+Node: node_A_2-old
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+4 entries were displayed.
+
+cluster_A::>
+----
+. 验证所有集群 LIF 是否均已启动且正常运行：
++
+`network interface show -vserver cluster`
+
++
+每个集群 LIF 应为 "Is Home" 显示 true ，并且状态为 "Admin/Oper" 为 "up/up"
+
++
+[listing]
+----
+cluster_A::> network interface show -vserver cluster
+
+            Logical      Status     Network          Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- -----
+Cluster
+            node_A_1-old_clus1
+                       up/up      169.254.209.69/16  node_A_1   e0a     true
+            node_A_1-old_clus2
+                       up/up      169.254.49.125/16  node_A_1   e0b     true
+            node_A_2-old_clus1
+                       up/up      169.254.47.194/16  node_A_2   e0a     true
+            node_A_2-old_clus2
+                       up/up      169.254.19.183/16  node_A_2   e0b     true
+
+4 entries were displayed.
+
+cluster_A::>
+----
+. 验证是否已在所有集群 LIF 上启用自动还原：
++
+`network interface show - vserver cluster -fields auto-revert`
+
++
+[listing]
+----
+cluster_A::> network interface show -vserver Cluster -fields auto-revert
+
+          Logical
+Vserver   Interface     Auto-revert
+--------- ------------- ------------
+Cluster
+           node_A_1-old_clus1
+                        true
+           node_A_1-old_clus2
+                        true
+           node_A_2-old_clus1
+                        true
+           node_A_2-old_clus2
+                        true
+
+    4 entries were displayed.
+
+cluster_A::>
+----
+
+
+
+
+== 将新的 RCF 文件应用于交换机
+
+
+NOTE: 如果您的交换机配置正确，您可以跳过下面这些部分并直接转到 <<Configuring MACsec encryption on Cisco 9336C switches>>，如果适用或 <<Connecting the new NS224 shelf>>。
+
+* 要添加磁盘架，必须更改交换机配置。
+* 您应在查看布线详细信息 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/port_usage_3232c_9336c.html#cabling-a-aff-a800-to-a-cisco-3232c-or-cisco-9336c-switch["平台端口分配"^]。
+* 您必须使用 "**RcfFileGenerator ！ " 工具为您的配置创建 RCF 文件。。 link:https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator"^] 此外，还提供了每个交换机的每端口布线概览。请确保选择正确数量的磁盘架。此外，还会创建一些其他文件以及 RCF 文件，这些文件可提供与您的特定选项匹配的详细布线布局。在为新磁盘架布线时，请使用此布线概述来验证布线情况。
+
+
+
+
+=== 升级 MetroCluster IP 交换机上的 RCF 文件
+
+如果要安装新的交换机固件，则必须先安装交换机固件，然后再升级 RCF 文件。
+
+此操作步骤会中断升级 RCF 文件的交换机上的流量。应用新 RCF 文件后，流量将恢复。
+
+.步骤
+. 验证配置的运行状况。
++
+.. 验证 MetroCluster 组件是否运行正常：
++
+` * MetroCluster check run*`
+
++
+[listing]
+----
+cluster_A::*> metrocluster check run
+
+----
+
+
++
+此操作将在后台运行。
+
++
+.. 在 `MetroCluster check run` 操作完成后，运行 `MetroCluster check show` 以查看结果。
++
+大约五分钟后，将显示以下结果：
+
++
+[listing]
+----
+-----------
+::*> metrocluster check show
+
+Last Checked On: 4/7/2019 21:15:05
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          warning
+clusters            ok
+connections         not-applicable
+volumes             ok
+7 entries were displayed.
+----
+.. 要检查正在运行的 MetroCluster 检查操作的状态，请使用以下命令： + ` * MetroCluster operation history show -job-id 38*`
+.. 验证是否没有运行状况警报： + ` * system health alert show*`
+
+
+. 准备 IP 交换机以应用新的 RCF 文件。
+
+
+
+
+=== 将 Cisco IP 交换机重置为出厂默认值
+
+在安装新软件版本和 RCF 之前，必须擦除 Cisco 交换机配置并执行基本配置。
+
+您必须对 MetroCluster IP 配置中的每个 IP 交换机重复这些步骤。
+
+. 将交换机重置为出厂默认设置：
++
+.. 擦除现有配置： `write erase`
+.. 重新加载交换机软件： `reload`
++
+系统将重新启动并进入配置向导。在启动期间，如果您收到提示 Abort Auto Provisioning and continue with normal setup ？（ yes/no ） [n] ，则应回答 `yes` 以继续。
+
+.. 在配置向导中，输入基本交换机设置：
++
+*** 管理员密码
+*** 交换机名称
+*** 带外管理配置
+*** 默认网关
+*** SSH 服务（ RSA ）完成配置向导后，交换机将重新启动。
+
+
+.. 出现提示时，输入用户名和密码以登录到交换机。
++
+以下示例显示了配置交换机时的提示和系统响应。尖括号（` <<<` ）显示信息的输入位置。
+
++
+[listing]
+----
+---- System Admin Account Setup ----
+Do you want to enforce secure password standard (yes/no) [y]:y  **<<<**
+
+Enter the password for "admin": password
+Confirm the password for "admin": password
+---- Basic System Configuration Dialog VDC: 1 ----
+
+This setup utility will guide you through the basic configuration of the system. Setup configures only enough connectivity for management of the system.
+
+Please register Cisco Nexus3000 Family devices promptly with your supplier. Failure to register may affect response times for initial service calls. Nexus3000 devices must be registered to receive entitled support services.
+
+Press Enter at anytime to skip a dialog. Use ctrl-c at anytime to skip the remaining dialogs.
+----
++
+您可以在下一组提示中输入基本信息，包括交换机名称，管理地址和网关，然后选择 SSH with RSA 。
+
++
+[listing]
+----
+Would you like to enter the basic configuration dialog (yes/no): yes
+  Create another login account (yes/no) [n]:
+  Configure read-only SNMP community string (yes/no) [n]:
+  Configure read-write SNMP community string (yes/no) [n]:
+  Enter the switch name : switch-name **<<<**
+  Continue with Out-of-band (mgmt0) management configuration? (yes/no) [y]:
+    Mgmt0 IPv4 address : management-IP-address  **<<<**
+   Mgmt0 IPv4 netmask : management-IP-netmask  **<<<**
+  Configure the default gateway? (yes/no) [y]: y **<<<**
+    IPv4 address of the default gateway : gateway-IP-address  **<<<**
+  Configure advanced IP options? (yes/no) [n]:
+  Enable the telnet service? (yes/no) [n]:
+  Enable the ssh service? (yes/no) [y]: y  **<<<**
+    Type of ssh key you would like to generate (dsa/rsa) [rsa]: rsa **<<<**
+   Number of rsa key bits <1024-2048> [1024]:
+ Configure the ntp server? (yes/no) [n]:
+  Configure default interface layer (L3/L2) [L2]:
+ Configure default switchport interface state (shut/noshut) [noshut]: shut **<<<**
+  Configure CoPP system profile (strict/moderate/lenient/dense) [strict]:
+----
++
+最后一组提示将完成配置：
+
++
+[listing]
+----
+The following configuration will be applied:
+ password strength-check
+  switchname IP_switch_A_1
+vrf context management
+ip route 0.0.0.0/0 10.10.99.1
+exit
+ no feature telnet
+  ssh key rsa 1024 force
+  feature ssh
+  system default switchport
+  system default switchport shutdown
+  copp profile strict
+interface mgmt0
+ip address 10.10.99.10 255.255.255.0
+no shutdown
+
+Would you like to edit the configuration? (yes/no) [n]:
+
+Use this configuration and save it? (yes/no) [y]:
+2017 Jun 13 21:24:43 A1 %$ VDC-1 %$ %COPP-2-COPP_POLICY: Control-Plane is protected with policy copp-system-p-policy-strict.
+
+[########################################] 100%
+Copy complete.
+
+User Access Verification
+IP_switch_A_1 login: admin
+Password:
+Cisco Nexus Operating System (NX-OS) Software
+.
+.
+.
+IP_switch_A_1#
+----
+
+
+. 保存配置：
++
+[listing]
+----
+IP_switch-A-1# copy running-config startup-config
+----
+. 重新启动交换机并等待交换机重新加载：
++
+[listing]
+----
+IP_switch-A-1# reload
+----
+. 对 MetroCluster IP 配置中的其他三台交换机重复上述步骤。
+
+
+
+
+=== 下载并安装 Cisco 交换机 NX-OS 软件
+
+您必须将交换机操作系统文件和 RCF 文件下载到 MetroCluster IP 配置中的每个交换机。
+
+此任务需要使用文件传输软件，例如 FTP ， TFTP ， SFTP 或 SCP ， 将文件复制到交换机。
+
+必须对 MetroCluster IP 配置中的每个 IP 交换机重复执行这些步骤。
+
+您必须使用支持的交换机软件版本。
+
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+. 下载支持的 NX-OS 软件文件。
++
+https://software.cisco.com/download/home["Cisco 软件下载"]
+
+. 将交换机软件复制到交换机： ` +copy sftp ： //root@server-IP-address/tftpboot/NX-OS-file-name bootflash ： vRF management+`
++
+在此示例中， nxos.7.0.3.I4.6.bin 文件将从 SFTP 服务器 10.10.99.99 复制到本地 bootflash ：
+
++
+[listing]
+----
+IP_switch_A_1# copy sftp://root@10.10.99.99/tftpboot/nxos.7.0.3.I4.6.bin bootflash: vrf management
+root@10.10.99.99's password: password
+sftp> progress
+Progress meter enabled
+sftp> get   /tftpboot/nxos.7.0.3.I4.6.bin  /bootflash/nxos.7.0.3.I4.6.bin
+Fetching /tftpboot/nxos.7.0.3.I4.6.bin to /bootflash/nxos.7.0.3.I4.6.bin
+/tftpboot/nxos.7.0.3.I4.6.bin                 100%  666MB   7.2MB/s   01:32
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+----
+. 在每个交换机上验证交换机 NX-OS 文件是否位于每个交换机的 bootflash 目录中： `dir bootflash ：`
++
+以下示例显示文件位于 ip_switch_A_1 上：
+
++
+[listing]
+----
+IP_switch_A_1# dir bootflash:
+                  .
+                  .
+                  .
+  698629632    Jun 13 21:37:44 2017  nxos.7.0.3.I4.6.bin
+                  .
+                  .
+                  .
+
+Usage for bootflash://sup-local
+ 1779363840 bytes used
+13238841344 bytes free
+15018205184 bytes total
+IP_switch_A_1#
+----
+. 安装交换机软件： `install all nxos bootflash ： nxos.version-number.bin`
++
+安装交换机软件后，交换机将自动重新加载（重新启动）。
+
++
+以下示例显示了 IP_switch_A_1 上的软件安装：
+
++
+[listing]
+----
+IP_switch_A_1# install all nxos bootflash:nxos.7.0.3.I4.6.bin
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+
+Verifying image bootflash:/nxos.7.0.3.I4.6.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos.7.0.3.I4.6.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos.7.0.3.I4.6.bin.
+[####################] 100% -- SUCCESS       [####################] 100%            -- SUCCESS
+
+Performing module support checks.            [####################] 100%            -- SUCCESS
+
+Notifying services about system upgrade.     [####################] 100%            -- SUCCESS
+
+
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes      disruptive         reset  default upgrade is not hitless
+
+
+
+Images will be upgraded according to following table:
+Module       Image   Running-Version(pri:alt)         New-Version   Upg-Required
+------  ----------   ------------------------  ------------------   ------------
+     1        nxos                7.0(3)I4(1)         7.0(3)I4(6)   yes
+     1        bios         v04.24(04/21/2016)  v04.24(04/21/2016)   no
+
+
+Switch will be reloaded for disruptive upgrade.
+Do you want to continue with the installation (y/n)?  [n] y
+
+
+Install is in progress, please wait.
+
+Performing runtime checks.         [####################] 100%    -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+IP_switch_A_1#
+----
+. 等待交换机重新加载，然后登录到交换机。
++
+交换机重新启动后，将显示登录提示：
+
++
+[listing]
+----
+User Access Verification
+IP_switch_A_1 login: admin
+Password:
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2017, Cisco and/or its affiliates.
+All rights reserved.
+.
+.
+.
+MDP database restore in progress.
+IP_switch_A_1#
+
+The switch software is now installed.
+----
+. 验证是否已安装交换机软件： `show version`
++
+以下示例显示了输出：
+
++
+[listing]
+----
+IP_switch_A_1# show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2017, Cisco and/or its affiliates.
+All rights reserved.
+.
+.
+.
+
+Software
+  BIOS: version 04.24
+  NXOS: version 7.0(3)I4(6)   **<<< switch software version**
+  BIOS compile time:  04/21/2016
+  NXOS image file is: bootflash:///nxos.7.0.3.I4.6.bin
+  NXOS compile time:  3/9/2017 22:00:00 [03/10/2017 07:05:18]
+
+
+Hardware
+  cisco Nexus 3132QV Chassis
+  Intel(R) Core(TM) i3- CPU @ 2.50GHz with 16401416 kB of memory.
+  Processor Board ID FOC20123GPS
+
+  Device name: A1
+  bootflash:   14900224 kB
+  usb1:               0 kB (expansion flash)
+
+Kernel uptime is 0 day(s), 0 hour(s), 1 minute(s), 49 second(s)
+
+Last reset at 403451 usecs after  Mon Jun 10 21:43:52 2017
+
+  Reason: Reset due to upgrade
+  System version: 7.0(3)I4(1)
+  Service:
+
+plugin
+  Core Plugin, Ethernet Plugin
+IP_switch_A_1#
+----
+. 对 MetroCluster IP 配置中的其余三个 IP 交换机重复上述步骤。
+
+
+
+
+== 在 Cisco 9336C 交换机上配置 MACsec 加密
+
+如果需要，您可以在站点之间运行的 WAN ISL 端口上配置 MACsec 加密。在应用正确的 RCF 文件后，您必须配置 MACsec 。
+
+
+NOTE: MACsec 加密只能应用于 WAN ISL 端口。
+
+
+
+==== MAC 的许可要求
+
+MACsec 需要安全许可证。有关 Cisco NX-OS 许可方案以及如何获取和申请许可证的完整说明，请参见 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/nx-os/licensing/guide/b_Cisco_NX-OS_Licensing_Guide/b_Cisco_NX-OS_Licensing_Guide_chapter_01.html["《 Cisco NX-OS 许可指南》"]
+
+
+
+==== 在 MetroCluster IP 配置中启用 Cisco MACsec 加密 WAN ISL
+
+您可以在 MetroCluster IP 配置中为 WAN ISL 上的 Cisco 9336C 交换机启用 MACsec 加密。
+
+. 进入全局配置模式： `configure terminal`
++
+[listing]
+----
+IP_switch_A_1# configure terminal
+IP_switch_A_1(config)#
+----
+. 在设备上启用 MACsec 和 MKA ： `feature MACsec`
++
+[listing]
+----
+IP_switch_A_1(config)# feature macsec
+----
+. 将运行配置复制到启动配置： `copy running-config startup-config`
++
+[listing]
+----
+IP_switch_A_1(config)# copy running-config startup-config
+----
+
+
+
+
+==== 禁用 Cisco MAC 秒加密
+
+在 MetroCluster IP 配置中，您可能需要对 WAN ISL 上的 Cisco 9336C 交换机禁用 MACsec 加密。
+
+
+NOTE: 如果禁用加密，则还必须删除密钥。
+
+. 进入全局配置模式： `configure terminal`
++
+[listing]
+----
+IP_switch_A_1# configure terminal
+IP_switch_A_1(config)#
+----
+. 在设备上禁用 MACsec 配置： `mAcSEC shutdown`
++
+[listing]
+----
+IP_switch_A_1(config)# macsec shutdown
+----
++
+
+NOTE: 选择 no 选项将还原 MACsec 功能。
+
+. 选择已配置 MAC 的接口。
++
+您可以指定接口类型和标识。对于以太网端口，请使用以太网插槽 / 端口。
+
++
+[listing]
+----
+IP_switch_A_1(config)# interface ethernet 1/15
+switch(config-if)#
+----
+. 删除接口上配置的密钥链，策略和回退密钥链以删除 MACsec 配置： `no MACsec keychain keychain-name policy policy-name backfally-keychain keychain-name`
++
+[listing]
+----
+IP_switch_A_1(config-if)# no macsec keychain kc2 policy abc fallback-keychain fb_kc2
+----
+. 对配置了 MACsec 的所有接口重复步骤 3 和 4 。
+. 将运行配置复制到启动配置： `copy running-config startup-config`
++
+[listing]
+----
+IP_switch_A_1(config)# copy running-config startup-config
+----
+
+
+
+
+==== 配置 MACsec 密钥链和密钥
+
+有关配置 MACsec 密钥链的详细信息，请参见适用于您的交换机的 Cisco 文档。
+
+
+
+== 连接新的 NS224 磁盘架
+
+.步骤
+. Install the rail mount kit that came with your shelf by using the installation flyer that came in the kit box.
+. Install and secure the shelf onto the support brackets and rack or cabinet by using the installation flyer.
+. Connect the power cords to the shelf, secure them in with the power cord retainer, and then connect the power cords to different power sources for resiliency.
++
+A shelf powers up when connected to a power source; it does not have power switches.When functioning correctly, a power supply's bicolored LED illuminates green.
+
+. 将磁盘架 ID 设置为在 HA 对中以及在整个配置中唯一的数字。
+. 按以下顺序连接磁盘架端口：
++
+.. 将 NSM-A ， e0a 连接到交换机（ Switch-A1 或 Switch-B1 ）
+.. 将 NSM-B ， e0a 连接到交换机（ Switch-A2 或 Switch-B2 ）
+.. 将 NSM-A ， e0b 连接到交换机（ Switch-A1 或 Switch-B1 ）
+.. 将 NSM-B ， e0b 连接到交换机（ Switch-A2 或 Switch-B2 ）
+
+
+. 使用从 "**RcfFileGenerate" 工具生成的布线布局将磁盘架连接到相应的端口。
++
+正确连接新磁盘架后， ONTAP 会自动在网络上检测到该磁盘架。
+
+

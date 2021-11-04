@@ -26,25 +26,7 @@ summary: 您必须确保使用阵列 LUN 设置 MetroCluster 配置所需的硬�
 NOTE: 阵列 LUN 不支持 AFF 系统。
 
 +
-http://docs.netapp.com/platstor/index.jsp?topic=%2Fcom.netapp.doc.hw-9000-install-setup%2Fhome.html["AFF A700 和 FAS9000 安装和设置"]
-
-+
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["《 FAS8200 系统安装和设置说明》"]
-
-+
-https://library.netapp.com/ecm/ecm_download_file/ECMP1199907["《 FAS8040/FAS8060 系统安装和设置说明》"]
-
-+
-https://library.netapp.com/ecm/ecm_download_file/ECMP1504186["《使用 I/O 扩展模块的 FAS80xx 系统安装和设置说明》"]
-
-+
-https://library.netapp.com/ecm/ecm_download_file/ECMP1199906["《 FAS8020 系统安装和设置说明》"]
-
-+
-https://library.netapp.com/ecm/ecm_download_file/ECMP1147995["《 62xx 系统安装和设置说明》"]
-
-+
-https://library.netapp.com/ecm/ecm_download_file/ECMP1213632["《 32xx 系统安装和设置说明》"]
+https://docs.netapp.com/us-en/ontap/[Installation 中有关 AFF 或 FAS 系统的步骤 ]#
 
 . 在机架或机柜中安装 FC 交换机。
 

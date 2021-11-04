@@ -20,6 +20,9 @@ entries:
     url: "/install-ip/concept_considerations_isls.html"
   - title: 使用第 3 层广域网
     url: "/install-ip/concept_considerations_layer_3.html"
+    entries:
+    - title: 修改 MetroCluster IP 中的地址，网络掩码和网关
+      url: "/install-ip/task_modify_ip_netmask_gateway_properties.html"
   - title: 共享私有第 2 层网络
     url: "/install-ip/concept_considerations_layer_2.html"
   - title: 使用符合 MetroCluster 的交换机
