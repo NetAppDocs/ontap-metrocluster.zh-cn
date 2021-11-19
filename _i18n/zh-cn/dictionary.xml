@@ -3470,7 +3470,6 @@
   <block id="35a8ad649b3194dfec4cd801fff9f656" category="section-title">升级运行 Tiebreaker 监控器的主机</block>
   <block id="dd369bd80b51fade2a8040849d0cdfb3" category="list-text">将所有显示器更改为观察者模式。</block>
   <block id="364ba5b8b3d13bcb103f29814c8bdc8b" category="list-text">要升级 Tiebreaker 主机，请按照以下操作步骤中的所有步骤进行操作：</block>
-  <block id="3886cfe1b45d16bb968452e88c1ba14d" category="list-text">禁用观察模式，将所有显示器移回联机模式。</block>
   <block id="3da068989b58a6354f99f0db984b6df2" category="section-title">为 Tiebreaker 软件选择 NTP 源</block>
   <block id="ce5425c2550b256ea43d516197da426d" category="paragraph">您应使用 Tiebreaker 软件的本地网络时间协议（ NTP ）源。它不应使用与 Tiebreaker 软件监控的 MetroCluster 站点相同的源。</block>
   <block id="0f96cd982e393bde238790eeffc45a91" category="summary">了解什么是 NetApp MetroCluster Tiebreaker 软件以及该软件如何区分故障类型非常有用，这样您可以高效地监控 MetroCluster 配置。您可以使用 Tiebreaker 命令行界面管理 MetroCluster 配置的设置并监控其状态和操作。</block>
@@ -11821,7 +11820,6 @@
   <block id="e702f20ce17b63dcf599797f8a5ab500" category="paragraph">有关详细信息，请参见<block ref="3b9b19971dde2aae15e577f665c13b3c" category="inline-link-rx"></block>。</block>
   <block id="b2fbbb37e4812fbedc4b441b34476a16" category="paragraph">有关详细信息，请参见<block ref="138ed8681446ad4f209cce6021ead7cf" category="inline-link-rx"></block>。</block>
   <block id="f15497fde7585731affbb2484431a8a8" category="list-text">在恢复此操作之前，请验证是否已正确配置 MetroCluster 。检查节点状态：</block>
-  <block id="36d267620c98de3e96d9041f890de56f" category="paragraph">验证新节点（站点 B ）是否处于站点 A 的 * 正在等待切回状态 *</block>
   <block id="3b70100fce1839004dba40191f90a2c9" category="list-text">恢复操作：</block>
   <block id="4475fe40cbdeb04db8c9562cf8b91ab1" category="section-title">正在完成升级</block>
   <block id="cddd37c26961b651e776113f46191ca7" category="paragraph">此自动化操作将运行验证系统检查，然后暂停，以便您可以验证网络可访问性。验证后，将启动资源重新获取阶段，自动化操作将在站点 A 执行切回，并在升级后检查时暂停。恢复自动化操作后，它将执行升级后检查，如果未检测到错误，则会将升级标记为完成。</block>
@@ -11859,7 +11857,6 @@
   <block id="beec52d27562d4db4df376e74d51f643" category="paragraph">` 根@mcctb ~ ]# mysql_secure 安装`</block>
   <block id="436d3553136413496f4c1ab193b0224a" category="list-text">验证 MySQL 登录是否正常工作：</block>
   <block id="a4fddf98cdbecd6a73cbff1c16747db4" category="paragraph">` 根@mcctb ~ ]# mysql -u root – p`</block>
-  <block id="69d3c12df5df9781a325e132f3e90699" category="paragraph">请参见 MySQL 文档，为您的安装启用自动启动功能。</block>
   <block id="f514e222790761ef9b22f805623d3f36" category="paragraph">主机系统必须运行在 Red Hat Enterprise Linux （ RHEL ） 8 上。</block>
   <block id="6dba822f853f76701715a4f97696a53a" category="list-text">安装 MariaDB 服务器：</block>
   <block id="cef7dfc261d8a8420d1938a361c69aa9" category="paragraph">` 根@mcctb ~ ]# yum install MariaDB-server.x86_64`</block>
@@ -11867,15 +11864,12 @@
   <block id="5dfdc749670b1b02e69d44bfaebcca7a" category="paragraph">` 根@mcctb ~ ]# systemctl start MariaDB`</block>
   <block id="41e90b98524e41b5e2a730bbc11c4d68" category="list-text">验证 MariaDB 服务器是否已启动：</block>
   <block id="3d17e319e9e36197217af282fa99978d" category="paragraph">` 根@mcctb ~ ]# systemctl status MariaDB`</block>
-  <block id="498c3cafc3459a0298f70837c51e567f" category="admonition">确保已为 MariaDB 启用自动启动设置。</block>
   <block id="937a7baab3806f1c4b9f6865102b0452" category="list-text">配置安全性和密码设置：</block>
   <block id="efbeea6d7850727664a7da563473bf28" category="list-text">您必须已使用 `yum install java-1.8.0-OpenJDK` 命令安装 OpenJDK 。</block>
   <block id="e2a589b3c624686d70bc707abecd8732" category="list-text">下载 "NetApp-MetroCluster-Tiebreaker 软件 -1.3-1.x86_64 ： rpm" 文件。</block>
   <block id="0eb07c6fd8c257049a7fb81250f55471" category="paragraph">`rpm -ivh netapp-metrocluster-tiebreaker 软件 -1.3-1x86_64 ： rpm`</block>
   <block id="889b2b623e15a3451589622aab17f053" category="paragraph">`rpm -Uvh NetApp-MetroCluster-Tiebreaker 软件 -1.3-1.x86_64 ： rpm`</block>
   <block id="669f62b51efaf771cdc56bbd948e67a7" category="admonition">如果输入的 MySQL root 密码不正确， Tiebreaker 软件会指示已成功安装该密码，但会显示 Access Denied 消息。要解决问题描述问题，您必须使用 `rpm -e` 命令卸载 Tiebreaker 软件，然后使用正确的 MySQL root 密码重新安装该软件。</block>
-  <block id="10683b10de9cc52b8dc23b96e9f544b4" category="paragraph">如果您在升级之前将 Tiebreaker 监控器置于观察模式，则可以升级运行该监控器的主机 o ，而不会造成任何中断。</block>
-  <block id="604dcb5207f51939c53d9ad04dc73d45" category="list-text">验证监控器是否处于观察模式：</block>
   <block id="01e2bc057f0d0c9226b9b72fe02073dc" category="paragraph">`m监控器显示– status`</block>
   <block id="62d21575da14f82a5429be44997ffec0" category="paragraph"><block ref="2d12f9e136c597ced9bd3fed196a9a6b" category="inline-xref-macro-rx"></block></block>
   <block id="9510bca6c5bc7b53636ffed9d2186ded" category="admonition">您应仅配置一个 SNMP 陷阱主机。</block>
@@ -11900,4 +11894,20 @@
   <block id="464f766a72b725b51056bd23b507d8fb" category="list-text">【第 3 步】验证所有连接是否正常工作： `MetroCluster configuration-settings connection show`</block>
   <block id="1a8c6f33d0bdd54f26272fc3c497ec01" category="paragraph">以下命令显示如何验证所有连接是否正常工作：</block>
   <block id="7cc6eeceaab2a08f3c6575197a562093" category="sidebar">使用共享存储 /MetroCluster 交换机向 MetroCluster 添加磁盘架</block>
+  <block id="c988965fbbe340c601c83f0611367b30" category="list-text">安装 MySQL 社区服务器：</block>
+  <block id="19814756461082c5d291432219d95924" category="paragraph">` 根@mcctb ~ ]# yum install mysql-commune-server`</block>
+  <block id="907482e03a773bacd1197e79ad353d1a" category="list-text">验证是否已启用 MySQL 在启动时自动启动：</block>
+  <block id="9828a53574d333fd2cfd570e38922b4f" category="paragraph">` 根@mcctb ~ ]# systemctl list-unit-files mysqld.service`</block>
+  <block id="6b78bf98fe8a405df5e22ad1b5b3a1ba" category="paragraph">如果在启动时未启用 MySQL 自动启动，请参见 MySQL 文档为您的安装启用自动启动功能。</block>
+  <block id="66c3a52e296340b1f53b99213e63311b" category="admonition">确保已为 MariaDB 启用自动启动设置。请参见 <block ref="357a9b2b77cd4c5da8d2b51300246283" category="inline-xref-macro-rx"></block>。</block>
+  <block id="a6a94dd70978b2b80d52534ad2ff0763" category="section-title">为 MariaDB 启用自动启动设置</block>
+  <block id="69b59a19df8a4681ca9120df41f595ea" category="paragraph">您应确保已为 MariaDB 启用自动启动功能。如果不启用自动启动功能，并且 MetroCluster Tiebreaker 软件所在的系统必须重新启动，则 Tiebreaker 软件将继续运行，但无法重新启动 MariaDB 服务，也无法更改配置。</block>
+  <block id="3a792898663e436585860dc61b16ebbe" category="list-text">启用自动启动服务：</block>
+  <block id="702b74d571398b97d529b92567ce42a7" category="paragraph">` 根@mcctb ~ ]# systemctl enable mariadb.service`</block>
+  <block id="5c77e1603fd1c29c92901cf08deda7ef" category="list-text">验证启动时 MariaDB 是否已启用自动启动：</block>
+  <block id="20859c72927d81163c0ef8c70e5f5855" category="paragraph">` 根@mcctb ~ ]# systemctl list-unit-files mariadb.service`</block>
+  <block id="742dc42b1fe2cbc56c22d6c1ccda0d88" category="paragraph">如果您在升级之前将 Tiebreaker 监控器置于观察模式，则可以升级运行该监控器的主机，而不会造成任何中断。</block>
+  <block id="c1b20466030a9b3540d83155ad9678ce" category="list-text">验证监控器是否处于观察模式：</block>
+  <block id="3e3282862342655e70b0b4d411fbb78b" category="list-text">禁用观察模式可将所有显示器移回联机模式。</block>
+  <block id="088c19240da89dbb9f8682a7168eea93" category="paragraph">验证新节点（ site_B ）是否处于 * 正在等待 site_A 的切回状态 *</block>
 </blocks>

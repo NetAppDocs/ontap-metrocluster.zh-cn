@@ -116,7 +116,7 @@ BrocadeSwitchA:admin> switchcfgpersistentdisable
 +
 [listing]
 ----
-BrocadeSwitchA:admin> switchcfgpersistentdisable
+BrocadeSwitchB:admin> switchcfgpersistentdisable
 ----
 . 设置交换机名称：
 +

@@ -878,7 +878,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 `MetroCluster node show`
 
 +
-验证新节点（站点 B ）是否处于站点 A 的 * 正在等待切回状态 *
+验证新节点（ site_B ）是否处于 * 正在等待 site_A 的切回状态 *
 
 . 恢复操作：
 +

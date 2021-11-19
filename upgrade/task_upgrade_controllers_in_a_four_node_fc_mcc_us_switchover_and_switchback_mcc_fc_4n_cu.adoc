@@ -1243,8 +1243,7 @@ Rebooting to load the restored env file...
 `re封装 _external_keymanager`
 
 |===
-
-
++
 您可能需要多次在启动菜单提示符处对 recovery_xxxxxxxx_keymanager 命令和选项 6 执行问题描述操作，直到节点完全启动为止。
 
 . 启动节点：
