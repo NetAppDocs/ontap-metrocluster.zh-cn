@@ -25,20 +25,21 @@ NOTE: 此操作步骤仅适用于光纤连接的 MetroCluster 配置。
 检查配置的整体运行状况。如果系统运行状况不正常，请先解决问题描述地址，然后再继续。
 
 .步骤
-. 使托管受影响丛的控制器上的受影响丛脱机：
+. 在两个集群中，使受影响磁盘架堆栈上的所有磁盘丛脱机：
 +
 ` * aggr offline _plex_name_*`
 
 +
-此示例显示了用于使运行 cMode 的控制器的丛脱机的命令。
+此示例显示了用于使运行集群模式 OTNAP 的控制器的丛脱机的命令。
 
 +
 [listing]
 ----
 
-Cluster_A_1::> storage aggregate plex offline -aggr aggr1 -plex plex2
-Cluster_A_1::> storage aggregate plex offline -aggr aggr2 -plex plex6
-Cluster_A_1::> storage aggregate plex offline -aggr aggr3 -plex plex1
+cluster_A_1::> storage aggregate plex offline -aggr aggrA_1_0 -plex plex0
+cluster_A_1::> storage aggregate plex offline -aggr dataA_1_data -plex plex0
+cluster_A_2::> storage aggregate plex offline -aggr aggrA_2_0 -plex plex0
+cluster_A_2::> storage aggregate plex offline -aggr dataA_2_data -plex plex0
 ----
 . 验证丛是否已脱机：
 +
@@ -51,9 +52,10 @@ Cluster_A_1::> storage aggregate plex offline -aggr aggr3 -plex plex1
 [listing]
 ----
 
-Cluster_A_1::> storage aggregate show -aggr aggr1
-Cluster_A_1::> storage aggregate show -aggr aggr2
-Cluster_A_1::> storage aggregate show -aggr aggr3
+Cluster_A_1::> storage aggregate show -aggr aggrA_1_0
+Cluster_A_1::> storage aggregate show -aggr dataA_1_data
+Cluster_A_2::> storage aggregate show -aggr aggrA_2_0
+Cluster_A_2::> storage aggregate show -aggr dataA_2_data
 ----
 . 根据连接目标磁盘架的网桥是连接一个 SAS 堆栈还是两个或更多 SAS 堆栈，禁用 SAS 端口或交换机端口：
 +

@@ -1952,8 +1952,6 @@
   <block id="f37c808aea503c571ed704b83484d241" category="list-text">对于每个磁盘架堆栈，使用缆线将第一个磁盘架的 IOM A 连接到 FibreBridge A 上的 SAS 端口 A ，然后使用缆线将最后一个磁盘架的 IOM B 连接到 FibreBridge B 上的 SAS 端口 A</block>
   <block id="d56b0f3416bfc789f2c7f1f935facdc5" category="admonition">如果输出开头显示文本 `reresponse truncated` ，则可以使用 Telnet 连接到网桥，然后使用 `sasargets` 命令查看所有输出。</block>
   <block id="6e35146589ca0537e450bf56f1139282" category="list-text">重复此步骤，使用缆线将磁盘架连接到网桥，以检查 SAS 缆线是否松动或更正 SAS 布线。</block>
-  <block id="33d278dbdb8ee54d1d4ac0cbee294810" category="list-text">按照适用于您的配置，交换机型号和 FC-SAS 网桥型号的表中所示的布线方式，使用缆线将每个网桥连接到本地 FC 交换机：</block>
-  <block id="7c300dfa3a23e51a9063e548840a5295" category="paragraph">Brocade 和 Cisco 交换机使用不同的端口编号，如下表所示</block>
   <block id="6d9bd4cb37e68444afa71d06faf2439f" category="paragraph">您必须在两个控制器上运行此命令。</block>
   <block id="1085da58e90873ee49d4724127d66db4" category="admonition">如果要在多个控制器之间拆分一个磁盘架堆栈的所有权，则必须在分配磁盘所有权之前禁用磁盘自动分配（ `s存储磁盘选项 modify -autodassign off *` from both nodes in the cluster ）； 否则，在分配任何一个磁盘驱动器时，其余磁盘驱动器可能会自动分配给同一个控制器和池。</block>
   <block id="f4e2ba9b259f06c1661bed9f349c22f3" category="summary">从使用 FibreBridge 7500N 或 7600N 网桥的 ONTAP 9.5 开始，支持使用网桥的带内管理作为网桥 IP 管理的替代方案。从 ONTAP 9.8 开始，已弃用带外管理。</block>
@@ -1987,9 +1985,7 @@
   <block id="e5f0a16ea418ee7bf710c2e6b2b5ef12" category="section-title">禁用对磁盘架的访问</block>
   <block id="2c9d09f90696abf9245e1ac1d6ee91d7" category="paragraph">在更换磁盘架模块之前，您必须禁用对磁盘架的访问。</block>
   <block id="1d3341e7be6e06b23e20e2501177f02e" category="paragraph">检查配置的整体运行状况。如果系统运行状况不正常，请先解决问题描述地址，然后再继续。</block>
-  <block id="d34d212b3a4a33e4c3642f7433df6b71" category="list-text">使托管受影响丛的控制器上的受影响丛脱机：</block>
   <block id="91f6091245d4b1beb9fcb78b68cf308a" category="paragraph">` * aggr offline _plex_name_*`</block>
-  <block id="6d83782aba42afd63943cc1f5beec8bc" category="paragraph">此示例显示了用于使运行 cMode 的控制器的丛脱机的命令。</block>
   <block id="52f3a6ffabb544f36777314e040747e2" category="paragraph">` * aggr status _-raggr_name_*`</block>
   <block id="8a6a5908684ff060e64e57e3561d66f0" category="paragraph">此示例显示了用于验证运行 cMode 的控制器的聚合是否脱机的命令。</block>
   <block id="a571ed81b9ac1cd9c96405061a23d824" category="list-text">根据连接目标磁盘架的网桥是连接一个 SAS 堆栈还是两个或更多 SAS 堆栈，禁用 SAS 端口或交换机端口：</block>
@@ -3800,7 +3796,6 @@
   <block id="e9f061fb2bc125b997083e48a3442510" category="list-text">绿色单元格显示支持此组合。</block>
   <block id="7bf7e1a6cec96a843176b66291c50547" category="list-text">白色（空白）单元格表示此组合不受支持。</block>
   <block id="1799408ec992ed3e5561f7b04ccef0fe" category="paragraph">例如，支持从包含 AFF8060 控制器模块的 MetroCluster FC 配置过渡到包含 AFF A400 控制器模块的 IP 配置。</block>
-  <block id="e4ababf2c65e65642a1cb3cedfba25f7" category="admonition">不支持过渡到 Cisco 9336C-x2 共享交换机配置。</block>
   <block id="06dbf695b0eb6bb2278b17719899aba9" category="image-alt">过渡支持的平台组合</block>
   <block id="5f6801242587199c39843af93c0c6fbc" category="summary">从 ONTAP 9.8 开始，支持将工作负载和数据从现有四节点 MetroCluster FC 配置无中断过渡到新的 MetroCluster IP 配置。</block>
   <block id="2380f44f4dcec1f84b76f71d467c0c65" category="doc">无中断地从 MetroCluster FC 过渡到 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）</block>
@@ -5186,7 +5181,6 @@
   <block id="bea9fa7282326491dc4ce42c2d7edda7" category="list-text">确认所有节点均处于已启用状态： `MetroCluster node show`</block>
   <block id="ca433a1a8cdfe2e0d09b21bb5cf1db25" category="paragraph">以下示例显示了处于已启用状态的节点：</block>
   <block id="3f678d56ef7bbe278de1a52dfe4f932f" category="list-text">确认所有 SVM 上的重新同步均已完成： `MetroCluster SVM show`</block>
-  <block id="92d412a5b4156cc9c91788d064161ecc" category="list-text">验证修复操作正在执行的任何自动 LIF 迁移是否已成功完成： MetroCluster check lif show</block>
   <block id="aad8b7c11b4aa6bcae4874f577338fdb" category="list-text">检查切回操作的进度： `MetroCluster show`</block>
   <block id="cf7da6064d11b7240c8a90c881c2b0a8" category="paragraph">当输出显示 Waiting for-switchback 时，切回操作仍在进行中：</block>
   <block id="bebab338ce208a8365444e4ebe4efe11" category="list-text">重新建立任何 SnapMirror 或 SnapVault 配置。</block>
@@ -8736,11 +8730,9 @@
   <block id="58f4e450e6637270a6ebb47e42477be1" category="paragraph">此外，我们还提供了有关 ONTAP 和 MetroCluster 配置的常规信息。</block>
   <block id="54744df94a6fdb7104348dee41697c48" category="summary">MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台类型。</block>
   <block id="3e7d7088000e9b3208b36b1397763f5e" category="doc">为 Broadcom 支持的 BES-53248 IP 交换机分配平台端口</block>
-  <block id="6e496c058aaedfd0b0449bfd6ce2f35f" category="paragraph">不能为交换机配置速度不同的端口（例如， 25 Gbps 端口和 10 Gbps 端口的混合）。</block>
   <block id="1ea1224e95806d38188ac2833eef5d68" category="paragraph">下表注释：</block>
   <block id="84d5df4bc00912b5bf41517f871849dc" category="list-text">对于某些平台，您可以使用端口 49 - 54 进行 MetroCluster ISL 或 MetroCluster 接口连接。</block>
   <block id="141c241c09745923a907fa0b44d6fdc2" category="paragraph">这些端口需要额外的许可证。</block>
-  <block id="3f4f355f77514d7addc1e8c48ca452d0" category="list-text">只能将一个 AFF A320 系统连接到交换机，而不能同时连接其他平台。</block>
   <block id="c7ecc9ce844e9f4491596826d0847864" category="paragraph">此配置不支持需要交换集群的功能，包括 MetroCluster FC 到 IP 过渡和技术更新过程。</block>
   <block id="101ffe4f466417c1ce75564d3cc0a3b6" category="list-text">配置了 Broadcom BES-53248 交换机的 AFF A320 系统可能不支持所有功能。</block>
   <block id="cc1b37b4c1dcf92c7509c109eb4c4d7d" category="paragraph">不支持要求将本地集群连接到交换机的任何配置或功能。例如，不支持以下配置和过程：</block>
@@ -11170,7 +11162,6 @@
   <block id="70a6af377eaf4da39eb5c40bd123522b" category="list-text">强制切换</block>
   <block id="0ece35432200ec94e379aeb1ce68db94" category="list-text">从多控制器或存储故障中恢复</block>
   <block id="8dbe92f75ba070e91abdf749e6b035a2" category="list-text">从运行正常的集群中的任何节点运行 MetroCluster switchback 命令来执行切回： MetroCluster switchback`</block>
-  <block id="6fdaae180fb7295ff71dbfe7a61beabe" category="section-title">预转换，修复和切回</block>
   <block id="c9aa0ac9943f839d56e1bdd62941dd61" category="section-title">使用 MetroCluster Tiebreaker 或 ONTAP 调解器监控配置</block>
   <block id="9e34b94d21bb51333906ea137daeaca8" category="paragraph">请参见 <block ref="1b129d9b24cc52917a4f49025dd7cea7" category="inline-link-macro-rx"></block> 了解这两种监控 MetroCluster 配置和启动自动切换的方法之间的区别。</block>
   <block id="64977ab6a02737ff27944bb4e643f9a9" category="paragraph">使用以下链接安装和配置 Tiebreaker 或调解器：</block>
@@ -11462,8 +11453,6 @@
   <block id="3390d4f6bfc1502eb6b943d94b2ccf81" category="paragraph"><block ref="3390d4f6bfc1502eb6b943d94b2ccf81" category="inline-link-macro-rx"></block></block>
   <block id="9e83c69a0d82e02a123c94b676cdaa28" category="list-text">如果您使用的是现有的 ONTAP 调解器实例，请使用以下命令将 ONTAP 调解器服务添加到 ONTAP ：</block>
   <block id="2df82e698bfc14af74dd0684edfa8af0" category="paragraph">MetroCluster configuration-settings mediator add -mediate-address ip-address-o-o-medier-host`</block>
-  <block id="ba1e118c83648b254f27cdd860d0d4ae" category="inline-link">AFF 和 FAS 系统文档中心</block>
-  <block id="811577f4c2318aa7af00accb9e213cc1" category="paragraph">请按照中适用于您的平台的安装说明进行操作<block ref="f8855b308c3b55e8c350efcfe17e01ac" category="inline-link-rx"></block>。</block>
   <block id="6b650cfd5a5122af7703db2cfff2b455" category="paragraph">` /usr/local/bin/medier_username`</block>
   <block id="b41c8853c66915bd8a05346255719968" category="paragraph">`mEDIATOR_USERNAME=mediator mediator_password=mediator2 mediator_new_username=mediatoradmin mediator_change_user`</block>
   <block id="5152b189d736ab8937cc45a67d7606a8" category="paragraph">以下示例将端口 "e0e" 和 " e0f" 分配给系统 "SVMcluster01" 上的故障转移组 "intercluster01" ：</block>
@@ -11910,4 +11899,18 @@
   <block id="c1b20466030a9b3540d83155ad9678ce" category="list-text">验证监控器是否处于观察模式：</block>
   <block id="3e3282862342655e70b0b4d411fbb78b" category="list-text">禁用观察模式可将所有显示器移回联机模式。</block>
   <block id="088c19240da89dbb9f8682a7168eea93" category="paragraph">验证新节点（ site_B ）是否处于 * 正在等待 site_A 的切回状态 *</block>
+  <block id="70797c25b23e4d3313107866a946ef86" category="paragraph">这些交换机不能与速度不同的远程 ISL 端口（例如，连接到 10 Gbps ISL 端口的 25 Gbps 端口）结合使用。</block>
+  <block id="ee1c57ea8aa164533e9450c35bd1eacb" category="list-text">只能将使用 A320 系统的单个四节点 MetroCluster 连接到交换机。</block>
+  <block id="16319414c65274d365d86327a61ef5dc" category="inline-link">AFF 和 FAS 系统文档中心</block>
+  <block id="63799698c3b4bb55f091a324342f6ef6" category="paragraph">请按照中适用于您的平台的安装说明进行操作<block ref="0b3a876cb84d37c698b419ae2be696d8" category="inline-link-rx"></block>。</block>
+  <block id="145dacb3237a86979e113708eea5ccbb" category="list-text">需要四个 IP 交换机，每个交换机网络结构两个。</block>
+  <block id="678c0cc3a8e347e1b6670261a41c4c3e" category="list-text">验证修复操作执行的任何自动 LIF 迁移是否已成功完成： `MetroCluster check lif show`</block>
+  <block id="3e0af8ae696d5e7c0a0c4cf08d2caa05" category="list-text">执行模拟切回以验证系统是否已准备就绪： `MetroCluster switchback -simulate`</block>
+  <block id="776259e77c1e67fef13df14be8a5ad8e" category="list-text">在两个集群中，使受影响磁盘架堆栈上的所有磁盘丛脱机：</block>
+  <block id="e7b29b3d771c4dde26a00503e0f4bccf" category="paragraph">此示例显示了用于使运行集群模式 OTNAP 的控制器的丛脱机的命令。</block>
+  <block id="2abcc8e487f56251cd49b5a74738c4c4" category="section-title">过渡到 Cisco 9336C-x2 共享交换机配置</block>
+  <block id="f8e0758b3af85da8f282b95e41204586" category="paragraph">不支持过渡到 Cisco 9336C-x2 共享交换机配置。_shared switch configuration_is one where the switches provide both the MetroCluster connections and the storage shelf connections 。</block>
+  <block id="1a0ece25400c2d4c0b3a063a4d9d1aad" category="paragraph">支持 Cisco 9336C-x2 交换机仅提供 MetroCluster 连接的配置。</block>
+  <block id="b88127542a36dbd88f1d9b0eb0e66dc0" category="paragraph">ONTAP 当前支持 AES-128 加密。</block>
+  <block id="c822bb67407542108aec4655c3b63b2b" category="paragraph">controller_A_1 端口 d</block>
 </blocks>

@@ -3083,7 +3083,7 @@ FC_switch_A_2
  a| 
 0
  a| 
-controller_A_1 端口 0b
+controller_A_1 端口 0d
 
 
 
@@ -3187,7 +3187,7 @@ FC_switch_A_2
  a| 
 3.
  a| 
-controller_A_1 端口 0b
+controller_A_1 端口 0d
 
 
 
@@ -3503,7 +3503,7 @@ FC_switch_A_2
  a| 
 2.
  a| 
-controller_A_1 端口 0b
+controller_A_1 端口 0d
 
 
 
@@ -3605,7 +3605,7 @@ FC_switch_A_2
  a| 
 3.
  a| 
-controller_A_1 端口 0b
+controller_A_1 端口 0d
 
 
 
@@ -3921,7 +3921,7 @@ FC_switch_A_2
  a| 
 2.
  a| 
-controller_A_1 端口 0b
+controller_A_1 端口 d
 
 
 
@@ -4025,7 +4025,7 @@ FC_switch_A_2
  a| 
 3.
  a| 
-controller_A_1 端口 0b
+controller_A_1 端口 0d
 
 
 

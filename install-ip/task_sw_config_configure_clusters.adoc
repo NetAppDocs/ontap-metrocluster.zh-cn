@@ -897,13 +897,13 @@ e5b
  a| 
 AFF A400
  a| 
-E3a
+e1a
  a| 
 
 
 
  a| 
-E3B
+e1b
 
 
 
@@ -1149,8 +1149,8 @@ MetroCluster configuration-settings interface create -cluster-name _cluster-name
 +
 [listing]
 ----
-cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_A -home-node node_B_1 -home-port e5a -address 10.1.1.3 -netmask 255.255.255.0
-[Job 28] Job succeeded: Interface Create is successful.cluster_A::>
+cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_B -home-node node_B_1 -home-port e5a -address 10.1.1.3 -netmask 255.255.255.0
+[Job 28] Job succeeded: Interface Create is successful.cluster_B::>
 ----
 .. 在 "node_B_1 " 上的端口 "e5b" 上配置接口：
 +
@@ -1162,8 +1162,8 @@ MetroCluster configuration-settings interface create -cluster-name _cluster-name
 +
 [listing]
 ----
-cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_A -home-node node_B_1 -home-port e5b -address 10.1.2.3 -netmask 255.255.255.0
-[Job 28] Job succeeded: Interface Create is successful.cluster_A::>
+cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_B -home-node node_B_1 -home-port e5b -address 10.1.2.3 -netmask 255.255.255.0
+[Job 28] Job succeeded: Interface Create is successful.cluster_B::>
 ----
 
 

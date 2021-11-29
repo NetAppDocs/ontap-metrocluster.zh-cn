@@ -24,6 +24,7 @@ NetApp 提供的 MetroCluster IP 交换机已通过 NetApp 验证。从 ONTAP 9.
 
 * MetroCluster IP 接口可以连接到可配置为满足要求的任何交换机端口。
 * 对于 FAS8200 和 AFF A300 平台，交换机端口的速度必须为 25 Gbps ，而对于所有其他平台，交换机端口的速度必须至少为 40 Gbps （ 40 Gbps 或 100 Gbps ）。
+* 需要四个 IP 交换机，每个交换机网络结构两个。
 * ISL 必须为 10 Gbps 或更高，并且必须根据 MetroCluster 配置上的负载调整适当的大小。
 * MetroCluster 配置必须连接到两个网络。不支持将两个 MetroCluster 接口连接到同一网络或交换机。每个 MetroCluster 节点都必须连接到两个网络交换机。
 * 网络必须满足以下要求：

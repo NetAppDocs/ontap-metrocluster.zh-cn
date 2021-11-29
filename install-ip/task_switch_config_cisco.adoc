@@ -10,6 +10,12 @@ summary: 您必须将 Cisco IP 交换机配置为用作集群互连以及用于�
 [role="lead"]
 您必须将 Cisco IP 交换机配置为用作集群互连以及用于后端 MetroCluster IP 连接。
 
+.关于此任务
+* 您必须对 MetroCluster IP 配置中的每个 IP 交换机重复这些步骤。
+* 您必须使用串行控制台连接到交换机。
+* 此任务将重置管理网络的配置。
+
+
 
 
 == 将 Cisco IP 交换机重置为出厂默认值
