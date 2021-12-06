@@ -11913,4 +11913,7 @@
   <block id="1a0ece25400c2d4c0b3a063a4d9d1aad" category="paragraph">支持 Cisco 9336C-x2 交换机仅提供 MetroCluster 连接的配置。</block>
   <block id="b88127542a36dbd88f1d9b0eb0e66dc0" category="paragraph">ONTAP 当前支持 AES-128 加密。</block>
   <block id="c822bb67407542108aec4655c3b63b2b" category="paragraph">controller_A_1 端口 d</block>
+  <block id="ffdcbc12bcb9d9c0dfcda96a2a729863" category="list-text">从广播域中删除 VLAN 和接口组端口：</block>
+  <block id="ed2e5c7ebbd6b2c749bdb92415d9787c" category="list-text">禁用存储故障转移：</block>
+  <block id="e55c19252352253899907fe9a7a48ff5" category="paragraph">`storage failover modify -node _node-name_ -enable false &lt;--- 附加步骤`</block>
 </blocks>

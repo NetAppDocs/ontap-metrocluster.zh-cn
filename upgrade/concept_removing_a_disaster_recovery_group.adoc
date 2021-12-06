@@ -153,6 +153,10 @@ MetroCluster configuration-settings interface delete`
 +
 `set -privilege advanced`
 
+... 禁用存储故障转移：
++
+`storage failover modify -node _node-name_ -enable false <--- 附加步骤`
+
 ... Unjoin the node ： + `cluster unjoin -node _node-name_`
 +
 对旧 DR 组中的另一个本地节点重复此步骤。
