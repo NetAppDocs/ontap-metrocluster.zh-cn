@@ -2,7 +2,7 @@
 permalink: maintain/reference_trademark.html 
 sidebar: sidebar 
 keywords: metrocluster, maintain, service, trademark 
-summary: MetroCluster 维护指南的商标信息。 
+summary: 维护 MetroCluster 组件的商标信息。 
 ---
 = 商标
 :icons: font

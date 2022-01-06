@@ -27,7 +27,7 @@ summary: 在开始过渡过程之前，您必须确保配置满足要求。
 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
 +
-link:../install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+link:../install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
 
 * 无法使用 NetApp 存储加密（ NSE ）对其进行配置。
 * 无法对 MDV 卷进行加密。

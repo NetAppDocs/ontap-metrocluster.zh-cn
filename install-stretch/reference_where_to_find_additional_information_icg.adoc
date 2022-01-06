@@ -51,7 +51,7 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤�
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/index.html["MetroCluster IP 安装和配置"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置： ONTAP MetroCluster 配置之间的差异"]
  a| 
 * MetroCluster IP 架构
 * 为配置布线
@@ -85,7 +85,7 @@ link:../maintain/index.html["维护 MetroCluster 组件"]
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/transition/index.html["《 MetroCluster 过渡指南》"]
+https://docs.netapp.com/us-en/ontap-metrocluster/transition/index.html["从 MetroCluster FC 过渡到 MetroCluster IP"]
 
 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/index.html["《 MetroCluster 升级和扩展指南》"]
  a| 
@@ -97,7 +97,7 @@ https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/index.html["《 MetroCl
 
 
  a| 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/home.html["《 MetroCluster Tiebreaker 软件安装和配置指南》"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/home.html["MetroCluster Tiebreaker 软件安装和配置"]
  a| 
 * 使用 MetroCluster Tiebreaker 软件监控 MetroCluster 配置
 

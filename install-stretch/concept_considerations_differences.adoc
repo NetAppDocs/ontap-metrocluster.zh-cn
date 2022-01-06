@@ -9,10 +9,7 @@ summary: 各种 MetroCluster 配置在所需组件方面存在主要差异。
 :imagesdir: ../media/
 
 
-
-
-= ONTAP MetroCluster 配置之间的差异
-
+[role="lead"]
 各种 MetroCluster 配置在所需组件方面存在主要差异。
 
 在所有配置中，两个 MetroCluster 站点中的每个站点都配置为 ONTAP 集群。在双节点 MetroCluster 配置中，每个节点均配置为单节点集群。

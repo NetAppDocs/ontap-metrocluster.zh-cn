@@ -79,7 +79,7 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 NOTE: 如果要升级或降级交换机，则必须配置网络中的所有交换机。
 
 +
-按照中 _Configuring the IP switches_ 一节中的步骤进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/index.html["《 MetroCluster IP 安装和配置指南》。"]
+按照中 _Configuring the IP switches_ 一节中的步骤进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["MetroCluster IP 安装和配置。"]
 
 +
 确保为交换机 _A_1 ， _A_2 ， _B_1 或 _B_2 应用正确的 RCF 文件。如果新交换机与旧交换机相同，则需要应用相同的 RCF 文件。
@@ -98,7 +98,7 @@ NOTE: 如果要升级或降级交换机，则必须配置网络中的所有交�
 . 关闭交换机电源，拔下缆线并物理拔下 IP_switch_B_1 。
 . 安装新交换机。
 +
-按照中的 _Cabling the IP switchs_ 一节中的步骤，首先为新交换机（包括 ISL ）布线 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/index.html["《 MetroCluster IP 安装和配置指南》"]。
+按照中的 _Cabling the IP switchs_ 一节中的步骤，首先为新交换机（包括 ISL ）布线 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["MetroCluster IP 安装和配置"]。
 
 +
 [NOTE]

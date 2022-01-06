@@ -1,4 +1,4 @@
-= ONTAP MetroCluster 配置之间的差异
+= 支持 MetroCluster 配置中的所有 SAN 阵列系统
 
 
 各种 MetroCluster 配置在所需组件方面存在主要差异。

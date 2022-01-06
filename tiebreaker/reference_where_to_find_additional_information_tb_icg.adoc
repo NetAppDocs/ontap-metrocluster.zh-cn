@@ -50,7 +50,7 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤�
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
  a| 
 * 延伸型 MetroCluster 架构
 * 为配置布线
@@ -61,7 +61,7 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/index.html["延
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/index.html["MetroCluster IP 安装和配置"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
  a| 
 * MetroCluster IP 架构
 * 为 MetroCluster IP 配置布线
@@ -71,7 +71,7 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/index.html["MetroClu
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["《 MetroCluster 维护指南》"]
+https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["维护 MetroCluster 组件"]
  a| 
 * MetroCluster 配置中的维护准则
 * FC-SAS 网桥和 FC 交换机的硬件更换或升级以及固件升级过程

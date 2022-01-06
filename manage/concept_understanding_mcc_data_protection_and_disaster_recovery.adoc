@@ -787,7 +787,7 @@ MetroCluster 节点使用邮箱信息来确定是否需要 MAUSO 。如果存储
 
 如果未报告任何错误，则会成功重新同步聚合。此过程有时可能需要数小时才能完成。
 
-link:../manage/task_heal_the_configuration_choice_task.html["修复配置"]
+link:../manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html["修复配置"]
 
 
 
@@ -795,7 +795,7 @@ link:../manage/task_heal_the_configuration_choice_task.html["修复配置"]
 
 同步聚合后，您可以将 CFO 聚合和根聚合交还给各自的 DR 配对节点，从而开始控制器修复阶段。
 
-link:../manage/task_heal_the_configuration_choice_task.html["修复配置"]
+link:../manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html["修复配置"]
 
 
 
@@ -830,7 +830,7 @@ link:../manage/task_heal_the_configuration_choice_task.html["修复配置"]
 
 如果未报告任何错误，则会成功重新同步聚合。此过程有时可能需要数小时才能完成。
 
-link:../manage/task_heal_the_configuration_choice_task.html["修复配置"]
+link:../manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html["修复配置"]
 
 
 
@@ -838,7 +838,7 @@ link:../manage/task_heal_the_configuration_choice_task.html["修复配置"]
 
 同步聚合后，您将执行根聚合修复阶段。在 MetroCluster IP 配置中，此阶段确认聚合已修复。
 
-link:../manage/task_heal_the_configuration_choice_task.html["修复配置"]
+link:../manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html["修复配置"]
 
 
 

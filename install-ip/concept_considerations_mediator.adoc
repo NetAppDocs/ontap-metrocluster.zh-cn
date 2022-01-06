@@ -31,7 +31,7 @@ NOTE: 只有在非易失性缓存镜像（ _DR 镜像 _ ）和 SyncMirror 丛镜
 在这些配置中， Tiebreaker 会在站点完全发生故障后启动计划外切换。
 
 +
-在使用 Tiebreaker 软件之前，请查看 link:../tiebreaker/index.html["《 MetroCluster Tiebreaker 软件安装和配置指南》"]
+在使用 Tiebreaker 软件之前，请查看 link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["MetroCluster Tiebreaker 软件安装和配置"]
 
 
 

@@ -6,8 +6,9 @@ settings:
     pdf_enabled: true
   prod:
     pdf_enabled: true
-    harmony_enabled: true
+    harmony_enabled: false
     langs: zh-cn,us-en,ja-jp
+  langs: zh-cn,us-en,ja-jp
 sidebar:
   entries:
   - title: MetroCluster
@@ -35,16 +36,13 @@ homepage:
     links:
     - title: 安装 MetroCluster IP
       summary: 安装 MetroCluster IP 配置。
-      url: "/install-ip/index.html"
     - title: 安装光纤连接的 MetroCluster
       summary: 安装光纤连接的 MetroCluster 配置。
-      url: "/install-fc/index.html"
     - title: 安装延伸型 MetroCluster
       summary: 安装延伸型 MetroCluster 配置。
-      url: "/install-stretch/index.html"
     - title: 安装 Tiebreaker
       summary: 在第三个位置安装 MetroCluster Tiebreaker 软件以监控 MetroCluster 站点。
-      url: "/tiebreaker/index.html"
+      url: "/tiebreaker/concept_overview_of_the_tiebreaker_software.html"
     - title: 安装调解器（仅限 MetroCluster IP ）
       summary: 在第三个位置安装 ONTAP 调解器软件，以监控 MetroCluster IP 站点。
       url: "/install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html"
@@ -52,13 +50,13 @@ homepage:
     links:
     - title: FC 交换机
       summary: 维护和更换 MetroCluster FC 配置中的 FC 交换机。
-      url: "/maintain/concept_performing_fc_switch_maintenance.html"
+      url: "/maintain/task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html"
     - title: IP 交换机
       summary: 维护和更换 MetroCluster IP 配置中的 IP 交换机。
-      url: "/maintain/concept_performing_ip_switch_maintenance.html"
+      url: "/maintain/task_replace_an_ip_switch.html"
     - title: ATTO 网桥
       summary: 维护和更换 MetroCluster FC 配置中的 ATTO FC-SAS 网桥。
-      url: "/maintain/concept_performing_fc_to_sas_bridge_maintenance.html"
+      url: "/maintain/concept_using_fibrebridge_7600n_bridges_in_mcc_configurations.html"
     - title: 驱动器架
       summary: 热添加和无中断更换驱动器架 MetroCluster FC 配置。
       url: "/maintain/index.html"

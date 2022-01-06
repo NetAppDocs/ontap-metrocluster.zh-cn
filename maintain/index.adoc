@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, decide, service, guide, firmware, upgrade, hardware replacement, drive, shelf, ip switch, fc switch, bridge, sas cable 
 summary: 本指南介绍如何对 MetroCluster 硬件组件执行维护。 
 ---
-= 《 MetroCluster 维护指南》
+= 维护 MetroCluster 组件
 :icons: font
 :imagesdir: ../media/
 

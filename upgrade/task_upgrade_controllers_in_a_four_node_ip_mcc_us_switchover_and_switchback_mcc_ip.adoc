@@ -182,20 +182,20 @@ VLAN ID 范围为 101 到 4096 （含 101 到 4096 ）。
 .步骤
 . 准备 IP 交换机以应用新的 RCF 文件。
 +
-按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/index.html["《 MetroCluster IP 安装和配置指南》"]。
+按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]。
 
 +
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#resetting-the-broadcom-ip-switch-to-factory-defaults["将 Broadcom IP 交换机重置为出厂默认值"]
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#resetting-the-cisco-ip-switch-to-factory-defaults["将 Cisco IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_cisco.html["将 Cisco IP 交换机重置为出厂默认值"]
 
 
 . 下载并安装 RCF 文件。
 +
-按照中的步骤进行操作 link:../install-ip/index.html["《 MetroCluster IP 安装和配置指南》"]。
+按照中的步骤进行操作 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]。
 
 +
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom RCF 文件"]
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
+** link:../install-ip/task_switch_config_broadcom.html["下载并安装 Broadcom RCF 文件"]
+** link:../install-ip/task_switch_config_cisco.html["下载并安装 Cisco IP RCF 文件"]
 
 
 
@@ -992,20 +992,20 @@ network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
 按照 _IP MetroCluster 安装和配置指南 _ 中适用于您的交换机供应商一节中的步骤进行操作。
 
 +
-link:../install-ip/index.html["MetroCluster IP 安装和配置"]
+link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
 
 +
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#resetting-the-broadcom-ip-switch-to-factory-defaults["将 Broadcom IP 交换机重置为出厂默认值"]
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#resetting-the-cisco-ip-switch-to-factory-defaults["将 Cisco IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_cisco.html["将 Cisco IP 交换机重置为出厂默认值"]
 
 
 . 下载并安装 RCF 文件。
 +
-按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/index.html["MetroCluster IP 安装和配置"]。
+按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]。
 
 +
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom RCF 文件"]
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
+** link:../install-ip/task_switch_config_broadcom.html["下载并安装 Broadcom RCF 文件"]
+** link:../install-ip/task_switch_config_cisco.html["下载并安装 Cisco IP RCF 文件"]
 
 
 
@@ -1034,10 +1034,10 @@ https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
 
 . 按照 _IP MetroCluster 安装和配置指南 _ 中所述，使用缆线将控制器连接到 IP 交换机。
 +
-link:../install-ip/index.html["MetroCluster IP 安装和配置"]
+link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
 
 +
-** link:..["为 IP 交换机布线"]
+** link:["为 IP 交换机布线"]
 
 
 . 启动新节点并将其启动至维护模式。
@@ -1477,25 +1477,29 @@ aggr0_node_B_1           online          raid_dp, aggr         root, nosnap=on,
 +
 `boot_ontap 菜单`
 
-. 如果使用根加密，请对密钥管理配置使用问题描述启动菜单命令。
+. 如果使用根加密，请为密钥管理配置选择启动菜单选项。
 +
 |===
 
 
-| 如果您使用的是 ... | 在启动菜单提示符处问题描述此命令 ... 
+| 如果您使用的是 ... | 选择此启动菜单选项 ... 
 
 
  a| 
 板载密钥管理
  a| 
-`re封装板载密钥管理器`
+选项 `10`
+
+按照提示提供恢复和还原密钥管理器配置所需的输入。
 
 
 
  a| 
 外部密钥管理
  a| 
-`re封装 _external_keymanager`
+选项 `11`
+
+按照提示提供恢复和还原密钥管理器配置所需的输入。
 
 |===
 . 从启动菜单中，选择 "` （ 6 ） Update flash from backup config` " 。
@@ -1527,29 +1531,33 @@ Rebooting to load the restored env file...
 +
 `setenv partner-sysid _partner-sysID_`
 
-. 如果使用根加密，请再次对密钥管理配置的启动菜单命令执行问题描述。
+. 如果使用根加密，请为密钥管理配置再次选择启动菜单选项。
 +
 |===
 
 
-| 如果您使用的是 ... | 在启动菜单提示符处问题描述此命令 ... 
+| 如果您使用的是 ... | 选择此启动菜单选项 ... 
 
 
  a| 
 板载密钥管理
  a| 
-`re封装板载密钥管理器`
+选项 `10`
+
+按照提示提供恢复和还原密钥管理器配置所需的输入。
 
 
 
  a| 
 外部密钥管理
  a| 
-`re封装 _external_keymanager`
+选项 `11`
+
+按照提示提供恢复和还原密钥管理器配置所需的输入。
 
 |===
 +
-您可能需要在启动菜单提示符处多次问题描述 `re封装 _xxxxxxxx_keymanager` 命令和选项 6 ，直到节点完全启动为止。
+根据密钥管理器设置，执行恢复操作步骤的方法是，在第一个启动菜单提示符处选择选项 `10` 或选项 `11` ，然后选择选项 `6` 。要完全启动节点，您可能需要重复执行恢复操作步骤，并继续使用选项 `1` （正常启动）。
 
 . 等待更换的节点启动。
 +

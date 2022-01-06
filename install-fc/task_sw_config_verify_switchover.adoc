@@ -2690,7 +2690,7 @@ NOTE: 未镜像聚合必须位于其所属节点的本地。
 --
 * 驱动器和阵列 LUN 归特定节点所有；创建聚合时，该聚合中的所有驱动器都必须归同一节点所有，该节点将成为该聚合的主节点。
 * 聚合名称应符合您在规划 MetroCluster 配置时确定的命名方案。
-* 磁盘和聚合高级指南 _ 包含有关镜像聚合的详细信息。
+* _Disks and aggregates management_ 包含有关镜像聚合的详细信息。
 
 
 .步骤
@@ -3520,7 +3520,7 @@ https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster
 `s系统配置备份设置修改目标 URL`
 
 +
-《系统管理指南》中的 _Manag管理 配置备份 _ 一节包含追加信息。
+使用命令行界面进行集群管理在 _Manag管理 配置备份 _ 一节下包含追加信息。
 
 
 

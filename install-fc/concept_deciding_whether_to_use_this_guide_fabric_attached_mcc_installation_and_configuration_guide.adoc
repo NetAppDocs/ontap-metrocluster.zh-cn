@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, planning, fabric-attached, installation, deciding, configuration, guide 
 summary: 本指南介绍如何在网络结构配置中安装和配置 MetroCluster 硬件和软件组件。 
 ---
-= 《光纤连接的 MetroCluster 安装和配置指南》
+= 光纤连接的 MetroCluster 安装和配置
 :icons: font
 :imagesdir: ../media/
 

@@ -85,7 +85,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["FlexC
 [role="lead"]
 从 ONTAP 9.7 开始， MetroCluster 配置支持 FabricPool 存储层。
 
-有关使用 FabricPool 的常规信息，请参见 _Disks 和聚合高级指南 _ 。
+有关使用 FabricPool 的常规信息，请参见 _Disks and aggregates management_ 。
 
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
@@ -106,7 +106,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁�
 === 配置要在镜像 FabricPool 中使用的聚合
 
 
-NOTE: 在配置聚合之前，您必须按照 _Disks and Aggregates 高级指南 _ 中的 " 在 MetroCluster 配置中为 FabricPool 设置对象存储 " 中所述设置对象存储。
+NOTE: 在配置聚合之前，您必须按照 _Disks and aggregates management_ 中的 " 在 MetroCluster 配置中为 FabricPool 设置对象存储 " 中所述设置对象存储。
 
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
@@ -114,7 +114,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁�
 
 . 创建聚合或选择现有聚合。
 . 将聚合镜像为 MetroCluster 配置中的典型镜像聚合。
-. 按照 _Disks and Aggregates 高级指南 _ 中所述，使用聚合创建 FabricPool 镜像：
+. 创建包含聚合的 FabricPool 镜像，如 _Disks and Aggregates management_ 中所述：
 +
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 

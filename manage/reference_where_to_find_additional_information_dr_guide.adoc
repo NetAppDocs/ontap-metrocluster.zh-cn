@@ -72,7 +72,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-ip/home.ht
 
 
  a| 
-link:../tiebreaker/index.html["MetroCluster Tiebreaker 1.21 软件安装和配置"]
+link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["MetroCluster Tiebreaker 1.21 软件安装和配置"]
  a| 
 * 使用 MetroCluster Tiebreaker 软件监控 MetroCluster 配置
 

@@ -27,7 +27,7 @@ summary: 您必须根据现有 MetroCluster FC 配置选择过渡操作步骤。
  a| 
 新平台支持新存储架。
  a| 
-xref:concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.adoc[无中断地从 MetroCluster FC 过渡到 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）]
+xref:concept_requirements_for_fc_to_ip_transition_mcc..adoc[无中断地从 MetroCluster FC 过渡到 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）]
 
 
 

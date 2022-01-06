@@ -30,7 +30,7 @@ NOTE: 从 ONTAP 9.4 升级到 9.5 时，系统会识别现有的磁盘分配。
 ADP 会在平台初始配置期间自动执行。
 
 
-NOTE: 从 ONTAP 9.5 开始，必须启用 `disk auto_assignment` 才能自动进行分区，以实现 ADP 。
+NOTE: 从 ONTAP 9.5 开始，必须使用命令 `storage disk option modify -autodassign on` 启用磁盘自动分配。
 
 
 

@@ -620,7 +620,7 @@ mariadb.service    enabled
 
 
 .步骤
-. 下载 "NetApp-MetroCluster-Tiebreaker 软件 -1.3-1.x86_64 ： rpm" 文件。
+. 下载最新版本的 MetroCluster Tiebreaker 软件。此示例使用版本 1.21P3-1 。
 +
 https://mysupport.netapp.com/site/["NetApp 支持"]
 
@@ -637,7 +637,7 @@ https://mysupport.netapp.com/site/["NetApp 支持"]
  a| 
 执行新安装
  a| 
-`rpm -ivh netapp-metrocluster-tiebreaker 软件 -1.3-1x86_64 ： rpm`
+`rpm -ivh netapp-metrocluster-tiebreaker 软件 -1.21P3-1x86_64 ： rpm`
 
 成功安装时，系统将显示以下输出：
 
@@ -659,20 +659,20 @@ Started NetApp MetroCluster Tiebreaker software services
 Enabled autostart of NetApp MetroCluster Tiebreaker software daemon during boot
 Created symbolic link for NetApp MetroCluster Tiebreaker software CLI
 Post installation end Wed Oct 20 09:59:28 EDT 2021
-Successfully installed NetApp MetroCluster Tiebreaker software version 1.3.
+Successfully installed NetApp MetroCluster Tiebreaker software version 1.21P3.
 ....
 
 
  a| 
 升级现有安装
  a| 
-`rpm -Uvh NetApp-MetroCluster-Tiebreaker 软件 -1.3-1.x86_64 ： rpm`
+`rpm -Uvh NetApp-MetroCluster-Tiebreaker 软件 -1.21P3-1.x86_64 ： rpm`
 
 成功升级后，系统将显示以下输出：
 
 ....
 
-MetroCluster-Tiebreaker-Software-1.3-1.x86_64.rpm
+MetroCluster-Tiebreaker-Software-1.21P3-1.x86_64.rpm
 Verifying...                          ################################# [100%]
 Preparing...                          ################################# [100%]
 Upgrading NetApp MetroCluster Tiebreaker software....
@@ -689,7 +689,7 @@ Started NetApp MetroCluster Tiebreaker software services
 Enabled autostart of NetApp MetroCluster Tiebreaker software daemon during boot
 Created symbolic link for NetApp MetroCluster Tiebreaker software CLI
 Post upgrade end Wed Oct 20 09:57:52 EDT 2021
-Successfully upgraded NetApp MetroCluster Tiebreaker software to version 1.3.
+Successfully upgraded NetApp MetroCluster Tiebreaker software to version 1.21P3.
 Cleaning up / removing...
    2:NetApp-MetroCluster-Tiebreaker-So################################# [100%]
 

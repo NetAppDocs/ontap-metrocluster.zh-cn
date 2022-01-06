@@ -149,7 +149,7 @@ Do you want to create a new cluster or join an existing cluster? {create, join}:
 ----
 . 根据您所在站点的具体情况，对其余提示进行响应。
 +
-。 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["软件设置指南"] 对于您的 ONTAP 版本，还提供了其他详细信息。
+。 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["设置 ONTAP"] 对于您的 ONTAP 版本，还提供了其他详细信息。
 
 . 如果系统采用双节点无交换机集群配置，请使用 network interface create 命令在现有节点上创建集群接口，以便在集群端口上创建集群 LIF 。
 +

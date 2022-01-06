@@ -43,7 +43,7 @@ link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
 
  a| 
-link:../install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+link:../install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
  a| 
 * 延伸型 MetroCluster 架构
 * 为配置布线
@@ -88,7 +88,7 @@ link:../upgrade/index.html["《 MetroCluster 升级，过渡和扩展指南》"]
 
 
  a| 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/home.html["《 MetroCluster Tiebreaker 软件安装和配置指南》"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/home.html["MetroCluster Tiebreaker 软件安装和配置"]
  a| 
 * 使用 MetroCluster Tiebreaker 软件监控 MetroCluster 配置
 

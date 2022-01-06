@@ -938,7 +938,7 @@ DR 配对节点的池 1
 
 必须对 MetroCluster 配置中的两个集群执行此任务。
 
-有关设置 ONTAP 的更多常规信息，请参见 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["软件设置指南"]
+有关设置 ONTAP 的更多常规信息，请参见 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["设置 ONTAP"]
 
 .步骤
 . 打开第一个节点的电源。
@@ -1804,7 +1804,7 @@ NOTE: 未镜像聚合必须位于其所属节点的本地。
 
 * 驱动器和阵列 LUN 归特定节点所有；创建聚合时，该聚合中的所有驱动器都必须归同一节点所有，该节点将成为该聚合的主节点。
 * 聚合名称应符合您在规划 MetroCluster 配置时确定的命名方案。
-* 。 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合高级指南"] 包含有关镜像聚合的详细信息。
+* 。 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"] 包含有关镜像聚合的详细信息。
 
 
 .步骤
@@ -2313,7 +2313,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 [role="lead"]
 您应验证 MetroCluster 配置的切换，修复和切回操作。
 
-. 使用中所述的协商切换，修复和切回过程 link:https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["《 MetroCluster 管理和灾难恢复指南》"]。
+. 使用中所述的协商切换，修复和切回过程 link:https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["从灾难中恢复"]。
 
 
 
@@ -2328,6 +2328,6 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 ` * 系统配置备份设置 modify url-of-destination*`
 
 +
-。 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["《系统管理指南》"] 在 _Manag管理 配置备份 _ 一节下包含追加信息。
+。 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["使用 CLI 进行集群管理"] 在 _Manag管理 配置备份 _ 一节下包含追加信息。
 
 

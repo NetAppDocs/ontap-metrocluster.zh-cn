@@ -46,7 +46,7 @@ MetroCluster IP 配置中的 IP 交换机
 .. 为 ISL 链路布线。此时请勿打开 IP 交换机的电源。
 
  a| 
-link:../install-ip/index.html["MetroCluster IP 安装和配置"]
+link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置： ONTAP MetroCluster 配置之间的差异"]
 
 
 
@@ -89,7 +89,7 @@ MetroCluster FC 配置中的 FC-SAS 网桥
  a| 
 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
-link:../install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+link:../install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
 
 
 

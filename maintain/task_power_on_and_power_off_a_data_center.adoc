@@ -25,7 +25,7 @@ image::power-on-off-data-center.gif[关闭数据中心]
 
 == 关闭 MetroCluster 站点
 
-必须先关闭站点和所有设备，然后才能开始站点维护或重新定位。
+必须先关闭站点和所有设备，然后才能开始站点维护或重新定位。在以下示例中， Cluster_A 保持联机状态， Cluster_B （灾难站点）已关闭。
 
 以下步骤中的所有命令都是从要关闭的站点发出的。
 
@@ -94,11 +94,11 @@ cluster_A::*> metrocluster operation show
    End time: 10/4/2012 19:04:22
      Errors: -
 ----
-. 如果您使用的是运行 ONTAP 9.6 或更高版本的 MetroCluster IP 配置，请等待灾难站点丛联机并自动完成修复操作。
+. 如果您的 MetroCluster IP 配置运行的是 ONTAP 9.6 或更高版本，请等待灾难站点丛联机并自动完成修复操作。
 +
-在运行早期版本 ONTAP 的 MetroCluster IP 配置中，灾难站点节点不会自动启动到 ONTAP ，丛会保持脱机状态。
+在运行早期版本 ONTAP 的 MetroCluster IP 配置中，灾难站点节点不会自动启动到 ONTAP ，丛会保持脱机状态。对于 MetroCluster FC 配置，所有丛均保持联机，您无需使这些丛联机。
 
-. 根据您的配置和 ONTAP 版本，确定位于灾难站点的受影响丛并将其脱机。
+. 根据您的配置和 ONTAP 版本，确定位于灾难站点（ Cluster_B ）的受影响丛并将其脱机。
 +
 [NOTE]
 ====
@@ -126,10 +126,6 @@ cluster_A::*> metrocluster operation show
 .. 确定受影响的丛。
 +
 正常运行的站点上的节点所拥有的丛由 Pool1 磁盘组成。灾难站点上的节点所拥有的丛由 Pool0 磁盘组成。
-
-+
-
-NOTE: "`主页` " 是指 "`主页` " 所有者，而不是 "`当前` " 所有者。
 
 +
 [listing]

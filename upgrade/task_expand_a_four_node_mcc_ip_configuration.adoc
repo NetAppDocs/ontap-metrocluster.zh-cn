@@ -291,11 +291,11 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for
 
 .步骤
 . 将新控制器装入机架。
-. 按照《 _IP MetroCluster 安装和配置指南》 _ 所示，使用缆线将新的 MetroCluster IP 节点连接到 IP 交换机
+. 按照 _IP MetroCluster 安装和配置 _ 中所示，使用缆线将新的 MetroCluster IP 节点连接到 IP 交换机
 +
-link:../install-ip/task_cable_ip_switches.html["为 IP 交换机布线"]
+link:../install-ip/using_rcf_generator.html["为 IP 交换机布线"]
 
-. 使用 MetroCluster 安装和配置指南 _ 的以下部分配置 MetroCluster IP 节点
+. 使用 MetroCluster 安装和配置 _ 的以下部分配置 MetroCluster IP 节点
 +
 .. link:../install-ip/task_sw_config_gather_info.html["收集所需信息"]
 .. link:../install-ip/task_sw_config_restore_defaults.html["还原控制器模块上的系统默认值"]

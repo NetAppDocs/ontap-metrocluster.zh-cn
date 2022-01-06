@@ -54,7 +54,7 @@ link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1
 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
 +
-link:../install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+link:../install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
 
 .. 持久禁用交换机：
 +
@@ -162,7 +162,7 @@ Index Port Address Media Speed State  Proto
 . 配置交换机：
 +
 .. 请参见 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
-.. 按照中的步骤配置交换机 link:../install-fc/generaltask_fcsw_cisco_configure_the_cisco_fc_switches_with_rcf_files.html["配置 Cisco FC 交换机"] 第节 " 在 Cisco FC 交换机上配置分区 " 部分的 _except _ ：
+.. 按照中的步骤配置交换机 link:../install-fc/task_reset_the_cisco_fc_switch_to_factory_defaults.html["配置 Cisco FC 交换机"] 第节 " 在 Cisco FC 交换机上配置分区 " 部分的 _except _ ：
 +
 分区将在此操作步骤中稍后进行配置。
 

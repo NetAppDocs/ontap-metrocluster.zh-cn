@@ -76,7 +76,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["FlexC
 
 从 ONTAP 9.7 开始， MetroCluster 配置支持 FabricPool 存储层。
 
-有关使用 FabricPool 的常规信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合高级指南"]
+有关使用 FabricPool 的常规信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
 
 
@@ -95,13 +95,13 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["FlexC
 === 配置要在镜像 FabricPool 中使用的聚合
 
 
-NOTE: 在配置聚合之前，必须按照中的 " 在 MetroCluster 配置中为 FabricPool 设置对象存储 " 中所述设置对象存储https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合高级指南"]
+NOTE: 在配置聚合之前，必须按照中的 " 在 MetroCluster 配置中为 FabricPool 设置对象存储 " 中所述设置对象存储https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
 要配置要在 FabricPool 中使用的聚合，请执行以下操作：
 
 . 创建聚合或选择现有聚合。
 . 将聚合镜像为 MetroCluster 配置中的典型镜像聚合。
-. 创建包含聚合的 FabricPool 镜像，如中所述 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合高级指南"]
+. 创建包含聚合的 FabricPool 镜像，如中所述 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 +
 .. 附加主对象存储。
 +
@@ -435,7 +435,7 @@ image::../media/svm_dr_image_2.gif[SVM DR 映像 2]
 
 
 
-请参见中的 "`复制 SVM 配置` " 一节 link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["数据保护高级指南"] 有关配置 SVM DR 关系的详细信息。
+请参见中的 "`复制 SVM 配置` " 一节 link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["使用 CLI 进行数据保护"] 有关配置 SVM DR 关系的详细信息。
 
 
 

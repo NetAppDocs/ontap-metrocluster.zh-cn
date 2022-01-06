@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, stretch, configuration, decide 
 summary: 本指南介绍如何在延伸型配置中安装和配置 MetroCluster 硬件和软件组件 \ （有时称为 SAS 光纤 MetroCluster 配置 \ ）。 
 ---
-= 《延伸型 MetroCluster 安装和配置指南》
+= 延伸型 MetroCluster 安装和配置
 :icons: font
 :imagesdir: ../media/
 

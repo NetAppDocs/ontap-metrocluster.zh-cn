@@ -16,7 +16,7 @@ summary: 准备切回时，您必须打开灾难站点上的 MetroCluster 组件
 
 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
-link:../install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+link:../install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
 
 此操作步骤中的示例假设如下：
 

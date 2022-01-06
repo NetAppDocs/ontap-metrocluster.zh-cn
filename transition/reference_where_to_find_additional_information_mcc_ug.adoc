@@ -35,7 +35,7 @@ link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
 
  a| 
-link:../install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+link:../install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
  a| 
 * 延伸型 MetroCluster 架构
 * 为配置布线
@@ -55,7 +55,7 @@ link:../manage/index.html["MetroCluster 管理"]
 
 
  a| 
-link:../disaster-recovery/index.html["《灾难恢复指南》"]
+link:../disaster-recovery/index.html["灾难恢复"]
  a| 
 * 灾难恢复
 * 强制切换
@@ -65,7 +65,7 @@ link:../disaster-recovery/index.html["《灾难恢复指南》"]
 
 
  a| 
-link:../maintain/index.html["《 MetroCluster 维护指南》"]
+link:../maintain/index.html["MetroCluster 维护"]
  a| 
 * MetroCluster FC 配置维护准则
 * FC-SAS 网桥和 FC 交换机的硬件更换或升级以及固件升级过程
@@ -79,7 +79,7 @@ link:../maintain/index.html["《 MetroCluster 维护指南》"]
 
 
  a| 
-link:../upgrade/index.html["《 MetroCluster 升级和扩展指南》"]
+link:../upgrade/index.html["MetroCluster 升级和扩展"]
  a| 
 * 升级或刷新 MetroCluster 配置
 * 通过添加其他节点扩展 MetroCluster 配置
@@ -88,7 +88,7 @@ link:../upgrade/index.html["《 MetroCluster 升级和扩展指南》"]
 
 
  a| 
-link:../transition/index.html["《 MetroCluster 过渡指南》"]
+link:../transition/index.html["MetroCluster 过渡"]
  a| 
 * 从 MetroCluster FC 配置过渡到 MetroCluster IP 配置
 
@@ -96,7 +96,7 @@ link:../transition/index.html["《 MetroCluster 过渡指南》"]
 
 
  a| 
-link:../tiebreaker/index.html["《 MetroCluster 升级，过渡和扩展指南》"]
+link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["MetroCluster 升级，过渡和扩展"]
  a| 
 * 使用 MetroCluster Tiebreaker 软件监控 MetroCluster 配置
 
@@ -104,7 +104,7 @@ link:../tiebreaker/index.html["《 MetroCluster 升级，过渡和扩展指南�
 
 
  a| 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/us-en/ontap-systems/["AFF 和 FAS 文档"]
 
 * 注： * 标准存储架维护过程可用于 MetroCluster IP 配置。
  a| 

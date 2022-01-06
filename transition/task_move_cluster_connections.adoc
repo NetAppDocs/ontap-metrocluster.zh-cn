@@ -115,7 +115,7 @@ node_x_2-FC
 
 . 将 MetroCluster FC 节点组 A 集群连接移动到新的 IP 交换机。
 +
-使用中所述的端口 link:../transition/task_transition_from_mcc_fc_to_mcc_ip_configurations.html#moving-the-cluster-connections-on-the-metrocluster-fc-nodes["移动 MetroCluster FC 节点上的集群连接"]。
+使用中所述的端口 link:../transition/task_verify_mcc_health_fc_to_ip.html#moving-the-cluster-connections-on-the-metrocluster-fc-nodes["移动 MetroCluster FC 节点上的集群连接"]。
 
 +
 .. 断开所有组 A 端口与交换机的连接，或者，如果 MetroCluster FC 配置为无交换机集群，则断开它们与配对节点的连接。
@@ -216,7 +216,7 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["《 FAS8200 系�
 按照 _IP MetroCluster 安装和配置指南 _ 中适用于您的交换机供应商一节中的步骤进行操作，如以下链接所示。
 
 +
-link:../install-ip/index.html["MetroCluster IP 安装和配置"]
+link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
 
 +
 .. 如果需要，请下载并安装新的交换机固件。
@@ -224,20 +224,20 @@ link:../install-ip/index.html["MetroCluster IP 安装和配置"]
 您应使用 MetroCluster IP 节点支持的最新固件。
 
 +
-*** link:../install-ip/task_install_and_cable_the_mcc_components.html#downloading-and-installing-the-broadcom-switch-efos-software["下载并安装 Broadcom 交换机 EFOS 软件"]
-*** link:../install-ip/task_install_and_cable_the_mcc_components.html#downloading-and-installing-the-cisco-switch-nx-os-software["下载并安装 Cisco 交换机 NX-OS 软件"]
+*** link:../install-ip/task_switch_config_broadcom.html["下载并安装 Broadcom 交换机 EFOS 软件"]
+*** link:../install-ip/task_switch_config_cisco.html["下载并安装 Cisco 交换机 NX-OS 软件"]
 
 
 .. 准备 IP 交换机以应用新的 RCF 文件。
 +
-*** link:../install-ip/task_install_and_cable_the_mcc_components.html#resetting-the-broadcom-ip-switch-to-factory-defaults["将 Broadcom IP 交换机重置为出厂默认值"] *
-*** link:../install-ip/task_install_and_cable_the_mcc_components.html#resetting-the-cisco-ip-switch-to-factory-defaults["将 Cisco IP 交换机重置为出厂默认值"]
+*** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"] *
+*** link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_switch_config_broadcom.html["将 Cisco IP 交换机重置为出厂默认值"]
 
 
 .. 根据交换机供应商的不同，下载并安装 IP RCF 文件。
 +
-*** link:../install-ip/task_install_and_cable_the_mcc_components.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom IP RCF 文件"]
-*** link:../install-ip/task_install_and_cable_the_mcc_components.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
+*** link:../install-ip/task_switch_config_broadcom.html["下载并安装 Broadcom IP RCF 文件"]
+*** link:../install-ip/task_switch_config_cisco.html["下载并安装 Cisco IP RCF 文件"]
 
 
 

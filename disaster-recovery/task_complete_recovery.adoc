@@ -18,11 +18,11 @@ summary: 如果 FabricPool 镜像中的某个对象存储与 MetroCluster 灾难
 
 .关于此任务
 * 如果对象存储是远程的，并且 MetroCluster 站点已被销毁，则无需重建对象存储，原始对象存储配置以及冷数据内容会保留下来。
-* 有关 FabricPool 配置的详细信息，请参见 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合高级指南"]。
+* 有关 FabricPool 配置的详细信息，请参见 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]。
 
 
 .步骤
-. 按照中的操作步骤 " 更换 MetroCluster 配置上的 FabricPool 镜像 " 进行操作 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合高级指南"]。
+. 按照中的操作步骤 " 更换 MetroCluster 配置上的 FabricPool 镜像 " 进行操作 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]。
 
 
 

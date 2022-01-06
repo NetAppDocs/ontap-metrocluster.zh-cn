@@ -20,7 +20,7 @@ summary: 您必须配置已更换的任何 IP 交换机。
 NOTE: 如果正常运行的站点上的存储访问受到影响，则不能继续使用第二个交换机。
 
 .步骤
-. 请参见 link:../install-ip/index.html["MetroCluster IP 安装和配置"] 有关为替代交换机布线和配置交换机的过程。
+. 请参见 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置：： ONTAP MetroCluster 配置之间的差异"] 有关为替代交换机布线和配置交换机的过程。
 +
 您可以使用以下各节中的过程：
 

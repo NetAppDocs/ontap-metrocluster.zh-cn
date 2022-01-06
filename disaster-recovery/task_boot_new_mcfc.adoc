@@ -41,6 +41,7 @@ NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现�
 .. 将无主磁盘分配给本地节点上的 pool0
 
 
+. 如果您使用的是四节点配置，请在灾难站点的另一个节点上重复上述步骤。
 . 刷新 MetroCluster 配置：
 +
 .. 进入高级权限模式：
@@ -57,7 +58,33 @@ NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现�
 
 
 
-. 如果您使用的是四节点配置，请在灾难站点的另一个节点上重复上述步骤。
+. 确认灾难站点上的替代节点已做好切回准备：
++
+`MetroCluster node show`
+
++
+替代节点应处于 "`Waiting for switchback recovery` " 模式。如果它们处于 "`normal` " 模式，则可以重新启动替代节点。启动后，节点应处于 "`Waiting for switchback recovery` " 模式。
+
++
+以下示例显示替代节点已做好切回准备：
+
++
+....
+
+cluster_B::> metrocluster node show
+DR                    Configuration  DR
+Grp Cluster Node      State          Mirroring Mode
+--- ------- --------- -------------- --------- --------------------
+1   cluster_B
+            node_B_1  configured     enabled   switchover completed
+            node_B_2  configured     enabled   switchover completed
+    cluster_A
+            node_A_1  configured     enabled   waiting for switchback recovery
+            node_A_2  configured     enabled   waiting for switchback recovery
+4 entries were displayed.
+
+cluster_B::>
+....
 
 
 继续执行 link:../disaster-recovery/task_complete_recovery.html["完成灾难恢复过程"]。

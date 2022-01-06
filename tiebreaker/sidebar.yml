@@ -1,7 +1,6 @@
 ---
 section: tiebreaker
 title: 安装和配置 MetroCluster Tiebreaker
-url: "/tiebreaker/index.html"
 entries:
 - title: Tiebreaker 软件概述
   url: "/tiebreaker/concept_overview_of_the_tiebreaker_software.html"

@@ -1,15 +1,16 @@
 ---
 section: transition
 title: 从 MetroCluster FC 过渡到 MetroCluster IP
-url: "/transition/index.html"
 entries:
+- title: 选择过渡操作步骤
+  url: "/transition/concept_choosing_your_transition_procedure_mcc_transition.html"
 - title: 支持无中断过渡的平台
   url: "/transition/concept_supported_platforms_for_transition.html"
 - title: 无中断地从 MetroCluster FC 过渡到 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
-  url: "/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html"
   entries:
+  - title: 概述
+    url: "/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html"
   - title: 准备从 MetroCluster FC 过渡到 MetroCluster IP 配置
-    url: "/transition/concept_preparing_for_transitioning_from_mcc_fc_to_an_mcc_ip_configuration.html"
     entries:
     - title: 无中断 FC-IP 过渡的要求
       url: "/transition/concept_requirements_for_fc_to_ip_transition_mcc.html"
@@ -26,9 +27,8 @@ entries:
     - title: 此操作步骤中的命名示例
       url: "/transition/concept_example_naming_in_this_procedure_mcc_ip_transition.html"
   - title: 从 MetroCluster FC 过渡到 MetroCluster IP 配置
-    url: "/transition/task_transition_from_mcc_fc_to_mcc_ip_configurations.html"
     entries:
-    - title: 验证 MetroCluster 配置的运行状况
+    - title: 验证 MetroCluster 配置的运行状况。
       url: "/transition/task_verify_mcc_health_fc_to_ip.html"
     - title: 从 Tiebreaker 或其他监控软件中删除现有配置
       url: "/transition/task_remove_tiebreaker_4n_transition.html"
@@ -51,8 +51,9 @@ entries:
   - title: 还原 Tiebreaker 或调解器监控
     url: "/transition/task_restore_tiebreaker_monitor_4n_nondisruptive_mcc_transition.html"
 - title: 从双节点 MetroCluster FC 中断过渡到四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
-  url: "/transition/task_disruptively_transition_from_a_two_node_mcc_fc_to_a_four_node_mcc_ip_configuration.html"
   entries:
+  - title: 概述
+    url: "/transition/task_disruptively_transition_from_a_two_node_mcc_fc_to_a_four_node_mcc_ip_configuration.html"
   - title: 此操作步骤中的命名示例
     url: "/transition/concept_example_naming_in_this_procedure_2n_mcc_transition_disruptive.html"
   - title: 为中断 FC-IP 过渡做准备
@@ -67,7 +68,7 @@ entries:
     url: "/transition/task_return_the_system_to_normal_operation_2n_mcc_transition_supertask.html"
 - title: 停用存储架时从 MetroCluster FC 中断过渡到 MetroCluster IP （ ONTAP 9.8 及更高版本）
   url: "/transition/task_disruptively_transition_while_move_volumes_from_old_shelves_to_new_shelves.html"
-- title: 在新控制器不支持现有磁盘架时进行中断过渡（ ONTAP 9.8 及更高版本）
+- title: 当新控制器不支持现有磁盘架时发生中断过渡（ ONTAP 9.8 及更高版本）
   url: "/transition/task_disruptively_transition_when_exist_shelves_are_not_supported_on_new_controllers.html"
 - title: 将 FC SAN 工作负载从 MetroCluster FC 移动到 MetroCluster IP 节点
   url: "/transition/task_move_an_fc_san_workload_from_mcc_fc_to_mcc_ip_nodes.html"

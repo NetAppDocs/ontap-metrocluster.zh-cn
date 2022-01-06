@@ -138,7 +138,7 @@ FC_switch_B_1:admin> portcfgpersistentdisable 7
 .. 打开新 FC 交换机的电源。
 
 
-. 如果要启用 ISL 加密，请完成中的适用任务 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["《光纤连接的 MetroCluster 安装和配置指南》"]。
+. 如果要启用 ISL 加密，请完成中的适用任务 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]。
 +
 如果要启用 ISL 加密，则需要完成以下任务：
 

@@ -218,7 +218,7 @@ mccint-fas9000-0304
 
 使用以下链接安装和配置 Tiebreaker 或调解器：
 
-* link:../tiebreaker/index.html["安装和配置 MetroCluster Tiebreaker 软件："]
+* link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["安装和配置 MetroCluster Tiebreaker 软件："]
 * link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["为计划外自动切换配置 ONTAP 调解器服务"]
 
 

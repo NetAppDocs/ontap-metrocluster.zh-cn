@@ -12,6 +12,14 @@ summary: 从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信�
 [role="lead"]
 您的环境必须满足以下要求。您可能需要更新 Linux 版本。
 
+[NOTE]
+====
+* ONTAP 调解器服务和 MetroCluster Tiebreaker 软件不应同时使用相同的 MetroCluster 配置。
+* ONTAP 调解器服务最多可同时支持五个 MetroCluster 配置。
+* ONTAP 9.7 及更高版本支持自动计划外切换。
+
+
+====
 
 
 == 在 MetroCluster 配置中使用调解器的网络要求
@@ -152,7 +160,7 @@ link:task_uninstall_mediator.html["安装或升级 ONTAP 调解器服务"]
 
 . 将调解器服务添加到 ONTAP 配置：
 +
-MetroCluster configuration-settings add -addressmedier-1.1-ip-address`
+`MetroCluster configuration-settings add -mediate-address-1.1-ip-address`
 
 
 

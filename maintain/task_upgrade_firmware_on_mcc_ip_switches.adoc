@@ -1,7 +1,7 @@
 ---
 permalink: maintain/task_upgrade_firmware_on_mcc_ip_switches.html 
 sidebar: sidebar 
-keywords: metrocluster, maintain, service, upgrade, firmware. ip, switches 
+keywords: metrocluster, maintain, service, upgrade, firmware. ip, switches, cisco, broadcom, efos, nxos, nx-os, software, install 
 summary: 升级 MetroCluster IP 交换机上的固件。 
 ---
 = 升级 MetroCluster IP 交换机上的固件
@@ -83,10 +83,12 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 
 . 在第一台交换机上安装软件。
 +
-根据交换机类型是 MetroCluster 还是 Broadcom ，按照 _Broadcom IP 安装和配置指南 _ 相关部分中的步骤安装交换机软件：
+根据交换机类型是 Broadcom 还是 MetroCluster ，按照 _Broadcom IP 安装和配置 _ 信息相关主题中有关安装交换机软件的步骤进行操作：
 
 +
-link:../install-ip/task_install_and_cable_the_mcc_components.html["《 MetroCluster IP 安装和配置指南》"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-switch-efos-software["下载并安装 Broadcom 交换机 EFOS 软件"]
+** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-switch-nx-os-software["下载并安装 Cisco 交换机 NX-OS 软件"]
+
 
 . 对每个交换机重复上述步骤。
 . 重复步骤 1 以检查配置的运行状况。

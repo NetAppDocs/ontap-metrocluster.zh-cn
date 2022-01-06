@@ -16,11 +16,9 @@ NetApp 提供的 MetroCluster IP 交换机已通过 NetApp 验证。从 ONTAP 9.
 
 == 一般要求
 
-这些要求显示了如何在不使用参考配置（ Reference Configuration ， RCF ）文件的情况下配置符合 MetroCluster 的交换机。
+这些要求显示了如何在不使用参考配置（ Reference Configuration ， RCF ）文件的情况下配置符合 MetroCluster 的交换机。* 连接到 MetroCluster 节点的交换机可以传输非 MetroCluster 流量。* 仅支持为无交换机集群互连提供专用端口的平台。不支持 FAS2750 和 AFF A220 等平台，因为 MetroCluster 流量和 MetroCluster 互连流量共享相同的网络端口。
 
-* 仅支持为无交换机集群互连提供专用端口的平台。不支持 FAS2750 和 AFF A220 等平台，因为 MetroCluster 流量和 MetroCluster 互连流量共享相同的网络端口。
-+
-不支持将本地集群连接连接到符合 MetroCluster 要求的交换机。
++ 不支持将本地集群连接连接到符合 MetroCluster 的交换机。
 
 * MetroCluster IP 接口可以连接到可配置为满足要求的任何交换机端口。
 * 对于 FAS8200 和 AFF A300 平台，交换机端口的速度必须为 25 Gbps ，而对于所有其他平台，交换机端口的速度必须至少为 40 Gbps （ 40 Gbps 或 100 Gbps ）。
@@ -34,7 +32,7 @@ NetApp 提供的 MetroCluster IP 交换机已通过 NetApp 验证。从 ONTAP 9.
 ** link:../install-ip/concept_considerations_layer_2.html#required-settings-on-intermediate-switches["中间交换机上的必需设置"]
 
 
-* 在使用开放网络的 MetroCluster IP 配置中，不支持还原到 ONTAP 9.6 或更早版本。
+* 在使用符合 MetroCluster 的交换机的 MetroCluster IP 配置中，不支持还原到 ONTAP 9.6 或更早版本。
 * 必须在传输 MetroCluster IP 流量的所有交换机上配置 MTU 9216 。
 
 

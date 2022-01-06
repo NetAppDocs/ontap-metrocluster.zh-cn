@@ -24,7 +24,7 @@ summary: 要将双节点 MetroCluster FC 配置扩展为四节点 MetroCluster F
 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
 +
-link:../install-stretch/index.html["延伸型 MetroCluster 安装和配置"]
+link:../install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
 
 * 您必须具有可用的 FC 交换机端口以容纳新控制器和任何新网桥。
 * 您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。

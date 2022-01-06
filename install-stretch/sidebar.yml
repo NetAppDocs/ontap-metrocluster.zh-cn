@@ -1,10 +1,8 @@
 ---
 section: install-stretch
 title: 安装延伸型 MetroCluster 配置
-url: "/install-stretch/index.html"
 entries:
 - title: 准备 MetroCluster 安装
-  url: "/install-stretch/concept_preparing_for_the_mcc_installation.html"
   entries:
   - title: ONTAP MetroCluster 配置之间的差异
     url: "/install-stretch/concept_considerations_differences.html"
@@ -14,19 +12,21 @@ entries:
     url: "/install-stretch/concept_considerations_unmirrored_aggrs.html"
   - title: MetroCluster 站点上的防火墙使用情况
     url: "/install-stretch/concept_considerations_firewalls.html"
-- title: 为您的配置选择正确的安装操作步骤
+- title: 根据您的配置选择正确的安装操作步骤
   url: "/install-stretch/concept_choosing_the_correct_installation_procedure_for_your_configuration_mcc_install.html"
 - title: 为双节点 SAS 连接的延伸型 MetroCluster 配置布线
-  url: "/install-stretch/task_configure_the_mcc_hardware_components_2_node_stretch_sas.html"
   entries:
+  - title: 概述
+    url: "/install-stretch/task_configure_the_mcc_hardware_components_2_node_stretch_sas.html"
   - title: 双节点 SAS 连接延伸型 MetroCluster 配置的组成部分
     url: "/install-stretch/concept_parts_of_a_two_node_sas_attached_stretch_mcc_configuration.html"
   - title: 双节点 SAS 连接延伸型配置所需的 MetroCluster 硬件组件和命名准则
     url: "/install-stretch/concept_required_mcc_components_and_example_names_for_two_node_sas_attached_stretch_configurations_mcc.html"
   - title: 为双节点 SAS 连接延伸型配置安装 MetroCluster 组件并为其布线
-    url: "/install-stretch/reference_sas_optical_mc_configuring_a_stretch_mcc_system_with_sas_disk_shelves_and_sas_optical_cables.html"
     entries:
-    - title: 将硬件组件安装在机架中
+    - title: 概述
+      url: "/install-stretch/reference_sas_optical_mc_configuring_a_stretch_mcc_system_with_sas_disk_shelves_and_sas_optical_cables.html"
+    - title: 将硬件组件装入机架
       url: "/install-stretch/task_rack_the_hardware_components_2_node_stretch_sas.html"
     - title: 使用缆线将控制器彼此连接并连接到存储架
       url: "/install-stretch/task_cable_the_controllers_to_each_other_and_the_storage_shelves.html"
@@ -35,8 +35,9 @@ entries:
     - title: 为管理和数据连接布线
       url: "/install-stretch/task_cable_the_management_and_data_connections.html"
 - title: 为双节点桥接延伸型 MetroCluster 配置布线
-  url: "/install-stretch/task_configure_the_mcc_hardware_components_2_node_stretch_atto.html"
   entries:
+  - title: 概述
+    url: "/install-stretch/task_configure_the_mcc_hardware_components_2_node_stretch_atto.html"
   - title: 双节点桥接延伸型 MetroCluster 配置的组成部分
     url: "/install-stretch/concept_parts_of_a_two_node_mcc_configuration_using_fc_to_sas_bridges.html"
   - title: 双节点桥接延伸型配置所需的 MetroCluster 硬件组件和命名约定
@@ -44,11 +45,10 @@ entries:
   - title: FC-SAS 网桥的信息收集工作表
     url: "/install-stretch/reference_information_gathering_worksheet_for_fc_to_sas_bridges_2_node_atto.html"
   - title: 安装 MetroCluster 组件并为其布线
-    url: "/install-stretch/task_install_and_cable_the_mcc_components.html"
     entries:
-    - title: 将硬件组件安装在机架中
+    - title: 将硬件组件装入机架
       url: "/install-stretch/task_rack_the_hardware_components_mcc_2_node_stretch_atto.html"
-    - title: 使用缆线将控制器彼此连接
+    - title: 用缆线将控制器彼此相连
       url: "/install-stretch/task_cable_the_fc_vi_adapters_to_the_partner_controller_2_node_stretch_atto.html"
     - title: 为集群对等连接布线
       url: "/install-stretch/task_cable_the_cluster_peering_connections.html"
@@ -63,8 +63,9 @@ entries:
 - title: 测试 MetroCluster 配置
   url: "/install-stretch/task_test_the_mcc_configuration.html"
 - title: 使用阵列 LUN 的延伸型 MetroCluster 配置中的连接
-  url: "/install-stretch/concept_stretch_mcc_configuration_with_array_luns.html"
   entries:
+  - title: 概述
+    url: "/install-stretch/concept_stretch_mcc_configuration_with_array_luns.html"
   - title: 使用阵列 LUN 的延伸型 MetroCluster 配置示例
     url: "/install-stretch/reference_example_of_a_stretch_mcc_configuration_with_array_luns.html"
   - title: 使用磁盘和阵列 LUN 的双节点延伸型 MetroCluster 配置示例
@@ -73,9 +74,10 @@ entries:
     url: "/install-stretch/reference_example_of_a_stretch_mcc_configuration_with_e_series_storage_arrays.html"
 - title: 删除 MetroCluster 配置时的注意事项
   url: "/install-stretch/concept_considerations_when_removing_mcc_configurations.html"
-- title: 使用 Active IQ Unified Manager 和 ONTAP 系统管理器进行进一步配置和监控
-  url: "/install-stretch/concept_using_the_oncommand_management_tools_for_further_configuration_and_monitoring.html"
+- title: 如何使用 Active IQ Unified Manager 和 ONTAP 系统管理器进行进一步配置和监控
   entries:
+  - title: 概述
+    url: "/install-stretch/concept_using_the_oncommand_management_tools_for_further_configuration_and_monitoring.html"
   - title: 使用 NTP 同步系统时间
     url: "/install-stretch/task_synchronize_the_system_time_us_ntp.html"
 - title: 在 MetroCluster 配置中使用 ONTAP 时的注意事项

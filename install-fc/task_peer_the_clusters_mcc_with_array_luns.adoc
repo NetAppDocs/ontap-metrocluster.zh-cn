@@ -15,7 +15,7 @@ MetroCluster 配置中的集群必须处于对等关系中，以便它们可以�
 .步骤
 . 使用中的操作步骤配置集群间 LIF
 +
-link:../upgrade/task_configure_intercluster_lifs.html["配置集群间 LIF"]
+link:../upgrade/task_configure_intercluster_lifs_to_use_dedicated_intercluster_ports.html["配置集群间 LIF"]
 
 . 使用中的操作步骤创建集群对等关系
 +
