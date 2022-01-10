@@ -10,11 +10,12 @@ summary: 从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信�
 
 
 [role="lead"]
-您的环境必须满足以下要求。您可能需要更新 Linux 版本。
+从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信息提供物理上独立的存储库来协助 MetroCluster IP 配置执行自动计划外切换。您的环境必须满足以下要求。您可能需要更新 Linux 版本。
 
 [NOTE]
 ====
 * ONTAP 调解器服务和 MetroCluster Tiebreaker 软件不应同时使用相同的 MetroCluster 配置。
+* ONTAP 调解器必须安装在与 MetroCluster 站点不同的 Linux 主机上。
 * ONTAP 调解器服务最多可同时支持五个 MetroCluster 配置。
 * ONTAP 9.7 及更高版本支持自动计划外切换。
 

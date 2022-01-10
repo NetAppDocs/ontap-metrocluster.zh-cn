@@ -8063,7 +8063,6 @@
   <block id="82fc1040f5b61e8c89b20cd50330f402" category="summary">您可以从 NetApp 文档库了解有关 MetroCluster IP 配置和操作的更多信息。</block>
   <block id="9eea7b238136892d71a87bc2b316d883" category="summary">从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信息提供物理上独立的存储库来协助 MetroCluster IP 配置执行自动计划外切换。</block>
   <block id="87c73779bdee7b395b93de88e2529301" category="doc">准备安装 ONTAP 调解器服务</block>
-  <block id="373134d7cea49e85dc652250d9ea0395" category="paragraph">您的环境必须满足以下要求。您可能需要更新 Linux 版本。</block>
   <block id="927ed696d98572bdb5039cbffcfdb480" category="section-title">在 MetroCluster 配置中使用调解器的网络要求</block>
   <block id="b2b90a2080b20a433104d14b3164613a" category="paragraph">要在 MetroCluster 配置中安装 ONTAP 调解器服务，您必须确保此配置满足多个网络要求。</block>
   <block id="584cbb7b9a5b8e8c3d576c37046ef4f5" category="list-text">往返延迟</block>
@@ -12100,4 +12099,6 @@
   <block id="58a2e0468310e7617d4e119676028f57" category="sidebar">在 MetroCluster 配置上创建，实施和验证数据聚合</block>
   <block id="625658dcf56e073788050ba3b314f569" category="sidebar">实施同时包含磁盘和阵列 LUN 的 MetroCluster 配置</block>
   <block id="8b3aeec8c25c17c966b0b882195c6050" category="sidebar">使用 NTP 同步系统时间</block>
+  <block id="802203e13d5bcb94d9f7b7724e7e016e" category="paragraph">从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信息提供物理上独立的存储库来协助 MetroCluster IP 配置执行自动计划外切换。您的环境必须满足以下要求。您可能需要更新 Linux 版本。</block>
+  <block id="8b0f66b1cb7f0a192803547cc01ef5c4" category="list-text">ONTAP 调解器必须安装在与 MetroCluster 站点不同的 Linux 主机上。</block>
 </blocks>
