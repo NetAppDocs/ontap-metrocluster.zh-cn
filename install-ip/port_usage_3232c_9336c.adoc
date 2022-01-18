@@ -1,7 +1,7 @@
 ---
 permalink: install-ip/port_usage_3232c_9336c.html 
 sidebar: sidebar 
-keywords: cabling, cable, component, link, site, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure 
+keywords: cabling, cable, component, link, site, management, network, networks, hardware, component, switch, cluster, connection, management, data, configuring, configure 
 summary: MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台类型。 
 ---
 = Cisco 3232C 或 Cisco 9336C 交换机的平台端口分配
@@ -73,6 +73,12 @@ image::../media/mcc_ip_cabling_a_aff_a700_or_fas9000_to_a_cisco_3232c_or_cisco_9
 == 使用缆线将 AFF A800 连接到 Cisco 3232C 或 Cisco 9336C 交换机
 
 image::../media/cabling_an_aff_a800_to_a_cisco_3232c_or_cisco_9336c_switch.png[使用缆线将 AFF a800 连接到 Cisco 3232c 或 Cisco 9336c 交换机]
+
+
+
+== 使用缆线将 AFF A900 连接到 Cisco 3232C 或 Cisco 9336C 交换机
+
+image::../media/cabling_an_aff_a900_to_a_cisco_3232c_or_cisco_9336c_switch.png[使用缆线将 AFF a900 连接到 Cisco 3232c 或 Cisco 9336c 交换机]
 
 
 

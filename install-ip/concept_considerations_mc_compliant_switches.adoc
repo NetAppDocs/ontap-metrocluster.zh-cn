@@ -1,7 +1,7 @@
 ---
 permalink: install-ip/concept_considerations_mc_compliant_switches.html 
 sidebar: sidebar 
-keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, requirements 
+keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, requirements, compliant 
 summary: 从 ONTAP 9.7 开始， MetroCluster IP 配置可以支持未经 NetApp 验证的交换机，但前提是它们符合 NetApp 规格。 
 ---
 = 使用符合 MetroCluster 的交换机的注意事项
@@ -71,6 +71,13 @@ NOTE: 缺少值表示不支持此平台。
 
 
 | 平台 | 网络速度（ Gbps ） 
+
+
+ a| 
+AFF A900
+ a| 
+100
+
 
 
  a| 

@@ -90,9 +90,9 @@ https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["维护 Met
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/transition/index.html["从 MetroCluster FC 过渡到 MetroCluster IP"]
+https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_choosing_your_transition_procedure_mcc_transition.html["从 MetroCluster FC 过渡到 MetroCluster IP"]
 
-https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/index.html["《 MetroCluster 升级和扩展指南》"]
+https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["《 MetroCluster 升级和扩展指南》"]
  a| 
 * 升级或刷新 MetroCluster 配置
 * 从 MetroCluster FC 配置过渡到 MetroCluster IP 配置

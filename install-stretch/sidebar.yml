@@ -2,6 +2,8 @@
 section: install-stretch
 title: 安装延伸型 MetroCluster 配置
 entries:
+- title: 概述
+  url: "/install-stretch/index.html"
 - title: 准备 MetroCluster 安装
   entries:
   - title: ONTAP MetroCluster 配置之间的差异

@@ -2,6 +2,8 @@
 section: install-ip
 title: 安装 MetroCluster IP 配置
 entries:
+- title: 概述
+  url: "/install-ip/index.html"
 - title: 准备 MetroCluster 安装
   entries:
   - title: ONTAP MetroCluster 配置之间的差异

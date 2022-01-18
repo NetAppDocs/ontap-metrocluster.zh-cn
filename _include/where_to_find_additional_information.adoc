@@ -80,7 +80,7 @@ link:../upgrade/index.html["MetroCluster 升级和扩展"]
 
 
  a| 
-link:../transition/index.html["MetroCluster 过渡"]
+link:../transition/concept_choosing_your_transition_procedure_mcc_transition.html["MetroCluster 过渡"]
  a| 
 * 从 MetroCluster FC 配置过渡到 MetroCluster IP 配置
 

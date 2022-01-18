@@ -1,7 +1,7 @@
 ---
 permalink: install-fc/task_cable_the_controller_module_s_fc_vi_hba_ports_to_the_fc_switches_controller_to_fc_sw.html 
 sidebar: sidebar 
-keywords: metrocluster, fabric, installation, cable, new, controller, module, fc, vi, hba, ports, fc, switches 
+keywords: metrocluster, fabric, installation, cable, new, controller, module, fc, vi, hba, ports, fc, switches, mcc 
 summary: 必须使用缆线将 FC-VI 端口和 HBA （主机总线适配器）连接到 MetroCluster 配置中每个控制器模块上的站点 FC 交换机。 
 ---
 = 使用缆线将新控制器模块和 HBA 端口连接到 FC 交换机
@@ -17,6 +17,7 @@ summary: 必须使用缆线将 FC-VI 端口和 HBA （主机总线适配器）�
 +
 ** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
 ** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]
+** link:concept_AFF_A900_port_assign_fc_switches_ontap_9_1.html["使用 AFF A900 系统时 FC 交换机的端口分配"]
 ** link:concept_port_assignments_for_systems_using_two_initiator_ports.html["使用两个启动程序端口的系统的端口分配"]
 
 

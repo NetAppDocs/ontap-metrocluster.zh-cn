@@ -1,0 +1,20 @@
+---
+permalink: install-ip/index.html 
+sidebar: sidebar 
+keywords: metrocluster, ip, installation 
+summary: 要安装 MetroCluster IP 配置，必须按正确顺序执行多个过程。 
+---
+= 概述
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要安装 MetroCluster IP 配置，必须按正确顺序执行多个过程。
+
+* link:../install-ip/concept_considerations_differences.html["准备安装并了解所有要求"]。
+* link:../install-ip/concept_parts_of_an_ip_mcc_configuration_mcc_ip.html["为组件布线"]
+* link:../install-ip/concept_configure_the_mcc_software_in_ontap.html["配置软件"]
+* link:../install-ip/concept_mediator_requirements.html["配置 ONTAP 调解器"] （可选）
+* link:../install-ip/task_test_the_mcc_configuration.html["测试配置"]
+

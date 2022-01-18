@@ -192,7 +192,7 @@ link:task_install_configure_mediator.html["安装或升级 ONTAP 调解器服务
 
 . 将调解器服务添加到 ONTAP 配置：
 +
-MetroCluster configuration-settings add -addressmedier-1.0-ip-address`
+`MetroCluster configuration-settings add -mediate-address-1.0-ip-address`
 
 
 
@@ -273,7 +273,7 @@ reboot
 . link:../install-ip/task_install__configure_mediator.html["重新安装调解器服务"]。
 . 将调解器服务添加到 ONTAP 配置：
 +
-MetroCluster configuration-settings add -addressmedier-ip-address`
+`MetroCluster configuration-settings add -mediate-address-ip-address`
 
 
 

@@ -1,7 +1,7 @@
 ---
 permalink: install-ip/task_sw_config_verify_haconfig.html 
 sidebar: sidebar 
-keywords: metrocluster, ha-config, mccip, haconfig, verify 
+keywords: metrocluster, ha-config, mccip, haconfig, verify, high-availability 
 summary: 在出厂时未预配置的 MetroCluster IP 配置中，您必须验证控制器和机箱组件的 ha-config 状态是否设置为 mccip ，以便它们可以正常启动。对于从工厂收到的系统，此值是预配置的，您无需对其进行验证。 
 ---
 = 验证组件的 ha-config 状态
@@ -1436,6 +1436,19 @@ MetroCluster IP 接口使用的物理端口取决于平台型号，如下表所�
 
 |===
 | 平台型号 | MetroCluster IP 端口 | 注意 
+
+
+ a| 
+AFF A900
+ a| 
+e5b
+ a| 
+
+
+
+ a| 
+e7b
+
 
 
  a| 

@@ -1,0 +1,48 @@
+---
+permalink: /install-fc/concept_AFF_A900_cisco_ISLs.html 
+sidebar: sidebar 
+keywords: AFF, A900, ONTAP, FAS, Cisco, ISL, metrocluster 
+summary: 下表显示了 ISL 端口使用情况。 
+---
+= AFF A900 —运行 ONTAP 9.10.1 或更高版本的 MetroCluster 配置中八节点配置中 ISL 的 Cisco 端口使用情况
+
+
+
+
+== AFF A900 —运行 ONTAP 9.10.1 或更高版本的 MetroCluster 配置中八节点配置中 ISL 的 Cisco 端口使用情况
+
+下表显示了 ISL 端口使用情况。此配置中的所有交换机上的 ISL 端口使用情况均相同。
+
+|===
+| 交换机型号 | ISL 端口 | 交换机端口 
+
+
+.2+| Cisco 9132T ， 1 个 LEM | ISL1 | LEM1-15 
+
+
+| ISL2 | LEM1-16 
+
+
+.8+| 具有 2 个 LEM 的 Cisco 9132T | ISL1 | LEM2-9 
+
+
+| ISL2 | LEM2-10 
+
+
+| ISL3 | LEM2-11 
+
+
+| ISL4 | LEM2-12 
+
+
+| ISL5. | LEM2-13 
+
+
+| ISL6 | LEM2-14 
+
+
+| ISL7. | LEM2-15 
+
+
+| ISL8. | LEM2-16 
+|===

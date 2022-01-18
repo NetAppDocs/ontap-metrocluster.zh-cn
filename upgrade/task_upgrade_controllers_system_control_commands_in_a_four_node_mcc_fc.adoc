@@ -1,7 +1,7 @@
 ---
 permalink: upgrade/task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_fc.html 
 sidebar: sidebar 
-keywords: metrocluster, upgrade, controllers, switchover, switchback, fc, configuration, net, boot, root, aggregate, system, commands 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, fc, configuration, net, boot, root, aggregate, system, commands, mcc 
 summary: 您可以使用此引导式自动 MetroCluster 切换操作对四节点 MetroCluster FC 配置执行无中断控制器升级。 
 ---
 = 使用切换和切回命令使用 system controller replace 升级四节点 MetroCluster FC 配置中的控制器（ ONTAP 9.10.1 及更高版本）

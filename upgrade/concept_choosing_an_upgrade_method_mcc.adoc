@@ -119,9 +119,20 @@ link:task_refresh_4n_mcc_ip.html["刷新四节点 MetroCluster IP 配置（ ONTA
  a| 
 FC
  a| 
+9.10.1 及更高版本
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-mendocino/index.html["使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900"^]
+
+
+
+ a| 
+使用 `ssystem controller replace` 命令
+ a| 
+FC
+ a| 
 9.8 及更高版本
  a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 及更高版本的控制器硬件"]
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 及更高版本的控制器硬件"^]
 
 
 
@@ -132,7 +143,7 @@ FC
  a| 
 9.5 到 9.7
  a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html["使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7"]
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html["使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7"^]
 
 
 
@@ -143,7 +154,7 @@ FC
  a| 
 9.8
  a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["手动升级运行 ONTAP 9.8 及更高版本的控制器硬件"]
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["手动升级运行 ONTAP 9.8 及更高版本的控制器硬件"^]
 
 
 
@@ -154,6 +165,6 @@ FC
  a| 
 9.7 及更早版本
  a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html["手动升级运行 ONTAP 9.7 及更早版本的控制器硬件"]
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html["手动升级运行 ONTAP 9.7 及更早版本的控制器硬件"^]
 
 |===

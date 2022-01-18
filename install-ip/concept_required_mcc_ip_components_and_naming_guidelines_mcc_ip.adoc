@@ -1,7 +1,7 @@
 ---
 permalink: install-ip/concept_required_mcc_ip_components_and_naming_guidelines_mcc_ip.html 
 sidebar: sidebar 
-keywords: plan, metrocluster, ip, configuration, require, hardware, software, clarity, conventions, component, documentation, naming, name, requirement, support, redundancy, switch, ontap, cluster, controller, module, gigabit, ethernet, adapter, pool, drive, drive, location, consideration, partial, populate, shelves, shelf, aff, a800, internal, iom12, iom, module, stack, four-node, raid-dp, raid4, AFF A800 internal drives 
+keywords: plan, metrocluster, ip, configuration, planning, require, hardware, software, clarity, conventions, component, documentation, naming, name, requirement, support, redundancy, switch, ontap, cluster, controller, module, gigabit, ethernet, adapter, pool, drive, drive, location, consideration, partial, populate, shelves, shelf, aff, a800, internal, iom12, iom, module, stack, four-node, raid-dp, raid4, AFF A800 internal drives 
 summary: 在规划 MetroCluster IP 配置时，您必须了解所需的和支持的硬件和软件组件。为了方便和清晰起见，您还应了解整个文档中的示例中用于组件的命名约定。 
 ---
 = 所需的 MetroCluster IP 组件和命名约定
@@ -138,6 +138,9 @@ MetroCluster IP 配置使用 40/100 Gbps 或 10/25 Gbps 以太网适配器作为
 
 
 | 平台型号 | 需要千兆以太网适配器 | 适配器所需的插槽 | 端口 
+
+
+| AFF A900 | X91146A | 插槽 5 ，插槽 7 | e5b ， e7b 
 
 
  a| 
@@ -287,9 +290,9 @@ AFF A800 系统具有 48 个驱动器托架。托架可以划分为四个季度�
 如果此系统中安装了 16 个驱动器，则这些驱动器必须对称分布在以下四个四等分之间：
 
 * 第一季度有四个驱动器： 0 ， 1 ， 2 ， 3
-* 第二季度有四个驱动器： 12 ， 13 ， 14 ， 15
-* 第三季度有四个驱动器： 24 ， 25 ， 26 ， 27
-* 第四季度有四个驱动器： 36 ， 37 ， 38 ， 39
+* 第二季度有四个驱动器： 6 ， 7 ， 8 ， 9
+* 第三季度有四个驱动器： 12 ， 13 ， 14 ， 15
+* 第四季度有四个驱动器： 18 ， 19 ， 20 ， 21
 
 
 

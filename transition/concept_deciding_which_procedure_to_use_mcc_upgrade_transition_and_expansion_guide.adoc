@@ -59,7 +59,7 @@ link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷�
 如果不重复使用存储架，则数据将从旧磁盘架移至新磁盘架。
 
 +
-链接： ./transition/index.html
+链接： ./transition/concept_choosing_your_transition_procedure_mcc_transition.html
 
 
 

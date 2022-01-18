@@ -1,0 +1,25 @@
+---
+permalink: install-stretch/index.html 
+sidebar: sidebar 
+keywords: metrocluster, stretch, installation 
+summary: 要安装延伸型 MetroCluster 配置，必须按正确顺序执行多个过程。 
+---
+= 概述
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要安装延伸型 MetroCluster 配置，必须按正确顺序执行多个过程。
+
+* link:../install-stretch/concept_considerations_differences.html["准备安装并了解所有要求"]
+* link:../install-stretch/concept_choosing_the_correct_installation_procedure_for_your_configuration_mcc_install.html["选择正确的安装操作步骤"]
+* 为组件布线
++
+** link:../install-stretch/task_configure_the_mcc_hardware_components_2_node_stretch_sas.html["双节点 SAS 连接配置"]
+** link:../install-stretch/task_configure_the_mcc_hardware_components_2_node_stretch_atto.html["双节点网桥连接配置"]
+
+
+* link:../install-stretch/concept_configuring_the_mcc_software_in_ontap.html["配置软件"]
+* link:../install-stretch/task_test_the_mcc_configuration.html["测试配置"]
+

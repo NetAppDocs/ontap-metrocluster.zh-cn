@@ -35,16 +35,14 @@ homepage:
   - title: 入门
     links:
     - title: 安装 MetroCluster IP
-      summary: 安装 MetroCluster IP 配置。
+      url: "/install-ip/index.html"
     - title: 安装光纤连接的 MetroCluster
-      summary: 安装光纤连接的 MetroCluster 配置。
+      url: "/install-fc/index.html"
     - title: 安装延伸型 MetroCluster
-      summary: 安装延伸型 MetroCluster 配置。
+      url: "/install-stretch/index.html"
     - title: 安装 Tiebreaker
-      summary: 在第三个位置安装 MetroCluster Tiebreaker 软件以监控 MetroCluster 站点。
       url: "/tiebreaker/concept_overview_of_the_tiebreaker_software.html"
     - title: 安装调解器（仅限 MetroCluster IP ）
-      summary: 在第三个位置安装 ONTAP 调解器软件，以监控 MetroCluster IP 站点。
       url: "/install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html"
   - title: 维护
     links:
@@ -77,13 +75,16 @@ homepage:
     links:
     - title: 升级和刷新硬件
       summary: 升级 MetroCluster 配置中的控制器。
-      url: "/upgrade/index.html"
-    - title: 展开
+      url: "/upgrade/concept_choosing_an_upgrade_method_mcc.html"
+    - title: 展开双节点 MetroCluster
       summary: 将控制器添加到 MetroCluster 配置中以创建四节点或八节点配置。
-      url: "/upgrade/index.html"
+      url: "/upgrade/task_expand_a_two_node_mcc_fc_configuration_to_a_four_node_fc_configuration_supertask.html"
+    - title: 展开四节点 MetroCluster
+      summary: 将控制器添加到 MetroCluster 配置中以创建八节点配置。
+      url: "/upgrade/task_expand_a_four_node_mcc_fc_configuration_to_an_eight_node_configuration.html"
     - title: 将 MetroCluster FC 转换为 MetroCluster IP
       summary: 将现有 MetroCluster IP 配置过渡到 MetroCluster IP 配置。
-      url: "/transition/index.html"
+      url: "/transition/concept_choosing_your_transition_procedure_mcc_transition.html"
     - title: 升级 MetroCluster IP RCF 文件
       summary: 升级 MetroCluster IP 配置中的交换机 RCF 文件。
       url: "/maintain/task_upgrade_rcf_files_on_mcc_ip_switches.html"
