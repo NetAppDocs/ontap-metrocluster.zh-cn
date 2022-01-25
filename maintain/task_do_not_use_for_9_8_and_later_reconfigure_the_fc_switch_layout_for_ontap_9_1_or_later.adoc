@@ -24,7 +24,6 @@ summary: 如果现有 FC 交换机布局是在 ONTAP 9.1 之前配置的，则�
 
 == 在重新配置交换机之前发送自定义 AutoSupport 消息
 
-[role="lead"]
 在重新配置交换机问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
 
 必须在每个 MetroCluster 站点上执行此任务。
@@ -39,7 +38,7 @@ summary: 如果现有 FC 交换机布局是在 ONTAP 9.1 之前配置的，则�
 maintenance-window-in-hours 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：
 
 +
-` * 系统节点 AutoSupport 调用 -node * -type all -message MAINT=end*`
+`ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
 
 . 在配对站点上重复上述步骤。
 
@@ -48,13 +47,12 @@ maintenance-window-in-hours 指定维护时段的长度，最长为 72 小时。
 
 == 验证 MetroCluster 配置的运行状况
 
-[role="lead"]
 您应检查 MetroCluster 配置的运行状况以验证是否正常运行。
 
 .步骤
 . 验证 MetroCluster 组件是否运行正常：
 +
-` * MetroCluster check run*`
+`MetroCluster check run`
 
 +
 [listing]
@@ -90,11 +88,11 @@ volumes             ok
 ----
 . 要检查正在运行的 MetroCluster 检查操作的状态，请使用命令：
 +
-` * MetroCluster 操作历史记录显示 -job-id 38*`
+MetroCluster 操作历史记录显示 -job-id 38`
 
 . 验证是否没有运行状况警报：
 +
-` * 系统运行状况警报 show*`
+`s系统运行状况警报显示`
 
 
 
@@ -102,7 +100,6 @@ volumes             ok
 
 == 正在检查 MetroCluster 配置错误
 
-[role="lead"]
 您可以使用 NetApp 支持站点上提供的 Config Advisor 工具检查常见配置错误。
 
 Config Advisor 是一款配置验证和运行状况检查工具。您可以将其部署在安全站点和非安全站点上，以便进行数据收集和系统分析。
@@ -112,7 +109,7 @@ NOTE: 对 Config Advisor 的支持是有限的，并且只能联机使用。
 
 . 下载 Config Advisor 工具。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
 
 . 运行 Config Advisor ，查看输出并按照其建议解决任何问题。
 
@@ -121,7 +118,6 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 == 持久禁用交换机
 
-[role="lead"]
 您必须持久禁用网络结构中的交换机，以便修改其配置。
 
 您可以通过在交换机命令行上运行命令来禁用交换机；用于此操作的命令不是 ONTAP 命令。
@@ -129,21 +125,14 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 .步骤
 . 持久禁用交换机：
 +
-** 对于 Brocade 交换机，请使用 `sswitch/CfgPersistentDisable` 命令。
-** 对于 Cisco 交换机，请使用 `susPEND` 命令。以下命令将持久禁用 Brocade 交换机：
+** 使用以下命令持久禁用 Brocade 交换机：
 +
-[listing]
-----
-FC_switch_A_1:admin> switchCfgPersistentDisable
-----
-+
-以下命令将禁用 Cisco 交换机：
+`FC_switch_A_1 ： admin> switchCfgPersistentDisable`
 
+** 使用以下命令持久禁用 Cisco 交换机：
 +
-[listing]
-----
-vsan [vsna #] suspend
-----
+`vsan vsna #] suspend`
+
 
 
 
@@ -152,18 +141,14 @@ vsan [vsna #] suspend
 
 == 确定新的布线布局
 
-[role="lead"]
 您必须确定新控制器模块和任何新磁盘架到现有 FC 交换机的布线。
 
 必须在每个 MetroCluster 站点上执行此任务。
 
 .步骤
-. 使用 _Fabric-Attached MetroCluster 安装和配置指南 _ 根据八节点 MetroCluster 配置的端口使用情况确定您的交换机类型的布线布局。
+. 使用 ... https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"^] 要确定交换机类型的布线布局，请使用八节点 MetroCluster 配置的端口使用情况。
 +
 FC 交换机端口使用情况必须与指南中所述的使用情况匹配，才能使用参考配置文件（ Reference Configuration Files ， RCF ）。
-
-+
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
 +
 
@@ -175,12 +160,9 @@ NOTE: 如果您的环境无法使用 RCF 进行布线，请联系技术支持。
 
 == 应用 RCF 文件并重新为交换机布线
 
-[role="lead"]
 您必须应用适当的参考配置（ RCF ）文件来重新配置交换机以容纳新节点。应用 RCF 文件后，您可以对交换机进行重新布线。
 
-FC 交换机端口使用情况必须与 _Fabric-Attached MetroCluster 安装和配置指南 _ 中所述的使用情况匹配，才能使用 RCF 。
-
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+FC 交换机端口使用情况必须与中所述的使用情况匹配 https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"^] 以便可以使用 RCF 。
 
 .步骤
 . 找到适用于您的配置的 RCF 文件。
@@ -199,10 +181,10 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤�
 . 使用缆线将控制器中的 FC-VI 端口连接到交换机。
 . 从现有节点中，验证 FC-VI 端口是否联机：
 +
-` * MetroCluster 互连适配器显示 *`
+`MetroCluster 互连适配器 show`
 
 +
-` * MetroCluster 互连镜像显示 *`
+`MetroCluster 互连镜像显示`
 
 
 
@@ -210,7 +192,6 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤�
 
 == 持久启用交换机
 
-[role="lead"]
 您必须持久启用网络结构中的交换机。
 
 .步骤
@@ -239,11 +220,7 @@ vsan [vsna #]no suspend
 
 == 验证切换，修复和切回
 
-[role="lead"]
 您应验证 MetroCluster 配置的切换，修复和切回操作。
 
-. 使用 _RAID MetroCluster 管理和灾难恢复指南 _ 中提到的协商切换，修复和切回过程。
-+
-https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/index.html["MetroCluster 管理和灾难恢复"]
-
+. 使用中所述的协商切换，修复和切回过程 https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/index.html["MetroCluster 管理和灾难恢复"^]。
 

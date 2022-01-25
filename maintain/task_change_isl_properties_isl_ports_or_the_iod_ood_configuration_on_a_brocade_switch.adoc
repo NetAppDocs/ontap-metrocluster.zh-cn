@@ -17,12 +17,12 @@ summary: 如果要添加或升级硬件，例如其他或更快的控制器或�
 如果 ISL 链路上的设备发生变化，而新的链路配置不再支持当前配置—中继和有序交付—则需要根据正确的路由策略重新配置网络结构：按顺序交付（ IOD ）或无序交付（ OOD ）。
 
 
-NOTE: 要使用 ONTAP 软件更改 OOD ，请执行以下步骤： link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software#configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software["在 ONTAP 软件上配置帧的按顺序交付或无序交付"]
+NOTE: 要使用 ONTAP 软件更改 OOD ，请执行以下步骤： link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software#configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software["在 ONTAP 软件上配置帧的按顺序交付或无序交付"]
 
 .步骤
 . 禁用 FCVI 和存储 HBA 端口：
 +
-` * portcfgpersistentdisable _port number_*`
+`portcfgpersistentdisable _port number_`
 
 +
 默认情况下，前 8 个端口（端口 0 到 7 ）用于 FCVI 和存储 HBA 。必须持久禁用这些端口，以便在交换机重新启动时，这些端口仍保持禁用状态。
@@ -39,37 +39,39 @@ NOTE: 要使用 ONTAP 软件更改 OOD ，请执行以下步骤： link:https://
 ----
 . 根据需要更改 ISL 端口。
 +
+[cols="30,70"]
 |===
+
+
 | 选项 | 步骤 
 
 
  a| 
 要更改 ISL 端口的速度 ...
  a| 
-在网络结构上的两台交换机上使用 ` * portcfgspeed _port number port speed_*` 命令。
+在网络结构上的两台交换机上使用 `portcfgspeed _port number port speed_` 命令。
 
 在以下示例中，将 ISL 端口速度从 40 Gbps 更改为 16 Gbps ：
 
-` * Brocade_switch_A_1 ： admin> portcfgspeed 40 16*`
+`Brocade_switch_A_1 ： admin> portcfgspeed 40 16`
 
 您可以使用 `sswitchshow` 命令验证速度是否已更改：
 
-` * Brocade_switch_A_1 ： admin> switchshow*`
+`Brocade_switch_A_1 ： admin> switchshow`
 
 您应看到以下输出：
 
-[listing]
-----
-    . . .
-    	   40  40   062800   id    16G	   No_Sync     FC  Disabled
-    	. . .
-----
+....
+  . . .
+   40 40  062800  id 16G  No_Sync FC Disabled
+  . . .
+....
 
 
  a| 
 更改 ISL 端口的距离
  a| 
-对网络结构中的两个交换机使用 ` * portcfglongdistance _port number port distance_*` 命令。
+对网络结构中的两台交换机使用 `portcfglongdistance _port number port distance_` 命令。
 
 
 
@@ -104,8 +106,8 @@ NOTE: 如果路由策略保持不变，则无需重新配置，可以忽略此�
 +
 ** 更改前，多个 ISL 构成一个中继，但更改后，不再支持中继。在这种情况下，您必须为 OOD 配置网络结构。
 ** 更改前有一个 ISL ，更改后有多个 ISL 。
-** 如果多个 ISL 构成一个中继，请为 IOD 配置网络结构。如果多个 ISL 不能构成中继，请为网络结构配置 OOD 。
-** 使用 ` * switchcfgpersistentdisable*` 命令持久禁用交换机，如以下示例所示：
+** 如果多个 ISL 构成一个中继，请为 IOD 配置网络结构。如果多个 ISL * 无法 * 构成一个中继，请为网络结构配置 OOD 。
+** 使用 `sswitchcfgpersistentdisable` 命令持久禁用交换机，如以下示例所示：
 +
 [listing]
 ----
@@ -114,16 +116,19 @@ Switch_A_1:admin> switchcfgpersistentdisable
 Switch_B_1:admin> switchcfgpersistentdisable
 ----
 +
-... 为每个 ISL ` * 端口 cfgtrunkport _port number_*` 配置中继模式，如下表所示：
+... 为每个 ISL `portcfgtrunkport _port number_` 配置中继模式，如下表所示：
 +
+[cols="30,70"]
 |===
+
+
 | 场景 | 步骤 
 
 
  a| 
 为 ISL 配置中继 \ （ IOD\ ）
  a| 
-将 ` * portcfgtrunkport _port number_*` 设置为 1 ：
+将 `portcfgtrunkport _port number_` 设置为 1 ：
 
 ....
 FC_switch_A_1:admin> portcfgtrunkport 20 1
@@ -136,18 +141,18 @@ FC_switch_B_1:admin> portcfgtrunkport 21 1
  a| 
 为 ISL 配置中继 \ （ OOD \ ）
  a| 
-将 ` * portcfgtrunkport _port number_*`` 设置为 0 ： ```
+将 `portcfgtrunkport _port number_` 设置为 0 ：
 
 ....
 FC_switch_A_1:admin> portcfgtrunkport 20 0
 FC_switch_A_1:admin> portcfgtrunkport 21 0
 FC_switch_B_1:admin> portcfgtrunkport 20 0
 FC_switch_B_1:admin> portcfgtrunkport 21 0
-```
 ....
 |===
 ... 根据需要为网络结构配置 IOD 或 OOD 。
 +
+[cols="30,70"]
 |===
 
 
@@ -157,7 +162,7 @@ FC_switch_B_1:admin> portcfgtrunkport 21 0
  a| 
 为 IOD 配置网络结构
  a| 
-使用 ` * iodset*` ， ` * aptpolicy*` 和 ` * dlsreset*` 命令设置 IOD ， APT 和 DLS 的三个设置，如以下示例所示：
+使用 `iodset` ， `aptpolicypolicy` 和 `dlsreset` 命令设置 IOD ， APT 和 DLS 的三个设置，如以下示例所示：
 
 ....
 Switch_A_1:admin> iodset
@@ -166,8 +171,7 @@ Policy updated successfully.
 Switch_A_1:admin> dlsreset
 FC_switch_A_1:admin>portcfgtrunkport 40 1
 FC_switch_A_1:admin>portcfgtrunkport 41 1
-....
-....
+
 Switch_B_1:admin> iodset
 Switch_B_1:admin> aptpolicy 1
 Policy updated successfully.
@@ -180,7 +184,7 @@ FC_switch_B_1:admin>portcfgtrunkport 21 1
  a| 
 为网络结构配置 OOD
  a| 
-使用 ` * iodreset*` ， ` * aptpolicy__policy___*` 和 ` * dlsset*` 命令设置 IOD ， APT 和 DLS 的三个设置，如以下示例所示：
+使用 `iodreset` ， `aptpolicy_policy_` 和 `dlsset` 命令设置 IOD ， APT 和 DLS 的三个设置，如以下示例所示：
 
 ....
 Switch_A_1:admin> iodreset
@@ -189,8 +193,7 @@ Policy updated successfully.
 Switch_A_1:admin> dlsset
 FC_switch_A_1:admin> portcfgtrunkport 40 0
 FC_switch_A_1:admin> portcfgtrunkport 41 0
-....
-....
+
 Switch_B_1:admin> iodreset
 Switch_B_1:admin> aptpolicy 3
 Policy updated successfully.
@@ -199,7 +202,10 @@ FC_switch_B_1:admin> portcfgtrunkport 40 0
 FC_switch_B_1:admin> portcfgtrunkport 41 0
 ....
 |===
-... 使用 ` * switchcfgpersistentenable*` 命令持久启用交换机。
+... 持久启用交换机：
++
+`sswitchcfgpersistentenable`
+
 +
 [listing]
 ----
@@ -215,7 +221,7 @@ switch_B_1:admin>switchcfgpersistentenable
 brocade_switch_A_1:admin>
 switchenable
 ----
-... 使用 ` * iodshow*` ， ` * aptpolicy*` 和 ` * dlsshow*` 命令验证 OOD 设置，如以下示例所示：
+... 使用 `iodshow` ， `aptpolicy` 和 `dlsshow` 命令验证 OOD 设置，如以下示例所示：
 +
 [listing]
 ----
@@ -224,14 +230,14 @@ IOD is not set
 
 switch_A_1:admin> aptpolicy
 
-                Current Policy: 3 0(ap)
+       Current Policy: 3 0(ap)
 
-                3 0(ap) : Default Policy
-                1: Port Based Routing Policy
-                3: Exchange Based Routing Policy
-                     0: AP Shared Link Policy
-                     1: AP Dedicated Link Policy
-                command aptpolicy completed
+       3 0(ap) : Default Policy
+       1: Port Based Routing Policy
+       3: Exchange Based Routing Policy
+       0: AP Shared Link Policy
+       1: AP Dedicated Link Policy
+       command aptpolicy completed
 
 switch_A_1:admin> dlsshow
 DLS is set by default with current routing policy
@@ -240,7 +246,7 @@ DLS is set by default with current routing policy
 
 NOTE: 您必须在两台交换机上运行这些命令。
 
-... 使用 ` * iodshow*` ， ` * aptpolicy*` 和 ` * dlsshow*` 命令验证 IOD 设置，如以下示例所示：
+... 使用 `iodshow` ， `aptpolicy` 和 `dlsshow` 命令验证 IOD 设置，如以下示例所示：
 +
 [listing]
 ----
@@ -248,14 +254,14 @@ switch_A_1:admin> iodshow
 IOD is set
 
 switch_A_1:admin> aptpolicy
-                    Current Policy: 1 0(ap)
+       Current Policy: 1 0(ap)
 
-                    3 0(ap) : Default Policy
-                    1: Port Based Routing Policy
-                    3: Exchange Based Routing Policy
-                         0: AP Shared Link Policy
-                         1: AP Dedicated Link Policy
-                    command aptpolicy completed
+       3 0(ap) : Default Policy
+       1: Port Based Routing Policy
+       3: Exchange Based Routing Policy
+       0: AP Shared Link Policy
+       1: AP Dedicated Link Policy
+       command aptpolicy completed
 
 switch_A_1:admin> dlsshow
 DLS is not set
@@ -268,20 +274,23 @@ NOTE: 您必须在两台交换机上运行这些命令。
 
 
 
-. 使用 ` * islshow*` 和 ` * trunkshow*` 命令验证 ISL 是否联机并已中继（如果链路设备支持中继）。
+. 使用 `islshow` 和 `trunkshow` 命令验证 ISL 是否联机并已中继（如果链路设备支持中继）。
 +
 
 NOTE: 如果启用了 FEC ，则中继组的最后一个联机端口的 deskew 值可能会显示多达 36 的差异，尽管所有缆线的长度都相同。
 
 +
+[cols="20,80"]
 |===
+
+
 | ISL 是否已中继？ | 您将看到以下系统输出 ... 
 
 
  a| 
 是的。
  a| 
-如果 ISL 已中继，则 ` * islshow*` 命令的输出中仅显示一个 ISL 。根据中继主端口的类型，可以显示端口 40 或 41 。` * trunkshow*` 的输出应包含一个 ID 为 "1" 的中继，其中列出了端口 40 和 41 上的两个物理 ISL 。在以下示例中，端口 40 和 41 配置为用作 ISL ：
+如果 ISL 已中继，则 `islshow` 命令的输出中仅显示一个 ISL 。根据中继主端口的类型，可以显示端口 40 或 41 。`trunkshow` 的输出应包含一个 ID 为 "`1` " 的中继，其中列出了端口 40 和 41 上的两个物理 ISL 。在以下示例中，端口 40 和 41 配置为用作 ISL ：
 
 [listing]
 ----
@@ -296,7 +305,7 @@ switch_A_1:admin> trunkshow
  a| 
 否
  a| 
-如果 ISL 未中继，则两个 ISL 会分别显示在 ` * islshow*` 和 ` * trunkshow*` 的输出中。这两个命令都会列出 ID 为 "1" 和 "2" 的 ISL 。在以下示例中，端口 40 和 41 配置为用作 ISL ：
+如果 ISL 未中继，则两个 ISL 会分别显示在 `islshow` 和 `trunkshow` 的输出中。这两个命令都会列出 ID 为 "`1` " 和 "`2` " 的 ISL 。在以下示例中，将端口 "`40` " 和 "`41` " 配置为用作 ISL ：
 
 [listing]
 ----
@@ -308,7 +317,7 @@ switch_A_1:admin> trunkshow
 2: 41-> 41 10:00:00:05:33:88:9c:68 2 deskew 48 MASTER
 ----
 |===
-. 在两个交换机上运行 ` * spinfoab*` 命令，以验证 ISL 是否运行正常：
+. 在两个交换机上运行 `spinfoab` 命令，以验证 ISL 是否运行正常：
 +
 [listing]
 ----
@@ -316,10 +325,10 @@ switch_A_1:admin> spinfab -ports 0/40 - 0/41
 ----
 . 启用步骤 1 中禁用的端口：
 +
-` * 端口启用 _port number_*`
+`portEnable _port number_`
 
 +
-以下示例显示 ISL 端口 0-7 已启用：
+以下示例显示 ISL 端口 "`0` " 到 "`7` " 已启用：
 
 +
 [listing]

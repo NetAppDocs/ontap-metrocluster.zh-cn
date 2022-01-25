@@ -7,7 +7,6 @@ summary: 您只能在站点之间运行的 WAN ISL 端口上配置 MACsec 加密
 = 在 Cisco 9336C 交换机上配置 MACsec 加密
 
 
-[role="lead"]
 如果需要，您可以在站点之间运行的 WAN ISL 端口上配置 MACsec 加密。在应用正确的 RCF 文件后，您必须配置 MACsec 。
 
 
@@ -23,7 +22,6 @@ MACsec 需要安全许可证。有关 Cisco NX-OS 许可方案以及如何获取
 
 == 在 MetroCluster IP 配置中启用 Cisco MACsec 加密 WAN ISL
 
-[role="lead"]
 您可以在 MetroCluster IP 配置中为 WAN ISL 上的 Cisco 9336C 交换机启用 MACsec 加密。
 
 . 进入全局配置模式： `configure terminal`
@@ -51,7 +49,6 @@ IP_switch_A_1(config)# copy running-config startup-config
 
 == 禁用 Cisco MAC 秒加密
 
-[role="lead"]
 在 MetroCluster IP 配置中，您可能需要对 WAN ISL 上的 Cisco 9336C 交换机禁用 MACsec 加密。
 
 

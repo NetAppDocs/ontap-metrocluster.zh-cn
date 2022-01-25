@@ -57,7 +57,6 @@ https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 
 == Cisco 交换机许可证要求
 
-[role="lead"]
 在光纤连接 MetroCluster 配置中， Cisco 交换机可能需要某些基于功能的许可证。通过这些许可证，您可以在交换机上使用 QoS 或远程模式信用等功能。您必须在 MetroCluster 配置中的所有四个交换机上安装所需的基于功能的许可证。
 
 在 MetroCluster 配置中，可能需要以下基于功能的许可证：
@@ -88,7 +87,6 @@ NOTE: Cisco MDS 9250i 交换机具有两个固定的 1/10 GbE IP 存储服务端
 
 == 将 Cisco FC 交换机设置为出厂默认值
 
-[role="lead"]
 要确保配置成功，必须将交换机设置为出厂默认值。这样可确保交换机从全新配置启动。
 
 必须对 MetroCluster 配置中的所有交换机执行此任务。
@@ -135,7 +133,6 @@ FC_Switch_B_1# write erase
 
 == 配置 Cisco FC 交换机的基本设置和社区字符串
 
-[role="lead"]
 您必须使用 `setup` 命令或在发出 `reload` 命令后指定基本设置。
 
 .步骤
@@ -184,7 +181,6 @@ FC_switch_B_1# setup
 
 == 获取端口许可证
 
-[role="lead"]
 您不必在一系列连续的端口上使用 Cisco 交换机许可证，而是可以为所使用的特定端口获取许可证，并从未使用的端口中删除许可证。
 
 您应验证交换机配置中的许可端口数，并根据需要将许可证从一个端口移动到另一个端口。
@@ -287,7 +283,6 @@ Switch_A_1# show port-resources module 1
 
 == 启用 Cisco MDS 9148 或 9148S 交换机中的端口
 
-[role="lead"]
 在 Cisco MDS 9148 或 9148S 交换机中，您必须手动启用 MetroCluster 配置中所需的端口。
 
 .关于此任务
@@ -342,7 +337,6 @@ switch(config-if)# end
 
 == 在 Cisco FC 交换机上配置 F 端口
 
-[role="lead"]
 您必须在 FC 交换机上配置 F 端口。
 
 在 MetroCluster 配置中， F 端口是将交换机连接到 HBA 启动程序， FC-VI 互连和 FC-SAS 网桥的端口。
@@ -422,7 +416,6 @@ FC_switch_B_1# copy running-config startup-config
 
 == 为与 ISL 位于同一端口组中的 F 端口分配缓冲区到缓冲区信用值
 
-[role="lead"]
 如果 F 端口与 ISL 位于同一端口组中，则必须为其分配缓冲区到缓冲区信用值。如果这些端口没有所需的缓冲区到缓冲区信用值，则 ISL 可能无法运行。
 
 如果 F 端口与 ISL 端口不在同一端口组中，则不需要执行此任务。
@@ -539,7 +532,6 @@ fc1/39                                      1        8.0 dedicated
 
 == 在 Cisco FC 交换机上创建和配置 VSAN
 
-[role="lead"]
 您必须为 MetroCluster 配置中的每个 FC 交换机上的 FC-VI 端口创建一个 VSAN ，并为存储端口创建一个 VSAN 。
 
 VSAN 应具有唯一的编号和名称。如果要使用两个 ISL 并按顺序交付帧，则必须进行额外配置。
@@ -552,7 +544,9 @@ VSAN 应具有唯一的编号和名称。如果要使用两个 ISL 并按顺序�
 | 交换机网络结构 | VSAN 名称 | ID 编号 
 
 
-.2+| 1.  a| 
+ a| 
+1.
+ a| 
 FCVI_1_10
  a| 
 10
@@ -566,7 +560,9 @@ STOR_1_20
 
 
 
-.2+| 2.  a| 
+ a| 
+2.
+ a| 
 FCVI_2_30
  a| 
 30 个
@@ -929,7 +925,6 @@ FC_switch_B_1# copy running-config startup-config
 
 == 配置 E 端口
 
-[role="lead"]
 您必须配置用于连接 ISL 的交换机端口（这些端口为 E 端口）。
 
 您使用的操作步骤取决于您使用的交换机：
@@ -943,7 +938,6 @@ FC_switch_B_1# copy running-config startup-config
 
 === 在 Cisco FC 交换机上配置 E 端口
 
-[role="lead"]
 您必须配置用于连接交换机间链路（ ISL ）的 FC 交换机端口。
 
 这些端口为 E 端口，必须对每个端口进行配置。为此，您必须计算正确数量的缓冲区到缓冲区信用值（ BBC ）。
@@ -1588,7 +1582,6 @@ FC_switch_B_1# copy running-config startup-config
 
 === 在 Cisco 9250i FC 交换机上为双 ISL 配置 FCIP 端口
 
-[role="lead"]
 您必须通过创建 FCIP 配置文件和接口，然后将其分配给 IPStorage1/1 和 IPStorage1/2 GbE 接口来配置连接 ISL 的 FCIP 交换机端口（ E 端口）。
 
 此任务仅适用于每个交换机网络结构使用双 ISL 并在每个交换机上使用 IPStorage1/1 和 IPStorage1/2 GbE 接口的配置。
@@ -1611,7 +1604,13 @@ image::../media/fcip_ports_dual_isl.gif[FCIP 端口双 ISL]
 | 交换机网络结构 | IP 存储接口 | IP 地址 | 端口类型 | FCIP 接口 | FCIP 配置文件 | 端口 | 对等 IP/ 端口 | vSAN ID 
 
 
-.4+| FC_switch_A_1 .2+| IPStorage1/1 .2+| 也称为  a| 
+ a| 
+FC_switch_A_1
+ a| 
+IPStorage1/1
+ a| 
+也称为
+ a| 
 FC-VI
  a| 
 FCIP 1
@@ -1641,7 +1640,11 @@ c.c.c.c.c/3231
 
 
 
-.2+| IPStorage1/2 .2+| b.b.b.b.b.b.b.  a| 
+ a| 
+IPStorage1/2
+ a| 
+b.b.b.b.b.b.b.
+ a| 
 FC-VI
  a| 
 FCIP 3.
@@ -1671,7 +1674,13 @@ d.d.d.d..d.d/3233
 
 
 
-.4+| FC_switch_B_1 .2+| IPStorage1/1 .2+| c.c.c.c.c.c.c.  a| 
+ a| 
+FC_switch_B_1
+ a| 
+IPStorage1/1
+ a| 
+c.c.c.c.c.c.c.
+ a| 
 FC-VI
  a| 
 FCIP 1
@@ -1701,7 +1710,11 @@ A.a.A.A/3221
 
 
 
-.2+| IPStorage1/2 .2+| d.d.d.d.d.d.d.  a| 
+ a| 
+IPStorage1/2
+ a| 
+d.d.d.d.d.d.d.
+ a| 
 FC-VI
  a| 
 FCIP 3.
@@ -1738,7 +1751,13 @@ b.b.B.b/3223
 | 交换机网络结构 | IP 存储接口 | IP 地址 | 端口类型 | FCIP 接口 | FCIP 配置文件 | 端口 | 对等 IP/ 端口 | vSAN ID 
 
 
-.4+| FC_switch_A_2 .2+| IPStorage1/1 .2+| 例如  a| 
+ a| 
+FC_switch_A_2
+ a| 
+IPStorage1/1
+ a| 
+例如
+ a| 
 FC-VI
  a| 
 FCIP 1
@@ -1768,7 +1787,11 @@ G.G.G.G.G.g/3231
 
 
 
-.2+| IPStorage1/2 .2+| f.f.f.f  a| 
+ a| 
+IPStorage1/2
+ a| 
+f.f.f.f
+ a| 
 FC-VI
  a| 
 FCIP 3.
@@ -1798,7 +1821,13 @@ h/3233
 
 
 
-.4+| FC_switch_B_2 .2+| IPStorage1/1 .2+| g.g.g.g  a| 
+ a| 
+FC_switch_B_2
+ a| 
+IPStorage1/1
+ a| 
+g.g.g.g
+ a| 
 FC-VI
  a| 
 FCIP 1
@@ -1828,7 +1857,11 @@ E.E.E.E.E/3221
 
 
 
-.2+| IPStorage1/2 .2+| h.h.h.h  a| 
+ a| 
+IPStorage1/2
+ a| 
+h.h.h.h
+ a| 
 FC-VI
  a| 
 FCIP 3.
@@ -1866,9 +1899,9 @@ f
 +
 `功能 FCIP`
 
-. 在每个交换机上，配置两个 IPStorage 接口（ IPStorage1/1 和 IPStorage1/2 ）：
+. 在每个交换机上，配置两个 IPStorage 接口（ "`IPStorage1/1` " 和 "`IPStorage1/2` " ）：
 +
-.. 【子步骤 A ，子步骤 "A" 】进入配置模式：
+.. 【子步骤 A ，子步骤 "`A` ]] 进入配置模式：
 +
 `配置`
 
@@ -1877,7 +1910,7 @@ f
 `interface _ipstorage_`
 
 +
-` _ipstorage_` 参数值为 "IPStorage1/1" 或 "IPStorage1/2" 。
+` _ipstorage_` 参数值为 "`IPStorage1/1` " 或 "`IPStorage1/2` " 。
 
 .. 指定先前指定的 IPStorage 接口的 IP 地址和子网掩码：
 +
@@ -1885,7 +1918,7 @@ f
 
 +
 
-NOTE: 在每个交换机上， IPStorage 接口 "IPStorage1/1 " 和 "IPStorage1/2 " 必须具有不同的 IP 地址。
+NOTE: 在每个交换机上， IPStorage 接口 "`IPStorage1/1` " 和 "`IPStorage1/2` " 必须具有不同的 IP 地址。
 
 .. 将 MTU 大小指定为 2500 ：
 +
@@ -1895,7 +1928,7 @@ NOTE: 在每个交换机上， IPStorage 接口 "IPStorage1/1 " 和 "IPStorage1/
 +
 `无关闭`
 
-.. 【子步骤 -f ，子步骤 "f"]] 退出配置模式：
+.. 【子步骤 -f ，子步骤 "`f` ]] 退出配置模式：
 +
 `退出`
 
@@ -1955,7 +1988,7 @@ NOTE: 在每个交换机上， IPStorage 接口 "IPStorage1/1 " 和 "IPStorage1/
 `接口 FCIP _FCIP_interface_`
 
 +
-` FCIP_interface_` 参数值为 "1" ， "2" ， "3" 或 "4" ，如配置文件配置表所示。
+配置文件配置表中所示的 ` FCIP_interface_` 参数值为 "`1` " ， "`2` " ， "`3` " 或 "`4` " 。
 
 +
 .. 将接口映射到先前创建的配置文件：
@@ -1971,7 +2004,7 @@ NOTE: 在每个交换机上， IPStorage 接口 "IPStorage1/1 " 和 "IPStorage1/
 `tcp-connection _connection-#_`
 
 +
-对于 FC-VI 配置文件， ` connection-#_` 参数值为 "2" ；对于存储配置文件，参数值为 "5" 。
+对于 FC-VI 配置文件， ` connection-#_` 参数值为 "`2` " ，对于存储配置文件，参数值为 "`5` " 。
 
 .. 禁用数据压缩：
 +
@@ -1981,7 +2014,7 @@ NOTE: 在每个交换机上， IPStorage 接口 "IPStorage1/1 " 和 "IPStorage1/
 +
 `无关闭`
 
-.. 将控制 TCP 连接配置为 48 ，将数据连接配置为 26 ，以标记具有差分服务代码点（ DSCP ）值的所有数据包：
+.. 将控制 TCP 连接配置为 "`48` " ，将数据连接配置为 "`26` " ，以标记具有差分服务代码点（ DSCP ）值的所有数据包：
 +
 `QoS 控制 48 数据 26`
 
@@ -2018,7 +2051,7 @@ NOTE: 在每个交换机上， IPStorage 接口 "IPStorage1/1 " 和 "IPStorage1/
 `s允许使用的主端口中继 vsan _vsan_id_`
 
 +
-对于 FC-VI 配置文件， _vsan_id_ 参数值为 "VSAN 10" ，对于存储配置文件，参数值为 "VSAN 20" 。
+对于 FC-VI 配置文件， _vsan_id_ 参数值为 "`VSAN 10` " ，对于存储配置文件，参数值为 "`VSAN 20` " 。
 
 .. 设置端口的速度：
 +
@@ -2359,7 +2392,6 @@ exit
 
 == 在 Cisco FC 交换机上配置分区
 
-[role="lead"]
 您必须将交换机端口分配给不同的分区，以隔离存储（ HBA ）和控制器（ FC-VI ）流量。
 
 必须对两个 FC 交换机网络结构执行这些步骤。
@@ -2424,7 +2456,7 @@ FC_switch_B_1# copy running-config startup-config
 . 配置基本分区设置：
 +
 --
-.. 将默认分区策略设置为 "permit" ：
+.. 将默认分区策略设置为 "`permit` " ：
 +
 `无系统默认分区 default-zone permit`
 
@@ -2640,7 +2672,6 @@ FC_switch_A_1# copy running-config startup-config
 
 == 确保已保存 FC 交换机配置
 
-[role="lead"]
 您必须确保 FC 交换机配置已保存到所有交换机的启动配置中。
 
 对两个 FC 交换机网络结构执行问题描述以下命令：

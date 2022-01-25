@@ -16,12 +16,10 @@ summary: 在八节点或四节点 MetroCluster 配置中，每个站点都包含
 
 image::../media/mcc_hw_architecture_local_ha.gif[MCC 硬件架构本地 ha]
 
-* 相关信息 *
+link:concept_illustration_of_redundant_fc_to_sas_bridges.html["冗余 FC-SAS 网桥的图示"]
 
-xref:concept_illustration_of_redundant_fc_to_sas_bridges.adoc[冗余 FC-SAS 网桥的图示]
+link:concept_redundant_fc_switch_fabrics.html["冗余 FC 交换机网络结构"]
 
-xref:concept_redundant_fc_switch_fabrics.adoc[冗余 FC 交换机网络结构]
+link:concept_cluster_peering_network_mcc.html["集群对等网络的图示"]
 
-xref:concept_cluster_peering_network_mcc.adoc[集群对等网络的图示]
-
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"^]

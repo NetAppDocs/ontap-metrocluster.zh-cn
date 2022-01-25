@@ -129,7 +129,9 @@ DNS 名称服务器
 
 
  a| 
-本指南中使用的节点 1 示例： controller_A_1
+节点 1
+
+本指南中使用的示例： controller_A_1
  a| 
  a| 
  a| 
@@ -138,7 +140,9 @@ DNS 名称服务器
 
 
  a| 
-如果使用双节点 MetroCluster 配置（每个站点一个节点），则不需要节点 2 。
+节点 2
+
+如果使用双节点 MetroCluster 配置（每个站点一个节点），则不需要此配置。
 
 本指南中使用的示例： controller_A_2
  a| 
@@ -178,7 +182,9 @@ DNS 名称服务器
 
 
  a| 
-双节点 MetroCluster 配置（每个站点一个节点）不需要节点 2 IC LIF 1 。
+节点 2 IC LIF 1
+
+双节点 MetroCluster 配置不需要（每个站点一个节点）。
  a| 
  a| 
  a| 
@@ -379,7 +385,7 @@ HTTP ， HTTPS 或 SMTP
  a| 
 集群名称
 
-本指南中使用的示例： site_B
+使用的示例： site_B
  a| 
 
 
@@ -422,7 +428,7 @@ DNS 名称服务器
  a| 
 节点 1
 
-本指南中使用的示例： controller_B_1
+使用的示例： controller_B_1
  a| 
  a| 
  a| 
@@ -435,7 +441,7 @@ DNS 名称服务器
 
 双节点 MetroCluster 配置不需要（每个站点一个节点）。
 
-本指南中使用的示例： controller_B_2
+使用的示例： controller_B_2
  a| 
  a| 
  a| 
@@ -614,7 +620,6 @@ HTTP ， HTTPS 或 SMTP
 
 == 标准集群和 MetroCluster 配置之间的相似之处和不同之处
 
-[role="lead"]
 在 MetroCluster 配置中，每个集群中的节点配置与标准集群中的节点配置类似。
 
 MetroCluster 配置基于两个标准集群构建。在物理上，配置必须对称，每个节点都具有相同的硬件配置，并且所有 MetroCluster 组件都必须进行布线和配置。但是， MetroCluster 配置中节点的基本软件配置与标准集群中节点的基本软件配置相同。
@@ -691,8 +696,6 @@ MetroCluster 配置基于两个标准集群构建。在物理上，配置必须�
 == 还原系统默认值并在控制器模块上配置 HBA 类型
 
 要确保 MetroCluster 安装成功，请重置和还原控制器模块上的默认值。
-
-* 重要 * ：
 
 只有使用 FC-SAS 网桥的延伸型配置才需要执行此任务。
 
@@ -794,7 +797,7 @@ FC
 +
 运行此命令后，请等待，直到显示启动菜单为止。
 
-. 在启动菜单提示符处键入 wipeconfig 以清除节点配置，然后按 Enter 键。
+. 在启动菜单提示符处键入 "`wipeconfig` " 以清除节点配置，然后按 Enter 键。
 +
 以下屏幕将显示启动菜单提示符：
 
@@ -825,7 +828,6 @@ Please choose one of the following:
 
 == 在 FAS8020 系统上的 X1132A-R6 四端口卡上配置 FC-VI 端口
 
-[role="lead"]
 如果在 FAS8020 系统上使用 X1132A-R6 四端口卡，则可以进入维护模式来配置 1a 和 1b 端口以供 FC-VI 和启动程序使用。从工厂收到的 MetroCluster 系统不需要执行此操作，这些端口已根据您的配置进行了相应设置。
 
 此任务必须在维护模式下执行。
@@ -931,7 +933,6 @@ controller_B_1
 
 == 验证八节点或四节点配置中维护模式下的磁盘分配
 
-[role="lead"]
 在将系统完全启动到 ONTAP 之前，您可以选择启动到维护模式并验证节点上的磁盘分配。应分配这些磁盘以创建完全对称的主动 - 主动配置，其中每个池分配的磁盘数量相等。
 
 新的 MetroCluster 系统在发货前已完成磁盘分配。
@@ -1581,7 +1582,6 @@ DR 配对节点的池 1
 
 == 在维护模式下验证和配置组件的 HA 状态
 
-[role="lead"]
 在 MetroCluster 配置中配置存储系统时，您必须确保控制器模块和机箱组件的高可用性（ HA ）状态为 mcc 或 mcc-2n ，以便这些组件正确启动。
 
 系统必须处于维护模式。
@@ -1693,7 +1693,6 @@ ha-config modify chassis mccip
 
 == 设置 ONTAP
 
-[role="lead"]
 您必须在每个控制器模块上设置 ONTAP 。
 
 如果需要通过网络启动新控制器，请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-upgrade/GUID-3370EC34-310E-4F09-829F-F632EC8CDD9B.html["通过网络启动新控制器模块"] 在 _RAID MetroCluster 升级，过渡和扩展指南中。
@@ -1702,7 +1701,6 @@ ha-config modify chassis mccip
 
 === 在双节点 MetroCluster 配置中设置 ONTAP
 
-[role="lead"]
 在双节点 MetroCluster 配置中，您必须在每个集群上启动节点，退出集群设置向导，然后使用 cluster setup 命令将节点配置为单节点集群。
 
 您不能事先配置服务处理器。
@@ -1801,7 +1799,6 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["软�
 
 === 在八节点或四节点 MetroCluster 配置中设置 ONTAP
 
-[role="lead"]
 启动每个节点后，系统会提示您运行 System Setup 工具来执行基本节点和集群配置。配置集群后，您可以返回到 ONTAP 命令行界面以创建聚合并创建 MetroCluster 配置。
 
 您必须已为 MetroCluster 配置布线。
@@ -1926,7 +1923,6 @@ NOTE: 您可以在稍后的任务中创建镜像聚合。
 
 == 将集群配置为 MetroCluster 配置
 
-[role="lead"]
 您必须对集群建立对等关系，镜像根聚合，创建镜像数据聚合，然后问题描述命令以实施 MetroCluster 操作。
 
 
@@ -1995,7 +1991,7 @@ cluster01-02
 有关完整的命令语法，请参见手册页。
 
 +
-以下示例显示尚未为端口 e0e 和 e0f 分配 LIF ：
+以下示例显示未为端口 "`e0e` " 和 "`e0f` " 分配 LIF ：
 
 +
 [listing]
@@ -2020,7 +2016,7 @@ cluster01
 `network interface failover-groups create -vserver system_sVM -failover-group failover_group -targets physical_or_logical_ports`
 
 +
-以下示例将端口 e0e 和 e0f 分配给系统 SVMcluster01 上的故障转移组 intercluster01 ：
+以下示例将端口 "`e0e` " 和 "`e0f` " 分配给系统 SVMcluster01 上的故障转移组 intercluster01 ：
 
 +
 [listing]
@@ -2059,6 +2055,7 @@ cluster01
 ----
 . 在系统 SVM 上创建集群间 LIF 并将其分配给故障转移组。
 +
+[cols="1,3"]
 |===
 
 
@@ -2082,7 +2079,7 @@ cluster01
 有关完整的命令语法，请参见手册页。
 
 +
-以下示例将在故障转移组 intercluster01 中创建集群间 LIF ` "cluster01_icl01"`` 和 ` "cluster01_icl02"` ：
+以下示例将在故障转移组 intercluster01 中创建集群间 LIF "`cluster01_icl01` " 和 "`cluster01_icl02` " ：
 
 +
 [listing]
@@ -2100,9 +2097,7 @@ policy default-intercluster -home-node cluster01-02 -home-port e0e -address 192.
 |===
 
 
- a| 
-* 在 ONTAP 9.6 及更高版本中： *
-
+| * 在 ONTAP 9.6 及更高版本中： * 
 
 
  a| 
@@ -2110,9 +2105,7 @@ policy default-intercluster -home-node cluster01-02 -home-port e0e -address 192.
 
 
 
- a| 
-* 在 ONTAP 9.5 及更早版本中： *
-
+| * 在 ONTAP 9.5 及更早版本中： * 
 
 
  a| 
@@ -2140,9 +2133,7 @@ cluster01
 |===
 
 
- a| 
-* 在 ONTAP 9.6 及更高版本中： *
-
+| * 在 ONTAP 9.6 及更高版本中： * 
 
 
  a| 
@@ -2150,22 +2141,21 @@ cluster01
 
 
 
- a| 
-* 在 ONTAP 9.5 及更早版本中： *
-
+| * 在 ONTAP 9.5 及更早版本中： * 
 
 
  a| 
 `network interface show -role intercluster -failover`
 
 |===
-+
+
+
 有关完整的命令语法，请参见手册页。
 
-+
-以下示例显示 SVMe0e 端口上的集群间 LIF ` "cluster01_icl01"` 和 ` "cluster01_icl02"` 将故障转移到 e0f 端口。
++ 以下示例显示 SVM"`e0e` " 端口上的集群间 LIF"`cluster01_icl01` " 和 "`cluster01_icl02` " 将故障转移到 "`e0f` " 端口。
 
 +
+
 [listing]
 ----
 cluster01::> network interface show -service-policy default-intercluster –failover
@@ -2180,8 +2170,6 @@ cluster01
                             Failover Targets:  cluster01-02:e0e,
                                                cluster01-02:e0f
 ----
-
-
 link:concept_prepare_for_the_mcc_installation.html["使用专用端口时的注意事项"]
 
 
@@ -2225,9 +2213,7 @@ cluster01-02
 |===
 
 
- a| 
-* 在 ONTAP 9.6 及更高版本中： *
-
+| * 在 ONTAP 9.6 及更高版本中： * 
 
 
  a| 
@@ -2235,9 +2221,7 @@ cluster01-02
 
 
 
- a| 
-* 在 ONTAP 9.5 及更早版本中： *
-
+| * 在 ONTAP 9.5 及更早版本中： * 
 
 
  a| 
@@ -2248,7 +2232,7 @@ cluster01-02
 有关完整的命令语法，请参见手册页。
 
 +
-以下示例将创建集群间 LIF cluster01_icl01 和 cluster01_icl02 ：
+以下示例将创建集群间 LIF "`cluster01_icl01` " 和 "`cluster01_icl02` " ：
 
 +
 [listing]
@@ -2267,9 +2251,7 @@ policy default-intercluster -home-node cluster01-02 -home-port e0c -address 192.
 |===
 
 
- a| 
-* 在 ONTAP 9.6 及更高版本中： *
-
+| * 在 ONTAP 9.6 及更高版本中： * 
 
 
  a| 
@@ -2282,9 +2264,7 @@ policy default-intercluster -home-node cluster01-02 -home-port e0c -address 192.
 
 
 
- a| 
-`network interface show -role intercluster`
-
+| `network interface show -role intercluster` 
 |===
 +
 有关完整的命令语法，请参见手册页。
@@ -2307,9 +2287,7 @@ cluster01
 |===
 
 
- a| 
-* 在 ONTAP 9.6 及更高版本中： *
-
+| * 在 ONTAP 9.6 及更高版本中： * 
 
 
  a| 
@@ -2317,9 +2295,7 @@ cluster01
 
 
 
- a| 
-* 在 ONTAP 9.5 及更早版本中： *
-
+| * 在 ONTAP 9.5 及更早版本中： * 
 
 
  a| 
@@ -2330,7 +2306,7 @@ cluster01
 有关完整的命令语法，请参见手册页。
 
 +
-以下示例显示 e0c 端口上的集群间 LIF cluster01_icl01 和 cluster01_icl02 将故障转移到 e0d 端口。
+以下示例显示 "`e0c` " 端口上的集群间 LIF"`cluster01_icl01` " 和 "`cluster01_icl02` " 将故障转移到 "`e0d` " 端口。
 
 +
 [listing]
@@ -2576,10 +2552,8 @@ cluster01-02
 
 默认情况下，根聚合创建为 RAID-DP 类型的聚合。您可以将根聚合从 RAID-DP 更改为 RAID4 类型的聚合。以下命令修改 RAID4 类型聚合的根聚合：
 
-[listing]
-----
-storage aggregate modify –aggregate aggr_name -raidtype raid4
-----
+`storage aggregate modify – aggregate aggr_name -raidtype RAID4`
+
 
 NOTE: 在非 ADP 系统上，可以在镜像聚合之前或之后将聚合的 RAID 类型从默认 RAID-DP 修改为 RAID4 。
 
@@ -2602,7 +2576,7 @@ controller_A_1::> storage aggregate mirror aggr0_controller_A_1
 . 对 MetroCluster 配置中的每个节点重复上述步骤。
 
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["逻辑存储管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["逻辑存储管理"^]
 
 
 
@@ -2614,7 +2588,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["逻�
 * 您应了解新聚合将使用哪些驱动器或阵列 LUN 。
 * 如果系统中有多种驱动器类型（异构存储），则应了解如何确保选择正确的驱动器类型。
 * 驱动器和阵列 LUN 归特定节点所有；创建聚合时，该聚合中的所有驱动器都必须归同一节点所有，该节点将成为该聚合的主节点。
-* 聚合名称应符合您在规划 MetroCluster 配置时确定的命名方案。请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]。
+* 聚合名称应符合您在规划 MetroCluster 配置时确定的命名方案。请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]。
 
 
 .步骤
@@ -2738,7 +2712,7 @@ controller_A_1::> storage aggregate create aggr1_controller_A_1 -diskcount 10 -n
 
 
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 
 
 
@@ -2753,9 +2727,9 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁�
 您可以使用 storage aggregate show 命令对此进行验证。
 
 
-NOTE: 如果要使用单个镜像数据聚合，请参见 link:concept_configure_the_mcc_software_in_ontap.adocSTEP_429E7F7532ED4B468B67B9B22968D686["" 在 ONTAP 中配置 MetroCluster 软件 " 中的步骤 1"] 有关说明，请参见。
+NOTE: 如果要使用单个镜像数据聚合，请参见中的步骤 1 link:concept_configure_the_mcc_software_in_ontap.html["在 ONTAP 中配置 MetroCluster 软件"] 有关说明，请参见。
 
-控制器和机箱的 ha-config 状态必须为 mcc 。
+控制器和机箱的 ha-config 状态必须为 `mcc` 。
 
 您可以在任何节点上问题描述一次 `MetroCluster configure` 命令，以启用 MetroCluster 配置。您无需在每个站点或节点上对命令执行问题描述，也无需选择对哪个节点或站点执行问题描述命令。
 
@@ -2764,6 +2738,7 @@ NOTE: 如果要使用单个镜像数据聚合，请参见 link:concept_configure
 .步骤
 . 按以下格式配置 MetroCluster ：
 +
+[cols="1,3"]
 |===
 
 
@@ -2804,7 +2779,7 @@ MetroCluster configure -allow-with-one-aggregate true node-name`
 --
 [NOTE]
 ====
-最佳实践是具有多个数据聚合。如果第一个 DR 组只有一个聚合，而您要添加一个具有一个聚合的 DR 组，则必须将元数据卷从单个数据聚合中移出。有关此操作步骤的详细信息，请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-service/GUID-114DAE6E-F105-4908-ABB1-CE1D7B5C7048.html["在 MetroCluster 配置中移动元数据卷"]。
+最佳实践是具有多个数据聚合。如果第一个 DR 组只有一个聚合，而您要添加一个具有一个聚合的 DR 组，则必须将元数据卷从单个数据聚合中移出。有关此操作步骤的详细信息，请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-service/GUID-114DAE6E-F105-4908-ABB1-CE1D7B5C7048.html["在 MetroCluster 配置中移动元数据卷"^]。
 
 ====
 --
@@ -3072,7 +3047,7 @@ node_A_1 SVM 4 snmpv3user     snmp        usm                   10.10.10.13
 `snmpconfig —设置 SNMPv3`
 
 +
-如果需要 RO 访问，请在 "User （ ro ）： " 之后指定 "snmpv3user" ，如示例所示：
+如果您需要 RO 访问，请在 "`User （ ro ）：` " 之后指定 " `snmpv3user` " ，如示例所示：
 
 +
 [listing]
@@ -3167,7 +3142,7 @@ controller_A_1::>
 
 
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"^]
 
 
 
@@ -3188,6 +3163,7 @@ NOTE: 从 ONTAP 9.8 开始， `storage bridge` 命令将替换为 `ssystem bridg
 +
 .. 使用适用于您的 ONTAP 版本的命令添加网桥：
 +
+[cols="1,3"]
 |===
 
 
@@ -3362,15 +3338,14 @@ mccint-fas9000-0304
 ----
 
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"^]
 
 
 
 == 使用 Config Advisor 检查 MetroCluster 配置错误
 
-[role="lead"]
 您可以访问 NetApp 支持站点并下载 Config Advisor 工具以检查常见配置错误。
 
 Config Advisor 是一款配置验证和运行状况检查工具。您可以将其部署在安全站点和非安全站点上，以便进行数据收集和系统分析。
@@ -3381,7 +3356,7 @@ NOTE: 对 Config Advisor 的支持是有限的，并且只能联机使用。
 .步骤
 . 转到 Config Advisor 下载页面并下载此工具。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
 
 . 运行 Config Advisor ，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
@@ -3390,7 +3365,6 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 == 验证本地 HA 操作
 
-[role="lead"]
 如果您使用的是四节点 MetroCluster 配置，则应验证 MetroCluster 配置中本地 HA 对的运行情况。对于双节点配置，不需要执行此操作。
 
 双节点 MetroCluster 配置不包含本地 HA 对，此任务不适用。
@@ -3491,19 +3465,18 @@ controller_A_2 controller_A_1 true     Connected to controller_A_1
 . 对 cluster_B 重复上述步骤
 
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["高可用性配置"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["高可用性配置"^]
 
 
 
 == 验证切换，修复和切回
 
-[role="lead"]
 您应验证 MetroCluster 配置的切换，修复和切回操作。
 
 .步骤
 . 使用 _RAID MetroCluster 管理和灾难恢复指南 _ 中提到的协商切换，修复和切回过程。
 +
-https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster 管理和灾难恢复"]
+https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster 管理和灾难恢复"^]
 
 
 
@@ -3511,7 +3484,6 @@ https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster
 
 == 保护配置备份文件
 
-[role="lead"]
 您可以通过指定一个远程 URL （ HTTP 或 FTP ）来为集群配置备份文件提供额外保护，除了本地集群中的默认位置之外，还可以将配置备份文件上传到该远程 URL 。
 
 .步骤
@@ -3520,8 +3492,8 @@ https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster
 `s系统配置备份设置修改目标 URL`
 
 +
-使用命令行界面进行集群管理在 _Manag管理 配置备份 _ 一节下包含追加信息。
+https://docs.netapp.com/us-en/ontap/system-admin/index.html["使用 CLI 进行集群管理"^] 在部分下包含追加信息。
 
 
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
+https://docs.netapp.com/us-en/ontap/cluster-admin/index.html["集群管理"^]

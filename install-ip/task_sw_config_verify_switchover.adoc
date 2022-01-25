@@ -5,10 +5,15 @@ keywords: metrocluster, switchover, verify
 summary: 您应验证 MetroCluster 配置的切换，修复和切回操作。 
 ---
 = 验证切换，修复和切回
+:icons: font
+:imagesdir: ../media/
+:firstname: [.lead]
+:author: [.lead]
+:authorinitials: [
+:authors: [.lead]
+:revnumber: 
+:revdate: and switchback operations of the MetroCluster configuration.
 
-
-[role="lead"]
-您应验证 MetroCluster 配置的切换，修复和切回操作。
 
 .步骤
 . 使用 _RAID MetroCluster 管理和灾难恢复指南 _ 中提到的协商切换，修复和切回过程。

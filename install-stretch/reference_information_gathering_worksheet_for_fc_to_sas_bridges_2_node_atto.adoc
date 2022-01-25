@@ -21,6 +21,8 @@ summary: 在开始配置 MetroCluster 站点之前，您应收集所需的配置
 每个网桥连接到 Controller_A_1_`` _port-number_`` 和 Controller_B_1_`` _port-number_`` 。
 
 |===
+
+
 | 站点 A | 您的价值 
 
 
@@ -50,6 +52,8 @@ Bridge_A_1a 密码
 每个网桥连接到 Controller_A_1_`` _port-number_`` 和 Controller_B_1_`` _port-number_`` 。
 
 |===
+
+
 | 站点 A | 您的价值 
 
 
@@ -76,9 +80,11 @@ Bridge_A_1b 密码
 
 每个 SAS 堆栈至少需要两个 FC-SAS 网桥。
 
-每个网桥连接到 Controller_A_1_`` _port-number_`` 和 Controller_B_1_`` _port-number_`` 。
+每个网桥连接到 Controller_A_1_` _port-number_` 和 Controller_B_1_` _port-number_` 。
 
 |===
+
+
 | 站点 B | 您的价值 
 
 
@@ -105,9 +111,11 @@ Bridge_B_1a 密码
 
 每个 SAS 堆栈至少需要两个 FC-SAS 网桥。
 
-每个网桥连接到 Controller_A_1_`` _port-number_`` 和 Controller_B_1_`` _port-number_`` 。
+每个网桥连接到 Controller_A_1_` _port-number_` 和 Controller_B_1_` _port-number_` 。
 
 |===
+
+
 | 站点 B | 您的价值 
 
 

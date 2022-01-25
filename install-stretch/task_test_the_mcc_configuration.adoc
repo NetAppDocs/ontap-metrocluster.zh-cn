@@ -16,7 +16,6 @@ summary: 您可以测试故障情形，以确认 MetroCluster 配置是否正常
 
 == 验证协商的切换
 
-[role="lead"]
 您可以测试协商（计划内）切换操作，以确认数据不会中断。
 
 此测试通过将集群切换到第二个数据中心来验证数据可用性不受影响（ Microsoft 服务器消息块（ SMB ）和 Solaris 光纤通道协议除外）。
@@ -54,7 +53,7 @@ summary: 您可以测试故障情形，以确认 MetroCluster 配置是否正常
 .步骤
 . 确认所有节点均处于已配置状态和正常模式：
 +
-` * MetroCluster node show*`
+`MetroCluster node show`
 
 +
 [listing]
@@ -68,7 +67,7 @@ Remote: cluster_B               configured             normal
 ----
 . 开始切换操作：
 +
-` * MetroCluster switchover*`
+`MetroCluster switchover`
 
 +
 [listing]
@@ -79,7 +78,7 @@ automatically re-start them on cluster "cluster_A". It will finally gracefully s
 ----
 . 确认本地集群处于已配置状态和切换模式：
 +
-` * MetroCluster node show*`
+`MetroCluster node show`
 
 +
 [listing]
@@ -94,7 +93,7 @@ Remote: cluster_B               not-reachable          -
 ----
 . 确认切换操作已成功：
 +
-` * MetroCluster operation show*`
+`MetroCluster 操作显示`
 
 +
 [listing]
@@ -115,7 +114,6 @@ cluster_A::> metrocluster operation show
 
 == 验证修复和手动切回
 
-[role="lead"]
 您可以通过在协商切换后将集群切回原始数据中心来测试修复和手动切回操作，以验证数据可用性不受影响（ SMB 和 Solaris FC 配置除外）。
 
 此测试需要大约 30 分钟。
@@ -125,7 +123,7 @@ cluster_A::> metrocluster operation show
 .步骤
 . 验证修复是否已完成：
 +
-` * MetroCluster node show*`
+`MetroCluster node show`
 
 +
 以下示例显示了命令的成功完成：
@@ -145,7 +143,7 @@ Group Cluster Node               State          Mirroring Mode
 ----
 . `m所有聚合均已` ：
 +
-` * 存储聚合显示 *`
+`s存储聚合显示`
 
 +
 以下示例显示所有聚合的 RAID 状态均为已镜像：
@@ -177,7 +175,7 @@ root_cluster_B    -         -     - unknown      - node_A_1   -
 . 从灾难站点启动节点。
 . 检查切回恢复的状态：
 +
-` * MetroCluster node show*`
+`MetroCluster node show`
 
 +
 [listing]
@@ -195,7 +193,7 @@ Group Cluster Node               State          Mirroring Mode
 ----
 . 执行切回：
 +
-` * MetroCluster switchback*`
+`MetroCluster 切回`
 
 +
 [listing]
@@ -205,7 +203,7 @@ cluster_A::> metrocluster switchback
 ----
 . 确认节点的状态：
 +
-` * MetroCluster node show*`
+`MetroCluster node show`
 
 +
 [listing]
@@ -221,9 +219,9 @@ Group Cluster Node               State          Mirroring Mode
 
 2 entries were displayed.
 ----
-. 确认 MetroCluster 操作的状态：
+. 确认状态：
 +
-` * MetroCluster operation show*`
+`MetroCluster 操作显示`
 
 +
 输出应显示成功状态。
@@ -244,7 +242,6 @@ cluster_A::> metrocluster operation show
 
 == 丢失一个 FC-SAS 网桥
 
-[role="lead"]
 您可以测试单个 FC-SAS 网桥的故障，以确保不存在单点故障。
 
 此测试需要大约 15 分钟。
@@ -257,13 +254,13 @@ cluster_A::> metrocluster operation show
 
 
 
-NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+NOTE: 从 ONTAP 9.8 开始， `storage bridge` 命令将替换为 `ssystem bridge` 。以下步骤显示了 `storage bridge` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 `ssystem bridge` 命令。
 
 .步骤
 . 关闭网桥的电源。
 . 确认网桥监控指示出现错误：
 +
-` * 存储网桥显示 *`
+`storage bridge show`
 
 +
 [listing]
@@ -279,7 +276,7 @@ ATTO_10.65.57.145
 ----
 . 确认网桥后面的驱动器可通过一条路径使用：
 +
-` * 存储磁盘错误显示 *`
+`s存储磁盘错误显示`
 
 +
 [listing]
@@ -299,7 +296,6 @@ Disk             Error Type        Error Text
 
 == 在电源线中断后验证操作
 
-[role="lead"]
 您可以测试 MetroCluster 配置对 PDU 故障的响应。
 
 最佳做法是，将组件中的每个电源设备（ PSU ）连接到单独的电源。如果两个 PSU 都连接到同一个配电单元（ PDU ），并且发生电气中断，则站点可能会关闭，并且整个磁盘架可能不可用。测试一条电源线故障，以确认没有布线不匹配，从而发生原因可能导致服务中断。
@@ -354,7 +350,6 @@ Power               Critical condition is detected in storage shelf power supply
 
 == 在丢失一个存储架后验证操作
 
-[role="lead"]
 您可以测试单个存储架的故障，以验证是否没有单点故障。
 
 此操作步骤具有以下预期结果：
@@ -367,7 +362,7 @@ Power               Critical condition is detected in storage shelf power supply
 .步骤
 . 检查存储故障转移状态：
 +
-` * 存储故障转移显示 *`
+`s存储故障转移显示`
 
 +
 [listing]
@@ -382,7 +377,7 @@ node_A_2       node_A_1       true     Connected to node_A_1
 ----
 . 检查聚合状态：
 +
-` * 存储聚合显示 *`
+`s存储聚合显示`
 
 +
 [listing]
@@ -414,13 +409,13 @@ node_A_2_root
 ----
 . 验证所有数据 SVM 和数据卷是否均已联机并提供数据：
 +
-` * vserver show -type data*`
+`vserver show -type data`
 
 +
-` * 网络接口 show -fields is-home false*`
+`network interface show -fields is-home false`
 
 +
-` * volume show ！ vol0 ，！ mDV*`
+`volume show ！ vol0 ，！ mdv*`
 
 +
 [listing]
@@ -459,7 +454,7 @@ SVM2
 ----
 . 确定池 1 中用于节点 node_A_2 的磁盘架以关闭电源以模拟突然发生的硬件故障：
 +
-` * storage aggregate show -r -node _node-name_ ！ * root*`
+`storage aggregate show -r -node _node-name_ ！ * root`
 
 +
 您选择的磁盘架必须包含镜像数据聚合中的驱动器。
@@ -511,13 +506,13 @@ Owner Node: node_A_2
 . 物理关闭选定磁盘架的电源。
 . 再次检查聚合状态：
 +
-` * 存储聚合 *`
+`s存储聚合`
 
 +
-` * 存储聚合 show -r -node node_A_2 ！ * root*`
+`storage aggregate show -r -node node_A_2 ！ * root`
 
 +
-驱动器位于已关闭电源架上的聚合应具有 `degraded` RAID 状态，而受影响丛上的驱动器应具有 `Failed` 状态，如以下示例所示：
+驱动器位于已关闭电源架上的聚合应具有 `degraded` RAID 状态，而受影响丛上的驱动器应具有 "`Failed` " 状态，如以下示例所示：
 
 +
 [listing]
@@ -584,13 +579,13 @@ Owner Node: node_A_2
 ----
 . 验证是否正在提供数据，以及所有卷是否仍处于联机状态：
 +
-` * vserver show -type data*`
+`vserver show -type data`
 
 +
-` * 网络接口 show -fields is-home false*`
+`network interface show -fields is-home false`
 
 +
-` * volume show ！ vol0 ，！ mDV*`
+`volume show ！ vol0 ，！ mdv*`
 
 +
 [listing]
@@ -633,10 +628,10 @@ SVM2
 
 . 验证重新同步是否已启动：
 +
-` * 存储聚合显示 *`
+`s存储聚合显示`
 
 +
-受影响的聚合应具有 `resyncing` RAID 状态，如以下示例所示：
+受影响的聚合应具有 " `re同步` " RAID 状态，如以下示例所示：
 
 +
 [listing]
@@ -665,10 +660,10 @@ node_A_2_root
 ----
 . 监控聚合以确认重新同步已完成：
 +
-` * 存储聚合显示 *`
+`s存储聚合显示`
 
 +
-受影响的聚合应具有 `normal` RAID 状态，如以下示例所示：
+受影响的聚合应具有 "`normal` " RAID 状态，如以下示例所示：
 
 +
 [listing]

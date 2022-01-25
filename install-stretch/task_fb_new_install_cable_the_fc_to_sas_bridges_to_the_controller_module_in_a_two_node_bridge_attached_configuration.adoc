@@ -13,9 +13,11 @@ summary: 在双节点桥接 MetroCluster 配置中，必须使用缆线将网桥
 在双节点桥接 MetroCluster 配置中，必须使用缆线将网桥连接到控制器模块。
 
 .步骤
-. 验证每个网桥是否可以检测到网桥所连接的所有磁盘驱动器和磁盘架。
+. 【第 1 步 - 验证 - 检测 ]] 验证每个网桥是否可以检测到网桥所连接的所有磁盘驱动器和磁盘架。
 +
 |===
+
+
 | 如果您使用的是 ... | 那么 ... 
 
 
@@ -31,7 +33,7 @@ ATTO ExpressNAV 图形用户界面
 此时将显示网桥的 ATTO FibreBridge 状态页面，左侧有一个菜单。
 
 .. 单击菜单中的 * 高级 * 。
-.. 运行以下命令，然后单击 * 提交 * ： + ` * sastargets*`
+.. 运行以下命令，然后单击 * 提交 * ： + `sastargets`
 
 
 
@@ -41,7 +43,7 @@ ATTO ExpressNAV 图形用户界面
  a| 
 运行以下命令：
 
-` * sastargets*`
+`s星网`
 
 |===
 +
@@ -49,7 +51,7 @@ ATTO ExpressNAV 图形用户界面
 
 +
 
-NOTE: 如果输出开头显示 `text response` truncated ，则可以使用 Telnet 连接到网桥并运行相同的命令来查看所有输出。
+NOTE: 如果输出开头显示 "`text response truncated` " ，则可以使用 Telnet 连接到网桥并运行相同的命令来查看所有输出。
 
 +
 以下输出显示已连接 10 个磁盘：
@@ -71,14 +73,17 @@ Tgt VendorID ProductID        Type        SerialNumber
 ----
 . 验证命令输出是否显示网桥已连接到其应连接的堆栈中的所有磁盘和磁盘架。
 +
+[cols="30,70"]
 |===
+
+
 | 如果输出为 ... | 那么 ... 
 
 
  a| 
 正确
  a| 
-重复 <<STEP_524EBC3334F54467B771D9E2FD2B2DDA,第 1 步>> 其余每个网桥。
+重复 <<step1-verify-detect,第 1 步>> 其余每个网桥。
 
 
 
@@ -87,13 +92,13 @@ Tgt VendorID ProductID        Type        SerialNumber
  a| 
 .. 检查 SAS 缆线是否松动，或者通过将磁盘架重新连接到网桥来更正 SAS 布线。
 +
-xref:task_fb_new_install_cabl.adoc[使用缆线将磁盘架连接到网桥]
+link:task_fb_new_install_cabl.html["使用缆线将磁盘架连接到网桥"]
 
-.. 重复 <<STEP_524EBC3334F54467B771D9E2FD2B2DDA,第 1 步>> 其余每个网桥。
+.. 重复 <<step1-verify-detect,第 1 步>> 其余每个网桥。
 
 
 |===
-. 使用缆线将每个网桥连接到控制器模块：
+. 【第 3 步 - 使用缆线连接每个网桥 ]] 使用缆线将每个网桥连接到控制器模块：
 +
 .. 使用缆线将网桥的 FC 端口 1 连接到 cluster_A 中控制器模块上的 FC 端口
 .. 使用缆线将网桥的 FC 端口 2 连接到 cluster_B 中控制器模块上的 FC 端口
@@ -108,5 +113,5 @@ image::../media/cluster_peering_network.gif[集群对等网络]
 
 
 
-. 重复 <<STEP_F00134584D424D4F869B5E9ECFCD56EB,第 3 步>> 在其他网桥上，直到所有网桥均已布线。
+. 重复 <<step3-cable-each-bridge,第 3 步>> 在其他网桥上，直到所有网桥均已布线。
 

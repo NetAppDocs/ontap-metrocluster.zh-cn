@@ -18,7 +18,7 @@ summary: 从 ONTAP 9.8 开始，您可以在中断的情况下将双节点 Metro
 * 此操作步骤会造成系统中断。
 * 此操作步骤仅适用于双节点 MetroCluster FC 配置。
 +
-如果您使用的是四节点 MetroCluster FC 配置，请参见 xref:concept_choosing_your_transition_procedure_mcc_transition.adoc[选择过渡操作步骤]。
+如果您使用的是四节点 MetroCluster FC 配置，请参见 link:concept_choosing_your_transition_procedure_mcc_transition.html["选择过渡操作步骤"]。
 
 * 您必须满足所有要求并按照操作步骤中的所有步骤进行操作。
 
@@ -27,7 +27,6 @@ summary: 从 ONTAP 9.8 开始，您可以在中断的情况下将双节点 Metro
 
 == 停用旧磁盘架时的过渡要求
 
-[role="lead"]
 在开始过渡过程之前，您必须确保现有 MetroCluster FC 配置满足要求。
 
 * 它必须是双节点光纤连接或延伸型 MetroCluster 配置，并且所有节点都必须运行 ONTAP 9.8 或更高版本。
@@ -36,7 +35,7 @@ summary: 从 ONTAP 9.8 开始，您可以在中断的情况下将双节点 Metro
 
 * 现有平台和新平台必须是过渡支持的组合。
 +
-xref:concept_supported_platforms_for_transition.adoc[支持无中断过渡的平台]
+link:concept_supported_platforms_for_transition.html["支持无中断过渡的平台"]
 
 * 它必须满足 _MetroCluster 安装和配置指南 _ 中所述的所有要求和布线。
 +
@@ -48,14 +47,14 @@ link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
 * 新的 MetroCluster IP 平台型号必须支持旧的存储架型号。
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 * 根据现有磁盘架中的可用备用磁盘，必须添加更多驱动器。
 +
 这可能需要额外的驱动器架。
 
 +
-您需要为每个控制器另外配置 14 - 18 个驱动器：
+每个控制器还需要额外的 14 到 18 个驱动器：
 
 +
 ** 三个池 0 驱动器
@@ -66,10 +65,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 * 您必须确保配置（包括新节点）不超过配置的平台限制，包括驱动器数，根聚合大小容量等
 +
-有关每个平台型号的信息，请访问 _NetApp Hardware Universe 。
-
-+
-https://hwu.netapp.com["NetApp Hardware Universe"]
+有关每个平台型号的信息，请访问 https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 
 
@@ -79,7 +75,6 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 == 移动数据和停用旧存储架时用于中断过渡的工作流
 
-[role="lead"]
 您必须遵循特定工作流以确保成功过渡。
 
 在准备过渡时，请规划站点之间的差旅。请注意，在对远程节点进行机架安装和布线后，您需要对这些节点进行串行终端访问。只有在配置节点后，才能访问服务处理器。
@@ -90,36 +85,36 @@ image::../media/workflow_2n_transition_moving_data_to_new_shelves.png[工作流 
 
 == 正在过渡配置
 
-[role="lead"]
 您必须遵循详细的过渡操作步骤。
 
 在以下步骤中，您将转到本指南的其他部分。您必须按给定顺序执行每个引用部分中的步骤。
 
+.步骤
 . 按照中的步骤规划端口映射 link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#mapping-ports-from-the-metrocluster-fc-nodes-to-the-metrocluster-ip-nodes["将端口从 MetroCluster FC 节点映射到 MetroCluster IP 节点"]。
 . 按照中的步骤准备 MetroCluster IP 控制器 link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#preparing-the-metrocluster-ip-controllers["准备 MetroCluster IP 控制器"]。
 . 验证 MetroCluster FC 配置的运行状况。
 +
-执行一节中的步骤 link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#verifying-the-health-of-the-metrocluster-fc-configuration["验证 MetroCluster FC 配置的运行状况"]
+执行中的步骤 link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#verifying-the-health-of-the-metrocluster-fc-configuration["验证 MetroCluster FC 配置的运行状况"]。
 
 . 从 MetroCluster FC 配置收集信息。
 +
-执行一节中的步骤 link:../task_transition_the_mcc_fc_nodes_2n_mcc_transition_supertask.html#gathering-information-from-the-existing-controller-modules-before-the-transition["过渡前从现有控制器模块收集信息"]
+执行中的步骤 link:../task_transition_the_mcc_fc_nodes_2n_mcc_transition_supertask.html#gathering-information-from-the-existing-controller-modules-before-the-transition["过渡前从现有控制器模块收集信息"]。
 
 . 如有必要，请取消 Tiebreaker 监控。
 +
-执行一节中的步骤 link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#verifying-the-health-of-the-metrocluster-fc-configuration["从 Tiebreaker 或其他监控软件中删除现有配置"]
+执行中的步骤 link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#verifying-the-health-of-the-metrocluster-fc-configuration["从 Tiebreaker 或其他监控软件中删除现有配置"]。
 
 . 准备并删除现有 MetroCluster FC 节点。
 +
-执行一节中的步骤 xref:task_transition_the_mcc_fc_nodes_2n_mcc_transition_supertask.adoc[过渡 MetroCluster FC 节点]。
+执行中的步骤 link:task_transition_the_mcc_fc_nodes_2n_mcc_transition_supertask.html["过渡 MetroCluster FC 节点"]。
 
 . 连接新的 MetroCluster IP 节点。
 +
-执行一节中的步骤 xref:task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.adoc[连接 MetroCluster IP 控制器模块]。
+执行中的步骤 link:task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.html["连接 MetroCluster IP 控制器模块"]。
 
 . 配置新的 MetroCluster IP 节点并完成过渡。
 +
-执行一节中的步骤 xref:task_configure_the_new_nodes_and_complete_transition.adoc[配置新节点并完成过渡]。
+执行中的步骤 link:task_configure_the_new_nodes_and_complete_transition.html["配置新节点并完成过渡"]。
 
 
 
@@ -127,29 +122,38 @@ image::../media/workflow_2n_transition_moving_data_to_new_shelves.png[工作流 
 
 == 迁移根聚合
 
-[role="lead"]
 过渡完成后，将剩余的现有根聚合从 MetroCluster FC 配置迁移到 MetroCluster IP 配置中的新磁盘架。
 
 此任务会将 node_A_1-FC 和 node_B_1-FC 的根聚合移至新 MetroCluster IP 控制器所拥有的磁盘架：
 
+.步骤
 . 将新本地存储架上的池 0 磁盘分配给要迁移根的控制器（例如，如果正在迁移 node_A_1-FC 的根，请将新存储架上的池 0 磁盘分配给 node_A_1-IP ）
 +
 请注意， migration_disks 不会重新创建根镜像 _ ，因此在发出迁移命令之前，无需分配池 1 磁盘
 
-. 将权限模式设置为 advanced ： `set priv advanced`
-. 迁移根聚合： `ssystem node migrate-root -node node-name -disklist disk-id1 ， disk-id2 ， diskn -raid-type raid-type`
+. 将权限模式设置为高级：
++
+`set priv advanced`
+
+. 迁移根聚合：
++
+`ssystem node migrate-root -node node-name -disklist disk-id1 ， disk-id2 ， diskn -raid-type raid-type`
+
 +
 ** node-name 是根聚合要迁移到的节点。
 ** 磁盘 ID 用于标识新磁盘架上的池 0 磁盘。
 ** RAID 类型通常与现有根聚合的 RAID 类型相同。
-** 您可以使用命令 job show -idjob-id-instance 检查迁移状态，其中 job-id 是在发出 migrate-root 命令时提供的值。例如，如果 node_A_1-FC 的根聚合包含三个具有 raid_dp 的磁盘，则可使用以下命令将根迁移到新磁盘架 11 ：
-
+** 您可以使用命令 `job show -idjob-id-instance` 检查迁移状态，其中 job-id 是在发出 migrate-root 命令时提供的值。
++
+例如，如果 node_A_1-FC 的根聚合包含三个具有 raid_dp 的磁盘，则可使用以下命令将根迁移到新磁盘架 11 ：
 
 +
 [listing]
 ----
 system node migrate-root -node node_A_1-IP -disklist 3.11.0,3.11.1,3.11.2 -raid-type raid_dp
 ----
+
+
 . 请等待迁移操作完成，然后节点自动重新启动。
 . 在直接连接到远程集群的新磁盘架上为根聚合分配池 1 磁盘。
 . 镜像迁移的根聚合。
@@ -164,15 +168,11 @@ system node migrate-root -node node_A_1-IP -disklist 3.11.0,3.11.1,3.11.2 -raid-
 
 == 迁移数据聚合
 
-[role="lead"]
 在新磁盘架上创建数据聚合，然后使用卷移动将数据卷从旧磁盘架传输到新磁盘架上的聚合。
 
 . 将数据卷移动到新控制器上的聚合，一次移动一个卷。
 +
-请使用控制器升级快速指南 _ 的以下部分。
-
-+
-http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["创建聚合并将卷移动到新节点"]
+http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["创建聚合并将卷移动到新节点"^]
 
 
 
@@ -180,7 +180,6 @@ http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-
 
 == 停用从 node_A_1-FC 和 node_A_2-FC 移动的磁盘架
 
-[role="lead"]
 您可以从原始 MetroCluster FC 配置中停用旧存储架。这些磁盘架最初由 node_A_1-FC 和 node_A_2-FC 所有。
 
 . 确定 cluster_B 上旧磁盘架上需要删除的聚合。
@@ -217,7 +216,10 @@ cluster_B::>
 
 . 使每个聚合脱机，然后将其删除：
 +
-.. 使聚合脱机： `storage aggregate offline -aggregate aggregate-name`
+.. 使聚合脱机：
++
+`storage aggregate offline -aggregate aggregate-name`
+
 +
 以下示例显示了聚合 node_B_1_aggr0 正在脱机：
 
@@ -228,7 +230,10 @@ cluster_B::> storage aggregate offline -aggregate node_B_1_aggr0
 
 Aggregate offline successful on aggregate: node_B_1_aggr0
 ----
-.. 删除聚合： `storage aggregate delete -aggregate aggregate-name`
+.. 删除聚合：
++
+`storage aggregate delete -aggregate aggregate-name`
+
 +
 出现提示时，您可以销毁丛。
 
@@ -254,11 +259,11 @@ cluster_B::>
 
 == 正在完成过渡
 
-[role="lead"]
 删除旧控制器模块后，您可以完成过渡过程。
 
+.步骤
 . 完成过渡过程：
 +
-执行中的步骤 xref:task_return_the_system_to_normal_operation_2n_mcc_transition_supertask.adoc[使系统恢复正常运行]
+执行中的步骤 link:task_return_the_system_to_normal_operation_2n_mcc_transition_supertask.html["使系统恢复正常运行"]。
 
 

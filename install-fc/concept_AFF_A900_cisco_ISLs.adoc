@@ -5,11 +5,9 @@ keywords: AFF, A900, ONTAP, FAS, Cisco, ISL, metrocluster
 summary: 下表显示了 ISL 端口使用情况。 
 ---
 = AFF A900 —运行 ONTAP 9.10.1 或更高版本的 MetroCluster 配置中八节点配置中 ISL 的 Cisco 端口使用情况
+:icons: font
+:imagesdir: ../media/
 
-
-
-
-== AFF A900 —运行 ONTAP 9.10.1 或更高版本的 MetroCluster 配置中八节点配置中 ISL 的 Cisco 端口使用情况
 
 下表显示了 ISL 端口使用情况。此配置中的所有交换机上的 ISL 端口使用情况均相同。
 

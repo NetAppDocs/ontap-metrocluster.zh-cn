@@ -5,11 +5,9 @@ keywords: AFF, A900, Cisco, ONTAP, FAS, FC, metrocluster
 summary: 下表显示了一个 DR 组中包含八个 AFF A900 控制器模块时支持的最大配置。 
 ---
 = 运行 ONTAP 9.10.1 或更高版本的 MetroCluster 配置中 AFF A900 控制器的 Cisco 端口使用情况
+:icons: font
+:imagesdir: ../media/
 
-
-
-
-== 运行 ONTAP 9.10.1 或更高版本的 MetroCluster 配置中 AFF A900 控制器的 Cisco 端口使用情况
 
 下表显示了一个 DR 组中包含八个 AFF A900 控制器模块时支持的最大配置。
 

@@ -28,7 +28,6 @@ image::../media/workflow_bridge_installation_and_configuration.gif[工作流网�
 
 == FC-SAS 网桥的带内管理
 
-[role="lead"]
 从使用 FibreBridge 7500N 或 7600N 网桥的 ONTAP 9.5 开始，支持使用网桥的带内管理作为网桥 IP 管理的替代方案。从 ONTAP 9.8 开始，已弃用带外管理。
 
 .关于此任务
@@ -46,7 +45,7 @@ NOTE: 从 ONTAP 9.8 开始， `storage bridge` 命令将替换为 `ssystem bridg
 * 在 ONTAP 9.5 之前的版本中，仅支持带外 SNMP 管理。
 
 
-可以从 ONTAP 界面上的 ONTAP interface storage bridge run-cli -namebridge-name-commandbridge-command-name 命令发出网桥命令行界面命令。
+可以从 ONTAP 界面运行网桥命令行界面命令，例如 `storage bridge run-cli -namebridge-name-commandbridge-command-name` 命令。
 
 
 NOTE: 建议在禁用 IP 访问的情况下使用带内管理，以通过限制网桥的物理连接来提高安全性。
@@ -55,7 +54,6 @@ NOTE: 建议在禁用 IP 访问的情况下使用带内管理，以通过限制�
 
 == 准备安装
 
-[role="lead"]
 准备在新的 MetroCluster 系统中安装网桥时，必须确保系统满足特定要求，包括满足网桥的设置和配置要求。其他要求包括下载必要的文档， ATTO QuickNAV 实用程序和网桥固件。
 
 .关于此任务
@@ -108,8 +106,7 @@ NOTE: 适用于您的型号网桥的 _ATTO FibreBridge 安装和操作手册 _ �
 
 == 安装 FC-SAS 网桥和 SAS 磁盘架
 
-[role="lead"]
-在确保系统满足 "`准备安装` " 一节中的所有要求之后，您可以安装新系统。
+确保系统满足 "`准备安装` " 中的所有要求后，您可以安装新系统。
 
 .关于此任务
 * 两个站点的磁盘和磁盘架配置应相同。
@@ -154,16 +151,22 @@ MetroCluster 配置中的 SAS 磁盘架不支持 ACP 布线。
 
 .步骤
 . 通过将串行缆线连接到 FibreBridge 7600N 网桥上的串行端口来访问网桥的控制台接口。
-. 使用控制台启用访问服务，然后保存配置： `set closePort none``saveconfiguration`
+. 使用控制台启用访问服务，然后保存配置：
 +
-set closePort none 命令可启用网桥上的所有访问服务。
-
-. 如果需要，可通过发出 set closePort 并根据需要重复执行命令，直到禁用所有所需服务： `set closePort service` 来禁用服务
-+
-set closePort 命令一次禁用单个服务。
+`set closePort none`
 
 +
-服务可以指定以下项之一：
+`saveConfiguration`
+
++
+使用 `set closePort none` 命令可启用网桥上的所有访问服务。
+
+. 如果需要，可发出 `set closePort _service_` 并根据需要重复执行命令，直到禁用所有所需服务为止，以禁用服务：
++
+`set closePort _service_`
+
++
+`set closePort` 命令一次禁用一项服务。可以通过以下方式之一指定此服务：
 
 +
 ** 快速报告
@@ -171,14 +174,23 @@ set closePort 命令一次禁用单个服务。
 ** ICMP
 ** QuickNAV
 ** SNMP
-** Telnet 您可以使用 get closePort 命令检查特定协议是否已启用。
+** Telnet
 
 
-. 如果要启用 SNMP ，还必须对 set snmp enabled 命令执行问题描述操作： `set snmp enabled`
++
+您可以使用 `get closePort` 命令检查特定协议是否已启用。
+
+. 如果要启用 SNMP ，还必须对 set snmp enabled 命令执行问题描述操作：
++
+`s设置 SNMP 已启用`
+
 +
 SNMP 是唯一需要单独的 enable 命令的协议。
 
-. 保存配置： `saveconfiguration`
+. 保存配置：
++
+`saveConfiguration`
+
 
 
 
@@ -255,13 +267,24 @@ NOTE: 请勿在 ATTO FibreBridge 7600N 或 7500N 上配置时间同步。在 ONT
 每个站点上一个堆栈组的网桥名称示例：
 
 +
+--
 *** bridge_A_1a
 *** bridge_A_1b
 *** bridge_B_1a
-*** bridge_B_1b 如果使用命令行界面，则必须运行以下命令：``set bridgename bridgename``
+*** bridge_B_1b
 
 
-.. 如果运行的是 ONTAP 9.4 或更早版本，请在网桥上启用 SNMP ： `set snmp enabled`
+--
++
+如果使用命令行界面，则必须运行以下命令：
+
++
+`set bridgename bridgename`
+
+.. 如果运行的是 ONTAP 9.4 或更早版本，请在网桥上启用 SNMP ：
++
+`s设置 SNMP 已启用`
+
 +
 在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
 
@@ -332,13 +355,12 @@ Fibre Channel Port 2 has been disabled.
 [listing]
 ----
 SASPortDisable b
+
+SAS Port B has been disabled.
 ----
-+
-已禁用 SAS 端口 B 。
 
 
-
-. 安全访问网桥并保存网桥的配置。根据您的系统运行的 ONTAP 版本，从下方选择一个选项。
+. 保护对网桥的访问并保存网桥的配置。根据您的系统运行的 ONTAP 版本，从下方选择一个选项。
 +
 [cols="1,3"]
 |===
@@ -640,7 +662,6 @@ link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 
 
 == 固定或取消固定 FibreBridge 网桥
 
-[role="lead"]
 要轻松禁用网桥上可能不安全的以太网协议，从 ONTAP 9.5 开始，您可以保护网桥。此操作将禁用网桥的以太网端口。您还可以重新启用以太网访问。
 
 .关于此任务

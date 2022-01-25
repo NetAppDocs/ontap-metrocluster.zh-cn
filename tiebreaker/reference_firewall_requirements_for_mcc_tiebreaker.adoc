@@ -46,9 +46,9 @@ Tiebreaker 管理
  a| 
 Tiebreaker
  a| 
-MetroCluster 管理 LIF
+集群管理 LIF
  a| 
-通过 HTTP （ SSL ）进行安全通信
+通过 HTTP （ SSL ）与集群进行安全通信
 
 
 
@@ -57,9 +57,9 @@ MetroCluster 管理 LIF
  a| 
 Tiebreaker
  a| 
-MetroCluster 管理 LIF
+集群管理 LIF
  a| 
-通过 SSH 实现安全通信
+通过 SSH 与集群进行安全通信
 
 
 
@@ -68,9 +68,9 @@ MetroCluster 管理 LIF
  a| 
 Tiebreaker
  a| 
-MetroCluster 管理 LIF
+节点管理 LIFs
  a| 
-通过 HTTP （ SSL ）进行安全通信
+通过 HTTP （ SSL ）与节点进行安全通信
 
 
 
@@ -79,9 +79,9 @@ MetroCluster 管理 LIF
  a| 
 Tiebreaker
  a| 
-MetroCluster 管理 LIF
+节点管理 LIFs
  a| 
-通过 SSH 实现安全通信
+通过 SSH 与节点进行安全通信
 
 
 
@@ -101,7 +101,7 @@ ICMP （ ping ）
  a| 
 Tiebreaker
  a| 
-MetroCluster 管理 LIF
+集群管理 LIF
  a| 
 检查集群 IP 是否可访问
 
@@ -112,7 +112,7 @@ ICMP （ ping ）
  a| 
 Tiebreaker
  a| 
-MetroCluster 管理 LIF
+节点管理 LIFs
  a| 
 检查节点 IP 是否可访问
 

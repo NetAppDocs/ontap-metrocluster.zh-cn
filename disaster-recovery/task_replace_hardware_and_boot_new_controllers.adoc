@@ -61,7 +61,7 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 
 .. 使用缆线将磁盘架连接到堆栈中的相邻磁盘架以及 FC-SAS 网桥。此时请勿打开磁盘架的电源。
 
-| link:http://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"] 
+| link:http://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^] 
 
 
  a| 
@@ -70,7 +70,7 @@ SAS 缆线
 .. 安装新缆线。此时请勿打开磁盘架的电源。
 
  a| 
-link:http://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+link:http://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
 
 
 
@@ -118,10 +118,15 @@ link:../install-stretch/concept_considerations_differences.html["延伸型 Metro
 
 
  a| 
-link:http://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+link:http://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
 
 |===
-. 根据适用于您的配置的 MetroCluster 安装和配置指南 _ ，验证所有组件是否已正确布线。
+. 验证所有组件是否已根据您的配置正确布线。
++
+** link:../install-ip/using_rcf_generator.html["MetroCluster IP 配置"]
+** link:../install-fc/task_fmc_mcc_transition_cable_the_new_mcc_controllers_to_the_exist_fc_fabrics.html["MetroCluster 光纤连接配置"]
+
+
 
 
 
@@ -398,14 +403,13 @@ site_B::*> storage iscsi-initiator disconnect -node node_B_2 -label *
 
 == 通过网络启动新控制器模块
 
-[role="lead"]
 如果新控制器模块的 ONTAP 版本与正常运行的控制器模块上的版本不同，则必须通过网络启动新控制器模块。
 
 .开始之前
 * 您必须有权访问 HTTP 服务器。
 * 您必须有权访问 NetApp 支持站点，才能下载适用于您的平台及其所运行的 ONTAP 软件版本的必要系统文件。
 +
-https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
+https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"^]
 
 
 
@@ -475,7 +479,6 @@ The node must be rebooted to start using the newly installed software. Do you wa
 
 == 确定替代控制器模块的系统 ID
 
-[role="lead"]
 更换灾难站点上的所有硬件后，您必须确定新安装的存储控制器模块的系统 ID 。
 
 您必须在更换用的控制器模块处于维护模式时执行此操作步骤。

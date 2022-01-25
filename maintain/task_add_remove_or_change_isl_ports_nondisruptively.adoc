@@ -21,9 +21,11 @@ summary: 您可能需要添加，删除或更改 ISL 端口。您可以将专用
 .步骤
 . 在网络结构中要更改的两个交换机上禁用 ISL 的 ISL 端口。
 +
+--
 
 NOTE: 只有在将当前 ISL 端口移动到其他端口或 ISL 速度发生变化时，才需要禁用这些端口。如果要添加速度与现有 ISL 相同的 ISL 端口，请转至步骤 3 。
 
+--
 +
 每行只能输入一个配置命令，并在输入完所有命令后按 Ctrl-Z ，如以下示例所示：
 
@@ -46,26 +48,29 @@ switch_B_1#
 . 拆下现有缆线和收发器。
 . 根据需要更改 ISL 端口。
 +
+[cols="30,70"]
 |===
+
+
 | 选项 | 步骤 
 
 
  a| 
 要更改 ISL 端口的速度 ...
  a| 
-根据速度将新 ISL 连接到指定端口。您必须确保您的交换机的这些 ISL 端口已在 _ISL MetroCluster IP 安装和配置指南 _ 中列出。
+根据速度将新 ISL 连接到指定端口。您必须确保您的交换机的这些 ISL 端口已在 _ISL MetroCluster IP 安装和配置 _ 中列出。
 
 
 
  a| 
 要添加 ISL ...
  a| 
-将 QMSP 插入要添加为 ISL 端口的端口。确保它们列在 _IP MetroCluster 安装和配置指南中，并根据此指南为其布线。
+将 QMSP 插入要添加为 ISL 端口的端口。确保它们列在 _IP MetroCluster 安装和配置 _ 中，并进行相应的布线。
 
 |===
 . 从以下命令开始，在网络结构中的两个交换机上启用所有 ISL 端口（如果未启用）：
 +
-` * 交换机 _A_1# 配置 t*`
+`sswitch_A_1# conf t`
 
 +
 每行只能输入一个配置命令，输入完所有命令后按 Ctrl-Z ：
@@ -93,7 +98,7 @@ switch_B_1# copy running-config startup-config
 ----
 . 验证是否已在两个交换机之间建立 ISL ：
 +
-` * switch_A_1# show int eth1/17 ， eth1/18 brief *`
+`sswitch_A_1# show int eth1/17 ， eth1/18 brief`
 
 +
 您应在命令输出中看到 ISL 接口，如以下示例所示：

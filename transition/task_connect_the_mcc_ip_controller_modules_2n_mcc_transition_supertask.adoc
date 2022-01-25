@@ -16,7 +16,6 @@ summary: 您必须将四个新控制器模块以及任何其他存储架添加�
 
 == 设置新控制器
 
-[role="lead"]
 您必须将新的 MetroCluster IP 控制器安装到先前连接到 MetroCluster FC 控制器的存储架上并使用缆线连接。
 
 必须对每个 MetroCluster IP 节点执行这些步骤。
@@ -31,6 +30,7 @@ summary: 您必须将四个新控制器模块以及任何其他存储架添加�
 
 image::../media/transition_2n_4_new_ip_nodes_and_shelves.png[过渡 2n 4 个新 IP 节点和磁盘架]
 
+.步骤
 . 根据需要规划新控制器模块和存储架的位置。
 +
 机架空间取决于控制器模块的平台型号，交换机类型以及配置中的存储架数量。
@@ -44,49 +44,56 @@ image::../media/transition_2n_4_new_ip_nodes_and_shelves.png[过渡 2n 4 个新 
 . 验证所有存储架是否均已关闭。
 . 通过在所有四个节点上执行以下步骤，验证是否未连接任何驱动器：
 +
-.. 在 LOADER 提示符处，启动启动菜单： `boot_ontap maint`
-.. 验证是否未连接任何驱动器： `disk show -v`
+.. 在 LOADER 提示符处，启动启动菜单：
++
+`boot_ontap maint`
+
+.. 验证是否未连接任何驱动器：
++
+`disk show -v`
+
 +
 输出应显示无驱动器。
 
-.. 暂停节点： `halt`
+.. 暂停节点：
++
+`halt`
+
 
 
 . 使用启动菜单上的 9a 选项启动所有四个节点。
 +
-.. 在 LOADER 提示符处，启动启动菜单： `boot_ontap menu`
-.. 在启动菜单中，选择选项 * 。 9a* 以重新启动控制器。
+.. 在 LOADER 提示符处，启动启动菜单：
++
+`boot_ontap 菜单`
+
+.. 在启动菜单中，选择选项 "`9a` " 以重新启动控制器。
 .. 在移至下一个控制器模块之前，让控制器模块完成启动。
 
 
 +
-9a 完成后，节点将自动返回到启动菜单。
+在 "`9a` " 完成后，节点将自动返回到启动菜单。
 
 . 为存储架布线。
 +
 有关布线信息，请参见适用于您的型号的控制器安装和设置过程。
 
 +
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
 
-. 按照 _IP MetroCluster 安装和配置指南 _ 中所述，使用缆线将控制器连接到 IP 交换机。
-+
-link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
-
-+
-** link:../install-ip/using_rcf_generator.html["为 IP 交换机布线"]
-
-
+. 按照中所述，使用缆线将控制器连接到 IP 交换机 link:../install-ip/using_rcf_generator.html["为 IP 交换机布线"]。
 . 准备 IP 交换机以应用新的 RCF 文件。
 +
-按照 _IP MetroCluster 安装和配置指南 _ 中适用于您的交换机供应商一节中的步骤进行操作。
+按照适用于您的交换机供应商的步骤进行操作：
 
 +
-link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]* * 
+** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_cisco.html["将 Cisco IP 交换机重置为出厂默认值"]
+
 
 . 下载并安装 RCF 文件。
 +
-按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]。
+按照适用于您的交换机供应商的步骤进行操作：
 
 +
 ** link:../install-ip/task_switch_config_broadcom.html["下载并安装 Broadcom RCF 文件"]
@@ -94,10 +101,22 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 
 
 . 打开第一个新控制器（ node_A_1-IP ）的电源，然后按 Ctrl-C 中断启动过程并显示 LOADER 提示符。
-. 将控制器启动至维护模式： `boot_ontap_maint`
-. 显示控制器的系统 ID ： `ssysconfig -v`
-. 确认现有配置中的磁盘架可从新的 MetroCluster IP 节点中查看： `storage show shelf``disk show -v`
-. 暂停节点： `halt`
+. 将控制器启动至维护模式：
++
+`boot_ontap_maint`
+
+. 显示控制器的系统 ID ：
++
+`ssysconfig -v`
+
+. 确认现有配置中的磁盘架可从新的 MetroCluster IP 节点中查看：
++
+`s存储显示磁盘架``disk show -v`
+
+. 暂停节点：
++
+`halt`
+
 . 在配对站点（ site_B ）的另一个节点上重复上述步骤。
 
 
@@ -105,18 +124,23 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 
 == 连接并启动 node_A_1-IP 和 node_B_1-IP
 
-[role="lead"]
 连接 MetroCluster IP 控制器和 IP 交换机后，您可以过渡并启动 node_A_1-IP 和 node_B_1-IP 。
 
 
 
 === 正在启动 node_A_1-IP
 
-[role="lead"]
 您必须使用正确的过渡选项启动节点。
 
-. 将 node_A_1-IP 启动到启动菜单： `boot_ontap menu`
-. 在启动菜单提示符处输入以下命令以启动过渡： `boot_after_mcc_transition` 问题描述
+.步骤
+. 将 node_A_1-IP 启动到启动菜单：
++
+`boot_ontap 菜单`
+
+. 在启动菜单提示符处输入以下命令以启动过渡：问题描述
++
+`boot_after_mcc_transition`
+
 +
 ** 此命令会将 node_A_1-FC 拥有的所有磁盘重新分配给 node_A_1-IP 。
 +
@@ -125,11 +149,15 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 
 
 ** 此命令还会自动重新分配其他所需的系统 ID ，以便 MetroCluster IP 节点可以启动到 ONTAP 提示符。
-** 如果 boot_after_mcc_transition 命令因任何原因失败，则应从启动菜单重新运行该命令。* 注： *
-** 如果显示以下提示，请输入 Ctrl-C 继续。正在检查 MCC DR 状态 ... [ 输入 Ctrl-C （ resume ）， S （ status ）， L （ link ） ]_
-** 如果根卷已加密，则节点将暂停，并显示以下消息。暂停系统，因为根卷已加密（ NetApp 卷加密），并且密钥导入失败。如果此集群配置了外部（ KMIP ）密钥管理器，请检查密钥服务器的运行状况。
+** 如果 boot_after_mcc_transition 命令因任何原因失败，则应从启动菜单重新运行该命令。
++
+[NOTE]
+====
+*** 如果显示以下提示，请输入 Ctrl-C 继续。正在检查 MCC DR 状态 ... [ 输入 Ctrl-C （ resume ）， S （ status ）， L （ link ） ]_
+*** 如果根卷已加密，则节点将暂停，并显示以下消息。暂停系统，因为根卷已加密（ NetApp 卷加密），并且密钥导入失败。如果此集群配置了外部（ KMIP ）密钥管理器，请检查密钥服务器的运行状况。
 
 
+====
 +
 [listing]
 ----
@@ -153,25 +181,32 @@ MetroCluster Transition: Please confirm if this is the correct value [yes|no]:? 
 MetroCluster Transition: Disaster Recovery partner sysid of local MetroCluster IP node: `systemID-of-node_B_1-IP`
 MetroCluster Transition: Please confirm if this is the correct value [yes|no]:? y
 ----
+
+
 . 如果数据卷已加密，请使用适用于您的密钥管理配置的正确命令还原密钥。
 +
+[cols="1,2"]
 |===
+
+
 | 如果您使用的是 ... | 使用此命令 ... 
 
 
  a| 
 * 板载密钥管理 *
  a| 
-安全密钥管理器板载同步有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["还原板载密钥管理加密密钥"]。
+`sSecurity key-manager 板载同步`
+
+有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["还原板载密钥管理加密密钥"^]。
 
 
 
  a| 
 * 外部密钥管理 *
  a| 
-security key-manager key query -node node-name 有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"]。
+`sSecurity key-manager key query -node node-name`
 
-+
+有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"^]。
 
 |===
 . 如果根卷已加密，请使用中的操作步骤 link:../transition/task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.html#recovering-key-management-if-the-root-volume-is-encrypted["如果根卷已加密，则恢复密钥管理"]。
@@ -181,31 +216,34 @@ security key-manager key query -node node-name 有关详细信息，请参见 ht
 
 === 如果根卷已加密，则恢复密钥管理
 
-[role="lead"]
 如果根卷已加密，则必须使用特殊的启动命令来还原密钥管理。
 
 您必须事先收集密码短语。
 
+.步骤
 . 如果使用板载密钥管理，请执行以下子步骤以还原配置。
 +
-.. 在 LOADER 提示符处，显示启动菜单： `boot_ontap menu`
-.. 从启动菜单中选择选项（ 10 ） set on板 载密钥管理恢复密码。
+.. 在 LOADER 提示符处，显示启动菜单：
++
+`boot_ontap 菜单`
+
+.. 从启动菜单中选择选项 "` （ 10 ） set on板 载密钥管理恢复密码` " 。
 +
 根据需要响应提示：
 
 +
 [listing]
 ----
-This option must be used only in disaster recovery procedures. Are you sure? (y or n): `y`
-Enter the passphrase for onboard key management: `passphrase`
-Enter the passphrase again to confirm:`passphrase`
+This option must be used only in disaster recovery procedures. Are you sure? (y or n): y
+Enter the passphrase for onboard key management: passphrase
+Enter the passphrase again to confirm: passphrase
 
-Enter the backup data:`backup-key`
+Enter the backup data: backup-key
 ----
 +
 系统将启动至启动菜单。
 
-.. 在启动菜单中输入选项 `6` 。
+.. 在启动菜单中输入选项 "`6` " 。
 +
 根据需要响应提示：
 
@@ -223,8 +261,11 @@ Override system ID? {y|n} y
 +
 重新启动后，系统将显示 LOADER 提示符。
 
-.. 在 LOADER 提示符处，显示启动菜单： `boot_ontap menu`
-.. 再次从启动菜单中选择选项（ 10 ）设置板载密钥管理恢复密钥。
+.. 在 LOADER 提示符处，显示启动菜单：
++
+`boot_ontap 菜单`
+
+.. 再次从启动菜单中选择选项 "` （ 10 ） set on板 载密钥管理恢复密码` " 。
 +
 根据需要响应提示：
 
@@ -240,14 +281,21 @@ Enter the backup data:`backup-key`
 +
 系统将启动至启动菜单。
 
-.. 在启动菜单中输入选项 `1` 。
+.. 在启动菜单中输入选项 "`1` " 。
 +
-如果显示以下提示，则可以输入 Ctrl+C 以恢复此过程。正在检查 MCC 灾难恢复状态 ... [ 输入 Ctrl-C （ resume ）， S （ status ）， L （ link ） ]_
+如果显示以下提示，则可以按 Ctrl+C 继续此过程。
 
++
+....
+ Checking MCC DR state... [enter Ctrl-C(resume), S(status), L(link)]
+....
 +
 系统将启动到 ONTAP 提示符。
 
-.. 还原板载密钥管理： `security key-manager on板 载同步`
+.. 还原板载密钥管理：
++
+`sSecurity key-manager 板载同步`
+
 +
 使用您先前收集的密码短语，根据需要对提示做出响应：
 
@@ -261,26 +309,59 @@ Enter the cluster-wide passphrase for onboard key management in Vserver "cluster
 
 . 如果使用外部密钥管理，请执行以下子步骤以还原配置。
 +
-.. 设置所需的 bootargs ： `setenv bootarg.kmip.init.ipaddr ip-address``setenv bootarg.kmip.init.netmask netmask``setenv bootarg.kmip.init.gateway gateway-address``setenv bootarg.kmip.init.interface interface-id`
-.. 在 LOADER 提示符处，显示启动菜单： `boot_ontap menu`
-.. 从启动菜单中选择选项（ 11 ） Configure node for external key management 。
+.. 设置所需的 bootargs ：
++
+`setenv bootarg.kmip.init.ipaddr ip-address`
+
++
+`setenv bootarg.kmip.init.netmask netmask`
+
++
+`setenv bootarg.kmip.init.gateway gateway-address`
+
++
+`setenv bootarg.kmip.init.interface interface-id`
+
+.. 在 LOADER 提示符处，显示启动菜单：
++
+`boot_ontap 菜单`
+
+.. 从启动菜单中选择选项 "` （ 11 ） Configure node for external key management` " 。
 +
 系统将启动至启动菜单。
 
-.. 在启动菜单中输入选项 `6` 。
+.. 在启动菜单中输入选项 "`6` " 。
 +
 系统启动多次。系统提示您继续启动过程时，您可以肯定地回答。
 
 +
 重新启动后，系统将显示 LOADER 提示符。
 
-.. 设置所需的 bootargs ： `setenv bootarg.kmip.init.ipaddr ip-address``setenv bootarg.kmip.init.netmask netmask``setenv bootarg.kmip.init.gateway gateway-address``setenv bootarg.kmip.init.interface interface-id`
-.. 在 LOADER 提示符处，显示启动菜单： `boot_ontap menu`
-.. 再次从启动菜单中选择选项（ 11 ） Configure node for external key management ，并根据需要响应提示。
+.. 设置所需的 bootargs ：
++
+`setenv bootarg.kmip.init.ipaddr ip-address`
+
++
+`setenv bootarg.kmip.init.netmask netmask`
+
++
+`setenv bootarg.kmip.init.gateway gateway-address`
+
++
+`setenv bootarg.kmip.init.interface interface-id`
+
+.. 在 LOADER 提示符处，显示启动菜单：
++
+`boot_ontap 菜单`
+
+.. 再次从启动菜单中选择选项 "` （ 11 ） Configure node for external key management` " ，并根据需要响应提示。
 +
 系统将启动至启动菜单。
 
-.. 还原外部密钥管理： `security key-manager external restore`
+.. 还原外部密钥管理：
++
+`s安全密钥管理器外部还原`
+
 
 
 
@@ -289,71 +370,121 @@ Enter the cluster-wide passphrase for onboard key management in Vserver "cluster
 
 === 正在创建网络配置
 
-[role="lead"]
 您必须在 FC 节点上创建与配置匹配的网络配置。这是因为 MetroCluster IP 节点在启动时会重放相同的配置，这意味着在 node_A_1-IP 和 node_B_1-IP 启动时， ONTAP 将尝试在 node_A_1-FC 和 node_B_1-FC 上使用的相同端口上托管 LIF 。
 
-创建网络配置时，请使用中制定的计划 xref:concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.adoc[将端口从 MetroCluster FC 节点映射到 MetroCluster IP 节点] 为您提供帮助。
+创建网络配置时，请使用中制定的计划 link:concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html["将端口从 MetroCluster FC 节点映射到 MetroCluster IP 节点"] 为您提供帮助。
 
-注意
 
-配置 MetroCluster IP 节点后，可能需要进行其他配置才能启动数据 LIF 。
+NOTE: 配置 MetroCluster IP 节点后，可能需要进行其他配置才能启动数据 LIF 。
 
+.步骤
 . 验证所有集群端口是否都位于相应的广播域中：
 +
 要创建集群 LIF ，需要集群 IP 空间和集群广播域
 
 +
-.. 查看 IP 空间： `network ipspace show`
+.. 查看 IP 空间：
++
+`network IPspace show`
+
 .. 创建 IP 空间并根据需要分配集群端口。
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-69120CF0-F188-434F-913E-33ACB8751A5D.html["配置 IP 空间（仅限集群管理员）"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-69120CF0-F188-434F-913E-33ACB8751A5D.html["配置 IP 空间（仅限集群管理员）"^]
 
-.. 查看广播域： `network port broadcast-domain show`
+.. 查看广播域：
++
+`network port broadcast-domain show`
+
 .. 根据需要将任何集群端口添加到广播域。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["从广播域添加或删除端口"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["从广播域添加或删除端口"^]
 
 .. 根据需要重新创建 VLAN 和接口组。
 +
 VLAN 和接口组成员资格可能与旧节点不同。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["创建 VLAN"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["创建 VLAN"^]
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["组合物理端口以创建接口组"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["组合物理端口以创建接口组"^]
 
 
 
-. 验证端口和广播域的 MTU 设置是否正确，并使用以下命令进行更改： `network port broadcast-domain show``network port broadcast-domain modify -broadcast- domain bcastdomainname -mtu mtu`
+. 验证端口和广播域的 MTU 设置是否正确，并使用以下命令进行更改：
++
+`network port broadcast-domain show`
+
++
+`network port broadcast-domain modify -broadcast-domain _bcastdomainname_ -mtu _mtu 值 _`
+
 
 
 
 
 === 设置集群端口和集群 LIF
 
-[role="lead"]
 您必须设置集群端口和 LIF 。需要在使用根聚合启动的站点 A 节点上执行以下步骤。
 
-. 使用所需的集群端口确定 LIF 列表： `network interface show -curr-port portname``network interface show -home-port portname`
+.步骤
+. 使用所需的集群端口确定 LIF 列表：
++
+`network interface show -curr-port portname`
+
++
+`network interface show -home-port portname`
+
 . 对于每个集群端口，将该端口上任意 LIF 的主端口更改为其他端口，
 +
-.. 进入高级权限模式，并在系统提示您继续时输入 y ： `set priv advanced`
-.. 如果要修改的 LIF 为数据 LIF ： `vserver config override -command "network interface modify -lif lifname -vserver vservername-home-port new-datahomeport`
-.. 如果 LIF 不是数据 LIF ： `network interface modify -lif lifname -vserver vservername-home-port new-datahomeport`
-.. 将修改后的 LIF 还原到其主端口： `network interface revert * -vserver vserver_name`
-.. 确认集群端口上没有 LIF ： `network interface show -curr-port portname``network interface show -home-port portname`
-.. 从当前广播域中删除端口： `network port broadcast-domain remove-ports -ipspace ipspacename -broadcast-domain bcastdomainname -ports node_name ： port_name`
-.. 将端口添加到集群 IP 空间和广播域： `network port broadcast-domain add-ports -ipspace cluster -broadcast-domain cluster -ports node_name ： port_name`
+.. 进入高级权限模式，并在系统提示您继续时输入 "`y` " ：
++
+`set priv advanced`
+
+.. 如果要修改的 LIF 是数据 LIF ：
++
+`vserver config override -command "network interface modify -lif _lifname_ -vserver _vservername_ -home-port _new-datahomeport_"`
+
+.. 如果 LIF 不是数据 LIF ：
++
+`network interface modify -lif _lifname_ -vserver _vservername_ -home-port _new-datahomeport_`
+
+.. 将修改后的 LIF 还原到其主端口：
++
+`network interface revert * -vserver _vserver_name_`
+
+.. 验证集群端口上是否没有 LIF ：
++
+`network interface show -curr-port _portname_`
+
++
+`network interface show -home-port _portname_`
+
+.. 从当前广播域中删除端口：
++
+`network port broadcast-domain remove-ports -ipspace _ipspacename_ -broadcast-domain _bcastdomainname_ -ports _node_name ： port_name_`
+
+.. 将端口添加到集群 IP 空间和广播域：
++
+`network port broadcast-domain add-ports -ipspace cluster -broadcast-domain cluster -ports _node_name ： port_name_`
+
 .. 验证端口的角色是否已更改： `network port show`
 .. 对每个集群端口重复这些子步骤。
-.. 返回到管理模式： `spriv et priv admin`
+.. 返回到管理模式：
++
+`set priv admin`
+
 
 
 . 在新集群端口上创建集群 LIF ：
 +
-.. 要使用集群 LIF 的链路本地地址进行自动配置，请使用以下命令： `network interface create -vserver cluster -lif cluster_lifname -service-policy default-cluster -home-node a1name -home-port clusterport -auto true`
-.. 要为集群 LIF 分配静态 IP 地址，请使用以下命令： `network interface create -vserver cluster -lif cluster_lifname -service-policy default-cluster -home-node a1name -home-port clusterport -address ip-address -address -netmask netmask -status-admin up`
+.. 要使用集群 LIF 的链路本地地址进行自动配置，请使用以下命令：
++
+`network interface create -vserver cluster -lif _cluster_lifname_ -service-policy _default-cluster_ -home-node _a1name_ -home-port clusterport -auto true`
+
+.. 要为集群 LIF 分配静态 IP 地址，请使用以下命令：
++
+`network interface create -vserver cluster -lif _cluster_lifname_ -service-policy default-cluster -home-node _a1name_ -home-port _clusterport_ -address _ip-address_ -netmask _netmask_ -status-admin up`
+
 
 
 
@@ -362,31 +493,70 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 === 验证 LIF 配置
 
-[role="lead"]
 从旧控制器移动存储后，节点管理 LIF ，集群管理 LIF 和集群间 LIF 仍将存在。如有必要，您必须将 LIF 移动到相应的端口。
 
-. 验证管理 LIF 和集群管理 LIF 是否已位于所需端口上： `network interface show -service-policy default-management``network interface show -service-policy default-intercluster`
+.步骤
+. 验证管理 LIF 和集群管理 LIF 是否已位于所需端口上：
++
+`network interface show -service-policy default-management`
+
++
+`network interface show -service-policy default-intercluster`
+
 +
 如果 LIF 位于所需端口上，您可以跳过此任务中的其余步骤，然后继续执行下一任务。
 
-. 对于每个节点，集群管理或集群间 LIF 不在所需端口上的情况，请将该端口上任何 LIF 的主端口更改为其他端口。
+. 对于不在所需端口上的每个节点，集群管理或集群间 LIF ，请将该端口上任何 LIF 的主端口更改为其他端口。
 +
-.. 使用 `vserver config override -command "network interface modify -lif <lifname> -vserver <vservername> -home-port <new-datahomeport>` 将所需端口上托管的任何 LIF 移动到另一个端口，以重新调整所需端口的用途
-.. 将修改后的 LIF 还原到其新的主端口： `vserver config override -command "network interface revert -lif <lifname> -vserver <vservername>"`
-.. 如果所需端口不在正确的 IP 空间和广播域中，请从当前 IP 空间和广播域中删除此端口： `network port broadcast-domain remove-ports -ipspace <current-ipspace> -broadcast-domain <current-broadcast-domain> -ports <controller-name ： current-port>`
-.. 将所需端口移动到正确的 IP 空间和广播域``network port broadcast-domain add-ports -ipspace <new-ipspace> -broadcast-domain <new-broadcast-domain> -ports <controller-name ： new-port>``
-.. 验证端口的角色是否已更改： `network port show`
+.. 通过将所需端口上托管的任何 LIF 移动到另一个端口来重新利用所需端口：
++
+`vserver config override -command "network interface modify -lif _lifname_ -vserver _vservername_ -home-port _new-datahomeport_"`
+
+.. 将修改后的 LIF 还原到其新的主端口：
++
+`vserver config override -command "network interface revert -lif _lifname_ -vserver _vservername"`
+
+.. 如果所需端口不在正确的 IP 空间和广播域中，请从当前 IP 空间和广播域中删除此端口：
++
+`network port broadcast-domain remove-ports -ipspace _current-ipspace_ -broadcast-domain _current-broadcast-domain_ -ports _controller-name ： current-port_`
+
+.. 将所需端口移动到正确的 IP 空间和广播域：
++
+`network port broadcast-domain add-ports -ipspace _new-ipspace_ -broadcast-domain _new-broadcast-domain_ -ports _controller-name ： new-port_`
+
+.. 验证端口的角色是否已更改：
++
+`network port show`
+
 .. 对每个端口重复这些子步骤。
 
 
-. 使用以下命令将节点，集群管理 LIF 和集群间 LIF 移动到所需端口：
+. 将节点，集群管理 LIF 和集群间 LIF 移动到所需端口：
 +
-.. 更改 LIF 的主端口： `network interface modify -vserver vserver -lif node_mgmt -home-port port -home-node homenode`
-.. 将 LIF 还原到其新的主端口： `network interface revert -lif node_mgmt -vserver vservername`
-.. 更改集群管理 LIF 的主端口：``network interface modify -vserver vserver -lif cluster-mgmt-LIF-name -home-port -home-node homenode``
-.. 将集群管理 LIF 还原到其新的主端口： `network interface revert -lif cluster-mgmt-LIF-name -vserver vservername`
-.. 更改集群间 LIF 的主端口：``network interface modify -vserver vserver -lif intercluster-lif-name -home-node nodename -home-port port``
-.. 将集群间 LIF 还原到其新的主端口： `network interface revert -lifintercluster-lif-name -vserver vservername`
+.. 更改 LIF 的主端口：
++
+`network interface modify -vserver _vserver_-lif _node_mgmt_-home-port _port_ -home-node _homenode_`
+
+.. 将 LIF 还原到其新主端口：
++
+`network interface revert -lif _node_mgmt_-vserver _vservername_`
+
+.. 更改集群管理 LIF 的主端口：
++
+`network interface modify -vserver _vserver_ -lif _cluster-mgmt-LIF-name_ -home-port _port_ -home-node _homenode_`
+
+.. 将集群管理 LIF 还原到其新的主端口：
++
+`network interface revert -lif _cluster-mgmt-LIF-name_ -vserver _vservername_`
+
+.. 更改集群间 LIF 的主端口：
++
+`network interface modify -vserver _vserver_ -lif _intercluster-lif-name_ -home-node _nodename_ -home-port _port_`
+
+.. 将集群间 LIF 还原到其新的主端口：
++
+`network interface revert -lif _intercluster-lif-name_ -vserver _vservername_`
+
 
 
 
@@ -395,14 +565,12 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 == 正在启动 node_A_2-IP 和 node_B_2-IP
 
-[role="lead"]
 您必须在每个站点启动并配置新的 MetroCluster IP 节点，从而在每个站点中创建一个 HA 对。
 
 
 
 === 正在启动 node_A_2-IP 和 node_B_2-IP
 
-[role="lead"]
 您必须使用启动菜单中的正确选项一次启动一个新控制器模块。
 
 在这些步骤中，您将启动两个全新节点，将双节点配置扩展为四节点配置。
@@ -415,7 +583,8 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 image::../media/transition_2n_booting_a_2_and_b_2.png[过渡 2n 启动 a 2 和 b 2.]
 
-. 使用启动选项 `9c` 启动新节点。
+.步骤
+. 使用启动选项 "`9c` " 启动新节点。
 +
 [listing]
 ----
@@ -447,14 +616,14 @@ To accept a default or omit a question, do not enter a value. .
 .
 ----
 +
-如果选项 `9c` 不成功，请执行以下步骤以避免可能的数据丢失：
+如果选项 "`9c` " 失败，请执行以下步骤以避免可能的数据丢失：
 
 +
 ** 请勿尝试运行选项 9a 。
 ** 物理断开包含数据的现有磁盘架与原始 MetroCluster FC 配置（ shelf_A_1 ， shelf_A_2 ， shelf_B_1 ， shelf_B_2 ）的连接。
-** 请参考知识库文章联系技术支持 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/MetroCluster_FC_to_IP_transition_-_Option_9c_Failing["MetroCluster FC 到 IP 过渡—选项 9c 失败"]。
+** 请参考知识库文章联系技术支持 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/MetroCluster_FC_to_IP_transition_-_Option_9c_Failing["MetroCluster FC 到 IP 过渡—选项 9c 失败"^]。
 +
-https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
+https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"^]
 
 
 
@@ -468,14 +637,23 @@ Enter the node management interface IP address: 10.228.160.229
 Enter the node management interface netmask: 225.225.252.0
 Enter the node management interface default gateway: 10.228.160.1
 ----
-. 验证存储故障转移模式是否设置为 HA ： `storage failover show -fields mode`
+. 验证存储故障转移模式是否设置为 HA ：
 +
-如果模式不是 HA ，请将其设置为： `storage failover modify -mode ha -node localhost`
+`s存储故障转移 show -fields mode`
+
++
+如果模式不是 HA ，请将其设置为：
+
++
+`storage failover modify -mode ha -node _localhost_`
 
 +
 然后，您必须重新启动节点才能使更改生效。
 
-. 列出集群中的端口：``network port show``
+. 列出集群中的端口：
++
+`network port show`
+
 +
 有关完整的命令语法，请参见手册页。
 
@@ -505,7 +683,10 @@ cluster01-02
        e0e       Default      Default          up     1500   auto/1000
        e0f       Default      Default          up     1500   auto/1000
 ----
-. 退出节点设置向导： `exit`
+. 退出节点设置向导：
++
+`退出`
+
 . 使用管理员用户名登录到管理员帐户。
 . 使用集群设置向导加入现有集群。
 +
@@ -522,27 +703,38 @@ Do you want to create a new cluster or join an existing cluster?
 {create, join}:
 join
 ----
-. 完成集群设置向导并退出后，请验证集群是否处于活动状态且节点运行状况良好： `cluster show`
-. 禁用磁盘自动分配： `storage disk option modify -autosassign off -node node_A_2-IP`
+. 完成集群设置向导并退出后，验证集群是否处于活动状态且节点是否运行正常：
++
+`cluster show`
+
+. 禁用磁盘自动分配：
++
+`storage disk option modify -autodassign off -node node_A_2-IP`
+
 . 如果使用加密，请使用适用于您的密钥管理配置的正确命令还原密钥。
 +
+[cols="1,2"]
 |===
+
+
 | 如果您使用的是 ... | 使用此命令 ... 
 
 
  a| 
 * 板载密钥管理 *
  a| 
-安全密钥管理器板载同步有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["还原板载密钥管理加密密钥"]。
+`sSecurity key-manager 板载同步`
+
+有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["还原板载密钥管理加密密钥"]。
 
 
 
  a| 
 * 外部密钥管理 *
  a| 
-security key-manager key query -node node-name 有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"]。
+`sSecurity key-manager key query -node _node-name_`
 
-+
+有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"^]。
 
 |===
 . 对第二个新控制器模块（ node_B_2-IP ）重复上述步骤。
@@ -552,36 +744,42 @@ security key-manager key query -node node-name 有关详细信息，请参见 ht
 
 === 验证 MTU 设置
 
-[role="lead"]
 验证端口和广播域的 MTU 设置是否正确，并使用以下命令进行更改
 
-. 检查集群广播域中使用的 MTU 大小： `network port broadcast-domain show`
-. 如有必要，请根据需要更新 MTU 大小： `network port broadcast-domain modify -broadcast-domain bcast-domain=name-mtu mtu mtu -size`
+.步骤
+. 检查集群广播域中使用的 MTU 大小：
++
+`network port broadcast-domain show`
+
+. 如有必要，请根据需要更新 MTU 大小：
++
+`network port broadcast-domain modify -broadcast-domain _bcast-domain-name_ -mtu _mtu -size_`
+
 
 
 
 
 === 配置集群间 LIF
 
-[role="lead"]
 配置集群对等所需的集群间 LIF 。
 
 必须对两个新节点 node_A_2-IP 和 node_B_2-IP 执行此任务。
 
-. 按照 _LIF MetroCluster IP 安装和配置指南 _ 中的过程配置集群间 LIF 。
-+
-link:../install-ip/task_sw_config_configure_clusters.html#configuring-intercluster-lifs-for-cluster-peering["配置集群间 LIF"]
-
+.步骤
+. 配置集群间 LIF 。请参见 link:../install-ip/task_sw_config_configure_clusters.html#configuring-intercluster-lifs-for-cluster-peering["配置集群间 LIF"]
 
 
 
 
 === 验证集群对等关系
 
-[role="lead"]
 确认 cluster_A 和 cluster_B 已建立对等关系，并且每个集群上的节点可以彼此通信。
 
-. 验证集群对等关系： `cluster peer health show`
+.步骤
+. 验证集群对等关系：
++
+`集群对等运行状况显示`
+
 +
 [listing]
 ----
@@ -604,5 +802,8 @@ node_A_2-IP
              Data: interface_reachable
              ICMP: interface_reachable true       true            true
 ----
-. Ping 以检查对等地址是否可访问： `cluster peer ping -original-node local-node -destination-cluster remote-cluster-name`
+. 执行 Ping 操作以检查对等地址是否可访问：
++
+`cluster peer ping -original-node _local-nod_ -destination-cluster _remote-cluster-name_`
+
 

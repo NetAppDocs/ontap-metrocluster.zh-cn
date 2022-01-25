@@ -16,33 +16,40 @@ summary: 要为过渡准备配置，请将新节点添加到现有 MetroCluster 
 
 == 在维护之前发送自定义 AutoSupport 消息
 
-[role="lead"]
 在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
 
 必须在每个 MetroCluster 站点上执行此任务。
 
-. 要防止自动生成支持案例，请发送一条 AutoSupport 消息以指示正在进行维护。
+.步骤
+. 要防止自动生成支持案例，请发送一条 AutoSupport 消息以指示正在进行维护：
 +
-.. 问题描述以下命令： `ssystem node AutoSupport invoke -node * -type all -message MAIN=maintenance-window-in-hours`
+`ssystem node AutoSupport invoke -node * -type all -message MAINT=maintenance-window-in-hours`
+
 +
-maintenance-window-in-hours 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：``ssystem node AutoSupport invoke -node * -type all -message MAINT=end``
+" `maintenance-window-in-hours` " 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：
 
-.. 在配对集群上重复此命令。
++
+`ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
 
-
+. 在配对集群上重复此命令。
 
 
 
 
 == 启用过渡模式并禁用集群 HA
 
-[role="lead"]
 您必须启用 MetroCluster 过渡模式，以允许旧节点和新节点在 MetroCluster 配置中同时运行，并禁用集群 HA 。
 
 . 启用过渡：
 +
-.. 更改为高级权限级别： `set -privilege advanced`
-.. 启用过渡模式： `MetroCluster transition enable -transition-mode non-disruptive`
+.. 更改为高级权限级别：
++
+`set -privilege advanced`
+
+.. 启用过渡模式：
++
+`MetroCluster transition enable -transition-mode non-disruptive`
+
 +
 
 NOTE: 仅在一个集群上运行此命令。
@@ -63,7 +70,10 @@ Do you want to continue? {y|n}: y
 cluster_A::*>
 
 ....
-.. 返回到管理权限级别： `set -privilege admin`
+.. 返回到管理权限级别：
++
+`set -privilege admin`
+
 
 
 . 验证是否已在两个集群上启用过渡。
@@ -147,11 +157,11 @@ cluster_B::>
 
 == 将 MetroCluster IP 节点加入集群
 
-[role="lead"]
 您必须将四个新的 MetroCluster IP 节点添加到现有 MetroCluster 配置中。
 
 您必须在两个集群上执行此任务。
 
+.步骤
 . 将 MetroCluster IP 节点添加到现有 MetroCluster 配置中。
 +
 .. 将第一个 MetroCluster IP 节点（ node_A_1-IP ）加入现有 MetroCluster FC 配置。
@@ -216,13 +226,16 @@ Do you want to use this configuration? {yes, no} [yes]: yes
 
 == 配置集群间 LIF ，创建 MetroCluster 接口以及镜像根聚合
 
-[role="lead"]
 您必须创建集群对等 LIF ，并在新的 MetroCluster IP 节点上创建 MetroCluster 接口。
 
 示例中使用的主端口是特定于平台的。您应使用特定于 MetroCluster IP 节点平台的相应主端口。
 
+.步骤
 . 在新的 MetroCluster IP 节点上， link:../install-ip/task_sw_config_configure_clusters.html#configuring-intercluster-lifs-for-cluster-peering["配置集群间 LIF"]。
-. 在每个站点上，验证是否已配置集群对等： `cluster peer show`
+. 在每个站点上，验证是否已配置集群对等：
++
+`cluster peer show`
+
 +
 以下示例显示了 cluster_A 上的集群对等配置：
 
@@ -243,7 +256,10 @@ Peer Cluster Name         Cluster Serial Number Availability   Authentication
 ------------------------- --------------------- -------------- --------------
 cluster_A 1-80-000011 Available ok
 ....
-. 为 MetroCluster IP 节点配置 DR 组： `MetroCluster configuration-settings dr-group create -partner-cluster`
+. 为 MetroCluster IP 节点配置 DR 组：
++
+MetroCluster configuration-settings dr-group create -partner-cluster`
+
 +
 ....
 cluster_A::> metrocluster configuration-settings dr-group create -partner-cluster
@@ -251,7 +267,10 @@ cluster_B -local-node node_A_3-IP -remote-node node_B_3-IP
 [Job 259] Job succeeded: DR Group Create is successful.
 cluster_A::>
 ....
-. 验证是否已创建灾难恢复组。`MetroCluster configuration-settings dr-group show`
+. 验证是否已创建灾难恢复组。
++
+`MetroCluster configuration-settings dr-group show`
+
 +
 ....
 cluster_A::> metrocluster configuration-settings dr-group show
@@ -311,9 +330,16 @@ Group Cluster Node               State          Mirroring Mode
               node_B_2-IP      ready to configure
                                                 -         -
 ....
-. 为新加入的 MetroCluster IP 节点配置 MetroCluster IP 接口： `MetroCluster configuration-settings interface create -cluster-name`
+. 为新加入的 MetroCluster IP 节点配置 MetroCluster IP 接口：
 +
-请参见 link:../install-ip/task_sw_config_configure_clusters.html#configuring-and-connecting-the-metrocluster-ip-interfaces["配置和连接 MetroCluster IP 接口"] 配置 IP 接口时的注意事项。注意：您可以从任一集群配置 MetroCluster IP 接口。此外，从 ONTAP 9.1.1 开始，如果使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见链接： ./install-IP/concept_considerations_layer_3.html 。
+MetroCluster configuration-settings interface create -cluster-name`
+
++
+请参见 link:../install-ip/task_sw_config_configure_clusters.html#configuring-and-connecting-the-metrocluster-ip-interfaces["配置和连接 MetroCluster IP 接口"] 配置 IP 接口时的注意事项。
+
++
+
+NOTE: 您可以从任一集群配置 MetroCluster IP 接口。此外，从 ONTAP 9.1.1 开始，如果使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见链接： ./install-IP/concept_considerations_layer_3.html 。
 
 +
 ....
@@ -341,7 +367,10 @@ cluster_A::> metrocluster configuration-settings interface create -cluster-name 
 cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_B -home-node node_B_4-IP -home-port e1b -address 172.17.27.13 -netmask 255.255.255.0
 [Job 267] Job succeeded: Interface Create is successful.
 ....
-. 验证是否已创建 MetroCluster IP 接口： `MetroCluster configuration-settings interface show`
+. 验证是否已创建 MetroCluster IP 接口：
++
+`MetroCluster configuration-settings interface show`
+
 +
 ....
 cluster_A::>metrocluster configuration-settings interface show
@@ -375,7 +404,10 @@ Group Cluster Node    Network Address Netmask         Gateway         State
 
 cluster_A>
 ....
-. 连接 MetroCluster IP 接口： `MetroCluster configuration-settings connection connect`
+. 连接 MetroCluster IP 接口：
++
+`MetroCluster configuration-settings connection connect`
+
 +
 
 NOTE: 此命令可能需要几分钟才能完成。
@@ -386,7 +418,10 @@ cluster_A::> metrocluster configuration-settings connection connect
 
 cluster_A::>
 ....
-. 确认已正确建立连接： `MetroCluster configuration-settings connection show`
+. 验证是否已正确建立连接：
++
+`MetroCluster configuration-settings connection show`
+
 +
 ....
 cluster_A::> metrocluster configuration-settings connection show
@@ -456,7 +491,10 @@ Group Cluster Node    Network Address Network Address Partner Type Config State
 
 cluster_A::>
 ....
-. 验证磁盘自动分配和分区： `disk show -pool Pool1`
+. 验证磁盘自动分配和分区：
++
+`disk show -pool Pool1`
+
 +
 ....
 cluster_A::> disk show -pool Pool1
@@ -481,7 +519,10 @@ Disk                   Size Shelf Bay Type    Type        Name      Owner
 
 cluster_A::>
 ....
-. 镜像根聚合： `storage aggregate mirror -aggregate aggr0_node_A_3-IP`
+. 镜像根聚合：
++
+`storage aggregate mirror -aggregate aggr0_node_A_3-IP`
+
 +
 
 NOTE: 您必须在每个 MetroCluster IP 节点上完成此步骤。
@@ -509,7 +550,10 @@ Do you want to continue? {y|n}: y
 
 cluster_A::>
 ....
-. 验证根聚合是否已镜像： `storage aggregate show`
+. 验证根聚合是否已镜像：
++
+`s存储聚合显示`
+
 +
 ....
 cluster_A::> aggr show
@@ -546,10 +590,13 @@ aggr_data_a2
 
 == 完成 MetroCluster IP 节点的添加
 
-[role="lead"]
 您必须将新的 DR 组加入 MetroCluster 配置，并在新节点上创建镜像数据聚合。
 
-. 在每个新 MetroCluster 节点上创建镜像数据聚合： `storage aggregate create -aggregate aggregate-name -node node-name -diskcount no-of-disks -mirror true`
+.步骤
+. 在每个新 MetroCluster 节点上创建镜像数据聚合：
++
+`storage aggregate create -aggregate aggregate-name -node node-name -diskcount no-of-disks -mirror true`
+
 +
 
 NOTE: 每个站点必须至少创建一个镜像数据聚合。建议在 MetroCluster IP 节点上为每个站点配置两个镜像数据聚合以托管 MDV 卷，但支持每个站点一个聚合（但不建议这样做）。支持 MetroCluster 的一个站点具有一个镜像数据聚合，而另一个站点具有多个镜像数据聚合。
@@ -594,7 +641,10 @@ Do you want to continue? {y|n}: y
 
 cluster_A::>
 ....
-. 配置 MetroCluster 以实施更改： `MetroCluster configure`
+. 配置 MetroCluster 以实施更改：
++
+MetroCluster configure`
+
 +
 ....
 cluster_A::*> metrocluster configure
@@ -603,7 +653,10 @@ cluster_A::*> metrocluster configure
 
 cluster_A::*>
 ....
-. 验证节点是否已添加到其 DR 组： `MetroCluster node show`
+. 验证节点是否已添加到其 DR 组：
++
+`MetroCluster node show`
+
 +
 ....
 cluster_A::*> metrocluster node show
@@ -655,8 +708,14 @@ cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 ...
 11 entries were displayed.mple
 ....
-.. 设置高级权限级别： `set -privilege advanced`
-.. 一次移动一个 MDV 卷： `volume move start -volume mDV-volume -destination-aggregate aggr-on-new-node -vserver vserver-name`
+.. 设置高级权限级别：
++
+`set -privilege advanced`
+
+.. 一次移动一个 MDV 卷：
++
+`volume move start -volume mDV-volume -destination-aggregate aggr-on-new-node -vserver vserver-name`
+
 +
 以下示例显示了将 MDV_CRS_d6b0b313ff5611e9837100a098544e51_A 移动到 node_A_3 上聚合 data_A3 的命令和输出。
 
@@ -670,7 +729,10 @@ Warning: You are about to modify the system volume
          do so by support. Do you want to proceed? {y|n}: y
 [Job 494] Job is queued: Move "MDV_CRS_d6b0b313ff5611e9837100a098544e51_A" in Vserver "cluster_A" to aggregate "data_a3". Use the "volume move show -vserver cluster_A -volume MDV_CRS_d6b0b313ff5611e9837100a098544e51_A" command to view the status of this operation.
 ....
-.. 使用 volume show 命令检查是否已成功移动 MDV 卷： `volume show mDV-name`
+.. 使用 volume show 命令检查是否已成功移动 MDV 卷：
++
+`volume show mDV-name`
+
 +
 以下输出显示 MDV 卷已成功移动。
 
@@ -682,7 +744,10 @@ Vserver     Volume       Aggregate    State      Type       Size  Available Used
 cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
                        aggr_a2      online     RW         10GB     9.50GB    0%
 ....
-.. 返回到管理模式： `set -privilege admin`
+.. 返回到管理模式：
++
+`set -privilege admin`
+
 
 
 

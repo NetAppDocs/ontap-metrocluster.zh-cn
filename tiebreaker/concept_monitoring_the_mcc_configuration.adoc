@@ -16,15 +16,17 @@ summary: 通过 MetroCluster Tiebreaker 软件，您可以监控 MetroCluster �
 
 == 正在配置 AutoSupport
 
-[role="lead"]
 默认情况下， AutoSupport 消息会在安装 Tiebreaker 软件后一周发送给 NetApp 。触发 AutoSupport 通知的事件包括 Tiebreaker 软件崩溃，检测 MetroCluster 配置上的灾难情况或未知 MetroCluster 配置状态。
 
 您必须具有设置 AutoSupport 消息的直接访问权限。
 
+.步骤
 . 使用带有以下任一选项的 Tiebreaker CLI AutoSupport 命令：
 +
-[cols="2*"]
+[cols="1,2"]
 |===
+
+
 | 选项 | 说明 
 
 
@@ -128,11 +130,12 @@ Autosupport configuration deleted successfully.
 
 === SNMP 事件和陷阱
 
-[role="lead"]
 NetApp MetroCluster Tiebreaker 软件使用 SNMP 陷阱向您通知重大事件。这些陷阱是 NetApp MIB 文件的一部分。每个陷阱都包含以下信息：陷阱名称，严重性，影响级别，时间戳和消息。
 
-[cols="3*"]
+[cols="2,3,1"]
 |===
+
+
 | 事件名称 | 事件详细信息 | 陷阱编号 
 
 
@@ -184,13 +187,15 @@ SNMP 测试陷阱
 
 == 显示监控操作的状态
 
-[role="lead"]
 您可以显示 MetroCluster 配置的监控操作的整体状态。
 
+.步骤
 . 使用 Tiebreaker CLI monitor show 命令使用以下任一选项显示 MetroCluster 操作的状态：
 +
-[cols="2*"]
+[cols="1,2"]
 |===
+
+
 | 选项 | 说明 
 
 
@@ -281,9 +286,9 @@ MetroCluster: cluster_B
 
 == 显示 MetroCluster 配置信息
 
-[role="lead"]
 您可以显示 Tiebreaker 软件中所有 MetroCluster 配置实例的监控器名称和 IP 地址。
 
+.步骤
 . 使用 Tiebreaker CLI configuration show 命令显示 MetroCluster 配置信息。
 +
 以下示例显示了集群 cluster_A 和 cluster_B 的信息：
@@ -304,9 +309,9 @@ MetroCluster: North America
 
 == 正在创建转储文件
 
-[role="lead"]
 您可以将 Tiebreaker 软件的整体状态保存到转储文件中，以便进行调试。
 
+.步骤
 . 使用 Tiebreaker CLI monitor dump -status 命令创建一个包含所有 MetroCluster 配置的整体状态的转储文件。
 +
 以下示例显示了已成功创建 /var/log/netapp/mcctb/metrocluster-tiebreaker-status.xml 转储文件：

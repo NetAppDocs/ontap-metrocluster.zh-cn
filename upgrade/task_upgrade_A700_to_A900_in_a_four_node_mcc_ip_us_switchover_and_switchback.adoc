@@ -431,7 +431,7 @@ link:install-stretch/concept_considerations_when_removing_mcc_configurations.htm
 
 完成此任务后， site_A 处于活动状态，并为两个站点提供数据。site_B 处于非活动状态，并已准备好开始升级过程。
 
-image::../media/mcc_upgrade_cluster_a_in_switchover.png[MCC 升级集群 A 处于切换状态]
+image::../media/mcc_upgrade_cluster_a_in_switchover_A900.png[切换 A900 中的 MCC 升级集群 A]
 
 .步骤
 . 将 MetroCluster 配置切换到 site_A ，以便可升级 site_B 的节点：
@@ -1306,7 +1306,7 @@ https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_create_
 
 在此任务中，您将执行切回操作， MetroCluster 配置将恢复正常运行。site_A 上的节点仍在等待升级。
 
-image::../media/mcc_upgrade_cluster_a_switchback.png[MCC 升级集群 A 切回]
+image::../media/mcc_upgrade_cluster_a_switchback_A900.png[MCC 升级集群 A 切回 A900]
 
 .步骤
 . 从 site_B 运行 `MetroCluster node show` 命令并检查输出。问题描述

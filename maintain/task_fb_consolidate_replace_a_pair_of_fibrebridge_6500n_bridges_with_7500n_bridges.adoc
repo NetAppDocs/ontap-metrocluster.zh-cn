@@ -26,22 +26,19 @@ summary: 为了利用 FibreBridge 7600N 或 7500N 网桥上的额外 FC2 端口�
 
 此操作步骤不会造成系统中断，大约需要两小时才能完成。
 
-* 相关信息 *
-
-xref:task_replace_a_sle_fc_to_sas_bridge.adoc[更换单个 FC-SAS 网桥]
+link:task_replace_a_sle_fc_to_sas_bridge.html["更换单个 FC-SAS 网桥"]
 
 
 
 == 验证存储连接
 
-[role="lead"]
 在更换网桥之前，您应验证网桥和存储连接。熟悉命令输出后，您可以在更改配置后确认连接。
 
 您可以从正在维护的站点上 MetroCluster 配置中任何控制器模块的管理提示符处问题描述这些命令。
 
 . 在任意一个 MetroCluster 节点上输入以下命令，以确认与磁盘的连接：
 +
-` * 运行本地 sysconfig -v*`
+`运行本地 sysconfig -v`
 
 +
 输出显示了连接到控制器上启动程序端口的磁盘，并标识了连接到 FC-SAS 网桥的磁盘架：
@@ -100,7 +97,6 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 
 == 热插拔 FibreBridge 6500N 网桥以创建一对 FibreBridge 7600N 或 7500N 网桥
 
-[role="lead"]
 要热插拔一个或两个 FibreBridge 6500N 网桥以创建使用一对 FibreBridge 7600N 或 7500N 网桥的配置，您必须一次更换一个网桥并按照正确的布线操作步骤进行操作。新布线与原始布线不同。
 
 如果满足以下条件，也可以使用此操作步骤：
@@ -117,7 +113,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 image::../media/consolidating_stacks_before.gif[以前整合堆栈]
 
 .步骤
-. 按照以下准则，使用中的操作步骤热插拔 "`Top` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 xref:task_replace_a_sle_fc_to_sas_bridge.adoc[热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥]：
+. 按照以下准则，使用中的操作步骤热插拔 "`Top` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 link:task_replace_a_sle_fc_to_sas_bridge.html["热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥"]：
 +
 ** 将 FibreBridge 7600N 或 7500N 网桥 FC1 端口连接到交换机或控制器。
 +
@@ -131,7 +127,7 @@ image::../media/consolidating_stacks_1st_7500n_in_place.gif[整合第一个 7500
 
 . 确认连接到网桥连接的磁盘，并且新的 FibreBridge 7500N 在配置中可见：
 +
-` * 运行本地 sysconfig -v*`
+`运行本地 sysconfig -v`
 
 +
 [listing]
@@ -181,7 +177,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 		.
 		.
 ----
-. 按照以下准则，使用中的操作步骤热插拔 "`底部` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 xref:task_replace_a_sle_fc_to_sas_bridge.adoc[热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥]：
+. 按照以下准则，使用中的操作步骤热插拔 "`底部` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 link:task_replace_a_sle_fc_to_sas_bridge.htmlc["热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥"]：
 +
 ** 将 FibreBridge 7600N 或 7500N 网桥 FC2 端口连接到交换机或控制器。
 +
@@ -192,7 +188,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 
 . 确认与网桥连接磁盘的连接：
 +
-` * 运行本地 sysconfig -v*`
+`运行本地 sysconfig -v`
 
 +
 输出显示了连接到控制器上启动程序端口的磁盘，并标识了连接到 FC-SAS 网桥的磁盘架：
@@ -249,7 +245,6 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 
 == 在 FibreBridge 7600N 或 7500N 网桥后面整合存储时，为网桥 SAS 端口布线
 
-[role="lead"]
 在使用可用 SAS 端口将多个 SAS 存储堆栈整合到一对 FibreBridge 7600N 或 7500N 网桥之后时，必须将顶部和底部 SAS 缆线移至新网桥。
 
 FibreBridge 6500N 网桥 SAS 端口使用 QSFP 连接器。FibreBridge 7600N 或 7500N 网桥 SAS 端口使用迷你 SAS 连接器。
@@ -291,7 +286,7 @@ image::../media/consolidating_stacks_sas_bottom_after.gif[之后再整合堆栈 
 
 . 确认与网桥连接磁盘的连接：
 +
-` * 运行本地 sysconfig -v*`
+`运行本地 sysconfig -v`
 
 +
 输出显示了连接到控制器上启动程序端口的磁盘，并标识了连接到 FC-SAS 网桥的磁盘架：
@@ -344,7 +339,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 ----
 . 卸下不再连接到 SAS 存储的旧 FibreBridge 6500N 网桥。
 . 等待两分钟，让系统识别所做的更改。
-. 如果系统布线错误，请拔下缆线，更正布线，然后重新连接正确的缆线。
+. 如果系统布线不正确，请拔下缆线，更正布线，然后重新连接正确的缆线。
 . 如有必要，请重复上述步骤，依次使用 SAS 端口 C 和 D ，将最多两个额外的 SAS 堆栈移至新的 FibreBridge 7600N 或 7500N 网桥后面
 +
 每个 SAS 堆栈都必须连接到顶部和底部网桥上的相同 SAS 端口。例如，如果堆栈的顶部连接连接到顶部网桥 SAS B 端口，则底部连接必须连接到底部网桥的 SAS B 端口。
@@ -358,14 +353,12 @@ image::../media/consolidation_sas_bottom_connection_4_stacks.gif[整合 SAS 底�
 
 == 向配置中添加 FibreBridge 7600N 或 7500N 网桥时更新分区
 
-[role="lead"]
 如果要将 FibreBridge 6500N 网桥更换为 FibreBridge 7600N 或 7500N 网桥并使用 FibreBridge 7600N 或 7500N 网桥上的两个 FC 端口，则必须更改分区。所需的更改取决于您运行的 ONTAP 版本是否早于 9.1 或 9.1 及更高版本。
 
 
 
 === 将 FibreBridge 7500N 网桥添加到配置时更新分区（ ONTAP 9.1 之前）
 
-[role="lead"]
 如果要将 FibreBridge 6500N 网桥更换为 FibreBridge 7500N 网桥并使用 FibreBridge 7500N 网桥上的两个 FC 端口，则必须更改分区。每个分区的启动程序端口不能超过四个。您使用的分区取决于您运行的是 9.1 或 9.1 及更高版本的 ONTAP
 
 此任务中的特定分区适用于 9.1 之前的 ONTAP 版本。
@@ -382,7 +375,7 @@ image::../media/zoning_consolidation_site_a_before.gif[之前对整合站点 A �
 新 FC2 端口的分区将包含从现有分区中删除的启动程序端口。在图中，这些分区以虚线显示。
 
 +
-有关分区命令的详细信息，请参见中的 FC 交换机部分 https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"] 或。
+有关分区命令的详细信息，请参见中的 FC 交换机部分 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"] 或 。
 
 +
 以下示例显示了整合前后每个分区中的存储分区和端口。这些端口由 _domain ， port_ 对标识。
@@ -397,7 +390,9 @@ image::../media/zoning_consolidation_site_a_before.gif[之前对整合站点 A �
 
 
 |===
-| 整合前或整合后 | 分区 | 域和端口 | 图中的颜色 * 
+
+
+| 整合前或整合后 | 分区 | 域和端口 | 图中的颜色（此图仅显示站点 A ） 
 
 
  a| 
@@ -475,22 +470,17 @@ STOR_A_1b-FC2
 棕色虚线 + 橙色
 
 |===
-* 此图仅显示 site_A
-+
 下图显示了整合后 site_A 的分区：
 
-+
 image::../media/zoning_consolidation_site_a_after.gif[对整合站点 A 进行分区]
-
-
 
 
 
 === 将 FibreBridge 7600N 或 7500N 网桥添加到配置时更新分区（ ONTAP 9.1 及更高版本）
 
-[role="lead"]
 如果要将 FibreBridge 6500N 网桥更换为 FibreBridge 7600N 或 7500N 网桥并使用 FibreBridge 7600N 或 7500N 网桥上的两个 FC 端口，则必须更改分区。每个分区的启动程序端口不能超过四个。
 
+.关于此任务
 * 此任务为适用场景 ONTAP 9.1 及更高版本。
 * ONTAP 9.6 及更高版本支持 FibreBridge 7600N 网桥。
 * 此任务中的特定分区适用于 ONTAP 9.1 及更高版本。
@@ -498,18 +488,15 @@ image::../media/zoning_consolidation_site_a_after.gif[对整合站点 A 进行�
 +
 重新布线以整合磁盘架后，现有分区将导致每个磁盘可通过八个 FC 端口访问。您必须更改分区，以将每个分区中的启动程序端口减少为四个。
 
-+
-.. 通过从每个现有分区中删除一半启动程序端口并为 FibreBridge 7600N 或 7500N FC2 端口创建新分区来更新 FC 交换机的存储分区。
+
+
+.步骤
+. 通过从每个现有分区中删除一半启动程序端口并为 FibreBridge 7600N 或 7500N FC2 端口创建新分区来更新 FC 交换机的存储分区。
 +
 新 FC2 端口的分区将包含从现有分区中删除的启动程序端口。
 
 +
-光纤连接的 MetroCluster 安装和配置指南 _ 的 FC 交换机部分包含有关分区命令的详细信息。
-
-+
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
-
-
+请参阅的 FC 交换机部分 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"] 有关分区命令的详细信息。
 
 
 
@@ -517,7 +504,6 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤�
 
 == 将 FibreBridge 7600N 或 7500N 网桥添加到配置时，为第二个网桥 FC 端口布线
 
-[role="lead"]
 要为存储堆栈提供多条路径，您可以在将 FibreBridge 7600N 或 7500N 网桥添加到配置中后为每个 FibreBridge 7600N 或 7500N 网桥上的第二个 FC 端口布线。
 
 分区必须已进行调整，以便为第二个 FC 端口提供分区。
@@ -533,7 +519,7 @@ image::../media/consolidating_stacks_final.gif[最终整合堆栈]
 
 . 确认与网桥连接磁盘的连接：
 +
-` * 运行本地 sysconfig -v*`
+`运行本地 sysconfig -v`
 
 +
 输出显示了连接到控制器上启动程序端口的磁盘，并标识了连接到 FC-SAS 网桥的磁盘架：
@@ -590,7 +576,6 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 
 == 禁用 FC-SAS 网桥上未使用的 SAS 端口
 
-[role="lead"]
 更改网桥的布线后，您应禁用 FC-SAS 网桥上任何未使用的 SAS 端口，以避免出现与未使用的端口相关的运行状况监控器警报。
 
 .步骤
@@ -603,7 +588,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 ====
 如果已配置 ATTO 7500N 网桥，则默认情况下会启用所有 SAS 端口（ A 到 D ），并且必须禁用未使用的 SAS 端口：
 
-` * SASPortDisable _SAS port_*`
+`sasportDisable _SAS port_`
 
 ====
 +
@@ -613,18 +598,18 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 [listing]
 ----
 Ready. *
-`SASPortDisable C`
+SASPortDisable C
 
 SAS Port C has been disabled.
 
 Ready. *
-`SASPortDisable D`
+SASPortDisable D
 
 SAS Port D has been disabled.
 
 Ready. *
 ----
-.. 保存网桥配置： + ` + SaveConfiguration+`
+.. 保存网桥配置： + `SaveConfiguration`
 +
 以下示例显示已禁用 SAS 端口 C 和 D 。请注意，不再显示星号，表示配置已保存。
 
@@ -632,7 +617,7 @@ Ready. *
 [listing]
 ----
 Ready. *
-`SaveConfiguration`
+SaveConfiguration
 
 Ready.
 ----

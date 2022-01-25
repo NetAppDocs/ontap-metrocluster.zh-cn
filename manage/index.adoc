@@ -2,7 +2,7 @@
 permalink: manage/index.html 
 sidebar: sidebar 
 keywords: metrocluster, mcc, management, disaster, recover, switchover, switchback 
-summary: 介绍如何在计划内维护操作或发生灾难时执行 MetroCluster 切换和切回操作。 
+summary: 您可以在计划内维护操作或发生灾难时执行 MetroCluster 切换和切回操作。 
 ---
 = MetroCluster ® 管理
 
@@ -12,4 +12,4 @@ summary: 介绍如何在计划内维护操作或发生灾难时执行 MetroClust
 == 执行切换，修复和切回
 
 [role="lead"]
-此内容介绍如何在计划内维护操作或发生灾难时执行 MetroCluster 切换和切回操作。
+您可以在计划内维护操作或发生灾难时执行 MetroCluster 切换和切回操作。

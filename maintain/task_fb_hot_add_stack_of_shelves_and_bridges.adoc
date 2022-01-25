@@ -12,11 +12,12 @@ summary:
 [role="lead"]
 您可以将整个堆栈（包括网桥）热添加（无中断添加）到 MetroCluster 系统中。FC 交换机上必须有可用端口，您必须更新交换机分区以反映所做的更改。
 
+.关于此任务
 * 此操作步骤可用于使用 FibreBridge 7500N 或 6500N 网桥添加堆栈。
 * 编写此操作步骤时假定您使用的是建议的网桥管理界面： ATTO ExpressNAV 图形用户界面和 ATTO QuickNAV 实用程序。
 +
 ** 您可以使用 ATTO ExpressNAV 图形用户界面配置和管理网桥，以及更新网桥固件。您可以使用 ATTO QuickNAV 实用程序配置网桥以太网管理 1 端口。
-** 如果需要，您可以使用其他管理界面。这些选项包括使用串行端口或 Telnet 配置和管理网桥，配置以太网管理 1 端口以及使用 FTP 更新网桥固件。如果您选择其中任何一个管理界面，则您的系统必须满足中的适用要求 xref:reference_requirements_for_using_other_interfaces_to_configure_and_manage_fibrebridge_bridges.adoc[其他网桥管理接口]
+** 如果需要，您可以使用其他管理界面。这些选项包括使用串行端口或 Telnet 配置和管理网桥，配置以太网管理 1 端口以及使用 FTP 更新网桥固件。如果您选择其中任何一个管理界面，则您的系统必须满足中的适用要求 link:reference_requirements_for_using_other_interfaces_to_configure_and_manage_fibrebridge_bridges.html["其他网桥管理接口"]
 
 
 
@@ -25,19 +26,19 @@ summary:
 
 == 准备热添加 SAS 磁盘架和网桥堆栈
 
-[role="lead"]
 要准备热添加 SAS 磁盘架堆栈和一对网桥，需要下载文档以及磁盘驱动器和磁盘架固件。
 
+.开始之前
 * 您的系统必须是受支持的配置，并且必须运行受支持的 ONTAP 版本。
 +
-https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
 
 * 系统中的所有磁盘驱动器和磁盘架都必须运行最新版本的固件。
 +
 您可能希望在添加磁盘架之前更新整个 MetroCluster 配置中的磁盘和磁盘架固件。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["升级，还原或降级"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["升级，还原或降级"^]
 
 * 每个 FC 交换机必须有一个 FC 端口可用于连接一个网桥。
 +
@@ -53,7 +54,7 @@ _ATTO 产品发行说明 _ 提供了最新的受支持 Web 浏览器列表。您
 .步骤
 . 从 NetApp 支持站点下载或查看以下文档：
 +
-** https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+** https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
 ** 适用于您的磁盘架型号的安装和服务指南 _ 。
 
 
@@ -70,7 +71,7 @@ _ATTO 产品发行说明 _ 提供了最新的受支持 Web 浏览器列表。您
 +
 *** 按照下载页面上的说明下载网桥固件文件。
 +
-在此步骤中，您只能完成链接中提供的说明的下载部分。您可以稍后根据中的指示更新每个网桥上的固件 xref:task_fb_hot_add_stack_of_shelves_and_bridges.adoc[热添加磁盘架堆栈] 部分。
+在此步骤中，您只能完成链接中提供的说明的下载部分。您可以稍后根据中的指示更新每个网桥上的固件 link:task_fb_hot_add_stack_of_shelves_and_bridges.html["热添加磁盘架堆栈"] 部分。
 
 *** 为 ATTO FibreBridge 固件下载页面和发行说明创建一份副本，以供日后参考。
 
@@ -83,16 +84,16 @@ MetroCluster 配置中的所有磁盘架（新磁盘架和现有磁盘架）都�
 
 +
 
-NOTE: 在此步骤中，您只能完成链接中提供的说明的下载部分，并创建安装说明的副本。您可以稍后根据中的指示更新每个磁盘和磁盘架上的固件 xref:task_fb_hot_add_stack_of_shelves_and_bridges.adoc[热添加磁盘架堆栈] 部分。
+NOTE: 在此步骤中，您只能完成链接中提供的说明的下载部分，并创建安装说明的副本。您可以稍后根据中的指示更新每个磁盘和磁盘架上的固件 link:task_fb_hot_add_stack_of_shelves_and_bridges.html["热添加磁盘架堆栈"] 部分。
 
 +
 .. 下载磁盘固件并为磁盘固件说明创建一份副本，以供日后参考。
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"^]
 
 .. 下载磁盘架固件并为磁盘架固件说明创建一份副本，以供日后参考。
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"^]
 
 
 
@@ -124,19 +125,18 @@ https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp
 
 == 热添加 SAS 磁盘架和网桥堆栈
 
-[role="lead"]
 您可以热添加 SAS 磁盘架和网桥堆栈以增加网桥的容量。
 
 系统必须满足热添加 SAS 磁盘架和网桥堆栈的所有要求。
 
-xref:task_fb_hot_add_stack_of_shelves_and_bridges.adoc[准备热添加 SAS 磁盘架和网桥堆栈]
+link:task_fb_hot_add_stack_of_shelves_and_bridges.html["准备热添加 SAS 磁盘架和网桥堆栈"]
 
 * 如果满足所有互操作性要求，则热添加 SAS 磁盘架和网桥堆栈是一种无中断操作步骤。
 +
-https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
 
 +
-xref:concept_using_the_interoperability_matrix_tool_to_find_mcc_information.adoc[使用互操作性表工具查找 MetroCluster 信息]
+link:concept_using_the_interoperability_matrix_tool_to_find_mcc_information.concept_using_the_interoperability_matrix_tool_to_find_mcc_information.html["使用互操作性表工具查找 MetroCluster 信息"]
 
 * 对于使用网桥的 MetroCluster 系统，多路径 HA 是唯一受支持的配置。
 +
@@ -147,7 +147,7 @@ xref:concept_using_the_interoperability_matrix_tool_to_find_mcc_information.adoc
 
 
 
-NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+NOTE: 从 ONTAP 9.8 开始， `storage bridge` 命令将替换为 `ssystem bridge` 。以下步骤显示了 `storage bridge` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 `ssystem bridge` 命令。
 
 
 IMPORTANT: 如果将 SAS 缆线插入错误的端口，则在从 SAS 端口拔下缆线时，必须至少等待 120 秒，然后再将缆线插入其他 SAS 端口。如果您未能执行此操作，系统将无法识别此缆线已移至其他端口。
@@ -156,7 +156,7 @@ IMPORTANT: 如果将 SAS 缆线插入错误的端口，则在从 SAS 端口拔�
 . 正确接地。
 . 从任一控制器模块的控制台中，检查您的系统是否已启用磁盘自动分配：
 +
-` * 存储磁盘选项 show*`
+`s存储磁盘选项 show`
 
 +
 自动分配列指示是否已启用磁盘自动分配。
@@ -206,19 +206,19 @@ NOTE: 请勿在 ATTO FibreBridge 7600N 或 7500N 上配置时间同步。在 ONT
 如果使用命令行界面，则必须运行以下命令：
 
 +
-` * 设置 IP 地址 MP1 _IP-address_*`
+`set ipaddress MP1 _ip-address_`
 
 +
-` * 设置 ipsubnetmask MP1 _subnet-mask_*`
+`set ipsubnetmask MP1 _subnet-mask_`
 
 +
-` * 设置 ipgateway MP1 x.x.x.x*`
+`set ipgateway MP1 x.x.x.x`
 
 +
-` * 设置 ipdhcp MP1 已禁用 *`
+`set ipdhcp MP1 disabled`
 
 +
-` * 设置以太网速度 MP1 1000*`
+`s设定网络速度 MP1 1000`
 
 .. 配置网桥名称。
 +
@@ -233,11 +233,11 @@ NOTE: 请勿在 ATTO FibreBridge 7600N 或 7500N 上配置时间同步。在 ONT
 *** bridge_B_1a
 *** bridge_B_1b 如果使用命令行界面，则必须运行以下命令：
 +
-` * 设置 bridgename _bridgenename_*`
+`set bridgename _bridgenename_`
 
 
 
-.. 如果运行的是 ONTAP 9.4 或更早版本，请在网桥上启用 SNMP ： + ` * 设置 SNMP enabled"`
+.. 如果运行的是 ONTAP 9.4 或更早版本，请在网桥上启用 SNMP ： + `set snmp enabled`
 +
 在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
 
@@ -261,7 +261,7 @@ NOTE: 您选择的 FCDataRate 速度限制为网桥和网桥端口所连接的�
 如果使用命令行界面，则必须运行以下命令：
 
 +
-` * 设置 FCDataRate _port-number port-speed_*`
+`set FCDataRate _port-number port-speed_`
 
 
 
@@ -274,15 +274,15 @@ NOTE: 配置 FibreBridge 7600N 网桥时，不需要 FCConnMode 设置。
 如果使用命令行界面，则必须运行以下命令：
 
 +
-` * 设置 FCConnMode _port-number_ PTP*`
+`s设置 FCConnMode _port-number_ ptp`
 
 .. 如果要配置 FibreBridge 7600N 或 7500N 网桥，则必须配置或禁用 FC2 端口。
 +
 *** 如果使用的是第二个端口，则必须对 FC2 端口重复上述子步骤。
-*** 如果不使用第二个端口，则必须禁用端口： + ` * FCPortDisable _port-number_*`
+*** 如果不使用第二个端口，则必须禁用端口： + `FCPortDisable _port-number_`
 
 
-.. 如果要配置 FibreBridge 7600N 或 7500N 网桥，请禁用未使用的 SAS 端口： + ` * SASPortDisable _SAS-Port_*`
+.. 如果要配置 FibreBridge 7600N 或 7500N 网桥，请禁用未使用的 SAS 端口： + `SAsportDisable _SAS-port_`
 +
 
 NOTE: 默认情况下， SAS 端口 A 到 D 处于启用状态。您必须禁用未使用的 SAS 端口。如果仅使用 SAS 端口 A ，则必须禁用 SAS 端口 B ， C 和 D 。
@@ -293,16 +293,16 @@ NOTE: 默认情况下， SAS 端口 A 到 D 处于启用状态。您必须禁用
 +
 .. 在控制器提示符处，检查网桥的状态：
 +
-` * 存储网桥显示 *`
+`storage bridge show`
 
 +
 输出将显示哪个网桥未受保护。
 
-.. 检查不安全网桥端口的状态： + ` * info*`
+.. 检查不安全网桥端口的状态： + `info`
 +
 输出将显示以太网端口 MP1 和 MP2 的状态。
 
-.. 如果启用了以太网端口 MP1 ，请运行以下命令： + ` * 设置 EthernetPort MP1 disabled" *`
+.. 如果已启用以太网端口 MP1 ，请运行以下命令： + `set EthernetPort MP1 disabled`
 +
 
 NOTE: 如果以太网端口 MP2 也已启用，请对端口 MP2 重复上述子步骤。
@@ -312,10 +312,10 @@ NOTE: 如果以太网端口 MP2 也已启用，请对端口 MP2 重复上述子�
 您必须运行以下命令：
 
 +
-` * 保存配置 *`
+`saveConfiguration`
 
 +
-` * FirmwareRestart*`
+`FirmwareRestart`
 
 +
 系统将提示您重新启动网桥。
@@ -326,7 +326,7 @@ NOTE: 如果以太网端口 MP2 也已启用，请对端口 MP2 重复上述子�
 +
 如果新网桥与配对网桥的类型相同，请升级到与配对网桥相同的固件。如果新网桥与配对网桥的类型不同，请升级到该网桥支持的最新固件以及 ONTAP 版本。请参见 _FibreBridge MetroCluster 维护指南 _ 中的 " 更新 FibreBridge 网桥上的固件 " 一节。
 
-. 使用缆线将磁盘架连接到网桥：
+. 【第 10 步 - 缆线架 - 网桥 ]] 将磁盘架连接到网桥：
 +
 .. 以菊花链方式连接每个堆栈中的磁盘架。
 +
@@ -334,10 +334,10 @@ NOTE: 如果以太网端口 MP2 也已启用，请对端口 MP2 重复上述子�
 
 .. 对于每个磁盘架堆栈，使用缆线将第一个磁盘架的 IOM A 连接到 FibreBridge A 上的 SAS 端口 A ，然后使用缆线将最后一个磁盘架的 IOM B 连接到 FibreBridge B 上的 SAS 端口 A
 +
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
 +
-https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
+link:../install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
 
 +
 每个网桥都有一条路径通往其磁盘架堆栈；网桥 A 通过第一个磁盘架连接到堆栈的 A 侧，网桥 B 通过最后一个磁盘架连接到堆栈的 B 侧。
@@ -348,9 +348,12 @@ NOTE: 网桥 SAS 端口 B 已禁用。
 
 
 
-. 验证每个网桥是否可以检测到网桥所连接的所有磁盘驱动器和磁盘架。
+. 【第 11 步— verify-ean-bridge-detect]] 验证每个网桥是否可以检测到网桥所连接的所有磁盘驱动器和磁盘架。
 +
+[cols="30,70"]
 |===
+
+
 | 如果您使用的是 ... | 那么 ... 
 
 
@@ -366,7 +369,7 @@ ATTO ExpressNAV 图形用户界面
 此时将显示 ATTO FibreBridge 状态页面，左侧有一个菜单。
 
 .. 单击菜单中的 * 高级 * 。
-.. 查看已连接的设备： + ` * sastargets*`
+.. 查看已连接的设备： + `sastargets`
 .. 单击 * 提交 * 。
 
 
@@ -377,7 +380,7 @@ ATTO ExpressNAV 图形用户界面
  a| 
 查看已连接的设备：
 
-` * sastargets*`
+`s星网`
 
 |===
 +
@@ -385,7 +388,7 @@ ATTO ExpressNAV 图形用户界面
 
 +
 
-NOTE: 如果输出开头显示文本响应已截断，则可以使用 Telnet 连接到网桥，然后使用 sastargets 命令查看所有输出。
+NOTE: 如果输出开头显示文本 response truncated ，则可以使用 Telnet 连接到网桥，然后使用 `sasargets` 命令查看所有输出。
 
 +
 以下输出显示已连接 10 个磁盘：
@@ -407,22 +410,25 @@ Tgt VendorID ProductID        Type        SerialNumber
 ----
 . 验证命令输出是否显示网桥已连接到堆栈中所有适当的磁盘和磁盘架。
 +
+[cols="30,70"]
 |===
+
+
 | 如果输出为 ... | 那么 ... 
 
 
  a| 
 正确
  a| 
-重复步骤 xref:task_fb_hot_add_stack_of_shelves_and_bridges.adocSTEP_524EBC3334F54467B771D9E2FD2B2DDA[11.] 其余每个网桥。
+重复 <<step11-verify-each-bridge-detect,第 11 步>> 其余每个网桥。
 
 
 
  a| 
 不正确
  a| 
-.. 重复步骤，检查 SAS 缆线是否松动或更正 SAS 布线 xref:task_fb_hot_add_stack_of_shelves_and_bridges.adocSTEP_1F8F7E891D3B4CBD88176B312C6BC5CC[10]。
-.. 重复步骤 xref:task_fb_hot_add_stack_of_shelves_and_bridges.adocSTEP_524EBC3334F54467B771D9E2FD2B2DDA[11.]。
+.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 <<step10-cable-shelves-bridges,第 10 步>>。
+.. 重复 <<step11-verify-each-bridge-detect,第 11 步>>。
 
 
 |===
@@ -436,6 +442,8 @@ NOTE: Brocade 和 Cisco 交换机使用不同的端口编号，如下表所示�
 ** 在 Cisco 交换机上，第一个端口编号为 "`1` " 。
 +
 |===
+
+
 13+| 使用两个 FC 端口（ FC1 和 FC2 ）的 FibreBridge 7500N 或 7600N 的配置 
 
 
@@ -877,6 +885,8 @@ NOTE: 可以使用缆线将其他网桥连接到 G620 ， G630 ， G620-1 和 G6
 |===
 +
 |===
+
+
 11+| 使用两个 FC 端口（ FC1 和 FC2 ）的 FibreBridge 7500N 或 7600N 的配置 
 
 
@@ -1256,6 +1266,8 @@ NOTE: 可以使用缆线将其他网桥连接到 G620 ， G630 ， G620-1 和 G-
 |===
 +
 |===
+
+
 12+| 仅使用一个 FC 端口（ FC1 或 FC2 ）的 FibreBridge 6500N 网桥或 FibreBridge 7500N 或 7600N 配置 
 
 
@@ -1478,6 +1490,8 @@ NOTE: 可以使用缆线将其他网桥连接到 G620 ， G630 ， G620-1 和 G6
 |===
 +
 |===
+
+
 10+| 仅使用一个 FC 端口（ FC1 或 FC2 ）的 FibreBridge 6500N 网桥或 FibreBridge 7500N 或 7600N 配置 
 
 
@@ -1665,7 +1679,7 @@ bridge_x_YB
 
  a| 
 
-NOTE: 可以使用缆线将其他网桥连接到 G620 ， G630 ， G620-1 和 G630-1 交换机中的端口 32 - 39 。可以使用缆线将其他网桥连接到 G720 交换机中的端口 36 - 39 。
+NOTE: 可以使用缆线将其他网桥连接到 G620 ， G630 ， G620-1 和 G630-1 交换机中的端口 32 到 39 。可以使用缆线将其他网桥连接到 G720 交换机中的端口 36 到 39 。
 
 |===
 
@@ -1679,24 +1693,24 @@ NOTE: 可以使用缆线将其他网桥连接到 G620 ， G630 ， G620-1 和 G6
 
 . 从系统控制台将磁盘驱动器固件更新为最新版本：
 +
-` * disk_FW_update*`
+`disk_FW_update`
 
 +
 您必须在两个控制器模块上运行此命令。
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"^]
 
 . 按照所下载固件的说明将磁盘架固件更新为最新版本。
 +
 您可以从任一控制器模块的系统控制台中运行操作步骤中的命令。
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"^]
 
 . 如果您的系统未启用磁盘自动分配，请分配磁盘驱动器所有权。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 
 +
 
@@ -1709,15 +1723,15 @@ NOTE: 在更新磁盘驱动器固件和磁盘架固件并完成此任务中的�
 . 为新堆栈启用交换机端口。
 . 在 ONTAP 中验证 MetroCluster 配置的运行情况：
 +
-.. 检查系统是否为多路径： + ` * node run -node _node-name_ sysconfig -A*`
-.. 检查两个集群上是否存在任何运行状况警报： + ` * system health alert show*`
-.. 确认 MetroCluster 配置以及操作模式是否正常： + ` * MetroCluster show*`
-.. 执行 MetroCluster 检查： + ` * MetroCluster check run*`
-.. 显示 MetroCluster 检查的结果： + ` * MetroCluster check show*`
-.. 检查交换机上是否存在任何运行状况警报（如果存在）： + ` * storage switch show*`
+.. 检查系统是否为多路径： + `node run -node _node-name_ sysconfig -a`
+.. 检查两个集群上是否存在任何运行状况警报： + `ssystem health alert show`
+.. 确认 MetroCluster 配置以及操作模式是否正常： + MetroCluster show`
+.. 执行 MetroCluster check ： + MetroCluster check run`
+.. 显示 MetroCluster 检查的结果： + `MetroCluster check show`
+.. 检查交换机上是否存在任何运行状况警报（如果存在）： + `storage switch show`
 .. 运行 Config Advisor 。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
@@ -1725,6 +1739,4 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 . 如果适用，请对配对站点重复此操作步骤。
 
 
-* 相关信息 *
-
-xref:concept_in_band_management_of_the_fc_to_sas_bridges.adoc[FC-SAS 网桥的带内管理]
+link:concept_in_band_management_of_the_fc_to_sas_bridges.html["FC-SAS 网桥的带内管理"]

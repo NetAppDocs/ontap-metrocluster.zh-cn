@@ -22,7 +22,6 @@ summary: 在灾难站点上的设备进行了任何必要的维护或更换，�
 
 == 修复 MetroCluster FC 配置中的配置
 
-[role="lead"]
 切换后，您必须按特定顺序执行修复操作，才能还原 MetroCluster 功能。
 
 .开始之前
@@ -42,7 +41,6 @@ summary: 在灾难站点上的设备进行了任何必要的维护或更换，�
 
 === 修复数据聚合
 
-[role="lead"]
 修复并更换灾难站点上的任何硬件后，您必须修复数据聚合。此过程会重新同步数据聚合，并使（现已修复）灾难站点做好正常运行的准备。在修复根聚合之前，您必须修复数据聚合。
 
 以下示例显示了强制切换，在此可以使已切换的聚合联机。远程集群中的所有配置更新均已成功复制到本地集群。您在此操作步骤中启动灾难站点上的存储，但不会也不能启动灾难站点上的控制器模块。
@@ -109,7 +107,6 @@ aggr_b2   227.1GB  227.1GB   0%    online  0      mcc1-a2      raid_dp, mirrored
 
 === 发生灾难后修复根聚合
 
-[role="lead"]
 修复数据聚合之后，您必须修复根聚合，以便为切回操作做好准备。
 
 MetroCluster 修复过程的数据聚合阶段必须已成功完成。
@@ -157,7 +154,6 @@ mcc1A::> metrocluster operation show
 
 == 验证您的系统是否已做好切回准备
 
-[role="lead"]
 如果您的系统已处于切换状态，您可以使用 ` -simulate` 选项预览切回操作的结果。
 
 .步骤
@@ -221,7 +217,6 @@ Job ID Name                 Vserver    Node           State
 
 == 执行切回
 
-[role="lead"]
 修复 MetroCluster 配置后，您可以执行 MetroCluster 切回操作。MetroCluster 切回操作会将配置恢复到其正常运行状态，灾难站点上的 sync-source Storage Virtual Machine （ SVM ）处于活动状态，并从本地磁盘池提供数据。
 
 .开始之前
@@ -411,7 +406,6 @@ MetroCluster 配置中的 sync-destination 聚合会在其名称中自动附加�
 
 == 在切回后删除陈旧的聚合列表
 
-[role="lead"]
 在某些情况下，切回后，您可能会注意到存在 _stal_ 聚合。陈旧的聚合是指已从 ONTAP 中删除但其信息仍记录在磁盘上的聚合。陈旧的聚合会使用 `nodeshell aggr status -r` 命令显示，但不会使用 `storage aggregate show` 命令显示。您可以删除这些记录，使其不再显示。
 
 如果在 MetroCluster 配置处于切换状态时重新定位了聚合，则可能会发生陈旧的聚合。例如：

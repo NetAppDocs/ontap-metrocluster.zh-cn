@@ -12,7 +12,7 @@ summary: 在 MetroCluster 配置中使用 ONTAP 时，您应了解有关许可�
 [role="lead"]
 在 MetroCluster 配置中使用 ONTAP 时，您应了解有关许可，与 MetroCluster 配置之外的集群建立对等关系，执行卷操作， NVFAIL 操作以及其他 ONTAP 操作的某些注意事项。
 
-这两个集群的 ONTAP 配置（包括网络连接）应相同，因为 MetroCluster 功能依赖于集群在发生切换时为其配对集群似乎提供数据的能力。
+两个集群的 ONTAP 配置（包括网络连接）应相同，因为 MetroCluster 功能依赖于集群在发生切换时为其配对集群无缝提供数据的能力。
 
 
 
@@ -33,7 +33,6 @@ summary: 在 MetroCluster 配置中使用 ONTAP 时，您应了解有关许可�
 
 == ONTAP System Manager 中的 MetroCluster 操作
 
-[role="lead"]
 根据您的 ONTAP 版本，可以使用 ONTAP 系统管理器执行某些特定于 MetroCluster 的操作。
 
 * 在 MetroCluster IP 配置中切换和切回（从 ONTAP 9.7 开始）。
@@ -47,7 +46,6 @@ System Manager 不支持未镜像聚合。
 
 == MetroCluster 配置中的 FlexCache 支持
 
-[role="lead"]
 从 ONTAP 9.7 开始， MetroCluster 配置支持 FlexCache 卷。您应了解切换或切回操作后手动重复的要求。
 
 
@@ -76,18 +74,15 @@ System Manager 不支持未镜像聚合。
 
 执行切回时，您必须再次重复 site_A （原始集群）和 site_C 上的 SVM
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["FlexCache 卷管理"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["FlexCache 卷管理"^]
 
 
 
 == MetroCluster 配置中的 FabricPool 支持
 
-[role="lead"]
 从 ONTAP 9.7 开始， MetroCluster 配置支持 FabricPool 存储层。
 
-有关使用 FabricPool 的常规信息，请参见 _Disks and aggregates management_ 。
-
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+有关使用 FabricPool 的常规信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]。
 
 
 
@@ -106,18 +101,13 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁�
 === 配置要在镜像 FabricPool 中使用的聚合
 
 
-NOTE: 在配置聚合之前，您必须按照 _Disks and aggregates management_ 中的 " 在 MetroCluster 配置中为 FabricPool 设置对象存储 " 中所述设置对象存储。
-
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+NOTE: 在配置聚合之前，必须按照中的 " 在 MetroCluster 配置中为 FabricPool 设置对象存储 " 所述设置对象存储 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]。
 
 要配置要在 FabricPool 中使用的聚合，请执行以下操作：
 
 . 创建聚合或选择现有聚合。
 . 将聚合镜像为 MetroCluster 配置中的典型镜像聚合。
-. 创建包含聚合的 FabricPool 镜像，如 _Disks and Aggregates management_ 中所述：
-+
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
-
+. 使用聚合创建 FabricPool 镜像，如中所述 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 +
 .. 附加主对象存储。
 +
@@ -166,7 +156,7 @@ NOTE: 系统创建的计划不会复制，您必须在配对集群上手动执�
 
 您应了解如何在 MetroCluster 配置中创建和复制 LIF 。您还必须了解一致性要求，以便在配置网络时做出正确的决策。
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"^]
 
 link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#ipspace-object-replication-and-subnet-configuration-requirements["IP 空间对象复制和子网配置要求"]
 
@@ -273,6 +263,7 @@ link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#lif-rep
 
 要将复制的 LIF 放置在配对集群上，系统必须满足以下条件：
 
+[cols="2,5,8"]
 |===
 
 
@@ -400,13 +391,12 @@ image::../media/svm_dr_image_2.gif[SVM DR 映像 2]
 
 
 
-请参见中的 "`复制 SVM 配置` " http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["数据保护"] 有关配置 SVM DR 关系的详细信息。
+请参见中的 "`复制 SVM 配置` " http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["数据保护"^] 有关配置 SVM DR 关系的详细信息。
 
 
 
 === 在灾难恢复站点重新同步 SVM
 
-[role="lead"]
 在重新同步期间， MetroCluster 配置上的 Storage Virtual Machine （ SVM ）灾难恢复（ DR ）源将从非 MetroCluster 站点上的目标 SVM 进行还原。
 
 在重新同步期间，源 SVM （ cluster_A ）会暂时用作目标 SVM ，如下图所示：
@@ -434,19 +424,18 @@ image::../media/svm_dr_resynchronization.gif[SVM DR 重新同步]
 
 == 在 MetroCluster 切换后， storage aggregate plex show 命令的输出不确定
 
-[role="lead"]
 在 MetroCluster 切换后运行 storage aggregate plex show 命令时，切换后的根聚合的 plex0 状态不确定，并显示为 failed 。在此期间，切换后的根不会更新。只有在 MetroCluster 修复阶段之后才能确定此丛的实际状态。
 
 
 
 == 修改卷以在发生切换时设置 NVFAIL 标志
 
-[role="lead"]
 您可以修改卷，以便在发生 MetroCluster 切换时在卷上设置 NVFAIL 标志。NVFAIL 标志会使卷无法进行任何修改。对于需要处理的卷，这是必需的，就好像在切换后丢失了对卷提交的写入一样。
 
 
 NOTE: 在 ONTAP 9.0 之前的版本中，每次切换都会使用 NVFAIL 标志。在 ONTAP 9.0 及更高版本中，使用计划外切换（ USO ）。
 
+.步骤
 . 通过将 `vol -dr-force-nvfail` 参数设置为 on ，启用 MetroCluster 配置以在切换时触发 NVFAIL ：
 +
 `vol modify -vserver vserver-name -volume volume-name -dr-force-nvfail on`

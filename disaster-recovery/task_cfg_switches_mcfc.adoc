@@ -18,9 +18,8 @@ link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1
 
 
 
-=== 在站点灾难后配置 Brocade FC 交换机
+== 在站点灾难后配置 Brocade FC 交换机
 
-[role="lead"]
 您必须使用此 Brocade 专用的操作步骤配置替代交换机并启用 ISL 端口。
 
 此操作步骤中的示例基于以下假设：
@@ -143,9 +142,8 @@ Index Port Address Media Speed State  Proto
 
 
 
-=== 在站点灾难后配置 Cisco FC 交换机
+== 在站点灾难后配置 Cisco FC 交换机
 
-[role="lead"]
 您必须使用 Cisco 专用的操作步骤配置替代交换机并启用 ISL 端口。
 
 此操作步骤中的示例基于以下假设：

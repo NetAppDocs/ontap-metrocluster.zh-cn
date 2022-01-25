@@ -5,6 +5,8 @@ keywords: metrocluster, configuration, eight-node
 summary: 一个八节点配置将包含两个 DR 组。使用本节中的任务配置第一个 DR 组。 
 ---
 = 处理八节点配置
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

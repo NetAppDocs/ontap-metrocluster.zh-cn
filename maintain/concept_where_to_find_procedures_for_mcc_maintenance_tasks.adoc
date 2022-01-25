@@ -13,9 +13,11 @@ summary: 在执行 MetroCluster 硬件维护任务时，您应确保选择正确
 在执行 MetroCluster 硬件维护任务时，您应确保选择正确的操作步骤。
 
 
-NOTE: 随着 ONTAP 9.8 的发布， MetroCluster 升级和扩展过程已移至 link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["《 MetroCluster 升级和扩展指南》"] 和 。
+NOTE: 随着 ONTAP 9.8 的发布， MetroCluster 升级和扩展过程已移至 link:../upgrade/index.html["《 MetroCluster 升级和扩展指南》"] 和 。
 
 |===
+
+
 | 组件 | MetroCluster 类型（ FC 或 IP ） | 任务 | 操作步骤 
 
 
@@ -26,7 +28,7 @@ ONTAP 软件
  a| 
 ONTAP 软件升级
  a| 
-https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级，还原或降级"]
+https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级，还原或降级"^]
 
 
 
@@ -47,7 +49,7 @@ https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
  a| 
 升级和扩展
  a| 
-link:../upgrade/index.html["《 MetroCluster ® 升级和扩展指南》"]
+link:../upgrade/index.html["MetroCluster ® 升级和扩展"]
 
 
 
@@ -65,11 +67,11 @@ FC
  a| 
 添加磁盘架（包含网桥或单个磁盘架的堆栈）
  a| 
-xref:task_hot_add_a_stack_to_exist_7500n_pair.adoc[将 SAS 磁盘架堆栈热添加到一对现有 FibreBridge 7500N 网桥中]
+link:task_hot_add_a_stack_to_exist_7500n_pair.html["将 SAS 磁盘架堆栈热添加到一对现有 FibreBridge 7500N 网桥中"]
 
-xref:task_fb_hot_add_stack_of_shelves_and_bridges.adoc [将 SAS 磁盘架和网桥堆栈热添加到 MetroCluster 系统]
+link:task_fb_hot_add_stack_of_shelves_and_bridges.html["将 SAS 磁盘架和网桥堆栈热添加到 MetroCluster 系统"]
 
-xref:task_fb_hot_add_shelf.adoc[将 SAS 磁盘架热添加到 SAS 磁盘架堆栈]
+link:task_fb_hot_add_shelf.html["将 SAS 磁盘架热添加到 SAS 磁盘架堆栈"]
 
 
 
@@ -78,7 +80,7 @@ FC
  a| 
 卸下磁盘架
  a| 
-xref:task_hot_remove_storage_from_a_mcc_fc_configuration.adoc[从 MetroCluster FC 配置中热删除存储]
+link:task_hot_remove_storage_from_a_mcc_fc_configuration.html["从 MetroCluster FC 配置中热删除存储"]
 
 
 
@@ -87,7 +89,7 @@ FC
  a| 
 所有其他磁盘架维护过程。可以使用标准过程。
  a| 
-https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.html["维护 DS460C DS224C 和 DS212C 磁盘架"]
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.html["维护 DS460C DS224C 和 DS212C 磁盘架"^]
 
 
 
@@ -96,9 +98,9 @@ IP
  a| 
 所有磁盘架维护过程。可以使用标准过程。
 
-如果要为未镜像聚合添加磁盘架，请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-ip/GUID-EA385AF8-7786-4C3C-B5AE-1B4CFD3AD2EE.html["使用未镜像聚合时的注意事项"]
+如果要为未镜像聚合添加磁盘架，请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-ip/GUID-EA385AF8-7786-4C3C-B5AE-1B4CFD3AD2EE.html["使用未镜像聚合时的注意事项"^]
  a| 
-https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.html["维护 DS460C DS224C 和 DS212C 磁盘架"]
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.html["维护 DS460C DS224C 和 DS212C 磁盘架"^]
 
 
 
@@ -107,7 +109,7 @@ https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.ht
  a| 
 将 IOM12 磁盘架热添加到 IOM6 磁盘架堆栈中
  a| 
-https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["将带有 IOM12 模块的磁盘架热添加到带有 IOM6 模块的磁盘架堆栈中"]
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["将带有 IOM12 模块的磁盘架热添加到带有 IOM6 模块的磁盘架堆栈中"^]
 
 
 
@@ -118,9 +120,9 @@ FC
  a| 
 更换网桥
  a| 
-xref:task_replace_a_sle_fc_to_sas_bridge.adoc[更换单个 FC-SAS 网桥]
+link:task_replace_a_sle_fc_to_sas_bridge.html["更换单个 FC-SAS 网桥"]
 
-xref:task_fb_consolidate_replace_a_pair_of_fibrebridge_6500n_bridges_with_7500n_bridges.adoc[将一对 FibreBridge 6500N 网桥更换为 7600N 或 7500N 网桥]
+link:task_fb_consolidate_replace_a_pair_of_fibrebridge_6500n_bridges_with_7500n_bridges.html["将一对 FibreBridge 6500N 网桥更换为 7600N 或 7500N 网桥"]
 
 link:task_replace_a_sle_fc_to_sas_bridge.html#hot-swapping-a-fibrebridge-7500n-with-a-7600n-bridge["热插拔 FibreBridge 7500N 和 7600N 网桥"]
 
@@ -131,7 +133,7 @@ FC
  a| 
 固件升级
  a| 
-xref:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.adoc[更新 FibreBridge 网桥上的固件]
+link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["更新 FibreBridge 网桥上的固件"]
 
 
 
@@ -140,7 +142,7 @@ FC
  a| 
 更换发生故障的电源模块
  a| 
-xref:reference_fb_replace_a_power_supply.adoc[热更换发生故障的电源模块]
+link:reference_fb_replace_a_power_supply.html["热更换发生故障的电源模块"]
 
 
 
@@ -151,7 +153,7 @@ FC
  a| 
 交换机升级
  a| 
-xref:task_upgrade_to_new_brocade_switches.adoc[升级到新的 Brocade FC 交换机]
+link:task_upgrade_to_new_brocade_switches.html["升级到新的 Brocade FC 交换机"]
 
 
 
@@ -160,9 +162,9 @@ FC
  a| 
 交换机更换
  a| 
-xref:task_replace_a_brocade_fc_switch_mcc.adoc[更换 Brocade FC 交换机（ MetroCluster ）]
+link:task_replace_a_brocade_fc_switch_mcc.html["更换 Brocade FC 交换机（ MetroCluster ）"]
 
-xref:task_replace_a_cisco_fc_switch_mcc.adoc[更换 Cisco FC 交换机]
+link:task_replace_a_cisco_fc_switch_mcc.html["更换 Cisco FC 交换机"]
 
 
 
@@ -171,8 +173,8 @@ FC
  a| 
 固件升级
  a| 
-xref:task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.adoc[更新 Brocade FC 交换机上的固件]
+link:task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html["更新 Brocade FC 交换机上的固件"]
 
-xref:task_upgrade_or_downgrad_the_firmware_on_a_cisco_fc_switch_mcc.adoc[更新 Cisco FC 交换机上的固件]
+link:task_upgrade_or_downgrad_the_firmware_on_a_cisco_fc_switch_mcc.html["更新 Cisco FC 交换机上的固件"]
 
 |===

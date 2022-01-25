@@ -153,13 +153,12 @@ NOTE: 从 ONTAP 9.5 开始，必须使用命令 `storage disk option modify -aut
 
 link:concept_required_mcc_ip_components_and_naming_guidelines_mcc_ip.html["所需的 MetroCluster IP 组件和命名约定"]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 
 
 
 == MetroCluster IP 配置中系统的 ADP 和磁盘分配差异
 
-[role="lead"]
 在 MetroCluster IP 配置中，高级驱动器分区（ ADP ）的操作和自动磁盘分配会因系统型号而异。
 
 

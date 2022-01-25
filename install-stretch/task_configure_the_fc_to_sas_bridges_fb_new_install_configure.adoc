@@ -15,7 +15,7 @@ summary: 在为您的 FC-SAS 网桥型号布线之前，您必须在 FibreBridge
 您应决定是否使用网桥的带内管理。
 
 
-NOTE: 从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 。以下步骤显示了 ` * storage bridge*` 命令。但是，如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。
+NOTE: 从 ONTAP 9.8 开始， `storage bridge` 命令将替换为 `ssystem bridge` 。以下步骤显示了 `storage bridge` 命令。但是，如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 `ssystem bridge` 命令。
 
 如果要使用网桥的带内管理而不是 IP 管理，则可以跳过配置以太网端口和 IP 设置的步骤。
 
@@ -58,19 +58,19 @@ NOTE: 请勿在 ATTO FibreBridge 7600N 或 7500N 上配置时间同步。在 ONT
 如果使用命令行界面，则必须运行以下命令：
 
 +
-` * 设置 IP 地址 MP1 _IP-address_*`
+`set ipaddress MP1 _ip-address_`
 
 +
-` * 设置 ipsubnetmask MP1 _subnet-mask_*`
+`set ipsubnetmask MP1 _subnet-mask_`
 
 +
-` * 设置 ipgateway MP1 x.x.x.x*`
+`set ipgateway MP1 x.x.x.x`
 
 +
-` * 设置 ipdhcp MP1 已禁用 *`
+`set ipdhcp MP1 disabled`
 
 +
-` * 设置以太网速度 MP1 1000*`
+`s设定网络速度 MP1 1000`
 
 .. 配置网桥名称。
 +
@@ -88,11 +88,11 @@ NOTE: 请勿在 ATTO FibreBridge 7600N 或 7500N 上配置时间同步。在 ONT
 如果使用命令行界面，则必须运行以下命令：
 
 +
-` * 设置 bridgename _bridgenename_*`
+`set bridgename _bridgenename_`
 
 
 
-.. 如果运行的是 ONTAP 9.4 或更早版本，请在网桥上启用 SNMP ： + ` * 设置 SNMP enabled"`
+.. 如果运行的是 ONTAP 9.4 或更早版本，请在网桥上启用 SNMP ： + `set snmp enabled`
 +
 在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。
 
@@ -113,11 +113,12 @@ NOTE: 请勿在 ATTO FibreBridge 7600N 或 7500N 上配置时间同步。在 ONT
 NOTE: 您选择的 FCDataRate 速度限制为网桥端口所连接的控制器模块的网桥和 FC 端口均支持的最大速度。布线距离不得超过 SFP 和其他硬件的限制。
 
 +
+--
 如果使用命令行界面，则必须运行以下命令：
 
-+
-` * 设置 FCDataRate _port-numberport-speed _ *`
+`set FCDataRate _port-numberport-speed_`
 
+--
 
 
 .. 如果要配置 FibreBridge 7500N 或 6500N 网桥，请配置端口用于 ptp 的连接模式。
@@ -126,18 +127,18 @@ NOTE: 您选择的 FCDataRate 速度限制为网桥端口所连接的控制器�
 NOTE: 配置 FibreBridge 7600N 网桥时，不需要 FCConnMode 设置。
 
 +
+--
 如果使用命令行界面，则必须运行以下命令：
 
-+
-` * 设置 FCConnMode _port-number_ PTP*`
+`s设置 FCConnMode _port-number_ ptp`
 
+--
 .. 如果要配置 FibreBridge 7600N 或 7500N 网桥，则必须配置或禁用 FC2 端口。
 +
 *** 如果使用的是第二个端口，则必须对 FC2 端口重复上述子步骤。
-*** 如果不使用第二个端口，则必须禁用端口： + ` * FCPortDisable port-number*` 以下示例显示了禁用 FC 端口 2 ：
-
-
-
+*** 如果不使用第二个端口，则必须禁用端口： + `FCPortDisable port-number`
++
+以下示例显示了如何禁用 FC 端口 2 ：
 
 +
 [listing]
@@ -146,8 +147,9 @@ FCPortDisable 2
 
 Fibre Channel Port 2 has been disabled.
 ----
-+
-.. 如果要配置 FibreBridge 7600N 或 7500N 网桥，请禁用未使用的 SAS 端口： + ` * SASPortDisable _SAS-Port_*`
+
+
+.. 如果要配置 FibreBridge 7600N 或 7500N 网桥，请禁用未使用的 SAS 端口： + `SAsportDisable _SAS-port_`
 +
 
 NOTE: 默认情况下， SAS 端口 A 到 D 处于启用状态。您必须禁用未使用的 SAS 端口。
@@ -156,28 +158,29 @@ NOTE: 默认情况下， SAS 端口 A 到 D 处于启用状态。您必须禁用
 如果仅使用 SAS 端口 A ，则必须禁用 SAS 端口 B ， C 和 D 。以下示例显示了禁用 SAS 端口 B您必须同样禁用 SAS 端口 C 和 D ：
 
 +
-[listing]
-----
+....
 SASPortDisable b
 
 SAS Port B has been disabled.
-----
+....
 
 
 . 安全访问网桥并保存网桥的配置。根据您的系统运行的 ONTAP 版本，从下方选择一个选项。
 +
 |===
+
+
 | ONTAP 版本 | 步骤 
 
 
  a| 
 * ONTAP 9.5 或更高版本 *
  a| 
-.. 查看网桥的状态： ` * storage bridge show*`
+.. 查看网桥的状态： `storage bridge show`
 +
 输出将显示哪个网桥未受保护。
 
-.. 保护网桥： + ` * securebridge*`
+.. 固定网桥： + `securebridge`
 
 
 
@@ -185,15 +188,21 @@ SAS Port B has been disabled.
  a| 
 * ONTAP 9.4 或更早版本 *
  a| 
-.. 查看网桥的状态： ` * storage bridge show*`
+.. 查看网桥的状态： `storage bridge show`
 +
 输出将显示哪个网桥未受保护。
 
-.. 检查不安全网桥端口的状态： info
+.. 检查不安全网桥端口的状态：
++
+`信息`
+
 +
 输出将显示以太网端口 MP1 和 MP2 的状态。
 
-.. 如果启用了以太网端口 MP1 ，请运行： ` * 设置 EthernetPort MP1 disabled" *`
+.. 如果已启用以太网端口 MP1 ，请运行：
++
+`sET EthernetPort MP1 disabled`
+
 +
 如果以太网端口 MP2 也已启用，请对端口 MP2 重复上述子步骤。
 
@@ -202,10 +211,10 @@ SAS Port B has been disabled.
 您必须运行以下命令：
 
 +
-` * 保存配置 *`
+`saveConfiguration`
 
 +
-` * FirmwareRestart*`
+`FirmwareRestart`
 
 +
 系统将提示您重新启动网桥。
@@ -219,6 +228,4 @@ link:../maintain/index.html["维护 MetroCluster 组件"]
 
 
 
-* 相关信息 *
-
-xref:concept_in_band_management_of_the_fc_to_sas_bridges.adoc[FC-SAS 网桥的带内管理]
+link:concept_in_band_management_of_the_fc_to_sas_bridges.html["FC-SAS 网桥的带内管理"]

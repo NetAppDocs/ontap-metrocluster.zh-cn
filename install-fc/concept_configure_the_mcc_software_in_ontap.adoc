@@ -18,14 +18,12 @@ image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[
 
 == 收集所需信息
 
-[role="lead"]
 在开始配置过程之前，您需要收集控制器模块所需的 IP 地址。
 
 
 
 === 站点 A 的 IP 网络信息工作表
 
-[role="lead"]
 在配置系统之前，您必须从网络管理员处获取第一个 MetroCluster 站点（站点 A ）的 IP 地址和其他网络信息。
 
 
@@ -622,7 +620,6 @@ HTTP ， HTTPS 或 SMTP
 
 == 标准集群和 MetroCluster 配置之间的相似之处和不同之处
 
-[role="lead"]
 在 MetroCluster 配置中，每个集群中的节点配置与标准集群中的节点配置类似。
 
 MetroCluster 配置基于两个标准集群构建。在物理上，配置必须对称，每个节点都具有相同的硬件配置，并且所有 MetroCluster 组件都必须进行布线和配置。但是， MetroCluster 配置中节点的基本软件配置与标准集群中节点的基本软件配置相同。
@@ -681,8 +678,6 @@ MetroCluster 配置基于两个标准集群构建。在物理上，配置必须�
 .关于此任务
 --
 要确保 MetroCluster 安装成功，请重置和还原控制器模块上的默认值。
-
-* 重要 * ：
 
 只有使用 FC-SAS 网桥的延伸型配置才需要执行此任务。
 
@@ -784,7 +779,7 @@ FC
 +
 运行此命令后，请等待，直到显示启动菜单为止。
 
-. 在启动菜单提示符处键入 wipeconfig 以清除节点配置，然后按 Enter 键。
+. 在启动菜单提示符处键入 "`wipeconfig` " 以清除节点配置，然后按 Enter 键。
 +
 以下屏幕将显示启动菜单提示符：
 
@@ -2057,6 +2052,8 @@ cluster01
 . 验证集群间 LIF 是否冗余：
 +
 |===
+
+
 | 选项 | 说明 
 
 
@@ -2132,10 +2129,16 @@ cluster01-02
 +
 [cols="1,3"]
 |===
+
+
 | 选项 | 说明 
 
 
-| * 在 ONTAP 9.6 及更高版本中： * | `network interface create -vserver _system_svm_ -lif _LIF_name_ -service-policy default-intercluster -home-node _node_-home-port _port_ -address _port_ip_ -netmask _netmask_` 
+ a| 
+* 在 ONTAP 9.6 及更高版本中： *
+ a| 
+`network interface create -vserver _system_svm_ -lif _LIF_name_ -service-policy default-intercluster -home-node _node_-home-port _port_ -address _port_ip_ -netmask _netmask_`
+
 
 
  a| 
@@ -2166,10 +2169,14 @@ policy default-intercluster -home-node cluster01-02 -home-port e0c -address 192.
 +
 [cols="1,3"]
 |===
+
+
 | 选项 | 说明 
 
 
-| * 在 ONTAP 9.6 及更高版本中 * ：  a| 
+ a| 
+* 在 ONTAP 9.6 及更高版本中 * ：
+ a| 
 `network interface show -service-policy default-intercluster`
 
 
@@ -2180,10 +2187,12 @@ policy default-intercluster -home-node cluster01-02 -home-port e0c -address 192.
 `network interface show -role intercluster`
 
 |===
-+
+
+
 有关完整的命令语法，请参见手册页。
 
 +
+
 [listing]
 ----
 cluster01::> network interface show -service-policy default-intercluster
@@ -2200,6 +2209,8 @@ cluster01
 +
 [cols="1,3"]
 |===
+
+
 | 选项 | 说明 
 
 
@@ -2216,13 +2227,14 @@ cluster01
 `network interface show -role intercluster -failover`
 
 |===
-+
+
+
 有关完整的命令语法，请参见手册页。
 
-+
-以下示例显示 "e0c" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0d" 端口。
++ 以下示例显示 "e0c" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0d" 端口。
 
 +
+
 [listing]
 ----
 cluster01::> network interface show -service-policy default-intercluster –failover
@@ -2237,8 +2249,6 @@ cluster01
                             Failover Targets: cluster01-02:e0c,
                                               cluster01-02:e0d
 ----
-
-
 link:concept_prepare_for_the_mcc_installation.adoc["共享数据端口时的注意事项"]
 
 
@@ -2656,6 +2666,8 @@ NOTE: 如果要使用单个镜像数据聚合，请参见 <<step1_aggr,第 1 步
 . 【第 1 步 _aggr]] 按照以下格式配置 MetroCluster ：
 +
 |===
+
+
 | 如果您的 MetroCluster 配置 ... | 然后执行此操作 ... 
 
 
@@ -3080,6 +3092,8 @@ NOTE: 从 ONTAP 9.8 开始， `storage bridge` 命令将替换为 `ssystem bridg
 +
 [cols="1,3"]
 |===
+
+
 | ONTAP 版本 | 命令 
 
 

@@ -5,6 +5,8 @@ keywords: ip, switch, connection, configuring, configure, broadcom, factory defa
 summary: 您必须将 Broadcom IP 交换机配置为用作集群互连并用于后端 MetroCluster IP 连接。 
 ---
 = 配置 Broadcom IP 交换机
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -12,9 +14,8 @@ summary: 您必须将 Broadcom IP 交换机配置为用作集群互连并用于�
 
 
 
-= 将 Broadcom IP 交换机重置为出厂默认值
+== 将 Broadcom IP 交换机重置为出厂默认值
 
-[role="lead"]
 在安装新的交换机软件版本和 RCF 之前，您必须擦除 Broadcom 交换机设置并执行基本配置。
 
 .关于此任务
@@ -274,28 +275,70 @@ Configuration Saved!
 
 ====
 |===
+
+
 | * 操作步骤 * | * 当前 EFOS 版本 * | * 新 EFOS 版本 * | * 高级步骤 * 
 
 
-.5+| 在两个（非） FIPS 兼容版本之间升级 EFOS 的步骤 | 3.4.x.x | 3.4.x.x | 使用方法 1 安装新的 EFOS 映像）配置和许可证信息将保留 
+ a| 
+在两个（非） FIPS 兼容版本之间升级 EFOS 的步骤
+ a| 
+3.4.x.x
+ a| 
+3.4.x.x
+ a| 
+使用方法 1 安装新的 EFOS 映像）配置和许可证信息将保留
 
 
-| 3.4.4.6 （或更高版本 3.4.x.x ） | 不符合 FIPS 的 3.7.x.x 或更高版本 | 使用方法 1 升级 EFOS 。将交换机重置为出厂默认设置，并对 EFOS 3.7.x.x 或更高版本应用 RCF 文件 
+
+ a| 
+3.4.4.6 （或更高版本 3.4.x.x ）
+ a| 
+不符合 FIPS 的 3.7.x.x 或更高版本
+ a| 
+使用方法 1 升级 EFOS 。将交换机重置为出厂默认设置，并对 EFOS 3.7.x.x 或更高版本应用 RCF 文件
 
 
-.2+| 不符合 FIPS 的 3.7.x.x 或更高版本 | 3.4.4.6 （或更高版本 3.4.x.x ） | 使用方法 1 降级 EFOS 。将交换机重置为出厂默认设置，并对 EFOS 3.4.x.x 应用 RCF 文件 
+
+.2+| 不符合 FIPS 的 3.7.x.x 或更高版本  a| 
+3.4.4.6 （或更高版本 3.4.x.x ）
+ a| 
+使用方法 1 降级 EFOS 。将交换机重置为出厂默认设置，并对 EFOS 3.4.x.x 应用 RCF 文件
 
 
-| 不符合 FIPS 的 3.7.x.x 或更高版本 | 使用方法 1 安装新的 EFOS 映像。配置和许可证信息会保留下来 
+
+ a| 
+不符合 FIPS 的 3.7.x.x 或更高版本
+ a| 
+使用方法 1 安装新的 EFOS 映像。配置和许可证信息会保留下来
 
 
-| 符合 3.7.x.x 或更高版本 FIPS | 符合 3.7.x.x 或更高版本 FIPS | 使用方法 1 安装新的 EFOS 映像。配置和许可证信息会保留下来 
+
+ a| 
+符合 3.7.x.x 或更高版本 FIPS
+ a| 
+符合 3.7.x.x 或更高版本 FIPS
+ a| 
+使用方法 1 安装新的 EFOS 映像。配置和许可证信息会保留下来
 
 
-.2+| 升级到 / 从 FIPS 兼容 EFOS 版本的步骤 | 不符合 FIPS | 符合 FIPS .2+| 使用方法 2 安装 EFOS 映像。交换机配置和许可证信息将丢失。 
+
+ a| 
+升级到 / 从 FIPS 兼容 EFOS 版本的步骤
+ a| 
+不符合 FIPS
+ a| 
+符合 FIPS
+ a| 
+使用方法 2 安装 EFOS 映像。交换机配置和许可证信息将丢失。
 
 
-| 符合 FIPS | 不符合 FIPS 
+
+ a| 
+符合 FIPS
+ a| 
+不符合 FIPS
+
 |===
 * 方法 1 ： <<Steps to upgrade EFOS with downloading the software image to the backup boot partition>>
 * 方法 2 ： <<Steps to upgrade EFOS using the ONIE OS installation>>
@@ -617,6 +660,8 @@ v1.32_Switch-B2.txt
 NOTE: EFOS 3.4.4.6 或更高版本 3.4.x.x 的 RCF 文件版本和 EFOS 版本 3.7.0.4 不同。您需要确保为交换机运行的 EFOS 版本创建了正确的 RCF 文件。
 
 |===
+
+
 | EFOS 版本 | RCF 文件版本 
 
 

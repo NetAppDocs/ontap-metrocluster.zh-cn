@@ -5,6 +5,8 @@ keywords: AFF, A900, ONTAP, FAS, FC, Brocade, metrocluster
 summary: 下表显示了 AFF A900 系统的 Brocade 交换机上的端口使用情况 
 ---
 = 运行 ONTAP 9.10.1 或更高版本的 MetroCluster 配置中 AFF A900 控制器的 Brocade 端口使用情况
+:icons: font
+:imagesdir: ../media/
 
 
 下表显示了 Brocade 交换机上的端口使用情况。下表显示了支持的最大配置，其中四个 DR 组包含八个控制器模块。AFF A900 具有八个 FC-VI 端口（ FC-VI-1 和 FC-VI-2 的 A ， b ， c 和 d ）

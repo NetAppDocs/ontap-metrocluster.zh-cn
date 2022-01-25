@@ -25,7 +25,6 @@ summary: 在 MetroCluster 配置中使用 ONTAP 时，您应了解有关许可�
 
 == ONTAP System Manager 中的 MetroCluster 操作
 
-[role="lead"]
 根据您的 ONTAP 版本，可以使用 ONTAP 系统管理器执行某些特定于 MetroCluster 的操作。
 
 * 在 MetroCluster IP 配置中切换和切回（从 ONTAP 9.7 开始）。
@@ -39,7 +38,6 @@ System Manager 不支持未镜像聚合。
 
 == MetroCluster 配置中的 FlexCache 支持
 
-[role="lead"]
 从 ONTAP 9.7 开始， MetroCluster 配置支持 FlexCache 卷。您应了解切换或切回操作后手动重复的要求。
 
 
@@ -68,7 +66,7 @@ System Manager 不支持未镜像聚合。
 
 执行切回时，您必须再次重复 site_A （原始集群）和 site_C 上的 SVM
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["FlexCache 卷管理"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["FlexCache 卷管理"^]
 
 
 
@@ -76,7 +74,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["FlexC
 
 从 ONTAP 9.7 开始， MetroCluster 配置支持 FabricPool 存储层。
 
-有关使用 FabricPool 的常规信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+有关使用 FabricPool 的常规信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 
 
 
@@ -170,7 +168,6 @@ NOTE: 系统创建的计划不会复制，您必须在配对集群上手动执�
 
 === IP 空间对象复制和子网配置要求
 
-[role="lead"]
 您应了解将 IP 空间对象复制到配对集群以及在 MetroCluster 配置中配置子网和 IPv6 的要求。
 
 
@@ -238,7 +235,6 @@ subnet1   192.168.2.0/24   Default   192.168.2.1       10/10    192.168.2.21-192
 
 === 在 MetroCluster 配置中创建 LIF 的要求
 
-[role="lead"]
 在 MetroCluster 配置中配置网络时，您应了解创建 LIF 的要求。
 
 创建 LIF 时，必须考虑以下准则：
@@ -271,7 +267,6 @@ subnet1   192.168.2.0/24   Default   192.168.2.1       10/10    192.168.2.21-192
 
 === LIF 复制和放置要求和问题
 
-[role="lead"]
 您应了解 MetroCluster 配置中的 LIF 复制要求。您还应了解复制的 LIF 如何放置在配对集群上，并应了解 LIF 复制或 LIF 放置失败时会出现的问题。
 
 
@@ -406,7 +401,6 @@ NOTE: 即使源 SVM 已关闭，但如果目标 SVM 中具有相同 IP 空间和
 
 == MetroCluster 配置中的 SVM 灾难恢复
 
-[role="lead"]
 从 ONTAP 9.5 开始， MetroCluster 配置中的活动 Storage Virtual Machine （ SVM ）可用作 SnapMirror SVM 灾难恢复功能的源。目标 SVM 必须位于 MetroCluster 配置之外的第三个集群上。
 
 在使用 SVM 进行 SnapMirror 灾难恢复时，您应了解以下要求和限制：
@@ -441,7 +435,6 @@ image::../media/svm_dr_image_2.gif[SVM DR 映像 2]
 
 === 在灾难恢复站点重新同步 SVM
 
-[role="lead"]
 在重新同步期间， MetroCluster 配置上的 Storage Virtual Machine （ SVM ）灾难恢复（ DR ）源将从非 MetroCluster 站点上的目标 SVM 进行还原。
 
 在重新同步期间，源 SVM （ cluster_A ）会暂时用作目标 SVM ，如下图所示：
@@ -475,7 +468,6 @@ image::../media/svm_dr_resynchronization.gif[SVM DR 重新同步]
 
 == 修改卷以在发生切换时设置 NVFAIL 标志
 
-[role="lead"]
 您可以修改卷，以便在发生 MetroCluster 切换时在卷上设置 NVFAIL 标志。NVFAIL 标志会使卷无法进行任何修改。对于需要处理的卷，这是必需的，就好像在切换后丢失了对卷提交的写入一样。
 
 .关于此任务

@@ -13,23 +13,21 @@ summary: 如果 FabricPool 镜像中的某个对象存储与 MetroCluster 灾难
 
 == 为 FabricPool 配置重新建立对象存储
 
-[role="lead"]
 如果 FabricPool 镜像中的某个对象存储与 MetroCluster 灾难站点位于同一位置并被销毁，则必须重新建立对象存储和 FabricPool 镜像。
 
 .关于此任务
 * 如果对象存储是远程的，并且 MetroCluster 站点已被销毁，则无需重建对象存储，原始对象存储配置以及冷数据内容会保留下来。
-* 有关 FabricPool 配置的详细信息，请参见 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]。
+* 有关 FabricPool 配置的详细信息，请参见 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]。
 
 
 .步骤
-. 按照中的操作步骤 " 更换 MetroCluster 配置上的 FabricPool 镜像 " 进行操作 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]。
+. 按照中的操作步骤 " 更换 MetroCluster 配置上的 FabricPool 镜像 " 进行操作 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]。
 
 
 
 
 == 验证已更换节点上的许可证
 
-[role="lead"]
 如果受损节点正在使用需要标准（节点锁定）许可证的 ONTAP 功能，则必须为更换节点安装新许可证。对于具有标准许可证的功能，集群中的每个节点都应具有自己的功能密钥。
 
 在安装许可证密钥之前，需要标准许可证的功能仍可供替代节点使用。但是，如果受损节点是集群中唯一具有此功能许可证的节点，则不允许更改此功能的配置。此外，在节点上使用未经许可的功能可能会使您不符合您的许可协议，因此您应尽快在替代节点上安装替代许可证密钥。
@@ -115,7 +113,6 @@ NOTE: 系统会自动生成所需的新许可证密钥，并将其发送到文�
 
 == 执行切回
 
-[role="lead"]
 修复 MetroCluster 配置后，您可以执行 MetroCluster 切回操作。MetroCluster 切回操作会将配置恢复到其正常运行状态，灾难站点上的 sync-source Storage Virtual Machine （ SVM ）处于活动状态，并从本地磁盘池提供数据。
 
 .开始之前
@@ -213,7 +210,6 @@ Remote: cluster_A         Configuration state configured
 
 == 验证切回是否成功
 
-[role="lead"]
 执行切回后，您需要确认所有聚合和 Storage Virtual Machine （ SVM ）均已切回并联机。
 
 .步骤
@@ -242,9 +238,9 @@ Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
 aggr_b2          -         -     - unknown      - node_A_1
 ----
 +
-如果灾难站点包含未镜像聚合，而未镜像聚合不再存在，则该聚合可能会在 storage aggregate show 命令的输出中显示为 "unknown" 状态。请联系技术支持以删除未镜像聚合的过期条目。
+如果灾难站点包含未镜像聚合，而未镜像聚合不再存在，则该聚合可能会在 storage aggregate show 命令的输出中显示为 "`unknown` " 状态。请联系技术支持以删除未镜像聚合的过期条目。
 
-. 验证运行正常的集群上的所有 sync-destination SVM 是否均处于休眠状态（显示 Admin State 为 "stopped" ），以及灾难集群上的 sync-source SVM 是否已启动且正在运行：
+. 验证运行正常的集群上的所有 sync-destination SVM 是否均处于休眠状态（显示 Admin State 为 `sstopped` ），以及灾难集群上的 sync-source SVM 是否已启动且正在运行：
 +
 `vserver show -subtype sync-source`
 
@@ -301,7 +297,6 @@ MetroCluster 配置中的 sync-destination 聚合会在其名称中自动附加�
 
 == 镜像替代节点的根聚合
 
-[role="lead"]
 如果更换了磁盘，则必须镜像灾难站点上新节点的根聚合。
 
 .步骤
@@ -406,7 +401,6 @@ cluster_A::>
 
 == 重新配置 ONTAP 调解器服务（ MetroCluster IP 配置）
 
-[role="lead"]
 如果您的 MetroCluster IP 配置已配置 ONTAP 调解器服务，则必须删除并重新配置与调解器的关联。
 
 .开始之前
@@ -429,7 +423,6 @@ cluster_A::>
 
 == 验证 MetroCluster 配置的运行状况
 
-[role="lead"]
 您应检查 MetroCluster 配置的运行状况以验证是否正常运行。
 
 .步骤
@@ -486,8 +479,8 @@ config-replication  ok
 aggregates          ok
 4 entries were displayed.
 
-Command completed. Use the "metrocluster check show -instance" command or sub-commands in "metrocluster check" directory for detailed results.
-To check if the nodes are ready to do a switchover or switchback operation, run "metrocluster switchover -simulate" or "metrocluster switchback -simulate", respectively.
+Command completed. Use the `metrocluster check show -instance` command or sub-commands in `metrocluster check` directory for detailed results.
+To check if the nodes are ready to do a switchover or switchback operation, run `metrocluster switchover -simulate` or `metrocluster switchback -simulate`, respectively.
 ----
 . 检查是否没有运行状况警报：
 +

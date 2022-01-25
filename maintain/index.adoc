@@ -2,7 +2,7 @@
 permalink: maintain/index.html 
 sidebar: sidebar 
 keywords: metrocluster, maintain, service, decide, service, guide, firmware, upgrade, hardware replacement, drive, shelf, ip switch, fc switch, bridge, sas cable 
-summary: 本指南介绍如何对 MetroCluster 硬件组件执行维护。 
+summary: 您可以在 MetroCluster 配置中维护 MetroCluster 专用的硬件组件。 
 ---
 = 维护 MetroCluster 组件
 :icons: font
@@ -10,8 +10,6 @@ summary: 本指南介绍如何对 MetroCluster 硬件组件执行维护。
 
 
 [role="lead"]
-本指南介绍如何对 MetroCluster 硬件组件执行维护。
+您可以使用以下过程维护 MetroCluster 配置中的 MetroCluster 专用硬件组件。
 
-此内容介绍了 MetroCluster 系统的维修过程，包括驱动器架， IP 交换机， FC 交换机， FC-SAS 网桥和 SAS 缆线的固件升级和硬件更换过程。
-
-您应使用本指南维护 MetroCluster 配置中的 MetroCluster 专用硬件组件。
+MetroCluster 系统的服务过程包括驱动器架， IP 交换机， FC 交换机， FC-SAS 网桥和 SAS 缆线的固件升级和硬件更换过程。

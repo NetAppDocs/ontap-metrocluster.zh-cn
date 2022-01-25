@@ -459,16 +459,16 @@ link:/tiebreaker/concept_configuring_the_tiebreaker_software.html["删除 MetroC
 
 您必须将配置切换到 site_A ，以便可以升级 site_B 上的平台。
 
-必须在 Site_A 上执行此任务
+必须在 site_A 上执行此任务
 
-完成此任务后， Site_A 处于活动状态，并为两个站点提供数据。site_B 处于非活动状态，并已准备好开始升级过程，如下图所示。
+完成此任务后， site_A 处于活动状态，并为两个站点提供数据。site_B 处于非活动状态，并已准备好开始升级过程，如下图所示。
 
-image::../media/mcc_upgrade_cluster_a_in_switchover.png[MCC 升级集群 A 处于切换状态]
+image::../media/mcc_upgrade_cluster_a_in_switchover_A900.png[切换 A900 中的 MCC 升级集群 A]
 
 .步骤
-. 将 MetroCluster 配置切换到 Site_A ，以便可以升级 Site_B 的节点：
+. 将 MetroCluster 配置切换到 site_A ，以便可升级 site_B 的节点：
 +
-.. 在 Site_A 上执行问题描述以下命令：
+.. 对 site_A 执行问题描述以下命令：
 +
 MetroCluster switchover -controller-replacement true`
 
@@ -533,23 +533,23 @@ cluster_A::> metrocluster operation show
 
 
 
-== 删除站点 B 上的 AFF A700 控制器模块和 NVS
+== 删除 site_B 上的 AFF A700 控制器模块和 NVS
 
 您必须从配置中删除旧控制器。
 
-您可以在站点 B 上执行此任务
+您可以在 site_B 上执行此任务
 
 如果您尚未接地，请正确接地。
 
 .步骤
-. 连接到站点 B 上旧控制器（ node_B_1-700 和 node_B_2-700 ）的串行控制台，并验证其是否显示 `LOADER` 提示符。
-. 从站点 B 的两个节点收集 bootarg 值： `printenv`
-. 关闭站点 B 的机箱
+. 连接到 site_B 上旧控制器（ node_B_1-700 和 node_B_2-700 ）的串行控制台，并验证它是否显示 `LOADER` 提示符。
+. 从 site_B 的两个节点收集 bootarg 值： `printenv`
+. 关闭 site_B 上的机箱
 
 
 
 
-== 从站点 B 的两个节点上卸下控制器模块和 NVS
+== 从 site_B 的两个节点中删除控制器模块和 NVS
 
 
 
@@ -624,7 +624,7 @@ NOTE: 如果 AFF A700 非易失性存储模块上有任何附加模块用作核�
 
 === 安装 AFF A900 NVS
 
-使用以下操作步骤在站点 B 的两个节点的插槽 6 中安装 AFF A900 NVS
+使用以下操作步骤在 site_B 的两个节点的插槽 6 中安装 AFF A900 NVS
 
 .步骤
 . 将 NVS 与插槽 6 中机箱开口的边缘对齐。
@@ -683,7 +683,7 @@ image:../media/drw_9500_remove_PCM.png["控制器"]
 
 
 
-=== 通过网络启动站点 B 上的节点
+=== 通过网络启动 site_B 上的节点
 
 在交换 AFF A900 控制器模块和 NVS 后，您需要通过网络启动 AFF A900 节点，并安装与集群上运行的相同 ONTAP 版本和修补程序级别。术语 `netboot` 表示您从远程服务器上存储的 ONTAP 映像启动。在准备 `netboot` 时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。
 
@@ -1199,7 +1199,7 @@ link:https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_cr
 
 在切回之前，验证 LIF 是否托管在相应的节点 / 端口上。需要执行以下步骤
 
-此任务在站点 B 上执行，该站点已使用根聚合启动节点。
+此任务在 site_B 上执行，其中的节点已使用根聚合启动。
 
 .步骤
 . 在切回之前，验证 LIF 是否托管在相应的节点和端口上。
@@ -1235,7 +1235,7 @@ link:https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_cr
 
 在此任务中，您将执行切回操作，使 MetroCluster 配置恢复正常运行。site_A 上的节点仍在等待升级。
 
-image::../media/mcc_upgrade_cluster_a_switchback.png[四节点 MetroCluster]
+image::../media/mcc_upgrade_cluster_a_switchback_A900.png[四节点 MetroCluster]
 
 .步骤
 . 在 site_B 上执行 `MetroCluster node show` 命令并检查输出。问题描述
@@ -1318,14 +1318,14 @@ MetroCluster check show`
 
 
 
-== 升级站点 A 上的节点
+== 升级 site_A 上的节点
 
-您必须在 Site_A 上重复执行升级任务
+您必须对 site_A 重复升级任务
 
 .步骤
-. 从开始，重复上述步骤升级 Site_A 上的节点 link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["准备升级。"]。
+. 从开始，重复上述步骤升级 site_A 上的节点 link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["准备升级。"]。
 +
-在执行任务时，对站点和节点的所有示例引用都将反转。例如，如果提供了从 Site_A 切换的示例，则您将从 Site_B 切换
+在执行任务时，对站点和节点的所有示例引用都将反转。例如，如果提供了从 site_A 切换的示例，则您将从 Site_B 切换
 
 
 

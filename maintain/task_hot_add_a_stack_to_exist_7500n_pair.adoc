@@ -12,13 +12,14 @@ summary: 您可以将 SAS 磁盘架堆栈热添加到具有可用端口的一对
 [role="lead"]
 您可以将 SAS 磁盘架堆栈热添加到具有可用端口的一对现有 FibreBridge 7500N 网桥中。
 
+.开始之前
 * 您必须已下载最新的磁盘和磁盘架固件。
 * MetroCluster 配置中的所有磁盘架（新磁盘架和现有磁盘架）都必须运行相同版本的固件。
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"^]
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"^]
 
 * FibreBridge 7500N 网桥必须已连接并具有可用的 SAS 端口。
 
@@ -27,7 +28,7 @@ https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp
 
 您可以使用 ATTO ExpressNAV 图形用户界面配置和管理网桥，以及更新网桥固件。您可以使用 ATTO QuickNAV 实用程序配置网桥以太网管理 1 端口。
 
-如果需要，您可以使用其他管理界面。这些选项包括使用串行端口或 Telnet 配置和管理网桥，配置以太网管理 1 端口，以及使用 FTP 更新网桥固件。如果您选择其中任何一个管理界面，则必须满足中的适用要求 xref:reference_requirements_for_using_other_interfaces_to_configure_and_manage_fibrebridge_bridges.adoc[其他网桥管理接口]。
+如果需要，您可以使用其他管理界面。这些选项包括使用串行端口或 Telnet 配置和管理网桥，配置以太网管理 1 端口，以及使用 FTP 更新网桥固件。如果您选择其中任何一个管理界面，则必须满足中的适用要求 link:reference_requirements_for_using_other_interfaces_to_configure_and_manage_fibrebridge_bridges.html["其他网桥管理接口"]。
 
 
 IMPORTANT: 如果将 SAS 缆线插入错误的端口，则在从 SAS 端口拔下缆线时，必须至少等待 120 秒，然后再将缆线插入其他 SAS 端口。如果您未能执行此操作，系统将无法识别此缆线已移至其他端口。
@@ -36,7 +37,7 @@ IMPORTANT: 如果将 SAS 缆线插入错误的端口，则在从 SAS 端口拔�
 . 正确接地。
 . 从任一控制器的控制台中，验证您的系统是否已启用磁盘自动分配：
 +
-` * 存储磁盘选项 show*`
+`s存储磁盘选项 show`
 
 +
 自动分配列指示是否已启用磁盘自动分配。
@@ -58,14 +59,14 @@ node_A_2             on           on           on           default
 
 . 在对中的每个网桥上，启用要连接到新堆栈的 SAS 端口：
 +
-` * SASPortEnable _port-letter_*`
+`sasportEnable _port-letter_`
 
 +
 两个网桥上必须使用相同的 SAS 端口（ B ， C 或 D ）。
 
 . 保存配置并重新启动每个网桥：
 +
-` * 保存配置重新启动 *`
+`saveConfiguration Restart`
 
 . 使用缆线将磁盘架连接到网桥：
 +
@@ -75,10 +76,10 @@ node_A_2             on           on           on           default
 
 .. 对于每个磁盘架堆栈，使用缆线将第一个磁盘架的 IOM A 连接到 FibreBridge A 上的 SAS 端口 A ，然后使用缆线将最后一个磁盘架的 IOM B 连接到 FibreBridge B 上的 SAS 端口 A
 +
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
 +
-https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
+link:../install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
 
 +
 每个网桥都有一条路径通往其磁盘架堆栈；网桥 A 通过第一个磁盘架连接到堆栈的 A 侧，网桥 B 通过最后一个磁盘架连接到堆栈的 B 侧。
@@ -91,7 +92,10 @@ NOTE: 网桥 SAS 端口 B 已禁用。
 
 . 验证每个网桥是否可以检测到网桥所连接的所有磁盘驱动器和磁盘架。
 +
+[cols="30,70"]
 |===
+
+
 | 如果您使用的是 ... | 那么 ... 
 
 
@@ -109,7 +113,7 @@ ATTO ExpressNAV 图形用户界面
 .. 单击菜单中的 * 高级 * 。
 .. 查看已连接的设备：
 +
-` * sastargets*`
+`s星网`
 
 .. 单击 * 提交 * 。
 
@@ -121,7 +125,7 @@ ATTO ExpressNAV 图形用户界面
  a| 
 查看已连接的设备：
 
-` * sastargets*`
+`s星网`
 
 |===
 +
@@ -129,7 +133,7 @@ ATTO ExpressNAV 图形用户界面
 
 +
 
-NOTE: 如果输出开头显示文本 `reresponse truncated` ，则可以使用 Telnet 连接到网桥，然后使用 `sasargets` 命令查看所有输出。
+NOTE: 如果输出开头显示文本 `reonse truncated` ，则可以使用 Telnet 连接到网桥，然后使用 `sasargets` 命令查看所有输出。
 
 +
 以下输出显示已连接 10 个磁盘：
@@ -151,7 +155,10 @@ Tgt VendorID ProductID        Type        SerialNumber
 ----
 . 验证命令输出是否显示网桥已连接到堆栈中所有适当的磁盘和磁盘架。
 +
+[cols="30,70"]
 |===
+
+
 | 如果输出为 ... | 那么 ... 
 
 
@@ -172,24 +179,24 @@ Tgt VendorID ProductID        Type        SerialNumber
 |===
 . 从系统控制台将磁盘驱动器固件更新为最新版本：
 +
-` * disk_FW_update*`
+`disk_FW_update`
 
 +
 您必须在两个控制器上运行此命令。
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"^]
 
 . 按照所下载固件的说明将磁盘架固件更新为最新版本。
 +
 您可以从任一控制器的系统控制台中运行操作步骤中的命令。
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"^]
 
 . 如果您的系统未启用磁盘自动分配，请分配磁盘驱动器所有权。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 
 +
 
@@ -204,31 +211,31 @@ NOTE: 在更新磁盘驱动器固件和磁盘架固件并完成此任务中的�
 +
 .. 检查系统是否为多路径：
 +
-` * 节点 run -node _node-name_ sysconfig -A*`
+`node run -node _node-name_ sysconfig -a`
 
 .. 检查两个集群上是否存在任何运行状况警报：
 +
-` * 系统运行状况警报 show*`
+`s系统运行状况警报显示`
 
 .. 确认 MetroCluster 配置以及操作模式是否正常：
 +
-` * MetroCluster show*`
+`MetroCluster show`
 
 .. 执行 MetroCluster 检查：
 +
-` * MetroCluster check run*`
+`MetroCluster check run`
 
 .. 显示 MetroCluster 检查的结果：
 +
-` * MetroCluster check show*`
+MetroCluster check show`
 
 .. 检查交换机上是否存在任何运行状况警报（如果存在）：
 +
-` * 存储交换机显示 *`
+`s存储开关显示`
 
 .. 运行 Config Advisor 。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 

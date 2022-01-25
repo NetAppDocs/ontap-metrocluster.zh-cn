@@ -45,6 +45,8 @@ summary: 如果在灾难站点还原硬件时更换了驱动器，则必须为�
 控制器模块具有以下原始系统 ID ：
 
 |===
+
+
 | MetroCluster 配置中的节点数 | 节点 | 原始系统 ID 
 
 
@@ -209,6 +211,6 @@ node_B_2       on            on          on             default
 ----
 
 
-xref:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html[磁盘和聚合管理]
+link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 
 link:../manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#how-metrocluster-configurations-use-syncmirror-to-provide-data-redundancy["MetroCluster 配置如何使用 SyncMirror 提供数据冗余"]

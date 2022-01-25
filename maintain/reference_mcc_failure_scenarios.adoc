@@ -13,9 +13,11 @@ summary: 您应了解 MetroCluster 配置如何响应不同的故障事件。
 您应了解 MetroCluster 配置如何响应不同的故障事件。
 
 
-NOTE: 有关从节点故障中恢复的追加信息，请参见中的 " 选择正确的恢复操作步骤 " 一节 link:https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/index.html["从灾难中恢复"]。
+NOTE: 有关从节点故障中恢复的追加信息，请参见中的 " 选择正确的恢复操作步骤 " 一节 link:../disaster-recovery/index.html["从灾难中恢复"]。
 
 |===
+
+
 | 事件 | 影响 | 恢复 
 
 
@@ -26,7 +28,7 @@ NOTE: 有关从节点故障中恢复的追加信息，请参见中的 " 选择�
  a| 
 此配置通过本地接管进行恢复。RAID 不受影响。查看系统消息并根据需要更换出现故障的 FRU 。
 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
 
 
 
@@ -37,7 +39,7 @@ https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
  a| 
 如果未在 MetroCluster Tiebreaker 软件中启用自动切换，请手动执行 USO 。
 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
 
 
 
@@ -48,7 +50,7 @@ MetroCluster IP 接口—一个端口出现故障
  a| 
 此时将使用第二个端口。如果与端口的物理链路断开，则运行状况监控器会生成警报。查看系统消息并根据需要更换出现故障的 FRU 。
 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
 
 
 
@@ -59,7 +61,7 @@ HA 功能受到影响。节点的 RAID SyncMirror 将停止同步。
  a| 
 由于不存在 HA 接管，因此需要立即手动恢复。查看系统消息并根据需要更换出现故障的 FRU 。
 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
 
 
 
@@ -70,7 +72,7 @@ https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
  a| 
 根据需要更换故障交换机。
 
-xref:task_replace_an_ip_switch.adoc[更换 IP 交换机]
+link:task_replace_an_ip_switch.html["更换 IP 交换机"]
 
 
 
@@ -81,7 +83,7 @@ xref:task_replace_an_ip_switch.adoc[更换 IP 交换机]
  a| 
 根据需要更换故障交换机。
 
-xref:task_replace_an_ip_switch.adoc[更换 IP 交换机]
+link:task_replace_an_ip_switch.html["更换 IP 交换机"]
 
 
 
@@ -92,7 +94,7 @@ xref:task_replace_an_ip_switch.adoc[更换 IP 交换机]
  a| 
 根据需要更换故障交换机。
 
-xref:task_replace_an_ip_switch.adoc[更换 IP 交换机]
+link:task_replace_an_ip_switch.html["更换 IP 交换机"]
 
 
 
@@ -103,6 +105,6 @@ xref:task_replace_an_ip_switch.adoc[更换 IP 交换机]
  a| 
 节点的 RAID SyncMirror 将停止同步。集群和 HA 功能不受影响。根据需要更换故障交换机。
 
-xref:task_replace_an_ip_switch.adoc[更换 IP 交换机]
+link:task_replace_an_ip_switch.html["更换 IP 交换机"]
 
 |===

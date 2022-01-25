@@ -18,7 +18,6 @@ MetroCluster 使用镜像来保护集群中的数据。它可通过单个 MetroC
 
 == 八节点和四节点 MetroCluster 配置如何提供本地故障转移和切换
 
-[role="lead"]
 八节点和四节点 MetroCluster 配置可在本地级别和集群级别保护数据。如果您要设置 MetroCluster 配置，则需要了解 MetroCluster 配置如何保护数据。
 
 MetroCluster 配置使用两个物理隔离的镜像集群来保护数据。每个集群同步镜像另一个集群的数据和 Storage Virtual Machine （ SVM ）配置。当一个站点发生灾难时，管理员可以激活镜像的 SVM 并开始从运行正常的站点提供镜像的数据。此外，每个集群中的节点都配置为 HA 对，从而提供一定程度的本地故障转移。
@@ -27,7 +26,6 @@ MetroCluster 配置使用两个物理隔离的镜像集群来保护数据。每�
 
 === 本地 HA 数据保护在 MetroCluster 配置中的工作原理
 
-[role="lead"]
 您需要了解 HA 对在 MetroCluster 配置中的工作原理。
 
 对等网络中的两个集群提供双向灾难恢复，其中每个集群可以是另一个集群的源和备份。每个集群包含两个节点，这些节点配置为 HA 对。如果单个节点的配置发生故障或需要维护，存储故障转移可以将该节点的操作传输到其本地 HA 配对节点。
@@ -36,22 +34,18 @@ MetroCluster 配置使用两个物理隔离的镜像集群来保护数据。每�
 
 image::../media/mcc_hw_architecture_local_ha.gif[MCC 硬件架构本地 ha]
 
-* 相关信息 *
-
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["高可用性配置"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["高可用性配置"^]
 
 
 
 == MetroCluster 配置如何提供数据和配置复制
 
-[role="lead"]
 MetroCluster 配置使用多种 ONTAP 功能在两个 MetroCluster 站点之间同步复制数据和配置。
 
 
 
 === 使用配置复制服务进行配置保护
 
-[role="lead"]
 ONTAP 配置复制服务（ CRS ）通过自动将信息复制到 DR 配对节点来保护 MetroCluster 配置。
 
 CRS 会将本地节点配置同步复制到配对集群中的 DR 配对节点。此复制通过集群对等网络执行。
@@ -62,13 +56,12 @@ CRS 会将本地节点配置同步复制到配对集群中的 DR 配对节点。
 
 === 在 MetroCluster 操作期间复制 SVM
 
-[role="lead"]
 ONTAP 配置复制服务（ CRS ）可为属于 SVM 的数据卷提供冗余数据服务器配置和镜像。如果发生切换，则源 SVM 将关闭，而运行正常的集群上的目标 SVM 将变为活动状态。
 
 
 NOTE: MetroCluster 配置中的目标 SVM 的名称会自动附加后缀 "` -mc` " ，以帮助识别它们。MetroCluster 配置会将后缀 "` -mc` " 附加到目标 SVM 的名称中，如果 SVM 名称包含句点，则会在第一个句点之前应用后缀 "` -mc` " 。例如，如果 SVM 名称为 svm.dns.name ，则后缀 "` -mc` " 将附加为 svm-mc.dns.name 。
 
-以下示例显示了 MetroCluster 配置的 SVM ，其中 SVM_cluster_A 是源站点上的 SVM ，而 SVM_cluster_A-MC 是灾难恢复站点上的 sync-destination 聚合。
+以下示例显示了 MetroCluster 配置的 SVM ，其中 `SVM_cluster_A` 是源站点上的 SVM ， `SVM_cluster_A-mc` 是灾难恢复站点上的 sync-destination 聚合。
 
 * SVM_cluster_A 在集群 A 上提供数据
 +
@@ -111,20 +104,19 @@ sync-destination SVM 开始从运行正常的站点提供数据。
 
 
 
-* 相关信息 *
-
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"^]
 
 
 
 === MetroCluster 配置如何使用 SyncMirror 提供数据冗余
 
-[role="lead"]
 使用 SyncMirror 功能的镜像聚合可提供数据冗余，并包含源和目标 Storage Virtual Machine （ SVM ）所拥有的卷。数据会复制到配对集群上的磁盘池中。此外，还支持未镜像聚合。
 
 下表显示了切换后未镜像聚合的状态（联机或脱机）：
 
 |===
+
+
 | 切换类型 | 状态 
 
 
@@ -150,7 +142,8 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系�
 
 
 |===
-注意：切换后，如果未镜像聚合位于 DR 配对节点上，并且交换机间链路（ ISL ）出现故障，则本地节点可能会出现故障。
+
+NOTE: 切换后，如果未镜像聚合位于 DR 配对节点上，并且交换机间链路（ ISL ）出现故障，则此本地节点可能会失败。
 
 下图显示了如何在配对集群之间镜像磁盘池。本地丛（在 pool0 中）中的数据将复制到远程丛（在 pool1 中）。
 
@@ -163,7 +156,6 @@ image::../media/mcc_mirroring_of_pools.gif[池的 MCC 镜像]
 
 === NVRAM 或 NVMEM 缓存镜像和动态镜像在 MetroCluster 配置中的工作原理
 
-[role="lead"]
 存储控制器中的非易失性内存（ NVRAM 或 NVMEM ，具体取决于平台型号）会在本地镜像到本地 HA 配对节点，并远程镜像到配对站点上的远程灾难恢复（ DR ）配对节点。如果发生本地故障转移或切换，则此配置可以保留非易失性缓存中的数据。
 
 在不属于 MetroCluster 配置的 HA 对中，每个存储控制器都维护两个非易失性缓存分区：一个用于自身，一个用于其 HA 配对节点。
@@ -171,20 +163,16 @@ image::../media/mcc_mirroring_of_pools.gif[池的 MCC 镜像]
 在四节点 MetroCluster 配置中，每个存储控制器的非易失性缓存分为四个分区。在双节点 MetroCluster 配置中，不会使用 HA 配对分区和 DR 辅助分区，因为存储控制器未配置为 HA 对。
 
 |===
-| 存储控制器的非易失性缓存 
 
 
-| 在 MetroCluster 配置中 
+2+| 存储控制器的非易失性缓存 
 
 
-| 在非 MetroCluster HA 对中 
+| 在 MetroCluster 配置中 | 在非 MetroCluster HA 对中 
 
 
  a| 
 image:../media/mcc_nvram_quartering.gif[""]
-
-
-
  a| 
 image:../media/mcc_nvram_split_in_non_mcc_ha_pair.gif[""]
 
@@ -227,7 +215,6 @@ image::../media/mcc_nvram_mirroring_example_dynamic_dr_aux.gif[MCC NVRAM 镜像�
 
 == 灾难类型和恢复方法
 
-[role="lead"]
 您需要熟悉不同类型的故障和灾难，以便使用 MetroCluster 配置做出适当的响应。
 
 * 单节点故障
@@ -263,22 +250,24 @@ image::../media/mcc_nvram_mirroring_example_dynamic_dr_aux.gif[MCC NVRAM 镜像�
 NOTE: MetroCluster IP 配置不支持 AUSO （自动计划外切换）。
 
 |===
-| 故障类型 2+| DR 机制 2+| 恢复方法摘要 
 
 
-|  | * 四节点配置 * | * 双节点配置 * | * 四节点配置 * | * 双节点配置 * 
+.2+| 故障类型 2+| DR 机制 2+| 恢复方法摘要 
 
 
-| 单节点故障 | 本地 HA 故障转移 | AUSO | 如果启用了自动故障转移和交还，则不需要执行此操作。 | 还原节点后，需要使用 MetroCluster heal -phase aggregates ， MetroCluster heal -phase root-aggregates 和 MetroCluster switchback 命令手动修复和切回。注意：运行 ONTAP 9.5 或更高版本的 MetroCluster IP 配置不需要使用 MetroCluster heal 命令。 
+| 四节点配置 | 双节点配置 | 四节点配置 | 双节点配置 
 
 
-| 站点故障 2+| MetroCluster 切换 2.3+| 还原节点后，需要使用 MetroCluster healing 和 MetroCluster switchback 命令手动修复和切回。运行 ONTAP 9.5 的 MetroCluster IP 配置不需要使用 MetroCluster heal 命令。 
+| 单节点故障 | 本地 HA 故障转移 | AUSO | 如果启用了自动故障转移和交还，则不需要执行此操作。 | 还原节点后，需要使用 `MetroCluster heal -phase aggregates` ， `MetroCluster heal -phase root-aggregates` 和 `MetroCluster switchback` 命令手动修复和切回。注意：运行 ONTAP 9.5 或更高版本的 MetroCluster IP 配置不需要使用 `MetroCluster heal` 命令。 
+
+
+| 站点故障 2+| MetroCluster 切换 2.3+| 还原节点后，需要使用 `MetroCluster healing` 和 `MetroCluster switchback` 命令手动修复和切回。运行 ONTAP 9.5 的 MetroCluster IP 配置不需要 `MetroCluster heal` 命令。 
 
 
 | 站点级控制器故障 | 仅当灾难站点上的存储可访问时才会发生 AUSO 。 | AUSO （与单节点故障相同） 
 
 
-| 多个连续故障 | 本地 HA 故障转移，然后使用 MetroCluster switchover -forced-on-disaster 命令执行 MetroCluster 强制切换。注意：根据出现故障的组件，可能不需要强制切换。 | 使用 MetroCluster switchover -forced-on-disaster 命令执行 MetroCluster 强制切换。 
+| 多个连续故障 | 本地 HA 故障转移，然后使用 MetroCluster switchover -forced-on-disaster 命令执行 MetroCluster 强制切换。注意：根据出现故障的组件，可能不需要强制切换。 | 使用 `MetroCluster switchover -forced-on-disaster` 命令执行 MetroCluster 强制切换。 
 
 
 | ISL 故障 2+| 不进行 MetroCluster 切换；两个集群独立提供数据 2+| 此类故障不需要。还原连接后，存储将自动重新同步。 
@@ -287,14 +276,13 @@ NOTE: MetroCluster IP 配置不支持 AUSO （自动计划外切换）。
 
 == 八节点或四节点 MetroCluster 配置如何提供无中断运行
 
-[role="lead"]
 如果问题描述仅限于单个节点，则本地 HA 对中的故障转移和交还可提供持续的无中断运行。在这种情况下， MetroCluster 配置不需要切换到远程站点。
 
 由于八节点或四节点 MetroCluster 配置在每个站点上包含一个或多个 HA 对，因此每个站点都可以承受本地故障并执行无中断操作，而无需切换到配对站点。HA 对的操作与非 MetroCluster 配置中的 HA 对相同。
 
 对于四节点和八节点 MetroCluster 配置，由于崩溃或断电而导致的节点故障可以发生原因自动切换。
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["高可用性配置"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["高可用性配置"^]
 
 如果在本地故障转移后发生第二个故障，则 MetroCluster 切换事件将提供持续的无中断操作。同样，在执行切换操作后，如果某个正常运行的节点发生第二次故障，则本地故障转移事件将提供持续的无中断操作。在这种情况下，单个运行正常的节点为 DR 组中的其他三个节点提供数据。
 
@@ -304,13 +292,12 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["高�
 
 MetroCluster FC-IP 过渡涉及将 MetroCluster IP 节点和 IP 交换机添加到现有 MetroCluster FC 配置中，然后停用 MetroCluster FC 节点。根据过渡过程的阶段， MetroCluster 切换，修复和切回操作使用不同的工作流。
 
-请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-upgrade/GUID-1870FDC4-1774-4604-86A7-5C979C297ADA.html["过渡期间的切换，修复和切回操作"]。
+请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-upgrade/GUID-1870FDC4-1774-4604-86A7-5C979C297ADA.html["过渡期间的切换，修复和切回操作"^]。
 
 
 
 === 切换后本地故障转移的后果
 
-[role="lead"]
 如果发生 MetroCluster 切换，然后在正常运行的站点上出现问题描述，则本地故障转移可以提供持续的无中断运行。但是，系统存在风险，因为它不再采用冗余配置。
 
 如果在发生切换后发生本地故障转移，则单个控制器将为 MetroCluster 配置中的所有存储系统提供数据，从而可能导致资源问题，并且容易受到其他故障的影响。
@@ -319,22 +306,18 @@ MetroCluster FC-IP 过渡涉及将 MetroCluster IP 节点和 IP 交换机添加�
 
 == 双节点 MetroCluster 配置如何提供无中断运行
 
-[role="lead"]
-如果两个站点中的一个站点由于崩溃而具有问题描述，则 MetroCluster 切换可提供持续无中断运行。如果断电同时影响节点和存储，则切换不会自动进行，并且会发生中断，直到发出 MetroCluster switchover 命令为止。
+如果两个站点中的一个站点由于崩溃而具有问题描述，则 MetroCluster 切换可提供持续无中断运行。如果断电同时影响节点和存储，则切换不会自动进行，并且会发生中断，直到发出 `MetroCluster switchover` 命令为止。
 
 由于所有存储都是镜像的，因此，如果站点发生故障，可以使用切换操作提供无中断故障恢复能力，就像发生节点故障时在 HA 对中进行存储故障转移时所发现的那样。
 
 对于双节点配置，在 HA 对中触发自动存储故障转移的事件也会触发自动计划外切换（ AUSO ）。这意味着双节点 MetroCluster 配置具有与 HA 对相同的保护级别。
 
-* 相关信息 *
-
-xref:concept_understanding_mcc_data_protection_and_disaster_recovery.adoc[MetroCluster FC 配置中的自动计划外切换]
+link:concept_understanding_mcc_data_protection_and_disaster_recovery.html["MetroCluster FC 配置中的自动计划外切换"]
 
 
 
 == 切换过程概述
 
-[role="lead"]
 通过 MetroCluster 切换操作，可以将存储和客户端访问从源集群移动到远程站点，从而在发生灾难后立即恢复服务。您必须了解预期会发生哪些变化，以及在发生切换时需要执行哪些操作。
 
 在切换操作期间，系统会执行以下操作：
@@ -354,7 +337,7 @@ NOTE: 这仅适用于协商切换。
 
 在切换期间， DR 配对节点的根聚合不会联机。
 
-MetroCluster switchover 命令可切换 MetroCluster 配置中所有 DR 组中的节点。例如，在八节点 MetroCluster 配置中，它会切换两个 DR 组中的节点。
+`MetroCluster switchover` 命令可切换 MetroCluster 配置中所有 DR 组中的节点。例如，在八节点 MetroCluster 配置中，它会切换两个 DR 组中的节点。
 
 如果您仅将服务切换到远程站点，则应执行协商切换而不隔离站点。如果存储或设备不可靠，则应隔离灾难站点，然后执行计划外切换。隔离功能可防止在磁盘交错启动时进行 RAID 重建。
 
@@ -368,6 +351,8 @@ NOTE: 只有当另一站点稳定且不打算脱机时，才应使用此操作�
 下表显示了切换期间命令的可用性：
 
 |===
+
+
 | 命令 | 可用性 
 
 
@@ -496,7 +481,6 @@ NOTE: 如果 MetroCluster IP 配置支持未镜像聚合，则无法访问未从
 
 === 在四节点 MetroCluster 配置中，磁盘所有权会在 HA 接管和 MetroCluster 切换期间发生更改
 
-[role="lead"]
 在高可用性和 MetroCluster 操作期间，磁盘所有权会临时自动更改。了解系统如何跟踪哪个节点拥有哪些磁盘非常有用。
 
 在 ONTAP 中，控制器模块的唯一系统 ID （从节点的 NVRAM 卡或 NVMEM 板获取）用于标识哪个节点拥有特定磁盘。根据系统的 HA 或 DR 状态，磁盘的所有权可能会暂时更改。如果所有权因 HA 接管或灾难恢复切换而发生更改，则系统会记录哪个节点是磁盘的原始（称为 "`home` " ）所有者，以便在 HA 交还或灾难恢复切回后返回所有权。系统使用以下字段跟踪磁盘所有权：
@@ -511,27 +495,20 @@ NOTE: 如果 MetroCluster IP 配置支持未镜像聚合，则无法访问未从
 随着系统状态的变化，字段值也会发生变化，如下表所示：
 
 |===
-|  | 期间的值 ... 
 
 
-| 字段 | 正常运行 
+.2+| 字段 4+| 期间的值 ... 
 
 
-| 本地 HA 接管 | MetroCluster 切换 
+| 正常运行 | 本地 HA 接管 | MetroCluster 切换 | 在切换期间接管 
 
 
-| 在切换期间接管  a| 
+ a| 
 所有者
-
-
-
  a| 
 可访问磁盘的节点的 ID 。
  a| 
 临时有权访问磁盘的 HA 配对节点的 ID 。
-
-
-
  a| 
 临时有权访问磁盘的 DR 配对节点的 ID 。
  a| 
@@ -543,30 +520,21 @@ NOTE: 如果 MetroCluster IP 配置支持未镜像聚合，则无法访问未从
 主所有者
  a| 
 HA 对中磁盘的原始所有者的 ID 。
-
-
-
  a| 
 HA 对中磁盘的原始所有者的 ID 。
  a| 
 DR 配对节点的 ID ，在切换期间，此配对节点是 HA 对中的主所有者。
-
-
-
  a| 
 DR 配对节点的 ID ，在切换期间，此配对节点是 HA 对中的主所有者。
+
+
+
  a| 
 DR Home 所有者
-
-
-
  a| 
 空
  a| 
 空
-
-
-
  a| 
 MetroCluster 配置中磁盘的原始所有者的 ID 。
  a| 
@@ -578,6 +546,8 @@ MetroCluster 配置中磁盘的原始所有者的 ID 。
 image::../media/mcc_disk_ownership.gif[MCC 磁盘所有权]
 
 |===
+
+
 | MetroCluster 状态 | 所有者 | 主所有者 | DR Home 所有者 | 注释： 
 
 
@@ -646,7 +616,6 @@ node_A_1
 
 === 使用未镜像聚合时的注意事项
 
-[role="lead"]
 如果您的配置包含未镜像聚合，则必须注意在执行切换操作后可能出现的访问问题。
 
 
@@ -667,7 +636,7 @@ node_A_1
 
 ==== 未镜像聚合和 CRS 元数据卷以及数据 SVM 根卷的注意事项
 
-配置复制服务（ CRS ）元数据卷和数据 SVM 根卷必须位于镜像聚合上。您不能将这些卷移动到未镜像聚合。如果它们位于未镜像聚合上，则协商切换和切回操作将被否决。此时， MetroCluster check 命令会发出警告。
+配置复制服务（ CRS ）元数据卷和数据 SVM 根卷必须位于镜像聚合上。您不能将这些卷移动到未镜像聚合。如果它们位于未镜像聚合上，则协商切换和切回操作将被否决。此时， `MetroCluster check` 命令会发出警告。
 
 
 
@@ -685,7 +654,6 @@ LUN 不应位于未镜像聚合上。在未镜像聚合上配置 LUN 可能会�
 
 === MetroCluster FC 配置中的自动计划外切换
 
-[role="lead"]
 在 MetroCluster FC 配置中，如果站点级控制器发生故障，某些情况可能会触发自动计划外切换（ AUSO ）以提供无中断操作。如果需要，可以禁用 AUSO 。
 
 
@@ -725,16 +693,16 @@ SP 向其 DR 配对节点发送和接收 SNMP 流量，以监控其运行状况�
 
 ==== 更改 MetroCluster FC 配置中的 AUSO 设置
 
-AUSO 默认设置为 auso-on-cluster-disaster 。可以使用 MetroCluster show 命令查看其状态。
+默认情况下， AUSO 设置为 "`auso-on-cluster-disaster` " 。可以使用 MetroCluster show 命令查看其状态。
 
 
 NOTE: AUSO 设置不适用于 MetroCluster IP 配置。
 
-您可以使用 "AUSmodify -auto-switchover-failure-domain auto-disabled" 命令禁用 MetroCluster 。此命令可防止在灾难恢复站点范围的控制器发生故障时触发 AUSO 。如果要在两个站点上禁用 AUSO ，则应在两个站点上运行此命令。
+您可以使用 `MetroCluster modify -auto-switchover-failure-domain auto-disabled` 命令禁用 AUSO 。此命令可防止在灾难恢复站点范围的控制器发生故障时触发 AUSO 。如果要在两个站点上禁用 AUSO ，则应在两个站点上运行此命令。
 
-可以使用 MetroCluster modify -auto-switchover-failure-domain auso-on-cluster-disaster 命令重新启用 AUSO 。
+可以使用 `MetroCluster modify -auto-switchover-failure-domain auso-on-cluster-disaster` 命令重新启用 AUSO 。
 
-AUSO 也可以设置为 auso-on-dr-group-disaster 。此高级命令会在一个站点的 HA 故障转移中触发 AUSO 。应使用 MetroCluster modify -auto-switchover-failure-domain auso-on-dr-group-disaster 命令在两个站点上运行此命令。
+AUSO 也可以设置为 "`auso-on-dr-group-disaster` " 。此高级命令会在一个站点的 HA 故障转移中触发 AUSO 。应使用 `MetroCluster modify -auto-switchover-failure-domain auso-on-dr-group-disaster` 命令在两个站点上运行此命令。
 
 
 
@@ -748,19 +716,18 @@ AUSO 也可以设置为 auso-on-dr-group-disaster 。此高级命令会在一个
 
 要从 AUSO 中恢复，请执行与计划内切换相同的步骤。
 
-xref:task_perform_switchover_for_tests_or_maintenance.adoc[为测试或维护执行切换]
+link:task_perform_switchover_for_tests_or_maintenance.html["为测试或维护执行切换"]
 
 
 
 === MetroCluster IP 配置中的调解器辅助自动计划外切换
 
-[role="lead"]
 在 MetroCluster IP 配置中，系统可以使用 ONTAP 调解器检测故障并执行调解器辅助的自动计划外切换（ MAUSO ）。
 
 
 NOTE: MetroCluster FC 配置不支持 MAUSO 。
 
-ONTAP 调解器可为 MetroCluster IP 节点提供邮箱 LUN 。这些 LUN 与 ONTAP 调解器共存，该调解器在与 MetroCluster 站点物理隔离的 Linux 主机上运行。
+ONTAP 调解器可为 MetroCluster IP 节点提供邮箱 LUN 。这些 LUN 与 ONTAP 调解器位于同一位置，该调解器在与 MetroCluster 站点物理隔离的 Linux 主机上运行。
 
 MetroCluster 节点使用邮箱信息来确定是否需要 MAUSO 。如果存储控制器中的非易失性内存（ NVRAM 或 NVMEM ，具体取决于平台型号）未镜像到配对站点上的远程灾难恢复（ DR ）配对节点，则不会启动 MAUSO
 
@@ -768,7 +735,6 @@ MetroCluster 节点使用邮箱信息来确定是否需要 MAUSO 。如果存储
 
 == 修复期间会发生什么（ MetroCluster FC 配置）
 
-[role="lead"]
 在修复 MetroCluster FC 配置期间，镜像聚合的重新同步会分阶段进行，以便使修复后的灾难站点上的节点做好切回准备。这是一个计划内事件，因此您可以完全控制每个步骤，从而最大限度地减少停机时间。修复过程分为两步，分别发生在存储和控制器组件上。
 
 
@@ -801,7 +767,6 @@ link:../manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html["修
 
 == 修复期间会发生什么（ MetroCluster IP 配置）
 
-[role="lead"]
 在修复 MetroCluster IP 配置期间，镜像聚合的重新同步会分阶段进行，以便使修复后的灾难站点上的节点做好切回准备。这是一个计划内事件，因此您可以完全控制每个步骤，从而最大限度地减少停机时间。修复过程分为两步，分别发生在存储和控制器组件上。
 
 
@@ -844,8 +809,7 @@ link:../manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html["修
 
 == 切换后自动修复 MetroCluster IP 配置中的聚合
 
-[role="lead"]
-从 ONTAP 9.5 开始，在对 MetroCluster IP 配置执行协商切换操作期间，可以自动执行修复。从 ONTAP 9.6 开始，支持在计划外切换后自动修复。这样就无需对 MetroCluster heal 命令执行问题描述操作。
+从 ONTAP 9.5 开始，在对 MetroCluster IP 配置执行协商切换操作期间，可以自动执行修复。从 ONTAP 9.6 开始，支持在计划外切换后自动修复。这样就无需执行 MetroCluster `问题描述 heal` 命令。
 
 
 
@@ -857,7 +821,7 @@ link:../manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html["修
 +
 由于它们处于切换状态，因此不会从其本地镜像丛提供数据。
 
-* 灾难站点节点将移至 `Waiting for switchback` 状态。
+* 灾难站点节点将移至 "`Waiting for switchback` " 状态。
 +
 您可以使用 MetroCluster operation show 命令确认灾难站点节点的状态。
 
@@ -874,7 +838,7 @@ image::../media/mcc_so_sb_with_autoheal.gif[具有自动修复功能的 MCC SO s
 
 === 计划外切换后自动修复（从 ONTAP 9.6 开始）
 
-从 ONTAP 9.6 开始， MetroCluster IP 配置支持在计划外切换后自动修复。计划外切换是指在问题描述中使用 -forced-on-disaster true 选项执行 switchover 命令。
+从 ONTAP 9.6 开始， MetroCluster IP 配置支持在计划外切换后自动修复。在计划外切换中，您可以使用 ` forced-on-disaster true` 选项问题描述 `sswitchover` 命令。
 
 MetroCluster FC 配置不支持在计划外切换后自动修复，在运行 ONTAP 9.5 及更早版本的 MetroCluster IP 配置上执行计划外切换后，仍需要手动修复命令。
 
@@ -884,13 +848,13 @@ MetroCluster FC 配置不支持在计划外切换后自动修复，在运行 ONT
 +
 由于它们处于切换状态，因此即使已启动，它们也不会从其本地镜像丛提供数据。
 
-* 如果灾难站点已关闭，则在启动时，灾难站点节点将移至 `Waiting for switchback` 状态。
+* 如果灾难站点已关闭，则在启动时，灾难站点节点将移至 "`waiting for switchback` " 状态。
 +
-如果灾难站点保持正常运行，它们将立即移至 `Waiting for switchback` 状态。
+如果灾难站点保持正常运行，它们将立即移至 "`Waiting for switchback` " 状态。
 
 * 系统会自动执行修复操作。
 +
-您可以使用 MetroCluster operation show 命令确认灾难站点节点的状态以及修复操作是否成功。
+您可以使用 `MetroCluster operation show` 命令确认灾难站点节点的状态以及修复操作是否成功。
 
 
 
@@ -900,28 +864,27 @@ image::../media/mcc_uso_with_autoheal.gif[具有自动修复功能的 MCC uso]
 
 === 自动修复失败
 
-如果自动修复操作因任何原因失败，您必须 MetroCluster 按照 ONTAP 9.6 之前的 ONTAP 版本中的步骤手动执行问题描述修复命令。您可以使用 MetroCluster operation show 和 MetroCluster operation history show -instance 命令监控修复状态并确定故障的发生原因。
+如果自动修复操作因任何原因失败，您必须按照 ONTAP 9.6 之前的 ONTAP 版本中的步骤手动执行 MetroCluster `问题描述 heal` 命令。您可以使用 MetroCluster operation show` 和 MetroCluster operation history show -instance` 命令监控修复状态并确定故障的发生原因。
 
 
 
 == 为 MetroCluster 配置创建 SVM
 
-[role="lead"]
 您可以为 MetroCluster 配置创建 SVM ，以便在为 MetroCluster 配置设置的集群上提供同步灾难恢复和高数据可用性。
 
 * 这两个集群必须采用 MetroCluster 配置。
 * 两个集群中的聚合必须可用且联机。
 * 如果需要，必须在两个集群上创建同名的 IP 空间。
-* 如果在未使用切换的情况下重新启动构成 MetroCluster 配置的某个集群，则 sync-source SVM 可能会联机为 `s顶部` ，而不是 `s延迟` 。
+* 如果在未使用切换的情况下重新启动构成 MetroCluster 配置的某个集群，则 sync-source SVM 可能会联机为 `s顶部` 而不是 `s延迟` 。
 
 
 在 MetroCluster 配置中的一个集群上创建 SVM 时， SVM 将创建为源 SVM ，而配对 SVM 将自动在配对集群上创建，其名称相同，但后缀为 "` -mc` " 。如果 SVM 名称包含句点，则会在第一个句点之前应用 "` -mc` " 后缀，例如 svm-mc.dns.name 。
 
 在 MetroCluster 配置中，您可以在一个集群上创建 64 个 SVM 。MetroCluster 配置支持 128 个 SVM 。
 
-. 使用 vserver create 命令。
+. 使用 `vserver create` 命令。
 +
-以下示例显示了本地站点上子类型为 sync-source 的 SVM 以及配对站点上子类型为 sync-destination 的 SVM ：
+以下示例显示了本地站点上子类型为 `sync-source` 的 SVM 和配对站点上子类型为 `sync-destination` 的 SVM ：
 
 +
 [listing]
@@ -932,11 +895,14 @@ cluster_A::>vserver create -vserver vs4 -rootvolume vs4_root -aggregate aggr1
 Vserver creation completed
 ----
 +
-在本地站点上创建 SVM vs4 ，在配对站点上创建 SVM vs4-mc 。
+在本地站点上创建 SVM"`vs4` " ，在配对站点上创建 SVM"`vs4-mc` " 。
 
 . 查看新创建的 SVM 。
 +
-** 在本地集群上，验证 SVM 的配置状态： `MetroCluster SVM show`
+** 在本地集群上，验证 SVM 的配置状态：
++
+`MetroCluster SVM show`
+
 +
 以下示例显示了配对 SVM 及其配置状态：
 
@@ -951,7 +917,10 @@ Cluster     Vserver   Vserver    State
 cluster_A   vs4       vs4-mc     healthy
 cluster_B   vs1       vs1-mc     healthy
 ----
-** 在本地集群和配对集群中，验证新配置的 SVM 的状态： `vserver show command`
+** 在本地集群和配对集群中，验证新配置的 SVM 的状态：
++
+`vserver show 命令`
+
 +
 以下示例显示了 SVM 的管理和运行状态：
 
@@ -975,20 +944,19 @@ vs4-mc  data  sync-destination running stopped      vs4_root    aggr1
 
 
 +
-如果创建根卷等任何中间操作失败，并且 SVM 处于 `initializing` 状态，则 SVM 创建可能会失败。您必须删除 SVM 并重新创建它。
+如果创建根卷等任何中间操作失败，并且 SVM 处于 "`initializing` " 状态，则 SVM 创建可能会失败。您必须删除 SVM 并重新创建它。
 
 
 
-为 MetroCluster 配置创建的 SVM 的根卷大小为 1 GB 。sync-source SVM 处于 `running` 状态， sync-destination SVM 处于 `s顶部` 状态。
+为 MetroCluster 配置创建的 SVM 的根卷大小为 1 GB 。sync-source SVM 处于 "`running` " 状态， sync-destination SVM 处于 " `s顶部` " 状态。
 
 
 
 == 切回期间会发生什么情况
 
-[role="lead"]
 在灾难站点恢复并修复聚合之后， MetroCluster 切回过程会将存储和客户端访问从灾难恢复站点返回到主集群。
 
-MetroCluster switchback 命令可将主站点恢复为完全正常的 MetroCluster 操作。任何配置更改都会传播到原始 SVM 。然后，数据服务器操作将返回到灾难站点上的 sync-source SVM ，并且已在正常运行的站点上运行的 sync-dest SVM 将被停用。
+使用 `MetroCluster switchback` 命令可将主站点恢复为完全正常的 MetroCluster 操作。任何配置更改都会传播到原始 SVM 。然后，数据服务器操作将返回到灾难站点上的 sync-source SVM ，并且已在正常运行的站点上运行的 sync-dest SVM 将被停用。
 
 如果在 MetroCluster 配置处于切换状态时在正常运行的站点上删除了 SVM ，则切回过程将执行以下操作：
 

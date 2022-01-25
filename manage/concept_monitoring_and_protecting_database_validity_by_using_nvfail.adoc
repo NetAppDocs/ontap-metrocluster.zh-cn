@@ -20,12 +20,13 @@ summary: 使用 volume modify 命令的 -nvfail 参数， ONTAP 可以在系统�
 
 == NVFAIL 如何影响对 NFS 卷或 LUN 的访问
 
-[role="lead"]
 如果 ONTAP 在启动时检测到 NVRAM 错误，发生 MetroCluster 切换操作或在卷上设置了 NVFAIL 选项的 HA 接管操作期间检测到 NVRAM 错误，则会设置 NVFAIL 状态。如果在启动时未检测到错误，则文件服务将正常启动。但是，如果检测到 NVRAM 错误或在发生灾难切换时强制执行 NVFAIL 处理，则 ONTAP 会停止数据库实例响应。
 
 启用 NVFAIL 选项后，下表中所述的过程之一将在启动期间发生：
 
 |===
+
+
 | 条件 | 那么 ... 
 
 
@@ -75,13 +76,14 @@ ONTAP 在包含 LUN 的卷上检测到 NVRAM 错误
 
 == 用于监控数据丢失事件的命令
 
-[role="lead"]
 如果启用了 NVFAIL 选项，则在因 NVRAM 不一致或发生 MetroCluster 切换而导致系统崩溃时，您会收到通知。
 
 默认情况下， NVFAIL 参数未启用。
 
-[cols="2*"]
+[cols="1,2"]
 |===
+
+
 | 如果您要 ... | 使用此命令 ... 
 
 
@@ -115,7 +117,6 @@ ONTAP 在包含 LUN 的卷上检测到 NVRAM 错误
 
 == 在切换后访问处于 NVFAIL 状态的卷
 
-[role="lead"]
 切换后，您必须通过重置 `volume modify` 命令的 ` in-nvfailed-state` 参数来清除 NVFAIL 状态，以取消客户端访问数据的限制。
 
 数据库或文件系统不得正在运行或尝试访问受影响的卷。
@@ -136,7 +137,6 @@ link:../manage/concept_monitoring_and_protecting_database_validity_by_using_nvfa
 
 == 在切换后恢复处于 NVFAIL 状态的 LUN
 
-[role="lead"]
 切换后，主机将无法再访问处于 NVFAIL 状态的 LUN 上的数据。在数据库能够访问 LUN 之前，您必须执行许多操作。
 
 数据库不得正在运行。
