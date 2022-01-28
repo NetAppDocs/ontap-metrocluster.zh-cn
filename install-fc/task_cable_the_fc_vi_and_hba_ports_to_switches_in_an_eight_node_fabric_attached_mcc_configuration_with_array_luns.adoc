@@ -28,7 +28,7 @@ summary: 如果要设置使用阵列 LUN 的八节点光纤连接 MetroCluster �
 
 
 
-=== 使用两个 FC 端口为 FibreBridge 7500N 或 7600N 布线配置
+== 使用两个 FC 端口为 FibreBridge 7500N 或 7600N 布线配置
 
 [cols="15,15,16,18,18,18"]
 |===
@@ -433,7 +433,7 @@ FC2
 
 
 
-=== Cisco 9250i 的布线配置
+== Cisco 9250i 的布线配置
 
 |===
 

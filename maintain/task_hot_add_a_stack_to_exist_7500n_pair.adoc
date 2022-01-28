@@ -14,7 +14,7 @@ summary: 您可以将 SAS 磁盘架堆栈热添加到具有可用端口的一对
 
 .开始之前
 * 您必须已下载最新的磁盘和磁盘架固件。
-* MetroCluster 配置中的所有磁盘架（新磁盘架和现有磁盘架）都必须运行相同版本的固件。
+* MetroCluster 配置中的所有磁盘架（现有磁盘架）必须运行相同版本的固件。如果一个或多个磁盘或磁盘架未运行最新固件版本，请在连接新磁盘或磁盘架之前更新固件。
 +
 https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"^]
 

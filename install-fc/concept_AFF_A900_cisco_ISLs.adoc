@@ -1,5 +1,5 @@
 ---
-permalink: /install-fc/concept_AFF_A900_cisco_ISLs.html 
+permalink: install-fc/concept_AFF_A900_cisco_ISLs.html 
 sidebar: sidebar 
 keywords: AFF, A900, ONTAP, FAS, Cisco, ISL, metrocluster 
 summary: 下表显示了 ISL 端口使用情况。 

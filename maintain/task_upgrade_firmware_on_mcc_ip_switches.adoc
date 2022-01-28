@@ -83,6 +83,10 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 
 . 在第一台交换机上安装软件。
 +
+
+NOTE: 您必须按以下顺序在交换机上安装交换机软件： switch_A_1 ， switch_B_1 ， switch_A_2 ， switch_B_2 。
+
++
 根据交换机类型是 Broadcom 还是 MetroCluster ，按照 _Broadcom IP 安装和配置 _ 信息相关主题中有关安装交换机软件的步骤进行操作：
 
 +

@@ -1,5 +1,5 @@
 ---
-permalink: /install-fc/concept_AFF_A900_brocade_port_ISLs.html 
+permalink: install-fc/concept_AFF_A900_brocade_port_ISLs.html 
 sidebar: sidebar 
 keywords: AFF, A900, ONTAP, FAS, Brocade, ISL, metrocluster 
 summary: 下表显示了 AFF A900 系统中 Brocade 交换机的 ISL 端口使用情况。 

@@ -1,5 +1,5 @@
 ---
-permalink: /install-fc/concept_AFF_A900_cisco_port_config.html 
+permalink: install-fc/concept_AFF_A900_cisco_port_config.html 
 sidebar: sidebar 
 keywords: AFF, A900, Cisco, ONTAP, FAS, FC, metrocluster 
 summary: 下表显示了一个 DR 组中包含八个 AFF A900 控制器模块时支持的最大配置。 

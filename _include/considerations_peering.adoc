@@ -21,7 +21,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集
 
 * 子网必须具有足够的可用 IP 地址，以便为每个节点分配一个集群间 LIF 。
 +
-例如，在六节点集群中，用于集群间通信的子网必须具有六个可用 IP 地址。
+例如，在四节点集群中，用于集群间通信的子网必须具有四个可用 IP 地址。
 
 
 

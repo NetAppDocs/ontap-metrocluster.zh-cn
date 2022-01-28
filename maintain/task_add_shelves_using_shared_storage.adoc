@@ -587,13 +587,13 @@ NOTE: MACsec 加密只能应用于 WAN ISL 端口。
 
 
 
-==== MAC 的许可要求
+=== MAC 的许可要求
 
 MACsec 需要安全许可证。有关 Cisco NX-OS 许可方案以及如何获取和申请许可证的完整说明，请参见 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/nx-os/licensing/guide/b_Cisco_NX-OS_Licensing_Guide/b_Cisco_NX-OS_Licensing_Guide_chapter_01.html["《 Cisco NX-OS 许可指南》"]
 
 
 
-==== 在 MetroCluster IP 配置中启用 Cisco MACsec 加密 WAN ISL
+=== 在 MetroCluster IP 配置中启用 Cisco MACsec 加密 WAN ISL
 
 您可以在 MetroCluster IP 配置中为 WAN ISL 上的 Cisco 9336C 交换机启用 MACsec 加密。
 
@@ -620,7 +620,7 @@ IP_switch_A_1(config)# copy running-config startup-config
 
 
 
-==== 禁用 Cisco MAC 秒加密
+=== 禁用 Cisco MAC 秒加密
 
 在 MetroCluster IP 配置中，您可能需要对 WAN ISL 上的 Cisco 9336C 交换机禁用 MACsec 加密。
 
@@ -671,7 +671,7 @@ IP_switch_A_1(config)# copy running-config startup-config
 
 
 
-==== 配置 MACsec 密钥链和密钥
+=== 配置 MACsec 密钥链和密钥
 
 有关配置 MACsec 密钥链的详细信息，请参见适用于您的交换机的 Cisco 文档。
 

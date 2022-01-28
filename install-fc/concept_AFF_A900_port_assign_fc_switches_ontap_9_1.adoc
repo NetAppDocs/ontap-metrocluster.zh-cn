@@ -1,5 +1,5 @@
 ---
-permalink: /install-fc/concept_AFF_A900_port_assign_fc_switches_ontap_9_1.html 
+permalink: install-fc/concept_AFF_A900_port_assign_fc_switches_ontap_9_1.html 
 sidebar: sidebar 
 keywords: AFF, A900, ONTAP, FAS, FC, Brocade, ISL, Cisco, metrocluster 
 summary: 如果使用的是 ONTAP 9.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。 

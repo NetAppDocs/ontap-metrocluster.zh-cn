@@ -57,6 +57,19 @@ link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_fc.html
 
  a| 
 * 范围：仅限平台（控制器模块）
+* 方法：自动切换 / 切回
+
+ a| 
+IP
+ a| 
+9.10.1
+ a| 
+link:task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html["使用切换和切回功能将 AFF IP 配置中的 AFF A700 控制器升级到 MetroCluster A900 （ ONTAP 9.10.1 及更高版本）"]
+
+
+
+ a| 
+* 范围：仅限平台（控制器模块）
 * 方法：切换 / 切回
 
  a| 
@@ -115,7 +128,7 @@ link:task_refresh_4n_mcc_ip.html["刷新四节点 MetroCluster IP 配置（ ONTA
 
 
  a| 
-使用 `ssystem controller replace` 命令
+使用 `ssystem controller replace` 命令并交换控制器模块和 NVM
  a| 
 FC
  a| 
