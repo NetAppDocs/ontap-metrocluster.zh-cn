@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, cable, new, controller, module, fc, vi, hba, ports, fc, switches, mcc 
 summary: 必须使用缆线将 FC-VI 端口和 HBA （主机总线适配器）连接到 MetroCluster 配置中每个控制器模块上的站点 FC 交换机。 
 ---
-= 使用缆线将新控制器模块和 HBA 端口连接到 FC 交换机
+= 使用缆线将新控制器模块的 FC-VI 和 HBA 端口连接到 FC 交换机
 :icons: font
 :imagesdir: ../media/
 

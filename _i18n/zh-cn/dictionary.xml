@@ -2485,7 +2485,6 @@
   <block id="fdb81c76c6f1da911b1f70e70fa60f4b" category="paragraph">一个有交换机的集群</block>
   <block id="429aae212deaafdfed48b51619fa5b6a" category="paragraph">将每个控制器上的集群端口连接到子步骤 b 中标识的集群网络交换机上的端口</block>
   <block id="5cffeffd7092dc5e03f8af98b64d61d6" category="summary">必须使用缆线将新控制器模块的 FC-VI 端口和 HBA （主机总线适配器）连接到站点 FC 交换机。</block>
-  <block id="8bce65013d22f2df49e34786f6587f2e" category="doc">使用缆线将新控制器模块和 HBA 端口连接到 FC 交换机</block>
   <block id="f6065aa4b898691ab4eb065db8775ac0" category="paragraph">必须使用缆线将新控制器模块的 FC-VI 端口和 HBA （主机总线适配器）连接到站点 FC 交换机。</block>
   <block id="0f0db6d55e9bbb84af3413a7e8b1da70" category="list-text">按照您的配置和交换机型号对应的表，为 FC-VI 端口和 HBA 端口布线。</block>
   <block id="b330eebf161ca27c703eccf6e8e36d29" category="summary">您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。</block>
@@ -12687,4 +12686,6 @@
   <block id="d2a672acb2ab8b5e74822778c1141a70" category="paragraph">使用 `ssystem controller replace` 命令并交换控制器模块和 NVM</block>
   <block id="8385ca59dee772c25d8029fd40151e4e" category="admonition">您必须按以下顺序在交换机上安装交换机软件： switch_A_1 ， switch_B_1 ， switch_A_2 ， switch_B_2 。</block>
   <block id="8b82688b3d28b8ce8fbcbb8c09b13ce3" category="list-text">MetroCluster 配置中的所有磁盘架（现有磁盘架）必须运行相同版本的固件。如果一个或多个磁盘或磁盘架未运行最新固件版本，请在连接新磁盘或磁盘架之前更新固件。</block>
+  <block id="52b86a073bf9ac18b54bb7fb93dbeb18" category="doc">使用缆线将新控制器模块的 FC-VI 和 HBA 端口连接到 FC 交换机</block>
+  <block id="cd6c42f22b0649cda62803cd1b11f14a" category="doc">为新控制器模块的集群对等连接布线</block>
 </blocks>
