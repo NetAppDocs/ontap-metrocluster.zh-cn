@@ -2,7 +2,7 @@
 permalink: upgrade/reference_where_to_find_additional_information_mcc_ug.html 
 sidebar: sidebar 
 keywords: metrocluster, upgrade, additional, information 
-summary: 您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作的更多信息。 
+summary: 您可以了解有关 MetroCluster 配置和操作的更多信息。 
 ---
 = 从何处查找追加信息
 :icons: font
@@ -10,22 +10,22 @@ summary: 您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作�
 
 
 [role="lead"]
-您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作的更多信息。
+您可以了解有关 MetroCluster 配置和操作的更多信息。
 
 
 
-== MetroCluster 和其他指南
+== MetroCluster 和其他信息
 
 |===
 
 
-| 指南 | 内容 
+| 信息 | 主题 
 
 
  a| 
-https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"]
+link:../index.html["MetroCluster 文档"]
  a| 
-* 所有 MetroCluster 指南
+* 所有 MetroCluster 信息
 
 
 
@@ -78,7 +78,7 @@ link:../maintain/index.html["维护 MetroCluster 组件"]
 
 
  a| 
-link:../upgrade/index.html["《 MetroCluster 升级，过渡和扩展指南》"]
+link:../upgrade/index.html["MetroCluster 升级，过渡和扩展"]
  a| 
 * 升级或刷新 MetroCluster 配置
 * 从 MetroCluster FC 配置过渡到 MetroCluster IP 配置
@@ -88,7 +88,7 @@ link:../upgrade/index.html["《 MetroCluster 升级，过渡和扩展指南》"]
 
 
  a| 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/home.html["MetroCluster Tiebreaker 软件安装和配置"]
+link:../tiebreaker/index.html["MetroCluster Tiebreaker 软件安装和配置"]
  a| 
 * 使用 MetroCluster Tiebreaker 软件监控 MetroCluster 配置
 
@@ -96,7 +96,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/
 
 
  a| 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
 
 
 NOTE: 标准存储架维护过程可用于 MetroCluster IP 配置。
@@ -108,7 +108,7 @@ NOTE: 标准存储架维护过程可用于 MetroCluster IP 配置。
 
 
  a| 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基于副本的过渡"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基于副本的过渡"^]
  a| 
 * 将数据从 7- 模式存储系统过渡到集群模式存储系统
 
@@ -116,7 +116,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基
 
 
  a| 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"^]
  a| 
 * 镜像聚合的工作原理
 

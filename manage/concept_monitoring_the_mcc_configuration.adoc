@@ -205,14 +205,14 @@ mccint-fas9000-0304
 |===
 
 
-| h 如果您要 ...  a| 
-使用此命令 ...
-
+| 如果您要 ... | 使用此命令 ... 
 
 
  a| 
 查看 MetroCluster 配置中两个站点中的所有 SVM 。
-| `MetroCluster SVM show` 
+ a| 
+`MetroCluster SVM show`
+
 |===
 
 

@@ -30,6 +30,6 @@ summary: 在使用阵列 LUN 的 MetroCluster 配置中，必须将构成冗余�
 
 要为第一个 DR 组的阵列端口布线，您可以使用第一个 DR 组的四节点 MetroCluster 配置的布线示例。
 
-xref:reference_example_of_cabling_array_luns_to_fc_switches_in_a_four_node_mcc_configuration.adoc[在四节点 MetroCluster 配置中使用缆线将存储阵列端口连接到 FC 交换机的示例]
+link:reference_example_of_cabling_array_luns_to_fc_switches_in_a_four_node_mcc_configuration.html["在四节点 MetroCluster 配置中使用缆线将存储阵列端口连接到 FC 交换机的示例"]
 
 要为第二个 DR 组连接阵列端口，请按照相同的示例进行操作，并对属于第二个 DR 组中控制器的 FC-VI 端口和 FC 启动程序端口进行推断。

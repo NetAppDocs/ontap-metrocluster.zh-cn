@@ -218,11 +218,11 @@ subnet1   192.168.2.0/24   Default   192.168.2.1       10/10    192.168.2.21-192
 
 创建 LIF 时，必须考虑以下准则：
 
-* 光纤通道：必须使用延伸型 VSAN 或延伸型网络结构
-* IP/iSCSI ：必须使用第 2 层延伸型网络
-* ARP 广播：必须在两个集群之间启用 ARP 广播
-* 重复 LIF ：不能在一个 IP 空间中创建多个具有相同 IP 地址的 LIF （重复 LIF ）
-* NFS 和 SAN 配置：必须对未镜像聚合和镜像聚合使用不同的 Storage Virtual Machine （ SVM ）
+* 光纤通道：必须使用延伸型 VSAN 或延伸型网络结构。
+* IP/iSCSI ：必须使用第 2 层延伸型网络。
+* ARP 广播：必须在两个集群之间启用 ARP 广播。
+* 重复 LIF ：不能在一个 IP 空间中创建多个具有相同 IP 地址的 LIF （重复 LIF ）。
+* NFS 和 SAN 配置：必须对未镜像聚合和镜像聚合使用不同的 Storage Virtual Machine （ SVM ）。
 
 
 

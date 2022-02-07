@@ -1,8 +1,8 @@
 ---
 permalink: transition/reference_where_to_find_additional_information_mcc_ug.html 
 sidebar: sidebar 
-keywords: metrocluster, configuration, operation, netapp, documentation, library, additional, information, miscellaneous, guide 
-summary: 您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作的更多信息。 
+keywords: metrocluster, configuration, operation, netapp, documentation, additional, information, miscellaneous, guide 
+summary: 您可以从 NetApp 文档了解有关 MetroCluster 配置和操作的更多信息。 
 ---
 = 从何处查找追加信息
 :icons: font
@@ -10,16 +10,16 @@ summary: 您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作�
 
 
 [role="lead"]
-您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作的更多信息。
+您可以了解有关 MetroCluster 配置的更多信息。
 
 
 
-== MetroCluster 和其他指南
+== MetroCluster 和其他信息
 
 |===
 
 
-| 指南 | 内容 
+| 信息 | 主题 
 
 
  a| 
@@ -104,7 +104,7 @@ link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["MetroCluste
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems/["AFF 和 FAS 文档"]
+https://docs.netapp.com/us-en/ontap-systems/["AFF 和 FAS 文档"^]
 
 * 注： * 标准存储架维护过程可用于 MetroCluster IP 配置。
  a| 
@@ -115,7 +115,7 @@ https://docs.netapp.com/us-en/ontap-systems/["AFF 和 FAS 文档"]
 
 
  a| 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基于副本的过渡"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基于副本的过渡"^]
  a| 
 * 将数据从 7- 模式存储系统过渡到集群模式存储系统
 
@@ -123,7 +123,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基
 
 
  a| 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"^]
  a| 
 * 镜像聚合的工作原理
 

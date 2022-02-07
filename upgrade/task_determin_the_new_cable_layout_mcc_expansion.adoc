@@ -15,15 +15,12 @@ summary: 您必须确定新控制器模块和任何新磁盘架到现有 FC 交�
 必须在每个 MetroCluster 站点上执行此任务。
 
 .步骤
-. 使用 _Fabric-Attached MetroCluster 安装和配置指南 _ ，并使用八节点 MetroCluster 配置的端口使用情况为您的交换机类型创建布线布局。
+. 使用中的操作步骤 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"] 要为您的交换机类型创建布线布局，请使用八节点 MetroCluster 配置的端口使用情况。
 +
-FC 交换机端口使用情况必须与指南中所述的使用情况匹配，才能使用参考配置文件（ Reference Configuration Files ， RCF ）。
-
-+
-link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+FC 交换机端口使用情况必须与操作步骤中所述的使用情况匹配，才能使用参考配置文件（ Reference Configuration Files ， RCF ）。
 
 +
 
-NOTE: 如果您的环境无法使用 RCF 文件进行布线，则必须按照 _Fabric-Attached MetroCluster 安装和配置指南 _ 中的说明手动配置系统。如果布线无法使用 RCF 文件，请勿使用此操作步骤。
+NOTE: 如果您的环境无法使用 RCF 文件进行布线，则必须按照中的说明手动配置系统 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]。如果布线无法使用 RCF 文件，请勿使用此操作步骤。
 
 

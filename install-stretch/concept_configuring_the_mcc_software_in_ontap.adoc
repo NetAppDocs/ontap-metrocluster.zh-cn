@@ -38,7 +38,7 @@ image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[
 
 
  a| 
-集群名称。本指南中使用的示例： site_A
+集群名称。此信息中使用的示例： site_A
  a| 
 
 
@@ -79,7 +79,7 @@ DNS 名称服务器
 
 
  a| 
-节点 1 。本指南中使用的示例： controller_A_1
+节点 1 。此信息中使用的示例： controller_A_1
  a| 
  a| 
  a| 
@@ -90,7 +90,7 @@ DNS 名称服务器
  a| 
 节点 2 。如果使用双节点 MetroCluster 配置（每个站点一个节点），则不需要此配置。
 
-本指南中使用的示例： controller_A_2
+此信息中使用的示例： controller_A_2
  a| 
  a| 
  a| 
@@ -252,7 +252,7 @@ HTTP ， HTTPS 或 SMTP
 
 
  a| 
-集群名称。本指南中使用的示例： site_B
+集群名称。此信息中使用的示例： site_B
  a| 
 
 
@@ -293,7 +293,7 @@ DNS 名称服务器
 
 
  a| 
-节点 1 。本指南中使用的示例： controller_B_1
+节点 1 。此信息中使用的示例： controller_B_1
  a| 
  a| 
  a| 
@@ -304,7 +304,7 @@ DNS 名称服务器
  a| 
 节点 2 。双节点 MetroCluster 配置不需要（每个站点一个节点）。
 
-本指南中使用的示例： controller_B_2
+此信息中使用的示例： controller_B_2
  a| 
  a| 
  a| 

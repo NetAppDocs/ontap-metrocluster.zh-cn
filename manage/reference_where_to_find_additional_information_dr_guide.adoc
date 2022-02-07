@@ -1,8 +1,8 @@
 ---
 permalink: manage/reference_where_to_find_additional_information_dr_guide.html 
 sidebar: sidebar 
-keywords: learn, metrocluster, configuration, operation, netapp, extensive, documentation, library, additional, information, miscellaneous, guide 
-summary: 您可以在 NetApp 丰富的文档库中了解有关 MetroCluster 配置和操作的更多信息。 
+keywords: learn, metrocluster, configuration, operation, netapp, extensive, documentation, additional, information, miscellaneous, guide 
+summary: 您可以在 NetApp 的丰富文档中了解有关 MetroCluster 配置和操作的更多信息。 
 ---
 = 从何处查找追加信息
 :icons: font
@@ -10,27 +10,28 @@ summary: 您可以在 NetApp 丰富的文档库中了解有关 MetroCluster 配�
 
 
 [role="lead"]
-您可以在 NetApp 丰富的文档库中了解有关 MetroCluster 配置和操作的更多信息。
+您可以了解有关 MetroCluster 配置和操作的更多信息。
 
 
 
-== MetroCluster 和其他指南
+== MetroCluster 和其他信息
 
-[cols="2*"]
 |===
-| 指南 | 内容 
+
+
+| 信息 | 主题 
 
 
  a| 
-https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"]
+link:../index.html["MetroCluster 文档"]
  a| 
-* 所有 MetroCluster 指南
+* 所有 MetroCluster 信息
 
 
 
 
  a| 
-http://www.netapp.com/us/media/tr-4375.pdf["NetApp 技术报告 4375 ：《适用于 ONTAP 9.3 的 NetApp MetroCluster 》"]
+http://www.netapp.com/us/media/tr-4375.pdf["NetApp 技术报告 4375 ：《适用于 ONTAP 9.3 的 NetApp MetroCluster 》"^]
  a| 
 * MetroCluster 配置和操作的技术概述。
 * MetroCluster 配置最佳实践。
@@ -80,7 +81,7 @@ link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["MetroCluste
 
 
  a| 
-Active IQ Unified Manager 文档 https://www.netapp.com/support-and-training/documentation/["NetApp 文档：产品指南和资源"]
+Active IQ Unified Manager 文档 https://www.netapp.com/support-and-training/documentation/["NetApp 文档：产品指南和资源"^]
  a| 
 * 监控 MetroCluster 配置和性能
 

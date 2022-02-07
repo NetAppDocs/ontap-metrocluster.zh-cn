@@ -2,7 +2,7 @@
 permalink: install-fc/reference_where_to_find_additional_information_icg.html 
 sidebar: sidebar 
 keywords: metrocluster, fabric, installation, additional, information 
-summary: 您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作的更多信息。 
+summary: 您可以从 NetApp 文档了解有关 MetroCluster 配置和操作的更多信息。 
 ---
 = 从何处查找追加信息
 :icons: font
@@ -10,34 +10,34 @@ summary: 您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作�
 
 
 [role="lead"]
-您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作的更多信息。
+您可以了解有关 MetroCluster 配置和操作的更多信息。
 
 
 
-== MetroCluster 和其他指南
+== MetroCluster 和其他信息
 
 |===
 
 
-| 指南 | 内容 
+| 信息 | 主题 
 
 
  a| 
-https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"]
+https://docs.netapp.com/us-en/ontap/index.html["ONTAP 9 文档"^]
  a| 
-* 所有 MetroCluster 指南
+* 所有 MetroCluster 信息
 
 
 
 
-| https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf["NetApp MetroCluster 解决方案架构和设计， TR-4705"]  a| 
+| https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf["NetApp MetroCluster 解决方案架构和设计， TR-4705"^]  a| 
 * MetroCluster FC 配置和操作的技术概述。
 * MetroCluster FC 配置的最佳实践。
 
 
 
 
-| https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf["MetroCluster IP 解决方案架构和设计， TR-4689"]  a| 
+| https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf["MetroCluster IP 解决方案架构和设计， TR-4689"^]  a| 
 * MetroCluster IP 配置和操作的技术概述。
 * MetroCluster IP 配置的最佳实践。
 
@@ -112,7 +112,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/
  a| 
 Active IQ 数字顾问文档
 
-https://www.netapp.com/support-and-training/documentation/["NetApp 文档：产品指南和资源"]
+https://www.netapp.com/support-and-training/documentation/["NetApp 文档：产品指南和资源"^]
  a| 
 * 监控 MetroCluster 配置和性能
 
@@ -120,7 +120,7 @@ https://www.netapp.com/support-and-training/documentation/["NetApp 文档：产�
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["基于副本的过渡"]
+https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["基于副本的过渡"^]
  a| 
 * 将数据从 7- 模式存储系统过渡到集群模式存储系统
 
@@ -128,7 +128,7 @@ https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["基�
 
 
  a| 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"^]
  a| 
 * 镜像聚合的工作原理
 

@@ -13,8 +13,5 @@ summary: 您必须为新节点安装设备机架。
 您必须为新节点安装设备机架。
 
 .步骤
-. 使用《 MetroCluster 安装和配置指南》将新的存储系统，磁盘架和 FC-SAS 网桥装入机架。
-+
-link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
-
+. 使用中的操作步骤 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"] 用于将新存储系统，磁盘架和 FC-SAS 网桥装入机架。
 

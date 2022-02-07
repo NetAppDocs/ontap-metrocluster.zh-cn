@@ -51,19 +51,19 @@ summary: 您必须在机箱中物理安装新控制器模块，然后为其布�
 +
 .. 确定控制器模块上用于集群连接的端口。
 +
-https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-a320-install-setup/home.html["AFF A320 系统：安装和设置"]
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-a320-install-setup/home.html["AFF A320 系统：安装和设置"^]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2842666["《 AFF A220/FAS2700 系统安装和设置说明》"]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842666["《 AFF A220/FAS2700 系统安装和设置说明》"^]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2842668["《 AFF A800 系统安装和设置说明》"]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842668["《 AFF A800 系统安装和设置说明》"^]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2469722["《 AFF A300 系统安装和设置说明》"]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2469722["《 AFF A300 系统安装和设置说明》"^]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["《 FAS8200 系统安装和设置说明》"]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["《 FAS8200 系统安装和设置说明》"^]
 
 .. 如果要配置有交换机的集群，请确定要在集群网络交换机上使用的端口。
 +

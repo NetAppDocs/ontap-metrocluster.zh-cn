@@ -190,7 +190,7 @@ storage aggregate show 命令指示根聚合已取消镜像。
 
 .. 根据需要移动任何 LIF 以解决与 MetroCluster IP 接口端口的冲突。
 +
-您必须移动第 1 步中标识的 LIF xref:concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.adoc[将端口从 MetroCluster FC 节点映射到 MetroCluster IP 节点]。
+您必须移动第 1 步中标识的 LIF link:concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html["将端口从 MetroCluster FC 节点映射到 MetroCluster IP 节点"]。
 
 +
 ... 将所需端口上托管的任何 LIF 移动到另一个端口： `network interface modify -lif lifname -vserver vserver-name -home-port new-homport``network interface revert -lif lifname -vserver vservername`

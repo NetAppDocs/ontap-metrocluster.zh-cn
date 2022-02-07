@@ -17,6 +17,8 @@ summary: 您必须使用此 Brocade 专用操作步骤来更换发生故障的�
 在以下示例中， FC_switch_A_1 是运行正常的交换机， FC_switch_B_1 是受损的交换机。下表显示了示例中的交换机端口使用情况：
 
 |===
+
+
 | 端口连接 | 端口 
 
 
@@ -54,21 +56,27 @@ NOTE: 此操作步骤不会造成系统中断，大约需要两小时才能完�
 
 您的交换机端口使用情况应遵循建议的分配。
 
-* xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.adoc[使用 ONTAP 9.0 时 FC 交换机的端口分配]
-* xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.adoc[使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配]
+* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]
+* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
 
 
 .步骤
 . 通过禁用网络结构中运行正常的交换机上的 ISL 端口以及受损交换机上的 FC-VI 和 HBA 端口来隔离正在更换的交换机（如果受损交换机仍在运行）：
 +
-.. 在运行正常的交换机上为每个端口禁用 ISL 端口： + ` * portcfgpersistentdisable _port-number_*`
+.. 禁用运行正常的交换机上每个端口的 ISL 端口：
++
+`portcfgpersistentdisable _port-number_`
+
 +
 [listing]
 ----
 FC_switch_A_1:admin> portcfgpersistentdisable 10
 FC_switch_A_1:admin> portcfgpersistentdisable 11
 ----
-.. 如果受损交换机仍在运行，请为每个端口禁用该交换机上的 FC-VI 和 HBA 端口： + ` * portcfgpersistentdisable _port-number_*`
+.. 如果受损交换机仍在运行，请禁用该交换机上每个端口的 FC-VI 和 HBA 端口：
++
+`portcfgpersistentdisable _port-number_`
+
 +
 [listing]
 ----
@@ -81,7 +89,7 @@ FC_switch_B_1:admin> portcfgpersistentdisable 5
 ----
 
 
-. 如果受损交换机仍在运行，请从 ` * switchshow*` 命令收集输出。
+. 如果受损交换机仍在运行，请收集 `sswitchshow` 命令的输出。
 +
 [listing]
 ----
@@ -100,8 +108,11 @@ FC_switch_B_1:admin> switchshow
 . 在物理安装新交换机之前，启动并预配置此交换机：
 +
 .. 启动新交换机并让其启动。
-.. 检查交换机上的固件版本以确认其与其他 FC 交换机的版本匹配： + ` * FirmwareShow *`
-.. 按照 _Brocade 安装和配置指南 _ 中所述配置新交换机，但跳过 "`在 MetroCluster FC 交换机上配置分区` " 一节。
+.. 检查交换机上的固件版本以确认其与其他 FC 交换机的版本匹配：
++
+`固件`
+
+.. 按照 _Brocade 安装和配置中所述配置新交换机，但跳过 "`在操作步骤 FC 交换机上配置分区` " MetroCluster 。
 +
 https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
@@ -151,14 +162,20 @@ FC_switch_B_1:admin> portcfgpersistentdisable 7
 
 . 完成新交换机的配置：
 +
-.. 启用 ISL ： + ` * 端口 cfgpersistentenable _port-number_*`
+.. 启用 ISL ：
++
+`portcfgpersistentenable _port-number_`
+
 +
 [listing]
 ----
 FC_switch_B_1:admin> portcfgpersistentenable 10
 FC_switch_B_1:admin> portcfgpersistentenable 11
 ----
-.. 在替代交换机（示例中为 FC_switch_B_1 ）上，验证 ISL 是否联机： + ` * switchshow*`
+.. 在替代交换机（示例中为 FC_switch_B_1 ）上，验证 ISL 是否联机：
++
+`sswitchshow`
+
 +
 [listing]
 ----
@@ -213,35 +230,35 @@ FC_switch_B_1:admin> portcfgpersistentenable 3
 
 . 验证端口是否联机：
 +
-` * switchshow*`
+`sswitchshow`
 
 . 在 ONTAP 中验证 MetroCluster 配置的运行情况：
 +
-.. 检查系统是否为多路径： + ` * node run -node _node-name_ sysconfig -A*`
+.. 检查系统是否为多路径：
++
+`node run -node _node-name_ sysconfig -a`
+
 .. 检查两个集群上是否存在任何运行状况警报：
 +
-` * 系统运行状况警报 show*`
+`s系统运行状况警报显示`
 
 .. 确认 MetroCluster 配置以及操作模式是否正常：
 +
-` * MetroCluster show*`
+`MetroCluster show`
 
 .. 执行 MetroCluster 检查：
 +
-` * MetroCluster check run*`
+`MetroCluster check run`
 
 .. 显示 MetroCluster 检查的结果：
 +
-` * MetroCluster check show*`
+MetroCluster check show`
 
 .. 检查交换机上是否存在任何运行状况警报（如果存在）：
 +
-` * 存储交换机显示 *`
+`s存储开关显示`
 
-.. 运行 Config Advisor 。
-+
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
-
+.. 运行 https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Config Advisor"]。
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
 

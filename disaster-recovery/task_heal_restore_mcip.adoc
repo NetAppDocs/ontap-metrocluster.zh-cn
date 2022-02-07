@@ -326,4 +326,4 @@ cluster_B::>
 
 继续验证已更换节点上的许可证。
 
-xref:task_complete_recovery.html#verifying-licenses-on-the-replaced-nodes[验证已更换节点上的许可证]
+link:task_complete_recovery.html#verifying-licenses-on-the-replaced-nodes["验证已更换节点上的许可证"]

@@ -77,13 +77,15 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 . 根据相关场景中的步骤移除磁盘架。
 +
 |===
+
+
 | 场景 | 步骤 
 
 
  a| 
 在存储架包含未镜像聚合，镜像聚合或这两种类型的聚合时删除聚合 ...
  a| 
-.. 使用 ` * storage aggregate delete -aggregate _aggregate name_*` 命令删除聚合。
+.. 使用 `storage aggregate delete -aggregate _aggregate name_` 命令删除聚合。
 .. 使用标准操作步骤删除该磁盘架中所有驱动器的所有权，然后物理移除该磁盘架。
 +
 按照适用于您的磁盘架型号的 _SAS 磁盘架服务指南 _ 中的说明热移除磁盘架。
@@ -95,9 +97,9 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
  a| 
 要从镜像聚合中删除丛，需要取消聚合镜像。
  a| 
-.. 使用 ` * run -node local sysconfig -r*` 命令确定要删除的丛。
+.. 使用 `run -node local sysconfig -r` 命令确定要删除的丛。
 +
-在以下示例中，您可以从行 `Plex /dpg_mcc_8020_13_a1_aggr1/plex0` 中确定丛。在这种情况下，要指定的丛为 plex0 。
+在以下示例中，您可以从行 `Plex /dpg_mcc_8020_13_a1_aggr1/plex0` 中确定丛。在这种情况下，要指定的丛为 "`plex0` " 。
 
 +
 [listing]
@@ -126,9 +128,9 @@ Aggregate dpg_mcc_8020_13_a1_aggr1 (online, raid_dp, mirrored) (block checksums)
       data      mcc-cisco-8Gb-fab-3:1-1.126L15  0d    33  14  FC:A   1   SAS 15000 272000/557056000  280104/573653840
       data      mcc-cisco-8Gb-fab-3:1-1.126L45  0d    34  18  FC:A   1   SAS 15000 272000/557056000  280104/573653840
 ----
-.. 使用 ` * storage aggregate plex delete -aggregate _aggr_name_ -plex _plex_name_*` 命令删除丛。
+.. 使用 `storage aggregate plex delete -aggregate _aggr_name_ -plex _plex_name_` 命令删除丛。
 +
-丛定义丛名称，例如 `plex3` 或 `plex6` 。
+丛定义丛名称，例如 "`plex3` " 或 "`plex6` " 。
 
 .. 使用标准操作步骤删除该磁盘架中所有驱动器的所有权，然后物理移除该磁盘架。
 +

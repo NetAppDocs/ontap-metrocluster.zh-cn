@@ -14,22 +14,24 @@ summary: 完成 MetroCluster 配置的过渡后，您可以使用 Tiebreaker 或
 
 . 使用适用于您的配置的操作步骤。
 +
-[cols="2*"]
+[cols="1,3"]
 |===
+
+
 | 如果您使用的是 ... | 使用此操作步骤 
 
 
  a| 
 Tiebreaker
  a| 
-xref:../tiebreaker/concept_configuring_the_tiebreaker_software.adoc#adding-metrocluster-configurations[正在添加 MetroCluster 配置]
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["正在添加 MetroCluster 配置"]
 
 
 
  a| 
 调解器
  a| 
-xref:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.adoc#configuring-the-ontap-mediator-service-from-a-metrocluster-ip-configuration[从 MetroCluster IP 配置配置 ONTAP 调解器服务]
+link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html#configuring-the-ontap-mediator-service-from-a-metrocluster-ip-configuration["从 MetroCluster IP 配置配置 ONTAP 调解器服务"]
 
 |===
 

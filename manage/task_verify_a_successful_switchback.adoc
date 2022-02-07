@@ -12,7 +12,10 @@ summary: 执行切回后，您需要确认所有聚合和 Storage Virtual Machin
 [role="lead"]
 执行切回后，您需要确认所有聚合和 Storage Virtual Machine （ SVM ）均已切回并联机。
 
-. 验证切换后的数据聚合是否已切回： `storage aggregate show`
+. 验证切换后的数据聚合是否已切回：
++
+`s存储聚合显示`
+
 +
 在以下示例中，节点 B2 上的 aggr_b2 已切回：
 
@@ -34,9 +37,12 @@ Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
 aggr_b2          -         -     - unknown      - node_A_1
 ----
 +
-如果灾难站点包含未镜像聚合，而未镜像聚合不再存在，则该聚合可能会在 storage aggregate show 命令的输出中显示为 unknown 。请联系技术支持以删除未镜像聚合的过期条目。
+如果灾难站点包含未镜像聚合且未镜像聚合不再存在，则聚合可能会在 `storage aggregate show` 命令的输出中显示为 "`unknown` " 。请联系技术支持以删除未镜像聚合的过期条目。
 
-. 验证运行正常的集群上的所有 sync-destination SVM 是否均处于休眠状态（显示 Admin State 为 stopped ），以及灾难集群上的 sync-source SVM 是否已启动并正在运行： `vserver show -subtype sync-source`
+. 验证运行正常的集群上的所有 sync-destination SVM 是否均处于休眠状态（显示管理状态为 `sstopped` ），以及灾难集群上的 sync-source SVM 是否已启动且正在运行：
++
+`vserver show -subtype sync-source`
+
 +
 [listing]
 ----
@@ -59,12 +65,13 @@ cluster_A-vs1a-mc  data    sync-destination
                                                                        aggr_b2
 ----
 +
-MetroCluster 配置中的 sync-destination 聚合会在其名称中自动附加后缀 "-mc" ，以帮助标识它们。
+MetroCluster 配置中的 sync-destination 聚合会在其名称中自动附加后缀 "` -mc` " ，以帮助标识它们。
 
-. 使用 MetroCluster operation show 命令确认切回操作是否成功。
+. 使用 `MetroCluster operation show` 命令确认切回操作成功。
 +
-[cols="2*"]
 |===
+
+
 | 如果命令输出显示 ... | 那么 ... 
 
 
@@ -78,7 +85,7 @@ MetroCluster 配置中的 sync-destination 聚合会在其名称中自动附加�
  a| 
 切回操作或切回 - 继续 - 代理操作已部分成功。
  a| 
-执行 MetroCluster operation show 命令输出中建议的修复操作。
+执行 `MetroCluster operation show` 命令输出中建议的修复操作。
 
 |===
 

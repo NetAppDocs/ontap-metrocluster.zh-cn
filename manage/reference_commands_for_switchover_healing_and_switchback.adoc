@@ -12,22 +12,24 @@ summary: 您可以使用特定的 ONTAP 命令来执行 MetroCluster 灾难恢�
 [role="lead"]
 您可以使用特定的 ONTAP 命令来执行 MetroCluster 灾难恢复过程。
 
-[cols="2*"]
+[cols="1,2"]
 |===
+
+
 | 如果您要 ... | 使用此命令 ... 
 
 
  a| 
 验证是否可以执行切换，而不会出现错误或否决。
  a| 
-`MetroCluster switchover -simulate` 在高级权限级别
+`MetroCluster switchover -simulate` + at the advanced privilege level
 
 
 
  a| 
 验证是否可以执行切回而不出现错误或否决。
  a| 
-`MetroCluster switchback -simulate` 在高级权限级别
+`MetroCluster switchback -simulate` + at the advanced privilege level
 
 
 

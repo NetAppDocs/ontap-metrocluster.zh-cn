@@ -20,13 +20,13 @@ image::../media/transition_2n_begin_to_end.png[过渡 2n 将开始结束]
 * 此操作步骤会造成系统中断。
 * 此操作步骤仅适用于双节点 MetroCluster FC 配置。
 +
-如果您使用的是四节点 MetroCluster FC 配置，请参见 xref:concept_choosing_your_transition_procedure_mcc_transition.adoc[选择过渡操作步骤]。
+如果您使用的是四节点 MetroCluster FC 配置，请参见 link:concept_choosing_your_transition_procedure_mcc_transition.html["选择过渡操作步骤"]。
 
 * 此操作步骤创建的四节点 MetroCluster IP 配置不支持 ADP 。
 * 您必须满足所有要求并按照操作步骤中的所有步骤进行操作。
 * 现有存储架将移至新的 MetroCluster IP 节点。
 * 如有必要，可以向配置中添加更多存储架。
 +
-请参见 xref:concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.adoc[驱动器架重复使用和驱动器要求，实现有中断的 FC-IP 过渡]。
+请参见 link:concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html["驱动器架重复使用和驱动器要求，实现有中断的 FC-IP 过渡"]。
 
 

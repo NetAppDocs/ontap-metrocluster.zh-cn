@@ -312,7 +312,7 @@ Disk             Error Type        Error Text
 
 .步骤
 . 关闭包含 MetroCluster 组件的机架左侧 PDU 的电源。
-. 使用以下命令在控制台上监控结果：
+. 在控制台上监控结果：
 +
 `s系统环境传感器显示 -state fault`
 

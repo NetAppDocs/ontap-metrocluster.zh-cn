@@ -26,7 +26,7 @@ summary: 必须在 ONTAP 节点上配置 ONTAP 调解器服务，才能在 Metro
 
 
 .步骤
-. 使用以下命令将 ONTAP 调解器服务添加到 ONTAP ：
+. 将 ONTAP 调解器服务添加到 ONTAP ：
 +
 MetroCluster configuration-settings mediator add -mediate-address _ip-address-fo-medier-host_`
 

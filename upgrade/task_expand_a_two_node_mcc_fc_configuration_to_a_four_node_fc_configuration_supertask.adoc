@@ -19,7 +19,7 @@ summary: 要将双节点 MetroCluster FC 配置扩展为四节点 MetroCluster F
 
 * 如果双节点配置中的平台在 ONTAP 9.2 中不受支持，而您计划升级到 ONTAP 9.2 支持的平台，并扩展到四节点集群，则必须先升级双节点配置中的平台，然后再扩展 MetroCluster FC 配置。
 * 现有 MetroCluster FC 配置必须运行状况良好。
-* 您要添加的设备必须受支持并满足 _Fabric-Attached MetroCluster 安装和配置指南 _ 或 _Stretch 安装和配置指南 _ 中所述的所有要求。
+* 您要添加的设备必须受支持并满足以下过程中所述的所有要求：
 +
 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 

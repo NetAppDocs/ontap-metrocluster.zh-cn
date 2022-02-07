@@ -15,13 +15,13 @@ summary: 在开始过渡过程之前，您必须确保配置满足要求。
 * 此配置必须为四节点配置，并且所有节点都必须运行 ONTAP 9.8 或更高版本。
 * 现有平台和新平台必须是过渡支持的组合。
 +
-xref:concept_supported_platforms_for_transition.adoc[支持无中断过渡的平台]
+link:concept_supported_platforms_for_transition.html["支持无中断过渡的平台"]
 
 * 它必须支持交换集群配置。
 +
 https://hwu.netapp.com["NetApp Hardware Universe"]
 
-* 它必须满足 _MetroCluster 安装和配置指南 _ 中所述的所有要求和布线。
+* 它必须满足 _SCSI MetroCluster 安装和配置 _ 过程中所述的所有要求和布线。
 +
 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 

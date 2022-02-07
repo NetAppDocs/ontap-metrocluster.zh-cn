@@ -22,10 +22,7 @@ summary: 您必须应用 RCF 文件来重新配置分区以容纳新节点。
 . 重新启动 FC 交换机。
 . 使用先前创建的布线布局，使用缆线将原有的和新的 FC-SAS 网桥连接到 FC 交换机。
 +
-FC 交换机端口使用情况必须与 _Fabric-Attached MetroCluster 安装和配置指南 _ 中所述的 MetroCluster 八节点使用情况匹配，才能使用参考配置文件（ Reference Configuration Files ， RCF ）。
-
-+
-link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+FC 交换机端口使用情况必须与中所述的 MetroCluster 八节点使用情况匹配 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"] 以便可以使用参考配置文件（ Reference Configuration Files ， RCF ）。
 
 +
 
@@ -52,12 +49,9 @@ Cisco
 显示接口简介
 
 |===
-. 使用先前创建的布线布局，为现有控制器和新控制器中的 FC-VI 端口布线。
+. 使用中的操作步骤 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"] 使用先前创建的布线布局为现有控制器和新控制器中的 FC-VI 端口布线。
 +
-link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
-
-+
-FC 交换机端口使用情况必须与 _Fabric-Attached MetroCluster 安装和配置指南 _ 中所述的 MetroCluster 八节点使用情况匹配，才能使用参考配置文件（ Reference Configuration Files ， RCF ）。
+FC 交换机端口使用情况必须与中所述的 MetroCluster 八节点使用情况匹配 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"] 以便可以使用参考配置文件（ Reference Configuration Files ， RCF ）。
 
 +
 

@@ -26,6 +26,8 @@ summary: 在查看所有要求并为过渡做准备之后，您可以执行过�
 下表显示了此任务中使用的示例端口。
 
 |===
+
+
 | 控制器模块上的集群连接数 | 组 A 端口 | 组 B 端口 
 
 
@@ -52,8 +54,9 @@ e0b ， e0d
 
 下表显示了 FC 节点连接到的交换机端口。对于 Broadcom BES-53248 交换机，端口使用情况取决于 MetroCluster IP 节点的型号。
 
-[cols="4*"]
 |===
+
+
 | 交换机型号 | MetroCluster IP 节点型号 | 交换机端口 | 连接到 
 
 
@@ -110,7 +113,6 @@ node_x_2-FC
 
 === 使用新 IP 交换机时移动本地集群连接
 
-[role="lead"]
 如果您使用的是新的 IP 交换机，则必须将现有 MetroCluster FC 节点的集群连接物理移至新交换机。
 
 . 将 MetroCluster FC 节点组 A 集群连接移动到新的 IP 交换机。
@@ -124,7 +126,10 @@ node_x_2-FC
 .. 将 node_A_2-FC 的组 A 端口连接到 switch_A_1-IP 上 FC 节点的交换机端口
 
 
-. 验证所有集群端口是否均已启动： `network port show -ipspace cluster`
+. 验证所有集群端口是否均已启动：
++
+`network port show -ipspace cluster`
+
 +
 ....
 cluster_A::*> network port show -ipspace Cluster
@@ -149,7 +154,10 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 
 cluster_A::*>
 ....
-. 确认所有接口在 Is Home 列中均显示 true ： `network interface show -vserver cluster`
+. 验证所有接口在 "`is Home` " 列中是否均显示 true ：
++
+`network interface show -vserver cluster`
+
 +
 完成此操作可能需要几分钟时间。
 
@@ -175,14 +183,13 @@ Cluster
 cluster_A::*>
 ....
 . 在两个节点（ node_A_1-FC 和 node_A_2-FC ）上执行上述步骤，以移动集群接口的组 B 端口。
-. 对配对集群 "cluster_B" 重复上述步骤。
+. 对配对集群 "`cluster_B` " 重复上述步骤。
 
 
 
 
 === 重复使用现有 IP 交换机时移动本地集群连接
 
-[role="lead"]
 如果要重复使用现有 IP 交换机，则必须更新固件，使用正确的参考配置文件（ Reference Configure Files ， RCF ）重新配置交换机，并将连接移动到正确的端口，一次一个交换机。
 
 只有当 FC 节点已连接到现有 IP 交换机且您要重复使用这些交换机时，才需要执行此任务。
@@ -195,25 +202,25 @@ cluster_A::*>
 您可以查看平台的安装和设置说明，以查看集群端口使用情况。
 
 +
-https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-a320-install-setup/home.html["AFF A320 系统：安装和设置"]
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-a320-install-setup/home.html["AFF A320 系统：安装和设置"^]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2842666["《 AFF A220/FAS2700 系统安装和设置说明》"]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842666["《 AFF A220/FAS2700 系统安装和设置说明》"^]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2842668["《 AFF A800 系统安装和设置说明》"]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2842668["《 AFF A800 系统安装和设置说明》"^]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2469722["《 AFF A300 系统安装和设置说明》"]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2469722["《 AFF A300 系统安装和设置说明》"^]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["《 FAS8200 系统安装和设置说明》"]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["《 FAS8200 系统安装和设置说明》"^]
 
 
 
 . 使用为您的平台组合和过渡生成的 RCF 文件重新配置 switch_A_1_IP 。
 +
-按照 _IP MetroCluster 安装和配置指南 _ 中适用于您的交换机供应商一节中的步骤进行操作，如以下链接所示。
+按照 _MetroCluster IP 安装和配置 _ 中适用于您的交换机供应商的操作步骤中的步骤进行操作：
 
 +
 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
@@ -244,9 +251,12 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 
 . 将组 A 的端口重新连接到 switch_A_1_IP 。
 +
-使用中所述的端口 xref:task_transition_from_mcc_fc_to_mcc_ip_configurations..adoc[移动 MetroCluster FC 节点上的集群连接]。
+使用中所述的端口 link:task_transition_from_mcc_fc_to_mcc_ip_configurations.html["移动 MetroCluster FC 节点上的集群连接"]。
 
-. 验证所有集群端口是否均已启动： `network port show -ipspace cluster`
+. 验证所有集群端口是否均已启动：
++
+`network port show -ipspace cluster`
+
 +
 ....
 Cluster-A::*> network port show -ipspace cluster
@@ -271,7 +281,10 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 
 Cluster-A::*>
 ....
-. 验证所有接口是否位于其主端口上： `network interface show -vserver Cluster`
+. 验证所有接口是否均位于其主端口上：
++
+`network interface show -vserver cluster`
+
 +
 ....
 Cluster-A::*> network interface show -vserver Cluster
@@ -303,10 +316,12 @@ Cluster-A::*>
 
 == 验证集群连接是否已移动且集群运行状况良好
 
-[role="lead"]
 要确保连接正确且配置已准备好继续过渡过程，您必须验证集群连接是否已正确移动，集群交换机是否已识别且集群运行状况良好。
 
-. 确认所有集群端口均已启动且正在运行： `network port show -ipspace cluster`
+. 验证所有集群端口是否均已启动且正在运行：
++
+`network port show -ipspace cluster`
+
 +
 ....
 Cluster-A::*> network port show -ipspace Cluster
@@ -331,12 +346,15 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 
 Cluster-A::*>
 ....
-. 验证所有接口是否位于其主端口上： `network interface show -vserver Cluster`
+. 验证所有接口是否均位于其主端口上：
++
+`network interface show -vserver cluster`
+
 +
 完成此操作可能需要几分钟时间。
 
 +
-以下示例显示所有接口在为主接口列中均显示 true 。
+以下示例显示所有接口在 "`is Home` " 列中均显示 true 。
 
 +
 ....
@@ -359,7 +377,10 @@ Cluster
 
 Cluster-A::*>
 ....
-. 验证节点是否已发现两个本地 IP 交换机： `network device-discovery show -protocol cdp`
+. 验证节点是否已发现两个本地 IP 交换机：
++
+`network device-discovery show -protocol cdp`
+
 +
 ....
 Cluster-A::*> network device-discovery show -protocol cdp
@@ -380,7 +401,10 @@ Node-A-2-FC
 
 Cluster-A::*>
 ....
-. 在 IP 交换机上，验证两个本地 IP 交换机是否均已发现 MetroCluster IP 节点： `sHow cdp neighbors`
+. 在 IP 交换机上，验证两个本地 IP 交换机是否均已发现 MetroCluster IP 节点：
++
+`s如何使用 cdp 邻居`
+
 +
 您必须对每个交换机执行此步骤。
 

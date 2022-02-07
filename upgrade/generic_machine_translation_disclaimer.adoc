@@ -9,6 +9,4 @@ summary: 《 MetroCluster 升级，过渡和扩展指南》中的机器翻译信
 :imagesdir: ../media/
 
 
-有关本地化内容的重要信息，请参见 netapp.com 。
-
-https://www.netapp.com/company/legal/machine-translation/[]
+有关本地化内容的重要信息，请参见 https://www.netapp.com/company/legal/machine-translation/["机器翻译免责声明"]

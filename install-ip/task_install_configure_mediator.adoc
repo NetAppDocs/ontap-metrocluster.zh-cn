@@ -66,13 +66,12 @@ NOTE: 内核版本必须与操作系统版本匹配。
 您可以使用以下链接获取有关设置存储库的信息。
 
 +
-如果您在 Linux 环境中使用链路聚合控制协议（ Link Aggregation Control Protocol ， LACP ），则必须正确配置内核，并确保 `sysctl net.IPv4.conf.all.arp_ignore` 设置为 "2" 。
+如果您在 Linux 环境中使用链路聚合控制协议（ Link Aggregation Control Protocol ， LACP ），则必须正确配置内核，并确保 `sysctl net.IPv4.conf.all.arp_ignore` 设置为 "`2` " 。
 
 +
 ONTAP 调解器服务需要以下软件包：
 
 +
-[cols="25,35,40"]
 |===
 
 
@@ -204,7 +203,7 @@ Repository 'rhel-7-server-optional-rpms' is enabled for this system.
 ----
 . 运行 `yum repolist` 命令。
 +
-以下示例显示了此命令的执行情况。列表中应显示 rhel-7-server-optional -rpms 存储库。
+以下示例显示了此命令的执行情况。列表中应显示 "`rhel-7-server-optional-rpms` " 存储库。
 
 +
 [listing]
@@ -276,7 +275,7 @@ enabled=1
 ----
 . 运行 `yum repolist` 命令。
 +
-以下示例显示了此命令的执行情况。CentOS-7.6.1810 —基本存储库应显示在列表中。
+以下示例显示了此命令的执行情况。列表中应显示 "`CentOS-7.6.1810 - Base` " 存储库。
 
 +
 [listing]
@@ -311,7 +310,7 @@ CAUTION: CentOS 8.x 的生命周期支持将于 2021 年 12 月 31 日结束。�
 在中 http://vault.centos.org["CentOS 存储"]下，找到与您的操作系统匹配的 kernel-devel 软件包。因为最新版本的 8.0 （ CentOS 8.0.1905 及更高版本）核心位于中，您必须提供对匹配的 kernel-devel 软件包的访问权限，以编译所需的内核模块。
 
 .步骤
-. 【 ｛ step1-rpm]] 通过问题描述执行以下命令直接安装 kernel-devel 软件包：
+. 【 ｛ step1-rpm]] 直接安装 kernel-devel 软件包：
 +
 `rpm -i \http://vault.centos.org/8.0.1905/BaseOS/x86_64/os/Packages/kernel-devel-$(uname -r ） .rpm`
 
@@ -339,7 +338,7 @@ NOTE: 上述命令是一个特定于 CentOS 8.0.1905 的示例。根据其他 Ce
 .步骤
 . 从 ONTAP 调解器页面下载调解器安装包。
 +
-https://mysupport.netapp.com/site/products/all/details/ontap-mediator/downloads-tab["ONTAP 调解器下载页面"]
+https://mysupport.netapp.com/site/products/all/details/ontap-mediator/downloads-tab["ONTAP 调解器下载页面"^]
 
 . 确认调解器安装包位于目标目录中：
 +
@@ -371,7 +370,7 @@ https://mysupport.netapp.com/site/products/all/details/ontap-mediator/downloads-
 
 
 
-link:../media/console_output_mediator_installation.txt["ONTAP 调解器安装示例（控制台输出）"]
+link:../media/console_output_mediator_installation.txt["ONTAP 调解器安装示例（控制台输出）"^]
 
 
 

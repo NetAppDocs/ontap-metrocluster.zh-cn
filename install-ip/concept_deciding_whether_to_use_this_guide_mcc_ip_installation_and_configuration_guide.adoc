@@ -1,8 +1,8 @@
 ---
 permalink: install-ip/concept_deciding_whether_to_use_this_guide_mcc_ip_installation_and_configuration_guide.html 
 sidebar: sidebar 
-keywords: guide, describe, install, configure, metrocluster, ip, hardware, software, component, deciding, decide, installation, configuration, guide 
-summary: 本指南介绍如何安装和配置 MetroCluster IP 硬件和软件组件。 
+keywords: install, configure, metrocluster, ip, hardware, software, component, deciding, decide, installation, configuration 
+summary: 此信息介绍如何安装和配置 MetroCluster IP 硬件和软件组件。 
 ---
 = MetroCluster IP 安装和配置
 :icons: font
@@ -10,9 +10,9 @@ summary: 本指南介绍如何安装和配置 MetroCluster IP 硬件和软件组
 
 
 [role="lead"]
-本指南介绍如何安装和配置 MetroCluster IP 硬件和软件组件。
+此信息介绍如何安装和配置 MetroCluster IP 硬件和软件组件。
 
-在以下情况下，您应使用本指南规划，安装和配置 MetroCluster IP 配置：
+在以下情况下，应使用此信息规划，安装和配置 MetroCluster IP 配置：
 
 * 您希望了解 MetroCluster IP 配置的架构。
 * 您希望了解配置 MetroCluster IP 配置的要求和最佳实践。
@@ -21,4 +21,4 @@ summary: 本指南介绍如何安装和配置 MetroCluster IP 硬件和软件组
 
 此外，我们还提供了有关 ONTAP 和 MetroCluster 配置的常规信息。
 
-https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"]
+https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"^]

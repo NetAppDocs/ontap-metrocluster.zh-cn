@@ -52,7 +52,7 @@ Password: <user input>
 ----
 FC_switch_A_1:admin> switchcfgpersistentenable
 ----
-. 运行以下命令以确认配置文件已设置交换机域：
+. 确认配置文件已设置交换机域：
 +
 `sswitchshow`
 
@@ -170,7 +170,7 @@ FC_switch_A_1:admin> portcfglongdistance 21 LE 1
 FC_switch_A_1:admin> ipAddrshow
 ----
 +
-如果需要，可以使用以下命令设置 IP 地址：
+如果需要，您可以设置 IP 地址：
 
 +
 `ipAddrSet`
@@ -286,7 +286,10 @@ FC_switch_A_1:admin> islshow
 +
 两个输出应显示两个交换机的相同配置信息和分区信息。
 
-.. 如果使用中继，则可以使用以下命令确认中继： ` * trunkShow*`
+.. 如果使用中继，请确认中继：
++
+`TrunkShow`
+
 +
 [listing]
 ----

@@ -19,7 +19,7 @@ summary: 从 ONTAP 9.8 开始，支持将工作负载和数据从现有四节点
 
 * 此操作步骤仅适用于四节点 MetroCluster FC 配置。
 +
-如果您使用的是双节点 MetroCluster FC 配置，请参见 xref:concept_choosing_your_transition_procedure_mcc_transition.adoc[选择过渡操作步骤]。
+如果您使用的是双节点 MetroCluster FC 配置，请参见 link:concept_choosing_your_transition_procedure_mcc_transition.html["选择过渡操作步骤"]。
 
 * 您必须满足所有要求并按照操作步骤中的所有步骤进行操作。
 

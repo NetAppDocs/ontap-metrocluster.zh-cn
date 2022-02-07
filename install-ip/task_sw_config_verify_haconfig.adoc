@@ -5,13 +5,10 @@ keywords: metrocluster, ha-config, mccip, haconfig, verify, high-availability
 summary: 在出厂时未预配置的 MetroCluster IP 配置中，您必须验证控制器和机箱组件的 ha-config 状态是否设置为 mccip ，以便它们可以正常启动。对于从工厂收到的系统，此值是预配置的，您无需对其进行验证。 
 ---
 = 验证组件的 ha-config 状态
-:firstname: [.lead]
-:author: [.lead]
-:authorinitials: [
-:authors: [.lead]
-:revnumber: 
-:revdate: this value is preconfigured and you do not need to verify it.
 
+
+[role="lead"]
+在出厂时未预配置的 MetroCluster IP 配置中，您必须验证控制器和机箱组件的 ha-config 状态是否设置为 `mCCIP` ，以便它们可以正常启动。对于从工厂收到的系统，此值是预配置的，您无需对其进行验证。
 
 系统必须处于维护模式。
 
@@ -21,13 +18,13 @@ summary: 在出厂时未预配置的 MetroCluster IP 配置中，您必须验证
 `ha-config show`
 
 +
-控制器模块和机箱应显示值 "mccip" 。
+控制器模块和机箱应显示值 `mCCIP` 。
 
-. 如果显示的控制器系统状态不是 "mccip" ，请设置控制器的 HA 状态：
+. 如果显示的控制器系统状态不是 " `mCCIP` " ，请设置控制器的 HA 状态：
 +
 `ha-config modify controller mccip`
 
-. 如果显示的机箱系统状态不是 "mccip" ，请设置机箱的 HA 状态：
+. 如果显示的机箱系统状态不是 " `mCCIP` " ，请设置机箱的 HA 状态：
 +
 `ha-config modify chassis mccip`
 
@@ -284,7 +281,7 @@ Please choose one of the following:
 .. 在 node_B_2 上，手动将一个磁盘从 local site_B-shelf_3 分配给池 0 。
 
 
-. 使用启动菜单上的选项 4 启动站点 A 上的每个节点：
+. 使用启动菜单上的选项 "`4` " 启动站点 A 上的每个节点：
 +
 您应先在节点上完成此步骤，然后再继续下一个节点。
 
@@ -297,10 +294,10 @@ Please choose one of the following:
 +
 `boot_ontap 菜单`
 
-.. 从启动菜单中选择选项 4 并继续。
+.. 从启动菜单中选择选项 "`4` " 并继续。
 
 
-. 使用启动菜单上的选项 4 启动站点 B 上的每个节点：
+. 使用启动菜单上的选项 "`4` " 启动站点 B 上的每个节点：
 +
 您应先在节点上完成此步骤，然后再继续下一个节点。
 
@@ -329,7 +326,7 @@ Please choose one of the following:
 * 您不能事先配置服务处理器。
 
 
-如果需要通过网络启动新控制器，请参见 link:../upgrade/task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#netbooting-the-new-controllers["通过网络启动新控制器模块"] 在 _RAID MetroCluster 升级，过渡和扩展指南中。
+如果需要通过网络启动新控制器，请参见 link:../upgrade/task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#netbooting-the-new-controllers["通过网络启动新控制器模块"]。
 
 必须对 MetroCluster 配置中的两个集群执行此任务。
 
@@ -501,10 +498,10 @@ Where is the controller located []: site_A
 您可以使用 ONTAP 系统管理器将 Web 浏览器指向集群管理 IP 地址 (https://172.17.12.153)[]。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["使用 System Manager 进行集群管理（ 9.0 到 9.6 版）"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help/GUID-DF04A607-30B0-4B98-99C8-CB065C64E670.html["使用 System Manager 进行集群管理（ 9.0 到 9.6 版）"^]
 
 +
-https://docs.netapp.com/us-en/ontap/index.html["ONTAP System Manager （ 9.7 及更高版本）"]
+https://docs.netapp.com/us-en/ontap/index.html["ONTAP System Manager （ 9.7 及更高版本）"^]
 
 
 
@@ -723,7 +720,7 @@ cluster_B::>
 
 MetroCluster 配置中的集群必须处于对等关系中，以便它们可以彼此通信并执行对 MetroCluster 灾难恢复至关重要的数据镜像。
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"^]
 
 link:concept_considerations_peering.html#considerations-when-using-dedicated-ports["使用专用端口时的注意事项"]
 
@@ -783,7 +780,7 @@ cluster01-02
 有关完整的命令语法，请参见手册页。
 
 +
-以下示例显示尚未为端口 e0e 和 e0f 分配 LIF ：
+以下示例显示未为端口 "`e0e` " 和 "`e0f` " 分配 LIF ：
 
 +
 [listing]
@@ -808,7 +805,7 @@ cluster01
 `network interface failover-groups create -vserver _system_svm_ -failover-group _failover_group_ -targets _physical_or_logical_ports_`
 
 +
-以下示例将端口 "e0e" 和 "e0f" 分配给系统 "SVMcluster01" 上的故障转移组 intercluster01 ：
+以下示例将端口 "`e0e` " 和 "`e0f` " 分配给系统 " `SVMcluster01` " 上的故障转移组 "`intercluster01` " ：
 
 +
 [listing]
@@ -870,7 +867,7 @@ cluster01
 有关完整的命令语法，请参见手册页。
 
 +
-以下示例将在故障转移组 "intercluster01" 中创建集群间 LIF "cluster01_icl01" 和 "cluster01_icl02" ：
+以下示例将在故障转移组 "`intercluster01` " 中创建集群间 LIF "`cluster01_icl01` " 和 "`cluster01_icl02` " ：
 
 +
 [listing]
@@ -1097,7 +1094,7 @@ cluster01
 有关完整的命令语法，请参见手册页。
 
 +
-以下示例显示 "e0c" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0d" 端口。
+以下示例显示 "`e0c` " 端口上的集群间 LIF"`cluster01_icl01` " 和 "`cluster01_icl02` " 将故障转移到 "`e0d` " 端口。
 
 +
 [listing]
@@ -1272,7 +1269,10 @@ cluster_B                  node_B_1      ready for DR group create
                            node_B_2      ready for DR group create
 2 entries were displayed.
 ----
-. 创建 DR 组： MetroCluster configuration-settings dr-group create -partner-cluster _partner-cluster-name_ -local-node _local-node-name_ -remote-node _remote-node-name_`
+. 创建 DR 组：
++
+MetroCluster configuration-settings dr-group create -partner-cluster _partner-cluster-name_ -local-node _local-node-name_ -remote-node _remote-node-name_`
+
 +
 此命令仅发出一次。无需在配对集群上重复此操作。在命令中，您可以指定远程集群的名称以及配对集群上一个本地节点和一个节点的名称。
 
@@ -1308,24 +1308,21 @@ NOTE: 您必须谨慎选择 MetroCluster IP 地址，因为在初始配置后无
 
 --
 * 您必须为每个节点创建两个接口。这些接口必须与 MetroCluster RCF 文件中定义的 VLAN 相关联。
-* 您必须在同一 VLAN 中创建所有 MetroCluster IP 接口 "A" 端口，在另一 VLAN 中创建所有 MetroCluster IP 接口 "B" 端口。请参见 link:concept_considerations_mcip.html["MetroCluster IP 配置的注意事项"]。
-
-
+* 您必须在同一 VLAN 中创建所有 MetroCluster IP 接口 "`A` " 端口，并在另一个 VLAN 中创建所有 MetroCluster IP 接口 "`B` " 端口。请参见 link:concept_considerations_mcip.html["MetroCluster IP 配置的注意事项"]。
 +
-
 --
 [NOTE]
 ====
-* 某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。您也可以在 MetroCluster configuration-settings interface create` 命令中使用 ` -vlan-id 参数` 指定一个大于 100 （ 101 到 4095 之间）的其他（非默认） VLAN 。
-* 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
+** 某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。您也可以在 MetroCluster configuration-settings interface create` 命令中使用 ` -vlan-id 参数` 指定一个大于 100 （ 101 到 4095 之间）的其他（非默认） VLAN 。
+** 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
 
 
 ====
 --
-+ 以下平台型号使用 VLAN 并允许配置非默认 VLAN ID 。
++
+以下平台型号使用 VLAN 并允许配置非默认 VLAN ID 。
 
 +
-
 |===
 
 
@@ -1333,18 +1330,20 @@ NOTE: 您必须谨慎选择 MetroCluster IP 地址，因为在初始配置后无
 
 
  a| 
-* AFF A220
-* AFF A250
-* AFF A400
+** AFF A220
+** AFF A250
+** AFF A400
 
  a| 
-* FAS2750
-* FAS500f
-* FAS8300
-* FAS8700
+** FAS2750
+** FAS500f
+** FAS8300
+** FAS8700
 
 
 |===
+
+
 示例中使用了以下 IP 地址和子网：
 
 |===
@@ -1557,6 +1556,7 @@ e0d
 |===
 以下示例中的端口使用情况适用于 AFF A700 或 FAS9000 系统。
 
+.步骤
 . 确认每个节点均已启用磁盘自动分配：
 +
 `s存储磁盘选项 show`
@@ -1598,7 +1598,7 @@ cluster_B
               node_B_2     ready for interface create
 4 entries were displayed.
 ----
-. 在 "node_A_1" 上创建接口。
+. 在 "`node_A_1` " 上创建接口。
 +
 --
 [NOTE]
@@ -1611,7 +1611,7 @@ cluster_B
 ====
 --
 +
-.. 在 node_A_1 上的端口 "e5a" 上配置接口：
+.. 在端口 "`node_A_1` " 上配置接口 "`e5a` " ：
 +
 MetroCluster configuration-settings interface create -cluster-name _cluster-name_ -home-node _node-name_ -home-port e5a -address _ip-address_ -netmask _netmask_`
 
@@ -1625,12 +1625,12 @@ cluster_A::> metrocluster configuration-settings interface create -cluster-name 
 [Job 28] Job succeeded: Interface Create is successful.
 cluster_A::>
 ----
-.. 在 "node_A_1" 上的端口 "e5b" 上配置接口：
+.. 在端口 "`node_A_1` " 上配置接口 "`e5b` " ：
 +
 MetroCluster configuration-settings interface create -cluster-name _cluster-name_ -home-node _node-name_ -home-port e5b -address _ip-address_ -netmask _netmask_`
 
 +
-以下示例显示了如何在 "node_A_1" 上的端口 "e5b" 上创建 IP 地址为 10.1.2.1 的接口：
+以下示例显示了在 IP 地址为 "`10.1.2.1` " 的 "`node_A_1` " 上的端口 "`e5b` " 上创建的接口：
 
 +
 [listing]
@@ -1645,12 +1645,12 @@ cluster_A::>
 
 NOTE: 您可以使用 `MetroCluster configuration-settings interface show` 命令验证这些接口是否存在。
 
-. 在 "node_A_2" 上创建接口。
+. 在 "`node_A_2` " 上创建接口。
 +
 --
 [NOTE]
 ====
-** 以下示例中的端口使用情况适用于 AFF A700 或 FAS9000 系统（ e5a 和 e5b ）。您必须按照上述说明在适用于您的平台型号的正确端口上配置接口。
+** 以下示例中的端口使用情况适用于 AFF A700 或 FAS9000 系统（ "`e5a` " 和 "`e5b` " ）。您必须按照上述说明在适用于您的平台型号的正确端口上配置接口。
 ** 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 link:concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
 ** 在支持 MetroCluster IP 接口的 的平台型号上，如果不想使用默认 VLAN ID ，可以使用 ` -vlan-id` 参数。
 
@@ -1658,12 +1658,12 @@ NOTE: 您可以使用 `MetroCluster configuration-settings interface show` 命�
 ====
 --
 +
-.. 在 "node_A_2" 上的端口 "e5a" 上配置接口：
+.. 在端口 "`node_A_2` " 上配置接口 "`e5a` " ：
 +
 MetroCluster configuration-settings interface create -cluster-name _cluster-name_ -home-node _node-name_ -home-port e5a -address _ip-address_ -netmask _netmask_`
 
 +
-以下示例显示了如何在 "node_A_2" 上的端口 "e5a" 上创建 IP 地址为 10.1.1.2" 的接口：
+以下示例显示了在 IP 地址为 "`10.1.1.2` " 的 "`node_A_2` " 上的端口 "`e5a` " 上创建的接口：
 
 +
 [listing]
@@ -1673,7 +1673,7 @@ cluster_A::> metrocluster configuration-settings interface create -cluster-name 
 cluster_A::>
 ----
 +
-在支持 MetroCluster IP 接口的 VLAN 的平台型号上，如果不想使用默认 VLAN ID ，可以使用 ` -vlan-id` 参数。以下示例显示了 VLAN ID 为 "120" 的 AFF A220 系统的命令：
+在支持 MetroCluster IP 接口的 VLAN 的平台型号上，如果不想使用默认 VLAN ID ，可以使用 ` -vlan-id` 参数。以下示例显示了 VLAN ID 为 "`120` " 的 AFF A220 系统的命令：
 
 +
 [listing]
@@ -1682,12 +1682,12 @@ cluster_A::> metrocluster configuration-settings interface create -cluster-name 
 [Job 28] Job succeeded: Interface Create is successful.
 cluster_A::>
 ----
-.. 在 "node_A_2" 上的端口 "e5b" 上配置接口：
+.. 在端口 "`node_A_2` " 上配置接口 "`e5b` " ：
 +
 MetroCluster configuration-settings interface create -cluster-name _cluster-name_ -home-node _node-name_ -home-port e5b -address _ip-address_ -netmask _netmask_`
 
 +
-以下示例显示了如何在 "node_A_2" 上的端口 "e5b" 上创建 IP 地址为 10.1.2.2 的接口：
+以下示例显示了在 IP 地址为 "`10.1.2.2` " 的 "`node_A_2` " 上的端口 "`e5b` " 上创建的接口：
 
 +
 [listing]
@@ -1697,7 +1697,7 @@ cluster_A::> metrocluster configuration-settings interface create -cluster-name 
 cluster_A::>
 ----
 +
-在支持 MetroCluster IP 接口的 VLAN 的平台型号上，如果不想使用默认 VLAN ID ，可以使用 ` -vlan-id` 参数。以下示例显示了 VLAN ID 为 "220" 的 AFF A220 系统的命令：
+在支持 MetroCluster IP 接口的 VLAN 的平台型号上，如果不想使用默认 VLAN ID ，可以使用 ` -vlan-id` 参数。以下示例显示了 VLAN ID 为 "`220` " 的 AFF A220 系统的命令：
 
 +
 [listing]
@@ -1708,12 +1708,12 @@ cluster_A::>
 ----
 
 
-. 在 "node_B_1 " 上创建接口。
+. 在 "`node_B_1` " 上创建接口。
 +
 --
 [NOTE]
 ====
-** 以下示例中的端口使用情况适用于 AFF A700 或 FAS9000 系统（ e5a 和 e5b ）。您必须按照上述说明在适用于您的平台型号的正确端口上配置接口。
+** 以下示例中的端口使用情况适用于 AFF A700 或 FAS9000 系统（ "`e5a` " 和 "`e5b` " ）。您必须按照上述说明在适用于您的平台型号的正确端口上配置接口。
 ** 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 link:concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
 ** 在支持 MetroCluster IP 接口的 的平台型号上，如果不想使用默认 VLAN ID ，可以使用 ` -vlan-id` 参数。
 
@@ -1721,12 +1721,12 @@ cluster_A::>
 ====
 --
 +
-.. 在 "node_B_1 上的端口 "e5a" 上配置接口：
+.. 在端口 "`node_B_1` " 上配置接口 "`e5a` " ：
 +
 MetroCluster configuration-settings interface create -cluster-name _cluster-name_ -home-node _node-name_ -home-port e5a -address _ip-address_ -netmask _netmask_`
 
 +
-以下示例显示了如何在 "node_B_1 " 上的端口 "e5a" 上创建 IP 地址为 10.1.1.3" 的接口：
+以下示例显示了在 IP 地址为 "`10.1.1.3` " 的 "`node_B_1` " 上的端口 "`e5a` " 上创建的接口：
 
 +
 [listing]
@@ -1734,12 +1734,12 @@ MetroCluster configuration-settings interface create -cluster-name _cluster-name
 cluster_A::> metrocluster configuration-settings interface create -cluster-name cluster_A -home-node node_B_1 -home-port e5a -address 10.1.1.3 -netmask 255.255.255.0
 [Job 28] Job succeeded: Interface Create is successful.cluster_A::>
 ----
-.. 在 "node_B_1 " 上的端口 "e5b" 上配置接口：
+.. 在端口 "`node_B_1` " 上配置接口 "`e5b` " ：
 +
 MetroCluster configuration-settings interface create -cluster-name _cluster-name_ -home-node _node-name_ -home-port e5a -address _ip-address_ -netmask _netmask_`
 
 +
-以下示例显示了如何在 "node_B_1 " 上的端口 "e5b" 上创建 IP 地址为 10.1.2.3 的接口：
+以下示例显示了在 IP 地址为 "`10.1.2.3` " 的 "`node_B_1` " 上的端口 "e5b" 上创建的接口：
 
 +
 [listing]
@@ -1749,7 +1749,7 @@ cluster_A::> metrocluster configuration-settings interface create -cluster-name 
 ----
 
 
-. 在 "node_B_2" 上创建接口。
+. 在 "`node_B_2` " 上创建接口。
 +
 --
 [NOTE]
@@ -1762,12 +1762,12 @@ cluster_A::> metrocluster configuration-settings interface create -cluster-name 
 ====
 --
 +
-.. 在 "node_B_2 上的端口 "e5a" 上配置接口：
+.. 在端口 "`node_B_2` " 上配置接口 "`e5a` " ：
 +
 MetroCluster configuration-settings interface create -cluster-name _cluster-name_ -home-node _node-name_ -home-port e5a -address _ip-address_ -netmask _netmask_`
 
 +
-以下示例显示了如何在 "node_B_2 上的端口 "e5a" 上创建 IP 地址为 10.1.1.4 的接口：
+以下示例显示了在 IP 地址为 "`10.1.1.4` " 的 "`node_B_2` " 上的端口 "`e5a` " 上创建的接口：
 
 +
 [listing]
@@ -1775,12 +1775,12 @@ MetroCluster configuration-settings interface create -cluster-name _cluster-name
 cluster_B::>metrocluster configuration-settings interface create -cluster-name cluster_B -home-node node_B_2 -home-port e5a -address 10.1.1.4 -netmask 255.255.255.0
 [Job 28] Job succeeded: Interface Create is successful.cluster_A::>
 ----
-.. 在 "node_B_2 上的端口 "e5b" 上配置接口：
+.. 在端口 "`node_B_2` " 上配置接口 "`e5b` " ：
 +
 MetroCluster configuration-settings interface create -cluster-name _cluster-name_ -home-node _node-name_ -home-port e5b -address _ip-address_ -netmask _netmask_`
 
 +
-以下示例显示了如何在 "node_B_2 上的端口 "e5b" 上创建 IP 地址为 10.1.2.4 的接口：
+以下示例显示了在 IP 地址为 "`10.1.2.4` " 的 "`node_B_2` " 上的端口 "`e5b` " 上创建的接口：
 
 +
 [listing]
@@ -1833,7 +1833,7 @@ cluster_A::>
 MetroCluster configuration-settings show-status`
 
 +
-以下示例显示了处于 " 准备连接 " 状态的所有节点：
+以下示例显示了处于 " `re连接就绪` " 状态的所有节点：
 
 +
 [listing]
@@ -1857,7 +1857,7 @@ cluster_B
 问题描述此命令后，无法更改 IP 地址。
 
 +
-以下示例显示 cluster_A 已成功连接：
+以下示例显示 "`cluster_A` " 已成功连接：
 
 +
 [listing]
@@ -1894,7 +1894,7 @@ cluster_B
 `set -privilege advanced`
 
 +
-当系统提示您继续进入高级模式且您看到高级模式提示符（` * >` ）时，您需要使用 `y` 进行响应。
+当系统提示您继续进入高级模式且您看到高级模式提示符（` * >` ）时，您需要使用 "`y` " 进行响应。
 
 .. 显示连接：
 +
@@ -2058,7 +2058,7 @@ link:concept_considerations_drive_assignment.html["ONTAP 9.4 及更高版本中�
 以下输出显示了没有外部磁盘架的 AFF A800 系统的输出。
 
 +
-驱动器自动分配已将四分之一（ 8 个驱动器）分配给 "node_A_1" ，将四分之一分配给 "node_A_2" 。其余驱动器将是 "node_B_1 和 "node_B_2" 的远程（ pool1 ）磁盘。
+驱动器自动分配已将四分之一（ 8 个驱动器）分配给 "`node_A_1` " ，将四分之一分配给 "`node_A_2` " 。其余驱动器将是 "`node_B_1` " 和 "`node_B_2` " 的远程（ pool1 ）磁盘。
 
 +
 [listing]
@@ -2282,7 +2282,7 @@ node_A_2:0m.i1.2L64       -    21  10 SSD     unassigned  -         -
 
 cluster_A::>
 ----
-.. 将远程驱动器（ 0m ）的所有权分配给第一个节点的池 1 （例如， "node_A_1" ）：
+.. 将远程驱动器（ 0m ）的所有权分配给第一个节点的池 1 （例如， "`node_A_1` " ）：
 +
 `ddisk assign -disk _disk-id_ -pool 1 -owner _owner-node-name_`
 
@@ -2300,7 +2300,7 @@ NOTE: 用于访问远程驱动器的 iSCSI 连接显示为设备 0m 。
 
 --
 +
-以下输出显示已分配磁盘架 23 上的驱动器，因为这些驱动器不再显示在未分配驱动器列表中：
+以下输出显示已分配磁盘架 "`23` " 上的驱动器，因为这些驱动器不再出现在未分配的驱动器列表中：
 
 +
 [listing]
@@ -2319,7 +2319,7 @@ node_A_2:0m.i2.1L90       -    21  19 SSD     unassigned  -         -
 
 cluster_A::>
 ----
-.. 重复上述步骤，将池 1 驱动器分配给站点 A 上的第二个节点（例如， "n"ode_A_2" ）。
+.. 重复上述步骤，将池 1 驱动器分配给站点 A 上的第二个节点（例如， "`node_A_2` " ）。
 .. 在站点 B 上重复这些步骤
 
 
@@ -2347,7 +2347,7 @@ ONTAP 自动磁盘分配功能可按磁盘架分配磁盘。例如：
 * site_A-shelf_4 上的所有磁盘都会自动分配给 node_B_2 的 pool1
 
 
-您必须通过在每个磁盘架上指定一个磁盘来 " 传播 " 自动分配。
+您必须通过` 在每个磁盘架上指定一个磁盘来 " 按 `s" 自动分配。
 
 .步骤
 . 在 MetroCluster IP 配置中的每个节点上，为池 1 分配一个远程磁盘。
@@ -2377,7 +2377,7 @@ node_A_2:0m.i1.2L64       -    21  10 SSD     unassigned  -         -
 
 cluster_A::>
 ----
-.. 选择一个远程磁盘（ 0m ）并将该磁盘的所有权分配给第一个节点的池 1 （例如， "node_A_1" ）：
+.. 选择一个远程磁盘（ 0m ）并将该磁盘的所有权分配给第一个节点的池 1 （例如， "`node_A_1` " ）：
 +
 `ddisk assign -disk disk-id -pool 1 -owner owner-node-name`
 
@@ -2398,7 +2398,7 @@ NOTE: 用于访问远程磁盘的 iSCSI 连接显示为设备 0m 。
 
 --
 +
-以下输出显示磁盘架 23 上的磁盘现在已分配，不再显示：
+以下输出显示磁盘架 "`23` " 上的磁盘已分配，不再显示：
 
 +
 [listing]
@@ -2435,7 +2435,7 @@ node_A_2:0m.i2.1L90       -    21  19 SSD     unassigned  -         -
 
 cluster_A::>
 ----
-.. 重复上述步骤，将池 1 磁盘分配给站点 A 上的第二个节点（例如， "node_A_2" ）。
+.. 重复上述步骤，将池 1 磁盘分配给站点 A 上的第二个节点（例如， "`node_A_2` " ）。
 .. 在站点 B 上重复这些步骤
 
 
@@ -2579,7 +2579,7 @@ cluster_A::> storage aggregate create aggr1_node_A_1 -diskcount 10 -node node_A_
 
 NOTE: 如果要使用单个镜像数据聚合，请参见 <<step1_single_mirrored,第 1 步>> 有关说明，请参见。
 
-* 控制器和机箱的 ha-config 状态必须为 mccip 。
+* 控制器和机箱的 ha-config 状态必须为 `mCCIP` 。
 
 
 您可以在任何节点上问题描述一次 `MetroCluster configure` 命令，以启用 MetroCluster 配置。您无需在每个站点或节点上对命令执行问题描述，也无需选择对哪个节点或站点执行问题描述命令。
@@ -2610,7 +2610,7 @@ NOTE: 如果要使用单个镜像数据聚合，请参见 <<step1_single_mirrore
 `set -privilege advanced`
 
 +
-当系统提示您继续进入高级模式且您看到高级模式提示符（` * >` ）时，您需要使用 `y` 进行响应。
+当系统提示您继续进入高级模式且您看到高级模式提示符（` * >` ）时，您需要使用 "`y` " 进行响应。
 
 .. 使用 ` -allow-with-one-aggregate` true 参数配置 MetroCluster ：
 +
@@ -2632,7 +2632,7 @@ MetroCluster configure -allow-with-one-aggregate true node-name`
 ====
 --
 +
-以下命令将在包含 controller_A_1 的 DR 组中的所有节点上启用 MetroCluster 配置：
+以下命令将在包含 "`controller_A_1` " 的 DR 组中的所有节点上启用 MetroCluster 配置：
 
 +
 [listing]
@@ -2641,7 +2641,10 @@ cluster_A::*> metrocluster configure -node-name controller_A_1
 
 [Job 121] Job succeeded: Configure is successful.
 ----
-. 验证站点 A 上的网络连接状态： `network port show`
+. 验证站点 A 上的网络连接状态：
++
+`network port show`
+
 +
 以下示例显示了四节点 MetroCluster 配置中的网络端口使用情况：
 
@@ -2770,7 +2773,7 @@ https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
 `s存储聚合创建`
 
 +
-如果您已通过集群管理界面登录到集群，则可以在集群中的任何节点上创建聚合。要验证是否已在特定节点上创建聚合，应使用 -node 参数或指定该节点所拥有的驱动器。
+如果您已通过集群管理界面登录到集群，则可以在集群中的任何节点上创建聚合。要验证是否已在特定节点上创建聚合，应使用 ` -node` 参数或指定该节点所拥有的驱动器。
 
 +
 此外，还必须确保仅在聚合中包含未镜像磁盘架上的驱动器。
@@ -2819,7 +2822,7 @@ MetroCluster modify -enable-unmirrored-aggr-deployment false`
 
 
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 
 
 
@@ -2948,9 +2951,9 @@ mccint-fas9000-0304
 ----
 
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"^]
 
 
 
@@ -2964,17 +2967,14 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网�
 
 您应验证 MetroCluster 配置的切换，修复和切回操作。
 
-. 使用 _RAID MetroCluster 管理和灾难恢复指南 _ 中提到的协商切换，修复和切回过程。
-+
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-mgmt-dr/home.html["MetroCluster 管理和灾难恢复"]
-
+. 使用中的协商切换，修复和切回过程 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-mgmt-dr/home.html["MetroCluster 管理和灾难恢复"]
 
 
 
 
 == 配置 MetroCluster Tiebreaker 或 ONTAP 调解器软件
 
-您可以从第三个站点下载并安装 MetroCluster Tiebreaker 软件，或者从 ONTAP 9.7 开始安装 ONTAP 调解器。
+您可以从第三个站点下载并安装 MetroCluster Tiebreaker 软件，也可以从 ONTAP 调解器 ONTAP 9.7 开始安装。
 
 您必须有一个可用的 Linux 主机，该主机可通过网络连接到 MetroCluster 配置中的两个集群。具体要求请参见 MetroCluster Tiebreaker 或 ONTAP 调解器文档。
 
@@ -3023,4 +3023,4 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/
 
 
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"^]

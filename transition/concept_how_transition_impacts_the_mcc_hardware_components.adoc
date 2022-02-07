@@ -31,7 +31,7 @@ summary: 完成过渡操作步骤后，已更换或重新配置现有 MetroClust
 如果 MetroCluster FC 配置不使用集群交换机，则会添加新的 IP 交换机以提供后端交换机网络结构。
 
 +
-xref:concept_considerations_for_using_existing_ip_switches.adoc[IP 交换机注意事项]
+link:concept_considerations_for_using_existing_ip_switches.html["IP 交换机注意事项"]
 
 * * 集群对等网络 *
 +

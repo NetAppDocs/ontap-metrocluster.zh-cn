@@ -19,6 +19,8 @@ summary: 您必须使用 Cisco 专用的步骤更换发生故障的 Cisco FC 交
 在此操作步骤的示例中， FC_switch_A_1 是运行正常的交换机， FC_switch_B_1 是受损的交换机。下表显示了示例中的交换机端口使用情况：
 
 |===
+
+
 | 角色 | 端口 
 
 
@@ -53,8 +55,8 @@ ISL 连接
 
 您的交换机端口使用情况应遵循建议的分配。
 
-* xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.adoc[使用 ONTAP 9.0 时 FC 交换机的端口分配]
-* xref:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.adoc[使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配]
+* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]
+* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
 
 
 .步骤
@@ -63,7 +65,7 @@ ISL 连接
 这些步骤在运行正常的交换机上执行。
 
 +
-.. 进入配置模式： + ` * 配置 t*`
+.. 进入配置模式： + `conf t`
 .. 使用 `interface` 和 `shut` 命令禁用运行正常的交换机上的 ISL 端口。
 +
 [listing]
@@ -89,7 +91,10 @@ FC_switch_A_1#
 这些步骤将在受损交换机上执行。
 
 +
-.. 进入配置模式： + ` * 配置 t*`
+.. 进入配置模式：
++
+`配置`
+
 .. 如果受损交换机仍在运行，请使用 interface 和 shut 命令禁用受损交换机上的 FC-VI 和 HBA 端口。
 +
 [listing]
@@ -115,7 +120,7 @@ FC_switch_B_1#
 
 . 如果受损交换机仍在运行，请确定此交换机的 WWN ：
 +
-` * 显示 WWN 交换机 *`
+`sWWN 如何切换`
 
 +
 [listing]
@@ -130,10 +135,13 @@ FC_switch_B_1#
 
 +
 .. 打开替代交换机的电源并让其启动。
-.. 检查替代交换机上的固件版本，以确认其与其他 FC 交换机的版本匹配： + ` * show version*`
+.. 检查替代交换机上的固件版本，以确认其与其他 FC 交换机的版本匹配：
++
+`s如何使用版本`
+
 .. 按照 _Cisco MetroCluster 安装和配置指南 _ 中所述配置替代交换机，跳过 "`在 FC 交换机上配置分区` " 一节。
 +
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
 +
 稍后将在此操作步骤中配置分区。
@@ -184,7 +192,7 @@ FC_switch_B_1#
 ----
 . 验证替代交换机上的 ISL 端口是否已启动：
 +
-` * 显示接口简介 *`
+`s如何使用接口简介`
 
 . 调整替代交换机上的分区，使其与 MetroCluster 配置匹配：
 +
@@ -199,7 +207,10 @@ FC_switch_A_1(config-zone)# zoneset distribute full vsan 10
 FC_switch_A_1(config-zone)# zoneset distribute full vsan 20
 FC_switch_A_1(config-zone)# end
 ----
-.. 在替代交换机上，验证是否已从运行状况良好的交换机： + ` * show zone*` 中正确检索到分区信息
+.. 在替代交换机上，验证是否已从运行状况良好的交换机正确检索到分区信息：
++
+`s如何分区`
+
 +
 [listing]
 ----
@@ -240,6 +251,8 @@ FC_switch_B_1#
 *** FC_switch_B_1 ： 20 ： 00 ： 54 ： 7f ： ee ： c6 ： 80 ： 78
 
 
+
+
 +
 [listing]
 ----
@@ -251,9 +264,10 @@ FC_switch_A_1# show wwn switch
 Switch WWN is 20:00:54:7f:ee:b8:24:c0
 FC_switch_A_1#
 ----
++
 .. 删除不属于这两台交换机的交换机 WWN 的分区成员。
 +
-在此示例中，输出中的 `no member interface` 显示以下成员不与网络结构中任一交换机的交换机 WWN 关联，必须将其删除：
+在此示例中，输出中的 "`no member interface` " 显示以下成员不与网络结构中任一交换机的交换机 WWN 关联，必须将其删除：
 
 +
 *** 分区名称 FC-VI_Zone_1_10 vsan 10
@@ -277,12 +291,6 @@ FC_switch_A_1#
 **** 接口 fc1/9 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50
 **** 接口 fc1/10 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50
 **** 接口 fc1/11 swwn 20 ： 00 ： 54 ： 7f ： ee ： e3 ： 86 ： 50 以下示例显示了这些接口的删除：
-
-
-
-
-
-
 +
 [listing]
 ----
@@ -308,7 +316,10 @@ FC_switch_A_1#
  FC_switch_B_1(config-zone)# end
  FC_switch_B_1# copy running-config startup-config
 ----
-+
+
+
+
+
 .. 将替代交换机的端口添加到分区中。
 +
 更换用的交换机上的所有布线必须与受损交换机上的布线相同：
@@ -338,7 +349,10 @@ FC_switch_A_1#
  FC_switch_B_1(config-zone)# end
  FC_switch_B_1# copy running-config startup-config
 ----
-.. 验证是否已正确配置分区： + ` * show zone*`
+.. 验证分区配置是否正确：
++
+`s如何分区`
+
 +
 以下示例输出显示了三个分区：
 
@@ -401,18 +415,30 @@ FC_switch_A_1#
 
 . 在 ONTAP 中验证 MetroCluster 配置的运行情况：
 +
-.. 检查系统是否为多路径： + ` * node run -node _node-name_ sysconfig -A*`
-.. 检查两个集群上是否存在任何运行状况警报： + ` * system health alert show*`
+.. 检查系统是否为多路径：
++
+`node run -node _node-name_ sysconfig -a`
+
+.. 检查两个集群上是否存在任何运行状况警报：
++
+`s系统运行状况警报显示`
+
 .. 确认 MetroCluster 配置以及操作模式是否正常：
 +
-` * MetroCluster show*`
+`MetroCluster show`
 
 .. 执行 MetroCluster 检查：
 +
-` * MetroCluster check run*`
+`MetroCluster check run`
 
-.. 显示 MetroCluster 检查的结果： + ` * MetroCluster check show*`
-.. 检查交换机上是否存在任何运行状况警报（如果存在）： + ` * storage switch show*`
+.. 显示 MetroCluster 检查的结果：
++
+MetroCluster check show`
+
+.. 检查交换机上是否存在任何运行状况警报（如果存在）：
++
+`s存储开关显示`
+
 .. 运行 Config Advisor 。
 +
 https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]

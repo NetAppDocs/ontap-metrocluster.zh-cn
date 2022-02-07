@@ -12,8 +12,10 @@ summary: 此操作步骤会在整个过程中使用示例名称来标识涉及�
 [role="lead"]
 此操作步骤会在整个过程中使用示例名称来标识涉及的 DR 组，节点和交换机。
 
-[cols="3*"]
+[cols="1,2,2"]
 |===
+
+
 | DR 组 | cluster_A 位于 site_A | site_B 上的 cluster_B 
 
 

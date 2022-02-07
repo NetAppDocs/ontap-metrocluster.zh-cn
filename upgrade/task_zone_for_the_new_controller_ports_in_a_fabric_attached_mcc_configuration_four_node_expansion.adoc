@@ -12,6 +12,4 @@ summary: FC 交换机分区必须支持新的控制器连接。如果您使用 N
 [role="lead"]
 FC 交换机分区必须支持新的控制器连接。如果您使用 NetApp 提供的参考配置文件（ Reference Configuration Files ， RCF ）配置交换机，则分区是预配置的，您无需进行任何更改。
 
-如果您手动配置了 FC 交换机，则必须确保新控制器模块的启动程序连接的分区正确无误。请参见 _Fabric-attached MetroCluster 安装和配置指南 _ 中有关分区的章节。
-
-link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+如果您手动配置了 FC 交换机，则必须确保新控制器模块的启动程序连接的分区正确无误。请参见中有关分区的章节 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]。

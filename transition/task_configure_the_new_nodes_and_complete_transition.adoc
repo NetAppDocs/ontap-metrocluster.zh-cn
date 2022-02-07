@@ -189,11 +189,9 @@ NOTE: 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创�
 
 您必须在新节点 node_A_2-IP 和 node_B_2-IP 上配置数据 LIF 。
 
-如果尚未分配给广播域，则必须将新控制器上可用的任何新端口添加到广播域中。如果需要，请在新端口上创建 VLAN 或接口组。请参见 _Network Management Guide_ 。
+如果尚未分配给广播域，则必须将新控制器上可用的任何新端口添加到广播域中。如果需要，请在新端口上创建 VLAN 或接口组。请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"^]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"^]
-
-. 运行以下命令以确定当前端口使用情况和广播域：
+. 确定当前端口使用情况和广播域：
 +
 `network port show``network port broadcast-domain show`
 
@@ -232,7 +230,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 请参见中收集的信息 link:task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.html["正在创建网络配置"]。
 
 +
-.. 运行以下命令以检查 LIF 的主端口：
+.. 检查 LIF 的主端口：
 +
 `network interface show -field home-port`
 

@@ -2,7 +2,7 @@
 permalink: upgrade/task_refresh_4n_mcc_ip.html 
 sidebar: sidebar 
 keywords: metrocluster, upgrade, refresh, four, node, ip, configuration, add, autosupport 
-summary: 从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配置扩展为临时八节点配置，然后删除旧的灾难恢复（ DR ）组来升级此配置中的控制器和存储。 
+summary: 从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配置扩展为临时八节点配置，然后删除旧的灾难恢复（ Disaster Recovery ， DR ）组来升级四节点 IP 配置中的控制器和存储。 
 ---
 = 刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
 :icons: font
@@ -10,7 +10,7 @@ summary: 从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配�
 
 
 [role="lead"]
-从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配置扩展为临时八节点配置，然后删除旧的灾难恢复（ DR ）组来升级此配置中的控制器和存储。
+从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配置扩展为临时八节点配置，然后删除旧的灾难恢复（ Disaster Recovery ， DR ）组来升级四节点 IP 配置中的控制器和存储。
 
 .关于此任务
 * 运行 ONTAP 9.8 及更高版本的系统支持此操作步骤。
@@ -84,12 +84,9 @@ image::../media/mcc_dr_group_b.png[MCC DR 组 b]
 +
 执行中的步骤 link:../maintain/task_move_a_metadata_volume_in_mcc_configurations.html["在 MetroCluster 配置中移动元数据卷"]。
 
-. 按照控制器硬件升级快速指南 _ 中的以下过程将数据从旧节点移动到新节点。
+. 按照中的以下过程将数据从旧节点移动到新节点 https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/home.html["其他平台过程：《控制器硬件升级快速指南》"^]
 +
-https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/home.html["其他平台过程：《控制器硬件升级快速指南》"]
-
-+
-.. 执行中的所有步骤 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["创建聚合并将卷移动到新节点"]。
+.. 执行中的所有步骤 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["创建聚合并将卷移动到新节点"^]。
 +
 
 NOTE: 您可以选择在创建聚合时或之后对其进行镜像。
@@ -139,14 +136,14 @@ MetroCluster check show`
  a| 
 Tiebreaker
  a| 
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["正在添加 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["正在添加 MetroCluster 配置"] 在 _MetroCluster Tiebreaker 安装和配置 _ 中。
 
 
 
  a| 
 调解器
  a| 
-link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"] 在 _IP MetroCluster 安装和配置指南 _ 中
+link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"] 在 _IP MetroCluster 安装和配置 _ 中。
 
 
 

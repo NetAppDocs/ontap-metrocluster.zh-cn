@@ -67,7 +67,7 @@ license_key 的长度为 28 位数。
 
 . 根据需要配置监控服务。
 +
-链接： ./install-IP/concept_considerations_mediate.adoc
+link:../install-ip/concept_considerations_mediator.html["调解器注意事项"]
 
 +
 link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["为计划外自动切换配置 ONTAP 调解器服务"]

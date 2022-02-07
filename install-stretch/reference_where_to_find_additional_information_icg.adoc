@@ -2,7 +2,7 @@
 permalink: install-stretch/reference_where_to_find_additional_information_icg.html 
 sidebar: sidebar 
 keywords: metrocluster, stretch, installation, additional, information 
-summary: 您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作的更多信息。 
+summary: 您可以从 NetApp 文档了解有关 MetroCluster 配置和操作的更多信息。 
 ---
 = 从何处查找追加信息
 :icons: font
@@ -10,20 +10,20 @@ summary: 您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作�
 
 
 [role="lead"]
-您可以从 NetApp 文档库了解有关 MetroCluster 配置和操作的更多信息。
+您可以了解有关 MetroCluster 配置和操作的更多信息。
 
 
 
-== MetroCluster 和其他指南
+== MetroCluster 和其他信息
 
 |===
 
 
-| 指南 | 内容 
+| 信息 | 主题 
 
 
  a| 
-https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 文档中心"]
+https://docs.netapp.com/us-en/ontap/index.html["ONTAP 9 文档"^]
  a| 
 * 所有 MetroCluster 指南
 
@@ -107,7 +107,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/
  a| 
 Active IQ Unified Manager 文档
 
-https://www.netapp.com/support-and-training/documentation/["NetApp 文档：产品指南和资源"]
+https://www.netapp.com/support-and-training/documentation/["NetApp 文档：产品指南和资源"^]
  a| 
 * 监控 MetroCluster 配置和性能
 

@@ -88,7 +88,7 @@ image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[
  a| 
 集群名称
 
-本指南中使用的示例： site_A
+此操作步骤中使用的示例： site_A
  a| 
 
 
@@ -131,7 +131,7 @@ DNS 名称服务器
  a| 
 节点 1
 
-本指南中使用的示例： controller_A_1
+此操作步骤中使用的示例： controller_A_1
  a| 
  a| 
  a| 
@@ -144,7 +144,7 @@ DNS 名称服务器
 
 如果使用双节点 MetroCluster 配置（每个站点一个节点），则不需要此配置。
 
-本指南中使用的示例： controller_A_2
+此操作步骤中使用的示例： controller_A_2
  a| 
  a| 
  a| 
@@ -3474,10 +3474,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["高�
 您应验证 MetroCluster 配置的切换，修复和切回操作。
 
 .步骤
-. 使用 _RAID MetroCluster 管理和灾难恢复指南 _ 中提到的协商切换，修复和切回过程。
-+
-https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster 管理和灾难恢复"^]
-
+. 使用中的协商切换，修复和切回过程 https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster 管理和灾难恢复"]
 
 
 
@@ -3492,7 +3489,7 @@ https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster
 `s系统配置备份设置修改目标 URL`
 
 +
-https://docs.netapp.com/us-en/ontap/system-admin/index.html["使用 CLI 进行集群管理"^] 在部分下包含追加信息。
+https://docs.netapp.com/us-en/ontap/system-admin/config-backup-file-concept.html["管理配置备份"^] 包含追加信息。
 
 
 

@@ -87,7 +87,7 @@ image::../media/workflow_2n_transition_moving_data_to_new_shelves.png[工作流 
 
 您必须遵循详细的过渡操作步骤。
 
-在以下步骤中，您将转到本指南的其他部分。您必须按给定顺序执行每个引用部分中的步骤。
+在以下步骤中，您将转到其他过程。您必须按给定顺序执行每个引用的操作步骤中的步骤。
 
 .步骤
 . 按照中的步骤规划端口映射 link:../transition/concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html#mapping-ports-from-the-metrocluster-fc-nodes-to-the-metrocluster-ip-nodes["将端口从 MetroCluster FC 节点映射到 MetroCluster IP 节点"]。

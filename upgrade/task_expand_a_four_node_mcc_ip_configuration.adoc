@@ -247,7 +247,7 @@ cluster_A::>
  a| 
 Tiebreaker
  a| 
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for-modifying-metrocluster-tiebreaker-configurations["删除 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for-modifying-metrocluster-tiebreaker-configurations["删除 MetroCluster 配置"]。
 
 
 
@@ -400,7 +400,7 @@ Do you want to use this configuration? {yes, no} [yes]: yes
 示例中使用的主端口是特定于平台的。您应使用特定于 MetroCluster IP 节点平台的相应主端口。
 
 .步骤
-. 在新的 MetroCluster IP 节点 MetroCluster 上，按照 _LIF IP 安装和配置指南 _ 中的过程配置集群间 LIF 。
+. 在新的 MetroCluster IP 节点上，使用以下过程配置集群间 LIF ：
 +
 link:../install-ip/task_sw_config_configure_clusters.html#peering-the-clusters["在专用端口上配置集群间 LIF"]
 
@@ -439,7 +439,7 @@ cluster_B::>
 MetroCluster configuration-settings dr-group create -partner-cluster`
 
 +
-有关 MetroCluster 配置设置和连接 MetroCluster 的详细信息，请参见 _Internet IP 安装和配置指南 _ 。
+有关 MetroCluster 配置设置和连接的详细信息，请参见以下内容：
 
 +
 link:../install-ip/concept_considerations_mcip.html["MetroCluster IP 配置的注意事项"]

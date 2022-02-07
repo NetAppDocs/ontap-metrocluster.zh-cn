@@ -989,7 +989,7 @@ network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
 .步骤
 . 准备 IP 交换机以应用新的 RCF 文件。
 +
-按照 _IP MetroCluster 安装和配置指南 _ 中适用于您的交换机供应商一节中的步骤进行操作。
+按照适用于您的交换机供应商的操作步骤中的步骤进行操作：
 
 +
 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
@@ -1032,10 +1032,7 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 +
 https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
 
-. 按照 _IP MetroCluster 安装和配置指南 _ 中所述，使用缆线将控制器连接到 IP 交换机。
-+
-link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
-
+. 按照中所述，使用缆线将控制器连接到 IP 交换机 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]。
 +
 ** link:["为 IP 交换机布线"]
 
@@ -1139,7 +1136,7 @@ FC
 `ha-config show`
 
 +
-所有组件的 HA 状态均应为 "mccip" 。
+所有组件的 HA 状态均应为 `mCCIP` 。
 
 . 如果显示的控制器或机箱系统状态不正确，请设置 HA 状态：
 +
@@ -1508,7 +1505,7 @@ aggr0_node_B_1           online          raid_dp, aggr         root, nosnap=on,
 NOTE: 选项 6 将重新启动节点两次，然后再完成
 
 +
-对系统 ID 更改提示回答 `y` 。等待第二条重新启动消息：
+对系统 ID 更改提示回答 "`y` " 。等待第二条重新启动消息：
 
 +
 [listing]
@@ -1551,13 +1548,13 @@ Rebooting to load the restored env file...
  a| 
 外部密钥管理
  a| 
-选项 `11`
+选项 "`11` "
 
 按照提示提供恢复和还原密钥管理器配置所需的输入。
 
 |===
 +
-根据密钥管理器设置，执行恢复操作步骤的方法是，在第一个启动菜单提示符处选择选项 `10` 或选项 `11` ，然后选择选项 `6` 。要完全启动节点，您可能需要重复执行恢复操作步骤，并继续使用选项 `1` （正常启动）。
+根据密钥管理器设置，执行恢复操作步骤的方法是选择选项 "`10` " 或选项 "`11` " ，然后在第一个启动菜单提示符处选择选项 `6` 。要完全启动节点，您可能需要重复恢复操作步骤，然后选择 "`1` " （正常启动）。
 
 . 等待更换的节点启动。
 +
@@ -1791,14 +1788,14 @@ MetroCluster check show`
  a| 
 Tiebreaker
  a| 
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["正在添加 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["正在添加 MetroCluster 配置"]。
 
 
 
  a| 
 调解器
  a| 
-link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"] 在 _IP MetroCluster 安装和配置指南 _ 中
+link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"]。
 
 
 

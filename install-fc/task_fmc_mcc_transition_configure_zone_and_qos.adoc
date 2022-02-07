@@ -73,7 +73,7 @@ Brocade-6510:admin> zone -–show
 +
 `dlsreset`
 
-. 使用以下命令验证 IOD 设置：
+. 验证 IOD 设置：
 +
 `iodshow`
 

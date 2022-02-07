@@ -14,7 +14,7 @@ summary: 如果要在 MetroCluster IP 配置中使用新的 IP 交换机，则�
 
 如果使用的是新交换机，则需要执行此任务。
 
-如果您使用的是现有交换机，请继续执行 xref:task_transition_from_mcc_fc_to_mcc_ip_configurations.adoc[移动本地集群连接]。
+如果您使用的是现有交换机，请继续执行 link:task_transition_from_mcc_fc_to_mcc_ip_configurations.html["移动本地集群连接"]。
 
 . 安装新 IP 交换机并将其装入机架。
 . 准备 IP 交换机以应用新的 RCF 文件。
@@ -29,7 +29,7 @@ summary: 如果要在 MetroCluster IP 配置中使用新的 IP 交换机，则�
 . 如有必要，将交换机上的固件更新为支持的版本。
 . 使用 RCF 生成器工具根据交换机供应商和平台型号创建 RCF 文件，然后使用该文件更新交换机。
 +
-按照 _IP MetroCluster 安装和配置指南 _ 中适用于您的交换机供应商一节中的步骤进行操作。
+按照 _IP MetroCluster 安装和配置 _ 中适用于您的交换机供应商一节中的步骤进行操作。
 
 +
 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
