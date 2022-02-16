@@ -1,7 +1,7 @@
 ---
 permalink: maintain/index.html 
 sidebar: sidebar 
-keywords: metrocluster, maintain, service, decide, service, guide, firmware, upgrade, hardware replacement, drive, shelf, ip switch, fc switch, bridge, sas cable 
+keywords: metrocluster, maintain, service 
 summary: 您可以在 MetroCluster 配置中维护 MetroCluster 专用的硬件组件。 
 ---
 = 维护 MetroCluster 组件

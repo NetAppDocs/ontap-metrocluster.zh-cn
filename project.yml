@@ -42,7 +42,7 @@ homepage:
     - title: 安装 Tiebreaker
       url: "/tiebreaker/concept_overview_of_the_tiebreaker_software.html"
     - title: 安装调解器（仅限 MetroCluster IP ）
-      url: "/install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html"
+      url: "/install-ip/concept_mediator_requirements.html"
   - title: 维护
     links:
     - title: FC 交换机

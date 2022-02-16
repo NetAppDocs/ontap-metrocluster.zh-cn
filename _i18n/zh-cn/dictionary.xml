@@ -11154,8 +11154,6 @@
   <block id="0cbcf8488c0db66baf9b2d34702dd7ba" category="paragraph">`MetroCluster configuration-settings add -mediate-address-1.0-ip-address`</block>
   <block id="23c36d85c3ecc94e8e88986b2d4194cc" category="paragraph">`MetroCluster configuration-settings add -mediate-address-ip-address`</block>
   <block id="04c19f5eb2ebdc099239a7074f8d6534" category="paragraph">9.10.1 及更高版本</block>
-  <block id="29f0de2b0e55e07da57cbc094ee90f18" category="inline-link">使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900</block>
-  <block id="698790ff3a9e772b95a90b745268af9a" category="paragraph"><block ref="698790ff3a9e772b95a90b745268af9a" category="inline-link-rx"></block></block>
   <block id="c6d4a9d3f7628712dae7a41ab974439d" category="inline-link">使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 及更高版本的控制器硬件</block>
   <block id="6c8dc70fbcb473ab96451fff57f7f3a0" category="paragraph"><block ref="6c8dc70fbcb473ab96451fff57f7f3a0" category="inline-link-rx"></block></block>
   <block id="e513aa5cfbbd2f249692cdb0e9b36322" category="inline-link">使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7</block>
@@ -11672,7 +11670,6 @@
   <block id="8dc768991d5b26a5dd964209b0336989" category="paragraph"><block ref="8dc768991d5b26a5dd964209b0336989" category="inline-link-rx"></block></block>
   <block id="65bbb6a451cc080e3b7ee47c366c3253" category="paragraph">请参见中的 "`复制 SVM 配置` "<block ref="26e370aec20dfe01945665ebaf4ffc1f" category="inline-link-rx"></block> 有关配置 SVM DR 关系的详细信息。</block>
   <block id="d0ed0d8f16085a6601b051dbf42f09e4" category="paragraph"><block ref="d0ed0d8f16085a6601b051dbf42f09e4" category="inline-link-rx"></block></block>
-  <block id="38640edf067eb08148bbb243d83148a7" category="paragraph">只有当每个节点的非易失性缓存的 SyncMirror 镜像和 DR 镜像均在运行且缓存和镜像在发生故障时保持同步时，才会启动 MAUSO 。</block>
   <block id="29464d5954abf5bc9affd5f6ae57e7e5" category="admonition">只有在发生站点灾难时，才会启动 MAUSO 。站点灾难是指同一站点上的 * 所有 * 节点发生故障；但存在一些例外情况。</block>
   <block id="76febd606fc24a36395547ab83980f59" category="paragraph">在以下关闭情形下，会 * 未 * 启动 MAUSO ：</block>
   <block id="1fb135b5dd970a96db5c2b3025ddcbf8" category="list-text">您启动了关闭操作。例如，当您：</block>
@@ -12587,7 +12584,6 @@
   <block id="ab08b90a3ec069f002ca9a306b280075" category="admonition">从 ONTAP 9.6 开始，可以使用 ONTAP System Manager 对 MetroCluster IP 配置执行切换和切回操作。</block>
   <block id="51c314385c544d39d9b0b57b7e4adc0c" category="paragraph">从 ONTAP 9.5 开始，支持网桥的带内管理。这意味着可以通过与网桥的 FC 连接从 ONTAP 命令行界面配置和监控网桥。不需要通过网桥以太网端口对网桥进行物理访问，也不需要网桥用户界面。</block>
   <block id="4de57bb3ff326a74dbe2d8f7f29b872e" category="paragraph">从 ONTAP 9.8 开始，默认情况下支持网桥的带内管理，并弃用带外 SNMP 管理。</block>
-  <block id="76523054e1a9c487e3ee7fc5639b663c" category="paragraph">您必须连续对每个交换机重复此任务。</block>
   <block id="330b7770e81504eae12777c67ca4c41a" category="admonition">从 ONTAP 9.8 开始， ` * storage switch*` 命令将替换为 ` * system switch*` 。以下步骤显示了 ` * storage switch*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system switch*` 命令。</block>
   <block id="bcde10ce4a2143b2697a304bf8b1428c" category="list-text">进入配置模式： + `conf t`</block>
   <block id="373d444a2cd198885d109a2e14d51bec" category="list-text">检查替代交换机上的固件版本，以确认其与其他 FC 交换机的版本匹配：</block>
@@ -12728,4 +12724,11 @@
   <block id="62e6ef0d9ca5ed550d07c950fb908783" category="list-text">将控制 TCP 连接配置为 48 ，将数据连接配置为 26 ，以标记该差分服务代码点（ DSCP ）值上的所有数据包：</block>
   <block id="cae6c8fdb4bf6ec6d4303accb806c01e" category="list-text">使用以下配置文件名称配置 FCIP 配置文件：</block>
   <block id="186580027a6082f2b0bf52acc31fef23" category="list-text">验证 IOD 设置：</block>
+  <block id="5c5abfeb23848eee7e1fb00c2a61db6c" category="paragraph">只有在以下情况下才会启动 MAUSO ：</block>
+  <block id="d805df154de0ed954114c0b8a30d6cf0" category="list-text">每个节点的非易失性缓存的 SyncMirror 镜像和灾难恢复镜像均在运行，并且在发生故障时，缓存和镜像将保持同步。</block>
+  <block id="539aa46206b59c007151f02f46d35617" category="list-text">运行正常的站点上的节点均未处于接管状态。</block>
+  <block id="1bcbe4bd68c550a7ed28f4bdd586bc74" category="inline-link">使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900</block>
+  <block id="5ddb9938498e31a4b1c392ab5953e15b" category="paragraph"><block ref="5ddb9938498e31a4b1c392ab5953e15b" category="inline-link-rx"></block></block>
+  <block id="9630e0ae86014261ce835fe1e1ffcd0e" category="paragraph">您必须连续对每个交换机重复此任务。</block>
+  <block id="b8ce668f7b81ebccc724b47a22aafe9f" category="paragraph">MetroCluster 系统的服务过程包括驱动器架， IP 交换机， FC 交换机， FC-SAS 网桥和 SAS 缆线的固件升级和硬件更换过程。</block>
 </blocks>

@@ -134,7 +134,7 @@ FC
  a| 
 9.10.1 及更高版本
  a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-mendocino/index.html["使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900"^]
+https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900"^]
 
 
 
