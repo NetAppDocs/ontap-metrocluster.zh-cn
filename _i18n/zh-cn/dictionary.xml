@@ -1937,7 +1937,6 @@
   <block id="2e6da68450b987e7ad374e965e63ad0e" category="list-text">ONTAP 9.8 及更高版本支持四节点和八节点配置。</block>
   <block id="ed332ae2e9a3efd17382e627809f4c84" category="paragraph">请勿在运行 ONTAP 9.8 之前版本的四节点或八节点配置上使用此操作步骤。</block>
   <block id="dfaa931cb3298c6a8b82f108a31104cb" category="list-text">您的原始平台和新平台必须兼容并受支持。</block>
-  <block id="f0a86e811ffbd36a13f5a704cba084eb" category="admonition">如果原始平台或新平台是使用 FC-VI 模式下端口 1c / 1d 的 8020 系统，请联系技术支持。</block>
   <block id="b7071513452c80dcfb33a91f6c6f0ecd" category="list-text">此操作步骤适用场景控制器模块采用 MetroCluster FC 配置（双节点延伸型 MetroCluster 或双节点或四节点光纤连接 MetroCluster 配置）。</block>
   <block id="b8c2f69c5a69a0de627c50e7bc6a4cf9" category="list-text">配置中的所有控制器都应在同一维护期间进行升级。</block>
   <block id="4eef4343ca82afa388103a13e5acd0be" category="paragraph">在此维护活动之外，不支持使用不同类型的控制器运行 MetroCluster 配置。</block>
@@ -1945,7 +1944,6 @@
   <block id="b93f37f9b29ffcc5ed4a451ba3da2f03" category="paragraph">不支持使用内部磁盘架的平台型号。</block>
   <block id="d9ac7caa0b14c170344b2e959f8034c0" category="cell">旧平台型号</block>
   <block id="9ced91efcf548438eaefe7f78378491e" category="cell">新平台型号</block>
-  <block id="8d26d11f6cef9d6a6c27ff854b3fc1e6" category="list-text">FAS80xx</block>
   <block id="c37feb3492d999b3f216448183986be2" category="list-text">FAS8200</block>
   <block id="1752b126dd5e4219fbf53c09ee63d51e" category="list-text">FAS8300</block>
   <block id="0588c4f1b58eac9f5062dc1da6e8435a" category="list-text">FAS8700</block>
@@ -1954,7 +1952,6 @@
   <block id="56c7968a1d140906ab8313162854322d" category="list-text">AFF A700</block>
   <block id="cd71bc5f24bea355d7c54ac4a1bd00a5" category="list-text">建议提前映射原始节点与新节点之间的存储， FC 和以太网连接。</block>
   <block id="5c2f8b522f7cee27716379e96d7e9f9b" category="list-text">如果新平台的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。</block>
-  <block id="ac7815000e080de08acacad1aef30632" category="paragraph">有关详细信息，请参见<block ref="bf137fbaca3418d969a7cbbc6acb278c" category="inline-link-rx"></block></block>
   <block id="d56109dc6cdff9e5d4982aefd8e09776" category="paragraph">此操作步骤使用以下示例名称：</block>
   <block id="e9a54e1b4684f979a8cb74d5905f649a" category="list-text">site_A</block>
   <block id="6ebf1aa13bc5d22e1a7b81b495a4bde5" category="list-text">升级前：</block>
@@ -2100,7 +2097,6 @@
   <block id="001201e7e95e93ec36501bc42b2e7e9b" category="paragraph">机架空间取决于控制器模块的平台型号，交换机类型以及配置中的存储架数量。</block>
   <block id="c46deb6c13661b4156a87c65de200ab5" category="list-text">在机架或机柜中安装控制器模块。</block>
   <block id="30959867bd2ab160df81515782a357b1" category="list-text">如果新控制器模块未附带自身的 FC-VI 卡，并且旧控制器中的 FC-VI 卡在新控制器上兼容，请交换 FC-VI 卡并将其安装在正确的插槽中。</block>
-  <block id="f3a6e1fe094dc62639f83bbc858ee252" category="paragraph">请参见 <block ref="c7de98113170eef3b5acdc2cf9602241" category="inline-link-macro-rx"></block> 有关 FC-VI 卡的插槽信息。</block>
   <block id="c128b2ab68429454a80c551ee2dde909" category="list-text">按照 _MetroCluster 安装和配置指南 _ 中所述，为控制器的电源，串行控制台和管理连接布线。</block>
   <block id="af0193fb968af44ba857457d276dbbff" category="paragraph">此时，请勿连接与旧控制器断开连接的任何其他缆线。</block>
   <block id="160d469f0d322af20c918ade628d8dd9" category="list-text">打开新节点的电源，并在系统提示显示 LOADER 提示符时按 Ctrl-C 。</block>
@@ -2245,7 +2241,6 @@
   <block id="b7e5b55538476224f8195437bdd6b155" category="section-title">正在还原 Tiebreaker 监控</block>
   <block id="cf01be10c4ad6c0e087f2447c096712d" category="paragraph">如果先前已将 MetroCluster 配置配置为由 Tiebreaker 软件监控，则可以还原 Tiebreaker 连接。</block>
   <block id="0c3de4f48f152830cf54a3c7110e5b3e" category="inline-link">正在添加 MetroCluster 配置</block>
-  <block id="ace7c96df4bae1a7d80b832dc5c02f95" category="list-text">使用中的步骤<block ref="8a40a48df09f86826787416776d41780" category="inline-link-rx"></block> 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中。</block>
   <block id="3a3fe29bce41cc439cab768ef6c51ea0" category="summary">您必须使用 storage failover modify 命令在现有控制器模块上设置模式。模式值将在稍后重新启动控制器模块后启用。</block>
   <block id="b6982e2513cfb04d6a59fdcd3b023101" category="doc">在现有控制器模块上设置 HA 模式</block>
   <block id="63913131852a8828687463e2ffb0a661" category="list-text">将模式设置为 HA ：</block>
@@ -10791,12 +10786,10 @@
   <block id="4ab496c462bc9a729fe703221c683545" category="paragraph"><block ref="4ab496c462bc9a729fe703221c683545" category="inline-link-macro-rx"></block></block>
   <block id="f394db30bc798c9a165a6baa7029734d" category="list-text"><block ref="f394db30bc798c9a165a6baa7029734d" category="inline-link-macro-rx"></block></block>
   <block id="1ba2ae150e1cee5c2dbe25aa1a0e18b0" category="paragraph">按照提示提供恢复和还原密钥管理器配置所需的输入。</block>
-  <block id="d5515afb7a540243e68f5f9378938f3d" category="paragraph">根据密钥管理器设置，执行恢复操作步骤的方法是，在第一个启动菜单提示符处选择选项 `10` 或选项 `11` ，然后选择选项 `6` 。要完全启动节点，您可能需要重复执行恢复操作步骤，并继续使用选项 `1` （正常启动）。</block>
   <block id="9cf18883abd310f0e24341194095b229" category="list-text">如果使用根加密，则根据您使用的 ONTAP 版本，选择启动菜单选项或问题描述启动菜单命令以用于密钥管理配置。</block>
   <block id="716a92112769d0f62895dc8c3a9fe47f" category="list-text">从 ONTAP 9.8 开始，选择启动菜单选项。</block>
   <block id="52b1f5429bdd6813cde83cf7eb1f6838" category="list-text">在 ONTAP 9.7 及更早版本中，问题描述启动菜单命令。</block>
   <block id="2d9e786c47fe4bbb5d2cec20e0f373eb" category="list-text">如果使用根加密，则根据您使用的 ONTAP 版本，为您的密钥管理配置选择启动菜单选项或再次选择问题描述启动菜单命令。</block>
-  <block id="96c86abb61a7377e730b6b80e3d90aec" category="paragraph">您可能需要在启动菜单提示符处多次问题描述 recovery_xxxxxxxx_keymanager 命令，直到节点完全启动为止。</block>
   <block id="1739256103cb7d112712a588fb2f6506" category="inline-link-macro">设置 ONTAP</block>
   <block id="fa60d55773bc424e586a8c4898b4bc9f" category="inline-link-macro">磁盘和聚合管理</block>
   <block id="a722c96220981ad0bb2bcff8ce41fc72" category="inline-link">使用 CLI 进行数据保护</block>
@@ -12731,4 +12724,15 @@
   <block id="5ddb9938498e31a4b1c392ab5953e15b" category="paragraph"><block ref="5ddb9938498e31a4b1c392ab5953e15b" category="inline-link-rx"></block></block>
   <block id="9630e0ae86014261ce835fe1e1ffcd0e" category="paragraph">您必须连续对每个交换机重复此任务。</block>
   <block id="b8ce668f7b81ebccc724b47a22aafe9f" category="paragraph">MetroCluster 系统的服务过程包括驱动器架， IP 交换机， FC 交换机， FC-SAS 网桥和 SAS 缆线的固件升级和硬件更换过程。</block>
+  <block id="46e4f6024087b0e1c3fd4a21ef438dad" category="admonition">如果原始或新平台是使用 FC-VI 模式下端口 1c 和 1d 的 FAS8020 或 AFF8020 系统，请联系技术支持。</block>
+  <block id="ea82c7b5fb58362afd3d6e95de6eb609" category="list-text">FAS80x0</block>
+  <block id="9b81337122f1b971d326821246c0fb05" category="list-text">AFF80x0</block>
+  <block id="9630fdb2df8bbf2bbd201638e1cc2f2e" category="admonition">在 FC-VI 模式下使用 1c 和 1d 端口时，不支持升级 FAS8020 或 AFF8020 。</block>
+  <block id="51556e4766045ccfd74aafe1f8271966" category="paragraph">有关详细信息，请参见<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block></block>
+  <block id="38d923048395adfe402bca08916bd9db" category="paragraph">控制器的端口使用情况取决于平台模块以及要在 MetroCluster IP 配置中使用的交换机。您可以从收集新平台的端口使用情况 <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block>。</block>
+  <block id="f9f099865bb9d36821db181257896abb" category="list-text">如果启用了自动启动，请按 Ctrl-C 中断自动启动</block>
+  <block id="806422c50772a82e317db68491ffe3e4" category="paragraph">如果任一节点处于接管模式，请执行交还：</block>
+  <block id="411fd118744e7bc163c41845c9fedb88" category="paragraph">`s存储故障转移交还`</block>
+  <block id="c9616da62905adb15396b653b4d8475b" category="paragraph">您可能需要重新配置集群对等关系。</block>
+  <block id="b196fb7a2e0b15c158585ec325406b3c" category="list-text">使用中的步骤<block ref="abdcb9b507d42a49d77fa45291426271" category="inline-link-rx"></block> 在 MetroCluster Tiebreaker 安装和配置 _ 中。</block>
 </blocks>
