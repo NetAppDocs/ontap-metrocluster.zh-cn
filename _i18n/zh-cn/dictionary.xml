@@ -12735,4 +12735,10 @@
   <block id="411fd118744e7bc163c41845c9fedb88" category="paragraph">`s存储故障转移交还`</block>
   <block id="c9616da62905adb15396b653b4d8475b" category="paragraph">您可能需要重新配置集群对等关系。</block>
   <block id="b196fb7a2e0b15c158585ec325406b3c" category="list-text">使用中的步骤<block ref="abdcb9b507d42a49d77fa45291426271" category="inline-link-rx"></block> 在 MetroCluster Tiebreaker 安装和配置 _ 中。</block>
+  <block id="6feea37f7c9ba85a19752c43872c3438" category="inline-link-macro">在执行维护任务之前，请删除 ONTAP 调解器或 Tiebreaker 监控</block>
+  <block id="c53469c0e05ec04d4c7bf601859fd9fb" category="admonition">在执行维护任务之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。<block ref="a0ba112c9c0ab9c29c24131f966b9b69" category="inline-link-macro-rx"></block></block>
+  <block id="5713f2c18fca6cff15f3222aca93a2a6" category="summary">使用 Tiebreaker 或调解器监控软件的配置必须在维护前取消配置该软件</block>
+  <block id="4a397091a3693a57176ee396010387ca" category="paragraph">在执行维护任务之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。</block>
+  <block id="65e494c11bd4a371acff4afdb4808d87" category="paragraph">维护任务包括升级控制器平台，升级 ONTAP 以及执行协商切换和切回。</block>
+  <block id="362c54fb8886bdfe1e59d87ffffef547" category="list-text">完成 MetroCluster 配置维护后，您可以使用 Tiebreaker 或调解器实用程序恢复监控。</block>
 </blocks>

@@ -45,6 +45,9 @@ MetroCluster switchover 命令可切换 MetroCluster 配置中所有 DR 组中�
 
 对于 MetroCluster IP 配置：
 
+
+NOTE: 在执行维护任务之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。link:../maintain/concept_remove_mediator_or_tiebreaker_when_performing_maintenance_tasks.html["在执行维护任务之前，请删除 ONTAP 调解器或 Tiebreaker 监控"]
+
 * 对于 ONTAP 9.4 及更早版本：
 +
 ** 在协商切换后，镜像聚合将降级。

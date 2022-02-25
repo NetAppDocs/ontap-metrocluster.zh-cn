@@ -1,0 +1,78 @@
+---
+permalink: maintain/concept_remove_mediator_or_tiebreaker_when_performing_maintenance_tasks.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, maintenance, service, tiebreaker, mediator, ontap mediator 
+summary: 使用 Tiebreaker 或调解器监控软件的配置必须在维护前取消配置该软件 
+---
+= 在执行维护任务之前，请删除 ONTAP 调解器或 Tiebreaker 监控
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在执行维护任务之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。
+
+维护任务包括升级控制器平台，升级 ONTAP 以及执行协商切换和切回。
+
+.步骤
+. 收集以下命令的输出：
++
+`storage iscsi-initiator show`
+
+. 从 Tiebreaker ，调解器或其他可启动切换的软件中删除现有 MetroCluster 配置。
++
+|===
+
+
+| 如果您使用的是 ... | 使用此操作步骤 ... 
+
+
+ a| 
+Tiebreaker
+ a| 
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-34C97A45-0BFF-46DD-B104-2AB2805A983D.html["删除 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中
+
+
+
+ a| 
+调解器
+ a| 
+在 ONTAP 提示符处问题描述以下命令：
+
+`MetroCluster configuration-settings mediator remove`
+
+
+
+ a| 
+第三方应用程序
+ a| 
+请参见产品文档。
+
+|===
+. 完成 MetroCluster 配置维护后，您可以使用 Tiebreaker 或调解器实用程序恢复监控。
++
+|===
+| 如果您使用的是 ... | 使用此操作步骤 
+
+
+ a| 
+Tiebreaker
+ a| 
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["正在添加 MetroCluster 配置"] 在 _Tiebreaker MetroCluster 安装和配置 _ 部分。
+
+
+
+ a| 
+调解器
+ a| 
+link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"] 在 _IP MetroCluster 安装和配置 _ 部分中。
+
+
+
+ a| 
+第三方应用程序
+ a| 
+请参见产品文档。
+
+|===
+
