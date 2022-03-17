@@ -92,7 +92,6 @@
   <block id="911215b34b5c274e1926f0abbe14c1aa" category="paragraph">您可能需要更换发生故障的交换机，或者升级或降级交换机。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。</block>
   <block id="ebcf4640c5bf8e93ff2b8a2a35c8307c" category="paragraph">如果要将故障交换机更换为相同类型的交换机，则只需更换故障交换机。如果要升级或降级交换机，则需要调整同一网络中的两个交换机。如果两个交换机使用交换机间链路（ ISL ）连接，并且不位于同一站点，则它们位于同一网络中。例如，网络 1 包括 IP_switch_A_1 和 IP_switch_B_1 。网络 2 包括 IP_switch_A_2 和 IP_switch_B_2 ，如下图所示：</block>
   <block id="8884ae199fd568dc7ca11305cb40b82e" category="image-alt">MCC IP 硬件架构 IP 互连</block>
-  <block id="598f12aea845d62b91a4163fc3a86122" category="paragraph">此操作步骤适用于 Cisco 或 Broadcom 交换机。如果要更改交换机供应商，则需要执行进一步的步骤。</block>
   <block id="5d1e77979f28e175a4f0a00201b52c96" category="paragraph">如果要升级或降级网络，则必须对第二个网络重复此操作步骤。</block>
   <block id="ab09caec1407f77495e6c20853fcfd75" category="list-text">检查配置的运行状况。</block>
   <block id="439912781979c2137b20f407615e78f8" category="list-text">检查是否已在每个集群上配置 MetroCluster 并使其处于正常模式： ` * MetroCluster show*`</block>
@@ -3679,7 +3678,6 @@
   <block id="429ea14e884af3038f14fda8c4c66998" category="list-text">如果使用外部密钥管理，请执行以下子步骤以还原配置。</block>
   <block id="db362882fc87c70db48ce198480ddd78" category="paragraph">系统启动多次。系统提示您继续启动过程时，您可以肯定地回答。</block>
   <block id="c0d1ad921b339c978a239b069bf5d41b" category="paragraph">您必须在 FC 节点上创建与配置匹配的网络配置。这是因为 MetroCluster IP 节点在启动时会重放相同的配置，这意味着在 node_A_1-IP 和 node_B_1-IP 启动时， ONTAP 将尝试在 node_A_1-FC 和 node_B_1-FC 上使用的相同端口上托管 LIF 。</block>
-  <block id="9b9935ad5969c28de13381a2e512b47c" category="paragraph">注意</block>
   <block id="bc959078f19acc20660978ed0184720f" category="paragraph">配置 MetroCluster IP 节点后，可能需要进行其他配置才能启动数据 LIF 。</block>
   <block id="ea8d54f9b1d04d978812c33c6d2360f9" category="list-text">验证所有集群端口是否都位于相应的广播域中：</block>
   <block id="b4078eabb57927ecf677144eddeb01c0" category="paragraph">要创建集群 LIF ，需要集群 IP 空间和集群广播域</block>
@@ -7273,7 +7271,6 @@
   <block id="bf71d89d2d339304218351dbe9d54014" category="list-text">should secure —允许未传输 MAC 秒标头的数据包（这是默认值）</block>
   <block id="27a58fca8f023eee12b9adf8b2d54f0a" category="admonition">重放保护窗口大小表示 MACsec 接受且不丢弃的序列外帧的最大数量。范围为 0 到 596000000 。</block>
   <block id="1b8d4d654146b4eec3cc22bd8b461dbb" category="paragraph">从以下选项中进行选择：</block>
-  <block id="bb7076dff2fa5f0d308e776f5006e07e" category="section-title">验证 MACsec 配置</block>
   <block id="8111242ac0c7119fbea7317d86a32103" category="list-text">在配置中的第二台交换机上重复上述所有过程以建立 MACsec 会话。</block>
   <block id="2b5b30d6ad7e8f227ed89895d9b7ecd6" category="list-text">运行以下命令以验证这两个交换机是否已成功加密：</block>
   <block id="f44cc0b00957a58a4a3e229de1d5580a" category="paragraph">您可以使用以下命令验证 MACsec 配置：</block>
@@ -7286,7 +7283,6 @@
   <block id="f6d141f9c0ebe12ce79c36ba0585ecf8" category="paragraph">MACsec MKA 配置</block>
   <block id="b6b47858b43ec1819137a7dbb17a0e1c" category="paragraph">`s如何使用 MACsec policy policy-name`</block>
   <block id="b73bb1a80bfcd166befb33ddc1a9fe9d" category="paragraph">特定 MACsec 策略或所有 MACsec 策略的配置</block>
-  <block id="f0336856a5a2f4bfae1adfb71fa3ae60" category="section-title">在 WAN ISL 端口上配置 MACsec 回退密钥</block>
   <block id="fd6b314abc631729200274092a59dbde" category="paragraph">如果主会话因密钥 / 密钥名称（ CKN ）不匹配或交换机与对等方之间的密钥持续时间有限而失败，您可以配置回退密钥以启动备份会话。</block>
   <block id="cc9f85a6f649e0f320a34bda0a52ee70" category="list-text">指定要配置的接口。</block>
   <block id="dcf432534686dfbd4a5057ebd44a4d2a" category="list-text">重复上述步骤，使用 MACsec 配置其他 WAN ISL 端口。</block>
@@ -10442,7 +10438,6 @@
   <block id="9284c86c82929cc854bc1886a966ff6f" category="list-text">Run ： `s如何执行 MACsec MKA 摘要`</block>
   <block id="3db9b1ed217c4d51bc9eb8d1b2a88879" category="list-text">Run ： `s如何执行 MACsec MKA 会话`</block>
   <block id="56cfbbd408a7b951d0c7de29a7686f39" category="list-text">Run ： `s如何处理 MACsec MKA 统计信息`</block>
-  <block id="ffe1f559bee6f65df8232945e7f1517d" category="section-title">为使用 25 Gbps 连接的系统设置正向错误更正</block>
   <block id="b22352ed85b6b2a829683807066af496" category="paragraph">此任务仅适用于使用 25 Gbps 连接的适用场景平台：• AFF A300 • FAS 8200 • FAS 500f • AFF A250</block>
   <block id="7903ea9f597270ba2cf2405fbc17ebd8" category="list-text">更改为提升的命令提示符（` #` ）： `enable`</block>
   <block id="4be4d4968b5e919059610e2ee4b965ce" category="list-text">擦除启动配置并删除横幅</block>
@@ -11641,7 +11636,6 @@
   <block id="daa40df4e509296134e63fc33d3ec362" category="paragraph">`sAK 到期时间`</block>
   <block id="06db921aa0f25025beb44d21cecefecd" category="list-text">在开始加密的第 2 层帧中配置以下机密性偏移之一：</block>
   <block id="e11afee8dde4674d7948e54940ebcd3e" category="paragraph">`conf-offsetconfidentiality offset`</block>
-  <block id="5382d2282494796171738f35b9361ab8" category="admonition">中间交换机可能需要使用此命令来使用 MPLS 标记等数据包标头（ DMAC ， SMaC ， etype ）。</block>
   <block id="dbedb7cefba22d6d33123561705f89d7" category="list-text">显示 MACsec 策略配置：</block>
   <block id="388f63f7d6fad1c81c4ee48ef9a6717c" category="paragraph">`s如何使用 MACsec 策略`</block>
   <block id="73e78255dbf78b6041f893d45a07746c" category="paragraph">您可以指定接口类型和标识。对于以太网端口，请使用：</block>
@@ -12741,4 +12735,16 @@
   <block id="4a397091a3693a57176ee396010387ca" category="paragraph">在执行维护任务之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。</block>
   <block id="65e494c11bd4a371acff4afdb4808d87" category="paragraph">维护任务包括升级控制器平台，升级 ONTAP 以及执行协商切换和切回。</block>
   <block id="362c54fb8886bdfe1e59d87ffffef547" category="list-text">完成 MetroCluster 配置维护后，您可以使用 Tiebreaker 或调解器实用程序恢复监控。</block>
+  <block id="7fab172697215ab39d868b582f7aa8fc" category="paragraph">使用经过 NetApp 验证的交换机时，此操作步骤 适用。如果您使用的是符合 MetroCluster 的交换机，请咨询交换机供应商。</block>
+  <block id="154b79668d2e81b5a47cc3c8bb3378a1" category="paragraph">本节中的几个过程是独立的，您只需执行引导到您或与您的任务相关的过程即可。</block>
+  <block id="136250a3d403690fe2a4881cb4fea613" category="paragraph">在安装任何 RCF 文件之前，您必须擦除 Cisco 交换机配置并执行基本配置。如果要在先前安装失败后重新安装同一个 RCF 文件，或者要安装新版本的 RCF 文件，则需要此操作步骤 。</block>
+  <block id="697dfb9b235783676b63d2f1ed07cad5" category="paragraph">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; 标题</block>
+  <block id="12a3ed4eff6140d7bb77c294de0b000a" category="paragraph">&gt;&gt;&gt;&gt;&gt; fb53efa2361ac88998ad17907c3a3fe6d3aafb6d 注：中间交换机可能需要使用此命令来使用类似于 MPLS 标记的数据包标头（ DMAC ， SMaC ， etype ）。</block>
+  <block id="30af5a80e49a51994861ac88eeb8c9fd" category="paragraph">== 验证 MACsec 配置</block>
+  <block id="f707836a27e5775fa200fe99e8336319" category="paragraph">== 在 WAN ISL 端口上配置 MACsec 回退密钥</block>
+  <block id="bb92609b325d2a0888dda72c3922a9d6" category="paragraph">= 为使用 25 Gbps 连接的系统设置正向错误更正</block>
+  <block id="0895beb9eb45e7d12c0c7d8ff398935a" category="paragraph">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; 标题。在连接到控制器模块的每个 25 Gbps 端口上将 FEC 参数设置为 off ，然后将正在运行的配置复制到启动配置： .进入配置模式： `config t` .指定要配置的 25-Gbps 接口： `interface interface-ID` .将 FEC 设置为 off ： `fEC off` .对交换机上的每个 25 Gbps 端口重复上述步骤。...退出配置模式： `exit`</block>
+  <block id="787ecd419f9570a45ad7d6ce5504c937" category="paragraph">`退出` &gt;&gt;&gt; fb53efa2361ac88998ad17907c3a3fe6d3aafb6d</block>
+  <block id="c902bf858b7534a7f5dae73adb86fcab" category="section-title">正在还原密钥管理</block>
+  <block id="f4f5fa0da45d620edd37e7bd122f0953" category="paragraph">如果数据卷已加密，则必须还原密钥管理。如果根卷已加密，则必须恢复密钥管理。</block>
 </blocks>

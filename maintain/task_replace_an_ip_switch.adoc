@@ -16,7 +16,7 @@ summary: 您可能需要更换发生故障的交换机，或者升级或降级�
 
 image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[MCC IP 硬件架构 IP 互连]
 
-此操作步骤适用于 Cisco 或 Broadcom 交换机。如果要更改交换机供应商，则需要执行进一步的步骤。
+使用经过 NetApp 验证的交换机时，此操作步骤 适用。如果您使用的是符合 MetroCluster 的交换机，请咨询交换机供应商。
 
 如果要升级或降级网络，则必须对第二个网络重复此操作步骤。
 

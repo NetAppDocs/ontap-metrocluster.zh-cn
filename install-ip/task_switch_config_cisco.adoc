@@ -10,19 +10,20 @@ summary: 您必须将 Cisco IP 交换机配置为用作集群互连以及用于�
 [role="lead"]
 您必须将 Cisco IP 交换机配置为用作集群互连以及用于后端 MetroCluster IP 连接。
 
-.关于此任务
-* 您必须对 MetroCluster IP 配置中的每个 IP 交换机重复这些步骤。
-* 您必须使用串行控制台连接到交换机。
-* 此任务将重置管理网络的配置。
-
+本节中的几个过程是独立的，您只需执行引导到您或与您的任务相关的过程即可。
 
 
 
 == 将 Cisco IP 交换机重置为出厂默认值
 
-在安装新软件版本和 RCF 之前，必须擦除 Cisco 交换机配置并执行基本配置。
+[role="lead"]
+在安装任何 RCF 文件之前，您必须擦除 Cisco 交换机配置并执行基本配置。如果要在先前安装失败后重新安装同一个 RCF 文件，或者要安装新版本的 RCF 文件，则需要此操作步骤 。
 
-您必须对 MetroCluster IP 配置中的每个 IP 交换机重复这些步骤。
+.关于此任务
+* 您必须对 MetroCluster IP 配置中的每个 IP 交换机重复这些步骤。
+* 您必须使用串行控制台连接到交换机。
+* 此任务将重置管理网络的配置。
+
 
 .步骤
 . 将交换机重置为出厂默认设置：
@@ -669,10 +670,8 @@ IP_switch_A_1(config)#
 IP_switch_A_1(config)# key-chain macsec-psk no-show
 ----
 +
-注意
 
-+
-将配置保存到文件时，八位组字符串也会隐藏。
+NOTE: 将配置保存到文件时，八位组字符串也会隐藏。
 
 +
 默认情况下， psk 密钥以加密格式显示，并且可以轻松解密。此命令仅适用于 MACsec 密钥链。
@@ -845,13 +844,19 @@ IP_switch_A_1(config-macsec-policy)# sak-expiry-time 100
 IP_switch_A_1(config-macsec-policy)# conf-offset CONF-OFFSET-0
 ----
 +
+<<<<<<<<< 标题
+
+
+
+
+
+====
++
+
 --
-
-NOTE: 中间交换机可能需要使用此命令来使用 MPLS 标记等数据包标头（ DMAC ， SMaC ， etype ）。
+>>>>> fb53efa2361ac88998ad17907c3a3fe6d3aafb6d 注：中间交换机可能需要使用此命令来使用类似于 MPLS 标记的数据包标头（ DMAC ， SMaC ， etype ）。
 
 --
-
-
 . 将正在运行的配置复制到启动配置：
 +
 `copy running-config startup-config`
@@ -872,9 +877,7 @@ IP_switch_A_1(config-macsec-policy)# show macsec policy
 ----
 
 
-
-
-=== 验证 MACsec 配置
+== 验证 MACsec 配置
 
 .步骤
 . 在配置中的第二台交换机上重复上述所有过程以建立 MACsec 会话。
@@ -924,9 +927,7 @@ MACsec MKA 配置
 
 
 
-
-
-=== 在 WAN ISL 端口上配置 MACsec 回退密钥
+== 在 WAN ISL 端口上配置 MACsec 回退密钥
 
 如果主会话因密钥 / 密钥名称（ CKN ）不匹配或交换机与对等方之间的密钥持续时间有限而失败，您可以配置回退密钥以启动备份会话。
 
@@ -979,9 +980,7 @@ IP_switch_A_1(config)# copy running-config startup-config
 ----
 
 
-
-
-== 为使用 25 Gbps 连接的系统设置正向错误更正
+= 为使用 25 Gbps 连接的系统设置正向错误更正
 
 如果您的系统配置为使用 25 Gbps 连接，则在应用 RCF 文件后，您需要手动将正向错误更正（ FEC ）参数设置为关闭。RCF 文件不应用此设置。
 
@@ -993,6 +992,9 @@ link:port_usage_3232c_9336c.html["Cisco 3232C 或 Cisco 9336C 交换机的平台
 
 必须对 MetroCluster IP 配置中的所有四台交换机执行此任务。
 
+<<<<<<<<< 标题。在连接到控制器模块的每个 25 Gbps 端口上将 FEC 参数设置为 off ，然后将正在运行的配置复制到启动配置： .进入配置模式： `config t` .指定要配置的 25-Gbps 接口： `interface interface-ID` .将 FEC 设置为 off ： `fEC off` .对交换机上的每个 25 Gbps 端口重复上述步骤。...退出配置模式： `exit`
+
+====
 .步骤
 . 在连接到控制器模块的每个 25 Gbps 端口上将 `fEC` 参数设置为 "`off` " ，然后将正在运行的配置复制到启动配置：
 +
@@ -1011,7 +1013,7 @@ link:port_usage_3232c_9336c.html["Cisco 3232C 或 Cisco 9336C 交换机的平台
 .. 对交换机上的每个 25 Gbps 端口重复上述步骤。
 .. 退出配置模式：
 +
-`退出`
+`退出` >>> fb53efa2361ac88998ad17907c3a3fe6d3aafb6d
 
 +
 以下示例显示了针对交换机 IP_switch_A_1 上的接口 Ethernet1/2/1 的命令：
