@@ -593,6 +593,49 @@ aggr_data_a2
 您必须将新的 DR 组加入 MetroCluster 配置，并在新节点上创建镜像数据聚合。
 
 .步骤
+. 配置 MetroCluster 以实施更改：
++
+MetroCluster configure`
+
++
+
+NOTE: 您必须运行 `MetroCluster configure` 和 * 不 * `MetroCluster configure -refresh true` 。
+
++
+....
+cluster_A::> metrocluster configure
+
+[Job 439] Job succeeded: Configure is successful.
+
+cluster_A::>
+....
+. 验证节点是否已添加到其 DR 组：
++
+`MetroCluster node show`
+
++
+....
+cluster_A::> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node-A-1-FC        configured     enabled   normal
+              node-A-2-FC        configured     enabled   normal
+      Cluster-B
+              node-B-1-FC        configured     enabled   normal
+              node-B-2-FC        configured     enabled   normal
+2     cluster_A
+              node-A-3-IP        configured     enabled   normal
+              node-A-4-IP        configured     enabled   normal
+      Cluster-B
+              node-B-3-IP        configured     enabled   normal
+              node-B-4-IP        configured     enabled   normal
+8 entries were displayed.
+
+cluster_A::>
+....
 . 在每个新 MetroCluster 节点上创建镜像数据聚合：
 +
 `storage aggregate create -aggregate aggregate-name -node node-name -diskcount no-of-disks -mirror true`
@@ -641,45 +684,6 @@ Do you want to continue? {y|n}: y
 
 cluster_A::>
 ....
-. 配置 MetroCluster 以实施更改：
-+
-MetroCluster configure`
-
-+
-....
-cluster_A::*> metrocluster configure
-
-[Job 439] Job succeeded: Configure is successful.
-
-cluster_A::*>
-....
-. 验证节点是否已添加到其 DR 组：
-+
-`MetroCluster node show`
-
-+
-....
-cluster_A::*> metrocluster node show
-
-DR                               Configuration  DR
-Group Cluster Node               State          Mirroring Mode
------ ------- ------------------ -------------- --------- --------------------
-1     cluster_A
-              node-A-1-FC        configured     enabled   normal
-              node-A-2-FC        configured     enabled   normal
-      Cluster-B
-              node-B-1-FC        configured     enabled   normal
-              node-B-2-FC        configured     enabled   normal
-2     cluster_A
-              node-A-3-IP        configured     enabled   normal
-              node-A-4-IP        configured     enabled   normal
-      Cluster-B
-              node-B-3-IP        configured     enabled   normal
-              node-B-4-IP        configured     enabled   normal
-8 entries were displayed.
-
-cluster_A::*>
-....
 . 以高级权限将 MDV_CRS 卷从旧节点移动到新节点。
 +
 .. 显示卷以标识 MDV 卷：
@@ -721,7 +725,7 @@ cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 
 +
 ....
-cluster_A::> vol move start -volume MDV_CRS_d6b0b313ff5611e9837100a098544e51_A -destination-aggregate data_a3 -vserver cluster_A
+cluster_A::*> vol move start -volume MDV_CRS_d6b0b313ff5611e9837100a098544e51_A -destination-aggregate data_a3 -vserver cluster_A
 
 Warning: You are about to modify the system volume
          "MDV_CRS_d6b0b313ff5611e9837100a098544e51_A". This might cause severe
@@ -738,7 +742,7 @@ Warning: You are about to modify the system volume
 
 +
 ....
-cluster_A::> vol show MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
+cluster_A::*> vol show MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 Vserver     Volume       Aggregate    State      Type       Size  Available Used%
 ---------   ------------ ------------ ---------- ---- ---------- ---------- -----
 cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
