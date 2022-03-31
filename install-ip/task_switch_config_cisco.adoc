@@ -844,19 +844,11 @@ IP_switch_A_1(config-macsec-policy)# sak-expiry-time 100
 IP_switch_A_1(config-macsec-policy)# conf-offset CONF-OFFSET-0
 ----
 +
-<<<<<<<<< 标题
+
+NOTE: 中间交换机可能需要使用此命令来使用 MPLS 标记等数据包标头（ DMAC ， SMaC ， etype ）。
 
 
 
-
-
-====
-+
-
---
->>>>> fb53efa2361ac88998ad17907c3a3fe6d3aafb6d 注：中间交换机可能需要使用此命令来使用类似于 MPLS 标记的数据包标头（ DMAC ， SMaC ， etype ）。
-
---
 . 将正在运行的配置复制到启动配置：
 +
 `copy running-config startup-config`
@@ -877,7 +869,9 @@ IP_switch_A_1(config-macsec-policy)# show macsec policy
 ----
 
 
-== 验证 MACsec 配置
+
+
+=== 验证 MACsec 配置
 
 .步骤
 . 在配置中的第二台交换机上重复上述所有过程以建立 MACsec 会话。
@@ -927,7 +921,9 @@ MACsec MKA 配置
 
 
 
-== 在 WAN ISL 端口上配置 MACsec 回退密钥
+
+
+=== 在 WAN ISL 端口上配置 MACsec 回退密钥
 
 如果主会话因密钥 / 密钥名称（ CKN ）不匹配或交换机与对等方之间的密钥持续时间有限而失败，您可以配置回退密钥以启动备份会话。
 
@@ -980,7 +976,9 @@ IP_switch_A_1(config)# copy running-config startup-config
 ----
 
 
-= 为使用 25 Gbps 连接的系统设置正向错误更正
+
+
+== 为使用 25 Gbps 连接的系统设置正向错误更正
 
 如果您的系统配置为使用 25 Gbps 连接，则在应用 RCF 文件后，您需要手动将正向错误更正（ FEC ）参数设置为关闭。RCF 文件不应用此设置。
 
@@ -988,33 +986,24 @@ IP_switch_A_1(config)# copy running-config startup-config
 
 link:port_usage_3232c_9336c.html["Cisco 3232C 或 Cisco 9336C 交换机的平台端口分配"]
 
-此任务仅适用于使用 25 Gbps 连接的适用场景平台：• AFF A300 • FAS 8200 • FAS 500f • AFF A250
+此任务仅限使用 25-Gbps 连接的适用场景 平台：
+
+* AFF A300
+* FAS 8200
+* FAS 500f
+* AFF A250
+
 
 必须对 MetroCluster IP 配置中的所有四台交换机执行此任务。
 
-<<<<<<<<< 标题。在连接到控制器模块的每个 25 Gbps 端口上将 FEC 参数设置为 off ，然后将正在运行的配置复制到启动配置： .进入配置模式： `config t` .指定要配置的 25-Gbps 接口： `interface interface-ID` .将 FEC 设置为 off ： `fEC off` .对交换机上的每个 25 Gbps 端口重复上述步骤。...退出配置模式： `exit`
-
-====
 .步骤
-. 在连接到控制器模块的每个 25 Gbps 端口上将 `fEC` 参数设置为 "`off` " ，然后将正在运行的配置复制到启动配置：
+. 在连接到控制器模块的每个 25 Gbps 端口上将 FEC 参数设置为 off ，然后将正在运行的配置复制到启动配置：
 +
-.. 进入配置模式：
-+
-`配置 t`
-
-.. 指定要配置的 25 Gbps 接口：
-+
-`interface interface-ID`
-
-.. 将 `FEC` 设置为 "`off` " ：
-+
-`FEC 关闭`
-
+.. 进入配置模式： `config t`
+.. 指定要配置的 25-Gbps 接口： `interface interface-ID`
+.. 将 FEC 设置为 off ： `fEC off`
 .. 对交换机上的每个 25 Gbps 端口重复上述步骤。
-.. 退出配置模式：
-+
-`退出` >>> fb53efa2361ac88998ad17907c3a3fe6d3aafb6d
-
+.. 退出配置模式： `exit`
 +
 以下示例显示了针对交换机 IP_switch_A_1 上的接口 Ethernet1/2/1 的命令：
 

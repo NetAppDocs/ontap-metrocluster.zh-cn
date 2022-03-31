@@ -62,11 +62,11 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2874463["《 FAS9000 系�
 . 安装磁盘架，打开其电源，然后设置磁盘架 ID 。
 +
 ** 您必须重新启动每个磁盘架。
-** 每个 MetroCluster DR 组（包括两个站点）中的每个 SAS 磁盘架的磁盘架 ID 必须是唯一的。
+** 强烈建议为每个 MetroCluster DR 组中的每个 SAS 磁盘架使用唯一的磁盘架 ID ，以帮助进行故障排除。
+
+
 +
 
 IMPORTANT: 此时，请勿为要包含未镜像聚合的磁盘架布线。您必须等到 MetroCluster 配置完成后再部署用于未镜像聚合的磁盘架，并且只能在使用 `MetroCluster modify -enable-unmirrored-aggr-deployment true` 命令后再部署这些磁盘架。
-
-
 
 

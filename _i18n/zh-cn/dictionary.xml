@@ -10438,7 +10438,6 @@
   <block id="9284c86c82929cc854bc1886a966ff6f" category="list-text">Run ： `s如何执行 MACsec MKA 摘要`</block>
   <block id="3db9b1ed217c4d51bc9eb8d1b2a88879" category="list-text">Run ： `s如何执行 MACsec MKA 会话`</block>
   <block id="56cfbbd408a7b951d0c7de29a7686f39" category="list-text">Run ： `s如何处理 MACsec MKA 统计信息`</block>
-  <block id="b22352ed85b6b2a829683807066af496" category="paragraph">此任务仅适用于使用 25 Gbps 连接的适用场景平台：• AFF A300 • FAS 8200 • FAS 500f • AFF A250</block>
   <block id="7903ea9f597270ba2cf2405fbc17ebd8" category="list-text">更改为提升的命令提示符（` #` ）： `enable`</block>
   <block id="4be4d4968b5e919059610e2ee4b965ce" category="list-text">擦除启动配置并删除横幅</block>
   <block id="4995c150e07b7ecfa34c3c0fbef2e928" category="paragraph">*`擦除启动配置` *</block>
@@ -11643,11 +11642,6 @@
   <block id="963f5eadacb40d1c09a8a4b55061def7" category="list-text">指定因密钥 / 密钥 ID 不匹配或密钥到期而导致 MACsec 会话失败后使用的回退密钥链：</block>
   <block id="acdb387736771ac188de8a6d086cdb34" category="paragraph">`mAcSEC keychain keychain-name policy policy-name backfally-keychain keychain-name`</block>
   <block id="3b0db3e385223be11fabb9ef92f30540" category="admonition">在继续执行此步骤之前，您应使用 _Configuring a MACsec key chain and keys_ 中的步骤配置回退密钥链。</block>
-  <block id="4cec7911357b6eb3689d0122c3176f27" category="list-text">在连接到控制器模块的每个 25 Gbps 端口上将 `fEC` 参数设置为 "`off` " ，然后将正在运行的配置复制到启动配置：</block>
-  <block id="72235e2c95c886b0e9576a4dc260f166" category="list-text">指定要配置的 25 Gbps 接口：</block>
-  <block id="47a42949192c261eb9481cfd05e85141" category="paragraph">`interface interface-ID`</block>
-  <block id="33e296cd4b6f1f4d354f09470978fe71" category="list-text">将 `FEC` 设置为 "`off` " ：</block>
-  <block id="aaa283892de0705f6292714e2ecb4234" category="paragraph">`FEC 关闭`</block>
   <block id="ab6f20f5b829d0d0c601421db2ea7500" category="paragraph">两个集群的 ONTAP 配置（包括网络连接）应相同，因为 MetroCluster 功能依赖于集群在发生切换时为其配对集群无缝提供数据的能力。</block>
   <block id="ab3bedf5b2bac1f18aa979a42fb1871b" category="paragraph"><block ref="ab3bedf5b2bac1f18aa979a42fb1871b" category="inline-link-rx"></block></block>
   <block id="43a384668d02383bb19c7b1d54761855" category="paragraph">有关使用 FabricPool 的常规信息，请参见<block ref="46a180d322a34c1f2719942dadd3e4fb" category="inline-link-rx"></block>。</block>
@@ -12738,14 +12732,20 @@
   <block id="7fab172697215ab39d868b582f7aa8fc" category="paragraph">使用经过 NetApp 验证的交换机时，此操作步骤 适用。如果您使用的是符合 MetroCluster 的交换机，请咨询交换机供应商。</block>
   <block id="154b79668d2e81b5a47cc3c8bb3378a1" category="paragraph">本节中的几个过程是独立的，您只需执行引导到您或与您的任务相关的过程即可。</block>
   <block id="136250a3d403690fe2a4881cb4fea613" category="paragraph">在安装任何 RCF 文件之前，您必须擦除 Cisco 交换机配置并执行基本配置。如果要在先前安装失败后重新安装同一个 RCF 文件，或者要安装新版本的 RCF 文件，则需要此操作步骤 。</block>
-  <block id="697dfb9b235783676b63d2f1ed07cad5" category="paragraph">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; 标题</block>
-  <block id="12a3ed4eff6140d7bb77c294de0b000a" category="paragraph">&gt;&gt;&gt;&gt;&gt; fb53efa2361ac88998ad17907c3a3fe6d3aafb6d 注：中间交换机可能需要使用此命令来使用类似于 MPLS 标记的数据包标头（ DMAC ， SMaC ， etype ）。</block>
-  <block id="30af5a80e49a51994861ac88eeb8c9fd" category="paragraph">== 验证 MACsec 配置</block>
-  <block id="f707836a27e5775fa200fe99e8336319" category="paragraph">== 在 WAN ISL 端口上配置 MACsec 回退密钥</block>
-  <block id="bb92609b325d2a0888dda72c3922a9d6" category="paragraph">= 为使用 25 Gbps 连接的系统设置正向错误更正</block>
-  <block id="0895beb9eb45e7d12c0c7d8ff398935a" category="paragraph">&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; 标题。在连接到控制器模块的每个 25 Gbps 端口上将 FEC 参数设置为 off ，然后将正在运行的配置复制到启动配置： .进入配置模式： `config t` .指定要配置的 25-Gbps 接口： `interface interface-ID` .将 FEC 设置为 off ： `fEC off` .对交换机上的每个 25 Gbps 端口重复上述步骤。...退出配置模式： `exit`</block>
-  <block id="787ecd419f9570a45ad7d6ce5504c937" category="paragraph">`退出` &gt;&gt;&gt; fb53efa2361ac88998ad17907c3a3fe6d3aafb6d</block>
   <block id="c902bf858b7534a7f5dae73adb86fcab" category="section-title">正在还原密钥管理</block>
   <block id="f4f5fa0da45d620edd37e7bd122f0953" category="paragraph">如果数据卷已加密，则必须还原密钥管理。如果根卷已加密，则必须恢复密钥管理。</block>
-  <block id="fc5ed1fc7f860e8b42d66e226e5650e6" category="admonition">您必须运行 `MetroCluster configure` 和 * 不 * `MetroCluster configure -refresh true` 。</block>
+  <block id="2ab9c070f5e78bc6f7809e89ecd023eb" category="admonition">您必须运行 `MetroCluster configure` 和 * 不 * `MetroCluster configure -refresh true`</block>
+  <block id="5382d2282494796171738f35b9361ab8" category="admonition">中间交换机可能需要使用此命令来使用 MPLS 标记等数据包标头（ DMAC ， SMaC ， etype ）。</block>
+  <block id="bb7076dff2fa5f0d308e776f5006e07e" category="section-title">验证 MACsec 配置</block>
+  <block id="f0336856a5a2f4bfae1adfb71fa3ae60" category="section-title">在 WAN ISL 端口上配置 MACsec 回退密钥</block>
+  <block id="ffe1f559bee6f65df8232945e7f1517d" category="section-title">为使用 25 Gbps 连接的系统设置正向错误更正</block>
+  <block id="250b5ed5389f4260b31c4ede97dea809" category="paragraph">此任务仅限使用 25-Gbps 连接的适用场景 平台：</block>
+  <block id="44ebc7deaba92b772a9bf569e1c8ca12" category="list-text">FAS 8200</block>
+  <block id="78e08a3638b519a59d38434c6f124b1a" category="list-text">FAS 500f</block>
+  <block id="55847fe0c50cc0b24f2766a0f17dcb5e" category="list-text">在连接到控制器模块的每个 25 Gbps 端口上将 FEC 参数设置为 off ，然后将正在运行的配置复制到启动配置：</block>
+  <block id="4e435c962be317de1557265dfbacc427" category="list-text">进入配置模式： `config t`</block>
+  <block id="03afbf28e660c550f09da5f3436dd99d" category="list-text">指定要配置的 25-Gbps 接口： `interface interface-ID`</block>
+  <block id="df181c6434803cd5a18218c45eca6655" category="list-text">将 FEC 设置为 off ： `fEC off`</block>
+  <block id="344fc0c43530ccad90a38944b632b1e4" category="list-text">退出配置模式： `exit`</block>
+  <block id="9c0c1022f821ad4ee9fd20c2731bc6f1" category="list-text">强烈建议为每个 MetroCluster DR 组中的每个 SAS 磁盘架使用唯一的磁盘架 ID ，以帮助进行故障排除。</block>
 </blocks>

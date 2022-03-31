@@ -599,7 +599,7 @@ MetroCluster configure`
 
 +
 
-NOTE: 您必须运行 `MetroCluster configure` 和 * 不 * `MetroCluster configure -refresh true` 。
+NOTE: 您必须运行 `MetroCluster configure` 和 * 不 * `MetroCluster configure -refresh true`
 
 +
 ....
