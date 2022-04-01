@@ -14,6 +14,9 @@ summary: 必须在 ONTAP 节点上配置 ONTAP 调解器服务，才能在 Metro
 
 .开始之前
 * ONTAP 调解器必须已成功安装在两个 MetroCluster 站点均可访问的网络位置上。
++
+link:https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ONTAP 调解器服务"^]
+
 * 您必须具有运行 ONTAP 调解器服务的主机的 IP 地址。
 * 您必须具有 ONTAP 调解器服务的用户名和密码。
 * MetroCluster IP 配置的所有节点都必须联机。

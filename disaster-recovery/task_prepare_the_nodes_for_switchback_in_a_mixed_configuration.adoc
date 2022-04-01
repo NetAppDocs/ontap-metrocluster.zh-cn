@@ -127,7 +127,7 @@ Group Cluster Node               State          Mirroring Mode
               wmc55-b1           configured     enabled   switchover completed
               wmc55-b2           configured
 ----
-. 通过执行中的任务，准备要切回的 MetroCluster IP 节点 link:task_prepare_for_switchback_in_a_mcc_ip_configuration_supertask.html["在 MetroCluster IP 配置中准备切回"] 最高及包括 。
+. 通过执行中的任务，准备要切回的 MetroCluster IP 节点 link:task_prepare_for_switchback_in_a_mcc_ip_configuration_supertask.html["在 MetroCluster IP 配置中准备切回"] 最高及包括 link:task_delete_plexes_mcip.html["删除运行正常的站点拥有的故障丛（ MetroCluster IP 配置）"]。
 . 在 MetroCluster FC 节点上，执行中的步骤 link:task_heal_restore_mcfc.html["执行聚合修复和还原镜像（ MetroCluster FC 配置）"]。
 . 在 MetroCluster IP 节点上，执行中的步骤 link:task_heal_restore_mcip.html["执行聚合修复和还原镜像（ MetroCluster IP 配置）"]。
 . 从开始，继续执行恢复过程的其余任务 link:task_complete_recovery.html#reestablishing-object-stores-for-fabricpool-configurations["为 FabricPool 配置重新建立对象存储"]。

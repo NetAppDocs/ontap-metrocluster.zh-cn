@@ -16,7 +16,7 @@ MetroCluster 后端交换机连接到路由的 IP 网络，可以直接连接到
 image::../media/mcc_layer3_backend.png[MCC layer3 后端]
 
 
-NOTE: NetApp 仅支持经过 NetApp 验证的交换机。这些交换机由 NetApp 测试和销售。它们将在中列出 link:https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性表工具（ IMT ）"] 和中的 。
+NOTE: NetApp 仅支持经过 NetApp 验证的交换机。这些交换机由 NetApp 测试和销售。它们将在中列出 link:https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性表工具（ IMT ）"] 和中的 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["为 IP 交换机布线"]。
 
 MetroCluster 环境作为标准 MetroCluster IP 配置进行配置和布线，如中所述 link:task_configure_the_mcc_hardware_components_mcc_ip.html["配置 MetroCluster 硬件组件"]。在执行操作步骤安装和布线时，必须执行第 3 层配置专用的步骤：
 

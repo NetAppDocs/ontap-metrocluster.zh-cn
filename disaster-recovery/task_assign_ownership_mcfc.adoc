@@ -14,7 +14,7 @@ summary: 如果在灾难站点还原硬件时更换了驱动器，则必须为�
 
 灾难站点的可用驱动器数量必须至少与灾难发生前相同。
 
-驱动器架和驱动器布局必须满足中的要求 link:../install-ip/concept_required_mcc_ip_components_and_naming_guidelines_mcc_ip.html["所需的 MetroCluster IP 组件和命名约定"] 部分 。
+驱动器架和驱动器布局必须满足中的要求 link:../install-ip/concept_required_mcc_ip_components_and_naming_guidelines_mcc_ip.html["所需的 MetroCluster IP 组件和命名约定"] 部分 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]。
 
 这些步骤在灾难站点的集群上执行。
 

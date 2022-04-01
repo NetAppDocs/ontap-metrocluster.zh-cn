@@ -10,10 +10,11 @@ summary: 从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信�
 
 
 [role="lead"]
-从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信息提供物理上独立的存储库来协助 MetroCluster IP 配置执行自动计划外切换。您的环境必须满足以下要求。您可能需要更新 Linux 版本。
+您的环境必须满足以下要求。
 
 [NOTE]
 ====
+* 如果您计划更新 Linux 版本，请在安装最新的 ONTAP 调解器服务之前执行此操作。
 * ONTAP 调解器服务和 MetroCluster Tiebreaker 软件不应同时使用相同的 MetroCluster 配置。
 * ONTAP 调解器必须安装在与 MetroCluster 站点不同的 Linux 主机上。
 * ONTAP 调解器服务最多可同时支持五个 MetroCluster 配置。
@@ -51,16 +52,9 @@ MTU 大小必须至少为 1400 。
 
 ONTAP 调解器使用多个端口与特定服务进行通信。
 
-* 如果您使用的是第三方防火墙：
-+
-** 必须启用 HTTPS 访问。
-** 必须将其配置为允许在端口 31784 和 3260 上进行访问。
-+
-如果使用默认的 Red Hat 或 CentOS 防火墙，则会在安装调解器期间自动配置防火墙。
+如果您使用的是第三方防火墙： * 必须启用 HTTPS 访问。* 必须将其配置为允许在端口 31784 和 3260 上进行访问。
 
-
-
-
++ 使用默认 Red Hat 或 CentOS 防火墙时，防火墙会在调解器安装期间自动配置。
 
 下表列出了防火墙中必须允许的端口：
 
@@ -97,184 +91,14 @@ ONTAP 调解器 iSCSI 目标
 
 如果要升级 ONTAP 调解器，则必须满足 Linux 版本要求并遵循升级准则。
 
-* 调解器服务可以从 1.0 版升级到 1.1 版。
+* 可以将调解器服务从早期版本升级到当前版本。
 * 运行 ONTAP 9.7 或更高版本的 MetroCluster IP 配置支持所有调解器版本。
 
 
+link:https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ONTAP 调解器服务"^]
 
-
-== 同时升级主机操作系统和调解器
-
-下表提供了从 RHEL/CentOS 7.6 升级到更高版本 RHEL/CentOS 以及升级调解器版本的升级准则。
-
-[cols="20,20,60"]
-|===
-
-
-| 目标 Linux 版本 | 目标调解器版本 | 升级说明 
-
-
- a| 
-RHEL/CentOS 7.7
- a| 
-1.1
- a| 
-* 必须按以下顺序执行升级：
-+
-.. 将操作系统从 RHEL/CentOS 7.6 版升级到 7.7 版。
-+
-* 注 * ：在操作系统升级期间， ONTAP 调解器和调解器辅助的自动计划外切换不可用。调解器将脱机，直到调解器版本 1.0 到 1.1 升级过程完成为止。
-
-.. 重新启动主机以应用内核模块更改。
-.. 将调解器从 1.0 版升级到 1.1 版。
-+
-link:task_install_configure_mediator.html["安装或升级 ONTAP 调解器服务"]
-
-
-
-* storage iscsi-initiator show 命令将报告升级期间与调解器服务的连接已关闭。
-* ONTAP 操作系统将在升级期间生成 cf.mccip.med.auso.stDisabled EMS 事件。
-* 重新启用自动计划外切换后， ONTAP 操作系统将生成 cf.mccip.med.auso.stEnabled EMS 事件。
-
-
-
-
- a| 
-RHEL/CentOS 8.0 或 8.1
- a| 
-1.1
- a| 
-没有直接升级路径。您必须在操作系统升级后删除 1.0 版并安装 1.1 版：
-
-. 从 ONTAP 配置中删除调解器服务：
-+
-`MetroCluster configuration-settings mediator remove`
-
-. 卸载调解器服务 1.0 版。
-+
-link:../install-ip/task_uninstall_mediator.html["卸载 ONTAP 调解器服务"]
-
-. 将 Linux 操作系统升级到 8.0 或 8.1 版。
-. 安装调解器服务 1.1 版。
-+
-link:task_uninstall_mediator.html["安装或升级 ONTAP 调解器服务"]
-
-. 将调解器服务添加到 ONTAP 配置：
-+
-`MetroCluster configuration-settings add -mediate-address-1.1-ip-address`
-
-
-
-|===
 
 
 == 升级后
 
 完成调解器和操作系统升级后，您应使用问题描述 `storage iscsi-initiator show` 命令确认调解器连接已启动。
-
-
-
-== 从调解器 1.1 安装还原
-
-不支持从调解器 1.1 版直接还原到 1.0 版。您必须删除 1.1 版并重新安装 1.0 版。
-
-. 从 ONTAP 配置中删除调解器服务：
-+
-`MetroCluster configuration-settings mediator remove`
-
-. 卸载调解器服务 1.1 版。
-+
-link:../install-ip/task_uninstall_mediator.html["卸载 ONTAP 调解器服务"]
-
-. 安装 1.0 版的调解器服务。
-+
-link:task_install_configure_mediator.html["安装或升级 ONTAP 调解器服务"]
-
-. 将调解器服务添加到 ONTAP 配置：
-+
-`MetroCluster configuration-settings add -mediate-address-1.0-ip-address`
-
-
-
-
-
-== 从 Linux 内核升级中恢复
-
-ONTAP 调解器需要使用 SCST 内核模块。如果更新了 Linux 内核，此依赖关系可能会导致服务丢失。强烈建议您在更改任何内核软件包时重建 SCST 内核模块。
-
-[NOTE]
-====
-* 从 ONTAP 调解器 1.0 版升级到 1.1 版将重新构建 SCST 模块。
-* 重新启动 Linux 内核后，将应用内核模块更改。
-
-
-====
-您可以使用以下任一过程从导致调解器服务丢失的内核升级中恢复。
-
-[cols="30,70"]
-|===
-
-
-| 操作步骤 | 步骤 
-
-
- a| 
-删除并重新安装 SCST 内核模块
- a| 
-您的调解器版本必须使用 SCST tar 包：
-
-* ONTAP 调解器 1.0 需要 scst-3.3.0.tar.bz2
-* ONTAP 调解器 1.1 需要 scst-3.4.0.tar.bz2
-+
-.. 卸载 SCST 模块：
-+
-... 下载并解压缩您的调解器版本所需的 SCST tar 包。
-... 在 scst 目录中运行以下命令：
-+
-[listing]
-----
-systemctl stop mediator-scst
-make scstadm_uninstall
-make iscsi_uninstall
-make usr_uninstall
-make scst_uninstall
-depmod
-----
-
-
-.. 通过在 scst 目录中发出以下命令，重新安装适用于您的调解器版本的 SCST 模块：
-+
-[listing]
-----
-make scst_install
-make usr_install
-make iscsi_install
-make scstadm_install
-depmod
-patch /etc/init.d/scst < /opt/netapp/lib/ontap_mediator/systemd/scst.patch
-reboot
-----
-
-
-
-
-
-
- a| 
-删除并重新安装 ONTAP 调解器
-
-* 注： * 这需要重新配置 ONTAP 中的调解器。
- a| 
-. 从 ONTAP 配置中删除调解器服务：
-+
-`MetroCluster configuration-settings mediator remove`
-
-. link:../install-ip/task_uninstall_mediator.html["卸载 ONTAP 调解器服务"]。
-. link:../install-ip/task_install__configure_mediator.html["重新安装调解器服务"]。
-. 将调解器服务添加到 ONTAP 配置：
-+
-`MetroCluster configuration-settings add -mediate-address-ip-address`
-
-
-
-|===

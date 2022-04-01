@@ -7185,10 +7185,6 @@
   <block id="296dac618f93ae6f579e81fc82e8538f" category="paragraph">您可以运行 lIF MetroCluster check lif show 命令来确认是否已在 MetroCluster 配置中成功创建 LIF 。如果在创建 LIF 时遇到任何问题，可以使用 MetroCluster check lif repair-placement 命令修复这些问题。</block>
   <block id="b679b36e0d45b5eafe371b27fca76877" category="paragraph">在可访问性检查期间标记为可访问的端口中， ONTAP 首选广播域中与 LIF 的子网关联的端口。如果 DR 集群上没有与 LIF 的子网关联的广播域中的可用网络端口， 然后， ONTAP 会选择可访问源 LIF 的端口。</block>
   <block id="7e7397a7b79323762c61941fc0e6b5f9" category="inline-link">数据保护</block>
-  <block id="c27f8d08f54639e1ea065a458bb5450b" category="summary">如有必要，您可以删除 ONTAP 调解器服务。</block>
-  <block id="c02d4950c4ce62ccd8590b978866a586" category="doc">更改 ONTAP 调解器用户名</block>
-  <block id="5dc574c75d3a0b59f4965eca3a6c2c5f" category="paragraph">在删除调解器服务之前，必须断开调解器与 ONTAP 的连接。</block>
-  <block id="baf6e7771f84cf5db3fbc9533db52b40" category="paragraph">此任务在安装了 ONTAP 调解器服务的 Linux 主机上执行。</block>
   <block id="a88a3ffd094ac9c3e4781378daf727b2" category="summary">在规划 MetroCluster IP 配置时，您应了解硬件组件及其互连方式。</block>
   <block id="131a1d95b4315c0e5bb2b356dc23edb5" category="doc">MetroCluster IP 配置的组成部分</block>
   <block id="c9f9c7cefa54edfacbeb4382ddff3f5e" category="paragraph">MetroCluster IP 配置包括以下关键硬件元素：</block>
@@ -7320,7 +7316,6 @@
   <block id="2ac5b29f2d20bbfbdc32651d31618463" category="summary">一个八节点配置将包含两个 DR 组。使用本节中的任务配置第一个 DR 组。</block>
   <block id="146d142d8ea797f93d593a6fe9556787" category="doc">处理八节点配置</block>
   <block id="dd42913fad72868b65fced98cfecfcd6" category="paragraph">然后，执行中的任务 <block ref="3e70f7d1f526cf6dd7a89a97c88d0cc8" category="inline-link-macro-rx"></block></block>
-  <block id="87c73779bdee7b395b93de88e2529301" category="doc">准备安装 ONTAP 调解器服务</block>
   <block id="927ed696d98572bdb5039cbffcfdb480" category="section-title">在 MetroCluster 配置中使用调解器的网络要求</block>
   <block id="b2b90a2080b20a433104d14b3164613a" category="paragraph">要在 MetroCluster 配置中安装 ONTAP 调解器服务，您必须确保此配置满足多个网络要求。</block>
   <block id="584cbb7b9a5b8e8c3d576c37046ef4f5" category="list-text">往返延迟</block>
@@ -7333,10 +7328,6 @@
   <block id="72b09b4c164fb776e6577cef10d7084d" category="paragraph">调解器服务与 MetroCluster 配置之间的链路必须至少具有 1 Gbps 的带宽。</block>
   <block id="652f10975e44b79de998287113035fac" category="section-title">ONTAP 调解器的防火墙要求</block>
   <block id="671e00f956495c99ae5aae5896e8542a" category="paragraph">ONTAP 调解器使用多个端口与特定服务进行通信。</block>
-  <block id="861ef6676813cbc81369ee701ae73269" category="list-text">如果您使用的是第三方防火墙：</block>
-  <block id="041f3a27fe8b40cc213210949eb4f036" category="list-text">必须启用 HTTPS 访问。</block>
-  <block id="8b8101ed71d5bd32d2f9d4de05e470c1" category="list-text">必须将其配置为允许在端口 31784 和 3260 上进行访问。</block>
-  <block id="cc1e6f116b4b45ffde821f0aef59e030" category="paragraph">如果使用默认的 Red Hat 或 CentOS 防火墙，则会在安装调解器期间自动配置防火墙。</block>
   <block id="5946d090ccc9cc4eb9c55cf3e9e8d35a" category="paragraph">31784/TCP</block>
   <block id="39af2fc562277654190ca9b83e431189" category="paragraph">ONTAP 集群管理接口</block>
   <block id="47c5e6a166f9432ff96681fa2a62c791" category="paragraph">ONTAP 调解器 Web 服务器</block>
@@ -7347,50 +7338,8 @@
   <block id="a3993ea912c0ecd6926aed69b72fd59a" category="paragraph">邮箱的 iSCSI 数据连接</block>
   <block id="63639615515d028231f302c56bab6ad7" category="section-title">在 MetroCluster 配置中升级 ONTAP 调解器的准则</block>
   <block id="2eb1029cd264d9f182cfb37b0492ad43" category="paragraph">如果要升级 ONTAP 调解器，则必须满足 Linux 版本要求并遵循升级准则。</block>
-  <block id="07042419ecf3ef833bec94711072410a" category="list-text">调解器服务可以从 1.0 版升级到 1.1 版。</block>
   <block id="80f0fa63ac735fb302ee06c9c1c515ae" category="list-text">运行 ONTAP 9.7 或更高版本的 MetroCluster IP 配置支持所有调解器版本。</block>
-  <block id="f275e7f70d8f999068761bd03506f0d2" category="section-title">同时升级主机操作系统和调解器</block>
-  <block id="3f2f9f3216025313cf31d8b43b3718b8" category="paragraph">下表提供了从 RHEL/CentOS 7.6 升级到更高版本 RHEL/CentOS 以及升级调解器版本的升级准则。</block>
-  <block id="1a9dd4a9c96e2863ec3f38f5667b2669" category="cell">目标 Linux 版本</block>
-  <block id="3d48ec6a07eabeb99d3b80b1f889cf92" category="cell">目标调解器版本</block>
-  <block id="b5cb41a6703cf18b4cecd5a0817f91cf" category="cell">升级说明</block>
-  <block id="6a8de62be2aba3050fe2cb285953ea9e" category="paragraph">RHEL/CentOS 7.7</block>
-  <block id="777d45bbbcdf50d49c42c70ad7acf5fe" category="paragraph">1.1</block>
-  <block id="03f4d43f4c43ea861fdce10fac096113" category="list-text">必须按以下顺序执行升级：</block>
-  <block id="be7a8da01f06535e5b1c825376fb13e3" category="list-text">将操作系统从 RHEL/CentOS 7.6 版升级到 7.7 版。</block>
-  <block id="17d6d5a8a6de38dd282c99abc975ec47" category="list-text">重新启动主机以应用内核模块更改。</block>
-  <block id="3ba55116604ed821f5ce045a1e006709" category="list-text">将调解器从 1.0 版升级到 1.1 版。</block>
-  <block id="024f6b2ceb960af0370d128ea02e3bb1" category="inline-xref-macro">安装或升级 ONTAP 调解器服务</block>
-  <block id="797bfc3436949aeab76668d5c4a46d22" category="list-text">storage iscsi-initiator show 命令将报告升级期间与调解器服务的连接已关闭。</block>
-  <block id="62ac39b42107cd3cf20201925c95f754" category="list-text">ONTAP 操作系统将在升级期间生成 cf.mccip.med.auso.stDisabled EMS 事件。</block>
-  <block id="2eacb51d1b60982ec71d3b87f9d967c9" category="list-text">重新启用自动计划外切换后， ONTAP 操作系统将生成 cf.mccip.med.auso.stEnabled EMS 事件。</block>
-  <block id="d6844ff42f175efd4429d9bbe872a8f6" category="paragraph">RHEL/CentOS 8.0 或 8.1</block>
-  <block id="13db436ef9104ac8217c5942baa439dd" category="paragraph">没有直接升级路径。您必须在操作系统升级后删除 1.0 版并安装 1.1 版：</block>
-  <block id="b8f876840850ae6eec722731d20577a1" category="list-text">卸载调解器服务 1.0 版。</block>
-  <block id="1712916ea86b92e1dc65c6376e57dbdc" category="inline-link-macro">卸载 ONTAP 调解器服务</block>
-  <block id="cedb2eedc9be91c46ad0eebf891a04c2" category="paragraph"><block ref="cedb2eedc9be91c46ad0eebf891a04c2" category="inline-link-macro-rx"></block></block>
-  <block id="5a57e5770a7f3f6093180752cff0d9b0" category="list-text">将 Linux 操作系统升级到 8.0 或 8.1 版。</block>
-  <block id="7c4b6e403cbff0ec5097c53fbb8b73b9" category="list-text">安装调解器服务 1.1 版。</block>
   <block id="fe8f2bed933b5baccdaadbe566f09126" category="section-title">升级后</block>
-  <block id="e757d32d746d3d6a86c0e1e0c565ae81" category="section-title">从调解器 1.1 安装还原</block>
-  <block id="bfdbe680fc75eecc4ef0b63fafccccab" category="paragraph">不支持从调解器 1.1 版直接还原到 1.0 版。您必须删除 1.1 版并重新安装 1.0 版。</block>
-  <block id="876c65eb22dee3ed901e633fbb746563" category="list-text">卸载调解器服务 1.1 版。</block>
-  <block id="1b58be7ab5c19ce77ef566da58eafc6f" category="list-text">安装 1.0 版的调解器服务。</block>
-  <block id="a91fb4c2f26a34da08dc0d60df26191f" category="section-title">从 Linux 内核升级中恢复</block>
-  <block id="14cbdd3ff28baa5ad34b838f1cdfd80d" category="paragraph">ONTAP 调解器需要使用 SCST 内核模块。如果更新了 Linux 内核，此依赖关系可能会导致服务丢失。强烈建议您在更改任何内核软件包时重建 SCST 内核模块。</block>
-  <block id="1513e346075ff4cb53e8b13f74797242" category="list-text">从 ONTAP 调解器 1.0 版升级到 1.1 版将重新构建 SCST 模块。</block>
-  <block id="458808065ca0aca8ac27a5be6cf038a7" category="list-text">重新启动 Linux 内核后，将应用内核模块更改。</block>
-  <block id="67d5dcdc5d8e2084ea8d15e52bc220de" category="paragraph">您可以使用以下任一过程从导致调解器服务丢失的内核升级中恢复。</block>
-  <block id="41f0d067784b5d77c67c5cb8a8d27ab5" category="paragraph">删除并重新安装 SCST 内核模块</block>
-  <block id="16e9eaaa525605067841e3acea249bee" category="paragraph">您的调解器版本必须使用 SCST tar 包：</block>
-  <block id="dd8a600684ca75e62507b1a2ba59bb88" category="list-text">ONTAP 调解器 1.0 需要 scst-3.3.0.tar.bz2</block>
-  <block id="c67f8c6b45774dc77f53b1037cdb9c4d" category="list-text">ONTAP 调解器 1.1 需要 scst-3.4.0.tar.bz2</block>
-  <block id="1b7d3b4fc56775c78dcdbc605fcecf91" category="list-text">卸载 SCST 模块：</block>
-  <block id="9541f06b5a8106059ae792b60b33a1f2" category="list-text">下载并解压缩您的调解器版本所需的 SCST tar 包。</block>
-  <block id="2a57d67b29d5c7bd4a714518aa1897bc" category="list-text">在 scst 目录中运行以下命令：</block>
-  <block id="b1b38660f957e7723cbac948066d8a8c" category="list-text">通过在 scst 目录中发出以下命令，重新安装适用于您的调解器版本的 SCST 模块：</block>
-  <block id="430ee00fceaabe9e9489be3a0d2475b8" category="paragraph">删除并重新安装 ONTAP 调解器</block>
-  <block id="489d957f264863b3f4437f805ebfcc30" category="inline-link-macro">重新安装调解器服务</block>
   <block id="4d8cac4d4c182ff6fe50e9fb53cc4d82" category="summary">您必须重置和还原控制器模块上的默认设置，以确保配置清晰。</block>
   <block id="88e93acfeced73f4407df4da34dadb16" category="list-text">在机架或机柜中安装 IP 交换机。</block>
   <block id="1ff31a738d26e47dfa5c26bac0568556" category="summary">启动每个节点后，系统将提示您执行基本节点和集群配置。配置集群后，您可以返回到 ONTAP 命令行界面以创建聚合并创建 MetroCluster 配置。</block>
@@ -7408,87 +7357,6 @@
   <block id="c8a47a2f93307e796690ebd7d82f5573" category="paragraph">此时未配置 MetroCluster IP 接口，并且此接口不会显示在命令输出中。</block>
   <block id="76c896ac6b7a90ae2d17c2b3934e8219" category="paragraph">以下示例显示了 node_A_1 上的两个集群端口：</block>
   <block id="cdf29de4c8a5a778670e597ff53bb862" category="list-text">在配对集群上重复上述步骤。</block>
-  <block id="5dd41c69dbbf6464456398569c1dc43b" category="summary">要安装 ONTAP 调解器服务，必须确保满足所有前提条件，获取安装包并在主机上运行安装程序。</block>
-  <block id="4dbae59f3cbe15012d73996ea5e7efd7" category="cell">调解器版本</block>
-  <block id="7086defea73bc85dfa4588f2db92a805" category="cell">支持的 Linux 版本</block>
-  <block id="0b0ec9f1cc28b3c19dc6c36dcd5af7cc" category="paragraph">1.3</block>
-  <block id="56765472680401499c79732468ba4340" category="paragraph">1.2</block>
-  <block id="d55d8aaf12099eb46ec871f4ea80b39d" category="list-text">64 位物理安装或虚拟机</block>
-  <block id="83626eda7582435cdf0eb139d5cc8972" category="list-text">8 GB RAM</block>
-  <block id="2774e53c6d33bb76442da628f467bbda" category="paragraph">下面列出了在系统上安装 Red Hat Enterprise Linux 或 CentOS 以及关联存储库的最佳实践。以不同方式安装或配置的系统可能需要执行其他步骤。</block>
-  <block id="d78f805366335574fe9a7a8a768188ec" category="list-text">在 Red Hat Enterprise Linux 或 CentOS 上安装 ONTAP 调解器服务时，系统必须能够访问相应的存储库，以便安装程序可以访问和安装所有必需的软件依赖项。</block>
-  <block id="177124ed5a050ade35cf0ca9bbfbea42" category="list-text">要使 yum 安装程序在 Red Hat Enterprise Linux 存储库中查找相关软件，您必须在 Red Hat Enterprise Linux 安装期间或之后使用有效的 Red Hat 订阅注册系统。</block>
-  <block id="3fd0a1c0edf135c3937e76bd17a097d3" category="paragraph">有关 Red Hat 订阅管理器的信息，请参见 Red Hat 文档。</block>
-  <block id="b2a4296360f5b0414eec745b6a908f44" category="list-text">必须未使用以下端口，这些端口可用于调解器：</block>
-  <block id="f35f71b69154572b602a36ded3d5e04b" category="list-text">31784</block>
-  <block id="d54ce9de9df77c579775a7b6b1a4bdc0" category="list-text">3260</block>
-  <block id="0c52d328e3575ffed90f3f02c8504ef7" category="list-text">如果 Linux 主机所在位置无法访问 Internet ，您可以手动安装这些软件包，也可以确保所需的软件包在本地存储库中可用。</block>
-  <block id="2fb8fab8d316710dc04148da14d65653" category="paragraph">您可以使用以下链接获取有关设置存储库的信息。</block>
-  <block id="3674977431a44980c31f81d6a2b8cc32" category="paragraph">ONTAP 调解器服务需要以下软件包：</block>
-  <block id="f813fcc7239eff34d867d55b252023dc" category="cell">所有 RHEL/CentOS 版本</block>
-  <block id="2b4506837d7956224ca67c3fe50a62f1" category="cell">适用于 RHEL/CentOS 7.x 的其他软件包</block>
-  <block id="73e41e821a9762dfeb2467ba42329069" category="cell">适用于 RHEL/CentOS 8.x 的其他软件包</block>
-  <block id="50955d4b2031271f8fda1764c1a66ac3" category="list-text">OpenSSL</block>
-  <block id="bfb048701bda18c214ce545e4c956329" category="list-text">OpenSSL 开发</block>
-  <block id="181eb1934d9e8f95069e533e5364b99d" category="list-text">内核开发</block>
-  <block id="e0d511356bd44120af49cc96c9dcf3b3" category="list-text">GCC</block>
-  <block id="d40270eef8bab470027aedc1b59294ef" category="list-text">libselinux-utils</block>
-  <block id="099dafc678df7d266c25f95ccf6cde22" category="list-text">创建</block>
-  <block id="d8ccd8a2339a5abdfd1aa26a18065592" category="list-text">RedHat-lsb-core</block>
-  <block id="e5c5e6dae38b284e8cf0bd1fb0efac03" category="list-text">修补程序</block>
-  <block id="03ce1ba314f367fdd09887fc8f60578b" category="list-text">bzip 2</block>
-  <block id="feed9f9eee114f237486f709d5bd0248" category="list-text">python36</block>
-  <block id="bb0d72f88d770a3fb163f1db9068533b" category="list-text">python36- devel</block>
-  <block id="017b459c471455ea6ffb7b32b1598286" category="list-text">Perl 数据 - Dumper</block>
-  <block id="6d290149925db69430ede61961477f82" category="list-text">Perl 扩展程序 -MakeMaker</block>
-  <block id="e08cb560fa0fac340ce6e958daaf5e4d" category="list-text">python3-pip</block>
-  <block id="84ca4ac1c16ddb3230798bc5eb343137" category="list-text">policycoreutils-python</block>
-  <block id="6bd1d4e8dbf8645d427b0d591dfaa638" category="list-text">python36 pip</block>
-  <block id="6461c12b2a26dbd0adddb0db161c7020" category="list-text">elfutils-libelf-devel</block>
-  <block id="c8dff58175a7ddfedf00d77953ef42dd" category="list-text">policycoreutils-python 实用程序</block>
-  <block id="e781852df8c9fc982198148d005ed892" category="list-text">如果配置了签名验证，则必须将其禁用。可以通过以下两种方式之一完成此操作：</block>
-  <block id="56edd0d6ba5ec6dd9ebe0dfe46cd6e7e" category="list-text">如果配置了 UEFI SecureBoot 机制，请将其禁用。</block>
-  <block id="e6518c986f6d4680dfac1ee6e165f115" category="list-text">通过更新和重新生成 grub.cfg 文件禁用签名验证机制：</block>
-  <block id="ac6439da643a87aca9345317b0df6695" category="list-text">打开 /etc/default/grub 文件。</block>
-  <block id="555ac066a0a725c3b21878ee11396baa" category="list-text">将字符串 module.sig_enforce 添加到 Grub_CMDLINE_Linux 语句末尾。</block>
-  <block id="8418b94a2a307b3e96b6474bc55e08b7" category="list-text">重新启动主机。</block>
-  <block id="970e1040f661445042b9cc4524e79084" category="paragraph">调解器安装包是一个自解压压缩 tar 文件，其中包括：</block>
-  <block id="40ee7f81efc7bee0246bfd8b4313ff05" category="list-text">一个 RPM 文件，其中包含无法从受支持版本的存储库获取的所有依赖项。</block>
-  <block id="8bbf3efceb42cd45e316987343509e73" category="list-text">安装脚本。</block>
-  <block id="ae90f7d74aeb9331f16b20106d00bbb7" category="paragraph">建议使用有效的 SSL 认证，如本操作步骤中所述。</block>
-  <block id="08dcc2869a95098cf8ff34aa8213d3f2" category="paragraph">此操作步骤用于安装或升级现有安装。</block>
-  <block id="966d347d6cc1563a226816ae5a81a78b" category="section-title">启用对存储库的访问</block>
-  <block id="9f14218e5135dda7b7530841c740770a" category="cell">操作系统</block>
-  <block id="c76eda301cb02c29a872a2edc87fac66" category="cell">您必须提供对这些存储库的访问权限 ...</block>
-  <block id="886dab0e73d247379a1479ecce7a2e23" category="paragraph">RHEL 7.x</block>
-  <block id="3272bb50aa49abfece4d0ff5d7f2f1c9" category="paragraph">rhel-7-server-optional -rpms</block>
-  <block id="66985170e641a7e20698bfec3c1d889f" category="paragraph">CentOS 7.x</block>
-  <block id="29bbf40549849d260ac98466712efae4" category="paragraph">C7.6.1810 —基本存储库</block>
-  <block id="9871c3e3eef10eb83f1020bf0f40a11c" category="paragraph">RHEL 8.x</block>
-  <block id="53edaf3b5c2db40d342cf9b501bc24c1" category="list-text">rhel-8-for-x86_64 — basos-rpms</block>
-  <block id="77e5c42f280ea35ee2926680eb9b47bd" category="list-text">rhel-8-for-x86_64 — AppStream — rpms</block>
-  <block id="af01f167586e9fbd8632c8a1a0ec0690" category="paragraph">CentOS 8.0</block>
-  <block id="89fbd37c27e26bf7336116db7ac1b466" category="paragraph">启用对上述存储库的访问，以便调解器可以在安装过程中访问所需的软件包。请根据您的操作系统使用以下操作步骤。</block>
-  <block id="29a3901faa47143beca695a85de7db4c" category="paragraph">如果您的操作系统为 * RHEL 7.x* ：</block>
-  <block id="b89b54d5af46b251354ba0599e815d76" category="paragraph">以下示例显示了此命令的执行情况：</block>
-  <block id="f55bcd9897346cefe1eb6f488358d4b7" category="paragraph">如果您的操作系统为 * RHEL 8.x * ：</block>
-  <block id="3a1b4b15b3782aff48704dfaea19c4ca" category="paragraph">新订阅的存储库应显示在列表中。</block>
-  <block id="22245074a7cac6efac9483e3712eb75c" category="paragraph">如果您的操作系统为 * CentOS 7.x * ：</block>
-  <block id="95e57bf68611e6ba7f518e0e34d40385" category="list-text">添加 C7.6.1810 —基本存储库。C7.6.1810 —基础存储库包含 ONTAP 调解器所需的 kernel-devel 软件包。</block>
-  <block id="a9a0d20bc8c82736f7aca5ab3b01ecdf" category="list-text">将以下行添加到 /etc/yum.repos.d/Centos-vault.repo.</block>
-  <block id="d35432a6cd9635c21aa35d7b00ab2a18" category="paragraph">如果您的操作系统为 * CentOS 8.0.1905 或更高版本 * ：</block>
-  <block id="f79787ab160e21523526e72ba51652ad" category="paragraph">如果系统显示错误，指出软件包已安装，请删除该软件包并重试：</block>
-  <block id="e1daa66710a7c955cba4452a694495af" category="section-title">下载调解器安装包</block>
-  <block id="658af565337d40fc1457f7afa13ddfee" category="list-text">从 ONTAP 调解器页面下载调解器安装包。</block>
-  <block id="b02f3046b150b191e2d899be132a42bf" category="inline-link">ONTAP 调解器下载页面</block>
-  <block id="bfaf18d8dfedf8024736910386965918" category="paragraph">如果您所在位置无法访问 Internet ，则必须确保安装程序能够访问所需的软件包。</block>
-  <block id="8381a4805481041eb6ea8539d663156b" category="list-text">如有必要，请将调解器安装包从下载目录移至 Linux 调解器主机上的安装目录。</block>
-  <block id="f7def9f508355bb00fa3a45cb1f5748c" category="section-title">安装 ONTAP 调解器安装包</block>
-  <block id="e62715a71f6beca82d6df0e20b5bd455" category="paragraph">安装过程将继续创建所需的帐户并安装所需的软件包。如果主机上安装了先前版本的调解器，系统将提示您确认是否要升级。</block>
-  <block id="db1646631b8bff8b437c37c322aa0a61" category="inline-link-macro">ONTAP 调解器安装示例（控制台输出）</block>
-  <block id="8a03d3e4e3fbf1d4d358c62350ffc64b" category="list-text">确认 ONTAP 调解器服务正在使用的端口： netstat</block>
-  <block id="8eea62084ca7e541d918e823422bd82e" category="section-title">结果</block>
-  <block id="e08c70cd39bb34f43d0f131e35bb05f8" category="paragraph">此时， ONTAP 调解器服务已安装并正在运行。要使用调解器功能，必须在 ONTAP 存储系统中执行进一步配置。</block>
   <block id="d7bc3e4699ceee82586454b661f07889" category="list-text">ONTAP 调解器服务和 MetroCluster Tiebreaker 软件不应同时使用相同的 MetroCluster 配置。</block>
   <block id="965fd53f15f7bf99e2336c9a442ebb53" category="list-text">ONTAP 调解器服务最多可同时支持五个 MetroCluster 配置。</block>
   <block id="73333563890b10eb0a0e6a525715ce08" category="paragraph">如果对提示符回答 `yes` ，则发出命令的站点将切换配对站点。</block>
@@ -8072,10 +7940,6 @@
   <block id="13fb17d9959e5b76dfb561a0f95edc25" category="paragraph">MetroCluster One 是一种使用 NetApp 验证的交换机， ONTAP 9.6 和共享拓扑的 MetroCluster 配置。MetroCluster 2 是一种使用 NetApp 兼容交换机和 ONTAP 9.7 的 MetroCluster 配置。</block>
   <block id="5ad2282d147bc627a5ce751a67599c20" category="admonition">中间交换机必须符合 NetApp 规格。</block>
   <block id="c7f89880448c82e7f3ca4625488b3680" category="image-alt">MCC IP 不支持两个直接连接到共享交换机的 MCC</block>
-  <block id="d5aeb358681fe8cf66166fa74195a2fd" category="summary">安装 ONTAP 调解器服务后，您可能需要更改密码。您可以通过两种方式更改密码。</block>
-  <block id="e3aa7011a37bc39acddb421d35fe5c6b" category="doc">更改 ONTAP 调解器密码</block>
-  <block id="0fea72913528353e02baddfe85a03e5e" category="paragraph">通过选择以下选项之一更改密码：</block>
-  <block id="858e574cb48e3c7de231574b683ba3f3" category="list-text">运行 mediate_change_password 命令并响应提示，如以下示例所示：</block>
   <block id="c209703458c468cdf952f490276996a0" category="summary">您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。</block>
   <block id="ef6b52b87a839f50cbfacc69d34de0af" category="image-alt">Workflow MCC IP 高级节点和集群配置软件</block>
   <block id="ff63653e290a8e5b339966cb9855555f" category="summary">删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。</block>
@@ -8127,9 +7991,6 @@
   <block id="5d21ef93e8cb12318e2d8486435cc6f1" category="section-title">使用缆线将 AFF A320 ， AFF A400 ， AFF A700 或 AFF A800 连接到 Cisco 9336C-x2 共享交换机</block>
   <block id="8522044be3175fd7ff7606798d41836f" category="image-alt">MCC IP 使用缆线将 AFF A320 a400 a700 a800 连接到 Cisco 9336c 共享交换机</block>
   <block id="2b1013f1c2f3e9436213f4a43069d1f4" category="image-alt">每个平台 9336 共享的 MCC 接口</block>
-  <block id="363d2acb4bc2d2fd26d5676edcfecde3" category="paragraph">安装 ONTAP 调解器服务后，您可能需要更改用户名。您可以通过两种方式更改密码。</block>
-  <block id="493069b37797535af86a5daa9bd2e352" category="paragraph">通过选择以下选项之一更改用户名：</block>
-  <block id="2c7c13674c748cbd47e89d7e894c0c63" category="list-text">运行命令 mediate_change_user 并响应提示，如以下示例所示：</block>
   <block id="19d820a9221f4c3142921037b434a337" category="summary">您应了解在 MetroCluster IP 配置中使用多路复用设备的某些注意事项。</block>
   <block id="879911f6e225e29ff8e098fa74f5ff53" category="doc">将 TDM/xWDM 和加密设备与 MetroCluster IP 配置结合使用</block>
   <block id="c1c2a0409868d06a74bf1b3203711a03" category="paragraph">这些注意事项仅适用于直接的专用 MetroCluster 后端链路和交换机，而不适用于与非 MetroCluster 流量共享的链路。</block>
@@ -10062,11 +9923,6 @@
   <block id="24559ad233b20440003c4d9094713621" category="paragraph"><block ref="24559ad233b20440003c4d9094713621" category="inline-link-macro-rx"></block></block>
   <block id="1c609f3ddab3b14ddf26fc53264aff33" category="paragraph"><block ref="1c609f3ddab3b14ddf26fc53264aff33" category="inline-link-macro-rx"></block></block>
   <block id="8d7c5a2fec33d152c060971aa3253c4b" category="paragraph">`vol modify -vserver vserver-name -volume volume-name -dr-force-nvfail on`</block>
-  <block id="956ab0574d8251a8ec8c6c74f42bf11d" category="doc">卸载 ONTAP 调解器服务</block>
-  <block id="e3bdaded12d38863b3e782d2277f8891" category="paragraph">如果无法访问此命令，则可能需要使用完整路径运行此命令，如以下示例所示：</block>
-  <block id="04e18ededf9b4f7e991de51ad7fa228d" category="paragraph">` /usr/local/bin/uninstall_ontap_mediator`</block>
-  <block id="af016f6803224b169dbdc2d486a7034d" category="list-text">卸载 ONTAP 调解器服务：</block>
-  <block id="c53d7ae8b9830f4d572f86414bfcc5ab" category="paragraph">`uninstall_ontap_mediator`</block>
   <block id="e39c1c9f6137c6dbe9a36e7da08ce525" category="paragraph"><block ref="e39c1c9f6137c6dbe9a36e7da08ce525" category="inline-link-macro-rx"></block></block>
   <block id="d6c1b26afb87081a7358d272268afbf0" category="paragraph"><block ref="d6c1b26afb87081a7358d272268afbf0" category="inline-link-macro-rx"></block></block>
   <block id="a72d2a4ca552186cbf62f182a7dfbe82" category="paragraph"><block ref="a72d2a4ca552186cbf62f182a7dfbe82" category="inline-link-macro-rx"></block></block>
@@ -10096,15 +9952,7 @@
   <block id="406bb351c55daa6b29920fa6ce644c29" category="paragraph">`s记录列表`</block>
   <block id="158cb58d37ae471e855a50eebdf79050" category="list-text">应用 RCF 脚本：</block>
   <block id="3c0c5e88db6d4b3741126778351471ec" category="paragraph">`s记录应用 BES-53248_v1.32_Switch-A1.SCR`</block>
-  <block id="1baaf248a80e9f2df9149ad24bcd0836" category="paragraph">* 注 * ：在操作系统升级期间， ONTAP 调解器和调解器辅助的自动计划外切换不可用。调解器将脱机，直到调解器版本 1.0 到 1.1 升级过程完成为止。</block>
-  <block id="7ae90f92f4c3116089ea1691a1481c66" category="paragraph"><block ref="7ae90f92f4c3116089ea1691a1481c66" category="inline-link-macro-rx"></block></block>
-  <block id="050bfbcc74f502e3ef3716d883f61c92" category="list-text">从 ONTAP 配置中删除调解器服务：</block>
-  <block id="ae295e7cab9e10826cf8dfdf49ccefd4" category="paragraph"><block ref="ae295e7cab9e10826cf8dfdf49ccefd4" category="inline-link-macro-rx"></block></block>
-  <block id="8484266510c971479df6392894ce9e31" category="list-text">将调解器服务添加到 ONTAP 配置：</block>
   <block id="ed92588fcdb50fce92fb0e01fb8449b0" category="paragraph">完成调解器和操作系统升级后，您应使用问题描述 `storage iscsi-initiator show` 命令确认调解器连接已启动。</block>
-  <block id="59ce098408ba22153827c3740f7439ed" category="paragraph">* 注： * 这需要重新配置 ONTAP 中的调解器。</block>
-  <block id="4d3a5688cd619b6a471bd27705ed11b7" category="list-text"><block ref="e5b98464b5c0e6ec01b305f3fb5a465a" category="inline-link-macro-rx"></block>。</block>
-  <block id="cb34f32d49a6adde57a3822c5d1146c9" category="list-text"><block ref="72ca1e083d77bc61b26140e9f36ae29f" category="inline-link-macro-rx"></block>。</block>
   <block id="c77851b696911673647cb7bed20ed179" category="paragraph">如果系统处于维护模式，则需要使用问题描述 halt 命令退出维护模式，然后使用问题描述 `boot_ontap` 命令启动系统并进入集群设置。</block>
   <block id="2c4ba3dc166bed104e5a7cb242a33b52" category="list-text">在每个集群中的第一个节点上，按照提示继续配置集群</block>
   <block id="66b81db08cfd6dc65c91f43c33637ff2" category="inline-link">使用 System Manager 进行集群管理（ 9.0 到 9.6 版）</block>
@@ -10112,38 +9960,6 @@
   <block id="a20a27311b456fc6207eda19880125cd" category="inline-link">ONTAP System Manager （ 9.7 及更高版本）</block>
   <block id="1ca0d9647eb663a44ff0a5fef980ff52" category="paragraph"><block ref="1ca0d9647eb663a44ff0a5fef980ff52" category="inline-link-rx"></block></block>
   <block id="b4c9e1380e1ed5373eae1207de120c59" category="paragraph">如果没有，则必须在每个节点上配置 HA 模式，然后重新启动节点：</block>
-  <block id="d538323207536710bf9482e713fccdb0" category="paragraph">您必须满足以下前提条件。</block>
-  <block id="7ca10fe4adcfe26c58b56f49be56e4d0" category="admonition">内核版本必须与操作系统版本匹配。</block>
-  <block id="647537229263aefa3c54288c7bb1c9c9" category="list-text">如果使用第三方防火墙：请参见 <block ref="18d19bad9a4543e182a0d97d3b9dd92c" category="inline-link-macro-rx"></block></block>
-  <block id="66b839172e851682436ef771164bf0b9" category="list-text">重新生成 grub.cfg 文件以实施更改：</block>
-  <block id="c4e74e306f571ddb1de7142533ff4394" category="paragraph">`update-bootloader || update-grub || grub2-mkconfig -o /boot/grub2/grub.cfg`</block>
-  <block id="6ec67c7f9ae6e79cdc1ecaba58a63339" category="paragraph"><block ref="6ec67c7f9ae6e79cdc1ecaba58a63339" category="inline-link-macro-rx"></block></block>
-  <block id="ef86cc5f8c1cf0649edb8980819d5ccb" category="list-text">适用于的操作步骤 <block ref="cfad4f933445fe3e149c146ecc0b3865" category="inline-xref-macro-rx"></block> 操作系统</block>
-  <block id="e5e4fe7cae071f868354ffe124c8eac4" category="list-text">适用于的操作步骤 <block ref="7f25bb534eeedad3193848983965dfb8" category="inline-xref-macro-rx"></block> 操作系统</block>
-  <block id="871694b01e89140015514ce2a9ec485a" category="list-text">适用于的操作步骤 <block ref="d65b2d64eb8a246b44f850f01d3b24a4" category="inline-xref-macro-rx"></block> 操作系统</block>
-  <block id="aab7c1d9cccd04fb93c38e242c676b4a" category="inline-xref">CentOS 8.0.1095 或更高版本</block>
-  <block id="67293445361633138c116474626ee0d9" category="list-text">适用于的操作步骤 <block ref="6cd33e8d98a7bb7cb5f5ed641272afcc" category="inline-xref-macro-rx"></block> 操作系统</block>
-  <block id="f9338b001083c1207b750f7ca56fb6ce" category="section-title">适用于 RHEL 7.x 操作系统的操作步骤</block>
-  <block id="ebb1c48020075aff153ff6902c0e37db" category="list-text">订阅所需的存储库：</block>
-  <block id="b3dd10b8fd4e14d2545dc0003d3ad87a" category="paragraph">`ssubscription-manager repos-enable rhel-7-server-optional-rpms`</block>
-  <block id="981295ff2a0d7463991a885ba18dcf9d" category="list-text">运行 `yum repolist` 命令。</block>
-  <block id="99e8c68b889cb147e7d7f3a766bcbc08" category="section-title">适用于 RHEL 8.x 操作系统的操作步骤</block>
-  <block id="7dd1ebc4d5b183898da5921f08d7b314" category="paragraph">`ssubscription-manager repos-enable rhel-8-for-x86_64 basos-rpms`</block>
-  <block id="bb80618cbf594385d599f59db2af5e33" category="paragraph">`ssubscription-manager repos-enable rhel-8-for-x86_64 -AppStream -rpms`</block>
-  <block id="aa3f631fc5c50fd8386f95cdb6d4a080" category="section-title">适用于 CentOS 7.x 操作系统的操作步骤</block>
-  <block id="e77417f9b3a025db5c9b897480397f05" category="section-title">适用于 CentOS 8.0.1905 或更高版本操作系统的操作步骤</block>
-  <block id="776b863d23f8f3c1ad323efc746ad581" category="inline-link">CentOS 存储</block>
-  <block id="9a57fec066e0a61fb842162f033faf88" category="paragraph">`rpm -i \http://vault.centos.org/8.0.1905/BaseOS/x86_64/os/Packages/kernel-devel-$(uname -r ） .rpm`</block>
-  <block id="5842c617760ec88e74403fcbbdac12a9" category="list-text">删除 kernel-devel 软件包：</block>
-  <block id="6d97c3b1955e8f90cdc265fad38ddb79" category="paragraph">`yum remove kernel-devel`</block>
-  <block id="99bb9681cb725875d0be400f49eca9d6" category="list-text">重复中所示的 `rpm` 命令 <block ref="fd049611d5f23ebb101acec1a21657d5" category="inline-xref-macro-rx"></block>。</block>
-  <block id="8206c273a22a9771c0ddd5eb500e8908" category="list-text">确认调解器安装包位于目标目录中：</block>
-  <block id="74ba1d61d7167ef9092b8a56f7804e73" category="paragraph">`ls`</block>
-  <block id="88d054d5f3a3fafd9ba1b4f2b9d83d80" category="list-text">安装调解器安装包并根据需要响应提示：</block>
-  <block id="5f733d0fb3040c5d3ddeb8aecc22ad76" category="paragraph">` 。 /ontap-mediate_1.3`</block>
-  <block id="9c0f95d6de9186b24cce94c1c19ad0bb" category="section-title">验证安装。</block>
-  <block id="727f7e66f563ac8a9894cde4ef7cae57" category="list-text">运行以下命令以查看 ONTAP 调解器服务的状态：</block>
-  <block id="2c101feb286ad2210cbfe89cbea82b4a" category="paragraph">`systemctl`</block>
   <block id="bc123056e228f601bd0d262cb4470668" category="list-text">如果系统运行的是 ONTAP 9.4 或更早版本，请修复数据聚合：</block>
   <block id="f7435cd78551a0fd45d3c8d37a295df3" category="paragraph">MetroCluster 修复聚合`</block>
   <block id="25df9fc7c4242bd1e2418d12f58a6bd2" category="list-text">如果系统运行的是 ONTAP 9.4 或更早版本，请修复根聚合：</block>
@@ -10276,10 +10092,6 @@
   <block id="fb2c0ebeb18b9e1080333a65b192bdc3" category="list-text">如果使用的是现有的 ONTAP 调解器实例，请将 ONTAP 调解器服务添加到 ONTAP ：</block>
   <block id="6852fcac58b417258b30784060002d89" category="list-text">跟踪 MetroCluster 端口组（ MetroCluster 1 ， MetroCluster 2 等）。使用 RcfFileGenerator 工具时需要此信息，如此配置操作步骤后面所述。</block>
   <block id="b070262d5faad84092129cb1c7a44daa" category="list-text">。<block ref="166489b3c340ece1eccb5706fda90624" category="inline-link-rx"></block> 此外，还提供了每个交换机的每端口布线概览。使用此布线概述来验证布线情况。</block>
-  <block id="183b2aa3a5eb88aeb88e71147b8bcf77" category="paragraph">` /usr/local/bin/medier_change_password`</block>
-  <block id="e2a6f3f0659d65cb3836785cf8a67738" category="list-text">运行 `medidator_change_password` 命令并响应提示，如以下示例所示：</block>
-  <block id="42e7b099f6b0528770f02ee25377b671" category="paragraph">`mEDIATOR_USERNAME= mediatoradmin mediator_password=mediator1 mediator_new_password=mediator2 mediator_change_password`</block>
-  <block id="170fad7ce1323bd1ac99a22d153c057d" category="paragraph">此示例显示密码已从 "mediator1" 更改为 "mediator2" 。</block>
   <block id="1645e08f0bfdf72de9dd9cf2ec8208de" category="admonition">系统将提示您输入调解器管理员用户帐户的用户名和密码。</block>
   <block id="80e98c813fb4e1db7539339fdcc19d00" category="list-text">验证中的自动切换功能是否已启用：</block>
   <block id="241c04bf46a427ee9559a37db9cfc64c" category="list-text">显示调解器虚拟磁盘：</block>
@@ -10294,8 +10106,6 @@
   <block id="531b740381cddffce7b8440283ae7533" category="paragraph">有关配置 MACsec 密钥链的详细信息，请参见适用于您的交换机的 Cisco 文档。</block>
   <block id="3390d4f6bfc1502eb6b943d94b2ccf81" category="paragraph"><block ref="3390d4f6bfc1502eb6b943d94b2ccf81" category="inline-link-macro-rx"></block></block>
   <block id="2df82e698bfc14af74dd0684edfa8af0" category="paragraph">MetroCluster configuration-settings mediator add -mediate-address ip-address-o-o-medier-host`</block>
-  <block id="6b650cfd5a5122af7703db2cfff2b455" category="paragraph">` /usr/local/bin/medier_username`</block>
-  <block id="b41c8853c66915bd8a05346255719968" category="paragraph">`mEDIATOR_USERNAME=mediator mediator_password=mediator2 mediator_new_username=mediatoradmin mediator_change_user`</block>
   <block id="5152b189d736ab8937cc45a67d7606a8" category="paragraph">以下示例将端口 "e0e" 和 " e0f" 分配给系统 "SVMcluster01" 上的故障转移组 "intercluster01" ：</block>
   <block id="e4e7923086e51ec42ef46b71162e35d6" category="paragraph">以下示例将在故障转移组 "intercluster01" 中创建集群间 LIF "cluster01_icl01" 和 "cluster01_icl02" ：</block>
   <block id="9fd80e6d7b08203071aac9c9974bf414" category="paragraph">以下示例显示 "SVMe0e" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0f" 端口。</block>
@@ -10505,14 +10315,6 @@
   <block id="ab4a2de3931dbed092e0d44be3c87116" category="list-text">为 MetroCluster IP 生成 Broadcom RCF 文件。</block>
   <block id="fd550a9c3a7b7c6106ae07bc6bb69106" category="list-text">下载<block ref="166489b3c340ece1eccb5706fda90624" category="inline-link-rx"></block></block>
   <block id="7d5c4b7a8cb7bc598a3b2eb9fb74fe60" category="list-text">使用适用于 MetroCluster IP 的 RcfFileGenerator 为您的配置生成 RCF 文件</block>
-  <block id="fcc29e51109ca100014a87a9b9694411" category="list-text">Red Hat Enterprise Linux ： 7.6 ， 7.7 ， 7.8 ， 7.9 ， 8.0 ， 8.1 ， 8.2 ， 8.3</block>
-  <block id="7756ed262f2157ad61f237289d31648e" category="list-text">CentOS ： 7.6 ， 7.7 ， 7.8 ， 7.9</block>
-  <block id="070add3768287c5f5f5f77d13c4a72af" category="list-text">Red Hat Enterprise Linux ： 7.6 ， 7.7 ， 7.8 ， 8.0 ， 8.1</block>
-  <block id="a565f362dbb8e1b9f57a08e86e8f79c8" category="list-text">CentOS ： 7.6 ， 7.7 ， 7.8</block>
-  <block id="8e6d01361c0a0174b1932a821de7a679" category="list-text">您必须根据 Red Hat 最佳实践安装 Red Hat Enterprise Linux 或 CentOS 。由于 CentOS 8.x 版本的支持已停止使用，因此不建议使用 RHEL 或兼容的 CentOS 7.x 版本</block>
-  <block id="81c7a3cb2e63f472014dfe2b68d0038b" category="admonition">CentOS 8.x 的生命周期支持将于 2021 年 12 月 31 日结束。如果将 CentOS 与 ONTAP 结合使用，建议您还原到 <block ref="d65b2d64eb8a246b44f850f01d3b24a4" category="inline-xref-macro-rx"></block> 操作系统或使用 RHEL 。</block>
-  <block id="6ba27586854ba0abe529cf9dfcdd935e" category="paragraph">在中<block ref="ca696ba3aa939e934b2df752c3821404" category="inline-link-rx"></block>下，找到与您的操作系统匹配的 kernel-devel 软件包。因为最新版本的 8.0 （ CentOS 8.0.1905 及更高版本）核心位于中<block ref="0ea159b669197108632fac010ad6fa88" category="inline-link-rx"></block>，您必须提供对匹配的 kernel-devel 软件包的访问权限，以编译所需的内核模块。</block>
-  <block id="2699fab59dd92a1ee8ec7edfb1c53cc2" category="admonition">上述命令是一个特定于 CentOS 8.0.1905 的示例。根据其他 CentoOS 8.x 版本的需要更改路径。</block>
   <block id="83be746defb3baacbca8a27913d5e887" category="summary">您可能需要使用共享 Storage MetroCluster 交换机将 NS224 磁盘架添加到 MetroCluster 中。</block>
   <block id="81614ec1c85e193dd436e86dd56ed40d" category="doc">使用共享 Storage MetroCluster 交换机向 MetroCluster IP 添加磁盘架</block>
   <block id="0aefe0e277b60b987afe007a43a31ca0" category="paragraph">从 ONTAP 9.10.1 开始，您可以使用共享存储 /NS224 MetroCluster 交换机从 MetroCluster 添加 NS224 磁盘架。您可以一次添加多个磁盘架。</block>
@@ -10760,7 +10562,6 @@
   <block id="01fe01722f1775c1b67e7b20a14951de" category="summary">从 ONTAP 9.1.1 开始，可以使用 IP 路由（第 3 层）后端连接实施 MetroCluster IP 配置。</block>
   <block id="190cbd15f1cbbd86a76eac6847a93472" category="admonition">NetApp 仅支持经过 NetApp 验证的交换机。这些交换机由 NetApp 测试和销售。它们将在中列出 <block ref="d4ffdef7e991262a330f44b113eb81ba" category="inline-link-macro-rx"></block> 和中的 <block ref="d708b823ca770dd1bbb2d28ee68bd021" category="inline-link-macro-rx"></block>。</block>
   <block id="c1444ba460cdd9b59c8ecf988ca907c4" category="list-text">ONTAP 9.7 及更高版本支持自动计划外切换。</block>
-  <block id="f0324d386ec4ed7f8c8ebf742291230a" category="paragraph">`MetroCluster configuration-settings add -mediate-address-1.1-ip-address`</block>
   <block id="9be8f8020bac531bf90d3e9e43090821" category="list-text">下载最新版本的 MetroCluster Tiebreaker 软件。此示例使用版本 1.21P3-1 。</block>
   <block id="91cf0413661523a86216dbb468e63b8e" category="paragraph">`rpm -ivh netapp-metrocluster-tiebreaker 软件 -1.21P3-1x86_64 ： rpm`</block>
   <block id="efbc224381e9ee3b7c21a4934b2b6740" category="paragraph">`rpm -Uvh NetApp-MetroCluster-Tiebreaker 软件 -1.21P3-1.x86_64 ： rpm`</block>
@@ -10890,8 +10691,6 @@
   <block id="71a38375f76a7ed87f8e28fa9645d356" category="sidebar">安装或升级 ONTAP 调解器服务</block>
   <block id="4a013e1601591220c48257d9b4f85901" category="sidebar">从 MetroCluster IP 配置配置 ONTAP 调解器服务</block>
   <block id="f49bd82ec28b5ed1e86bb99d8be7e44e" category="sidebar">将 MetroCluster 配置连接到其他 ONTAP 调解器实例</block>
-  <block id="ccb82146b8d97fe4c7eca00b48d743d4" category="sidebar">更改 ONTAP 调解器密码</block>
-  <block id="1cc7ca7bd5f05790fc8714f3758d47eb" category="sidebar">更改 ONTAP 调解器用户名</block>
   <block id="2497da01927dd78867fe48a11bd87f93" category="sidebar">测试 MetroCluster 配置</block>
   <block id="38484792ce18e1ac90df07df1cbe4040" category="sidebar">安装 Tiebreaker 软件</block>
   <block id="77d873129b2551d3791bd53918453706" category="sidebar">配置 Tiebreaker 软件</block>
@@ -11138,8 +10937,6 @@
   <block id="a017a6db2fc01588987d027787f42d9c" category="section-title">使用缆线将 AFF A900 连接到 Cisco 3232C 或 Cisco 9336C 交换机</block>
   <block id="34bc1dd80a773d74b460af7f29e7d10f" category="image-alt">使用缆线将 AFF a900 连接到 Cisco 3232c 或 Cisco 9336c 交换机</block>
   <block id="1700747af42734556058284b63ef6e71" category="paragraph"><block ref="1700747af42734556058284b63ef6e71" category="inline-link-macro-rx"></block></block>
-  <block id="0cbcf8488c0db66baf9b2d34702dd7ba" category="paragraph">`MetroCluster configuration-settings add -mediate-address-1.0-ip-address`</block>
-  <block id="23c36d85c3ecc94e8e88986b2d4194cc" category="paragraph">`MetroCluster configuration-settings add -mediate-address-ip-address`</block>
   <block id="04c19f5eb2ebdc099239a7074f8d6534" category="paragraph">9.10.1 及更高版本</block>
   <block id="c6d4a9d3f7628712dae7a41ab974439d" category="inline-link">使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 及更高版本的控制器硬件</block>
   <block id="6c8dc70fbcb473ab96451fff57f7f3a0" category="paragraph"><block ref="6c8dc70fbcb473ab96451fff57f7f3a0" category="inline-link-rx"></block></block>
@@ -12433,13 +12230,6 @@
   <block id="fa06f628b32f0d1ba3fc7ece00862b96" category="paragraph"><block ref="fa06f628b32f0d1ba3fc7ece00862b96" category="inline-link-rx"></block></block>
   <block id="9f6ef9d803a6a101c30a47069149abd6" category="list-text">从 EFOS 3.7.x.x 或更高版本开始，可以使用非 FIPS 兼容版本和 FIPS 兼容版本。从不符合 FIPS 的版本迁移到符合 FIPS 的版本时，需执行不同的步骤，反之亦然。将 EFOS 从不符合 FIPS 的版本更改为符合 FIPS 的版本，或者反之，则会将交换机重置为出厂默认值。此操作步骤需要通过串行控制台端口进行访问。</block>
   <block id="c92c490b97a94b8ad700c26b41c33c18" category="summary">从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信息提供物理上独立的存储库来协助 MetroCluster IP 配置执行自动计划外切换。</block>
-  <block id="f99a7e2cc2f68abed09630b1b61f8cd9" category="paragraph">从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信息提供物理上独立的存储库来协助 MetroCluster IP 配置执行自动计划外切换。您的环境必须满足以下要求。您可能需要更新 Linux 版本。</block>
-  <block id="6be6d40c3750758375151aaf5ce76c7a" category="paragraph">如果您在 Linux 环境中使用链路聚合控制协议（ Link Aggregation Control Protocol ， LACP ），则必须正确配置内核，并确保 `sysctl net.IPv4.conf.all.arp_ignore` 设置为 "`2` " 。</block>
-  <block id="56f9797f838faa0e4bcaf2634a6882b4" category="paragraph">以下示例显示了此命令的执行情况。列表中应显示 "`rhel-7-server-optional-rpms` " 存储库。</block>
-  <block id="ff55a787e94b8141de1d31a08ef3978a" category="paragraph">以下示例显示了此命令的执行情况。列表中应显示 "`CentOS-7.6.1810 - Base` " 存储库。</block>
-  <block id="428213827ee56071818425b8652e1717" category="list-text">【 ｛ step1-rpm]] 直接安装 kernel-devel 软件包：</block>
-  <block id="1c25284cbe99f20a5f633ae8ef6d7f53" category="paragraph"><block ref="1c25284cbe99f20a5f633ae8ef6d7f53" category="inline-link-rx"></block></block>
-  <block id="bc11709638b090ced2d64b33a0568e86" category="paragraph"><block ref="bc11709638b090ced2d64b33a0568e86" category="inline-link-macro-rx"></block></block>
   <block id="e90535a051902416d901e147c4c59930" category="summary">此信息介绍如何安装和配置 MetroCluster Tiebreaker 软件。</block>
   <block id="884324de7d536976016cc7e2b34b0da9" category="paragraph">您应使用此信息安装 MetroCluster Tiebreaker 软件。</block>
   <block id="26a1b5abfaa8d36a512417a3da776baf" category="summary">您可以了解有关 MetroCluster 配置和操作的更多信息。</block>
@@ -12748,4 +12538,10 @@
   <block id="df181c6434803cd5a18218c45eca6655" category="list-text">将 FEC 设置为 off ： `fEC off`</block>
   <block id="344fc0c43530ccad90a38944b632b1e4" category="list-text">退出配置模式： `exit`</block>
   <block id="9c0c1022f821ad4ee9fd20c2731bc6f1" category="list-text">强烈建议为每个 MetroCluster DR 组中的每个 SAS 磁盘架使用唯一的磁盘架 ID ，以帮助进行故障排除。</block>
+  <block id="70fef59fffa5df67d10b024d11f37399" category="paragraph"><block ref="70fef59fffa5df67d10b024d11f37399" category="inline-link-macro-rx"></block></block>
+  <block id="466ed123ab8f5845237d3ae425397ec7" category="paragraph">您的环境必须满足以下要求。</block>
+  <block id="c5cd3d887ef507cadc249c592410542a" category="list-text">如果您计划更新 Linux 版本，请在安装最新的 ONTAP 调解器服务之前执行此操作。</block>
+  <block id="38553b6946adff245ef7423d34544e4b" category="paragraph">如果您使用的是第三方防火墙： * 必须启用 HTTPS 访问。* 必须将其配置为允许在端口 31784 和 3260 上进行访问。</block>
+  <block id="63fb21fb55a9451afb7b60d2b7d593b2" category="paragraph">+ 使用默认 Red Hat 或 CentOS 防火墙时，防火墙会在调解器安装期间自动配置。</block>
+  <block id="5981ded82c976bff5c9a73686842655a" category="list-text">可以将调解器服务从早期版本升级到当前版本。</block>
 </blocks>
