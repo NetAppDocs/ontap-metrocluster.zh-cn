@@ -5,6 +5,7 @@ keywords: install, tiebreaker, software, monitor, capabilities, capability, clus
 summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，它还会在发生节点连接问题和站点灾难时发送 SNMP 通知。 
 ---
 = 安装 Tiebreaker 软件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

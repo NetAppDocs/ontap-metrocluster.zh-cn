@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, ensure, port, group, configure, zo
 summary: 您必须确保交换机间链路（ ISL ）位于同一端口组中，并为 MetroCluster 配置配置配置分区以成功共享交换机网络结构。 
 ---
 = 确保 ISL 位于同一端口组中并配置分区
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

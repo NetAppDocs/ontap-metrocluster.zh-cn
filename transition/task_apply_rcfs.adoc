@@ -5,6 +5,7 @@ keywords: Generating and applying RCFs to the new IP switches, review, requireme
 summary: 如果要在 MetroCluster IP 配置中使用新的 IP 交换机，则必须使用自定义 RCF 文件配置这些交换机。 
 ---
 = 生成 RCF 并将其应用于新的 IP 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

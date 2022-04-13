@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, maintenance, service, tiebreaker, mediator, on
 summary: 使用 Tiebreaker 或调解器监控软件的配置必须在维护前取消配置该软件 
 ---
 = 在执行维护任务之前，请删除 ONTAP 调解器或 Tiebreaker 监控
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
@@ -65,7 +66,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metro
  a| 
 调解器
  a| 
-link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"] 在 _IP MetroCluster 安装和配置 _ 部分中。
+链接： ./install-IP/concept_mediator_requirements.html _ MetroCluster IP 安装和配置 _ 部分中的 " 从 MetroCluster IP 配置配置 ONTAP 调解器服务 " 。
 
 
 

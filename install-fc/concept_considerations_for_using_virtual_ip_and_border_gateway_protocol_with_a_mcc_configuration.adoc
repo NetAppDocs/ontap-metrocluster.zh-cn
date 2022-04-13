@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, virtual, ip, border, gateway, prot
 summary: 从 ONTAP 9.5 开始， ONTAP 支持使用虚拟 IP （ VIP\ ）和边界网关协议（ BGP ）的第 3 层连接。前端网络中用于冗余的 VIP 和 BGP 与后端 MetroCluster 冗余相结合，可提供第 3 层灾难恢复解决方案。 
 ---
 = 在 MetroCluster 配置中使用虚拟 IP 和边界网关协议的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

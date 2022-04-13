@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, copyright
 summary: 《 MetroCluster 升级，过渡和扩展指南》的版权信息。 
 ---
 = 版权
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

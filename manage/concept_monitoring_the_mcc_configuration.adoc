@@ -5,6 +5,7 @@ keywords: ontap, metrocluster, command, active, iq, unified, manager, oncommand,
 summary: 您可以使用 ONTAP MetroCluster 命令和 Active IQ Unified Manager （以前称为 OnCommand Unified Manager ）监控各种软件组件的运行状况以及 MetroCluster 操作的状态。 
 ---
 = 监控 MetroCluster 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
@@ -223,7 +224,7 @@ mccint-fas9000-0304
 使用以下链接安装和配置 Tiebreaker 或调解器：
 
 * link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["安装和配置 MetroCluster Tiebreaker 软件："]
-* link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["为计划外自动切换配置 ONTAP 调解器服务"]
+* 链接： ./install-IP/concept_mediator_requirements.html
 
 
 

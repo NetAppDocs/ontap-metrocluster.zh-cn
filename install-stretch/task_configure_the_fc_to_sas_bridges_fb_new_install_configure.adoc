@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, configuration, fc, sas, bridges
 summary: 在为您的 FC-SAS 网桥型号布线之前，您必须在 FibreBridge 软件中配置设置。 
 ---
 = 配置 FC-SAS 网桥
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

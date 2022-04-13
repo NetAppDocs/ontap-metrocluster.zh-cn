@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, prepare
 summary: 准备在新的 MetroCluster 系统中安装网桥时，必须确保系统满足特定要求。这包括满足网桥的设置和配置要求。其他要求包括下载必要的文档， ATTO QuickNAV 实用程序和网桥固件。 
 ---
 = 准备安装
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, hot, remove, storage, fc, configurati
 summary: 您可以从已启动并提供数据的 MetroCluster FC 配置中热删除驱动器架，即物理删除已从驱动器中删除聚合的磁盘架。您可以从磁盘架堆栈中的任意位置热删除一个或多个磁盘架，也可以删除磁盘架堆栈。 
 ---
 = 从 MetroCluster FC 配置中热删除存储
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

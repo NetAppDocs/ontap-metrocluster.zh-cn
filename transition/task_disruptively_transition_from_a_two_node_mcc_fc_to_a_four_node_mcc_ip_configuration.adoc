@@ -5,6 +5,7 @@ keywords: start, ontap, transition, workload, data, exist, two-node, metrocluste
 summary: 从 ONTAP 9.8 开始，您可以将工作负载和数据从现有双节点 MetroCluster FC 配置过渡到新的四节点 MetroCluster IP 配置。将 MetroCluster FC 节点中的磁盘架移动到 IP 节点。 
 ---
 = 从双节点 MetroCluster FC 中断过渡到四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

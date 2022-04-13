@@ -5,6 +5,7 @@ keywords: verify, port, environmental, metrocluster, configuration
 summary: 您必须在节点上设置环境变量，然后将其关闭，以便为 MetroCluster 配置做好准备。 
 ---
 = 验证端口配置（仅限 MetroCluster FC 配置）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

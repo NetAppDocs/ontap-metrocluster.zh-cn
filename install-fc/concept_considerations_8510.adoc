@@ -5,6 +5,7 @@ keywords: preparing, prepare, metrocluster, mcc, installation, install, differen
 summary: 在准备 MetroCluster 安装时，您应了解 MetroCluster 硬件架构和所需的组件。 
 ---
 = 使用 Brocade DCX 8510-8 交换机的要求
+:allow-uri-read: 
 
 
 * MetroCluster 配置中使用的 DCX 8510-8 交换机必须从 NetApp 购买。

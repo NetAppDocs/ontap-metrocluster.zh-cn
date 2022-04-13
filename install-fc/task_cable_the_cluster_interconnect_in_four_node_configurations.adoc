@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, cable, cluster, interconnect, four
 summary: 在八节点或四节点 MetroCluster 配置中，必须为每个站点的本地控制器模块之间的集群互连布线。 
 ---
 = 为八节点或四节点配置中的集群互连布线
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

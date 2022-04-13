@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, port, assignments, systems, two, i
 summary: 您可以使用每个网络结构的一个启动程序端口和每个控制器的两个启动程序端口来配置 FAS8020 ， AFF8020 ， FAS8200 和 AFF A300 系统。 
 ---
 = 使用两个启动程序端口的系统的端口分配
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

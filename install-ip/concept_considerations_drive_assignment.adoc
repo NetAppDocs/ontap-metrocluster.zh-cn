@@ -5,6 +5,7 @@ keywords: drive auto-assignment, drive, adp, advanced disk partitioning, root di
 summary: 从 ONTAP 9.4 开始， MetroCluster IP 配置支持使用 ADP （高级驱动器分区）对 AFF 系统进行新安装。 
 ---
 = ONTAP 9.4 及更高版本中的自动驱动器分配和 ADP 系统注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
@@ -145,7 +146,7 @@ NOTE: 从 ONTAP 9.5 开始，必须使用命令 `storage disk option modify -aut
 
 
 
-== 将磁盘架添加到现有配置中。
+== 将磁盘架添加到现有配置中
 
 自动驱动器分配支持向现有配置对称添加磁盘架。
 

@@ -5,6 +5,7 @@ keywords: transition, metrocluster, ip, configuration, combination, support, pla
 summary: 然后过渡到 MetroCluster IP 配置，您必须同时拥有受支持的平台型号。 
 ---
 = 支持无中断过渡的平台
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

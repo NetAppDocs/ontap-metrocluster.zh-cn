@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, update, firmware, fibrebridge, bridge
 summary: 用于更新网桥固件的操作步骤取决于您的网桥型号和 ONTAP 版本。 
 ---
 = 更新 FibreBridge 网桥上的固件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

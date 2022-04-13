@@ -5,6 +5,7 @@ keywords: MetroCluster configurations
 summary:  
 ---
 = 手动配置 Brocade FC 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

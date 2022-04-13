@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, cabling, storage, array, ports, fc
 summary: 在使用阵列 LUN 的 MetroCluster 配置中，必须将构成冗余端口对的存储阵列端口连接到备用 FC 交换机。 
 ---
 = 在八节点 MetroCluster 配置中使用缆线将存储阵列端口连接到 FC 交换机的示例
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, cable, fc, vi, hba, ports, eight, 
 summary: 如果要设置使用阵列 LUN 的八节点光纤连接 MetroCluster 配置，则必须使用缆线将 FC-VI 端口和 HBA 端口连接到交换机端口。 
 ---
 = 在使用阵列 LUN 的八节点光纤连接 MetroCluster 配置中为 FC-VI 和 HBA 端口布线
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

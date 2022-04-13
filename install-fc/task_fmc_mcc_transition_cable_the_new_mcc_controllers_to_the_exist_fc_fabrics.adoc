@@ -5,6 +5,7 @@ keywords: cabling, metrocluster, fabric, installation, fc, controllers
 summary: 在集群模式 ONTAP MetroCluster 配置中的每个控制器上，必须使用缆线将 FC-VI 适配器和 HBA 连接到现有 FC 交换机上的特定端口。 
 ---
 = 使用缆线将新的 MetroCluster 控制器连接到现有 FC 网络结构
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

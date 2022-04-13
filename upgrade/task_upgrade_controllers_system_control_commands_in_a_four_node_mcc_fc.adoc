@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, controllers, switchover, switchback, fc, config
 summary: 您可以使用此引导式自动 MetroCluster 切换操作对四节点 MetroCluster FC 配置执行无中断控制器升级。 
 ---
 = 使用切换和切回命令使用 system controller replace 升级四节点 MetroCluster FC 配置中的控制器（ ONTAP 9.10.1 及更高版本）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: procedure, example, name, throughout, identify, dr, group, node, switc
 summary: 此操作步骤会在整个过程中使用示例名称来标识涉及的 DR 组，节点和交换机。 
 ---
 = 此操作步骤中的命名示例
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, hot, add, iom12, stack, iom6, disk, s
 summary: 根据您的 ONTAP 版本，您可以在桥接 MetroCluster 配置中将 IOM12 磁盘架热添加到 IOM6 磁盘架堆栈中。 
 ---
 = 在桥接 MetroCluster 配置中将 IOM12 磁盘架热添加到 IOM6 磁盘架堆栈
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

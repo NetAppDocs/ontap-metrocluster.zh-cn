@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, refresh, configuration, new, controller
 summary: 将 MetroCluster 配置从双节点配置扩展为四节点配置时，必须刷新该配置。 
 ---
 = 使用新控制器刷新 MetroCluster 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, examples, two, node, stretch, con
 summary: 要设置使用原生磁盘和阵列 LUN 的延伸型 MetroCluster 配置，必须使用 FC-SAS 网桥或 SAS 光缆将 ONTAP 系统连接到磁盘架。必须使用 FC 交换机将阵列 LUN 连接到 ONTAP 系统。 
 ---
 = 使用磁盘和阵列 LUN 的双节点延伸型 MetroCluster 配置示例
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

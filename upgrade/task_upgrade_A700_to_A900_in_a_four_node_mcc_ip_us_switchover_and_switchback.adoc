@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, controller, ip, configuration, switchover, swit
 summary: 从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。 
 ---
 = 使用切换和切回功能将 AFF IP 配置中的 AFF A700 控制器升级到 MetroCluster A900 （ ONTAP 9.10.1 及更高版本）
+:allow-uri-read: 
 
 
 [role="lead"]
@@ -123,8 +124,8 @@ AFF A700 上的 MetroCluster IP 配置不使用 VLAN 。AFF A900 上的 MetroClu
 按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/index.html["MetroCluster IP 安装和配置"] 内容
 
 +
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#resetting-the-broadcom-ip-switch-to-factory-defaults["将 Broadcom IP 交换机重置为出厂默认值"]
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#resetting-the-cisco-ip-switch-to-factory-defaults["将 Cisco IP 交换机重置为出厂默认值"]
+** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #reseting-the_Broadcom-ip-switch-to factory-defaults （将 Broadcom IP 交换机重置为出厂默认设置）
+** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #reseting-the_cisco-ip-switch-to factory-defaults （将 Cisco IP 交换机重置为出厂默认值）
 
 
 . 下载并安装 RCF 文件。
@@ -132,8 +133,8 @@ AFF A700 上的 MetroCluster IP 配置不使用 VLAN 。AFF A900 上的 MetroClu
 按照中的步骤进行操作 link:../install-ip/index.html["MetroCluster IP 安装和配置"] 内容
 
 +
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom RCF 文件"]
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
+** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #downloading-and-installing-the_Broadcom-RCF 文件 [ 下载并安装 Broadcom RCF 文件 ]
+** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #downloading-and-installing-the_cisco-ip-RCF files[ 下载并安装 Cisco IP RCF 文件 ]
 
 
 
@@ -831,8 +832,8 @@ FC
 link:../install-ip/index.html["MetroCluster IP 安装和配置"]
 
 +
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#resetting-the-broadcom-ip-switch-to-factory-defaults["将 Broadcom IP 交换机重置为出厂默认值"]
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#resetting-the-cisco-ip-switch-to-factory-defaults["将 Cisco IP 交换机重置为出厂默认值"]
+** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #reseting-the_Broadcom-ip-switch-to factory-defaults （将 Broadcom IP 交换机重置为出厂默认设置）
+** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #reseting-the_cisco-ip-switch-to factory-defaults （将 Cisco IP 交换机重置为出厂默认值）
 
 
 . 下载并安装 RCF 文件。
@@ -840,8 +841,8 @@ link:../install-ip/index.html["MetroCluster IP 安装和配置"]
 按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/index.html["MetroCluster IP 安装和配置"]。
 
 +
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom RCF 文件"]
-** link:../install-ip/task_install_and_cable_the_mcc_components.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
+** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #downloading-and-installing-the_Broadcom-RCF 文件 [ 下载并安装 Broadcom RCF 文件 ]
+** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #downloading-and-installing-the_cisco-ip-RCF files[ 下载并安装 Cisco IP RCF 文件 ]
 
 
 
@@ -1446,7 +1447,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metro
  a| 
 调解器
  a| 
-link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"] 在 _IP MetroCluster 安装和配置 _ 部分中。
+链接： ./install-IP/concept_mediator_requirements.html _ MetroCluster IP 安装和配置 _ 部分中的 " 从 MetroCluster IP 配置配置 ONTAP 调解器服务 " 。
 
 
 

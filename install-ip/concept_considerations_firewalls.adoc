@@ -5,6 +5,7 @@ keywords: firewall, port usage, tcip, udp, cluster peering, intercluster lifs, h
 summary: 如果您在 MetroCluster 站点上使用防火墙，则必须确保能够访问某些所需端口。 
 ---
 = MetroCluster 站点上的防火墙使用情况
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

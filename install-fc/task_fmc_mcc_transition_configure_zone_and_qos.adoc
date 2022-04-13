@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, delete, ti, zoning, tod, settings
 summary: 您必须删除交换机网络结构上的现有 TI 分区并重新配置按顺序交付 \ （ IOD\ ）设置。 
 ---
 = 删除 TI 分区并配置 IOD 设置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

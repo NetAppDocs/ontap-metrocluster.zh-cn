@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, failure, recovery, scenarios
 summary: 您应了解 MetroCluster 配置如何响应不同的故障事件。 
 ---
 = MetroCluster 故障和恢复场景
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

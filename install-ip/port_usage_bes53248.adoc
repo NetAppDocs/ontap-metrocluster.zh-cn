@@ -5,6 +5,7 @@ keywords: cabling, cable, component, sip, isl, link, site, management, network, 
 summary: MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台类型。 
 ---
 = 为 Broadcom 支持的 BES-53248 IP 交换机分配平台端口
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: start, transition, process, configuration, requirement, nondisruptive,
 summary: 在开始过渡过程之前，您必须确保配置满足要求。 
 ---
 = 无中断 FC-IP 过渡的要求
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

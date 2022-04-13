@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, support, fibrebridge, configurations
 summary: 支持使用 FibreBridge 7500N 网桥替代 FibreBridge 6500N 网桥，或者在向 MetroCluster 配置添加新存储时使用此网桥。支持的配置具有分区要求，并存在有关使用网桥 FC 端口以及堆栈和存储架限制的限制。 
 ---
 = 支持 MetroCluster 配置中的 FibreBridge 7500N 网桥
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

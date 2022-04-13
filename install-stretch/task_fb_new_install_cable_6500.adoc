@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, cable, fibrebridge, disk, shelves
 summary: 配置网桥后，您可以开始为新系统布线。FibreBridge 6500N 网桥使用 QSFP 连接器。 
 ---
 = 使用缆线将 FibreBridge 6500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

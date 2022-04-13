@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, cable, controllers
 summary: 每个控制器的 FC-VI 适配器都必须直接连接到其配对节点。 
 ---
 = 使用缆线将控制器彼此连接
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

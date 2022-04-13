@@ -5,6 +5,7 @@ keywords:
 summary: 从 ONTAP 9.8 开始，您可以从八节点 MetroCluster 配置中删除 DR 组，以创建四节点 MetroCluster 配置。 
 ---
 = 删除灾难恢复组
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

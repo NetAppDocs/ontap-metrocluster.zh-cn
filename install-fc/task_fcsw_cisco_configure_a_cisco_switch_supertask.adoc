@@ -5,6 +5,7 @@ keywords:
 summary: 必须为 MetroCluster 配置中的每个 Cisco 交换机正确配置 ISL 和存储连接。 
 ---
 = 手动配置 Cisco FC 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

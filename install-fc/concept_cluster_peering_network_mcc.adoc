@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, illustration, cluster, peering, ne
 summary: MetroCluster 配置中的两个集群通过客户提供的集群对等网络建立对等关系。集群对等支持站点之间 Storage Virtual Machine （ SVM ，以前称为 Vservers\ ）的同步镜像。 
 ---
 = 集群对等网络的图示
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

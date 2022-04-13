@@ -5,6 +5,7 @@ keywords: power, sas, storage, direct, attached, configuration, fabric
 summary: 准备切回时，您必须打开灾难站点上的 MetroCluster 组件的电源。 
 ---
 = 启动灾难站点上的设备
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

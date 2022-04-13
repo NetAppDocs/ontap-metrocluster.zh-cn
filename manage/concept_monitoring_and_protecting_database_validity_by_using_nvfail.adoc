@@ -5,6 +5,7 @@ keywords: monitor, protect, file, system, consistency, nvfail, parameter, volume
 summary: 使用 volume modify 命令的 -nvfail 参数， ONTAP 可以在系统启动时或切换操作后检测非易失性 RAM （ NVRAM ）的不一致性。此外，它还会向您发出警告，并保护系统免受数据访问和修改的影响，直到可以手动恢复卷为止。 
 ---
 = 使用 NVFAIL 监控和保护文件系统一致性
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

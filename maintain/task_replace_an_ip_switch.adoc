@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, replace, ip, switch
 summary: 您可能需要更换发生故障的交换机，或者升级或降级交换机。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。 
 ---
 = 更换 IP 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

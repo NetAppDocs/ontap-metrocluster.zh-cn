@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, cable, storage, arrays, fc, switch
 summary: 您必须将存储阵列连接到 FC 交换机，以便 MetroCluster 配置中的 ONTAP 系统可以通过至少两个路径访问特定阵列 LUN 。 
 ---
 = 使用缆线将存储阵列连接到 MetroCluster 配置中的 FC 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, create, mirrored, data, aggregate, node
 summary: 您必须在 DR 组中的每个节点上创建镜像数据聚合。 
 ---
 = 在每个节点上创建镜像数据聚合
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

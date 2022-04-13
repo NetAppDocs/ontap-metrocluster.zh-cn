@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, controller, ip, configuration, switchover, swit
 summary: 从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。 
 ---
 = 使用切换和切回升级 MetroCluster IP 配置中的控制器（ ONTAP 9.8 及更高版本）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
@@ -1795,7 +1796,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metro
  a| 
 调解器
  a| 
-link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"]。
+链接： ./install-IP/concept_mediator_requirements.html 【从 MetroCluster IP 配置配置 ONTAP 调解器服务】。
 
 
 

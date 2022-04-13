@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, required, hardware, components, n
 summary: MetroCluster 配置需要多种硬件组件。为了方便和清晰起见， MetroCluster 文档中会使用标准组件名称。一个站点称为站点 A ，另一个站点称为站点 B 
 ---
 = 双节点 SAS 连接延伸型配置所需的 MetroCluster 硬件组件和命名准则
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

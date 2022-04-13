@@ -5,6 +5,7 @@ keywords: plan, metrocluster, ip, configuration, planning, require, hardware, so
 summary: 在规划 MetroCluster IP 配置时，您必须了解所需的和支持的硬件和软件组件。为了方便和清晰起见，您还应了解整个文档中的示例中用于组件的命名约定。 
 ---
 = 所需的 MetroCluster IP 组件和命名约定
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

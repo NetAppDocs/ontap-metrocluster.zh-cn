@@ -5,6 +5,7 @@ keywords: cabling, cable, component, sip, link, site, management, network, hardw
 summary: MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台类型。 
 ---
 = Cisco 3132Q-V 交换机的平台端口分配
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

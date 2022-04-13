@@ -5,6 +5,7 @@ keywords: metrocluster, mediator, configure
 summary: 必须在 ONTAP 节点上配置 ONTAP 调解器服务，才能在 MetroCluster IP 配置中使用。 
 ---
 = 从 MetroCluster IP 配置配置 ONTAP 调解器服务
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

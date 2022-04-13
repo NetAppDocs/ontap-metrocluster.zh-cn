@@ -5,6 +5,7 @@ keywords: metrocluster, ip, configuration, verify, storage, connectivity, remote
 summary: 您必须确认已更换的节点已连接到运行正常的站点上的磁盘架。 
 ---
 = 验证与远程站点的存储连接（ MetroCluster IP 配置）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

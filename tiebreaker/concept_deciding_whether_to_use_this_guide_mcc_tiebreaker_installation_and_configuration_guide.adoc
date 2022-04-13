@@ -5,6 +5,7 @@ keywords: install, configure, metrocluster, tiebreaker, software, deciding, deci
 summary: 此信息介绍如何安装和配置 MetroCluster Tiebreaker 软件。 
 ---
 = MetroCluster Tiebreaker 软件安装和配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

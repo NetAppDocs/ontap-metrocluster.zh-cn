@@ -5,6 +5,7 @@ keywords: ontap, metrocluster, configuration, aware, consideration, license, lic
 summary: 在 MetroCluster 配置中使用 ONTAP 时，您应了解有关许可，与 MetroCluster 配置之外的集群建立对等关系，执行卷操作， NVFAIL 操作以及其他 ONTAP 操作的某些注意事项。 
 ---
 = 在 MetroCluster 配置中使用 ONTAP 时的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

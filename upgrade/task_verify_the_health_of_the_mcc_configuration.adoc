@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, health, verify, conofiguration
 summary: 您应检查 MetroCluster 配置的运行状况以验证是否正常运行。 
 ---
 = 验证 MetroCluster 配置的运行状况
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

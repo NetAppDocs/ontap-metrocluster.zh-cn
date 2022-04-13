@@ -5,6 +5,7 @@ keywords: isl, isls, layer 2, layer 3, shared switch
 summary: 您应了解配置的 ISL 要求。 
 ---
 = ISL 注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

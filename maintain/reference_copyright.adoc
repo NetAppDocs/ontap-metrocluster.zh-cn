@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, copyright
 summary: 维护 MetroCluster 组件的版权。 
 ---
 = 版权
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

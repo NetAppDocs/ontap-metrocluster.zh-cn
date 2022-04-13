@@ -5,6 +5,7 @@ keywords: helpful, metrocluster, protect, data, transparent, recovery, failure, 
 summary: 了解 MetroCluster 如何保护数据并提供透明的故障恢复，以便您可以轻松高效地管理切换和切回活动，这很有帮助。 
 ---
 = 了解 MetroCluster 数据保护和灾难恢复
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

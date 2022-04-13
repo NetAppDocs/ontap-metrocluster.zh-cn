@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, license, array, luns, configuratio
 summary: 您必须在要与阵列 LUN 结合使用的每个 MetroCluster 节点上安装 V_StorageAttach 许可证。在安装许可证之前，您不能在聚合中使用阵列 LUN 。 
 ---
 = 安装许可证以在 MetroCluster 配置中使用阵列 LUN
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

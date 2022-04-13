@@ -5,6 +5,7 @@ keywords: boot, controller, modules, fc
 summary: 数据聚合和根聚合的聚合修复完成后，您必须启动灾难站点上的一个或多个节点。 
 ---
 = 启动新控制器模块（ MetroCluster FC 配置）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, copyright
 summary: 延伸型 MetroCluster 安装和配置的版权信息。 
 ---
 = 版权
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

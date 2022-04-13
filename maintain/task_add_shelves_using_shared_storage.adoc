@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, shelf, shelves, add, ns224,
 summary: 您可能需要使用共享 Storage MetroCluster 交换机将 NS224 磁盘架添加到 MetroCluster 中。 
 ---
 = 使用共享 Storage MetroCluster 交换机向 MetroCluster IP 添加磁盘架
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

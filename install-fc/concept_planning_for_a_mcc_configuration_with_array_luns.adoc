@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, plan, array, luns
 summary: 为 MetroCluster 配置创建详细计划有助于您了解在存储阵列上使用 LUN 的 MetroCluster 配置的独特要求。安装 MetroCluster 配置涉及到连接和配置多个设备，这些操作可能由不同的人员完成。因此，该计划还有助于您与参与安装的其他人员进行通信。 
 ---
 = 规划使用阵列 LUN 的 MetroCluster 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

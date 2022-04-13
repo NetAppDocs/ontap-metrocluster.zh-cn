@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, upgrade, rcf, files, ip, switches
 summary: 您可能需要升级 MetroCluster IP 交换机上的 RCF 文件。例如， ONTAP 升级或交换机固件升级都需要新的 RCF 文件。 
 ---
 = 升级 MetroCluster IP 交换机上的 RCF 文件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

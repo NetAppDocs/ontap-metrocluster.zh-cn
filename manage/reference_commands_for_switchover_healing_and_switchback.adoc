@@ -5,6 +5,7 @@ keywords: ontap, command, perform, metrocluster, disaster, recovery, process, sw
 summary: 您可以使用特定的 ONTAP 命令来执行 MetroCluster 灾难恢复过程。 
 ---
 = 用于切换，修复和切回的命令
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

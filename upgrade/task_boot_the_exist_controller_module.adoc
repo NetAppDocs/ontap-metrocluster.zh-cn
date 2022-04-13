@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, boot, existing, controller, module
 summary: 您必须将现有控制器模块启动到 ONTAP 。 
 ---
 = 启动现有控制器模块
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

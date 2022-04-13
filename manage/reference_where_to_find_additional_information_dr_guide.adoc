@@ -5,6 +5,7 @@ keywords: learn, metrocluster, configuration, operation, netapp, extensive, docu
 summary: 您可以在 NetApp 的丰富文档中了解有关 MetroCluster 配置和操作的更多信息。 
 ---
 = 从何处查找追加信息
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

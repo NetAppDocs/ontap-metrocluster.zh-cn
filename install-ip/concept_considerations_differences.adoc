@@ -5,6 +5,7 @@ keywords: differences, eight-node, four-node, fabric-attached, stretch, metroclu
 summary: 各种 MetroCluster 配置在所需组件方面存在主要差异。 
 ---
 = ONTAP MetroCluster 配置之间的差异
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

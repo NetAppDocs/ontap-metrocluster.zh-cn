@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, cable, controllers, storage, shel
 summary: 控制器 FC-VI 适配器必须直接连接到彼此。必须使用缆线将控制器 SAS 端口连接到远程和本地存储堆栈。 
 ---
 = 使用缆线将控制器彼此连接并连接到存储架
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

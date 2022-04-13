@@ -5,6 +5,7 @@ keywords: metrocluster, configuration, switchback, operation, return, operating,
 summary: 修复 MetroCluster 配置后，您可以执行 MetroCluster 切回操作。MetroCluster 切回操作会将配置恢复到其正常运行状态，灾难站点上的 sync-source Storage Virtual Machine \ （ SVM\ ）处于活动状态，并从本地磁盘池提供数据。 
 ---
 = 执行切回
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

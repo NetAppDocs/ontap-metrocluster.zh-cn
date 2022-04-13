@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, configuration, worksheets, fc, swi
 summary: 在开始配置 MetroCluster 站点之前，您应收集所需的配置信息。 
 ---
 = FC 交换机和 FC-SAS 网桥的配置工作表
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

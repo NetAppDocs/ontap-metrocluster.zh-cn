@@ -5,6 +5,7 @@ keywords: metrocluster, tiebreaker, port, communicate, specific, service, firewa
 summary: MetroCluster Tiebreaker 使用多个端口与特定服务进行通信。 
 ---
 = MetroCluster Tiebreaker 的防火墙要求
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

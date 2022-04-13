@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, copyright, trademark, machine, transl
 summary: 维护 MetroCluster 组件的版权，商标和机器翻译。 
 ---
 = 版权，商标和机器翻译
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, rename, cluster, configuration
 summary: 重命名 MetroCluster 配置中的集群涉及进行更改，然后在本地和远程集群上验证更改是否已正确生效。 
 ---
 = 在 MetroCluster 配置中重命名集群
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords:
 summary:  
 ---
 = 测试 MetroCluster 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

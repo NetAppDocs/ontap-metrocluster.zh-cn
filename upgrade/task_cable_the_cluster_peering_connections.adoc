@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, cable, new, controller, modules, cluster, peeri
 summary: 您必须使用缆线将新控制器模块连接到集群对等网络，以使其与配对站点上的集群建立连接。 
 ---
 = 为新控制器模块的集群对等连接布线
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

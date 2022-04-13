@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, determine, new, cabling, layout
 summary: 您必须确定新控制器模块和任何新磁盘架到现有 FC 交换机的布线。 
 ---
 = 确定新的布线布局
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

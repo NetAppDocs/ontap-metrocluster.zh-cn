@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, correct, procedure, configuration
 summary: 您必须根据是否使用 FlexArray LUN ， MetroCluster 配置中的节点数以及是否共享 7- 模式光纤 MetroCluster 使用的现有 FC 交换机网络结构来选择正确的安装操作步骤。 
 ---
 = 为您的配置选择正确的安装操作步骤
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

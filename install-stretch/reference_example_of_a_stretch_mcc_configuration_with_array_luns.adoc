@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, example, stretch, configuration, 
 summary: 在使用阵列 LUN 的延伸型 MetroCluster 配置中，必须使用缆线连接 FC-VI 端口，以便在控制器之间直接连接。此外，您还必须使用缆线将每个控制器 HBA 端口连接到相应 FC 交换机上的交换机端口。与阵列 LUN 的布线方式与光纤连接 MetroCluster 中的布线方式相同，但 E 系列阵列 LUN 除外，该阵列 LUN 可以直接连接。 
 ---
 = 使用阵列 LUN 的延伸型 MetroCluster 配置示例
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

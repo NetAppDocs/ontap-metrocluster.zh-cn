@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, hot, add, stack, sas, disk, shelves, 
 summary:  
 ---
 = 将 SAS 磁盘架和网桥堆栈热添加到 MetroCluster 系统
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

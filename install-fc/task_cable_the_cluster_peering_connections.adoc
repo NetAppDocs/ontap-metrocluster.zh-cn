@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, cable, cluster, peering, connectio
 summary: 您必须为用于集群对等关系的控制器模块端口布线，使其能够连接到配对站点上的集群。 
 ---
 = 为集群对等连接布线
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

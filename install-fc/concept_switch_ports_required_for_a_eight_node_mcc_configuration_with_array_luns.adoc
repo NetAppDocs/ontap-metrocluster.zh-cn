@@ -5,6 +5,7 @@ keywords: ontap, metrocluster,
 summary: 在将 ONTAP 系统连接到 FC 交换机以设置使用阵列 LUN 的 MetroCluster 配置时，必须将每个控制器中的 FC-VI 和 HBA 端口连接到特定交换机端口。 
 ---
 = 使用阵列 LUN 的 MetroCluster 配置所需的交换机端口
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

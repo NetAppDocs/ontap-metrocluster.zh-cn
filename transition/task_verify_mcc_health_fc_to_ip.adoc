@@ -5,6 +5,7 @@ keywords: Verifying the health of the MetroCluster configuration, review, requir
 summary: 在执行过渡之前，您必须验证 MetroCluster 配置的运行状况和连接。 
 ---
 = 验证 MetroCluster 配置的运行状况
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

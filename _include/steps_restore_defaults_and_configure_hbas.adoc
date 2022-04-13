@@ -1,4 +1,5 @@
 = 
+:allow-uri-read: 
 
 
 要确保 MetroCluster 安装成功，请重置和还原控制器模块上的默认值。

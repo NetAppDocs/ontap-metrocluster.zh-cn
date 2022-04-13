@@ -5,6 +5,7 @@ keywords: preparing, prepare, metrocluster, mcc, installation, install, differen
 summary: 您必须确定 MetroCluster 配置中每个 FC 交换机网络结构需要多少 ISL 。 
 ---
 = ISL 注意事项
+:allow-uri-read: 
 
 
 [role="lead"]

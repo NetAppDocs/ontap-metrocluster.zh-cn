@@ -5,6 +5,7 @@ keywords: differences, eight-node, four-node, fabric-attached, stretch, metroclu
 summary: 您应了解在 MetroCluster IP 配置中使用多路复用设备的某些注意事项。 
 ---
 = 将 TDM/xWDM 和加密设备与 MetroCluster IP 配置结合使用
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

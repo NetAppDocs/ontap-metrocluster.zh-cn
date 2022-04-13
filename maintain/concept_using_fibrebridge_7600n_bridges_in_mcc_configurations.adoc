@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, support, fibrebridge, bridges, config
 summary: ONTAP 9.5 及更高版本支持 FibreBridge 7600N 网桥，以替代 FibreBridge 7500N 或 6500N 网桥，或者在向 MetroCluster 配置添加新存储时。使用网桥 FC 端口时的分区要求和限制与 FibreBridge 7500N 网桥相同。 
 ---
 = 支持 MetroCluster 配置中的 FibreBridge 7600N 网桥
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

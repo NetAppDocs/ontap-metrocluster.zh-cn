@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, replace, brocade, fc, switch
 summary: 您必须使用此 Brocade 专用操作步骤来更换发生故障的交换机。 
 ---
 = 更换 Brocade FC 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

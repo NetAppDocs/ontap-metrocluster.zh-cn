@@ -1,10 +1,11 @@
 ---
 permalink: transition/task_move_cluster_connections.html 
 sidebar: sidebar 
-keywords: Transitioning from MetroCluster FC to MetroCluster IP configurations, review, requirement, preparing, prepare, transition, perform, procedure, order, completing, complete, step, task, moving, move, controller, storage, shelves, shelf, exist, configuration, direct, metrocluster, fc, ip, verify, health, removing, remove, tiebreaker, monitor, software, generating, generate, apply, rcf, switch, controller, configure, prepare, preparing 
+keywords: transition, cluster connections 
 summary: 在查看所有要求并为过渡做准备之后，您可以执行过渡操作步骤。您必须按顺序执行每个任务，完成每个任务中的所有步骤，然后再转到下一个任务。在发出指示之前，不应将新控制器或存储架连接到现有配置。 
 ---
 = 移动本地集群连接
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
@@ -20,6 +21,10 @@ summary: 在查看所有要求并为过渡做准备之后，您可以执行过�
 您必须将 MetroCluster FC 节点上的集群连接移动到 IP 交换机。这些步骤取决于您使用的是现有 IP 交换机还是新的 IP 交换机。
 
 您必须在两个 MetroCluster 站点上执行此任务。
+
+
+
+=== 要移动哪些连接
 
 以下任务假定控制器模块使用两个端口进行集群连接。某些控制器模块型号使用四个或更多端口进行集群连接。在这种情况下，在本示例中，端口划分为两个组，在这两个组之间交替使用端口
 
@@ -117,7 +122,7 @@ node_x_2-FC
 
 . 将 MetroCluster FC 节点组 A 集群连接移动到新的 IP 交换机。
 +
-使用中所述的端口 link:../transition/task_verify_mcc_health_fc_to_ip.html#moving-the-cluster-connections-on-the-metrocluster-fc-nodes["移动 MetroCluster FC 节点上的集群连接"]。
+使用中所述的端口 <<Which connections to move>>。
 
 +
 .. 断开所有组 A 端口与交换机的连接，或者，如果 MetroCluster FC 配置为无交换机集群，则断开它们与配对节点的连接。
@@ -251,7 +256,7 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 
 . 将组 A 的端口重新连接到 switch_A_1_IP 。
 +
-使用中所述的端口 link:task_transition_from_mcc_fc_to_mcc_ip_configurations.html["移动 MetroCluster FC 节点上的集群连接"]。
+使用中所述的端口 <<Which connections to move>>。
 
 . 验证所有集群端口是否均已启动：
 +

@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, configure, brocade, switches, manu
 summary: 交换机配置过程和命令因交换机供应商而异。 
 ---
 = 手动配置 Cisco 或 Brocade FC 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

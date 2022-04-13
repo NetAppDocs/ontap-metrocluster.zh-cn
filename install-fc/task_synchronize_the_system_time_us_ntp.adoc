@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, synchronize, system, time, ntp
 summary: 每个集群都需要自己的网络时间协议（ NTP ）服务器来同步节点与其客户端之间的时间。您可以使用 System Manager 中的编辑日期时间对话框配置 NTP 服务器。 
 ---
 = 使用 NTP 同步系统时间
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

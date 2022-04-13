@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, hot, add, sas, disk, shelf, direct, a
 summary: 您可以使用 SAS 光缆将 SAS 磁盘架热添加到直连 MetroCluster FC 配置中的现有 SAS 磁盘架堆栈，或者将其作为新堆栈添加到控制器上的 SAS HBA 或板载 SAS 端口。 
 ---
 = 使用 SAS 光缆在直连 MetroCluster FC 配置中热添加 SAS 磁盘架
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, set, up, ha, mode, existing, controller, module
 summary: 您必须使用 storage failover modify 命令在现有控制器模块上设置模式。模式值将在稍后重新启动控制器模块后启用。 
 ---
 = 在现有控制器模块上设置 HA 模式
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

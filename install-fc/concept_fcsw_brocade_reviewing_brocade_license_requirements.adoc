@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, review, brocade, license, requirem
 summary: MetroCluster 配置中的交换机需要特定许可证。您必须在所有四台交换机上安装这些许可证。 
 ---
 = 查看 Brocade 许可证要求
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

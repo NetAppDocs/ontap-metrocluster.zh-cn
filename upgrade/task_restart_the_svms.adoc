@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, restart, svm
 summary: 扩展 MetroCluster 配置后，必须重新启动 SVM 。 
 ---
 = 重新启动 SVM
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

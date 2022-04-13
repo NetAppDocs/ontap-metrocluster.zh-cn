@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, upgrade, downgrade, firmware, cisco, 
 summary: 要升级或降级 Cisco FC 交换机上的固件，必须使用 Cisco 专用的命令禁用交换机，执行并验证升级，然后重新启动并重新启用交换机。 
 ---
 = 升级或降级 Cisco FC 交换机上的固件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

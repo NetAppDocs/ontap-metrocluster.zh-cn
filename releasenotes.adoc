@@ -5,6 +5,7 @@ keywords: release, notes, new, features, fixed, issues, known, limitations, 7-mo
 summary: 介绍新增功能，升级说明，已修复的问题，已知限制和已知问题。 
 ---
 = MetroCluster
+:allow-uri-read: 
 
 
 。 https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["《 ONTAP 9 发行说明》"^] 描述新功能，升级说明，已修复的问题，已知限制和已知问题。

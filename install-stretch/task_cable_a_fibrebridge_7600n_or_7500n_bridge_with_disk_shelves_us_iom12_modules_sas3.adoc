@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, cable, fibrebridge, bridge, disk,
 summary: 配置网桥后，您可以开始为系统布线。 
 ---
 = 使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM12 模块的磁盘架
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, create, unmirrored, data, aggregates
 summary: 您可以选择为不需要 MetroCluster 配置提供的冗余镜像的数据创建未镜像数据聚合。 
 ---
 = 创建未镜像的数据聚合
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: Generating and applying RCFs to the new IP switches, review, requireme
 summary: 过渡期间，您会将数据从 MetroCluster FC 配置中的驱动器架移动到新的 MetroCluster IP 配置。 
 ---
 = 将数据移动到新驱动器架
+:allow-uri-read: 
 
 
 [role="lead"]

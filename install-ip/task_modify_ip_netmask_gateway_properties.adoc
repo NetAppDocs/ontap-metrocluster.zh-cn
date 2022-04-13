@@ -5,6 +5,7 @@ keywords: vlan, ip, gateway,netmask, address, network, interface, subnet
 summary: 您可以更改 MetroCluster IP 接口， IP 地址和掩码以及网关的以下属性。您可以使用任意参数组合进行更新。 
 ---
 = 修改 MetroCluster IP 中的地址，网络掩码和网关
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, refresh, four, node, ip, configuration, add, au
 summary: 从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配置扩展为临时八节点配置，然后删除旧的灾难恢复（ Disaster Recovery ， DR ）组来升级四节点 IP 配置中的控制器和存储。 
 ---
 = 刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
@@ -54,7 +55,7 @@ image::../media/mcc_dr_group_a.png[MCC DR 组 A]
  a| 
 Tiebreaker
  a| 
-link:..tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for-modifying-metrocluster-tiebreaker-configurations["删除 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for-modifying-metrocluster-tiebreaker-configurations["删除 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中
 
 
 
@@ -143,7 +144,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metro
  a| 
 调解器
  a| 
-link:../install-ip/concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"] 在 _IP MetroCluster 安装和配置 _ 中。
+链接： ./install-IP/concept_mediator_requirements.html _ MetroCluster IP 安装和配置 _ 中的 " 从 MetroCluster IP 配置配置 ONTAP 调解器服务 " 。
 
 
 

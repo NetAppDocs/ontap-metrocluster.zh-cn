@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, find, procedures, maintenance, tasks
 summary: 在执行 MetroCluster 硬件维护任务时，您应确保选择正确的操作步骤。 
 ---
 = 从何处查找 MetroCluster 维护任务的过程
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

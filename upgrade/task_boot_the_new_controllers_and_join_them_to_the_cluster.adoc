@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, boot, new, controller, join, cluster
 summary: 要将新控制器加入集群，您必须启动每个新控制器模块，并使用 ONTAP 集群设置向导确定要加入的集群。 
 ---
 = 启动新控制器并将其加入集群
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: nondisruptive, transition, fc, ip
 summary: 从 ONTAP 9.8 开始，支持将工作负载和数据从现有四节点 MetroCluster FC 配置无中断过渡到新的 MetroCluster IP 配置。 
 ---
 = 无中断地从 MetroCluster FC 过渡到 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

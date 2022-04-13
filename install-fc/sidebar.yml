@@ -108,7 +108,7 @@ entries:
   - title: 概述
     url: "/install-fc/task_fmc_mcc_transition_configure_the_mcc_hardware_for_share_a_7_mode_brocade_6510_fc_fabric_dure_transition.html"
   - title: 查看 Brocade 许可证要求
-    url: "/install-fc/concept_fcsw_brocade_review_brocade_license_requirements.html"
+    url: "/install-fc/concept_fcsw_brocade_reviewing_brocade_license_requirements.html"
   - title: 将硬件组件装入机架
     url: "/install-fc/task_rack_the_hardware_components_mcc_fabric_and_ip.html"
   - title: 使用缆线将新的 MetroCluster 控制器连接到现有 FC 网络结构
@@ -142,7 +142,7 @@ entries:
   - title: 在使用阵列 LUN 的配置中安装 MetroCluster 组件并为其布线
     entries:
     - title: 使用阵列 LUN 将 MetroCluster 配置中的硬件组件装入机架
-      url: "/install-fc/task_racking_the_hardware_components_in_a_mcc_configuration_with_array_luns.html"
+      url: "/install-fc/task_rack_the_hardware_components_in_a_mcc_configuration_with_array_luns.html"
     - title: 准备用于 ONTAP 系统的存储阵列
       url: "/install-fc/task_prepare_a_storage_array_for_use_with_ontap_systems.html"
     - title: 使用阵列 LUN 的 MetroCluster 配置所需的交换机端口

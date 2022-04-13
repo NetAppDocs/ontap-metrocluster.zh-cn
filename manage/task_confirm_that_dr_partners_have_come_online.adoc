@@ -5,6 +5,7 @@ keywords: switchover, dr, partner, ownership, disk, svm, online, confirm
 summary: 切换完成后，您应验证 DR 配对节点是否已取得磁盘的所有权，以及配对 SVM 是否已联机。 
 ---
 = 确认灾难恢复配对节点已联机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

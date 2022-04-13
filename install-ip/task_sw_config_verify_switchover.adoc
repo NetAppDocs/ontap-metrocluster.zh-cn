@@ -5,6 +5,7 @@ keywords: metrocluster, switchover, verify
 summary: 您应验证 MetroCluster 配置的切换，修复和切回操作。 
 ---
 = 验证切换，修复和切回
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 :firstname: [.lead]

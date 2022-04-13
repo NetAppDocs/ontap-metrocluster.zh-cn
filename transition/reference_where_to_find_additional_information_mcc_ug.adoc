@@ -5,6 +5,7 @@ keywords: metrocluster, configuration, operation, netapp, documentation, additio
 summary: 您可以从 NetApp 文档了解有关 MetroCluster 配置和操作的更多信息。 
 ---
 = 从何处查找追加信息
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

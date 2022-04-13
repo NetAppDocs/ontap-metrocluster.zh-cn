@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, cable, fibrebridge, iom3, iom6, m
 summary: 配置网桥后，您可以开始为系统布线。FibreBridge 7600N 或 7500N 网桥使用迷你 SAS 连接器，并支持使用 IOM6 或 IOM3 模块的磁盘架。 
 ---
 = 使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

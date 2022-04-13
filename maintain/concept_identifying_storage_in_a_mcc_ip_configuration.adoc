@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, identifying, storage, ip, configurati
 summary: 如果需要更换驱动器或磁盘架模块，则首先需要确定位置。 
 ---
 = 确定 MetroCluster IP 配置中的存储
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

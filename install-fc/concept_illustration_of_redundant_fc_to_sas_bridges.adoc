@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, illustration, redundant, fc, sas, 
 summary: FC-SAS 网桥可在 SAS 连接的磁盘和 FC 交换机网络结构之间提供协议桥接。 
 ---
 = 冗余 FC-SAS 网桥的图示
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

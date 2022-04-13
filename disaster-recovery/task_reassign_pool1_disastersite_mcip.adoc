@@ -5,6 +5,7 @@ keywords: metrocluster, disaster, site, replacement, controller, module, reassig
 summary: 如果在灾难站点上更换了控制器模块或 NVRAM 卡，则必须将属于根聚合的磁盘重新分配给更换用的控制器模块。 
 ---
 = 为灾难站点上的池 1 磁盘重新分配磁盘所有权（ MetroCluster IP 配置）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

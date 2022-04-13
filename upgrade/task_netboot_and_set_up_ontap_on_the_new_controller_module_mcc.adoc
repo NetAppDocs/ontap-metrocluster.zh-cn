@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, netboot, set, up, ontap, new, controller, modul
 summary: 在向现有 MetroCluster 配置添加控制器模块时，您必须执行一系列特定步骤以通过网络启动并在新控制器模块上安装 ONTAP 操作系统。 
 ---
 = 在新控制器模块上通过网络启动和设置 ONTAP
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

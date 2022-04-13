@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, rack, new, equipment
 summary: 您必须为新节点安装设备机架。 
 ---
 = 将新设备安装在机架中
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

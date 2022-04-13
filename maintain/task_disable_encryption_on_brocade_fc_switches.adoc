@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, disable, encryption, brocade, fc, swi
 summary: 您可能需要在 Brocade FC 交换机上禁用加密。 
 ---
 = 在 Brocade FC 交换机上禁用加密
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

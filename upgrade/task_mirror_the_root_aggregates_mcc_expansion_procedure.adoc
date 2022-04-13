@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, mirror, root, aggregate, new, controller
 summary: 在向 MetroCluster 配置添加控制器时，您必须镜像根聚合以提供数据保护。 
 ---
 = 在新控制器上镜像根聚合
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

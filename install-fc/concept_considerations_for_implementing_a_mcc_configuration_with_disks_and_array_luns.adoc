@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, considerations, configuration, dis
 summary: 在规划用于磁盘和阵列 LUN 的 MetroCluster 配置时，必须考虑各种因素，例如设置存储访问权限的顺序，根聚合位置以及 FC 启动程序端口，交换机和 FC-SAS 网桥的使用情况。 
 ---
 = 使用磁盘和阵列 LUN 实施 MetroCluster 配置时的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

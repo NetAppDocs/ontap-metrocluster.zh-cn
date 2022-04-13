@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, expand, four, node, eight, configuration
 summary: 要将四节点 MetroCluster FC 配置扩展为八节点 MetroCluster FC 配置，需要向每个集群添加两个控制器，以便在每个 MetroCluster 站点上形成第二个 HA 对，然后运行 MetroCluster FC 配置操作。 
 ---
 = 将四节点 MetroCluster FC 配置扩展为八节点配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

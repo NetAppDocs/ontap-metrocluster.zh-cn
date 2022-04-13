@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, migrate, root, volumes, new, destinat
 summary: 您可能需要将根卷移动到双节点或四节点 MetroCluster 配置中的另一个根聚合。 
 ---
 = 何时将根卷迁移到新目标
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

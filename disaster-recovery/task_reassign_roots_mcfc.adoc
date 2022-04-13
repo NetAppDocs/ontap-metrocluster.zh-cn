@@ -5,6 +5,7 @@ keywords: reassign, ownership, nvram, system, id, replaced
 summary: 如果在灾难站点上更换了一个或两个控制器模块或 NVRAM 卡，则必须将属于根聚合的磁盘重新分配给更换用的控制器模块。 
 ---
 = 将根聚合的磁盘所有权重新分配给更换用的控制器模块（ MetroCluster FC 配置）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

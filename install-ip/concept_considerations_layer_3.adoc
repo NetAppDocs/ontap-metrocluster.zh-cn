@@ -5,6 +5,7 @@ keywords: differences, eight-node, four-node, fabric-attached, stretch, metroclu
 summary: 从 ONTAP 9.1.1 开始，可以使用 IP 路由（第 3 层）后端连接实施 MetroCluster IP 配置。 
 ---
 = 第 3 层广域网的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

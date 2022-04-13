@@ -5,6 +5,7 @@ keywords: select, transition, procedure, depend, exist, metrocluster, fc, config
 summary: 您必须根据现有 MetroCluster FC 配置选择过渡操作步骤。 
 ---
 = 选择过渡操作步骤
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

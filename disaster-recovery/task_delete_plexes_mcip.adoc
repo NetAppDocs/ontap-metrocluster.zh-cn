@@ -5,6 +5,7 @@ keywords: deleting, delete, fail, plex, own
 summary: 您必须打开灾难站点上的磁盘架和 MetroCluster IP 交换机组件的电源。 
 ---
 = 删除运行正常的站点拥有的故障丛（ MetroCluster IP 配置）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

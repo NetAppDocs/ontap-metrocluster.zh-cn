@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, power, up, controller. modules, display, loader
 summary: 启动现有控制器模块和新控制器模块以显示 LOADER 提示符。 
 ---
 = 同时启动两个控制器模块并显示 LOADER 提示符
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

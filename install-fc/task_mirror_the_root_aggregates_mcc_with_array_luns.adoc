@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, mirror, root, aggregates
 summary: 您必须镜像 MetroCluster 配置中的根聚合，以确保数据保护。 
 ---
 = 镜像根聚合
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

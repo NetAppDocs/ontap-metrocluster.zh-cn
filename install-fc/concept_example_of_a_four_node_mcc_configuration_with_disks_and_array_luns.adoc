@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, four, node, configuration, disks, 
 summary: 要设置使用原生磁盘和阵列 LUN 的四节点 MetroCluster 配置，必须使用 FC-SAS 网桥通过 FC 交换机将 ONTAP 系统与磁盘架连接起来。您可以通过 FC 交换机将阵列 LUN 连接到 ONTAP 系统。 
 ---
 = 包含磁盘和阵列 LUN 的四节点 MetroCluster 配置示例
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: Transitioning from MetroCluster FC to MetroCluster IP configurations, 
 summary: 您必须准备四个新的 MetroCluster IP 节点并安装正确的 ONTAP 版本。 
 ---
 = 准备 MetroCluster IP 控制器
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

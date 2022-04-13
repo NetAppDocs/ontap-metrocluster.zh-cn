@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, hardware, brocade, fc, transition
 summary: 如果 7- 模式光纤 MetroCluster 配置使用 Brocade 6510 交换机，则可以与新的集群模式 MetroCluster 配置共享现有交换机网络结构。共享交换机网络结构意味着新的 MetroCluster 配置不需要单独的新交换机网络结构。只有 Brocade 6510 交换机才支持此临时配置，以便进行过渡。 
 ---
 = 配置硬件以在过渡期间共享 Brocade 6510 FC 网络结构
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

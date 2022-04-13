@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, mirror, root, aggregate
 summary: 您必须镜像根聚合以提供数据保护。 
 ---
 = 镜像根聚合
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

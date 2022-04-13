@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, download, install, cisco, fc, rcf,
 summary: 您必须将 RCF 文件下载到 MetroCluster 网络结构配置中的每个交换机。 
 ---
 = 下载并安装 Cisco FC RCF 文件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

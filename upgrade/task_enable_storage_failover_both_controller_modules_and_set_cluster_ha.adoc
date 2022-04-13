@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, enable, storage, failover, both, controller, mo
 summary: 向 MetroCluster 配置添加新控制器模块后，必须在两个控制器模块上启用存储故障转移并单独启用集群 HA 。 
 ---
 = 在两个控制器模块上启用存储故障转移并启用集群 HA
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

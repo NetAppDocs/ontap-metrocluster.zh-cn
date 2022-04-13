@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, configuration
 summary: 在规划 MetroCluster 配置时，您应了解硬件组件及其互连方式。 
 ---
 = 光纤 MetroCluster 配置的组成部分
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

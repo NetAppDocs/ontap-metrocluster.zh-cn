@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service
 summary: 您可以在 MetroCluster 配置中维护 MetroCluster 专用的硬件组件。 
 ---
 = 维护 MetroCluster 组件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

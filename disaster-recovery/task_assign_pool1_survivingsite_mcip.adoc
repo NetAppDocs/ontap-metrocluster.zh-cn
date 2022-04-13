@@ -5,6 +5,7 @@ keywords: adp, system, assign, surviving, site
 summary: 在正常运行的站点上，您需要手动将位于灾难站点的远程驱动器分配给正常运行的节点的池 1 。 
 ---
 = 在运行正常的站点上分配池 1 驱动器（ MetroCluster IP 配置）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

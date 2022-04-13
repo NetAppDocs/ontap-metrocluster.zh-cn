@@ -5,6 +5,7 @@ keywords: test, metrocluster, functionality, plan, maintenance, negotiate, switc
 summary: 如果要测试 MetroCluster 功能或执行计划内维护，您可以执行协商切换，其中一个集群将完全切换到配对集群。然后，您可以修复并切回配置。 
 ---
 = 为测试或维护执行切换
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

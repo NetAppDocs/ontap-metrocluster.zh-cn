@@ -5,6 +5,7 @@ keywords: helpful, understand, netapp, metrocluster, tiebreaker, software, disti
 summary: 了解什么是 NetApp MetroCluster Tiebreaker 软件以及该软件如何区分故障类型非常有用，这样您可以高效地监控 MetroCluster 配置。您可以使用 Tiebreaker 命令行界面管理 MetroCluster 配置的设置并监控其状态和操作。 
 ---
 = Tiebreaker 软件概述
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

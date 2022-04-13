@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, move, metadata, volume, configuration
 summary: 您可以将元数据卷从 MetroCluster 配置中的一个聚合移动到另一个聚合。如果源聚合已停用或未镜像，或者由于其他原因使聚合不符合条件，您可能需要移动元数据卷。 
 ---
 = 在 MetroCluster 配置中移动元数据卷
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

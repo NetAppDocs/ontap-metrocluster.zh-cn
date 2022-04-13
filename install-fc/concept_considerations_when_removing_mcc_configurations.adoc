@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, remove, configuration, disk connec
 summary: 您可以从 MetroCluster 配置中的所有节点或灾难恢复 \ （ DR\ ）组中的所有节点中删除 MetroCluster 配置。 
 ---
 = 删除 MetroCluster 配置时的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

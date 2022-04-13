@@ -5,6 +5,7 @@ keywords: install, intalling, fc-to-sas, fc, sas, bridges, disk, shelves, atto, 
 summary: 在向配置添加新存储时，您需要安装 ATTO FibreBridge 网桥和 SAS 磁盘架并为其布线。 
 ---
 = 安装 FC-SAS 网桥和 SAS 磁盘架
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

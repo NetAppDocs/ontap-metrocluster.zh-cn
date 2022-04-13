@@ -5,6 +5,7 @@ keywords: metrocluster, ip, configuration, replacement, controller, module, disa
 summary: 您必须将灾难站点上的替代节点启动到 ONTAP 操作系统。 
 ---
 = 在 MetroCluster IP 配置中的替代控制器模块上启动到 ONTAP
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, prepare, hot, add, sas, disk, shelves
 summary: 准备热添加 SAS 磁盘架包括下载文档以及磁盘驱动器和磁盘架固件。 
 ---
 = 准备热添加 SAS 磁盘架
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

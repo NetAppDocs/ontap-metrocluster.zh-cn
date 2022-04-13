@@ -5,6 +5,7 @@ keywords: metrocluster, controller, assign drives, pool 0, disk assign
 summary: 如果您未收到出厂时预配置的系统，则可能需要手动分配池 0 驱动器。根据平台型号以及系统是否使用 ADP ，您必须为 MetroCluster IP 配置中的每个节点手动将驱动器分配到池 0 。您使用的操作步骤取决于所使用的 ONTAP 版本。 
 ---
 = 手动将驱动器分配给池 0
+:allow-uri-read: 
 
 
 [role="lead"]

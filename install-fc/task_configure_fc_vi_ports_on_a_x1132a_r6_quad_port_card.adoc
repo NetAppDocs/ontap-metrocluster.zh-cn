@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, fc, vi, ports, quad, port, card
 summary: 如果在 FAS8020 系统上使用 X1132A-R6 四端口卡，则可以进入维护模式来配置 1a 和 1b 端口以供 FC-VI 和启动程序使用。从工厂收到的 MetroCluster 系统不需要执行此操作，这些端口已根据您的配置进行了相应设置。 
 ---
 = 在 FAS8020 系统上的 X1132A-R6 四端口卡上配置 FC-VI 端口
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

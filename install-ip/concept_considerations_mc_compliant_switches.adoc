@@ -5,6 +5,7 @@ keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-complia
 summary: 从 ONTAP 9.7 开始， MetroCluster IP 配置可以支持未经 NetApp 验证的交换机，但前提是它们符合 NetApp 规格。 
 ---
 = 使用符合 MetroCluster 的交换机的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

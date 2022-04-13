@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, reset, cisco, fc, switch, factory,
 summary: 在安装新软件版本和 RCF 之前，必须擦除 Cisco 交换机配置并执行基本配置。 
 ---
 = 将 Cisco FC 交换机重置为出厂默认值
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, cable, isl, sites
 summary: 您必须通过光纤交换机间链路（ ISL ）连接每个站点的 FC 交换机，以形成连接 MetroCluster 组件的交换机网络结构。 
 ---
 = 为 MetroCluster 站点之间的 ISL 布线
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, secure, unsecure, fibrebridge, bridge
 summary: 要轻松禁用网桥上可能不安全的以太网协议，从 ONTAP 9.5 开始，您可以保护网桥。此操作将禁用网桥的以太网端口。您还可以重新启用以太网访问。 
 ---
 = 固定或取消固定 FibreBridge 网桥
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

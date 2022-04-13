@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, local, ha, pairs, configuration, i
 summary: 在八节点或四节点 MetroCluster 配置中，每个站点都包含配置为一个或两个 HA 对的存储控制器。这样可以实现本地冗余，以便在一个存储控制器发生故障时，其本地 HA 配对节点可以接管。可以在不执行 MetroCluster 切换操作的情况下处理此类故障。 
 ---
 = MetroCluster 配置中的本地 HA 对示意图
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

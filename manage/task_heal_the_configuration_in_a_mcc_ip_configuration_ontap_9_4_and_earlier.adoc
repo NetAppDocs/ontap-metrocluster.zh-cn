@@ -5,6 +5,7 @@ keywords: heal, aggregate, preparation, switchback, operation, configuration, me
 summary: 您必须修复聚合，以便为切回操作做好准备。 
 ---
 = 修复 MetroCluster IP 配置中的配置（ ONTAP 9.4 及更早版本）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

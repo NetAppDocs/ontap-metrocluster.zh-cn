@@ -5,6 +5,7 @@ keywords: metrocluster, ip, configuration, setting, require, environmental, vari
 summary: 在 MetroCluster IP 配置中，您可以检索以太网端口上 MetroCluster 接口的 IP 地址，然后使用它们配置替代控制器模块上的接口。 
 ---
 = 在 MetroCluster IP 配置中设置所需的环境变量
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

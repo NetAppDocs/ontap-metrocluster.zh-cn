@@ -5,6 +5,7 @@ keywords: install, configure, metrocluster, ip, hardware, software, component, d
 summary: 此信息介绍如何安装和配置 MetroCluster IP 硬件和软件组件。 
 ---
 = MetroCluster IP 安装和配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

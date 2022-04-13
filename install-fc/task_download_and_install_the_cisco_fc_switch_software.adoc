@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, download, cisco, fc, switch, nx, s
 summary: 您必须将交换机操作系统文件和 RCF 文件下载到 MetroCluster 网络结构配置中的每个交换机。 
 ---
 = 下载并安装 Cisco FC 交换机 NX-OS 软件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

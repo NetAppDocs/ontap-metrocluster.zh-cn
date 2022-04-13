@@ -5,6 +5,7 @@ keywords: differences, eight-node, four-node, fabric-attached, stretch, metroclu
 summary: 各种 MetroCluster 配置在所需组件方面存在主要差异。 
 ---
 = ONTAP 调解器与 MetroCluster Tiebreaker 之间的区别
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

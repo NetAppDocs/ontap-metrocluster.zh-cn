@@ -5,6 +5,7 @@ keywords: ontap, mediator, service, assist, metrocluster, ip, configuration, per
 summary: 从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信息提供物理上独立的存储库来协助 MetroCluster IP 配置执行自动计划外切换。 
 ---
 = 准备安装 ONTAP 调解器服务
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
@@ -52,9 +53,14 @@ MTU 大小必须至少为 1400 。
 
 ONTAP 调解器使用多个端口与特定服务进行通信。
 
-如果您使用的是第三方防火墙： * 必须启用 HTTPS 访问。* 必须将其配置为允许在端口 31784 和 3260 上进行访问。
+如果您使用的是第三方防火墙：
 
-+ 使用默认 Red Hat 或 CentOS 防火墙时，防火墙会在调解器安装期间自动配置。
+* 必须启用 HTTPS 访问。
+* 必须将其配置为允许在端口 31784 和 3260 上进行访问。
++
+如果使用默认的 Red Hat 或 CentOS 防火墙，则会在安装调解器期间自动配置防火墙。
+
+
 
 下表列出了防火墙中必须允许的端口：
 

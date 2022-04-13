@@ -5,6 +5,7 @@ keywords: simulate, option, preview, result, switchover, operation, verification
 summary: 您可以使用 -simulate 选项预览切换操作的结果。通过验证检查，您可以在开始操作之前验证是否满足成功运行的大部分前提条件。 
 ---
 = 验证您的系统是否已做好切换准备
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

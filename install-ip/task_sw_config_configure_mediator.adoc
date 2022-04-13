@@ -5,6 +5,7 @@ keywords: metrocluster ip, ontap, mediator, tiebreaker
 summary: 您可以从第三个站点下载并安装 MetroCluster Tiebreaker 软件，或者从 ONTAP 9.7 开始安装 ONTAP 调解器。 
 ---
 = 配置 MetroCluster Tiebreaker 或 ONTAP 调解器软件
+:allow-uri-read: 
 
 
 [role="lead"]

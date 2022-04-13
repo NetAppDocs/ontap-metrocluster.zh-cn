@@ -5,6 +5,7 @@ keywords: perform, task, prepare, metrocluster, ip, configuration, switchback, o
 summary: 要为切回操作准备 MetroCluster IP 配置，您必须执行某些任务。 
 ---
 = 准备在 MetroCluster IP 配置中切回
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

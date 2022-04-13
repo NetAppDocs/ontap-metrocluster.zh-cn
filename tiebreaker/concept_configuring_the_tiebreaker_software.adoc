@@ -5,6 +5,7 @@ keywords: installation, tiebreaker, software, add, modify, metrocluster, configu
 summary: 安装 Tiebreaker 软件后，您可以添加或修改 MetroCluster 配置，或者将其从 Tiebreaker 软件中删除。 
 ---
 = 配置 Tiebreaker 软件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

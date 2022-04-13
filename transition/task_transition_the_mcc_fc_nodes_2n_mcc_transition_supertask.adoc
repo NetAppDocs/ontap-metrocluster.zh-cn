@@ -5,6 +5,7 @@ keywords: information, exist, metrocluster, fc, node, autosupport, message, anno
 summary: 您必须从现有 MetroCluster FC 节点收集信息，发送 AutoSupport 消息以宣布开始维护以及过渡节点。 
 ---
 = 过渡 MetroCluster FC 节点
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

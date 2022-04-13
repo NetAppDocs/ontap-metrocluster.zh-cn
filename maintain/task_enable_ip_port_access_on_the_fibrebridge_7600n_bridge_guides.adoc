@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, enable, ip, port, access, fibrebridge
 summary: 如果您正在使用 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务 \ （ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。 
 ---
 = 如有必要，在 FibreBridge 7600N 网桥上启用 IP 端口访问
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

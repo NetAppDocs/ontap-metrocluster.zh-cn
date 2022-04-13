@@ -5,6 +5,7 @@ keywords: metrocluster, peer, peering, ports, cluster, connectivity
 summary: 您应熟悉配置 MetroCluster 对等关系的前提条件和准则。 
 ---
 = 集群对等
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

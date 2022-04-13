@@ -1606,7 +1606,6 @@
   <block id="0431067b6c41659cab8cdd9db401130e" category="list-text">重新启用连接到网桥的 FC 交换机端口。</block>
   <block id="3951ec8f2fc02767a1eae0cd589a3733" category="paragraph">例如，以下输出显示系统已为多路径 HA 布线：</block>
   <block id="26b4da5ef440db55c9d7fb90222428b3" category="paragraph">如果命令输出指示配置为混合路径或单路径 HA ，则必须更正 SAS 和 FC 布线，因为并非所有磁盘驱动器都可通过新网桥进行访问。</block>
-  <block id="236b42e7d6f2c4b9984f5b984b7a652b" category="list-text">按照套件随附的 RMA 说明将故障部件退回 NetApp 。</block>
   <block id="09ea0908fbfc4cde85bf416e35dc55c8" category="inline-link">NetApp 支持</block>
   <block id="f6f56bebe6148622ba9ce4aea023473a" category="summary">在使用已完全填充的磁盘架或磁盘架机箱的延伸型 MetroCluster 配置中，您可以更换磁盘架而不会造成中断，并可从要移除的磁盘架传输组件。</block>
   <block id="12082ae7a19098ad438ecb1e6a0ceecc" category="doc">在延伸型 MetroCluster 配置中无中断更换磁盘架</block>
@@ -2597,7 +2596,6 @@
   <block id="c07217a12145454189c265ecf5f40173" category="list-text">从旧节点收集信息。</block>
   <block id="220023d80ca24d69e962de981075e392" category="paragraph">在此阶段，四节点配置如下图所示：</block>
   <block id="bcf9f8bb6be3a3d38d87e026dd4cfe95" category="image-alt">MCC DR 组 A</block>
-  <block id="54a30e0ba58741e8ec7cbc4dfc92ecd1" category="paragraph"><block ref="83c26e5bd0b8a6dff43d38aeb91fb3e1" category="inline-link-macro-rx"></block> 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中</block>
   <block id="c2c1067a31958842c8438647512d141e" category="list-text">执行中的所有步骤 <block ref="3e70f7d1f526cf6dd7a89a97c88d0cc8" category="inline-link-macro-rx"></block> 将新节点和存储添加到配置中。</block>
   <block id="37c43c60431d0988dbc66af885d529aa" category="paragraph">扩展操作步骤完成后，此配置将如下图所示：</block>
   <block id="82100af698d65aee7d8eee88a9f650ea" category="image-alt">MCC DR 组 b</block>
@@ -3362,7 +3360,6 @@
   <block id="9d5dedaa21b8b6a9a7e44d2adc53aac3" category="paragraph">完成重命名操作可能需要几分钟时间。使用 system show -fields node 命令确认所有名称更改均已传播到每个节点，然后再继续执行其他步骤。</block>
   <block id="d5c7b5758935e090373e3105cfac7ea4" category="list-text">根据需要配置监控服务。</block>
   <block id="6d83b3cc0c5c986a38aa0e7f75c60a63" category="inline-link-macro">为计划外自动切换配置 ONTAP 调解器服务</block>
-  <block id="80d884692d4825b1aded41bb42eaba5e" category="paragraph"><block ref="80d884692d4825b1aded41bb42eaba5e" category="inline-link-macro-rx"></block></block>
   <block id="9cc3a2a2e8c24fe291907c539aa19b26" category="paragraph">完成过渡后，您应发送一条 AutoSupport 消息，指示维护结束，以便可以恢复自动创建案例。</block>
   <block id="41b8790769bbfee8f1ded6ca87dc546a" category="list-text">问题描述以下命令： `ssystem node AutoSupport invoke -node * -type all -message MAINT=end`</block>
   <block id="52f72ede6203ab699b41d971d336eaed" category="summary">添加新节点后，您必须完成过渡步骤并配置 MetroCluster IP 节点。</block>
@@ -3914,7 +3911,6 @@
   <block id="1bbaa38a5e85ee37eb6f052871599d1b" category="paragraph">MetroCluster IP 交换机：</block>
   <block id="cb66ac900bd3c2fa6ceac440c69f6cf8" category="paragraph">初始交换机（如果采用光纤连接配置）：</block>
   <block id="68ca4c8699281e1858977752c796cd45" category="paragraph">您必须将 MetroCluster FC 配置的集群接口移至 IP 交换机。</block>
-  <block id="7a7fc289890af932361e87db34a988e7" category="section-title">移动 MetroCluster FC 节点上的集群连接</block>
   <block id="faa907fa21172fe5049a9e06b580a22f" category="paragraph">您必须将 MetroCluster FC 节点上的集群连接移动到 IP 交换机。这些步骤取决于您使用的是现有 IP 交换机还是新的 IP 交换机。</block>
   <block id="a4508902f6a0e0fe2638bb2698abffe9" category="paragraph">您必须在两个 MetroCluster 站点上执行此任务。</block>
   <block id="9a6a031361d5fc2d07e0496f2d3f35aa" category="paragraph">以下任务假定控制器模块使用两个端口进行集群连接。某些控制器模块型号使用四个或更多端口进行集群连接。在这种情况下，在本示例中，端口划分为两个组，在这两个组之间交替使用端口</block>
@@ -7256,8 +7252,6 @@
   <block id="aebbde0d48d31742f98866fb5fd93228" category="paragraph">您可以在配置上创建一个或多个 MACsec 密钥链。</block>
   <block id="2438f61312714fdde0ea5d2291cacf5a" category="paragraph">* 密钥生命周期和无结果密钥滚动 *</block>
   <block id="432af3885800eb3d0fdfa0d72b0e8f83" category="paragraph">一个 MACsec 密钥链可以具有多个预共享密钥（ PSK ），每个密钥都配置有一个密钥 ID 和一个可选的生命周期。密钥生命周期用于指定密钥激活和到期的时间。如果没有生命周期配置，则默认生命周期为无限制。如果配置了生命周期，则在生命周期到期后， MKA 将转至密钥链中的下一个已配置的预共享密钥。密钥的时区可以是本地或 UTC 。默认时区为 UTC 。如果配置第二个密钥（在密钥链中）并为第一个密钥配置有效期，则密钥可以滚动到同一个密钥链中的第二个密钥。当第一个密钥的生命周期到期时，它会自动滚动到列表中的下一个密钥。如果在链路两端同时配置了同一个密钥，则密钥滚动将无中断（即，密钥在不中断流量的情况下进行回滚）。</block>
-  <block id="a84ec9413c1eeb220ff2c85c15c3da91" category="paragraph">* 回退密钥 *</block>
-  <block id="afa4816f1e4efec6be7d5a9580f8af8a" category="paragraph">由于密钥 / 密钥名称（ CKN ）不匹配或交换机与对等方之间的密钥持续时间有限， MACsec 会话可能会失败。如果 MAC 秒会话失败，则如果配置了回退密钥，则回退会话可以接管。回退会话可防止因主会话故障而导致停机，并允许用户有时间修复导致故障的密钥问题描述。如果主会话无法启动，回退密钥还会提供备份会话。此功能为可选功能。</block>
   <block id="1b7a49127c059c9782571e668d1b9394" category="paragraph">将配置保存到文件时，八位组字符串也会隐藏。</block>
   <block id="82a54f643a125ec28b0318b12e98edc4" category="paragraph">默认情况下， psk 密钥以加密格式显示，并且可以轻松解密。此命令仅适用于 MACsec 密钥链。</block>
   <block id="50c7b42b6fb7bfaab985fc93a2f5adbe" category="paragraph">此范围为 1 到 32 个十六进制数字键字符串，最大大小为 64 个字符。</block>
@@ -7279,9 +7273,6 @@
   <block id="f6d141f9c0ebe12ce79c36ba0585ecf8" category="paragraph">MACsec MKA 配置</block>
   <block id="b6b47858b43ec1819137a7dbb17a0e1c" category="paragraph">`s如何使用 MACsec policy policy-name`</block>
   <block id="b73bb1a80bfcd166befb33ddc1a9fe9d" category="paragraph">特定 MACsec 策略或所有 MACsec 策略的配置</block>
-  <block id="fd6b314abc631729200274092a59dbde" category="paragraph">如果主会话因密钥 / 密钥名称（ CKN ）不匹配或交换机与对等方之间的密钥持续时间有限而失败，您可以配置回退密钥以启动备份会话。</block>
-  <block id="cc9f85a6f649e0f320a34bda0a52ee70" category="list-text">指定要配置的接口。</block>
-  <block id="dcf432534686dfbd4a5057ebd44a4d2a" category="list-text">重复上述步骤，使用 MACsec 配置其他 WAN ISL 端口。</block>
   <block id="85b091192b5f7d8d84eccf6181fd6ae8" category="paragraph">如果您的系统配置为使用 25 Gbps 连接，则在应用 RCF 文件后，您需要手动将正向错误更正（ FEC ）参数设置为关闭。RCF 文件不应用此设置。</block>
   <block id="21b34813f1e8c3819fcd4c2d1a97dc87" category="paragraph">在执行此操作步骤之前，必须为 25 Gbps 端口布线。</block>
   <block id="de42a51018ae76cdec0d5104c4b44724" category="inline-link-macro">Cisco 3232C 或 Cisco 9336C 交换机的平台端口分配</block>
@@ -7832,7 +7823,6 @@
   <block id="ef707581c5c00eaa0743321b02294606" category="list-text">将 site_B-shelf_1 上的一半磁盘分配给 node_B_2 的池 0 。</block>
   <block id="8645ab46e52c8bc8dde41a2d070d37a1" category="list-text">将 site_B-shelf_2 上的一半磁盘分配给 node_A_1 的池 1 。</block>
   <block id="8f234811a84b4e31259fe07e29ca1dec" category="list-text">将 site_B-shelf_2 上的一半磁盘分配给 node_A_2 的池 1 。</block>
-  <block id="169ea076206029b921aba5b11aeb1224" category="section-title">将磁盘架添加到现有配置中。</block>
   <block id="27c6fcf081b1c055fab70dab85df9058" category="paragraph">自动驱动器分配支持向现有配置对称添加磁盘架。</block>
   <block id="1ad37847dbce444ea5080d0121d5409b" category="paragraph">添加新磁盘架后，系统会对新添加的磁盘架应用相同的分配策略。例如，如果每个站点一个磁盘架，则如果添加了额外的磁盘架，则系统会对新磁盘架应用四分之一磁盘架分配规则。</block>
   <block id="7b1967ab8b38aa7f5c2c50d91fb6d616" category="section-title">MetroCluster IP 配置中系统的 ADP 和磁盘分配差异</block>
@@ -9903,7 +9893,6 @@
   <block id="64977ab6a02737ff27944bb4e643f9a9" category="paragraph">使用以下链接安装和配置 Tiebreaker 或调解器：</block>
   <block id="416e335daad496ad8619dd5e0873c083" category="inline-link-macro">安装和配置 MetroCluster Tiebreaker 软件：</block>
   <block id="4eb00e76349103bb49f834540fdce720" category="inline-link-macro">为计划外自动切换配置 ONTAP 调解器服务</block>
-  <block id="6d16b8dff033f574f07e4b71a797f5de" category="list-text"><block ref="6d16b8dff033f574f07e4b71a797f5de" category="inline-link-macro-rx"></block></block>
   <block id="4d60f545ef2535cd524505ef40a30ea5" category="section-title">NetApp MetroCluster Tiebreaker 软件如何检测故障</block>
   <block id="32cbf293fe64d853582c8537f6165030" category="paragraph">只有当每个节点的非易失性缓存的 SyncMirror 镜像和 DR 镜像均在运行且缓存和镜像在发生故障时保持同步时，才会启动 MAUSO 。</block>
   <block id="19d390d9b8d24ef2e5e8d530b56b6c3a" category="paragraph">+ 以下平台型号使用 VLAN 并允许配置非默认 VLAN ID 。</block>
@@ -10454,7 +10443,6 @@
   <block id="62d21575da14f82a5429be44997ffec0" category="paragraph"><block ref="2d12f9e136c597ced9bd3fed196a9a6b" category="inline-xref-macro-rx"></block></block>
   <block id="69b040d4f8adaa4c34e437207036c73c" category="list-text">验证是否已配置 SNMP 设置：</block>
   <block id="da82ec774885b0fd4ea7e17756ffc01b" category="paragraph">`snmp config test`</block>
-  <block id="a1fecf534698cc371187a3c3028827a7" category="paragraph">https://docs.netapp.com/us-en/ontap/[Installation 中有关 AFF 或 FAS 系统的步骤 ]#</block>
   <block id="3b0649c72650c313a357338dcdfb64ec" category="cell">注意</block>
   <block id="4d2df55d2343b32800bfea20e735c55a" category="paragraph">AFF A700 和 FAS900</block>
   <block id="09cb6984bdf1b82c9749906ba1a69331" category="summary">您可以更改 MetroCluster IP 接口， IP 地址和掩码以及网关的以下属性。您可以使用任意参数组合进行更新。</block>
@@ -10661,7 +10649,6 @@
   <block id="9ce923539fb1123fe118101d429941ae" category="list-text"><block ref="9ce923539fb1123fe118101d429941ae" category="inline-link-macro-rx"></block></block>
   <block id="6a12946cbb81d960abd7b608085f126a" category="inline-link-macro">Tiebreaker 软件安装和配置</block>
   <block id="e71402603f50c2282d8c7bcc53d63e72" category="paragraph"><block ref="e71402603f50c2282d8c7bcc53d63e72" category="inline-link-macro-rx"></block></block>
-  <block id="6977cb2f448c534eb0fe8b9c3ab46f80" category="paragraph">使用中所述的端口 <block ref="218c51413835cd54b79a77004931a9e5" category="inline-link-macro-rx"></block>。</block>
   <block id="ffaeaa66271f98acd0156b9dadf03b5b" category="list-text"><block ref="ffaeaa66271f98acd0156b9dadf03b5b" category="inline-link-macro-rx"></block></block>
   <block id="1a031f58441757494134fdebb9c1beb1" category="list-text"><block ref="1a031f58441757494134fdebb9c1beb1" category="inline-link-macro-rx"></block></block>
   <block id="343c2d0dbf210b79686912b38bd4f45d" category="list-text"><block ref="680a4f630b21eab8e23842ce1e77c536" category="inline-link-macro-rx"></block> *</block>
@@ -10871,7 +10858,6 @@
   <block id="00b95021ee9d17915062023af515e24c" category="sidebar">将 Cisco FC 交换机重置为出厂默认值</block>
   <block id="04feb40ba41d7f08a0ed11c320036b50" category="sidebar">下载并安装 Cisco FC 交换机 NX-OS 软件</block>
   <block id="3c25e8c40f06568b29ce946fd777d561" category="sidebar">下载并安装 Cisco FC RCF 文件</block>
-  <block id="0657e393d82d82dc4317b0d4cb80b4b8" category="sidebar">手动配置 Brocade FC 交换机</block>
   <block id="9ee7e057ce8f87d9c6d58a3ac45b4a14" category="sidebar">手动配置 Cisco FC 交换机</block>
   <block id="a843b71ec15aadada63575eb83031c0b" category="sidebar">配置硬件，以便在过渡期间共享 Brocade 6510 FC 网络结构</block>
   <block id="7a624101744abdf7e3500edd9f2b8245" category="sidebar">查看 Brocade 许可证要求</block>
@@ -10970,11 +10956,7 @@
   <block id="01624fead9baaddc3669cdd47ad795ed" category="list-text">如果交换机未配置支持的最低 RCF 文件版本，则必须更新 RCF 文件。有关适用于您的交换机型号的正确 RCF 文件版本，请参见 <block ref="da64f60a95327a9651de90bff4a67cd3" category="inline-link-macro-rx"></block>。以下步骤适用于 RCF 文件应用程序。</block>
   <block id="590efa3b2ef6486e61048a848e166d21" category="inline-link-macro">MetroCluster IP 安装和配置</block>
   <block id="1f41258ab009387cbd7e42b144372d55" category="paragraph">按照中适用于您的交换机供应商的一节中的步骤进行操作 <block ref="1a8a3204a30c37aed38d8cb8818b0107" category="inline-link-macro-rx"></block> 内容</block>
-  <block id="b01a590ee5a5c4d39d2ea827140d95fd" category="list-text"><block ref="b01a590ee5a5c4d39d2ea827140d95fd" category="inline-link-macro-rx"></block></block>
-  <block id="662be47b2e290d723b00fe0a9dc2e8b8" category="list-text"><block ref="662be47b2e290d723b00fe0a9dc2e8b8" category="inline-link-macro-rx"></block></block>
   <block id="e886156cd00bbd9320ba94c39cce2772" category="paragraph">按照中的步骤进行操作 <block ref="1a8a3204a30c37aed38d8cb8818b0107" category="inline-link-macro-rx"></block> 内容</block>
-  <block id="b04dcda81f4d3d1adcd9bfdd252098b0" category="list-text"><block ref="b04dcda81f4d3d1adcd9bfdd252098b0" category="inline-link-macro-rx"></block></block>
-  <block id="51a2c292407c79a580014258c5f17d8d" category="list-text"><block ref="51a2c292407c79a580014258c5f17d8d" category="inline-link-macro-rx"></block></block>
   <block id="dadca3d57b191a678f23de76f79b283e" category="section-title">将端口从旧节点映射到新节点</block>
   <block id="87ff91e75692235d02e091de808fd819" category="paragraph">从 AFF A700 升级到 AFF A900 时，您不会更改数据网络端口， FCP SAN 适配器端口以及 SAS 和 NVMe 存储端口。数据 LIF 在升级期间和升级后始终保持在原位。因此，您不需要将网络端口从旧节点映射到新节点。</block>
   <block id="0c8985d7cfbb81f5f054993ed8285211" category="section-title">在站点升级之前验证 MetroCluster 运行状况</block>
@@ -11136,7 +11118,6 @@
   <block id="343d98ffad90e979903b8bd5def2f91c" category="list-text">从开始，重复上述步骤升级 site_A 上的节点 <block ref="e8971f193bd5ef38f76b660d12d17607" category="inline-link-macro-rx"></block>。</block>
   <block id="98c99ee34c8774fa11a9a533fe708618" category="paragraph">在执行任务时，对站点和节点的所有示例引用都将反转。例如，如果提供了从 site_A 切换的示例，则您将从 site_B 切换</block>
   <block id="0c429b26fd1db8d4b7bb104d284c1cea" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block> 在 _Tiebreaker MetroCluster 安装和配置 _ 部分。</block>
-  <block id="5b68f0b098986e0ac238ae377c414032" category="paragraph"><block ref="2a039788d8e6faddff2d947b20403dfe" category="inline-link-macro-rx"></block> 在 _IP MetroCluster 安装和配置 _ 部分中。</block>
   <block id="a16fca697a4d7027a976fdabfbb92414" category="doc">使用切换和切回功能将 AFF FC 配置中的 AFF A700 控制器升级到 MetroCluster A900 （ ONTAP 9.10.1 及更高版本）</block>
   <block id="8a51355d335889c9ddb7276ab9a129ab" category="paragraph">升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。您不能在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
   <block id="b93e6d7c2789cd393ddbb5ccdfac4676" category="paragraph">您不能同时升级配置中的其他组件，例如存储架或交换机。</block>
@@ -11419,7 +11400,6 @@
   <block id="44ffef92ef8c50e3bead6fe6609d137d" category="list-text">配置密钥的发送生命周期（以秒为单位）：</block>
   <block id="553e37d1edf682c2d4e3e0044a0e8f59" category="paragraph">`s终生开始时间持续时间`</block>
   <block id="8dd0074f8606108f750defc9306a01b3" category="list-text">显示密钥链配置：</block>
-  <block id="49a66a48bbc301445b1c144ea99c4dbf" category="paragraph">`s如何使用密钥链名称`</block>
   <block id="dde20920c9bc2285cedc0171616ad91e" category="list-text">创建 MAC 秒策略：</block>
   <block id="3ec088691927601a692a22de57f7b714" category="paragraph">`mAcSEC 策略名称`</block>
   <block id="f6f1bccdbe1b9de16d5e5c9a259735ef" category="list-text">配置以下密码之一 GCM-AES-128 ， GCM-AES-256 ， GCM-AES-XPN-128 或 GCM-AES-XPN-256 ：</block>
@@ -11434,11 +11414,6 @@
   <block id="e11afee8dde4674d7948e54940ebcd3e" category="paragraph">`conf-offsetconfidentiality offset`</block>
   <block id="dbedb7cefba22d6d33123561705f89d7" category="list-text">显示 MACsec 策略配置：</block>
   <block id="388f63f7d6fad1c81c4ee48ef9a6717c" category="paragraph">`s如何使用 MACsec 策略`</block>
-  <block id="73e78255dbf78b6041f893d45a07746c" category="paragraph">您可以指定接口类型和标识。对于以太网端口，请使用：</block>
-  <block id="41837e780d5f604a1688e70404f818d8" category="paragraph">`以太网插槽 / 端口`</block>
-  <block id="963f5eadacb40d1c09a8a4b55061def7" category="list-text">指定因密钥 / 密钥 ID 不匹配或密钥到期而导致 MACsec 会话失败后使用的回退密钥链：</block>
-  <block id="acdb387736771ac188de8a6d086cdb34" category="paragraph">`mAcSEC keychain keychain-name policy policy-name backfally-keychain keychain-name`</block>
-  <block id="3b0db3e385223be11fabb9ef92f30540" category="admonition">在继续执行此步骤之前，您应使用 _Configuring a MACsec key chain and keys_ 中的步骤配置回退密钥链。</block>
   <block id="ab6f20f5b829d0d0c601421db2ea7500" category="paragraph">两个集群的 ONTAP 配置（包括网络连接）应相同，因为 MetroCluster 功能依赖于集群在发生切换时为其配对集群无缝提供数据的能力。</block>
   <block id="ab3bedf5b2bac1f18aa979a42fb1871b" category="paragraph"><block ref="ab3bedf5b2bac1f18aa979a42fb1871b" category="inline-link-rx"></block></block>
   <block id="43a384668d02383bb19c7b1d54761855" category="paragraph">有关使用 FabricPool 的常规信息，请参见<block ref="46a180d322a34c1f2719942dadd3e4fb" category="inline-link-rx"></block>。</block>
@@ -11791,7 +11766,6 @@
   <block id="eb2dc3b03a2e44937ef05ba889d58803" category="list-text">重复检查 SAS 缆线是否松动或更正 SAS 布线 <block ref="aea98f9277e5f61a9dbd74fc91b6a01c" category="inline-xref-macro-rx"></block>。</block>
   <block id="46f03cfe658451b3cda06c84b1f935ad" category="list-text">在两个控制器的系统控制台上，验证所有控制器是否均可通过新网桥访问磁盘架（系统已通过缆线连接到多路径 HA ）：</block>
   <block id="d7b12022bf276b2113771c05b8e93cd3" category="list-text">确认已添加此网桥并已正确配置： + `storage bridge show`</block>
-  <block id="a3a77716c94ad331870c1ba138c3f00c" category="paragraph">请通过联系技术支持<block ref="9a6f401ca1e7e89d8a0c29fb0cbe81b7" category="inline-link-rx"></block>， 888-463-8277 （北美）， 00-800-44-638277 （欧洲）或 +800-800-80-800 （亚太地区）（如果您需要 RMA 编号或有关更换操作步骤的其他帮助）。</block>
   <block id="94750a1855ecbd10c3792f552c9502dc" category="paragraph">如果新平台型号不支持现有磁盘架，请参见 <block ref="85bb194a69db1254e3990cfd7e6324af" category="inline-link-macro-rx"></block>。</block>
   <block id="95df95f1ae9fec68de468a293d0b5145" category="list-text">确定新控制器上可用的物理端口以及端口上可以托管的 LIF 。</block>
   <block id="510771fb0bd315f647b0c3501cf5aac7" category="paragraph">所有组件的 HA 状态均应为 `mCCIP` 。</block>
@@ -12256,7 +12230,6 @@
   <block id="f1318dc614d34488bcb6f8bef3e32bff" category="paragraph">选项 "`11` "</block>
   <block id="37ef00a03e6b4bacbc26b2ee369f838f" category="paragraph">根据密钥管理器设置，执行恢复操作步骤的方法是选择选项 "`10` " 或选项 "`11` " ，然后在第一个启动菜单提示符处选择选项 `6` 。要完全启动节点，您可能需要重复恢复操作步骤，然后选择 "`1` " （正常启动）。</block>
   <block id="ff8648705a32483b6efc36e81f3ff6c9" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block>。</block>
-  <block id="91866c0618812e699061cb4e2f764274" category="paragraph"><block ref="2a039788d8e6faddff2d947b20403dfe" category="inline-link-macro-rx"></block>。</block>
   <block id="9dc1904e0c3ace141704b477cd9b345d" category="inline-link-macro">网络管理</block>
   <block id="a329e8bb19b80d658f071e8e3a9b43df" category="paragraph">有关 ONTAP 中端口， LIF 和网络配置的详细信息，请参见 <block ref="b7287c70d2b20ddb4e9eda3d1f5462cf" category="inline-link-macro-rx"></block>。</block>
   <block id="84c335ab98bb834a85c89e20e223e638" category="paragraph">有关您的平台的默认端口角色列表，请参见<block ref="a9613e1dbacf145285c45df4264fe797" category="inline-link-rx"></block></block>
@@ -12281,7 +12254,6 @@
   <block id="377469609affd7863d1b91e8c08f8efe" category="list-text">按照中的以下过程将数据从旧节点移动到新节点<block ref="5807d40cbe0aa8dbcf7fb966b3a22848" category="inline-link-rx"></block></block>
   <block id="f6352e453f366612cb28420644953c44" category="list-text">执行中的所有步骤<block ref="bbef996a3720f9825acbe3a7239b4c3c" category="inline-link-rx"></block>。</block>
   <block id="f0c5b568bbaab2490082e4d2aaf08123" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block> 在 _MetroCluster Tiebreaker 安装和配置 _ 中。</block>
-  <block id="9b81be6eaafefd1e5ea3279470770a1a" category="paragraph"><block ref="2a039788d8e6faddff2d947b20403dfe" category="inline-link-macro-rx"></block> 在 _IP MetroCluster 安装和配置 _ 中。</block>
   <block id="7965e118387157e57593becb6ae60117" category="list-text">使用中的操作步骤 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block> 用于将新存储系统，磁盘架和 FC-SAS 网桥装入机架。</block>
   <block id="bd583895c72d99233af8746d9463ab07" category="list-text">使用中的操作步骤 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block> 要为您的交换机类型创建布线布局，请使用八节点 MetroCluster 配置的端口使用情况。</block>
   <block id="7215f927afe2ef194199487494b76dd7" category="paragraph">FC 交换机端口使用情况必须与操作步骤中所述的使用情况匹配，才能使用参考配置文件（ Reference Configuration Files ， RCF ）。</block>
@@ -12426,7 +12398,6 @@
   <block id="4aeccceec58ed237296dba5ea0673521" category="paragraph">如果您使用的是现有交换机，请继续执行 <block ref="a43d04863a085a87276f8dea37ae5895" category="inline-link-macro-rx"></block>。</block>
   <block id="0297e6ce2162b2f01b03b57027b0de3f" category="paragraph">按照 _IP MetroCluster 安装和配置 _ 中适用于您的交换机供应商一节中的步骤进行操作。</block>
   <block id="7efa6fc838c006d396e42638b4ff25d1" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block></block>
-  <block id="d0575e4ffcaa94137b559df66450e762" category="paragraph"><block ref="d0575e4ffcaa94137b559df66450e762" category="inline-link-macro-rx"></block></block>
   <block id="bc77bf857b365d445270101e2d7ce03f" category="list-text">在 MetroCluster FC 工作流中，切换，修复和切回步骤是 MetroCluster FC 配置所使用的步骤。</block>
   <block id="58f51e86971b6d1d53b59f46792a926c" category="list-text">在 MetroCluster IP 工作流中，切换，修复和切回步骤是 MetroCluster IP 配置所使用的步骤。</block>
   <block id="be841ef50614c5c74b8d6a685c367458" category="cell">协商切换使用此工作流 ...</block>
@@ -12453,7 +12424,6 @@
   <block id="6754d52ab3aba634c1d3868f6ff1173b" category="paragraph">`network interface show -vserver cluster`</block>
   <block id="535ec980e99542a3e46527ed475d4ce5" category="list-text">对配对集群 "`cluster_B` " 重复上述步骤。</block>
   <block id="6ac37c1e4002ef5cd117acd818874c0f" category="paragraph">按照 _MetroCluster IP 安装和配置 _ 中适用于您的交换机供应商的操作步骤中的步骤进行操作：</block>
-  <block id="71202b6dd001af35585cf163b87312a1" category="paragraph">使用中所述的端口 <block ref="c686921008a79d8a2f4cb70ab4d03caf" category="inline-link-macro-rx"></block>。</block>
   <block id="2e3c0afc2d193f3727d220d4c952e88c" category="list-text">验证所有接口是否均位于其主端口上：</block>
   <block id="df263d0c9cee0f502a35c7a48d5606b3" category="list-text">验证所有集群端口是否均已启动且正在运行：</block>
   <block id="407eedf4c99afddafe143a1c132d2205" category="paragraph">以下示例显示所有接口在 "`is Home` " 列中均显示 true 。</block>
@@ -12527,7 +12497,6 @@
   <block id="2ab9c070f5e78bc6f7809e89ecd023eb" category="admonition">您必须运行 `MetroCluster configure` 和 * 不 * `MetroCluster configure -refresh true`</block>
   <block id="5382d2282494796171738f35b9361ab8" category="admonition">中间交换机可能需要使用此命令来使用 MPLS 标记等数据包标头（ DMAC ， SMaC ， etype ）。</block>
   <block id="bb7076dff2fa5f0d308e776f5006e07e" category="section-title">验证 MACsec 配置</block>
-  <block id="f0336856a5a2f4bfae1adfb71fa3ae60" category="section-title">在 WAN ISL 端口上配置 MACsec 回退密钥</block>
   <block id="ffe1f559bee6f65df8232945e7f1517d" category="section-title">为使用 25 Gbps 连接的系统设置正向错误更正</block>
   <block id="250b5ed5389f4260b31c4ede97dea809" category="paragraph">此任务仅限使用 25-Gbps 连接的适用场景 平台：</block>
   <block id="44ebc7deaba92b772a9bf569e1c8ca12" category="list-text">FAS 8200</block>
@@ -12541,7 +12510,28 @@
   <block id="70fef59fffa5df67d10b024d11f37399" category="paragraph"><block ref="70fef59fffa5df67d10b024d11f37399" category="inline-link-macro-rx"></block></block>
   <block id="466ed123ab8f5845237d3ae425397ec7" category="paragraph">您的环境必须满足以下要求。</block>
   <block id="c5cd3d887ef507cadc249c592410542a" category="list-text">如果您计划更新 Linux 版本，请在安装最新的 ONTAP 调解器服务之前执行此操作。</block>
-  <block id="38553b6946adff245ef7423d34544e4b" category="paragraph">如果您使用的是第三方防火墙： * 必须启用 HTTPS 访问。* 必须将其配置为允许在端口 31784 和 3260 上进行访问。</block>
-  <block id="63fb21fb55a9451afb7b60d2b7d593b2" category="paragraph">+ 使用默认 Red Hat 或 CentOS 防火墙时，防火墙会在调解器安装期间自动配置。</block>
   <block id="5981ded82c976bff5c9a73686842655a" category="list-text">可以将调解器服务从早期版本升级到当前版本。</block>
+  <block id="6bec966647e1b9c8a03ddd277c8fe864" category="inline-link-macro">部件退回和放大器；更换</block>
+  <block id="844f223d5d27d9ea92473e2d258ee969" category="list-text">更换部件后，按照套件随附的 RMA 说明将故障部件退回 NetApp 。请参见 <block ref="af64d870205b209887217377e716cd40" category="inline-link-macro-rx"></block> 第页，了解更多信息。</block>
+  <block id="73deb7011cb325e1dbd9f40a4995786e" category="paragraph">链接： ./install-IP/concept_mediator_requirements.html _ MetroCluster IP 安装和配置 _ 部分中的 " 从 MetroCluster IP 配置配置 ONTAP 调解器服务 " 。</block>
+  <block id="455aeb5b6e6bb2c51d7485e26da56e30" category="paragraph">链接： ./install-IP/concept_mediator_requirements.html 【从 MetroCluster IP 配置配置 ONTAP 调解器服务】。</block>
+  <block id="e62a18c77eddb4d80155a6c15402f7e5" category="paragraph"><block ref="903819e2154a41f8227f7c0192db71f6" category="inline-link-macro-rx"></block> 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中</block>
+  <block id="7da41c16475b7dae8b0b8ab6424918d7" category="paragraph">链接： ./install-IP/concept_mediator_requirements.html _ MetroCluster IP 安装和配置 _ 中的 " 从 MetroCluster IP 配置配置 ONTAP 调解器服务 " 。</block>
+  <block id="1694bd7aa5b3b3ecd0394ac449f774af" category="list-text">链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #reseting-the_Broadcom-ip-switch-to factory-defaults （将 Broadcom IP 交换机重置为出厂默认设置）</block>
+  <block id="40f8dac9d3afe2ad9f3eb063b5a8ebe6" category="list-text">链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #reseting-the_cisco-ip-switch-to factory-defaults （将 Cisco IP 交换机重置为出厂默认值）</block>
+  <block id="a016106990032abc8e07606eb9a35a34" category="list-text">链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #downloading-and-installing-the_Broadcom-RCF 文件 [ 下载并安装 Broadcom RCF 文件 ]</block>
+  <block id="2092fa2d67720266015440eaa2d835ab" category="list-text">链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #downloading-and-installing-the_cisco-ip-RCF files[ 下载并安装 Cisco IP RCF 文件 ]</block>
+  <block id="861ef6676813cbc81369ee701ae73269" category="paragraph">如果您使用的是第三方防火墙：</block>
+  <block id="041f3a27fe8b40cc213210949eb4f036" category="list-text">必须启用 HTTPS 访问。</block>
+  <block id="8b8101ed71d5bd32d2f9d4de05e470c1" category="list-text">必须将其配置为允许在端口 31784 和 3260 上进行访问。</block>
+  <block id="cc1e6f116b4b45ffde821f0aef59e030" category="paragraph">如果使用默认的 Red Hat 或 CentOS 防火墙，则会在安装调解器期间自动配置防火墙。</block>
+  <block id="a6bcf63661955f7af02bb69a2cd4d604" category="section-title">将磁盘架添加到现有配置中</block>
+  <block id="6257739eb87a755c28bf814ad261df2d" category="section-title">移动 MetroCluster FC 节点上的集群连接</block>
+  <block id="9d8f122e284d64a31d50c5040fe4f338" category="section-title">要移动哪些连接</block>
+  <block id="508763c5ecfa3096ab25520f14c971f5" category="paragraph">使用中所述的端口 <block ref="10769c5348734bed7e40370eea435ab1" category="inline-xref-macro-rx"></block>。</block>
+  <block id="fe45fe811f6f58baafc88df1114b43df" category="paragraph">链接： ./install-IP/concept_mediator_requirements.html #configuring-th-ontap-medier-service-from-a-metrocluster-IP-configuration[ 从 MetroCluster IP 配置配置 ONTAP 调解器服务 ]</block>
+  <block id="353f64efd56caa103dcbf2b9e24c3129" category="paragraph">链接： ./install-IP/concept_mediator_requirements.html</block>
+  <block id="dd23316b696cd08f3479c6e2d7baadc0" category="inline-link">AFF 或 FAS 系统的安装过程</block>
+  <block id="17959b19c1c128d5d74608a22de28cf9" category="paragraph"><block ref="17959b19c1c128d5d74608a22de28cf9" category="inline-link-rx"></block></block>
+  <block id="e5303b615c196a6ae1c68873f1d05073" category="sidebar">手动配置 Brocade FC 交换机</block>
 </blocks>

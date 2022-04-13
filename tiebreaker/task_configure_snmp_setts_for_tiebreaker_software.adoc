@@ -5,6 +5,7 @@ keywords: snmp, tiebreaker, software, configure, setting
 summary: 要在 Tiebreaker 软件中使用 SNMP ，必须配置 SNMP 设置。 
 ---
 = 为 Tiebreaker 软件配置 SNMP 设置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

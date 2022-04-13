@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, peering, cluster
 summary: MetroCluster 配置中的集群必须处于对等关系中，以便它们可以彼此通信并执行对 MetroCluster 灾难恢复至关重要的数据镜像。 
 ---
 = 为集群建立对等关系
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

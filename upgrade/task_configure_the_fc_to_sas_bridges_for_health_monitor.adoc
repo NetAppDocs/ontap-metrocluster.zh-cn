@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, configure, fc, sas, bridges, health, monitoring
 summary: FibreBridge 网桥不支持第三方 SNMP 监控工具。从 ONTAP 9.8 开始，默认情况下， FC-SAS 网桥通过带内连接进行监控，不需要进行其他配置。 
 ---
 = 配置 FC-SAS 网桥以进行运行状况监控
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

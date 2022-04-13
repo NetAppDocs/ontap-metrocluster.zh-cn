@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, prepare, cluster, ports, existing, controller, 
 summary: 在安装新控制器模块之前，您必须在现有控制器模块上配置集群端口，以便集群端口可以提供与新控制器模块的集群通信。 
 ---
 = 正在准备现有控制器模块上的集群端口
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, parts, two, node, bridge, stretch
 summary: 在规划 MetroCluster 配置时，您应了解配置的各个部分及其协同工作的方式。 
 ---
 = 双节点桥接延伸型 MetroCluster 配置的组成部分
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

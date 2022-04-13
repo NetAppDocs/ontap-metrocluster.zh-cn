@@ -5,6 +5,7 @@ keywords: complete, completing, transition, procedure, key, component, exist, me
 summary: 完成过渡操作步骤后，已更换或重新配置现有 MetroCluster 配置的关键组件。 
 ---
 = 过渡如何影响 MetroCluster 硬件组件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

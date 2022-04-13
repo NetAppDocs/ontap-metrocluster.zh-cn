@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, cable, management, data, connectio
 summary: 您必须使用缆线将每个存储控制器上的管理和数据端口连接到站点网络。 
 ---
 = 为管理和数据连接布线
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

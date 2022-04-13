@@ -5,6 +5,7 @@ keywords: replace, metrocluster, maintain, service, pair, fibrebridge, bridges
 summary: 为了利用 FibreBridge 7600N 或 7500N 网桥上的额外 FC2 端口并降低机架利用率，您可以无中断地更换 6500N 网桥，并在一对 FibreBridge 7600N 或 7500N 网桥下整合多达四个存储堆栈。 
 ---
 = 将一对 FibreBridge 6500N 网桥更换为 7600N 或 7500N 网桥
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

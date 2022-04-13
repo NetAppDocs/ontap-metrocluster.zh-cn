@@ -5,6 +5,7 @@ keywords: controller, failure, extend, module, side, dr, group, metrocluster, co
 summary: 如果控制器故障扩展到 MetroCluster 配置中 DR 组一侧的所有控制器模块（包括双节点 MetroCluster 配置中的单个控制器），或者存储已被更换，则必须更换设备并重新分配驱动器的所有权，才能从灾难中恢复。 
 ---
 = 从多控制器或存储故障中恢复
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

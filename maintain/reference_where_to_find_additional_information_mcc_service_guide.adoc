@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, additional, information
 summary: 您可以在 NetApp 丰富的文档中了解有关配置，操作和监控 MetroCluster 配置的更多信息。 
 ---
 = 从何处查找追加信息
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

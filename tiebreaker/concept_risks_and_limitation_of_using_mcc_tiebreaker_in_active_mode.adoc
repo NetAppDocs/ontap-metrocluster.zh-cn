@@ -5,6 +5,7 @@ keywords: switchover, upon, detection, site, failure, automatic, metrocluster, t
 summary: 检测到站点故障时自动切换， MetroCluster Tiebreaker 处于活动模式。此模式可用于补充 ONTAP/FAS 自动切换功能。 
 ---
 = 在主动模式下使用 MetroCluster Tiebreaker 的风险和限制
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

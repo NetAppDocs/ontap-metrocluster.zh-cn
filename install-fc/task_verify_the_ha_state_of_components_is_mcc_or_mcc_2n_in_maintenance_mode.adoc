@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, verify, ha, state, components, mai
 summary: 在 MetroCluster 配置中配置存储系统时，必须确保控制器模块和机箱组件的高可用性状态为 mcc 或 mcc-2n ，以便这些组件可以正常启动。 
 ---
 = 在维护模式下验证和配置组件的 HA 状态
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

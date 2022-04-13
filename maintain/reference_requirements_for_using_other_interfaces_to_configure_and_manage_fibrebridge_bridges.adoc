@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, requirements, interfaces, fibrebridge
 summary: 您可以组合使用串行端口， Telnet 和 FTP 来管理 FibreBridge 网桥，而不是使用建议的管理接口。在安装网桥之前，您的系统必须满足相应接口的要求。 
 ---
 = 使用其他接口配置和管理 FibreBridge 网桥的要求
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

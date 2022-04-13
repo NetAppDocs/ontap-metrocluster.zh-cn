@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, controllers, switchover, switchback, fc, config
 summary: 升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。 
 ---
 = 使用切换和切回功能将 AFF FC 配置中的 AFF A700 控制器升级到 MetroCluster A900 （ ONTAP 9.10.1 及更高版本）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

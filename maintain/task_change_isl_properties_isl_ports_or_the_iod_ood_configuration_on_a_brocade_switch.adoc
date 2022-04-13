@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, change, isl, properties, isl, ports, 
 summary: 如果要添加或升级硬件，例如其他或更快的控制器或交换机，则可能需要向交换机添加 ISL 。 
 ---
 = 更改 Brocade 交换机上的 ISL 属性， ISL 端口或 IOD/OOD 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, verify, ha, config, component, state
 summary: 在 MetroCluster 配置中，必须将控制器模块和机箱组件的 ha-config 状态设置为 mcc ，以便它们正确启动。 
 ---
 = 验证组件的 ha-config 状态
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

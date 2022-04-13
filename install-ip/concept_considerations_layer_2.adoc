@@ -5,6 +5,7 @@ keywords: differences, eight-node, four-node, fabric-attached, stretch, metroclu
 summary: 从 ONTAP 9.6 开始，使用支持的 Cisco 交换机的 MetroCluster IP 配置可以共享 ISL 的现有网络，而不是使用专用的 MetroCluster ISL 。 
 ---
 = 共享私有第 2 层网络的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

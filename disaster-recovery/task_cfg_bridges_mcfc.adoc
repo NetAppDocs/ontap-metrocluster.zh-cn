@@ -5,6 +5,7 @@ keywords: fc, sas, bridge, configure, metrocluster, configuration
 summary: 如果您更换了 FC-SAS 网桥，则必须在还原 MetroCluster 配置时对其进行配置。 
 ---
 = 配置 FC-SAS 网桥（仅限 MetroCluster FC 配置）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

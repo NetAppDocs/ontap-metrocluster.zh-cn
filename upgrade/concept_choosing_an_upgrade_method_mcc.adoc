@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, choose, upgrade, refresh, method
 summary: 您使用的升级或刷新操作步骤取决于平台型号，升级范围和 MetroCluster 配置类型。 
 ---
 = 选择升级或刷新方法
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

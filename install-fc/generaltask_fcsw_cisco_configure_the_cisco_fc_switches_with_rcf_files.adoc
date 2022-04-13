@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, configuring, cisco, fc, switched, 
 summary: 要配置 Cisco FC 交换机，您必须将交换机设置重置为出厂默认值，安装交换机软件，并下载并应用参考配置 \ （ RCF\ ）文件，这些文件可为某些配置提供完整的交换机设置。 
 ---
 = 使用 RCF 文件配置 Cisco FC 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

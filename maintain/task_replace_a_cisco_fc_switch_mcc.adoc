@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, replace, cisco, fc, switch
 summary: 您必须使用 Cisco 专用的步骤更换发生故障的 Cisco FC 交换机。 
 ---
 = 更换 Cisco FC 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

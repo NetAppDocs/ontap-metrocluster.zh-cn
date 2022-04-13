@@ -5,6 +5,7 @@ keywords: Generating and applying RCFs to the new IP switches, review, requireme
 summary: 要为过渡准备配置，请将新节点添加到现有 MetroCluster 配置中，然后将数据移动到新节点。 
 ---
 = 配置 MetroCluster 以进行过渡
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, prepare, storage, array, systems
 summary: 在使用阵列 LUN 的 MetroCluster 配置中设置 ONTAP 系统之前，存储阵列管理员必须准备用于 ONTAP 的存储。 
 ---
 = 准备用于 ONTAP 系统的存储阵列
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

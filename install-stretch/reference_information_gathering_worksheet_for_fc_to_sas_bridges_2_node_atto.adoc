@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, worksheet, fc, sas, bridges, info
 summary: 在开始配置 MetroCluster 站点之前，您应收集所需的配置信息。 
 ---
 = FC-SAS 网桥的信息收集工作表
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

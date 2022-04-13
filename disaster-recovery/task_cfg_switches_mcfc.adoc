@@ -5,6 +5,7 @@ keywords: configure, fc, switches, metrocluster, configuration
 summary: 如果您更换了灾难站点中的 FC 交换机，则必须使用供应商专用的过程对其进行配置。 
 ---
 = 配置 FC 交换机（仅限 MetroCluster FC 配置）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

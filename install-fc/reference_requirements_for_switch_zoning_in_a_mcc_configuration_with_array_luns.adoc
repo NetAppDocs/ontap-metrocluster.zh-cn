@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, switch, zoning, array, luns, requi
 summary: 在使用阵列 LUN 的 MetroCluster 配置中使用交换机分区时，必须确保满足某些基本要求。 
 ---
 = 使用阵列 LUN 的 MetroCluster 配置中的交换机分区要求
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

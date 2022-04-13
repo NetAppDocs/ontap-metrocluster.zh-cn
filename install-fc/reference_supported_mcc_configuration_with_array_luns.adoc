@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, supported, array, luns
 summary: 您可以设置包含阵列 LUN 的 MetroCluster 配置。支持延伸型配置和光纤连接配置。阵列 LUN 不支持 AFF 系统。 
 ---
 = 支持使用阵列 LUN 的 MetroCluster 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

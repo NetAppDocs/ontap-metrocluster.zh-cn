@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, cable, two, nose, bridge, attache
 summary: MetroCluster 组件必须在两个地理站点上进行物理安装，布线和配置。与使用阵列 LUN 的系统相比，使用原生磁盘架的系统的步骤略有不同。 
 ---
 = 为双节点桥接延伸型 MetroCluster 配置布线
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

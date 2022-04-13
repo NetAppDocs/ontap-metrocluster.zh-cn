@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, example, stretch, configuraiton, 
 summary: 在使用 E 系列存储阵列 LUN 的延伸型 MetroCluster 配置中，您可以直接连接存储控制器和存储阵列。与其他阵列 LUN 不同，不需要 FC 交换机。 
 ---
 = 使用 E 系列存储阵列的延伸型 MetroCluster 配置示例
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

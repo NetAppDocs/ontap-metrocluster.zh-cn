@@ -5,6 +5,7 @@ keywords: assign, ownership, drives, replaced
 summary: 如果在灾难站点还原硬件时更换了驱动器，则必须为受影响的驱动器分配所有权。 
 ---
 = 为更换的驱动器分配所有权
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

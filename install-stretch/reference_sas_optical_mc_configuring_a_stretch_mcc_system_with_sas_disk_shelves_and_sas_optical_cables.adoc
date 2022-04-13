@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, install, cable, components, two, 
 summary: 存储控制器必须通过缆线连接到存储介质和彼此。此外，还必须使用缆线将存储控制器连接到数据和管理网络。 
 ---
 = 为双节点 SAS 连接延伸型配置安装 MetroCluster 组件并为其布线
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

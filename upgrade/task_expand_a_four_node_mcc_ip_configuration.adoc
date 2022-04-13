@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, refresh, four, node, ip, configuration, add, au
 summary: 您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。 
 ---
 = 将四节点 MetroCluster IP 配置扩展为八节点配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

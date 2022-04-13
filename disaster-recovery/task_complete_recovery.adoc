@@ -5,6 +5,7 @@ keywords: object, fabricpool, mirror, co-located, metrocluster, disaster, site, 
 summary: 如果 FabricPool 镜像中的某个对象存储与 MetroCluster 灾难站点位于同一位置并被销毁，则必须重新建立对象存储和 FabricPool 镜像。 
 ---
 = 正在完成恢复
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

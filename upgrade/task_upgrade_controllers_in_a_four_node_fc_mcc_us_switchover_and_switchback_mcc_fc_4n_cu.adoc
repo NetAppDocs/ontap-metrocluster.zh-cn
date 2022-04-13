@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, nondisruptive, controller, switchover, switchba
 summary: 升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。 
 ---
 = 使用切换和切回升级 MetroCluster FC 配置中的控制器
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

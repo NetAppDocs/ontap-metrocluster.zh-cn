@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, cable, ha, interconnect, cabling
 summary: 如果您采用八节点或四节点 MetroCluster 配置，并且 HA 对中的存储控制器位于不同的机箱中，则必须为控制器之间的 HA 互连布线。 
 ---
 = 为 HA 互连布线
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

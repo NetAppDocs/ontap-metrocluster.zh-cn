@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, cable, disk, shelves, bridges
 summary: 您必须使用正确的 FC-SAS 网桥为磁盘架布线。 
 ---
 = 使用缆线将磁盘架连接到网桥
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

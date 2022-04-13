@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, hot, add, disk, shelf
 summary: 如果要在不降低性能的情况下增加存储，可以热添加磁盘架。 
 ---
 = 热添加磁盘架
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

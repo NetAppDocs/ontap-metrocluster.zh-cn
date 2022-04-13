@@ -5,6 +5,7 @@ keywords: cabling, cable, component, peering, management, network, hardware, com
 summary: 您必须为用于集群对等，管理和数据连接的控制器模块端口布线。 
 ---
 = 为控制器对等，数据和管理端口布线
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: switchover, perform, heal, operation, restore, metrocluster, functiona
 summary: 切换后，您必须按特定顺序执行修复操作，才能还原 MetroCluster 功能。 
 ---
 = 修复 MetroCluster FC 配置中的配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

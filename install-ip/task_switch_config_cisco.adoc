@@ -5,6 +5,7 @@ keywords: ip, switch, configuring, configure, factory defaults, cisco, MACsec en
 summary: 您必须将 Cisco IP 交换机配置为用作集群互连以及用于后端 MetroCluster IP 连接。 
 ---
 = 配置 Cisco IP 交换机
+:allow-uri-read: 
 
 
 [role="lead"]
@@ -579,67 +580,6 @@ IP_switch_A_1(config)# copy running-config startup-config
 
 
 
-=== 在 MetroCluster IP 配置中禁用 Cisco MACsec 加密 WAN ISL
-
-在 MetroCluster IP 配置中，您可能需要对 WAN ISL 上的 Cisco 9336C 交换机禁用 MACsec 加密。
-
-.步骤
-. 进入全局配置模式：
-+
-`配置终端`
-
-+
-[listing]
-----
-IP_switch_A_1# configure terminal
-IP_switch_A_1(config)#
-----
-. 在设备上禁用 MACsec 配置：
-+
-`mAcSEC shutdown`
-
-+
-[listing]
-----
-IP_switch_A_1(config)# macsec shutdown
-----
-+
-
-NOTE: 选择 "`no` " 选项可还原 MACsec 功能。
-
-. 选择已配置 MAC 的接口。
-+
-您可以指定接口类型和标识。对于以太网端口，请使用以太网插槽 / 端口。
-
-+
-[listing]
-----
-IP_switch_A_1(config)# interface ethernet 1/15
-switch(config-if)#
-----
-. 删除接口上配置的密钥链，策略和回退密钥链，以删除 MACsec 配置：
-+
-`no MACsec keychain keychain-name policy policy-name backfall-keychain keychain-name`
-
-+
-[listing]
-----
-IP_switch_A_1(config-if)# no macsec keychain kc2 policy abc fallback-keychain fb_kc2
-----
-. 对配置了 MACsec 的所有接口重复步骤 3 和 4 。
-. 将正在运行的配置复制到启动配置：
-+
-`copy running-config startup-config`
-
-+
-[listing]
-----
-IP_switch_A_1(config)# copy running-config startup-config
-----
-
-
-
-
 === 配置 MACsec 密钥链和密钥
 
 您可以在配置上创建一个或多个 MACsec 密钥链。
@@ -647,10 +587,6 @@ IP_switch_A_1(config)# copy running-config startup-config
 * 密钥生命周期和无结果密钥滚动 *
 
 一个 MACsec 密钥链可以具有多个预共享密钥（ PSK ），每个密钥都配置有一个密钥 ID 和一个可选的生命周期。密钥生命周期用于指定密钥激活和到期的时间。如果没有生命周期配置，则默认生命周期为无限制。如果配置了生命周期，则在生命周期到期后， MKA 将转至密钥链中的下一个已配置的预共享密钥。密钥的时区可以是本地或 UTC 。默认时区为 UTC 。如果配置第二个密钥（在密钥链中）并为第一个密钥配置有效期，则密钥可以滚动到同一个密钥链中的第二个密钥。当第一个密钥的生命周期到期时，它会自动滚动到列表中的下一个密钥。如果在链路两端同时配置了同一个密钥，则密钥滚动将无中断（即，密钥在不中断流量的情况下进行回滚）。
-
-* 回退密钥 *
-
-由于密钥 / 密钥名称（ CKN ）不匹配或交换机与对等方之间的密钥持续时间有限， MACsec 会话可能会失败。如果 MAC 秒会话失败，则如果配置了回退密钥，则回退会话可以接管。回退会话可防止因主会话故障而导致停机，并允许用户有时间修复导致故障的密钥问题描述。如果主会话无法启动，回退密钥还会提供备份会话。此功能为可选功能。
 
 .步骤
 . 进入全局配置模式：
@@ -871,6 +807,67 @@ IP_switch_A_1(config-macsec-policy)# show macsec policy
 
 
 
+=== 在 MetroCluster IP 配置中禁用 Cisco MACsec 加密 WAN ISL
+
+在 MetroCluster IP 配置中，您可能需要对 WAN ISL 上的 Cisco 9336C 交换机禁用 MACsec 加密。
+
+.步骤
+. 进入全局配置模式：
++
+`配置终端`
+
++
+[listing]
+----
+IP_switch_A_1# configure terminal
+IP_switch_A_1(config)#
+----
+. 在设备上禁用 MACsec 配置：
++
+`mAcSEC shutdown`
+
++
+[listing]
+----
+IP_switch_A_1(config)# macsec shutdown
+----
++
+
+NOTE: 选择 "`no` " 选项可还原 MACsec 功能。
+
+. 选择已配置 MAC 的接口。
++
+您可以指定接口类型和标识。对于以太网端口，请使用以太网插槽 / 端口。
+
++
+[listing]
+----
+IP_switch_A_1(config)# interface ethernet 1/15
+switch(config-if)#
+----
+. 删除接口上配置的密钥链，策略和回退密钥链，以删除 MACsec 配置：
++
+`no MACsec keychain keychain-name policy policy-name backfall-keychain keychain-name`
+
++
+[listing]
+----
+IP_switch_A_1(config-if)# no macsec keychain kc2 policy abc fallback-keychain fb_kc2
+----
+. 对配置了 MACsec 的所有接口重复步骤 3 和 4 。
+. 将正在运行的配置复制到启动配置：
++
+`copy running-config startup-config`
+
++
+[listing]
+----
+IP_switch_A_1(config)# copy running-config startup-config
+----
+
+
+
+
 === 验证 MACsec 配置
 
 .步骤
@@ -919,61 +916,6 @@ MACsec MKA 配置
 |===
 
 
-
-
-
-
-=== 在 WAN ISL 端口上配置 MACsec 回退密钥
-
-如果主会话因密钥 / 密钥名称（ CKN ）不匹配或交换机与对等方之间的密钥持续时间有限而失败，您可以配置回退密钥以启动备份会话。
-
-.步骤
-. 进入全局配置模式：
-+
-`配置终端`
-
-+
-[listing]
-----
-IP_switch_A_1# configure terminal
-IP_switch_A_1(config)#
-----
-. 指定要配置的接口。
-+
-您可以指定接口类型和标识。对于以太网端口，请使用：
-
-+
-`以太网插槽 / 端口`
-
-+
-[listing]
-----
-IP_switch_A_1(config)# interface ethernet 1/15
-switch(config-if)#
-----
-. 指定因密钥 / 密钥 ID 不匹配或密钥到期而导致 MACsec 会话失败后使用的回退密钥链：
-+
-`mAcSEC keychain keychain-name policy policy-name backfally-keychain keychain-name`
-
-+
-
-NOTE: 在继续执行此步骤之前，您应使用 _Configuring a MACsec key chain and keys_ 中的步骤配置回退密钥链。
-
-+
-[listing]
-----
-IP_switch_A_1(config-if)# macsec keychain kc2 policy abc fallback-keychain fb_kc2
-----
-. 重复上述步骤，使用 MACsec 配置其他 WAN ISL 端口。
-. 将正在运行的配置复制到启动配置：
-+
-`copy running-config startup-config`
-
-+
-[listing]
-----
-IP_switch_A_1(config)# copy running-config startup-config
-----
 
 
 

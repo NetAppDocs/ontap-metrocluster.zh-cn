@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, implement, configuration, disks, a
 summary: 要使用原生磁盘和阵列 LUN 实施 MetroCluster 配置，必须确保此配置中使用的 ONTAP 系统可以连接到存储阵列。 
 ---
 = 实施同时包含磁盘和阵列 LUN 的 MetroCluster 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: preparing, prepare, metrocluster, mcc, installation, install, differen
 summary: 在准备 MetroCluster 安装时，您应了解 MetroCluster 硬件架构和所需的组件。 
 ---
 = 从 7- 模式过渡到 ONTAP 时的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

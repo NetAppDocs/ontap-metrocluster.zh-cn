@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, disable, switch, fabrics
 summary: 您必须禁用其中一个交换机网络结构，才能修改其配置。完成配置并重新启用交换机网络结构后，您将在另一个网络结构上重复此过程。 
 ---
 = 禁用其中一个交换机网络结构
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, power, off, entire, metrocluster, ip,
 summary: 您必须先关闭整个 MetroCluster IP 配置以及所有设备，然后才能开始维护或重新定位。 
 ---
 = 关闭整个 MetroCluster IP 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

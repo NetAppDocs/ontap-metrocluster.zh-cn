@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, cable, fc, sas, bridge, controlle
 summary: 在双节点桥接 MetroCluster 配置中，必须使用缆线将网桥连接到控制器模块。 
 ---
 = 在双节点网桥连接的 MetroCluster 配置中，使用缆线将 FC-SAS 网桥连接到控制器模块
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

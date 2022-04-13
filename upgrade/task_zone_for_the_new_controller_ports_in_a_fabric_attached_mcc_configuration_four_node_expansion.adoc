@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, zone, controller, fabric, attached, ports, add
 summary: FC 交换机分区必须支持新的控制器连接。如果您使用 NetApp 提供的参考配置文件 \ （ RCF\ ）配置交换机，则分区是预配置的，不需要进行任何更改。 
 ---
 = 在光纤连接 MetroCluster 配置中添加控制器模块时为新控制器端口进行分区
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

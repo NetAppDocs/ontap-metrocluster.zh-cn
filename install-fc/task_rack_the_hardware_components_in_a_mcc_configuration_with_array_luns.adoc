@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, rack, hardware, components, array,
 summary: 您必须确保使用阵列 LUN 设置 MetroCluster 配置所需的硬件组件已正确装入机架。 
 ---
 = 使用阵列 LUN 的 MetroCluster 配置中的硬件组件机架安装
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
@@ -26,7 +27,7 @@ summary: 您必须确保使用阵列 LUN 设置 MetroCluster 配置所需的硬�
 NOTE: 阵列 LUN 不支持 AFF 系统。
 
 +
-https://docs.netapp.com/us-en/ontap/[Installation 中有关 AFF 或 FAS 系统的步骤 ]#
+https://docs.netapp.com/us-en/ontap-systems/["AFF 或 FAS 系统的安装过程"]
 
 . 在机架或机柜中安装 FC 交换机。
 

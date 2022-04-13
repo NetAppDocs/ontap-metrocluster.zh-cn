@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, reconfigure, fc, switch, layout, conf
 summary: 如果现有 FC 交换机布局是在 ONTAP 9.1 之前配置的，则必须重新配置端口布局并应用最新的参考配置文件（ Reference Configuration Files ， RCF ）。此操作步骤仅适用于 MetroCluster FC 配置。 
 ---
 = 重新配置在 ONTAP 9.x 之前配置的 FC 交换机布局
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

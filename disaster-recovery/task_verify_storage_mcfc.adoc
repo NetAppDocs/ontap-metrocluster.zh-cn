@@ -5,6 +5,7 @@ keywords: verify, storage, configuration
 summary: 您必须确认所有存储均可从正常运行的节点中查看。 
 ---
 = 验证存储配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

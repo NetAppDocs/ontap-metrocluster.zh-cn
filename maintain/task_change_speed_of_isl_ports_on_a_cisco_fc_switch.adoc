@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, change, speed, isl, ports, cisco, fc,
 summary: 您可能需要更改交换机上 ISL 端口的速度，以提高 ISL 的质量。距离较远的 ISL 可能需要降低其速度以提高质量。 
 ---
 = 更改 Cisco FC 交换机上 ISL 端口的速度
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

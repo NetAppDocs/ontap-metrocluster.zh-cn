@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, port, assignments, fc, switches, onta
 summary: 如果使用的是 ONTAP 9.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。 
 ---
 = 使用 ONTAP 9.1 或更高版本时 FC 交换机的端口分配
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, fc, switches, run, configuration, 
 summary: 如果要简化配置交换机的过程，您可以下载并应用参考配置文件，这些文件可为某些配置提供完整的交换机设置。 
 ---
 = 通过运行配置文件配置 FC 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

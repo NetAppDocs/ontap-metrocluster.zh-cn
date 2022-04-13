@@ -5,6 +5,7 @@ keywords: verify, adp, verify, drives, pool, automatically, assign
 summary: 在配置了 ADP 的系统上，您必须验证是否已自动分配池 0 驱动器。 
 ---
 = 验证自动分配或手动分配池 0 驱动器
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

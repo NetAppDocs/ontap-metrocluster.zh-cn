@@ -5,6 +5,7 @@ keywords: aggregate, heal, mirror, restore
 summary: 更换硬件并分配磁盘后，您可以执行 MetroCluster 修复操作。 
 ---
 = 执行聚合修复和还原镜像（ MetroCluster IP 配置）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

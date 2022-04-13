@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, switch, zoning, two, node, array, 
 summary: 交换机分区用于定义已连接节点之间的路径。通过配置分区，您可以定义特定 ONTAP 系统可以查看哪些阵列 LUN 。 
 ---
 = 使用阵列 LUN 的双节点 MetroCluster 配置中的交换机分区示例
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

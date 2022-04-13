@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, redundant, fc, switch, fabrics
 summary: 每个交换机网络结构都包含连接站点的交换机间链路（ ISL ）。数据通过 ISL 从站点复制到站点。每个交换机网络结构都必须位于不同的物理路径上，以实现冗余。 
 ---
 = 冗余 FC 交换机网络结构
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

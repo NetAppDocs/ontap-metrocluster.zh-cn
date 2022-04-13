@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, rack, harware, components
 summary: 如果您尚未收到机柜中已安装的设备，则必须将这些组件装入机架。 
 ---
 = 将硬件组件安装在机架中
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

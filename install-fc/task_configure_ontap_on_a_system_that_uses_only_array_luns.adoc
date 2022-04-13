@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, array luns, ontap
 summary: 如果要配置 ONTAP 以与阵列 LUN 结合使用，则必须配置根聚合和根卷，为诊断和恢复操作预留空间以及设置集群。 
 ---
 = 在仅使用阵列 LUN 的系统上配置 ONTAP
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

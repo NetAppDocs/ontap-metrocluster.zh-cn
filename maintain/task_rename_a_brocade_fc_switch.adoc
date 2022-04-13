@@ -5,6 +5,7 @@ keywords: rename, metrocluster, maintain, service, brocade, fc, switch
 summary: 您可能需要重命名 Brocade FC 交换机，以确保在整个配置中的命名一致。 
 ---
 = 重命名 Brocade FC 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

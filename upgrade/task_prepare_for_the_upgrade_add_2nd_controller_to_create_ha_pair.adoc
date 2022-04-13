@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, prepare, upgrade
 summary: 在升级到 HA 对之前，您必须验证您的系统是否满足所有要求，并且您是否拥有所有必要的信息。 
 ---
 = 正在准备升级
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

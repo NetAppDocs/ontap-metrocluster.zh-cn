@@ -5,6 +5,7 @@ keywords: transition, metrocluster, node, fc, ip, iscsi, host, connection, movin
 summary: 将 MetroCluster 节点从 FC 过渡到 IP 后，您可能需要将 iSCSI 主机连接移动到新节点。 
 ---
 = 将 Linux iSCSI 主机从 MetroCluster FC 移动到 MetroCluster IP 节点
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

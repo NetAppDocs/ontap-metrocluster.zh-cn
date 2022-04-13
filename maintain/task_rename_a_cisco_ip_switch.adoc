@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, rename, cisco, ip, switch
 summary: 您可能需要重命名 Cisco IP 交换机，以便在整个配置中提供一致的命名。 
 ---
 = 重命名 Cisco IP 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

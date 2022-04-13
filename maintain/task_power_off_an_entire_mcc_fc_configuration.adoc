@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, power, off, entire, metrocluster, fc,
 summary: 您必须先关闭整个 MetroCluster FC 配置以及所有设备，然后才能开始站点维护或重新定位。 
 ---
 = 关闭整个 MetroCluster FC 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

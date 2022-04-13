@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, install, firmware, add, controller, module
 summary: 添加控制器模块后，您必须在新控制器模块上安装最新固件，以使控制器模块能够在 ONTAP 中正常运行。 
 ---
 = 添加控制器模块后安装固件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

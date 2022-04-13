@@ -5,6 +5,7 @@ keywords: notice, alert, message, transition, alert, safe, ignore, tool, transit
 summary: 过渡期间，您可能会注意到警报消息。可以安全地忽略这些警报。此外，某些工具在过渡期间不可用。 
 ---
 = 过渡期间的警报消息和工具支持
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

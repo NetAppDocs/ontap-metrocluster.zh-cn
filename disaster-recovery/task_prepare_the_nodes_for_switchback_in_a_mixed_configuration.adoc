@@ -5,6 +5,7 @@ keywords: perform, certain, task, prepare, metrocluster, ip, fc, configuration, 
 summary: 您必须执行某些任务，以便为切回操作准备混合 MetroCluster IP 和 FC 配置。此操作步骤仅适用于在 MetroCluster FC 到 IP 过渡过程中遇到故障的适用场景配置。 
 ---
 = 在混合配置中准备切回（过渡期间恢复）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

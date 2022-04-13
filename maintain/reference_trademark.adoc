@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, trademark
 summary: 维护 MetroCluster 组件的商标信息。 
 ---
 = 商标
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

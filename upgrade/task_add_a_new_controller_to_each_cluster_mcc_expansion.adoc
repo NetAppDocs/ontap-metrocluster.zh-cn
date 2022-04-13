@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, add, new, controller, module, cluster
 summary: 您必须向每个站点添加一个新的控制器模块，以便在每个站点中创建一个 HA 对。这是一个多步骤过程，涉及硬件和软件更改，必须在每个站点上按正确顺序执行。 
 ---
 = 向每个集群添加新控制器模块
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

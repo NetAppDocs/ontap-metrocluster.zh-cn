@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, upgrade, firmware. ip, switches, cisc
 summary: 升级 MetroCluster IP 交换机上的固件。 
 ---
 = 升级 MetroCluster IP 交换机上的固件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

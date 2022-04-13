@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, prepare, netboot, server, download, image
 summary: 准备好网络启动服务器后，您必须将正确的 ONTAP 网络启动映像从 NetApp 支持站点下载到网络启动服务器并记下 IP 地址。 
 ---
 = 准备网络启动服务器以下载映像
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

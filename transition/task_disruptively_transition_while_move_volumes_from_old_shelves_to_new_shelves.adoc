@@ -5,6 +5,7 @@ keywords: start, ontap, disruptive, transition, two-node, metrocluster, fc, conf
 summary: 从 ONTAP 9.8 开始，您可以在中断的情况下将双节点 MetroCluster FC 配置过渡到四节点 MetroCluster IP 配置，并停用现有存储架。操作步骤包括将数据从现有驱动器架移至新配置，然后停用旧磁盘架的步骤。 
 ---
 = 停用存储架时从 MetroCluster FC 中断过渡到 MetroCluster IP （ ONTAP 9.8 及更高版本）
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

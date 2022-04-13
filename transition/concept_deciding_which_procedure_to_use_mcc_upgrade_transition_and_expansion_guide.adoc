@@ -5,6 +5,7 @@ keywords: difference, metrocluster, upgrade, expansion, transition, procedure, m
 summary: 您必须了解 MetroCluster 升级，扩展或过渡之间的差异，并选择与您的目标匹配的操作步骤。 
 ---
 = 确定要使用的操作步骤
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

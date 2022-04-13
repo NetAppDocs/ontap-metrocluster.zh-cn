@@ -5,6 +5,7 @@ keywords: copyright, trademark, right to publish, protect, patents, duplication,
 summary: 版权 
 ---
 = 版权信息
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

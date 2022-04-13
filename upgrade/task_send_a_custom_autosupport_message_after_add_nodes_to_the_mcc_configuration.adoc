@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, send, custom, autosupport, message, add, nodes,
 summary: 您应问题描述发送 AutoSupport 消息，以通知 NetApp 技术支持维护已完成。 
 ---
 = 在将节点添加到 MetroCluster 配置之后发送自定义 AutoSupport 消息
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

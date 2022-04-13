@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, set, up, cluster
 summary: 设置集群包括设置每个节点，在第一个节点上创建集群以及将任何剩余节点加入集群。 
 ---
 = 设置集群
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

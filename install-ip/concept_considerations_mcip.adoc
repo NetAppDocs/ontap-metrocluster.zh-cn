@@ -5,6 +5,7 @@ keywords: differences, eight-node, four-node, fabric-attached, stretch, metroclu
 summary: 您应了解控制器如何访问远程存储以及 MetroCluster IP 地址的工作原理。 
 ---
 = MetroCluster IP 配置的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, download, brocade, fc, switch, rcf
 summary: 您必须将参考配置 \ （ RCF\ ）文件下载到 MetroCluster 网络结构配置中的每个交换机。 
 ---
 = 下载 Brocade FC 交换机 RCF 文件
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

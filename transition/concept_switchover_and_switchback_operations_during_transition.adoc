@@ -5,6 +5,7 @@ keywords: stage, transition, process, metrocluster, switchover, heal, switchback
 summary: 根据过渡过程的阶段， MetroCluster 切换，修复和切回操作会使用 MetroCluster FC 或 MetroCluster IP 工作流。 
 ---
 = 在无中断过渡期间执行切换，修复和切回操作
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

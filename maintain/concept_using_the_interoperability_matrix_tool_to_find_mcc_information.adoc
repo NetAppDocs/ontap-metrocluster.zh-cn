@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, interoperability, matrix, tool, infor
 summary: 在设置 MetroCluster 配置时，您可以使用互操作性工具来确保您使用的是受支持的软件和硬件版本。 
 ---
 = 使用互操作性表工具查找 MetroCluster 信息
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, check, configuration
 summary: 您可以检查 MetroCluster 配置中的组件和关系是否工作正常。您应在初始配置后以及对 MetroCluster 配置进行任何更改后执行检查。您还应在协商切换或切回操作之前执行检查。 
 ---
 = 正在检查 MetroCluster 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

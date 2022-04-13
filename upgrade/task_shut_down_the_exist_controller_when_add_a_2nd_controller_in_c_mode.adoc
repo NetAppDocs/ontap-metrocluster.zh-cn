@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, shut, down, existing, controller, module
 summary: 您必须完全关闭现有控制器模块，以验证所有数据是否均已写入磁盘。此外，您还必须断开电源连接。 
 ---
 = 关闭现有控制器模块
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

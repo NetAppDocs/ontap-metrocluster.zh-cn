@@ -5,6 +5,7 @@ keywords: hardware, component, replace, individual, replacement, installation, g
 summary: 如果需要更换硬件组件，您必须使用其各自的硬件更换和安装指南进行更换。 
 ---
 = 更换硬件并启动新控制器
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

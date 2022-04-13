@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, cluster, new, brocade, fc, switches
 summary: 如果要升级到新的 Brocade FC 交换机，则必须更换第一个网络结构中的交换机，验证 MetroCluster 配置是否完全正常运行，然后更换第二个网络结构中的交换机。 
 ---
 = 升级到新的 Brocade FC 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

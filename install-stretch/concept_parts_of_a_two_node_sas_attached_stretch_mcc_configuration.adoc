@@ -5,6 +5,7 @@ keywords: metrocluster, stretch, installation, parts, two, node, sas, attached, 
 summary: 双节点 MetroCluster SAS 连接配置需要多个部分，包括两个单节点集群，其中存储控制器使用 SAS 缆线直接连接到存储。 
 ---
 = 双节点 SAS 连接延伸型 MetroCluster 配置的组成部分
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

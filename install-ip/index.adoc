@@ -5,6 +5,7 @@ keywords: metrocluster, ip, installation
 summary: 要安装 MetroCluster IP 配置，必须按正确顺序执行多个过程。 
 ---
 = 概述
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

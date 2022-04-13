@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, add, isl, cisco, switch
 summary: 如果您要添加或升级硬件，例如其他或更快的控制器或更快的交换机，则可能需要向交换机添加 ISL 。 
 ---
 = 将 LSLs 添加到 Cisco 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: equipment, disaster, site, undergone, require, maintenance, replacemen
 summary: 在灾难站点上的设备进行了任何必要的维护或更换，但未更换任何控制器后，您可以开始将 MetroCluster 配置恢复为完全冗余状态的过程。其中包括修复配置（首先修复数据聚合，然后修复根聚合）以及执行切回操作。 
 ---
 = 从非控制器故障中恢复
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

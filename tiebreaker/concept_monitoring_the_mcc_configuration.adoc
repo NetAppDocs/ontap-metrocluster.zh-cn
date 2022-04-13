@@ -5,6 +5,7 @@ keywords: metrocluster, tiebreaker, software, automate, recovery, process, enabl
 summary: 通过 MetroCluster Tiebreaker 软件，您可以监控 MetroCluster 配置状态，评估发送给 NetApp 客户支持的 SNMP 事件和陷阱以及查看监控操作的状态，从而自动执行恢复过程。 
 ---
 = 监控 MetroCluster 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, replace, shelf, nondisruptively, stre
 summary: 在使用已完全填充的磁盘架或磁盘架机箱的延伸型 MetroCluster 配置中，您可以更换磁盘架而不会造成中断，并可从要移除的磁盘架传输组件。 
 ---
 = 在延伸型 MetroCluster 配置中无中断更换磁盘架
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

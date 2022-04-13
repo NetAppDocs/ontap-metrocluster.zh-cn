@@ -5,6 +5,7 @@ keywords: add, four, controller, module, additional, storage, shelves, shelf, co
 summary: 您必须将四个新控制器模块以及任何其他存储架添加到配置中。新控制器模块一次添加两个。 
 ---
 = 连接 MetroCluster IP 控制器模块
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

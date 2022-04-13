@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, hot, add, stack, sas, disk, shelves, 
 summary: 您可以将 SAS 磁盘架堆栈热添加到具有可用端口的一对现有 FibreBridge 7500N 网桥中。 
 ---
 = 将 SAS 磁盘架堆栈热添加到一对现有 FibreBridge 7500N 网桥中
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

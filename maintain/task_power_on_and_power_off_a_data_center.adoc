@@ -5,6 +5,7 @@ keywords: metrocluster, maintain, service, power, off, on, data, center, relocat
 summary: 您必须了解如何关闭和启动数据中心以进行站点维护或将站点重新定位到其他位置。 
 ---
 = 关闭和启动数据中心
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

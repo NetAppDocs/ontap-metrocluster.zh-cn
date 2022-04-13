@@ -5,6 +5,7 @@ keywords: ip, switch, connection, configuring, configure, broadcom, factory defa
 summary: 您必须将 Broadcom IP 交换机配置为用作集群互连并用于后端 MetroCluster IP 连接。 
 ---
 = 配置 Broadcom IP 交换机
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

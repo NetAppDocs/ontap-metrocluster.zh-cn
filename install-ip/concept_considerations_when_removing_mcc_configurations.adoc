@@ -5,6 +5,7 @@ keywords: remove, removing, metrocluster, configuration, disk, connectivity, int
 summary: 删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。 
 ---
 = 删除 MetroCluster 配置时的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

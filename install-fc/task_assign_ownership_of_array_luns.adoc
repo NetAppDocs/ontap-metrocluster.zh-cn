@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, assigning, ownership, array, luns
 summary: 阵列 LUN 必须归节点所有，才能添加到聚合中用作存储。 
 ---
 = 分配阵列 LUN 的所有权
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

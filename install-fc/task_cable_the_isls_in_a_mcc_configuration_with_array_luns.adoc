@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, cable, isl, array, luns
 summary: 您必须通过交换机间链路（ ISL ）跨站点连接 FC 交换机，以便在使用阵列 LUN 的 MetroCluster 配置中形成交换机网络结构。 
 ---
 = 为使用阵列 LUN 的 MetroCluster 配置中的 ISL 布线
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

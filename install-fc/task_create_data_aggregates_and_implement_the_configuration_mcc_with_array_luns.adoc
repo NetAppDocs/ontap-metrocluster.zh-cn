@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, create, data, aggregates, implemen
 summary: 您必须在每个节点上创建数据聚合，并实施和验证 MetroCluster 配置。 
 ---
 = 在 MetroCluster 配置上创建，实施和验证数据聚合
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

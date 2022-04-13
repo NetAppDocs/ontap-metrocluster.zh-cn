@@ -5,6 +5,7 @@ keywords: considertaions, cluster peering, shared peering ports, dedicated peeri
 summary: 每个 MetroCluster 站点都配置为其配对站点的对等站点。 
 ---
 = 集群对等
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

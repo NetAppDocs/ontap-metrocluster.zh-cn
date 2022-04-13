@@ -5,6 +5,7 @@ keywords: start, transition, process, configuration, requirement, meet, preparin
 summary: 在开始过渡过程之前，您必须确保配置满足要求。 
 ---
 = 为中断 FC-IP 过渡做准备
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

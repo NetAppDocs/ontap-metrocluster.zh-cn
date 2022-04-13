@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, implement, configuration
 summary: 您必须运行 MetroCluster configure -refresh true 命令对已添加到 MetroCluster 配置的节点启动数据保护。 
 ---
 = 实施 MetroCluster 配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

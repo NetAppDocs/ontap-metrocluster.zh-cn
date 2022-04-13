@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, install, cable, new, controller, module
 summary: 您必须在机箱中物理安装新控制器模块，然后为其布线。 
 ---
 = 安装新控制器模块并为其布线
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

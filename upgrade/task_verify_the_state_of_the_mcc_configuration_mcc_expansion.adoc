@@ -5,6 +5,7 @@ keywords: metrocluster, upgrade, verify, state, configuration
 summary: 您应确定现有控制器并确认它们之间的灾难恢复 \ （ DR\ ）关系，控制器处于正常模式以及聚合已镜像。 
 ---
 = 验证 MetroCluster 配置的状态
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

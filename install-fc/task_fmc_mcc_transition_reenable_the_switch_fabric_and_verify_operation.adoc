@@ -5,6 +5,7 @@ keywords: metrocluster, fabric, installation, reenable, switch, fabric, verify, 
 summary: 您必须启用 FC 交换机网络结构并确保交换机和设备正常运行。 
 ---
 = 重新启用交换机网络结构并验证操作
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
