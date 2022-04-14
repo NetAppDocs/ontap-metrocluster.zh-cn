@@ -31,7 +31,7 @@ summary: 您必须将存储阵列连接到 FC 交换机，以便 MetroCluster �
 .相关信息
 * 通过配置交换机分区，您可以定义 MetroCluster 配置中的特定 ONTAP 系统可以查看哪些阵列 LUN 。
 +
-link:concept_switch_zoning_in_a_mcc_configuration_with_array_luns.html["使用阵列 LUN 的 MetroCluster 配置中的交换机分区"]
+link:reference_requirements_for_switch_zoning_in_a_mcc_configuration_with_array_luns.html["使用阵列 LUN 的 MetroCluster 配置中的交换机分区"]
 
 * 在使用阵列 LUN 的 MetroCluster 配置中，必须将构成冗余端口对的存储阵列端口连接到备用 FC 交换机。
 +

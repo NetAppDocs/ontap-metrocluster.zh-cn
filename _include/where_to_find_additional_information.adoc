@@ -48,7 +48,7 @@ link:../manage/index.html["MetroCluster 管理"]
 
 
  a| 
-link:../disaster-recovery/index.html["灾难恢复"]
+link:../disaster-recovery/concept_dr_workflow.html["灾难恢复"]
  a| 
 * 灾难恢复
 * 强制切换
@@ -72,7 +72,7 @@ link:../maintain/index.html["MetroCluster 维护"]
 
 
  a| 
-link:../upgrade/index.html["MetroCluster 升级和扩展"]
+link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster 升级和扩展"]
  a| 
 * 升级或刷新 MetroCluster 配置
 * 通过添加其他节点扩展 MetroCluster 配置

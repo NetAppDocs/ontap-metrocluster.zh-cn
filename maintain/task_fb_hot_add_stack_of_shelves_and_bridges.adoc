@@ -137,7 +137,7 @@ link:task_fb_hot_add_stack_of_shelves_and_bridges.html["准备热添加 SAS 磁�
 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
 
 +
-link:concept_using_the_interoperability_matrix_tool_to_find_mcc_information.concept_using_the_interoperability_matrix_tool_to_find_mcc_information.html["使用互操作性表工具查找 MetroCluster 信息"]
+link:concept_using_the_interoperability_matrix_tool_to_find_mcc_information.html["使用互操作性表工具查找 MetroCluster 信息"]
 
 * 对于使用网桥的 MetroCluster 系统，多路径 HA 是唯一受支持的配置。
 +

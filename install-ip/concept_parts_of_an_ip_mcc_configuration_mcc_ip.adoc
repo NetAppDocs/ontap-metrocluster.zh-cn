@@ -99,6 +99,6 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集
 
 link:concept_considerations_peering.html["配置集群对等的注意事项"]
 
-link:task_cable_ip_switches.html["为集群对等连接布线"]
+link:task_cable_other_connections.html["为集群对等连接布线"]
 
 link:task_sw_config_configure_clusters.html#peering-the-clusters["为集群建立对等关系"]

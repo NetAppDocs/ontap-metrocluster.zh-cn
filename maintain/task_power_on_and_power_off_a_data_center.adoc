@@ -719,6 +719,6 @@ MetroCluster FC 配置
 |===
 . 重新建立 MetroCluster 配置。
 +
-按照中的说明进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/index.html["MetroCluster 管理和灾难恢复"] 根据 MetroCluster 配置执行修复和切回操作。
+按照中的说明进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_dr_workflow.html["MetroCluster 管理和灾难恢复"] 根据 MetroCluster 配置执行修复和切回操作。
 
 

@@ -2267,7 +2267,6 @@
   <block id="5cc254ef11dfb638d3f63eedc93039ba" category="list-text">验证新聚合的 RAID 组和驱动器：</block>
   <block id="cb7debfd6008e33f68615f75d3145513" category="summary">《 MetroCluster 升级，过渡和扩展指南》的版权，商标和计算机以及翻译信息。</block>
   <block id="774a065cb3548cc61fb0ec3bc1494fbe" category="inline-link">ONTAP 9 文档中心</block>
-  <block id="467b03d67513f90008dacfccf9aaad2c" category="paragraph"><block ref="467b03d67513f90008dacfccf9aaad2c" category="inline-link-macro-rx"></block></block>
   <block id="ee3eb67d59a11b958b7071c3dadc57e6" category="list-text">了解 MetroCluster 配置</block>
   <block id="9b8ae1b2ea2900ace97f9bd5cc82d344" category="list-text">切换，修复和切回</block>
   <block id="645a84975202e30700b572b49a5ee29d" category="list-text">灾难恢复</block>
@@ -3495,7 +3494,6 @@
   <block id="38182d0b7f94eabf093a27fc21d6c6e6" category="paragraph">要移动 iSCSI 连接，您必须设置与 MetroCluster IP 节点的新 iSCSI 连接。</block>
   <block id="b5c888106b46101190a9a9446ff7aeba" category="list-text">在 MetroCluster IP 节点上创建 iSCSI 接口，并检查从 iSCSI 客户端到 MetroCluster IP 节点上新 IP 接口的 ping 连接。</block>
   <block id="f2a6a6dfe9a7cb508ec1e1f475d326dc" category="inline-link">创建网络接口</block>
-  <block id="76c12ddb0f3ab2b6a3d727beb50de2d3" category="paragraph"><block ref="76c12ddb0f3ab2b6a3d727beb50de2d3" category="inline-link-rx"></block></block>
   <block id="0dc491dada4885353b9e96030fce6bd3" category="paragraph">iSCSI 客户端应可访问 SVM 中的所有 iSCSI 接口。</block>
   <block id="acb0e987f9b29d1eab50c31f4f95aa9a" category="list-text">在 iSCSI 主机或客户端上，确定从主机到 MetroCluster FC 节点的现有 iSCSI 连接： `iscsiadm -m session`</block>
   <block id="d163a1c94db271251417ac64b011f503" category="list-text">验证 MetroCluster IP 节点的连接： `iscsi session show -vserver svm-name`</block>
@@ -7753,7 +7751,6 @@
   <block id="4b7a16d6d162a666fd84016cdf343a72" category="paragraph">MetroCluster 后端交换机连接到路由的 IP 网络，可以直接连接到路由器（如以下简化示例所示），也可以通过其他中间交换机进行连接。</block>
   <block id="39a69537fd3d24cb81ea2bc0e26adec5" category="image-alt">MCC layer3 后端</block>
   <block id="fe77866a46d2eb6a7c2af4e6da3afb40" category="inline-link-macro">配置 MetroCluster 硬件组件</block>
-  <block id="45dd59cfa07c747ed4243a8798b12e55" category="paragraph">MetroCluster 环境作为标准 MetroCluster IP 配置进行配置和布线，如中所述 <block ref="dff375c743905386a2b0925d1ae7b141" category="inline-link-macro-rx"></block>。在执行操作步骤安装和布线时，必须执行第 3 层配置专用的步骤：</block>
   <block id="50355476e9050b2a291f3aee1615aa53" category="list-text">MetroCluster 交换机可以直接连接到路由器，也可以连接到一个或多个中间交换机。VLAN 必须扩展到网关设备。</block>
   <block id="0e94eed6c84ca698067d35e27e2c2b56" category="list-text">您可以使用 ` -gateway` 参数为 MetroCluster IP （ MCC-IP ）接口地址配置 IP 网关地址。</block>
   <block id="8f02ff97112ef08ffb62f88c80b6aab7" category="paragraph">配置路由器和网关 IP 地址时，请确保满足以下要求：</block>
@@ -9359,12 +9356,10 @@
   <block id="5249dbc8eb004a9fbac1419d22d7bcd0" category="section-title">在 MetroCluster 切换后， storage aggregate plex show 命令的输出不确定</block>
   <block id="b3597a38069ce88bd5e71904ddba930d" category="paragraph">在 MetroCluster 切换后运行 `storage aggregate plex show` 命令时，切换后的根聚合的 plex0 状态不确定，并显示为 " 失败 " 。在此期间，切换后的根不会更新。只有在 MetroCluster 修复阶段之后才能确定此丛的实际状态。</block>
   <block id="15036251faefea85ea9b6ffa4f283c29" category="list-text">通过将 `vol -dr-force-nvfail` 参数设置为 "on" ，启用 MetroCluster 配置以在切换时触发 NVFAIL ：</block>
-  <block id="6cce65fe6924e8263912ac73c8865cc0" category="paragraph"><block ref="6cce65fe6924e8263912ac73c8865cc0" category="inline-link-macro-rx"></block></block>
   <block id="3d46a6eeb65ebe391571feddc1cc5164" category="paragraph"><block ref="3d46a6eeb65ebe391571feddc1cc5164" category="inline-link-macro-rx"></block></block>
   <block id="9eecc3d31e1dca8ff5a3adf6988fa6d7" category="paragraph"><block ref="9eecc3d31e1dca8ff5a3adf6988fa6d7" category="inline-link-macro-rx"></block></block>
   <block id="2740d289d4d49097464e045111134762" category="paragraph"><block ref="2740d289d4d49097464e045111134762" category="inline-link-macro-rx"></block></block>
   <block id="c860f7f0a8aaf5b10a9ec71f48b87682" category="inline-link-macro">配置虚拟 IP LIF</block>
-  <block id="71fdbf59db45133c4aca9c7831b44466" category="paragraph">规划第 3 层解决方案时，请查看以下准则和图示。有关在 ONTAP 中实施 VIP 和 BGP 的详细信息，请参见 <block ref="19f78610f7fe22aa3fb117b5aee3e2a3" category="inline-link-macro-rx"></block>。</block>
   <block id="64d6dcdca907cf2218bf062bdef6f301" category="paragraph">要设置双节点光纤连接 MetroCluster 配置或使用原生磁盘和阵列 LUN 的四节点 MetroCluster 配置，必须使用 FC-SAS 网桥通过 FC 交换机将 ONTAP 系统与磁盘架连接起来。您可以通过 FC 交换机将阵列 LUN 连接到 ONTAP 系统。</block>
   <block id="133e5cbc5686e035d77f84f694299e20" category="paragraph"><block ref="133e5cbc5686e035d77f84f694299e20" category="inline-link-macro-rx"></block></block>
   <block id="a2a2dcbf66bceb16c822e146bfd4ee0d" category="paragraph"><block ref="a2a2dcbf66bceb16c822e146bfd4ee0d" category="inline-link-macro-rx"></block></block>
@@ -9443,7 +9438,6 @@
   <block id="6fc1a0c4ecbbd59364bf4b20f10bd0b6" category="paragraph">* 注 * ： Brocade 7840 交换机支持每个交换机使用两个 40 Gbps VE 端口或最多四个 10 Gbps VE 端口来创建 FCIP ISL 。</block>
   <block id="013d9d1788f79068cc17e1128a0db3ad" category="cell">交换机型号</block>
   <block id="051877dc61179a5af3a2aea7072b0a87" category="cell">* Cisco 9250i 交换机对 ISL 使用 FCIP 端口。使用 FCIP 端口时存在某些限制和过程。</block>
-  <block id="0b88045c51cbb65bd086c5bfd592aaa5" category="paragraph"><block ref="0b88045c51cbb65bd086c5bfd592aaa5" category="inline-link-macro-rx"></block></block>
   <block id="72b3f4df9ba178ac37c68c3130df2a2c" category="list-text"><block ref="72b3f4df9ba178ac37c68c3130df2a2c" category="inline-link-macro-rx"></block></block>
   <block id="e7f78ef846f1e6e4f4517bf5c0ce40bc" category="list-text">验证您在 * 日期和时间 * 窗口中对日期和时间设置所做的更改。</block>
   <block id="51af5f9273b0bde121a10742b4065824" category="list-text">必须为 MetroCluster 配置中的每个 Brocade DCX 8510-8 交换机正确配置 ISL 端口和存储连接。有关端口使用情况，请参见以下部分： <block ref="fb60c06f4120cd75fc9ac39720fd32d8" category="inline-link-macro-rx"></block>。</block>
@@ -9913,7 +9907,6 @@
   <block id="1c609f3ddab3b14ddf26fc53264aff33" category="paragraph"><block ref="1c609f3ddab3b14ddf26fc53264aff33" category="inline-link-macro-rx"></block></block>
   <block id="8d7c5a2fec33d152c060971aa3253c4b" category="paragraph">`vol modify -vserver vserver-name -volume volume-name -dr-force-nvfail on`</block>
   <block id="e39c1c9f6137c6dbe9a36e7da08ce525" category="paragraph"><block ref="e39c1c9f6137c6dbe9a36e7da08ce525" category="inline-link-macro-rx"></block></block>
-  <block id="d6c1b26afb87081a7358d272268afbf0" category="paragraph"><block ref="d6c1b26afb87081a7358d272268afbf0" category="inline-link-macro-rx"></block></block>
   <block id="a72d2a4ca552186cbf62f182a7dfbe82" category="paragraph"><block ref="a72d2a4ca552186cbf62f182a7dfbe82" category="inline-link-macro-rx"></block></block>
   <block id="237ceede529524160f9215c07a41b01a" category="paragraph">`启用`</block>
   <block id="56c0e77173118d9438d0428e9dc7a715" category="list-text">擦除启动配置：</block>
@@ -10525,7 +10518,6 @@
   <block id="b6929e4968ce2ed48274a887d3709bf9" category="cell">如果您的配置 ...</block>
   <block id="3badf494f1e5507594701f730003f4b3" category="cell">然后执行此步骤 ...</block>
   <block id="7ed92f84948f4fe94d9e740b0e479a4e" category="paragraph">MetroCluster FC 配置</block>
-  <block id="7dd614724556a3966b03ba1f571c938d" category="paragraph">按照中的说明进行操作 <block ref="fd64fad0fd85c76ef3ac6d154403d818" category="inline-link-macro-rx"></block> 根据 MetroCluster 配置执行修复和切回操作。</block>
   <block id="cc65b45d9cd6a58be27baf40866d52dc" category="paragraph">如果您必须安装 Tiebreaker 软件的新实例，请按照执行操作 <block ref="41bac20da3e04dcec3e43f3b27170310" category="inline-link-macro-rx"></block>。</block>
   <block id="b935de63e2396f2d2fe997c9028969f7" category="inline-link">MetroCluster Tiebreaker 软件安装和配置</block>
   <block id="8510397a0db0873faf52a037f4e5c265" category="paragraph"><block ref="8510397a0db0873faf52a037f4e5c265" category="inline-link-rx"></block></block>
@@ -10538,11 +10530,9 @@
   <block id="c467b861736195e319f9323a1f51b76d" category="paragraph">。<block ref="752795714a55b77b4bc7d5d8c99674d1" category="inline-link-rx"></block> 在 _Manag管理 配置备份 _ 一节下包含追加信息。</block>
   <block id="c4b7332c983d9f374f57570f90ffe107" category="paragraph"><block ref="c4b7332c983d9f374f57570f90ffe107" category="inline-link-macro-rx"></block></block>
   <block id="e413eba49b15917b0c9dbf2620f3e66e" category="inline-link-macro">灾难恢复</block>
-  <block id="9cb8502fd35a89cbfe1fcdcfbf276ed4" category="paragraph"><block ref="9cb8502fd35a89cbfe1fcdcfbf276ed4" category="inline-link-macro-rx"></block></block>
   <block id="1fdc00427d8a28cfd858de71d68438ad" category="inline-link-macro">MetroCluster 维护</block>
   <block id="9433101051cd4f7f52c941cccdc15be4" category="paragraph"><block ref="9433101051cd4f7f52c941cccdc15be4" category="inline-link-macro-rx"></block></block>
   <block id="c750cfcf9c6045b6e0b4b0d6de2212f3" category="inline-link-macro">MetroCluster 升级和扩展</block>
-  <block id="6634ea1415fe897674389adb775394f0" category="paragraph"><block ref="6634ea1415fe897674389adb775394f0" category="inline-link-macro-rx"></block></block>
   <block id="a9fd24893aed7bda18921eb1da6f8440" category="inline-link-macro">MetroCluster 过渡</block>
   <block id="b6f8655d9cab6bf8d32e7b0bdc6c8eef" category="inline-link-macro">MetroCluster 升级，过渡和扩展</block>
   <block id="78d0e38065ed90f1fe7de25c50775110" category="paragraph"><block ref="78d0e38065ed90f1fe7de25c50775110" category="inline-link-macro-rx"></block></block>
@@ -10971,7 +10961,6 @@
   <block id="bebcf28331e2ef1173754b217ce3b9d4" category="list-text">如果配置了板载密钥管理器： `security key-manager on板 载 show-backup` + 您稍后将在升级操作步骤中需要密码短语。</block>
   <block id="10a7f52b07c24ded6796ce7b186bcafe" category="list-text">收集现有节点的系统 ID ： `MetroCluster node show -fields node-systemID ， ha-partner-systemID ， dr-partner-systemID ， dr-auxiliary-systemID`</block>
   <block id="1cefe6fb0bd3a21a29c31cc3652723ce" category="section-title">删除调解器或 Tiebreaker 监控</block>
-  <block id="a2e29f8228cdb7ac2387f9aa36bb0ea1" category="paragraph"><block ref="4f455031542b6708352ac5ad428a2b70" category="inline-link-macro-rx"></block> 在 _Tiebreaker MetroCluster 安装和配置内容 _ 中</block>
   <block id="2c8c38da3af9290bc8367a776b867b51" category="section-title">在维护之前发送自定义 AutoSupport 消息</block>
   <block id="9db835e4c4f6ecab5779d22af305de38" category="paragraph">在执行维护问题描述之前，您应发送 AutoSupport 消息以通知技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。</block>
   <block id="0cd13c32173979ae3ca88ab25050c571" category="section-title">切换 MetroCluster 配置</block>
@@ -11036,7 +11025,6 @@
   <block id="7e50dc6378f3e2a11e73b6c2111ee61e" category="list-text">您需要从 NetApp 支持站点下载适用于您的系统和正确版本的 ONTAP 所需的系统文件。</block>
   <block id="008f1056138f3dd1061c0c135f496d75" category="paragraph">如果安装的 ONTAP 版本与原始控制器上安装的版本不同，则必须通过网络启动新控制器。安装每个新控制器后，您可以从 Web 服务器上存储的 ONTAP 9 映像启动系统。然后，您可以将正确的文件下载到启动介质设备，以供后续系统启动。</block>
   <block id="e4c7a6a9ed6a7acb0614144c062d21fd" category="list-text">`步骤 2-download-software]] 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将` ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。</block>
-  <block id="bc90acdb3802fef8bffa06c039008c30" category="list-text">您的目录列表应包含 &lt;ontap_version&gt;_image.tgz 。</block>
   <block id="f47f57e3434d00c4cb0ddb03933b3fc5" category="list-text">通过选择以下操作之一来配置网络启动连接。</block>
   <block id="d1adb867eac5534b9fe3de6b0b271291" category="admonition">您应使用管理端口和 IP 作为网络启动连接。请勿使用数据 LIF IP ，否则在执行升级期间可能会发生数据中断。</block>
   <block id="192da45ead024e4835d5b54e26e539c3" category="cell">动态主机配置协议（ DCHP ）</block>
@@ -11044,22 +11032,18 @@
   <block id="c05c7a2303ef34ab95234ebadd79fc8f" category="paragraph">在启动环境提示符处使用以下命令自动配置连接： `ifconfig e0M -auto`</block>
   <block id="19e185aea92cb0890229c16489d9c4cc" category="paragraph">未运行</block>
   <block id="78da5f94688332d9080947e0f923b416" category="paragraph">在启动环境提示符处使用以下命令手动配置连接： `ifconfig e0M -addr=&lt;filer_addr&gt; -mask=&lt;netmask&gt; -gw=&lt; 网关 &gt; - dns=&lt;dns_addr&gt; domain=&lt;dns_domain&gt;`</block>
-  <block id="cd303869834d5ee5e6aaca427a21f2b7" category="paragraph">` &lt;filer_addr&gt;` 是存储系统的 IP 地址。` &lt; 网络掩码 &gt;` 是存储系统的网络掩码。` &lt; 网关 &gt;` 是存储系统的网关。` &lt;dns_addr` 是网络上名称服务器的 IP 地址。此参数是可选的。` &lt;dns_domain&gt;` 是域名服务（ DNS ）域名。此参数是可选的。注意：您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。</block>
   <block id="8cadcd3d278c7bf112a3d2eb870dfb3e" category="list-text">对 node_B_1 执行 netboot ： `netboot` `http://&lt;web_server_ip/path_to_web_accessible_directory&gt;/netboot/kernel`</block>
   <block id="e31ad1284b7618a9c10777ed99b12e64" category="inline-xref">第 2 步</block>
-  <block id="177534e7487672f74e65482ce040eff2" category="paragraph">` &lt;path_to_the_web-accessible_directory&gt;` 应指向您在中下载 ` &lt;ontap_version&gt;_image.tgz` 的位置 <block ref="28cd24b5ecf937229eb419cc55587b9d" category="inline-xref-macro-rx"></block>。</block>
   <block id="85bd8aebb41cb27f7bc364e977313958" category="admonition">请勿中断启动。</block>
   <block id="6f6f6695a268d5918427f02892c43312" category="list-text">等待 AFF A900 控制器模块上当前运行的 node_B_1 启动，并显示启动菜单选项，如下所示：</block>
   <block id="2653300b079109b65a613fd185414faa" category="list-text">从启动菜单中，选择选项 `` （ 7 ） Install new software first.`` 此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。注意：请忽略以下消息： `HA 对上的无中断升级不支持此操作步骤。` 本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。</block>
   <block id="f7462137da4e89b12e82937bb5da165f" category="paragraph">请始终使用 netboot 将新节点更新为所需映像。如果您使用其他方法在新控制器上安装映像，则可能会安装不正确的映像。此问题描述适用场景所有 ONTAP 版本。</block>
-  <block id="7464b9510418d0b0f92366d413fdb495" category="list-text">如果系统提示您继续运行操作步骤，请输入 `y` ，然后在系统提示您输入软件包时，输入 URL ： `http://&lt;web_server_ip/path_to_web-accessible_directory&gt;/&lt;ontap_version&gt;_image.tgz`</block>
   <block id="7b3f6c26774d36cd594edf297f0f8f57" category="list-text">完成以下子步骤以重新启动控制器模块：</block>
   <block id="61ee95ecb870c833ca0f73515cef5bce" category="list-text">出现以下提示时，输入 `n` 以跳过备份恢复： `do you want to restore the backup configuration now ？｛ y|n ｝`</block>
   <block id="d7672ee0e4d46e194ae0b844a3cf32ad" category="list-text">当您看到以下提示时，输入 ``y 以重新启动： `必须重新启动节点才能开始使用新安装的软件。是否要立即重新启动？｛ y|n ｝`` 控制器模块重新启动，但停留在启动菜单处，因为启动设备已重新格式化，并且需要还原配置数据。</block>
   <block id="963f89f538a2fcd5d086c865807c540a" category="list-text">在提示符处，运行 `wipeconfig` 命令以清除启动介质上先前的任何配置：</block>
   <block id="c9c4b352c210e485b70af0c63a95e7fa" category="list-text">当您看到以下消息时，问题解答 `yes` ： `此操作将删除关键系统配置，包括集群成员资格。警告：不要在已被接管的 HA 节点上运行此选项。确实要继续？：`</block>
   <block id="d9942055ef69c8d0b4c6c187ca017527" category="list-text">节点将重新启动以完成 `wipeconfig` ，然后停留在启动菜单处。</block>
-  <block id="6ebf5df07db410036bc7fe70797c789b" category="list-text">从启动菜单中选择选项 `5` 以转到维护模式。按问题解答 `yes` 显示提示，直到节点在维护模式和命令提示符 * &gt; 处停止为止。</block>
   <block id="c97b27c69af0eb8712cf22da6b167f03" category="list-text">对 netboot node_B_2 重复上述步骤。</block>
   <block id="0ea9cea3e113063ccea6ef4b69487681" category="section-title">还原 HBA 配置</block>
   <block id="63db75147bb8e9b621622657ecea58d6" category="section-title">在新控制器和机箱上设置 HA 状态</block>
@@ -11503,8 +11487,6 @@
   <block id="01287956f61234602c5c75e0132f809e" category="list-text">如果显示的机箱系统状态不是 `mcc-2n` ，请设置机箱的 HA 状态：</block>
   <block id="3812f4161cb57e4e096ace5a3a653d71" category="list-text">按 Enter 接受系统默认值 "`yes` " ，或者键入 "`no` " 并按 Enter 输入您自己的值。</block>
   <block id="9312a7c47a9915cb921363b9989a8320" category="paragraph"><block ref="9312a7c47a9915cb921363b9989a8320" category="inline-link-rx"></block></block>
-  <block id="2afa460df5e410797c1820ebc7e4d05c" category="paragraph"><block ref="2afa460df5e410797c1820ebc7e4d05c" category="inline-link-macro-rx"></block></block>
-  <block id="49496c260d6e69c957fc9fece654f5e0" category="paragraph"><block ref="49496c260d6e69c957fc9fece654f5e0" category="inline-link-macro-rx"></block></block>
   <block id="e379ec23aefb4ea298d6539bf663e4ce" category="paragraph">以下示例显示了 "`cluster01` " 中的网络端口：</block>
   <block id="ae9570444f7281706174b8d5e38ee0a2" category="paragraph">以下示例显示未为端口 "`e0e` " 和 "`e0f` " 分配 LIF ：</block>
   <block id="eb9899081d81dbac3fdb716cd1490d3e" category="paragraph">以下示例将端口 "`e0e` " 和 "`e0f` " 分配给系统 SVM"`cluster01` " 上的故障转移组 "`intercluster01` " ：</block>
@@ -11626,7 +11608,6 @@
   <block id="888372be024925328ca6e321c9a44891" category="paragraph">`vsan vsna #] suspend`</block>
   <block id="37e68b1ed6861ebdf386fc5e91c46ae5" category="list-text">使用 ...<block ref="df3a11b0f7b8977a7ee2ae6dd464c6cb" category="inline-link-rx"></block> 要确定交换机类型的布线布局，请使用八节点 MetroCluster 配置的端口使用情况。</block>
   <block id="f2fa326e6e1c8de922a1dcd02e4670eb" category="paragraph">FC 交换机端口使用情况必须与中所述的使用情况匹配<block ref="df3a11b0f7b8977a7ee2ae6dd464c6cb" category="inline-link-rx"></block> 以便可以使用 RCF 。</block>
-  <block id="f6ebc97c3dd18d3e590229f14e2b997f" category="list-text">使用中所述的协商切换，修复和切回过程<block ref="b1691cf28bc690bfdc6f2071919d62d4" category="inline-link-rx"></block>。</block>
   <block id="2f33c0ab177d6cfd4b52b9e6472de2a0" category="paragraph">您可以从中使用 FibreBridge 6500N 网桥热插拔操作步骤 _FibreBridge 6500N 网桥并使用 FibreBridge 7500N 或 7600N 网桥 _ 更改分区或从 FibreBridge 6500 升级到 FibreBridge 7500 <block ref="aeb2eb91b4a88826f71d1fbd30b29e7b" category="inline-link-macro-rx"></block>。</block>
   <block id="29c81145f8df4c302d2a5db797d28b64" category="paragraph"><block ref="29c81145f8df4c302d2a5db797d28b64" category="inline-link-rx"></block></block>
   <block id="91683a88a240de71b025c11834d0b99a" category="paragraph">您必须为新网桥的每个 FC 端口添加存储分区。</block>
@@ -11651,9 +11632,7 @@
   <block id="0603c73cf9470cfd549fa2ceb0683f8f" category="admonition">您可以使用 `aggr status _-raggr_name_` 命令监控重新同步的进度。</block>
   <block id="7af2fe8b48be4009b6b73d9be9af389b" category="paragraph"><block ref="7af2fe8b48be4009b6b73d9be9af389b" category="inline-link-rx"></block></block>
   <block id="ec9ed7bffd77d0096865ed2f7cdcc6cb" category="inline-link-macro">MetroCluster ® 升级和扩展</block>
-  <block id="4ad0984b4112e2f4fcdb04cdbb047f30" category="paragraph"><block ref="4ad0984b4112e2f4fcdb04cdbb047f30" category="inline-link-macro-rx"></block></block>
   <block id="5a302b1db223d113f18ba828a7728831" category="paragraph"><block ref="5a302b1db223d113f18ba828a7728831" category="inline-link-macro-rx"></block></block>
-  <block id="36ac47baf32c3a2932ed1874fed7e2af" category="paragraph"><block ref="36ac47baf32c3a2932ed1874fed7e2af" category="inline-link-macro-rx"></block></block>
   <block id="19b62c619e1b1ed88877f41babaf2907" category="paragraph"><block ref="19b62c619e1b1ed88877f41babaf2907" category="inline-link-macro-rx"></block></block>
   <block id="53c3a61c42f70985acf2b36a3d805bcb" category="paragraph"><block ref="53c3a61c42f70985acf2b36a3d805bcb" category="inline-link-rx"></block></block>
   <block id="08b87b0df84f23bedc3bd35f30bfa073" category="paragraph">如果要为未镜像聚合添加磁盘架，请参见<block ref="a4e92f124c7c2dcbe4223de70278d181" category="inline-link-rx"></block></block>
@@ -11675,7 +11654,6 @@
   <block id="10df5509416416659fe58fd40c64d2ec" category="paragraph"><block ref="10df5509416416659fe58fd40c64d2ec" category="inline-link-rx"></block></block>
   <block id="585e085c167dffb4091a9c937b46294a" category="paragraph"><block ref="585e085c167dffb4091a9c937b46294a" category="inline-link-rx"></block></block>
   <block id="5844eb4847c89603c89f034b72ecb0bf" category="paragraph"><block ref="5844eb4847c89603c89f034b72ecb0bf" category="inline-link-macro-rx"></block></block>
-  <block id="bd73c346b7b65c18cc82c35d84f4f2cb" category="paragraph"><block ref="bd73c346b7b65c18cc82c35d84f4f2cb" category="inline-link-macro-rx"></block></block>
   <block id="24c1a0c448c4959cdafdf2e44ab0c978" category="paragraph">`set FCDataRate _port-number port-speed_`</block>
   <block id="e06e69206cb15e7112885a81ac1efdff" category="list-text">如果不使用第二个端口，则必须禁用端口： + `FCPortDisable _port-number_`</block>
   <block id="ad2d5ff88922ccf7648298e4e6db9116" category="list-text">检查不安全网桥端口的状态： + `info`</block>
@@ -11717,7 +11695,6 @@
   <block id="c1e404b965bd033d8d0a2284a04382d6" category="list-text">验证两个分区是否均已更新：</block>
   <block id="378d97c929a2501d1e50a01e1e1a5b97" category="paragraph">`运行本地 sysconfig -v`</block>
   <block id="8a55d02eab45d757aa9762d06c09ae5f" category="list-text">按照以下准则，使用中的操作步骤热插拔 "`Top` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 <block ref="958de5ee2f25b5fa2715cdd4e27fa14c" category="inline-link-macro-rx"></block>：</block>
-  <block id="fb18671b6f6bd3a4b0f317ae03bbecaa" category="list-text">按照以下准则，使用中的操作步骤热插拔 "`底部` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 <block ref="4a5897c402dc3c400f037316fba4e4fc" category="inline-link-macro-rx"></block>：</block>
   <block id="37c8362167e23bbca70c828a9376397b" category="list-text">如果系统布线不正确，请拔下缆线，更正布线，然后重新连接正确的缆线。</block>
   <block id="9c70e58ba306d049dc41ed64cf6e8f62" category="paragraph">有关分区命令的详细信息，请参见中的 FC 交换机部分 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block> 或 <block ref="c4b7332c983d9f374f57570f90ffe107" category="inline-link-macro-rx"></block>。</block>
   <block id="1a4f45d5a5a5d25d76225f6a14a02044" category="cell">图中的颜色（此图仅显示站点 A ）</block>
@@ -11728,7 +11705,6 @@
   <block id="f212fe67c4a158c06179f881b179791b" category="paragraph">`sasportEnable _port-letter_`</block>
   <block id="31f00624937d0a077f284d8382109c74" category="paragraph">`saveConfiguration Restart`</block>
   <block id="f0505ad7890c6164f5000303b931f7a4" category="admonition">如果输出开头显示文本 `reonse truncated` ，则可以使用 Telnet 连接到网桥，然后使用 `sasargets` 命令查看所有输出。</block>
-  <block id="7fa4d7e9b20d58127b8754982ea5604a" category="admonition">有关从节点故障中恢复的追加信息，请参见中的 " 选择正确的恢复操作步骤 " 一节 <block ref="f5649c77521ce57ea1c3069471789f1d" category="inline-link-macro-rx"></block>。</block>
   <block id="089e7751774b9c40081d48030c4cdcb9" category="paragraph"><block ref="089e7751774b9c40081d48030c4cdcb9" category="inline-link-macro-rx"></block></block>
   <block id="c66ee767a2af6fdd3015bee0ecf09c9e" category="paragraph"><block ref="c66ee767a2af6fdd3015bee0ecf09c9e" category="inline-link-macro-rx"></block></block>
   <block id="1aef385dad1ee825cccc96f9bd7798c0" category="paragraph">`storage bridge run-cli -name _bridge-name_ -command "info"`</block>
@@ -11790,7 +11766,6 @@
   <block id="c810f42d19e2ccb28c4ba2385d911476" category="paragraph"><block ref="c810f42d19e2ccb28c4ba2385d911476" category="inline-link-macro-rx"></block></block>
   <block id="d6ef215e9ee12ea54d86a3aebb395fa4" category="paragraph">有关每个平台型号的信息，请访问<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block></block>
   <block id="bd06c304e78aaf8098a0eb5757ca869d" category="paragraph">执行中的步骤 <block ref="4c4984fc1287cfa1cec22e3d9418abef" category="inline-link-macro-rx"></block>。</block>
-  <block id="62c215bcf61b167f8876345b8e7617e9" category="paragraph">执行中的步骤 <block ref="16de910b8ac33cc8ca168ae42f313127" category="inline-link-macro-rx"></block>。</block>
   <block id="87026ac24b693b99c9187b6c59dd08ba" category="paragraph">执行中的步骤 <block ref="d6c8cfbb59e30552477d5b22014936e3" category="inline-link-macro-rx"></block>。</block>
   <block id="ed9d74f787f4f2a214d44f822ee3e099" category="paragraph">执行中的步骤 <block ref="76871526ce91339339e5e8b0ca720caf" category="inline-link-macro-rx"></block>。</block>
   <block id="ab5740671143f54aca9d18a1d52e6692" category="paragraph">执行中的步骤 <block ref="c54a1ac9a7ac2407367e179872409032" category="inline-link-macro-rx"></block>。</block>
@@ -12216,14 +12191,12 @@
   <block id="0bae9da7e045b91539ca2636147550a9" category="inline-link">其他平台过程：控制器硬件升级快速</block>
   <block id="074e456fb5fc2d75c702ca853d7ff4a7" category="list-text">使用中的以下过程将数据从旧节点移动到新节点<block ref="c8d46be4ca27ce42222e434f46ed9bd4" category="inline-link-rx"></block>。</block>
   <block id="6abf8fcf1209a0e61a34ee20748a726e" category="paragraph">将每个控制器上的集群端口连接到子步骤 b 中标识的集群网络交换机上的端口</block>
-  <block id="fe4855b1c6b801b5e92176cd902d4a76" category="list-text">使用中的协商切换，修复和切回过程 <block ref="467b03d67513f90008dacfccf9aaad2c" category="inline-link-macro-rx"></block>。</block>
   <block id="30ff186227aaf51cf730a9cf5a73a9e1" category="inline-link">物理存储管理</block>
   <block id="139a2480b517efabfcd850e52aeab3e8" category="paragraph"><block ref="139a2480b517efabfcd850e52aeab3e8" category="inline-link-rx"></block></block>
   <block id="a8307b4c5fa271005a1338d5b405ca1f" category="paragraph">从 ONTAP 9.1.1 开始，您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。</block>
   <block id="a4aa69385ab0a1b92a7a5635cdb2f2b2" category="paragraph"><block ref="903819e2154a41f8227f7c0192db71f6" category="inline-link-macro-rx"></block>。</block>
   <block id="1cab2231671234cf1e23b1ca0a52ef3e" category="list-text">在新的 MetroCluster IP 节点上，使用以下过程配置集群间 LIF ：</block>
   <block id="bc13f269b8fcdbac7ef84f083e616363" category="paragraph">有关 MetroCluster 配置设置和连接的详细信息，请参见以下内容：</block>
-  <block id="826921064deb9c03eeb155f2c78b5ec6" category="admonition">您可以从任一集群配置 MetroCluster IP 接口。此外，从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则还必须指定 ` -gateway` 参数来创建 MetroCluster IP 接口。请参见 <block ref="39d6ebbaa38ab1d3a91c83593d55d602" category="inline-link-macro-rx"></block>。</block>
   <block id="cd60490d5712d0d4fead93178d76d0d7" category="paragraph">按照适用于您的交换机供应商的操作步骤中的步骤进行操作：</block>
   <block id="143982074a2586885b81ca0686673560" category="list-text">按照中所述，使用缆线将控制器连接到 IP 交换机 <block ref="4ab496c462bc9a729fe703221c683545" category="inline-link-macro-rx"></block>。</block>
   <block id="c09c91c40853cc803259a2c27d8fa946" category="paragraph">对系统 ID 更改提示回答 "`y` " 。等待第二条重新启动消息：</block>
@@ -12267,8 +12240,6 @@
   <block id="c115301f599f6a61a213f015820f2807" category="paragraph">由于您正在配置新控制器模块且新控制器模块的磁盘为空，因此，当系统警告您此操作将擦除所有磁盘时，您可以响应 "`y` " 。</block>
   <block id="3967230285e3296d4600c5d6f8a225a2" category="list-text">登录到节点，输入 `cluster setup` ，然后在系统提示您加入集群时输入 "`join` " 。</block>
   <block id="2aae09e4f065abad72f108794c111bcd" category="paragraph">。 <block ref="95a2ad6fc516d3f7074e7d260643f587" category="inline-link-macro-rx"></block> 对于您的 ONTAP 版本，还提供了其他详细信息。</block>
-  <block id="496284ad6f6aafd5df774eb7019e89ee" category="paragraph"><block ref="496284ad6f6aafd5df774eb7019e89ee" category="inline-link-macro-rx"></block></block>
-  <block id="5fb9f0561cb803f508ed9e3b73633212" category="paragraph"><block ref="5fb9f0561cb803f508ed9e3b73633212" category="inline-link-macro-rx"></block></block>
   <block id="75f592488d6be5738040725bd9891f31" category="list-text">您要添加的设备必须受支持并满足以下过程中所述的所有要求：</block>
   <block id="d0adaf602e73b54e5ed4fca02915a8c2" category="inline-link">机器翻译免责声明</block>
   <block id="9d5c01825c136f7f2d4457afa4f41770" category="paragraph">有关本地化内容的重要信息，请参见<block ref="f07125fb97264bd7aeb45160d145d34f" category="inline-link-rx"></block></block>
@@ -12341,7 +12312,6 @@
   <block id="3e364a62394cf176526399560d023208" category="paragraph">从 ONTAP 9.5 开始，您可以使用 ONTAP 命令行界面将 FibreBridge 命令传递到网桥并显示这些命令的结果。</block>
   <block id="e57ca4b3df83a88b6254675613163df0" category="list-text">系统必须满足中的所有要求 <block ref="08d6c3cbf42a81a0c26843f87c874545" category="inline-link-macro-rx"></block>。</block>
   <block id="680f2c91c58cc6532106b87cb564cc68" category="admonition">在此步骤中，您只能完成链接中提供的说明的下载部分。您需要按照中的步骤进行操作 <block ref="47adb28a466429763b049bd78d160e0f" category="inline-link-macro-rx"></block> 有关安装磁盘架的章节。</block>
-  <block id="d90a7659d57c5e308b960baf3ceb0ad6" category="admonition">随着 ONTAP 9.8 的发布， MetroCluster 升级和扩展过程已移至 <block ref="6634ea1415fe897674389adb775394f0" category="inline-link-macro-rx"></block> 和 <block ref="4b2bd901a298e1bc3ed2224632f2e517" category="inline-link-macro-rx"></block>。</block>
   <block id="b2d9f80a5c71fe34bed7839914c2fd68" category="paragraph">如果新网桥与配对网桥的类型相同，请升级到与配对网桥相同的固件。如果新网桥与配对网桥的类型不同，请升级到该网桥支持的最新固件以及 ONTAP 版本。请参见 _FibreBridge MetroCluster 维护 _ 中的 " 更新 FibreBridge 网桥上的固件 " 一节。</block>
   <block id="3240aad2738f70e3ab16c6dadcff4f64" category="list-text">更新网桥固件：</block>
   <block id="befb8d9c3b9caecfce0121a43afa3ce1" category="admonition">从 ATTO 固件版本 2.95 开始，网桥将自动重新启动，不需要执行此步骤。</block>
@@ -12395,7 +12365,6 @@
   <block id="af6710425f9b72f8e5aeb24aa9d0bac6" category="summary">从 ONTAP 9.8 开始，支持将工作负载和数据从现有四节点 MetroCluster FC 配置无中断过渡到新的 MetroCluster IP 配置。</block>
   <block id="dd29cf7134047c7a311edc4776b9021e" category="paragraph">如果您使用的是双节点 MetroCluster FC 配置，请参见 <block ref="ef88855c7d052c0aa5ce46e187d01954" category="inline-link-macro-rx"></block>。</block>
   <block id="2912e0eba45e116506958546503977b9" category="paragraph"><block ref="2912e0eba45e116506958546503977b9" category="inline-link-macro-rx"></block></block>
-  <block id="4aeccceec58ed237296dba5ea0673521" category="paragraph">如果您使用的是现有交换机，请继续执行 <block ref="a43d04863a085a87276f8dea37ae5895" category="inline-link-macro-rx"></block>。</block>
   <block id="0297e6ce2162b2f01b03b57027b0de3f" category="paragraph">按照 _IP MetroCluster 安装和配置 _ 中适用于您的交换机供应商一节中的步骤进行操作。</block>
   <block id="7efa6fc838c006d396e42638b4ff25d1" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block></block>
   <block id="bc77bf857b365d445270101e2d7ce03f" category="list-text">在 MetroCluster FC 工作流中，切换，修复和切回步骤是 MetroCluster FC 配置所使用的步骤。</block>
@@ -12449,7 +12418,6 @@
   <block id="c3473aa37fb65a96d05747e3b9043979" category="paragraph">如果需要，您可以设置 IP 地址：</block>
   <block id="94d54d70c5d7ee5cc198da3e79246db2" category="list-text">如果使用中继，请确认中继：</block>
   <block id="3c4e32c4ec392d71a4445aa8de2c38a3" category="paragraph">`TrunkShow`</block>
-  <block id="0561b2a8ba939086c6798ec4eb3c4290" category="paragraph">如果您的配置运行的是 ONTAP 9.0 或更早版本，请参见 <block ref="9ddd202dbf59bf7876d81864f2edbb11" category="inline-link-macro-rx"></block>。</block>
   <block id="968a5c710f7421980907a4cc6a0df2a5" category="list-text">将交换机设置回其默认设置：</block>
   <block id="c96e5513a57e88173ad4f14750758f4c" category="paragraph">当系统提示您确认命令时，您可以回答 "`y` " 。此操作将擦除交换机上的所有许可证和配置信息。</block>
   <block id="b9333c3e2ee70bdb29c9d7d9026f0127" category="paragraph">当系统提示您确认命令时，您可以回答 "`y` " 。</block>
@@ -12517,10 +12485,6 @@
   <block id="455aeb5b6e6bb2c51d7485e26da56e30" category="paragraph">链接： ./install-IP/concept_mediator_requirements.html 【从 MetroCluster IP 配置配置 ONTAP 调解器服务】。</block>
   <block id="e62a18c77eddb4d80155a6c15402f7e5" category="paragraph"><block ref="903819e2154a41f8227f7c0192db71f6" category="inline-link-macro-rx"></block> 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中</block>
   <block id="7da41c16475b7dae8b0b8ab6424918d7" category="paragraph">链接： ./install-IP/concept_mediator_requirements.html _ MetroCluster IP 安装和配置 _ 中的 " 从 MetroCluster IP 配置配置 ONTAP 调解器服务 " 。</block>
-  <block id="1694bd7aa5b3b3ecd0394ac449f774af" category="list-text">链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #reseting-the_Broadcom-ip-switch-to factory-defaults （将 Broadcom IP 交换机重置为出厂默认设置）</block>
-  <block id="40f8dac9d3afe2ad9f3eb063b5a8ebe6" category="list-text">链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #reseting-the_cisco-ip-switch-to factory-defaults （将 Cisco IP 交换机重置为出厂默认值）</block>
-  <block id="a016106990032abc8e07606eb9a35a34" category="list-text">链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #downloading-and-installing-the_Broadcom-RCF 文件 [ 下载并安装 Broadcom RCF 文件 ]</block>
-  <block id="2092fa2d67720266015440eaa2d835ab" category="list-text">链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #downloading-and-installing-the_cisco-ip-RCF files[ 下载并安装 Cisco IP RCF 文件 ]</block>
   <block id="861ef6676813cbc81369ee701ae73269" category="paragraph">如果您使用的是第三方防火墙：</block>
   <block id="041f3a27fe8b40cc213210949eb4f036" category="list-text">必须启用 HTTPS 访问。</block>
   <block id="8b8101ed71d5bd32d2f9d4de05e470c1" category="list-text">必须将其配置为允许在端口 31784 和 3260 上进行访问。</block>
@@ -12534,4 +12498,39 @@
   <block id="dd23316b696cd08f3479c6e2d7baadc0" category="inline-link">AFF 或 FAS 系统的安装过程</block>
   <block id="17959b19c1c128d5d74608a22de28cf9" category="paragraph"><block ref="17959b19c1c128d5d74608a22de28cf9" category="inline-link-rx"></block></block>
   <block id="e5303b615c196a6ae1c68873f1d05073" category="sidebar">手动配置 Brocade FC 交换机</block>
+  <block id="2e7e413d490de09cb96837b5567b668c" category="paragraph"><block ref="2e7e413d490de09cb96837b5567b668c" category="inline-link-macro-rx"></block></block>
+  <block id="97f70489df0d405722087f0f98dc7c3f" category="paragraph"><block ref="97f70489df0d405722087f0f98dc7c3f" category="inline-link-macro-rx"></block></block>
+  <block id="6b85600ee1be273e93253da5e134fb16" category="admonition">有关从节点故障中恢复的追加信息，请参见中的 " 选择正确的恢复操作步骤 " 一节 <block ref="e623fd8091406f43d52a7bc3543c2f9f" category="inline-link-macro-rx"></block>。</block>
+  <block id="8ef2465c629a51ad799f916321355ab0" category="paragraph"><block ref="8ef2465c629a51ad799f916321355ab0" category="inline-link-macro-rx"></block></block>
+  <block id="c160b6358f7336db6f2a26360400f661" category="list-text">按照以下准则，使用中的操作步骤热插拔 "`底部` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 <block ref="958de5ee2f25b5fa2715cdd4e27fa14c" category="inline-link-macro-rx"></block>：</block>
+  <block id="8b8800e8b5ac43d8ac015a60e243a711" category="admonition">随着 ONTAP 9.8 的发布， MetroCluster 升级和扩展过程已移至 <block ref="97f70489df0d405722087f0f98dc7c3f" category="inline-link-macro-rx"></block> 和 <block ref="a8125364ced10d8a90aedca98aa02032" category="inline-link-macro-rx"></block>。</block>
+  <block id="ebe3b07d927344896c24a9e5e5eee917" category="paragraph"><block ref="ebe3b07d927344896c24a9e5e5eee917" category="inline-link-macro-rx"></block></block>
+  <block id="5e6d9dff4a682d0558edb1406ac87060" category="paragraph"><block ref="5e6d9dff4a682d0558edb1406ac87060" category="inline-link-macro-rx"></block></block>
+  <block id="80063a26d9eb84904fdbb388ac3a5629" category="list-text">使用中所述的协商切换，修复和切回过程<block ref="be2bdafda4a97cad52118e4d9ef914b5" category="inline-link-rx"></block>。</block>
+  <block id="44b7f701c8b22fd32471d911de4c0984" category="paragraph">按照中的说明进行操作 <block ref="c355f6bb3dca677defb89e8a84e6c55b" category="inline-link-macro-rx"></block> 根据 MetroCluster 配置执行修复和切回操作。</block>
+  <block id="e3d7ead0f01b9fa985ec5c35c22c44f3" category="paragraph"><block ref="e3d7ead0f01b9fa985ec5c35c22c44f3" category="inline-link-macro-rx"></block></block>
+  <block id="6405f02626b672ea5ce042f43244f057" category="paragraph"><block ref="6405f02626b672ea5ce042f43244f057" category="inline-link-macro-rx"></block></block>
+  <block id="f62e57388ece8ed3ab39425498977dae" category="paragraph"><block ref="f62e57388ece8ed3ab39425498977dae" category="inline-link-macro-rx"></block></block>
+  <block id="291349860e45161d05b403e88ba2f28b" category="list-text">使用中的协商切换，修复和切回过程 <block ref="e3d7ead0f01b9fa985ec5c35c22c44f3" category="inline-link-macro-rx"></block>。</block>
+  <block id="070a06c68e9e4e7cecc2e9719193b28c" category="summary">升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
+  <block id="35b541137c97f0d986b3779c7a322603" category="list-text"><block ref="35b541137c97f0d986b3779c7a322603" category="inline-link-macro-rx"></block></block>
+  <block id="7781c27327814c0f7935ce903ca1101f" category="list-text"><block ref="7781c27327814c0f7935ce903ca1101f" category="inline-link-macro-rx"></block></block>
+  <block id="8e077a574605e13d75ee083e7cd96f27" category="list-text"><block ref="8e077a574605e13d75ee083e7cd96f27" category="inline-link-macro-rx"></block></block>
+  <block id="5860040c16ad914f0dc769bbc79c2a6d" category="list-text"><block ref="5860040c16ad914f0dc769bbc79c2a6d" category="inline-link-macro-rx"></block></block>
+  <block id="4a3e665f4593afeb6ebcabea7ce85845" category="paragraph"><block ref="97b0c50183125e551abb5b04258316bf" category="inline-link-macro-rx"></block> 在 _Tiebreaker MetroCluster 安装和配置内容 _ 中</block>
+  <block id="398ca4e3f9e65b681f95fee13804bab9" category="list-text">您的目录列表应包含 &lt;ontap_version&gt;\\_image.tgz 。</block>
+  <block id="befdb6ab41f0cd39ff57e00b0ee8c3f6" category="paragraph">` &lt;filer_addr&gt;` 是存储系统的 IP 地址。` &lt; 网络掩码 &gt;` 是存储系统的网络掩码。` &lt; 网关 &gt;` 是存储系统的网关。` &lt;dns_addr&gt;` 是网络上名称服务器的 IP 地址。此参数是可选的。` &lt;dns_domain&gt;` 是域名服务（ DNS ）域名。此参数是可选的。注意：您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。</block>
+  <block id="f9917e026c23b682e18bcd6bc125c1b9" category="paragraph">` &lt;path_to_the_web-accessible_directory&gt;` 应指向您在中下载 ` &lt;ontap_version&gt;\_image.tgz` 的位置 <block ref="28cd24b5ecf937229eb419cc55587b9d" category="inline-xref-macro-rx"></block>。</block>
+  <block id="b04e99a0adbd90ade4803bbd436b76af" category="list-text">如果系统提示您继续运行操作步骤 ，请输入 `y` ，然后在系统提示您输入软件包时，输入 URL ： `http://&lt;web_server_ip/path_to_web-accessible_directory&gt;/&lt;ontap_version&gt;\_image.tgz`</block>
+  <block id="dbfa5994b398cd0fb3a814715f0dc252" category="list-text">从启动菜单中选择选项 `5` 以转到维护模式。按问题解答 `yes` 显示提示，直到节点在维护模式和命令提示符 \* &gt; 处停止。</block>
+  <block id="d201d18b165e21d1a9986863a5788d3c" category="admonition">您可以从任一集群配置 MetroCluster IP 接口。此外，从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则还必须指定 ` -gateway` 参数来创建 MetroCluster IP 接口。请参见 <block ref="babfc343bda1ae07500c981be392a72d" category="inline-link-macro-rx"></block>。</block>
+  <block id="76c06c220bafe4dc7e175b4584717344" category="paragraph"><block ref="76c06c220bafe4dc7e175b4584717344" category="inline-link-macro-rx"></block></block>
+  <block id="b16f070ef0ff70f134e9de232ff4d07d" category="paragraph">MetroCluster 环境作为标准 MetroCluster IP 配置进行配置和布线，如中所述 <block ref="1f208108354e7662d904d86579319d48" category="inline-link-macro-rx"></block>。在执行操作步骤安装和布线时，必须执行第 3 层配置专用的步骤：</block>
+  <block id="2445f74267948c10619896a5e47cd3d6" category="paragraph">执行中的步骤 <block ref="0e3caa859006182753aee07c6f57c3cf" category="inline-link-macro-rx"></block>。</block>
+  <block id="b0f85a0199d1b83b2b8a32a5f34bdd8d" category="paragraph">如果您使用的是现有交换机，请继续执行 <block ref="4da30401760153ceb5481ac559dbe601" category="inline-link-macro-rx"></block>。</block>
+  <block id="cdf93537d7257dad75e41411958bb32c" category="paragraph"><block ref="cdf93537d7257dad75e41411958bb32c" category="inline-link-rx"></block></block>
+  <block id="f44903a02a813582e3877d0c017bdfcb" category="paragraph"><block ref="f44903a02a813582e3877d0c017bdfcb" category="inline-link-macro-rx"></block></block>
+  <block id="255e6fa1222b0f5f7521f1965844c1bf" category="paragraph">规划第 3 层解决方案时，请查看以下准则和图示。有关在 ONTAP 中实施 VIP 和 BGP 的详细信息，请参见 <block ref="245303d2c60ac1935683ed89eb13f165" category="inline-link-macro-rx"></block>。</block>
+  <block id="83e579bcd33d25206730a931a64a84a1" category="paragraph">如果您的配置运行的是 ONTAP 9.0 或更早版本，请参见 <block ref="249227e2d8f8114c9bdc6db2520e9445" category="inline-link-macro-rx"></block>。</block>
+  <block id="bc08b638ff7480a2fa85e0dcdee0d692" category="paragraph"><block ref="bc08b638ff7480a2fa85e0dcdee0d692" category="inline-link-macro-rx"></block></block>
 </blocks>

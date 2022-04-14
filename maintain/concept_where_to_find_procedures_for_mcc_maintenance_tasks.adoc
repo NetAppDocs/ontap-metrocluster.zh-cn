@@ -14,7 +14,7 @@ summary: 在执行 MetroCluster 硬件维护任务时，您应确保选择正确
 在执行 MetroCluster 硬件维护任务时，您应确保选择正确的操作步骤。
 
 
-NOTE: 随着 ONTAP 9.8 的发布， MetroCluster 升级和扩展过程已移至 link:../upgrade/index.html["MetroCluster 升级和扩展"] 和 link:../transition/index.html["从 MetroCluster FC 过渡到 MetroCluster IP"]。
+NOTE: 随着 ONTAP 9.8 的发布， MetroCluster 升级和扩展过程已移至 link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster 升级和扩展"] 和 link:../transition/concept_choosing_your_transition_procedure_mcc_transition.html["从 MetroCluster FC 过渡到 MetroCluster IP"]。
 
 |===
 
@@ -50,7 +50,7 @@ https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
  a| 
 升级和扩展
  a| 
-link:../upgrade/index.html["MetroCluster ® 升级和扩展"]
+link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster ® 升级和扩展"]
 
 
 
@@ -72,7 +72,7 @@ link:task_hot_add_a_stack_to_exist_7500n_pair.html["将 SAS 磁盘架堆栈热�
 
 link:task_fb_hot_add_stack_of_shelves_and_bridges.html["将 SAS 磁盘架和网桥堆栈热添加到 MetroCluster 系统"]
 
-link:task_fb_hot_add_shelf.html["将 SAS 磁盘架热添加到 SAS 磁盘架堆栈"]
+link:task_fb_hot_add_shelf_prepare_7500n.html["将 SAS 磁盘架热添加到 SAS 磁盘架堆栈"]
 
 
 

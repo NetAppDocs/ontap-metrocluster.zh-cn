@@ -55,7 +55,7 @@ link:../install-stretch/concept_considerations_differences.html["延伸型 Metro
 
 
  a| 
-link:../disaster-recovery/index.html["MetroCluster 管理和灾难恢复"]
+link:../disaster-recovery/concept_dr_workflow.html["MetroCluster 管理和灾难恢复"]
  a| 
 * 了解 MetroCluster 配置
 * 切换，修复和切回
@@ -79,7 +79,7 @@ link:../maintain/index.html["维护 MetroCluster 组件"]
 
 
  a| 
-link:../upgrade/index.html["MetroCluster 升级，过渡和扩展"]
+link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster 升级，过渡和扩展"]
  a| 
 * 升级或刷新 MetroCluster 配置
 * 从 MetroCluster FC 配置过渡到 MetroCluster IP 配置
@@ -89,7 +89,7 @@ link:../upgrade/index.html["MetroCluster 升级，过渡和扩展"]
 
 
  a| 
-link:../tiebreaker/index.html["MetroCluster Tiebreaker 软件安装和配置"]
+link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["MetroCluster Tiebreaker 软件安装和配置"]
  a| 
 * 使用 MetroCluster Tiebreaker 软件监控 MetroCluster 配置
 

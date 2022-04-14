@@ -2,7 +2,7 @@
 permalink: install-fc/task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html 
 sidebar: sidebar 
 keywords: MetroCluster configurations 
-summary:  
+summary: 您必须配置 MetroCluster 配置中的每个 Brocade 交换机网络结构。 
 ---
 = 手动配置 Brocade FC 交换机
 :allow-uri-read: 
@@ -767,7 +767,7 @@ https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 
 下表显示了运行 ONTAP 9.1 或 9.2 的配置中不同交换机的 ISL 端口以及不同数量的 ISL 。本节所示的示例适用于 Brocade 6505 交换机。您应修改示例以使用适用于您的交换机类型的端口。
 
-如果您的配置运行的是 ONTAP 9.0 或更早版本，请参见 link:install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]。
+如果您的配置运行的是 ONTAP 9.0 或更早版本，请参见 link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]。
 
 您必须为配置使用所需数量的 ISL 。
 

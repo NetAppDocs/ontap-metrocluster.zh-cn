@@ -223,5 +223,5 @@ vsan [vsna #]no suspend
 
 您应验证 MetroCluster 配置的切换，修复和切回操作。
 
-. 使用中所述的协商切换，修复和切回过程 https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/index.html["MetroCluster 管理和灾难恢复"^]。
+. 使用中所述的协商切换，修复和切回过程 https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_dr_workflow.html["MetroCluster 管理和灾难恢复"^]。
 

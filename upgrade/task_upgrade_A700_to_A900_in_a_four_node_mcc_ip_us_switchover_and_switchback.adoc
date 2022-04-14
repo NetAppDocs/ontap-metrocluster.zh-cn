@@ -2,7 +2,7 @@
 permalink: upgrade/task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html 
 sidebar: sidebar 
 keywords: metrocluster, upgrade, controller, ip, configuration, switchover, switchback, workflow, nodes, tiebreaker, verify, bootrage, root, aggregate, disks 
-summary: 从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。 
+summary: 升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。 
 ---
 = 使用切换和切回功能将 AFF IP 配置中的 AFF A700 控制器升级到 MetroCluster A900 （ ONTAP 9.10.1 及更高版本）
 :allow-uri-read: 
@@ -124,8 +124,8 @@ AFF A700 上的 MetroCluster IP 配置不使用 VLAN 。AFF A900 上的 MetroClu
 按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/index.html["MetroCluster IP 安装和配置"] 内容
 
 +
-** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #reseting-the_Broadcom-ip-switch-to factory-defaults （将 Broadcom IP 交换机重置为出厂默认设置）
-** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #reseting-the_cisco-ip-switch-to factory-defaults （将 Cisco IP 交换机重置为出厂默认值）
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["将 Broadcom IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-cisco-ip-switch-to-factory-defaults["将 Cisco IP 交换机重置为出厂默认值"]
 
 
 . 下载并安装 RCF 文件。
@@ -133,8 +133,8 @@ AFF A700 上的 MetroCluster IP 配置不使用 VLAN 。AFF A900 上的 MetroClu
 按照中的步骤进行操作 link:../install-ip/index.html["MetroCluster IP 安装和配置"] 内容
 
 +
-** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #downloading-and-installing-the_Broadcom-RCF 文件 [ 下载并安装 Broadcom RCF 文件 ]
-** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #downloading-and-installing-the_cisco-ip-RCF files[ 下载并安装 Cisco IP RCF 文件 ]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom RCF 文件"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
 
 
 
@@ -378,7 +378,7 @@ dr-group-id cluster     node     node-systemid ha-partner-systemid dr-partner-sy
  a| 
 Tiebreaker
  a| 
-link:install-stretch/concept_considerations_when_removing_mcc_configurations.html["删除 MetroCluster 配置"] 在 _Tiebreaker MetroCluster 安装和配置内容 _ 中
+link:tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for-modifying-metrocluster-tiebreaker-configurations["删除 MetroCluster 配置"] 在 _Tiebreaker MetroCluster 安装和配置内容 _ 中
 
 
 
@@ -620,7 +620,7 @@ NOTE: 集群中所有节点上的插槽 7 均应为空，如中所述 <<Map port
 . 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
 . `步骤 2-download-software]] 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将` ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
 . 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
-. 您的目录列表应包含 <ontap_version>_image.tgz 。
+. 您的目录列表应包含 <ontap_version>\\_image.tgz 。
 . 通过选择以下操作之一来配置网络启动连接。
 +
 
@@ -645,12 +645,12 @@ NOTE: 您应使用管理端口和 IP 作为网络启动连接。请勿使用数�
  a| 
 在启动环境提示符处使用以下命令手动配置连接： `ifconfig e0M -addr=<filer_addr> -mask=<netmask> -gw=< 网关 > - dns=<dns_addr> domain=<dns_domain>`
 
-` <filer_addr>` 是存储系统的 IP 地址。` < 网络掩码 >` 是存储系统的网络掩码。` < 网关 >` 是存储系统的网关。` <dns_addr` 是网络上名称服务器的 IP 地址。此参数是可选的。` <dns_domain>` 是域名服务（ DNS ）域名。此参数是可选的。注意：您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。
+` <filer_addr>` 是存储系统的 IP 地址。` < 网络掩码 >` 是存储系统的网络掩码。` < 网关 >` 是存储系统的网关。` <dns_addr>` 是网络上名称服务器的 IP 地址。此参数是可选的。` <dns_domain>` 是域名服务（ DNS ）域名。此参数是可选的。注意：您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。
 
 |===
 . 对 node_B_1 执行 netboot ： `netboot` `http://<web_server_ip/path_to_web_accessible_directory>/netboot/kernel`
 +
-` <path_to_the_web-accessible_directory>` 应指向您在中下载 ` <ontap_version>_image.tgz` 的位置 <<step2-download-software,第 2 步>>。
+` <path_to_the_web-accessible_directory>` 应指向您在中下载 ` <ontap_version>\_image.tgz` 的位置 <<step2-download-software,第 2 步>>。
 
 +
 
@@ -679,7 +679,7 @@ Selection (1-11)?
 +
 请始终使用 netboot 将新节点更新为所需映像。如果您使用其他方法在新控制器上安装映像，则可能会安装不正确的映像。此问题描述适用场景所有 ONTAP 版本。
 
-. 如果系统提示您继续运行操作步骤，请输入 `y` ，然后在系统提示您输入软件包时，输入 URL ： `http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz`
+. 如果系统提示您继续运行操作步骤 ，请输入 `y` ，然后在系统提示您输入软件包时，输入 URL ： `http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>\_image.tgz`
 . 完成以下子步骤以重新启动控制器模块：
 +
 .. 出现以下提示时，输入 `n` 以跳过备份恢复： `do you want to restore the backup configuration now ？｛ y|n ｝`
@@ -692,7 +692,7 @@ Selection (1-11)?
 .. 节点将重新启动以完成 `wipeconfig` ，然后停留在启动菜单处。
 
 
-. 从启动菜单中选择选项 `5` 以转到维护模式。按问题解答 `yes` 显示提示，直到节点在维护模式和命令提示符 * > 处停止为止。
+. 从启动菜单中选择选项 `5` 以转到维护模式。按问题解答 `yes` 显示提示，直到节点在维护模式和命令提示符 \* > 处停止。
 . 对 netboot node_B_2 重复上述步骤。
 
 
@@ -832,8 +832,8 @@ FC
 link:../install-ip/index.html["MetroCluster IP 安装和配置"]
 
 +
-** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #reseting-the_Broadcom-ip-switch-to factory-defaults （将 Broadcom IP 交换机重置为出厂默认设置）
-** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #reseting-the_cisco-ip-switch-to factory-defaults （将 Cisco IP 交换机重置为出厂默认值）
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["将 Broadcom IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-cisco-ip-switch-to-factory-defaults["将 Cisco IP 交换机重置为出厂默认值"]
 
 
 . 下载并安装 RCF 文件。
@@ -841,8 +841,8 @@ link:../install-ip/index.html["MetroCluster IP 安装和配置"]
 按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/index.html["MetroCluster IP 安装和配置"]。
 
 +
-** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #downloading-and-installing-the_Broadcom-RCF 文件 [ 下载并安装 Broadcom RCF 文件 ]
-** 链接： ./install-ip/task_switch_config_Broadcom.html#reseting-the_Broadcom-ip-switch-to factory-defaults #downloading-and-installing-the_cisco-ip-RCF files[ 下载并安装 Cisco IP RCF 文件 ]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom RCF 文件"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
 
 
 

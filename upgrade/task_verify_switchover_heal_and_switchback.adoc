@@ -14,5 +14,5 @@ summary: 您应验证 MetroCluster 配置的切换，修复和切回操作。
 您应验证 MetroCluster 配置的切换，修复和切回操作。
 
 .步骤
-. 使用中的协商切换，修复和切回过程 link:../disaster-recovery/index.html["MetroCluster 管理和灾难恢复"]。
+. 使用中的协商切换，修复和切回过程 link:../disaster-recovery/concept_dr_workflow.html["MetroCluster 管理和灾难恢复"]。
 

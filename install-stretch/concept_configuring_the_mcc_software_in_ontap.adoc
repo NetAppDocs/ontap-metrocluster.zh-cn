@@ -1046,9 +1046,9 @@ MetroCluster 配置中的集群必须处于对等关系中，以便它们可以�
 
 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"^]
 
-link:concept_preparing_for_the_mcc_installation.html["使用专用端口时的注意事项"]
+link:concept_considerations_peering.html#considerations-when-using-dedicated-ports["使用专用端口时的注意事项"]
 
-link:concept_preparing_for_the_mcc_installation.html["共享数据端口时的注意事项"]
+link:concept_considerations_peering.html#considerations-when-sharing-data-ports["共享数据端口时的注意事项"]
 
 
 
@@ -1288,7 +1288,7 @@ cluster01
 ----
 
 
-link:concept_preparing_for_the_mcc_installation.html["使用专用端口时的注意事项"]
+link:concept_considerations_peering.html#considerations-when-using-dedicated-ports["使用专用端口时的注意事项"]
 
 
 
@@ -1449,7 +1449,7 @@ cluster01
 ----
 
 
-link:concept_preparing_for_the_mcc_installation.html["共享数据端口时的注意事项"]
+link:concept_considerations_peering.html#considerations-when-sharing-data-ports["共享数据端口时的注意事项"]
 
 
 
