@@ -366,6 +366,8 @@ link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#require
 
 从 ONTAP 9.5 开始， MetroCluster 配置中的活动 Storage Virtual Machine （ SVM ）可用作 SnapMirror SVM 灾难恢复功能的源。目标 SVM 必须位于 MetroCluster 配置之外的第三个集群上。
 
+从ONTAP 9.11.1开始、MetroCluster 配置中的两个集群都可以作为与第三个站点建立SVM DR关系的源。
+
 在使用 SVM 进行 SnapMirror 灾难恢复时，您应了解以下要求和限制：
 
 * 只有 MetroCluster 配置中的活动 SVM 才能成为 SVM 灾难恢复关系的源。

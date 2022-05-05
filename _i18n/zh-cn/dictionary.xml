@@ -2463,7 +2463,6 @@
   <block id="0c6db123ffc5dea85a5d6efa7537d50b" category="paragraph"><block ref="0c6db123ffc5dea85a5d6efa7537d50b" category="inline-link-macro-rx"></block></block>
   <block id="0dd39f853425a9e387372f6c79ab0533" category="list-text">验证是否已创建灾难恢复组。</block>
   <block id="333744f802db71c53ff9d4ad61fbc125" category="list-text">为新加入的 MetroCluster IP 节点配置 MetroCluster IP 接口：</block>
-  <block id="8120231654641080268a38a8ad065e8b" category="paragraph">以下平台型号使用 VLAN 并允许配置非默认 VLAN ID 。</block>
   <block id="9ace720c417350af9e7b31ebc811b5de" category="cell">AFF 平台</block>
   <block id="cc04b828d9f0654ce99362fa4a96bb32" category="cell">FAS 平台</block>
   <block id="8fd3ca5f66dff5be16e79560dd28171e" category="list-text">AFF A220</block>
@@ -3233,7 +3232,6 @@
   <block id="934706a419f8bd1c7c07e2f70f366db7" category="list-text">确定新节点上现有 MetroCluster FC 端口使用情况与 MetroCluster IP 接口的端口使用情况之间的任何冲突。</block>
   <block id="5ec820848a37e15913e881383d321172" category="paragraph">您必须使用下表确定新 MetroCluster IP 控制器上的 MetroCluster IP 端口。然后，检查并记录 MetroCluster FC 节点上的这些端口上是否存在任何数据 LIF 或集群 LIF 。</block>
   <block id="f792a94ecd326887dad12660284df14c" category="paragraph">MetroCluster FC 节点上这些冲突的数据 LIF 或集群 LIF 将在过渡操作步骤中的相应步骤进行移动。</block>
-  <block id="f9ce0bc7b36b38eb2afa4b5dabcd6c8a" category="admonition">在 AFF A220 和 FAS2750 系统上， MetroCluster IP 物理端口也用作集群接口。如果新的 MetroCluster IP 节点是 AFF A220 或 FAS2750 系统，则不需要移动现有集群 LIF 。</block>
   <block id="8e00032c24d53ef0b02b39ad3a87a5fc" category="paragraph">下表按平台型号显示了 MetroCluster IP 端口。您可以忽略 VLAN ID 列。</block>
   <block id="6d9ae26ed92d0a009d6d25be5ba2d063" category="cell">平台型号</block>
   <block id="76b11ed48986c915dad0ad468f5f7076" category="cell">MetroCluster IP 端口</block>
@@ -3317,7 +3315,6 @@
   <block id="e9f061fb2bc125b997083e48a3442510" category="list-text">绿色单元格显示支持此组合。</block>
   <block id="7bf7e1a6cec96a843176b66291c50547" category="list-text">白色（空白）单元格表示此组合不受支持。</block>
   <block id="1799408ec992ed3e5561f7b04ccef0fe" category="paragraph">例如，支持从包含 AFF8060 控制器模块的 MetroCluster FC 配置过渡到包含 AFF A400 控制器模块的 IP 配置。</block>
-  <block id="06dbf695b0eb6bb2278b17719899aba9" category="image-alt">过渡支持的平台组合</block>
   <block id="2380f44f4dcec1f84b76f71d467c0c65" category="doc">无中断地从 MetroCluster FC 过渡到 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）</block>
   <block id="e420954c9496e6eb99455a2aac546e3f" category="inline-xref-macro">选择过渡操作步骤</block>
   <block id="84d7a7776dd61243695c457a418310fd" category="list-text">您必须满足所有要求并按照操作步骤中的所有步骤进行操作。</block>
@@ -3926,16 +3923,7 @@
   <block id="57ab4d65e05ba7805256e178468b7043" category="cell">MetroCluster IP 节点型号</block>
   <block id="dcf4881a93cea43ae1634b2f0f7939ac" category="cell">交换机端口</block>
   <block id="5cf0603a9cc38118a92d6f62afbc27ad" category="cell">连接到</block>
-  <block id="e3ba5feff9c2f5df371992a6af632d38" category="cell">Cisco 3132Q-V 或 3232C</block>
   <block id="ed36a1ef76a59ee3f15180e0441188ad" category="cell">任意</block>
-  <block id="8e8bf4eef9dc6ef4efedcee322e60026" category="paragraph">node_x_1-FC</block>
-  <block id="496f634a3fb7abe92600445e4ebf2858" category="paragraph">node_x_2-FC</block>
-  <block id="5065d90219d07238456028a58852a578" category="paragraph">FAS2750/A220</block>
-  <block id="66ce05ea43c73b8e33c74c12d0371bc9" category="paragraph">1 ， 2 ， 3</block>
-  <block id="9be00eab53c162af955730115921876c" category="paragraph">FAS8200/ A300</block>
-  <block id="c0fedf1d3c6d43675ba3ccd93a26de39" category="paragraph">1 ， 2 ， 3 ， 7 ， 8 ， 9</block>
-  <block id="c2d626f8beba73ad0cf4e66214f7d949" category="paragraph">4 ， 5 ， 6</block>
-  <block id="195ae27cd18c9577876e8db4440c4230" category="paragraph">4 ， 5 ， 6 ， 10 ， 11 ， 12</block>
   <block id="41add71327ff82aa85f0074583131e05" category="section-title">使用新 IP 交换机时移动本地集群连接</block>
   <block id="f96b1e8d8ce6fb44d55bd62523f1fffd" category="paragraph">如果您使用的是新的 IP 交换机，则必须将现有 MetroCluster FC 节点的集群连接物理移至新交换机。</block>
   <block id="971a965432d70710e6faba87f3271008" category="list-text">将 MetroCluster FC 节点组 A 集群连接移动到新的 IP 交换机。</block>
@@ -7307,14 +7295,11 @@
   <block id="dd42913fad72868b65fced98cfecfcd6" category="paragraph">然后，执行中的任务 <block ref="3e70f7d1f526cf6dd7a89a97c88d0cc8" category="inline-link-macro-rx"></block></block>
   <block id="927ed696d98572bdb5039cbffcfdb480" category="section-title">在 MetroCluster 配置中使用调解器的网络要求</block>
   <block id="b2b90a2080b20a433104d14b3164613a" category="paragraph">要在 MetroCluster 配置中安装 ONTAP 调解器服务，您必须确保此配置满足多个网络要求。</block>
-  <block id="584cbb7b9a5b8e8c3d576c37046ef4f5" category="list-text">往返延迟</block>
-  <block id="44bf16da487b917462868fadbd2d975a" category="paragraph">往返延迟不得超过 25 毫秒。</block>
   <block id="1a03f6720968dfb968df6cc034114444" category="list-text">MTU</block>
   <block id="6b55a3ff2ffe6275beb9e73d58d08007" category="paragraph">MTU 大小必须至少为 1400 。</block>
   <block id="64ddceb2cbf941d1fc93373ce9219a1f" category="list-text">数据包丢失</block>
   <block id="48826ffed53f55da6bc21c81ca1b5e8f" category="paragraph">数据包丢失必须小于或等于 0.01% 。</block>
   <block id="7d724e4bd163fe8323200b15500517f9" category="list-text">带宽</block>
-  <block id="72b09b4c164fb776e6577cef10d7084d" category="paragraph">调解器服务与 MetroCluster 配置之间的链路必须至少具有 1 Gbps 的带宽。</block>
   <block id="652f10975e44b79de998287113035fac" category="section-title">ONTAP 调解器的防火墙要求</block>
   <block id="671e00f956495c99ae5aae5896e8542a" category="paragraph">ONTAP 调解器使用多个端口与特定服务进行通信。</block>
   <block id="5946d090ccc9cc4eb9c55cf3e9e8d35a" category="paragraph">31784/TCP</block>
@@ -9889,7 +9874,6 @@
   <block id="4eb00e76349103bb49f834540fdce720" category="inline-link-macro">为计划外自动切换配置 ONTAP 调解器服务</block>
   <block id="4d60f545ef2535cd524505ef40a30ea5" category="section-title">NetApp MetroCluster Tiebreaker 软件如何检测故障</block>
   <block id="32cbf293fe64d853582c8537f6165030" category="paragraph">只有当每个节点的非易失性缓存的 SyncMirror 镜像和 DR 镜像均在运行且缓存和镜像在发生故障时保持同步时，才会启动 MAUSO 。</block>
-  <block id="19d390d9b8d24ef2e5e8d530b56b6c3a" category="paragraph">+ 以下平台型号使用 VLAN 并允许配置非默认 VLAN ID 。</block>
   <block id="52f712c2fbff067a3f9ecef9e0c00853" category="paragraph">如果您的配置包含未镜像聚合，则必须注意切换操作后可能出现的访问问题。</block>
   <block id="e75c9eee295de619cf15c1b4cc16afdf" category="paragraph">配置复制服务（ CRS ）元数据卷和数据 SVM 根卷必须位于镜像聚合上。您不能将这些卷移动到未镜像聚合。如果它们位于未镜像聚合上，则协商切换和切回操作将被否决。此时， MetroCluster check 命令会发出警告。</block>
   <block id="521a78dfee04214c73bd3fbdc7dce496" category="paragraph">如果您在 MetroCluster 站点上使用防火墙，则必须确保能够访问所需的端口。</block>
@@ -10395,8 +10379,6 @@
   <block id="4b8d3036a6a3b35e4c0a516d96f6388c" category="paragraph">如果升级后检查未报告任何错误，则说明升级已完成。</block>
   <block id="f6b539ea59b73f9b259ffed026e616d0" category="list-text">完成控制器升级后，登录站点 B 并验证是否已正确配置更换的控制器。</block>
   <block id="995e564ca3c05e931e1da79c841f6b29" category="paragraph">Tiebreaker 软件安装在第三个站点上，该软件可以区分交换机间链路（ ISL ）故障（站点间链路关闭时）和站点故障。在本地计算机上安装或升级 Tiebreaker 软件以监控 MetroCluster 配置之前，主机系统必须满足特定要求。</block>
-  <block id="acbfeda7edea7eba0418c4de0c90e09c" category="list-text">ONTAP 8.3.x ， 9.0 ， 9.1 ， 9.2 ， 9.3 ， 9.4 ， 9.5 ， 9.6 ， 9.7 ， 9.8 ， 9.9.1 或 9.10.1</block>
-  <block id="df889c76e4219d94a86d75d41919ad14" category="list-text">Red Hat Enterprise Linux 7 到 7.9 或 8 到 8.4 或 CentOS 7 到 7.9 64 位（物理安装或虚拟机）</block>
   <block id="1622cddcc8d92c2f521cf45ebeeb83b0" category="list-text">MariaDB 5.5.52.x/MySQL Server 5.6x</block>
   <block id="5b704ee7b2ad5423137a896d4c4ab92a" category="paragraph"><block ref="706367e7c49952df4e02581bb09ed841" category="inline-xref-macro-rx"></block></block>
   <block id="1635ad66e06d76cdccc25bb248323398" category="inline-xref">在 Red Hat Enterprise Linux 6 或 CentOS 7 上安装 MySQL Server 5.5.30 或更高版本以及 5.7x 版本</block>
@@ -12533,4 +12515,26 @@
   <block id="255e6fa1222b0f5f7521f1965844c1bf" category="paragraph">规划第 3 层解决方案时，请查看以下准则和图示。有关在 ONTAP 中实施 VIP 和 BGP 的详细信息，请参见 <block ref="245303d2c60ac1935683ed89eb13f165" category="inline-link-macro-rx"></block>。</block>
   <block id="83e579bcd33d25206730a931a64a84a1" category="paragraph">如果您的配置运行的是 ONTAP 9.0 或更早版本，请参见 <block ref="249227e2d8f8114c9bdc6db2520e9445" category="inline-link-macro-rx"></block>。</block>
   <block id="bc08b638ff7480a2fa85e0dcdee0d692" category="paragraph"><block ref="bc08b638ff7480a2fa85e0dcdee0d692" category="inline-link-macro-rx"></block></block>
+  <block id="cf5928613cf8b77d8355882cdec38712" category="paragraph">仅限16个内部驱动器</block>
+  <block id="90cd0db781b4639c1c46407e5a4f0a93" category="paragraph">+如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。</block>
+  <block id="92083475c7b52cf5e29e7faa8db9dc17" category="paragraph">从ONTAP 9.11.1开始、MetroCluster 配置中的两个集群都可以作为与第三个站点建立SVM DR关系的源。</block>
+  <block id="26ae7bdd1d6fb8c4886e6fde8d12601c" category="list-text">延迟</block>
+  <block id="66420f475101cc9c2b0d458605176249" category="paragraph">往返延迟不得超过75毫秒。</block>
+  <block id="d89a2477841e85e6d37fac9fb392f350" category="paragraph">抖动不能超过25毫秒。</block>
+  <block id="31677ea68806d62bf012786b0cfb0379" category="paragraph">调解器服务与MetroCluster 配置之间的链路必须至少具有20 Gbps的带宽。</block>
+  <block id="37e445da4970f1c0106716e8dba83be8" category="paragraph">如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。</block>
+  <block id="9e9a93655547f7858baef5194a909e2c" category="cell">Cisco 3132Q-V、3232C或9336C-x2</block>
+  <block id="a825d9b135e0604b1a8244aa950f4952" category="paragraph">FC节点上的本地集群接口</block>
+  <block id="32e69a0f5d950aefcb7cefee34c73d19" category="paragraph">FAS500f/A250</block>
+  <block id="22c9730efa04ff77f4d689d1554cb1af" category="paragraph">FAS8200/A300</block>
+  <block id="44966f51999c176196bdbfe7e74f3762" category="paragraph">3、4、9、10、11、 12</block>
+  <block id="3ee537e70a06614ada97e070ef70fe96" category="paragraph">FAS8300/A400/FAS8700</block>
+  <block id="fb6814303d896b70f8e88a7a5fa288c1" category="list-text">从ONTAP 9.11.1开始、蓝色单元格显示支持此组合。</block>
+  <block id="f65f3d1cbac500084196b8e4bf5ad772" category="image-alt">FC IP过渡工具及更高版本</block>
+  <block id="8cff99d2c284195b8638b34190ed3388" category="list-text">ONTAP 8.3.x、9.0、9.1、9.2、9.3、 9.4、9.5、9.6、9.7、9.8、 9.9.1、9.10.1或9.11.1。</block>
+  <block id="e551931a21b4ccec04009df38f655079" category="list-text">Red Hat Enterprise Linux 7到7.9或8到8.5或CentOS 7到7.9 64位(物理安装或虚拟机)</block>
+  <block id="8e41be9a68008dd9f01c00807dd75f69" category="section-title">MetroCluster 配置中的一致性组支持</block>
+  <block id="b36742dbca767f044c826ec8fbe9b099" category="inline-link">一致性组</block>
+  <block id="2b9902d272c75c4def3400c620342746" category="paragraph">从ONTAP 9.11.1开始、<block ref="cf613318e210a5e8a8ae9de011eafc43" category="inline-link-rx"></block> 在MetroCluster 配置中受支持。</block>
+  <block id="fe92f5934bf96194725b46db02f72324" category="list-text">FAS2750或AFF A220系统不支持此操作步骤。</block>
 </blocks>

@@ -24,6 +24,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 https://hwu.netapp.com["NetApp Hardware Universe"]
 
 * 新节点必须具有足够的存储空间来容纳旧节点的数据，并具有足够的磁盘来容纳根聚合和备用磁盘。
+* FAS2750或AFF A220系统不支持此操作步骤。
 
 
 
@@ -498,7 +499,7 @@ MetroCluster configuration-settings interface create -cluster-name`
 ====
 --
 +
-以下平台型号使用 VLAN 并允许配置非默认 VLAN ID 。
+如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。
 
 +
 |===

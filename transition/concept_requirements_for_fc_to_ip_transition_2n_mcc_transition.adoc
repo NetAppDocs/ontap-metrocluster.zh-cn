@@ -119,10 +119,6 @@ image::../media/workflow_2n_transition_bsaic.png[工作流 2n 过渡 bsaic]
 MetroCluster FC 节点上这些冲突的数据 LIF 或集群 LIF 将在过渡操作步骤中的相应步骤进行移动。
 
 +
-
-NOTE: 在 AFF A220 和 FAS2750 系统上， MetroCluster IP 物理端口也用作集群接口。如果新的 MetroCluster IP 节点是 AFF A220 或 FAS2750 系统，则不需要移动现有集群 LIF 。
-
-+
 下表按平台型号显示了 MetroCluster IP 端口。您可以忽略 VLAN ID 列。
 
 +
@@ -180,17 +176,19 @@ e1b
 
 
 
-.2+| AFF A220 和 FAS2750  a| 
-e0a
+.2+| FAS8300/A400/FAS8700  a| 
+e1a
  a| 
 10
-.2+| 在这些系统上，这些物理端口也用作集群接口。 
+ a| 
+
 
 
  a| 
-e0b
+e1b
  a| 
 20
+ a| 
 
 
 
@@ -203,7 +201,7 @@ e0c
 
 
  a| 
-e0d
+e0b
  a| 
 20
  a| 
