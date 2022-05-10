@@ -15,30 +15,46 @@ NOTE: MACsec 加密只能应用于 WAN ISL 端口。
 
 
 
-== MAC 的许可要求
+== 在 Cisco 9336C 交换机上配置 MACsec 加密
 
-MACsec 需要安全许可证。有关 Cisco NX-OS 许可方案以及如何获取和申请许可证的完整说明，请参见 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/nx-os/licensing/guide/b_Cisco_NX-OS_Licensing_Guide/b_Cisco_NX-OS_Licensing_Guide_chapter_01.html["《 Cisco NX-OS 许可指南》"]
+您只能在站点之间运行的 WAN ISL 端口上配置 MACsec 加密。在应用正确的 RCF 文件后，您必须配置 MACsec 。
 
 
 
-== 在 MetroCluster IP 配置中启用 Cisco MACsec 加密 WAN ISL
+=== MAC 的许可要求
+
+MACsec 需要安全许可证。有关 Cisco NX-OS 许可方案以及如何获取和申请许可证的完整说明，请参见 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/nx-os/licensing/guide/b_Cisco_NX-OS_Licensing_Guide/b_Cisco_NX-OS_Licensing_Guide_chapter_01.html["《 Cisco NX-OS 许可指南》"^]
+
+
+
+=== 在MetroCluster IP配置中启用Cisco MACsec加密WAN ISL
 
 您可以在 MetroCluster IP 配置中为 WAN ISL 上的 Cisco 9336C 交换机启用 MACsec 加密。
 
-. 进入全局配置模式： `configure terminal`
+.步骤
+. 进入全局配置模式：
++
+`配置终端`
+
 +
 [listing]
 ----
 IP_switch_A_1# configure terminal
 IP_switch_A_1(config)#
 ----
-. 在设备上启用 MACsec 和 MKA ： `feature MACsec`
+. 在设备上启用 MACsec 和 MKA ：
++
+`功能 MACsec`
+
 +
 [listing]
 ----
 IP_switch_A_1(config)# feature macsec
 ----
-. 将运行配置复制到启动配置： `copy running-config startup-config`
+. 将正在运行的配置复制到启动配置：
++
+`copy running-config startup-config`
+
 +
 [listing]
 ----
@@ -48,21 +64,297 @@ IP_switch_A_1(config)# copy running-config startup-config
 
 
 
-== 禁用 Cisco MAC 秒加密
+=== 配置MACsec密钥链和密钥
 
-在 MetroCluster IP 配置中，您可能需要对 WAN ISL 上的 Cisco 9336C 交换机禁用 MACsec 加密。
+您可以在配置上创建一个或多个 MACsec 密钥链。
 
+* 密钥生命周期和无结果密钥滚动 *
 
-NOTE: 如果禁用加密，则还必须删除密钥，如 XXX 中所述。
+一个 MACsec 密钥链可以具有多个预共享密钥（ PSK ），每个密钥都配置有一个密钥 ID 和一个可选的生命周期。密钥生命周期用于指定密钥激活和到期的时间。如果没有生命周期配置，则默认生命周期为无限制。如果配置了生命周期，则在生命周期到期后， MKA 将转至密钥链中的下一个已配置的预共享密钥。密钥的时区可以是本地或 UTC 。默认时区为 UTC 。如果配置第二个密钥（在密钥链中）并为第一个密钥配置有效期，则密钥可以滚动到同一个密钥链中的第二个密钥。当第一个密钥的生命周期到期时，它会自动滚动到列表中的下一个密钥。如果在链路两端同时配置了同一个密钥，则密钥滚动将无中断（即，密钥在不中断流量的情况下进行回滚）。
 
-. 进入全局配置模式： `configure terminal`
+.步骤
+. 进入全局配置模式：
++
+`配置终端`
+
 +
 [listing]
 ----
 IP_switch_A_1# configure terminal
 IP_switch_A_1(config)#
 ----
-. 在设备上禁用 MACsec 配置： `mAcSEC shutdown`
+. 要隐藏加密的密钥八位字节字符串，请在 `show running-config` and `show startup-config` 命令的输出中将此字符串替换为通配符：
++
+[listing]
+----
+IP_switch_A_1(config)# key-chain macsec-psk no-show
+----
++
+
+NOTE: 将配置保存到文件时，八位组字符串也会隐藏。
+
++
+默认情况下， psk 密钥以加密格式显示，并且可以轻松解密。此命令仅适用于 MACsec 密钥链。
+
+. 创建一个 MACsec 密钥链以存放一组 MACsec 密钥并进入 MACsec 密钥链配置模式：
++
+`密钥链名称 MACsec`
+
++
+[listing]
+----
+IP_switch_A_1(config)# key chain 1 macsec
+IP_switch_A_1(config-macseckeychain)#
+----
+. 创建一个 MACsec 密钥并进入 MACsec 密钥配置模式：
++
+`key key-id`
+
++
+此范围为 1 到 32 个十六进制数字键字符串，最大大小为 64 个字符。
+
++
+[listing]
+----
+IP_switch_A_1 switch(config-macseckeychain)# key 1000
+IP_switch_A_1 (config-macseckeychain-macseckey)#
+----
+. 配置密钥的八位字节字符串：
++
+`key-octet-string octet-string Cryptographic -orl AES-128_CMAC` AES_256_CMAC
+
++
+[listing]
+----
+IP_switch_A_1(config-macseckeychain-macseckey)# key-octet-string abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789
+cryptographic-algorithm AES_256_CMAC
+----
++
+
+NOTE: 八位字节字符串参数最多可包含 64 个十六进制字符。八位字节密钥在内部进行编码，因此明文形式的密钥不会显示在 `show running-config MACsec` 命令的输出中。
+
+. 配置密钥的发送生命周期（以秒为单位）：
++
+`s终生开始时间持续时间`
+
++
+[listing]
+----
+IP_switch_A_1(config-macseckeychain-macseckey)# send-lifetime 00:00:00 Oct 04 2020 duration 100000
+----
++
+默认情况下，设备会将开始时间视为 UTC 。start-time 参数是密钥生效的日期和日期时间。duration 参数是指以秒为单位的生命周期长度。最大长度为 2147483646 秒（约为 68 年）。
+
+. 将正在运行的配置复制到启动配置：
++
+`copy running-config startup-config`
+
++
+[listing]
+----
+IP_switch_A_1(config)# copy running-config startup-config
+----
+. 显示密钥链配置：
++
+`s如何使用密钥链名称`
+
++
+[listing]
+----
+IP_switch_A_1(config-macseckeychain-macseckey)# show key chain 1
+----
+
+
+
+
+=== 配置MAC秒策略
+
+.步骤
+. 进入全局配置模式：
++
+`配置终端`
+
++
+[listing]
+----
+IP_switch_A_1# configure terminal
+IP_switch_A_1(config)#
+----
+. 创建 MAC 秒策略：
++
+`mAcSEC 策略名称`
+
++
+[listing]
+----
+IP_switch_A_1(config)# macsec policy abc
+IP_switch_A_1(config-macsec-policy)#
+----
+. 配置以下密码之一 GCM-AES-128 ， GCM-AES-256 ， GCM-AES-XPN-128 或 GCM-AES-XPN-256 ：
++
+`密码套件名称`
+
++
+[listing]
+----
+IP_switch_A_1(config-macsec-policy)# cipher-suite GCM-AES-256
+----
+. 配置密钥服务器优先级，以便在密钥交换期间中断对等方之间的联系：
++
+`key-server-priority number`
+
++
+[listing]
+----
+switch(config-macsec-policy)# key-server-priority 0
+----
+. 配置安全策略以定义数据和控制数据包的处理方式：
++
+`s安全策略安全策略`
+
++
+从以下选项中选择一个安全策略：
+
++
+** must secure —未传输 MAC 秒标头的数据包将被丢弃
+** should secure —允许未传输 MAC 秒标头的数据包（这是默认值）
+
+
++
+[listing]
+----
+IP_switch_A_1(config-macsec-policy)# security-policy should-secure
+----
+. 配置重放保护窗口，使安全接口不接受小于配置窗口大小的数据包： `window-size number`
++
+
+NOTE: 重放保护窗口大小表示 MACsec 接受且不丢弃的序列外帧的最大数量。范围为 0 到 596000000 。
+
++
+[listing]
+----
+IP_switch_A_1(config-macsec-policy)# window-size 512
+----
+. 配置强制重新设置 SAK 密钥的时间（以秒为单位）：
++
+`sAK 到期时间`
+
++
+您可以使用此命令将会话密钥更改为可预测的时间间隔。默认值为 0 。
+
++
+[listing]
+----
+IP_switch_A_1(config-macsec-policy)# sak-expiry-time 100
+----
+. 在开始加密的第 2 层帧中配置以下机密性偏移之一：
++
+`conf-offsetconfidentiality offset`
+
++
+从以下选项中进行选择：
+
++
+** CONF 偏移 -0 。
+** CON-offset-30 。
+** CONF 偏移 -50 。
++
+[listing]
+----
+IP_switch_A_1(config-macsec-policy)# conf-offset CONF-OFFSET-0
+----
++
+
+NOTE: 中间交换机可能需要使用此命令来使用 MPLS 标记等数据包标头（ DMAC ， SMaC ， etype ）。
+
+
+
+. 将正在运行的配置复制到启动配置：
++
+`copy running-config startup-config`
+
++
+[listing]
+----
+IP_switch_A_1(config)# copy running-config startup-config
+----
+. 显示 MACsec 策略配置：
++
+`s如何使用 MACsec 策略`
+
++
+[listing]
+----
+IP_switch_A_1(config-macsec-policy)# show macsec policy
+----
+
+
+
+
+=== 在接口上启用Cisco MACsec加密
+
+. 进入全局配置模式：
++
+`配置终端`
+
++
+[listing]
+----
+IP_switch_A_1# configure terminal
+IP_switch_A_1(config)#
+----
+. 选择使用MAC秒加密配置的接口。
++
+您可以指定接口类型和标识。对于以太网端口，请使用以太网插槽 / 端口。
+
++
+[listing]
+----
+IP_switch_A_1(config)# interface ethernet 1/15
+switch(config-if)#
+----
+. 添加要在接口上配置的密钥链和策略以添加MACsec配置：
++
+`mAcSEC keychain keychain-name policy policy-name`
+
++
+[listing]
+----
+IP_switch_A_1(config-if)# macsec keychain 1 policy abc
+----
+. 对要配置MACsec加密的所有接口重复步骤1和2。
+. 将正在运行的配置复制到启动配置：
++
+`copy running-config startup-config`
+
++
+[listing]
+----
+IP_switch_A_1(config)# copy running-config startup-config
+----
+
+
+
+
+=== 在MetroCluster IP配置中禁用Cisco MACsec加密WAN ISL
+
+在 MetroCluster IP 配置中，您可能需要对 WAN ISL 上的 Cisco 9336C 交换机禁用 MACsec 加密。
+
+.步骤
+. 进入全局配置模式：
++
+`配置终端`
+
++
+[listing]
+----
+IP_switch_A_1# configure terminal
+IP_switch_A_1(config)#
+----
+. 在设备上禁用 MACsec 配置：
++
+`mAcSEC shutdown`
+
 +
 [listing]
 ----
@@ -70,7 +362,7 @@ IP_switch_A_1(config)# macsec shutdown
 ----
 +
 
-NOTE: 选择 no 选项将还原 MACsec 功能。
+NOTE: 选择 "`no` " 选项可还原 MACsec 功能。
 
 . 选择已配置 MAC 的接口。
 +
@@ -82,14 +374,20 @@ NOTE: 选择 no 选项将还原 MACsec 功能。
 IP_switch_A_1(config)# interface ethernet 1/15
 switch(config-if)#
 ----
-. 删除接口上配置的密钥链，策略和回退密钥链以删除 MACsec 配置： `no MACsec keychain keychain-name policy policy-name backfally-keychain keychain-name`
+. 删除接口上配置的密钥链和策略以删除MACsec配置：
++
+`no MACsec keychain keychain-name policy policy-name`
+
 +
 [listing]
 ----
-IP_switch_A_1(config-if)# no macsec keychain kc2 policy abc fallback-keychain fb_kc2
+IP_switch_A_1(config-if)# no macsec keychain 1 policy abc
 ----
 . 对配置了 MACsec 的所有接口重复步骤 3 和 4 。
-. 将运行配置复制到启动配置： `copy running-config startup-config`
+. 将正在运行的配置复制到启动配置：
++
+`copy running-config startup-config`
+
 +
 [listing]
 ----
@@ -99,6 +397,52 @@ IP_switch_A_1(config)# copy running-config startup-config
 
 
 
-== 配置 MACsec 密钥链和密钥
+=== 验证 MACsec 配置
 
-有关配置 MACsec 密钥链的详细信息，请参见适用于您的交换机的 Cisco 文档。
+.步骤
+. 在配置中的第二台交换机上重复上述所有过程以建立 MACsec 会话。
+. 运行以下命令以验证这两个交换机是否已成功加密：
++
+.. Run ： `s如何执行 MACsec MKA 摘要`
+.. Run ： `s如何执行 MACsec MKA 会话`
+.. Run ： `s如何处理 MACsec MKA 统计信息`
++
+您可以使用以下命令验证 MACsec 配置：
+
++
+|===
+
+
+| 命令 | 显示有关 ... 的信息 
+
+
+ a| 
+`s如何使用 MACsec MKA 会话接口键入 lot/ 端口号`
+ a| 
+特定接口或所有接口的 MACsec MKA 会话
+
+
+
+ a| 
+`s如何使用密钥链名称`
+ a| 
+密钥链配置
+
+
+
+ a| 
+`s如何执行 MACsec MKA 摘要`
+ a| 
+MACsec MKA 配置
+
+
+
+ a| 
+`s如何使用 MACsec policy policy-name`
+ a| 
+特定 MACsec 策略或所有 MACsec 策略的配置
+
+|===
+
+
+

@@ -3311,7 +3311,6 @@
   <block id="c5ca83d0e723113560fb2c95b33b532b" category="inline-xref-macro">支持无中断过渡的平台</block>
   <block id="1c80ea06ae866b6e42e9d266e0cb8906" category="list-text">它必须支持交换集群配置。</block>
   <block id="9dbbc592d23a777892a7b326fdecb27a" category="summary">然后过渡到 MetroCluster IP 配置，您必须同时拥有受支持的平台型号。</block>
-  <block id="5bb55ff54cc0047e95b27d7917c63627" category="paragraph">下表显示了支持的平台组合。您可以从左侧列中的平台过渡到右侧列中列出的受支持平台，如绿色表单元格所示。</block>
   <block id="e9f061fb2bc125b997083e48a3442510" category="list-text">绿色单元格显示支持此组合。</block>
   <block id="7bf7e1a6cec96a843176b66291c50547" category="list-text">白色（空白）单元格表示此组合不受支持。</block>
   <block id="1799408ec992ed3e5561f7b04ccef0fe" category="paragraph">例如，支持从包含 AFF8060 控制器模块的 MetroCluster FC 配置过渡到包含 AFF A400 控制器模块的 IP 配置。</block>
@@ -7226,7 +7225,6 @@
   <block id="27f2dbe71bb8cb5d2174056e5aa5a63a" category="list-text">进入全局配置模式： `configure terminal`</block>
   <block id="f3b35ec0554707831c93f8d1726c3e1d" category="list-text">在设备上启用 MACsec 和 MKA ： `feature MACsec`</block>
   <block id="67d10db60edc762f7873c87cd6b4d249" category="list-text">将运行配置复制到启动配置： `copy running-config startup-config`</block>
-  <block id="c65d9e378f505697a236ecdbbf4f570d" category="section-title">在 MetroCluster IP 配置中禁用 Cisco MACsec 加密 WAN ISL</block>
   <block id="749ac7a2f1348088d99ca5c98ffd2d16" category="paragraph">在 MetroCluster IP 配置中，您可能需要对 WAN ISL 上的 Cisco 9336C 交换机禁用 MACsec 加密。</block>
   <block id="408e437eca7dacdea718d8544eb31c70" category="list-text">在设备上禁用 MACsec 配置： `mAcSEC shutdown`</block>
   <block id="a78ca51eaaf1a7fe31e057a59182b175" category="admonition">选择 no 选项将还原 MACsec 功能。</block>
@@ -7241,7 +7239,6 @@
   <block id="1b7a49127c059c9782571e668d1b9394" category="paragraph">将配置保存到文件时，八位组字符串也会隐藏。</block>
   <block id="82a54f643a125ec28b0318b12e98edc4" category="paragraph">默认情况下， psk 密钥以加密格式显示，并且可以轻松解密。此命令仅适用于 MACsec 密钥链。</block>
   <block id="50c7b42b6fb7bfaab985fc93a2f5adbe" category="paragraph">此范围为 1 到 32 个十六进制数字键字符串，最大大小为 64 个字符。</block>
-  <block id="2861de74286d86a770050eefe484b016" category="section-title">配置 MAC 秒策略</block>
   <block id="af4bc42ec156aea78d9e37d8ba7fa765" category="paragraph">从以下选项中选择一个安全策略：</block>
   <block id="f0a86fc52b7860d783cd18c3274a660e" category="list-text">must secure —未传输 MAC 秒标头的数据包将被丢弃</block>
   <block id="bf71d89d2d339304218351dbe9d54014" category="list-text">should secure —允许未传输 MAC 秒标头的数据包（这是默认值）</block>
@@ -9862,7 +9859,6 @@
   <block id="deba5df0dea3cbba9463f219100e5ba4" category="list-text">删除旧 DR 组的配置。+ MetroCluster configuration-settings dr-group delete`</block>
   <block id="cdab15f9840a783bfc35d8f8baa514e9" category="list-text">Unjoin the node ： + `cluster unjoin -node _node-name_`</block>
   <block id="06b28530123c83dfb519d35b8e3e11f5" category="list-text">设置管理员权限级别： + `set -privilege admin`</block>
-  <block id="7e78f2c6ef0bb1c644bf13957f799b3e" category="paragraph">过渡到 MetroCluster IP 配置时，您必须同时拥有受支持的平台型号。</block>
   <block id="d82e4b6cc46afb567474f7178afb5796" category="list-text">切换，修复和切回</block>
   <block id="70a6af377eaf4da39eb5c40bd123522b" category="list-text">强制切换</block>
   <block id="0ece35432200ec94e379aeb1ce68db94" category="list-text">从多控制器或存储故障中恢复</block>
@@ -10053,8 +10049,6 @@
   <block id="43a86ca9910ac10add49d293714b50f6" category="section-title">在八节点配置中配置第二个 DR 组</block>
   <block id="74d845e51b59918636d9a13b9fc37d69" category="list-text">要添加到聚合的特定驱动器或阵列 LUN 的列表</block>
   <block id="755643e3264b43687573ebc08e75d0aa" category="list-text">可包含在 RAID 组中的驱动器或阵列 LUN 的最大数量</block>
-  <block id="2045016bec8bea27ddbdf3bf4b176595" category="paragraph"><block ref="2045016bec8bea27ddbdf3bf4b176595" category="inline-link-macro-rx"></block></block>
-  <block id="6c8f611a4b721174f4789122858e5dc3" category="paragraph"><block ref="6c8f611a4b721174f4789122858e5dc3" category="inline-link-macro-rx"></block></block>
   <block id="fb2c0ebeb18b9e1080333a65b192bdc3" category="list-text">如果使用的是现有的 ONTAP 调解器实例，请将 ONTAP 调解器服务添加到 ONTAP ：</block>
   <block id="6852fcac58b417258b30784060002d89" category="list-text">跟踪 MetroCluster 端口组（ MetroCluster 1 ， MetroCluster 2 等）。使用 RcfFileGenerator 工具时需要此信息，如此配置操作步骤后面所述。</block>
   <block id="b070262d5faad84092129cb1c7a44daa" category="list-text">。<block ref="166489b3c340ece1eccb5706fda90624" category="inline-link-rx"></block> 此外，还提供了每个交换机的每端口布线概览。使用此布线概述来验证布线情况。</block>
@@ -10068,7 +10062,6 @@
   <block id="3ff849ca07e8d8a0986114f9a8f37362" category="paragraph">如果需要，您可以在站点之间运行的 WAN ISL 端口上配置 MACsec 加密。在应用正确的 RCF 文件后，您必须配置 MACsec 。</block>
   <block id="b3b4314c99a828808ed95dc975e51425" category="admonition">MACsec 加密只能应用于 WAN ISL 端口。</block>
   <block id="8289fc55a0dea0e27a08723be563875e" category="section-title">禁用 Cisco MAC 秒加密</block>
-  <block id="096c074687c2dd6452629aee93157757" category="admonition">如果禁用加密，则还必须删除密钥，如 XXX 中所述。</block>
   <block id="531b740381cddffce7b8440283ae7533" category="paragraph">有关配置 MACsec 密钥链的详细信息，请参见适用于您的交换机的 Cisco 文档。</block>
   <block id="3390d4f6bfc1502eb6b943d94b2ccf81" category="paragraph"><block ref="3390d4f6bfc1502eb6b943d94b2ccf81" category="inline-link-macro-rx"></block></block>
   <block id="2df82e698bfc14af74dd0684edfa8af0" category="paragraph">MetroCluster configuration-settings mediator add -mediate-address ip-address-o-o-medier-host`</block>
@@ -10601,7 +10594,6 @@
   <block id="e36320198d71e90e7fbc80a9b47b9394" category="paragraph">对于任一交换机，请在输出中找到指示 RCF 文件版本的行。例如，以下输出来自 Cisco 交换机，表示 RCF 文件版本为 "`v1.80` " 。</block>
   <block id="c7534d571d84fdfe4912d24b4f1f30bf" category="list-text">要检查特定 ONTAP 版本，交换机和平台支持哪些文件，请使用 RcfFileGenerator 。如果您可以为所拥有或要升级到的配置生成 RCF 文件，则支持此文件。</block>
   <block id="282bc05e82ec2895ab48f3f9377e06d3" category="list-text">要验证是否支持交换机固件，请参阅以下内容：</block>
-  <block id="e77a7dbb2ff81ed5602321d5148ff36e" category="list-text"><block ref="e77a7dbb2ff81ed5602321d5148ff36e" category="inline-link-rx"></block></block>
   <block id="8ae1a8b6dc4a3df150f27ca419fb9a6c" category="list-text"><block ref="8ae1a8b6dc4a3df150f27ca419fb9a6c" category="inline-link-rx"></block></block>
   <block id="bde0605fb74695c23ddd122685cfc65e" category="section-title">升级 RCF 文件</block>
   <block id="1a9778326fd00d0e011a777089b2bc6a" category="list-text">检查正在运行的 MetroCluster 检查操作的状态：</block>
@@ -11123,8 +11115,6 @@
   <block id="c5c663e6628e19ffabcbcb01ecaa23e3" category="list-text">node_B_1-A700 ： 0537407114</block>
   <block id="447b7bdefc8e750f8d7dab18bb9172ea" category="list-text">node_B_2-A700 ： 537035354</block>
   <block id="50d704bfae735cf9f8824da705413abc" category="paragraph">对于追加信息，请参见<block ref="0abbdd13a8c045ec09bd7c54eb2d0bef" category="inline-link-rx"></block>。</block>
-  <block id="02f80d1409d40adabdcd4b00959239b0" category="inline-link-macro">删除 MetroCluster 配置</block>
-  <block id="b0d3c2e52841601c113af9d2ec1d76e1" category="paragraph"><block ref="b0d3c2e52841601c113af9d2ec1d76e1" category="inline-link-macro-rx"></block></block>
   <block id="fbb702216c9d47455a0b8dbde9a6a6ca" category="paragraph">您必须从配置中删除旧控制器。</block>
   <block id="aa7985a89f1c2f960f222e4a5876a369" category="paragraph">使用以下操作步骤删除 AFF A700 控制器模块。</block>
   <block id="594c103f2c6e04c3d8ab059f031e0c1a" category="inline-image-macro">控制器</block>
@@ -11199,8 +11189,6 @@
   <block id="7b3f395dfaa27c58576d75c624d2acd9" category="section-title">验证 LIF 配置</block>
   <block id="23331dcb3c2ad6b3d014807669c00671" category="image-alt">四节点 MetroCluster</block>
   <block id="641ef094fd6e3f18fc8a62270dc2b543" category="section-title">还原 Tiebreaker 监控</block>
-  <block id="9708813a6edf75a072848cc8c19d1d0b" category="inline-link-macro">添加 MetroCluster 配置</block>
-  <block id="41e5a570a4f2d19e8390709e59c70fa0" category="list-text">使用中的步骤 <block ref="12128e797396b704d910303dde9a32c0" category="inline-link-macro-rx"></block> 在 _Tiebreaker MetroCluster 安装和配置 _ 部分。</block>
   <block id="ec976e4d69eacba58f181f263322d975" category="paragraph">使用 ONTAP 9.1 及更高版本为 FC 交换机布线时，需要验证是否使用了指定的端口分配。</block>
   <block id="198c714a4bb6842827adc2e8110de106" category="summary">要安装延伸型 MetroCluster 配置，必须按正确顺序执行多个过程。</block>
   <block id="714ba9270e253d9f6653c910f28c6d51" category="list-text"><block ref="714ba9270e253d9f6653c910f28c6d51" category="inline-link-macro-rx"></block></block>
@@ -11353,8 +11341,6 @@
   <block id="8593f4ba6cc280cf6c5bf594528f3eb4" category="list-text">在设备上禁用 MACsec 配置：</block>
   <block id="cdb4bb93b3a531a567e11665f5148cc9" category="paragraph">`mAcSEC shutdown`</block>
   <block id="c00cade2f94121d752e8500322a535ab" category="admonition">选择 "`no` " 选项可还原 MACsec 功能。</block>
-  <block id="994f1ea1f472d234f9c01b086bcddfff" category="list-text">删除接口上配置的密钥链，策略和回退密钥链，以删除 MACsec 配置：</block>
-  <block id="4433609b41a7b52c237c57c092b2feb7" category="paragraph">`no MACsec keychain keychain-name policy policy-name backfall-keychain keychain-name`</block>
   <block id="09d2459b8ba15bdb94703e39490766cf" category="list-text">要隐藏加密的密钥八位字节字符串，请在 `show running-config` and `show startup-config` 命令的输出中将此字符串替换为通配符：</block>
   <block id="74e0480b8ca480716d1a5cd50a1ceb85" category="list-text">创建一个 MACsec 密钥链以存放一组 MACsec 密钥并进入 MACsec 密钥链配置模式：</block>
   <block id="1b5dce8a5e1076414ab0a1f651e86626" category="paragraph">`密钥链名称 MACsec`</block>
@@ -11492,7 +11478,6 @@
   <block id="52973309c9943640c8f3c4005afc0a1c" category="admonition">最佳实践是具有多个数据聚合。如果第一个 DR 组只有一个聚合，而您要添加一个具有一个聚合的 DR 组，则必须将元数据卷从单个数据聚合中移出。有关此操作步骤的详细信息，请参见<block ref="2eaa0ca511dd4de94634e58820ea7180" category="inline-link-rx"></block>。</block>
   <block id="c77c236a9e8399fe3f4e66a32fcdd188" category="paragraph">以下命令将在包含 "`controller_A_1` " 的 DR 组中的所有节点上启用 MetroCluster 配置：</block>
   <block id="a51a9fa7ea4ed8f7d2d312630ac5f093" category="list-text">从站点 A 验证配置： + `MetroCluster show`</block>
-  <block id="8e2467ce90556be64053bd8e7c611ad8" category="paragraph">如果您需要 RO 访问，请在 "User （ ro ）： " 之后指定 `snmpv3user` ，如示例所示：</block>
   <block id="6c004e557097d04e25499f1d1a527295" category="paragraph">ONTAP 9.5 及更高版本</block>
   <block id="4ae8d24c72dd765a4920ac53c2dafe90" category="paragraph">ONTAP 9.4 及更早版本</block>
   <block id="361772e9851772534036695f2c569190" category="paragraph">由于轮询间隔，可能需要长达 15 分钟才能反映所有数据。如果 " `S状态` " 列中的值为 "`ok` " ，并且显示了其他信息，例如全球通用名称（ WWN ），则 ONTAP 运行状况监控器可以联系并监控网桥。</block>
@@ -12499,7 +12484,6 @@
   <block id="7781c27327814c0f7935ce903ca1101f" category="list-text"><block ref="7781c27327814c0f7935ce903ca1101f" category="inline-link-macro-rx"></block></block>
   <block id="8e077a574605e13d75ee083e7cd96f27" category="list-text"><block ref="8e077a574605e13d75ee083e7cd96f27" category="inline-link-macro-rx"></block></block>
   <block id="5860040c16ad914f0dc769bbc79c2a6d" category="list-text"><block ref="5860040c16ad914f0dc769bbc79c2a6d" category="inline-link-macro-rx"></block></block>
-  <block id="4a3e665f4593afeb6ebcabea7ce85845" category="paragraph"><block ref="97b0c50183125e551abb5b04258316bf" category="inline-link-macro-rx"></block> 在 _Tiebreaker MetroCluster 安装和配置内容 _ 中</block>
   <block id="398ca4e3f9e65b681f95fee13804bab9" category="list-text">您的目录列表应包含 &lt;ontap_version&gt;\\_image.tgz 。</block>
   <block id="befdb6ab41f0cd39ff57e00b0ee8c3f6" category="paragraph">` &lt;filer_addr&gt;` 是存储系统的 IP 地址。` &lt; 网络掩码 &gt;` 是存储系统的网络掩码。` &lt; 网关 &gt;` 是存储系统的网关。` &lt;dns_addr&gt;` 是网络上名称服务器的 IP 地址。此参数是可选的。` &lt;dns_domain&gt;` 是域名服务（ DNS ）域名。此参数是可选的。注意：您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。</block>
   <block id="f9917e026c23b682e18bcd6bc125c1b9" category="paragraph">` &lt;path_to_the_web-accessible_directory&gt;` 应指向您在中下载 ` &lt;ontap_version&gt;\_image.tgz` 的位置 <block ref="28cd24b5ecf937229eb419cc55587b9d" category="inline-xref-macro-rx"></block>。</block>
@@ -12521,7 +12505,6 @@
   <block id="26ae7bdd1d6fb8c4886e6fde8d12601c" category="list-text">延迟</block>
   <block id="66420f475101cc9c2b0d458605176249" category="paragraph">往返延迟不得超过75毫秒。</block>
   <block id="d89a2477841e85e6d37fac9fb392f350" category="paragraph">抖动不能超过25毫秒。</block>
-  <block id="31677ea68806d62bf012786b0cfb0379" category="paragraph">调解器服务与MetroCluster 配置之间的链路必须至少具有20 Gbps的带宽。</block>
   <block id="37e445da4970f1c0106716e8dba83be8" category="paragraph">如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。</block>
   <block id="9e9a93655547f7858baef5194a909e2c" category="cell">Cisco 3132Q-V、3232C或9336C-x2</block>
   <block id="a825d9b135e0604b1a8244aa950f4952" category="paragraph">FC节点上的本地集群接口</block>
@@ -12537,4 +12520,25 @@
   <block id="b36742dbca767f044c826ec8fbe9b099" category="inline-link">一致性组</block>
   <block id="2b9902d272c75c4def3400c620342746" category="paragraph">从ONTAP 9.11.1开始、<block ref="cf613318e210a5e8a8ae9de011eafc43" category="inline-link-rx"></block> 在MetroCluster 配置中受支持。</block>
   <block id="fe92f5934bf96194725b46db02f72324" category="list-text">FAS2750或AFF A220系统不支持此操作步骤。</block>
+  <block id="610f11b52907034f4715c6fa1abf8d1b" category="paragraph">调解器服务与MetroCluster 配置之间的链路必须至少具有20 MBps的带宽。</block>
+  <block id="f5cd93f67ab362b3830ef2c47249e909" category="paragraph"><block ref="f5cd93f67ab362b3830ef2c47249e909" category="inline-link-macro-rx"></block></block>
+  <block id="a3816a0d57fcb59bc1a3bfba35af44cf" category="paragraph"><block ref="a3816a0d57fcb59bc1a3bfba35af44cf" category="inline-link-macro-rx"></block></block>
+  <block id="8a4f175190a1710cdcd52e7efde01268" category="section-title">在MetroCluster IP配置中启用Cisco MACsec加密WAN ISL</block>
+  <block id="dbbfd3dd70a4d25284d890b07ad9bc31" category="section-title">配置MACsec密钥链和密钥</block>
+  <block id="2903318a6fa99cbae17be8d84747e6f4" category="section-title">配置MAC秒策略</block>
+  <block id="d2b2747d0c22a09619558cfbac550396" category="section-title">在接口上启用Cisco MACsec加密</block>
+  <block id="022ccd39646806bfe7a58384a672a87d" category="list-text">选择使用MAC秒加密配置的接口。</block>
+  <block id="b07933039277c17cd5a85e3d7906d601" category="list-text">添加要在接口上配置的密钥链和策略以添加MACsec配置：</block>
+  <block id="82cc9e863d73c099e61d0b3f2db03cbf" category="paragraph">`mAcSEC keychain keychain-name policy policy-name`</block>
+  <block id="5b62e90551dcaf31183c797f549f19f5" category="list-text">对要配置MACsec加密的所有接口重复步骤1和2。</block>
+  <block id="2df81ef73ca6234e1f2efffdc855e826" category="section-title">在MetroCluster IP配置中禁用Cisco MACsec加密WAN ISL</block>
+  <block id="dc58a5917fbb05da0e560a4cbcb1f72c" category="list-text">删除接口上配置的密钥链和策略以删除MACsec配置：</block>
+  <block id="c988e8ca5d6e6bb62b67254721e13586" category="paragraph">`no MACsec keychain keychain-name policy policy-name`</block>
+  <block id="8d0f34f00997c62960ad51adbe64457d" category="list-text"><block ref="8d0f34f00997c62960ad51adbe64457d" category="inline-link-rx"></block></block>
+  <block id="2687b88898e3642fcc69aaef6be8e73c" category="paragraph">过渡到 MetroCluster IP 配置时，您必须同时拥有受支持的平台型号。此外、您还应确保MetroCluster IP平台的大小适合要从MetroCluster FC配置过渡到MetroCluster IP配置的负载。</block>
+  <block id="d9599a6265b31306f6c79d760a47a9aa" category="paragraph">下表显示了支持的平台组合。您可以从左侧列中的平台过渡到右侧列中列出的受支持平台、如彩色表单元格所示。</block>
+  <block id="d84d4239724af43bfdc3b74836c335fe" category="paragraph">配置后、v0a (v0b等)的存在将持续验证连接、从而保证LIF迁移或故障转移成功(与L2不同、L2仅在中断后才会显示损坏的配置)。</block>
+  <block id="222561f9cba21343a81a9b2ee1890d68" category="paragraph"><block ref="222561f9cba21343a81a9b2ee1890d68" category="inline-link-macro-rx"></block></block>
+  <block id="81fe00b955881476878ae80a1ff92b24" category="list-text">使用中的步骤： <block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block> 在 _Tiebreaker MetroCluster 安装和配置 _ 部分。</block>
+  <block id="61324fd73aeb16a8318bff07556941ad" category="paragraph"><block ref="222561f9cba21343a81a9b2ee1890d68" category="inline-link-macro-rx"></block> 在 _Tiebreaker MetroCluster 安装和配置内容 _ 中</block>
 </blocks>

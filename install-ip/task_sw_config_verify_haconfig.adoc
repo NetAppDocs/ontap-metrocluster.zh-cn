@@ -2983,7 +2983,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网�
 
 如果您必须安装新的 ONTAP 调解器实例，请按照说明安装和配置软件。
 
-link:concept_configure_the_ontap_mediator_for_unplanned_automatic_switchover.html["为计划外自动切换配置 ONTAP 调解器服务"]
+link:concept_mediator_requirements.html["为计划外自动切换配置 ONTAP 调解器服务"]
 
 如果您必须安装 Tiebreaker 软件的新实例，请按照说明安装和配置该软件。
 
@@ -2991,7 +2991,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/
 
 您不能使用具有相同 MetroCluster 配置的 MetroCluster Tiebreaker 软件和 ONTAP 调解器。
 
-link:concept_prepare_for_the_mcc_installation.html#considerations-for-using-ontap-mediator-or-metrocluster-tiebreaker["使用 ONTAP 调解器或 MetroCluster Tiebreaker 的注意事项"]
+link:concept_considerations_differences.html["使用 ONTAP 调解器或 MetroCluster Tiebreaker 的注意事项"]
 
 .步骤
 . 配置 ONTAP 调解器服务或 Tiebreaker 软件：
