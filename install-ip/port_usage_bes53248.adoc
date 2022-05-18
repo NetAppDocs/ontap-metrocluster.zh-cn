@@ -34,6 +34,16 @@ MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台�
 ** 刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
 
 
+. 如果您连接两个MetroCluster 配置、并且这两个配置都使用相同的控制器类型、则必须使用MetroCluster 端口组3和4。如果控制器不同、则必须对一种类型使用MetroCluster 端口组3和4、而对另一种类型使用MetroCluster 端口组1和2。
++
+** 例如、如果您连接：
++
+*** 两种MetroCluster 配置仅包含FAS2750/AFF A220或仅包含FAS500f/AFF A250、您必须选择MetroCluster 端口组3和4。
+*** 两种MetroCluster 配置、其中一个MetroCluster 的类型为FAS2750/AFF A220、另一个为FAS500f/AFF A250、您必须为一个选择端口组3和4、为另一个选择端口组1和2。在中 https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["适用于 MetroCluster IP 的 RcfFileGenerator"]、下拉字段1和2仅在下拉字段3和4中选择平台后才会填充受支持的平台。请参见 link:../install-ip/using_rcf_generator.html["在 RcfFileGenerator 工具或多个 MetroCluster 配置中使用端口表"] 有关如何使用端口表的详细信息、请参见。
+
+
+
+
 
 
 
@@ -47,6 +57,12 @@ image::../media/mcc_ip_cabling_a_aff_a220_or_fas2750_to_a_broadcom_bes_53248_swi
 == AFF A250 或 FAS500f 系统的交换机端口使用情况
 
 image::../media/mcc_ip_cabling_a_aff_a250_or_fas500f_to_a_broadcom_bes_53248_switch.png[通过 MCC IP 将 AFF A250 或 fas500f 连接到 Broadcom bes 53248 交换机]
+
+
+
+== AFF A250或FAS500f以及AFF A220或FAS2750系统的交换机端口使用情况
+
+image::../media/mcc_ip_cabling_aff_a250_and_ a220_to_a_broadcom_bes_53248_switch.png[通过MCC IP将AFF A250和a220连接到Broadcom bes 53248交换机]
 
 
 
