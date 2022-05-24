@@ -12513,7 +12513,6 @@
   <block id="fb6814303d896b70f8e88a7a5fa288c1" category="list-text">从ONTAP 9.11.1开始、蓝色单元格显示支持此组合。</block>
   <block id="f65f3d1cbac500084196b8e4bf5ad772" category="image-alt">FC IP过渡工具及更高版本</block>
   <block id="8cff99d2c284195b8638b34190ed3388" category="list-text">ONTAP 8.3.x、9.0、9.1、9.2、9.3、 9.4、9.5、9.6、9.7、9.8、 9.9.1、9.10.1或9.11.1。</block>
-  <block id="e551931a21b4ccec04009df38f655079" category="list-text">Red Hat Enterprise Linux 7到7.9或8到8.5或CentOS 7到7.9 64位(物理安装或虚拟机)</block>
   <block id="8e41be9a68008dd9f01c00807dd75f69" category="section-title">MetroCluster 配置中的一致性组支持</block>
   <block id="b36742dbca767f044c826ec8fbe9b099" category="inline-link">一致性组</block>
   <block id="2b9902d272c75c4def3400c620342746" category="paragraph">从ONTAP 9.11.1开始、<block ref="cf613318e210a5e8a8ae9de011eafc43" category="inline-link-rx"></block> 在MetroCluster 配置中受支持。</block>
@@ -12549,4 +12548,7 @@
   <block id="1c4e028af9d72f4e84ad919004a88581" category="list-text">两种MetroCluster 配置、其中一个MetroCluster 的类型为FAS2750/AFF A220、另一个为FAS500f/AFF A250、您必须为一个选择端口组3和4、为另一个选择端口组1和2。在中<block ref="166489b3c340ece1eccb5706fda90624" category="inline-link-rx"></block>、下拉字段1和2仅在下拉字段3和4中选择平台后才会填充受支持的平台。请参见 <block ref="4dfd72a31c74d2e269d1ca49dcbd7291" category="inline-link-macro-rx"></block> 有关如何使用端口表的详细信息、请参见。</block>
   <block id="a9bf0a810b5c634110cced1dcc9dd514" category="section-title">AFF A250或FAS500f以及AFF A220或FAS2750系统的交换机端口使用情况</block>
   <block id="eab2b22490c89198b6c41f5b7c6e6104" category="image-alt">通过MCC IP将AFF A250和a220连接到Broadcom bes 53248交换机</block>
+  <block id="cbb84028bf466aea1ee153b79bbe1a90" category="list-text">Red Hat Enterprise Linux 7到7.9或CentOS 7到7.9 64位(物理安装或虚拟机)</block>
+  <block id="7ddeb0fd81d52fb9d56f1689ef0faa65" category="list-text">Red Hat Enterprise Linux 8.1至8.5</block>
+  <block id="af5c7720c35a6c5bbdbd9a0118f9b86a" category="list-text">MariaDB 10.x (使用使用"yum install MariaDB-server.x86_64 "安装的默认版本)</block>
 </blocks>
