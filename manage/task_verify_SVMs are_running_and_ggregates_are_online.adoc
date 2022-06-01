@@ -1,10 +1,10 @@
 ---
-permalink: manage/task_confirm_that_dr_partners_have_come_online.html 
+permalink: manage/task_verify_SVMs are_running_and_aggregates_are_online.html 
 sidebar: sidebar 
 keywords: switchover, dr, partner, ownership, disk, svm, online, confirm 
 summary: 切换完成后，您应验证 DR 配对节点是否已取得磁盘的所有权，以及配对 SVM 是否已联机。 
 ---
-= 确认灾难恢复配对节点已联机
+= 验证SVM是否正在运行且聚合是否联机
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,27 +13,9 @@ summary: 切换完成后，您应验证 DR 配对节点是否已取得磁盘的�
 [role="lead"]
 切换完成后，您应验证 DR 配对节点是否已取得磁盘的所有权，以及配对 SVM 是否已联机。
 
-.步骤
-. 确认聚合磁盘已切换到灾难站点： `storage disk show -fields owner ， dr-home`
-+
-在此示例中，输出显示切换后的磁盘已设置 dr-home 字段：
+在 MetroCluster 切换后运行 storage aggregate plex show 命令时，切换后的根聚合的 plex0 状态不确定，并显示为 failed 。在此期间，切换后的根不会更新。只有在 MetroCluster 修复阶段之后才能确定此丛的实际状态。
 
-+
-[listing]
-----
-cluster_A::> storage disk show -fields owner,dr-home
-disk                 owner           dr-home
--------------------- --------------- -------
-1.11.0               node_A_1        node_B_1
-1.11.1               node_A_1        node_B_1
-1.11.2               node_A_1        node_B_1
-1.11.3               node_A_1        node_B_1
-1.11.4               node_A_1        node_B_1
-1.11.5               node_A_1        node_B_1
-1.11.6               node_A_1        node_B_1
-1.11.7               node_A_1        node_B_1
-1.11.8               node_A_1        node_B_1
-----
+.步骤
 . 使用 storage aggregate show 命令检查聚合是否已切换。
 +
 在此示例中，聚合已切换。根聚合（ aggr0_B2 ）处于已降级状态。数据聚合（ b2_aggr2 ）处于镜像正常状态：

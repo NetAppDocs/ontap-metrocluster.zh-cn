@@ -80,7 +80,7 @@ Group Cluster Node               State          Mirroring Mode
 +
 [listing]
 ----
-cluster_2::> cluster peer modify-local-name -name cluster_2 -new-name
+cluster_A::> cluster peer modify-local-name -name cluster_2 -new-name
 cluster_B
 ----
 . 在远程集群上验证本地集群是否已重命名并正常运行：

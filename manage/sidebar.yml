@@ -12,10 +12,8 @@ entries:
     url: "/manage/task_send_a_custom_autosupport_message_prior_to_negotiated_switchover.html"
   - title: 执行协商切换
     url: "/manage/task_perform_a_negotiated_switchover.html"
-  - title: 在 MetroCluster 切换后， storage aggregate plex show 命令的输出不确定
-    url: "/manage/concept_output_for_storage_aggregate_plex_show_after_a_mcc_switchover.html"
-  - title: 确认灾难恢复合作伙伴已联机
-    url: "/manage/task_confirm_that_dr_partners_have_come_online.html"
+  - title: 验证SVM是否正在运行且聚合是否联机
+    url: "/manage/task_verify_SVMs are_running_and_aggregates_are_online.html"
   - title: 修复配置
     entries:
     - title: 修复 MetroCluster FC 配置中的配置

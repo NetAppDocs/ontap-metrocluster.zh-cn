@@ -52,19 +52,14 @@ cluster_A_site_A::*>metrocluster modify -auto-switchover-failure-domain auso-dis
         End Time: 4/25/2020 20:20:36
           Errors: -
 ----
-. 使用以下命令暂停节点：
+. 使用以下命令暂停节点：`* halt*`
 +
-` * hal*` * 对于四节点或八节点 MetroCluster 配置，请使用参数 + ` * inhibit-takeover*`
-
-+
-+
-
+** 对于四节点或八节点MetroCluster 配置、请使用参数`* inhibit-takeover*`
 +
 [listing]
 ----
 system node halt -node node1_SiteA -inhibit-takeover true -ignore-quorum-warnings true
 ----
-+
 ** 对于双节点 MetroCluster 配置，请使用命令：
 +
 [listing]
@@ -76,12 +71,19 @@ system node halt -node node1_SiteA -ignore-quorum-warnings true
 . 关闭站点上的以下设备：
 +
 ** 存储控制器
-** MetroCluster FC 交换机
+** MetroCluster FC交换机(如果正在使用且配置不是双节点延伸型配置)
 ** ATTO FibreBridge
 ** 存储架
 
 
-. 等待 30 分钟，然后打开所有控制器的电源。
+. 等待30分钟、然后启动站点上的以下设备：
++
+** 存储架
+** ATTO FibreBridge
+** MetroCluster FC 交换机
+** 存储控制器
+
+
 . 打开控制器电源后，从两个站点验证 MetroCluster 配置。
 +
 要验证配置，请重复步骤 1 。

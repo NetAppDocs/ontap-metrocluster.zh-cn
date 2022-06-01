@@ -586,6 +586,7 @@ switch_A_1# copy running-config startup-config
 .. 验证 ISL 。
 
 
+. 打开存储控制器的电源。
 . 打开磁盘架的电源，并留出足够的时间使其完全启动。
 . 打开 FibreBridge 网桥的电源。
 +

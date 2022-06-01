@@ -30,14 +30,6 @@ NOTE: 未镜像聚合必须位于其所属节点的本地。
 
 
 .步骤
-. 启用未镜像聚合部署：
-+
-MetroCluster modify -enable-unmirrored-aggr-deployment true`
-
-. 验证是否已禁用磁盘自动分配：
-+
-`d` 选项显示
-
 . 安装要包含未镜像聚合的磁盘架并为其布线。
 +
 您可以对平台和磁盘架使用 _Installation and Setup_ 文档中的过程。
@@ -92,14 +84,6 @@ controller_A_1::> storage aggregate create aggr1_controller_A_1 -diskcount 10 -n
 . 验证新聚合的 RAID 组和驱动器：
 +
 `storage aggregate show-status -aggregate _aggregate-name_`
-
-. 禁用未镜像聚合部署：
-+
-MetroCluster modify -enable-unmirrored-aggr-deployment false`
-
-. 验证是否已启用磁盘自动分配：
-+
-`d` 选项显示
 
 
 
