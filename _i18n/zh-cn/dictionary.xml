@@ -12552,4 +12552,13 @@
   <block id="e3b4bec7cc0382f3d2b420e4d37da974" category="list-text">打开存储控制器的电源。</block>
   <block id="be8e7921b8bc696adb0f989ee98b7e9f" category="list-text">`s对等`可以是"100"或"1000"。</block>
   <block id="e44042693910b4bd1a0494893ddc1892" category="doc">验证SVM是否正在运行且聚合是否联机</block>
+  <block id="0f6663ce923ab095e111674a6a00e20f" category="summary">您可以从ONTAP IP配置中删除MetroCluster 调解器服务。</block>
+  <block id="dbef88bf7072abf7cb1500b76c098158" category="doc">从MetroCluster IP配置中取消配置ONTAP 调解器服务</block>
+  <block id="b265dc310dca1d74417a4715e46c4168" category="paragraph">您可以从MetroCluster IP配置取消配置ONTAP 调解器服务。</block>
+  <block id="db31f506e34352cf979355688abceeac" category="paragraph">您必须已在两个ONTAP 站点均可访问的网络位置上成功安装和配置MetroCluster 调解器。</block>
+  <block id="5bf67de758861fac80bba5762e2395d5" category="paragraph">您必须在MetroCluster IP配置中的两个集群上执行此任务。</block>
+  <block id="c8dd54fd6141594c239adba6bd3401ff" category="list-text">使用以下命令取消配置ONTAP 调解器服务：</block>
+  <block id="0c87e171b9e1156bebc0a65b722d174d" category="list-text">使用以下命令检查是否存在任何损坏的磁盘：</block>
+  <block id="27bf55792722dd4b16925981ef8953b4" category="paragraph">`d`显示-broken</block>
+  <block id="938f1047c15f00fdd0cbfc8e4cfa15e1" category="paragraph">* 示例 *</block>
 </blocks>

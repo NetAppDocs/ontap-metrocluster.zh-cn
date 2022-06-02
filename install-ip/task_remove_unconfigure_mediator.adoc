@@ -1,0 +1,39 @@
+---
+permalink: install-ip/task_remove_unconfigure_mediator.html 
+sidebar: sidebar 
+keywords: ontap, mediator, service, assist, remove, unconfigure, requirements, mediator requirements 
+summary: 您可以从ONTAP IP配置中删除MetroCluster 调解器服务。 
+---
+= 从MetroCluster IP配置中取消配置ONTAP 调解器服务
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以从MetroCluster IP配置取消配置ONTAP 调解器服务。
+
+您必须已在两个ONTAP 站点均可访问的网络位置上成功安装和配置MetroCluster 调解器。
+
+您必须在MetroCluster IP配置中的两个集群上执行此任务。
+
+.步骤
+. 使用以下命令取消配置ONTAP 调解器服务：
++
+`MetroCluster configuration-settings mediator remove`
+
++
+.. 使用以下命令检查是否存在任何损坏的磁盘：
++
+`d`显示-broken
+
++
+* 示例 *
+
++
+....
+There are no entries matching your query.
+....
+
+
+

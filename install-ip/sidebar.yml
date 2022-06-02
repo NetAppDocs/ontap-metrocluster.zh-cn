@@ -97,6 +97,8 @@ entries:
     url: "/install-ip/concept_mediator_requirements.html"
   - title: 从 MetroCluster IP 配置配置 ONTAP 调解器服务
     url: "/install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html"
+  - title: 从MetroCluster IP配置中取消配置ONTAP 调解器服务
+    url: "/install-ip/task_remove_unconfigure_mediator.html"
   - title: 将 MetroCluster 配置连接到其他 ONTAP 调解器实例
     url: "/install-ip/task_connecting_mcc_to_different_mediator_instance.html"
 - title: 测试 MetroCluster 配置
