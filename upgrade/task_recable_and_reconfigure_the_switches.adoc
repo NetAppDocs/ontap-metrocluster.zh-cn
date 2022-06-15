@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, apply, rcf, files, recable, switches 
 summary: 您必须应用 RCF 文件来重新配置分区以容纳新节点。 
 ---
-= 应用 RCF 文件并重新为交换机布线
+= 重新配置交换机并对其进行重新配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,6 +12,12 @@ summary: 您必须应用 RCF 文件来重新配置分区以容纳新节点。
 
 [role="lead"]
 您必须应用 RCF 文件来重新配置分区以容纳新节点。
+
+如果无法使用RCF文件配置交换机、则必须手动配置交换机。请参见
+
+* link:../install-fc/task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["手动配置 Brocade FC 交换机"]
+* link:../install-fc/task_fcsw_cisco_configure_a_cisco_switch_supertask.html["手动配置 Cisco FC 交换机"]
+
 
 .步骤
 . 找到适用于您的配置的 RCF 文件。
@@ -24,10 +30,6 @@ summary: 您必须应用 RCF 文件来重新配置分区以容纳新节点。
 . 使用先前创建的布线布局，使用缆线将原有的和新的 FC-SAS 网桥连接到 FC 交换机。
 +
 FC 交换机端口使用情况必须与中所述的 MetroCluster 八节点使用情况匹配 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"] 以便可以使用参考配置文件（ Reference Configuration Files ， RCF ）。
-
-+
-
-NOTE: 如果您的环境无法使用 RCF 文件进行布线，请联系技术支持。如果布线无法使用 RCF 文件，请勿使用此操作步骤。
 
 . 使用适用于您的交换机的正确命令验证端口是否联机。
 +
@@ -53,10 +55,6 @@ Cisco
 . 使用中的操作步骤 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"] 使用先前创建的布线布局为现有控制器和新控制器中的 FC-VI 端口布线。
 +
 FC 交换机端口使用情况必须与中所述的 MetroCluster 八节点使用情况匹配 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"] 以便可以使用参考配置文件（ Reference Configuration Files ， RCF ）。
-
-+
-
-NOTE: 如果您的环境无法使用 RCF 文件进行布线，请联系技术支持。如果布线无法使用 RCF 文件，请勿使用此操作步骤。
 
 . 从现有节点中，验证 FC-VI 端口是否联机：
 +

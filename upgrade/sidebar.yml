@@ -105,7 +105,7 @@ entries:
     entries:
     - title: 断开现有 DR 组与网络结构的连接
       url: "/upgrade/task_disconnect_the_exist_dr_group_mcc_expansion.html"
-    - title: 应用 RCF 文件并对交换机重新布线
+    - title: 重新配置交换机并对其进行重新配置
       url: "/upgrade/task_apply_the_rcf_files_and_recable_the_switches.html"
   - title: 在新控制器上配置 ONTAP
     entries:

@@ -2316,13 +2316,11 @@
   <block id="aa7634a6c4e974b52faf565e007e1b60" category="doc">在光纤连接 MetroCluster 配置中添加控制器模块时为新控制器端口进行分区</block>
   <block id="f1671ac439417f75927f98ad97323bf7" category="paragraph">FC 交换机分区必须支持新的控制器连接。如果您使用 NetApp 提供的参考配置文件（ Reference Configuration Files ， RCF ）配置交换机，则分区是预配置的，您无需进行任何更改。</block>
   <block id="f13350a82ffb5e406781c64809e8f8a8" category="summary">您必须应用 RCF 文件来重新配置分区以容纳新节点。</block>
-  <block id="6016ea2cf4e87fb0a89afdab83b8a98b" category="doc">应用 RCF 文件并重新为交换机布线</block>
   <block id="c0b2ef0c7e8bedc314010fcbe929e544" category="paragraph">对于八节点配置，必须使用与您的交换机型号匹配的 RCF 文件。</block>
   <block id="93db71f559f17fb1c146361893f3ff36" category="list-text">按照下载页面上的说明应用 RCF 文件，并根据需要调整 ISL 设置。</block>
   <block id="b862528f72ea6d2ddcdf03d59e55fa27" category="list-text">确保已保存交换机配置。</block>
   <block id="9566c6febae9d51d50e73e64dbd10cfe" category="list-text">重新启动 FC 交换机。</block>
   <block id="cc421f36cbb2a622eb7463c75215237e" category="list-text">使用先前创建的布线布局，使用缆线将原有的和新的 FC-SAS 网桥连接到 FC 交换机。</block>
-  <block id="81f2b3db69617a2591d70d6a0ed93fe7" category="admonition">如果您的环境无法使用 RCF 文件进行布线，请联系技术支持。如果布线无法使用 RCF 文件，请勿使用此操作步骤。</block>
   <block id="6bea4e12f9fc7219e8f9f668a51bbd7e" category="list-text">使用适用于您的交换机的正确命令验证端口是否联机。</block>
   <block id="603daf7d0ebdc9f03b83a713f846bd99" category="cell">交换机供应商</block>
   <block id="f767ce6f0ed7bd206c39e1687db0b685" category="paragraph">Brocade</block>
@@ -6559,7 +6557,6 @@
   <block id="fd9e565a205d3a9bdcf8f0ad5751385a" category="list-text">交换机名称</block>
   <block id="b37d06f90ca61851b4fc3bf1013590e6" category="list-text">带外管理配置</block>
   <block id="a1b3b561806404b50d16aea5aee1d0d1" category="list-text">默认网关</block>
-  <block id="2d49954711bf3702573c6a8e8d807645" category="list-text">SSH 服务（远程支持代理）完成配置向导后，交换机将重新启动。</block>
   <block id="ecfda639eec705bbed4e75e9968cba1e" category="list-text">出现提示时，输入用户名和密码以登录到交换机。</block>
   <block id="f1739ac2b66c3c894842c1cb12d27102" category="paragraph">以下示例显示了登录到交换机时的提示和系统响应。尖括号（` *&lt;&lt;*` ）显示信息的输入位置。</block>
   <block id="5a50560fb9b26d7fc2c92b7d5f6ae1b1" category="list-text">在下一组提示中输入基本信息，包括交换机名称，管理地址和网关，然后为 SSH 密钥输入 ` * rs*` ，如示例所示：</block>
@@ -10678,7 +10675,6 @@
   <block id="1d6f4a845a954c7b875dc506c2f3b1dc" category="sidebar">在将节点添加到 MetroCluster 配置之前，发送自定义 AutoSupport 消息</block>
   <block id="991d75ef8b30d43e0c77377fdedbced8" category="sidebar">为新节点重新配置交换机网络结构并对其进行分区</block>
   <block id="5d4fa840aa69061d766097a3909fad83" category="sidebar">断开现有 DR 组与网络结构的连接</block>
-  <block id="59c85c278b8f5f8a994f268744829b19" category="sidebar">应用 RCF 文件并对交换机重新布线</block>
   <block id="d9a531a3f31df861443133dd9765f39c" category="sidebar">在新控制器上配置 ONTAP</block>
   <block id="a3d53cea9a8b8b61d7bf5ff5d1804260" category="sidebar">在 AFF 系统中分配磁盘所有权</block>
   <block id="83acf92ff8f6812b50314e32473081e5" category="sidebar">在非 AFF 系统中分配磁盘所有权</block>
@@ -12561,4 +12557,11 @@
   <block id="0c87e171b9e1156bebc0a65b722d174d" category="list-text">使用以下命令检查是否存在任何损坏的磁盘：</block>
   <block id="27bf55792722dd4b16925981ef8953b4" category="paragraph">`d`显示-broken</block>
   <block id="938f1047c15f00fdd0cbfc8e4cfa15e1" category="paragraph">* 示例 *</block>
+  <block id="2e5c6d46dc39a1cc71a6f41b56106221" category="list-text">SSH服务(远程支持代理)。</block>
+  <block id="4c20f2b5dfebba1daad521c7b3ab4c3b" category="paragraph">完成配置向导后，交换机将重新启动。</block>
+  <block id="5582507cb9f874f57ac6bf62db65d371" category="doc">重新配置交换机并对其进行重新配置</block>
+  <block id="6647147ed73881ba6516c57ac1b5fe4a" category="paragraph">如果无法使用RCF文件配置交换机、则必须手动配置交换机。请参见</block>
+  <block id="71620bedc8491865816460c55b3cde98" category="list-text"><block ref="71620bedc8491865816460c55b3cde98" category="inline-link-macro-rx"></block></block>
+  <block id="3a8190b24d904ae352e54f8a0a3df0bb" category="list-text"><block ref="3a8190b24d904ae352e54f8a0a3df0bb" category="inline-link-macro-rx"></block></block>
+  <block id="bee24b783e44923012afab506584e701" category="list-text">SSH 服务（ RSA ）</block>
 </blocks>
