@@ -21,7 +21,7 @@ summary: 升级配对集群上的控制器模块时，您可以使用 MetroClust
 * 您可以对某些 ONTAP 版本使用以下过程：
 +
 ** ONTAP 9.3 及更高版本支持双节点配置。
-** ONTAP 9.8 及更高版本支持四节点和八节点配置。
+** ONTAP 9.8及更高版本支持四节点和八节点配置。
 +
 请勿在运行 ONTAP 9.8 之前版本的四节点或八节点配置上使用此操作步骤。
 
@@ -33,8 +33,9 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 +
 
-NOTE: 如果原始或新平台是使用 FC-VI 模式下端口 1c 和 1d 的 FAS8020 或 AFF8020 系统，请联系技术支持。
+NOTE: 如果原始或新平台是使用FC-VI模式下端口1c和1d的FAS8020或AFF8020系统、请查看 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Upgrading_controllers_when_FCVI_connections_on_existing_FAS8020_or_AFF8020_nodes_use_ports_1c_and_1d["NetApp知识库：如果现有FAS8020或AFF8020节点上的FCVI连接使用端口1c和1d、则升级控制器。"^]
 
+* 两个站点的许可证必须匹配。您可以从获取新许可证 link:https://mysupport.netapp.com/site/["NetApp 支持站点"^]。
 * 此操作步骤适用场景控制器模块采用 MetroCluster FC 配置（双节点延伸型 MetroCluster 或双节点或四节点光纤连接 MetroCluster 配置）。
 * 配置中的所有控制器都应在同一维护期间进行升级。
 +
@@ -1416,6 +1417,16 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 +
 根据需要对所有 SVM 执行此步骤。
 
+
+
+
+
+=== 安装新许可证
+
+在执行切回操作之前、您必须为新控制器安装许可证。
+
+.步骤
+. link:task_install_licenses_on_the_new_controller_module_cluster_mode.html["为新控制器模块安装许可证"]
 
 
 

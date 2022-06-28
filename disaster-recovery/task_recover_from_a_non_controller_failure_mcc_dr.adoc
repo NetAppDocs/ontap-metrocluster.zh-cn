@@ -346,7 +346,7 @@ Aggregate     Size Available Used% State   #Vols  Nodes            RAID Status
 aggr_b2          -         -     - unknown      - node_A_1
 ----
 +
-如果灾难站点包含未镜像聚合且未镜像聚合不再存在，则聚合可能会在 `storage aggregate show` 命令的输出中显示为 "unknown" 状态。请联系技术支持以删除未镜像聚合的过期条目。
+如果灾难站点包含未镜像聚合且未镜像聚合不再存在，则聚合可能会在 `storage aggregate show` 命令的输出中显示为 "unknown" 状态。请联系技术支持以删除未镜像聚合的过期条目并提供参考 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_stale_unmirrored_aggregate_entries_in_a_MetroCluster_following_disaster_where_storage_was_lost["NetApp知识库：在存储丢失的灾难发生后、如何在MetroCluster 中删除陈旧的未镜像聚合条目。"^]
 
 . 验证运行正常的集群上的所有 sync-destination SVM 是否均处于休眠状态（显示管理状态为 "stopped" ），以及灾难集群上的 sync-source SVM 是否已启动且正在运行：
 +

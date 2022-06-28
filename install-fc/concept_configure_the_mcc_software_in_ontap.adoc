@@ -2663,6 +2663,9 @@ NOTE: 如果要使用单个镜像数据聚合，请参见 <<step1_aggr,第 1 步
 
 `MetroCluster configure` 命令会自动将两个集群中每个集群中系统 ID 最低的两个节点配对，作为灾难恢复（ DR ）配对节点。在四节点 MetroCluster 配置中，存在两个 DR 配对节点对。第二个 DR 对是从系统 ID 较高的两个节点创建的。
 
+
+NOTE: 在运行命令`MetroCluster configure`之前、您必须*不*配置板载密钥管理器(OKM)或外部密钥管理。
+
 .步骤
 . 【第 1 步 _aggr]] 按照以下格式配置 MetroCluster ：
 +

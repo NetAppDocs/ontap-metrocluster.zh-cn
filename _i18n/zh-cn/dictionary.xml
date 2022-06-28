@@ -1397,7 +1397,6 @@
   <block id="0d687993b6b67e20ff0472f32d9693b0" category="paragraph">您必须确定新控制器模块和任何新磁盘架到现有 FC 交换机的布线。</block>
   <block id="6485f9afbf9c5f34e988054e67e3b142" category="paragraph">必须在每个 MetroCluster 站点上执行此任务。</block>
   <block id="9846b9bd1d098858cca0855cc4e56c18" category="paragraph">FC 交换机端口使用情况必须与指南中所述的使用情况匹配，才能使用参考配置文件（ Reference Configuration Files ， RCF ）。</block>
-  <block id="9abd645e397061a8e3dab1bb33124897" category="admonition">如果您的环境无法使用 RCF 进行布线，请联系技术支持。如果布线无法使用操作步骤，请勿使用此 RCF 。</block>
   <block id="62f6cc0bf7eb35e158a953058ca74eca" category="section-title">应用 RCF 文件并重新为交换机布线</block>
   <block id="240180de393c4a94b035628cb25892f2" category="paragraph">您必须应用适当的参考配置（ RCF ）文件来重新配置交换机以容纳新节点。应用 RCF 文件后，您可以对交换机进行重新布线。</block>
   <block id="6a82c384f85f037d7996beaa2d1d7d15" category="list-text">找到适用于您的配置的 RCF 文件。</block>
@@ -1930,7 +1929,6 @@
   <block id="9b7868adf853e7eebe0da1408c6ccd24" category="paragraph">无法同时升级配置中的其他组件，例如存储架或交换机。</block>
   <block id="775b84147d85d58d8180690300a5d104" category="list-text">您可以对某些 ONTAP 版本使用以下过程：</block>
   <block id="0658afd7b63854a03c773da7890b79c4" category="list-text">ONTAP 9.3 及更高版本支持双节点配置。</block>
-  <block id="2e6da68450b987e7ad374e965e63ad0e" category="list-text">ONTAP 9.8 及更高版本支持四节点和八节点配置。</block>
   <block id="ed332ae2e9a3efd17382e627809f4c84" category="paragraph">请勿在运行 ONTAP 9.8 之前版本的四节点或八节点配置上使用此操作步骤。</block>
   <block id="dfaa931cb3298c6a8b82f108a31104cb" category="list-text">您的原始平台和新平台必须兼容并受支持。</block>
   <block id="b7071513452c80dcfb33a91f6c6f0ecd" category="list-text">此操作步骤适用场景控制器模块采用 MetroCluster FC 配置（双节点延伸型 MetroCluster 或双节点或四节点光纤连接 MetroCluster 配置）。</block>
@@ -2627,7 +2625,6 @@
   <block id="41365539a8ffcff55d887255791f26f6" category="list-text">打开现有控制器模块上的电源。</block>
   <block id="81849b984186456aa612c556a4914aaa" category="list-text">对新控制器模块重复上述步骤</block>
   <block id="4b7867ffe681fd760cc93c409952f239" category="paragraph">每个控制器模块应显示 LOADER 提示符（`LOADER&gt;` ， `LOADER-A&gt;` 或 `LOADER-B&gt;` ）。</block>
-  <block id="ff3d4335d0a6cda4d1a193cc9b93d0ac" category="admonition">如果没有 LOADER 提示符，请记录错误消息并联系技术支持。如果系统显示启动菜单，请重新启动并再次尝试中断启动过程。</block>
   <block id="48f1cbfd98903541f8e454a15e0879c3" category="doc">使用切换和切回升级 MetroCluster IP 配置中的控制器（ ONTAP 9.8 及更高版本）</block>
   <block id="bcd52c133e0292437778058a5ed793b1" category="list-text">这些平台必须运行 ONTAP 9.8 或更高版本。</block>
   <block id="5606659eb62f79273b91080445f7165a" category="list-text">此操作步骤适用场景控制器模块采用 MetroCluster IP 配置。</block>
@@ -2817,7 +2814,6 @@
   <block id="df2ef58daa49e755e50530b551f462b9" category="paragraph">您必须为需要标准（节点锁定）许可证的任何 ONTAP 服务添加新控制器模块的许可证。对于具有标准许可证的功能，集群中的每个节点都必须具有自己的功能密钥。</block>
   <block id="3995801a90ce2d1b48223a6bace39bcd" category="paragraph">有关许可的详细信息，请参见 NetApp 支持站点上的知识库文章 3013749 ： Data ONTAP 8.2 许可概述和参考以及 _System Administration References 。</block>
   <block id="e5514e918432d58e8d631dcf6889b269" category="list-text">如有必要，请在 NetApp 支持站点的软件许可证下的我的支持部分中获取新节点的许可证密钥。</block>
-  <block id="ecf4debaa8ac551655e89b1663c331ed" category="paragraph">如果站点没有所需的许可证密钥，请联系您的销售或支持代表。</block>
   <block id="cecf1f14234757f8afb171021ce16823" category="list-text">问题描述使用以下命令安装每个许可证密钥：</block>
   <block id="20ddcb4ab055c5c617f1c025424029d3" category="paragraph">` _license_key_` 的长度为 28 位数。</block>
   <block id="60da9a265bc4a7751e78320152a60b69" category="paragraph">对所需的每个标准（节点锁定）许可证重复此步骤。</block>
@@ -6919,7 +6915,6 @@
   <block id="afc362bb21237b3cf262e5bb73c2e7ce" category="paragraph">您可以通过指定一个远程 URL （ HTTP 或 FTP ）来为集群配置备份文件提供额外保护，除了本地集群中的默认位置之外，还可以将配置备份文件上传到该远程 URL 。</block>
   <block id="882861c4cbc2720bbf7b9b7ae1dbada9" category="doc">删除 MetroCluster 配置时的注意事项</block>
   <block id="0ea00d4fc48d7eb7ff02d29820696767" category="paragraph">您可以从 MetroCluster 配置中的所有节点或灾难恢复（ DR ）组中的所有节点中删除 MetroCluster 配置。删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。</block>
-  <block id="42c2aaa725120c3eba302533d73629d7" category="admonition">您不能反转 MetroCluster 取消配置。此过程只能在技术支持的协助下完成。</block>
   <block id="4f06b4d64acae1e487dfeee6d05acf87" category="doc">MetroCluster 站点上的防火墙使用情况</block>
   <block id="babbebe817de4ac640d017ba3dca7743" category="summary">MetroCluster 组件必须在两个地理站点上进行物理安装，布线和配置。与使用阵列 LUN 的系统相比，使用原生磁盘架的系统的步骤略有不同。</block>
   <block id="da677daf9723918166ed931256a804a8" category="image-alt">工作流硬件安装和配置 4 节点或 2 节点网络结构</block>
@@ -8511,7 +8506,6 @@
   <block id="838e866ece9701e5a58755a132b144d0" category="paragraph">如果切回需要很长时间才能完成，您可以在高级权限级别使用以下命令来检查正在进行的基线的状态。</block>
   <block id="eca7334e4ced3e1626aa264456a4abf0" category="paragraph">`MetroCluster config-replication resync-status show`</block>
   <block id="3579c4d393b95e31540a220033fd8ed1" category="list-text">验证切换后的数据聚合是否已切回：</block>
-  <block id="db835b1e3cf598f7016d1b565d22d173" category="paragraph">如果灾难站点包含未镜像聚合且未镜像聚合不再存在，则聚合可能会在 `storage aggregate show` 命令的输出中显示为 "unknown" 状态。请联系技术支持以删除未镜像聚合的过期条目。</block>
   <block id="8d90a1ad74872449b69dcbc9a1230a79" category="list-text">验证运行正常的集群上的所有 sync-destination SVM 是否均处于休眠状态（显示管理状态为 "stopped" ），以及灾难集群上的 sync-source SVM 是否已启动且正在运行：</block>
   <block id="529311fd1dafee8998290952c2b30156" category="paragraph">`vserver show -subtype sync-source`</block>
   <block id="702f8c89c26d6cb5eb222b0149dcf136" category="list-text">确认切回操作成功：</block>
@@ -8616,7 +8610,6 @@
   <block id="1523d0cbbedf508597567dac56417eb2" category="paragraph">`MetroCluster check license show`</block>
   <block id="881fe4323212cb8e35cee6be8d05c929" category="paragraph">以下示例显示了适用于此节点的许可证：</block>
   <block id="bc6cb5ca7b5ffe469e55f15360b228c7" category="list-text">如果您需要新的许可证密钥，请在 NetApp 支持站点的软件许可证下的我的支持部分中获取替代许可证密钥。</block>
-  <block id="d3c2ed97232b4e6667d7111adb92a79c" category="admonition">系统会自动生成所需的新许可证密钥，并将其发送到文件中的电子邮件地址。如果您未能在 30 天内收到包含许可证密钥的电子邮件，应联系技术支持。</block>
   <block id="179f3c48aec46d54f5f4fe15ed0484b2" category="list-text">安装每个许可证密钥：</block>
   <block id="c71ddef805b4933b2cfdcf19e62282bf" category="paragraph">`ssystem license add -license-code license-key ， license-key...+`</block>
   <block id="11d90ad9838fdc1545ee368cd8943df9" category="list-text">如果需要，删除旧许可证：</block>
@@ -11486,7 +11479,6 @@
   <block id="f4d1718476f238773172cc8143587c05" category="paragraph"><block ref="f4d1718476f238773172cc8143587c05" category="inline-link-rx"></block></block>
   <block id="31adf6c46538c00d916f0a1f7acc11f5" category="list-text">有关 FabricPool 配置的详细信息，请参见 <block ref="35c3ebb4e6a9e3c67e4d7c35a500b0be" category="inline-link-macro-rx"></block>。</block>
   <block id="1340a5b41b84e7246a789cfe5e1eb1a7" category="list-text">按照中的操作步骤 " 更换 MetroCluster 配置上的 FabricPool 镜像 " 进行操作 <block ref="35c3ebb4e6a9e3c67e4d7c35a500b0be" category="inline-link-macro-rx"></block>。</block>
-  <block id="673c12c7e6525bb3d967abd59cf88b50" category="paragraph">如果灾难站点包含未镜像聚合，而未镜像聚合不再存在，则该聚合可能会在 storage aggregate show 命令的输出中显示为 "`unknown` " 状态。请联系技术支持以删除未镜像聚合的过期条目。</block>
   <block id="aa22b9d198bd6a038b670437eee9be3f" category="list-text">验证运行正常的集群上的所有 sync-destination SVM 是否均处于休眠状态（显示 Admin State 为 `sstopped` ），以及灾难集群上的 sync-source SVM 是否已启动且正在运行：</block>
   <block id="ab1dba64bb6e8de017000d69dfdb9ac8" category="paragraph"><block ref="ab1dba64bb6e8de017000d69dfdb9ac8" category="inline-link-macro-rx"></block></block>
   <block id="e5d7a25b7e762503563170086c5defa9" category="paragraph"><block ref="e5d7a25b7e762503563170086c5defa9" category="inline-link-macro-rx"></block></block>
@@ -12392,7 +12384,6 @@
   <block id="5ddb9938498e31a4b1c392ab5953e15b" category="paragraph"><block ref="5ddb9938498e31a4b1c392ab5953e15b" category="inline-link-rx"></block></block>
   <block id="9630e0ae86014261ce835fe1e1ffcd0e" category="paragraph">您必须连续对每个交换机重复此任务。</block>
   <block id="b8ce668f7b81ebccc724b47a22aafe9f" category="paragraph">MetroCluster 系统的服务过程包括驱动器架， IP 交换机， FC 交换机， FC-SAS 网桥和 SAS 缆线的固件升级和硬件更换过程。</block>
-  <block id="46e4f6024087b0e1c3fd4a21ef438dad" category="admonition">如果原始或新平台是使用 FC-VI 模式下端口 1c 和 1d 的 FAS8020 或 AFF8020 系统，请联系技术支持。</block>
   <block id="ea82c7b5fb58362afd3d6e95de6eb609" category="list-text">FAS80x0</block>
   <block id="9b81337122f1b971d326821246c0fb05" category="list-text">AFF80x0</block>
   <block id="9630fdb2df8bbf2bbd201638e1cc2f2e" category="admonition">在 FC-VI 模式下使用 1c 和 1d 端口时，不支持升级 FAS8020 或 AFF8020 。</block>
@@ -12564,4 +12555,25 @@
   <block id="71620bedc8491865816460c55b3cde98" category="list-text"><block ref="71620bedc8491865816460c55b3cde98" category="inline-link-macro-rx"></block></block>
   <block id="3a8190b24d904ae352e54f8a0a3df0bb" category="list-text"><block ref="3a8190b24d904ae352e54f8a0a3df0bb" category="inline-link-macro-rx"></block></block>
   <block id="bee24b783e44923012afab506584e701" category="list-text">SSH 服务（ RSA ）</block>
+  <block id="39ceb938ecce9e03ffb814b0ab98c3ff" category="inline-link-macro">NetApp知识库：How to remove nodes from a MetroCluster configuration - Resolution Guide.</block>
+  <block id="ddcd0bc62cc0d6ad3a96c234e8e9acc2" category="admonition">您不能反转 MetroCluster 取消配置。此过程只能在技术支持的协助下完成。请联系NetApp技术支持、并参考中适用于您的配置的相应指南 <block ref="6b274ee2da4e368d83246d3228463b74" category="inline-link-macro-rx"></block></block>
+  <block id="aac7cfec46f1e12804543ab7e9f0bf82" category="admonition">在运行命令`MetroCluster configure`之前、您必须*不*配置板载密钥管理器(OKM)或外部密钥管理。</block>
+  <block id="b7dc5f17370f3f6d8f0564ad37092c2e" category="list-text">ONTAP 9.8及更高版本支持四节点和八节点配置。</block>
+  <block id="4d8ef96135f1fcc906a1c836b94ccd72" category="inline-link-macro">NetApp知识库：如果现有FAS8020或AFF8020节点上的FCVI连接使用端口1c和1d、则升级控制器。</block>
+  <block id="3b66e88b9eec711f27eed9c397de04df" category="admonition">如果原始或新平台是使用FC-VI模式下端口1c和1d的FAS8020或AFF8020系统、请查看 <block ref="5f6e886a55fbfce55c807e98c86f0ed7" category="inline-link-macro-rx"></block></block>
+  <block id="6f2e4be613f6e5c211f118c1604357ae" category="list-text">两个站点的许可证必须匹配。您可以从获取新许可证 <block ref="a42716fdd3c80ae75cadfb8024b65de0" category="inline-link-macro-rx"></block>。</block>
+  <block id="4bf20a918b2c6b62364371fe4f4d9c7f" category="section-title">安装新许可证</block>
+  <block id="c24d2fcd8511c8b51a6aef773200e0d8" category="paragraph">在执行切回操作之前、您必须为新控制器安装许可证。</block>
+  <block id="07beb3f4161a6f204edf78213ee21dd3" category="list-text"><block ref="07beb3f4161a6f204edf78213ee21dd3" category="inline-link-macro-rx"></block></block>
+  <block id="852fee667b0218d56efb26732593192d" category="inline-link-macro">主板更换后流程、用于更新AFF/FAS系统上的许可</block>
+  <block id="4d373838f1432114e8cb3f53c45f8736" category="paragraph">有关许可证更换的详细信息、请参见 <block ref="7fa6d13435a2a82c954f1735e8d67b30" category="inline-link-macro-rx"></block></block>
+  <block id="42f4edc2efb2c786550a905c38a8416c" category="admonition">如果没有LOADER提示符、请记录错误消息。如果系统显示启动菜单，请重新启动并再次尝试中断启动过程。</block>
+  <block id="8c4c17369ebab47cd3919b9e6b1e8537" category="admonition">如果布线无法使用操作步骤，请勿使用此 RCF 。</block>
+  <block id="07d36974183f0bd379705eb8861c8bba" category="inline-link-macro">NetApp知识库：在存储丢失的灾难发生后、如何在MetroCluster 中删除陈旧的未镜像聚合条目。</block>
+  <block id="e8a2aa8f2b533983c4b701d088ac2fa9" category="paragraph">如果灾难站点包含未镜像聚合且未镜像聚合不再存在，则聚合可能会在 `storage aggregate show` 命令的输出中显示为 "unknown" 状态。请联系技术支持以删除未镜像聚合的过期条目并提供参考 <block ref="857cf6ab3254f5ce14b6347a5dc33b9f" category="inline-link-macro-rx"></block></block>
+  <block id="34e63b4d455bee1fbdab9ea6d4e3fcb7" category="inline-link-macro">NetApp知识库：主板更换后流程、用于更新AFF/FAS系统上的许可。</block>
+  <block id="6abc18b19d1261841c5bebef07ade3cc" category="admonition">系统会自动生成所需的新许可证密钥，并将其发送到文件中的电子邮件地址。如果您未能在30天内收到包含许可证密钥的电子邮件、请参阅中的"如果我的许可证出现问题、应联系谁？"_部分<block ref="01bfbfba842a68c11d464652fb5b8666" category="inline-link-macro-rx"></block></block>
+  <block id="a83bdcaf895c6161de37c26c6fde86a6" category="paragraph">如果灾难站点包含未镜像聚合，而未镜像聚合不再存在，则该聚合可能会在 storage aggregate show 命令的输出中显示为 "`unknown` " 状态。请联系技术支持以删除未镜像聚合的过期条目、请参考 <block ref="857cf6ab3254f5ce14b6347a5dc33b9f" category="inline-link-macro-rx"></block></block>
+  <block id="efa4707d1136ea0f455cfb38e7371895" category="inline-link-macro">NetApp知识库：主板更换后流程、用于更新AFF/FAS系统上的许可</block>
+  <block id="e4d43f7afcae270903f6fda758c33beb" category="paragraph">有关许可证更换的详细信息、请参见 <block ref="fd34fb83b47f441a190e089e21262454" category="inline-link-macro-rx"></block></block>
 </blocks>
