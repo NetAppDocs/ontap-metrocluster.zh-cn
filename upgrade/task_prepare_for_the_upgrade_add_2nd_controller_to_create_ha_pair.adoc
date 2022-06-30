@@ -14,34 +14,14 @@ summary: 在升级到 HA 对之前，您必须验证您的系统是否满足所�
 在升级到 HA 对之前，您必须验证您的系统是否满足所有要求，并且您是否拥有所有必要的信息。
 
 .步骤
-. 您需要确定可分配给新控制器模块的未分配磁盘或备用磁盘。
+. 使用以下命令确定可分配给新控制器模块的未分配磁盘或备用磁盘：
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2427462["物理存储管理"^]
+** `storage disk show -container-type spare`
+** `storage disk show -container-type unassigned`
 
+
+. 完成以下子步骤：
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
-
-. 根据上一步的结果，执行以下任一操作：
-+
-[cols="1,3"]
-|===
-
-
-| 如果结果显示 ... | 那么 ... 
-
-
- a| 
-在不使用根数据分区的系统上，没有足够的备用磁盘可用于新控制器模块
- a| 
-有关详细信息，请联系技术支持。
-
-
-
- a| 
-其他结果
- a| 
-完成以下子步骤：
-
 .. 确定现有节点的聚合所在位置：
 +
 `s存储聚合显示`
@@ -57,7 +37,6 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁�
 .. 对新节点中所需数量的磁盘重复上述步骤。
 
 
-|===
 . 确认已为以下连接准备好缆线：
 +
 ** 集群连接

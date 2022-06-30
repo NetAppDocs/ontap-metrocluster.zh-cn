@@ -33,13 +33,13 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 +
 
-NOTE: 如果原始或新平台是使用FC-VI模式下端口1c和1d的FAS8020或AFF8020系统、请查看 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Upgrading_controllers_when_FCVI_connections_on_existing_FAS8020_or_AFF8020_nodes_use_ports_1c_and_1d["NetApp知识库：如果现有FAS8020或AFF8020节点上的FCVI连接使用端口1c和1d、则升级控制器。"^]
+NOTE: 如果原始或新平台是使用FC-VI模式下端口1c和1d的FAS8020或AFF8020系统、请参见知识库文章 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Upgrading_controllers_when_FCVI_connections_on_existing_FAS8020_or_AFF8020_nodes_use_ports_1c_and_1d["如果现有FAS8020或AFF8020节点上的FCVI连接使用端口1c和1d、则升级控制器。"^]
 
-* 两个站点的许可证必须匹配。您可以从获取新许可证 link:https://mysupport.netapp.com/site/["NetApp 支持站点"^]。
-* 此操作步骤适用场景控制器模块采用 MetroCluster FC 配置（双节点延伸型 MetroCluster 或双节点或四节点光纤连接 MetroCluster 配置）。
-* 配置中的所有控制器都应在同一维护期间进行升级。
+* 两个站点的许可证必须匹配。您可以从获取新许可证 link:https://mysupport.netapp.com/site/["NetApp 支持"^]。
+* 此 操作步骤 适用场景 控制器模块采用MetroCluster FC配置(双节点延伸型MetroCluster 或双节点、四节点或八节点光纤连接MetroCluster 配置)。
+* 同一DR组中的所有控制器都应在同一维护期间进行升级。
 +
-在此维护活动之外，不支持使用不同类型的控制器运行 MetroCluster 配置。
+在此维护活动之外、不支持在同一DR组中使用不同类型的控制器运行MetroCluster 配置。对于八节点MetroCluster 配置、DR组中的控制器必须相同、但两个DR组可以使用不同的控制器类型。
 
 * 支持的升级路径取决于原始平台型号。
 +

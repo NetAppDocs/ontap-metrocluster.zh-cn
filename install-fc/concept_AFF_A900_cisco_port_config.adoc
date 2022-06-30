@@ -4,17 +4,17 @@ sidebar: sidebar
 keywords: AFF, A900, Cisco, ONTAP, FAS, FC, metrocluster 
 summary: 下表显示了一个 DR 组中包含八个 AFF A900 控制器模块时支持的最大配置。 
 ---
-= 运行 ONTAP 9.10.1 或更高版本的 MetroCluster 配置中 AFF A900 控制器的 Cisco 端口使用情况
+= 运行ONTAP 9.10.1或更高版本的MetroCluster 配置中AFF A900或FAS9500控制 器的Cisco端口使用情况
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
-下表显示了一个 DR 组中包含八个 AFF A900 控制器模块时支持的最大配置。
+下表显示了一个DR组中包含八个AFF A900或FAS9500控制 器模块时支持的最大配置。
 
 [NOTE]
 ====
-* 下表显示了具有八个 FC-VI 端口的系统。AFF A900 具有八个 FC-VI 端口（ FC-VI-1 和 FC-VI-2 的 A ， b ， c 和 d ）。
+* 下表显示了具有八个 FC-VI 端口的系统。AFF A900和FAS9500具有八个FC-VI端口(FC-VI-1和FC-VI-2的A、b、c和d)。
 * 9132T 交换机不支持 MetroCluster 2 或 DR 2 。
 
 

@@ -77,9 +77,9 @@ image::../media/cabling_an_aff_a800_to_a_cisco_3232c_or_cisco_9336c_switch.png[�
 
 
 
-== 使用缆线将 AFF A900 连接到 Cisco 3232C 或 Cisco 9336C 交换机
+== 使用缆线将AFF A900或FAS9500连接 到Cisco 3232C或Cisco 9336C交换机
 
-image::../media/cabling_an_aff_a900_to_a_cisco_3232c_or_cisco_9336c_switch.png[使用缆线将 AFF a900 连接到 Cisco 3232c 或 Cisco 9336c 交换机]
+image:../media/cabling_an_aff_a900_or_FAS9500_to_a_cisco_3232c_or_cisco_9336c_switch.png[""]
 
 
 

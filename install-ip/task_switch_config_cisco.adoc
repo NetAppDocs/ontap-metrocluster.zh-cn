@@ -416,6 +416,10 @@ NX3232_v1.80_Switch-B2.txt
 |===
 .步骤
 . 下载 MetroCluster IP RCF 文件。
++
+
+NOTE: 不支持在下载后修改RCF文件。
+
 . 将 RCF 文件复制到交换机：
 +
 .. 将 RCF 文件复制到第一个交换机：

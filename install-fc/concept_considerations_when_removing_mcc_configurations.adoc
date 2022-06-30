@@ -14,4 +14,4 @@ summary: 您可以从 MetroCluster 配置中的所有节点或灾难恢复 \ （
 您可以从 MetroCluster 配置中的所有节点或灾难恢复（ DR ）组中的所有节点中删除 MetroCluster 配置。删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。
 
 
-IMPORTANT: 您不能反转 MetroCluster 取消配置。此过程只能在技术支持的协助下完成。请联系NetApp技术支持、并参考中适用于您的配置的相应指南 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_nodes_from_a_MetroCluster_configuration_-_Resolution_Guide["NetApp知识库：How to remove nodes from a MetroCluster configuration - Resolution Guide."^]
+IMPORTANT: 您不能反转 MetroCluster 取消配置。此过程只能在技术支持的协助下完成。请联系NetApp技术支持、并参考中适用于您的配置的相应指南 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_nodes_from_a_MetroCluster_configuration_-_Resolution_Guide["如何从MetroCluster 配置中删除节点—解决指南。"^]

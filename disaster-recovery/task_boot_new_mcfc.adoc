@@ -30,7 +30,7 @@ summary: 数据聚合和根聚合的聚合修复完成后，您必须启动灾�
 
 +
 
-NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复 <<step2>> 将系统启动至 ONTAP 提示符。然后，您需要执行根恢复。请联系技术支持以获得帮助。
+NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复 <<step2>> 将系统启动至 ONTAP 提示符。然后、您需要 <<Reset-the-boot-recovery,重置启动恢复和rdb_Corrupt bootargs>>
 
 . 在丛 0 上镜像根聚合：
 +
@@ -89,3 +89,35 @@ cluster_B::>
 
 
 继续执行 link:../disaster-recovery/task_complete_recovery.html["完成灾难恢复过程"]。
+
+
+
+=== 重置boot_recovery和rdb_Corrupt bootargs
+
+[role="lead"]
+如果需要、您可以重置boot_recovery和rdb_Corrupt_bootargs
+
+.步骤
+. 将节点暂停回LOADER提示符：
++
+[listing]
+----
+node_A_1::*> halt -node _node-name_
+----
+. 检查是否已设置以下bootarg：
++
+[listing]
+----
+LOADER> printenv bootarg.init.boot_recovery
+LOADER> printenv bootarg.rdb_corrupt
+----
+. 如果已将任一bootarg设置为值、请取消设置并启动ONTAP ：
++
+[listing]
+----
+LOADER> unsetenv bootarg.init.boot_recovery
+LOADER> unsetenv bootarg.rdb_corrupt
+LOADER> saveenv
+LOADER> bye
+----
+

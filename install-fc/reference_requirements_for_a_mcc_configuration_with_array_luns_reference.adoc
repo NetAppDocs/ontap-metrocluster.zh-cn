@@ -65,7 +65,7 @@ https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 
 * 每个网络结构必须有两个 FC 交换机。
 * 每个 ONTAP 系统都必须使用冗余组件连接到存储，以便在发生设备和路径故障时提供冗余。
-* AFF A900 和 FAS9000 存储系统每个网络结构最多支持八个 ISL 。其他存储系统型号支持每个网络结构最多四个 ISL 。
+* AFF A700、FAS9000、AFF A900和FAS9500存储 系统每个网络结构最多支持八个ISL。其他存储系统型号支持每个网络结构最多四个 ISL 。
 
 
 交换机必须使用 MetroCluster 基本交换机配置， ISL 设置和 FC-VI 配置。

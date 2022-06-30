@@ -64,7 +64,7 @@ summary: 您必须执行某些任务，以便为切回操作准备混合 MetroCl
 
 +
 
-NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复这些子步骤，将系统启动到 ONTAP 提示符。然后，您需要执行根恢复。请联系技术支持以获得帮助。
+NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复这些子步骤，将系统启动到 ONTAP 提示符。然后、您需要 <<Reset-the-boot-recovery,重置启动恢复和rdb_Corrupt bootargs>>
 
 
 
@@ -132,4 +132,36 @@ Group Cluster Node               State          Mirroring Mode
 . 在 MetroCluster FC 节点上，执行中的步骤 link:task_heal_restore_mcfc.html["执行聚合修复和还原镜像（ MetroCluster FC 配置）"]。
 . 在 MetroCluster IP 节点上，执行中的步骤 link:task_heal_restore_mcip.html["执行聚合修复和还原镜像（ MetroCluster IP 配置）"]。
 . 从开始，继续执行恢复过程的其余任务 link:task_complete_recovery.html#reestablishing-object-stores-for-fabricpool-configurations["为 FabricPool 配置重新建立对象存储"]。
+
+
+
+
+=== 重置boot_recovery和rdb_Corrupt bootargs
+
+[role="lead"]
+如果需要、您可以重置boot_recovery和rdb_Corrupt_bootargs
+
+.步骤
+. 将节点暂停回LOADER提示符：
++
+[listing]
+----
+node_A_1::*> halt -node _node-name_
+----
+. 检查是否已设置以下bootarg：
++
+[listing]
+----
+LOADER> printenv bootarg.init.boot_recovery
+LOADER> printenv bootarg.rdb_corrupt
+----
+. 如果已将任一bootarg设置为值、请取消设置并启动ONTAP ：
++
+[listing]
+----
+LOADER> unsetenv bootarg.init.boot_recovery
+LOADER> unsetenv bootarg.rdb_corrupt
+LOADER> saveenv
+LOADER> bye
+----
 

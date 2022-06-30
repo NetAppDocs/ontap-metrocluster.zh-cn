@@ -4,16 +4,16 @@ sidebar: sidebar
 keywords: AFF, A900, ONTAP, FAS, Brocade, ISL, metrocluster 
 summary: 下表显示了 AFF A900 系统中 Brocade 交换机的 ISL 端口使用情况。 
 ---
-= AFF A900 —运行 ONTAP 9.10.1 或更高版本的 MetroCluster 配置中 ISL 的 Brocade 端口使用情况
+= AFF A900或FAS9500-运行ONTAP 9.10.1或更高版本的MetroCluster 配置中ISL的Brocade端口使用情况
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
-下表显示了 AFF A900 系统中 Brocade 交换机的 ISL 端口使用情况。
+下表显示了AFF A900或FAS9500系统中Brocade交换机的ISL端口使用情况。
 
 
-NOTE: AFF A900 系统支持八个 ISL 。Brocade 6510 ， G620 ， G620-1 和 G720 交换机支持八个 ISL 。
+NOTE: AFF A900和FAS9500系统支持八个ISL。Brocade 6510 ， G620 ， G620-1 和 G720 交换机支持八个 ISL 。
 
 |===
 | 交换机型号 | ISL 端口 | 交换机端口 

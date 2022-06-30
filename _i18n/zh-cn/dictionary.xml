@@ -1931,7 +1931,6 @@
   <block id="0658afd7b63854a03c773da7890b79c4" category="list-text">ONTAP 9.3 及更高版本支持双节点配置。</block>
   <block id="ed332ae2e9a3efd17382e627809f4c84" category="paragraph">请勿在运行 ONTAP 9.8 之前版本的四节点或八节点配置上使用此操作步骤。</block>
   <block id="dfaa931cb3298c6a8b82f108a31104cb" category="list-text">您的原始平台和新平台必须兼容并受支持。</block>
-  <block id="b7071513452c80dcfb33a91f6c6f0ecd" category="list-text">此操作步骤适用场景控制器模块采用 MetroCluster FC 配置（双节点延伸型 MetroCluster 或双节点或四节点光纤连接 MetroCluster 配置）。</block>
   <block id="b8c2f69c5a69a0de627c50e7bc6a4cf9" category="list-text">配置中的所有控制器都应在同一维护期间进行升级。</block>
   <block id="4eef4343ca82afa388103a13e5acd0be" category="paragraph">在此维护活动之外，不支持使用不同类型的控制器运行 MetroCluster 配置。</block>
   <block id="16f5e23eca91ea2c50cf5ebde29656d2" category="list-text">支持的升级路径取决于原始平台型号。</block>
@@ -2494,11 +2493,6 @@
   <block id="327221e852c98244ddf26f6a4f3c61c5" category="list-text">在新节点（ node_A_3-new ）上将 epsilon 设置为 true ：</block>
   <block id="468a7d44a90e2d51ce44106bf786e824" category="list-text">验证 epsilon 是否已移至正确的节点：</block>
   <block id="ae0930527dc1f23b45618d9c343cf9e0" category="summary">在升级到 HA 对之前，您必须验证您的系统是否满足所有要求，并且您是否拥有所有必要的信息。</block>
-  <block id="3d9091c2e30d55a610e464250d80ae97" category="list-text">您需要确定可分配给新控制器模块的未分配磁盘或备用磁盘。</block>
-  <block id="a2fd0d057f2ea8496e15a769414d84b0" category="list-text">根据上一步的结果，执行以下任一操作：</block>
-  <block id="37a8f31a7e8b7690ba6e2ff0ddbc6fcc" category="cell">如果结果显示 ...</block>
-  <block id="e4a39395bf8b1ab17a3ba564d7947d03" category="paragraph">在不使用根数据分区的系统上，没有足够的备用磁盘可用于新控制器模块</block>
-  <block id="2208b4293f1ea60ea2302dbae5547ea5" category="paragraph">有关详细信息，请联系技术支持。</block>
   <block id="3678fe02acf5ec3ff8f4fbebc3fd7a4d" category="paragraph">完成以下子步骤：</block>
   <block id="69031ee219c15dfa776f0869add071f5" category="list-text">对新节点中所需数量的磁盘重复上述步骤。</block>
   <block id="619b4fd010ff9f6cf652e131bac6351b" category="list-text">确认已为以下连接准备好缆线：</block>
@@ -2907,7 +2901,6 @@
   <block id="ac5b83bcd716e4f73dc30fdc6a4c5c55" category="paragraph">每个控制器模块上至少应使用两个端口建立集群对等关系。</block>
   <block id="0fb6c3d63792ef7dc83798e7407f80e4" category="paragraph">端口和网络连接的建议最小带宽为 1 GbE 。</block>
   <block id="5206bcb346755220c00fbc45647faca6" category="list-text">确定至少两个端口并为其布线以建立集群对等关系，然后验证它们是否与配对集群建立了网络连接。</block>
-  <block id="262ce168ea85d04c696b00eca18415d4" category="paragraph">ONTAP 9.8 及更高版本支持此操作步骤。在早期版本的 ONTAP 上，请联系技术支持以删除 DR 组。</block>
   <block id="cba784dbb6dad30cadc1fcb2d1b5ee81" category="paragraph"><block ref="cba784dbb6dad30cadc1fcb2d1b5ee81" category="inline-link-rx"></block></block>
   <block id="19df577c80891b37cfa2f1b29c518f6e" category="paragraph">八节点配置包括八个节点，这些节点按两个四节点 DR 组进行组织。</block>
   <block id="e66e23247af7503f663027daef188754" category="paragraph">通过删除 DR 组，配置中仍保留四个节点。</block>
@@ -4236,7 +4229,6 @@
   <block id="a9954c87406948a9244102f901d9fddb" category="admonition">MetroCluster IP 配置不支持自动计划外切换。</block>
   <block id="cc98b13ef41574a22c96136d7ba3ca4e" category="paragraph">在 MetroCluster FC 配置中，如果站点上的所有节点由于以下原因而出现故障，则可能会触发 AUSO ：</block>
   <block id="c4a46c6949c88ae14f48c1ec17cc024b" category="list-text">关闭电源</block>
-  <block id="0fd4e09726402ce862074b93272dce4a" category="list-text">电源崩溃</block>
   <block id="61da928f74d2d91963b98396376808e7" category="admonition">在八节点 MetroCluster FC 配置中，您可以设置一个选项，以便在 HA 对中的两个节点都发生故障时触发 AUSO 。</block>
   <block id="29548d02eff38acb713ead1e542313f7" category="paragraph">由于在双节点 MetroCluster 配置中没有可用的本地 HA 故障转移，因此系统会执行 AUSO ，以便在控制器出现故障后继续运行。此功能类似于 HA 对中的 HA 接管功能。在双节点 MetroCluster 配置中，以下情况下可能会触发 AUSO ：</block>
   <block id="cb8e3939c868fc0e87662c41607fd2a7" category="list-text">节点关闭</block>
@@ -8256,7 +8248,6 @@
   <block id="a1ea8f7e98610dd5fef2ac85b3267080" category="list-text">在一个替代节点上，退出到 LOADER 提示符： `halt`</block>
   <block id="aba47a73453a4b018e569fef6094364f" category="list-text">从启动菜单中，选择选项 6 * 从备份配置更新闪存 * 。</block>
   <block id="ae9185bf6adb2fa07aa8f16b9fabf53e" category="paragraph">系统启动两次。系统提示您继续时，您应回答 `yes` 。在第二次启动后，当系统 ID 不匹配时，您应响应 `y` 。</block>
-  <block id="860d5f3016c12a37c0c22c0cbda49625" category="admonition">如果未清除已用替代控制器模块的 NVRAM 内容，则可能会看到以下崩溃消息： `panic ： NVRAM 内容无效 ...` 如果发生这种情况，请将系统重新启动到 ONTAP 提示符（`boot_ontap menu` ）。然后，您需要执行根恢复。请联系技术支持以获得帮助。</block>
   <block id="6359390f2bf4b3d61775f586653a8795" category="list-text">确认继续提示：</block>
   <block id="3906957452f2289e724b0ecfd78b63bc" category="list-text">系统 ID 不匹配提示：</block>
   <block id="128fa92dd8a609500440a24cb01e7c12" category="list-text">在正常运行的站点中，验证是否已将正确的配对系统 ID 应用于节点：</block>
@@ -8776,7 +8767,6 @@
   <block id="5b4b0e7e80cfc96d7b00d2037086ecaf" category="list-text">对以下提示回答 `y` ：</block>
   <block id="5da0ed75f8d94f3ba9a459b96d248368" category="paragraph">`此操作将使用上次备份到磁盘来替换所有基于闪存的配置。确实要继续？： y`</block>
   <block id="960738ca2fc1770da21e6c687ca1c350" category="paragraph">系统将启动两次，第二次加载新配置。</block>
-  <block id="8782ce5e44a58103b967cd55863bf183" category="admonition">如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复 <block ref="358c6da937c27d6519a48f813996b4db" category="inline-xref-macro-rx"></block> 将系统启动至 ONTAP 提示符。然后，您需要执行根恢复。请联系技术支持以获得帮助。</block>
   <block id="d16c283588f04c1ce2bf0f46ad1b9ea4" category="list-text">在丛 0 上镜像根聚合：</block>
   <block id="ee5ab6f8636a09cbbf2aa0b4a2b5e769" category="list-text">将三个 pool0 磁盘分配给新控制器模块。</block>
   <block id="574d18b9a555a66e217652610abd0f80" category="list-text">镜像根聚合 pool1 丛：</block>
@@ -8887,7 +8877,6 @@
   <block id="9e047a63ea4d67fbbdb533c9160dba7e" category="list-text">如果根聚合未联机，请将其联机。</block>
   <block id="f697b3488e8c346fc3a6e11a2ee8761b" category="list-text">启动 MetroCluster FC 节点。</block>
   <block id="dc883740b10089cb91865f7c96fc5ac5" category="paragraph">您必须在两个 MetroCluster FC 节点上执行这些步骤。</block>
-  <block id="b2010eca22012b8a09d2f9548f1d744a" category="admonition">如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复这些子步骤，将系统启动到 ONTAP 提示符。然后，您需要执行根恢复。请联系技术支持以获得帮助。</block>
   <block id="f433c39c3c339b913b2223e31d633f9d" category="list-text">返回维护模式。</block>
   <block id="b89bea07847accf12561ace475459c4d" category="list-text">将节点启动至维护：</block>
   <block id="fd02d447099008ddc827133dc034246f" category="paragraph">`mode ： boot_ontap maint`</block>
@@ -9676,7 +9665,6 @@
   <block id="19b075b0ff8fbdf79efbef8787bbf0d7" category="paragraph">`cluster show -fields epsilon`</block>
   <block id="d75b73420fff0db8b490d51327d3ac30" category="paragraph">`cluster modify -node _old-nodge_ -epsilon false*`</block>
   <block id="7e8573f61e56d88c570a9b47a35d2872" category="paragraph">`cluster modify -node _new-nodge_ -epsilon true`</block>
-  <block id="5ee53f5a50bdec7bbc4b95227e35b804" category="paragraph">其他结果</block>
   <block id="70ede8550fd471e8c5c1bef06eb1447b" category="list-text">确定现有节点的聚合所在位置：</block>
   <block id="9fb69b3f5bbfa809364de634824a9137" category="list-text">如果磁盘所有权自动分配已启用，请将其关闭：</block>
   <block id="268f1e3113b76d1115b1dfd6ea2805c8" category="paragraph">`s存储磁盘选项 modify -node _node_name_ -autosassign off`</block>
@@ -10254,7 +10242,6 @@
   <block id="ca06807503101d86e21d40fd5c8ff94b" category="cell">v2.x</block>
   <block id="ab4a2de3931dbed092e0d44be3c87116" category="list-text">为 MetroCluster IP 生成 Broadcom RCF 文件。</block>
   <block id="fd550a9c3a7b7c6106ae07bc6bb69106" category="list-text">下载<block ref="166489b3c340ece1eccb5706fda90624" category="inline-link-rx"></block></block>
-  <block id="7d5c4b7a8cb7bc598a3b2eb9fb74fe60" category="list-text">使用适用于 MetroCluster IP 的 RcfFileGenerator 为您的配置生成 RCF 文件</block>
   <block id="83be746defb3baacbca8a27913d5e887" category="summary">您可能需要使用共享 Storage MetroCluster 交换机将 NS224 磁盘架添加到 MetroCluster 中。</block>
   <block id="81614ec1c85e193dd436e86dd56ed40d" category="doc">使用共享 Storage MetroCluster 交换机向 MetroCluster IP 添加磁盘架</block>
   <block id="0aefe0e277b60b987afe007a43a31ca0" category="paragraph">从 ONTAP 9.10.1 开始，您可以使用共享存储 /NS224 MetroCluster 交换机从 MetroCluster 添加 NS224 磁盘架。您可以一次添加多个磁盘架。</block>
@@ -10862,8 +10849,6 @@
   <block id="8d48afc2af7642b1eb38cbfe7c3b33d8" category="list-text">第三季度有四个驱动器： 12 ， 13 ， 14 ， 15</block>
   <block id="807910399f003942a09396612760caef" category="list-text">第四季度有四个驱动器： 18 ， 19 ， 20 ， 21</block>
   <block id="ef552e9c89303b51a8bdce9d5298edba" category="paragraph">e7b</block>
-  <block id="a017a6db2fc01588987d027787f42d9c" category="section-title">使用缆线将 AFF A900 连接到 Cisco 3232C 或 Cisco 9336C 交换机</block>
-  <block id="34bc1dd80a773d74b460af7f29e7d10f" category="image-alt">使用缆线将 AFF a900 连接到 Cisco 3232c 或 Cisco 9336c 交换机</block>
   <block id="1700747af42734556058284b63ef6e71" category="paragraph"><block ref="1700747af42734556058284b63ef6e71" category="inline-link-macro-rx"></block></block>
   <block id="04c19f5eb2ebdc099239a7074f8d6534" category="paragraph">9.10.1 及更高版本</block>
   <block id="c6d4a9d3f7628712dae7a41ab974439d" category="inline-link">使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 及更高版本的控制器硬件</block>
@@ -10876,9 +10861,6 @@
   <block id="c3e6669930ba273936fc70ff1592ca3d" category="paragraph"><block ref="c3e6669930ba273936fc70ff1592ca3d" category="inline-link-rx"></block></block>
   <block id="3c0d1e1f00418201fc22f92ffeea2a6f" category="summary">从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
   <block id="fc295d422c1cefba3de763612fefa26b" category="doc">使用切换和切回功能将 AFF IP 配置中的 AFF A700 控制器升级到 MetroCluster A900 （ ONTAP 9.10.1 及更高版本）</block>
-  <block id="8a3326b69dc57d7b9fb4be4e8d481446" category="list-text">控制器必须运行 ONTAP 9.10.1 或更高版本。</block>
-  <block id="96f2d97f0b631b5c95ff1b6d9ef6ab34" category="list-text">此操作步骤适用场景 AFF A700 控制器模块将升级到 MetroCluster IP 配置中的 AFF A900 。</block>
-  <block id="65f94a89140814fe0c4770b2e8f9bd58" category="paragraph">在此维护活动之外，不支持使用 AFF A700 和 AFF A900 控制器运行 MetroCluster 配置。</block>
   <block id="93b195f498a318e8891093dd91595a9f" category="list-text">site_A</block>
   <block id="fb39e7e5fd586564e99b66fe5b47009b" category="list-text">node_A_1-A700</block>
   <block id="e928ff569b047799fddf3bb2a586aadf" category="list-text">node_A_2-A700</block>
@@ -10891,16 +10873,13 @@
   <block id="ba6437ec6a5b86f7113439313eac431a" category="list-text">node_B_2-A900</block>
   <block id="d6a05f216ff3e2d50b361bbcdff5ee3d" category="section-title">用于升级 MetroCluster IP 配置中控制器的工作流</block>
   <block id="c95ade519950de23a4b47d2d182edbdf" category="section-title">清除 AFF A700 控制器上的插槽 7</block>
-  <block id="7e4f355d90b64a0e17c9b35fa200a081" category="paragraph">AFF A900 上的 MetroCluster 配置使用插槽 5 和 7 中 DR 卡上的每个端口之一。在开始升级之前，如果 AFF A700 上的插槽 7 中有卡，则必须将其移动到集群中所有节点的其他插槽中。</block>
   <block id="a38c8b65ec97b4e54f007517a94544d5" category="section-title">升级控制器之前，请更新 MetroCluster 交换机 RCF 文件</block>
-  <block id="89115546d2dcc62b1c87ef172b932966" category="paragraph">AFF A700 上的 MetroCluster IP 配置不使用 VLAN 。AFF A900 上的 MetroCluster 配置确实使用 VLAN 。因此，在从 AFF A700 升级到 AFF A900 时，您需要更改 RCF 文件。</block>
   <block id="381666f515959bb42f36179e1ccf18b0" category="inline-link-macro">RcfFileGenerator 工具</block>
   <block id="01624fead9baaddc3669cdd47ad795ed" category="list-text">如果交换机未配置支持的最低 RCF 文件版本，则必须更新 RCF 文件。有关适用于您的交换机型号的正确 RCF 文件版本，请参见 <block ref="da64f60a95327a9651de90bff4a67cd3" category="inline-link-macro-rx"></block>。以下步骤适用于 RCF 文件应用程序。</block>
   <block id="590efa3b2ef6486e61048a848e166d21" category="inline-link-macro">MetroCluster IP 安装和配置</block>
   <block id="1f41258ab009387cbd7e42b144372d55" category="paragraph">按照中适用于您的交换机供应商的一节中的步骤进行操作 <block ref="1a8a3204a30c37aed38d8cb8818b0107" category="inline-link-macro-rx"></block> 内容</block>
   <block id="e886156cd00bbd9320ba94c39cce2772" category="paragraph">按照中的步骤进行操作 <block ref="1a8a3204a30c37aed38d8cb8818b0107" category="inline-link-macro-rx"></block> 内容</block>
   <block id="dadca3d57b191a678f23de76f79b283e" category="section-title">将端口从旧节点映射到新节点</block>
-  <block id="87ff91e75692235d02e091de808fd819" category="paragraph">从 AFF A700 升级到 AFF A900 时，您不会更改数据网络端口， FCP SAN 适配器端口以及 SAS 和 NVMe 存储端口。数据 LIF 在升级期间和升级后始终保持在原位。因此，您不需要将网络端口从旧节点映射到新节点。</block>
   <block id="0c8985d7cfbb81f5f054993ed8285211" category="section-title">在站点升级之前验证 MetroCluster 运行状况</block>
   <block id="35ea33e0235c583b6402101248b20260" category="paragraph">您应在每个集群上问题描述此命令。您可以使用 `cluster date` 命令配置时间和时区。</block>
   <block id="3868a54921a81264bddb64b574765582" category="paragraph"><block ref="3868a54921a81264bddb64b574765582" category="inline-link-rx"></block></block>
@@ -10919,11 +10898,9 @@
   <block id="efa982219e642bd5186be6c92fb7a64f" category="paragraph">完成此任务后， site_A 处于活动状态，并为两个站点提供数据。site_B 处于非活动状态，并已准备好开始升级过程。</block>
   <block id="cf88bd4ca7f9abb34dda4d2a47769931" category="list-text">对 site_A 执行问题描述以下命令：</block>
   <block id="d02e71ae77b3af75d1cc326f36f84ae3" category="paragraph">在控制器升级期间禁用协商切换后自动修复聚合。site_B 上的节点会在 `LOADER` 提示符处暂停和停止。</block>
-  <block id="d04a9d363414c80a7dddd513e822e599" category="section-title">卸下 AFF A700 平台控制器模块和 NVS</block>
   <block id="b780f876891edc15fa85c699a7f8bfcb" category="list-text">从 site_B 的两个节点收集 bootarg 值： `printenv`</block>
   <block id="1e80b49a305b8f9776f5ad016b85d8e7" category="list-text">关闭 site_B 上的机箱</block>
   <block id="7772cd0198105a3d1385b2e8a38dfd13" category="section-title">卸下 AFF A700 控制器模块</block>
-  <block id="9062e1727eade9a5acf76c04072793bc" category="paragraph">使用以下操作步骤删除 AFF A700 控制器模块</block>
   <block id="f6cb76da900c86fece5eb404a84c66d1" category="list-text">在卸下控制器模块之前，请断开控制台缆线（如果有）以及管理缆线与控制器模块的连接。</block>
   <block id="dfa9bdf3553d14d1f1265d5adf46b338" category="list-text">解锁控制器模块并将其从机箱中卸下。</block>
   <block id="c1ed0cd23ea77c49b5611e5929537b3f" category="list-text">Slide the orange button on the cam handle downward until it unlocks.</block>
@@ -10937,7 +10914,6 @@
   <block id="f0231ce2b907f79181e8b9703e9a2c98" category="list-text">Rotate the cam handle so that it completely disengages the controller module from the chassis, and then slide the controller module out of the chassis.Make sure that you support the bottom of the controller module as you slide it out of the chassis.</block>
   <block id="fd22b7848c5af6378d0b6f4b2d27e00f" category="section-title">卸下 AFF A700 NVS 模块</block>
   <block id="79c5d41bbb72ea24170f3061addd9ece" category="paragraph">使用以下操作步骤删除 AFF A700 NVS 模块。</block>
-  <block id="71721121b3fecd9454fc35fcfd4f05e0" category="paragraph">注意： AFF A700 NVS 模块 NVS 模块位于插槽 6 中，与系统中的其他模块相比，高度是原来的两倍。</block>
   <block id="0d64a71c5e54f6a18144ca98af6bba12" category="list-text">从插槽 6 解锁 NVS 并将其卸下。</block>
   <block id="97bf9cd87a9cbb5619926733a7d23035" category="list-text">按下带字母和编号的 "CAB" 按钮。The cam button moves away from the chassis.</block>
   <block id="3e40de17d289a21aa0995b29466f1eab" category="list-text">Rotate the cam latch down until it is in a horizontal position.NVS 从机箱中分离并移动几英寸。</block>
@@ -10949,15 +10925,8 @@
   <block id="3db14b7ee6183c9d58f1e9d5e8e63efd" category="inline-image-macro">数字 2</block>
   <block id="53ced8e8440d5837c67cd7e98c36b357" category="cell"><block ref="53ced8e8440d5837c67cd7e98c36b357" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0e50691d6ac3e9df529fa546f2486bd7" category="cell">I/O latch completely unlocked</block>
-  <block id="f3f482b3a383653a62a89aa0855a51a2" category="list-text">如果您使用的附加模块在 AFF A700 NVS 上用作核心转储设备，请勿将其传输到 AFF A900 NVS 。请勿将任何部件从 AFF A700 控制器模块和 NVS 传输到 AFF A900 。</block>
-  <block id="69dad03f2f8fa3ab596af770d202a4f7" category="section-title">安装 AFF A900 NVS 和控制器模块</block>
-  <block id="e077f9e44aa337907651a4b315e224b8" category="paragraph">您必须在 site_B 的两个节点上安装升级套件中提供的 AFF A900 NVS 和控制器模块请勿将核心转储设备从 AFF A700 NVS 模块移至 AFF A900 NVS 模块。</block>
-  <block id="34290340b4b3829c1db8fd373c38d431" category="section-title">安装 AFF A900 NVS</block>
-  <block id="2088ccd3511f01144c1a8efc333f0042" category="paragraph">使用以下操作步骤在 site_B 的两个节点的插槽 6 中安装 AFF A900 NVS</block>
   <block id="3f417eabfc9204738789b7d35e1ec889" category="list-text">将 NVS 与插槽 6 中机箱开口的边缘对齐。</block>
   <block id="89ecb4d27fdab7dab9977862e3a2aea5" category="list-text">将 NVS 轻轻滑入插槽，直到带字母和编号的 I/O 凸轮闩锁开始与 I/O 凸轮销啮合，然后将 I/O 凸轮闩锁一直向上推，以将 NVS 锁定到位。</block>
-  <block id="01b60e3dda8cb6b16d737a4fba5c154c" category="section-title">安装 AFF A900 控制器模块。</block>
-  <block id="46c5f3a7ae22aa54244fc367a806c8c0" category="paragraph">使用以下操作步骤安装 AFF A900 控制器模块。</block>
   <block id="0dc0820d363c65f7e12beec6160b793f" category="list-text">Align the end of the controller module with the opening in the chassis, and then gently push the controller module halfway into the system.</block>
   <block id="d88810fb8906950d9f286c06d1c3782d" category="list-text">Firmly push the controller module into the chassis until it meets the midplane and is fully seated.控制器模块完全就位后，锁定闩锁会上升。注意：为避免损坏连接器，请勿在将控制器模块滑入机箱时用力过大。</block>
   <block id="0211a688f7d2788036c23138bf4edb82" category="list-text">使用缆线将管理和控制台端口连接到控制器模块。</block>
@@ -10971,7 +10940,6 @@
   <block id="d7ba82af5856ab55308cde8e78ff093f" category="list-text">在 LOADER 提示符处，设置默认环境变量： set-defaults</block>
   <block id="960a61d8ce9851a898f21bd064898378" category="list-text">保存默认环境变量设置： `saveenv`</block>
   <block id="55abff1e847770dde7396e977b6f43a8" category="section-title">site_B 上的网络启动节点</block>
-  <block id="9df90297634f0e8d8ac52c13d00e352d" category="paragraph">在交换 AFF A900 控制器模块和 NVS 后，您需要通过网络启动 AFF A900 节点，并安装与集群上运行的相同 ONTAP 版本和修补程序级别。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。无法检查 AFF A900 控制器模块启动介质上安装的 ONTAP 版本，除非该模块安装在机箱中并已启动。AFF A900 启动介质上的 ONTAP 版本必须与要升级的 AFF A700 系统上运行的 ONTAP 版本相同，并且主启动映像和备份启动映像都应匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。</block>
   <block id="bf49a2af93184828c602f30985ab7b3e" category="list-title">开始之前</block>
   <block id="1d32dacc20fe1feb077659fd0bebdc03" category="list-text">确认您可以使用系统访问 HTTP 服务器。</block>
   <block id="7e50dc6378f3e2a11e73b6c2111ee61e" category="list-text">您需要从 NetApp 支持站点下载适用于您的系统和正确版本的 ONTAP 所需的系统文件。</block>
@@ -10987,7 +10955,6 @@
   <block id="8cadcd3d278c7bf112a3d2eb870dfb3e" category="list-text">对 node_B_1 执行 netboot ： `netboot` `http://&lt;web_server_ip/path_to_web_accessible_directory&gt;/netboot/kernel`</block>
   <block id="e31ad1284b7618a9c10777ed99b12e64" category="inline-xref">第 2 步</block>
   <block id="85bd8aebb41cb27f7bc364e977313958" category="admonition">请勿中断启动。</block>
-  <block id="6f6f6695a268d5918427f02892c43312" category="list-text">等待 AFF A900 控制器模块上当前运行的 node_B_1 启动，并显示启动菜单选项，如下所示：</block>
   <block id="2653300b079109b65a613fd185414faa" category="list-text">从启动菜单中，选择选项 `` （ 7 ） Install new software first.`` 此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。注意：请忽略以下消息： `HA 对上的无中断升级不支持此操作步骤。` 本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。</block>
   <block id="f7462137da4e89b12e82937bb5da165f" category="paragraph">请始终使用 netboot 将新节点更新为所需映像。如果您使用其他方法在新控制器上安装映像，则可能会安装不正确的映像。此问题描述适用场景所有 ONTAP 版本。</block>
   <block id="7b3f6c26774d36cd594edf297f0f8f57" category="list-text">完成以下子步骤以重新启动控制器模块：</block>
@@ -11054,25 +11021,16 @@
   <block id="343d98ffad90e979903b8bd5def2f91c" category="list-text">从开始，重复上述步骤升级 site_A 上的节点 <block ref="e8971f193bd5ef38f76b660d12d17607" category="inline-link-macro-rx"></block>。</block>
   <block id="98c99ee34c8774fa11a9a533fe708618" category="paragraph">在执行任务时，对站点和节点的所有示例引用都将反转。例如，如果提供了从 site_A 切换的示例，则您将从 site_B 切换</block>
   <block id="0c429b26fd1db8d4b7bb104d284c1cea" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block> 在 _Tiebreaker MetroCluster 安装和配置 _ 部分。</block>
-  <block id="a16fca697a4d7027a976fdabfbb92414" category="doc">使用切换和切回功能将 AFF FC 配置中的 AFF A700 控制器升级到 MetroCluster A900 （ ONTAP 9.10.1 及更高版本）</block>
   <block id="8a51355d335889c9ddb7276ab9a129ab" category="paragraph">升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。您不能在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
   <block id="b93e6d7c2789cd393ddbb5ccdfac4676" category="paragraph">您不能同时升级配置中的其他组件，例如存储架或交换机。</block>
-  <block id="4ba76377711a6b41b576dc98a6d77475" category="list-text">您可以将此操作步骤与 ONTAP 9.10.1 及更高版本结合使用。</block>
   <block id="0dc490dd8b5efdca7b88c08cca2f094e" category="list-text">ONTAP 9.10.1 及更高版本支持四节点和八节点配置。</block>
   <block id="4917ae881b859c002a74dd97a85dc1a1" category="admonition">AFF A900 系统仅在 ONTAP 9.10.1 或更高版本中受支持。</block>
   <block id="4c1c93397a0ad82f0b80502a6c7c0799" category="paragraph"><block ref="4c1c93397a0ad82f0b80502a6c7c0799" category="inline-link-rx"></block></block>
   <block id="e9341f18ed4204c823e94155fc3f3291" category="list-text">在升级操作步骤期间，您需要更改 MetroCluster 网络结构，包括 RCF 和布线的物理更改。您可以在执行控制器升级之前执行 RCF 和布线更改。</block>
   <block id="921e8f2bccd093913cccd021ff87834b" category="list-text">此升级操作步骤不要求您不更改原始节点与新节点之间的存储， FC 和以太网连接。</block>
-  <block id="427137cf506c596ab903f51949d69296" category="list-text">在升级操作步骤期间，您不应在 AFF A700 系统中添加或删除其他卡。有关详细信息，请参见<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block></block>
-  <block id="9b43ae11d5506ae36d605efa71d75d03" category="paragraph">在对现有 MetroCluster 配置进行任何更改之前，您必须检查此配置的运行状况，更改 RCF 文件和布线，使其与 AFF A900 光纤 MetroCluster 配置所需的新端口连接拓扑相匹配，并执行其他各种任务。</block>
-  <block id="1e56d1624f07d77f2f7328ad84907663" category="paragraph">AFF A900 上的 MetroCluster 配置需要在插槽 5 和 7 中的 FC-VI 卡上使用 8 个 FC-VI 端口。在开始升级之前，如果 AFF A700 上的插槽 7 中有卡，则必须将其移动到集群中所有节点的其他插槽中。</block>
-  <block id="0c92be5dc9bacc6fec90d4eda711663f" category="paragraph">在更新 AFF A900 光纤 MetroCluster 配置的 RCF 文件和布线之前，您必须验证此配置的运行状况和连接。</block>
   <block id="55c7e830ad3437c4f8fd31ab9226f8c8" category="section-title">更新光纤交换机 RCF 文件</block>
-  <block id="0f89570dfac2c9fb6f2c766555d80984" category="paragraph">与 AFF A700 所需的一个四端口 FC-VI 适配器相比， AFF A900 光纤 MetroCluster 每个节点需要两个四端口 FC-VI 适配器。在开始将控制器升级到 AFF A900 控制器之前，您必须修改光纤交换机 RCF 文件以支持 AFF A900 连接拓扑。</block>
   <block id="72a262115ee86c554da1619c96bfeeee" category="inline-link">MetroCluster RCF 文件下载页面</block>
-  <block id="59c5fa349bbe7c349edaab194073a5eb" category="list-text">从<block ref="6f619f85f519d88d6754ebdd8b0379b5" category="inline-link-rx"></block>下，下载适用于 AFF A900 光纤 MetroCluster 和 AFF A700 配置中使用的交换机型号的正确 RCF 文件。</block>
   <block id="39de322b7893b3a67a5b64826dbc9649" category="list-text">【更新 RCF 】按照中的步骤更新网络结构 A 交换机，交换机 A1 和交换机 B1 上的 RCF 文件 <block ref="0d46bcb6b73f6dc40e567a72dc62e0bb" category="inline-link-macro-rx"></block>。</block>
-  <block id="be348e1dd15b6d8c27d3e0c621822d20" category="admonition">支持 AFF A900 光纤 MetroCluster 配置的 RCF 文件更新不会影响用于 AFF A700 光纤 MetroCluster 配置的端口和连接。</block>
   <block id="c26e64a5009ccc789dbec17cba2c94ad" category="list-text">更新网络结构 A 交换机上的 RCF 文件后，所有存储和 FC-VI 连接都应联机。检查 FC-VI 连接：</block>
   <block id="0adb4f1b4288fc4eed5b163b48e9e83d" category="list-text">`s本地和远程站点磁盘是否列在` sysconfig 输出中。</block>
   <block id="3fc17475ce1dc3ff5bb802858331640f" category="list-text">【验证运行状况】在更新阵列 A 交换机的 RCF 文件后，您必须验证 MetroCluster 是否处于运行状况良好的状态。</block>
@@ -11083,9 +11041,7 @@
   <block id="2ecd99ab4785312fa2bf124d83f7951a" category="list-text">重复更新网络结构 B 交换机（交换机 2 和 4 ） <block ref="9f27406d35f42d93476705a0a18bfe19" category="inline-xref-macro-rx"></block> to <block ref="ae794ac9e946dd061b07601f0aed5cc8" category="inline-xref-macro-rx"></block>。</block>
   <block id="1c86d82f8c3d0da890a22ac664ed4e79" category="section-title">在更新 RCF 文件后验证 MetroCluster 配置的运行状况</block>
   <block id="4391b07561c519a0e33f2d598bbaf24e" category="paragraph">在执行升级之前，您必须验证 MetroCluster 配置的运行状况和连接。</block>
-  <block id="eab49f20a38cb319af1c5032035c5d8a" category="section-title">将端口从 AFF A700 节点映射到 AFF A900 节点</block>
   <block id="1009168ca9b613e3f4fa7884c8377f36" category="paragraph">在控制器升级过程中，您只能更改此操作步骤中提及的连接。</block>
-  <block id="cf06fb5873d66fa2a000cef39e03e781" category="paragraph">如果 AFF A700 控制器的插槽 7 中有一个卡，则应先将其移至另一个插槽，然后再开始控制器升级操作步骤。您必须有插槽 7 ，才能添加第二个 FC-VI 适配器，该适配器是 AFF A900 上光纤 MetroCluster 正常运行所需的。</block>
   <block id="e8b2b31f6129e480376a3948b9b9d73c" category="list-text">收集 MetroCluster 配置节点系统 ID ：</block>
   <block id="3c0b6cb420c455a5a165c08c7cd7af73" category="paragraph">在更换操作步骤期间，您将使用控制器模块的系统 ID 替换这些系统 ID 。</block>
   <block id="52d83d7ca0d0ff43bc0929d376512989" category="list-text">node_A_1-A700 ： 537037649</block>
@@ -11101,22 +11057,15 @@
   <block id="771fe3d405626b11981b56d013399632" category="list-text">Depress the lettered and numbered cam button.The cam button moves away from the chassis.</block>
   <block id="dd1cfa8d899a8ddd6f4a00978117e5f0" category="inline-image-macro">NVS 模块</block>
   <block id="20d7cafa77ced4deb94fb09d7a230ff9" category="paragraph"><block ref="20d7cafa77ced4deb94fb09d7a230ff9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0633c91c5a4508e5dec03750074b6f0d" category="admonition">如果 AFF A700 非易失性存储模块上有任何附加模块用作核心转储设备，请勿将其传输到 AFF A900 NVS 。请勿将任何部件从 AFF A700 控制器模块和 NVS 传输到 AFF A900 。</block>
-  <block id="4f29f89e2c29c172aeb92e4fab1d80f1" category="section-title">安装 AFF A900 NVS 和控制器模块</block>
-  <block id="98c079e634c6d65d9fa54a62906f3de9" category="paragraph">您必须在 Site_B 的两个节点上安装升级套件中的 AFF A900 NVS 和控制器模块请勿将核心转储设备从 AFF A700 NVS 模块移至 AFF A900 NVS 模块。</block>
-  <block id="887d66d2227e68134a4ce7a92c0d5522" category="section-title">安装 AFF A900 控制器模块</block>
   <block id="5e3db24c1810c8b2903e6716613744e9" category="list-text">Firmly push the controller module into the chassis until it meets the midplane and is fully seated.控制器模块完全就位后，锁定闩锁会上升。</block>
   <block id="ca40fd9083dd4ade691492058e938f48" category="admonition">Do not use excessive force when sliding the controller module into the chassis to avoid damaging the connectors.</block>
   <block id="0715013d30fff3fad3eac3c38b9777ef" category="list-text">在每个节点的插槽 7 中安装第二个 X91129A 卡。</block>
   <block id="b3a621e112846c20710b79eacb2e43fe" category="inline-link-macro">光纤连接安装和配置</block>
-  <block id="c27b4d527bbbbd163bf7803ce6a4eac3" category="list-text">将 FC-VI 端口从插槽 7 连接到交换机。请参见 <block ref="995b1601992c6a25573ab03322643d00" category="inline-link-macro-rx"></block> 记录并转至适用于您环境中交换机类型的 AFF A900 光纤 MetroCluster 连接要求。</block>
   <block id="4570827282a7195b67f3c4e03ad406e9" category="list-text">打开机箱电源并连接到串行控制台。</block>
   <block id="13e7ec57497ed1146060eb34bb91857a" category="list-text">BIOS 初始化后，如果节点开始自动启动，请按 Ctrl-C 中断自动启动</block>
   <block id="7d667bf02951c187f0d201b2091ed082" category="list-text">中断自动启动后，节点将在 LOADER 提示符处停止。如果您未及时中断自动启动，而 node1 开始启动，请等待提示按 Ctrl-C 进入启动菜单。节点停留在启动菜单后，使用选项 8 重新启动节点并在重新启动期间中断自动启动。</block>
   <block id="e15df7abd18a1784d56a916d5eea87f8" category="list-text">在 `LOADER` 提示符处，设置默认环境变量： `set-defaults`</block>
   <block id="9cb93e3e52c9acd5dbc54779bde1d1f9" category="list-text">保存默认环境变量设置： `saveenv`</block>
-  <block id="70146809c2d89438d1fffd038bc77510" category="paragraph">在交换 AFF A900 控制器模块和 NVS 后，您需要通过网络启动 AFF A900 节点，并安装与集群上运行的相同 ONTAP 版本和修补程序级别。术语 `netboot` 表示您从远程服务器上存储的 ONTAP 映像启动。在准备 `netboot` 时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。</block>
-  <block id="a4cd91be64df1f08e86dd4135dc70c84" category="paragraph">无法检查 AFF A900 控制器模块启动介质上安装的 ONTAP 版本，除非该模块安装在机箱中并已启动。AFF A900 启动介质上的 ONTAP 版本必须与要升级的 AFF A700 系统上运行的 ONTAP 版本相同，并且主启动映像和备份启动映像都应匹配。您可以通过在启动菜单中依次执行 `netboot` 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。</block>
   <block id="c8ccdf38ac9270bf4afbb1e3492b8838" category="list-text">您需要从下载系统所需的系统文件以及正确版本的 ONTAP <block ref="3bd7a72b5bb22d07b50aba30cd6fdbe6" category="inline-link-macro-rx"></block> 站点关于此任务，如果安装的 ONTAP 版本与原始控制器上安装的版本不同，则必须 `netboot` 新控制器。安装每个新控制器后，您可以从 Web 服务器上存储的 ONTAP 9 映像启动系统。然后，您可以将正确的文件下载到启动介质设备，以供后续系统启动。</block>
   <block id="38b125b63e361f104f9462c713554e23" category="list-text">访问 <block ref="3bd7a72b5bb22d07b50aba30cd6fdbe6" category="inline-link-macro-rx"></block> 下载执行用于执行系统网络启动的系统网络启动所需的文件。</block>
   <block id="563aa54c6a7f25b423465d6da71ac244" category="list-text">` 步骤 2-download-software]] 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将` &lt;ontap_version&gt;_image.tgz 文件存储在可通过 Web 访问的目录中。</block>
@@ -11126,7 +11075,6 @@
   <block id="84435c8fed125c1f06699e20bdcee63d" category="cell">未运行</block>
   <block id="5952ce6c5039c7475de3fea77be26768" category="cell">在启动环境提示符处使用以下命令手动配置连接： `ifconfig e0M -addr=&lt;filer_addr&gt; -mask=&lt;netmask&gt; -gw=&lt;gateway&gt; - dns=&lt;dns_addr&gt; domain=&lt;dns_domain&gt;` ` &lt;filer_addr&gt;` 是存储系统的 IP 地址。` &lt; 网络掩码 &gt;` 是存储系统的网络掩码。` &lt; 网关 &gt;` 是存储系统的网关。` &lt;dns_addr&gt;` 是网络上名称服务器的 IP 地址。此参数是可选的。` &lt;dns_domain&gt;` 是域名服务（ DNS ）域名。此参数是可选的。注意：您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 help ifconfig 。</block>
   <block id="3e740d926a40d82c2fcc72ee1fb84e5b" category="list-text">在节点 1 上执行 `netboot` ： `netboot<block ref="489fdc1c448bf7fbb7b53d2ad099b1ec" category="inline-link-rx"></block>` &lt;path_to_the_web-accessible_directory&gt;` 应指向您在中下载 ` &lt;ontap_version&gt;_image.tgz` 的位置 <block ref="28cd24b5ecf937229eb419cc55587b9d" category="inline-xref-macro-rx"></block>。</block>
-  <block id="c365fef4a48637bf4080ee61f4a8ce61" category="list-text">等待 AFF A900 控制器模块上运行的节点 1 启动，并显示启动菜单选项，如下所示：</block>
   <block id="188edb9f514b65304cf0a3564a7bc692" category="list-text">从启动菜单中，选择选项 ` （ 7 ） Install new software first` 。此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。</block>
   <block id="81ff6a54875aaf720a2c324484bc2178" category="admonition">请忽略以下消息： `HA 对上的无中断升级不支持此操作步骤。` 本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。请始终使用 netboot 将新节点更新为所需映像。如果您使用其他方法在新控制器上安装映像，则可能会安装不正确的映像。此问题描述适用场景所有 ONTAP 版本。</block>
   <block id="9fbd27646b729fd730070da29cb836c5" category="list-text">如果系统提示您继续运行操作步骤，请输入 `y` ，并在系统提示您输入软件包时，输入 URL ：<block ref="a2ba1d0ee1c156220079edd2f4d50848" category="inline-link-rx"></block></block>
@@ -11183,7 +11131,6 @@
   <block id="a8125364ced10d8a90aedca98aa02032" category="paragraph"><block ref="a8125364ced10d8a90aedca98aa02032" category="inline-link-macro-rx"></block></block>
   <block id="f352cbf1ebb01c90cd667f55932f9c18" category="paragraph">链接： ./transition/concept_choosing_your_transition_procedure_mcc_transition.html</block>
   <block id="dac255183ddd968b772755feaa9b4cd7" category="summary">下表显示了 ISL 端口使用情况。</block>
-  <block id="cbe2b16a509b760d191376479e32ca46" category="doc">AFF A900 —运行 ONTAP 9.10.1 或更高版本的 MetroCluster 配置中八节点配置中 ISL 的 Cisco 端口使用情况</block>
   <block id="83e876af5f485a9a733864cbf5a3e21b" category="cell">Cisco 9132T ， 1 个 LEM</block>
   <block id="629f8f8fa5cb9442f2cf5a2289a1e051" category="cell">ISL1</block>
   <block id="e7e6eebc5253d1872205b3e8e4fe67cb" category="cell">LEM1-15</block>
@@ -11205,8 +11152,6 @@
   <block id="8ea7d7250e65620033ebe8e6de7604db" category="cell">ISL8.</block>
   <block id="a443a45b4f59f90651355f5e7502dd6d" category="cell">LEM2-16</block>
   <block id="96cf9ddcf3fc08fd3054be11d6e19c44" category="summary">下表显示了一个 DR 组中包含八个 AFF A900 控制器模块时支持的最大配置。</block>
-  <block id="7c01bf7bcd73a403f5efa68a836503a3" category="doc">运行 ONTAP 9.10.1 或更高版本的 MetroCluster 配置中 AFF A900 控制器的 Cisco 端口使用情况</block>
-  <block id="49a0ddc4c9cb3939ab0983fc26175d57" category="list-text">下表显示了具有八个 FC-VI 端口的系统。AFF A900 具有八个 FC-VI 端口（ FC-VI-1 和 FC-VI-2 的 A ， b ， c 和 d ）。</block>
   <block id="f537ff78df4afb387541f1166be1d417" category="list-text">9132T 交换机不支持 MetroCluster 2 或 DR 2 。</block>
   <block id="e0c3bd3b17898f5fa1d870e22fd0b2a7" category="cell">Cisco 交换机型号</block>
   <block id="105a26504e48c255c684a48adb3a654d" category="cell">9132T （ 1 个 LEM ）</block>
@@ -11240,12 +11185,9 @@
   <block id="9886bd0d1558f3c4c6b4b7c6ccd6d4ca" category="cell">LEM2-4</block>
   <block id="8aed0fcdb92053bce2340c69664e26c5" category="list-text">可以使用 2 个 LEM 模块将其他网桥连接到 9132T 交换机中的端口 LEM2-5 到 LEM2-8 。</block>
   <block id="a2529b9a22421965b80dca74f0e8ac35" category="list-text">使用具有 1 个 LEM 模块的 9132T 交换机时，仅支持一（ 1 ）个网桥堆栈。</block>
-  <block id="8841354ff2977f75451a48280abce5e4" category="list-text">AFF A900 和 FAS9000 存储系统每个网络结构最多支持八个 ISL 。其他存储系统型号支持每个网络结构最多四个 ISL 。</block>
   <block id="99a578284ada1b8807f86cb25b927d6b" category="inline-link-macro">使用 AFF A900 系统时 FC 交换机的端口分配</block>
   <block id="5383551238fc98d2f75e63be48523c04" category="list-text"><block ref="5383551238fc98d2f75e63be48523c04" category="inline-link-macro-rx"></block></block>
   <block id="6a3afd8e0bd4d7b0e5cc9f66134c7c8d" category="summary">下表显示了 AFF A900 系统的 Brocade 交换机上的端口使用情况</block>
-  <block id="7b73f35b5be5225d6f5bdfe1008d55a6" category="doc">运行 ONTAP 9.10.1 或更高版本的 MetroCluster 配置中 AFF A900 控制器的 Brocade 端口使用情况</block>
-  <block id="29a8f5d5fb8dceda7389ca8a30f56ec8" category="paragraph">下表显示了 Brocade 交换机上的端口使用情况。下表显示了支持的最大配置，其中四个 DR 组包含八个控制器模块。AFF A900 具有八个 FC-VI 端口（ FC-VI-1 和 FC-VI-2 的 A ， b ， c 和 d ）</block>
   <block id="56e8146206df37b2e114695d0ee8d127" category="cell">6505 ， G610</block>
   <block id="6468480fd8b1a2f75ef118118bd03a58" category="cell">G620 ， G620-1</block>
   <block id="81df3dccd5bcac9f92dc3ce6a45f1ac2" category="cell">G630 ， G630-1</block>
@@ -11287,10 +11229,7 @@
   <block id="11be15880eab3352c16856fa1475d4db" category="list-text"><block ref="11be15880eab3352c16856fa1475d4db" category="inline-link-macro-rx"></block></block>
   <block id="29ad4be139be5b3e7f2133bef476991d" category="list-text"><block ref="29ad4be139be5b3e7f2133bef476991d" category="inline-link-macro-rx"></block></block>
   <block id="aef9e13f2797744b62209b58e52a9a40" category="paragraph">如果使用的是 ONTAP 9.10.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。</block>
-  <block id="e9f60c97614e1831c49ced50d37383dd" category="list-text">AFF A900 存储系统需要八个 FC-VI 端口。如果您使用的是 AFF A900 ，则需要使用八端口配置。如果配置包括其他存储系统型号，请使用表中所示的布线方式，但忽略不需要的 FC-VI 端口的布线方式。</block>
   <block id="72fa0ea37e0389a6c2e6107de6bbcbe8" category="summary">下表显示了 AFF A900 系统中 Brocade 交换机的 ISL 端口使用情况。</block>
-  <block id="088d34fa95b78fea4357e6fb952a2960" category="doc">AFF A900 —运行 ONTAP 9.10.1 或更高版本的 MetroCluster 配置中 ISL 的 Brocade 端口使用情况</block>
-  <block id="e7f0f0c64372c73e52760c46dea51cf3" category="admonition">AFF A900 系统支持八个 ISL 。Brocade 6510 ， G620 ， G620-1 和 G720 交换机支持八个 ISL 。</block>
   <block id="83f8b75cddaf0acd53872b333bc5d6c1" category="paragraph">6510 ， G620 ， G620-1 ， G720</block>
   <block id="f3089a69f0cb0a583fab7f5c1ea7226c" category="cell">6505 ， G610</block>
   <block id="e912938f380bdbc5125a46cb6974c985" category="sidebar">展开双节点 MetroCluster</block>
@@ -11388,7 +11327,6 @@
   <block id="e4dfa2cb8ac36daa9c5d60ebed0d438b" category="paragraph">您可以在 site_B 上执行此任务</block>
   <block id="e9e9340e13d6253f17a48e08970ad599" category="list-text">连接到 site_B 上旧控制器（ node_B_1-700 和 node_B_2-700 ）的串行控制台，并验证它是否显示 `LOADER` 提示符。</block>
   <block id="60086a2b9ff0b21debbb0d8bf099b8e7" category="section-title">从 site_B 的两个节点中删除控制器模块和 NVS</block>
-  <block id="308ec104a3637bade21210dfaf7f4f61" category="paragraph">使用以下操作步骤在 site_B 的两个节点的插槽 6 中安装 AFF A900 NVS</block>
   <block id="88ddfc7e314aeb15a213f2a59a493e9f" category="section-title">通过网络启动 site_B 上的节点</block>
   <block id="09d09b12e62bbea5812e7cd6ee644ddd" category="list-text">从开始，重复上述步骤升级 site_A 上的节点 <block ref="0e6ccb461a8e4072917a7db8187a2ba6" category="inline-link-macro-rx"></block>。</block>
   <block id="aef044e8d9907a55ceb4a933de45cc66" category="paragraph">在执行任务时，对站点和节点的所有示例引用都将反转。例如，如果提供了从 site_A 切换的示例，则您将从 Site_B 切换</block>
@@ -12135,8 +12073,6 @@
   <block id="0bae9da7e045b91539ca2636147550a9" category="inline-link">其他平台过程：控制器硬件升级快速</block>
   <block id="074e456fb5fc2d75c702ca853d7ff4a7" category="list-text">使用中的以下过程将数据从旧节点移动到新节点<block ref="c8d46be4ca27ce42222e434f46ed9bd4" category="inline-link-rx"></block>。</block>
   <block id="6abf8fcf1209a0e61a34ee20748a726e" category="paragraph">将每个控制器上的集群端口连接到子步骤 b 中标识的集群网络交换机上的端口</block>
-  <block id="30ff186227aaf51cf730a9cf5a73a9e1" category="inline-link">物理存储管理</block>
-  <block id="139a2480b517efabfcd850e52aeab3e8" category="paragraph"><block ref="139a2480b517efabfcd850e52aeab3e8" category="inline-link-rx"></block></block>
   <block id="a8307b4c5fa271005a1338d5b405ca1f" category="paragraph">从 ONTAP 9.1.1 开始，您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。</block>
   <block id="a4aa69385ab0a1b92a7a5635cdb2f2b2" category="paragraph"><block ref="903819e2154a41f8227f7c0192db71f6" category="inline-link-macro-rx"></block>。</block>
   <block id="1cab2231671234cf1e23b1ca0a52ef3e" category="list-text">在新的 MetroCluster IP 节点上，使用以下过程配置集群间 LIF ：</block>
@@ -12229,7 +12165,6 @@
   <block id="2872394e3c89268bb37adaa024dc9195" category="paragraph">。<block ref="6e7f74aa9001f0524a965144f528bbc2" category="inline-link-rx"></block> 描述新功能，升级说明，已修复的问题，已知限制和已知问题。</block>
   <block id="64c598a52dd8cdadea545647c7d064a6" category="summary">您可以在 NetApp 的丰富文档中了解有关 MetroCluster 配置和操作的更多信息。</block>
   <block id="04d9ec83167120e239825f4726f351cc" category="paragraph">Active IQ Unified Manager 文档<block ref="1cf4a9f6324bfcec73ee8652129ceb47" category="inline-link-rx"></block></block>
-  <block id="eaee39239c11bb1725bfd13bb19bb2a1" category="paragraph">如果灾难站点包含未镜像聚合且未镜像聚合不再存在，则聚合可能会在 `storage aggregate show` 命令的输出中显示为 "`unknown` " 。请联系技术支持以删除未镜像聚合的过期条目。</block>
   <block id="7b173496e8f6041144abc83f7e17506f" category="list-text">验证运行正常的集群上的所有 sync-destination SVM 是否均处于休眠状态（显示管理状态为 `sstopped` ），以及灾难集群上的 sync-source SVM 是否已启动且正在运行：</block>
   <block id="90755aace4dbf79660e4f610c3481e12" category="paragraph">MetroCluster 配置中的 sync-destination 聚合会在其名称中自动附加后缀 "` -mc` " ，以帮助标识它们。</block>
   <block id="a06ba402461ed4d507397d322c6630a2" category="list-text">从 ONTAP 9.5 开始，如果灾难站点节点仍处于启动状态，则本地丛和远程丛都会保持联机状态。</block>
@@ -12555,25 +12490,110 @@
   <block id="71620bedc8491865816460c55b3cde98" category="list-text"><block ref="71620bedc8491865816460c55b3cde98" category="inline-link-macro-rx"></block></block>
   <block id="3a8190b24d904ae352e54f8a0a3df0bb" category="list-text"><block ref="3a8190b24d904ae352e54f8a0a3df0bb" category="inline-link-macro-rx"></block></block>
   <block id="bee24b783e44923012afab506584e701" category="list-text">SSH 服务（ RSA ）</block>
-  <block id="39ceb938ecce9e03ffb814b0ab98c3ff" category="inline-link-macro">NetApp知识库：How to remove nodes from a MetroCluster configuration - Resolution Guide.</block>
-  <block id="ddcd0bc62cc0d6ad3a96c234e8e9acc2" category="admonition">您不能反转 MetroCluster 取消配置。此过程只能在技术支持的协助下完成。请联系NetApp技术支持、并参考中适用于您的配置的相应指南 <block ref="6b274ee2da4e368d83246d3228463b74" category="inline-link-macro-rx"></block></block>
   <block id="aac7cfec46f1e12804543ab7e9f0bf82" category="admonition">在运行命令`MetroCluster configure`之前、您必须*不*配置板载密钥管理器(OKM)或外部密钥管理。</block>
   <block id="b7dc5f17370f3f6d8f0564ad37092c2e" category="list-text">ONTAP 9.8及更高版本支持四节点和八节点配置。</block>
-  <block id="4d8ef96135f1fcc906a1c836b94ccd72" category="inline-link-macro">NetApp知识库：如果现有FAS8020或AFF8020节点上的FCVI连接使用端口1c和1d、则升级控制器。</block>
-  <block id="3b66e88b9eec711f27eed9c397de04df" category="admonition">如果原始或新平台是使用FC-VI模式下端口1c和1d的FAS8020或AFF8020系统、请查看 <block ref="5f6e886a55fbfce55c807e98c86f0ed7" category="inline-link-macro-rx"></block></block>
-  <block id="6f2e4be613f6e5c211f118c1604357ae" category="list-text">两个站点的许可证必须匹配。您可以从获取新许可证 <block ref="a42716fdd3c80ae75cadfb8024b65de0" category="inline-link-macro-rx"></block>。</block>
   <block id="4bf20a918b2c6b62364371fe4f4d9c7f" category="section-title">安装新许可证</block>
   <block id="c24d2fcd8511c8b51a6aef773200e0d8" category="paragraph">在执行切回操作之前、您必须为新控制器安装许可证。</block>
   <block id="07beb3f4161a6f204edf78213ee21dd3" category="list-text"><block ref="07beb3f4161a6f204edf78213ee21dd3" category="inline-link-macro-rx"></block></block>
-  <block id="852fee667b0218d56efb26732593192d" category="inline-link-macro">主板更换后流程、用于更新AFF/FAS系统上的许可</block>
-  <block id="4d373838f1432114e8cb3f53c45f8736" category="paragraph">有关许可证更换的详细信息、请参见 <block ref="7fa6d13435a2a82c954f1735e8d67b30" category="inline-link-macro-rx"></block></block>
   <block id="42f4edc2efb2c786550a905c38a8416c" category="admonition">如果没有LOADER提示符、请记录错误消息。如果系统显示启动菜单，请重新启动并再次尝试中断启动过程。</block>
   <block id="8c4c17369ebab47cd3919b9e6b1e8537" category="admonition">如果布线无法使用操作步骤，请勿使用此 RCF 。</block>
-  <block id="07d36974183f0bd379705eb8861c8bba" category="inline-link-macro">NetApp知识库：在存储丢失的灾难发生后、如何在MetroCluster 中删除陈旧的未镜像聚合条目。</block>
-  <block id="e8a2aa8f2b533983c4b701d088ac2fa9" category="paragraph">如果灾难站点包含未镜像聚合且未镜像聚合不再存在，则聚合可能会在 `storage aggregate show` 命令的输出中显示为 "unknown" 状态。请联系技术支持以删除未镜像聚合的过期条目并提供参考 <block ref="857cf6ab3254f5ce14b6347a5dc33b9f" category="inline-link-macro-rx"></block></block>
-  <block id="34e63b4d455bee1fbdab9ea6d4e3fcb7" category="inline-link-macro">NetApp知识库：主板更换后流程、用于更新AFF/FAS系统上的许可。</block>
-  <block id="6abc18b19d1261841c5bebef07ade3cc" category="admonition">系统会自动生成所需的新许可证密钥，并将其发送到文件中的电子邮件地址。如果您未能在30天内收到包含许可证密钥的电子邮件、请参阅中的"如果我的许可证出现问题、应联系谁？"_部分<block ref="01bfbfba842a68c11d464652fb5b8666" category="inline-link-macro-rx"></block></block>
-  <block id="a83bdcaf895c6161de37c26c6fde86a6" category="paragraph">如果灾难站点包含未镜像聚合，而未镜像聚合不再存在，则该聚合可能会在 storage aggregate show 命令的输出中显示为 "`unknown` " 状态。请联系技术支持以删除未镜像聚合的过期条目、请参考 <block ref="857cf6ab3254f5ce14b6347a5dc33b9f" category="inline-link-macro-rx"></block></block>
-  <block id="efa4707d1136ea0f455cfb38e7371895" category="inline-link-macro">NetApp知识库：主板更换后流程、用于更新AFF/FAS系统上的许可</block>
-  <block id="e4d43f7afcae270903f6fda758c33beb" category="paragraph">有关许可证更换的详细信息、请参见 <block ref="fd34fb83b47f441a190e089e21262454" category="inline-link-macro-rx"></block></block>
+  <block id="8d9fb55ee32f6df582d661812847c467" category="doc">使用AFF A900或FAS9500系统时FC交换机的端口分配</block>
+  <block id="4382ff0992965ffdabb9c638b6f2ecf2" category="list-text">AFF A900或FAS9500存储系统需要八个FC-VI端口。如果您使用的是AFF A900或FAS9500、则需要使用八端口配置。如果配置包括其他存储系统型号，请使用表中所示的布线方式，但忽略不需要的 FC-VI 端口的布线方式。</block>
+  <block id="649ae78fb315c7c5f6a700dfdf86f4bb" category="doc">AFF A900或FAS9500-运行ONTAP 9.10.1或更高版本的MetroCluster 配置中八节点配置中ISL的Cisco端口使用情况</block>
+  <block id="a0bc38f50488b4f686bd2fe145def041" category="inline-link-macro">如何从MetroCluster 配置中删除节点—解决指南。</block>
+  <block id="8b54a6608c7aceee8d4dfde954124547" category="admonition">您不能反转 MetroCluster 取消配置。此过程只能在技术支持的协助下完成。请联系NetApp技术支持、并参考中适用于您的配置的相应指南 <block ref="c2ef60fcbce343052d34da400cf98089" category="inline-link-macro-rx"></block></block>
+  <block id="8ec1014b27ed523596c5c910443b0827" category="paragraph">AFF A900和FAS9500</block>
+  <block id="87ba2462050ce75d6d9915d834efe9b7" category="doc">AFF A900或FAS9500-运行ONTAP 9.10.1或更高版本的MetroCluster 配置中ISL的Brocade端口使用情况</block>
+  <block id="801938c63db0b16215aa712c6d1fd12c" category="paragraph">下表显示了AFF A900或FAS9500系统中Brocade交换机的ISL端口使用情况。</block>
+  <block id="5cc34fc9164e77d33b971042da17edf2" category="admonition">AFF A900和FAS9500系统支持八个ISL。Brocade 6510 ， G620 ， G620-1 和 G720 交换机支持八个 ISL 。</block>
+  <block id="1dcd768f9d116bda4a2253d295e01fb8" category="doc">运行ONTAP 9.10.1或更高版本的MetroCluster 配置中AFF A900或FAS9500控制 器的Brocade端口使用情况</block>
+  <block id="e33ab3eabb81d3db08bba17fee6ed399" category="paragraph">下表显示了 Brocade 交换机上的端口使用情况。下表显示了支持的最大配置，其中四个 DR 组包含八个控制器模块。AFF A900和FAS9500系统具有八个FC-VI端口(FC-VI-1和FC-VI-2的A、b、c和d)</block>
+  <block id="e0477011a5767f5250fc49bfe9ab153c" category="list-text">AFF A700、FAS9000、AFF A900和FAS9500存储 系统每个网络结构最多支持八个ISL。其他存储系统型号支持每个网络结构最多四个 ISL 。</block>
+  <block id="f7326e6cfc29ebefdb936677ae7dd110" category="doc">运行ONTAP 9.10.1或更高版本的MetroCluster 配置中AFF A900或FAS9500控制 器的Cisco端口使用情况</block>
+  <block id="dfed8939b1f16a32e24cbf7db94e77b4" category="paragraph">下表显示了一个DR组中包含八个AFF A900或FAS9500控制 器模块时支持的最大配置。</block>
+  <block id="850f7b79a5d7e3532f3461f2abbf9036" category="list-text">下表显示了具有八个 FC-VI 端口的系统。AFF A900和FAS9500具有八个FC-VI端口(FC-VI-1和FC-VI-2的A、b、c和d)。</block>
+  <block id="756d409209ace98589705774b5011aa0" category="paragraph">FAS9500</block>
+  <block id="9c4b6feb4a0e2e1a3b0880149249570d" category="section-title">使用缆线将AFF A900或FAS9500连接 到Cisco 3232C或Cisco 9336C交换机</block>
+  <block id="c12126891bd5121c9da9a05042a756ac" category="paragraph"><block ref="c12126891bd5121c9da9a05042a756ac" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="413a1a8040eaed9020b7af4ba6c24e5f" category="section-title">在FAS9500系统上分配磁盘</block>
+  <block id="dd6721b9055a32492dda0434480da44d" category="admonition">不支持在下载后修改RCF文件。</block>
+  <block id="03b9eedf57c55a2eb9b4feaa990c85f6" category="list-text">使用适用于MetroCluster IP的RcfFileGenerator为您的配置生成RCF文件。</block>
+  <block id="52ad3b024ecc6eae02e8415cef1140ba" category="summary">您必须配置IP交换机以提供后端MetroCluster IP连接。</block>
+  <block id="9e93b10c56fcff9e0d1564e5ad629c03" category="doc">配置交换机</block>
+  <block id="e3af9bb8aab2257a1ad4ff7a5c3ecd15" category="list-text"><block ref="e3af9bb8aab2257a1ad4ff7a5c3ecd15" category="inline-link-macro-rx"></block></block>
+  <block id="72f9c6aaf4948fa7910f533f9d8355a5" category="list-text"><block ref="72f9c6aaf4948fa7910f533f9d8355a5" category="inline-link-macro-rx"></block></block>
+  <block id="8c6cfac074d0567f4c5a941062f42343" category="paragraph">ONTAP 9.8 及更高版本支持此操作步骤。对于运行ONTAP 9.7或更早版本的系统、请参见知识库文章</block>
+  <block id="d5d6932337b2af2eda1bd96fd5aa3832" category="inline-link-macro">如何从MetroCluster 配置中删除DR组</block>
+  <block id="44fa5f61d97cbf15ad67ee9c5aedc1c6" category="paragraph"><block ref="44fa5f61d97cbf15ad67ee9c5aedc1c6" category="inline-link-macro-rx"></block></block>
+  <block id="240e83062f934da5c217268779ad19cc" category="inline-link-macro">如果现有FAS8020或AFF8020节点上的FCVI连接使用端口1c和1d、则升级控制器。</block>
+  <block id="7d52f2b0abe5122410e02b6a1f5063c2" category="admonition">如果原始或新平台是使用FC-VI模式下端口1c和1d的FAS8020或AFF8020系统、请参见知识库文章 <block ref="932e72f00053653311064be7a28a435b" category="inline-link-macro-rx"></block></block>
+  <block id="0304fb1b1795f11d66da6052c99f1cca" category="list-text">两个站点的许可证必须匹配。您可以从获取新许可证 <block ref="3bd7a72b5bb22d07b50aba30cd6fdbe6" category="inline-link-macro-rx"></block>。</block>
+  <block id="01e6fb16c1595a47f506d4d654f7859f" category="list-text">此 操作步骤 适用场景 控制器模块采用MetroCluster FC配置(双节点延伸型MetroCluster 或双节点、四节点或八节点光纤连接MetroCluster 配置)。</block>
+  <block id="7935b714e63d97b0e787db90607ba0fc" category="list-text">同一DR组中的所有控制器都应在同一维护期间进行升级。</block>
+  <block id="810c9113a382d35f83c48d0bc5ad007c" category="paragraph">在此维护活动之外、不支持在同一DR组中使用不同类型的控制器运行MetroCluster 配置。对于八节点MetroCluster 配置、DR组中的控制器必须相同、但两个DR组可以使用不同的控制器类型。</block>
+  <block id="f0f7e2a1799d8b479b19f71aa5a163de" category="inline-link-macro">主板更换后流程、用于更新AFF/FAS系统上的许可。</block>
+  <block id="70dc27aa0b1b6fd743baaf39ac831057" category="paragraph">有关许可证更换的详细信息、请参见知识库文章 <block ref="fefc92a8d5d54e07ec6a27ea1fbe0992" category="inline-link-macro-rx"></block></block>
+  <block id="b36fd383298dd454964a70693b082d21" category="doc">使用切换和切回功能将MetroCluster IP配置中的AFF A700/A900控制器升级到FAS9x00 (ONTAP 9.10.1或更高版本)</block>
+  <block id="fa5bebfbd3b64c98d09c75db575bd11c" category="list-text">要将AFF A700控制器模块升级到AFF A900、这些控制器必须运行ONTAP 9.10.1或更高版本。</block>
+  <block id="b8c01685df64d764fee3ea66bb33411d" category="list-text">要将FAS9000控制器模块升级到FAS9000、这些控制器必须运行ONTAP 9.10.1P3或更高版本。</block>
+  <block id="ae4867e3d506833b86caef7b0885d0ba" category="paragraph">在此维护活动之外、不支持使用AFF A700和AFF A900、FAS9000和FAS9500控制器运行MetroCluster 配置。</block>
+  <block id="975e1cbd2148147537ebaf00649d3b64" category="list-text">以下示例名称在此操作步骤 的示例和图形中均使用：</block>
+  <block id="07861cb79e114503ecd43d810982548c" category="section-title">清除AFF A700或FAS9000控制器上的插槽7</block>
+  <block id="33fde62eca72a6b040fde5ee872c847c" category="paragraph">AFF A900或FAS9500上的MetroCluster 配置使用插槽5和7中DR卡上的每个端口之一。开始升级之前、如果AFF A700或FAS9000上的插槽7中有卡、则必须将其移动到集群中所有节点的其他插槽中。</block>
+  <block id="ea9c648e1ece3666c16468e1b7bf9609" category="paragraph">AFF A700或FAS9000上的MetroCluster IP配置不使用VLAN。AFF A900或FAS9500上的MetroCluster 配置确实使用VLAN。因此、在从AFF A700或FAS9000升级到AFF A900或FAS9500时、您需要更改RCF文件。</block>
+  <block id="367b6ed56e5d72c6f7fc505e20f24bd2" category="list-text">AFF A900或FAS9500</block>
+  <block id="faab2cbd973ffc485dff6e74aeeab547" category="paragraph">从AFF A700升级到AFF A900或从FAS9000升级到FAS9500时、您不会更改数据网络端口、FCP SAN适配器端口以及SAS和NVMe存储端口。数据 LIF 在升级期间和升级后始终保持在原位。因此，您不需要将网络端口从旧节点映射到新节点。</block>
+  <block id="e834b095ea947be3c6866a33f1da8979" category="section-title">删除AFF A700或FAS9000平台控制器模块和NVS</block>
+  <block id="ba579f865c148542656e741f915bc210" category="section-title">卸下AFF A700或FAS9000控制器模块</block>
+  <block id="9215947559c2e7cc959d296b609112d9" category="paragraph">使用以下操作步骤 删除AFF A700或FAS9000控制器模块</block>
+  <block id="294524298144dbbf0480ba277400b734" category="section-title">卸下AFF A700或FAS9000 NVS模块</block>
+  <block id="59b55859e42bb9a8cb7f2f21d794fed6" category="paragraph">使用以下操作步骤 删除AFF A700或FAS9000 NVS模块。</block>
+  <block id="7a682da1b921c288604ff1ba20b3701e" category="paragraph">注意：NVS模块位于插槽6中、与系统中的其他模块相比、高度是其两倍。</block>
+  <block id="15d293596473daa84e96fb0a5cafc3c3" category="list-text">如果您使用的附加模块在AFF A700或FAS9000 NVS上用作核心转储设备、请勿将其传输到AFF A900或FAS9500NVS。请勿将任何部件从AFF A700或FAS9000控制器模块和NVS传输到AFF A900或FAS9500模 块。</block>
+  <block id="d3a228303e1f5019fd998731b94f3832" category="section-title">安装AFF A900或FAS9500NVS和控制器模块</block>
+  <block id="7967219dee6205a6946c519fdf6d46c6" category="paragraph">您必须在site_B的两个节点上安装升级套件中提供的AFF A900或FAS9500NVS和控制器模块请勿将核心转储设备从AFF A700或FAS9000 NVS模块移至AFF A900或FAS9500NVS模块。</block>
+  <block id="cc6aecd0b77f7e4d0e9b241213c30d89" category="section-title">安装AFF A900或FAS9500NVS</block>
+  <block id="3d927ff83f34d204c25685406d4c4bb6" category="paragraph">使用以下操作步骤 在site_B的两个节点的插槽6中安装AFF A900或FAS9500NVS</block>
+  <block id="ae5f8d8d7bae730e7805e4ab226507ca" category="section-title">安装AFF A900或FAS9500控制器模块。</block>
+  <block id="f3462e9a0da818d19db18b31c71a3b87" category="paragraph">使用以下操作步骤 安装AFF A900或FAS9500控制 器模块。</block>
+  <block id="2c375ca355c558652a52988f89bdc033" category="paragraph">在交换AFF A900或FAS9500控制 器模块和NVS之后、您需要通过网络启动AFF A900或FAS9500节点、并安装与集群上运行的相同ONTAP 版本和修补程序级别。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。无法检查AFF A900或FAS9500控制器模块启动介质上安装的ONTAP 版本、除非该模块安装在机箱中并已启动。AFF A900或FAS9500启动介质上的ONTAP 版本必须与要升级的AFF A700或FAS9000系统上运行的ONTAP 版本相同、并且主启动映像和备份启动映像都应匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。</block>
+  <block id="c90754ff62c724c351a1fdbc2c0922dc" category="list-text">等待AFF A900或FAS9500控制 器模块上当前运行的node_B_1启动、并显示启动菜单选项、如下所示：</block>
+  <block id="1efe4497214b901f523cf96a2c33ab26" category="list-text">使用以下命令确定可分配给新控制器模块的未分配磁盘或备用磁盘：</block>
+  <block id="2849cfeed499bf8aebf6e17e9cf254ca" category="list-text">`storage disk show -container-type spare`</block>
+  <block id="45a22a50381b7d0a6d65f4f38ec04b7d" category="doc">使用切换和切回将MetroCluster FC配置中的控制器从AFF A700/A900升级到FAS9x00 (ONTAP 9.10.1或更高版本)</block>
+  <block id="304e34c553d5aabda89299a7fe2902b4" category="list-text">您可以使用此操作步骤 将AFF A700升级到使用ONTAP 9.10.1及更高版本的AFF A900。</block>
+  <block id="35a4e2939e219a109bc9eacce7e98324" category="list-text">您可以使用此操作步骤 将FAS9000升级到使用ONTAP 9.10.1P3及更高版本的FAS9000。</block>
+  <block id="995bf77226d032f3f7bb0a9172e19e98" category="list-text">在升级操作步骤 期间、您不应在AFF A700或FAS9000系统中添加或删除其他卡。有关详细信息，请参见<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block></block>
+  <block id="ed21ec6cc897803ab446d04522b8215b" category="paragraph">以下示例名称在此操作步骤 的示例和图形中使用：</block>
+  <block id="4f7fa4ba8a2b7d1dcd5684cabdf4bf8d" category="paragraph">在对现有MetroCluster 配置进行任何更改之前、您必须检查此配置的运行状况、更改RCF文件和布线、使其与AFF A900或FAS9000光纤MetroCluster 配置所需的新端口连接拓扑相匹配、并执行其他各种任务。</block>
+  <block id="8e8ad934b559d7b31276a88f6629cbae" category="paragraph">AFF A900或FAS9500上的MetroCluster 配置需要在插槽5和7中的FC-VI卡上使用8个FC-VI端口。开始升级之前、如果AFF A700或FAS9000上的插槽7中有卡、则必须将其移动到集群中所有节点的其他插槽中。</block>
+  <block id="dce33c4d4b745f3879d39503bee14c22" category="paragraph">在更新AFF A900或FAS9500Fabric MetroCluster 配置的RCF文件和布线之前、您必须验证此配置的运行状况和连接。</block>
+  <block id="0ed649b51c980caac951192bd233e8ca" category="paragraph">与AFF A700所需的一个四端口FC-VI适配器相比、AFF A900或FAS9500Fabric MetroCluster 要求每个节点使用两个四端口FC-VI适配器。在开始将控制器升级到AFF A900或FAS9500控制器之前、您必须修改光纤交换机RCF文件以支持AFF A900或FAS9500连接拓扑。</block>
+  <block id="e6b6dbc98b28672b7d02790d1de0295a" category="list-text">从<block ref="6f619f85f519d88d6754ebdd8b0379b5" category="inline-link-rx"></block>下、下载适用于AFF A900或FAS9500Fabric MetroCluster 以及AFF A700或FAS9000配置中使用的交换机型号的正确RCF文件。</block>
+  <block id="1a246311887a704e5ab1d187d0cc6336" category="admonition">支持AFF A900或FAS9500Fabric MetroCluster 配置的RCF文件更新不会影响用于AFF A700或FAS9000 Fabric MetroCluster 配置的端口和连接。</block>
+  <block id="20924b6eb8b6cea108e86b88645e9bcc" category="section-title">将端口从AFF A700或FAS9000节点映射到AFF A900或FAS9500节点</block>
+  <block id="28533a78f5b9ed1a1d242b6608b33990" category="paragraph">如果AFF A700或FAS9000控制器的插槽7中有一个卡、则应先将其移至另一个插槽、然后再开始控制器升级操作步骤。您必须有插槽7、才能添加第二个FC-VI适配器、该适配器是AFF A900或FAS9500控制器上光纤MetroCluster 正常运行所需的。</block>
+  <block id="f54a1f359c3619ec4b54a5cbaf5a1d68" category="admonition">如果AFF A700或FAS9000非易失性存储模块上有任何附加模块用作核心转储设备、请勿将其传输到AFF A900或FAS9500NVS。请勿将任何部件从AFF A700或A900控制器模块和NVS传输到AFF A900或FAS9500控制器模块。</block>
+  <block id="147bc4d2dafd157a0f974f42f685692c" category="section-title">安装AFF A900或FAS9500NVS和控制器模块</block>
+  <block id="d0cf791b8d9197d3aeb94c14818053cb" category="paragraph">您必须在Site_B的两个节点上安装升级套件中的AFF A900或FAS9500NVS和控制器模块请勿将核心转储设备从AFF A700或FAS9000 NVS模块移至AFF A900或FAS9500NVS模块。</block>
+  <block id="f92e6303c5bbd6720b3a3c23e3e7d624" category="paragraph">使用以下操作步骤 在site_B的两个节点的插槽6中安装AFF A900或FAS9500NVS</block>
+  <block id="5f2bbf9d53b83c5d58b1fbf3a16b8016" category="section-title">安装AFF A900或FAS9500控制器模块</block>
+  <block id="e4c18ff35056da1d93c0204834351b0d" category="list-text">将 FC-VI 端口从插槽 7 连接到交换机。请参见 <block ref="995b1601992c6a25573ab03322643d00" category="inline-link-macro-rx"></block> 记录并转至适用于您环境中交换机类型的AFF A900或FAS9500光纤MetroCluster 连接要求。</block>
+  <block id="3cf4fc594d7fd1cf039eb4ac58c28e8c" category="paragraph">在交换AFF A900或FAS9500控制 器模块和NVS之后、您需要通过网络启动AFF A900或FAS9500节点、并安装与集群上运行的相同ONTAP 版本和修补程序级别。术语 `netboot` 表示您从远程服务器上存储的 ONTAP 映像启动。在准备 `netboot` 时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。</block>
+  <block id="0a9836acbabf719b22960977cfaa6666" category="paragraph">无法检查AFF A900或FAS9500控制器模块的启动介质上安装的ONTAP 版本、除非该模块安装在机箱中并已启动。AFF A900或FAS9500启动介质上的ONTAP 版本必须与要升级的AFF A700或FAS9000系统上运行的ONTAP 版本相同、并且主启动映像和备份启动映像都应匹配。您可以通过在启动菜单中依次执行 `netboot` 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。</block>
+  <block id="739b832185fa1247626c05bbd7c49e6b" category="list-text">等待AFF A900或FAS9500控制 器模块上运行的节点1启动、并显示启动菜单选项、如下所示：</block>
+  <block id="14df4d809d9812994f1e4264e6272db6" category="paragraph">如果需要、您可以重置boot_recovery和rdb_Corrupt_bootargs</block>
+  <block id="d2c039898f8a935b9869f711551f1bdc" category="list-text">将节点暂停回LOADER提示符：</block>
+  <block id="0b0c0d8fa1e4052e4b5d4195ede1e340" category="list-text">检查是否已设置以下bootarg：</block>
+  <block id="99892b3569ad9c719e8f7c24fa15b733" category="list-text">如果已将任一bootarg设置为值、请取消设置并启动ONTAP ：</block>
+  <block id="097a789cebf1d8b62e0e25ac5634e09a" category="inline-xref">重置启动恢复和rdb_Corrupt bootargs</block>
+  <block id="bbfd04df316138a8bd107ee376a54dc1" category="admonition">如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复 <block ref="358c6da937c27d6519a48f813996b4db" category="inline-xref-macro-rx"></block> 将系统启动至 ONTAP 提示符。然后、您需要 <block ref="98b89efafafc6baeefb50e35f16eee3c" category="inline-xref-macro-rx"></block></block>
+  <block id="749bb4f63c981ace3f4595e0221aeaa6" category="section-title">重置boot_recovery和rdb_Corrupt bootargs</block>
+  <block id="e6d0640faf9a5179bcd547053596e9fb" category="admonition">如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复这些子步骤，将系统启动到 ONTAP 提示符。然后、您需要 <block ref="98b89efafafc6baeefb50e35f16eee3c" category="inline-xref-macro-rx"></block></block>
+  <block id="04008409e45af76f1283ce88932da449" category="inline-link-macro">如何在存储丢失的灾难发生后删除MetroCluster 中陈旧的未镜像聚合条目。</block>
+  <block id="2acb95fae93eb0a712fe18af796439f5" category="paragraph">如果灾难站点包含未镜像聚合且未镜像聚合不再存在，则聚合可能会在 `storage aggregate show` 命令的输出中显示为 "unknown" 状态。请联系技术支持以删除未镜像聚合的过期条目、并参考知识库文章 <block ref="5f58a40bfe898f128ca76e4a4e4715d4" category="inline-link-macro-rx"></block></block>
+  <block id="24f7d38b1eaa5b3c78d65d263e040011" category="admonition">系统会自动生成所需的新许可证密钥，并将其发送到文件中的电子邮件地址。如果您未能在30天内收到包含许可证密钥的电子邮件、请参阅知识库文章中的"如果我的许可证出现问题、应联系谁？"_部分 <block ref="fefc92a8d5d54e07ec6a27ea1fbe0992" category="inline-link-macro-rx"></block></block>
+  <block id="d903b046ad4e23192a38f289cf8b3677" category="paragraph">如果灾难站点包含未镜像聚合，而未镜像聚合不再存在，则该聚合可能会在 storage aggregate show 命令的输出中显示为 "`unknown` " 状态。要删除未镜像聚合的过期条目、请联系技术支持、请参阅知识库文章 <block ref="5f58a40bfe898f128ca76e4a4e4715d4" category="inline-link-macro-rx"></block></block>
+  <block id="9734751a8e945b1c9cd85ffbdd0c241e" category="admonition">如果未清除已用替代控制器模块的 NVRAM 内容，则可能会看到以下崩溃消息： `panic ： NVRAM 内容无效 ...` 如果发生这种情况，请将系统重新启动到 ONTAP 提示符（`boot_ontap menu` ）。然后、您需要 <block ref="81092c96bc8b36fe9ac80e13a918f8bb" category="inline-xref-macro-rx"></block></block>
+  <block id="2117e88807c2074036a5c585d3364860" category="sidebar">使用切换和切回功能将MetroCluster IP配置中的AFF A700/A900控制器升级到FAS9x00 (ONTAP 9.10.1或更高版本)</block>
 </blocks>

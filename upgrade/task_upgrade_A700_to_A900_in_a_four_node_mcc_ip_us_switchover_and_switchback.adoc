@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controller, ip, configuration, switchover, switchback, workflow, nodes, tiebreaker, verify, bootrage, root, aggregate, disks 
 summary: 升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。 
 ---
-= 使用切换和切回功能将 AFF IP 配置中的 AFF A700 控制器升级到 MetroCluster A900 （ ONTAP 9.10.1 及更高版本）
+= 使用切换和切回功能将MetroCluster IP配置中的AFF A700/A900控制器升级到FAS9x00 (ONTAP 9.10.1或更高版本)
 :allow-uri-read: 
 
 
@@ -12,8 +12,8 @@ summary: 升级配对集群上的控制器模块时，您可以使用 MetroClust
 升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。
 
 .关于此任务
-* 控制器必须运行 ONTAP 9.10.1 或更高版本。
-* 此操作步骤适用场景 AFF A700 控制器模块将升级到 MetroCluster IP 配置中的 AFF A900 。
+* 要将AFF A700控制器模块升级到AFF A900、这些控制器必须运行ONTAP 9.10.1或更高版本。
+* 要将FAS9000控制器模块升级到FAS9000、这些控制器必须运行ONTAP 9.10.1P3或更高版本。
 +
 |===
 
@@ -28,14 +28,23 @@ summary: 升级配对集群上的控制器模块时，您可以使用 MetroClust
 ** AFF A900
 
 
+
+
+ a| 
+** FAS9000
+
+ a| 
+** FAS9500
+
+
 |===
 * 配置中的所有控制器都应在同一维护期间进行升级。
 +
-在此维护活动之外，不支持使用 AFF A700 和 AFF A900 控制器运行 MetroCluster 配置。
+在此维护活动之外、不支持使用AFF A700和AFF A900、FAS9000和FAS9500控制器运行MetroCluster 配置。
 
 * IP 交换机必须运行受支持的固件版本。
 * 您将在新平台上重复使用原始平台的 IP 地址，网络掩码和网关。
-* 此操作步骤使用以下示例名称：
+* 以下示例名称在此操作步骤 的示例和图形中均使用：
 +
 ** site_A
 +
@@ -89,15 +98,15 @@ image::../media/workflow_ip_upgrade.png[工作流 IP 升级]
 
 
 
-=== 清除 AFF A700 控制器上的插槽 7
+=== 清除AFF A700或FAS9000控制器上的插槽7
 
-AFF A900 上的 MetroCluster 配置使用插槽 5 和 7 中 DR 卡上的每个端口之一。在开始升级之前，如果 AFF A700 上的插槽 7 中有卡，则必须将其移动到集群中所有节点的其他插槽中。
+AFF A900或FAS9500上的MetroCluster 配置使用插槽5和7中DR卡上的每个端口之一。开始升级之前、如果AFF A700或FAS9000上的插槽7中有卡、则必须将其移动到集群中所有节点的其他插槽中。
 
 
 
 === 升级控制器之前，请更新 MetroCluster 交换机 RCF 文件
 
-AFF A700 上的 MetroCluster IP 配置不使用 VLAN 。AFF A900 上的 MetroCluster 配置确实使用 VLAN 。因此，在从 AFF A700 升级到 AFF A900 时，您需要更改 RCF 文件。
+AFF A700或FAS9000上的MetroCluster IP配置不使用VLAN。AFF A900或FAS9500上的MetroCluster 配置确实使用VLAN。因此、在从AFF A700或FAS9000升级到AFF A900或FAS9500时、您需要更改RCF文件。
 
 |===
 
@@ -106,7 +115,7 @@ AFF A700 上的 MetroCluster IP 配置不使用 VLAN 。AFF A900 上的 MetroClu
 
 
  a| 
-* AFF A900
+* AFF A900或FAS9500
 
  a| 
 * 10
@@ -143,7 +152,7 @@ AFF A700 上的 MetroCluster IP 配置不使用 VLAN 。AFF A900 上的 MetroClu
 
 === 将端口从旧节点映射到新节点
 
-从 AFF A700 升级到 AFF A900 时，您不会更改数据网络端口， FCP SAN 适配器端口以及 SAS 和 NVMe 存储端口。数据 LIF 在升级期间和升级后始终保持在原位。因此，您不需要将网络端口从旧节点映射到新节点。
+从AFF A700升级到AFF A900或从FAS9000升级到FAS9500时、您不会更改数据网络端口、FCP SAN适配器端口以及SAS和NVMe存储端口。数据 LIF 在升级期间和升级后始终保持在原位。因此，您不需要将网络端口从旧节点映射到新节点。
 
 
 
@@ -465,7 +474,7 @@ MetroCluster switchover -controller-replacement true`
 
 
 
-== 卸下 AFF A700 平台控制器模块和 NVS
+== 删除AFF A700或FAS9000平台控制器模块和NVS
 
 如果您尚未接地，请正确接地。
 
@@ -476,9 +485,9 @@ MetroCluster switchover -controller-replacement true`
 
 
 
-=== 卸下 AFF A700 控制器模块
+=== 卸下AFF A700或FAS9000控制器模块
 
-使用以下操作步骤删除 AFF A700 控制器模块
+使用以下操作步骤 删除AFF A700或FAS9000控制器模块
 
 .步骤
 . 在卸下控制器模块之前，请断开控制台缆线（如果有）以及管理缆线与控制器模块的连接。
@@ -504,11 +513,11 @@ image::../media/drw_9500_remove_PCM.png[控制器模块]
 
 
 
-=== 卸下 AFF A700 NVS 模块
+=== 卸下AFF A700或FAS9000 NVS模块
 
-使用以下操作步骤删除 AFF A700 NVS 模块。
+使用以下操作步骤 删除AFF A700或FAS9000 NVS模块。
 
-注意： AFF A700 NVS 模块 NVS 模块位于插槽 6 中，与系统中的其他模块相比，高度是原来的两倍。
+注意：NVS模块位于插槽6中、与系统中的其他模块相比、高度是其两倍。
 
 .步骤
 . 从插槽 6 解锁 NVS 并将其卸下。
@@ -530,22 +539,22 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[删除模块]
 |===
 
 
-. 如果您使用的附加模块在 AFF A700 NVS 上用作核心转储设备，请勿将其传输到 AFF A900 NVS 。请勿将任何部件从 AFF A700 控制器模块和 NVS 传输到 AFF A900 。
+. 如果您使用的附加模块在AFF A700或FAS9000 NVS上用作核心转储设备、请勿将其传输到AFF A900或FAS9500NVS。请勿将任何部件从AFF A700或FAS9000控制器模块和NVS传输到AFF A900或FAS9500模 块。
 
 
 
 
-== 安装 AFF A900 NVS 和控制器模块
+== 安装AFF A900或FAS9500NVS和控制器模块
 
-您必须在 site_B 的两个节点上安装升级套件中提供的 AFF A900 NVS 和控制器模块请勿将核心转储设备从 AFF A700 NVS 模块移至 AFF A900 NVS 模块。
+您必须在site_B的两个节点上安装升级套件中提供的AFF A900或FAS9500NVS和控制器模块请勿将核心转储设备从AFF A700或FAS9000 NVS模块移至AFF A900或FAS9500NVS模块。
 
 如果您尚未接地，请正确接地。
 
 
 
-=== 安装 AFF A900 NVS
+=== 安装AFF A900或FAS9500NVS
 
-使用以下操作步骤在 site_B 的两个节点的插槽 6 中安装 AFF A900 NVS
+使用以下操作步骤 在site_B的两个节点的插槽6中安装AFF A900或FAS9500NVS
 
 .步骤
 . 将 NVS 与插槽 6 中机箱开口的边缘对齐。
@@ -566,9 +575,9 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[删除模块]
 
 
 
-=== 安装 AFF A900 控制器模块。
+=== 安装AFF A900或FAS9500控制器模块。
 
-使用以下操作步骤安装 AFF A900 控制器模块。
+使用以下操作步骤 安装AFF A900或FAS9500控制 器模块。
 
 .步骤
 . Align the end of the controller module with the opening in the chassis, and then gently push the controller module halfway into the system.
@@ -607,7 +616,7 @@ NOTE: 集群中所有节点上的插槽 7 均应为空，如中所述 <<Map port
 
 === site_B 上的网络启动节点
 
-在交换 AFF A900 控制器模块和 NVS 后，您需要通过网络启动 AFF A900 节点，并安装与集群上运行的相同 ONTAP 版本和修补程序级别。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。无法检查 AFF A900 控制器模块启动介质上安装的 ONTAP 版本，除非该模块安装在机箱中并已启动。AFF A900 启动介质上的 ONTAP 版本必须与要升级的 AFF A700 系统上运行的 ONTAP 版本相同，并且主启动映像和备份启动映像都应匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。
+在交换AFF A900或FAS9500控制 器模块和NVS之后、您需要通过网络启动AFF A900或FAS9500节点、并安装与集群上运行的相同ONTAP 版本和修补程序级别。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。无法检查AFF A900或FAS9500控制器模块启动介质上安装的ONTAP 版本、除非该模块安装在机箱中并已启动。AFF A900或FAS9500启动介质上的ONTAP 版本必须与要升级的AFF A700或FAS9000系统上运行的ONTAP 版本相同、并且主启动映像和备份启动映像都应匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。
 
 .开始之前
 * 确认您可以使用系统访问 HTTP 服务器。
@@ -656,7 +665,7 @@ NOTE: 您应使用管理端口和 IP 作为网络启动连接。请勿使用数�
 
 NOTE: 请勿中断启动。
 
-. 等待 AFF A900 控制器模块上当前运行的 node_B_1 启动，并显示启动菜单选项，如下所示：
+. 等待AFF A900或FAS9500控制 器模块上当前运行的node_B_1启动、并显示启动菜单选项、如下所示：
 +
 [listing]
 ----

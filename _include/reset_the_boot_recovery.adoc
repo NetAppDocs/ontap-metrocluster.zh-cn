@@ -1,0 +1,31 @@
+= 
+:allow-uri-read: 
+
+
+[role="lead"]
+如果需要、您可以重置boot_recovery和rdb_Corrupt_bootargs
+
+.步骤
+. 将节点暂停回LOADER提示符：
++
+[listing]
+----
+node_A_1::*> halt -node _node-name_
+----
+. 检查是否已设置以下bootarg：
++
+[listing]
+----
+LOADER> printenv bootarg.init.boot_recovery
+LOADER> printenv bootarg.rdb_corrupt
+----
+. 如果已将任一bootarg设置为值、请取消设置并启动ONTAP ：
++
+[listing]
+----
+LOADER> unsetenv bootarg.init.boot_recovery
+LOADER> unsetenv bootarg.rdb_corrupt
+LOADER> saveenv
+LOADER> bye
+----
+

@@ -24,7 +24,7 @@ summary: 您必须将灾难站点上的替代节点启动到 ONTAP 操作系统�
 
 +
 
-NOTE: 如果未清除已用替代控制器模块的 NVRAM 内容，则可能会看到以下崩溃消息： `panic ： NVRAM 内容无效 ...` 如果发生这种情况，请将系统重新启动到 ONTAP 提示符（`boot_ontap menu` ）。然后，您需要执行根恢复。请联系技术支持以获得帮助。
+NOTE: 如果未清除已用替代控制器模块的 NVRAM 内容，则可能会看到以下崩溃消息： `panic ： NVRAM 内容无效 ...` 如果发生这种情况，请将系统重新启动到 ONTAP 提示符（`boot_ontap menu` ）。然后、您需要 <<Reset-the-boot-recovery,重置boot_recovery和rdb_Corrupt bootargs>>
 
 +
 ** 确认继续提示：
@@ -190,4 +190,36 @@ Group Cluster Node    Network Address Network Address Partner Type Config State
 cluster_B::*>
 ----
 . 在灾难站点的另一个节点上重复上述步骤。
+
+
+
+
+=== 重置boot_recovery和rdb_Corrupt bootargs
+
+[role="lead"]
+如果需要、您可以重置boot_recovery和rdb_Corrupt_bootargs
+
+.步骤
+. 将节点暂停回LOADER提示符：
++
+[listing]
+----
+node_A_1::*> halt -node _node-name_
+----
+. 检查是否已设置以下bootarg：
++
+[listing]
+----
+LOADER> printenv bootarg.init.boot_recovery
+LOADER> printenv bootarg.rdb_corrupt
+----
+. 如果已将任一bootarg设置为值、请取消设置并启动ONTAP ：
++
+[listing]
+----
+LOADER> unsetenv bootarg.init.boot_recovery
+LOADER> unsetenv bootarg.rdb_corrupt
+LOADER> saveenv
+LOADER> bye
+----
 
