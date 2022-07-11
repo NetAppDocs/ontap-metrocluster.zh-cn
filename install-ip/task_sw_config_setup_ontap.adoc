@@ -206,8 +206,17 @@ https://docs.netapp.com/us-en/ontap/index.html#about-ontap-system-manager["ONTAP
 `storage failover modify -mode ha -node localhost`
 
 +
-此命令可配置高可用性模式，但不会启用存储故障转移。如果稍后配置 MetroCluster 配置，则会自动启用存储故障转移。
+====
 
+NOTE: HA和存储故障转移的预期配置状态如下：
+
+** 已配置HA模式、但未启用存储故障转移。
+** 已禁用HA接管功能。
+** HA接口已脱机。
+** HA模式、存储故障转移和接口将在该过程的稍后部分进行配置。
+
+
+====
 . 确认已将四个端口配置为集群互连：
 +
 `network port show`

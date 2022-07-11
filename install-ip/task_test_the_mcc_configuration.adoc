@@ -209,7 +209,6 @@ data_cluster_B
                                                               normal
 root_cluster_B    -         -     - unknown      - node_A_1   -
 ----
-. 从灾难站点启动节点。
 . 检查切回恢复的状态：
 +
 `MetroCluster node show`

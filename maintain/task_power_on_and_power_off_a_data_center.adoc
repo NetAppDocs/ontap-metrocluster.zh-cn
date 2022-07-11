@@ -28,7 +28,7 @@ image::power-on-off-data-center.gif[关闭数据中心]
 
 必须先关闭站点和所有设备，然后才能开始站点维护或重新定位。
 
-以下步骤中的所有命令都是从要关闭的站点发出的。
+以下步骤中的所有命令都是从站点发出的、以便保持通电。
 
 .步骤
 . 开始之前，请检查站点上的任何非镜像聚合是否已脱机。
@@ -62,10 +62,15 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
 
-. 输入以下命令以实施切换：
+. 从要保持正常运行的站点实施切换：
 +
 `MetroCluster switchover`
 
++
+[listing]
+----
+cluster_A::*> metrocluster switchover
+----
 +
 此操作可能需要几分钟才能完成。
 
@@ -99,6 +104,28 @@ cluster_A::*> metrocluster operation show
 +
 在运行早期版本 ONTAP 的 MetroCluster IP 配置中，灾难站点节点不会自动启动到 ONTAP ，丛会保持脱机状态。对于 MetroCluster FC 配置，所有丛均保持联机，您无需使这些丛联机。
 
+. 使卷和LUN脱机。
++
+.. 使卷脱机。
++
+[listing]
+----
+cluster_A::* volume offline <volume name>
+----
+.. 将LUN置于脱机状态。
++
+[listing]
+----
+cluster_A::* lun offline lun_path <lun_path>
+----
+
+
+. 将未镜像聚合移至脱机状态：`s将聚合存储到脱机状态`
++
+[listing]
+----
+cluster_A*::> storage aggregate offline -aggregate <aggregate-name>
+----
 . 根据您的配置和 ONTAP 版本，确定位于灾难站点（ Cluster_B ）的受影响丛并将其脱机。
 +
 [NOTE]
