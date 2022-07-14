@@ -11,30 +11,32 @@ summary: 从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信�
 
 
 [role="lead"]
-您的环境必须满足以下要求。
+您的环境必须满足某些要求。
 
-[NOTE]
-====
+以下要求适用于一个灾难恢复组(DR组)。了解更多信息 link:concept_parts_of_an_ip_mcc_configuration_mcc_ip.html#disaster-recovery-dr-groups["DR 组"]。
+
 * 如果您计划更新 Linux 版本，请在安装最新的 ONTAP 调解器服务之前执行此操作。
 * ONTAP 调解器服务和 MetroCluster Tiebreaker 软件不应同时使用相同的 MetroCluster 配置。
 * ONTAP 调解器必须安装在与 MetroCluster 站点不同的 Linux 主机上。
++
+ONTAP 调解器与每个站点之间的连接必须是两个单独的故障域。
+
 * ONTAP 调解器服务最多可同时支持五个 MetroCluster 配置。
 * ONTAP 9.7 及更高版本支持自动计划外切换。
 
 
-====
 
 
 == 在 MetroCluster 配置中使用调解器的网络要求
 
-要在 MetroCluster 配置中安装 ONTAP 调解器服务，您必须确保此配置满足多个网络要求。
+要在MetroCluster 配置中安装ONTAP 调解器服务、您必须确保此配置满足多个网络要求。
 
 * 延迟
 +
-往返延迟不得超过75毫秒。
+最大延迟小于75毫秒(RTT)。
 
 +
-抖动不能超过25毫秒。
+抖动不能超过5毫秒。
 
 * MTU
 +
@@ -42,11 +44,31 @@ MTU 大小必须至少为 1400 。
 
 * 数据包丢失
 +
-数据包丢失必须小于或等于 0.01% 。
+对于Internet控制消息协议(Internet Control Message Protocol、ICMP)和TCP流量、数据包丢失率必须小于0.01%。
 
 * 带宽
 +
-调解器服务与MetroCluster 配置之间的链路必须至少具有20 MBps的带宽。
+调解器服务与一个DR组之间的链路必须至少具有20Mbps的带宽。
+
+* 独立连接
++
+每个站点与ONTAP 调解器之间需要独立连接。一个站点发生故障不能中断其他两个不受影响站点之间的IP连接。
+
+
+
+
+
+== MetroCluster 配置中ONTAP 调解器的主机要求
+
+您必须确保配置满足多个主机要求。
+
+* ONTAP 调解器必须安装在与两个ONTAP 集群物理隔离的外部站点上。
+* ONTAP 调解器最多支持五个MetroCluster 配置。
+* ONTAP 调解器对CPU和内存(RAM)的要求不超过主机操作系统的最低要求。
+* 除了主机操作系统的最低要求之外、还必须至少提供30 GB的额外可用磁盘空间。
++
+** 每个DR组最多需要200 MB的磁盘空间。
+
 
 
 

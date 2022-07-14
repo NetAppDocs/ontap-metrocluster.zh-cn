@@ -59,7 +59,130 @@ NOTE: 此操作步骤不会造成系统中断，大约需要一小时才能完�
 FC_switch_A_1# copy ftp://10.10.10.55/firmware/m9200-s2ek9-kickstart-mz.5.2.1.bin bootflash:m9200-s2ek9-kickstart-mz.5.2.1.bin
 FC_switch_A_1# copy ftp://10.10.10.55/firmware/m9200-s2ek9-mz.5.2.1.bin bootflash:m9200-s2ek9-mz.5.2.1.bin
 ----
-. 禁用此网络结构中两个交换机上的所有 VSAN 。
+. 禁用此网络结构中两个交换机上的所有VSAN。
++
+使用以下操作步骤 禁用VSAN：
+
++
+.. 打开配置终端：
++
+`*配置t*`
+
+.. 输入：`* vsan database*`
+.. 检查VSAN的状态：
++
+`*显示VSA*`
+
++
+所有VSAN都必须处于活动状态。
+
+.. 暂停VSAN：
++
+`* vsan _vsan-num_ suspend*`
+
++
+*示例：*`vsan 10 suspend`
+
+.. 再次检查VSAN的状态：
++
+`*显示VSAN*`+必须暂停所有VSAN。
+
+.. 退出配置终端：
++
+`*结束*`
+
+.. 保存配置。
++
+` * 复制 running-config startup-config *`
+
++
+以下示例显示了FC_switch_A_1的输出：
+
++
+[listing]
+----
+FC_switch_A_1# config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+FC_switch_A_1(config)# vsan database
+FC_switch_A_1(config-vsan-db)# show vsan
+vsan 1 information
+         name:VSAN0001  state:active
+         interoperability mode:default
+         loadbalancing:src-id/dst-id/oxid
+         operational state:up
+
+vsan 30 information
+         name:MC1_FCVI_2_30  state:active
+         interoperability mode:default
+         loadbalancing:src-id/dst-id
+         operational state:up
+
+vsan 40 information
+         name:MC1_STOR_2_40  state:active
+         interoperability mode:default
+         loadbalancing:src-id/dst-id/oxid
+         operational state:up
+
+vsan 70 information
+         name:MC2_FCVI_2_70  state:active
+         interoperability mode:default
+         loadbalancing:src-id/dst-id
+         operational state:up
+
+vsan 80 information
+         name:MC2_STOR_2_80  state:active
+         interoperability mode:default
+         loadbalancing:src-id/dst-id/oxid
+         operational state:up
+
+vsan 4079:evfp_isolated_vsan
+
+vsan 4094:isolated_vsan
+
+FC_switch_A_1(config-vsan-db)# vsan 1 suspend
+FC_switch_A_1(config-vsan-db)# vsan 30 suspend
+FC_switch_A_1(config-vsan-db)# vsan 40 suspend
+FC_switch_A_1(config-vsan-db)# vsan 70 suspend
+FC_switch_A_1(config-vsan-db)# vsan 80 suspend
+FC_switch_A_1(config-vsan-db)# end
+FC_switch_A_1#
+FC_switch_A_1# show vsan
+vsan 1 information
+         name:VSAN0001  state:suspended
+         interoperability mode:default
+         loadbalancing:src-id/dst-id/oxid
+         operational state:down
+
+vsan 30 information
+         name:MC1_FCVI_2_30  state:suspended
+         interoperability mode:default
+         loadbalancing:src-id/dst-id
+         operational state:down
+
+vsan 40 information
+         name:MC1_STOR_2_40  state:suspended
+         interoperability mode:default
+         loadbalancing:src-id/dst-id/oxid
+         operational state:down
+
+vsan 70 information
+         name:MC2_FCVI_2_70  state:suspended
+         interoperability mode:default
+         loadbalancing:src-id/dst-id
+         operational state:down
+
+vsan 80 information
+         name:MC2_STOR_2_80  state:suspended
+         interoperability mode:default
+         loadbalancing:src-id/dst-id/oxid
+         operational state:down
+
+vsan 4079:evfp_isolated_vsan
+
+vsan 4094:isolated_vsan
+----
+
+
 . 在交换机上安装所需的固件：
 +
 ` * 安装所有系统 bootflash ： _systemfile_name__ kickstart bootflash ： _kickstartfile_name__*`
@@ -77,15 +200,161 @@ Enter Yes to confirm the installation.
 +
 ` * 显示版本 *`
 
-. 在此网络结构中的两个交换机上启用所有 VSAN 。
+. 在此网络结构中的两个交换机上启用所有VSAN。
++
+使用以下操作步骤 启用VSAN：
+
++
+.. 打开配置终端：
++
+`*配置t*`
+
+.. 输入：`* vsan database*`
+.. 检查VSAN的状态：
++
+`*显示VSA*`
+
++
+必须暂停VSAN。
+
+.. 激活VSAN：
++
+`*无vsan _vsan-num_ suspend*`
+
++
+*示例：*`无vSAN 10暂停`
+
+.. 再次检查VSAN的状态：
++
+`*显示VSA*`
+
++
+所有VSAN都必须处于活动状态。
+
+.. 退出配置终端：
++
+`*结束*`
+
+.. 保存配置：
++
+` * 复制 running-config startup-config *`
+
++
+以下示例显示了FC_switch_A_1的输出：
+
++
+[listing]
+----
+FC_switch_A_1# config t
+Enter configuration commands, one per line.  End with CNTL/Z.
+FC_switch_A_1(config)# vsan database
+FC_switch_A_1(config-vsan-db)# show vsan
+vsan 1 information
+         name:VSAN0001  state:suspended
+         interoperability mode:default
+         loadbalancing:src-id/dst-id/oxid
+         operational state:down
+
+vsan 30 information
+         name:MC1_FCVI_2_30  state:suspended
+         interoperability mode:default
+         loadbalancing:src-id/dst-id
+         operational state:down
+
+vsan 40 information
+         name:MC1_STOR_2_40  state:suspended
+         interoperability mode:default
+         loadbalancing:src-id/dst-id/oxid
+         operational state:down
+
+vsan 70 information
+         name:MC2_FCVI_2_70  state:suspended
+         interoperability mode:default
+         loadbalancing:src-id/dst-id
+         operational state:down
+
+vsan 80 information
+         name:MC2_STOR_2_80  state:suspended
+         interoperability mode:default
+         loadbalancing:src-id/dst-id/oxid
+         operational state:down
+
+vsan 4079:evfp_isolated_vsan
+
+vsan 4094:isolated_vsan
+
+FC_switch_A_1(config-vsan-db)# no vsan 1 suspend
+FC_switch_A_1(config-vsan-db)# no vsan 30 suspend
+FC_switch_A_1(config-vsan-db)# no vsan 40 suspend
+FC_switch_A_1(config-vsan-db)# no vsan 70 suspend
+FC_switch_A_1(config-vsan-db)# no vsan 80 suspend
+FC_switch_A_1(config-vsan-db)#
+FC_switch_A_1(config-vsan-db)# show vsan
+vsan 1 information
+         name:VSAN0001  state:active
+         interoperability mode:default
+         loadbalancing:src-id/dst-id/oxid
+         operational state:up
+
+vsan 30 information
+         name:MC1_FCVI_2_30  state:active
+         interoperability mode:default
+         loadbalancing:src-id/dst-id
+         operational state:up
+
+vsan 40 information
+         name:MC1_STOR_2_40  state:active
+         interoperability mode:default
+         loadbalancing:src-id/dst-id/oxid
+         operational state:up
+
+vsan 70 information
+         name:MC2_FCVI_2_70  state:active
+         interoperability mode:default
+         loadbalancing:src-id/dst-id
+         operational state:up
+
+vsan 80 information
+         name:MC2_STOR_2_80  state:active
+         interoperability mode:default
+         loadbalancing:src-id/dst-id/oxid
+         operational state:up
+
+vsan 4079:evfp_isolated_vsan
+
+vsan 4094:isolated_vsan
+
+FC_switch_A_1(config-vsan-db)# end
+FC_switch_A_1#
+----
+
+
 . 在 ONTAP 中验证 MetroCluster 配置的运行情况：
 +
-.. 检查系统是否为多路径： + ` * node run -node _node-name_ sysconfig -A*`
-.. 检查两个集群上是否存在任何运行状况警报： + ` * system health alert show*`
-.. 确认 MetroCluster 配置以及操作模式是否正常： + ` * MetroCluster show*`
-.. 执行 MetroCluster 检查： + ` * MetroCluster check run*`
-.. 显示 MetroCluster 检查的结果： + ` * MetroCluster check show*`
-.. 检查交换机上是否存在任何运行状况警报（如果存在）： + ` * storage switch show*`
+.. 检查系统是否为多路径：
++
+` * 节点 run -node _node-name_ sysconfig -A*`
+
+.. 检查两个集群上是否存在任何运行状况警报：
++
+` * 系统运行状况警报 show*`
+
+.. 确认 MetroCluster 配置以及操作模式是否正常：
++
+` * MetroCluster show*`
+
+.. 执行 MetroCluster 检查：
++
+` * MetroCluster check run*`
+
+.. 显示 MetroCluster 检查的结果：
++
+` * MetroCluster check show*`
+
+.. 检查交换机上是否存在任何运行状况警报（如果存在）：
++
+` * 存储交换机显示 *`
+
 .. 运行 Config Advisor 。
 +
 https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]

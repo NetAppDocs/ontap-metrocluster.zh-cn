@@ -74,18 +74,10 @@
   <block id="77df057daf76f735d0f043a72ec2aa0d" category="paragraph">` * copy _source_filetarget_file_*`</block>
   <block id="d79569db55a245ec84059695dcfda462" category="paragraph">在以下示例中， kickstart 文件（ `m 9200-s2ek9-kickstart-mz.5.2.1.bin` ）和系统文件（ `m 9200-s2ek9-mz.5.2.1.bin` ）位于 FTP 服务器 10.10.10.55 上的 ` firmware/` 路径中。</block>
   <block id="a457135adaa0f04d7a51bf9454377797" category="paragraph">以下示例显示了对 FC_switch_A_1 发出的命令：</block>
-  <block id="49423ea450a2fb44c7b0112f25a9e604" category="list-text">禁用此网络结构中两个交换机上的所有 VSAN 。</block>
   <block id="dd6b9024482bdc7dffb370c445595e90" category="list-text">在交换机上安装所需的固件：</block>
   <block id="f4c4d9dac1fcf9ad55f947c425db6845" category="paragraph">` * 安装所有系统 bootflash ： _systemfile_name__ kickstart bootflash ： _kickstartfile_name__*`</block>
   <block id="ba7c5d6f6ef0b4eeeb3cf2edceb16a5e" category="list-text">检查每个交换机上的固件版本，以确保安装的版本正确：</block>
   <block id="14afcc8b85712a75a7cf7514c1e75983" category="paragraph">` * 显示版本 *`</block>
-  <block id="a69604ad0e31be276b2fc1bb94145857" category="list-text">在此网络结构中的两个交换机上启用所有 VSAN 。</block>
-  <block id="365ca0e4f2197423629324647193d170" category="list-text">检查系统是否为多路径： + ` * node run -node _node-name_ sysconfig -A*`</block>
-  <block id="8c97991d1f2e00c0d96a3986c86bdf7f" category="list-text">检查两个集群上是否存在任何运行状况警报： + ` * system health alert show*`</block>
-  <block id="da0ff0da60f7f00ebb996e20b72f9ee8" category="list-text">确认 MetroCluster 配置以及操作模式是否正常： + ` * MetroCluster show*`</block>
-  <block id="ff6eadd340dcb509a7ffff48fb0151c6" category="list-text">执行 MetroCluster 检查： + ` * MetroCluster check run*`</block>
-  <block id="083232ed80a0455172fded40eccc1ef8" category="list-text">显示 MetroCluster 检查的结果： + ` * MetroCluster check show*`</block>
-  <block id="6f480ffa9f23ccd58b24ca38c10600d4" category="list-text">检查交换机上是否存在任何运行状况警报（如果存在）： + ` * storage switch show*`</block>
   <block id="5d0aacff762759dbda6dfa013df2be6e" category="list-text">对第二个交换机网络结构重复此操作步骤。</block>
   <block id="0f4890949e646d00de6b9e66bd1b1968" category="summary">您可能需要更换发生故障的交换机，或者升级或降级交换机。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。</block>
   <block id="5e2a519a0cc2ae15695c5cf1d46f0cc9" category="doc">更换 IP 交换机</block>
@@ -7266,7 +7258,6 @@
   <block id="146d142d8ea797f93d593a6fe9556787" category="doc">处理八节点配置</block>
   <block id="dd42913fad72868b65fced98cfecfcd6" category="paragraph">然后，执行中的任务 <block ref="3e70f7d1f526cf6dd7a89a97c88d0cc8" category="inline-link-macro-rx"></block></block>
   <block id="927ed696d98572bdb5039cbffcfdb480" category="section-title">在 MetroCluster 配置中使用调解器的网络要求</block>
-  <block id="b2b90a2080b20a433104d14b3164613a" category="paragraph">要在 MetroCluster 配置中安装 ONTAP 调解器服务，您必须确保此配置满足多个网络要求。</block>
   <block id="1a03f6720968dfb968df6cc034114444" category="list-text">MTU</block>
   <block id="6b55a3ff2ffe6275beb9e73d58d08007" category="paragraph">MTU 大小必须至少为 1400 。</block>
   <block id="64ddceb2cbf941d1fc93373ce9219a1f" category="list-text">数据包丢失</block>
@@ -12347,7 +12338,6 @@
   <block id="344fc0c43530ccad90a38944b632b1e4" category="list-text">退出配置模式： `exit`</block>
   <block id="9c0c1022f821ad4ee9fd20c2731bc6f1" category="list-text">强烈建议为每个 MetroCluster DR 组中的每个 SAS 磁盘架使用唯一的磁盘架 ID ，以帮助进行故障排除。</block>
   <block id="70fef59fffa5df67d10b024d11f37399" category="paragraph"><block ref="70fef59fffa5df67d10b024d11f37399" category="inline-link-macro-rx"></block></block>
-  <block id="466ed123ab8f5845237d3ae425397ec7" category="paragraph">您的环境必须满足以下要求。</block>
   <block id="c5cd3d887ef507cadc249c592410542a" category="list-text">如果您计划更新 Linux 版本，请在安装最新的 ONTAP 调解器服务之前执行此操作。</block>
   <block id="5981ded82c976bff5c9a73686842655a" category="list-text">可以将调解器服务从早期版本升级到当前版本。</block>
   <block id="6bec966647e1b9c8a03ddd277c8fe864" category="inline-link-macro">部件退回和放大器；更换</block>
@@ -12406,8 +12396,6 @@
   <block id="cf5928613cf8b77d8355882cdec38712" category="paragraph">仅限16个内部驱动器</block>
   <block id="90cd0db781b4639c1c46407e5a4f0a93" category="paragraph">+如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。</block>
   <block id="26ae7bdd1d6fb8c4886e6fde8d12601c" category="list-text">延迟</block>
-  <block id="66420f475101cc9c2b0d458605176249" category="paragraph">往返延迟不得超过75毫秒。</block>
-  <block id="d89a2477841e85e6d37fac9fb392f350" category="paragraph">抖动不能超过25毫秒。</block>
   <block id="37e445da4970f1c0106716e8dba83be8" category="paragraph">如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。</block>
   <block id="9e9a93655547f7858baef5194a909e2c" category="cell">Cisco 3132Q-V、3232C或9336C-x2</block>
   <block id="a825d9b135e0604b1a8244aa950f4952" category="paragraph">FC节点上的本地集群接口</block>
@@ -12422,7 +12410,6 @@
   <block id="b36742dbca767f044c826ec8fbe9b099" category="inline-link">一致性组</block>
   <block id="2b9902d272c75c4def3400c620342746" category="paragraph">从ONTAP 9.11.1开始、<block ref="cf613318e210a5e8a8ae9de011eafc43" category="inline-link-rx"></block> 在MetroCluster 配置中受支持。</block>
   <block id="fe92f5934bf96194725b46db02f72324" category="list-text">FAS2750或AFF A220系统不支持此操作步骤。</block>
-  <block id="610f11b52907034f4715c6fa1abf8d1b" category="paragraph">调解器服务与MetroCluster 配置之间的链路必须至少具有20 MBps的带宽。</block>
   <block id="f5cd93f67ab362b3830ef2c47249e909" category="paragraph"><block ref="f5cd93f67ab362b3830ef2c47249e909" category="inline-link-macro-rx"></block></block>
   <block id="a3816a0d57fcb59bc1a3bfba35af44cf" category="paragraph"><block ref="a3816a0d57fcb59bc1a3bfba35af44cf" category="inline-link-macro-rx"></block></block>
   <block id="8a4f175190a1710cdcd52e7efde01268" category="section-title">在MetroCluster IP配置中启用Cisco MACsec加密WAN ISL</block>
@@ -12608,4 +12595,45 @@
   <block id="4434ac45fa2bd65c77619dc4135a3848" category="list-text">使卷脱机。</block>
   <block id="8a0f98caf632998576a36c94b83328a6" category="list-text">将LUN置于脱机状态。</block>
   <block id="e7edce3217788bc841a63851100c9164" category="list-text">将未镜像聚合移至脱机状态：`s将聚合存储到脱机状态`</block>
+  <block id="eeb4c33e80d1b1f4f321335e6c0a8948" category="list-text">禁用此网络结构中两个交换机上的所有VSAN。</block>
+  <block id="f214faa187b0f8585d0284ecf49f3906" category="paragraph">使用以下操作步骤 禁用VSAN：</block>
+  <block id="cb8fb6423ba4514d27c43e02fd22b2c5" category="list-text">打开配置终端：</block>
+  <block id="aaa8e3ee96b410b325315a1de30cec4d" category="paragraph">`*配置t*`</block>
+  <block id="b8afb7257af8298e9b39672376c99b62" category="list-text">输入：`* vsan database*`</block>
+  <block id="bdcc1fc68db08008dfc00ee2fb9f43d0" category="list-text">检查VSAN的状态：</block>
+  <block id="e9f0b0392908ef9837a95fcb28e5f3ce" category="paragraph">`*显示VSA*`</block>
+  <block id="bfa47473eeda6cdc1320879f81c9474d" category="paragraph">所有VSAN都必须处于活动状态。</block>
+  <block id="05d72f61ef02c2140fd7e59819dbf084" category="list-text">暂停VSAN：</block>
+  <block id="30299303da61f3e16530da93773dc942" category="paragraph">`* vsan _vsan-num_ suspend*`</block>
+  <block id="aff73339a7ace49d8fb821447e5e8511" category="paragraph">*示例：*`vsan 10 suspend`</block>
+  <block id="39c87be3adad4cc73e3eb8d71d59b30e" category="list-text">再次检查VSAN的状态：</block>
+  <block id="8374d5822320e4bcecd77348b45777e9" category="paragraph">`*显示VSAN*`+必须暂停所有VSAN。</block>
+  <block id="60e747d08548393572fe33c71de63c4d" category="list-text">退出配置终端：</block>
+  <block id="867c6e1e47ae23bbfc994dfb678e8dd7" category="paragraph">`*结束*`</block>
+  <block id="25812ed1432cfe46632186b5957ebe26" category="list-text">保存配置。</block>
+  <block id="f97309b3069a96764144d271543ba39d" category="paragraph">以下示例显示了FC_switch_A_1的输出：</block>
+  <block id="4bee25b7ef41eb8c76d388627d6c9875" category="list-text">在此网络结构中的两个交换机上启用所有VSAN。</block>
+  <block id="9197f672eba96636ff2e194f924458d7" category="paragraph">使用以下操作步骤 启用VSAN：</block>
+  <block id="c2a01cfc17a5081ae1c7a2c5be9d857b" category="paragraph">必须暂停VSAN。</block>
+  <block id="b727a9424b5e29f595c0aa427109dab9" category="list-text">激活VSAN：</block>
+  <block id="b05dfe32ff54f216e31f69b3bcf35430" category="paragraph">`*无vsan _vsan-num_ suspend*`</block>
+  <block id="59bf52ba61a46286e679847925ce1f3c" category="paragraph">*示例：*`无vSAN 10暂停`</block>
+  <block id="32a9706efc49910d5f907e98994d74f1" category="paragraph">` * MetroCluster show*`</block>
+  <block id="b88bf0c809fffc695990879900c60d29" category="paragraph">您的环境必须满足某些要求。</block>
+  <block id="a624bf1cb8ea6541888d2e3bfed29f37" category="paragraph">以下要求适用于一个灾难恢复组(DR组)。了解更多信息 <block ref="0244a225d1215475caa277f136d50b4a" category="inline-link-macro-rx"></block>。</block>
+  <block id="9f6204fe619ab6c1e9a1fcd03de81cb5" category="paragraph">ONTAP 调解器与每个站点之间的连接必须是两个单独的故障域。</block>
+  <block id="5030719f4c55271135b32bdf9c634c88" category="paragraph">要在MetroCluster 配置中安装ONTAP 调解器服务、您必须确保此配置满足多个网络要求。</block>
+  <block id="ceeccb67c4ca8801e51075063d898307" category="paragraph">最大延迟小于75毫秒(RTT)。</block>
+  <block id="2c66766b3cbb0e01db3809a4370c911e" category="paragraph">抖动不能超过5毫秒。</block>
+  <block id="192e68ef3df9e07712be5cfbedf63575" category="paragraph">对于Internet控制消息协议(Internet Control Message Protocol、ICMP)和TCP流量、数据包丢失率必须小于0.01%。</block>
+  <block id="918d95987e6cf19fe89998499e6e9348" category="paragraph">调解器服务与一个DR组之间的链路必须至少具有20Mbps的带宽。</block>
+  <block id="4f1f2bb1718b231428cfd539cdbe7657" category="list-text">独立连接</block>
+  <block id="d4fda9bf787c3a38a379763f5d621600" category="paragraph">每个站点与ONTAP 调解器之间需要独立连接。一个站点发生故障不能中断其他两个不受影响站点之间的IP连接。</block>
+  <block id="f743e29bd73cf3b477b5b3c15fcf6ec1" category="section-title">MetroCluster 配置中ONTAP 调解器的主机要求</block>
+  <block id="fec21bcdc858f42f1c942fd943d09de4" category="paragraph">您必须确保配置满足多个主机要求。</block>
+  <block id="aecf60a0046b893cbed6332405eb3aa3" category="list-text">ONTAP 调解器必须安装在与两个ONTAP 集群物理隔离的外部站点上。</block>
+  <block id="6f044e53b0f973c21b9f45e9f29dd890" category="list-text">ONTAP 调解器最多支持五个MetroCluster 配置。</block>
+  <block id="00dcc4021e9b5b5c4107ab832d8a3b22" category="list-text">ONTAP 调解器对CPU和内存(RAM)的要求不超过主机操作系统的最低要求。</block>
+  <block id="3238177a17500506d8e25597811d95a1" category="list-text">除了主机操作系统的最低要求之外、还必须至少提供30 GB的额外可用磁盘空间。</block>
+  <block id="d87323d7c443195bdfe43686953d17da" category="list-text">每个DR组最多需要200 MB的磁盘空间。</block>
 </blocks>
