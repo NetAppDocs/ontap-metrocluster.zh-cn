@@ -740,23 +740,20 @@ NOTE: 您必须谨慎选择 MetroCluster IP 地址，因为在初始配置后无
 --
 * 您必须为每个节点创建两个接口。这些接口必须与 MetroCluster RCF 文件中定义的 VLAN 相关联。
 * 您必须在同一 VLAN 中创建所有 MetroCluster IP 接口 "A" 端口，在另一 VLAN 中创建所有 MetroCluster IP 接口 "B" 端口。请参见 link:concept_considerations_mcip.html["MetroCluster IP 配置的注意事项"]。
-
-
 +
-
 --
 [NOTE]
 ====
-* 某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。您也可以在 MetroCluster configuration-settings interface create` 命令中使用 ` -vlan-id 参数` 指定一个大于 100 （ 101 到 4095 之间）的其他（非默认） VLAN 。
-* 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
+** 某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。您也可以在 MetroCluster configuration-settings interface create` 命令中使用 ` -vlan-id 参数` 指定一个大于 100 （ 101 到 4095 之间）的其他（非默认） VLAN 。
+** 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
 
 
 ====
 --
-+如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。
++
+如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。
 
 +
-
 |===
 
 
@@ -764,20 +761,22 @@ NOTE: 您必须谨慎选择 MetroCluster IP 地址，因为在初始配置后无
 
 
  a| 
-* AFF A220
-* AFF A250
-* AFF A400
+** AFF A220
+** AFF A250
+** AFF A400
 
  a| 
-* FAS2750
-* FAS500f
-* FAS8300
-* FAS8700
+** FAS2750
+** FAS500f
+** FAS8300
+** FAS8700
 
 
 |===
++
 示例中使用了以下 IP 地址和子网：
 
++
 |===
 
 
@@ -863,8 +862,10 @@ MetroCluster IP 接口 2.
 10.1.2/24
 
 |===
++
 MetroCluster IP 接口使用的物理端口取决于平台型号，如下表所示。
 
++
 |===
 | 平台型号 | MetroCluster IP 端口 | 注意 
 
@@ -986,6 +987,8 @@ e1a
 e1b
 
 |===
+
+
 以下示例中的端口使用情况适用于 AFF A700 或 FAS9000 系统。
 
 .步骤

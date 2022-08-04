@@ -1,0 +1,16 @@
+---
+permalink: install-fc/task_fcsw_configure_the_fc_switches_choice_topic.html 
+sidebar: sidebar 
+keywords: fc, switch, configuring 
+summary: 您必须配置FC交换机以提供后端MetroCluster FC连接。 
+---
+= 配置交换机
+:allow-uri-read: 
+
+
+[role="lead"]
+您必须配置FC交换机以提供后端MetroCluster FC连接。
+
+* link:../install-fc/task_reset_the_brocade_fc_switch_to_factory_defaults.html["使用 RCF 文件配置 Brocade FC 交换机"]
+* link:../install-fc/task_reset_the_cisco_fc_switch_to_factory_defaults.html["使用 RCF 文件配置 Cisco FC 交换机"]
+

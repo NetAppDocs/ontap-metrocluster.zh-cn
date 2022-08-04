@@ -104,7 +104,7 @@ cluster_A::*> metrocluster operation show
 +
 在运行早期版本 ONTAP 的 MetroCluster IP 配置中，灾难站点节点不会自动启动到 ONTAP ，丛会保持脱机状态。对于 MetroCluster FC 配置，所有丛均保持联机，您无需使这些丛联机。
 
-. 使卷和LUN脱机。
+. 将属于未镜像聚合的所有卷和LUN脱机移动。
 +
 .. 使卷脱机。
 +

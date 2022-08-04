@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controllers, switchover, switchback, fc, configuration, net, boot, root, aggregate, mcc 
 summary: 升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。 
 ---
-= 使用切换和切回将MetroCluster FC配置中的控制器从AFF A700/A900升级到FAS9x00 (ONTAP 9.10.1或更高版本)
+= 使用切换和切回功能将MetroCluster FC配置中的AFF A700/FAS9000控制器升级到AFF A990/FAS9500（ONTAP 9.10.1或更高版本)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -472,7 +472,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-met
 
 必须在 site_A 上执行此任务
 
-完成此任务后， site_A 处于活动状态，并为两个站点提供数据。site_B 处于非活动状态，并已准备好开始升级过程，如下图所示。
+完成此任务后， site_A 处于活动状态，并为两个站点提供数据。site_B 处于非活动状态，并已准备好开始升级过程，如下图所示。(此图还显示了适用场景 将FAS9000升级到FAS9500控制 器。)
 
 image::../media/mcc_upgrade_cluster_a_in_switchover_A900.png[切换 A900 中的 MCC 升级集群 A]
 
@@ -544,7 +544,7 @@ cluster_A::> metrocluster operation show
 
 
 
-== 删除 site_B 上的 AFF A700 控制器模块和 NVS
+== 删除site_B上的AFF A700或FAS9000控制器模块和NVS
 
 您必须从配置中删除旧控制器。
 
@@ -564,9 +564,9 @@ cluster_A::> metrocluster operation show
 
 
 
-=== 卸下 AFF A700 控制器模块
+=== 卸下AFF A700或FAS9000控制器模块
 
-使用以下操作步骤删除 AFF A700 控制器模块。
+使用以下操作步骤 删除AFF A700或FAS9000控制器模块。
 
 .步骤
 . 在卸下控制器模块之前，请断开控制台缆线（如果有）以及管理缆线与控制器模块的连接。
@@ -592,12 +592,12 @@ image:../media/drw_9500_remove_PCM.png["控制器"]
 
 
 
-=== 卸下 AFF A700 NVS 模块
+=== 卸下AFF A700或FAS9000 NVS模块
 
-使用以下操作步骤删除 AFF A700 NVS 模块。
+使用以下操作步骤 删除AFF A700或FAS9000 NVS模块。
 
 
-NOTE: AFF A700 NVS 模块位于插槽 6 中，与系统中的其他模块相比，其高度是原来的两倍。
+NOTE: AFF A700或FAS9000 NVS模块位于插槽6中、与系统中的其他模块相比、其高度是原来的两倍。
 
 . 从插槽 6 解锁 NVS 并将其卸下。
 +
@@ -1244,7 +1244,7 @@ link:https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_cr
 
 配置新控制器后，您可以切回 MetroCluster 配置，使配置恢复正常运行。
 
-在此任务中，您将执行切回操作，使 MetroCluster 配置恢复正常运行。site_A 上的节点仍在等待升级。
+在此任务中，您将执行切回操作，使 MetroCluster 配置恢复正常运行。site_A上的节点仍在等待升级、如下图所示。(此图还显示了适用场景 将FAS9000升级到FAS9500控制器)。
 
 image::../media/mcc_upgrade_cluster_a_switchback_A900.png[四节点 MetroCluster]
 

@@ -6852,7 +6852,6 @@
   <block id="be8958e515095147a6dd8614b428fe8d" category="cell">如果您的 MetroCluster 配置 ...</block>
   <block id="9792a4eebc59c44369f1f98f9d27237a" category="cell">然后执行此操作 ...</block>
   <block id="5a886364f7be07108a866a1dbf84580e" category="paragraph">多个数据聚合</block>
-  <block id="7f844e6639d44c336dfaaa0017b0dbc8" category="paragraph">从任何节点的提示符处，配置 MetroCluster ： `MetroCluster configure node-name`</block>
   <block id="eb4d985f7e803275c39a27eca837d150" category="paragraph">一个镜像数据聚合</block>
   <block id="ea00fbc3649d5a240ebf0ffe4ebe4dc5" category="paragraph">当系统提示您继续进入高级模式且您看到高级模式提示符（ * &gt; ）时，您需要使用 `y` 进行响应。</block>
   <block id="c1720ee15ca6b853bdb55d81deac3213" category="paragraph">以下命令将在包含 controller_A_1 的 DR 组中的所有节点上启用 MetroCluster 配置：</block>
@@ -7282,7 +7281,6 @@
   <block id="1ff31a738d26e47dfa5c26bac0568556" category="summary">启动每个节点后，系统将提示您执行基本节点和集群配置。配置集群后，您可以返回到 ONTAP 命令行界面以创建聚合并创建 MetroCluster 配置。</block>
   <block id="da6a152013b01d35131c7e6a0a834b28" category="paragraph">如果需要通过网络启动新控制器，请参见 <block ref="3b790cf59184cbd534b9cbce1ed9244d" category="inline-link-macro-rx"></block>。</block>
   <block id="6ac62fa13c69ad320702cd9a98f97b12" category="list-text">如果尚未启动本地站点上的每个节点，请将其启动并让其完全启动。</block>
-  <block id="973fe20c86fcee0442e8a4a7a7390bba" category="list-text">在每个集群中的第一个节点上，按照提示继续配置集群</block>
   <block id="b97ee3821e4a08c69e3c5029696ca2c6" category="list-text">通过响应提示来配置节点管理接口。</block>
   <block id="5a09db16e39519f87adda9a1868b72b7" category="list-text">响应提示创建集群。</block>
   <block id="8c6652271cf9962cf25d57593f2e0998" category="list-text">添加许可证，设置集群管理 SVM ，并通过响应提示输入 DNS 信息。</block>
@@ -7290,7 +7288,6 @@
   <block id="b842db396e001f50d74b654f1314df5d" category="list-text">完成节点配置，但不创建数据聚合。</block>
   <block id="3dda58d6d9375a71c538f50ab53299f6" category="paragraph">您可以使用 ONTAP 系统管理器将 Web 浏览器指向集群管理 IP 地址 <block ref="a014d2689df7be806072ba0665b78ca6" category="inline-link-rx"></block>。</block>
   <block id="cbb4f42385447257b0524c80bc88c203" category="list-text">按照提示启动下一个控制器并将其加入集群。</block>
-  <block id="734411caacc66dc5fb48af46a3ee7524" category="paragraph">此命令可配置高可用性模式，但不会启用存储故障转移。如果稍后配置 MetroCluster 配置，则会自动启用存储故障转移。</block>
   <block id="c8a47a2f93307e796690ebd7d82f5573" category="paragraph">此时未配置 MetroCluster IP 接口，并且此接口不会显示在命令输出中。</block>
   <block id="76c896ac6b7a90ae2d17c2b3934e8219" category="paragraph">以下示例显示了 node_A_1 上的两个集群端口：</block>
   <block id="cdf29de4c8a5a778670e597ff53bb862" category="list-text">在配对集群上重复上述步骤。</block>
@@ -7468,8 +7465,6 @@
   <block id="87d86e0d3cf65f69738c696c5ab800b4" category="paragraph">10.1.1.4</block>
   <block id="cc291563cd7eddd5afa9db9213280427" category="paragraph">10.1.2.4</block>
   <block id="7836fec023af8279b6813ce6178cea83" category="paragraph">MetroCluster IP 接口使用的物理端口取决于平台型号，如下表所示。</block>
-  <block id="577e6b9899e57c4e54e43cf79c919f83" category="paragraph">E3a</block>
-  <block id="969d430598a257671bdf944480e4d46b" category="paragraph">E3B</block>
   <block id="e84adb514eb7cf544f0458fa9f233a94" category="paragraph">FAS8300 和 FAS8700</block>
   <block id="bb696bca91d9d001f9391644f8ffc55b" category="paragraph">以下示例中的端口使用情况适用于 AFF A700 或 FAS9000 系统。</block>
   <block id="26474283e53d2bcc6e465bb015d10ac6" category="paragraph">磁盘自动分配将按磁盘架分配池 0 和池 1 磁盘。</block>
@@ -7514,10 +7509,6 @@
   <block id="39e93eb17757fd8fb52d7c9292dd9372" category="list-text">在站点 B 上重复这些步骤</block>
   <block id="919e6408348a7dae1112a733a620d17b" category="section-title">手动为池 1 分配磁盘（ ONTAP 9.3 ）</block>
   <block id="01f1f803c245894da41eff36602972c9" category="paragraph">ONTAP 自动磁盘分配功能可按磁盘架分配磁盘。例如：</block>
-  <block id="0225c53f2baba94a31b5eb0d90e365cf" category="list-text">site_B-shelf_2 上的所有磁盘都会自动分配给 node_A_1 的 pool1</block>
-  <block id="48f3a4ccc31158c28a0543a8d0931d55" category="list-text">site_B-shelf_4 上的所有磁盘都会自动分配给 node_A_2 的 pool1</block>
-  <block id="275964d7b48391c0fbb2a8a50a6722d9" category="list-text">site_A-shelf_2 上的所有磁盘都会自动分配给 node_B_1 的 pool1</block>
-  <block id="04c166136aa1b3c5a330651de02e8c2c" category="list-text">site_A-shelf_4 上的所有磁盘都会自动分配给 node_B_2 的 pool1</block>
   <block id="ea0ac128cbb46e41c5edee49bafee325" category="list-text">在 MetroCluster IP 配置中的每个节点上，为池 1 分配一个远程磁盘。</block>
   <block id="d2e9f5e56abff80fcdc1dfd04ecda147" category="paragraph">以下输出显示磁盘架 23 上的磁盘现在已分配，不再显示：</block>
   <block id="dc39a7bb0328bf49da6969242ecc1465" category="section-title">在 ONTAP 9.4 中启用驱动器自动分配</block>
@@ -7531,11 +7522,9 @@
   <block id="860e1e683db2fc2e67aeec00dc74b357" category="paragraph">您必须有一个可用的 Linux 主机，该主机可通过网络连接到 MetroCluster 配置中的两个集群。具体要求请参见 MetroCluster Tiebreaker 或 ONTAP 调解器文档。</block>
   <block id="ffd76385e89b64e24fcfe106dc5b4533" category="paragraph">如果要连接到现有 Tiebreaker 或 ONTAP 调解器实例，则需要 Tiebreaker 或调解器服务的用户名，密码和 IP 地址。</block>
   <block id="9d4b44162692abd2769e8e0a1c1f0155" category="paragraph">如果您必须安装新的 ONTAP 调解器实例，请按照说明安装和配置软件。</block>
-  <block id="c9016b3f72dba4b8f61408d9d613c969" category="paragraph">如果您必须安装 Tiebreaker 软件的新实例，请按照说明安装和配置该软件。</block>
   <block id="9a044a9c813dcf5d075c67eae7c4ec7c" category="paragraph">您不能使用具有相同 MetroCluster 配置的 MetroCluster Tiebreaker 软件和 ONTAP 调解器。</block>
   <block id="9cb623298dd6b51e66fbc2bbb1086057" category="inline-xref-macro">使用 ONTAP 调解器或 MetroCluster Tiebreaker 的注意事项</block>
   <block id="8e57e18da9d7e1ec40a754e3453835ac" category="list-text">配置 ONTAP 调解器服务或 Tiebreaker 软件：</block>
-  <block id="24135708f40bc30abbe1b5a601010307" category="list-text">如果您使用的是 Tiebreaker 软件，请参见 Tiebreaker 文档。</block>
   <block id="f36114c708cdf027cb87470b60b2bf8d" category="summary">在规划 MetroCluster IP 配置时，您必须了解所需的和支持的硬件和软件组件。为了方便和清晰起见，您还应了解整个文档中的示例中用于组件的命名约定。</block>
   <block id="138070c8ec80f4ea916e550a8882b671" category="doc">所需的 MetroCluster IP 组件和命名约定</block>
   <block id="fed8598d34d2dd09e02d810def0e98ef" category="paragraph">MetroCluster IP 配置必须支持硬件和软件。</block>
@@ -9678,7 +9667,6 @@
   <block id="955880d2c90799dfc7d399125affbb1c" category="paragraph">`storage port disable -node _node-name_ -port _port-number_`</block>
   <block id="d8a793fcd41c059cecfec311c4831598" category="paragraph">您应为这些缆线贴上标签，以便在重新布线时轻松识别它们。只有 ISL 端口应保持布线状态。</block>
   <block id="9a2a15d781f7232859f638bf1caffe2c" category="paragraph">MetroCluster modify -enable-unmirrored-aggr-deployment true`</block>
-  <block id="a6344715e21a74094ac5f97c4b6becd5" category="list-text">验证是否已禁用磁盘自动分配：</block>
   <block id="fe70f7867c2218d2dd655cc792782973" category="paragraph">`d` 选项显示</block>
   <block id="b2fa14e3df9342c7d9ce9f5ac1643744" category="paragraph">您可以对平台和磁盘架使用 _Installation and Setup_ 文档中的过程。</block>
   <block id="29d368b17fa8f6a4c00f53e0b1b0ddcd" category="paragraph">`ddisk assign -disk _disk-id_ -owner _owner-node-name_`</block>
@@ -9910,26 +9898,15 @@
   <block id="fb936fa23d866b3d364f6eb5c606725a" category="list-text">与 MetroCluster 配置建立新的 ONTAP 调解器连接：</block>
   <block id="f8dc7177731310562718d80a3440fa9d" category="paragraph">MetroCluster configuration-settings mediator add -mediate-address _ip-address-fo-medier-host_`</block>
   <block id="d0dddd5779102f5b72e8edf336fef717" category="list-text">显示控制器模块和机箱的 HA 状态：</block>
-  <block id="eb7f8625ee8e86a6bca2611bb12442ec" category="list-text"><block ref="c1f5a94cfd066062167f55d534e50946" category="inline-xref-macro-rx"></block></block>
-  <block id="6c7a64a1f4e024ce7a69797733e5ea70" category="list-text"><block ref="a68a4adac480e2cd0e0cb4df2db11ae4" category="inline-xref-macro-rx"></block></block>
-  <block id="f9a26e7e1146416447089df2dd5e9a7a" category="list-text">选择选项 "9a" 。</block>
-  <block id="f2c62ba974aeba381c63dedf483a3554" category="list-text">节点重新启动时，在系统提示显示启动菜单时按 Ctrl-C ，然后选择 * 维护模式启动 * 选项。</block>
-  <block id="777c3d143908c77e542462fee4831d88" category="list-text">继续执行 <block ref="0ec0f3cb91ab6923e11455d08d5019fc" category="inline-link-macro-rx"></block>。</block>
-  <block id="9620a315fe49582f83b352cb3df7065d" category="paragraph">当节点处于维护模式时，您必须先将相应磁盘架上的单个磁盘分配给池 0 。然后， ONTAP 会自动将磁盘架上的其余磁盘分配到同一个池。从工厂收到的系统不需要执行此任务，这些系统的池 0 包含预配置的根聚合。</block>
-  <block id="da4ffc9643edc63e8b45b98c3db4e4d1" category="list-text">从启动菜单中选择选项 4 并继续。</block>
-  <block id="e8453ea55ca2ab8a592b2cb35594bcab" category="inline-link">ONTAP System Manager （ 9.7 及更高版本）</block>
   <block id="f753a91b4868b4d2d7ad06fa15958542" category="paragraph">`storage failover modify -mode ha -node _localhost_`</block>
   <block id="e40d6a178d9137d254eca9144fcc5d3c" category="paragraph"><block ref="e40d6a178d9137d254eca9144fcc5d3c" category="inline-link-macro-rx"></block></block>
   <block id="dfedcd37df868d1ac2683539148a334c" category="list-text">禁用自动驱动器分配：</block>
-  <block id="6823c1546d13fbb3599a3e00ab6bcc7a" category="paragraph">`s存储磁盘选项 modify -node node_name -autosassign off`</block>
   <block id="4c51711fe99868d826269d8b57f9bb67" category="paragraph">以下示例显示了没有外部磁盘架的 AFF A800 系统的 cluster_A 输出。</block>
   <block id="ef8e2365feb13a5ce295f9bed18cce4e" category="paragraph">四分之一（ 8 个驱动器）自动分配给 "node_A_1" ，四分之一自动分配给 "node_A_2" 。其余驱动器将是 "node_B_1 和 "node_B_2" 的远程（池 1 ）驱动器。</block>
   <block id="f0656cb5f32efbc5cc1ea0b5072bc479" category="paragraph">以下示例显示了 cluster_B 输出：</block>
   <block id="eda5874a95d7087883feb5817a56dbc4" category="paragraph"><block ref="eda5874a95d7087883feb5817a56dbc4" category="inline-link-macro-rx"></block></block>
   <block id="27132b64b45cb3c4074f45d4fde2af5a" category="paragraph"><block ref="27132b64b45cb3c4074f45d4fde2af5a" category="inline-link-macro-rx"></block></block>
-  <block id="1a42d5e3ae526a4699281b8767219ce1" category="paragraph">以下示例显示 "e0e" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0f" 端口。</block>
   <block id="5ab4feb401d03d5e1244365c91dc7539" category="paragraph">以下示例将创建集群间 LIF "cluster01_icl01" 和 "cluster01_icl02" ：</block>
-  <block id="83da41cb2046392d9c91b9b42b375ebe" category="list-text">在每个节点上输入以下命令，以验证节点是否已准备好创建 DR 组：</block>
   <block id="49e1a7864ade73270e9731fa5e8d06b5" category="paragraph">MetroCluster configuration-settings show-status`</block>
   <block id="cb8db61556b998f0533a4e329749c0f3" category="list-text">您必须在同一 VLAN 中创建所有 MetroCluster IP 接口 "A" 端口，在另一 VLAN 中创建所有 MetroCluster IP 接口 "B" 端口。请参见 <block ref="0d7e2206ca44f9cb7344ddf469b6d625" category="inline-link-macro-rx"></block>。</block>
   <block id="815655232c25fc83e97a6545a3d32ad0" category="list-text">确认每个节点均已启用磁盘自动分配：</block>
@@ -9948,36 +9925,26 @@
   <block id="a4535010ae2f4ce62af6dee1e890e35c" category="list-text">在 "node_B_1 " 上的端口 "e5b" 上配置接口：</block>
   <block id="5be161c3a882b82a0b7dc3058d8956b5" category="paragraph">以下示例显示了如何在 "node_B_1 " 上的端口 "e5b" 上创建 IP 地址为 10.1.2.3 的接口：</block>
   <block id="e04e8cbdd0a7cf4af02577a11d726014" category="list-text">在 "node_B_2" 上创建接口。</block>
-  <block id="af46fd28618bde8b135c1c6b4d3405ac" category="paragraph">MetroCluster configuration-settings interface create -cluster-name _cluster-name_ -home-node _node-name_ -home-port e5a -address _ip-address_ -netmask _netmask_`</block>
   <block id="ad3afcb2aadc5a9ffea38f064401dda5" category="paragraph">以下示例显示了如何在 "node_B_2 上的端口 "e5a" 上创建 IP 地址为 10.1.1.4 的接口：</block>
   <block id="8d85d6b70338bbcd3644736d2ce0fac0" category="list-text">在 "node_B_2 上的端口 "e5b" 上配置接口：</block>
   <block id="3a031f6913ae84e38c41a35cbaf0372a" category="paragraph">以下示例显示了如何在 "node_B_2 上的端口 "e5b" 上创建 IP 地址为 10.1.2.4 的接口：</block>
   <block id="76149754286ca0a44833841ac506da9b" category="list-text">验证是否已配置接口：</block>
   <block id="7cdacd92c7d25c56a3b4cd267ceaeb45" category="list-text">验证节点是否已准备好连接 MetroCluster 接口：</block>
-  <block id="4f756847ca1507865cb117aa60347adb" category="list-text">建立连接：</block>
   <block id="1e17943d4720a25913c03b742e2d9603" category="list-text">验证是否已建立连接：</block>
   <block id="9742d05111f9c5866a5c233a1981c03c" category="list-text">显示连接：</block>
   <block id="7c06dbc134a00ff1f711d23edce1d460" category="list-text">验证节点是否已准备好最终实施 MetroCluster 配置：</block>
-  <block id="459f816e984e3774fe54bd0c3739bd78" category="paragraph">根据存储配置的不同，您必须验证池 1 驱动器分配情况，或者为 MetroCluster IP 配置中的每个节点手动将驱动器分配到池 1 。</block>
-  <block id="576b0156512a49a83913a3d968e689c1" category="paragraph">您使用的操作步骤取决于所使用的 ONTAP 版本。</block>
-  <block id="b210f8e02a0b572eec2a5c98da81b46b" category="paragraph">命令输出将以以下格式显示磁盘名称：</block>
-  <block id="5bddb9f920514b0a0a299f0a0cca3e7e" category="paragraph">`node-name ： 0m.i1.0L1`</block>
-  <block id="705296b22d53fe306b6160e173a7dfff" category="list-text">验证池 1 磁盘是否已自动分配：</block>
   <block id="7f252cde9b9d80bca3f1b99cc3c2ae55" category="paragraph">有关确定系统是否需要手动分配磁盘的详细信息，请参见 <block ref="e40d6a178d9137d254eca9144fcc5d3c" category="inline-link-macro-rx"></block>。</block>
   <block id="93a05e12a5b6edba257e33f8d132f672" category="list-text">显示未分配驱动器的列表：</block>
   <block id="9541d0a2ec2001b79a5021245bc8097d" category="paragraph">`disk show -host-adapter 0m -container-type unassigned`</block>
   <block id="43e6ad4a7595ffb998ecabca800a4499" category="paragraph">`ddisk assign -disk _disk-id_ -pool 1 -owner _owner-node-name_`</block>
-  <block id="2e9a660786a2138a9457f0cdb952c99d" category="paragraph">`disk-id` 必须标识远程磁盘架 `owner-node-name` 上的驱动器。</block>
   <block id="3eb645c2e2e57a4fa839c890ce5500a5" category="list-text">确认驱动器已分配给池 1 ：</block>
   <block id="0b9ffe41b53e309536e3f5708172ef6b" category="admonition">用于访问远程驱动器的 iSCSI 连接显示为设备 0m 。</block>
-  <block id="654be415f4fd25d4eb7ef5d13950da64" category="paragraph">如果每个节点至少有两个磁盘架，则可以使用 ONTAP 的自动分配功能自动分配远程（ pool1 ）磁盘。</block>
   <block id="537950db1fe03e9e3a49db57addd85c6" category="paragraph">您必须先将磁盘架上的磁盘分配给 pool1 。然后， ONTAP 会自动将磁盘架上的其余磁盘分配到同一个池。</block>
   <block id="fbfcf0e3733710ed69ed10b5fa779fed" category="paragraph">只有当每个节点至少有两个磁盘架时，才可以使用此操作步骤，从而可以在磁盘架级别自动分配磁盘。</block>
   <block id="7b062536c43e31fbee2942433f3ccb31" category="paragraph">如果不能使用磁盘架级别的自动分配，则必须手动分配远程磁盘，以便每个节点都有一个远程磁盘池（池 1 ）。</block>
   <block id="ee7e48631bbfc8e832cadee5bbbc03a9" category="paragraph">您必须通过在每个磁盘架上指定一个磁盘来 " 传播 " 自动分配。</block>
   <block id="94427a4d5177b2ba3264de4433e877c3" category="list-text">显示未分配磁盘的列表：</block>
   <block id="97047fcf259462467b79b76f81bc261f" category="list-text">选择一个远程磁盘（ 0m ）并将该磁盘的所有权分配给第一个节点的池 1 （例如， "node_A_1" ）：</block>
-  <block id="6a9998a797a4b4ebbb6e136447e6189c" category="paragraph">`ddisk assign -disk disk-id -pool 1 -owner owner-node-name`</block>
   <block id="1df04fb323d4da59ba3f98ebc5f1b64e" category="paragraph">`disk-id` 必须标识远程磁盘架 `owner-node-name` 上的磁盘。</block>
   <block id="123e6c3d9c94f11e38d58164f434bdf4" category="paragraph">ONTAP 磁盘自动分配功能可分配包含指定磁盘的远程磁盘架上的所有磁盘。</block>
   <block id="81b4294a2f342064d8a63544ff17f60d" category="list-text">至少等待 60 秒，以便执行磁盘自动分配后，验证磁盘架上的远程磁盘是否已自动分配到池 1 ：</block>
@@ -9985,28 +9952,12 @@
   <block id="e2decc514aafe4bdb93b0e8ed1164162" category="list-text">重复上述步骤，将池 1 磁盘分配给站点 A 上的第二个节点（例如， "node_A_2" ）。</block>
   <block id="e1ba2dd99f6f83bc8a965b69cf5d438e" category="list-text">启用自动驱动器分配：</block>
   <block id="c6aa0c3762cef91596cb5364dc0519ff" category="paragraph">`s存储磁盘选项 modify -node _node_name_ -autodassign on`</block>
-  <block id="49252d08fb330c8c53b08b310f655d3f" category="paragraph">如果您已通过集群管理界面登录到集群，则可以在集群中的任何节点上创建聚合。要确保在特定节点上创建聚合，请使用 ` -node` 参数或指定该节点所拥有的驱动器。</block>
-  <block id="2da5317e4e730871c4e0eebd9caf388e" category="list-text">聚合的主节点（即在正常操作下拥有聚合的节点）</block>
-  <block id="24039e9f7463121386eb64f0a5fbe184" category="list-text">要添加到聚合的特定驱动器的列表</block>
-  <block id="cbd02cd515fef46c3f5978bf3a1c2fa5" category="list-text">要包含的驱动器数量</block>
-  <block id="3b03d743e2fdb9ba04471b09a100499d" category="list-text">要用于聚合的校验和模式</block>
-  <block id="915fe9fcfebfa751a522bb919d397401" category="list-text">要使用的驱动器类型</block>
-  <block id="aa3349a8ef996a1caa4d11cec0481ea2" category="list-text">要使用的驱动器大小</block>
-  <block id="28430df9d9883e95bc26f63f68cab7ac" category="list-text">要使用的驱动器速度</block>
-  <block id="dbf6704815a89e026e7222b9ddbd1be6" category="list-text">聚合上 RAID 组的 RAID 类型</block>
-  <block id="32e5424b78c791c02cd24f2a1f66b779" category="list-text">可包含在 RAID 组中的最大驱动器数</block>
-  <block id="6314ba11af07fde9f749195a4938e623" category="list-text">是否允许使用 RPM 不同的驱动器</block>
-  <block id="ef59cc1d4f18c9ecc43389044e0b17b3" category="admonition">如果要使用单个镜像数据聚合，请参见 <block ref="69c8031a2de94253e9843bb8f5d7573d" category="inline-xref-macro-rx"></block> 有关说明，请参见。</block>
-  <block id="f8a921915ee07bb012df13da2fdd7c05" category="list-text">【第 1 步 _single 或 mirrored]] 按照以下格式配置 MetroCluster ：</block>
-  <block id="bfbb3cda3599b6898415d47ca3b06d9f" category="list-text">使用 ` -allow-with-one-aggregate` true 参数配置 MetroCluster ：</block>
   <block id="f85d453a151727b424ea32911c308179" category="paragraph">最佳实践是具有多个数据聚合。如果第一个 DR 组只有一个聚合，而您要添加一个具有一个聚合的 DR 组，则必须将元数据卷从单个数据聚合中移出。有关此操作步骤的详细信息，请参见 <block ref="bf3d05f18b73f1c62d283d02a0c83e7a" category="inline-link-macro-rx"></block>。</block>
   <block id="a0015e0604e545ee6945f1fa8fdce38f" category="paragraph">以下命令将在包含 controller_A_1 的 DR 组中的所有节点上启用 MetroCluster 配置：</block>
   <block id="317d0fe753c44e0c763e684785e3b0bd" category="list-text">为了避免非易失性内存镜像可能出现的问题，请重新启动四个节点中的每个节点：</block>
   <block id="752dca7721b956b1795d215187b7376f" category="paragraph">`node reboot -node _node-name_ -inhibit-takeover true`</block>
   <block id="0a61a44a1765390d027f85da70024fd8" category="list-text">在两个集群上运行 `MetroCluster show` 命令以再次验证配置。问题描述</block>
   <block id="43a86ca9910ac10add49d293714b50f6" category="section-title">在八节点配置中配置第二个 DR 组</block>
-  <block id="74d845e51b59918636d9a13b9fc37d69" category="list-text">要添加到聚合的特定驱动器或阵列 LUN 的列表</block>
-  <block id="755643e3264b43687573ebc08e75d0aa" category="list-text">可包含在 RAID 组中的驱动器或阵列 LUN 的最大数量</block>
   <block id="fb2c0ebeb18b9e1080333a65b192bdc3" category="list-text">如果使用的是现有的 ONTAP 调解器实例，请将 ONTAP 调解器服务添加到 ONTAP ：</block>
   <block id="6852fcac58b417258b30784060002d89" category="list-text">跟踪 MetroCluster 端口组（ MetroCluster 1 ， MetroCluster 2 等）。使用 RcfFileGenerator 工具时需要此信息，如此配置操作步骤后面所述。</block>
   <block id="b070262d5faad84092129cb1c7a44daa" category="list-text">。<block ref="166489b3c340ece1eccb5706fda90624" category="inline-link-rx"></block> 此外，还提供了每个交换机的每端口布线概览。使用此布线概述来验证布线情况。</block>
@@ -10369,7 +10320,6 @@
   <block id="69b040d4f8adaa4c34e437207036c73c" category="list-text">验证是否已配置 SNMP 设置：</block>
   <block id="da82ec774885b0fd4ea7e17756ffc01b" category="paragraph">`snmp config test`</block>
   <block id="3b0649c72650c313a357338dcdfb64ec" category="cell">注意</block>
-  <block id="4d2df55d2343b32800bfea20e735c55a" category="paragraph">AFF A700 和 FAS900</block>
   <block id="09cb6984bdf1b82c9749906ba1a69331" category="summary">您可以更改 MetroCluster IP 接口， IP 地址和掩码以及网关的以下属性。您可以使用任意参数组合进行更新。</block>
   <block id="bacf5875940eb96c091917a5d1b9e1ad" category="doc">修改 MetroCluster IP 中的地址，网络掩码和网关</block>
   <block id="40505aafe5fd41af1999393ab341c808" category="paragraph">从 ONTAP 9.10.1 开始，您可以更改 MetroCluster IP 接口的以下属性： IP 地址和掩码以及网关。您可以使用任意参数组合进行更新。</block>
@@ -10454,7 +10404,6 @@
   <block id="b268877da374fd4b7e106d3ffa6da9f8" category="list-text">如果您使用的是 Tiebreaker 软件，请参见 <block ref="62330c976dd51c7f2d31efa54ddec6c7" category="inline-link-macro-rx"></block>。</block>
   <block id="7e2317ea641d19001e33fe184824ff0d" category="paragraph">在使用 Tiebreaker 软件之前，请查看 <block ref="f62e57388ece8ed3ab39425498977dae" category="inline-link-macro-rx"></block></block>
   <block id="4b8414b2021cbbd4b58cc5b95bc166cd" category="list-text">_Disks and aggregates management_ 包含有关镜像聚合的详细信息。</block>
-  <block id="5fb51bd58dc6b3d970f3c719b5895808" category="paragraph">使用命令行界面进行集群管理在 _Manag管理 配置备份 _ 一节下包含追加信息。</block>
   <block id="81469bbc8b1e22a393e56fdba3d5a1f3" category="list-text">在使用符合 MetroCluster 的交换机的 MetroCluster IP 配置中，不支持还原到 ONTAP 9.6 或更早版本。</block>
   <block id="6f7582d0e120db40c637399cfa1b6c6b" category="inline-link">使用 CLI 进行集群管理</block>
   <block id="c467b861736195e319f9323a1f51b76d" category="paragraph">。<block ref="752795714a55b77b4bc7d5d8c99674d1" category="inline-link-rx"></block> 在 _Manag管理 配置备份 _ 一节下包含追加信息。</block>
@@ -10884,7 +10833,6 @@
   <block id="d02e71ae77b3af75d1cc326f36f84ae3" category="paragraph">在控制器升级期间禁用协商切换后自动修复聚合。site_B 上的节点会在 `LOADER` 提示符处暂停和停止。</block>
   <block id="b780f876891edc15fa85c699a7f8bfcb" category="list-text">从 site_B 的两个节点收集 bootarg 值： `printenv`</block>
   <block id="1e80b49a305b8f9776f5ad016b85d8e7" category="list-text">关闭 site_B 上的机箱</block>
-  <block id="7772cd0198105a3d1385b2e8a38dfd13" category="section-title">卸下 AFF A700 控制器模块</block>
   <block id="f6cb76da900c86fece5eb404a84c66d1" category="list-text">在卸下控制器模块之前，请断开控制台缆线（如果有）以及管理缆线与控制器模块的连接。</block>
   <block id="dfa9bdf3553d14d1f1265d5adf46b338" category="list-text">解锁控制器模块并将其从机箱中卸下。</block>
   <block id="c1ed0cd23ea77c49b5611e5929537b3f" category="list-text">Slide the orange button on the cam handle downward until it unlocks.</block>
@@ -10896,8 +10844,6 @@
   <block id="33d42cfbdf6857f6d56828022546f696" category="cell"><block ref="33d42cfbdf6857f6d56828022546f696" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b733ab833a64f07b84375a26a6af83f0" category="cell">Cam handle</block>
   <block id="f0231ce2b907f79181e8b9703e9a2c98" category="list-text">Rotate the cam handle so that it completely disengages the controller module from the chassis, and then slide the controller module out of the chassis.Make sure that you support the bottom of the controller module as you slide it out of the chassis.</block>
-  <block id="fd22b7848c5af6378d0b6f4b2d27e00f" category="section-title">卸下 AFF A700 NVS 模块</block>
-  <block id="79c5d41bbb72ea24170f3061addd9ece" category="paragraph">使用以下操作步骤删除 AFF A700 NVS 模块。</block>
   <block id="0d64a71c5e54f6a18144ca98af6bba12" category="list-text">从插槽 6 解锁 NVS 并将其卸下。</block>
   <block id="97bf9cd87a9cbb5619926733a7d23035" category="list-text">按下带字母和编号的 "CAB" 按钮。The cam button moves away from the chassis.</block>
   <block id="3e40de17d289a21aa0995b29466f1eab" category="list-text">Rotate the cam latch down until it is in a horizontal position.NVS 从机箱中分离并移动几英寸。</block>
@@ -11034,10 +10980,8 @@
   <block id="447b7bdefc8e750f8d7dab18bb9172ea" category="list-text">node_B_2-A700 ： 537035354</block>
   <block id="50d704bfae735cf9f8824da705413abc" category="paragraph">对于追加信息，请参见<block ref="0abbdd13a8c045ec09bd7c54eb2d0bef" category="inline-link-rx"></block>。</block>
   <block id="fbb702216c9d47455a0b8dbde9a6a6ca" category="paragraph">您必须从配置中删除旧控制器。</block>
-  <block id="aa7985a89f1c2f960f222e4a5876a369" category="paragraph">使用以下操作步骤删除 AFF A700 控制器模块。</block>
   <block id="594c103f2c6e04c3d8ab059f031e0c1a" category="inline-image-macro">控制器</block>
   <block id="5370787e20e547791ddb1e14849b2cd9" category="paragraph"><block ref="5370787e20e547791ddb1e14849b2cd9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="87f2b2201ecbf070e4e854d1304aeeac" category="admonition">AFF A700 NVS 模块位于插槽 6 中，与系统中的其他模块相比，其高度是原来的两倍。</block>
   <block id="771fe3d405626b11981b56d013399632" category="list-text">Depress the lettered and numbered cam button.The cam button moves away from the chassis.</block>
   <block id="dd1cfa8d899a8ddd6f4a00978117e5f0" category="inline-image-macro">NVS 模块</block>
   <block id="20d7cafa77ced4deb94fb09d7a230ff9" category="paragraph"><block ref="20d7cafa77ced4deb94fb09d7a230ff9" category="inline-image-macro-rx" type="image"></block></block>
@@ -11306,8 +11250,6 @@
   <block id="fb22c4a7b5c0395bdf46487a4665275e" category="list-text">使用 Tiebreaker cli `monitor show -status` 命令确认已正确删除 MetroCluster 配置。</block>
   <block id="1ab09d70d6824875fab00d3405138192" category="image-alt">切换 A900 中的 MCC 升级集群 A</block>
   <block id="968f84559c2abd0caee37a550c003bec" category="image-alt">MCC 升级集群 A 切回 A900</block>
-  <block id="2038f837dd43f190a92c79bb698d5d00" category="paragraph">完成此任务后， site_A 处于活动状态，并为两个站点提供数据。site_B 处于非活动状态，并已准备好开始升级过程，如下图所示。</block>
-  <block id="b1b207442d1d74b512ee7783091ec80b" category="section-title">删除 site_B 上的 AFF A700 控制器模块和 NVS</block>
   <block id="e4dfa2cb8ac36daa9c5d60ebed0d438b" category="paragraph">您可以在 site_B 上执行此任务</block>
   <block id="e9e9340e13d6253f17a48e08970ad599" category="list-text">连接到 site_B 上旧控制器（ node_B_1-700 和 node_B_2-700 ）的串行控制台，并验证它是否显示 `LOADER` 提示符。</block>
   <block id="60086a2b9ff0b21debbb0d8bf099b8e7" category="section-title">从 site_B 的两个节点中删除控制器模块和 NVS</block>
@@ -11983,50 +11925,7 @@
   <block id="c1420c708cdb03e8e6259f7cb1285a08" category="paragraph">控制器模块和机箱应显示值 `mCCIP` 。</block>
   <block id="717daacc38ffb11ae03c79a7871ba94a" category="list-text">如果显示的控制器系统状态不是 " `mCCIP` " ，请设置控制器的 HA 状态：</block>
   <block id="1be7c4ddc79016b4335125e64b368241" category="list-text">如果显示的机箱系统状态不是 " `mCCIP` " ，请设置机箱的 HA 状态：</block>
-  <block id="25b5ead61653e93322d7cdd02e68bed7" category="list-text">使用启动菜单上的选项 "`4` " 启动站点 A 上的每个节点：</block>
-  <block id="d6262ce3ce8d4552f5bba743fa687f27" category="list-text">从启动菜单中选择选项 "`4` " 并继续。</block>
-  <block id="c00ad9db1ba9b2390705a2374f4d3c8b" category="list-text">使用启动菜单上的选项 "`4` " 启动站点 B 上的每个节点：</block>
-  <block id="8628c8f82d22aaba7e4ff8640b5c8913" category="paragraph"><block ref="8628c8f82d22aaba7e4ff8640b5c8913" category="inline-link-rx"></block></block>
-  <block id="4c5303bd380c1014a165c1ad253ea2f5" category="paragraph"><block ref="4c5303bd380c1014a165c1ad253ea2f5" category="inline-link-rx"></block></block>
-  <block id="b8aeb50ab1946f3c20e4f5ceed42b633" category="paragraph">以下示例将端口 "`e0e` " 和 "`e0f` " 分配给系统 " `SVMcluster01` " 上的故障转移组 "`intercluster01` " ：</block>
-  <block id="1012d3a631b6876c6dcb7face2d6a501" category="list-text">您必须在同一 VLAN 中创建所有 MetroCluster IP 接口 "`A` " 端口，并在另一个 VLAN 中创建所有 MetroCluster IP 接口 "`B` " 端口。请参见 <block ref="0d7e2206ca44f9cb7344ddf469b6d625" category="inline-link-macro-rx"></block>。</block>
-  <block id="89084e438af77c52e3bb123d64f339eb" category="list-text">在 "`node_A_1` " 上创建接口。</block>
   <block id="1631c24dd2645318c89e780c4904812a" category="list-text">从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 <block ref="c0c95b98444cb413fd783099a9c566d2" category="inline-link-macro-rx"></block>。</block>
-  <block id="34b309a7a8f5ac4692710dfcf5a00777" category="list-text">在端口 "`node_A_1` " 上配置接口 "`e5a` " ：</block>
-  <block id="b44259ae71dce764eaaa8b48707da56a" category="list-text">在端口 "`node_A_1` " 上配置接口 "`e5b` " ：</block>
-  <block id="9b466f494271828adb713455019d23f2" category="paragraph">以下示例显示了在 IP 地址为 "`10.1.2.1` " 的 "`node_A_1` " 上的端口 "`e5b` " 上创建的接口：</block>
-  <block id="718d065eac1ff3e2a2be302bd8ff88ce" category="list-text">在 "`node_A_2` " 上创建接口。</block>
-  <block id="ff775bc8ad4e6cc1937bbf2876775f01" category="list-text">以下示例中的端口使用情况适用于 AFF A700 或 FAS9000 系统（ "`e5a` " 和 "`e5b` " ）。您必须按照上述说明在适用于您的平台型号的正确端口上配置接口。</block>
-  <block id="c628ef83038584c5f47c7ddfe50d38c0" category="list-text">在端口 "`node_A_2` " 上配置接口 "`e5a` " ：</block>
-  <block id="b69208c65d61eacde5488594766fd3b8" category="paragraph">以下示例显示了在 IP 地址为 "`10.1.1.2` " 的 "`node_A_2` " 上的端口 "`e5a` " 上创建的接口：</block>
-  <block id="5ecd7c22ce3acd95a76953721fa8aeb8" category="paragraph">在支持 MetroCluster IP 接口的 VLAN 的平台型号上，如果不想使用默认 VLAN ID ，可以使用 ` -vlan-id` 参数。以下示例显示了 VLAN ID 为 "`120` " 的 AFF A220 系统的命令：</block>
-  <block id="20b7ea9a5bf1a5d7c5fabf9131abf09c" category="list-text">在端口 "`node_A_2` " 上配置接口 "`e5b` " ：</block>
-  <block id="c59dee00f6497e29ef0226d20704dc10" category="paragraph">以下示例显示了在 IP 地址为 "`10.1.2.2` " 的 "`node_A_2` " 上的端口 "`e5b` " 上创建的接口：</block>
-  <block id="49d2fe60521b8a0cdb30285ac8543c5b" category="paragraph">在支持 MetroCluster IP 接口的 VLAN 的平台型号上，如果不想使用默认 VLAN ID ，可以使用 ` -vlan-id` 参数。以下示例显示了 VLAN ID 为 "`220` " 的 AFF A220 系统的命令：</block>
-  <block id="b62e9bf9d023237b47ada0b7d6d4cf59" category="list-text">在 "`node_B_1` " 上创建接口。</block>
-  <block id="80c6329501b0e5f8b016ef76f6be3664" category="list-text">在端口 "`node_B_1` " 上配置接口 "`e5a` " ：</block>
-  <block id="270269f59ee1cd9bc99f05eb79147eeb" category="paragraph">以下示例显示了在 IP 地址为 "`10.1.1.3` " 的 "`node_B_1` " 上的端口 "`e5a` " 上创建的接口：</block>
-  <block id="616f51ca22d7fe8514da17f4fb96fa92" category="list-text">在端口 "`node_B_1` " 上配置接口 "`e5b` " ：</block>
-  <block id="e4c1125b6535c7798f7ae85e122d60e2" category="paragraph">以下示例显示了在 IP 地址为 "`10.1.2.3` " 的 "`node_B_1` " 上的端口 "e5b" 上创建的接口：</block>
-  <block id="d26f7b805ed0dcb944e2e280b30bbd07" category="list-text">在 "`node_B_2` " 上创建接口。</block>
-  <block id="e2d56705aef6b7c5a25f72f46d88bbe7" category="list-text">在端口 "`node_B_2` " 上配置接口 "`e5a` " ：</block>
-  <block id="3149faae3d7ae9c0621829d63f66c33d" category="paragraph">以下示例显示了在 IP 地址为 "`10.1.1.4` " 的 "`node_B_2` " 上的端口 "`e5a` " 上创建的接口：</block>
-  <block id="9c7f78e9d2e564d314650f4f8d2f89cf" category="list-text">在端口 "`node_B_2` " 上配置接口 "`e5b` " ：</block>
-  <block id="426b66c3321be38bf5e743497b7a06cd" category="paragraph">以下示例显示了在 IP 地址为 "`10.1.2.4` " 的 "`node_B_2` " 上的端口 "`e5b` " 上创建的接口：</block>
-  <block id="36531c09673685da2eb7a9b424719e07" category="paragraph">以下示例显示了处于 " `re连接就绪` " 状态的所有节点：</block>
-  <block id="6cf81a0d4823756f8f92c439387e37c5" category="paragraph">以下示例显示 "`cluster_A` " 已成功连接：</block>
-  <block id="3c5bea345bf95b2ddd2d4480093df667" category="paragraph">当系统提示您继续进入高级模式且您看到高级模式提示符（` * &gt;` ）时，您需要使用 "`y` " 进行响应。</block>
-  <block id="89afa329dc5f807f2e8486478a15c3a4" category="paragraph">驱动器自动分配已将四分之一（ 8 个驱动器）分配给 "`node_A_1` " ，将四分之一分配给 "`node_A_2` " 。其余驱动器将是 "`node_B_1` " 和 "`node_B_2` " 的远程（ pool1 ）磁盘。</block>
-  <block id="808399043c3072cd0aa24746698a6720" category="list-text">将远程驱动器（ 0m ）的所有权分配给第一个节点的池 1 （例如， "`node_A_1` " ）：</block>
-  <block id="3ce7f1b9ad5e0866fca8bb3ed3bfaf24" category="paragraph">以下输出显示已分配磁盘架 "`23` " 上的驱动器，因为这些驱动器不再出现在未分配的驱动器列表中：</block>
-  <block id="15ca6babcd89f4df7fef4ad08eebc182" category="list-text">重复上述步骤，将池 1 驱动器分配给站点 A 上的第二个节点（例如， "`node_A_2` " ）。</block>
-  <block id="ec556c6f0a7c1341af78db8c6979a3ec" category="paragraph">您必须通过` 在每个磁盘架上指定一个磁盘来 " 按 `s" 自动分配。</block>
-  <block id="a106bbb8c6a0404bf4119f09f97f4b2b" category="list-text">选择一个远程磁盘（ 0m ）并将该磁盘的所有权分配给第一个节点的池 1 （例如， "`node_A_1` " ）：</block>
-  <block id="0c90186b6a1b1bb07d839515b5838513" category="paragraph">以下输出显示磁盘架 "`23` " 上的磁盘已分配，不再显示：</block>
-  <block id="cc5f058fa8df2998a58b6fe6de2c6ca6" category="list-text">重复上述步骤，将池 1 磁盘分配给站点 A 上的第二个节点（例如， "`node_A_2` " ）。</block>
-  <block id="5064cf282b956b1a00cb68a958a94a35" category="list-text">控制器和机箱的 ha-config 状态必须为 `mCCIP` 。</block>
-  <block id="d3e0fb982a529e06bf305b944b1f5000" category="list-text">使用中的协商切换，修复和切回过程<block ref="31eae521f3e4fd8fd098b415771facd9" category="inline-link-rx"></block></block>
-  <block id="c5ca300fc0462691509bf45ae10e3bc5" category="paragraph">您可以从第三个站点下载并安装 MetroCluster Tiebreaker 软件，也可以从 ONTAP 调解器 ONTAP 9.7 开始安装。</block>
   <block id="9bdf1ed180b1b862f7cea11085897aca" category="paragraph">是（从 ONTAP 9.4 开始）</block>
   <block id="a27983e963a18385eebdc3381062e49b" category="paragraph">是（从 ONTAP 9.8 开始）</block>
   <block id="098fadefd1319cbc560b7d741aa7210e" category="paragraph">是（从 ONTAP 9.7 开始）</block>
@@ -12410,8 +12309,6 @@
   <block id="b36742dbca767f044c826ec8fbe9b099" category="inline-link">一致性组</block>
   <block id="2b9902d272c75c4def3400c620342746" category="paragraph">从ONTAP 9.11.1开始、<block ref="cf613318e210a5e8a8ae9de011eafc43" category="inline-link-rx"></block> 在MetroCluster 配置中受支持。</block>
   <block id="fe92f5934bf96194725b46db02f72324" category="list-text">FAS2750或AFF A220系统不支持此操作步骤。</block>
-  <block id="f5cd93f67ab362b3830ef2c47249e909" category="paragraph"><block ref="f5cd93f67ab362b3830ef2c47249e909" category="inline-link-macro-rx"></block></block>
-  <block id="a3816a0d57fcb59bc1a3bfba35af44cf" category="paragraph"><block ref="a3816a0d57fcb59bc1a3bfba35af44cf" category="inline-link-macro-rx"></block></block>
   <block id="8a4f175190a1710cdcd52e7efde01268" category="section-title">在MetroCluster IP配置中启用Cisco MACsec加密WAN ISL</block>
   <block id="dbbfd3dd70a4d25284d890b07ad9bc31" category="section-title">配置MACsec密钥链和密钥</block>
   <block id="2903318a6fa99cbae17be8d84747e6f4" category="section-title">配置MAC秒策略</block>
@@ -12513,7 +12410,6 @@
   <block id="810c9113a382d35f83c48d0bc5ad007c" category="paragraph">在此维护活动之外、不支持在同一DR组中使用不同类型的控制器运行MetroCluster 配置。对于八节点MetroCluster 配置、DR组中的控制器必须相同、但两个DR组可以使用不同的控制器类型。</block>
   <block id="f0f7e2a1799d8b479b19f71aa5a163de" category="inline-link-macro">主板更换后流程、用于更新AFF/FAS系统上的许可。</block>
   <block id="70dc27aa0b1b6fd743baaf39ac831057" category="paragraph">有关许可证更换的详细信息、请参见知识库文章 <block ref="fefc92a8d5d54e07ec6a27ea1fbe0992" category="inline-link-macro-rx"></block></block>
-  <block id="b36fd383298dd454964a70693b082d21" category="doc">使用切换和切回功能将MetroCluster IP配置中的AFF A700/A900控制器升级到FAS9x00 (ONTAP 9.10.1或更高版本)</block>
   <block id="fa5bebfbd3b64c98d09c75db575bd11c" category="list-text">要将AFF A700控制器模块升级到AFF A900、这些控制器必须运行ONTAP 9.10.1或更高版本。</block>
   <block id="b8c01685df64d764fee3ea66bb33411d" category="list-text">要将FAS9000控制器模块升级到FAS9000、这些控制器必须运行ONTAP 9.10.1P3或更高版本。</block>
   <block id="ae4867e3d506833b86caef7b0885d0ba" category="paragraph">在此维护活动之外、不支持使用AFF A700和AFF A900、FAS9000和FAS9500控制器运行MetroCluster 配置。</block>
@@ -12540,7 +12436,6 @@
   <block id="c90754ff62c724c351a1fdbc2c0922dc" category="list-text">等待AFF A900或FAS9500控制 器模块上当前运行的node_B_1启动、并显示启动菜单选项、如下所示：</block>
   <block id="1efe4497214b901f523cf96a2c33ab26" category="list-text">使用以下命令确定可分配给新控制器模块的未分配磁盘或备用磁盘：</block>
   <block id="2849cfeed499bf8aebf6e17e9cf254ca" category="list-text">`storage disk show -container-type spare`</block>
-  <block id="45a22a50381b7d0a6d65f4f38ec04b7d" category="doc">使用切换和切回将MetroCluster FC配置中的控制器从AFF A700/A900升级到FAS9x00 (ONTAP 9.10.1或更高版本)</block>
   <block id="304e34c553d5aabda89299a7fe2902b4" category="list-text">您可以使用此操作步骤 将AFF A700升级到使用ONTAP 9.10.1及更高版本的AFF A900。</block>
   <block id="35a4e2939e219a109bc9eacce7e98324" category="list-text">您可以使用此操作步骤 将FAS9000升级到使用ONTAP 9.10.1P3及更高版本的FAS9000。</block>
   <block id="995bf77226d032f3f7bb0a9172e19e98" category="list-text">在升级操作步骤 期间、您不应在AFF A700或FAS9000系统中添加或删除其他卡。有关详细信息，请参见<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block></block>
@@ -12575,7 +12470,6 @@
   <block id="24f7d38b1eaa5b3c78d65d263e040011" category="admonition">系统会自动生成所需的新许可证密钥，并将其发送到文件中的电子邮件地址。如果您未能在30天内收到包含许可证密钥的电子邮件、请参阅知识库文章中的"如果我的许可证出现问题、应联系谁？"_部分 <block ref="fefc92a8d5d54e07ec6a27ea1fbe0992" category="inline-link-macro-rx"></block></block>
   <block id="d903b046ad4e23192a38f289cf8b3677" category="paragraph">如果灾难站点包含未镜像聚合，而未镜像聚合不再存在，则该聚合可能会在 storage aggregate show 命令的输出中显示为 "`unknown` " 状态。要删除未镜像聚合的过期条目、请联系技术支持、请参阅知识库文章 <block ref="5f58a40bfe898f128ca76e4a4e4715d4" category="inline-link-macro-rx"></block></block>
   <block id="9734751a8e945b1c9cd85ffbdd0c241e" category="admonition">如果未清除已用替代控制器模块的 NVRAM 内容，则可能会看到以下崩溃消息： `panic ： NVRAM 内容无效 ...` 如果发生这种情况，请将系统重新启动到 ONTAP 提示符（`boot_ontap menu` ）。然后、您需要 <block ref="81092c96bc8b36fe9ac80e13a918f8bb" category="inline-xref-macro-rx"></block></block>
-  <block id="2117e88807c2074036a5c585d3364860" category="sidebar">使用切换和切回功能将MetroCluster IP配置中的AFF A700/A900控制器升级到FAS9x00 (ONTAP 9.10.1或更高版本)</block>
   <block id="0ab5e32384cf33a80caff743210417d8" category="admonition">HA和存储故障转移的预期配置状态如下：</block>
   <block id="a9c14bf4555cada69be518fce567a21c" category="list-text">已配置HA模式、但未启用存储故障转移。</block>
   <block id="917db687ec940c706231d4c917812bb2" category="list-text">已禁用HA接管功能。</block>
@@ -12591,9 +12485,6 @@
   <block id="440e5d46a3352ce5e00ab6b9ecdbc792" category="paragraph">GitHub问题描述 135、2022年7月4日</block>
   <block id="05cb8d64e2770620783bfd98ba2c571c" category="paragraph">以下步骤中的所有命令都是从站点发出的、以便保持通电。</block>
   <block id="714cb8627bb0d04d6b5d032326cab4a3" category="list-text">从要保持正常运行的站点实施切换：</block>
-  <block id="d5e08bac7a66723faca8e245c44582ae" category="list-text">使卷和LUN脱机。</block>
-  <block id="4434ac45fa2bd65c77619dc4135a3848" category="list-text">使卷脱机。</block>
-  <block id="8a0f98caf632998576a36c94b83328a6" category="list-text">将LUN置于脱机状态。</block>
   <block id="e7edce3217788bc841a63851100c9164" category="list-text">将未镜像聚合移至脱机状态：`s将聚合存储到脱机状态`</block>
   <block id="eeb4c33e80d1b1f4f321335e6c0a8948" category="list-text">禁用此网络结构中两个交换机上的所有VSAN。</block>
   <block id="f214faa187b0f8585d0284ecf49f3906" category="paragraph">使用以下操作步骤 禁用VSAN：</block>
@@ -12636,4 +12527,19 @@
   <block id="00dcc4021e9b5b5c4107ab832d8a3b22" category="list-text">ONTAP 调解器对CPU和内存(RAM)的要求不超过主机操作系统的最低要求。</block>
   <block id="3238177a17500506d8e25597811d95a1" category="list-text">除了主机操作系统的最低要求之外、还必须至少提供30 GB的额外可用磁盘空间。</block>
   <block id="d87323d7c443195bdfe43686953d17da" category="list-text">每个DR组最多需要200 MB的磁盘空间。</block>
+  <block id="cba78abc40cd6aa38755c20692e16922" category="list-text">将属于未镜像聚合的所有卷和LUN脱机移动。</block>
+  <block id="7386845cd79b01875eaa7f006f46b9f2" category="list-text">使卷脱机。</block>
+  <block id="cd69a3dbda56dd351c139686ba9519dc" category="list-text">将LUN置于脱机状态。</block>
+  <block id="17327179cc24e43223407ad31775b347" category="doc">使用切换和切回功能将MetroCluster IP配置中的AFF A700/FAS9000控制器升级到AFF A900/FAS9500 (ONTAP 9.10.1或更高版本)</block>
+  <block id="4adc962ec0036e99dcb3ed30b5a7bb90" category="doc">使用切换和切回功能将MetroCluster FC配置中的AFF A700/FAS9000控制器升级到AFF A990/FAS9500（ONTAP 9.10.1或更高版本)</block>
+  <block id="18d71f6f9b2869ce694a656dc6e2f46c" category="paragraph">完成此任务后， site_A 处于活动状态，并为两个站点提供数据。site_B 处于非活动状态，并已准备好开始升级过程，如下图所示。(此图还显示了适用场景 将FAS9000升级到FAS9500控制 器。)</block>
+  <block id="104b8a291f0127f5923408928b5ee7e9" category="section-title">删除site_B上的AFF A700或FAS9000控制器模块和NVS</block>
+  <block id="208671d931da81374958ab0bdeb8d0f0" category="paragraph">使用以下操作步骤 删除AFF A700或FAS9000控制器模块。</block>
+  <block id="d1bba686a5b245f47f0d8653cd12d51c" category="admonition">AFF A700或FAS9000 NVS模块位于插槽6中、与系统中的其他模块相比、其高度是原来的两倍。</block>
+  <block id="400837732a47a77ab9ec9d475301631a" category="paragraph">在此任务中，您将执行切回操作，使 MetroCluster 配置恢复正常运行。site_A上的节点仍在等待升级、如下图所示。(此图还显示了适用场景 将FAS9000升级到FAS9500控制器)。</block>
+  <block id="aacdf7a1a9a3666db3b501d37a579c04" category="summary">您必须配置FC交换机以提供后端MetroCluster FC连接。</block>
+  <block id="3c2e7a09f3e6838bdc9926952b8e998b" category="list-text"><block ref="3c2e7a09f3e6838bdc9926952b8e998b" category="inline-link-macro-rx"></block></block>
+  <block id="8c67eafd90e097bf6228c8d6f91f15cb" category="list-text"><block ref="8c67eafd90e097bf6228c8d6f91f15cb" category="inline-link-macro-rx"></block></block>
+  <block id="6fc32e58ee37ceb6ca0bb1590e84ab08" category="sidebar">使用切换和切回功能将MetroCluster FC配置中的AFF A700/FAS9000控制器升级到AFF A900/FAS9500 (ONTAP 9.10.1或更高版本)</block>
+  <block id="121ccccf0953c4b38cd58e1f1be63ffd" category="sidebar">使用切换和切回功能将MetroCluster IP配置中的AFF A700/FAS9000控制器升级到AFF A900/FAS9500 (ONTAP 9.10.1或更高版本)</block>
 </blocks>
