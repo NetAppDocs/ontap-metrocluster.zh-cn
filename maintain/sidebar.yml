@@ -60,6 +60,8 @@ entries:
     url: "/maintain/task_upgrade_firmware_on_mcc_ip_switches.html"
   - title: 升级 MetroCluster IP 交换机上的 RCF 文件
     url: "/maintain/task_upgrade_rcf_files_on_mcc_ip_switches.html"
+  - title: 使用cleanupfiles升级MetroCluster IP交换机上的RCF文件
+    url: "/maintain/task_upgrade_rcf_files_on_mcc_ip_switches_with_cleanupfiles.html"
   - title: 重命名 Cisco IP 交换机
     url: "/maintain/task_rename_a_cisco_ip_switch.html"
 - title: 无中断地添加，删除或更改 ISL 端口

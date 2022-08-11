@@ -1,0 +1,293 @@
+---
+permalink: maintain/task_upgrade_rcf_files_on_mcc_ip_switches_with_cleanupfiles.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, upgrade, rcf, files, ip, switches, cleanupfiles 
+summary: 您可能需要升级 MetroCluster IP 交换机上的 RCF 文件。例如， ONTAP 升级或交换机固件升级都需要新的 RCF 文件。 
+---
+= 使用CleanUpFiles升级MetroCluster IP交换机上的RCF文件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能需要升级 MetroCluster IP 交换机上的 RCF 文件。例如， ONTAP 升级或交换机固件升级都需要新的 RCF 文件。
+
+从RcfFileGenerator 1.4a版开始、有一个新选项可用于更改(升级、降级或更换) Cisco IP交换机上的交换机配置、而无需执行"写入擦除"。
+
+如果您的配置满足以下要求、则可以使用此方法：
+
+* 此时将应用标准RCF配置。
+* 。 https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator"] 必须能够使用相同的版本和配置(平台、VLAN)创建应用的相同RCF文件。
+* 对于特殊配置、NetApp未提供应用的RCF文件。
+* 在应用RCF文件之前、此文件未进行更改。
+* 在应用当前RCF文件之前、已按照以下步骤将交换机重置为出厂默认值。
+* 应用RCF后、未对交换机(端口)配置进行任何更改。
++
+如果不满足这些要求、则无法使用在生成RCF文件时创建的CleanUpFiles。但是、您可以利用函数创建通用CleanUpFiles—使用此方法进行清理是从`show running-config`的输出派生的、也是最佳实践。
+
++
+
+NOTE: 您必须按以下顺序更新交换机：switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。或者、您也可以同时更新交换机Switch_A_1和Switch_B_1、然后更新交换机Switch_B_1和Switch_B_2。
+
+
+
+.步骤
+. 确定当前RCF文件版本以及使用的端口和VLAN：`IP_switch_A_1# show banner motd`
++
+
+NOTE: 您需要从所有四个交换机获取此信息并填写以下信息表。
+
++
+[listing]
+----
+* NetApp Reference Configuration File (RCF)
+*
+* Switch : NX9336C (SAS storage, L2 Networks, direct ISL)
+* Filename : NX9336_v1.81_Switch-A1.txt
+* Date : Generator version: v1.3c_2022-02-24_001, file creation time: 2021-05-11, 18:20:50
+*
+* Platforms : MetroCluster 1 : FAS8300, AFF-A400, FAS8700
+*              MetroCluster 2 : AFF-A320, FAS9000, AFF-A700, AFF-A800
+* Port Usage:
+* Ports 1- 2: Intra-Cluster Node Ports, Cluster: MetroCluster 1, VLAN 111
+* Ports 3- 4: Intra-Cluster Node Ports, Cluster: MetroCluster 2, VLAN 151
+* Ports 5- 6: Ports not used
+* Ports 7- 8: Intra-Cluster ISL Ports, local cluster, VLAN 111, 151
+* Ports 9-10: MetroCluster 1, Node Ports, VLAN 119
+* Ports 11-12: MetroCluster 2, Node Ports, VLAN 159
+* Ports 13-14: Ports not used
+* Ports 15-20: MetroCluster-IP ISL Ports, VLAN 119, 159, Port Channel 10
+* Ports 21-24: MetroCluster-IP ISL Ports, VLAN 119, 159, Port Channel 11, breakout mode 10gx4
+* Ports 25-30: Ports not used
+* Ports 31-36: Ports not used
+*
+
+#
+IP_switch_A_1#
+----
++
+在此输出中、您必须收集以下两个表中显示的信息。
+
++
+|===
+
+
+| 通用信息 | MetroCluster | 数据 
+
+
+| RCF 文件版本 |  | 1.81. 
+
+
+| 交换机类型 |  | NX9336 
+
+
+| 网络类型 |  | L2网络、直接ISL 
+
+
+| Storage type |  | SAS存储 
+
+
+.2+| 平台 | 1. | AFF A400 
+
+
+| 2. | FAS9000 
+|===
++
+|===
+| VLAN信息 | 网络 | MetroCluster 配置 | 交换机端口 | 站点 A | 站点 B 
+
+
+.4+| VLAN本地集群 .2+| 网络1 | 1. | 1、2 | 111. | 222. 
+
+
+| 2. | 3、4 | 151. | 251 
+
+
+.2+| 网络2 | 1. | 1、2 | 111. | 222. 
+
+
+| 2. | 3、4 | 151. | 251 
+
+
+.4+| VLAN MetroCluster .2+| 网络1 | 1. | 9、10 | 119 | 119 
+
+
+| 2. | 11、12 | 159. | 159. 
+
+
+.2+| 网络2 | 1. | 9、10 | 219. | 219. 
+
+
+| 2. | 11、12 | 259. | 259. 
+|===
+. 【创建-RCF文件和CleanUpFile-or-create-generic-CleanUpFiles]]创建RCF文件和CleanUpFiles、或者为当前配置创建通用CleanUpFiles。
++
+如果您的配置满足前提条件中所述的要求、请选择*选项1*。如果您的配置*不*满足前提条件中所述的要求、请选择*选项2*。
+
++
+[role="tabbed-block"]
+====
+.选项1：创建RCF文件和CleanUpFiles
+--
+如果配置满足要求、请使用此操作步骤。
+
+.步骤
+.. 使用RcfFileGenerator 1.4a (或更高版本)使用步骤1中检索到的信息创建RCF文件。新版RcfFileGenerator可创建一组额外的CleanUpFiles、您可以使用这些文件还原某些配置、并使交换机做好准备以应用新的RCF配置。
+.. 将横幅motd与当前应用的RCF文件进行比较。平台类型、交换机类型、端口和VLAN使用情况必须相同。
++
+
+NOTE: 您必须使用与RCF文件版本相同的CleanUpFiles、并且使用的配置必须完全相同。使用任何CleanUpFile将不起作用、可能需要对交换机进行完全重置。
+
++
+
+NOTE: 存储类型可能不同—SAS存储或直接存储。
+
++
+
+NOTE: 为其创建RCF文件的ONTAP 版本不相关。只有RCF文件版本很重要。
+
++
+
+NOTE: RCF文件(即使是同一版本)可能列出的平台数可能会减少或增加。确保您的平台已列出。
+
+
+
+--
+.选项2：创建通用CleanUpFiles
+--
+如果配置*不*满足所有要求、请使用此操作步骤。
+
+.步骤
+.. 从每个交换机检索`show running-config`的输出。
+.. 打开RcfFileGenerator工具、然后单击窗口底部的"创建通用CleanUpFiles"
+.. 将步骤1中检索到的输出从"one"开关复制到上部窗口。您可以删除或保留默认输出。
+.. 单击"创建CUF文件"。
+.. 将输出从下部窗口复制到文本文件(此文件为CleanUpFile)。
+.. 对配置中的所有交换机重复步骤c、d和e。
++
+此操作步骤 的末尾应包含四个文本文件、每个交换机一个。您可以按照与使用选项1创建的CleanUpFiles相同的方式使用这些文件。
+
+
+
+--
+====
+. 【创建新的RCF文件针对新配置】为新配置创建新的RCF文件。创建这些文件的方式与上一步创建文件的方式相同、但选择相应的ONTAP 和RCF文件版本除外。
++
+完成此步骤后、您应该有两组RCF文件、每组包含12个文件。
+
+. 将文件下载到bootflash。
++
+.. 下载在中创建的CleanUpFiles <<Create-RCF-files-and-CleanUpFiles-or-create-generic-CleanUpFiles,创建RCF文件和CleanUpFiles、或者为当前配置创建通用CleanUpFiles>>
++
+
+NOTE: 此CleanUpFile用于当前应用的RCF文件、而*不*用于要升级到的新RCF。
+
++
+Switch-A1的CleanUpFile示例：`Cleanup_NX9336_v1.81_Switch-A1.txt`
+
+.. 下载您在中创建的"新"RCF文件 <<Create-the-new-RCF-files-for-the-new-configuration,为新配置创建"新"RCF文件。>>
++
+Switch-A1的RCF文件示例：`NX9336_v1.90_Switch-A1.txt`
+
+.. 下载在中创建的CleanUpFiles <<Create-the-new-RCF-files-for-the-new-configuration,为新配置创建"新"RCF文件。>> 此步骤为可选步骤—您可以在将来使用此文件更新交换机配置。它与当前应用的配置匹配。
++
+Switch-A1的CleanUpFile示例：`Cleanup_NX9336_v1.90_Switch-A1.txt`
+
++
+
+NOTE: 您必须使用CleanUpFile获取正确(匹配)的RCF版本。如果您对其他RCF版本或其他配置使用CleanUpFile、则清理配置可能无法正常运行。
+
++
+以下示例将这三个文件复制到bootflash：
+
++
+[listing]
+----
+IP_switch_A_1# copy sftp://user@50.50.50.50/RcfFiles/NX9336-direct-SAS_v1.81_MetroCluster-IP_L2Direct_A400FAS8700_xxx_xxx_xxx_xxx/Cleanup_NX9336_v1.81_Switch-A1.txt bootflash:
+IP_switch_A_1# copy sftp://user@50.50.50.50/RcfFiles/NX9336-direct-SAS_v1.90_MetroCluster-IP_L2Direct_A400FAS8700A900FAS9500_xxx_xxx_xxx_xxxNX9336_v1.90//NX9336_v1.90_Switch-A1.txt bootflash:
+IP_switch_A_1# copy sftp://user@50.50.50.50/RcfFiles/NX9336-direct-SAS_v1.90_MetroCluster-IP_L2Direct_A400FAS8700A900FAS9500_xxx_xxx_xxx_xxxNX9336_v1.90//Cleanup_NX9336_v1.90_Switch-A1.txt bootflash:
+----
+
+
+. 应用CleanUpFile或通用CleanUpFile。
++
+某些配置已还原、并且交换机端口会"脱机"。
+
++
+.. 确认没有待定的启动配置更改：`show running-config diff`
++
+[listing]
+----
+IP_switch_A_1# show running-config diff
+IP_switch_A_1#
+----
+
+
+. 如果看到系统输出、请将运行配置保存到启动配置：`copy running-config startup-config`
++
+
+NOTE: 系统输出指示启动配置和运行配置不同、并且待定更改。如果不保存待定更改、则无法通过重新加载交换机进行回滚。
+
++
+.. 应用CleanUpFile：
++
+[listing]
+----
+
+IP_switch_A_1# copy bootflash:Cleanup_NX9336_v1.81_Switch-A1.txt running-config
+
+IP_switch_A_1#
+----
++
+
+NOTE: 此脚本可能需要一段时间才能返回到交换机提示符。不需要输出。
+
+
+
+. 查看正在运行的配置以验证是否已清除此配置：`show running-config`
++
+当前配置应显示：
+
++
+** 未配置任何类映射和IP访问列表
+** 未配置任何策略映射
+** 未配置任何服务策略
+** 未配置端口配置文件
+** 所有以太网接口(mgmt0除外、mgmt0不应显示任何配置、只应配置VLAN 1)。
++
+如果发现已配置上述任何项、则可能无法应用新的RCF文件配置。但是、您可以通过重新加载交换机*而不*将正在运行的配置保存到启动配置来还原到先前的配置。交换机将显示先前的配置。
+
+
+
+. 应用RCF文件并验证端口是否联机。
++
+.. 应用RCF文件。
++
+[listing]
+----
+IP_switch_A_1# copy bootflash:NX9336_v1.90-X2_Switch-A1.txt running-config
+----
++
+
+NOTE: 应用配置时会显示一些警告消息。不会显示错误消息。
+
+.. 应用配置后、使用以下命令之一验证集群和MetroCluster 端口是否联机：`show interface brief`、`show cdp neighbors`或`show LLDP neighbors`
++
+
+NOTE: 如果您更改了本地集群的VLAN并升级了站点上的第一个交换机、则集群运行状况监控可能不会将此状态报告为"运行状况良好"、因为旧配置和新配置中的VLAN不匹配。更新第二个交换机后、此状态应恢复为运行状况良好。
+
++
+如果未正确应用配置、或者您不希望保留配置、则可以通过重新加载交换机*而不将正在运行的配置保存到启动配置来还原到先前的配置。交换机将显示先前的配置。
+
+
+
+. 保存配置并重新加载交换机。
++
+[listing]
+----
+IP_switch_A_1# copy running-config startup-config
+
+IP_switch_A_1# reload
+----
+

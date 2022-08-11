@@ -106,7 +106,7 @@ AFF A900或FAS9500上的MetroCluster 配置使用插槽5和7中DR卡上的每个
 
 === 升级控制器之前，请更新 MetroCluster 交换机 RCF 文件
 
-AFF A700或FAS9000上的MetroCluster IP配置不使用VLAN。AFF A900或FAS9500上的MetroCluster 配置确实使用VLAN。因此、在从AFF A700或FAS9000升级到AFF A900或FAS9500时、您需要更改RCF文件。
+执行此升级时、您必须更新MetroCluster 交换机上的RCF文件。下表提供了AFF A900/FAS9500VLAN MetroCluster IP配置支持的VLAN范围。
 
 |===
 
@@ -1456,7 +1456,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metro
  a| 
 调解器
  a| 
-链接： ./install-IP/concept_mediator_requirements.html _ MetroCluster IP 安装和配置 _ 部分中的 " 从 MetroCluster IP 配置配置 ONTAP 调解器服务 " 。
+link:../install-ip/concept_mediator_requirements.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"] 在 _IP MetroCluster 安装和配置 _ 部分中。
 
 
 

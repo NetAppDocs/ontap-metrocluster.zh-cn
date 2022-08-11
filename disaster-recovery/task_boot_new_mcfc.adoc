@@ -30,7 +30,7 @@ summary: 数据聚合和根聚合的聚合修复完成后，您必须启动灾�
 
 +
 
-NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复 <<step2>> 将系统启动至 ONTAP 提示符。然后、您需要 <<Reset-the-boot-recovery,重置启动恢复和rdb_Corrupt bootargs>>
+NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复 <<step2,从启动菜单中，选择选项 6 * 从备份配置更新闪存 * 。>> 将系统启动至 ONTAP 提示符。然后、您需要 <<Reset-the-boot-recovery,重置启动恢复和rdb_Corrupt bootargs>>
 
 . 在丛 0 上镜像根聚合：
 +
