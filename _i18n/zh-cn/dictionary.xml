@@ -12658,4 +12658,8 @@
   <block id="773198299cf56ea3814545219f2bb9cb" category="paragraph">您可以使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合：</block>
   <block id="0af1623ce613439fe5aa524f7c4b1e1b" category="image-alt">支持的控制器升级组合</block>
   <block id="bc85eece93965de5b37264d01e4e5eeb" category="image-alt">FC IP过渡城域及更高版本</block>
+  <block id="731380609e4acd613ed054b92fc261e6" category="list-text">使用`show FIPS status`命令检查您的EFOS版本是否符合FIPS或非FIPS。在以下示例中、`IP_switch_A_1`正在使用符合FIPS的EFOS、而`IP_switch_A_2`正在使用不符合FIPS的EFOS。</block>
+  <block id="0b9982c26f9b690896e158b901c7001c" category="paragraph">*示例1*</block>
+  <block id="66fcc909c7d6b29950f9da753e168312" category="paragraph">*示例2*</block>
+  <block id="beb59952abfbd2e99ff165a613423fa0" category="list-text">使用下表确定必须遵循的方法：</block>
 </blocks>

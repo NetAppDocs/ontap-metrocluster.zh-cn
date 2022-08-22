@@ -275,6 +275,34 @@ Configuration Saved!
 
 
 ====
+.步骤
+. 使用`show FIPS status`命令检查您的EFOS版本是否符合FIPS或非FIPS。在以下示例中、`IP_switch_A_1`正在使用符合FIPS的EFOS、而`IP_switch_A_2`正在使用不符合FIPS的EFOS。
++
+*示例1*
+
++
+[listing]
+----
+IP_switch_A_1 #show fips status
+
+System running in FIPS mode
+
+IP_switch_A_1 #
+----
++
+*示例2*
+
++
+[listing]
+----
+IP_switch_A_2 #show fips status
+                     ^
+% Invalid input detected at `^` marker.
+
+IP_switch_A_2 #
+----
+. 使用下表确定必须遵循的方法：
++
 |===
 
 
@@ -341,8 +369,11 @@ Configuration Saved!
 不符合 FIPS
 
 |===
-* 方法 1 ： <<Steps to upgrade EFOS with downloading the software image to the backup boot partition>>
-* 方法 2 ： <<Steps to upgrade EFOS using the ONIE OS installation>>
++
+** 方法 1 ： <<Steps to upgrade EFOS with downloading the software image to the backup boot partition>>
+** 方法 2 ： <<Steps to upgrade EFOS using the ONIE OS installation>>
+
+
 
 
 
