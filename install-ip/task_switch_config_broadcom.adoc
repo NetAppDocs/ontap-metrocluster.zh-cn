@@ -14,6 +14,13 @@ summary: 您必须将 Broadcom IP 交换机配置为用作集群互连并用于�
 您必须将 Broadcom IP 交换机配置为用作集群互连并用于后端 MetroCluster IP 连接。
 
 
+NOTE: 在以下情况下、您的配置需要额外的许可证(6个100-GB端口许可证)：
+
+* 您可以使用端口53和54作为40-Gbps或100-Gbps MetroCluster ISL。
+* 您可以使用一个平台将本地集群和MetroCluster 接口连接到端口49 - 52。
+
+
+
 
 == 将 Broadcom IP 交换机重置为出厂默认值
 
@@ -715,7 +722,7 @@ NOTE: 不支持在下载后修改RCF文件。
 
 . 将 RCF 文件复制到交换机：
 +
-.. 将 RCF 文件复制到第一个交换机： `copy sftp ： //user@ftp-server-IP-address/RcfFiles/switch-Specific -RCF NVRAM ： script BES-53248_v1.32_Switch-A1.txt nvram ： script BES-53248_v1.32_Switch-A1.SCR`
+.. 将RCF文件复制到第一个交换机：`copy sftp：//user@ftp-server-IP-address/RcfFiles/switch-specific RCF/BES-53248_v1.32_Switch-A1.txt nvram：script BES-53248_v1.32_Switch-A1.SCR`
 +
 在此示例中，将 "BES-53248_v1.32_Switch-A1.txt" RCF 文件从位于 "50.050.50" 的 SFTP 服务器复制到本地 bootflash 。您需要使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 文件的文件名。
 

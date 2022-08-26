@@ -1,17 +1,17 @@
 ---
 permalink: maintain/task_upgrade_rcf_files_on_mcc_ip_switches_with_cleanupfiles.html 
 sidebar: sidebar 
-keywords: metrocluster, maintain, service, upgrade, rcf, files, ip, switches, cleanupfiles 
-summary: 您可能需要升级 MetroCluster IP 交换机上的 RCF 文件。例如， ONTAP 升级或交换机固件升级都需要新的 RCF 文件。 
+keywords: metrocluster, maintain, service, upgrade, rcf, files, ip, switches, cleanupfiles, cisco 
+summary: 您可能需要升级Cisco IP交换机上的RCF文件。例如， ONTAP 升级或交换机固件升级都需要新的 RCF 文件。 
 ---
-= 使用CleanUpFiles升级MetroCluster IP交换机上的RCF文件
+= 使用CleanUpFiles升级Cisco IP交换机上的RCF文件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您可能需要升级 MetroCluster IP 交换机上的 RCF 文件。例如， ONTAP 升级或交换机固件升级都需要新的 RCF 文件。
+您可能需要升级Cisco IP交换机上的RCF文件。例如， ONTAP 升级或交换机固件升级都需要新的 RCF 文件。
 
 从RcfFileGenerator 1.4a版开始、有一个新选项可用于更改(升级、降级或更换) Cisco IP交换机上的交换机配置、而无需执行"写入擦除"。
 
@@ -28,7 +28,7 @@ summary: 您可能需要升级 MetroCluster IP 交换机上的 RCF 文件。例�
 
 +
 
-NOTE: 您必须按以下顺序更新交换机：switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。或者、您也可以同时更新交换机Switch_A_1和Switch_B_1、然后更新交换机Switch_B_1和Switch_B_2。
+NOTE: 您必须按以下顺序更新交换机：switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。或者、您也可以同时更新交换机Switch_A_1和Switch_A_2、然后更新交换机Switch_B_1和Switch_B_2。
 
 
 
