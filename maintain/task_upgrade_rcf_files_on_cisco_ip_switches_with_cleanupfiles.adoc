@@ -1,5 +1,5 @@
 ---
-permalink: maintain/task_upgrade_rcf_files_on_mcc_ip_switches_with_cleanupfiles.html 
+permalink: maintain/task_upgrade_rcf_files_on_cisco_ip_switches_with_cleanupfiles.html 
 sidebar: sidebar 
 keywords: metrocluster, maintain, service, upgrade, rcf, files, ip, switches, cleanupfiles, cisco 
 summary: 您可能需要升级Cisco IP交换机上的RCF文件。例如， ONTAP 升级或交换机固件升级都需要新的 RCF 文件。 

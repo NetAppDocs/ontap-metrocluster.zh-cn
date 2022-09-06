@@ -35,11 +35,19 @@ summary: 您使用的升级或刷新操作步骤取决于平台型号，升级�
 
 
 
-== 支持使用切换和切回升级控制器的平台组合
+== 支持在MetroCluster IP配置中使用切换和切回升级控制器的平台组合
 
-您可以使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合：
+您可以在MetroCluster IP配置中使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合：
 
-image::supported_controller_upgrades.png[支持的控制器升级组合]
+image::supported_controller_upgrades.png[IP配置中支持的控制器升级组合]
+
+
+
+== 支持在MetroCluster FC配置中使用切换和切回升级控制器的平台组合
+
+您可以在MetroCluster FC配置中使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合：
+
+image::supported_controller_upgrades_fc_configurations.png[FC配置中支持的控制器升级组合]
 
 
 

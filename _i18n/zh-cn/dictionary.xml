@@ -7808,7 +7808,6 @@
   <block id="f674c4dddbf3c8f5d8282775b8f64dfc" category="list-text">一个备用分区</block>
   <block id="e544ed43da5fbe5f1ff53ed83f313e27" category="section-title">在 FAS2750 系统上分配磁盘</block>
   <block id="8a9765ee788aa0ec121d5869524dbbb4" category="paragraph">内部和外部磁盘架分为两个相等的部分。每一半会自动分配到不同的池</block>
-  <block id="1727ed989c7f4287136d81d78aeb960e" category="paragraph">不适用。</block>
   <block id="9b69500f7139e9ab34f753b13df6c609" category="section-title">在 FAS8200 系统上分配磁盘</block>
   <block id="f5282c0c22db3753989149a870ee22a6" category="paragraph">外部磁盘架上的驱动器分为两个相等的组（半个）。每个半架会自动分配给一个单独的池。</block>
   <block id="f279008175291c0c57dfde21cb38762c" category="section-title">FAS500f 系统上的磁盘分配</block>
@@ -12650,10 +12649,6 @@
   <block id="eb4cfd99b709d0b0ddc435f063be95cf" category="paragraph">分支缆线(2根)</block>
   <block id="e5df3565fbad5a4849fc6fb6ec79e8d1" category="list-text">在BES-53248交换机上使用40或100-Gbps ISL端口需要额外的许可证。</block>
   <block id="394d86b50aa384c22c3eeb7d90023e15" category="list-text">为Cisco 9336C-x2 (连接NS224磁盘架)创建RCF文件时、必须选择在原生 *或*分支模式下配置ISL。</block>
-  <block id="a455825d44f1e4a4ab9b205b1b01f846" category="sidebar">使用cleanupfiles升级MetroCluster IP交换机上的RCF文件</block>
-  <block id="b811a3677c5b098a6945ad54c6058363" category="section-title">支持使用切换和切回升级控制器的平台组合</block>
-  <block id="773198299cf56ea3814545219f2bb9cb" category="paragraph">您可以使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合：</block>
-  <block id="0af1623ce613439fe5aa524f7c4b1e1b" category="image-alt">支持的控制器升级组合</block>
   <block id="bc85eece93965de5b37264d01e4e5eeb" category="image-alt">FC IP过渡城域及更高版本</block>
   <block id="731380609e4acd613ed054b92fc261e6" category="list-text">使用`show FIPS status`命令检查您的EFOS版本是否符合FIPS或非FIPS。在以下示例中、`IP_switch_A_1`正在使用符合FIPS的EFOS、而`IP_switch_A_2`正在使用不符合FIPS的EFOS。</block>
   <block id="0b9982c26f9b690896e158b901c7001c" category="paragraph">*示例1*</block>
@@ -12666,4 +12661,15 @@
   <block id="d4a39e254ca0e79abbaea7e91f10d1c8" category="list-text">您可以使用端口53和54作为40-Gbps或100-Gbps MetroCluster ISL。</block>
   <block id="39d6f919c4f9487cf3eba1907393cc85" category="list-text">您可以使用一个平台将本地集群和MetroCluster 接口连接到端口49 - 52。</block>
   <block id="b457d19307b0152d2948b75490c21739" category="list-text">将RCF文件复制到第一个交换机：`copy sftp：//user@ftp-server-IP-address/RcfFiles/switch-specific RCF/BES-53248_v1.32_Switch-A1.txt nvram：script BES-53248_v1.32_Switch-A1.SCR`</block>
+  <block id="ea32627e820d2d706867bdf52f203354" category="section-title">支持在MetroCluster IP配置中使用切换和切回升级控制器的平台组合</block>
+  <block id="5a133f61008521cf04b795cbed594afb" category="paragraph">您可以在MetroCluster IP配置中使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合：</block>
+  <block id="3683e9c25b6907e036fd4e9c0b1f6c3e" category="image-alt">IP配置中支持的控制器升级组合</block>
+  <block id="c18cacb38175bec2261f766082f949f2" category="section-title">支持在MetroCluster FC配置中使用切换和切回升级控制器的平台组合</block>
+  <block id="d71f8b4a76cf6eed8f9c4126a751829c" category="paragraph">您可以在MetroCluster FC配置中使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合：</block>
+  <block id="2a9c49e8bc60cebb402b316352750e02" category="image-alt">FC配置中支持的控制器升级组合</block>
+  <block id="6ecbc3bbbc5acac0e3a1eaa928b0ef3a" category="list-text">两个数据分区</block>
+  <block id="203589fdbad6f6dc48cf251ed51e812a" category="list-text">无备用分区</block>
+  <block id="78da571ba5b07c0449886d55d21269c6" category="paragraph">需要手动分配</block>
+  <block id="361139022557555da3940779901816d7" category="paragraph">需要手动分配。</block>
+  <block id="6d54b17c6700f2c764e16c85409687ad" category="sidebar">使用cleanupfiles升级Cisco IP交换机上的RCF文件</block>
 </blocks>
