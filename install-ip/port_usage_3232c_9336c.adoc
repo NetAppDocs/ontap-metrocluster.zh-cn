@@ -79,6 +79,9 @@ image::../media/cabling_an_aff_a800_to_a_cisco_3232c_or_cisco_9336c_switch.png[�
 
 == 使用缆线将AFF A900或FAS9500连接 到Cisco 3232C或Cisco 9336C交换机
 
+
+NOTE: 您可以选择在MetroCluster IP配置中使用端口e5a和e7a作为集群间LIF。
+
 image:../media/cabling_an_aff_a900_or_FAS9500_to_a_cisco_3232c_or_cisco_9336c_switch.png[""]
 
 

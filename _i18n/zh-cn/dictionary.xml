@@ -12672,4 +12672,7 @@
   <block id="78da571ba5b07c0449886d55d21269c6" category="paragraph">需要手动分配</block>
   <block id="361139022557555da3940779901816d7" category="paragraph">需要手动分配。</block>
   <block id="6d54b17c6700f2c764e16c85409687ad" category="sidebar">使用cleanupfiles升级Cisco IP交换机上的RCF文件</block>
+  <block id="cd87d30388635f4978d5e5f84d17c64e" category="admonition">您可以选择在MetroCluster IP配置中使用端口e5a和e7a作为集群间LIF。</block>
+  <block id="ec8b479c503bdd6824b5e3505ef1d0df" category="paragraph">以下示例显示了要脱机的聚合aggr_data_A1：</block>
+  <block id="aa8cd184e817ada870c8b763be695d0b" category="paragraph">以下示例显示了要删除的聚合aggr_data_A1。</block>
 </blocks>
