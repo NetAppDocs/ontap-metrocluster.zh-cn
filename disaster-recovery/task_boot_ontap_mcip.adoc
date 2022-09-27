@@ -24,7 +24,7 @@ summary: 您必须将灾难站点上的替代节点启动到 ONTAP 操作系统�
 
 +
 
-NOTE: 如果未清除已用替代控制器模块的 NVRAM 内容，则可能会看到以下崩溃消息： `panic ： NVRAM 内容无效 ...` 如果发生这种情况，请将系统重新启动到 ONTAP 提示符（`boot_ontap menu` ）。然后、您需要 <<Reset-the-boot-recovery,重置boot_recovery和rdb_Corrupt bootargs>>
+NOTE: 如果未清除已用替代控制器模块的 NVRAM 内容，则可能会看到以下崩溃消息： `panic ： NVRAM 内容无效 ...` 如果发生这种情况，请将系统重新启动到 ONTAP 提示符（`boot_ontap menu` ）。然后、您需要 ,重置boot_recovery和rdb_Corrupt bootargs
 
 +
 ** 确认继续提示：

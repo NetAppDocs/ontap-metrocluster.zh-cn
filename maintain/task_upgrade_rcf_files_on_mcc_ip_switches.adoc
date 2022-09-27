@@ -128,19 +128,17 @@ MetroCluster 操作历史记录显示 -job-id 38`
 
 
 . 根据交换机供应商的不同、下载并安装IP RCF文件。
++
 
+NOTE: 按以下顺序更新交换机：switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2
 
++
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom IP RCF 文件"]
+** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
++
 
 NOTE: 如果您使用的是L2共享或L3网络配置、则可能需要调整中间/客户交换机上的ISL端口。交换机端口模式可能会从"访问"模式更改为"中继"模式。只有在交换机A_1和B_1之间的网络连接完全正常且网络运行状况良好的情况下、才能继续升级第二个交换机对(A_2、B_2)。
 
-+* link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom IP RCF 文件"]
 
-+* link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
 
-+按以下顺序更新交换机：
-
-. switch_A_1
-. switch_B_1
-. switch_A_2
-. switch_B_2
 

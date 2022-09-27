@@ -178,7 +178,7 @@ NOTE: RCF文件(即使是同一版本)可能列出的平台数可能会减少或
 
 . 将文件下载到bootflash。
 +
-.. 下载在中创建的CleanUpFiles <<Create-RCF-files-and-CleanUpFiles-or-create-generic-CleanUpFiles,创建RCF文件和CleanUpFiles、或者为当前配置创建通用CleanUpFiles>>
+.. 下载在中创建的CleanUpFiles ,创建RCF文件和CleanUpFiles、或者为当前配置创建通用CleanUpFiles
 +
 
 NOTE: 此CleanUpFile用于当前应用的RCF文件、而*不*用于要升级到的新RCF。
@@ -186,11 +186,11 @@ NOTE: 此CleanUpFile用于当前应用的RCF文件、而*不*用于要升级到�
 +
 Switch-A1的CleanUpFile示例：`Cleanup_NX9336_v1.81_Switch-A1.txt`
 
-.. 下载您在中创建的"新"RCF文件 <<Create-the-new-RCF-files-for-the-new-configuration,为新配置创建"新"RCF文件。>>
+.. 下载您在中创建的"新"RCF文件 ,为新配置创建"新"RCF文件。
 +
 Switch-A1的RCF文件示例：`NX9336_v1.90_Switch-A1.txt`
 
-.. 下载在中创建的CleanUpFiles <<Create-the-new-RCF-files-for-the-new-configuration,为新配置创建"新"RCF文件。>> 此步骤为可选步骤—您可以在将来使用此文件更新交换机配置。它与当前应用的配置匹配。
+.. 下载在中创建的CleanUpFiles ,为新配置创建"新"RCF文件。 此步骤为可选步骤—您可以在将来使用此文件更新交换机配置。它与当前应用的配置匹配。
 +
 Switch-A1的CleanUpFile示例：`Cleanup_NX9336_v1.90_Switch-A1.txt`
 

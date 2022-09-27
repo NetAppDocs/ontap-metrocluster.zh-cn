@@ -1441,28 +1441,28 @@ cluster_B::>
  a| 
 这些系统满足驱动器自动分配的要求，或者，如果运行 ONTAP 9.3 ，则是从工厂收到的。
  a| 
-<<Verifying disk assignment for pool 1 disks>>
+ disk assignment for pool 1 disks
 
 
 
  a| 
 此配置包括三个磁盘架，或者如果其包含四个以上的磁盘架，则包含四个磁盘架中不均匀的多个（例如七个磁盘架），并且正在运行 ONTAP 9.5 。
  a| 
-<<Manually assigning drives for pool 1 (ONTAP 9.4 or later)>>
+ assigning drives for pool 1 (ONTAP 9.4 or later)
 
 
 
  a| 
 此配置不包括每个站点四个存储架，并且运行的是 ONTAP 9.4
  a| 
-<<Manually assigning drives for pool 1 (ONTAP 9.4 or later)>>
+ assigning drives for pool 1 (ONTAP 9.4 or later)
 
 
 
  a| 
 系统未从工厂收到，并且运行的是 ONTAP 9.3 从工厂收到的系统已预先配置分配的驱动器。
  a| 
-<<Manually assigning disks for pool 1 (ONTAP 9.3)>>
+ assigning disks for pool 1 (ONTAP 9.3)
 
 |===
 
@@ -2002,7 +2002,7 @@ cluster_A::> storage aggregate create aggr1_node_A_1 -diskcount 10 -node node_A_
 
 +
 
-NOTE: 如果要使用单个镜像数据聚合，请参见 <<step1_single_mirror,第 1 步>> 有关说明，请参见。
+NOTE: 如果要使用单个镜像数据聚合，请参见 ,第 1 步 有关说明，请参见。
 
 * 控制器和机箱的 ha-config 状态必须为 "mccip" 。
 

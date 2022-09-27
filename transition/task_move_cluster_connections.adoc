@@ -113,7 +113,7 @@ FC节点上的本地集群接口
 
 . 将 MetroCluster FC 节点组 A 集群连接移动到新的 IP 交换机。
 +
-使用中所述的端口 <<Which connections to move>>。
+使用中所述的端口  connections to move。
 
 +
 .. 断开所有组 A 端口与交换机的连接，或者，如果 MetroCluster FC 配置为无交换机集群，则断开它们与配对节点的连接。
@@ -247,7 +247,7 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 
 . 将组 A 的端口重新连接到 switch_A_1_IP 。
 +
-使用中所述的端口 <<Which connections to move>>。
+使用中所述的端口  connections to move。
 
 . 验证所有集群端口是否均已启动：
 +

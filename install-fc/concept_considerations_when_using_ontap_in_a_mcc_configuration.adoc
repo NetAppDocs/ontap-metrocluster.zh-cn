@@ -159,15 +159,15 @@ NOTE: 系统创建的计划不会复制，您必须在配对集群上手动执�
 * https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]
 * 您应了解将 IP 空间对象复制到配对集群以及在 MetroCluster 配置中配置子网和 IPv6 的要求。
 +
-<<ipspace_obj_rep,IP 空间对象复制和子网配置要求>>
+,IP 空间对象复制和子网配置要求
 
 * 在 MetroCluster 配置中配置网络时，您应了解创建 LIF 的要求。
 +
-<<reqs_lif_create,在 MetroCluster 配置中创建 LIF 的要求>>
+,在 MetroCluster 配置中创建 LIF 的要求
 
 * 您应了解 MetroCluster 配置中的 LIF 复制要求。您还应了解复制的 LIF 如何放置在配对集群上，并应了解 LIF 复制或 LIF 放置失败时会出现的问题。
 +
-<<lif_rep_place,LIF 复制和放置要求和问题>>
+,LIF 复制和放置要求和问题
 
 
 
@@ -230,11 +230,11 @@ subnet1   192.168.2.0/24   Default   192.168.2.1       10/10    192.168.2.21-192
 .相关信息
 * 在 MetroCluster 配置中配置网络时，您应了解创建 LIF 的要求。
 +
-<<reqs_lif_create,在 MetroCluster 配置中创建 LIF 的要求>>
+,在 MetroCluster 配置中创建 LIF 的要求
 
 * 您应了解 MetroCluster 配置中的 LIF 复制要求。您还应了解复制的 LIF 如何放置在配对集群上，并应了解 LIF 复制或 LIF 放置失败时会出现的问题。
 +
-<<lif_rep_place,LIF 复制和放置要求和问题>>
+,LIF 复制和放置要求和问题
 
 
 
@@ -262,11 +262,11 @@ subnet1   192.168.2.0/24   Default   192.168.2.1       10/10    192.168.2.21-192
 .相关信息
 * 您应了解将 IP 空间对象复制到配对集群以及在 MetroCluster 配置中配置子网和 IPv6 的要求。
 +
-<<ipspace_obj_rep,IP 空间对象复制和子网配置要求>>
+,IP 空间对象复制和子网配置要求
 
 * 您应了解 MetroCluster 配置中的 LIF 复制要求。您还应了解复制的 LIF 如何放置在配对集群上，并应了解 LIF 复制或 LIF 放置失败时会出现的问题。
 +
-<<lif_rep_place,LIF 复制和放置要求和问题>>
+,LIF 复制和放置要求和问题
 
 
 
@@ -388,11 +388,11 @@ NOTE: 即使源 SVM 已关闭，但如果目标 SVM 中具有相同 IP 空间和
 .相关信息
 * 您应了解将 IP 空间对象复制到配对集群以及在 MetroCluster 配置中配置子网和 IPv6 的要求。
 +
-<<ipspace_obj_rep,IP 空间对象复制和子网配置要求>>
+,IP 空间对象复制和子网配置要求
 
 * 在 MetroCluster 配置中配置网络时，您应了解创建 LIF 的要求。
 +
-<<reqs_lif_create,在 MetroCluster 配置中创建 LIF 的要求>>
+,在 MetroCluster 配置中创建 LIF 的要求
 
 
 

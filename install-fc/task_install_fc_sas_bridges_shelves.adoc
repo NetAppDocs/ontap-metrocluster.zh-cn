@@ -452,9 +452,9 @@ link:task_fb_new_install.html["FC-SAS 网桥的带内管理"]
 您必须使用正确的 FC-SAS 网桥为磁盘架布线。
 
 .选项
-* <<cabling_fb_7600N_7500N_with_iom12,使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM12 模块的磁盘架>>
-* <<cabling_fb_7600N_7500N_with_iom6_iom3,使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架>>
-* <<cabling_fb_6500N_with_iom6_iom3,使用缆线将 FibreBridge 6500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架>>
+* ,使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM12 模块的磁盘架
+* ,使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架
+* ,使用缆线将 FibreBridge 6500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架
 
 
 
@@ -646,7 +646,7 @@ Tgt VendorID ProductID        Type        SerialNumber
  a| 
 正确
  a| 
-重复 <<step1_bridge,第 1 步>> 其余每个网桥。
+重复 ,第 1 步 其余每个网桥。
 
 
 
@@ -655,9 +655,9 @@ Tgt VendorID ProductID        Type        SerialNumber
  a| 
 .. 重复布线，检查 SAS 缆线是否松动或更正 SAS 布线。
 +
-<<Cabling disk shelves to the bridges>>
+ disk shelves to the bridges
 
-.. 重复 <<step1_bridge,第 1 步>>。
+.. 重复 ,第 1 步。
 
 
 |===

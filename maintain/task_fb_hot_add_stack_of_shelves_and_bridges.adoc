@@ -421,15 +421,15 @@ Tgt VendorID ProductID        Type        SerialNumber
  a| 
 正确
  a| 
-重复 <<step11-verify-each-bridge-detect,第 11 步>> 其余每个网桥。
+重复 ,第 11 步 其余每个网桥。
 
 
 
  a| 
 不正确
  a| 
-.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 <<step10-cable-shelves-bridges,第 10 步>>。
-.. 重复 <<step11-verify-each-bridge-detect,第 11 步>>。
+.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 ,第 10 步。
+.. 重复 ,第 11 步。
 
 
 |===

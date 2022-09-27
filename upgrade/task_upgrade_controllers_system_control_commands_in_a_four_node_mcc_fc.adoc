@@ -277,7 +277,7 @@ dr-group-id cluster    node          node-systemid dr-partner-systemid
 
 .关于此任务
 * 必须对每个旧节点执行此任务。
-* 您将使用中收集的信息 <<Preparing for the upgrade>>。
+* 您将使用中收集的信息  for the upgrade。
 
 
 .步骤

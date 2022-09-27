@@ -228,7 +228,7 @@ NOTE: 支持AFF A900或FAS9500Fabric MetroCluster 配置的RCF文件更新不会
 .. 运行完成后，请查看 MetroCluster 运行结果： `MetroCluster check show`
 
 
-. 重复更新网络结构 B 交换机（交换机 2 和 4 ） <<Update-RCF,第 2 步>> to <<verify-healthy,第 5 步>>。
+. 重复更新网络结构 B 交换机（交换机 2 和 4 ） ,第 2 步 to ,第 5 步。
 
 
 
@@ -722,7 +722,7 @@ image:../media/drw_9500_remove_PCM.png["控制器"]
 
 | 未运行 | 在启动环境提示符处使用以下命令手动配置连接： `ifconfig e0M -addr=<filer_addr> -mask=<netmask> -gw=<gateway> - dns=<dns_addr> domain=<dns_domain>` ` <filer_addr>` 是存储系统的 IP 地址。` < 网络掩码 >` 是存储系统的网络掩码。` < 网关 >` 是存储系统的网关。` <dns_addr>` 是网络上名称服务器的 IP 地址。此参数是可选的。` <dns_domain>` 是域名服务（ DNS ）域名。此参数是可选的。注意：您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 help ifconfig 。 
 |===
-. 在节点 1 上执行 `netboot` ： `netboot http://<web_server_ip/path_to_web_accessible_directory>/netboot/kernel`[]` <path_to_the_web-accessible_directory>` 应指向您在中下载 ` <ontap_version>_image.tgz` 的位置 <<step2-download-software,第 2 步>>。
+. 在节点 1 上执行 `netboot` ： `netboot http://<web_server_ip/path_to_web_accessible_directory>/netboot/kernel`[]` <path_to_the_web-accessible_directory>` 应指向您在中下载 ` <ontap_version>_image.tgz` 的位置 ,第 2 步。
 +
 
 NOTE: 请勿中断启动。

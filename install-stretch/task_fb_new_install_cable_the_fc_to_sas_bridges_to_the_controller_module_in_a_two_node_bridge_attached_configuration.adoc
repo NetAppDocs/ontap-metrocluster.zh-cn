@@ -84,7 +84,7 @@ Tgt VendorID ProductID        Type        SerialNumber
  a| 
 正确
  a| 
-重复 <<step1-verify-detect,第 1 步>> 其余每个网桥。
+重复 ,第 1 步 其余每个网桥。
 
 
 
@@ -95,7 +95,7 @@ Tgt VendorID ProductID        Type        SerialNumber
 +
 link:task_fb_new_install_cabl.html["使用缆线将磁盘架连接到网桥"]
 
-.. 重复 <<step1-verify-detect,第 1 步>> 其余每个网桥。
+.. 重复 ,第 1 步 其余每个网桥。
 
 
 |===
@@ -114,5 +114,5 @@ image::../media/cluster_peering_network.gif[集群对等网络]
 
 
 
-. 重复 <<step3-cable-each-bridge,第 3 步>> 在其他网桥上，直到所有网桥均已布线。
+. 重复 ,第 3 步 在其他网桥上，直到所有网桥均已布线。
 

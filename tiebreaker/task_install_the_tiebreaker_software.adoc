@@ -71,7 +71,7 @@ NOTE: 每个 MetroCluster 配置只能有一个 MetroCluster Tiebreaker 监控�
 .步骤
 . 安装 Java Runtime Environment 。
 +
-<<install-java-1-8,安装 Java Runtime Environment 1.8>>
+,安装 Java Runtime Environment 1.8
 
 . 安装 MySQL 或 MariaDB 服务器：
 +
@@ -87,7 +87,7 @@ Red Hat Enterprise Linux 7/CentOS 7.
  a| 
 安装 MySQL
 
-<<install-mysql-redhat,在 Red Hat Enterprise Linux 6 或 CentOS 7 上安装 MySQL Server 5.5.30 或更高版本以及 5.7x 版本>>
+,在 Red Hat Enterprise Linux 6 或 CentOS 7 上安装 MySQL Server 5.5.30 或更高版本以及 5.7x 版本
 
 
 
@@ -96,7 +96,7 @@ Red Hat Enterprise Linux 8
  a| 
 安装 MariaDB
 
-<<install-mariadb,在 Red Hat Enterprise Linux 8 上安装 MariaDB 服务器>>
+,在 Red Hat Enterprise Linux 8 上安装 MariaDB 服务器
 
 |===
 
@@ -559,7 +559,7 @@ Nov 08 21:29:01 scspr0523972001 systemd[1]: Started MariaDB database server.
 ....
 +
 
-NOTE: 确保已为 MariaDB 启用自动启动设置。请参见 <<mariadb-autostart>>。
+NOTE: 确保已为 MariaDB 启用自动启动设置。请参见 。
 
 . 配置安全性和密码设置：
 +
@@ -764,7 +764,7 @@ NetApp MetroCluster Tiebreaker :> monitor modify -monitor-name _monitor_name_ -o
 ....
 . 要升级 Tiebreaker 主机，请按照以下操作步骤中的所有步骤进行操作：
 +
-<<install-upgrade-sw-pkg,安装或升级软件包>>
+,安装或升级软件包
 
 . 禁用观察模式可将所有显示器移回联机模式。
 +

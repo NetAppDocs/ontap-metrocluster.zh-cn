@@ -1612,8 +1612,8 @@ ha-config modify chassis mccip
 如果需要通过网络启动新控制器，请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-upgrade/GUID-3370EC34-310E-4F09-829F-F632EC8CDD9B.html["通过网络启动新控制器模块"] 在 _RAID MetroCluster 升级，过渡和扩展指南中。
 
 .选项
-* <<setup_ontap_2node_MCC,在双节点 MetroCluster 配置中设置 ONTAP>>
-* <<setup_ontap_8node_4node_MCC,在八模式或四节点 MetroCluster 配置中设置 ONTAP>>
+* ,在双节点 MetroCluster 配置中设置 ONTAP
+* ,在八模式或四节点 MetroCluster 配置中设置 ONTAP
 
 
 
@@ -1861,8 +1861,8 @@ MetroCluster 配置中的集群必须处于对等关系中，以便它们可以�
 您必须在用于 MetroCluster 配对集群之间通信的端口上创建集群间 LIF 。您可以使用专用端口或也具有数据流量的端口。
 
 .选项
-* <<config_LIFs_dedicated,在专用端口上配置集群间 LIF>>
-* <<config_LIFs_shared_data,在共享数据端口上配置集群间 LIF>>
+* ,在专用端口上配置集群间 LIF
+* ,在共享数据端口上配置集群间 LIF
 
 
 
@@ -2654,7 +2654,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁�
 
 +
 
-NOTE: 如果要使用单个镜像数据聚合，请参见 <<step1_aggr,第 1 步>> 有关说明，请参见。
+NOTE: 如果要使用单个镜像数据聚合，请参见 ,第 1 步 有关说明，请参见。
 
 * 控制器和机箱的 ha-config 状态必须为 "mcc" 。
 

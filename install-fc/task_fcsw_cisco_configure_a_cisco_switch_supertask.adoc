@@ -931,9 +931,9 @@ FC_switch_B_1# copy running-config startup-config
 
 您使用的操作步骤取决于您使用的交换机：
 
-* <<config-e-ports-cisco-fc,在 Cisco FC 交换机上配置 E 端口>>
-* <<config-fcip-ports-single-isl-cisco-9250i,为 Cisco 9250i FC 交换机上的单个 ISL 配置 FCIP 端口>>
-* <<config-fcip-ports-dual-isl-cisco-9250i,在 Cisco 9250i FC 交换机上为双 ISL 配置 FCIP 端口>>
+* ,在 Cisco FC 交换机上配置 E 端口
+* ,为 Cisco 9250i FC 交换机上的单个 ISL 配置 FCIP 端口
+* ,在 Cisco 9250i FC 交换机上为双 ISL 配置 FCIP 端口
 
 
 
@@ -1595,8 +1595,8 @@ image::../media/fcip_ports_dual_isl.gif[FCIP 端口双 ISL]
 
 此任务和示例使用以下配置文件配置表：
 
-* <<fabric1_table>>
-* <<fabric2_table>>
+* 
+* 
 
 
 * 阵列 1 配置文件配置表 *
@@ -1935,7 +1935,7 @@ NOTE: 在每个交换机上， IPStorage 接口 "`IPStorage1/1` " 和 "`IPStorag
 +
 `退出`
 
-.. 重复 <<substep_a>> 到 <<substep_f>> 使用不同的 IP 地址配置 IPStorage1/2 GbE 接口。
+.. 重复  到  使用不同的 IP 地址配置 IPStorage1/2 GbE 接口。
 
 
 . 使用配置文件配置表中提供的配置文件名称配置 FC-VI 和存储流量的 FCIP 配置文件：

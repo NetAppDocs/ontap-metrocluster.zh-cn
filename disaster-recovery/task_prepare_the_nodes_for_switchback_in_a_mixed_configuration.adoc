@@ -64,7 +64,7 @@ summary: 您必须执行某些任务，以便为切回操作准备混合 MetroCl
 
 +
 
-NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复这些子步骤，将系统启动到 ONTAP 提示符。然后、您需要 <<Reset-the-boot-recovery,重置启动恢复和rdb_Corrupt bootargs>>
+NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复这些子步骤，将系统启动到 ONTAP 提示符。然后、您需要 ,重置启动恢复和rdb_Corrupt bootargs
 
 
 

@@ -629,7 +629,7 @@ NOTE: 如果输出开头显示文本 response truncated ，则可以使用 Telne
  a| 
 正确
  a| 
-重复 <<step1_verify_bridges,第 1 步>> 其余每个网桥。
+重复 ,第 1 步 其余每个网桥。
 
 
 
@@ -640,7 +640,7 @@ NOTE: 如果输出开头显示文本 response truncated ，则可以使用 Telne
 +
 link:task_fb_new_install.html["使用缆线将磁盘架连接到网桥"]
 
-.. 重复 <<step1_verify_bridges,第 1 步>>。
+.. 重复 ,第 1 步。
 
 
 |===

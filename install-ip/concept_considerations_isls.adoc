@@ -130,7 +130,7 @@ RcfFileGenerator 可能会限制某些 VLAN ID 的使用（例如，如果这些
 在 MetroCluster IP 配置中使用共享 ISL 时，您必须了解从站点 A 上的控制器端口到站点 B 上的控制器端口运行的端到端 MetroCluster ISL 的要求
 
 
-NOTE: 您必须遵循 <<Basic MetroCluster ISL requirements>>。
+NOTE: 您必须遵循  MetroCluster ISL requirements。
 
 
 

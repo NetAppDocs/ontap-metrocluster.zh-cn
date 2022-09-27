@@ -1238,7 +1238,7 @@ FC_switch_B_1:admin> trunkshow
 ----
 
 
-. 重复 <<step1_brocade_config,第 1 步>> 到 <<step10_brocade_config,第 10 步>> 用于第二个 FC 交换机网络结构。
+. 重复 ,第 1 步 到 ,第 10 步 用于第二个 FC 交换机网络结构。
 
 
 link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]

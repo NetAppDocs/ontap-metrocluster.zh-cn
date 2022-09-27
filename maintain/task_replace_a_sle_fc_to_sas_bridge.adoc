@@ -511,15 +511,15 @@ Tgt VendorID ProductID        Type SerialNumber
  a| 
 正确
  a| 
-重复 <<step18-verify-each-bridge,第 18 步>> 其余每个网桥。
+重复 ,第 18 步 其余每个网桥。
 
 
 
  a| 
 不正确
  a| 
-.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 <<step17-reconnect-newbridge,第 17 步>>。
-.. 重复 <<step18-verify-each-bridge,第 18 步>>。
+.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 ,第 17 步。
+.. 重复 ,第 18 步。
 
 
 |===
@@ -899,7 +899,7 @@ Tgt VendorID ProductID        Type        SerialNumber
  a| 
 不正确
  a| 
-.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 <<step17-reconnect-cables,第 17 步>>。
+.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 ,第 17 步。
 .. 重复上一步。
 
 
@@ -1334,7 +1334,7 @@ NOTE: 如果输出的开头显示文本 `reonse truncated` ，则可以使用 Te
  a| 
 不正确
  a| 
-.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 <<step17-recable,第 17 步>>。
+.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 ,第 17 步。
 .. 对其余每个网桥重复上述步骤。
 
 
