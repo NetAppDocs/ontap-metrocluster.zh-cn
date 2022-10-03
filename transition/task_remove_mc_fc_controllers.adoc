@@ -76,7 +76,7 @@ cluster_B::>
 +
 您必须删除 MDV_aud 卷，因为它们无法移动。
 
-. 使每个聚合脱机，然后将其删除：
+. 使每个数据聚合脱机、然后将其删除：
 +
 .. 使聚合脱机： `storage aggregate offline -aggregate aggregate-name`
 +

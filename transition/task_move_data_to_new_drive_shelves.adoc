@@ -11,6 +11,8 @@ summary: 过渡期间，您会将数据从 MetroCluster FC 配置中的驱动器
 [role="lead"]
 过渡期间，您会将数据从 MetroCluster FC 配置中的驱动器架移动到新的 MetroCluster IP 配置。
 
+在将卷移动到新聚合之前、您应在目标或IP节点上创建新的SAN LIF并连接主机。
+
 . 要恢复自动生成支持案例，请发送 AutoSupport 消息以指示维护已完成。
 +
 .. 问题描述以下命令： `ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
@@ -34,3 +36,11 @@ summary: 过渡期间，您会将数据从 MetroCluster FC 配置中的驱动器
 使用中的操作步骤  http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-95CA9262-327D-431D-81AA-C73DEFF3DEE2.html["将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点"^] 但请勿 * 不 * 执行最后两个步骤来迁移集群管理 LIF 。
 
 
+
+[NOTE]
+====
+* 您不能使用 VMware vStorage APIs for Array Integration （ VAAI ）迁移用于副本卸载操作的 LIF 。
+* 完成MetroCluster 节点从FC到IP的过渡后、您可能需要将iSCSI主机连接移动到新节点、请参见 link:task_move_linux_iscsi_hosts_from_mcc_fc_to_mcc_ip_nodes.html["将Linux iSCSI主机从MetroCluster FC移动到MetroCluster IP节点。"]
+
+
+====

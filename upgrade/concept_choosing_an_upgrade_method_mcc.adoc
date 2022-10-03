@@ -49,6 +49,9 @@ image::supported_controller_upgrades.png[IP配置中支持的控制器升级组�
 
 image::supported_controller_upgrades_fc_configurations.png[FC配置中支持的控制器升级组合]
 
+* 您可以使用以下操作步骤 从AFF A700/FAS9000控制器升级到AFF A900/FAS9500控制 器： link:task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html["使用切换和切回功能将MetroCluster FC配置中的AFF A700/FAS9000控制器升级到AFF A900/FAS9500 (ONTAP 9.10.1或更高版本)"]
+
+
 
 
 == 选择不使用聚合重新定位的操作步骤
