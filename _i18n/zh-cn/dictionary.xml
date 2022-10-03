@@ -12673,4 +12673,74 @@
   <block id="29011b2c4a1fcc691d4080c12a975cd2" category="inline-link-macro">将Linux iSCSI主机从MetroCluster FC移动到MetroCluster IP节点。</block>
   <block id="15c49ac51668072fdf92e5d8db0ec9ff" category="list-text">完成MetroCluster 节点从FC到IP的过渡后、您可能需要将iSCSI主机连接移动到新节点、请参见 <block ref="e3ab265f03332ea44056fafa567b430d" category="inline-link-macro-rx"></block></block>
   <block id="1fd94f8dc4aef371c8059f7aadb13ffb" category="list-text">您可以使用以下操作步骤 从AFF A700/FAS9000控制器升级到AFF A900/FAS9500控制 器： <block ref="d4055a630aa0f5dfe07651f60a376ff8" category="inline-link-macro-rx"></block></block>
+  <block id="e52e46b2e9a285a92c4fb276c84c544e" category="summary">您必须将NVIDIA IP交换机配置为用作集群互连和后端MetroCluster IP连接。</block>
+  <block id="12dfda519b07b8627c017865df4388a6" category="doc">配置NVIDIA IP SN2100交换机</block>
+  <block id="056bd4ccfa99eecc32b7151072832cb7" category="paragraph">您必须将NVIDIA SN2100 IP交换机配置为用作集群互连和后端MetroCluster IP连接。</block>
+  <block id="80d79e74efb3cf7c2ad45e7e1c96223d" category="section-title">将NVIDIA IP SN2100交换机重置为出厂默认值</block>
+  <block id="7c3ceaca0865f6c6621d894d5c1f5274" category="paragraph">您可以从以下方法中选择将交换机重置为出厂默认设置。</block>
+  <block id="61168c45da9c3d852ce200a8e6fe5441" category="inline-xref">使用RCF文件选项重置交换机</block>
+  <block id="f39c98e742374a832c3bc1976a82c99a" category="list-text"><block ref="4d1a1da583a14975a026f863f46efa9e" category="inline-xref-macro-rx"></block></block>
+  <block id="2905d1a656f6dd8b76df3793ca9d808a" category="inline-xref">使用Cumulus安装选项重置交换机</block>
+  <block id="07e63a61b44e7110afc73ee228b45e9f" category="list-text"><block ref="c5c4030964ab0fc53589e1f003b13a41" category="inline-xref-macro-rx"></block></block>
+  <block id="465c9065d10e2d00f4f4116734ac1084" category="paragraph">在安装新的RCF配置之前、您必须还原NVIDIA交换机设置。</block>
+  <block id="4cc34c69d718b06fff00dea4b3e4a9d7" category="paragraph">要将交换机还原为默认设置、请使用`restoreDefault`选项运行RCF文件。此选项会将备份的原始文件复制到其原始位置、然后重新启动交换机。重新启动后、交换机将与首次运行RCF文件配置交换机时的原始配置联机。</block>
+  <block id="2678e0ba955ea31dc3a2b8d425811dfc" category="paragraph">不会重置以下配置详细信息：</block>
+  <block id="0ed4e7e607ce6aeb54fbe2eee71c8925" category="list-text">用户和凭据配置</block>
+  <block id="a93cf3e8ddcdb9137b78b02a173624c6" category="list-text">配置管理网络端口eth0</block>
+  <block id="0359ad641e8604c134d24d2bbddd1f44" category="admonition">应用RCF文件期间发生的所有其他配置更改都将还原到原始配置。</block>
+  <block id="764bb8fed74d46f6a6171f7253b5bb18" category="inline-xref">下载并安装NVIDIA RCF文件</block>
+  <block id="e1f1980ba1430c6d4553ef8f7963bb4f" category="list-text">您必须根据配置交换机 <block ref="67df29514d3fd31c6e0b92fb5ef28c21" category="inline-xref-macro-rx"></block>。如果您未以这种方式进行配置、或者在运行RCF文件之前配置了其他功能、则无法使用此操作步骤。</block>
+  <block id="9d06a5d3de791df53c7a1c71fe30deed" category="list-text">您必须使用串行控制台连接连接到交换机。</block>
+  <block id="4e95898c852022962fdebc7727a93f46" category="list-text">验证是否已使用相同或兼容的RCF文件版本成功应用RCF配置、以及备份文件是否存在。</block>
+  <block id="b6446010a605d2f225bc5b4a651d77f6" category="admonition">输出可以显示备份文件、保留的文件或这两者。如果备份文件或保留的文件未显示在输出中、则无法使用此操作步骤。</block>
+  <block id="50fc7f4fc4780b7f326a480f73bd0267" category="list-text">运行RCF文件并选择还原默认值：`restoreDefault`</block>
+  <block id="389656231e83b20cf8f1080911ace092" category="list-text">对提示回答"yes"。交换机将还原到原始配置并重新启动。</block>
+  <block id="9c7625742f7f1ccd999df088ad4a3ae7" category="paragraph">交换机将重置并保留初始配置、例如管理网络配置和当前凭据、因为它们在应用RCF文件之前已存在。重新启动后、您可以使用相同或不同版本的RCF文件来应用新配置。</block>
+  <block id="8ea07ce14527ee98182ee1d95fed9b57" category="paragraph">如果要通过应用Cumulus映像完全重置交换机、请执行以下步骤。</block>
+  <block id="7ad863bb2a72d36c0234f4f6bfc2e19f" category="list-text">可通过HTTP访问Cumulus交换机软件映像。</block>
+  <block id="f230e571a49fa16f56965586613d2b79" category="list-text">您必须具有`sudo`命令访问权限的root密码。</block>
+  <block id="c67ce273436af6008876bf44654fd767" category="list-text">从Cumulus控制台下载交换机软件安装并将其加入队列、命令`onie-install -a -i`后跟交换机软件的文件路径：</block>
+  <block id="c6f62465ade5eb8bf0739b3b9e260823" category="paragraph">在此示例中、将固件文件`cumulus-linux-4.4.2-mlx-amd64.bin`从HTTP服务器"50.050.50"复制到本地交换机。</block>
+  <block id="0271d2dea0397f75aa8c0d5cd4c35209" category="list-text">下载并验证映像后、对提示符回答`y`以确认安装。</block>
+  <block id="efb5ccaab9d7fe2b2ab5b9f178475a7a" category="list-text">重新启动交换机以安装新软件：`sUdo reboot`</block>
+  <block id="1f66fcbdc3a63bbe8e57cebc96e1d8a9" category="admonition">交换机将重新启动并进入交换机软件安装、此过程需要一段时间。安装完成后、交换机将重新启动并保持在"log-in-"提示符处。</block>
+  <block id="8c1c8ef99f8d9e49251d5052029a2122" category="list-text">配置基本交换机设置</block>
+  <block id="c6f0365546c55b3f9de31ce3118ed962" category="list-text">启动交换机并在登录提示符处登录并更改密码。</block>
+  <block id="9d837b283737463bc96b390a448572da" category="admonition">用户名为"cumulus"、默认密码为"cumulus"。</block>
+  <block id="462a12e5e5fc8a8f0f2503ac82e01e16" category="list-text">配置管理网络接口。</block>
+  <block id="404f235a0e668325747a3bbe34a85550" category="admonition">以下示例说明如何使用以下命令配置主机名(IP_switch_A_1)、IP地址(10.10.10.10)、网络掩码(255.255.255.0 (24)和网关(10.10.10.1)：`net add hostname &lt;hostname&gt;`、`net add interface eth0 ip address &lt;IPAddress/mask&gt;`和`net add interface eth0 ip gateway &lt;Gateway&gt;`。</block>
+  <block id="fd56421b5278bf3b069d8729f920f29e" category="list-text">使用`sudo reboot`命令重新启动交换机。</block>
+  <block id="c55cbcd30055e2eecf2070469bd7907a" category="paragraph">交换机重新启动后、您可以使用中的步骤应用新配置 <block ref="67df29514d3fd31c6e0b92fb5ef28c21" category="inline-xref-macro-rx"></block>。</block>
+  <block id="8fa6539999f2d3aff134c30600c80e41" category="section-title">下载并安装NVIDIA RCF文件</block>
+  <block id="62217055050b5f95ab3ac1b301982bec" category="list-text">此时将安装交换机软件并配置管理网络。</block>
+  <block id="8d8734eaa9f80f06163e261ecd8dfd87" category="list-text">您按照步骤使用方法1或方法2首次安装交换机。</block>
+  <block id="f5029a9b9e4cf676befc86e9839549bd" category="list-text">初始安装后、您未应用任何其他配置。</block>
+  <block id="223a78def5043a8e8a25a141206e0278" category="admonition">如果在重置交换机后以及应用RCF文件之前执行进一步配置、则无法使用此操作步骤。</block>
+  <block id="696548cd048bf1ec4d31654cdbb3c156" category="paragraph">您必须对MetroCluster IP配置(新安装)中的每个IP交换机或替代交换机(交换机更换)重复上述步骤。</block>
+  <block id="b547506e85823bfaa1522cd7d20ababb" category="list-text">为MetroCluster IP生成NVIDIA RCF文件。</block>
+  <block id="a68522a1adf950d13a0dab9b74d36669" category="list-text">下载<block ref="b3f8a8564bd91efeacbc3b6197426c6e" category="inline-link-rx"></block>。</block>
+  <block id="38325ef6d268e93ab480af3cd0b3bd5f" category="list-text">使用适用于MetroCluster IP的RcfFileGenerator为您的配置生成RCF文件。</block>
+  <block id="7332a56dad899da7a26afe16c9ca077a" category="list-text">导航到主目录。如果您以"umulus"的形式记录、则文件路径为`/home/umulus`。</block>
+  <block id="323d6ef10b6c3c66d13f049670cbdb83" category="list-text">将RCF文件下载到此目录。以下示例显示您使用SCP将文件switch_2100_v1.0_ip switch_A_1.txt`从服务器"50.050.50"下载到主目录、并将其保存为`M 2100_v1.0_ip_switch_A_1.py `M`：</block>
+  <block id="59c778d760eb930375b77337b3ee45b9" category="list-text">执行RCF文件。RCF文件需要一个选项来应用一个或多个步骤。除非技术支持指示、否则请在不使用命令行选项的情况下运行RCF文件。要验证RCF文件各个步骤的完成状态、请使用选项"-1"或"全部"应用所有(待定)步骤。</block>
+  <block id="91fda6ec6c364088ae4a9e6553b26f99" category="doc">NVIDIA支持的SN2100 IP交换机的平台端口分配</block>
+  <block id="1f0b82560627b660c6c6958a1df834b8" category="section-title">支持的配置</block>
+  <block id="5b7679ef32240286811b416ba05c54c1" category="paragraph">目前支持以下平台：</block>
+  <block id="e1da8c334241f25c9cc939f9d9e1c5b2" category="list-text">FAS500f / AFF A250</block>
+  <block id="cbdc5a97c94bd42a3c869ae6831f7b04" category="list-text">FAS8300 / AFF A400</block>
+  <block id="4c744d90883c4aab83c5469643da24c7" category="list-text">FAS9000/FASA700 AFF</block>
+  <block id="b6db688996a59c9dcd63d8adb538f928" category="paragraph">目前不支持以下平台和配置：</block>
+  <block id="570a8334b13f037157ca46f8cbbf662b" category="list-text">MetroCluster FC-IP过渡</block>
+  <block id="67ce3d63d94102f7ff725a6564099821" category="list-text">八节点MetroCluster 配置</block>
+  <block id="5aa692c4552b821f69bb151f7aa0f216" category="paragraph">如果使用缆线连接多个MetroCluster 配置、请按照相应的表进行操作。例如：</block>
+  <block id="8bcb14049f972f715f22c433283f9028" category="list-text">如果您使用缆线连接两个类型为AFF A700的四节点MetroCluster 配置、请连接AFF A700表中显示为MetroCluster 1的第一个MetroCluster 和显示为MetroCluster 2的第二个MetroCluster。</block>
+  <block id="88a7b55f8e462f6453124192f872e512" category="admonition">端口13和14可以在支持40 Gbps和100 Gbps的原生 速度模式下使用、也可以在分支模式下使用以支持4×25 Gbps或4×10 Gbps。如果它们使用原生 速度模式、则表示为端口13和14。如果它们使用分支模式4×25 Gbps或4×10 Gbps、则表示为13s0-3和14s0-3。</block>
+  <block id="10fe94c98083f4e751ef035d96910a62" category="paragraph">以下各节将介绍物理布线概述。您也可以参考<block ref="c52b4d12f68853a25c52576697c6b2b5" category="inline-link-rx"></block> 有关详细的布线信息。</block>
+  <block id="09a5cc95a7bf7e0d1b588340d9deb189" category="image-alt">MCC IP布线A250 MSN2100</block>
+  <block id="189ceff67ac9718189406d45e1d9192a" category="image-alt">MCC IP布线A400 MSN2100</block>
+  <block id="9b1abf59f2c97ca1a2592e463ceb99ff" category="section-title">AFF A700或FAS9000的交换机端口使用情况</block>
+  <block id="ef983d4a2755d55ad39ed1892fc3e613" category="image-alt">MCC IP布线A700 MSN2100</block>
+  <block id="e22ae8f3e1d3ede96551e02f922872f0" category="section-title">AFF A800的交换机端口使用情况</block>
+  <block id="31b0afd6a52b93da38138e53814052b1" category="image-alt">MCC IP布线A800 MSN2100</block>
+  <block id="fb66ffdb7a65b64035629ded64b78faf" category="sidebar">配置NVIDIA IP交换机</block>
 </blocks>
