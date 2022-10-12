@@ -13,37 +13,31 @@ summary: 您可以使用此引导式自动 MetroCluster 切换操作对四节点
 [role="lead"]
 您可以使用此引导式自动 MetroCluster 切换操作对四节点 MetroCluster FC 配置执行无中断控制器升级。无法在此操作步骤中升级其他组件（例如存储架或交换机）。
 
-.关于此任务
+
+
+== 支持的平台组合
+
+下表显示了支持的控制器型号组合。
+
+如果*当前平台*行和*目标平台*列的交叉点不是绿色、则无法使用此操作步骤。
+
+请参见 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"] 以了解其他过程。
+
+
+NOTE: 此表不会显示从AFF A700/FAS9000控制器到AFF A900/FAS9500控制 器的升级情况。使用支持这种组合 link:task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html["AFF A700/FAS9500switchover/switchback操作步骤"]。
+
+image::supported_controller_upgrades_mccfc_sosb.png[FC配置中支持的控制器升级组合]
+
+
+
+== 关于此任务
+
 * 此操作步骤只能用于控制器升级。
 +
 无法同时升级配置中的其他组件，例如存储架或交换机。
 
 * 此操作步骤适用场景控制器模块采用四节点 MetroCluster FC 配置。
 * 这些平台必须运行 ONTAP 9.10.1 或更高版本。
-* 您的原始平台和新平台必须兼容并受支持。
-+
-下表显示了控制器升级支持的型号列表。
-
-+
-|===
-
-
-| 旧平台型号 | 替代平台型号 
-
-
- a| 
-AFF A300
- a| 
-AFF A400 ， AFF A700
-
-
-
- a| 
-FAS8200
- a| 
-FAS8300
-
-|===
 +
 https://hwu.netapp.com["NetApp Hardware Universe"^]
 

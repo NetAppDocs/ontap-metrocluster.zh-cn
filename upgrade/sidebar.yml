@@ -2,20 +2,24 @@
 section: upgrade
 title: 升级或扩展 MetroCluster 配置
 entries:
-- title: 选择升级或刷新方法
-  url: "/upgrade/concept_choosing_an_upgrade_method_mcc.html"
-- title: 使用切换和切回升级 MetroCluster FC 配置中的控制器
+- title: 从此处开始—选择您的操作步骤
+  entries:
+  - title: 选择控制器升级、系统刷新或扩展
+    url: "/upgrade/concept_choosing_an_upgrade_method_mcc.html"
+  - title: 选择控制器升级操作步骤
+    url: "/upgrade/concept_choosing_controller_upgrade_mcc.html"
+  - title: 选择system refresh操作步骤
+    url: "/upgrade/concept_choosing_tech_refresh_mcc.html"
+- title: 使用切换和切回升级MetroCluster FC中的控制器
   url: "/upgrade/task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html"
-- title: 使用切换和切回功能将MetroCluster FC配置中的AFF A700/FAS9000控制器升级到AFF A900/FAS9500 (ONTAP
-    9.10.1或更高版本)
+- title: 使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster FC中MetroCluster FC中的控制器(AFF A700/FAS9000到AFF
+    A900/FAS9500）
   url: "/upgrade/task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html"
-- title: 使用切换和切回命令使用 system controller replace 升级四节点 MetroCluster FC 配置中的控制器（ ONTAP
-    9.10.1 及更高版本）
+- title: 使用切换和切回命令使用system controller replace升级四节点MetroCluster FC中的控制器(ONTAP 9.10.1及更高版本)
   url: "/upgrade/task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_fc.html"
-- title: 使用切换和切回升级 MetroCluster IP 配置中的控制器（ ONTAP 9.8 及更高版本）
+- title: 使用切换和切回升级MetroCluster IP中的控制器(ONTAP 9.8及更高版本)
   url: "/upgrade/task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html"
-- title: 使用切换和切回功能将MetroCluster IP配置中的AFF A700/FAS9000控制器升级到AFF A900/FAS9500 (ONTAP
-    9.10.1或更高版本)
+- title: 使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster IP中的控制器(AFF A700/FAS9000到AFF A900/FAS9500）
   url: "/upgrade/task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html"
 - title: 刷新四节点 MetroCluster FC 配置
   url: "/upgrade/task_refresh_4n_mcc_fc.html"

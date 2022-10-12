@@ -13,23 +13,42 @@ summary: 从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，
 [role="lead"]
 从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。
 
-.关于此任务
+
+
+== 此操作步骤 支持的平台
+
 * 这些平台必须运行 ONTAP 9.8 或更高版本。
-* 此操作步骤适用场景控制器模块采用 MetroCluster IP 配置。
-* 支持的升级路径取决于原始平台型号。
+* 目标(新)平台的型号必须与原始平台不同。
+* 不支持使用内部磁盘架的平台型号。
+* 在MetroCluster IP配置中、只能使用此操作步骤 升级特定平台型号。
 +
-不支持使用内部磁盘架的平台型号。
+** 下表显示了支持的平台型号组合。
+** 如果*当前平台*行和*目标平台*列的交叉点不是绿色、则无法使用此操作步骤。
++
+请参见 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"] 以了解其他过程。
 
 
 
 
-NOTE: 使用 BES-53248 IP 交换机时，不支持升级 AFF A320 平台型号。
 
+[NOTE]
+====
+* 使用 BES-53248 IP 交换机时，不支持升级 AFF A320 平台型号。
+* 此表不会显示从AFF A700/FAS9000控制器到AFF A900/FAS9500控制 器的升级情况。使用支持这种组合 link:task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html["AFF A700/FAS9500switchover/switchback操作步骤"]。
+
+
+====
+image::../media/supported_controller_upgrades_mccip_sosb.png[支持的控制器升级mccip sosb]
+
+
+
+== 关于此任务
+
+* 此操作步骤适用场景控制器模块采用 MetroCluster IP 配置。
 * 配置中的所有控制器都应在同一维护期间进行升级。
 +
 在此维护活动之外，不支持使用不同类型的控制器运行 MetroCluster 配置。
 
-* 新平台的型号必须与原始平台不同。
 * IP 交换机必须运行受支持的固件版本。
 * 如果新平台的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。
 +
@@ -376,6 +395,7 @@ SAN
 .. 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 `ontap-version_image.tgz` 文件存储在可通过 Web 访问的目录中。
 .. 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
 +
+[cols="1,3"]
 |===
 
 
@@ -383,7 +403,7 @@ SAN
 
 
  a| 
-FAS/AFF8000 系列系统
+8000系列系统
  a| 
 将 ` _ontap-version___image.tgz` 文件的内容提取到目标目录：
 

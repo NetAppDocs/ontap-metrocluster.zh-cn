@@ -1923,7 +1923,6 @@
   <block id="dfaa931cb3298c6a8b82f108a31104cb" category="list-text">您的原始平台和新平台必须兼容并受支持。</block>
   <block id="b8c2f69c5a69a0de627c50e7bc6a4cf9" category="list-text">配置中的所有控制器都应在同一维护期间进行升级。</block>
   <block id="4eef4343ca82afa388103a13e5acd0be" category="paragraph">在此维护活动之外，不支持使用不同类型的控制器运行 MetroCluster 配置。</block>
-  <block id="16f5e23eca91ea2c50cf5ebde29656d2" category="list-text">支持的升级路径取决于原始平台型号。</block>
   <block id="b93f37f9b29ffcc5ed4a451ba3da2f03" category="paragraph">不支持使用内部磁盘架的平台型号。</block>
   <block id="d9ac7caa0b14c170344b2e959f8034c0" category="cell">旧平台型号</block>
   <block id="9ced91efcf548438eaefe7f78378491e" category="cell">新平台型号</block>
@@ -2614,7 +2613,6 @@
   <block id="73ab298c8e00d66d28156892903a39ce" category="list-text">AFF A320</block>
   <block id="ec5c696a4bc57321a5a79c91b886d5ff" category="list-text">FAS9000</block>
   <block id="986d1720aef5da8bb727fdc9d630f18b" category="admonition">使用 BES-53248 IP 交换机时，不支持升级 AFF A320 平台型号。</block>
-  <block id="63b2aba8957ed20a93aa020d51c5ac7d" category="list-text">新平台的型号必须与原始平台不同。</block>
   <block id="60182e6504cabd5c1f32193f850cc537" category="list-text">IP 交换机必须运行受支持的固件版本。</block>
   <block id="85a877eb6731bf16cfd35e46ab6896fb" category="paragraph">有关详细信息，请参见<block ref="bf137fbaca3418d969a7cbbc6acb278c" category="inline-link-rx"></block>。</block>
   <block id="6aad6e6acf8d07a11804f458ffbdcd50" category="list-text">您将在新平台上重复使用原始平台的 IP 地址，网络掩码和网关。</block>
@@ -2856,8 +2854,6 @@
   <block id="3fc44516e07f7c4278d79a805adf2be2" category="list-text">从站点 B 验证配置：</block>
   <block id="dc2d97a05f4493a33fe850c759870e80" category="summary">您使用的升级或刷新操作步骤取决于平台型号，升级范围和 MetroCluster 配置类型。</block>
   <block id="301e2a674920a7bb1b220a6ccd88ce36" category="doc">选择升级或刷新方法</block>
-  <block id="2a890ad6442d5b1a8fb8758f4dbe8fcf" category="paragraph">升级和刷新过程有不同的类型。</block>
-  <block id="b07b0bd1c1284028df7a43bf76f1453b" category="list-text">升级过程仅适用于控制器模块。这些控制器将替换为新的控制器型号。</block>
   <block id="e9cc835f575fa0eefab2ba42acde2667" category="paragraph">存储架型号未升级。</block>
   <block id="383a0cf8106e046d5c9ded7717bf77af" category="list-text">在切换和切回过程中， MetroCluster 切换操作用于在升级配对集群上的控制器模块时为客户端提供无中断服务。</block>
   <block id="bd31f0917ae1abfe9ca14e8e4e9848e4" category="list-text">在基于 ARL 的控制器升级操作步骤中，聚合重新定位操作用于无中断地将数据从旧配置移动到升级后的新配置。</block>
@@ -10212,8 +10208,6 @@
   <block id="6cd89c0a24f678f7acedd8c76ccac487" category="list-text">此操作步骤适用场景控制器模块采用四节点 MetroCluster FC 配置。</block>
   <block id="09a0c3b49fdf8f3d3d97fd599ba851dc" category="list-text">这些平台必须运行 ONTAP 9.10.1 或更高版本。</block>
   <block id="2b378caa5145e2c7adf8d8e9a477ac03" category="paragraph">下表显示了控制器升级支持的型号列表。</block>
-  <block id="97567631bf69a0efb4d4607d674cfab1" category="cell">替代平台型号</block>
-  <block id="3987c2b3042faa1f0f41d1ec08f2ed7e" category="paragraph">AFF A400 ， AFF A700</block>
   <block id="7c5ee56a01b06b00d2d910cc295d8c56" category="paragraph"><block ref="7c5ee56a01b06b00d2d910cc295d8c56" category="inline-link-rx"></block></block>
   <block id="0e490704226a6f678e043e59eee46210" category="inline-link">使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件</block>
   <block id="433c23ac1d50e2f792a96846827071e3" category="list-text">您可以使用此操作步骤通过基于 NSO 的自动切换和切回升级四节点 MetroCluster FC 配置中的控制器。如果要使用聚合重新定位（ Aggregate Relocation ， ARL ）执行控制器升级，请参见<block ref="ce0fc11b0e13b00ed4b15a0d6c2e1624" category="inline-link-rx"></block>。建议使用基于 NSO 的自动化操作步骤。</block>
@@ -10533,9 +10527,6 @@
   <block id="77d873129b2551d3791bd53918453706" category="sidebar">配置 Tiebreaker 软件</block>
   <block id="842ed7dcbaa63b60b53e91a89a33e02c" category="sidebar">为 Tiebreaker 软件配置 SNMP 设置</block>
   <block id="9e22e5887d35d0e7eed7b0656d5e7bfa" category="sidebar">监控 MetroCluster 配置</block>
-  <block id="1689664751a50a7233fe1e7130ed7294" category="sidebar">选择升级或刷新方法</block>
-  <block id="9d11e1781fbe5b44456d1d295cddc92b" category="sidebar">使用切换和切回升级 MetroCluster FC 配置中的控制器</block>
-  <block id="86c26e1621d0bd8e2c4210c81fd2b539" category="sidebar">使用切换和切回命令使用 system controller replace 升级四节点 MetroCluster FC 配置中的控制器（ ONTAP 9.10.1 及更高版本）</block>
   <block id="30836d6051134105cf07f488afe11425" category="sidebar">刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）</block>
   <block id="6e1b901662872166ef0e661d1481924c" category="sidebar">将双节点 MetroCluster FC 配置扩展为四节点配置</block>
   <block id="fbda6a351e5c32b65583383006360afa" category="sidebar">验证 MetroCluster 配置的状态</block>
@@ -11150,7 +11141,6 @@
   <block id="c495f5fb55d923c4b5bdcc9031d17504" category="sidebar">将控制器添加到 MetroCluster 配置中以创建四节点或八节点配置。</block>
   <block id="8b9fb0a48d871747071a5767bb11c3c9" category="sidebar">展开四节点 MetroCluster</block>
   <block id="f0de1d093d27614c73e83446489eec92" category="sidebar">将控制器添加到 MetroCluster 配置中以创建八节点配置。</block>
-  <block id="6766503a2944f47284f696078258e1c1" category="sidebar">使用切换和切回升级 MetroCluster IP 配置中的控制器（ ONTAP 9.8 及更高版本）</block>
   <block id="b6d684e18fbacf209337f80ec1a6dbd2" category="sidebar">运行 ONTAP 9.10.1 或更高版本的控制器的 AFF A900 Brocade 端口使用情况</block>
   <block id="20be931e6a91f7361d271248d9c2f477" category="sidebar">运行 ONTAP 9.10.1 或更高版本的 ISL 的 AFF A900 Brocade 端口使用情况</block>
   <block id="224ad006d44a9886d7665e4aad6a905c" category="sidebar">运行 ONTAP 9.10.1 或更高版本的 AFF A900 Cisco 端口使用控制器</block>
@@ -12185,9 +12175,6 @@
   <block id="5ddb9938498e31a4b1c392ab5953e15b" category="paragraph"><block ref="5ddb9938498e31a4b1c392ab5953e15b" category="inline-link-rx"></block></block>
   <block id="9630e0ae86014261ce835fe1e1ffcd0e" category="paragraph">您必须连续对每个交换机重复此任务。</block>
   <block id="b8ce668f7b81ebccc724b47a22aafe9f" category="paragraph">MetroCluster 系统的服务过程包括驱动器架， IP 交换机， FC 交换机， FC-SAS 网桥和 SAS 缆线的固件升级和硬件更换过程。</block>
-  <block id="ea82c7b5fb58362afd3d6e95de6eb609" category="list-text">FAS80x0</block>
-  <block id="9b81337122f1b971d326821246c0fb05" category="list-text">AFF80x0</block>
-  <block id="9630fdb2df8bbf2bbd201638e1cc2f2e" category="admonition">在 FC-VI 模式下使用 1c 和 1d 端口时，不支持升级 FAS8020 或 AFF8020 。</block>
   <block id="51556e4766045ccfd74aafe1f8271966" category="paragraph">有关详细信息，请参见<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block></block>
   <block id="38d923048395adfe402bca08916bd9db" category="paragraph">控制器的端口使用情况取决于平台模块以及要在 MetroCluster IP 配置中使用的交换机。您可以从收集新平台的端口使用情况 <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block>。</block>
   <block id="f9f099865bb9d36821db181257896abb" category="list-text">如果启用了自动启动，请按 Ctrl-C 中断自动启动</block>
@@ -12515,7 +12502,6 @@
   <block id="3c2e7a09f3e6838bdc9926952b8e998b" category="list-text"><block ref="3c2e7a09f3e6838bdc9926952b8e998b" category="inline-link-macro-rx"></block></block>
   <block id="8c67eafd90e097bf6228c8d6f91f15cb" category="list-text"><block ref="8c67eafd90e097bf6228c8d6f91f15cb" category="inline-link-macro-rx"></block></block>
   <block id="6fc32e58ee37ceb6ca0bb1590e84ab08" category="sidebar">使用切换和切回功能将MetroCluster FC配置中的AFF A700/FAS9000控制器升级到AFF A900/FAS9500 (ONTAP 9.10.1或更高版本)</block>
-  <block id="121ccccf0953c4b38cd58e1f1be63ffd" category="sidebar">使用切换和切回功能将MetroCluster IP配置中的AFF A700/FAS9000控制器升级到AFF A900/FAS9500 (ONTAP 9.10.1或更高版本)</block>
   <block id="44d9da525f678322921a73864bd0b924" category="paragraph">从RcfFileGenerator 1.4a版开始、有一个新选项可用于更改(升级、降级或更换) Cisco IP交换机上的交换机配置、而无需执行"写入擦除"。</block>
   <block id="0d98f6fd87f88cd68844ee1450081b43" category="paragraph">如果您的配置满足以下要求、则可以使用此方法：</block>
   <block id="cf5d82da1dbb504eeff51105d1c22631" category="list-text">此时将应用标准RCF配置。</block>
@@ -12646,11 +12632,6 @@
   <block id="d4a39e254ca0e79abbaea7e91f10d1c8" category="list-text">您可以使用端口53和54作为40-Gbps或100-Gbps MetroCluster ISL。</block>
   <block id="39d6f919c4f9487cf3eba1907393cc85" category="list-text">您可以使用一个平台将本地集群和MetroCluster 接口连接到端口49 - 52。</block>
   <block id="b457d19307b0152d2948b75490c21739" category="list-text">将RCF文件复制到第一个交换机：`copy sftp：//user@ftp-server-IP-address/RcfFiles/switch-specific RCF/BES-53248_v1.32_Switch-A1.txt nvram：script BES-53248_v1.32_Switch-A1.SCR`</block>
-  <block id="ea32627e820d2d706867bdf52f203354" category="section-title">支持在MetroCluster IP配置中使用切换和切回升级控制器的平台组合</block>
-  <block id="5a133f61008521cf04b795cbed594afb" category="paragraph">您可以在MetroCluster IP配置中使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合：</block>
-  <block id="3683e9c25b6907e036fd4e9c0b1f6c3e" category="image-alt">IP配置中支持的控制器升级组合</block>
-  <block id="c18cacb38175bec2261f766082f949f2" category="section-title">支持在MetroCluster FC配置中使用切换和切回升级控制器的平台组合</block>
-  <block id="d71f8b4a76cf6eed8f9c4126a751829c" category="paragraph">您可以在MetroCluster FC配置中使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合：</block>
   <block id="2a9c49e8bc60cebb402b316352750e02" category="image-alt">FC配置中支持的控制器升级组合</block>
   <block id="6ecbc3bbbc5acac0e3a1eaa928b0ef3a" category="list-text">两个数据分区</block>
   <block id="203589fdbad6f6dc48cf251ed51e812a" category="list-text">无备用分区</block>
@@ -12672,7 +12653,6 @@
   <block id="87375b5769d5bc8e37ee39d964c25804" category="list-text">您不能使用 VMware vStorage APIs for Array Integration （ VAAI ）迁移用于副本卸载操作的 LIF 。</block>
   <block id="29011b2c4a1fcc691d4080c12a975cd2" category="inline-link-macro">将Linux iSCSI主机从MetroCluster FC移动到MetroCluster IP节点。</block>
   <block id="15c49ac51668072fdf92e5d8db0ec9ff" category="list-text">完成MetroCluster 节点从FC到IP的过渡后、您可能需要将iSCSI主机连接移动到新节点、请参见 <block ref="e3ab265f03332ea44056fafa567b430d" category="inline-link-macro-rx"></block></block>
-  <block id="1fd94f8dc4aef371c8059f7aadb13ffb" category="list-text">您可以使用以下操作步骤 从AFF A700/FAS9000控制器升级到AFF A900/FAS9500控制 器： <block ref="d4055a630aa0f5dfe07651f60a376ff8" category="inline-link-macro-rx"></block></block>
   <block id="e52e46b2e9a285a92c4fb276c84c544e" category="summary">您必须将NVIDIA IP交换机配置为用作集群互连和后端MetroCluster IP连接。</block>
   <block id="12dfda519b07b8627c017865df4388a6" category="doc">配置NVIDIA IP SN2100交换机</block>
   <block id="056bd4ccfa99eecc32b7151072832cb7" category="paragraph">您必须将NVIDIA SN2100 IP交换机配置为用作集群互连和后端MetroCluster IP连接。</block>
@@ -12743,4 +12723,56 @@
   <block id="e22ae8f3e1d3ede96551e02f922872f0" category="section-title">AFF A800的交换机端口使用情况</block>
   <block id="31b0afd6a52b93da38138e53814052b1" category="image-alt">MCC IP布线A800 MSN2100</block>
   <block id="fb66ffdb7a65b64035629ded64b78faf" category="sidebar">配置NVIDIA IP交换机</block>
+  <block id="344184862169747549deee4b87dc1cf2" category="section-title">支持的平台组合</block>
+  <block id="a3e36fda70f465bc183d8a10d4112db7" category="paragraph">您可以在MetroCluster FC配置中使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合。</block>
+  <block id="c847f7b69bc5bbe9de608a708803dafc" category="paragraph">如果*当前平台*行和*目标平台*列的交叉点不是绿色、则无法使用此操作步骤。</block>
+  <block id="96235e4cabe659a051590175116c1e60" category="paragraph">请参见<block ref="2c4f45f6db308a425e052afade2ba656" category="inline-link-rx"></block> 以了解其他过程。</block>
+  <block id="8c97e6473cb544145de6aa0144fc60b6" category="inline-link-macro">AFF A700/FAS9500switchover/switchback操作步骤</block>
+  <block id="4eef8f838c31b644dbfa5638ac4dae43" category="admonition">此表不会显示从AFF A700/FAS9000控制器到AFF A900/FAS9500控制 器的升级情况。使用支持这种组合 <block ref="246d2420012a9cc76fe218ed0d95c813" category="inline-link-macro-rx"></block>。</block>
+  <block id="339aff0aa186e93b68d974842b334cfa" category="doc">从此处开始：在控制器升级、系统刷新或扩展之间进行选择</block>
+  <block id="d9072960df90d32fffa3f4db1496457e" category="paragraph">根据设备升级的范围、您可以选择控制器升级操作步骤 、系统更新操作步骤 或扩展操作步骤。</block>
+  <block id="0fa722347ab16c39e7070989619c6d3a" category="list-text">控制器升级过程仅适用于控制器模块。这些控制器将替换为新的控制器型号。</block>
+  <block id="d54a35a8f37af3fbffcb482b7998215b" category="list-text">扩展过程会在MetroCluster 配置中添加额外的控制器和磁盘架、而无需删除任何控制器和磁盘架。</block>
+  <block id="855a42fae714160495a9f9f355ec5d3e" category="paragraph">您使用的操作步骤 取决于MetroCluster 的类型和现有控制器的数量。</block>
+  <block id="2a015a1910d04c96ecfc0afb936a5f50" category="cell">升级类型</block>
+  <block id="ec434af0a2786fa23b468584c5622fe1" category="cell">转至 ...</block>
+  <block id="7a34713b5b314d0601e7f0b4d2891432" category="paragraph">控制器升级</block>
+  <block id="f51d3678c201a622cf18e8f30b08f3de" category="inline-link-macro">选择控制器升级操作步骤</block>
+  <block id="1bee30f9c5932b39ca60631e46d351c4" category="paragraph"><block ref="1bee30f9c5932b39ca60631e46d351c4" category="inline-link-macro-rx"></block></block>
+  <block id="39a312e16a6992b15a09373f77934847" category="paragraph">系统刷新</block>
+  <block id="4af3311caa78d1d3f55967915ca2b518" category="inline-link-macro">选择系统刷新操作步骤</block>
+  <block id="011f33756c08780dd7f0a5052471c2b4" category="paragraph"><block ref="011f33756c08780dd7f0a5052471c2b4" category="inline-link-macro-rx"></block></block>
+  <block id="47e8426faae2aa682c3096c3e32d3956" category="paragraph">扩展</block>
+  <block id="89dbe141e950ad77974d19d490093acc" category="inline-link-macro">双节点MetroCluster 到四</block>
+  <block id="ce424b2d05c913b7acda20f773137372" category="list-text"><block ref="ce424b2d05c913b7acda20f773137372" category="inline-link-macro-rx"></block></block>
+  <block id="eac32abfe349f5fc06674c5de9da136a" category="inline-link-macro">四节点MetroCluster FC到八个</block>
+  <block id="acdda3ad5a5d389cfe0b094f79763b0a" category="list-text"><block ref="acdda3ad5a5d389cfe0b094f79763b0a" category="inline-link-macro-rx"></block></block>
+  <block id="07bc2a5731d1521a6cfc759a3253b273" category="inline-link-macro">四节点MetroCluster IP到八个</block>
+  <block id="2c67410cdfbda39caa185635976fb5a3" category="list-text"><block ref="2c67410cdfbda39caa185635976fb5a3" category="inline-link-macro-rx"></block></block>
+  <block id="af90c7c33f97cc152b46f35af11f2720" category="summary">您使用的刷新操作步骤 取决于平台型号、升级范围和MetroCluster 配置类型。</block>
+  <block id="c3845446d08fee33d16bfdbbedffdc88" category="doc">选择系统刷新方法</block>
+  <block id="67d9ea64d4d1f19a6fa9178bcb2a126b" category="paragraph">您使用的系统刷新操作步骤 取决于平台型号、升级范围和MetroCluster 配置类型。</block>
+  <block id="5d113f2038d289f391614c39043629e8" category="cell">范围</block>
+  <block id="fc392b1e7219ffdf49fa895aa4900b36" category="cell">配置类型</block>
+  <block id="013647ab1eb017c353f89f46ca2c0d85" category="cell">ONTAP 支持</block>
+  <block id="ebc2ca8d2c7ef918abcfff80809d9aab" category="summary">您使用的升级操作步骤 取决于平台型号。</block>
+  <block id="1c9a0818e732ba5a475e7e19b4991adf" category="doc">选择控制器升级过程</block>
+  <block id="895bf4a1ca3e66ce2801d409eb6daf37" category="paragraph">您使用的控制器升级操作步骤 取决于平台型号、升级范围和MetroCluster 配置类型。</block>
+  <block id="362eddecd5ba3f79183ea3b743c4526c" category="paragraph">下表显示了支持的控制器型号组合。</block>
+  <block id="c163452b6d6fda6fddd3c92df9b52e8f" category="section-title">此操作步骤 支持的平台</block>
+  <block id="3af8c4bc8c1236580221c8d8a69ebe0a" category="list-text">目标(新)平台的型号必须与原始平台不同。</block>
+  <block id="1105b1e9f2d843b22143dc8f0c9ab49c" category="list-text">在MetroCluster IP配置中、只能使用此操作步骤 升级特定平台型号。</block>
+  <block id="c66499ab9700410fb3d8b3a64e9e291c" category="list-text">下表显示了支持的平台型号组合。</block>
+  <block id="dd3dcc697b8eff7c7acdca7e5bb2b62a" category="image-alt">支持的控制器升级mccip sosb</block>
+  <block id="173073f2b4c10001197b8ecb42c6e83b" category="paragraph">8000系列系统</block>
+  <block id="cc4c5c397558976c3fb0387232297737" category="sidebar">从此处开始—选择您的操作步骤</block>
+  <block id="db267dea88bedafa5679df8ad5247270" category="sidebar">选择控制器升级、系统刷新或扩展</block>
+  <block id="676a1a7f93fd600585d02e62f2d0a51b" category="sidebar">选择控制器升级操作步骤</block>
+  <block id="62cbee147331935911956f9a0173e5dc" category="sidebar">选择system refresh操作步骤</block>
+  <block id="3cf7b8011f891632a5de191822ee417b" category="sidebar">使用切换和切回升级MetroCluster FC中的控制器</block>
+  <block id="00dc868cd4449d840bca045060dbf7cb" category="sidebar">使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster FC中MetroCluster FC中的控制器(AFF A700/FAS9000到AFF A900/FAS9500）</block>
+  <block id="ebd157c1e8defc9bf33ac98105172329" category="sidebar">使用切换和切回命令使用system controller replace升级四节点MetroCluster FC中的控制器(ONTAP 9.10.1及更高版本)</block>
+  <block id="31214012750b888cbecfe6100ea9a335" category="sidebar">使用切换和切回升级MetroCluster IP中的控制器(ONTAP 9.8及更高版本)</block>
+  <block id="0f0bf8d23aa860be830e25b6f1b90c86" category="sidebar">使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster IP中的控制器(AFF A700/FAS9000到AFF A900/FAS9500）</block>
+  <block id="34e0a85e8dfaaeca6dadc1260cdef2ae" category="sidebar">刷新四节点 MetroCluster FC 配置</block>
 </blocks>

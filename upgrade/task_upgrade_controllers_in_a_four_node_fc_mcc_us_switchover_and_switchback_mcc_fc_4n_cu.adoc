@@ -13,7 +13,25 @@ summary: 升级配对集群上的控制器模块时，您可以使用 MetroClust
 [role="lead"]
 升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。
 
-.关于此任务
+
+
+== 支持的平台组合
+
+您可以在MetroCluster FC配置中使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合。
+
+如果*当前平台*行和*目标平台*列的交叉点不是绿色、则无法使用此操作步骤。
+
+请参见 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"] 以了解其他过程。
+
+
+NOTE: 此表不会显示从AFF A700/FAS9000控制器到AFF A900/FAS9500控制 器的升级情况。使用支持这种组合 link:task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html["AFF A700/FAS9500switchover/switchback操作步骤"]。
+
+image::supported_controller_upgrades_mccfc_sosb.png[FC配置中支持的控制器升级组合]
+
+
+
+== 关于此任务
+
 * 此操作步骤只能用于控制器升级。
 +
 无法同时升级配置中的其他组件，例如存储架或交换机。
@@ -40,42 +58,6 @@ NOTE: 如果原始或新平台是使用FC-VI模式下端口1c和1d的FAS8020或A
 * 同一DR组中的所有控制器都应在同一维护期间进行升级。
 +
 在此维护活动之外、不支持在同一DR组中使用不同类型的控制器运行MetroCluster 配置。对于八节点MetroCluster 配置、DR组中的控制器必须相同、但两个DR组可以使用不同的控制器类型。
-
-* 支持的升级路径取决于原始平台型号。
-+
-不支持使用内部磁盘架的平台型号。
-
-+
-|===
-
-
-| 旧平台型号 | 新平台型号 
-
-
- a| 
-** FAS80x0
-** FAS8200
-
- a| 
-** FAS8300
-
-
-
-
- a| 
-** AFF A300
-** AFF80x0
-
- a| 
-** AFF A400
-** AFF A700
-
-
-|===
-
-
-
-NOTE: 在 FC-VI 模式下使用 1c 和 1d 端口时，不支持升级 FAS8020 或 AFF8020 。
 
 * 建议提前映射原始节点与新节点之间的存储， FC 和以太网连接。
 * 如果新平台的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。

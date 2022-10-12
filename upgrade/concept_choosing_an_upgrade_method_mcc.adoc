@@ -4,18 +4,16 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, choose, upgrade, refresh, method 
 summary: 您使用的升级或刷新操作步骤取决于平台型号，升级范围和 MetroCluster 配置类型。 
 ---
-= 选择升级或刷新方法
+= 从此处开始：在控制器升级、系统刷新或扩展之间进行选择
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您使用的升级或刷新操作步骤取决于平台型号，升级范围和 MetroCluster 配置类型。
+根据设备升级的范围、您可以选择控制器升级操作步骤 、系统更新操作步骤 或扩展操作步骤。
 
-升级和刷新过程有不同的类型。
-
-* 升级过程仅适用于控制器模块。这些控制器将替换为新的控制器型号。
+* 控制器升级过程仅适用于控制器模块。这些控制器将替换为新的控制器型号。
 +
 存储架型号未升级。
 
@@ -31,173 +29,39 @@ summary: 您使用的升级或刷新操作步骤取决于平台型号，升级�
 +
 然后，原始控制器将停用。
 
+* 扩展过程会在MetroCluster 配置中添加额外的控制器和磁盘架、而无需删除任何控制器和磁盘架。
++
+您使用的操作步骤 取决于MetroCluster 的类型和现有控制器的数量。
 
 
 
-
-== 支持在MetroCluster IP配置中使用切换和切回升级控制器的平台组合
-
-您可以在MetroCluster IP配置中使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合：
-
-image::supported_controller_upgrades.png[IP配置中支持的控制器升级组合]
-
-
-
-== 支持在MetroCluster FC配置中使用切换和切回升级控制器的平台组合
-
-您可以在MetroCluster FC配置中使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合：
-
-image::supported_controller_upgrades_fc_configurations.png[FC配置中支持的控制器升级组合]
-
-* 您可以使用以下操作步骤 从AFF A700/FAS9000控制器升级到AFF A900/FAS9500控制 器： link:task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html["使用切换和切回功能将MetroCluster FC配置中的AFF A700/FAS9000控制器升级到AFF A900/FAS9500 (ONTAP 9.10.1或更高版本)"]
-
-
-
-
-== 选择不使用聚合重新定位的操作步骤
-
+[cols="2,5"]
 |===
 
 
-| 升级或刷新的类型 | MetroCluster 类型 | 首款 ONTAP 版本支持 | 操作步骤 
+| 升级类型 | 转至 ... 
 
 
  a| 
-* 范围：仅限平台（控制器模块）
-* 方法：自动切换 / 切回
-
+控制器升级
  a| 
-FC
- a| 
-9.10.1
- a| 
-link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_fc.html["使用切换和切回命令使用 system controller replace 升级四节点 MetroCluster FC 配置中的控制器（ ONTAP 9.10.1 及更高版本）"]
+link:../upgrade/concept_choosing_controller_upgrade_mcc.html["选择控制器升级操作步骤"]
 
 
 
  a| 
-* 范围：仅限平台（控制器模块）
-* 方法：自动切换 / 切回
-
+系统刷新
  a| 
-IP
- a| 
-9.10.1
- a| 
-link:task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html["使用切换和切回功能将 AFF IP 配置中的 AFF A700 控制器升级到 MetroCluster A900 （ ONTAP 9.10.1 及更高版本）"]
+link:../upgrade/concept_choosing_tech_refresh_mcc.html["选择系统刷新操作步骤"]
 
 
 
  a| 
-* 范围：仅限平台（控制器模块）
-* 方法：切换 / 切回
+扩展
+ a| 
+* link:../upgrade/task_expand_a_two_node_mcc_fc_configuration_to_a_four_node_fc_configuration_supertask.html["双节点MetroCluster 到四"]
+* link:../upgrade/task_expand_a_four_node_mcc_fc_configuration_to_an_eight_node_configuration.html["四节点MetroCluster FC到八个"]
+* link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["四节点MetroCluster IP到八个"]
 
- a| 
-FC
- a| 
-9.8
- a| 
-link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["使用切换和切回升级 MetroCluster FC 配置中的控制器"]
-
-
-
- a| 
-* 范围：仅限平台（控制器模块）
-* 方法：切换 / 切回
-
- a| 
-IP
- a| 
-9.8
- a| 
-link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html["使用切换和切回升级 MetroCluster IP 配置中的控制器（ ONTAP 9.8 及更高版本）"]
-
-
-
- a| 
-* 范围：平台（控制器模块）和存储架
-* 方法：展开 MetroCluster 配置，然后删除旧节点
-
- a| 
-FC
- a| 
-9.6 及更高版本
- a| 
-link:task_refresh_4n_mcc_fc.html["刷新四节点 MetroCluster FC 配置"]
-
-
-
- a| 
-* 范围：平台（控制器模块）和存储架
-* 方法：展开 MetroCluster 配置，然后删除旧节点
-
- a| 
-IP
- a| 
-9.8
- a| 
-link:task_refresh_4n_mcc_ip.html["刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）"]
-
-|===
-
-
-== 使用聚合重新定位选择操作步骤
-
-|===
-| 聚合重新定位操作步骤 | MetroCluster 类型 | 首款 ONTAP 版本支持 | 操作步骤 
-
-
- a| 
-使用 `ssystem controller replace` 命令并交换控制器模块和 NVM
- a| 
-FC
- a| 
-9.10.1 及更高版本
- a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900"^]
-
-
-
- a| 
-使用 `ssystem controller replace` 命令
- a| 
-FC
- a| 
-9.8 及更高版本
- a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 及更高版本的控制器硬件"^]
-
-
-
- a| 
-使用 `ssystem controller replace` 命令
- a| 
-FC
- a| 
-9.5 到 9.7
- a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html["使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7"^]
-
-
-
- a| 
-使用手动 ARL 命令
- a| 
-FC
- a| 
-9.8
- a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["手动升级运行 ONTAP 9.8 及更高版本的控制器硬件"^]
-
-
-
- a| 
-使用手动 ARL 命令
- a| 
-FC
- a| 
-9.7 及更早版本
- a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html["手动升级运行 ONTAP 9.7 及更早版本的控制器硬件"^]
 
 |===

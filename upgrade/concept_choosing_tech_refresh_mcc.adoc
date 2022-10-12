@@ -1,0 +1,45 @@
+---
+permalink: upgrade/concept_choosing_tech_refresh_mcc.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, choose, upgrade, refresh, method 
+summary: 您使用的刷新操作步骤 取决于平台型号、升级范围和MetroCluster 配置类型。 
+---
+= 选择系统刷新方法
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您使用的系统刷新操作步骤 取决于平台型号、升级范围和MetroCluster 配置类型。
+
+[cols="2,1,1,2"]
+|===
+| 范围 | 配置类型 | ONTAP 支持 | 转至 ... 
+
+
+ a| 
+* 范围：平台（控制器模块）和存储架
+* 方法：展开 MetroCluster 配置，然后删除旧节点
+
+ a| 
+FC
+ a| 
+9.6 及更高版本
+ a| 
+link:task_refresh_4n_mcc_fc.html["刷新四节点 MetroCluster FC 配置"]
+
+
+
+ a| 
+* 范围：平台（控制器模块）和存储架
+* 方法：展开 MetroCluster 配置，然后删除旧节点
+
+ a| 
+IP
+ a| 
+9.8
+ a| 
+link:task_refresh_4n_mcc_ip.html["刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）"]
+
+|===
