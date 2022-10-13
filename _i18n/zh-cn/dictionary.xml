@@ -12775,4 +12775,5 @@
   <block id="31214012750b888cbecfe6100ea9a335" category="sidebar">使用切换和切回升级MetroCluster IP中的控制器(ONTAP 9.8及更高版本)</block>
   <block id="0f0bf8d23aa860be830e25b6f1b90c86" category="sidebar">使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster IP中的控制器(AFF A700/FAS9000到AFF A900/FAS9500）</block>
   <block id="34e0a85e8dfaaeca6dadc1260cdef2ae" category="sidebar">刷新四节点 MetroCluster FC 配置</block>
+  <block id="027b9ebdca6bdd3a2f1b2789fdd87f98" category="list-text">只有运行ONTAP 9.10.1之前版本的系统才支持从使用板载端口0e和0f作为FC-VI连接的AFF A300或FAS8200平台进行升级。</block>
 </blocks>
