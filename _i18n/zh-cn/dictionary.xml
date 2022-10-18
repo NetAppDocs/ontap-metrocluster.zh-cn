@@ -11845,7 +11845,6 @@
   <block id="14a8fc6fe6b58444388acfef6a176529" category="inline-link">管理配置备份</block>
   <block id="6c0e4fd4b7e2ef11d891ac59729c5f3e" category="inline-link">集群管理</block>
   <block id="3d324eced25a10d4e6f55d473d59805b" category="paragraph"><block ref="3d324eced25a10d4e6f55d473d59805b" category="inline-link-rx"></block></block>
-  <block id="47e9356ba3921e22bdc9f1b3569697d0" category="paragraph">+ 以下示例显示 "e0c" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0d" 端口。</block>
   <block id="e724cb67436f5eec5573e5a3fd4cb036" category="paragraph">可以从 ONTAP 界面运行网桥命令行界面命令，例如 `storage bridge run-cli -namebridge-name-commandbridge-command-name` 命令。</block>
   <block id="d0ee1757d9fccb6a2088a8a3f1aede6a" category="paragraph">确保系统满足 "`准备安装` " 中的所有要求后，您可以安装新系统。</block>
   <block id="715af57300b5c6806072fa2c866065e6" category="list-text">如果需要，可发出 `set closePort _service_` 并根据需要重复执行命令，直到禁用所有所需服务为止，以禁用服务：</block>
@@ -12776,4 +12775,7 @@
   <block id="0f0bf8d23aa860be830e25b6f1b90c86" category="sidebar">使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster IP中的控制器(AFF A700/FAS9000到AFF A900/FAS9500）</block>
   <block id="34e0a85e8dfaaeca6dadc1260cdef2ae" category="sidebar">刷新四节点 MetroCluster FC 配置</block>
   <block id="027b9ebdca6bdd3a2f1b2789fdd87f98" category="list-text">只有运行ONTAP 9.10.1之前版本的系统才支持从使用板载端口0e和0f作为FC-VI连接的AFF A300或FAS8200平台进行升级。</block>
+  <block id="ddbd6ef13caff567c99b6c907c4fee1c" category="list-text">此表不会显示从AFF A700/FAS9000控制器到AFF A900/FAS9500控制 器的控制器升级情况。使用支持这种组合 <block ref="246d2420012a9cc76fe218ed0d95c813" category="inline-link-macro-rx"></block>。</block>
+  <block id="80a030e3352fb989821aa7c6d15bcfad" category="inline-link-macro">公有 报告</block>
+  <block id="9f65944593edc840cbe5ddb177ae6b75" category="list-text">只有运行ONTAP 9.1.1之前版本的系统才支持从使用板载端口0e和0f作为FC-VI连接的AFF A300或FAS8200平台升级控制器。有关详细信息、请查看 <block ref="845e64151c0738e7120f5a63234759b0" category="inline-link-macro-rx"></block>。</block>
 </blocks>

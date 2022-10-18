@@ -25,8 +25,8 @@ summary: 升级配对集群上的控制器模块时，您可以使用 MetroClust
 
 [NOTE]
 ====
-* 此表不会显示从AFF A700/FAS9000控制器到AFF A900/FAS9500控制 器的升级情况。使用支持这种组合 link:task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html["AFF A700/FAS9500switchover/switchback操作步骤"]。
-* 只有运行ONTAP 9.10.1之前版本的系统才支持从使用板载端口0e和0f作为FC-VI连接的AFF A300或FAS8200平台进行升级。
+* 此表不会显示从AFF A700/FAS9000控制器到AFF A900/FAS9500控制 器的控制器升级情况。使用支持这种组合 link:task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html["AFF A700/FAS9500switchover/switchback操作步骤"]。
+* 只有运行ONTAP 9.1.1之前版本的系统才支持从使用板载端口0e和0f作为FC-VI连接的AFF A300或FAS8200平台升级控制器。有关详细信息、请查看 link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1507088["公有 报告"]。
 
 
 ====
