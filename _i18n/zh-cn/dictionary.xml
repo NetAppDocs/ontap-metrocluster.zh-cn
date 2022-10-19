@@ -12774,8 +12774,8 @@
   <block id="31214012750b888cbecfe6100ea9a335" category="sidebar">使用切换和切回升级MetroCluster IP中的控制器(ONTAP 9.8及更高版本)</block>
   <block id="0f0bf8d23aa860be830e25b6f1b90c86" category="sidebar">使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster IP中的控制器(AFF A700/FAS9000到AFF A900/FAS9500）</block>
   <block id="34e0a85e8dfaaeca6dadc1260cdef2ae" category="sidebar">刷新四节点 MetroCluster FC 配置</block>
-  <block id="027b9ebdca6bdd3a2f1b2789fdd87f98" category="list-text">只有运行ONTAP 9.10.1之前版本的系统才支持从使用板载端口0e和0f作为FC-VI连接的AFF A300或FAS8200平台进行升级。</block>
   <block id="ddbd6ef13caff567c99b6c907c4fee1c" category="list-text">此表不会显示从AFF A700/FAS9000控制器到AFF A900/FAS9500控制 器的控制器升级情况。使用支持这种组合 <block ref="246d2420012a9cc76fe218ed0d95c813" category="inline-link-macro-rx"></block>。</block>
   <block id="80a030e3352fb989821aa7c6d15bcfad" category="inline-link-macro">公有 报告</block>
   <block id="9f65944593edc840cbe5ddb177ae6b75" category="list-text">只有运行ONTAP 9.1.1之前版本的系统才支持从使用板载端口0e和0f作为FC-VI连接的AFF A300或FAS8200平台升级控制器。有关详细信息、请查看 <block ref="845e64151c0738e7120f5a63234759b0" category="inline-link-macro-rx"></block>。</block>
+  <block id="bf65ff1f2c88ec7d1999086f6c8ba8ea" category="list-text">只有运行ONTAP 9.1.1之前版本的系统才支持从使用板载端口0e和0f作为FC-VI连接的AFF A300或FAS8200平台进行升级。有关详细信息、请查看 <block ref="845e64151c0738e7120f5a63234759b0" category="inline-link-macro-rx"></block>。</block>
 </blocks>
