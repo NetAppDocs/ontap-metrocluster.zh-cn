@@ -23,6 +23,9 @@ link:https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ON
 * MetroCluster IP 配置的所有节点都必须联机。
 
 
+
+CAUTION: 从ONTAP 9.12.1开始、您可以在MetroCluster IP配置中启用MetroCluster 自动强制切换功能。此功能是调解器辅助计划外切换的扩展。启用此功能之前、请查看 link:concept-risks-limitations-automatic-switchover.html["使用MetroCluster 自动强制切换的风险和限制"]。
+
 .关于此任务
 * 默认情况下，此任务会启用自动计划外切换。
 * 此任务可在 MetroCluster IP 配置中任何节点的 ONTAP 接口上执行。
@@ -87,4 +90,12 @@ NOTE: 系统将提示您输入调解器管理员用户帐户的用户名和密�
 ....
 
 
+. 如果要配置MetroCluster 自动强制切换、请运行以下命令： `metrocluster modify -allow-automatic-forced-switchover true`
++
+启用此功能之前、请查看 link:concept-risks-limitations-automatic-switchover.html["使用MetroCluster 自动强制切换的风险和限制"]。
+
++
+....
+cluster_A::*> metrocluster modify -allow-automatic-forced-switchover true
+....
 

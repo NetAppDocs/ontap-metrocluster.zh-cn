@@ -1,0 +1,24 @@
+---
+permalink: install-ip/concept-risks-limitations-automatic-switchover.html 
+sidebar: sidebar 
+keywords: ontap, mediator, service, assist, metrocluster, ip, configuration, perform, automatic, unplan, switchover, physical, repository, status, information, configuring, configure, install, configuring, configure, forced 
+summary:  
+---
+= 使用MetroCluster 自动强制切换的风险和限制
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从ONTAP 9.12.1开始、您可以在MetroCluster IP配置中启用MetroCluster 自动强制切换功能。此功能是调解器辅助计划外切换(MAUSO)功能的扩展。
+
+启用MetroCluster 自动强制切换功能后、检测到站点故障时会自动进行切换。您可以使用此功能来补充MetroCluster IP自动切换功能。
+
+如果您允许MetroCluster IP配置在自动强制切换模式下运行、则以下已知问题可能会导致数据丢失：
+
+* 存储控制器中的非易失性内存不会镜像到配对站点上的远程灾难恢复(DR)配对节点。
+
+
+
+CAUTION: 您可能会遇到未提及的情形。对于因启用MetroCluster 自动强制切换功能而可能导致的任何数据损坏、数据丢失或其他损坏、NetApp概不负责。如果您无法接受风险和限制、请勿使用MetroCluster 自动强制切换功能。
