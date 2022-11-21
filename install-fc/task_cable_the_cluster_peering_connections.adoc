@@ -30,4 +30,4 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集
 
 每个 MetroCluster 站点都配置为其配对站点的对等站点。您应熟悉配置对等关系以及决定是否为这些关系使用共享端口或专用端口的前提条件和准则。
 
-link:concept_prepare_for_the_mcc_installation.html["配置集群对等的注意事项"]
+link:concept_considerations_peering.html["集群对等"]

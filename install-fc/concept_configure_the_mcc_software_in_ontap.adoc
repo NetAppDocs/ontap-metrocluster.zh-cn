@@ -1977,25 +1977,19 @@ cluster01
 ----
 . 在系统 SVM 上创建集群间 LIF 并将其分配给故障转移组。
 +
-|===
-
-
-| ONTAP 版本 | 命令 
-
-
- a| 
-9.6 及更高版本
- a| 
+[role="tabbed-block"]
+====
+.ONTAP 9.6 及更高版本
+--
 `network interface create -vserver _system_svm_ -lif _LIF_name_ -service-policy default-intercluster -home-node _node_-home-port _port_ -address _port_ip_ -netmask _netmask_ -failover-group _failover_group_`
 
-
-
- a| 
-9.5 及更早版本
- a| 
+--
+.ONTAP 9.5 及更早版本
+--
 `network interface create -vserver _system_svm_ -lif _LIF_name_ -role intercluster -home-node _node_-home-port _port_ -address _port_ip_ -netmask _netmask_ -failover-group _failover_group_`
 
-|===
+--
+====
 +
 有关完整的命令语法，请参见手册页。
 
@@ -2015,25 +2009,19 @@ policy default-intercluster -home-node cluster01-02 -home-port e0e -address 192.
 ----
 . 验证是否已创建集群间 LIF ：
 +
-|===
+[role="tabbed-block"]
+====
+.在ONTAP 9.6及更高版本中
+--
+运行命令： `network interface show -service-policy default-intercluster`
 
+--
+.在 ONTAP 9.5 及更早版本中
+--
+运行命令： `network interface show -role intercluster`
 
-| 选项 | 说明 
-
-
- a| 
-* 在 ONTAP 9.6 及更高版本中： *
- a| 
-`network interface show -service-policy default-intercluster`
-
-
-
- a| 
-* 在 ONTAP 9.5 及更早版本中： *
- a| 
-`network interface show -role intercluster`
-
-|===
+--
+====
 +
 有关完整的命令语法，请参见手册页。
 
@@ -2052,25 +2040,26 @@ cluster01
 ----
 . 验证集群间 LIF 是否冗余：
 +
-|===
+[role="tabbed-block"]
+====
+.在ONTAP 9.6及更高版本中
+--
+使用以下命令： `network interface show -service-policy default-intercluster -failover`
 
+--
+.在 ONTAP 9.5 及更早版本中
+--
+运行命令： `network interface show -role intercluster -failover`
 
-| 选项 | 说明 
-
-
-| * 在 ONTAP 9.6 及更高版本中： * | `network interface show -service-policy default-intercluster -failover` 
-
-
-| * 在 ONTAP 9.5 及更早版本中： * | `network interface show -role intercluster -failover` 
-|===
+--
+====
 +
 有关完整的命令语法，请参见手册页。
 
-
-
++
 以下示例显示 SVM "e0e" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0f" 端口。
 
-+
+
 
 [listing]
 ----
@@ -2128,31 +2117,22 @@ cluster01-02
 ----
 . 在系统 SVM 上创建集群间 LIF ：
 +
-[cols="1,3"]
-|===
+[role="tabbed-block"]
+====
+.在ONTAP 9.6及更高版本中
+--
+运行命令： `network interface create -vserver _system_SVM_ -lif _LIF_name_ -service-policy default-intercluster -home-node _node_ -home-port _port_ -address _port_IP_ -netmask _netmask_`
 
+--
+.在 ONTAP 9.5 及更早版本中
+--
+运行命令：
+`network interface create -vserver system_SVM -lif LIF_name -role intercluster -home-node node -home-port port -address port_IP -netmask netmask`
 
-| 选项 | 说明 
-
-
- a| 
-* 在 ONTAP 9.6 及更高版本中： *
- a| 
-`network interface create -vserver _system_svm_ -lif _LIF_name_ -service-policy default-intercluster -home-node _node_-home-port _port_ -address _port_ip_ -netmask _netmask_`
-
-
-
- a| 
-* 在 ONTAP 9.5 及更早版本中： *
- a| 
-`network interface create -vserver system_sVM -lif LIF_name -role intercluster -home-node node -home-port port -address port_ip -netmask netmask`
-
-|===
+--
+====
 +
-有关完整的命令语法，请参见手册页。
-
-+
-以下示例将创建集群间 LIF cluster01_icl01 和 cluster01_icl02 ：
+有关完整的命令语法，请参见手册页。以下示例将创建集群间 LIF cluster01_icl01 和 cluster01_icl02 ：
 
 +
 [listing]
@@ -2168,32 +2148,23 @@ policy default-intercluster -home-node cluster01-02 -home-port e0c -address 192.
 ----
 . 验证是否已创建集群间 LIF ：
 +
-[cols="1,3"]
-|===
+[role="tabbed-block"]
+====
+.在ONTAP 9.6及更高版本中
+--
+运行命令： `network interface show -service-policy default-intercluster`
 
+--
+.在 ONTAP 9.5 及更早版本中
+--
+运行命令： `network interface show -role intercluster`
 
-| 选项 | 说明 
-
-
- a| 
-* 在 ONTAP 9.6 及更高版本中 * ：
- a| 
-`network interface show -service-policy default-intercluster`
-
-
-
- a| 
-* 在 ONTAP 9.5 及更早版本中： *
- a| 
-`network interface show -role intercluster`
-
-|===
-
-
+--
+====
++
 有关完整的命令语法，请参见手册页。
 
 +
-
 [listing]
 ----
 cluster01::> network interface show -service-policy default-intercluster
@@ -2208,34 +2179,27 @@ cluster01
 ----
 . 验证集群间 LIF 是否冗余：
 +
-[cols="1,3"]
-|===
+[role="tabbed-block"]
+====
+.在ONTAP 9.6及更高版本中
+--
+运行命令： `network interface show –service-policy default-intercluster -failover`
 
-
-| 选项 | 说明 
-
-
- a| 
-* 在 ONTAP 9.6 及更高版本中： *
- a| 
-`network interface show – service-policy default-intercluster -failover`
-
-
-
- a| 
-* 在 ONTAP 9.5 及更早版本中： *
- a| 
+--
+.在 ONTAP 9.5 及更早版本中
+--
+运行命令：
 `network interface show -role intercluster -failover`
 
-|===
-
-
+--
+====
++
 有关完整的命令语法，请参见手册页。
 
++
 以下示例显示 "e0c" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0d" 端口。
 
 +
-
 [listing]
 ----
 cluster01::> network interface show -service-policy default-intercluster –failover
@@ -2250,6 +2214,8 @@ cluster01
                             Failover Targets: cluster01-02:e0c,
                                               cluster01-02:e0d
 ----
+
+
 link:concept_prepare_for_the_mcc_installation.html["共享数据端口时的注意事项"]
 
 

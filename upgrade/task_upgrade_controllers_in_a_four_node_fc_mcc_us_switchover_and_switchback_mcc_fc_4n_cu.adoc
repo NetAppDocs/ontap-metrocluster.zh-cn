@@ -560,10 +560,21 @@ image::../media/mcc_upgrade_cluster_a_in_switchover.png[MCC 升级集群 A 处�
 .步骤
 . 将 MetroCluster 配置切换到 site_A ，以便可升级 site_B 的节点：
 +
-.. 对 cluster_A 执行问题描述以下命令：
+.. 选择与您的配置匹配的选项、然后在cluster_A上使用正确的问题描述 命令：
 +
-MetroCluster switchover -controller-replacement true`
+[role="tabbed-block"]
+====
+.选项1：运行ONTAP 9.8或更高版本的四节点或八节点FC配置
+--
+运行命令： `metrocluster switchover -controller-replacement true`
 
+--
+.选项2：运行ONTAP 9.3及更高版本的双节点FC配置
+--
+运行命令： `metrocluster switchover`
+
+--
+====
 +
 此操作可能需要几分钟才能完成。
 

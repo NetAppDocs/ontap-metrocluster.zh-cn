@@ -15,8 +15,6 @@ summary: 您可以从ONTAP IP配置中删除MetroCluster 调解器服务。
 
 您必须已在两个ONTAP 站点均可访问的网络位置上成功安装和配置MetroCluster 调解器。
 
-您必须在MetroCluster IP配置中的两个集群上执行此任务。
-
 .步骤
 . 使用以下命令取消配置ONTAP 调解器服务：
 +
@@ -34,6 +32,28 @@ summary: 您可以从ONTAP IP配置中删除MetroCluster 调解器服务。
 ....
 There are no entries matching your query.
 ....
+
+
+. 在两个集群上运行以下命令、以确认ONTAP 调解器服务已从MetroCluster 配置中删除：
++
+.. `metrocluster configuration-settings mediator show`
++
+* 示例 *
+
++
+[listing]
+----
+This table is currently empty.
+----
+.. `storage iscsi-initiator show -label mediator`
++
+* 示例 *
+
++
+[listing]
+----
+There are no entries matching your query.
+----
 
 
 

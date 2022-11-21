@@ -30,7 +30,7 @@ summary: 您可能需要升级 MetroCluster IP 交换机上的 RCF 文件。例�
 
 
  a| 
-Brocade 交换机
+Broadcom交换机
  a| 
 ` （ IP_switch_A_1 ） # show clibanner`
 

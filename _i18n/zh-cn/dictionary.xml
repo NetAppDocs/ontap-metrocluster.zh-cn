@@ -1810,11 +1810,6 @@
   <block id="78945de8de090e90045d299651a68a9b" category="paragraph">可用</block>
   <block id="7a15f8c2a97f6388700c82fdf3a949b2" category="paragraph">` * ifconfig e0M -auto*`</block>
   <block id="2d25c72c1b18e562f6654fff8e11711e" category="paragraph">不可用</block>
-  <block id="5cae28c48acee98f2baac425290bbe14" category="paragraph">`filer_addr` 是存储系统的 IP 地址。</block>
-  <block id="846aab4775f72f7500de656fcc2ac584" category="paragraph">`netmask` 是存储系统的网络掩码。</block>
-  <block id="5c53dd4f07d069ff3358f3008241d6cd" category="paragraph">`gateway` 是存储系统的网关。</block>
-  <block id="e14b9c106486400a1e3f574403b479e2" category="paragraph">`dns_addr` 是网络上名称服务器的 IP 地址。</block>
-  <block id="5eeab609359fce246c8785de7ee7e37a" category="paragraph">`dns_domain` 是域名系统（ DNS ）域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。</block>
   <block id="204216aae6f9292b8a5efb27c92a401f" category="admonition">您的接口可能需要其他参数。有关详细信息，请在 LOADER 提示符处使用 `help ifconfig` 命令。</block>
   <block id="10b41884caecbbf69bf85b01824d86cc" category="list-text">在 LOADER 提示符处，通过网络启动新节点：</block>
   <block id="0ba2b3e0a887666765eb2d690768c576" category="cell">针对 ...</block>
@@ -4547,7 +4542,6 @@
   <block id="4051be1a3983dca295d33b07d3d4aeb9" category="list-text">如果您使用的系统配置了 ADP ，请从启动菜单中选择选项 `9a` ，并在出现提示时回答 `yes` 。</block>
   <block id="4e7b785e4493cbe0b79242ce203ac879" category="admonition">此过程会造成中断。</block>
   <block id="5cb307132c3a15fc08a921c25fd8f05e" category="doc">集群对等的前提条件</block>
-  <block id="3ace0101eda807644a901de4c89f212a" category="paragraph">每个 MetroCluster 站点都配置为其配对站点的对等站点。您应熟悉配置对等关系以及决定是否为这些关系使用共享端口或专用端口的前提条件和准则。</block>
   <block id="e332effd770e4f47249bcffd39577fea" category="inline-link">集群和 SVM 对等快速配置</block>
   <block id="acddc206ee430cbefcf4cbd6e76dc36c" category="paragraph"><block ref="acddc206ee430cbefcf4cbd6e76dc36c" category="inline-link-rx"></block></block>
   <block id="77495e745fe2123250999bee6aa73027" category="section-title">连接要求</block>
@@ -6815,7 +6809,6 @@
   <block id="a79109432485cb634f66654d4bce4833" category="paragraph">`network interface show -role intercluster -failover`</block>
   <block id="ce2034e3e322f8406cf6ca46f905c9fb" category="paragraph">`network interface create -vserver system_sVM -lif LIF_name -service-policy default-intercluster -home-node node -home-port port -address port_ip -netmask netmask`</block>
   <block id="5234664df25823d24e2779ea23a2aea1" category="paragraph">`network interface create -vserver system_sVM -lif LIF_name -role intercluster -home-node node -home-port port -address port_ip -netmask netmask`</block>
-  <block id="b8e7cebe68f75c9a508edbf43913f3f6" category="paragraph">以下示例将创建集群间 LIF cluster01_icl01 和 cluster01_icl02 ：</block>
   <block id="af38ecaa21f292a282a9ff2da5fa8c28" category="paragraph">`network interface show – service-policy default-intercluster -failover`</block>
   <block id="58ba31c3d84fdbdc2be198ae5852fa82" category="paragraph">您必须在 MetroCluster 集群之间创建集群对等关系。</block>
   <block id="1d8f4251a8e86e2424aff140993d62ef" category="paragraph">您可以使用 cluster peer create 命令在本地和远程集群之间创建对等关系。创建对等关系后，您可以在远程集群上运行 cluster peer create ，以便向本地集群进行身份验证。</block>
@@ -7782,7 +7775,6 @@
   <block id="3101be4d53f99469f2c1b39892d6d93f" category="list-text">第 2 季度： node_A_2 pool0</block>
   <block id="dbe07d3b0e16c3d4d765887b1b29b7bd" category="list-text">第 3 季度： node_B_1 pool1</block>
   <block id="36a6b2d82f1c99925006210a57878b24" category="list-text">第 4 季度： node_B_2 池 1</block>
-  <block id="78901a670ecee0e2cae92a552370d833" category="list-text">一个数据分区</block>
   <block id="88f336a63a2478d097af48b4a173b710" category="section-title">AFF A250 系统上的 ADP 和磁盘分配</block>
   <block id="f3a88820bdb6aec9f587dc31d6c8d2a5" category="paragraph">每个磁盘架上的分区用于创建根聚合。根聚合在每个丛中包含以下分区：</block>
   <block id="ebc41c749d217e4e33d72e9e61f637ae" category="paragraph">仅限 24 个内部驱动器</block>
@@ -9182,7 +9174,6 @@
   <block id="1456cda5fcdd4ba6dc58aaeb75ae33ca" category="paragraph">以下示例显示 SVM "e0e" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0f" 端口。</block>
   <block id="2c473c2b0dd7e7fd0a780aba4f6b52cb" category="paragraph">在确定使用专用端口进行集群间复制是否是正确的集群间网络解决方案时，您应考虑 LAN 类型，可用 WAN 带宽，复制间隔，更改率和端口数等配置和要求。</block>
   <block id="376d4fd6163673e8ce3ef73b91ff9c9d" category="cell">`network interface create -vserver _system_svm_ -lif _LIF_name_ -service-policy default-intercluster -home-node _node_-home-port _port_ -address _port_ip_ -netmask _netmask_`</block>
-  <block id="121791834cc106d1f75cc10ba9274408" category="cell">* 在 ONTAP 9.6 及更高版本中 * ：</block>
   <block id="70368afdba29ef090427320b39d6868b" category="paragraph">以下示例显示 "e0c" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0d" 端口。</block>
   <block id="d3895c0d50943a96774ef267cc45ca30" category="paragraph">`cluster peer create -generate-passphrase -offer-expiration _MM/DD/YYYY HH ： MM ： SS|1...7 天 |1...168 小时 _ -peer-Addrs _peer_LIF_IP_ -IPspace _IPspace _IPspace _`</block>
   <block id="797647e34bade9092632b77423181a50" category="list-text">在源集群上，将源集群身份验证到目标集群：</block>
@@ -9395,7 +9386,6 @@
   <block id="b2b6e23ab57653d1006049cf37bfed5b" category="list-text">验证是否已在集群中所有必需的节点上安装 V_StorageAttach 许可证。</block>
   <block id="f52d44aaa981f34fa588225f9d4cc820" category="paragraph">`s系统许可证显示`</block>
   <block id="4cd1110435955b3b14ac2d145c6baae1" category="paragraph">每个 MetroCluster 站点都配置为其配对站点的对等站点。您应熟悉配置对等关系以及决定是否为这些关系使用共享端口或专用端口的前提条件和准则。</block>
-  <block id="4f14bd83165c34717fd8f31fd01148f6" category="paragraph"><block ref="4f14bd83165c34717fd8f31fd01148f6" category="inline-link-macro-rx"></block></block>
   <block id="f515fca759b029639b19b471d7a2c1ed" category="inline-link">MetroCluster IP 解决方案架构和设计， TR-4689</block>
   <block id="8d4727f84fc5ba727eb23a4ce93c87c2" category="list-text">MetroCluster IP 配置和操作的技术概述。</block>
   <block id="dd6ee1233d0e34b47648ba9732a67411" category="list-text">MetroCluster IP 配置的最佳实践。</block>
@@ -10475,7 +10465,6 @@
   <block id="c5578900d835092e78f37c68ccc1b2ea" category="paragraph">如果要更改交换机上运行的 ONTAP 版本，则应确保具有该版本支持的 RCF 文件。如果使用 RCF 生成器，则会为您生成正确的 RCF 文件。</block>
   <block id="bdff20b545d5f7f451d6cc86cddcd9d5" category="list-text">使用交换机上的以下命令验证 RCF 文件的版本：</block>
   <block id="cb1e716ab831d1ef2a5741deabd44bd7" category="cell">从此交换机 ...</block>
-  <block id="e1b2d6a1b751cb96efc81bdc19b3dec8" category="paragraph">Brocade 交换机</block>
   <block id="196859a46785802c1b55cf0cc9501818" category="paragraph">` （ IP_switch_A_1 ） # show clibanner`</block>
   <block id="4b7e6b18c6a39aa5ac2a1c68aebcc388" category="paragraph">Cisco 交换机</block>
   <block id="9b3b2c674f3b4b1f564ace7400510bbc" category="paragraph">`IP_switch_A_1# show banner motd`</block>
@@ -12322,7 +12311,6 @@
   <block id="dbef88bf7072abf7cb1500b76c098158" category="doc">从MetroCluster IP配置中取消配置ONTAP 调解器服务</block>
   <block id="b265dc310dca1d74417a4715e46c4168" category="paragraph">您可以从MetroCluster IP配置取消配置ONTAP 调解器服务。</block>
   <block id="db31f506e34352cf979355688abceeac" category="paragraph">您必须已在两个ONTAP 站点均可访问的网络位置上成功安装和配置MetroCluster 调解器。</block>
-  <block id="5bf67de758861fac80bba5762e2395d5" category="paragraph">您必须在MetroCluster IP配置中的两个集群上执行此任务。</block>
   <block id="c8dd54fd6141594c239adba6bd3401ff" category="list-text">使用以下命令取消配置ONTAP 调解器服务：</block>
   <block id="0c87e171b9e1156bebc0a65b722d174d" category="list-text">使用以下命令检查是否存在任何损坏的磁盘：</block>
   <block id="27bf55792722dd4b16925981ef8953b4" category="paragraph">`d`显示-broken</block>
@@ -12787,4 +12775,31 @@
   <block id="64aca5dcd09842ce5e26c9c9f52a5c79" category="paragraph">如果您允许MetroCluster IP配置在自动强制切换模式下运行、则以下已知问题可能会导致数据丢失：</block>
   <block id="432fccc7d25e83271acb25e6c686d22f" category="list-text">存储控制器中的非易失性内存不会镜像到配对站点上的远程灾难恢复(DR)配对节点。</block>
   <block id="4e94608087f1df11aa020cbfe28a7876" category="admonition">您可能会遇到未提及的情形。对于因启用MetroCluster 自动强制切换功能而可能导致的任何数据损坏、数据丢失或其他损坏、NetApp概不负责。如果您无法接受风险和限制、请勿使用MetroCluster 自动强制切换功能。</block>
+  <block id="80f6a6e12e6ca0304707e7a67581f248" category="paragraph">Broadcom交换机</block>
+  <block id="530dbe55cb10e603b69b517d0cb2f4bc" category="list-text">在两个集群上运行以下命令、以确认ONTAP 调解器服务已从MetroCluster 配置中删除：</block>
+  <block id="49b7410e94a7ca7d1c674a14241ebe49" category="list-text"><block ref="7200673afad174d0ff258c801fbb9def" prefix="" category="inline-code"></block></block>
+  <block id="f85af53e3d7c278ec6cd756cf3365359" category="list-text">无备用磁盘</block>
+  <block id="385f02022cf6cb2f3cfc0aa026b7c3d7" category="list-text">选择与您的配置匹配的选项、然后在cluster_A上使用正确的问题描述 命令：</block>
+  <block id="ee300e8560b29f936da49959eebf76e9" category="open-title">选项1：运行ONTAP 9.8或更高版本的四节点或八节点FC配置</block>
+  <block id="33bc2208a49f224c5922ce3b2b42fb21" category="paragraph">运行命令：<block ref="71b269d201dc030c963a1b0b33ee014f" prefix=" " category="inline-code"></block></block>
+  <block id="322ed43657dad6df7189e69bbea9fe57" category="open-title">选项2：运行ONTAP 9.3及更高版本的双节点FC配置</block>
+  <block id="ad714f1a11f3ed1c3d1a9c5c0a9c185b" category="paragraph">运行命令：<block ref="803740ddd57a4d0c8a51c6ede10e3096" prefix=" " category="inline-code"></block></block>
+  <block id="dda9fac268f3774282dbdcee2b98e206" category="paragraph"><block ref="c823de4f8bc2e5e070e3f2a6b83c709f" prefix="" category="inline-code"></block></block>
+  <block id="9a63e80a7a324f409930e8d454b5e538" category="paragraph"><block ref="cb485a0e6e52cf58d8ed72bd00e074ec" prefix="" category="inline-code"></block></block>
+  <block id="4ee3c0b4cfc3305a195d42ce617dcc41" category="paragraph"><block ref="854a4be4b1fce65bf3a90ee74692188e" prefix="" category="inline-code"></block> 是存储系统的IP地址。</block>
+  <block id="db90801e232a1746aec7c835ee93e932" category="paragraph"><block ref="220b0a4790e2c047ae96a881e506e1fe" prefix="" category="inline-code"></block> 是存储系统的网络掩码。</block>
+  <block id="2341e6b2fbc3a695ee3dd2358295392c" category="paragraph"><block ref="14fb245f7140583707d1cda241eeeff2" prefix="" category="inline-code"></block> 是存储系统的网关。</block>
+  <block id="9ecb124bd7cc72ce8836d42500ccf1c1" category="paragraph"><block ref="573c932508ccab841c5c117fb2cd2186" prefix="" category="inline-code"></block> 是网络上名称服务器的IP地址。</block>
+  <block id="0b01a5f19097da529bc5a887225bb6d0" category="paragraph"><block ref="79e5a69f76d034adaafbb5cb6cb8fc45" prefix="" category="inline-code"></block> 是域名系统(DNS)域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。</block>
+  <block id="bafe4bc75cd2dda40df8007d783f6a0b" category="paragraph"><block ref="bafe4bc75cd2dda40df8007d783f6a0b" category="inline-link-macro-rx"></block></block>
+  <block id="2fc63d7ef73ec51fea07c22bee9e5328" category="open-title">在ONTAP 9.6及更高版本中</block>
+  <block id="a6716741999f9bc3ac379c0b1266ee9e" category="paragraph">运行命令：<block ref="adc0f0943e919c37894a966fa46c4084" prefix=" " category="inline-code"></block></block>
+  <block id="99aae08435ef4a82bc4ed2301471d60e" category="paragraph">运行命令：<block ref="b7394405b5c746164dce6dfd2501d986" prefix=" " category="inline-code"></block></block>
+  <block id="6ddde2f3f00d7171e5fc3d8622653a6e" category="paragraph">使用以下命令：<block ref="fdb848f6761ac46e0ea7678b5269bd3c" prefix=" " category="inline-code"></block></block>
+  <block id="9bb6c900985ca15d936c8e04295202f6" category="paragraph">运行命令：<block ref="4686e63f75ecbb5593b9aac27ab89dd7" prefix=" " category="inline-code"></block></block>
+  <block id="ef272f06b8afd4c6381d192259829c5a" category="paragraph">运行命令：<block ref="e24a79e2175b07b7a27cd83a3dc6847e" prefix=" " category="inline-code"></block></block>
+  <block id="bea69222028495543641d681312bfac9" category="paragraph">运行命令：<block ref="a95e2d29f4907b8b27d7a8683d428c09" prefix=" " category="inline-code"></block></block>
+  <block id="a417bfe3b0e85c20658fe71357feb3ef" category="paragraph">有关完整的命令语法，请参见手册页。以下示例将创建集群间 LIF cluster01_icl01 和 cluster01_icl02 ：</block>
+  <block id="0074a60c2f111fa09e324bfc6f086bfd" category="paragraph">运行命令：<block ref="08fd4296d1145ee217b3ba481add0899" prefix=" " category="inline-code"></block></block>
+  <block id="bb084c29063404b6611bde28d4ed57d3" category="paragraph">运行命令：<block ref="4686e63f75ecbb5593b9aac27ab89dd7" prefix=" " category="inline-code"></block></block>
 </blocks>
