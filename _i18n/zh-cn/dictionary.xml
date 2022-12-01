@@ -2858,7 +2858,6 @@
   <block id="09dfcbc0cceee8247717360bd0733f1c" category="section-title">选择不使用聚合重新定位的操作步骤</block>
   <block id="9f7143c3ebe35a24d494d7e347dc4f89" category="cell">升级或刷新的类型</block>
   <block id="75f7d2bcde6cf0fe3c3db259a2547dbc" category="cell">MetroCluster 类型</block>
-  <block id="d11c86a74db1b7830a8684cc5563ece4" category="cell">首款 ONTAP 版本支持</block>
   <block id="f56ee108e3b47664e82456fbf68b6cda" category="list-text">范围：仅限平台（控制器模块）</block>
   <block id="776bc492f3a4f2cc9ec5ac519b3c8522" category="list-text">方法：切换 / 切回</block>
   <block id="4f7dd0fe0940df4a5fda327a4ee4ddbd" category="paragraph">9.8</block>
@@ -4076,7 +4075,6 @@
   <block id="c2b2988e42872fbbf4eff058f98ecdb3" category="list-text">多个连续故障</block>
   <block id="8bda26ec15d7a55dcc4af3d09db73eb6" category="paragraph">多个组件依次出现故障。例如，控制器模块，交换机网络结构和磁盘架相继发生故障，从而导致存储故障转移，网络结构冗余和 SyncMirror 按顺序防止停机和数据丢失。</block>
   <block id="9ed60e8ae7b59768be2e8ff8e49e0aaf" category="paragraph">下表显示了故障类型以及相应的灾难恢复（ DR ）机制和恢复方法：</block>
-  <block id="33dbd84fe8a89808f645b461285d67c4" category="admonition">MetroCluster IP 配置不支持 AUSO （自动计划外切换）。</block>
   <block id="286b093812b48d02d5bfa7dc2e6ad646" category="cell">故障类型</block>
   <block id="3834f1439a798cb231c757c26bc43fe1" category="cell">DR 机制</block>
   <block id="3173632519dbe423e6f3bb42d6703d70" category="cell">恢复方法摘要</block>
@@ -4539,7 +4537,6 @@
   <block id="af247723d3e5855980c90c146b7390f5" category="paragraph">以下屏幕将显示启动菜单提示符：</block>
   <block id="9910351078cedaa4acdcce504c5c0274" category="paragraph">重置和还原控制器模块上的默认值。</block>
   <block id="d1bfdd1ce3b6b225b5bd39959c1b640e" category="list-text">清除节点配置：</block>
-  <block id="4051be1a3983dca295d33b07d3d4aeb9" category="list-text">如果您使用的系统配置了 ADP ，请从启动菜单中选择选项 `9a` ，并在出现提示时回答 `yes` 。</block>
   <block id="4e7b785e4493cbe0b79242ce203ac879" category="admonition">此过程会造成中断。</block>
   <block id="5cb307132c3a15fc08a921c25fd8f05e" category="doc">集群对等的前提条件</block>
   <block id="e332effd770e4f47249bcffd39577fea" category="inline-link">集群和 SVM 对等快速配置</block>
@@ -7300,7 +7297,6 @@
   <block id="214c33046f97b509157b1013dd22254b" category="list-text">node_B_1 和 node_B_2 在以下位置拥有驱动器：</block>
   <block id="d0cb731fe5149fa15d3093ec620dc573" category="list-text">site_B-shelf_1 （本地）</block>
   <block id="bf12adc163db611b54b1d064ba31ce27" category="list-text">site_A-shelf_2 （远程）</block>
-  <block id="b824b6c6758ea18eb50dcbcc628e8f4e" category="list-text">选择选项 9a 。</block>
   <block id="b909e72d13e8da91fcea9c40534ed958" category="list-text">节点重新启动时，在系统提示显示启动菜单时按 Ctrl-C ，然后选择 * 维护模式启动 * 选项。</block>
   <block id="9a822ac91871848c374e270fa9dd2525" category="paragraph">应对称分配驱动器，以便每个节点具有相同数量的驱动器。以下步骤适用于每个站点具有两个存储架的配置。</block>
   <block id="e9fcf143cf76f592b11367260ec37d57" category="list-text">配置 node_A_1 时，从 site_A-shelf_1 手动将插槽 0 到 11 的驱动器分配给节点 A1 的 pool0 。</block>
@@ -7349,8 +7345,6 @@
   <block id="a14dc0dfb776471bcbc1e3c1239e4bb1" category="paragraph">您应查看这些部分，以正确计算 ISL 所需的端到端容量。对于 MetroCluster 配置来说，持续的非易失性缓存和低延迟存储复制至关重要。后端网络中的延迟会影响客户端 IO 看到的延迟和吞吐量。</block>
   <block id="449a2bdc6a969f884c1d33fb66eecea7" category="section-title">ISL 中的延迟和数据包丢失限制</block>
   <block id="e96606e3ebee8eeb5bb85d4955c381cb" category="paragraph">如果 MetroCluster 配置处于稳定运行状态，则 site_A 和 site_B 的 MetroCluster IP 交换机之间的往返流量必须满足以下要求：</block>
-  <block id="53207176b7e0da899c3b41dd3e31f0e7" category="list-text">往返延迟必须小于或等于 7 毫秒。</block>
-  <block id="bc0948c79fe270cb100d796564e0fb2c" category="paragraph">最大距离为 700 公里，因此站点之间的距离受延迟或最大距离的限制，以先达到的为准。</block>
   <block id="c9bc211a49ab07521cd90557ecdd0cbb" category="paragraph">随着两个 MetroCluster 站点之间的距离增加，延迟也会增加，通常每 100 公里（ 62 英里）的往返延迟时间为 1 毫秒。此延迟还取决于网络服务级别协议（ SLA ）在 ISL 链路带宽，数据包丢弃率和网络抖动方面的情况。低带宽，高抖动和随机数据包丢弃会导致交换机或控制器模块上的 TCP 引擎采用不同的恢复机制，以确保成功传输数据包。这些恢复机制可以增加整体延迟。</block>
   <block id="5b39512a68b8704473f81b0e6ba1272e" category="paragraph">必须考虑导致延迟的任何设备。</block>
   <block id="331d81871af9648aed5dcdc16b042e36" category="paragraph">数据包丢失包括因拥塞或超额预订而导致的物理丢失或丢失。</block>
@@ -9860,7 +9854,6 @@
   <block id="fdae3324d19034e1e1308ccde69ec68b" category="paragraph">要确定您的系统是否需要手动分配磁盘，应查看 <block ref="e40d6a178d9137d254eca9144fcc5d3c" category="inline-link-macro-rx"></block>。</block>
   <block id="f04ccee1003dbd5f1c9c6351af3f0b4e" category="list-text">在维护模式下，手动为节点上的本地聚合分配驱动器：</block>
   <block id="b067ff15634ee127c0e9368bdd50693d" category="paragraph">`ddisk assign _disk-id_ -p 0 -s _local-node-sysid_`</block>
-  <block id="b9ddc3ef83ffe8e2847e207d39a98687" category="list-text">从启动菜单中选择选项 4 ，然后让系统启动。</block>
   <block id="1a731b6b2711f5533b67a659f8e5e7c3" category="list-text">继续执行 <block ref="5b0b3430fd5af0e5a4020af54ce263e7" category="inline-link-macro-rx"></block>。</block>
   <block id="6fd8791145f4993bd4306df9034fd9c1" category="paragraph">如果每个节点至少有两个磁盘架，则可以使用 ONTAP 的自动分配功能自动分配本地（池 0 ）磁盘。</block>
   <block id="48c67acec6c16a97bcb54a609d44b6a4" category="paragraph">当节点处于维护模式时，您必须先将相应磁盘架上的单个磁盘分配给池 0 。然后， ONTAP 会自动将磁盘架上的其余磁盘分配到同一个池。从工厂收到的系统不需要执行此任务，这些系统的池 0 包含预配置的根聚合。</block>
@@ -10190,7 +10183,6 @@
   <block id="f18720a1eb7d7bace925c2a97a20075f" category="list-text">访问<block ref="3725c06f412bedb14ffd610de312875d" category="inline-link-rx"></block> 下载用于执行系统网络启动的文件。</block>
   <block id="e4194351c70f628f28ee542a65494961" category="list-text">某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。您也可以在 MetroCluster configuration-settings interface create` 命令中使用 ` -vlan-id 参数` 指定一个大于 100 （ 101 到 4095 之间）的其他（非默认） VLAN 。</block>
   <block id="344a350961d4b3279a1bf51e3f2def2a" category="list-text">方法：自动切换 / 切回</block>
-  <block id="ea2aca94e5b174a1b84f2c3891379526" category="paragraph">9.10.1</block>
   <block id="f49f60b6304797900db897e855566402" category="inline-link-macro">使用切换和切回命令使用 system controller replace 升级四节点 MetroCluster FC 配置中的控制器（ ONTAP 9.10.1 及更高版本）</block>
   <block id="966e34443f418eb2dc544779908833ab" category="paragraph"><block ref="966e34443f418eb2dc544779908833ab" category="inline-link-macro-rx"></block></block>
   <block id="c305ce21377f146200c5e9ef13536599" category="summary">您可以使用此引导式自动 MetroCluster 切换操作对四节点 MetroCluster FC 配置执行无中断控制器升级。</block>
@@ -12614,7 +12606,6 @@
   <block id="beb59952abfbd2e99ff165a613423fa0" category="list-text">使用下表确定必须遵循的方法：</block>
   <block id="242fc88f1fc9a405fa9f0e7cbf2c069b" category="summary">您可能需要升级Cisco IP交换机上的RCF文件。例如， ONTAP 升级或交换机固件升级都需要新的 RCF 文件。</block>
   <block id="ec9296ef857e944ab344eb684e789ddc" category="doc">使用CleanUpFiles升级Cisco IP交换机上的RCF文件</block>
-  <block id="88d8da08ee7e7170ae3a43278a025761" category="admonition">您必须按以下顺序更新交换机：switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。或者、您也可以同时更新交换机Switch_A_1和Switch_A_2、然后更新交换机Switch_B_1和Switch_B_2。</block>
   <block id="6eedc2d4a1f7c30325c52c25b14dda09" category="admonition">在以下情况下、您的配置需要额外的许可证(6个100-GB端口许可证)：</block>
   <block id="d4a39e254ca0e79abbaea7e91f10d1c8" category="list-text">您可以使用端口53和54作为40-Gbps或100-Gbps MetroCluster ISL。</block>
   <block id="39d6f919c4f9487cf3eba1907393cc85" category="list-text">您可以使用一个平台将本地集群和MetroCluster 接口连接到端口49 - 52。</block>
@@ -12784,8 +12775,6 @@
   <block id="33bc2208a49f224c5922ce3b2b42fb21" category="paragraph">运行命令：<block ref="71b269d201dc030c963a1b0b33ee014f" prefix=" " category="inline-code"></block></block>
   <block id="322ed43657dad6df7189e69bbea9fe57" category="open-title">选项2：运行ONTAP 9.3及更高版本的双节点FC配置</block>
   <block id="ad714f1a11f3ed1c3d1a9c5c0a9c185b" category="paragraph">运行命令：<block ref="803740ddd57a4d0c8a51c6ede10e3096" prefix=" " category="inline-code"></block></block>
-  <block id="dda9fac268f3774282dbdcee2b98e206" category="paragraph"><block ref="c823de4f8bc2e5e070e3f2a6b83c709f" prefix="" category="inline-code"></block></block>
-  <block id="9a63e80a7a324f409930e8d454b5e538" category="paragraph"><block ref="cb485a0e6e52cf58d8ed72bd00e074ec" prefix="" category="inline-code"></block></block>
   <block id="4ee3c0b4cfc3305a195d42ce617dcc41" category="paragraph"><block ref="854a4be4b1fce65bf3a90ee74692188e" prefix="" category="inline-code"></block> 是存储系统的IP地址。</block>
   <block id="db90801e232a1746aec7c835ee93e932" category="paragraph"><block ref="220b0a4790e2c047ae96a881e506e1fe" prefix="" category="inline-code"></block> 是存储系统的网络掩码。</block>
   <block id="2341e6b2fbc3a695ee3dd2358295392c" category="paragraph"><block ref="14fb245f7140583707d1cda241eeeff2" prefix="" category="inline-code"></block> 是存储系统的网关。</block>
@@ -12802,4 +12791,19 @@
   <block id="a417bfe3b0e85c20658fe71357feb3ef" category="paragraph">有关完整的命令语法，请参见手册页。以下示例将创建集群间 LIF cluster01_icl01 和 cluster01_icl02 ：</block>
   <block id="0074a60c2f111fa09e324bfc6f086bfd" category="paragraph">运行命令：<block ref="08fd4296d1145ee217b3ba481add0899" prefix=" " category="inline-code"></block></block>
   <block id="bb084c29063404b6611bde28d4ed57d3" category="paragraph">运行命令：<block ref="4686e63f75ecbb5593b9aac27ab89dd7" prefix=" " category="inline-code"></block></block>
+  <block id="52fef25c133f347af6547e0d7325285d" category="list-text">将数据LIF置于脱机状态。+<block ref="58d060d8bc95409e743c7b8e95e72710" prefix=" " category="inline-code"></block></block>
+  <block id="3c01c02ef0bb0d39aaf5f9cbc5c8ea4b" category="paragraph"><block ref="6b5ac3bb2bcffd222567cf972f8a2548" prefix="" category="inline-code"></block></block>
+  <block id="f7967c2b46538ede39d7960526ce1fa4" category="list-text">将数据LIF重新联机。<block ref="c5b63f9c60f25a11e5c1cde65fb540f1" prefix=" " category="inline-code"></block></block>
+  <block id="f677111a20e676139c4a865021fafa0d" category="paragraph"><block ref="850d7b5cf3d569632a8982fc791023b0" prefix="" category="inline-code"></block></block>
+  <block id="00b7088169fa7f91ce7c54fd96b41d7b" category="list-text">将用于托管集群间LIF的物理端口添加到相应的广播域中。</block>
+  <block id="e64aaeac172dbd7d324ded015d3b620f" category="list-text">验证配对集群是否可访问、以及配置是否已在配对集群上成功重新同步：</block>
+  <block id="e3c9aa07778be11d3bb374e3a6486e23" category="paragraph"><block ref="982b6fd5e36acd031c5af800a9951ed1" prefix="" category="inline-code"></block></block>
+  <block id="d8181c8a06e26fd37aba60f3ff3a08ed" category="admonition">MetroCluster IP配置不支持AUSO (自动计划外切换)。</block>
+  <block id="cfe5a553856e4e9131ebeda8844ee3c2" category="list-text">选择选项9a并回答<block ref="7fa3b767c460b54a2be4d49030b349c7" prefix=" " category="inline-code"></block> 出现提示时。</block>
+  <block id="bc3cbfae3cfe082620539cbe61e53bb4" category="list-text">从两个节点的启动菜单中选择选项*4*并让系统启动。</block>
+  <block id="5bb182767225fa9e1ca2133f4aa4f1df" category="inline-link-macro">Hardware Universe。</block>
+  <block id="e04f67144663da34a17311a720ccf0a1" category="list-text">有关您的配置的往返延迟和最大距离要求的具体信息、请参见 <block ref="44be38b301d3bfae89cdec57afffd9be" category="inline-link-macro-rx"></block></block>
+  <block id="5dae04759c79459bcbe855ce6759cc39" category="list-text">如果您使用的系统配置了ADP、请选择选项<block ref="3de20f8f6d054d551e879fef0f0fc83c" prefix=" " category="inline-code"></block> 从启动菜单中选择并响应<block ref="7fa3b767c460b54a2be4d49030b349c7" prefix=" " category="inline-code"></block> 出现提示时。</block>
+  <block id="0bab44e07fec8808eebb4c9baedcc312" category="admonition">您必须按以下顺序更新交换机：switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。或者、您也可以同时更新交换机Switch_A_1和Switch_B_1、然后更新交换机Switch_A_2和Switch_B_2。</block>
+  <block id="70743d1dc2a6fb8238c19b7d315abc9f" category="admonition">系统将提示您指定虚拟路由和转发(VRF)。</block>
 </blocks>

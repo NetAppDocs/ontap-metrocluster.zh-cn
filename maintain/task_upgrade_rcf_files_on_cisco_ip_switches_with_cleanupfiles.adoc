@@ -28,7 +28,7 @@ summary: 您可能需要升级Cisco IP交换机上的RCF文件。例如， ONTAP
 
 +
 
-NOTE: 您必须按以下顺序更新交换机：switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。或者、您也可以同时更新交换机Switch_A_1和Switch_A_2、然后更新交换机Switch_B_1和Switch_B_2。
+NOTE: 您必须按以下顺序更新交换机：switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。或者、您也可以同时更新交换机Switch_A_1和Switch_B_1、然后更新交换机Switch_A_2和Switch_B_2。
 
 
 
@@ -208,6 +208,10 @@ IP_switch_A_1# copy sftp://user@50.50.50.50/RcfFiles/NX9336-direct-SAS_v1.81_Met
 IP_switch_A_1# copy sftp://user@50.50.50.50/RcfFiles/NX9336-direct-SAS_v1.90_MetroCluster-IP_L2Direct_A400FAS8700A900FAS9500_xxx_xxx_xxx_xxxNX9336_v1.90//NX9336_v1.90_Switch-A1.txt bootflash:
 IP_switch_A_1# copy sftp://user@50.50.50.50/RcfFiles/NX9336-direct-SAS_v1.90_MetroCluster-IP_L2Direct_A400FAS8700A900FAS9500_xxx_xxx_xxx_xxxNX9336_v1.90//Cleanup_NX9336_v1.90_Switch-A1.txt bootflash:
 ----
++
+
+NOTE: 系统将提示您指定虚拟路由和转发(VRF)。
+
 
 
 . 应用CleanUpFile或通用CleanUpFile。

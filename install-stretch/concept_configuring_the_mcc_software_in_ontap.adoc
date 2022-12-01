@@ -1787,6 +1787,7 @@ cluster_A::> storage aggregate create aggr1_node_A_1 -diskcount 10 -node node_A_
 
 
 .关于此任务
+[]
 ====
 * 注意 * ：在 MetroCluster FC 配置中，只有当聚合中的远程磁盘可访问时，未镜像聚合才会在切换后联机。如果 ISL 发生故障，本地节点可能无法访问未镜像远程磁盘中的数据。聚合故障可能会导致本地节点重新启动。
 

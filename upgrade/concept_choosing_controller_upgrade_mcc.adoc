@@ -21,7 +21,7 @@ summary: 您使用的升级操作步骤 取决于平台型号。
 |===
 
 
-| 升级或刷新的类型 | MetroCluster 类型 | 首款 ONTAP 版本支持 | 操作步骤 
+| 升级或刷新的类型 | MetroCluster 类型 | ONTAP 版本 | 操作步骤 
 
 
  a| 
@@ -31,7 +31,7 @@ summary: 您使用的升级操作步骤 取决于平台型号。
  a| 
 FC
  a| 
-9.10.1
+9.10.1 及更高版本
  a| 
 link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_fc.html["使用切换和切回命令使用 system controller replace 升级四节点 MetroCluster FC 配置中的控制器（ ONTAP 9.10.1 及更高版本）"]
 
@@ -44,7 +44,7 @@ link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_fc.html
  a| 
 IP
  a| 
-9.10.1
+9.10.1 及更高版本
  a| 
 link:task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html["使用切换和切回功能将 AFF IP 配置中的 AFF A700 控制器升级到 MetroCluster A900 （ ONTAP 9.10.1 及更高版本）"]
 
@@ -57,7 +57,7 @@ link:task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchbac
  a| 
 FC
  a| 
-9.8
+9.8 及更高版本
  a| 
 link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["使用切换和切回升级 MetroCluster FC 配置中的控制器"]
 
@@ -70,7 +70,7 @@ link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback
  a| 
 IP
  a| 
-9.8
+9.8 及更高版本
  a| 
 link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html["使用切换和切回升级 MetroCluster IP 配置中的控制器（ ONTAP 9.8 及更高版本）"]
 
@@ -80,7 +80,7 @@ link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback
 == 使用聚合重新定位选择操作步骤
 
 |===
-| 聚合重新定位操作步骤 | MetroCluster 类型 | 首款 ONTAP 版本支持 | 操作步骤 
+| 聚合重新定位操作步骤 | MetroCluster 类型 | ONTAP 版本 | 操作步骤 
 
 
  a| 

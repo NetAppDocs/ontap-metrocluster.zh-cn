@@ -44,7 +44,7 @@ summary: 如果您未收到出厂时预配置的系统，则可能需要手动�
 +
 `boot_ontap 菜单`
 
-. 选择选项 9a 。
+. 选择选项9a并回答 `no` 出现提示时。
 +
 以下屏幕将显示启动菜单提示符：
 
@@ -54,29 +54,36 @@ summary: 如果您未收到出厂时预配置的系统，则可能需要手动�
 
 Please choose one of the following:
 
-    (1) Normal Boot.
-    (2) Boot without /etc/rc.
-    (3) Change password.
-    (4) Clean configuration and initialize all disks.
-    (5) Maintenance mode boot.
-    (6) Update flash from backup config.
-    (7) Install new software first.
-    (8) Reboot node.
-    (9) Configure Advanced Drive Partitioning.
-    Selection (1-9)?  9a
-########## WARNING ##########
+(1) Normal Boot.
+(2) Boot without /etc/rc.
+(3) Change password.
+(4) Clean configuration and initialize all disks.
+(5) Maintenance mode boot.
+(6) Update flash from backup config.
+(7) Install new software first.
+(8) Reboot node.
+(9) Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? 9a
 
-    This is a disruptive operation and will result in the
-    loss of all filesystem data. Before proceeding further,
-    make sure that:
-    1) This option (9a) has been executed or will be executed
-    on the HA partner node (and DR/DR-AUX partner nodes if
-    applicable), prior to reinitializing any system in the
-    HA-pair (or MetroCluster setup).
-    2) The HA partner node (and DR/DR-AUX partner nodes if
-    applicable) is currently waiting at the boot menu.
+...
 
-    Do you still want to continue (yes/no)? yes
+########## WARNING: AGGREGATES WILL BE DESTROYED ##########
+This is a disruptive operation that applies to all the disks
+that are attached and visible to this node.
+
+Before proceeding further, make sure that:
+
+The aggregates visible from this node do not contain
+data that needs to be preserved.
+This option (9a) has been executed or will be executed
+on the HA partner node (and DR/DR-AUX partner nodes if
+applicable), prior to reinitializing any system in the
+HA-pair or MetroCluster configuration.
+The HA partner node (and DR/DR-AUX partner nodes if
+applicable) is currently waiting at the boot menu.
+Do you want to abort this operation (yes/no)? no
 ----
 . 节点重新启动时，在系统提示显示启动菜单时按 Ctrl-C ，然后选择 * 维护模式启动 * 选项。
 . 在维护模式下，手动为节点上的本地聚合分配驱动器：
@@ -101,8 +108,8 @@ Please choose one of the following:
 +
 `boot_ontap 菜单`
 
-. 从启动菜单中选择选项 4 ，然后让系统启动。
 . 在 MetroCluster IP 配置中的其他节点上重复上述步骤。
+. 从两个节点的启动菜单中选择选项*4*并让系统启动。
 . 继续执行 link:task_sw_config_setup_ontap.html["设置 ONTAP"]。
 
 

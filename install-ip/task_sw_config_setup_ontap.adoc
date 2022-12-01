@@ -13,7 +13,6 @@ summary: 启动每个节点后，系统将提示您执行基本节点和集群�
 
 .开始之前
 * 您必须已为 MetroCluster 配置布线。
-* 您不能事先配置服务处理器。
 
 
 如果需要通过网络启动新控制器，请参见 link:../upgrade/task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#netbooting-the-new-controllers["通过网络启动新控制器模块"]。
@@ -206,6 +205,7 @@ https://docs.netapp.com/us-en/ontap/index.html#about-ontap-system-manager["ONTAP
 `storage failover modify -mode ha -node localhost`
 
 +
+[]
 ====
 
 NOTE: HA和存储故障转移的预期配置状态如下：

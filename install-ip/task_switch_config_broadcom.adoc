@@ -273,6 +273,7 @@ Configuration Saved!
 
 必须对 MetroCluster IP 配置中的每个交换机重复执行此任务。
 
+[]
 ====
 * 请注意以下事项： *
 
