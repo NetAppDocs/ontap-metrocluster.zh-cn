@@ -13,6 +13,7 @@ summary: 您必须打开灾难站点上的磁盘架和 MetroCluster IP 交换机
 [role="lead"]
 您必须打开灾难站点上的磁盘架和 MetroCluster IP 交换机组件的电源。灾难站点上的控制器模块将保留在 LOADER 提示符处。
 
+.关于此任务
 此操作步骤中的示例假设如下：
 
 * 站点 A 是灾难站点。

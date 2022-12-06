@@ -13,6 +13,7 @@ summary: 配置 Brocade FC 交换机时，您可以安装交换机配置文件�
 [role="lead"]
 配置 Brocade FC 交换机时，您可以安装交换机配置文件，这些文件可为某些配置提供完整的交换机设置。
 
+.关于此任务
 必须对 MetroCluster 网络结构配置中的每个 Brocade FC 交换机重复执行这些步骤。
 
 .步骤

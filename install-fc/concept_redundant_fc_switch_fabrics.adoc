@@ -15,6 +15,7 @@ summary: 每个交换机网络结构都包含连接站点的交换机间链路�
 
 image::../media/mcc_hw_architecture_switch_fabrics.gif[MCC 硬件架构交换机网络结构]
 
+.相关信息
 link:concept_illustration_of_the_local_ha_pairs_in_a_mcc_configuration.html["MetroCluster 配置中的本地 HA 对示意图"]
 
 link:concept_illustration_of_redundant_fc_to_sas_bridges.html["冗余 FC-SAS 网桥的图示"]

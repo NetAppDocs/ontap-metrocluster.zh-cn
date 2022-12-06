@@ -13,8 +13,10 @@ summary: 为了利用 FibreBridge 7600N 或 7500N 网桥上的额外 FC2 端口�
 [role="lead"]
 为了利用 FibreBridge 7600N 或 7500N 网桥上的额外 FC2 端口并降低机架利用率，您可以无中断地更换 6500N 网桥，并在一对 FibreBridge 7600N 或 7500N 网桥下整合多达四个存储堆栈。
 
+.开始之前
 您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。
 
+.关于此任务
 在以下情况下，应使用此操作步骤：
 
 * 您要将一对 FibreBridge 6500N 网桥更换为 FibreBridge 7600N 或 7500N 网桥。
@@ -27,6 +29,7 @@ summary: 为了利用 FibreBridge 7600N 或 7500N 网桥上的额外 FC2 端口�
 
 此操作步骤不会造成系统中断，大约需要两小时才能完成。
 
+.相关信息
 link:task_replace_a_sle_fc_to_sas_bridge.html["更换单个 FC-SAS 网桥"]
 
 
@@ -100,6 +103,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 
 要热插拔一个或两个 FibreBridge 6500N 网桥以创建使用一对 FibreBridge 7600N 或 7500N 网桥的配置，您必须一次更换一个网桥并按照正确的布线操作步骤进行操作。新布线与原始布线不同。
 
+.关于此任务
 如果满足以下条件，也可以使用此操作步骤：
 
 * 您要更换一对连接到同一 SAS 存储堆栈的 FibreBridge 6500N 网桥。
@@ -248,6 +252,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 
 在使用可用 SAS 端口将多个 SAS 存储堆栈整合到一对 FibreBridge 7600N 或 7500N 网桥之后时，必须将顶部和底部 SAS 缆线移至新网桥。
 
+.关于此任务
 FibreBridge 6500N 网桥 SAS 端口使用 QSFP 连接器。FibreBridge 7600N 或 7500N 网桥 SAS 端口使用迷你 SAS 连接器。
 
 
@@ -362,6 +367,7 @@ image::../media/consolidation_sas_bottom_connection_4_stacks.gif[整合 SAS 底�
 
 如果要将 FibreBridge 6500N 网桥更换为 FibreBridge 7500N 网桥并使用 FibreBridge 7500N 网桥上的两个 FC 端口，则必须更改分区。每个分区的启动程序端口不能超过四个。您使用的分区取决于您运行的是 9.1 或 9.1 及更高版本的 ONTAP
 
+.关于此任务
 此任务中的特定分区适用于 9.1 之前的 ONTAP 版本。
 
 为了避免 ONTAP 出现问题，需要进行分区更改，因为 要求一个磁盘的路径不能超过四个 FC 启动程序端口。重新布线以整合磁盘架后，现有分区将导致每个磁盘可通过八个 FC 端口访问。您必须更改分区，以将每个分区中的启动程序端口减少为四个。
@@ -507,6 +513,7 @@ image::../media/zoning_consolidation_site_a_after.gif[对整合站点 A 进行�
 
 要为存储堆栈提供多条路径，您可以在将 FibreBridge 7600N 或 7500N 网桥添加到配置中后为每个 FibreBridge 7600N 或 7500N 网桥上的第二个 FC 端口布线。
 
+.开始之前
 分区必须已进行调整，以便为第二个 FC 端口提供分区。
 
 .步骤

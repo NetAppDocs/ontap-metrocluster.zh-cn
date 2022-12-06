@@ -11,6 +11,7 @@ summary: 您必须将 Cisco IP 交换机配置为用作集群互连以及用于�
 [role="lead"]
 您必须将 Cisco IP 交换机配置为用作集群互连以及用于后端 MetroCluster IP 连接。
 
+.关于此任务
 本节中的几个过程是独立的，您只需执行引导到您或与您的任务相关的过程即可。
 
 
@@ -166,6 +167,7 @@ IP_switch_A_1#
 
 您必须将交换机操作系统文件和 RCF 文件下载到 MetroCluster IP 配置中的每个交换机。
 
+.关于此任务
 此任务需要使用文件传输软件，例如 FTP ， TFTP ， SFTP 或 SCP ， 将文件复制到交换机。
 
 必须对 MetroCluster IP 配置中的每个 IP 交换机重复执行这些步骤。
@@ -371,6 +373,7 @@ IP_switch_A_1#
 
 您必须将 RCF 文件下载到 MetroCluster IP 配置中的每个交换机。
 
+.关于此任务
 此任务需要使用文件传输软件，例如 FTP ， TFTP ， SFTP 或 SCP ， 将文件复制到交换机。
 
 必须对 MetroCluster IP 配置中的每个 IP 交换机重复执行这些步骤。
@@ -542,6 +545,7 @@ IP_switch_A_1# reload
 
 如果您的系统配置为使用 25 Gbps 连接，则在应用 RCF 文件后，您需要手动将正向错误更正（ FEC ）参数设置为关闭。RCF 文件不应用此设置。
 
+.关于此任务
 在执行此操作步骤之前，必须为 25 Gbps 端口布线。
 
 link:port_usage_3232c_9336c.html["Cisco 3232C 或 Cisco 9336C 交换机的平台端口分配"]

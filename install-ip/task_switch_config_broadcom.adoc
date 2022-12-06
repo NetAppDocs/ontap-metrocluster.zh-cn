@@ -271,6 +271,7 @@ Configuration Saved!
 
 您必须将交换机操作系统文件和 RCF 文件下载到 MetroCluster IP 配置中的每个交换机。
 
+.关于此任务
 必须对 MetroCluster IP 配置中的每个交换机重复执行此任务。
 
 []
@@ -378,8 +379,8 @@ IP_switch_A_2 #
 
 |===
 +
-** 方法 1 ：  to upgrade EFOS with downloading the software image to the backup boot partition
-** 方法 2 ：  to upgrade EFOS using the ONIE OS installation
+** 方法 1 ： <<通过将软件映像下载到备份启动分区来升级 EFOS 的步骤>>
+** 方法 2 ： <<使用 ONIE 操作系统安装升级 EFOS 的步骤>>
 
 
 
@@ -492,12 +493,12 @@ Are you sure you would like to reset the system? (y/n) y
 . 等待交换机重新启动。
 +
 
-NOTE: 在极少数情况下，交换机可能无法启动。按照  to upgrade EFOS using the ONIE OS installation 以安装新映像。
+NOTE: 在极少数情况下，交换机可能无法启动。按照 <<使用 ONIE 操作系统安装升级 EFOS 的步骤>> 以安装新映像。
 
 . 如果将交换机从 EFOS 3.4.x.x 更改为 EFOS 3.7.x.x 或反之，请按照以下两个过程应用正确的配置（ RCF ）：
 +
-..  the Broadcom IP switch to factory defaults
-..  and installing the Broadcom RCF files
+.. <<将 Broadcom IP 交换机重置为出厂默认值>>
+.. <<下载并安装 Broadcom RCF 文件>>
 
 
 . 对 MetroCluster IP 配置中的其余三个 IP 交换机重复上述步骤。
@@ -645,8 +646,8 @@ unit 	active 	   backup   current-active  next-active
 交换机将在未应用任何配置的情况下重新启动，并重置为出厂默认值。按照以下两个文档所述，按照两个过程配置交换机基本设置并应用 RCF 文件：
 
 +
-.. 配置交换机基本设置。按照步骤 4 及更高版本进行操作：  the Broadcom IP switch to factory defaults
-.. 创建并应用 RCF 文件，如中所述  and installing the Broadcom RCF files
+.. 配置交换机基本设置。按照步骤 4 及更高版本进行操作： <<将 Broadcom IP 交换机重置为出厂默认值>>
+.. 创建并应用 RCF 文件，如中所述 <<下载并安装 Broadcom RCF 文件>>
 
 
 
@@ -657,8 +658,10 @@ unit 	active 	   backup   current-active  next-active
 
 您必须将交换机 RCF 文件下载并安装到 MetroCluster IP 配置中的每个交换机。
 
+.开始之前
 此任务需要使用文件传输软件，例如 FTP ， TFTP ， SFTP 或 SCP ， 将文件复制到交换机。
 
+.关于此任务
 必须对 MetroCluster IP 配置中的每个 IP 交换机重复执行这些步骤。
 
 有四个 RCF 文件， MetroCluster IP 配置中的四个交换机中的每个交换机一个。您必须为所使用的交换机型号使用正确的 RCF 文件。

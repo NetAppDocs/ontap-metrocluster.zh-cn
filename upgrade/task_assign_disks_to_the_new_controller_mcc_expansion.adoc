@@ -13,6 +13,7 @@ summary: 在通过网络启动完成新控制器模块的配置之前，必须�
 [role="lead"]
 在通过网络启动完成新控制器模块的配置之前，必须为其分配磁盘。
 
+.关于此任务
 您必须确保现有聚合中有足够的备用磁盘，未分配磁盘或已分配磁盘。
 
 link:task_prepare_for_the_upgrade_add_2nd_controller_to_create_ha_pair.html["正在准备升级"]

@@ -53,6 +53,7 @@ summary: 如果发生灾难，则必须在切换后对灾难集群和正常运�
 
 NOTE: 系统会自动删除 SnapMirror 和 SnapVault 配置。
 
+.关于此任务
 `MetroCluster switchover` 命令可切换 MetroCluster 配置中所有 DR 组中的节点。例如，在八节点 MetroCluster 配置中，它会切换两个 DR 组中的节点。
 
 .步骤
@@ -86,6 +87,7 @@ mcc1A::> metrocluster operation show
 
 
 
+.完成后
 需要在切换后重新建立 SnapMirror 关系。
 
 
@@ -100,16 +102,20 @@ mcc1A::> metrocluster operation show
 
 切换后，您必须通过重置 `volume modify` 命令的 ` in-nvfailed-state` 参数来清除 NVFAIL 状态，以取消客户端访问数据的限制。
 
+.开始之前
 数据库或文件系统不得正在运行或尝试访问受影响的卷。
 
+.关于此任务
 设置 ` in-nvfailed-state` 参数需要高级权限。
 
 .步骤
 . 使用 `volume modify` 命令并将 ` in-nvfailed-state` 参数设置为 false ，以恢复卷。
 
 
+.完成后
 有关检查数据库文件有效性的说明，请参见特定数据库软件的文档。
 
 如果数据库使用 LUN ，请查看相关步骤，以便在 NVRAM 出现故障后使主机可以访问这些 LUN 。
 
+.相关信息
 link:../manage/concept_monitoring_and_protecting_database_validity_by_using_nvfail.html["使用 NVFAIL 监控和保护数据库有效性"]

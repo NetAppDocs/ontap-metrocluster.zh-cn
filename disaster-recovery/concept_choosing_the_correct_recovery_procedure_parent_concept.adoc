@@ -84,10 +84,10 @@ IMPORTANT: 如果在过渡期间添加或删除节点时发生故障，您必须
 
 故障情形：
 
-*  controller module failures in a single DR group
-*  controller module failures in a single DR group
-*  controller module failures in separate DR groups
-*  controller module failures spread across the DR groups
+* <<单个 DR 组中的单个控制器模块出现故障>>
+* <<一个 DR 组中的两个控制器模块出现故障>>
+* <<单独 DR 组中的单个控制器模块出现故障>>
+* <<三个控制器模块故障分布在 DR 组中>>
 
 
 

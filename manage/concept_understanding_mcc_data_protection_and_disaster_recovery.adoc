@@ -35,6 +35,7 @@ MetroCluster 配置使用两个物理隔离的镜像集群来保护数据。每�
 
 image::../media/mcc_hw_architecture_local_ha.gif[MCC 硬件架构本地 ha]
 
+.相关信息
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["高可用性配置"^]
 
 
@@ -105,6 +106,7 @@ sync-destination SVM 开始从运行正常的站点提供数据。
 
 
 
+.相关信息
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"^]
 
 
@@ -313,6 +315,7 @@ MetroCluster FC-IP 过渡涉及将 MetroCluster IP 节点和 IP 交换机添加�
 
 对于双节点配置，在 HA 对中触发自动存储故障转移的事件也会触发自动计划外切换（ AUSO ）。这意味着双节点 MetroCluster 配置具有与 HA 对相同的保护级别。
 
+.相关信息
 link:concept_understanding_mcc_data_protection_and_disaster_recovery.html["MetroCluster FC 配置中的自动计划外切换"]
 
 

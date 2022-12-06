@@ -13,6 +13,7 @@ summary: 在向配置添加新存储时，您需要安装 ATTO FibreBridge 网�
 [role="lead"]
 在向配置添加新存储时，您需要安装 ATTO FibreBridge 网桥和 SAS 磁盘架并为其布线。
 
+.关于此任务
 对于从工厂收到的系统， FC-SAS 网桥已进行预配置，不需要进行其他配置。
 
 编写此操作步骤时假定您使用的是建议的网桥管理界面： ATTO ExpressNAV 图形用户界面和 ATTO QuickNAV 实用程序。
@@ -138,6 +139,7 @@ NOTE: MetroCluster 配置中的 SAS 磁盘架不支持 ACP 布线。
 
 如果您使用的是 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务（ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。
 
+.关于此任务
 与 ATTO FibreBridge 7500N 和 6500N 网桥不同， FibreBridge 7600N 网桥在出厂时已禁用所有 IP 端口协议和服务。
 
 从 ONTAP 9.5 开始，支持网桥的带内管理。这意味着可以通过与网桥的 FC 连接从 ONTAP 命令行界面配置和监控网桥。不需要通过网桥以太网端口对网桥进行物理访问，也不需要网桥用户界面。
@@ -197,11 +199,13 @@ SNMP 是唯一需要单独的 enable 命令的协议。
 
 在为您的 FC-SAS 网桥型号布线之前，您必须在 FibreBridge 软件中配置设置。
 
+.开始之前
 您应决定是否使用网桥的带内管理。
 
 
 NOTE: 从 ONTAP 9.8 开始， `storage bridge` 命令将替换为 `ssystem bridge` 。以下步骤显示了 `storage bridge` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 `ssystem bridge` 命令。
 
+.关于此任务
 如果要使用网桥的带内管理而不是 IP 管理，则可以跳过配置以太网端口和 IP 设置的步骤，如相关步骤中所述。
 
 .步骤
@@ -443,6 +447,7 @@ link:../maintain/index.html["维护 MetroCluster 组件"]
 
 
 
+.相关信息
 link:task_fb_new_install.html["FC-SAS 网桥的带内管理"]
 
 
@@ -452,9 +457,9 @@ link:task_fb_new_install.html["FC-SAS 网桥的带内管理"]
 您必须使用正确的 FC-SAS 网桥为磁盘架布线。
 
 .选项
-* ,使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM12 模块的磁盘架
-* ,使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架
-* ,使用缆线将 FibreBridge 6500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架
+* <<cabling_fb_7600N_7500N_with_iom12,使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM12 模块的磁盘架>>
+* <<cabling_fb_7600N_7500N_with_iom6_iom3,使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架>>
+* <<cabling_fb_6500N_with_iom6_iom3,使用缆线将 FibreBridge 6500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架>>
 
 
 
@@ -463,6 +468,7 @@ link:task_fb_new_install.html["FC-SAS 网桥的带内管理"]
 
 配置网桥后，您可以开始为新系统布线。
 
+.关于此任务
 对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。
 
 . 以菊花链方式连接每个堆栈中的磁盘架：
@@ -509,6 +515,7 @@ image::../media/mcc_cabling_bridge_and_sas3_stack_with_7500n_and_multiple_stacks
 
 配置网桥后，您可以开始为新系统布线。FibreBridge 7600N 或 7500N 网桥使用迷你 SAS 连接器，并支持使用 IOM6 或 IOM3 模块的磁盘架。
 
+.关于此任务
 FibreBridge 7600N 网桥不支持 IOM3 模块。
 
 对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。
@@ -545,6 +552,7 @@ image::../media/mcc_cabling_bridge_and_sas_stack_with_7500n_four_stacks.gif[MCC 
 
 配置网桥后，您可以开始为新系统布线。FibreBridge 6500N 网桥使用 QSFP 连接器。
 
+.关于此任务
 请至少等待 10 秒，然后再连接端口。SAS 缆线连接器具有方向性；正确连接到 SAS 端口时，连接器会卡入到位，磁盘架 SAS 端口 LNK LED 会呈绿色亮起。对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。
 
 FibreBridge 6500N 网桥不支持使用 IOM12 的磁盘架。
@@ -646,7 +654,7 @@ Tgt VendorID ProductID        Type        SerialNumber
  a| 
 正确
  a| 
-重复 ,第 1 步 其余每个网桥。
+重复 <<step1_bridge,第 1 步>> 其余每个网桥。
 
 
 
@@ -655,9 +663,9 @@ Tgt VendorID ProductID        Type        SerialNumber
  a| 
 .. 重复布线，检查 SAS 缆线是否松动或更正 SAS 布线。
 +
- disk shelves to the bridges
+<<使用缆线将磁盘架连接到网桥>>
 
-.. 重复 ,第 1 步。
+.. 重复 <<step1_bridge,第 1 步>>。
 
 
 |===
@@ -672,6 +680,7 @@ IMPORTANT: 分区完成之前，不应使用缆线连接 FibreBridge 7500N 网�
 . 对配对站点的网桥重复上述步骤。
 
 
+.相关信息
 link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
 
 如果使用的是 ONTAP 9.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。

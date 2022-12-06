@@ -13,8 +13,10 @@ summary: 向 MetroCluster 配置添加新控制器模块后，必须在两个控
 [role="lead"]
 向 MetroCluster 配置添加新控制器模块后，必须在两个控制器模块上启用存储故障转移并单独启用集群 HA 。
 
+.开始之前
 必须事先使用 `MetroCluster configure -refresh true` 命令刷新 MetroCluster 配置。
 
+.关于此任务
 必须在每个 MetroCluster 站点上执行此任务。
 
 .步骤

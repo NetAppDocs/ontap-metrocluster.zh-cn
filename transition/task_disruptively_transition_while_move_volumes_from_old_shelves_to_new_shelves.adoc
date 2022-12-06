@@ -88,6 +88,7 @@ image::../media/workflow_2n_transition_moving_data_to_new_shelves.png[工作流 
 
 您必须遵循详细的过渡操作步骤。
 
+.关于此任务
 在以下步骤中，您将转到其他过程。您必须按给定顺序执行每个引用的操作步骤中的步骤。
 
 .步骤
@@ -125,6 +126,7 @@ image::../media/workflow_2n_transition_moving_data_to_new_shelves.png[工作流 
 
 过渡完成后，将剩余的现有根聚合从 MetroCluster FC 配置迁移到 MetroCluster IP 配置中的新磁盘架。
 
+.关于此任务
 此任务会将 node_A_1-FC 和 node_B_1-FC 的根聚合移至新 MetroCluster IP 控制器所拥有的磁盘架：
 
 .步骤

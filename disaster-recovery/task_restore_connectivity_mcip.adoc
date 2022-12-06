@@ -12,6 +12,7 @@ summary: 您必须从运行正常的节点还原 MetroCluster iSCSI 启动程序
 
 您必须从运行正常的节点还原 MetroCluster iSCSI 启动程序连接。
 
+.关于此任务
 只有 MetroCluster IP 配置才需要此操作步骤。
 
 .步骤

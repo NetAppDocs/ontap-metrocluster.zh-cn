@@ -17,6 +17,7 @@ summary: 启动每个节点后，系统将提示您执行基本节点和集群�
 
 如果需要通过网络启动新控制器，请参见 link:../upgrade/task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#netbooting-the-new-controllers["通过网络启动新控制器模块"]。
 
+.关于此任务
 必须对 MetroCluster 配置中的两个集群执行此任务。
 
 .步骤
@@ -269,4 +270,5 @@ e4e       Cluster      Cluster          up   9000  auto/40000 healthy  false
 . 在配对集群上重复上述步骤。
 
 
+.下一步操作
 返回到 ONTAP 命令行界面，并通过执行以下任务完成 MetroCluster 配置。

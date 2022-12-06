@@ -18,6 +18,7 @@ summary: 阵列 LUN 必须归节点所有，才能添加到聚合中用作存储
 * 要分配的阵列 LUN 必须提供给 ONTAP 系统。
 
 
+.关于此任务
 您可以分配具有以下特征的阵列 LUN 的所有权：
 
 * 它们是无所有者的。
@@ -49,4 +50,5 @@ summary: 阵列 LUN 必须归节点所有，才能添加到聚合中用作存储
 
 
 
+.相关信息
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-irrg/home.html["FlexArray 虚拟化安装要求和参考"]

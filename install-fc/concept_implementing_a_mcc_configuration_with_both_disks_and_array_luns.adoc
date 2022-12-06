@@ -17,6 +17,7 @@ summary: 要使用原生磁盘和阵列 LUN 实施 MetroCluster 配置，必须�
 
 在中 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具（ IMT ）"]，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
 
+.相关信息
 要设置双节点光纤连接 MetroCluster 配置或使用原生磁盘和阵列 LUN 的四节点 MetroCluster 配置，必须使用 FC-SAS 网桥通过 FC 交换机将 ONTAP 系统与磁盘架连接起来。您可以通过 FC 交换机将阵列 LUN 连接到 ONTAP 系统。
 
 link:reference_example_of_a_two_node_fabric_attached_mcc_configuration_with_disks_and_array_luns.html["使用磁盘和阵列 LUN 的双节点光纤连接 MetroCluster 配置示例"]

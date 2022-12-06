@@ -13,6 +13,7 @@ summary: 如果您更换了灾难站点中的 FC 交换机，则必须使用供�
 [role="lead"]
 如果您更换了灾难站点中的 FC 交换机，则必须使用供应商专用的过程对其进行配置。您必须配置一个交换机，验证运行正常的站点上的存储访问不受影响，然后配置第二个交换机。
 
+.相关任务
 link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 9.0 时 FC 交换机的端口分配"]
 
 link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
@@ -23,6 +24,7 @@ link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1
 
 您必须使用此 Brocade 专用的操作步骤配置替代交换机并启用 ISL 端口。
 
+.关于此任务
 此操作步骤中的示例基于以下假设：
 
 * 站点 A 是灾难站点。
@@ -147,6 +149,7 @@ Index Port Address Media Speed State  Proto
 
 您必须使用 Cisco 专用的操作步骤配置替代交换机并启用 ISL 端口。
 
+.关于此任务
 此操作步骤中的示例基于以下假设：
 
 * 站点 A 是灾难站点。

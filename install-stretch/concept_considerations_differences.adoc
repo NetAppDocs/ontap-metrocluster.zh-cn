@@ -204,7 +204,7 @@ summary: 各种 MetroCluster 配置在所需组件方面存在主要差异。
 
 
 
-| 支持  for All SAN Array systems in MetroCluster configurations,所有 SAN 阵列  a| 
+| 支持 <<支持 MetroCluster 配置中的所有 SAN 阵列系统,所有 SAN 阵列>>  a| 
 是的。
  a| 
 是的。

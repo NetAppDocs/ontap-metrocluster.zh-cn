@@ -19,6 +19,7 @@ summary: 要为过渡准备配置，请将新节点添加到现有 MetroCluster 
 
 在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
 
+.关于此任务
 必须在每个 MetroCluster 站点上执行此任务。
 
 .步骤
@@ -160,6 +161,7 @@ cluster_B::>
 
 您必须将四个新的 MetroCluster IP 节点添加到现有 MetroCluster 配置中。
 
+.关于此任务
 您必须在两个集群上执行此任务。
 
 .步骤
@@ -229,6 +231,7 @@ Do you want to use this configuration? {yes, no} [yes]: yes
 
 您必须创建集群对等 LIF ，并在新的 MetroCluster IP 节点上创建 MetroCluster 接口。
 
+.关于此任务
 示例中使用的主端口是特定于平台的。您应使用特定于 MetroCluster IP 节点平台的相应主端口。
 
 .步骤

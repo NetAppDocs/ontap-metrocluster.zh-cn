@@ -17,4 +17,5 @@ Active IQ Unified Manager 和 ONTAP 系统管理器可用于集群的 GUI 管理
 
 您也可以使用 Active IQ Unified Manager 监控 MetroCluster 配置。
 
+.相关信息
 http://docs.netapp.com["Active IQ Unified Manager 和 ONTAP System Manager 文档"^]

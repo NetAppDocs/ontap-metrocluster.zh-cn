@@ -390,6 +390,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-met
 
 在执行维护问题描述之前，您应发送 AutoSupport 消息以通知技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
 
+.关于此任务
 必须在每个 MetroCluster 站点上执行此任务。
 
 .步骤
@@ -413,6 +414,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-met
 
 您必须将配置切换到 site_A ，以便可以升级 site_B 上的平台。
 
+.关于此任务
 必须在 site_A 上执行此任务
 
 完成此任务后， site_A 处于活动状态，并为两个站点提供数据。site_B 处于非活动状态，并已准备好开始升级过程。
@@ -452,6 +454,7 @@ MetroCluster switchover -controller-replacement true`
 
 == 删除AFF A700或FAS9000平台控制器模块和NVS
 
+.关于此任务
 如果您尚未接地，请正确接地。
 
 .步骤
@@ -524,6 +527,7 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[删除模块]
 
 您必须在site_B的两个节点上安装升级套件中提供的AFF A900或FAS9500NVS和控制器模块请勿将核心转储设备从AFF A700或FAS9000 NVS模块移至AFF A900或FAS9500NVS模块。
 
+.关于此任务
 如果您尚未接地，请正确接地。
 
 
@@ -577,7 +581,7 @@ image::../media/drw_9500_remove_PCM.png[控制器模块]
 .. 将 e5a 连接移至 e5b 。
 +
 
-NOTE: 集群中所有节点上的插槽 7 均应为空，如中所述  ports from the old nodes to the new nodes 部分。
+NOTE: 集群中所有节点上的插槽 7 均应为空，如中所述 <<将端口从旧节点映射到新节点>> 部分。
 
 
 
@@ -599,6 +603,7 @@ NOTE: 集群中所有节点上的插槽 7 均应为空，如中所述  ports fro
 * 您需要从 NetApp 支持站点下载适用于您的系统和正确版本的 ONTAP 所需的系统文件。
 
 
+.关于此任务
 如果安装的 ONTAP 版本与原始控制器上安装的版本不同，则必须通过网络启动新控制器。安装每个新控制器后，您可以从 Web 服务器上存储的 ONTAP 9 映像启动系统。然后，您可以将正确的文件下载到启动介质设备，以供后续系统启动。
 
 .步骤
@@ -635,7 +640,7 @@ NOTE: 您应使用管理端口和 IP 作为网络启动连接。请勿使用数�
 |===
 . 对 node_B_1 执行 netboot ： `netboot` `http://<web_server_ip/path_to_web_accessible_directory>/netboot/kernel`
 +
-` <path_to_the_web-accessible_directory>` 应指向您在中下载 ` <ontap_version>\_image.tgz` 的位置 ,第 2 步。
+` <path_to_the_web-accessible_directory>` 应指向您在中下载 ` <ontap_version>\_image.tgz` 的位置 <<step2-download-software,第 2 步>>。
 
 +
 
@@ -804,6 +809,7 @@ FC
 
 您必须将交换机更新为支持新平台型号的配置。
 
+.关于此任务
 您可以在包含当前正在升级的控制器的站点上执行此任务。在此操作步骤中显示的示例中，我们首先升级 site_B 。
 
 当 site_A 上的控制器升级后， site_A 上的交换机将进行升级。
@@ -844,6 +850,7 @@ link:../install-ip/index.html["MetroCluster IP 安装和配置"]
 
 必须在新控制器模块上配置某些 MetroCluster IP bootarg 值。这些值必须与旧控制器模块上配置的值匹配。
 
+.关于此任务
 在此任务中，您将使用先前在中的升级操作步骤中标识的 UUID 和系统 ID link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#gathering-information-before-the-upgrade["升级前收集信息"]。
 
 .步骤
@@ -976,6 +983,7 @@ setenv bootarg.mcc.dr_partner 537403323
 
 使用先前收集的系统将根聚合磁盘重新分配给新控制器模块。
 
+.关于此任务
 这些步骤在维护模式下执行。
 
 .步骤
@@ -1361,6 +1369,7 @@ Remote: cluster_A         Configuration state configured
 
 升级控制器模块后，您必须验证 MetroCluster 配置的运行状况。
 
+.关于此任务
 此任务可在 MetroCluster 配置中的任何节点上执行。
 
 .步骤

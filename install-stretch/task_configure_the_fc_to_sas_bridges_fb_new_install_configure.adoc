@@ -13,6 +13,7 @@ summary: 在为您的 FC-SAS 网桥型号布线之前，您必须在 FibreBridge
 [role="lead"]
 在为您的 FC-SAS 网桥型号布线之前，您必须在 FibreBridge 软件中配置设置。
 
+.关于此任务
 您应决定是否使用网桥的带内管理。
 
 
@@ -229,4 +230,5 @@ link:../maintain/index.html["维护 MetroCluster 组件"]
 
 
 
+.相关信息
 link:concept_in_band_management_of_the_fc_to_sas_bridges.html["FC-SAS 网桥的带内管理"]

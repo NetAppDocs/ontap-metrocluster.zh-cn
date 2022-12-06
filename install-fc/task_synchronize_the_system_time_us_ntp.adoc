@@ -13,6 +13,7 @@ summary: 每个集群都需要自己的网络时间协议（ NTP ）服务器来
 [role="lead"]
 每个集群都需要自己的网络时间协议（ Network Time Protocol ， NTP ）服务器来同步节点与其客户端之间的时间。您可以使用 System Manager 中的编辑日期时间对话框配置 NTP 服务器。
 
+.开始之前
 您必须已下载并安装 System Manager 。可以从 NetApp 支持站点获取 System Manager 。
 
 .关于此任务

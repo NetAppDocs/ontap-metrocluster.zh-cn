@@ -228,7 +228,7 @@ NOTE: 支持AFF A900或FAS9500Fabric MetroCluster 配置的RCF文件更新不会
 .. 运行完成后，请查看 MetroCluster 运行结果： `MetroCluster check show`
 
 
-. 重复更新网络结构 B 交换机（交换机 2 和 4 ） ,第 2 步 to ,第 5 步。
+. 重复更新网络结构 B 交换机（交换机 2 和 4 ） <<Update-RCF,第 2 步>> to <<verify-healthy,第 5 步>>。
 
 
 
@@ -333,6 +333,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 在升级之前，您必须收集每个节点的信息，并在必要时调整网络广播域，删除任何 VLAN 和接口组以及收集加密信息。
 
+.关于此任务
 此任务将在现有 MetroCluster FC 配置上执行。
 
 .步骤
@@ -444,6 +445,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-met
 
 在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
 
+.关于此任务
 必须在每个 MetroCluster 站点上执行此任务。
 
 .步骤
@@ -470,6 +472,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-met
 
 您必须将配置切换到 site_A ，以便可以升级 site_B 上的平台。
 
+.关于此任务
 必须在 site_A 上执行此任务
 
 完成此任务后， site_A 处于活动状态，并为两个站点提供数据。site_B 处于非活动状态，并已准备好开始升级过程，如下图所示。(此图还显示了适用场景 将FAS9000升级到FAS9500控制 器。)
@@ -550,6 +553,7 @@ cluster_A::> metrocluster operation show
 
 您可以在 site_B 上执行此任务
 
+.开始之前
 如果您尚未接地，请正确接地。
 
 .步骤
@@ -629,6 +633,7 @@ NOTE: 如果AFF A700或FAS9000非易失性存储模块上有任何附加模块�
 
 您必须在Site_B的两个节点上安装升级套件中的AFF A900或FAS9500NVS和控制器模块请勿将核心转储设备从AFF A700或FAS9000 NVS模块移至AFF A900或FAS9500NVS模块。
 
+.开始之前
 如果您尚未接地，请正确接地。
 
 
@@ -722,7 +727,7 @@ image:../media/drw_9500_remove_PCM.png["控制器"]
 
 | 未运行 | 在启动环境提示符处使用以下命令手动配置连接： `ifconfig e0M -addr=<filer_addr> -mask=<netmask> -gw=<gateway> - dns=<dns_addr> domain=<dns_domain>` ` <filer_addr>` 是存储系统的 IP 地址。` < 网络掩码 >` 是存储系统的网络掩码。` < 网关 >` 是存储系统的网关。` <dns_addr>` 是网络上名称服务器的 IP 地址。此参数是可选的。` <dns_domain>` 是域名服务（ DNS ）域名。此参数是可选的。注意：您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 help ifconfig 。 
 |===
-. 在节点 1 上执行 `netboot` ： `netboot http://<web_server_ip/path_to_web_accessible_directory>/netboot/kernel`[]` <path_to_the_web-accessible_directory>` 应指向您在中下载 ` <ontap_version>_image.tgz` 的位置 ,第 2 步。
+. 在节点 1 上执行 `netboot` ： `netboot http://<web_server_ip/path_to_web_accessible_directory>/netboot/kernel`[]` <path_to_the_web-accessible_directory>` 应指向您在中下载 ` <ontap_version>_image.tgz` 的位置 <<step2-download-software,第 2 步>>。
 +
 
 NOTE: 请勿中断启动。
@@ -950,6 +955,7 @@ MCC
 
 使用先前收集的系统将根聚合磁盘重新分配给新控制器模块
 
+.关于此任务
 此任务在维护模式下执行。
 
 旧系统 ID 在中进行了标识 link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["升级前收集信息"]。
@@ -1058,6 +1064,7 @@ aggr0_node_b_1-root    online      raid_dp, aggr    root, nosnap=on,
 
 您必须从启动菜单重新启动控制器，才能更新控制器闪存映像。如果配置了加密，则需要执行其他步骤。
 
+.关于此任务
 必须对所有新控制器执行此任务。
 
 .步骤
@@ -1210,6 +1217,7 @@ link:https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_cr
 
 在切回之前，验证 LIF 是否托管在相应的节点 / 端口上。需要执行以下步骤
 
+.关于此任务
 此任务在 site_B 上执行，其中的节点已使用根聚合启动。
 
 .步骤
@@ -1244,6 +1252,7 @@ link:https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_cr
 
 配置新控制器后，您可以切回 MetroCluster 配置，使配置恢复正常运行。
 
+.关于此任务
 在此任务中，您将执行切回操作，使 MetroCluster 配置恢复正常运行。site_A上的节点仍在等待升级、如下图所示。(此图还显示了适用场景 将FAS9000升级到FAS9500控制器)。
 
 image::../media/mcc_upgrade_cluster_a_switchback_A900.png[四节点 MetroCluster]
@@ -1306,6 +1315,7 @@ Remote: cluster_A         Configuration state configured
 
 升级控制器模块后，您必须验证 MetroCluster 配置的运行状况。
 
+.关于此任务
 此任务可在 MetroCluster 配置中的任何节点上执行。
 
 .步骤

@@ -28,6 +28,7 @@ image::power-on-off-data-center.gif[关闭数据中心]
 
 必须先关闭站点和所有设备，然后才能开始站点维护或重新定位。
 
+.关于此任务
 以下步骤中的所有命令都是从站点发出的、以便保持通电。
 
 .步骤
@@ -601,6 +602,7 @@ switch_A_1# copy running-config startup-config
 [role="lead"]
 完成维护或移动站点后，您必须启动站点并重新建立 MetroCluster 配置。
 
+.关于此任务
 以下步骤中的所有命令都是从您启动的站点发出的。
 
 .步骤

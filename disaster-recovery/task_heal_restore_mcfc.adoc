@@ -43,7 +43,7 @@ cluster_B::> metrocluster heal -phase root aggregates
  a| 
 镜像已降级
  a| 
-继续执行 ,如果一个或多个丛保持脱机，则需要执行其他步骤来重建镜像。
+继续执行 <<step3_fc_aggr_healing,如果一个或多个丛保持脱机，则需要执行其他步骤来重建镜像。>>
 
 
 

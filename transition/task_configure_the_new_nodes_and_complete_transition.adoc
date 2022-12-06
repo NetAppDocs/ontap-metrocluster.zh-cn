@@ -279,6 +279,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 要提高故障恢复能力，应将系统卷从控制器 node_A_1-IP 移至控制器 node_A_2-IP ，并将系统卷从 node_B_1-IP 移至 node_B_2-IP 。您必须在系统卷的目标节点上创建镜像聚合。
 
+.关于此任务
 系统卷的名称格式为 `MDV\_CRS_*\_A` 或 `MDV_CRS_*\_B` "` _A` " 和 "` _B` " 与本节中使用的 site_A 和 site_B 参考无关；例如， MDV_CRS_*_A 与 site_A 不相关
 
 .步骤

@@ -17,6 +17,7 @@ MetroCluster 配置中的两个集群通过客户提供的集群对等网络建�
 
 image::../media/mcc_hw_architecture_cluster_peering.gif[MCC 硬件架构集群对等]
 
+.相关信息
 link:concept_illustration_of_the_local_ha_pairs_in_a_mcc_configuration.html["MetroCluster 配置中的本地 HA 对示意图"]
 
 link:concept_illustration_of_redundant_fc_to_sas_bridges.html["冗余 FC-SAS 网桥的图示"]

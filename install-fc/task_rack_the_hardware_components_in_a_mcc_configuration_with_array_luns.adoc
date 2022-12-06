@@ -13,6 +13,7 @@ summary: 您必须确保使用阵列 LUN 设置 MetroCluster 配置所需的硬�
 [role="lead"]
 您必须确保使用阵列 LUN 设置 MetroCluster 配置所需的硬件组件已正确装入机架。
 
+.关于此任务
 您必须在两个 MetroCluster 站点上执行此任务。
 
 .步骤

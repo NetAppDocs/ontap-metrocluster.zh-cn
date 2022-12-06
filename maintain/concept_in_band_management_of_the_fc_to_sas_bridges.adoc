@@ -31,6 +31,7 @@ NOTE: 从 ONTAP 9.8 开始， `storage bridge` 命令将替换为 `ssystem bridg
 
 NOTE: 建议在禁用 IP 访问的情况下使用带内管理，以通过限制网桥的物理连接来提高安全性。
 
+.相关信息
 link:task_replace_a_sle_fc_to_sas_bridge.html#hot-swapping-a-bridge-with-a-replacement-bridge-of-the-same-model["将网桥热插拔为同一型号的替代网桥"]
 
 link:task_replace_a_sle_fc_to_sas_bridge.html#hot-swapping-a-fibrebridge-7500n-with-a-7600n-bridge["热插拔 FibreBridge 7500N 和 7600N 网桥"]

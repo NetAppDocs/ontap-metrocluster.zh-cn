@@ -6642,7 +6642,6 @@
   <block id="70371f8efd2b8ae536be80520d74c423" category="paragraph">您必须同步时间，这需要一个或多个 NTP 时间服务器。</block>
   <block id="85cabef5a0ee43a130abed28ee18d27f" category="paragraph">NTP 服务器 1.</block>
   <block id="0a86604d1b452801458d10e0355af6e8" category="paragraph">NTP 服务器 2.</block>
-  <block id="f05d34c7805315dc6fc70f4c8224224f" category="section-title">站点 A AutoSupport 信息</block>
   <block id="9bd9fbffad4433a66e131c6c4f75968e" category="paragraph">您必须在每个节点上配置 AutoSupport ，这需要以下信息：</block>
   <block id="6f6da7aec649851c977b6bf4e083977d" category="paragraph">发件人电子邮件地址</block>
   <block id="cba7670aee94b794bf55fa5db6b8b248" category="paragraph">邮件主机</block>
@@ -6672,8 +6671,6 @@
   <block id="2ddeb191957d309760a14e2f4353284d" category="paragraph">节点 2 IC LIF 1</block>
   <block id="782e54b0ba0da8311c22531d4ba4ee23" category="paragraph">节点 2 IC LIF 2</block>
   <block id="5b3864552eeb932b0d36514ae2ad1a25" category="section-title">站点 B 时间服务器信息</block>
-  <block id="5f43c444f290a66ebda4ce17c1b520f5" category="section-title">站点 B AutoSupport 信息</block>
-  <block id="ece8759484e6ed2004c668a872ecdb9e" category="section-title">站点 B SP 信息</block>
   <block id="922040b92464414838bf711f5439a941" category="paragraph">节点 1 （ controller_B_1 ）</block>
   <block id="9c7d24fa70f73a1fe4ee0bc58f0d443b" category="paragraph">节点 2 （ controller_B_2 ）</block>
   <block id="f41aecb0a91801bdc9e66280bf4a17d1" category="section-title">标准集群和 MetroCluster 配置之间的相似之处和不同之处</block>
@@ -10439,7 +10436,6 @@
   <block id="05ac71f0be33c2ad0cfeeb90e5f985a7" category="list-text"><block ref="05ac71f0be33c2ad0cfeeb90e5f985a7" category="inline-link-macro-rx"></block></block>
   <block id="a0a108afed95784cbb847a6b3ff2ea68" category="list-text"><block ref="a0a108afed95784cbb847a6b3ff2ea68" category="inline-link-macro-rx"></block></block>
   <block id="24b79d1109d169b3428eb16d56510160" category="list-text">重复步骤 1 以检查配置的运行状况。</block>
-  <block id="626ba26700ca8d483bcdb1b5d3a41336" category="paragraph">将 SFP 插入要添加为 ISL 端口的端口。确保这些端口列在要添加到的交换机的 * 光纤连接 MetroCluster 安装和配置 * 中，并根据本指南为其布线。</block>
   <block id="cdd098707a5ab09c2aacefd245a22b7d" category="paragraph">您可以从中使用 FibreBridge 6500N 网桥热插拔操作步骤 _FibreBridge 6500N 网桥并使用 FibreBridge 7500N 或 7600N 网桥 _ 更改分区或从 FibreBridge 6500 升级到 FibreBridge 7500<block ref="01d78e686e1360972399f4e6d1d43586" category="inline-link-rx"></block>。</block>
   <block id="49f90e35c32b05006940aa496079571b" category="summary">维护 MetroCluster 组件的商标信息。</block>
   <block id="46c7885131c64f238f576be014b213f0" category="inline-link">维护 DS460C DS224C 和 DS212C 磁盘架</block>
@@ -12634,7 +12630,6 @@
   <block id="e52e46b2e9a285a92c4fb276c84c544e" category="summary">您必须将NVIDIA IP交换机配置为用作集群互连和后端MetroCluster IP连接。</block>
   <block id="12dfda519b07b8627c017865df4388a6" category="doc">配置NVIDIA IP SN2100交换机</block>
   <block id="056bd4ccfa99eecc32b7151072832cb7" category="paragraph">您必须将NVIDIA SN2100 IP交换机配置为用作集群互连和后端MetroCluster IP连接。</block>
-  <block id="80d79e74efb3cf7c2ad45e7e1c96223d" category="section-title">将NVIDIA IP SN2100交换机重置为出厂默认值</block>
   <block id="7c3ceaca0865f6c6621d894d5c1f5274" category="paragraph">您可以从以下方法中选择将交换机重置为出厂默认设置。</block>
   <block id="61168c45da9c3d852ce200a8e6fe5441" category="inline-xref">使用RCF文件选项重置交换机</block>
   <block id="f39c98e742374a832c3bc1976a82c99a" category="list-text"><block ref="4d1a1da583a14975a026f863f46efa9e" category="inline-xref-macro-rx"></block></block>
@@ -12669,7 +12664,6 @@
   <block id="404f235a0e668325747a3bbe34a85550" category="admonition">以下示例说明如何使用以下命令配置主机名(IP_switch_A_1)、IP地址(10.10.10.10)、网络掩码(255.255.255.0 (24)和网关(10.10.10.1)：`net add hostname &lt;hostname&gt;`、`net add interface eth0 ip address &lt;IPAddress/mask&gt;`和`net add interface eth0 ip gateway &lt;Gateway&gt;`。</block>
   <block id="fd56421b5278bf3b069d8729f920f29e" category="list-text">使用`sudo reboot`命令重新启动交换机。</block>
   <block id="c55cbcd30055e2eecf2070469bd7907a" category="paragraph">交换机重新启动后、您可以使用中的步骤应用新配置 <block ref="67df29514d3fd31c6e0b92fb5ef28c21" category="inline-xref-macro-rx"></block>。</block>
-  <block id="8fa6539999f2d3aff134c30600c80e41" category="section-title">下载并安装NVIDIA RCF文件</block>
   <block id="62217055050b5f95ab3ac1b301982bec" category="list-text">此时将安装交换机软件并配置管理网络。</block>
   <block id="8d8734eaa9f80f06163e261ecd8dfd87" category="list-text">您按照步骤使用方法1或方法2首次安装交换机。</block>
   <block id="f5029a9b9e4cf676befc86e9839549bd" category="list-text">初始安装后、您未应用任何其他配置。</block>
@@ -12806,4 +12800,26 @@
   <block id="5dae04759c79459bcbe855ce6759cc39" category="list-text">如果您使用的系统配置了ADP、请选择选项<block ref="3de20f8f6d054d551e879fef0f0fc83c" prefix=" " category="inline-code"></block> 从启动菜单中选择并响应<block ref="7fa3b767c460b54a2be4d49030b349c7" prefix=" " category="inline-code"></block> 出现提示时。</block>
   <block id="0bab44e07fec8808eebb4c9baedcc312" category="admonition">您必须按以下顺序更新交换机：switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。或者、您也可以同时更新交换机Switch_A_1和Switch_B_1、然后更新交换机Switch_A_2和Switch_B_2。</block>
   <block id="70743d1dc2a6fb8238c19b7d315abc9f" category="admonition">系统将提示您指定虚拟路由和转发(VRF)。</block>
+  <block id="bd965e38a0c9cf27aa1bde099308e23f" category="paragraph-title">完成后</block>
+  <block id="ebf8099b0d57d09213f64014fd257ea1" category="section-title">【重置交换机】将NVIDIA IP SN2100交换机重置为出厂默认值</block>
+  <block id="841793e4a1e005b1b9596c374804395a" category="section-title">【RCF文件选项】使用RCF文件选项重置交换机</block>
+  <block id="261e7c7b4c25948690ce095224937522" category="section-title">["Cumulus-install-option]]使用"Cumulus安装选项重置交换机</block>
+  <block id="66dfac56c9206023b345746e3fd92eae" category="section-title">【下载并安装】下载并安装NVIDIA RCF文件</block>
+  <block id="c938b5cfd075c2f653372f886805b37a" category="paragraph-title">在使用配置表之前、请查看这些注意事项</block>
+  <block id="3f710cadb0123c693533da68aaf5b596" category="paragraph-title">下一步操作</block>
+  <block id="0fcee5126250d77f3f33a330fd9c5a17" category="paragraph">将 SFP 插入要添加为 ISL 端口的端口。确保中列出了这些端口 <block ref="5488151483f7e2bfe24758bbbb4d6f40" category="inline-link-macro-rx"></block> 用于要添加它们的交换机。</block>
+  <block id="4b18b6ffcae5c35c0fd047b621fdb59e" category="section-title">站点A nbsp AutoSupport信息</block>
+  <block id="ed68524d33cb83b7bc35eb3921cd5e50" category="section-title">站点A nbsp信息</block>
+  <block id="75cb9d2c8e6c492546bef17abe8e5a69" category="section-title">站点B nbsp AutoSupport信息</block>
+  <block id="336d72b5902fa5007c0f1b27db5d4cb7" category="section-title">站点B nbsp信息</block>
+  <block id="0ab984d91ab0a037bdf692bf0e73c349" category="paragraph-title">重要</block>
+  <block id="c6e21fae72937c189cf8456f90c8f3a5" category="section-title">站点A nbsp；AutoSupport 信息</block>
+  <block id="9416a5cc051e7f0bc3db126192f4a9c8" category="section-title">站点A nbsp；SP信息</block>
+  <block id="ac3e6c4174906200ce86dcb34e0c1feb" category="section-title">站点B nbsp AutoSupport信息</block>
+  <block id="be9e3196b872778c6a28445130404d80" category="section-title">站点B nbsp信息</block>
+  <block id="9d103bd3bd0b1f3ca173693727680cd3" category="section-title">【重置启动恢复】重置boot_recovery和rdb_Corrupt bootargs</block>
+  <block id="ec18da962520ae390c485b5c542ac279" category="paragraph-title">相关任务</block>
+  <block id="c1902fd1f00ac0b0e269fd37dd64f7e8" category="section-title">站点A nbsp；AutoSupport 信息</block>
+  <block id="a321560b2ae4d0c708a5027ac5562270" category="section-title">站点B nbsp；AutoSupport 信息</block>
+  <block id="87713443a9395f659a438c305d6fa70d" category="section-title">站点B nbsp；SP信息</block>
 </blocks>

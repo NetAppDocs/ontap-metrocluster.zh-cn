@@ -234,7 +234,7 @@ NTP 服务器 2.
 |===
 
 
-==== 站点 A AutoSupport 信息
+==== 站点A nbsp；AutoSupport 信息
 
 您必须在每个节点上配置 AutoSupport ，这需要以下信息：
 
@@ -293,7 +293,7 @@ HTTP ， HTTPS 或 SMTP
 |===
 
 
-==== 站点 A SP 信息
+==== 站点A nbsp；SP信息
 
 您必须启用对每个节点的服务处理器（ Service Processor ， SP ）的访问以进行故障排除和维护，这要求每个节点具有以下网络信息：
 
@@ -533,7 +533,7 @@ NTP 服务器 2.
 |===
 
 
-==== 站点 B AutoSupport 信息
+==== 站点B nbsp AutoSupport信息
 
 您必须在每个节点上配置 AutoSupport ，这需要以下信息：
 
@@ -590,7 +590,7 @@ HTTP ， HTTPS 或 SMTP
 |===
 
 
-==== 站点 B SP 信息
+==== 站点B nbsp信息
 
 您必须启用对每个节点的服务处理器（ Service Processor ， SP ）的访问以进行故障排除和维护，这要求每个节点具有以下网络信息：
 
@@ -680,6 +680,7 @@ MetroCluster 配置基于两个标准集群构建。在物理上，配置必须�
 --
 要确保 MetroCluster 安装成功，请重置和还原控制器模块上的默认值。
 
+.重要
 只有使用 FC-SAS 网桥的延伸型配置才需要执行此任务。
 
 .步骤
@@ -814,6 +815,7 @@ Please choose one of the following:
 
 如果在 FAS8020 系统上使用 X1132A-R6 四端口卡，则可以进入维护模式来配置 1a 和 1b 端口以供 FC-VI 和启动程序使用。从工厂收到的 MetroCluster 系统不需要执行此操作，这些端口已根据您的配置进行了相应设置。
 
+.关于此任务
 此任务必须在维护模式下执行。
 
 
@@ -919,6 +921,7 @@ controller_B_1
 
 在将系统完全启动到 ONTAP 之前，您可以选择启动到维护模式并验证节点上的磁盘分配。应分配这些磁盘以创建完全对称的主动 - 主动配置，其中每个池分配的磁盘数量相等。
 
+.关于此任务
 新的 MetroCluster 系统在发货前已完成磁盘分配。
 
 下表显示了 MetroCluster 配置的池分配示例。磁盘会按磁盘架分配给池。
@@ -1117,8 +1120,10 @@ controller_B_1
 
 如果 MetroCluster 节点未正确分配磁盘，或者您在配置中使用的是 DS460C 磁盘架，则必须按磁盘架为 MetroCluster 配置中的每个节点分配磁盘。您将创建一种配置，其中每个节点的本地和远程磁盘池中的磁盘数相同。
 
+.开始之前
 存储控制器必须处于维护模式。
 
+.关于此任务
 如果您的配置不包括 DS460C 磁盘架，则在从工厂收到磁盘时，如果磁盘已正确分配，则无需执行此任务。
 
 [NOTE]
@@ -1272,8 +1277,10 @@ HA 配对节点池 1 的 DR 配对节点
 
 如果在具有镜像聚合的配置中使用 AFF 系统，并且节点未正确分配磁盘（ SSD ），则应将每个磁盘架上一半的磁盘分配给一个本地节点，另一半磁盘分配给其 HA 配对节点。您应创建一种配置，使每个节点在其本地和远程磁盘池中具有相同数量的磁盘。
 
+.开始之前
 存储控制器必须处于维护模式。
 
+.关于此任务
 这不适用于具有未镜像聚合，主动 / 被动配置或本地和远程池中磁盘数量不等的配置。
 
 如果从工厂收到磁盘时已正确分配磁盘，则不需要执行此任务。
@@ -1386,8 +1393,10 @@ HA 配对节点池 1 的 DR 配对节点
 
 在将系统完全启动到 ONTAP 之前，您可以选择将系统启动到维护模式并验证节点上的磁盘分配。应分配磁盘以创建完全对称的配置，其中两个站点都拥有自己的磁盘架并提供数据，其中每个节点和每个池都分配了相同数量的镜像磁盘。
 
+.开始之前
 系统必须处于维护模式。
 
+.关于此任务
 新的 MetroCluster 系统在发货前已完成磁盘分配。
 
 下表显示了 MetroCluster 配置的池分配示例。磁盘会按磁盘架分配给池。
@@ -1501,8 +1510,10 @@ DR 配对节点的池 1
 
 在 MetroCluster 配置中配置存储系统时，您必须确保控制器模块和机箱组件的高可用性（ HA ）状态为 mcc 或 mcc-2n ，以便这些组件正确启动。
 
+.开始之前
 系统必须处于维护模式。
 
+.关于此任务
 从工厂收到的系统不需要执行此任务。
 
 .步骤
@@ -1612,8 +1623,8 @@ ha-config modify chassis mccip
 如果需要通过网络启动新控制器，请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-upgrade/GUID-3370EC34-310E-4F09-829F-F632EC8CDD9B.html["通过网络启动新控制器模块"] 在 _RAID MetroCluster 升级，过渡和扩展指南中。
 
 .选项
-* ,在双节点 MetroCluster 配置中设置 ONTAP
-* ,在八模式或四节点 MetroCluster 配置中设置 ONTAP
+* <<setup_ontap_2node_MCC,在双节点 MetroCluster 配置中设置 ONTAP>>
+* <<setup_ontap_8node_4node_MCC,在八模式或四节点 MetroCluster 配置中设置 ONTAP>>
 
 
 
@@ -1622,8 +1633,10 @@ ha-config modify chassis mccip
 
 在双节点 MetroCluster 配置中，您必须在每个集群上启动节点，退出集群设置向导，然后使用 cluster setup 命令将节点配置为单节点集群。
 
+.开始之前
 您不能事先配置服务处理器。
 
+.关于此任务
 此任务适用于使用原生 NetApp 存储的双节点 MetroCluster 配置。
 
 新的 MetroCluster 系统已预先配置；您无需执行这些步骤。但是，您应配置 AutoSupport 。
@@ -1718,8 +1731,10 @@ cluster1-01           true    true
 
 启动每个节点后，系统会提示您运行 System Setup 工具来执行基本节点和集群配置。配置集群后，您可以返回到 ONTAP 命令行界面以创建聚合并创建 MetroCluster 配置。
 
+.开始之前
 您必须已为 MetroCluster 配置布线。
 
+.关于此任务
 此任务适用于使用原生 NetApp 存储的八节点或四节点 MetroCluster 配置。
 
 新的 MetroCluster 系统已预先配置；您无需执行这些步骤。但是，您应配置 AutoSupport 工具。
@@ -1840,6 +1855,7 @@ NOTE: 您可以在稍后的任务中创建镜像聚合。
 
 
 
+.完成后
 返回到 ONTAP 命令行界面，并通过执行以下任务完成 MetroCluster 配置。
 
 
@@ -1861,8 +1877,8 @@ MetroCluster 配置中的集群必须处于对等关系中，以便它们可以�
 您必须在用于 MetroCluster 配对集群之间通信的端口上创建集群间 LIF 。您可以使用专用端口或也具有数据流量的端口。
 
 .选项
-* ,在专用端口上配置集群间 LIF
-* ,在共享数据端口上配置集群间 LIF
+* <<config_LIFs_dedicated,在专用端口上配置集群间 LIF>>
+* <<config_LIFs_shared_data,在共享数据端口上配置集群间 LIF>>
 
 
 
@@ -2075,6 +2091,7 @@ cluster01
                             Failover Targets:  cluster01-02:e0e,
                                                cluster01-02:e0f
 ----
+.相关信息
 link:concept_prepare_for_the_mcc_installation.html["使用专用端口时的注意事项"]
 
 在确定使用专用端口进行集群间复制是否是正确的集群间网络解决方案时，您应考虑 LAN 类型，可用 WAN 带宽，复制间隔，更改率和端口数等配置和要求。
@@ -2216,6 +2233,7 @@ cluster01
 ----
 
 
+.相关信息
 link:concept_prepare_for_the_mcc_installation.html["共享数据端口时的注意事项"]
 
 
@@ -2224,6 +2242,7 @@ link:concept_prepare_for_the_mcc_installation.html["共享数据端口时的注�
 
 您必须在 MetroCluster 集群之间创建集群对等关系。
 
+.关于此任务
 您可以使用 `cluster peer create` 命令在本地和远程集群之间创建对等关系。创建对等关系后，您可以在远程集群上运行 `cluster peer create` ，以便向本地集群进行身份验证。
 
 .开始之前
@@ -2440,6 +2459,7 @@ cluster01-02
 
 您必须镜像根聚合以提供数据保护。
 
+.关于此任务
 默认情况下，根聚合创建为 RAID-DP 类型的聚合。您可以将根聚合从 RAID-DP 更改为 RAID4 类型的聚合。以下命令修改 RAID4 类型聚合的根聚合：
 
 [listing]
@@ -2468,6 +2488,7 @@ controller_A_1::> storage aggregate mirror aggr0_controller_A_1
 . 对 MetroCluster 配置中的每个节点重复上述步骤。
 
 
+.相关信息
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["逻辑存储管理"]
 
 
@@ -2602,6 +2623,7 @@ controller_A_1::> storage aggregate create aggr1_controller_A_1 -diskcount 10 -n
 
 
 
+.相关信息
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
 
@@ -2620,11 +2642,12 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁�
 
 +
 
-NOTE: 如果要使用单个镜像数据聚合，请参见 ,第 1 步 有关说明，请参见。
+NOTE: 如果要使用单个镜像数据聚合，请参见 <<step1_aggr,第 1 步>> 有关说明，请参见。
 
 * 控制器和机箱的 ha-config 状态必须为 "mcc" 。
 
 
+.关于此任务
 您可以在任何节点上问题描述一次 `MetroCluster configure` 命令，以启用 MetroCluster 配置。您无需在每个站点或节点上对命令执行问题描述，也无需选择对哪个节点或站点执行问题描述命令。
 
 `MetroCluster configure` 命令会自动将两个集群中每个集群中系统 ID 最低的两个节点配对，作为灾难恢复（ DR ）配对节点。在四节点 MetroCluster 配置中，存在两个 DR 配对节点对。第二个 DR 对是从系统 ID 较高的两个节点创建的。
@@ -2764,6 +2787,7 @@ Remote: cluster_A         Configuration state configured
 
 您必须根据光纤通道（ FC ）交换机配置来配置帧的按顺序交付（ IOD ）或无序交付（ OOD ）。
 
+.关于此任务
 如果为 FC 交换机配置了 IOD ，则必须为 ONTAP 软件配置 IOD 。同样，如果为 FC 交换机配置了 OOD ，则必须为 ONTAP 配置 OOD 。
 
 .步骤
@@ -2866,8 +2890,10 @@ mcc4-b2      mlx4_0          IB      Up     false     192.0.2.10  	ib2b
 
 === 在 MetroCluster 配置中配置 SNMPv3
 
+.开始之前
 交换机和 ONTAP 系统上的身份验证和隐私协议必须相同。
 
+.关于此任务
 ONTAP 当前支持 AES-128 加密。
 
 .步骤
@@ -2972,6 +2998,7 @@ Priv Protocol [DES(1)/noPriv(2)/AES128(3)/AES256(4)]): (2..2) [3]
 
 在监控 MetroCluster 配置中的组件之前，必须执行一些特殊的配置步骤。
 
+.关于此任务
 这些任务仅适用于具有 FC-SAS 网桥的系统。
 
 [NOTE]
@@ -3039,6 +3066,7 @@ controller_A_1::>
 
 
 
+.相关信息
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
 
 
@@ -3118,6 +3146,7 @@ ATTO_10.10.20.13  atto04        true          ok              Atto   FibreBridge
 
 您应在初始配置后以及对 MetroCluster 配置进行任何更改后执行检查。您还应在协商（计划内）切换或切回操作之前执行检查。
 
+.关于此任务
 如果在任一集群或同时在这两个集群上短时间内发出 `MetroCluster check run` 命令两次，则可能发生冲突，并且此命令可能无法收集所有数据。后续的 `MetroCluster check show` 命令不会显示预期输出。
 
 .步骤
@@ -3239,6 +3268,7 @@ mccint-fas9000-0304
 ----
 
 
+.相关信息
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]
@@ -3249,6 +3279,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网�
 
 您可以访问 NetApp 支持站点并下载 Config Advisor 工具以检查常见配置错误。
 
+.关于此任务
 Config Advisor 是一款配置验证和运行状况检查工具。您可以将其部署在安全站点和非安全站点上，以便进行数据收集和系统分析。
 
 
@@ -3268,6 +3299,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 如果您使用的是四节点 MetroCluster 配置，则应验证 MetroCluster 配置中本地 HA 对的运行情况。对于双节点配置，不需要执行此操作。
 
+.关于此任务
 双节点 MetroCluster 配置不包含本地 HA 对，此任务不适用。
 
 此任务中的示例使用标准命名约定：
@@ -3366,6 +3398,7 @@ controller_A_2 controller_A_1 true     Connected to controller_A_1
 . 对 cluster_B 重复上述步骤
 
 
+.相关信息
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["高可用性配置"]
 
 

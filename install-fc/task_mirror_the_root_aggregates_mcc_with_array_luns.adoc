@@ -13,8 +13,10 @@ summary: 您必须镜像 MetroCluster 配置中的根聚合，以确保数据保
 [role="lead"]
 您必须镜像 MetroCluster 配置中的根聚合，以确保数据保护。
 
+.开始之前
 您必须确保满足使用阵列 LUN 的 MetroCluster 配置的 SyncMirror 要求。请参见link:reference_requirements_for_a_mcc_configuration_with_array_luns_reference.html["使用阵列 LUN 的 MetroCluster 配置的要求"]。
 
+.关于此任务
 您必须对 MetroCluster 配置中的每个控制器重复此任务。
 
 .步骤

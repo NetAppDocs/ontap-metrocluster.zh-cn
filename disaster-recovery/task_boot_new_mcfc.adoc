@@ -13,6 +13,7 @@ summary: 数据聚合和根聚合的聚合修复完成后，您必须启动灾�
 [role="lead"]
 数据聚合和根聚合的聚合修复完成后，您必须启动灾难站点上的一个或多个节点。
 
+.关于此任务
 此任务从显示 LOADER 提示符的节点开始。
 
 .步骤
@@ -30,7 +31,7 @@ summary: 数据聚合和根聚合的聚合修复完成后，您必须启动灾�
 
 +
 
-NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复 ,从启动菜单中，选择选项 6 * 从备份配置更新闪存 * 。 将系统启动至 ONTAP 提示符。然后、您需要 ,重置启动恢复和rdb_Corrupt bootargs
+NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复 <<step2,从启动菜单中，选择选项 6 * 从备份配置更新闪存 * 。>> 将系统启动至 ONTAP 提示符。然后、您需要 <<Reset-the-boot-recovery,重置启动恢复和rdb_Corrupt bootargs>>
 
 . 在丛 0 上镜像根聚合：
 +
@@ -88,11 +89,12 @@ cluster_B::>
 ....
 
 
+.下一步操作
 继续执行 link:../disaster-recovery/task_complete_recovery.html["完成灾难恢复过程"]。
 
 
 
-=== 重置boot_recovery和rdb_Corrupt bootargs
+=== 【重置启动恢复】重置boot_recovery和rdb_Corrupt bootargs
 
 [role="lead"]
 如果需要、您可以重置boot_recovery和rdb_Corrupt_bootargs

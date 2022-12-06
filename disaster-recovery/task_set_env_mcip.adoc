@@ -13,6 +13,7 @@ summary: 在 MetroCluster IP 配置中，您可以检索以太网端口上 Metro
 [role="lead"]
 在 MetroCluster IP 配置中，您必须检索以太网端口上 MetroCluster 接口的 IP 地址，然后使用它们配置替代控制器模块上的接口。
 
+.关于此任务
 只有在 MetroCluster IP 配置中才需要执行此任务。
 
 此任务中的命令可从运行正常的站点的集群提示符和灾难站点节点的 LOADER 提示符执行。

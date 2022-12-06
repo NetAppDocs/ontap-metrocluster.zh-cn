@@ -421,15 +421,15 @@ Tgt VendorID ProductID        Type        SerialNumber
  a| 
 正确
  a| 
-重复 ,第 11 步 其余每个网桥。
+重复 <<step11-verify-each-bridge-detect,第 11 步>> 其余每个网桥。
 
 
 
  a| 
 不正确
  a| 
-.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 ,第 10 步。
-.. 重复 ,第 11 步。
+.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 <<step10-cable-shelves-bridges,第 10 步>>。
+.. 重复 <<step11-verify-each-bridge-detect,第 11 步>>。
 
 
 |===
@@ -1740,4 +1740,5 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 . 如果适用，请对配对站点重复此操作步骤。
 
 
+.相关信息
 link:concept_in_band_management_of_the_fc_to_sas_bridges.html["FC-SAS 网桥的带内管理"]

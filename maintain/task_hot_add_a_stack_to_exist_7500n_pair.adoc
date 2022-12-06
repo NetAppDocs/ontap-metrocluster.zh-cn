@@ -25,6 +25,7 @@ https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp
 * FibreBridge 7500N 网桥必须已连接并具有可用的 SAS 端口。
 
 
+.关于此任务
 编写此操作步骤时假定您使用的是建议的网桥管理界面： ATTO ExpressNAV 图形用户界面和 ATTO QuickNAV 实用程序。
 
 您可以使用 ATTO ExpressNAV 图形用户界面配置和管理网桥，以及更新网桥固件。您可以使用 ATTO QuickNAV 实用程序配置网桥以太网管理 1 端口。

@@ -19,6 +19,7 @@ summary: 您必须将四个新控制器模块以及任何其他存储架添加�
 
 您必须将新的 MetroCluster IP 控制器安装到先前连接到 MetroCluster FC 控制器的存储架上并使用缆线连接。
 
+.关于此任务
 必须对每个 MetroCluster IP 节点执行这些步骤。
 
 * node_A_1-IP
@@ -219,6 +220,7 @@ MetroCluster Transition: Please confirm if this is the correct value [yes|no]:? 
 
 如果根卷已加密，则必须使用特殊的启动命令来还原密钥管理。
 
+.开始之前
 您必须事先收集密码短语。
 
 .步骤
@@ -373,6 +375,7 @@ Enter the cluster-wide passphrase for onboard key management in Vserver "cluster
 
 您必须在 FC 节点上创建与配置匹配的网络配置。这是因为 MetroCluster IP 节点在启动时会重放相同的配置，这意味着在 node_A_1-IP 和 node_B_1-IP 启动时， ONTAP 将尝试在 node_A_1-FC 和 node_B_1-FC 上使用的相同端口上托管 LIF 。
 
+.关于此任务
 创建网络配置时，请使用中制定的计划 link:concept_requirements_for_fc_to_ip_transition_2n_mcc_transition.html["将端口从 MetroCluster FC 节点映射到 MetroCluster IP 节点"] 为您提供帮助。
 
 
@@ -574,6 +577,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 您必须使用启动菜单中的正确选项一次启动一个新控制器模块。
 
+.关于此任务
 在这些步骤中，您将启动两个全新节点，将双节点配置扩展为四节点配置。
 
 这些步骤在以下节点上执行：

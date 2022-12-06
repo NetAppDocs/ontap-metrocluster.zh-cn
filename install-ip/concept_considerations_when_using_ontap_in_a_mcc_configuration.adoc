@@ -75,6 +75,7 @@ System Manager 不支持未镜像聚合。
 
 执行切回时，您必须再次重复 site_A （原始集群）和 site_C 上的 SVM
 
+.相关信息
 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["FlexCache 卷管理"^]
 
 
@@ -104,6 +105,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["FlexC
 
 NOTE: 在配置聚合之前，必须按照中的 " 在 MetroCluster 配置中为 FabricPool 设置对象存储 " 所述设置对象存储 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]。
 
+.步骤
 要配置要在 FabricPool 中使用的聚合，请执行以下操作：
 
 . 创建聚合或选择现有聚合。
@@ -157,6 +159,7 @@ NOTE: 系统创建的计划不会复制，您必须在配对集群上手动执�
 
 您应了解如何在 MetroCluster 配置中创建和复制 LIF 。您还必须了解一致性要求，以便在配置网络时做出正确的决策。
 
+.相关信息
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"^]
 
 link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#ipspace-object-replication-and-subnet-configuration-requirements["IP 空间对象复制和子网配置要求"]
@@ -221,6 +224,7 @@ subnet1   192.168.2.0/24   Default   192.168.2.1       10/10    192.168.2.21-192
 
 如果在一个站点上配置了 IPv6 ，则在另一个站点上也必须配置 IPv6 。
 
+.相关信息
 link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#requirements-for-lif-creation-in-a-metrocluster-configuration["在 MetroCluster 配置中创建 LIF 的要求"]
 
 link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#lif-replication-and-placement-requirements-and-issues["LIF 复制和放置要求和问题"]
@@ -246,6 +250,7 @@ link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#lif-rep
 
 您可以运行 lIF MetroCluster check lif show 命令来确认是否已在 MetroCluster 配置中成功创建 LIF 。如果在创建 LIF 时遇到任何问题，可以使用 MetroCluster check lif repair-placement 命令修复这些问题。
 
+.相关信息
 link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#ipspace-object-replication-and-subnet-configuration-requirements["IP 空间对象复制和子网配置要求"]
 
 link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#lif-replication-and-placement-requirements-and-issues["LIF 复制和放置要求和问题"]
@@ -348,6 +353,7 @@ LIF 放置
 
 NOTE: 即使源 SVM 已关闭，但如果目标 SVM 中具有相同 IP 空间和网络的端口中存在属于不同 SVM 的 LIF ，则 LIF 放置可能会正常进行。
 
+.相关信息
 link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#ipspace-object-replication-and-subnet-configuration-requirements["IP 空间对象复制和子网配置要求"]
 
 link:concept_considerations_when_using_ontap_in_a_mcc_configuration.html#requirements-for-lif-creation-in-a-metrocluster-configuration["在 MetroCluster 配置中创建 LIF 的要求"]

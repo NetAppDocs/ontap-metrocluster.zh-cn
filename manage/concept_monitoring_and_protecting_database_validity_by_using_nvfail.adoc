@@ -112,6 +112,7 @@ ONTAP 在包含 LUN 的卷上检测到 NVRAM 错误
 * 注： * 您将 ` 字段` 参数设置为 "nvfail" 以显示指定卷的 NVFAIL 属性。
 
 |===
+.相关信息
 有关详细信息，请参见每个命令的手册页。
 
 
@@ -120,18 +121,22 @@ ONTAP 在包含 LUN 的卷上检测到 NVRAM 错误
 
 切换后，您必须通过重置 `volume modify` 命令的 ` in-nvfailed-state` 参数来清除 NVFAIL 状态，以取消客户端访问数据的限制。
 
+.开始之前
 数据库或文件系统不得正在运行或尝试访问受影响的卷。
 
+.关于此任务
 设置 ` in-nvfailed-state` 参数需要高级权限。
 
 .步骤
 . 使用 volume modify 命令并将 -in-nvfailed-state 参数设置为 false ，以恢复卷。
 
 
+.完成后
 有关检查数据库文件有效性的说明，请参见特定数据库软件的文档。
 
 如果数据库使用 LUN ，请查看相关步骤，以便在 NVRAM 出现故障后使主机可以访问这些 LUN 。
 
+.相关信息
 link:../manage/concept_monitoring_and_protecting_database_validity_by_using_nvfail.html["使用 NVFAIL 监控和保护文件系统一致性"]
 
 
@@ -140,6 +145,7 @@ link:../manage/concept_monitoring_and_protecting_database_validity_by_using_nvfa
 
 切换后，主机将无法再访问处于 NVFAIL 状态的 LUN 上的数据。在数据库能够访问 LUN 之前，您必须执行许多操作。
 
+.开始之前
 数据库不得正在运行。
 
 .步骤

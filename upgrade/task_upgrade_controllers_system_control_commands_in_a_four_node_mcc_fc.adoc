@@ -130,6 +130,7 @@ Node-A-1    Failed         MetroCluster check failed. Reason : MCC check showed 
 
 在升级之前，如果根卷已加密，则必须收集备份密钥和其他信息以使用旧的加密根卷启动新控制器。
 
+.关于此任务
 此任务将在现有 MetroCluster FC 配置上执行。
 
 .步骤
@@ -263,8 +264,10 @@ dr-group-id cluster    node          node-systemid dr-partner-systemid
 
 收集信息并恢复操作后，自动化将继续执行切换操作。
 
+.关于此任务
 此自动化操作将启动切换， `heal-aggregates` 和 `heal root-aggregates` 操作。完成这些操作后，此操作将在 * 已暂停以供用户干预 * 时暂停，以便您可以使用先前收集的 `sysids` 将控制器架装并安装，启动配对控制器并通过闪存备份将根聚合磁盘重新分配给新控制器模块。
 
+.开始之前
 在启动切换之前，自动化操作将暂停，以便您可以手动验证站点 B 上的所有 LIF 是否为 "`up` "如有必要，请将任何 " `down` " 移至 "`up` " ，然后使用 `ssystem controller replace resume` 命令恢复自动化操作。
 
 
@@ -275,7 +278,7 @@ dr-group-id cluster    node          node-systemid dr-partner-systemid
 
 .关于此任务
 * 必须对每个旧节点执行此任务。
-* 您将使用中收集的信息  for the upgrade。
+* 您将使用中收集的信息 <<正在准备升级>>。
 
 
 .步骤
@@ -593,6 +596,7 @@ FC
 
 使用先前收集的 `sysids` 将根聚合磁盘重新分配给新控制器模块
 
+.关于此任务
 此任务在维护模式下执行。
 
 旧系统 ID 在中进行了标识 link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_fc.html#gathering-information-before-the-upgrade["升级前收集信息"]。
@@ -709,6 +713,7 @@ aggr0_node_b_1-root        online      raid_dp, aggr    root, nosnap=on,
 
 您可以重新配置 VLAN 和接口组。如果需要，请在使用 `ssystem controller replace resume` 命令恢复操作之前手动修改集群 LIF 的端口和广播域详细信息。
 
+.关于此任务
 必须对所有新控制器执行此任务。
 
 .步骤

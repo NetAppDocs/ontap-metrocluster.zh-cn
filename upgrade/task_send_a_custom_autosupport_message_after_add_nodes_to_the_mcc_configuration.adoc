@@ -13,6 +13,7 @@ summary: 您应问题描述发送 AutoSupport 消息，以通知 NetApp 技术�
 [role="lead"]
 您应问题描述发送 AutoSupport 消息，以通知 NetApp 技术支持维护已完成。
 
+.关于此任务
 必须在每个 MetroCluster 站点上执行此任务。
 
 .步骤

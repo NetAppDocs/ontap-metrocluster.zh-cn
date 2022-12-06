@@ -153,6 +153,7 @@ NOTE: 系统创建的计划不会复制，您必须在配对集群上手动执�
 
 您应了解如何在 MetroCluster 配置中创建和复制 LIF 。您还必须了解一致性要求，以便在配置网络时做出正确的决策。
 
+.相关信息
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"^]
 
 

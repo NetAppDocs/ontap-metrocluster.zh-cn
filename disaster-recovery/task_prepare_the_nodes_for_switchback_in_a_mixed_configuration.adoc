@@ -13,6 +13,7 @@ summary: 您必须执行某些任务，以便为切回操作准备混合 MetroCl
 [role="lead"]
 您必须执行某些任务，以便为切回操作准备混合 MetroCluster IP 和 FC 配置。此操作步骤仅适用于在 MetroCluster FC 到 IP 过渡过程中遇到故障的适用场景配置。
 
+.关于此任务
 只有在发生故障时处于过渡中的系统上执行恢复时，才应使用此操作步骤。
 
 在这种情况下， MetroCluster 是一种混合配置：
@@ -27,6 +28,7 @@ summary: 您必须执行某些任务，以便为切回操作准备混合 MetroCl
 
 
 
+.步骤
 按以下顺序执行步骤。
 
 . 通过按顺序执行以下任务，准备要切回的 FC 节点：
@@ -64,7 +66,7 @@ summary: 您必须执行某些任务，以便为切回操作准备混合 MetroCl
 
 +
 
-NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复这些子步骤，将系统启动到 ONTAP 提示符。然后、您需要 ,重置启动恢复和rdb_Corrupt bootargs
+NOTE: 如果未清除已用替代控制器的 NVRAM 内容，则可能会出现崩溃，并显示以下消息： `panic ： NVRAM contents are invalid...` 如果发生这种情况，请重复这些子步骤，将系统启动到 ONTAP 提示符。然后、您需要 <<Reset-the-boot-recovery,重置启动恢复和rdb_Corrupt bootargs>>
 
 
 
@@ -136,7 +138,7 @@ Group Cluster Node               State          Mirroring Mode
 
 
 
-=== 重置boot_recovery和rdb_Corrupt bootargs
+=== 【重置启动恢复】重置boot_recovery和rdb_Corrupt bootargs
 
 [role="lead"]
 如果需要、您可以重置boot_recovery和rdb_Corrupt_bootargs

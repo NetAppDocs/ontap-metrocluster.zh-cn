@@ -13,6 +13,7 @@ summary: 您可能需要添加，删除或更改 ISL 端口。您可以将专用
 [role="lead"]
 您可能需要添加，删除或更改 ISL 端口。您可以将专用 ISL 端口转换为共享 ISL 端口，也可以更改交换机上 ISL 端口的速度。传输距离较远的 ISL 可能需要较低的速度来提高质量。如果要添加或升级硬件，您可能还需要提高 ISL 端口的速度以利用系统升级并将 ISL 添加到 Cisco IP 交换机。
 
+.关于此任务
 如果要将专用 ISL 端口转换为共享 ISL 端口，请确保新端口满足要求 link:../install-ip/concept_considerations_layer_2.html["共享 ISL 端口的要求"]。
 
 您必须在两台交换机上完成所有步骤，以确保 ISL 连接。

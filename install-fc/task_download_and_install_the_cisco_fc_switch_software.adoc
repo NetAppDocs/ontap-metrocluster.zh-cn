@@ -13,8 +13,10 @@ summary: 您必须将交换机操作系统文件和 RCF 文件下载到 MetroClu
 [role="lead"]
 您必须将交换机操作系统文件和 RCF 文件下载到 MetroCluster 网络结构配置中的每个交换机。
 
+.开始之前
 此任务需要使用文件传输软件，例如 FTP ， TFTP ， SFTP 或 SCP ， 将文件复制到交换机。
 
+.关于此任务
 必须对 MetroCluster 网络结构配置中的每个 FC 交换机重复执行这些步骤。
 
 您必须使用支持的交换机软件版本。

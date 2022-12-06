@@ -19,6 +19,7 @@ summary: 通过 MetroCluster Tiebreaker 软件，您可以监控 MetroCluster �
 
 默认情况下， AutoSupport 消息会在安装 Tiebreaker 软件后一周发送给 NetApp 。触发 AutoSupport 通知的事件包括 Tiebreaker 软件崩溃，检测 MetroCluster 配置上的灾难情况或未知 MetroCluster 配置状态。
 
+.开始之前
 您必须具有设置 AutoSupport 消息的直接访问权限。
 
 .步骤

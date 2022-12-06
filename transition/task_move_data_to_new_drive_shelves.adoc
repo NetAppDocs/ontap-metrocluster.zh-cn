@@ -11,6 +11,7 @@ summary: 过渡期间，您会将数据从 MetroCluster FC 配置中的驱动器
 [role="lead"]
 过渡期间，您会将数据从 MetroCluster FC 配置中的驱动器架移动到新的 MetroCluster IP 配置。
 
+.开始之前
 在将卷移动到新聚合之前、您应在目标或IP节点上创建新的SAN LIF并连接主机。
 
 . 要恢复自动生成支持案例，请发送 AutoSupport 消息以指示维护已完成。

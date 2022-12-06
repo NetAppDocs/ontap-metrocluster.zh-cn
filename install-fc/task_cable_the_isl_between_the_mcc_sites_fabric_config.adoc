@@ -13,6 +13,7 @@ summary: 您必须通过光纤交换机间链路（ ISL ）连接每个站点的
 [role="lead"]
 您必须通过光纤交换机间链路（ ISL ）连接每个站点的 FC 交换机，以形成连接 MetroCluster 组件的交换机网络结构。
 
+.关于此任务
 必须同时对两个交换机网络结构执行此操作。
 
 .步骤
@@ -24,4 +25,5 @@ summary: 您必须通过光纤交换机间链路（ ISL ）连接每个站点的
 
 
 
+.相关信息
 link:concept_considerations_isls_mcfc.html["ISL 注意事项"]

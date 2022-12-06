@@ -11,6 +11,7 @@ summary: 您可以从第三个站点下载并安装 MetroCluster Tiebreaker 软�
 [role="lead"]
 您可以从第三个站点下载并安装 MetroCluster Tiebreaker 软件，或者从 ONTAP 9.7 开始安装 ONTAP 调解器。
 
+.开始之前
 您必须有一个可用的 Linux 主机，该主机可通过网络连接到 MetroCluster 配置中的两个集群。具体要求请参见 MetroCluster Tiebreaker 或 ONTAP 调解器文档。
 
 如果要连接到现有 Tiebreaker 或 ONTAP 调解器实例，则需要 Tiebreaker 或调解器服务的用户名，密码和 IP 地址。
@@ -21,6 +22,7 @@ link:concept_mediator_requirements.html["为计划外自动切换配置 ONTAP �
 
 如果您必须安装 Tiebreaker 软件的新实例，请按照执行操作 link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["安装和配置软件的说明"]。
 
+.关于此任务
 您不能使用具有相同 MetroCluster 配置的 MetroCluster Tiebreaker 软件和 ONTAP 调解器。
 
 link:../install-ip/concept_considerations_mediator.html["使用 ONTAP 调解器或 MetroCluster Tiebreaker 的注意事项"]

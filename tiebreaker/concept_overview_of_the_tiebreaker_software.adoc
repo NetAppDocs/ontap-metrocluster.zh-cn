@@ -61,6 +61,7 @@ Tiebreaker 软件会触发警报，但 ONTAP 会否决此警报。在这种情�
 * 如果 Tiebreaker 软件至少可以访问灾难站点上的一个节点或集群接口，或者正常运行的站点仍然可以通过 FC （ NV 互连和存储）或集群间对等访问灾难站点上的任一节点，则可以执行此操作
 
 
+.相关信息
 link:concept_risks_and_limitation_of_using_mcc_tiebreaker_in_active_mode.html["在主动模式下使用 MetroCluster Tiebreaker 的风险和限制"]
 
 

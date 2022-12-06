@@ -206,6 +206,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 您必须规划旧节点上物理端口上的 LIF 到新节点上的物理端口的映射。
 
+.关于此任务
 在升级过程中首次启动新节点时，它将重放要替换的旧节点的最新配置。启动 node_A_1-new 时， ONTAP 会尝试在 node_A_1-old 上使用的相同端口上托管 LIF 。因此，在升级过程中，您必须调整端口和 LIF 配置，使其与旧节点的配置兼容。在升级操作步骤期间，您将对旧节点和新节点执行步骤，以确保正确配置集群，管理和数据 LIF 。
 
 下表显示了与新节点的端口要求相关的配置更改示例。
@@ -398,6 +399,7 @@ SAN
 
 在升级之前，您必须收集每个节点的信息，并在必要时调整网络广播域，删除任何 VLAN 和接口组以及收集加密信息。
 
+.关于此任务
 此任务将在现有 MetroCluster FC 配置上执行。
 
 .步骤
@@ -525,6 +527,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/G
 
 在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
 
+.关于此任务
 必须在每个 MetroCluster 站点上执行此任务。
 
 .步骤
@@ -551,6 +554,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/G
 
 您必须将配置切换到 site_A ，以便可以升级 site_B 上的平台。
 
+.关于此任务
 必须在 site_A 上执行此任务
 
 完成此任务后， cluster_A 将处于活动状态，并为两个站点提供数据。cluster_B 处于非活动状态，并已准备好开始升级过程，如下图所示。
@@ -741,6 +745,7 @@ network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
 
 必须从配置中删除旧控制器。
 
+.关于此任务
 此任务在 site_B 上执行
 
 .步骤
@@ -1043,6 +1048,7 @@ MCC
 
 使用先前收集的系统将根聚合磁盘重新分配给新控制器模块
 
+.关于此任务
 此任务在维护模式下执行。
 
 旧系统 ID 在中进行了标识 link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["升级前收集信息"]。
@@ -1157,6 +1163,7 @@ aggr0_node_b_1-root    online      raid_dp, aggr    root, nosnap=on,
 
 您必须从启动菜单重新启动控制器，才能更新控制器闪存映像。如果配置了加密，则需要执行其他步骤。
 
+.关于此任务
 必须对所有新控制器执行此任务。
 
 .步骤
@@ -1388,6 +1395,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 在切回之前，验证 LIF 是否托管在相应的节点 / 端口上。需要执行以下步骤
 
+.关于此任务
 此任务在 site_B 上执行，其中的节点已使用根聚合启动。
 
 .步骤
@@ -1432,6 +1440,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 配置新控制器后，您可以切回 MetroCluster 配置，使配置恢复正常运行。
 
+.关于此任务
 在此任务中，您将执行切回操作，使 MetroCluster 配置恢复正常运行。site_A 上的节点仍在等待升级。
 
 image::../media/mcc_upgrade_cluster_a_switchback.png[MCC 升级集群 A 切回]
@@ -1494,6 +1503,7 @@ Remote: cluster_A         Configuration state configured
 
 升级控制器模块后，您必须验证 MetroCluster 配置的运行状况。
 
+.关于此任务
 此任务可在 MetroCluster 配置中的任何节点上执行。
 
 .步骤

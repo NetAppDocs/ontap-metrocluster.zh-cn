@@ -13,6 +13,7 @@ summary: 您可以检查 MetroCluster 配置中的组件和关系是否工作正
 [role="lead"]
 您可以检查 MetroCluster 配置中的组件和关系是否工作正常。您应在初始配置后以及对 MetroCluster 配置进行任何更改后执行检查。您还应在协商（计划内）切换或切回操作之前执行检查。
 
+.关于此任务
 如果在任一集群或同时在这两个集群上短时间内发出 `MetroCluster check run` 命令两次，则可能发生冲突，并且此命令可能无法收集所有数据。后续的 `MetroCluster check show` 命令不会显示预期输出。
 
 .步骤

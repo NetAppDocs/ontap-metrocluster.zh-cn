@@ -113,6 +113,7 @@ image::../media/workflow_ip_upgrade.png[工作流 IP 升级]
 
 根据旧平台型号，或者交换机配置不在最低版本上，或者您要更改后端 MetroCluster 连接使用的 VLAN ID ，您必须在开始平台升级操作步骤之前更新交换机 RCF 文件。
 
+.关于此任务
 在以下情况下，您必须更新 RCF 文件：
 
 * 对于某些平台型号，交换机必须使用支持的 VLAN ID 进行后端 MetroCluster IP 连接。如果下表中列出了旧平台或新平台型号，并且 * 不 * 使用支持的 VLAN ID ，则必须更新交换机 RCF 文件。
@@ -200,6 +201,7 @@ VLAN ID 范围为 101 到 4096 （含 101 到 4096 ）。
 
 您必须验证 node_A_1-old 上的物理端口是否正确映射到 node_A_1-new 上的物理端口，从而使 node_A_1-new 能够在升级后与集群中的其他节点以及网络进行通信。
 
+.关于此任务
 在升级过程中首次启动新节点时，它将重放要替换的旧节点的最新配置。启动 node_A_1-new 时， ONTAP 会尝试在 node_A_1-old 上使用的相同端口上托管 LIF 。因此，在升级过程中，您必须调整端口和 LIF 配置，使其与旧节点的配置兼容。在升级操作步骤期间，您将对旧节点和新节点执行步骤，以确保正确配置集群，管理和数据 LIF 。
 
 下表显示了与新节点的端口要求相关的配置更改示例。
@@ -820,6 +822,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/G
 
 在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
 
+.关于此任务
 必须在每个 MetroCluster 站点上执行此任务。
 
 .步骤
@@ -843,6 +846,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/G
 
 您必须将配置切换到 site_A ，以便可以升级 site_B 上的平台。
 
+.关于此任务
 必须在 site_A 上执行此任务
 
 完成此任务后， cluster_A 将处于活动状态，并为两个站点提供数据。cluster_B 处于非活动状态，并已准备好开始升级过程。
@@ -977,6 +981,7 @@ network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
 
 您必须将交换机更新为支持新平台型号的配置。
 
+.关于此任务
 您可以在包含当前正在升级的控制器的站点上执行此任务。在此操作步骤中显示的示例中，我们首先升级 site_B 。
 
 当 site_A 上的控制器升级后， site_A 上的交换机将进行升级。
@@ -1148,6 +1153,7 @@ FC
 
 必须在新控制器模块上配置某些 MetroCluster IP bootarg 值。这些值必须与旧控制器模块上配置的值匹配。
 
+.关于此任务
 在此任务中，您将使用先前在中的升级操作步骤中标识的 UUID 和系统 ID link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html["升级前收集信息"]。
 
 .步骤
@@ -1327,6 +1333,7 @@ setenv bootarg.mcc.dr_partner 537403323
 
 使用先前收集的系统将根聚合磁盘重新分配给新控制器模块。
 
+.关于此任务
 这些步骤在维护模式下执行。
 
 .步骤
@@ -1719,6 +1726,7 @@ Remote: cluster_A         Configuration state configured
 
 升级控制器模块后，您必须验证 MetroCluster 配置的运行状况。
 
+.关于此任务
 此任务可在 MetroCluster 配置中的任何节点上执行。
 
 .步骤

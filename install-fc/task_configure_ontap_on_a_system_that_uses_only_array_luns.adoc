@@ -19,6 +19,7 @@ summary: 如果要配置 ONTAP 以与阵列 LUN 结合使用，则必须配置�
 * 存储阵列管理员必须已配置 LUN 安全性。
 
 
+.关于此任务
 您必须配置要与阵列 LUN 结合使用的每个节点。如果节点位于 HA 对中，则必须先在一个节点上完成配置过程，然后再在配对节点上继续进行配置。
 
 .步骤
@@ -197,6 +198,8 @@ This node has its management address assigned and is ready for cluster setup.
 ----
 
 
+.完成后
 在要与阵列 LUN 结合使用的所有节点上配置 ONTAP 后，您应完成https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["集群设置过程"]
 
+.相关信息
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-irrg/home.html["FlexArray 虚拟化安装要求和参考"]

@@ -13,6 +13,7 @@ summary: 您必须运行 MetroCluster configure -refresh true 命令对已添加
 [role="lead"]
 您必须运行 `MetroCluster configure -refresh true` 命令在已添加到 MetroCluster 配置的节点上启动数据保护。
 
+.关于此任务
 您可以在新添加的一个节点上问题描述一次 `MetroCluster configure -refresh true` 命令，以刷新 MetroCluster 配置。您无需在每个站点或节点上对命令执行问题描述。
 
 使用 `MetroCluster configure -refresh true` 命令可自动将两个集群中每个集群中系统 ID 最低的两个节点配对为灾难恢复（ DR ）配对节点。在四节点 MetroCluster 配置中，存在两个 DR 配对节点对。第二个 DR 对是从系统 ID 较高的两个节点创建的。

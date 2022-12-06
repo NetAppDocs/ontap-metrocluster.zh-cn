@@ -13,6 +13,7 @@ summary: 您可以从ONTAP IP配置中删除MetroCluster 调解器服务。
 [role="lead"]
 您可以从MetroCluster IP配置取消配置ONTAP 调解器服务。
 
+.开始之前
 您必须已在两个ONTAP 站点均可访问的网络位置上成功安装和配置MetroCluster 调解器。
 
 .步骤

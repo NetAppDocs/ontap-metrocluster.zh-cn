@@ -106,6 +106,7 @@ image::../media/workflow_2n_transition_bsaic.png[工作流 2n 过渡 bsaic]
 
 您必须调整 MetroCluster FC 节点的端口和 LIF 配置，使其与要替换它的 MetroCluster IP 节点的端口和 LIF 配置兼容。
 
+.关于此任务
 在升级过程中首次启动新节点时，每个节点都会使用要替换的节点的最新配置。启动 node_A_1-IP 时， ONTAP 会尝试在 node_A_1-FC 上使用的相同端口上托管 LIF 。
 
 在过渡操作步骤期间，您将对新旧节点执行步骤，以确保正确配置集群，管理和数据 LIF 。
@@ -555,6 +556,7 @@ SAN
 
 您必须准备四个新的 MetroCluster IP 节点并安装正确的 ONTAP 版本。
 
+.关于此任务
 必须对每个新节点执行此任务：
 
 * node_A_1-IP

@@ -13,8 +13,10 @@ summary: 您必须将 RCF 文件下载到 MetroCluster 网络结构配置中的�
 [role="lead"]
 您必须将 RCF 文件下载到 MetroCluster 网络结构配置中的每个交换机。
 
+.开始之前
 此任务需要使用 FTP ，简单文件传输协议（ Trivial File Transfer Protocol ， TFTP ）， SFTP 或安全复制协议（ Secure Copy Protocol ， SCP ）等文件传输软件将文件复制到交换机。
 
+.关于此任务
 必须对 MetroCluster 网络结构配置中的每个 Cisco FC 交换机重复执行这些步骤。
 
 您必须使用支持的交换机软件版本。

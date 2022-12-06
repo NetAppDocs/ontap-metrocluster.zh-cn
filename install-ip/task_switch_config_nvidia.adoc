@@ -15,20 +15,21 @@ summary: 您必须将NVIDIA IP交换机配置为用作集群互连和后端Metro
 
 
 
-== 将NVIDIA IP SN2100交换机重置为出厂默认值
+== 【重置交换机】将NVIDIA IP SN2100交换机重置为出厂默认值
 
 您可以从以下方法中选择将交换机重置为出厂默认设置。
 
-* ,使用RCF文件选项重置交换机
-* ,使用Cumulus安装选项重置交换机
+* <<RCF-file-option,使用RCF文件选项重置交换机>>
+* <<Cumulus-install-option,使用Cumulus安装选项重置交换机>>
 
 
 
 
-=== 使用RCF文件选项重置交换机
+=== 【RCF文件选项】使用RCF文件选项重置交换机
 
 在安装新的RCF配置之前、您必须还原NVIDIA交换机设置。
 
+.关于此任务
 要将交换机还原为默认设置、请使用`restoreDefault`选项运行RCF文件。此选项会将备份的原始文件复制到其原始位置、然后重新启动交换机。重新启动后、交换机将与首次运行RCF文件配置交换机时的原始配置联机。
 
 不会重置以下配置详细信息：
@@ -41,7 +42,7 @@ summary: 您必须将NVIDIA IP交换机配置为用作集群互连和后端Metro
 NOTE: 应用RCF文件期间发生的所有其他配置更改都将还原到原始配置。
 
 .开始之前
-* 您必须根据配置交换机 ,下载并安装NVIDIA RCF文件。如果您未以这种方式进行配置、或者在运行RCF文件之前配置了其他功能、则无法使用此操作步骤。
+* 您必须根据配置交换机 <<Download-and-install,下载并安装NVIDIA RCF文件>>。如果您未以这种方式进行配置、或者在运行RCF文件之前配置了其他功能、则无法使用此操作步骤。
 * 您必须对 MetroCluster IP 配置中的每个 IP 交换机重复这些步骤。
 * 您必须使用串行控制台连接连接到交换机。
 * 此任务将重置管理网络的配置。
@@ -111,8 +112,9 @@ Enter yes or no: yes
 
 
 
-=== 使用Cumulus安装选项重置交换机
+=== ["Cumulus-install-option]]使用"Cumulus安装选项重置交换机
 
+.关于此任务
 如果要通过应用Cumulus映像完全重置交换机、请执行以下步骤。
 
 .开始之前
@@ -258,13 +260,13 @@ cumulus@cumulus:mgmt:~$
 cumulus@cumulus:~$ sudo reboot
 ----
 +
-交换机重新启动后、您可以使用中的步骤应用新配置 ,下载并安装NVIDIA RCF文件。
+交换机重新启动后、您可以使用中的步骤应用新配置 <<Download-and-install,下载并安装NVIDIA RCF文件>>。
 
 
 
 
 
-== 下载并安装NVIDIA RCF文件
+== 【下载并安装】下载并安装NVIDIA RCF文件
 
 您必须将交换机 RCF 文件下载并安装到 MetroCluster IP 配置中的每个交换机。
 
@@ -279,6 +281,7 @@ NOTE: 如果在重置交换机后以及应用RCF文件之前执行进一步配�
 
 
 
+.关于此任务
 您必须对MetroCluster IP配置(新安装)中的每个IP交换机或替代交换机(交换机更换)重复上述步骤。
 
 .步骤

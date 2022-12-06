@@ -80,4 +80,5 @@ FC_switch_A_1 ，端口 3
 |===
 
 
+.完成后
 您应使用缆线连接 MetroCluster 站点中 FC 交换机之间的 ISL 。

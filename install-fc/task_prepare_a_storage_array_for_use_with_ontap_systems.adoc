@@ -13,6 +13,7 @@ summary: 在使用阵列 LUN 的 MetroCluster 配置中设置 ONTAP 系统之前
 [role="lead"]
 在使用阵列 LUN 的 MetroCluster 配置中设置 ONTAP 系统之前，存储阵列管理员必须准备用于 ONTAP 的存储。
 
+.开始之前
 您计划在配置中使用的存储阵列，固件和交换机必须受特定 ONTAP 版本支持。
 
 * https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性（ IMT ）"]
@@ -22,6 +23,7 @@ summary: 在使用阵列 LUN 的 MetroCluster 配置中设置 ONTAP 系统之前
 * https://hwu.netapp.com["NetApp Hardware Universe"]
 
 
+.关于此任务
 要在存储阵列上执行此任务，您必须与存储阵列管理员进行协调。
 
 .步骤

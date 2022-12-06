@@ -23,7 +23,7 @@ summary: 您必须确保交换机间链路（ ISL ）位于同一端口组中，
 共享网络结构时的端口号与一节中显示的端口号不同。共享时，请使用端口 46 和 47 作为 ISL 端口。如果移动了 ISL 端口，则需要在中使用操作步骤 link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["在 Brocade FC 交换机上配置 E 端口（ ISL 端口）"] 部分以配置端口。
 
 . 【第 3 步 _zones 】按照中的步骤进行操作 link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["在 Brocade 交换机上配置非 E 端口"] 部分以配置非 E 端口。
-. 请勿删除后端交换机中已存在的分区或分区集（对于 7- 模式网络结构 MetroCluster ），但中的流量隔离（ TI ）分区除外 ,第 3 步。
+. 请勿删除后端交换机中已存在的分区或分区集（对于 7- 模式网络结构 MetroCluster ），但中的流量隔离（ TI ）分区除外 <<step3_zones,第 3 步>>。
 . 按照中的步骤进行操作 link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["在 Brocade FC 交换机上配置 E 端口（ ISL 端口）"] 一节，将新 MetroCluster 所需的分区添加到现有分区集。
 +
 以下示例显示了用于创建分区的命令和系统输出：
