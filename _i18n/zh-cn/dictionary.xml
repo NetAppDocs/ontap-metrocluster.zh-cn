@@ -7602,29 +7602,22 @@
   <block id="7169e1403b175332b81d333c6e2af6ab" category="paragraph">对于 MetroCluster 1 ，使用适用于 FAS2750 平台的表和适用于 MetroCluster 1 接口的行为 Cisco 3132Q-V 交换机布线。</block>
   <block id="0dc1c4c70bff26c7c3ae5646d99a32f7" category="paragraph">对于 MetroCluster 2 （第二个 DR 组），使用适用于 AFF A700 平台的表和适用于 MetroCluster 2 接口的行为 Cisco 3132Q-V 交换机布线。</block>
   <block id="965fd21ca9743b38007dc88ab0a81ba7" category="summary">每个 MetroCluster 站点都配置为其配对站点的对等站点。</block>
-  <block id="169ba71a4cacfeff085e3e52ecd7cc5c" category="summary">从 ONTAP 9.7 开始， MetroCluster IP 配置可以支持未经 NetApp 验证的交换机，但前提是它们符合 NetApp 规格。</block>
   <block id="598ab8da90f7b08fb85eebf2cdb5b642" category="doc">使用符合 MetroCluster 的交换机的注意事项</block>
-  <block id="436efa93c0f96363240fcf2f6fe616f3" category="paragraph">NetApp 提供的 MetroCluster IP 交换机已通过 NetApp 验证。从 ONTAP 9.7 开始， MetroCluster IP 配置可以支持未经 NetApp 验证的交换机，但前提是它们符合 NetApp 规格。</block>
-  <block id="a1a264e616e24563d4b8f8b5795ea403" category="section-title">一般要求</block>
   <block id="c33e2f23b789dd4d078b0a5b51963f75" category="list-text">MetroCluster IP 接口可以连接到可配置为满足要求的任何交换机端口。</block>
   <block id="33205e28b19e76b7edcb7bc5cad77101" category="list-text">对于 FAS8200 和 AFF A300 平台，交换机端口的速度必须为 25 Gbps ，而对于所有其他平台，交换机端口的速度必须至少为 40 Gbps （ 40 Gbps 或 100 Gbps ）。</block>
   <block id="92f69bca586043acecbd273c5ea2d217" category="list-text">ISL 必须为 10 Gbps 或更高，并且必须根据 MetroCluster 配置上的负载调整适当的大小。</block>
-  <block id="a4818aee56ba88705889fb4cb2e4d582" category="list-text">MetroCluster 配置必须连接到两个网络。不支持将两个 MetroCluster 接口连接到同一网络或交换机。每个 MetroCluster 节点都必须连接到两个网络交换机。</block>
   <block id="2d8f234d7714dedd101fd476b6581d02" category="list-text">网络必须满足以下要求：</block>
   <block id="8bbac031447994e5b8b245f9bb913a6e" category="list-text"><block ref="8bbac031447994e5b8b245f9bb913a6e" category="inline-link-macro-rx"></block></block>
   <block id="b0a09f47597f8af9c573c32b664dfa45" category="list-text"><block ref="b0a09f47597f8af9c573c32b664dfa45" category="inline-link-macro-rx"></block></block>
   <block id="67500937686453a2388ecdf97823b682" category="inline-link-macro">中间交换机上的必需设置</block>
   <block id="377c20999d3a2f2bf6430aba5269fa35" category="list-text"><block ref="377c20999d3a2f2bf6430aba5269fa35" category="inline-link-macro-rx"></block></block>
   <block id="e2cccfe2013ba1930aabf09a154e5ffe" category="list-text">必须在传输 MetroCluster IP 流量的所有交换机上配置 MTU 9216 。</block>
-  <block id="b60ff3ae4eb5663308d013544c57fe67" category="section-title">交换机和布线要求</block>
   <block id="0d3b7c7f0d8918f762dea13c0abfd697" category="list-text">交换机必须支持 QoS/traffic 分类。</block>
   <block id="4ff5b50b72910d305ce187223bd1d86d" category="list-text">交换机必须支持显式拥塞通知（ ECN ）。</block>
   <block id="d1e15e63c1fd6cbe9ab03ae500fe90cc" category="list-text">交换机必须支持 L4 端口 -VLAN 负载平衡策略，才能保持路径上的顺序。</block>
   <block id="d40f7578a0d14b583c64b9e1238ce357" category="list-text">这些交换机必须支持 L2 流量控制（ L2 FC ）。</block>
   <block id="0cbb4d7d4f143fb521b8b3f87302bd06" category="list-text">将节点连接到交换机的缆线必须从 NetApp 购买。交换机供应商必须支持我们提供的缆线。</block>
-  <block id="e646e16bee8b32e6ea29e30d01970a6c" category="section-title">限制</block>
   <block id="bd7d6c816fdd7d9da30ecc293b76db32" category="list-text">刷新四节点 MetroCluster IP 配置</block>
-  <block id="4d9a55c7ba617b9a2f2637145490e989" category="admonition">缺少值表示不支持此平台。</block>
   <block id="419f3742e6de8e0ec4b22cce005e7630" category="cell">平台</block>
   <block id="4995a003b2b1032b64bcc8805dea3b99" category="cell">网络速度（ Gbps ）</block>
   <block id="35b8c775f2c2f1e3186a213d6b7931b3" category="paragraph">40 或 100</block>
@@ -7643,7 +7636,6 @@
   <block id="1e3c8e05b670c33032815dc9f814a471" category="paragraph">端口 65200 之间的所有 TCP 流量都会映射到存储（ iSCSI ）类。端口 10006 与端口 10006 之间的所有 TCP 流量都映射到 RDMA 类。</block>
   <block id="7232053d17d6d458acd3dc6a3b06e8ef" category="paragraph">您必须配置传入策略。传入策略会将已分类的流量映射到不同的 COS 组。在此示例中， RDMA 流量映射到 COS 组 5 ， iSCSI 流量映射到 COS 组 4 。</block>
   <block id="8d099e100c2db650c7b3c9471d6c3021" category="paragraph">您必须在交换机上配置传出策略。传出策略会将流量映射到传出队列。在此示例中， RDMA 流量映射到队列 5 ， iSCSI 流量映射到队列 4 。</block>
-  <block id="25bc22925b2f9068c9fb64ebc4252797" category="paragraph">您需要配置一个交换机，使其在 ISL 上具有 MetroCluster 流量，但不连接到任何 MetroCluster 接口。在这种情况下，流量已分类，只需映射到相应的队列即可。在以下示例中，所有 COS5 流量都映射到 RDMA 类，所有 COS4 流量都映射到 iSCSI 类。请注意，这将影响到 COS5 和 COS4 流量的 * 全部 * ，而不仅仅是 MetroCluster 流量。如果您只想映射 MetroCluster 流量，则必须使用上述类映射来使用访问组标识流量。</block>
   <block id="40188be7ae52fbad0eec10d341d64dca" category="section-title">配置 ISL</block>
   <block id="139ee81500499fa6a20d90091e35aedf" category="paragraph">您可以在设置允许的 VLAN 时配置 " 中继 " 模式端口。</block>
   <block id="7f46b9452d630356ab3904d38691b3f5" category="paragraph">有两个命令，一个命令用于 * 设置 * 允许的 VLAN 列表，一个命令用于 * 添加 * 到现有允许的 VLAN 列表。</block>
@@ -11181,8 +11173,6 @@
   <block id="512faff67d2109381c61bd2d3609c40f" category="list-text">风扇或组件故障启动关闭（环境关闭）</block>
   <block id="0fd2020965353993ca7470eaf762f030" category="paragraph">这些要求显示了如何在不使用参考配置（ Reference Configuration ， RCF ）文件的情况下配置符合 MetroCluster 的交换机。</block>
   <block id="73c8b60f13f3d62360643fda70255745" category="list-text">连接到 MetroCluster 节点的交换机可以传输非 MetroCluster 流量。</block>
-  <block id="cf098cf2e14a69fa3c2b33958b968ef8" category="list-text">仅支持为无交换机集群互连提供专用端口的平台。不支持 FAS2750 和 AFF A220 等平台，因为 MetroCluster 流量和 MetroCluster 互连流量共享相同的网络端口。</block>
-  <block id="1aadfb9e7ccba10af1978cf9b5713b16" category="paragraph">不支持将本地集群连接连接到符合 MetroCluster 要求的交换机。</block>
   <block id="ea95364bcb87fe94517fe5fdd5716eae" category="paragraph">集群管理 LIF</block>
   <block id="194e182d2e1cbd0c241a90d312430762" category="paragraph">通过 HTTP （ SSL ）与集群进行安全通信</block>
   <block id="745401930416d41133d5e612be003ead" category="paragraph">通过 SSH 与集群进行安全通信</block>
@@ -12822,4 +12812,25 @@
   <block id="c1902fd1f00ac0b0e269fd37dd64f7e8" category="section-title">站点A nbsp；AutoSupport 信息</block>
   <block id="a321560b2ae4d0c708a5027ac5562270" category="section-title">站点B nbsp；AutoSupport 信息</block>
   <block id="87713443a9395f659a438c305d6fa70d" category="section-title">站点B nbsp；SP信息</block>
+  <block id="a43f4b9d18f498b517f7dd9eede1654d" category="inline-link-macro">NetApp Hardware Universe</block>
+  <block id="d5b877d116ca4502862349e4a1fea007" category="summary">在中列为受支持交换机的MetroCluster IP交换机 <block ref="81064abf44a077ab44fc1d50feb7e8e0" category="inline-link-macro-rx"></block> NetApp提供的和已通过NetApp验证。从ONTAP 9.7开始、MetroCluster IP配置可以使用符合MetroCluster的交换机。这些交换机未经NetApp验证、但符合NetApp规格。但是、NetApp不会为任何未经验证的交换机提供支持服务、故障排除和/或配置。</block>
+  <block id="4275c1aa69fa12af30bea79f33b6ab8b" category="section-title">经过NetApp验证的交换机</block>
+  <block id="1891f9d47aa8c3949d63aba63cfd538e" category="paragraph">如果交换机满足以下所有要求、则它已通过NetApp验证：</block>
+  <block id="cf8d2c69254b785016eeecea385f1512" category="list-text">此交换机由NetApp在MetroCluster IP配置中提供</block>
+  <block id="57bc5d4a7e0c60e62b42b542a38a19d8" category="list-text">交换机已在中列出 <block ref="81064abf44a077ab44fc1d50feb7e8e0" category="inline-link-macro-rx"></block> 在"metrocluster-over-ip-connections"下作为受支持的交换机</block>
+  <block id="44f5b263d419c190d99a3b681f245dad" category="list-text">此交换机仅用于连接MetroCluster IP控制器、在某些配置中、还用于连接NS224驱动器架</block>
+  <block id="643a5bb556beb7d67fd22c0d3de4c759" category="list-text">交换机使用NetApp提供的RCF进行配置(参考配置文件)</block>
+  <block id="579d6ce20a4bdaad6dff3e52bc4e42ba" category="paragraph">任何不符合这些条件的交换机*不*均为经过NetApp验证的交换机。</block>
+  <block id="92bf95b2bb1fdf762ca6c2507b432332" category="section-title">符合MetroCluster的交换机</block>
+  <block id="fb0fc5c459c3f4029ec7b03dd85a909a" category="paragraph">符合MetroCluster的交换机未经NetApp验证、但如果满足以下要求和配置准则、则可以在MetroCluster IP配置中使用。</block>
+  <block id="f2153c30c0089338d3848e4eaa64fc3e" category="admonition">NetApp不会为任何未经验证的MetroCluster兼容交换机提供支持服务、故障排除和/或配置。</block>
+  <block id="2e3b6cbd29fbe534f65b62b67e974e1a" category="section-title">MetroCluster兼容交换机的一般要求</block>
+  <block id="e167cf704969390451b66b4604d89501" category="list-text">只有为无交换机集群互连提供专用端口的平台才能与符合MetroCluster的交换机结合使用。无法使用FAS2750和AFF A220等平台、因为MetroCluster 流量和MetroCluster 互连流量共享相同的网络端口。</block>
+  <block id="832bfdec136453c59e06674dc5b1fbfc" category="paragraph">不能使用符合MetroCluster的交换机进行本地集群连接。</block>
+  <block id="cef3763dc37c86b326ba9f36674ba2b4" category="list-text">MetroCluster 配置必须连接到两个网络。MetroCluster 接口不能连接到同一网络或交换机。每个 MetroCluster 节点都必须连接到两个网络交换机。</block>
+  <block id="320aeba3423b75436241c00392964782" category="section-title">MetroCluster兼容交换机的交换机和布线要求</block>
+  <block id="00da554e6014936ea814019f7270b104" category="section-title">MetroCluster兼容交换机的限制</block>
+  <block id="68d8047cbf72a612dd739f574baa912c" category="paragraph">不能使用要求将本地集群连接连接到交换机的任何配置或功能。例如、以下配置和过程不能用于符合MetroCluster的交换机：</block>
+  <block id="999a0234ad26235f40e860b0131203f6" category="admonition">缺少值表示此平台无法与MetroCluster兼容的交换机结合使用。</block>
+  <block id="e6e94fa732001e55f7fcf67c01c5f249" category="paragraph">您可能需要配置交换机、使其在ISL上具有MetroCluster 流量、但不连接到任何MetroCluster 接口。在这种情况下，流量已分类，只需映射到相应的队列即可。在以下示例中，所有 COS5 流量都映射到 RDMA 类，所有 COS4 流量都映射到 iSCSI 类。请注意，这将影响到 COS5 和 COS4 流量的 * 全部 * ，而不仅仅是 MetroCluster 流量。如果您只想映射 MetroCluster 流量，则必须使用上述类映射来使用访问组标识流量。</block>
 </blocks>
