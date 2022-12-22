@@ -17,20 +17,11 @@ summary: 升级配对集群上的控制器模块时，您可以使用 MetroClust
 
 == 支持的平台组合
 
-您可以在MetroCluster FC配置中使用切换和切回操作升级某些平台。下表显示了支持的控制器升级组合。
+您可以在MetroCluster FC配置中使用切换和切回操作升级某些平台。
 
-如果*当前平台*行和*目标平台*列的交叉点不是绿色、则无法使用此操作步骤。
+有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC升级表 link:concept_choosing_controller_upgrade_mcc.html#metrocluster-fc-controller-upgrades["选择控制器升级操作步骤"]。
 
 请参见 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"] 以了解其他过程。
-
-[NOTE]
-====
-* 此表不会显示从AFF A700/FAS9000控制器到AFF A900/FAS9500控制 器的控制器升级情况。使用支持这种组合 link:task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html["AFF A700/FAS9500switchover/switchback操作步骤"]。
-* 只有运行ONTAP 9.1.1之前版本的系统才支持从使用板载端口0e和0f作为FC-VI连接的AFF A300或FAS8200平台升级控制器。有关详细信息、请查看 link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1507088["公有 报告"]。
-
-
-====
-image::supported_controller_upgrades_mccfc_sosb.png[FC配置中支持的控制器升级组合]
 
 
 

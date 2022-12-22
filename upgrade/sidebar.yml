@@ -1,6 +1,6 @@
 ---
 section: upgrade
-title: 升级或扩展 MetroCluster 配置
+title: 升级、刷新或扩展MetroCluster 配置
 entries:
 - title: 从此处开始—选择您的操作步骤
   entries:
@@ -10,6 +10,8 @@ entries:
     url: "/upgrade/concept_choosing_controller_upgrade_mcc.html"
   - title: 选择system refresh操作步骤
     url: "/upgrade/concept_choosing_tech_refresh_mcc.html"
+  - title: 选择扩展操作步骤
+    url: "/upgrade/concept_choosing_expansion_method_mcc.html"
 - title: 使用切换和切回升级MetroCluster FC中的控制器
   url: "/upgrade/task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html"
 - title: 使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster FC中MetroCluster FC中的控制器(AFF A700/FAS9000到AFF

@@ -17,8 +17,11 @@ summary: 从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配�
 * 运行 ONTAP 9.8 及更高版本的系统支持此操作步骤。
 * 如果要升级 IP 交换机，则应在执行此刷新操作步骤之前对其进行升级。
 * 引用 " 旧节点 " 是指要替换的节点。
-* 配置了 Broadcom BES-53248 交换机的 AFF A320 系统不支持此操作步骤。
-* FAS2750、AFF A220、FAS500f和A250系统不支持此操作步骤。
+* 在MetroCluster FC配置中、只能使用此操作步骤 刷新特定平台型号。
++
+** 有关支持哪些平台升级组合的信息、请查看中的MetroCluster IP刷新表 link:upgrade/concept_choosing_tech_refresh_mcc.html#supported-metrocluster-ip-tech-refresh-combinations["选择系统刷新方法"]。
+
+
 
 
 .步骤

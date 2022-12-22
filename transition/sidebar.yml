@@ -4,8 +4,6 @@ title: 从 MetroCluster FC 过渡到 MetroCluster IP
 entries:
 - title: 选择过渡操作步骤
   url: "/transition/concept_choosing_your_transition_procedure_mcc_transition.html"
-- title: 支持无中断过渡的平台
-  url: "/transition/concept_supported_platforms_for_transition.html"
 - title: 无中断地从 MetroCluster FC 过渡到 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
   entries:
   - title: 概述
