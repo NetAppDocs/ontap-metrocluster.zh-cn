@@ -11506,7 +11506,6 @@
   <block id="2b6500c40992c83321292f4bcb8ec93d" category="paragraph">请参见 <block ref="865643442db88296ffae2da0df72fe39" category="inline-link-macro-rx"></block> 配置 IP 接口时的注意事项。</block>
   <block id="df55218c243d9c828a05e4f0ae9c96d8" category="list-text">验证是否已正确建立连接：</block>
   <block id="29f2ad546591daf9c21a8e1e2148edae" category="list-text">验证磁盘自动分配和分区：</block>
-  <block id="f919294b56bd6736c2dacccd6ba7e8d2" category="paragraph">`storage aggregate mirror -aggregate aggr0_node_A_3-IP`</block>
   <block id="a8f0490385b664bc34aae209741dbdce" category="paragraph">`storage aggregate create -aggregate aggregate-name -node node-name -diskcount no-of-disks -mirror true`</block>
   <block id="ab1c45cb56358465162f8f3a812e6fbe" category="list-text">配置 MetroCluster 以实施更改：</block>
   <block id="7e6d5ec0a20a9a4499623036df823e6b" category="list-text">验证节点是否已添加到其 DR 组：</block>
@@ -12767,8 +12766,6 @@
   <block id="e6e94fa732001e55f7fcf67c01c5f249" category="paragraph">您可能需要配置交换机、使其在ISL上具有MetroCluster 流量、但不连接到任何MetroCluster 接口。在这种情况下，流量已分类，只需映射到相应的队列即可。在以下示例中，所有 COS5 流量都映射到 RDMA 类，所有 COS4 流量都映射到 iSCSI 类。请注意，这将影响到 COS5 和 COS4 流量的 * 全部 * ，而不仅仅是 MetroCluster 流量。如果您只想映射 MetroCluster 流量，则必须使用上述类映射来使用访问组标识流量。</block>
   <block id="09d852286694a04fbe67a38fda6ca956" category="image-alt">MetroCluster fc IP过渡表</block>
   <block id="421c8863e1f7223f216aacf99393b7dd" category="list-text">注1：此平台组合需要ONTAP 9.11.1或更高版本。</block>
-  <block id="234207cc1f3002485022da1892b4559b" category="list-text">注2：FC节点上的本地集群接口必须具有40GbE接口。</block>
-  <block id="6ae32e231af4316f91162f3b9a761e43" category="list-text">注3：FC节点上的本地集群接口必须具有100GbE接口。</block>
   <block id="60ddbd1babdd945c26fbc431202fea6c" category="inline-link-macro">Hardware Universe</block>
   <block id="f90dfbd0dbb63ace6227bf8f3e75efb6" category="admonition">请勿超过平台组合中"较低"的任何对象限制。应用这两个平台的下限对象。请参见 <block ref="62911b0739c1772914819ee9e7282ee4" category="inline-link-macro-rx"></block> 平台限制。</block>
   <block id="6e2ee39d0f9ccdad593782674a048e67" category="inline-link-macro">指向操作步骤 的链接</block>
@@ -12844,4 +12841,9 @@
   <block id="81cce2035bed6113b6ccecaeb9cf25a9" category="sidebar">选择扩展操作步骤</block>
   <block id="6ff6555fd4c104df84532572f5435476" category="sidebar">使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster FC中MetroCluster FC中的控制器(AFF A700/FAS9000到AFF A900/FAS9500）</block>
   <block id="87663f3a8212644181733b0573eae80d" category="sidebar">使用切换和切回升级MetroCluster IP中的控制器(ONTAP 9.8及更高版本)</block>
+  <block id="cbfda5b02caeddc103ebee1baa66d92c" category="list-text">注2：FC节点上的本地集群接口必须具有40GbE接口。此平台组合需要使用ONTAP 9.12.1或更高版本。</block>
+  <block id="55b44ccf6250ba590ce25f63cea8e958" category="list-text">注3：FC节点上的本地集群接口必须具有100GbE接口。此平台组合需要使用ONTAP 9.12.1或更高版本。</block>
+  <block id="9418f262fda4ce79d51366cacd6743b2" category="list-text">除非注释中另有说明或各个平台需要、否则过渡过程都需要使用ONTAP 9.8或更高版本。</block>
+  <block id="90041d31025da7832d4e0b6bec8c78d3" category="paragraph"><block ref="a29b6e7e71b2408a7ef70fb423944511" prefix="" category="inline-code"></block></block>
+  <block id="1ecf45c0e50d338e165546ea9f33580d" category="paragraph">以下示例显示了如何在node_A_3-IP上创建聚合。</block>
 </blocks>
