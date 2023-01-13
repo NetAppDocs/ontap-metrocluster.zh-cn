@@ -121,7 +121,7 @@
 
 
  a| 
-支持 ONTAP AUSO
+支持ONTAP 自动计划外切换(AUSO)
  a| 
 否
  a| 

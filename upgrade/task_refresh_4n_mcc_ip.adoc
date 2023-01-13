@@ -19,7 +19,7 @@ summary: 从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配�
 * 引用 " 旧节点 " 是指要替换的节点。
 * 在MetroCluster FC配置中、只能使用此操作步骤 刷新特定平台型号。
 +
-** 有关支持哪些平台升级组合的信息、请查看中的MetroCluster IP刷新表 link:upgrade/concept_choosing_tech_refresh_mcc.html#supported-metrocluster-ip-tech-refresh-combinations["选择系统刷新方法"]。
+** 有关支持哪些平台升级组合的信息、请查看中的MetroCluster IP刷新表 link:../upgrade/concept_choosing_tech_refresh_mcc.html#supported-metrocluster-ip-tech-refresh-combinations["选择系统刷新方法"]。
 
 
 

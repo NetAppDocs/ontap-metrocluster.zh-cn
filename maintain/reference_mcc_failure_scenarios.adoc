@@ -38,7 +38,7 @@ https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
  a| 
 只有在 MetroCluster Tiebreaker 软件中启用了自动切换后，两个节点才会发生故障。
  a| 
-如果未在 MetroCluster Tiebreaker 软件中启用自动切换，请手动执行 USO 。
+如果未在MetroCluster Tiebreaker软件中启用自动切换、则需要手动执行计划外切换(USO)。
 
 https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
 

@@ -1418,7 +1418,6 @@
   <block id="c99b42bbc420b89b4f8581105f3dda08" category="paragraph">此配置通过本地接管进行恢复。RAID 不受影响。查看系统消息并根据需要更换出现故障的 FRU 。</block>
   <block id="c0f8b52cb7105edfdce46c42cc98404d" category="paragraph">一个站点上的两个节点出现故障</block>
   <block id="406b40e78e7b6a3454f57df57e06960b" category="paragraph">只有在 MetroCluster Tiebreaker 软件中启用了自动切换后，两个节点才会发生故障。</block>
-  <block id="6617ed150c824b1bf6bfaec866dbf7e5" category="paragraph">如果未在 MetroCluster Tiebreaker 软件中启用自动切换，请手动执行 USO 。</block>
   <block id="67fc8bad6d748a5a7e6af6e54b0ead82" category="paragraph">MetroCluster IP 接口—一个端口出现故障</block>
   <block id="dbf12a19b71d91875e489b35ab2fcd63" category="paragraph">系统已降级。其他端口故障会影响 HA 镜像。</block>
   <block id="9748093ed8aa67e8fe1ddbc5f0002504" category="paragraph">此时将使用第二个端口。如果与端口的物理链路断开，则运行状况监控器会生成警报。查看系统消息并根据需要更换出现故障的 FRU 。</block>
@@ -4504,7 +4503,6 @@
   <block id="b85c32cc573ac2ff222d12cee66a9316" category="paragraph">是（仅限本地连接）</block>
   <block id="56fd520ce25840b9ef58f91a32184982" category="paragraph">支持 ADP</block>
   <block id="8f5c309995e5ddcf857afca4860e9894" category="paragraph">支持本地 HA</block>
-  <block id="29eb19ccc37410004be24299184429aa" category="paragraph">支持 ONTAP AUSO</block>
   <block id="a43cff4f46ece5ce4e0cdb1c7a0fd40e" category="paragraph">支持未镜像聚合</block>
   <block id="3a7525345e0b5c609b38b98f11a46394" category="paragraph">支持阵列 LUN</block>
   <block id="5679e05fd5a83a4470281f9a9fff0881" category="paragraph">支持 ONTAP 调解器</block>
@@ -12774,7 +12772,6 @@
   <block id="8435af9be97e0c50b0d730d64b42f198" category="paragraph"><block ref="8435af9be97e0c50b0d730d64b42f198" category="inline-link-macro-rx"></block></block>
   <block id="f7080628c8d078c209fb6b6b18f03a3a" category="paragraph"><block ref="f7080628c8d078c209fb6b6b18f03a3a" category="inline-link-macro-rx"></block></block>
   <block id="4975610bd246038bf0371f5dff472f85" category="list-text">在MetroCluster FC配置中、只能使用此操作步骤 刷新特定平台型号。</block>
-  <block id="837991be7d2221d6599e3d88efd529fd" category="list-text">有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC刷新表 <block ref="098d9a9640b5298b40bdef0da63bc459" category="inline-link-macro-rx"></block>。</block>
   <block id="0defe01fed70ecdf301ed45ee130f658" category="list-text">有关支持的平台升级组合的信息、请查看中的MetroCluster FC升级表 <block ref="5e51ded3128b8f60bc0b91c41dccbb25" category="inline-link-macro-rx"></block>。</block>
   <block id="7aeedda5f35486a7239b2a68ae68fb9a" category="paragraph">根据设备升级的范围、您可以选择控制器升级操作步骤 、系统更新操作步骤 或扩展操作步骤。</block>
   <block id="959c17d1eadff13225c68a5578c6da93" category="paragraph">您使用的控制器升级操作步骤 取决于MetroCluster 配置的平台型号和类型。</block>
@@ -12836,7 +12833,6 @@
   <block id="56ad29882b1f5aa7a765e42a0bd3ca97" category="paragraph"><block ref="56ad29882b1f5aa7a765e42a0bd3ca97" category="inline-link-macro-rx"></block></block>
   <block id="65fc2b3acec6ee29de6484f084e9ad51" category="paragraph">您可以在MetroCluster FC配置中使用切换和切回操作升级某些平台。</block>
   <block id="7c5f3ae5aa1416c77224608ca167ed4c" category="paragraph">有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC升级表 <block ref="5e51ded3128b8f60bc0b91c41dccbb25" category="inline-link-macro-rx"></block>。</block>
-  <block id="453e7486fdad67f2f92e437e6af495ee" category="list-text">有关支持哪些平台升级组合的信息、请查看中的MetroCluster IP刷新表 <block ref="9900dd3b59a39c700581c58c1a5bd91b" category="inline-link-macro-rx"></block>。</block>
   <block id="524f05419622851f7f6289320cc91a6e" category="sidebar">升级、刷新或扩展MetroCluster 配置</block>
   <block id="81cce2035bed6113b6ccecaeb9cf25a9" category="sidebar">选择扩展操作步骤</block>
   <block id="6ff6555fd4c104df84532572f5435476" category="sidebar">使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster FC中MetroCluster FC中的控制器(AFF A700/FAS9000到AFF A900/FAS9500）</block>
@@ -12846,4 +12842,8 @@
   <block id="9418f262fda4ce79d51366cacd6743b2" category="list-text">除非注释中另有说明或各个平台需要、否则过渡过程都需要使用ONTAP 9.8或更高版本。</block>
   <block id="90041d31025da7832d4e0b6bec8c78d3" category="paragraph"><block ref="a29b6e7e71b2408a7ef70fb423944511" prefix="" category="inline-code"></block></block>
   <block id="1ecf45c0e50d338e165546ea9f33580d" category="paragraph">以下示例显示了如何在node_A_3-IP上创建聚合。</block>
+  <block id="ef7e136a1fd917ac9e6587b12e4cfbad" category="paragraph">支持ONTAP 自动计划外切换(AUSO)</block>
+  <block id="9e70c8a747dbcd4eb73fc72a2155c425" category="paragraph">如果未在MetroCluster Tiebreaker软件中启用自动切换、则需要手动执行计划外切换(USO)。</block>
+  <block id="03a06951389ef81ee2c73f9db6d94fbf" category="list-text">有关支持哪些平台升级组合的信息、请查看中的MetroCluster IP刷新表 <block ref="ca31e6122d170c1a660e1ab5d0a9430f" category="inline-link-macro-rx"></block>。</block>
+  <block id="04d849614bcf7a25c057bcb4f136cfc7" category="list-text">有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC刷新表 <block ref="2026df26c379ba66a79d2229c4a71dd8" category="inline-link-macro-rx"></block>。</block>
 </blocks>

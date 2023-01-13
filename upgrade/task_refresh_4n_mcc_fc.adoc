@@ -18,7 +18,7 @@ summary: 您可以通过将四节点 MetroCluster 配置扩展为八节点配置
 
 * 在MetroCluster FC配置中、只能使用此操作步骤 刷新特定平台型号。
 +
-** 有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC刷新表 link:upgrade/concept_choosing_tech_refresh_mcc.html#supported-metrocluster-fc-tech-refresh-combinations["选择系统刷新方法"]。
+** 有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC刷新表 link:../upgrade/concept_choosing_tech_refresh_mcc.html#supported-metrocluster-fc-tech-refresh-combinations["选择系统刷新方法"]。
 
 
 
