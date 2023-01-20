@@ -3540,9 +3540,6 @@
   <block id="d7c2f1f68dfab85a30e0ec280fd028ec" category="list-text">验证是否已禁用集群 HA 。</block>
   <block id="5c3e762ebb6954ea6ec1df3ec8289fc7" category="section-title">将 MetroCluster IP 节点加入集群</block>
   <block id="0374a6e5ac7874327546ae00b1a604d8" category="list-text">将 MetroCluster IP 节点添加到现有 MetroCluster 配置中。</block>
-  <block id="fbfd3619aa54cd6546a334791148c766" category="list-text">将第一个 MetroCluster IP 节点（ node_A_1-IP ）加入现有 MetroCluster FC 配置。</block>
-  <block id="c6bbfa16738696bfd63392cfdc4c0a5c" category="list-text">将第二个 MetroCluster IP 节点（ node_A_2-IP ）加入现有 MetroCluster FC 配置。</block>
-  <block id="3bd4a265daa0ebad936e251efefd2525" category="list-text">重复上述步骤，将 node_B_1-IP 和 node_B_2-IP 加入 cluster_B</block>
   <block id="c278969e1942414c418d0d7d8ac9a149" category="inline-link-macro">配置集群间 LIF</block>
   <block id="8ba940ea91d09fe81fb2362bd009f4b4" category="list-text">在新的 MetroCluster IP 节点上， <block ref="658f71494f9e3f098a91c18b3f1ed366" category="inline-link-macro-rx"></block>。</block>
   <block id="925a374df72441676234c4ae91c02e71" category="paragraph">您会注意到，在运行 `MetroCluster configuration-settings dr-group show` 命令时，旧 MetroCluster FC 节点（ DR 组 1 ）的 DR 组未列出。</block>
@@ -12015,7 +12012,6 @@
   <block id="2b114f6498e5132b0cbcc04ccda11d53" category="list-text">它必须满足 _SCSI MetroCluster 安装和配置 _ 过程中所述的所有要求和布线。</block>
   <block id="80a501c7c310f786642caeb4ba98a43d" category="paragraph">您必须移动第 1 步中标识的 LIF <block ref="f19930c3c7cb7f705cf91593411955ab" category="inline-link-macro-rx"></block>。</block>
   <block id="db53daa46cc857a5ca6ccd9ab19fe451" category="paragraph">在以下步骤中，您将转到其他过程。您必须按给定顺序执行每个引用的操作步骤中的步骤。</block>
-  <block id="29e21146baddc462ae95a60cebbec773" category="admonition">您可以从任一集群配置 MetroCluster IP 接口。此外，从 ONTAP 9.1.1 开始，如果使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见链接： ./install-IP/concept_considerations_layer_3.html 。</block>
   <block id="679c1dc70b523e1092eb2a7b3129711d" category="paragraph">验证是否已为端口和广播域正确设置 MTU 设置并进行更改。</block>
   <block id="af6710425f9b72f8e5aeb24aa9d0bac6" category="summary">从 ONTAP 9.8 开始，支持将工作负载和数据从现有四节点 MetroCluster FC 配置无中断过渡到新的 MetroCluster IP 配置。</block>
   <block id="dd29cf7134047c7a311edc4776b9021e" category="paragraph">如果您使用的是双节点 MetroCluster FC 配置，请参见 <block ref="ef88855c7d052c0aa5ce46e187d01954" category="inline-link-macro-rx"></block>。</block>
@@ -12846,4 +12842,21 @@
   <block id="9e70c8a747dbcd4eb73fc72a2155c425" category="paragraph">如果未在MetroCluster Tiebreaker软件中启用自动切换、则需要手动执行计划外切换(USO)。</block>
   <block id="03a06951389ef81ee2c73f9db6d94fbf" category="list-text">有关支持哪些平台升级组合的信息、请查看中的MetroCluster IP刷新表 <block ref="ca31e6122d170c1a660e1ab5d0a9430f" category="inline-link-macro-rx"></block>。</block>
   <block id="04d849614bcf7a25c057bcb4f136cfc7" category="list-text">有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC刷新表 <block ref="2026df26c379ba66a79d2229c4a71dd8" category="inline-link-macro-rx"></block>。</block>
+  <block id="7f3573698486df0e906484a42b56260a" category="list-text">将第一个MetroCluster IP节点(node_A_3-IP)加入现有MetroCluster FC配置。</block>
+  <block id="2cc9b0ebb585ef702d75e1a9560e44ee" category="list-text">将第二个MetroCluster IP节点(node_A_4-IP)加入现有MetroCluster FC配置。</block>
+  <block id="43978c682537332f0c17e45dcf81c394" category="list-text">重复上述步骤、将node_B_3-IP和node_B_4-IP加入cluster_B</block>
+  <block id="56276c01f8fdea330f7d547910dbe817" category="inline-link-macro">第 3 层广域网的注意事项</block>
+  <block id="5464631d6fd9ed12f95c271bf666c4bc" category="admonition">您可以从任一集群配置 MetroCluster IP 接口。此外、从ONTAP 9.1.1开始、如果您使用的是第3层配置、则还必须指定<block ref="50e57debf79bf52aa078c6e993f8969f" prefix=" " category="inline-code"></block> 创建MetroCluster IP接口时的参数。请参见 <block ref="1e1496262359096cc1cfeecfa4cefcb5" category="inline-link-macro-rx"></block></block>
+  <block id="d62d7bce1fe91e6c1145e8a56018d13e" category="admonition">在配置了高级驱动器分区(ADP)的系统上、容器类型为"共享"、而不是"远程"、如示例输出所示。</block>
+  <block id="bad8ee5726316ec5f26bb0039cbf4bc6" category="summary">MetroCluster Tiebreaker活动会记录在事件日志文件中。</block>
+  <block id="08b9323d7a1af549de439f419bb3096a" category="doc">MetroCluster Tiebreaker的事件日志文件</block>
+  <block id="bbeded76bf1f0922d3c3d140c95591b9" category="paragraph">事件日志文件包含MetroCluster Tiebreaker软件执行的所有操作的日志。</block>
+  <block id="a683f94e07dea51d4fd5a8ef0f351f0a" category="paragraph">Tiebreaker软件将执行以下操作：</block>
+  <block id="4b331bdac9dc044af8ef6c6502e176f3" category="list-text">检测站点灾难</block>
+  <block id="62bb78b2baed22256e5a91c1b10b48ae" category="list-text">检测与数据库、其他Tiebreaker监控器或MetroCluster Tiebreaker软件相关的配置更改</block>
+  <block id="74e0bf9f3312e196cf0f79415f5fd557" category="list-text">检测SSH连接和断开连接</block>
+  <block id="e7937ee1a1ffc7f60a0d80b1dcee5b56" category="list-text">发现MetroCluster 配置</block>
+  <block id="98c16872714765876ef7301d6b92820a" category="paragraph">这些操作将以以下格式记录在事件日志文件中：</block>
+  <block id="efddb3b6772ab4f446bebb2bda2d2155" category="paragraph">时间戳严重性/日志级别线程ID模块</block>
+  <block id="690f8ff3b8b65da4f1bc779fb507da9d" category="sidebar">MetroCluster Tiebreaker事件日志文件</block>
 </blocks>

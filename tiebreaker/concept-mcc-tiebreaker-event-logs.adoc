@@ -1,0 +1,32 @@
+---
+permalink: tiebreaker/concept-mcc-tiebreaker-event-logs.html 
+sidebar: sidebar 
+keywords: metrocluster, tiebreaker, actions, events, event, log files, files, logs, file 
+summary: MetroCluster Tiebreaker活动会记录在事件日志文件中。 
+---
+= MetroCluster Tiebreaker的事件日志文件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+事件日志文件包含MetroCluster Tiebreaker软件执行的所有操作的日志。
+
+Tiebreaker软件将执行以下操作：
+
+* 检测站点灾难
+* 检测与数据库、其他Tiebreaker监控器或MetroCluster Tiebreaker软件相关的配置更改
+* 检测SSH连接和断开连接
+* 发现MetroCluster 配置
+
+
+这些操作将以以下格式记录在事件日志文件中：
+
+时间戳严重性/日志级别线程ID模块
+
+....
+2022-09-07 06:14:30,797 INFO  [MCCTBCommandServer-16] [SslSupport] Successfully initiated SSL context. Protocol used is TLSv1.3.
+2022-09-07 06:14:34,137 INFO  [MCCTBCommandServer-16] [DataBase] Successfully read MCCTB database.
+2022-09-07 06:14:34,137 INFO  [MCCTBCommandServer-16] [ConfigurationMonitor] Debug mode disabled.
+....

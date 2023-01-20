@@ -167,7 +167,7 @@ cluster_B::>
 .步骤
 . 将 MetroCluster IP 节点添加到现有 MetroCluster 配置中。
 +
-.. 将第一个 MetroCluster IP 节点（ node_A_1-IP ）加入现有 MetroCluster FC 配置。
+.. 将第一个MetroCluster IP节点(node_A_3-IP)加入现有MetroCluster FC配置。
 +
 ....
 
@@ -219,10 +219,10 @@ Do you want to use this configuration? {yes, no} [yes]: yes
 .
 .
 ....
-.. 将第二个 MetroCluster IP 节点（ node_A_2-IP ）加入现有 MetroCluster FC 配置。
+.. 将第二个MetroCluster IP节点(node_A_4-IP)加入现有MetroCluster FC配置。
 
 
-. 重复上述步骤，将 node_B_1-IP 和 node_B_2-IP 加入 cluster_B
+. 重复上述步骤、将node_B_3-IP和node_B_4-IP加入cluster_B
 
 
 
@@ -343,7 +343,7 @@ MetroCluster configuration-settings interface create -cluster-name`
 
 +
 
-NOTE: 您可以从任一集群配置 MetroCluster IP 接口。此外，从 ONTAP 9.1.1 开始，如果使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见链接： ./install-IP/concept_considerations_layer_3.html 。
+NOTE: 您可以从任一集群配置 MetroCluster IP 接口。此外、从ONTAP 9.1.1开始、如果您使用的是第3层配置、则还必须指定 `-gateway` 创建MetroCluster IP接口时的参数。请参见 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]
 
 +
 ....
@@ -520,9 +520,12 @@ Disk                   Size Shelf Bay Type    Type        Name      Owner
 2.20.10             546.9GB    20  10 SAS     aggregate   rha1_a1_aggr1 node_a_1
 ...
 43 entries were displayed.
-
 cluster_A::>
 ....
++
+
+NOTE: 在配置了高级驱动器分区(ADP)的系统上、容器类型为"共享"、而不是"远程"、如示例输出所示。
+
 . 镜像根聚合：
 +
 `storage aggregate mirror -aggregate aggr0_node_A_3_IP`
