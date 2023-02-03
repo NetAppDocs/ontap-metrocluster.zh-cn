@@ -89,6 +89,9 @@ ONTAP 调解器使用多个端口与特定服务进行通信。
 
 下表列出了防火墙中必须允许的端口：
 
+
+NOTE: 只有在MetroCluster IP配置中才需要iSCSI端口。
+
 |===
 
 
@@ -109,7 +112,7 @@ REST API （ HTTPS ）
  a| 
 3260 TCP
  a| 
-ONTAP 集群
+ONTAP 集群(数据LIF或数据管理LIF)
  a| 
 ONTAP 调解器 iSCSI 目标
  a| 

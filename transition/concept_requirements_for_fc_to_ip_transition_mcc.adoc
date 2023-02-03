@@ -16,7 +16,7 @@ summary: 在开始过渡过程之前，您必须确保配置满足要求。
 * 此配置必须为四节点配置，并且所有节点都必须运行 ONTAP 9.8 或更高版本。
 * 现有平台和新平台必须是过渡支持的组合。
 +
-link:concept_supported_platforms_for_transition.html["支持无中断过渡的平台"]
+link:concept_choosing_your_transition_procedure_mcc_transition.html["支持无中断过渡的平台"]
 
 * 它必须支持交换集群配置。
 +
