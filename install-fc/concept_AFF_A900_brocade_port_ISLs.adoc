@@ -13,14 +13,14 @@ summary: 下表显示了 AFF A900 系统中 Brocade 交换机的 ISL 端口使�
 下表显示了AFF A900或FAS9500系统中Brocade交换机的ISL端口使用情况。
 
 
-NOTE: AFF A900和FAS9500系统支持八个ISL。Brocade 6510 ， G620 ， G620-1 和 G720 交换机支持八个 ISL 。
+NOTE: AFF A900和FAS9500系统支持八个ISL。Brocade 6510、G620、G620-1、G630、G630-1、和G720交换机。
 
 |===
 | 交换机型号 | ISL 端口 | 交换机端口 
 
 
  a| 
-6510 ， G620 ， G620-1 ， G720
+6510、G620、G620-1、G630、G630-1、G720
 | ISL1 | 40 
 
 
