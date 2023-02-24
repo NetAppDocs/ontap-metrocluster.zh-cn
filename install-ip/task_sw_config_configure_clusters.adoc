@@ -11,6 +11,9 @@ summary: 您必须对集群建立对等关系，镜像根聚合，创建镜像�
 [role="lead"]
 您必须对集群建立对等关系，镜像根聚合，创建镜像数据聚合，然后问题描述命令以实施 MetroCluster 操作。
 
+.关于此任务
+运行前 `metrocluster configure`、未启用HA模式和DR镜像、您可能会看到与此预期行为相关的错误消息。稍后在运行命令时启用HA模式和DR镜像 `metrocluster configure` 以实施配置。
+
 
 
 == 禁用自动驱动器分配（如果在 ONTAP 9.4 中执行手动分配）

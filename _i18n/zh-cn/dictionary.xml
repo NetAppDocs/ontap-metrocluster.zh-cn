@@ -11500,7 +11500,6 @@
   <block id="df55218c243d9c828a05e4f0ae9c96d8" category="list-text">验证是否已正确建立连接：</block>
   <block id="29f2ad546591daf9c21a8e1e2148edae" category="list-text">验证磁盘自动分配和分区：</block>
   <block id="a8f0490385b664bc34aae209741dbdce" category="paragraph">`storage aggregate create -aggregate aggregate-name -node node-name -diskcount no-of-disks -mirror true`</block>
-  <block id="ab1c45cb56358465162f8f3a812e6fbe" category="list-text">配置 MetroCluster 以实施更改：</block>
   <block id="7e6d5ec0a20a9a4499623036df823e6b" category="list-text">验证节点是否已添加到其 DR 组：</block>
   <block id="9727e668cbd91ea1a73ea3f2e53d09ec" category="paragraph">`volume move start -volume mDV-volume -destination-aggregate aggr-on-new-node -vserver vserver-name`</block>
   <block id="b8fe2ce6521b74b903977795ff693df9" category="paragraph">`volume show mDV-name`</block>
@@ -12861,4 +12860,8 @@
   <block id="4026cb63b92cdc28e17e39a79de589f7" category="paragraph">ONTAP 集群(数据LIF或数据管理LIF)</block>
   <block id="fd9b3eaeebb236fdcf40b5456ccc900e" category="admonition">AFF A900和FAS9500系统支持八个ISL。Brocade 6510、G620、G620-1、G630、G630-1、和G720交换机。</block>
   <block id="81d4bf20c117cfe06c727511dd63382b" category="paragraph">6510、G620、G620-1、G630、G630-1、G720</block>
+  <block id="64cdec386f8cc50c2a2ec9316633b629" category="paragraph">运行前<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block>、未启用HA模式和DR镜像、您可能会看到与此预期行为相关的错误消息。稍后在运行命令时启用HA模式和DR镜像<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block> 以实施配置。</block>
+  <block id="929a405a00082b7cddc01ac6b47159f6" category="list-text">根据MetroCluster 具有单个或多个数据聚合来配置它：</block>
+  <block id="5ffd33f8dea25274cffabd9b7ab1c36e" category="paragraph">您必须回答<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> 当系统提示您继续进入高级模式时、您会看到高级模式提示符(*)。</block>
+  <block id="1fd3081a4bf2b2b1ccafeb89c824a5d2" category="admonition">最佳做法是、具有多个镜像数据聚合。如果只有一个镜像聚合、则保护程度较低、因为元数据卷位于同一个聚合上、而不是位于不同的聚合上。</block>
 </blocks>

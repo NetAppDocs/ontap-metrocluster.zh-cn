@@ -600,22 +600,51 @@ aggr_data_a2
 您必须将新的 DR 组加入 MetroCluster 配置，并在新节点上创建镜像数据聚合。
 
 .步骤
-. 配置 MetroCluster 以实施更改：
+. 根据MetroCluster 具有单个或多个数据聚合来配置它：
 +
-MetroCluster configure`
+|===
 
-+
+
+| 如果您的 MetroCluster 配置 ... | 然后执行此操作 ... 
+
+
+ a| 
+多个数据聚合
+ a| 
+从任何节点的提示符处，配置 MetroCluster ：
+
+MetroCluster configure _node-name_`
+
 
 NOTE: 您必须运行 `MetroCluster configure` 和 * 不 * `MetroCluster configure -refresh true`
 
+
+
+ a| 
+一个镜像数据聚合
+ a| 
+.. 在任何节点的提示符处，更改为高级权限级别：
 +
-....
-cluster_A::> metrocluster configure
+`set -privilege advanced`
 
-[Job 439] Job succeeded: Configure is successful.
++
+您必须回答 `y` 当系统提示您继续进入高级模式时、您会看到高级模式提示符(*)。
 
-cluster_A::>
-....
+.. 使用 ` -allow-with-one-aggregate true` 参数配置 MetroCluster ：
++
+`MetroCluster configure -allow-with-one-aggregate true _node-name_`
+
+.. 返回到管理权限级别：
++
+`set -privilege admin`
+
+
+
+|===
++
+
+NOTE: 最佳做法是、具有多个镜像数据聚合。如果只有一个镜像聚合、则保护程度较低、因为元数据卷位于同一个聚合上、而不是位于不同的聚合上。
+
 . 验证节点是否已添加到其 DR 组：
 +
 `MetroCluster node show`
