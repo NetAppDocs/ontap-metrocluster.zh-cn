@@ -13,4 +13,6 @@ summary: 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，�
 [role="lead"]
 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。
 
+如果在配置期间控制器模块发生故障、请参见 link:../disaster-recovery/concept_choosing_the_correct_recovery_procedure_parent_concept.html#controller-module-failure-scenarios-during-metrocluster-installation["MetroCluster 安装期间的控制器模块故障场景"]。
+
 image::../media/workflow_mcc_ip_high_level_node_and_cluster_configuration_software.svg[Workflow MCC IP 高级节点和集群配置软件]

@@ -8446,7 +8446,6 @@
   <block id="b3f86a877f6ea26216000f89d5bf892c" category="list-text">控制器模块外部的其他硬件出现故障</block>
   <block id="fd4a684eb57b47e219dba160f184d10a" category="paragraph">您应跳过驱动器分配的所有步骤。</block>
   <block id="dc0c368a1922eaf19a6855f5ad8d0d14" category="list-text">一个 DR 组中的多个控制器模块出现故障（存在或不存在其他故障）</block>
-  <block id="9bf79a5c424f73ef9e47171ed7990f3e" category="section-title">MetroCluster FC-IP 过渡期间的控制器模块故障场景</block>
   <block id="22585ab22291d597a4bba70a7c31406b" category="paragraph">如果过渡期间发生站点故障，可以使用恢复操作步骤。但是，只有在配置为稳定的混合配置且 FC DR 组和 IP DR 组均已完全配置的情况下，才能使用此配置。`MetroCluster node show` 命令的输出应显示两个 DR 组以及全部八个节点。</block>
   <block id="5a7fd8ca0af58c99ec76faf59c614922" category="admonition">如果在过渡期间添加或删除节点时发生故障，您必须联系技术支持。</block>
   <block id="ab1494884dc22965631b6a9814fe75a6" category="section-title">八节点 MetroCluster 配置中的控制器模块故障情形</block>
@@ -12864,4 +12863,13 @@
   <block id="929a405a00082b7cddc01ac6b47159f6" category="list-text">根据MetroCluster 具有单个或多个数据聚合来配置它：</block>
   <block id="5ffd33f8dea25274cffabd9b7ab1c36e" category="paragraph">您必须回答<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> 当系统提示您继续进入高级模式时、您会看到高级模式提示符(*)。</block>
   <block id="1fd3081a4bf2b2b1ccafeb89c824a5d2" category="admonition">最佳做法是、具有多个镜像数据聚合。如果只有一个镜像聚合、则保护程度较低、因为元数据卷位于同一个聚合上、而不是位于不同的聚合上。</block>
+  <block id="3a02d8d4d0c731efe2550cb0db8b9626" category="inline-link-macro">MetroCluster 安装期间的控制器模块故障场景</block>
+  <block id="3975d998da71c5679e24fd76827cedb3" category="paragraph">如果在配置期间控制器模块发生故障、请参见 <block ref="5184dce34568aa2bdcc7cb6d2fe3f540" category="inline-link-macro-rx"></block>。</block>
+  <block id="c772808016cce686234dc8c5339463c5" category="paragraph">此表中的此信息假定安装或过渡已完成、即<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block> 命令已成功运行。</block>
+  <block id="7d677bbca4c8c648b22ad2b73d684197" category="section-title">MetroCluster 安装期间的控制器模块故障场景</block>
+  <block id="5f07f69c69bd236d8043669ebd3a920b" category="paragraph">在MetroCluster 配置操作步骤 期间响应控制器模块故障取决于是否<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block> 命令成功完成。</block>
+  <block id="d8230f83ef3ade7e9ba6071d54f0e853" category="list-text">如果<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block> 命令尚未运行或失败、您必须从头使用替代控制器模块重新启动MetroCluster 软件配置操作步骤。</block>
+  <block id="6a9c67444d70fbe1484e9983092ffff8" category="admonition">您必须确保执行中的步骤 <block ref="b6e3e97b1b6ab70165db8088036aef95" category="inline-link-macro-rx"></block> 在每个控制器(包括替代控制器)上、验证先前的配置是否已删除。</block>
+  <block id="779a44ac931df50e9ba3ac26bbca035e" category="list-text">如果<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block> 命令成功完成、然后控制器模块出现故障、请使用上表确定正确的恢复操作步骤。</block>
+  <block id="57c5f3148ec34d732973b7f905f1ca84" category="section-title">MetroCluster FC-IP过渡期间的控制器模块故障场景</block>
 </blocks>

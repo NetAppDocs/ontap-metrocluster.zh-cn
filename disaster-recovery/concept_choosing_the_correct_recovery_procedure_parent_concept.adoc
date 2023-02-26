@@ -13,6 +13,8 @@ summary: 在 MetroCluster 配置中发生故障后，您必须根据故障范围
 [role="lead"]
 在 MetroCluster 配置出现故障后，您必须选择正确的恢复操作步骤。使用下表和示例选择相应的恢复操作步骤。
 
+此表中的此信息假定安装或过渡已完成、即 `metrocluster configure` 命令已成功运行。
+
 |===
 
 
@@ -71,7 +73,21 @@ link:task_recover_from_a_multi_controller_and_or_storage_failure.html["从多控
 |===
 
 
-== MetroCluster FC-IP 过渡期间的控制器模块故障场景
+== MetroCluster 安装期间的控制器模块故障场景
+
+在MetroCluster 配置操作步骤 期间响应控制器模块故障取决于是否 `metrocluster configure` 命令成功完成。
+
+* 如果 `metrocluster configure` 命令尚未运行或失败、您必须从头使用替代控制器模块重新启动MetroCluster 软件配置操作步骤。
++
+
+NOTE: 您必须确保执行中的步骤 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_sw_config_restore_defaults.html["还原控制器模块上的系统默认值"] 在每个控制器(包括替代控制器)上、验证先前的配置是否已删除。
+
+* 如果 `metrocluster configure` 命令成功完成、然后控制器模块出现故障、请使用上表确定正确的恢复操作步骤。
+
+
+
+
+== MetroCluster FC-IP过渡期间的控制器模块故障场景
 
 如果过渡期间发生站点故障，可以使用恢复操作步骤。但是，只有在配置为稳定的混合配置且 FC DR 组和 IP DR 组均已完全配置的情况下，才能使用此配置。`MetroCluster node show` 命令的输出应显示两个 DR 组以及全部八个节点。
 
