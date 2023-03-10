@@ -52,7 +52,7 @@ ClusterB::> aggr delete -aggregate aggregate_name
 
 NOTE: 不会删除根聚合。
 
-... 将数据LIF置于脱机状态。+
+... 将数据LIF置于脱机状态。
 `network interface modify -vserver _svm-name_ -lif _data-lif_ -status-admin down`
 ... 将所有数据 LIF 迁移到另一个 DR 组中的主节点。+ `network interface show -home-node _old_node_s`
 +

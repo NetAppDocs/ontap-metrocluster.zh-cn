@@ -36,7 +36,7 @@ MetroCluster 配置使用两个物理隔离的镜像集群来保护数据。每�
 image::../media/mcc_hw_architecture_local_ha.gif[MCC 硬件架构本地 ha]
 
 .相关信息
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["高可用性配置"^]
+link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["高可用性配置"^]
 
 
 
@@ -225,7 +225,7 @@ image::../media/mcc_nvram_mirroring_example_dynamic_dr_aux.gif[MCC NVRAM 镜像�
 本地 HA 对中的一个组件出现故障。
 
 +
-在四节点 MetroCluster 配置中，此故障可能会导致受损节点的自动接管或协商接管，具体取决于发生故障的组件。数据恢复在 _High Availability Configuration Guides_ 中进行了介绍。
+在四节点 MetroCluster 配置中，此故障可能会导致受损节点的自动接管或协商接管，具体取决于发生故障的组件。中介绍了数据恢复 link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["高可用性对管理"^] 。
 
 +
 在双节点 MetroCluster 配置中，此故障会导致自动计划外切换（ AUSO ）。
@@ -235,7 +235,7 @@ image::../media/mcc_nvram_mirroring_example_dynamic_dr_aux.gif[MCC NVRAM 镜像�
 由于断电，更换设备或发生灾难，站点上的所有控制器模块都发生故障。通常， MetroCluster 配置无法区分故障和灾难。但是， MetroCluster Tiebreaker 软件等见证软件可以区分它们。如果交换机间链路（ ISL ）和交换机已启动且存储可访问，则站点级控制器故障情况可能会导致自动切换。
 
 +
-《高可用性配置指南》提供了有关如何从站点级控制器故障中恢复的详细信息，这些故障不包括控制器故障，也不包括一个或多个控制器的故障。
+link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["高可用性对管理"^] 了解有关如何从不包括控制器故障的站点级控制器故障以及包括一个或多个控制器的故障中恢复的详细信息。
 
 * ISL 故障
 +
@@ -285,7 +285,7 @@ NOTE: MetroCluster IP配置不支持AUSO (自动计划外切换)。
 
 对于四节点和八节点 MetroCluster 配置，由于崩溃或断电而导致的节点故障可以发生原因自动切换。
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["高可用性配置"^]
+link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["高可用性对管理"^]
 
 如果在本地故障转移后发生第二个故障，则 MetroCluster 切换事件将提供持续的无中断操作。同样，在执行切换操作后，如果某个正常运行的节点发生第二次故障，则本地故障转移事件将提供持续的无中断操作。在这种情况下，单个运行正常的节点为 DR 组中的其他三个节点提供数据。
 

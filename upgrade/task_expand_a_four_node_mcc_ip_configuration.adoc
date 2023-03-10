@@ -17,11 +17,11 @@ summary: 您可以将四个新节点作为第二个 DR 组添加到 MetroCluster
 * 新旧节点必须运行相同版本的 ONTAP 。
 * 您必须确保旧平台型号和新平台型号支持平台混合。
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 * 您必须确保旧平台型号和新平台型号均受 IP 交换机支持。
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 * 新节点必须具有足够的存储空间来容纳旧节点的数据，并具有足够的磁盘来容纳根聚合和备用磁盘。
 * FAS2750或AFF A220系统不支持此操作步骤。
@@ -132,16 +132,16 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 . 验证集群是否运行正常：
 +
-`cluster show -vserver cluster`
+`cluster show`
 
 +
 [listing]
 ----
-cluster_A::> cluster show -vserver Cluster
-Node           Health  Eligibility   Epsilon
--------------- ------  -----------   -------
-node_A_1    true    true          false
-node_A_2    true    true          false
+cluster_A::> cluster show
+Node           Health  Eligibility
+-------------- ------  -----------
+node_A_1       true    true
+node_A_2       true    true
 
 cluster_A::>
 ----
@@ -310,6 +310,93 @@ link:../install-ip/using_rcf_generator.html["为 IP 交换机布线"]
 . 在维护模式下，问题描述 halt 命令退出维护模式，然后问题描述 boot_ontap 命令启动系统并进入集群设置。
 +
 此时请勿完成集群向导或节点向导。
+
+
+
+
+
+== 升级 RCF 文件
+
+[role="lead"]
+如果要安装新的交换机固件，则必须先安装交换机固件，然后再升级 RCF 文件。
+
+.关于此任务
+此操作步骤会中断升级 RCF 文件的交换机上的流量。应用新 RCF 文件后，流量将恢复。
+
+.步骤
+. 验证配置的运行状况。
++
+.. 验证 MetroCluster 组件是否运行正常：
++
+`MetroCluster check run`
+
++
+[listing]
+----
+cluster_A::*> metrocluster check run
+
+----
+
+
++
+此操作将在后台运行。
+
++
+.. 在 `MetroCluster check run` 操作完成后，运行 `MetroCluster check show` 以查看结果。
++
+大约五分钟后，将显示以下结果：
+
++
+[listing]
+----
+-----------
+::*> metrocluster check show
+
+Last Checked On: 4/7/2019 21:15:05
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          warning
+clusters            ok
+connections         not-applicable
+volumes             ok
+7 entries were displayed.
+----
+.. 检查正在运行的 MetroCluster 检查操作的状态：
++
+MetroCluster 操作历史记录显示 -job-id 38`
+
+.. 验证是否没有运行状况警报：
++
+`s系统运行状况警报显示`
+
+
+
+. 准备 IP 交换机以应用新的 RCF 文件。
++
+按照适用于您的交换机供应商的步骤进行操作：
+
++
+** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"^]
+** link:../install-ip/task_switch_config_cisco.html["将 Cisco IP 交换机重置为出厂默认值"^]
+
+
+. 根据交换机供应商的不同、下载并安装IP RCF文件。
++
+
+NOTE: 按以下顺序更新交换机：switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2
+
++
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom IP RCF 文件"]
+** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
++
+
+NOTE: 如果您使用的是L2共享或L3网络配置、则可能需要调整中间/客户交换机上的ISL端口。交换机端口模式可能会从"访问"模式更改为"中继"模式。只有在交换机A_1和B_1之间的网络连接完全正常且网络运行状况良好的情况下、才能继续升级第二个交换机对(A_2、B_2)。
+
+
 
 
 
@@ -873,6 +960,32 @@ aggr_data_a2
 您必须将新的 DR 组加入 MetroCluster 配置，并在新节点上创建镜像数据聚合。
 
 .步骤
+. 刷新 MetroCluster 配置：
++
+.. 进入高级权限模式：
++
+`set -privilege advanced`
+
+.. 在其中一个新节点上刷新 MetroCluster 配置：
++
+MetroCluster configure`
+
++
+以下示例显示了在两个 DR 组上刷新的 MetroCluster 配置：
+
++
+[listing]
+----
+cluster_A::*> metrocluster configure -refresh true
+
+[Job 726] Job succeeded: Configure is successful.
+----
+.. 返回到管理权限模式：
++
+`set -privilege admin`
+
+
+
 . 在每个新 MetroCluster 节点上创建镜像数据聚合：
 +
 `storage aggregate create -aggregate _aggregate-name_ -node _node-name_ -diskcount _no-of-disks_-mirror true`
@@ -922,32 +1035,6 @@ Do you want to continue? {y|n}: y
 
 cluster_A::>
 ----
-. 刷新 MetroCluster 配置：
-+
-.. 进入高级权限模式：
-+
-`set -privilege advanced`
-
-.. 在其中一个新节点上刷新 MetroCluster 配置：
-+
-MetroCluster configure`
-
-+
-以下示例显示了在两个 DR 组上刷新的 MetroCluster 配置：
-
-+
-[listing]
-----
-cluster_A::*> metrocluster configure -refresh true
-
-[Job 726] Job succeeded: Configure is successful.
-----
-.. 返回到管理权限模式：
-+
-`set -privilege admin`
-
-
-
 . 验证节点是否已添加到其 DR 组。
 +
 [listing]
@@ -1016,7 +1103,7 @@ cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 +
 [listing]
 ----
-cluster_A::> vol move start -volume MDV_CRS_d6b0b313ff5611e9837100a098544e51_A -destination-aggregate data_a3 -vserver cluster_A
+cluster_A::*> vol move start -volume MDV_CRS_d6b0b313ff5611e9837100a098544e51_A -destination-aggregate data_a3 -vserver cluster_A
 
 Warning: You are about to modify the system volume
          "MDV_CRS_d6b0b313ff5611e9837100a098544e51_A". This might cause severe
@@ -1034,16 +1121,12 @@ Warning: You are about to modify the system volume
 +
 [listing]
 ----
-cluster_A::> vol show MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
+cluster_A::*> vol show MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 Vserver     Volume       Aggregate    State      Type       Size  Available Used%
 ---------   ------------ ------------ ---------- ---- ---------- ---------- -----
 cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
                        aggr_a2      online     RW         10GB     9.50GB    0%
 ----
-.. 返回到管理模式：
-+
-`set -privilege admin`
-
 
 
 . 将 epsilon 从旧节点移动到新节点：
@@ -1055,7 +1138,7 @@ cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 +
 [listing]
 ----
-cluster_B::> cluster show -fields epsilon
+cluster_B::*> cluster show -fields epsilon
 node             epsilon
 ---------------- -------
 node_A_1-old      true
@@ -1079,7 +1162,7 @@ node_A_4-new      false
 +
 [listing]
 ----
-cluster_A::> cluster show -fields epsilon
+cluster_A::*> cluster show -fields epsilon
 node             epsilon
 ---------------- -------
 node_A_1-old      false

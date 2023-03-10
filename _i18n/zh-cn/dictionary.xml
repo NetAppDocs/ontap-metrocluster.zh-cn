@@ -4046,11 +4046,9 @@
   <block id="09f81e5c41b5cbf59e868532256e9c4d" category="paragraph">您需要熟悉不同类型的故障和灾难，以便使用 MetroCluster 配置做出适当的响应。</block>
   <block id="5bfc201d41e9f1d875dab1348c8fe184" category="list-text">单节点故障</block>
   <block id="6c628e5bd1e441cf84dbfb33c4e702fe" category="paragraph">本地 HA 对中的一个组件出现故障。</block>
-  <block id="b3595fee10e224030fc39a6fcf960976" category="paragraph">在四节点 MetroCluster 配置中，此故障可能会导致受损节点的自动接管或协商接管，具体取决于发生故障的组件。数据恢复在 _High Availability Configuration Guides_ 中进行了介绍。</block>
   <block id="6f22e733ca2220a1bcbe5e8c43b2b096" category="paragraph">在双节点 MetroCluster 配置中，此故障会导致自动计划外切换（ AUSO ）。</block>
   <block id="568ff3fa260956a48e6aec64320335ec" category="list-text">站点级控制器故障</block>
   <block id="97a8761d85aa340fbdd48793649910be" category="paragraph">由于断电，更换设备或发生灾难，站点上的所有控制器模块都发生故障。通常， MetroCluster 配置无法区分故障和灾难。但是， MetroCluster Tiebreaker 软件等见证软件可以区分它们。如果交换机间链路（ ISL ）和交换机已启动且存储可访问，则站点级控制器故障情况可能会导致自动切换。</block>
-  <block id="0b5534d532d225b5627bcdb233683b18" category="paragraph">《高可用性配置指南》提供了有关如何从站点级控制器故障中恢复的详细信息，这些故障不包括控制器故障，也不包括一个或多个控制器的故障。</block>
   <block id="de977f98763f9cb159f730adb49d54f6" category="list-text">ISL 故障</block>
   <block id="9a3848005e80fb99f99cbd76fac6e3ad" category="paragraph">站点之间的链路失败。MetroCluster 配置不执行任何操作。每个节点都会继续正常提供数据，但镜像不会写入相应的灾难恢复站点，因为对这些站点的访问将丢失。</block>
   <block id="c2b2988e42872fbbf4eff058f98ecdb3" category="list-text">多个连续故障</block>
@@ -8837,14 +8835,10 @@
   <block id="a51e1a2414271dabb40bc15842ca2d83" category="paragraph">`ssystem node halt -node disaster -site-node-name`</block>
   <block id="000918ea512f2105cbb6880aa17027ff" category="paragraph">如果灾难站点节点已被销毁或无法暂停，请关闭节点的电源，在恢复操作步骤中指示之前不要启动替代节点。</block>
   <block id="8d05d7bd3136c1c3d27ce612d1642b55" category="paragraph">除了在测试和维护期间提供无中断操作之外，切换过程还允许您通过一条命令从站点故障中恢复。</block>
-  <block id="e79358e0d6be348f3b30497d0f74086f" category="list-text">在执行切换之前，必须至少有一个运行正常的站点节点已启动并正在运行。</block>
   <block id="46244e26ed027de3f7dac5055551ea67" category="list-text">在执行切回操作之前，必须完成所有先前的配置更改。</block>
   <block id="ca776b7a0f214042bab6636ff7235436" category="admonition">系统会自动删除 SnapMirror 和 SnapVault 配置。</block>
   <block id="7adfea65bac9026340a67e4c4fbc6cf1" category="paragraph">`MetroCluster switchover` 命令可切换 MetroCluster 配置中所有 DR 组中的节点。例如，在八节点 MetroCluster 配置中，它会切换两个 DR 组中的节点。</block>
-  <block id="f0e97f395ca7acc4142d44b8d5fcd22a" category="list-text">实施切换：</block>
-  <block id="5872a2b6450f234576cf5d48bcdde6d1" category="paragraph">此操作可能需要几分钟时间才能完成。</block>
   <block id="7e2e7baa90ed02c71ec0c1aff8c2f52f" category="list-text">系统提示您继续切换时，请选择问题解答 `y` 。</block>
-  <block id="b046f473d72fa4bb3a8b003d1f1c4ca0" category="list-text">运行 MetroCluster operation show 命令，验证切换是否已成功完成。</block>
   <block id="37a919d754d5135e54d0f9a3243827d8" category="paragraph">如果切换被否决，您可以使用 ` -override-vetoes` 选项重新发出 `MetroCluster switchover-forced-on-disaster true` 命令。如果您使用此可选参数，则系统将覆盖阻止切换的任何软否决。</block>
   <block id="8e2df6a076ab8c2df47dff186e779dab" category="paragraph">需要在切换后重新建立 SnapMirror 关系。</block>
   <block id="3f98066376e4f19519c40bfdf06de035" category="paragraph">在 MetroCluster 切换后运行 `storage aggregate plex show` 命令时，切换后的根聚合的 plex0 状态不确定，并显示为 failed 。在此期间，切换后的根不会更新。只有在 MetroCluster 修复阶段之后才能确定此丛的实际状态。</block>
@@ -11256,7 +11250,6 @@
   <block id="c9be8983d832ceeb7431b3d34e79d29f" category="cell">还原节点后，需要使用 `MetroCluster heal -phase aggregates` ， `MetroCluster heal -phase root-aggregates` 和 `MetroCluster switchback` 命令手动修复和切回。注意：运行 ONTAP 9.5 或更高版本的 MetroCluster IP 配置不需要使用 `MetroCluster heal` 命令。</block>
   <block id="c3abe929e3f8742291998fd60cfc40f2" category="cell">还原节点后，需要使用 `MetroCluster healing` 和 `MetroCluster switchback` 命令手动修复和切回。运行 ONTAP 9.5 的 MetroCluster IP 配置不需要 `MetroCluster heal` 命令。</block>
   <block id="51c891ddfc65b7cd72dee57af8c5bb3d" category="cell">使用 `MetroCluster switchover -forced-on-disaster` 命令执行 MetroCluster 强制切换。</block>
-  <block id="2541c7fda2cb2bc37bc40ec988280653" category="paragraph"><block ref="2541c7fda2cb2bc37bc40ec988280653" category="inline-link-rx"></block></block>
   <block id="258d0f4f46275edb228af1aa3070307e" category="paragraph">请参见<block ref="8b3dd639d38b6901224b7572bee11d00" category="inline-link-rx"></block>。</block>
   <block id="82c4a9d1333f46979f5cb311c6ec88f7" category="paragraph">如果两个站点中的一个站点由于崩溃而具有问题描述，则 MetroCluster 切换可提供持续无中断运行。如果断电同时影响节点和存储，则切换不会自动进行，并且会发生中断，直到发出 `MetroCluster switchover` 命令为止。</block>
   <block id="6d4916a696465226956e5724ea76b8d1" category="paragraph"><block ref="6d4916a696465226956e5724ea76b8d1" category="inline-link-macro-rx"></block></block>
@@ -12695,7 +12688,6 @@
   <block id="a417bfe3b0e85c20658fe71357feb3ef" category="paragraph">有关完整的命令语法，请参见手册页。以下示例将创建集群间 LIF cluster01_icl01 和 cluster01_icl02 ：</block>
   <block id="0074a60c2f111fa09e324bfc6f086bfd" category="paragraph">运行命令：<block ref="08fd4296d1145ee217b3ba481add0899" prefix=" " category="inline-code"></block></block>
   <block id="bb084c29063404b6611bde28d4ed57d3" category="paragraph">运行命令：<block ref="4686e63f75ecbb5593b9aac27ab89dd7" prefix=" " category="inline-code"></block></block>
-  <block id="52fef25c133f347af6547e0d7325285d" category="list-text">将数据LIF置于脱机状态。+<block ref="58d060d8bc95409e743c7b8e95e72710" prefix=" " category="inline-code"></block></block>
   <block id="3c01c02ef0bb0d39aaf5f9cbc5c8ea4b" category="paragraph"><block ref="6b5ac3bb2bcffd222567cf972f8a2548" prefix="" category="inline-code"></block></block>
   <block id="f7967c2b46538ede39d7960526ce1fa4" category="list-text">将数据LIF重新联机。<block ref="c5b63f9c60f25a11e5c1cde65fb540f1" prefix=" " category="inline-code"></block></block>
   <block id="f677111a20e676139c4a865021fafa0d" category="paragraph"><block ref="850d7b5cf3d569632a8982fc791023b0" prefix="" category="inline-code"></block></block>
@@ -12872,4 +12864,16 @@
   <block id="6a9c67444d70fbe1484e9983092ffff8" category="admonition">您必须确保执行中的步骤 <block ref="b6e3e97b1b6ab70165db8088036aef95" category="inline-link-macro-rx"></block> 在每个控制器(包括替代控制器)上、验证先前的配置是否已删除。</block>
   <block id="779a44ac931df50e9ba3ac26bbca035e" category="list-text">如果<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block> 命令成功完成、然后控制器模块出现故障、请使用上表确定正确的恢复操作步骤。</block>
   <block id="57c5f3148ec34d732973b7f905f1ca84" category="section-title">MetroCluster FC-IP过渡期间的控制器模块故障场景</block>
+  <block id="b79001d76282bba800ccc9b5187d2ad4" category="list-text">将数据LIF置于脱机状态。<block ref="58d060d8bc95409e743c7b8e95e72710" prefix=" " category="inline-code"></block></block>
+  <block id="6bf7a249268f3de77afe5f47cab93371" category="list-text"><block ref="6bf7a249268f3de77afe5f47cab93371" category="inline-link-macro-rx"></block></block>
+  <block id="6a6fc2b9cb4bc74b0b6f0528b0da3e1e" category="list-text"><block ref="6a6fc2b9cb4bc74b0b6f0528b0da3e1e" category="inline-link-macro-rx"></block></block>
+  <block id="467f07382f2568a4248a6dee67437d64" category="paragraph"><block ref="467f07382f2568a4248a6dee67437d64" category="inline-link-macro-rx"></block></block>
+  <block id="d570f5d821344a6838aaa260987eafc8" category="inline-link-macro">高可用性对管理</block>
+  <block id="519460f530eb0c6817aeafcaef72fd69" category="paragraph">在四节点 MetroCluster 配置中，此故障可能会导致受损节点的自动接管或协商接管，具体取决于发生故障的组件。中介绍了数据恢复 <block ref="098c4bee7c591ea5429ed6be6c4ddd42" category="inline-link-macro-rx"></block> 。</block>
+  <block id="9b8483df982fc88c283d98b86d41f86f" category="paragraph"><block ref="098c4bee7c591ea5429ed6be6c4ddd42" category="inline-link-macro-rx"></block> 了解有关如何从不包括控制器故障的站点级控制器故障以及包括一个或多个控制器的故障中恢复的详细信息。</block>
+  <block id="098c4bee7c591ea5429ed6be6c4ddd42" category="paragraph"><block ref="098c4bee7c591ea5429ed6be6c4ddd42" category="inline-link-macro-rx"></block></block>
+  <block id="2054a94796fbdefe9b1b24a74c1e246e" category="list-text">在执行切换之前、必须至少有一个运行正常的站点节点已启动且正在运行。</block>
+  <block id="6fe56a61eacaba0f58f729f4dff36b33" category="list-text">在运行正常的站点上运行以下命令、以执行切换：</block>
+  <block id="9b6012ae921487ba43de70a4b89eea50" category="admonition">此操作可能需要几分钟时间才能完成。您可以使用验证进度<block ref="0d47d8f5f26b2a71aacf597494f0adbb" prefix=" " category="inline-code"></block> 命令：</block>
+  <block id="732b254ce7502fe430a0cca5faf72038" category="list-text">运行以验证切换是否已成功完成<block ref="0d47d8f5f26b2a71aacf597494f0adbb" prefix=" " category="inline-code"></block> 命令：</block>
 </blocks>
