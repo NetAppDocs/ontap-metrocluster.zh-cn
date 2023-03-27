@@ -17,12 +17,13 @@ summary: 安装 Tiebreaker 软件后，您可以添加或修改 MetroCluster 配
 
 == 启动 Tiebreaker 软件 CLI
 
-安装 Tiebreaker 软件后，您必须启动其命令行界面来配置该软件。
+安装Tiebreaker软件后、您必须启动其命令行界面来配置该软件。
 
 . 从安装该软件的主机的提示符启动命令行界面：
 +
 `NetApp-MetroCluster-Tiebreaker 软件 -CLI`
 
+. 安装后以及首次启动期间、输入Tiebreaker用户访问数据库的密码。这是您在安装期间为数据库用户指定的密码。
 
 
 
@@ -162,7 +163,7 @@ software.
 禁用日志记录的调试模式
 
 |===
-可以使用 Tiebreaker CLI `update-mcctb-password` 命令更新用户密码。
+在运行Tiebreaker 1.4及更早版本的系统中、使用Tiebreaker CLI `update-mcctb-password` 命令可用于更新用户密码。此命令在Tiebreaker 1.5及更高版本中已弃用。
 
 [cols="30,70"]
 |===

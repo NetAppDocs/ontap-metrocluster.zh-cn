@@ -14,8 +14,7 @@ entries:
     url: "/upgrade/concept_choosing_expansion_method_mcc.html"
 - title: 使用切换和切回升级MetroCluster FC中的控制器
   url: "/upgrade/task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html"
-- title: 使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster FC中MetroCluster FC中的控制器(AFF A700/FAS9000到AFF
-    A900/FAS9500）
+- title: 使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster FC配置中的控制器(AFF A700/FAS9000到AFF A900/FAS9500)
   url: "/upgrade/task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html"
 - title: 使用切换和切回命令使用system controller replace升级四节点MetroCluster FC中的控制器(ONTAP 9.10.1及更高版本)
   url: "/upgrade/task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_fc.html"
@@ -57,9 +56,9 @@ entries:
       entries:
       - title: 前提条件和安装
         url: "/upgrade/task_install_and_cable_the_new_controller.html"
-      - title: 使用缆线将新控制器模块的 FC-VI 和 HBA 端口连接到 FC 交换机
+      - title: 使用缆线将新控制器模块的FC-VI和HBA端口连接到FC交换机
         url: "/upgrade/task_cable_the_controller_module_s_fc_vi_hba_ports_to_the_fc_switches_controller_to_fc_sw.html"
-      - title: '为新控制器模块布线和 #8217 的集群对等连接'
+      - title: 为新控制器模块的集群对等连接布线
         url: "/upgrade/task_cable_the_cluster_peering_connections.html"
     - title: 启动两个控制器模块并显示 LOADER 提示符
       url: "/upgrade/task_power_up_both_controller_modules_and_display_the_loader_prompt_2_node_mcc_expansion.html"
@@ -91,7 +90,7 @@ entries:
       url: "/upgrade/task_install_firmware_after_add_a_controller_module.html"
   - title: 使用新控制器刷新 MetroCluster 配置
     url: "/upgrade/task_refresh_the_mcc_configuration_mcc_configure_refresh.html"
-  - title: 在两个控制器模块和 enabl 集群 HA 上启用存储故障转移
+  - title: 在两个控制器模块上启用存储故障转移并启用集群HA
     url: "/upgrade/task_enable_storage_failover_both_controller_modules_and_set_cluster_ha.html"
   - title: 重新启动 SVM
     url: "/upgrade/task_restart_the_svms.html"

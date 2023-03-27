@@ -11,29 +11,32 @@ summary: 要在 Tiebreaker 软件中使用 SNMP ，必须配置 SNMP 设置。
 
 
 [role="lead"]
-要在 Tiebreaker 软件中使用 SNMP ，必须配置 SNMP 设置。
+要在Tiebreaker软件中使用SNMP、必须配置SNMP设置。
 
-. 使用 Tiebreaker CLI SNMP config 向导命令添加 MetroCluster 配置。
+. 使用Tiebreaker CLI `snmp config wizard` 用于添加MetroCluster 配置的命令。
 +
 
 NOTE: 当前仅支持一个 SNMP 陷阱主机。
 
 +
-以下示例显示了一个 SNMP 接收器的配置，该接收器支持 SNMP V1 ， IP 地址为 10.222.210.234 ，端口号为 162 的陷阱消息以及社区字符串设置为公有：
+以下示例显示了一个SNMP接收器的配置、该接收器支持SNMP V3、其IP地址为10.240.45.66、端口号为162、用于发送陷阱消息。Tiebreaker 软件已准备好向您指定的 SNMP 接收器发送陷阱。
 
 +
 ....
 
 NetApp MetroCluster Tiebreaker :> snmp config wizard
-Enter SNMP Version [V1/V3]: V1
-Enter SNMP Host: 10.222.210.234
+Enter SNMP Version[V1/V3]: v3
+Enter SNMP Host: 10.240.45.66
 Enter SNMP Port: 162
-Enter SNMP V1 Community: public
+Enter SNMP V3 Security Name: v3sec
+Enter SNMP V3 Authentication password:
+Enter SNMP V3 Privacy password:
+Engine ID : 8000031504932eff571825192a6f1193b265e24593
 Successfully added SNMP properties to NetApp MetroCluster Tiebreaker software.
-NetApp MetroCluster Tiebreaker :>
 ....
 +
-Tiebreaker 软件已准备好向您指定的 SNMP 接收器发送陷阱。
+
+NOTE: 您应配置SNMPv3、因为SNMPv1不安全。确保默认社区字符串*未*设置为public。
 
 . 验证是否已配置 SNMP 设置：
 +

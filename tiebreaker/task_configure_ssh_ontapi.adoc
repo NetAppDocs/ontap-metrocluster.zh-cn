@@ -1,0 +1,25 @@
+---
+permalink: tiebreaker/task_configure_ssh_ontapi.html 
+sidebar: sidebar 
+keywords: admin, access, ontapi, ssh, configure 
+summary: 您可以配置对ONTAP API和SSH的管理员访问权限。 
+---
+= 配置对ONTAP API和SSH的管理员访问权限
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以配置对ONTAP API和SSH的管理员访问权限。
+
+.步骤
+. 创建具有ONTAP API访问权限的管理员用户： `security login create -user-or-group-name _mcctb_ -application ontapi -authentication-method _password_`
+. 创建具有SSH访问权限的管理员用户： `security login create -user-or-group-name _mcctb_ -application _ssh_ -authentication-method _password_`
+. 验证是否已创建新的管理员用户： `security login show`
+. 在配对集群上重复上述步骤。
++
+
+NOTE: link:https://docs.netapp.com/us-en/ontap/concepts/administrator-authentication-rbac-concept.html["管理员身份验证和 RBAC"^] 已实施。
+
+

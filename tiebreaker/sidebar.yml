@@ -4,6 +4,8 @@ title: 安装和配置 MetroCluster Tiebreaker
 entries:
 - title: Tiebreaker 软件概述
   url: "/tiebreaker/concept_overview_of_the_tiebreaker_software.html"
+- title: 配置对ONTAPI和SSH的管理员访问权限
+  url: "/tiebreaker/task_configure_ssh_ontapi.html"
 - title: 安装 Tiebreaker 软件
   url: "/tiebreaker/task_install_the_tiebreaker_software.html"
 - title: 配置 Tiebreaker 软件
