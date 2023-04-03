@@ -29,7 +29,7 @@ NOTE: 请勿超过平台组合中"较低"的任何对象限制。应用这两个
 
 === 支持的MetroCluster IP技术更新组合
 
-image::../media/metrocluster_ip_tech_refresh.png[MetroCluster IP技术更新]
+image::../media/metrocluster_ip_tech_refresh_yellowdogp1.png[MetroCluster IP技术更新yellowdogp1.]
 
 * 请确保在添加新负载之前完成技术更新操作步骤。
 

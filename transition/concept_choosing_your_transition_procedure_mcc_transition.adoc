@@ -17,7 +17,7 @@ summary: 您必须根据现有 MetroCluster FC 配置选择过渡操作步骤。
 
 例如，支持从包含 AFF8060 控制器模块的 MetroCluster FC 配置过渡到包含 AFF A400 控制器模块的 IP 配置。
 
-image::../media/metrocluster_fc_ip_transition_matrix.png[MetroCluster fc IP过渡表]
+image::../media/metrocluster_fc_ip_transition_matrix_yellowdogp1.png[MetroCluster fc IP过渡表yellowdogp1.]
 
 * 注1：此平台组合需要ONTAP 9.11.1或更高版本。
 * 注2：FC节点上的本地集群接口必须具有40GbE接口。此平台组合需要使用ONTAP 9.12.1或更高版本。

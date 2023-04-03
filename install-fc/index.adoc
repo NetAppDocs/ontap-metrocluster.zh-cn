@@ -14,7 +14,8 @@ summary: 要安装光纤连接的 MetroCluster 配置，必须按正确顺序执
 要安装光纤连接的 MetroCluster 配置，必须按正确顺序执行多个过程。
 
 * link:../install-fc/concept_considerations_differences.html["准备安装并了解所有要求"]。
-* link:../install-fc/concept_choosing_the_correct_installation_procedure_for_your_configuration_mcc_install.html["选择正确的安装操作步骤"]* link:../install-fc/task_configure_the_mcc_hardware_components_fabric.html["为组件布线"]
+* link:../install-fc/concept_choosing_the_correct_installation_procedure_for_your_configuration_mcc_install.html["选择正确的安装操作步骤"]
+* link:../install-fc/task_configure_the_mcc_hardware_components_fabric.html["为组件布线"]
 * link:../install-fc/concept_configure_the_mcc_software_in_ontap.html["配置软件"]
 * link:../install-fc/task_test_the_mcc_configuration.html["测试配置"]
 

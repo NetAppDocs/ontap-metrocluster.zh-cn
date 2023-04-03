@@ -19,11 +19,11 @@ MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台�
 
 目前支持以下平台：
 
-* FAS500f / AFF A250
-* FAS8300 / AFF A400
+* FAS500f / AFF C250/ AFF A250
+* FAS8300 / AFF C400/ AFF A400
 * FAS8700
 * FAS9000/FASA700 AFF
-* AFF A800
+* AFF C800/ AFF A800
 
 
 目前不支持以下平台和配置：
@@ -39,30 +39,18 @@ MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台�
 
 
 
-NOTE: 端口13和14可以在支持40 Gbps和100 Gbps的原生 速度模式下使用、也可以在分支模式下使用以支持4×25 Gbps或4×10 Gbps。如果它们使用原生 速度模式、则表示为端口13和14。如果它们使用分支模式4×25 Gbps或4×10 Gbps、则表示为13s0-3和14s0-3。
+NOTE: 端口13和14可以在支持40 Gbps和100 Gbps的原生 速度模式下使用、也可以在分支模式下使用以支持4×25 Gbps或4×10 Gbps。如果它们使用本机速度模式、则表示为端口13和14。如果它们使用分支模式4×25 Gbps或4×10 Gbps、则表示为端口13s0-3和14s0-3。
 
 以下各节将介绍物理布线概述。您也可以参考 https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator"] 有关详细的布线信息。
 
 
 
-== AFF A250 或 FAS500f 系统的交换机端口使用情况
+== FAS500f、AFF C250或AFF A250的交换机端口使用情况
 
-image::../media/mcc_ip_cabling_A250_MSN2100.png[MCC IP布线A250 MSN2100]
-
-
-
-== AFF A400 ， FAS8300 或 FAS8700 系统的交换机端口使用情况
-
-image::../media/mcc_ip_cabling_A400_MSN2100.png[MCC IP布线A400 MSN2100]
+image::../media/mcc_ip_cabling_A250_C250_MSN2100.png[MCC IP布线A250 C250 MSN2100]
 
 
 
-== AFF A700或FAS9000的交换机端口使用情况
+== AFF C400、AFF A400、AFF A700或FAS9000、FAS8300或FAS8700 AFF A800的交换机端口使用情况
 
-image::../media/mcc_ip_cabling_A700_MSN2100.png[MCC IP布线A700 MSN2100]
-
-
-
-== AFF A800的交换机端口使用情况
-
-image::../media/mcc_ip_cabling_A800_MSN2100.png[MCC IP布线A800 MSN2100]
+image::../media/mcc_ip_cabling_aff250_400_700_800_cseriesMSN2100.png[MCC IP布线aff250 400 700 800串行MSN2100]

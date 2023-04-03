@@ -29,7 +29,7 @@ summary: 您使用的升级操作步骤 取决于平台型号。
 
 === 支持的MetroCluster IP控制器升级
 
-image::../media/metrocluster_ip_upgrade_table.PNG[MetroCluster IP升级表]
+image::../media/metrocluster_ip_upgrade_table_yellowdogdp1.PNG[MetroCluster IP升级表yellowdup1.]
 
 * 注1：要进行此升级、请使用操作步骤 link:task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html["使用切换和切回功能将MetroCluster IP配置中的AFF A700/FAS9000控制器升级到AFF A900/FAS9500 (ONTAP 9.10.1或更高版本)"]
 
@@ -38,7 +38,7 @@ image::../media/metrocluster_ip_upgrade_table.PNG[MetroCluster IP升级表]
 
 === 支持的MetroCluster FC控制器升级
 
-image::../media/metrocluster_fc_upgrade_table.PNG[MetroCluster fc升级表]
+image::../media/metrocluster_fc_upgrade_table_yellowdogp1.PNG[MetroCluster fc升级表yellowdogp1.]
 
 * 注1：如果现有FAS8020或AFF8020节点上的FCVI连接使用端口1c和1d、则要升级控制器、请参见以下内容https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Upgrading_controllers_when_FCVI_connections_on_existing_FAS8020_or_AFF8020_nodes_use_ports_1c_and_1d["知识库文章"^]。
 * 注2：只有运行ONTAP 9.1.1的系统才支持从使用板载端口0e和0f作为FC-VI连接的AFF A300或FAS8200平台升级控制器。或更早版本。有关详细信息、请查看 link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1507088["公有 报告"^]。

@@ -156,7 +156,7 @@ e5a ， e5b
 
 
  a| 
-AFF A800
+AFF A800、AFF C800
  a| 
 X1146A/ 板载端口
  a| 
@@ -167,7 +167,7 @@ e0be1b
 
 
  a| 
-AFF A400 和 FAS8300
+FAS8300、AFF A400和AFF C400
  a| 
 X1146A
  a| 
@@ -189,7 +189,7 @@ e1a ， e1b
 
 
  a| 
-AFF A220 和 FAS2750
+FAS2750、AFF A150和AFF A220
  a| 
 板载端口
  a| 
@@ -200,7 +200,7 @@ e0a ， e0b
 
 
  a| 
-AFF A250 和 FAS500f
+FAS500f、AFF A250和AFF C250
  a| 
 板载端口
  a| 

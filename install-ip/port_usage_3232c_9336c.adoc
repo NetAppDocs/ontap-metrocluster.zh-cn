@@ -31,63 +31,28 @@ MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台�
 
 == 使用缆线将两个 MetroCluster 配置连接到交换机
 
-如果使用缆线将多个 MetroCluster 配置连接到一个 Cisco 3132Q-V 交换机，请根据相应表为每个 MetroCluster 布线。例如，如果使用缆线将 FAS2750 和 A700 连接到同一个 Cisco 3132Q-V 交换机。然后，按照表 1 中的 " MetroCluster 1" 连接 FAS2750 ，按照表 2 中的 " MetroCluster 2" 或 " MetroCluster 3" 连接 A700 。您不能将 FAS2750 和 A700 以物理方式连接为 MetroCluster 1 。
+如果使用缆线将多个MetroCluster 配置连接到一个Cisco 3132Q-V交换机、则必须根据相应表为每个MetroCluster 布线。例如、如果使用缆线将FAS2750和AFF A700连接到同一个Cisco 3132Q-V交换机。然后、按照表1中的"FAS2750"和AFF 表2中的"FAS2" MetroCluster 或MetroCluster MetroCluster 3"为FAS2750布线。您不能将FAS2750和AFF A700以物理方式连接为MetroCluster 1。
 
 
 
-== 使用缆线将 FAS2750 或 AFF A220 系统连接到 Cisco 3232C 或 Cisco 9336C 交换机
+== 使用缆线将AFF A150、FAS2750、AFF A220、FAS500f、AFF C250或AFF A250连接到Cisco 3232C或Cisco 9333-FX2C交换机
 
-image::../media/mcc_ip_cabling_an_aff_a220_or_fas2750_to_a_cisco_3232c_or_cisco_9336c_switch.png[通过 MCC IP 将 AFF a220 或 fas2750 连接到 Cisco 3232c 或 Cisco 9336c 交换机]
+image::../media/mcc_ip_cabling_a150_a220_a250_to_a_cisco_3232c_or_cisco_9336c_switch.png[MCC IP使用缆线将A150 a220 A250连接到Cisco 3232c或Cisco 9336c交换机]
 
 
 
-== 使用缆线将 AFF A300 或 FAS8200 连接到 Cisco 3232C 或 Cisco 9336C 交换机
+== 使用缆线将FAS8200或AFF A300连接到Cisco 3232C或Cisco 9336C交换机
 
 image::../media/mcc_ip_cabling_a_aff_a300_or_fas8200_to_a_cisco_3232c_or_cisco_9336c_switch.png[通过 MCC IP 将 AFF a300 或 fas8200 连接到 Cisco 3232c 或 Cisco 9336c 交换机]
 
 
 
-== 使用缆线将 AFF A250 或 FAS500f 连接到 Cisco 3232C 或 Cisco 9336C 交换机
+== 为AFF A320、FAS8300、AFF C400、AFF A400、FAS8700布线 FAS9000、AFF A700、AFF C800、AFF A800、FAS9500或AFF A900
 
-image::../media/mcc_ip_cabling_an_aff_a250_or_fas500f_to_a_cisco_3232c_or_cisco_9336c_switch.png[通过 MCC IP 将 AFF A250 或 fas500f 连接到 Cisco 3232c 或 Cisco 9336c 交换机]
-
-
-
-== 使用缆线将 AFF A320 连接到 Cisco 3232C 或 Cisco 9336C 交换机
-
-image::../media/cabling_a_aff_a320_to_a_cisco_3232c_or_cisco_9336c_switch.png[使用缆线将 AFF A320 连接到 Cisco 3232c 或 Cisco 9336c 交换机]
+image::../media/mcc_ip_cabling_a320_a400_a700_a800_a900 _cisco_3232C or_9336c_switch.png[MCC IP布线A320 a400 a700 a800 a900 Cisco 3232C或9336c交换机]
 
 
 
-== 使用缆线将 AFF A400 ， FAS8300 或 FAS8700 连接到 Cisco 3232C 或 Cisco 9336C 交换机
+== 为AFF A320、AFF C400、AFF A400、AFF A700、AFF C800、 或AFF A800连接到Cisco 9336C-x2共享交换机
 
-image::../media/cabling_a_mcc_ip_aff_a400_fas8300_or_fas8700_to_a_cisco_3232c_or_cisco_9336c_switch.png[使用缆线将 MCC IP AFF a400 fas8300 或 fas8700 连接到 Cisco 3232c 或 Cisco 9336c 交换机]
-
-
-
-== 使用缆线将 AFF A700 或 FAS9000 连接到 Cisco 3232C 或 Cisco 9336C 交换机
-
-image::../media/mcc_ip_cabling_a_aff_a700_or_fas9000_to_a_cisco_3232c_or_cisco_9336c_switch.png[通过 MCC IP 将 AFF a700 或 fas9000 连接到 Cisco 3232c 或 Cisco 9336c 交换机]
-
-
-
-== 使用缆线将 AFF A800 连接到 Cisco 3232C 或 Cisco 9336C 交换机
-
-image::../media/cabling_an_aff_a800_to_a_cisco_3232c_or_cisco_9336c_switch.png[使用缆线将 AFF a800 连接到 Cisco 3232c 或 Cisco 9336c 交换机]
-
-
-
-== 使用缆线将AFF A900或FAS9500连接 到Cisco 3232C或Cisco 9336C交换机
-
-
-NOTE: 您可以选择在MetroCluster IP配置中使用端口e5a和e7a作为集群间LIF。
-
-image:../media/cabling_an_aff_a900_or_FAS9500_to_a_cisco_3232c_or_cisco_9336c_switch.png[""]
-
-
-
-== 使用缆线将 AFF A320 ， AFF A400 ， AFF A700 或 AFF A800 连接到 Cisco 9336C-x2 共享交换机
-
-image::../media/mcc_ip_cabling_aff_a320_a400_a700_a800_to_cisco_9336c_shared_switch.png[MCC IP 使用缆线将 AFF A320 a400 a700 a800 连接到 Cisco 9336c 共享交换机]
-
-image::../media/mcc_interfaces_per_platform_9336-shared.png[每个平台 9336 共享的 MCC 接口]
+image::../media/mcc_ip_cabling_aff_a320_c400_a400_a700_c800_a800_to_cisco_9336c_shared_switch.png[MCC IP使用缆线将AFF A320 C400 a400 a700 c800 a800连接到Cisco 9336c共享交换机]

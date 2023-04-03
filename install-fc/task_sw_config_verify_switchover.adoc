@@ -1,5 +1,5 @@
 ---
-permalink: install-fc/concept_configure_the_mcc_software_in_ontap.html 
+permalink: install-fc/task_sw_config_verify_switchover.html 
 sidebar: sidebar 
 keywords: configure, configuring, metrocluster, software, ontap 
 summary: 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。使用原生磁盘架的系统的步骤与使用阵列 LUN 的系统的步骤稍有不同。 

@@ -20,7 +20,7 @@ MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台�
 +
 这些端口需要额外的许可证。
 
-. 只能将使用 A320 系统的单个四节点 MetroCluster 连接到交换机。
+. 只能将使用AFF A320系统的一个四节点MetroCluster 连接到交换机。
 +
 此配置不支持需要交换集群的功能，包括 MetroCluster FC 到 IP 过渡和技术更新过程。
 
@@ -48,25 +48,25 @@ MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台�
 
 
 
-== AFF A220 或 FAS2750 系统的交换机端口使用情况
+== FAS2750、AFF 150或AFF A220系统的交换机端口使用情况
 
-image::../media/mcc_ip_cabling_a_aff_a220_or_fas2750_to_a_broadcom_bes_53248_switch.png[通过 MCC IP 将 AFF a220 或 fas2750 连接到 Broadcom bes 53248 交换机]
-
-
-
-== AFF A250 或 FAS500f 系统的交换机端口使用情况
-
-image::../media/mcc_ip_cabling_a_aff_a250_or_fas500f_to_a_broadcom_bes_53248_switch.png[通过 MCC IP 将 AFF A250 或 fas500f 连接到 Broadcom bes 53248 交换机]
+image::../media/mcc_ip_cabling_a_aff_a150_a220_or_fas2750_to_a_broadcom_bes_53248_switch.png[通过MCC IP将AFF A150 a220或fas2750连接到Broadcom Bes 53248交换机]
 
 
 
-== AFF A250或FAS500f以及AFF A220或FAS2750系统的交换机端口使用情况
+== FAS500f、AFF C250或AFF A250系统的交换机端口使用情况
+
+image::../media/mcc_ip_cabling_a_aff_c250_a250_or_fas500f_to_a_broadcom_bes_53248_switch.png[通过MCC IP将AFF c250 A250或fas500f连接到Broadcom 53248交换机]
+
+
+
+== AFF A150、FAS2750、AFF A220、FAS500f或AFF C250的交换机端口使用情况、 或AFF A250系统
 
 image::../media/mcc_ip_cabling_aff_a250_and_ a220_to_a_broadcom_bes_53248_switch.png[通过MCC IP将AFF A250和a220连接到Broadcom bes 53248交换机]
 
 
 
-== AFF A300 或 FAS8200 系统的交换机端口使用情况
+== FAS8200或AFF A300系统的交换机端口使用情况
 
 image::../media/mcc_ip_cabling_a_aff_a300_or_fas8200_to_a_broadcom_bes_53248_switch.png[通过 MCC IP 将 AFF a300 或 fas8200 连接到 Broadcom bes 53248 交换机]
 
@@ -74,6 +74,6 @@ image::../media/mcc_ip_cabling_a_aff_a320_to_a_broadcom_bes_53248_switch.png[通
 
 
 
-== AFF A400 ， FAS8300 或 FAS8700 系统的交换机端口使用情况
+== FAS8300、AFF C400、AFF A400或FAS8700系统的交换机端口使用情况
 
 image::../media/mcc_ip_cabling_a_fas8300_a400_or_fas8700_to_a_broadcom_bes_53248_switch.png[通过 MCC IP 将 fas8300 a400 或 fas8700 连接到 Broadcom 53248 交换机]

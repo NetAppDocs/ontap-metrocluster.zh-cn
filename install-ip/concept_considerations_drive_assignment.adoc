@@ -1,7 +1,7 @@
 ---
 permalink: install-ip/concept_considerations_drive_assignment.html 
 sidebar: sidebar 
-keywords: drive auto-assignment, drive, adp, advanced disk partitioning, root disk, unmirrored root, data partition, root partition, shelf-by-shelf, AFF A320, AFF A220, AFF A250, AFF A300, AFF A400, AFF A700, AFF A800, FAS2750, FAS8200, FAS500f, FAS9000 
+keywords: drive auto-assignment, drive, adp, advanced disk partitioning, root disk, unmirrored root, data partition, root partition, shelf-by-shelf, AFF A320, AFF A220, AFF A250, C250, AFF A300, AFF A400, C400, AFF A700, AFF A800, FAS2750, FAS8200, FAS500f, FAS9000 
 summary: 从 ONTAP 9.4 开始， MetroCluster IP 配置支持使用 ADP （高级驱动器分区）对 AFF 系统进行新安装。 
 ---
 = ONTAP 9.4 及更高版本中的自动驱动器分配和 ADP 系统注意事项
@@ -219,7 +219,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 |===
 
 
-=== AFF A220 系统上的 ADP 和磁盘分配
+=== AFF A150和AFF A220系统上的ADP和磁盘分配
 
 |===
 
@@ -282,7 +282,7 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 |===
 
 
-=== AFF A250 系统上的 ADP 和磁盘分配
+=== AFF C250和AFF A250系统上的ADP和磁盘分配
 
 |===
 
@@ -368,7 +368,7 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 |===
 
 
-=== AFF A400 系统上的 ADP 和磁盘分配
+=== AFF C400和AFF A400系统上的ADP和磁盘分配
 
 |===
 
@@ -450,7 +450,7 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 |===
 
 
-=== AFF A800 系统上的 ADP 和磁盘分配
+=== AFF C800和AFF A800系统上的ADP和磁盘分配
 
 |===
 
