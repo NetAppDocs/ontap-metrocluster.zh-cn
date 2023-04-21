@@ -2894,6 +2894,9 @@ Remote: cluster_A         Configuration state configured
 
 您必须根据光纤通道（ FC ）交换机配置来配置帧的按顺序交付（ IOD ）或无序交付（ OOD ）。如果为 FC 交换机配置了 IOD ，则必须为 ONTAP 软件配置 IOD 。同样，如果为 FC 交换机配置了 OOD ，则必须为 ONTAP 配置 OOD 。
 
+
+NOTE: 要更改配置、必须重新启动控制器。
+
 .步骤
 . 将 ONTAP 配置为运行帧的 IOD 或 OOD 。
 +
@@ -2963,6 +2966,7 @@ MetroCluster 互连适配器 modify -node node name -is-ood-enabled true`
 mcc4-b12_siteB::*> metrocluster interconnect adapter modify -node mcc4-b1 -is-ood-enabled true
 mcc4-b12_siteB::*> metrocluster interconnect adapter modify -node mcc4-b2 -is-ood-enabled true
 ----
+... 通过双向执行高可用性(HA)接管来重新启动控制器。
 ... 验证设置：
 +
 `MetroCluster 互连适配器 show`
