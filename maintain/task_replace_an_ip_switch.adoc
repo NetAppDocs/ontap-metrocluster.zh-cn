@@ -4,25 +4,67 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, replace, ip, switch 
 summary: 您可能需要更换发生故障的交换机，或者升级或降级交换机。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。 
 ---
-= 更换 IP 交换机
+= 更换IP交换机或更改现有MetroCluster IP交换机的使用
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您可能需要更换发生故障的交换机，或者升级或降级交换机。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。
-
-如果要将故障交换机更换为相同类型的交换机，则只需更换故障交换机。如果要升级或降级交换机，则需要调整同一网络中的两个交换机。如果两个交换机使用交换机间链路（ ISL ）连接，并且不位于同一站点，则它们位于同一网络中。例如，网络 1 包括 IP_switch_A_1 和 IP_switch_B_1 。网络 2 包括 IP_switch_A_2 和 IP_switch_B_2 ，如下图所示：
-
-image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[MCC IP 硬件架构 IP 互连]
+您可能需要更换发生故障的交换机、升级或降级交换机或更改现有MetroCluster IP交换机的使用。
 
 使用经过 NetApp 验证的交换机时，此操作步骤 适用。如果您使用的是符合 MetroCluster 的交换机，请咨询交换机供应商。
 
-如果要升级或降级网络，则必须对第二个网络重复此操作步骤。
+此操作步骤 支持以下转换：
+
+* 更改交换机供应商、类型或两者。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。
++
+例如、要将MetroCluster IP配置从使用AFF A400控制器和BES-53248交换机的单个四节点配置扩展为使用AFF A400控制器的八节点配置、您必须将交换机更改为配置支持的类型、因为新配置不支持BES-53248交换机。
+
++
+如果您要将发生故障的交换机更换为相同类型的交换机、则只需更换发生故障的交换机即可。如果要升级或降级交换机、必须调整同一网络中的两个交换机。如果两个交换机通过交换机间链路(ISL)连接、并且不位于同一站点、则这两个交换机位于同一网络中。例如、网络1包括IP_switch_A_1和IP_switch_B_1、网络2包括IP_switch_A_2和IP_switch_B_1、如下图所示：
+
++
+image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[MCC IP 硬件架构 IP 互连]
+
++
+
+NOTE: 如果您更换了交换机或升级到不同的交换机、则可以通过安装交换机固件和RCF文件来预配置交换机。
+
+* 使用共享存储MetroCluster 交换机将MetroCluster IP配置转换为MetroCluster IP配置。
++
+例如、如果您有一个使用AFF A700控制器的常规MetroCluster IP配置、而您希望重新配置MetroCluster 以将NS224磁盘架连接到相同的交换机。
+
++
+[NOTE]
+====
+** 如果要在使用共享存储MetroCluster IP交换机的MetroCluster IP配置中添加或删除磁盘架、请按照中的步骤进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_add_shelves_using_shared_storage.html["使用共享存储MetroCluster 交换机向MetroCluster IP添加磁盘架"]
+** 您的MetroCluster IP可能已直接连接到NS224磁盘架或专用存储交换机。
+
+
+====
+
+
+.端口使用情况工作表
+以下示例工作表用于将MetroCluster IP配置转换为使用现有交换机连接两个NS224磁盘架的共享存储配置。
+
+工作表定义：
+
+* 现有配置：现有MetroCluster 配置的布线。
+* 使用NS224磁盘架的新配置：存储与MetroCluster 之间共享交换机的目标配置。
+
+
+此工作表中突出显示的字段表示以下内容：
+
+* 绿色：不需要更改布线。
+* 黄色：您必须移动具有相同或不同配置的端口。
+* 蓝色：新连接的端口。
+
+
+image:../media/mcc_port_usage_workflow.png[""]
 
 .步骤
-. 检查配置的运行状况。
+. [[all_Step1]]检查配置的运行状况。
 +
 .. 检查是否已在每个集群上配置 MetroCluster 并使其处于正常模式： ` * MetroCluster show*`
 +
@@ -76,6 +118,9 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 
 . 在安装之前配置新交换机。
 +
+如果要重复使用现有交换机、请转至 <<existing_step4,第 4 步>>。
+
++
 
 NOTE: 如果要升级或降级交换机，则必须配置网络中的所有交换机。
 
@@ -92,31 +137,103 @@ NOTE: 如果要升级或降级交换机，则必须配置网络中的所有交�
 +
 ` * 网络端口显示 *`
 
-. 从连接到旧交换机的远程交换机断开 ISL 连接。
+. [[existing_Step4]]断开与旧交换机的连接。
 +
-您应断开 ISL 连接与 IP_switch_A_1 上连接到 IP_switch_B_1 的端口的连接。
 
-. 关闭交换机电源，拔下缆线并物理拔下 IP_switch_B_1 。
-. 安装新交换机。
+NOTE: 您只能断开在旧配置和新配置中使用不同端口的连接。如果您使用的是新交换机、则必须断开所有连接。
+
 +
-按照中的 _Cabling the IP switchs_ 一节中的步骤，首先为新交换机（包括 ISL ）布线 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["MetroCluster IP 安装和配置"]。
+按以下顺序删除连接：
 
++
+** 如果本地集群接口连接到交换机：
++
+*** 断开本地集群接口的连接
+*** 断开本地集群ISO的连接
+
+
+** 断开MetroCluster IP接口
+** 断开MetroCluster 的连接
++
+在示例中 <<port_usage_worksheet>>，交换机不会发生变化。MetroCluster 的CRL已重新定位、必须断开连接。您无需断开工作表上标记为绿色的连接。
+
+
+
+. 如果您使用的是新交换机、请关闭旧交换机、拔下缆线、然后物理卸下旧的IP_switch_B_1。
++
+如果要重复使用现有交换机、请转至 <<existing_step6,第 6 步>>。
+
++
+
+NOTE: 除管理接口(如果使用)外、请勿*使用缆线连接新交换机。
+
+. [[existing_Step6]]配置现有交换机。
++
+如果您已经预先配置了交换机、则可以跳过此步骤。
+
++
+要配置现有交换机、请按照以下步骤安装和升级固件和RC框架 文件：
+
++
+** link:https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_upgrade_firmware_on_mcc_ip_switches.html["升级 MetroCluster IP 交换机上的固件"]
+** link:https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_upgrade_rcf_files_on_mcc_ip_switches.html["升级 MetroCluster IP 交换机上的 RCF 文件"]
+
+
+. 为交换机布线。
++
+您可以按照中的_"Ciping the IP switchs_(为IP交换机布线)"部分中的步骤进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["MetroCluster IP 安装和配置"]。
+
++
+按以下顺序为交换机布线(如果需要)：
+
++
+.. 使用缆线将此ISL连接到远程站点。
+.. 为MetroCluster IP接口布线。
+.. 为本地集群接口布线。
 +
 [NOTE]
 ====
-如果交换机类型不同，则已用端口可能与旧交换机上的端口不同。如果要升级或降级交换机，请勿 * 使用 * 不 * 缆线连接本地 ISL 。如果要升级或降级第二个网络中的交换机，并且一个站点上的两个交换机的类型相同，则只能为本地 ISL 布线。
+*** 如果交换机类型不同，则已用端口可能与旧交换机上的端口不同。如果要升级或降级交换机，请勿 * 使用 * 不 * 缆线连接本地 ISL 。只有在要升级或降级第二个网络中的交换机且一个站点中的两个交换机类型和布线相同时、才需要为本地ISO布线。
+*** 如果要升级交换机A1和交换机B1、则必须对交换机交换机A2和交换机B2执行步骤1至6。
+
 
 ====
+
+
+. 完成本地集群布线。
++
+.. 如果本地集群接口连接到交换机：
++
+... 使用缆线连接本地集群ISO。
+
+
+.. 如果本地集群接口*未*连接到交换机：
++
+... 使用 link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/migrate-to-2n-switched.html["迁移到交换式 NetApp 集群环境"] 操作步骤 、用于将无交换机集群转换为有交换机集群。使用中指示的端口 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["MetroCluster IP 安装和配置"] 或RC框架 布线文件以连接本地集群接口。
+
+
+
+
 . 打开交换机的电源。
 +
 如果新交换机相同，请启动新交换机。如果要升级或降级交换机，请同时启动两个交换机。在更新第二个网络之前，此配置可以在每个站点使用两个不同的交换机运行。
 
-. 重复步骤 1 ，验证 MetroCluster 配置是否运行正常。
+. 重复执行、以验证MetroCluster 配置是否运行正常 <<all_step1,第 1 步>>。
 +
 如果要升级或降级第一个网络中的交换机，您可能会看到一些与本地集群相关的警报。
 
 +
 
 NOTE: 如果要升级或降级网络，请对第二个网络重复所有步骤。
+
+. (可选)移动NS224磁盘架。
++
+如果要重新配置的MetroCluster IP配置未将NS224磁盘架连接到MetroCluster IP交换机、请使用相应的操作步骤 添加或移动NS224磁盘架：
+
++
+** link:https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_add_shelves_using_shared_storage.html["使用共享存储MetroCluster 交换机向MetroCluster IP添加磁盘架"]
+** link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-shared/migrate-from-switchless-cluster-dat-storage.html["从具有直连存储的无交换机集群迁移"^]
+** link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2-shared/migrate-from-switchless-configuration-sat-storage.html["通过重复使用存储交换机，从具有交换机连接存储的无交换机配置进行迁移"^]
+
 
 

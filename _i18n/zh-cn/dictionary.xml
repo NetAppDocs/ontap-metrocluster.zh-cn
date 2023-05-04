@@ -81,10 +81,7 @@
   <block id="5d0aacff762759dbda6dfa013df2be6e" category="list-text">对第二个交换机网络结构重复此操作步骤。</block>
   <block id="0f4890949e646d00de6b9e66bd1b1968" category="summary">您可能需要更换发生故障的交换机，或者升级或降级交换机。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。</block>
   <block id="5e2a519a0cc2ae15695c5cf1d46f0cc9" category="doc">更换 IP 交换机</block>
-  <block id="911215b34b5c274e1926f0abbe14c1aa" category="paragraph">您可能需要更换发生故障的交换机，或者升级或降级交换机。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。</block>
-  <block id="ebcf4640c5bf8e93ff2b8a2a35c8307c" category="paragraph">如果要将故障交换机更换为相同类型的交换机，则只需更换故障交换机。如果要升级或降级交换机，则需要调整同一网络中的两个交换机。如果两个交换机使用交换机间链路（ ISL ）连接，并且不位于同一站点，则它们位于同一网络中。例如，网络 1 包括 IP_switch_A_1 和 IP_switch_B_1 。网络 2 包括 IP_switch_A_2 和 IP_switch_B_2 ，如下图所示：</block>
   <block id="8884ae199fd568dc7ca11305cb40b82e" category="image-alt">MCC IP 硬件架构 IP 互连</block>
-  <block id="5d1e77979f28e175a4f0a00201b52c96" category="paragraph">如果要升级或降级网络，则必须对第二个网络重复此操作步骤。</block>
   <block id="ab09caec1407f77495e6c20853fcfd75" category="list-text">检查配置的运行状况。</block>
   <block id="439912781979c2137b20f407615e78f8" category="list-text">检查是否已在每个集群上配置 MetroCluster 并使其处于正常模式： ` * MetroCluster show*`</block>
   <block id="7cb5b2f0dc5754654737d8fa60eef89c" category="list-text">检查是否已在每个节点上启用镜像： ` * MetroCluster node show*`</block>
@@ -96,14 +93,8 @@
   <block id="21d70434879bc17385bedbe3b2231480" category="paragraph">如果要升级或降级交换机，请为新交换机应用支持的最新 RCF 文件。</block>
   <block id="140f85d0d849f4cdeb15f3576a478d27" category="list-text">运行 port show 命令查看有关网络端口的信息：</block>
   <block id="664180a50093532dd9d44b1e80f40b72" category="paragraph">` * 网络端口显示 *`</block>
-  <block id="fadbd51c15a213aa8af9bf307ca458f4" category="list-text">从连接到旧交换机的远程交换机断开 ISL 连接。</block>
-  <block id="27604e7d5efaf39491ee061091d488d6" category="paragraph">您应断开 ISL 连接与 IP_switch_A_1 上连接到 IP_switch_B_1 的端口的连接。</block>
-  <block id="4a33b7e0657d8882c04d927b5a407835" category="list-text">关闭交换机电源，拔下缆线并物理拔下 IP_switch_B_1 。</block>
-  <block id="a968c5874449b03251965cad3b2ae61a" category="list-text">安装新交换机。</block>
-  <block id="76879c80744bf26cf04a50e9a7cb5b12" category="paragraph">如果交换机类型不同，则已用端口可能与旧交换机上的端口不同。如果要升级或降级交换机，请勿 * 使用 * 不 * 缆线连接本地 ISL 。如果要升级或降级第二个网络中的交换机，并且一个站点上的两个交换机的类型相同，则只能为本地 ISL 布线。</block>
   <block id="39ef49ece238860759e8870c2160120a" category="list-text">打开交换机的电源。</block>
   <block id="a2ff4a69c8e810edbb5274ee75363ce0" category="paragraph">如果新交换机相同，请启动新交换机。如果要升级或降级交换机，请同时启动两个交换机。在更新第二个网络之前，此配置可以在每个站点使用两个不同的交换机运行。</block>
-  <block id="f6563b54c975d5388c5f64362e5700e3" category="list-text">重复步骤 1 ，验证 MetroCluster 配置是否运行正常。</block>
   <block id="4d7ea7c5860513bb0b675638d55fcd77" category="paragraph">如果要升级或降级第一个网络中的交换机，您可能会看到一些与本地集群相关的警报。</block>
   <block id="c997b3e19c99644bd488baf3bfa8890d" category="admonition">如果要升级或降级网络，请对第二个网络重复所有步骤。</block>
   <block id="8b9a7a187e2b48592caca596db2450b8" category="summary">您必须先关闭整个 MetroCluster FC 配置以及所有设备，然后才能开始站点维护或重新定位。</block>
@@ -2556,12 +2547,10 @@
   <block id="181565e0d5a61ce819e8e64ea713e991" category="list-text">从站点 A 验证配置：</block>
   <block id="541a17569d4a90ee94a9fd4035349deb" category="doc">刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）</block>
   <block id="bc7aab32c224c2ee49642086c4c9aa59" category="list-text">运行 ONTAP 9.8 及更高版本的系统支持此操作步骤。</block>
-  <block id="147cf28bb435c696edc54db7c4d19273" category="list-text">如果要升级 IP 交换机，则应在执行此刷新操作步骤之前对其进行升级。</block>
   <block id="97544c597d5047c89f8d806033395de8" category="list-text">引用 " 旧节点 " 是指要替换的节点。</block>
   <block id="c07217a12145454189c265ecf5f40173" category="list-text">从旧节点收集信息。</block>
   <block id="220023d80ca24d69e962de981075e392" category="paragraph">在此阶段，四节点配置如下图所示：</block>
   <block id="bcf9f8bb6be3a3d38d87e026dd4cfe95" category="image-alt">MCC DR 组 A</block>
-  <block id="c2c1067a31958842c8438647512d141e" category="list-text">执行中的所有步骤 <block ref="3e70f7d1f526cf6dd7a89a97c88d0cc8" category="inline-link-macro-rx"></block> 将新节点和存储添加到配置中。</block>
   <block id="37c43c60431d0988dbc66af885d529aa" category="paragraph">扩展操作步骤完成后，此配置将如下图所示：</block>
   <block id="82100af698d65aee7d8eee88a9f650ea" category="image-alt">MCC DR 组 b</block>
   <block id="8bcdf2e6243e634b6f778a006ca38abf" category="list-text">移动 CRS 卷。</block>
@@ -3234,7 +3223,6 @@
   <block id="0031dbc1afe1c2ec91d4c02136da5eb6" category="list-text">使用 RCF 生成器工具根据交换机供应商和平台型号创建 RCF 文件，然后使用该文件更新交换机。</block>
   <block id="97a377942f4f2e5cbecdba36cbfb77ea" category="inline-link-macro">下载并安装 Broadcom IP RCF 文件</block>
   <block id="26335ad95c44f5e233c28d27ab09f461" category="doc">无中断 FC-IP 过渡的要求</block>
-  <block id="000d4bf81dfdcb3820ecd69215825810" category="list-text">此配置必须为四节点配置，并且所有节点都必须运行 ONTAP 9.8 或更高版本。</block>
   <block id="ab15e3a0446aa2c30baef0a6d039dff1" category="list-text">现有平台和新平台必须是过渡支持的组合。</block>
   <block id="c5ca83d0e723113560fb2c95b33b532b" category="inline-xref-macro">支持无中断过渡的平台</block>
   <block id="1c80ea06ae866b6e42e9d266e0cb8906" category="list-text">它必须支持交换集群配置。</block>
@@ -9551,7 +9539,6 @@
   <block id="9c04a1314d36b0b92db99654757f37c2" category="list-text">从站点 B 验证配置： + MetroCluster show`</block>
   <block id="3e47f65a0c143cd4a51a7540fd2001fa" category="list-text">问题描述以下命令： + `ssystem node AutoSupport invoke -node * -type all -message "MAIN=10h upgrading _old-model_ to _new-model"_`</block>
   <block id="6837dd1f788164eabd6d97dbcbe7e4c9" category="paragraph">以下示例指定了一个 10 小时的维护时段。根据您的计划，您可能需要留出更多时间。</block>
-  <block id="6479d55762228eaca7df21ed18531b58" category="inline-link">其他平台过程：《控制器硬件升级快速指南》</block>
   <block id="e5ebde3067c5558de277c40cd868d611" category="paragraph"><block ref="e5ebde3067c5558de277c40cd868d611" category="inline-link-macro-rx"></block></block>
   <block id="c1ebae304f73330b4d72ffc35c35df96" category="paragraph">`volume show mDV_CRS*`</block>
   <block id="e7826f8245603a9c0820578db8fb8d04" category="paragraph">MetroCluster check config-replication show-aggregate-eligibility`</block>
@@ -10114,7 +10101,6 @@
   <block id="7080e7642990f343422154f3680f5f54" category="paragraph">如果使用 MetroCluster Tiebreaker 配置或其他可启动切换的第三方应用程序（例如 ClusterLion ）监控现有配置，则在更换旧控制器之前，必须先从 Tiebreaker 或其他软件中删除 MetroCluster 配置。</block>
   <block id="2cd5138ffea77134b2eaf87275680e03" category="section-title">更换旧控制器并启动新控制器</block>
   <block id="f7a00e5a4faa1093e067a4074671fd4f" category="paragraph">收集信息并恢复操作后，自动化将继续执行切换操作。</block>
-  <block id="6605a90d61aaaaebf433918eb8eb5f61" category="paragraph">此自动化操作将启动切换， `heal-aggregates` 和 `heal root-aggregates` 操作。完成这些操作后，此操作将在 * 已暂停以供用户干预 * 时暂停，以便您可以使用先前收集的 `sysids` 将控制器架装并安装，启动配对控制器并通过闪存备份将根聚合磁盘重新分配给新控制器模块。</block>
   <block id="134c86cd6759685fca4e3083cca3c8dd" category="list-text">您将使用中收集的信息 <block ref="d24bc3082c34acd97b0b951a86de3913" category="inline-xref-macro-rx"></block>。</block>
   <block id="790ffccea2ff9cd7b795660c9047f0af" category="paragraph">有关平台型号的端口使用情况，请参见<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block></block>
   <block id="28c7702130266714c425efb099b41082" category="list-text">修改广播域以删除需要删除的 VLAN 和物理端口：</block>
@@ -10330,7 +10316,6 @@
   <block id="3d46a208f060c32c138a0c945efcbbe0" category="paragraph"><block ref="3d46a208f060c32c138a0c945efcbbe0" category="inline-link-rx"></block></block>
   <block id="0c0a905fe7b3d34fc7c66142e87fa36d" category="inline-link-macro">MetroCluster IP 安装和配置。</block>
   <block id="bd411d4fdabe28e7276d566979ec2b21" category="paragraph">按照中 _Configuring the IP switches_ 一节中的步骤进行操作 <block ref="6ca94d3c62e2aa037b337bfb7e2a3c37" category="inline-link-macro-rx"></block></block>
-  <block id="dee3ad1ae6332587ef2a694f33aad4a3" category="paragraph">按照中的 _Cabling the IP switchs_ 一节中的步骤，首先为新交换机（包括 ISL ）布线 <block ref="69c250b2ff0cdf92dd9f1322bce627cf" category="inline-link-macro-rx"></block>。</block>
   <block id="60add77cd3913e8299d20186ba7ec1e0" category="list-text">如果您的 MetroCluster IP 配置运行的是 ONTAP 9.6 或更高版本，请等待灾难站点丛联机并自动完成修复操作。</block>
   <block id="a0d9123d4cd00ea9771184e3cc69bc3b" category="paragraph">在运行早期版本 ONTAP 的 MetroCluster IP 配置中，灾难站点节点不会自动启动到 ONTAP ，丛会保持脱机状态。对于 MetroCluster FC 配置，所有丛均保持联机，您无需使这些丛联机。</block>
   <block id="5b12aa7a5c28a3989c442d88ecafd4b3" category="list-text">根据您的配置和 ONTAP 版本，确定位于灾难站点（ Cluster_B ）的受影响丛并将其脱机。</block>
@@ -10392,7 +10377,6 @@
   <block id="77d873129b2551d3791bd53918453706" category="sidebar">配置 Tiebreaker 软件</block>
   <block id="842ed7dcbaa63b60b53e91a89a33e02c" category="sidebar">为 Tiebreaker 软件配置 SNMP 设置</block>
   <block id="9e22e5887d35d0e7eed7b0656d5e7bfa" category="sidebar">监控 MetroCluster 配置</block>
-  <block id="30836d6051134105cf07f488afe11425" category="sidebar">刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）</block>
   <block id="6e1b901662872166ef0e661d1481924c" category="sidebar">将双节点 MetroCluster FC 配置扩展为四节点配置</block>
   <block id="fbda6a351e5c32b65583383006360afa" category="sidebar">验证 MetroCluster 配置的状态</block>
   <block id="c3f3140743256f4b3b23e2414dda5987" category="sidebar">在将已注册的 AutoSupport 添加到 MetroCluster 配置之前，发送自定义 消息</block>
@@ -10435,7 +10419,6 @@
   <block id="41a799bcc3e4afaad880fb5ecde437ff" category="sidebar">配置 FC-SAS 网桥以进行运行状况监控</block>
   <block id="8cd5672b7c6aa3bf6d484d5398e7cf35" category="sidebar">在 MetroCluster 配置中移动元数据卷</block>
   <block id="dd20522d7848c343bdb11bf7a434d0ad" category="sidebar">在之后发送自定义 AutoSupport 消息以将节点添加到 MetroCluster 配置</block>
-  <block id="62cb54844a683179dd9896f2c466d71f" category="sidebar">将四节点 MetroCluster IP 配置扩展为八节点配置</block>
   <block id="0344e1867e953d0d51eac7e816dee9fe" category="sidebar">删除灾难恢复组</block>
   <block id="9f972acbec9959324ff1bb96e032e896" category="sidebar">根据您的配置选择正确的安装操作步骤</block>
   <block id="024c3cc73b56e903a371e1559afeddbb" category="sidebar">为双节点 SAS 连接的延伸型 MetroCluster 配置布线</block>
@@ -10502,7 +10485,6 @@
   <block id="0bef545435b6a9a9c7e8d064352e395e" category="sidebar">重命名 Brocade FC 交换机</block>
   <block id="b3057e5e30082a1c0b7f4d1863e16c92" category="sidebar">更换 Cisco FC 交换机</block>
   <block id="706be03f02099b320a48663ab49614b7" category="sidebar">IP 交换机维护和更换</block>
-  <block id="bf8027982a2773871f133f6df59c6ddc" category="sidebar">更换 IP 交换机</block>
   <block id="40414fb3a79648f825985d2f107661f0" category="sidebar">升级 MetroCluster IP 交换机上的固件</block>
   <block id="6fc3e23fc447e1c003feca250d853db5" category="sidebar">重命名 Cisco IP 交换机</block>
   <block id="c674510981c9027bb4d0c0161679026d" category="sidebar">无中断地添加，删除或更改 ISL 端口</block>
@@ -11048,12 +11030,10 @@
   <block id="8dc768991d5b26a5dd964209b0336989" category="paragraph"><block ref="8dc768991d5b26a5dd964209b0336989" category="inline-link-rx"></block></block>
   <block id="65bbb6a451cc080e3b7ee47c366c3253" category="paragraph">请参见中的 "`复制 SVM 配置` "<block ref="26e370aec20dfe01945665ebaf4ffc1f" category="inline-link-rx"></block> 有关配置 SVM DR 关系的详细信息。</block>
   <block id="d0ed0d8f16085a6601b051dbf42f09e4" category="paragraph"><block ref="d0ed0d8f16085a6601b051dbf42f09e4" category="inline-link-rx"></block></block>
-  <block id="29464d5954abf5bc9affd5f6ae57e7e5" category="admonition">只有在发生站点灾难时，才会启动 MAUSO 。站点灾难是指同一站点上的 * 所有 * 节点发生故障；但存在一些例外情况。</block>
   <block id="76febd606fc24a36395547ab83980f59" category="paragraph">在以下关闭情形下，会 * 未 * 启动 MAUSO ：</block>
   <block id="1fb135b5dd970a96db5c2b3025ddcbf8" category="list-text">您启动了关闭操作。例如，当您：</block>
   <block id="969ad1d775144c2dcc448c09e5467831" category="list-text">暂停节点</block>
   <block id="e417cabb8d771305beaa6b46cf7335e1" category="list-text">重新启动节点</block>
-  <block id="512faff67d2109381c61bd2d3609c40f" category="list-text">风扇或组件故障启动关闭（环境关闭）</block>
   <block id="0fd2020965353993ca7470eaf762f030" category="paragraph">这些要求显示了如何在不使用参考配置（ Reference Configuration ， RCF ）文件的情况下配置符合 MetroCluster 的交换机。</block>
   <block id="73c8b60f13f3d62360643fda70255745" category="list-text">连接到 MetroCluster 节点的交换机可以传输非 MetroCluster 流量。</block>
   <block id="ea95364bcb87fe94517fe5fdd5716eae" category="paragraph">集群管理 LIF</block>
@@ -11185,7 +11165,6 @@
   <block id="82c4a9d1333f46979f5cb311c6ec88f7" category="paragraph">如果两个站点中的一个站点由于崩溃而具有问题描述，则 MetroCluster 切换可提供持续无中断运行。如果断电同时影响节点和存储，则切换不会自动进行，并且会发生中断，直到发出 `MetroCluster switchover` 命令为止。</block>
   <block id="6d4916a696465226956e5724ea76b8d1" category="paragraph"><block ref="6d4916a696465226956e5724ea76b8d1" category="inline-link-macro-rx"></block></block>
   <block id="3f5326ac66dfc64cb40ca76a9cbd0231" category="paragraph">配置复制服务（ CRS ）元数据卷和数据 SVM 根卷必须位于镜像聚合上。您不能将这些卷移动到未镜像聚合。如果它们位于未镜像聚合上，则协商切换和切回操作将被否决。此时， `MetroCluster check` 命令会发出警告。</block>
-  <block id="36d0e7a55c68ebdcc9fedc7164727610" category="paragraph">默认情况下， AUSO 设置为 "`auso-on-cluster-disaster` " 。可以使用 MetroCluster show 命令查看其状态。</block>
   <block id="9cb341a3612f1e04e6fefe834b029776" category="paragraph">您可以使用 `MetroCluster modify -auto-switchover-failure-domain auto-disabled` 命令禁用 AUSO 。此命令可防止在灾难恢复站点范围的控制器发生故障时触发 AUSO 。如果要在两个站点上禁用 AUSO ，则应在两个站点上运行此命令。</block>
   <block id="3b7b4f3bf205942f3e21e267f46b1809" category="paragraph">可以使用 `MetroCluster modify -auto-switchover-failure-domain auso-on-cluster-disaster` 命令重新启用 AUSO 。</block>
   <block id="d194fa6ca18447fce1bac27c7468c970" category="paragraph">AUSO 也可以设置为 "`auso-on-dr-group-disaster` " 。此高级命令会在一个站点的 HA 故障转移中触发 AUSO 。应使用 `MetroCluster modify -auto-switchover-failure-domain auso-on-dr-group-disaster` 命令在两个站点上运行此命令。</block>
@@ -11526,7 +11505,6 @@
   <block id="04b695ad61f520e4cb6c35ad82c6274d" category="paragraph">`cluster peer ping -original-node _local-nod_ -destination-cluster _remote-cluster-name_`</block>
   <block id="14b3de5cc3b7ebe82cf797d4c070ce27" category="list-text">此操作步骤无中断。</block>
   <block id="c360a01208e0f0cebb82608c945309e8" category="paragraph">在此操作期间， MetroCluster 配置可以继续提供数据。</block>
-  <block id="14f6c48a4cd4faf32f9f408ae13ca0fc" category="list-text">此操作步骤仅适用于四节点 MetroCluster FC 配置。</block>
   <block id="303070df2456faa853aadfa7ea3999db" category="list-text">从控制器 node_A_1-IP 发出以下命令，将新节点组成 DR 组：</block>
   <block id="e7973dc96fbf00a42cc73b5c38c79955" category="paragraph">`MetroCluster configuration-settings dr-group create -partner-cluster peer-cluster-name -local-node local-controller-name -remote-node remote-controller-name`</block>
   <block id="ba687aa6b66d0caad63c23e4f8056daa" category="list-text">创建 MetroCluster IP 接口（ node_A_1-IP ， node_A_2-IP ， node_B_1-IP ， node_B_2-IP ）—每个控制器需要创建两个接口；总共八个接口：</block>
@@ -11799,7 +11777,6 @@
   <block id="56bf84e32d22ab8fb694fbc5332432dc" category="paragraph">如果您手动配置了 FC 交换机，则必须确保新控制器模块的启动程序连接的分区正确无误。请参见中有关分区的章节 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block>。</block>
   <block id="dedcc0638aa1bf3276ae388ea4613c81" category="summary">从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配置扩展为临时八节点配置，然后删除旧的灾难恢复（ Disaster Recovery ， DR ）组来升级四节点 IP 配置中的控制器和存储。</block>
   <block id="75aa8d2f84e0be26d2847e91f37f74e2" category="list-text">要防止自动生成支持案例，请发送一条 AutoSupport 消息以指示升级正在进行中。</block>
-  <block id="377469609affd7863d1b91e8c08f8efe" category="list-text">按照中的以下过程将数据从旧节点移动到新节点<block ref="5807d40cbe0aa8dbcf7fb966b3a22848" category="inline-link-rx"></block></block>
   <block id="f6352e453f366612cb28420644953c44" category="list-text">执行中的所有步骤<block ref="bbef996a3720f9825acbe3a7239b4c3c" category="inline-link-rx"></block>。</block>
   <block id="f0c5b568bbaab2490082e4d2aaf08123" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block> 在 _MetroCluster Tiebreaker 安装和配置 _ 中。</block>
   <block id="7965e118387157e57593becb6ae60117" category="list-text">使用中的操作步骤 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block> 用于将新存储系统，磁盘架和 FC-SAS 网桥装入机架。</block>
@@ -11933,7 +11910,6 @@
   <block id="80a501c7c310f786642caeb4ba98a43d" category="paragraph">您必须移动第 1 步中标识的 LIF <block ref="f19930c3c7cb7f705cf91593411955ab" category="inline-link-macro-rx"></block>。</block>
   <block id="db53daa46cc857a5ca6ccd9ab19fe451" category="paragraph">在以下步骤中，您将转到其他过程。您必须按给定顺序执行每个引用的操作步骤中的步骤。</block>
   <block id="679c1dc70b523e1092eb2a7b3129711d" category="paragraph">验证是否已为端口和广播域正确设置 MTU 设置并进行更改。</block>
-  <block id="af6710425f9b72f8e5aeb24aa9d0bac6" category="summary">从 ONTAP 9.8 开始，支持将工作负载和数据从现有四节点 MetroCluster FC 配置无中断过渡到新的 MetroCluster IP 配置。</block>
   <block id="dd29cf7134047c7a311edc4776b9021e" category="paragraph">如果您使用的是双节点 MetroCluster FC 配置，请参见 <block ref="ef88855c7d052c0aa5ce46e187d01954" category="inline-link-macro-rx"></block>。</block>
   <block id="2912e0eba45e116506958546503977b9" category="paragraph"><block ref="2912e0eba45e116506958546503977b9" category="inline-link-macro-rx"></block></block>
   <block id="0297e6ce2162b2f01b03b57027b0de3f" category="paragraph">按照 _IP MetroCluster 安装和配置 _ 中适用于您的交换机供应商一节中的步骤进行操作。</block>
@@ -12046,8 +12022,6 @@
   <block id="6bec966647e1b9c8a03ddd277c8fe864" category="inline-link-macro">部件退回和放大器；更换</block>
   <block id="844f223d5d27d9ea92473e2d258ee969" category="list-text">更换部件后，按照套件随附的 RMA 说明将故障部件退回 NetApp 。请参见 <block ref="af64d870205b209887217377e716cd40" category="inline-link-macro-rx"></block> 第页，了解更多信息。</block>
   <block id="455aeb5b6e6bb2c51d7485e26da56e30" category="paragraph">链接： ./install-IP/concept_mediator_requirements.html 【从 MetroCluster IP 配置配置 ONTAP 调解器服务】。</block>
-  <block id="e62a18c77eddb4d80155a6c15402f7e5" category="paragraph"><block ref="903819e2154a41f8227f7c0192db71f6" category="inline-link-macro-rx"></block> 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中</block>
-  <block id="7da41c16475b7dae8b0b8ab6424918d7" category="paragraph">链接： ./install-IP/concept_mediator_requirements.html _ MetroCluster IP 安装和配置 _ 中的 " 从 MetroCluster IP 配置配置 ONTAP 调解器服务 " 。</block>
   <block id="861ef6676813cbc81369ee701ae73269" category="paragraph">如果您使用的是第三方防火墙：</block>
   <block id="041f3a27fe8b40cc213210949eb4f036" category="list-text">必须启用 HTTPS 访问。</block>
   <block id="8b8101ed71d5bd32d2f9d4de05e470c1" category="list-text">必须将其配置为允许在端口 31784 和 3260 上进行访问。</block>
@@ -12660,7 +12634,6 @@
   <block id="e6e94fa732001e55f7fcf67c01c5f249" category="paragraph">您可能需要配置交换机、使其在ISL上具有MetroCluster 流量、但不连接到任何MetroCluster 接口。在这种情况下，流量已分类，只需映射到相应的队列即可。在以下示例中，所有 COS5 流量都映射到 RDMA 类，所有 COS4 流量都映射到 iSCSI 类。请注意，这将影响到 COS5 和 COS4 流量的 * 全部 * ，而不仅仅是 MetroCluster 流量。如果您只想映射 MetroCluster 流量，则必须使用上述类映射来使用访问组标识流量。</block>
   <block id="421c8863e1f7223f216aacf99393b7dd" category="list-text">注1：此平台组合需要ONTAP 9.11.1或更高版本。</block>
   <block id="60ddbd1babdd945c26fbc431202fea6c" category="inline-link-macro">Hardware Universe</block>
-  <block id="f90dfbd0dbb63ace6227bf8f3e75efb6" category="admonition">请勿超过平台组合中"较低"的任何对象限制。应用这两个平台的下限对象。请参见 <block ref="62911b0739c1772914819ee9e7282ee4" category="inline-link-macro-rx"></block> 平台限制。</block>
   <block id="6e2ee39d0f9ccdad593782674a048e67" category="inline-link-macro">指向操作步骤 的链接</block>
   <block id="7fcdce91feb430306391667c0a012cd7" category="paragraph"><block ref="7fcdce91feb430306391667c0a012cd7" category="inline-link-macro-rx"></block></block>
   <block id="0a623e8d3b5ae84e14f2fe4f454a3abb" category="paragraph"><block ref="0a623e8d3b5ae84e14f2fe4f454a3abb" category="inline-link-macro-rx"></block></block>
@@ -12719,7 +12692,6 @@
   <block id="3cdc2ade26b9bc4adc9df14235e19c7e" category="paragraph">您使用的系统刷新操作步骤 取决于平台型号和MetroCluster 配置类型。更新过程适用于控制器和存储架。在刷新过程中，会将新控制器和磁盘架添加到 MetroCluster 配置中，从而创建第二个 DR 组，然后无中断地将数据迁移到新节点。然后，原始控制器将停用。</block>
   <block id="d0b28fd083b63a9e12330f486ca47625" category="section-title">支持的MetroCluster FC技术更新组合</block>
   <block id="88ea8505ba0420be98c64dcb7f91e23c" category="image-alt">MetroCluster FC技术更新</block>
-  <block id="094d92c3e06727b6e6ff0d7a8d541bef" category="list-text">请确保在添加新负载之前完成技术更新操作步骤。</block>
   <block id="cfd1300cd3db131e8f69dc38177b5658" category="section-title">支持的MetroCluster IP技术更新组合</block>
   <block id="ad06b1bad80df72d4f2fa24312c0a9bf" category="cell">刷新方法</block>
   <block id="56ad29882b1f5aa7a765e42a0bd3ca97" category="paragraph"><block ref="56ad29882b1f5aa7a765e42a0bd3ca97" category="inline-link-macro-rx"></block></block>
@@ -12735,7 +12707,6 @@
   <block id="1ecf45c0e50d338e165546ea9f33580d" category="paragraph">以下示例显示了如何在node_A_3-IP上创建聚合。</block>
   <block id="ef7e136a1fd917ac9e6587b12e4cfbad" category="paragraph">支持ONTAP 自动计划外切换(AUSO)</block>
   <block id="9e70c8a747dbcd4eb73fc72a2155c425" category="paragraph">如果未在MetroCluster Tiebreaker软件中启用自动切换、则需要手动执行计划外切换(USO)。</block>
-  <block id="03a06951389ef81ee2c73f9db6d94fbf" category="list-text">有关支持哪些平台升级组合的信息、请查看中的MetroCluster IP刷新表 <block ref="ca31e6122d170c1a660e1ab5d0a9430f" category="inline-link-macro-rx"></block>。</block>
   <block id="04d849614bcf7a25c057bcb4f136cfc7" category="list-text">有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC刷新表 <block ref="2026df26c379ba66a79d2229c4a71dd8" category="inline-link-macro-rx"></block>。</block>
   <block id="7f3573698486df0e906484a42b56260a" category="list-text">将第一个MetroCluster IP节点(node_A_3-IP)加入现有MetroCluster FC配置。</block>
   <block id="2cc9b0ebb585ef702d75e1a9560e44ee" category="list-text">将第二个MetroCluster IP节点(node_A_4-IP)加入现有MetroCluster FC配置。</block>
@@ -12964,9 +12935,6 @@
   <block id="2a077243240a3af8fdb5a2c53c8dfd93" category="sidebar">在两个控制器模块上启用存储故障转移并启用集群HA</block>
   <block id="3ae2a51b967ff5379c07b5d59d9bb892" category="sidebar">使用缆线将新控制器模块FC-VI和HBA端口连接到FC交换机</block>
   <block id="2ec9cf7fc01c78e918f2c1109d699ebd" category="sidebar">配置对ONTAPI和SSH的管理员访问权限</block>
-  <block id="afc391e4f426f99e79c7db52846734a8" category="image-alt">MetroCluster IP技术更新yellowdogp1.</block>
-  <block id="cc2ec6d9e6bb31f9131384ee2ea63d52" category="image-alt">MetroCluster IP升级表yellowdup1.</block>
-  <block id="e99d1c22871517ed64fe9bd3e59b4c85" category="image-alt">MetroCluster fc升级表yellowdogp1.</block>
   <block id="6dc537d2cf87cd236dd75c2694edbea6" category="image-alt">MetroCluster fc IP过渡表yellowdogp1.</block>
   <block id="3ba18986907ef3401544960b244376ed" category="section-title">AFF A150和AFF A220系统上的ADP和磁盘分配</block>
   <block id="cab91f7159880630a5bee29aa55d9f8a" category="section-title">AFF C250和AFF A250系统上的ADP和磁盘分配</block>
@@ -12989,7 +12957,6 @@
   <block id="03a4a17b1eab01f0b74373b2d602b107" category="section-title">为AFF A320、FAS8300、AFF C400、AFF A400、FAS8700布线 FAS9000、AFF A700、AFF C800、AFF A800、FAS9500或AFF A900</block>
   <block id="cf6033c90446afb2f2e4bf0a87384e97" category="image-alt">MCC IP布线A320 a400 a700 a800 a900 Cisco 3232C或9336c交换机</block>
   <block id="354182992aa934a6b659ad8284efa43c" category="section-title">为AFF A320、AFF C400、AFF A400、AFF A700、AFF C800、 或AFF A800连接到Cisco 9336C-x2共享交换机</block>
-  <block id="16212daffd6a3883636683e7ad616747" category="image-alt">MCC IP使用缆线将AFF A320 C400 a400 a700 c800 a800连接到Cisco 9336c共享交换机</block>
   <block id="4aa636d0c8e798111a1395c5cf44abef" category="paragraph">AFF A800、AFF C800</block>
   <block id="76a3e9deef2a9133b01bc4b8aa5ad045" category="paragraph">FAS8300、AFF A400和AFF C400</block>
   <block id="2d24d8597140717b72521869e1b9643a" category="paragraph">FAS2750、AFF A150和AFF A220</block>
@@ -13007,4 +12974,216 @@
   <block id="566b66a4b36764e94944f56424f3b3ca" category="paragraph">运行命令：<block ref="fdb848f6761ac46e0ea7678b5269bd3c" prefix=" " category="inline-code"></block></block>
   <block id="65cc666ecd4a5bdf3c624b12e425c91f" category="admonition">要更改配置、必须重新启动控制器。</block>
   <block id="57d89ae0fa9051439d76f5f61398fa16" category="list-text">通过双向执行高可用性(HA)接管来重新启动控制器。</block>
+  <block id="ee587f5bd979b8f81d1cbf341f0b2470" category="list-text">如果您使用的是八节点配置、则必须从开始重复整个操作步骤 <block ref="e821f1828723ededc57f2e891aea4a6a" category="inline-link-macro-rx"></block> 适用于每个FC DR组。</block>
+  <block id="bb6c47f32358fe5242b175ac608f7d32" category="list-text">如果您使用的是八节点配置、则所有节点都必须运行ONTAP 9.13.1或更高版本。</block>
+  <block id="d8e49cb116ea5302a217647ce0506ea6" category="list-text">如果您使用的是四节点配置、则所有节点都必须运行ONTAP 9.8或更高版本。</block>
+  <block id="b8c86c478bbb73c53f5440966b9fb7d1" category="list-text">请勿超过平台组合中"较低"的任何对象限制。应用这两个平台的下限对象。</block>
+  <block id="c5c0eb8cddac9e2347091241dce72719" category="list-text">如果目标平台限制低于MetroCluster 限制、则必须先将MetroCluster 重新配置为等于或低于目标平台限制、然后才能添加新节点。</block>
+  <block id="b6f6c085e7f98b78ea8fa6d3dd82bb6d" category="list-text">请参见 <block ref="62911b0739c1772914819ee9e7282ee4" category="inline-link-macro-rx"></block> 平台限制。</block>
+  <block id="dc63943b5b97ad0f10f23219d6f93cd4" category="list-text">修改每个集群中已转移IP节点的集群对等方的IP地址：</block>
+  <block id="6ea6f99dac44cf31a220dfe1e63e9825" category="list-text">使用确定cluster-A对等方<block ref="ecb6aba8bb04d2d32562d54c8601a0e1" prefix=" " category="inline-code"></block> 命令：</block>
+  <block id="f01a5704368544da9ef6bb24a5a2e763" category="list-text">修改cluster A对等IP地址：</block>
+  <block id="45abb87b8206cfbc00722d2629eb7f12" category="paragraph"><block ref="b92e186cb2da410f82acd0e2859869c5" prefix="" category="inline-code"></block></block>
+  <block id="8483d6377b961ac296cf824a6c40adf8" category="list-text">使用确定cluster-B对等方<block ref="ecb6aba8bb04d2d32562d54c8601a0e1" prefix=" " category="inline-code"></block> 命令：</block>
+  <block id="a3f3fe950d173612d2c6baf2a11af417" category="list-text">修改cluster B对等IP地址：</block>
+  <block id="46727703daccfd5df78f5a296293e49f" category="paragraph"><block ref="b351517027b03964abcefa6f0f5c5e50" prefix="" category="inline-code"></block></block>
+  <block id="417888b510ff4a6d7179797fd8e7ecc6" category="list-text">验证是否已更新每个集群的集群对等IP地址：</block>
+  <block id="25835160bb5009a7ab4e790ce4b03e99" category="list-text">使用验证是否已更新每个集群的IP地址<block ref="5cdd2540d44c1775d98bc8cede68e64f" prefix=" " category="inline-code"></block> 命令：</block>
+  <block id="75c999adce069eeec740f4fe07baa454" category="paragraph">。<block ref="30bb7a28fa1f682306677d4fb91fe005" prefix=" " category="inline-code"></block> 字段显示更新后的IP地址。</block>
+  <block id="0afdca0e4bd513974eb6c83722b9369e" category="paragraph">cluster A的示例：</block>
+  <block id="be5c4e8941add3c6aebfb833fcd39e2b" category="paragraph">cluster B的示例</block>
+  <block id="4b4f0848ca83589260083500e4b29774" category="paragraph">您必须遵循特定工作流，以确保成功实现无中断过渡。为您的配置选择工作流：</block>
+  <block id="6023e0e0a35923698957728074541693" category="list-text"><block ref="aae73aabcc7be91363e42ab781381500" category="inline-xref-macro-rx"></block></block>
+  <block id="16fc5d53fc09263c0c4d64ab08d37123" category="list-text"><block ref="dd4533a8ca70ef4d543abe89ba09b7d4" category="inline-xref-macro-rx"></block></block>
+  <block id="3590c734ea7d31811bb06e6baeb89747" category="section-title">四节点FC配置过渡工作流</block>
+  <block id="5b07506ebe022aa6945ad44b0cda5013" category="section-title">八节点FC配置过渡工作流</block>
+  <block id="926b6426ad1a2491d649c8474d38f0db" category="paragraph">过渡过程从运行正常的八节点MetroCluster FC配置开始。</block>
+  <block id="1af649626413a03f251f9a4c472e947b" category="image-alt">MCC DR组C1</block>
+  <block id="8a5133631c31fdbaaf6923247c22e665" category="paragraph">新的MetroCluster IP节点将作为第三个DR组添加。</block>
+  <block id="0f45be12e3fdc02453476d6aa8aae017" category="image-alt">MCC DR组C2</block>
+  <block id="56921c990c07a8724d93d1e5150e4105" category="paragraph">数据会从DR_group_1-FC传输到DR_group_1-IP、然后从配置中删除旧节点及其存储并将其停用。</block>
+  <block id="89ab8f8036966d10863f53d47d1a56a2" category="admonition">如果要从八节点FC配置过渡到四节点IP配置、则必须将DR_group_1-FC和DR_group_2-FC中的所有数据过渡到新的IP DR组(DR_group_1-IP)。然后、您可以停用这两个FC DR组。删除FC DR组后、此过程将以四节点MetroCluster IP配置结束。</block>
+  <block id="65b5b7e1c217903d6e531cfa03dabeae" category="image-alt">MCC DR组C1.</block>
+  <block id="efe65f05ea8aa4be04872bc5fc3592fa" category="paragraph">将其余MetroCluster IP节点添加到现有MetroCluster 配置中。重复此过程、将数据从DR_group_2-FC节点传输到DR_group_2-IP节点。</block>
+  <block id="eea4c5637cb859e2000dbcdf78548d9c" category="image-alt">MCC DR组C7</block>
+  <block id="7882ff17d8c8170e2a07510acdefa52b" category="paragraph">删除DR_group_2-FC后、此过程将以八节点MetroCluster IP配置结束。</block>
+  <block id="3801c840bf76921c2b00fc213010c0d4" category="image-alt">MCC DR组C6</block>
+  <block id="7bfd4ffe50f69a1805344bce9b252c81" category="section-title">过渡流程工作流</block>
+  <block id="feb6447b54e85b35757c82bf8e07abf7" category="summary">从ONTAP 9.13.1开始、您可以将工作负载和数据从现有八节点MetroCluster FC配置无中断过渡到新的MetroCluster IP配置。</block>
+  <block id="3d24a5eddf097cddc7e369398b35f959" category="paragraph">您可以将工作负载和数据从现有MetroCluster FC配置无中断过渡到新的MetroCluster IP配置。</block>
+  <block id="31c4d6a80fe871ada10a219d5727c166" category="paragraph">从ONTAP 9.8开始、您可以将工作负载和数据从现有四节点MetroCluster FC配置无中断过渡到新的MetroCluster IP配置。</block>
+  <block id="1bf2c57ed29fc24c2ccb26dcba0c45be" category="list-text">此操作步骤 仅适用于四节点和八节点MetroCluster FC配置。</block>
+  <block id="99e6dcb4734e7eef8858b52e3c36d08c" category="list-text">本操作步骤 介绍了过渡一个四节点FC DR组所需的步骤。如果您使用的是八节点配置(两个FC DR组)、则必须对每个FC DR组重复整个操作步骤。</block>
+  <block id="7085ef0783c3069c714c62b941d51195" category="summary">您可以使用此引导式自动MetroCluster 切换操作对四节点MetroCluster IP配置执行无中断控制器升级。</block>
+  <block id="be2a104272635035d829d9eb66247a6e" category="doc">使用带有system controller Replace命令的切换和切回升级四节点MetroCluster IP配置中的控制器(ONTAP 9.13.1及更高版本)</block>
+  <block id="7644562e2fb618084cb09ad85c576c00" category="paragraph">您可以使用此引导式自动MetroCluster 切换操作在四节点MetroCluster IP配置上执行无中断控制器升级。无法在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
+  <block id="23006e2e0a92cb1615e8aaf31b4fa13e" category="paragraph">此操作步骤 支持FAS8200到FAS9500以及AFF A300到AFF A900控制器升级。</block>
+  <block id="db8b16f8a162b64f9227ab0fe83ffe4c" category="paragraph">有关平台升级组合的详细信息、请查看中的MetroCluster IP升级表 <block ref="2a99f679e02927fd36d8e489a7ee9535" category="inline-link-macro-rx"></block>。</block>
+  <block id="e9f3eb39072498fcd6fd79f6beb0b0f4" category="list-text">此 操作步骤 适用场景 控制器模块采用运行ONTAP 9.13.1或更高版本的四节点MetroCluster IP配置。</block>
+  <block id="d6777f90334e4deb82616ecb9b6f9fb9" category="list-text">MetroCluster 系统必须在两个站点上运行相同版本的ONTAP。</block>
+  <block id="55a7a35f233fa5c7dc761790158ed06d" category="list-text">您可以使用此操作步骤 通过基于NSO的自动切换和切回来升级四节点MetroCluster IP配置中的控制器。</block>
+  <block id="c5825fe35515c4155fffecab1329d16f" category="admonition">四节点MetroCluster IP配置不支持使用聚合重新定位(ARL)和"system controller Replace commands"(system controller Replace命令)执行升级。</block>
+  <block id="77eb4e36d322d7ab218107d7c498326a" category="list-text">您必须使用自动化NSO控制器升级操作步骤 按顺序升级两个站点上的控制器。</block>
+  <block id="06b8cd9278c28e36ddc1fc586a6f840c" category="inline-link-macro">手动重新配置ONTAP 调解器</block>
+  <block id="6647b31592f54f2deed2633fe8863ba5" category="paragraph">在启动预检之前、如果安装了ONTAP 调解器、则会自动检测并删除该调解器。要确认删除、系统会提示您输入用户名和密码。完成升级后、或者如果预检失败或您选择不继续升级、则必须执行此操作 <block ref="8eeedc881b874d23b9b6cbc9929c7075" category="inline-link-macro-rx"></block>。</block>
+  <block id="3cc4806cb19cbb655dbea9a73d4aab85" category="paragraph"><block ref="4baef16133ebdeaa64de2abee5aaa778" prefix="" category="inline-code"></block></block>
+  <block id="ad84135061ac4d026b0f6b6b0b90c976" category="list-text">如果不运行<block ref="4baef16133ebdeaa64de2abee5aaa778" prefix=" " category="inline-code"></block> 命令时、控制器升级操作步骤 会选择基于NSO的自动切换和切回作为MetroCluster IP系统上的默认操作步骤。</block>
+  <block id="c37cd78225bfd28b27aba6fdb4ffdb05" category="paragraph">此任务将对现有MetroCluster IP配置执行。</block>
+  <block id="41658c9a662bf36d1d1079b0d7e61f18" category="paragraph">。<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> 命令输出显示三个表、其中包含MetroCluster 接口IP、系统ID和系统UID。稍后、要在启动新节点时设置bootargs、需要在操作步骤 中提供此信息。</block>
+  <block id="103e238a461bced8a19653fadfc6b06f" category="paragraph">在此示例中、对于四节点MetroCluster IP配置、将检索以下旧系统ID：</block>
+  <block id="f517753faa986ef4fe936b6ef049742a" category="paragraph">在此双节点MetroCluster IP配置示例中、检索到以下旧系统ID：</block>
+  <block id="8351b67dee4e0c692cf4f28e83b54b0a" category="paragraph">此自动化操作将启动切换操作。完成这些操作后、此操作会在*暂停以供用户干预*、以便您可以将控制器装入机架并进行安装、启动配对控制器、以及使用从闪存备份将根聚合磁盘重新分配给新控制器模块<block ref="5fb641c5977b93de82b81e36db0454cf" prefix=" " category="inline-code"></block> 已提前收集。</block>
+  <block id="8582c1480060e39fb79b0996133a48d6" category="paragraph"><block ref="8582c1480060e39fb79b0996133a48d6" category="inline-link-rx"></block></block>
+  <block id="956cd19055bcda776c4aa38d849f5270" category="paragraph">您的目录列表应包含一个包含内核文件 ontap-version_image.tgz 的 netboot 文件夹</block>
+  <block id="d58685908c79a70d5ff1a6db6c223402" category="paragraph">您不需要提取 ontap-version_image.tgz 文件。</block>
+  <block id="f3b7262f888ca591450dde27d2e71aaf" category="paragraph">以下示例将使用VLAN 120 (第一个网络)和VLAN 130 (第二个网络)为NODE_B_1设置值：</block>
+  <block id="65197a1036db006851c7578b94728a50" category="paragraph">以下示例将使用VLAN 120 (第一个网络)和VLAN 130 (第二个网络)为NODE_B_2设置值：</block>
+  <block id="bf8bfdf49f6f753bf2394e6dce1882b0" category="list-text">设置NODE_B_1上的UID。</block>
+  <block id="5eac2f82a290cf5f7626a80d0e2c07aa" category="paragraph">以下示例显示了用于设置NODE_B_1上的UID的命令：</block>
+  <block id="f2925ea98441cdf274d96211ca1ada37" category="list-text">设置NODE_B_2上的UID：</block>
+  <block id="812568fdfa215d28245c0e27f1e6f5ce" category="paragraph">以下示例显示了用于设置NODE_B_2上的UID的命令：</block>
+  <block id="384df789341519934d49ceef6f3f8c5e" category="admonition">。<block ref="12f728ceb5fc82e860ec81c090369ca5" prefix=" " category="inline-code"></block> 变量必须设置为*ORIGINATI*控制器模块NODE_B_1的sys-id。</block>
+  <block id="1e9e20507e30afe8b79feaf697336037" category="list-text">在NODE_B_1上设置变量。</block>
+  <block id="96a30b5e5305a12e0752b81f173e6fc6" category="paragraph">以下示例显示了用于设置NODE_B_1上的值的命令：</block>
+  <block id="ed8d1dfb2569c85ee7b108aa3e6a5466" category="list-text">在NODE_B_2上设置变量。</block>
+  <block id="bacd790164cac2c217ca06a37ce78e9c" category="paragraph">以下示例显示了用于设置NODE_B_2上的值的命令：</block>
+  <block id="1f9d34c7d1e2d2f573c7d5fc014693cd" category="paragraph">旧系统 ID 在中进行了标识 <block ref="88d9e20523438a3ef8e09cf426f5ea87" category="inline-link-macro-rx"></block>。</block>
+  <block id="ca0df34f59e377032b2f4b42096b5055" category="admonition">如果您的MetroCluster IP系统配置了高级磁盘分段功能、则必须通过运行来包含DR配对系统ID<block ref="1d9572d24113365244a97e4cb81d5a77" prefix=" " category="inline-code"></block> 命令：</block>
+  <block id="3d76ebef670d0f7bd3eab697fb186812" category="paragraph">在选项"`6`"后的一次重新启动期间、将显示确认提示<block ref="adeeb123a02ab1bcf79fc4bdffdd3b9f" prefix=" " category="inline-code"></block> 显示。输入 ...<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>。</block>
+  <block id="16de7447f84bfaba1c8cf72b93fbf6ee" category="paragraph"><block ref="16de7447f84bfaba1c8cf72b93fbf6ee" category="inline-link-macro-rx"></block></block>
+  <block id="9d278f0716d4f0b8bdeaa91150592096" category="list-text">此时将执行自动化操作<block ref="f62e58c376725d0e22a9e8040934124c" prefix=" " category="inline-code"></block>，<block ref="f71080a9d0eed0afac5e99d0ac5f5781" prefix=" " category="inline-code"></block>和站点A上的切回操作以及升级后检查。操作暂停后，手动检查 SAN LIF 状态，并按照控制台消息验证网络配置。</block>
+  <block id="7058a4e91dbbbe7dcf2fde3987421db0" category="section-title">重新配置ONTAP 调解器</block>
+  <block id="37a1beb7755a7b8722d2585dbc965263" category="paragraph">手动配置在开始升级之前自动删除的ONTAP 调解器。</block>
+  <block id="72912b568eb3bd0af2dc6a3ba324a1c9" category="list-text">使用中的步骤 <block ref="f90e9d8e118936cdbb24903820a79eb3" category="inline-link-macro-rx"></block>。</block>
+  <block id="eae1d6e5dc6115799413390aecfa0c7c" category="paragraph">自动化操作将启动切换、<block ref="4bc031ebd90e06c679bed249595b6c90" prefix=" " category="inline-code"></block>，和<block ref="a233091efff166ee24ee5a89d344dcdf" prefix=" " category="inline-code"></block> 操作。完成这些操作后、此操作会在*暂停以供用户干预*、以便您可以将控制器装入机架并进行安装、启动配对控制器、以及使用从闪存备份将根聚合磁盘重新分配给新控制器模块<block ref="5fb641c5977b93de82b81e36db0454cf" prefix=" " category="inline-code"></block> 已提前收集。</block>
+  <block id="3d296dee09f5acd9721e7bd1f885a1ff" category="doc">扩展MetroCluster IP配置</block>
+  <block id="f7ebd0c3919ed1a579352a95f757a9e6" category="paragraph">根据您的ONTAP 版本、您可以通过将四个新节点添加为新的DR组来扩展MetroCluster IP配置。</block>
+  <block id="bb12c6e41d92f6e4a5251b0dd54e9b0f" category="paragraph">从ONTAP 9.13.1开始、您可以将四个新节点作为第三个DR组添加到MetroCluster IP配置中。这将创建一个12节点MetroCluster 配置。</block>
+  <block id="1b9d79df22b9bc1c5dc1b1baa6f53e05" category="list-text">本操作步骤 介绍了扩展一个四节点DR组所需的步骤。如果您使用的是八节点配置(两个DR组)、则必须对每个DR组重复整个操作步骤。</block>
+  <block id="5ffb6f10d2a660f5653c90be923e511a" category="section-title">添加第二个DR组时支持的平台组合</block>
+  <block id="c7a5837b5fbd32fe6a2e393e60dbd4a3" category="paragraph">下表显示了八节点IP配置支持的平台组合。</block>
+  <block id="a321522d8592d70cc3e6c26d2e63f256" category="list-text">此表中的组合仅适用于常规或永久8节点配置。</block>
+  <block id="999074f8fe2e3e48d827312298ab3915" category="list-text">如果您使用的是过渡或刷新过程，*不*表中显示的平台组合将适用。</block>
+  <block id="33ad7ee6bdd54750e4657cc259182b15" category="list-text">一个灾难恢复组中的所有节点都必须具有相同的类型和配置。</block>
+  <block id="0f186c4f0b005580a0159670474d7e66" category="image-alt">适用于8节点配置的平台组合</block>
+  <block id="ef426871118095ccbed64997bc2ebf1e" category="list-text">*注1*：这些组合需要ONTAP 9.9.1或更高版本(或平台支持的最低ONTAP 版本)。</block>
+  <block id="06f9380c619d2fa649d0592c6129e260" category="list-text">*注2*：这些组合需要ONTAP 9.13.1或更高版本(或平台支持的最低ONTAP 版本)。</block>
+  <block id="cd2c073603609b9fcdfdc1ca7075bc5b" category="doc">刷新四节点或八节点MetroCluster IP配置(ONTAP 9.8及更高版本)</block>
+  <block id="60a88be17742c8d2f99c1b27c311dca1" category="paragraph">您可以使用此操作步骤 升级四节点或八节点配置中的控制器和存储。</block>
+  <block id="3104ce50b7a53b01f1c0af3e3fc54e43" category="paragraph">从ONTAP 9.13.1开始、您可以通过将八节点MetroCluster IP配置扩展为临时十二节点配置、然后删除旧的灾难恢复(DR)组来升级该配置中的控制器和存储。</block>
+  <block id="016be225123f8261f19fb829bbc84977" category="paragraph">从ONTAP 9.8开始、您可以通过将四节点MetroCluster IP配置扩展为临时八节点配置并删除旧DR组来升级此配置中的控制器和存储。</block>
+  <block id="e3f29f34a8bb06767323cc8e4d058431" category="list-text">如果您使用的是八节点配置、则系统必须运行ONTAP 9.13.1或更高版本。</block>
+  <block id="7c332afd15fb912a3e325674359f7556" category="list-text">如果您使用的是四节点配置、则系统必须运行ONTAP 9.8或更高版本。</block>
+  <block id="754c49529520fa11e1c669a74ccc0157" category="list-text">如果您还在升级IP交换机、则必须先升级这些交换机、然后再执行此刷新操作步骤。</block>
+  <block id="3143fc3898209e4326c307ba9fca7f8c" category="list-text">本操作步骤 介绍了刷新一个四节点DR组所需的步骤。如果您使用的是八节点配置(两个DR组)、则可以刷新一个或两个DR组。</block>
+  <block id="0e2f3faf301851917c69f0747162b9c4" category="paragraph">如果同时刷新两个DR组、则必须一次刷新一个DR组。</block>
+  <block id="1fd5fb51244bb2f9e31caff05e49083d" category="list-text">对于八节点配置、必须支持源和目标八节点MetroCluster 平台组合。</block>
+  <block id="79d720fb95bb200ede7a9f6c0dbfc3d0" category="admonition">如果同时刷新两个DR组、则在刷新第一个DR组后可能不支持此平台组合。您必须刷新这两个DR组、才能实现受支持的八节点配置。</block>
+  <block id="abd99efcea2674d79facbe22bbbbecc7" category="list-text">在MetroCluster IP配置中、只能使用此操作步骤 刷新特定平台型号。</block>
+  <block id="9a7b8abaf725425f1194c7e34ab14ebb" category="list-text">有关支持哪些平台升级组合的信息、请查看中的MetroCluster IP刷新表 <block ref="ca31e6122d170c1a660e1ab5d0a9430f" category="inline-link-macro-rx"></block>。</block>
+  <block id="2a2cf6a410f2b6427bba1d87ddefb983" category="list-text">源平台和目标平台的下限适用。如果要过渡到更高平台、则只有在所有灾难恢复组的技术更新完成后、新平台的限制才适用。</block>
+  <block id="40be6b525ed2183840f20fb9c29f8703" category="list-text">如果您对限制低于源平台的平台执行技术更新、则必须在执行此操作步骤 之前将限制调整为或低于目标平台限制。</block>
+  <block id="b31a2061aa6b904219eba112464c7357" category="paragraph">此时将显示八节点配置、如下图所示：</block>
+  <block id="448f39697cef4353cf70c2df80e1d4c9" category="list-text">使用Tieb破碎 机命令行界面确认已正确删除MetroCluster 配置<block ref="7f09554f3b428339c3f534ff2c033739" prefix=" " category="inline-code"></block> 命令：</block>
+  <block id="2d9320a95baef24be0ce2f2d4bc608a6" category="list-text">执行中的所有步骤 <block ref="26ae71b3302b7c9dcac8b221e98acc6f" category="inline-link-macro-rx"></block> 将新节点和存储添加到配置中。</block>
+  <block id="8785d96b922a1a66136207792a0400c5" category="paragraph">扩展操作步骤 完成后、将显示临时配置、如以下图像所示：</block>
+  <block id="7d7fd277012689535b693bcae0693459" category="image-title">临时八节点配置</block>
+  <block id="cb3b06d4f89d32589bbce6abb75941fc" category="image-title">临时十二节点配置</block>
+  <block id="830d9e0f5e1de2a97686d67c2397dae5" category="image-alt">MCC DR组C4</block>
+  <block id="6af6b76d592516d40ca101051c678be3" category="inline-link-macro">AFF 和 FAS 系统升级文档</block>
+  <block id="73463ea97bfc9f9e1267ea63ebdd42a3" category="list-text">使用中的以下过程将数据从旧节点移动到新节点 <block ref="292db4887d6135b1e0f2f8467d29f1d6" category="inline-link-macro-rx"></block></block>
+  <block id="bbe65d15d9db73ecb088957ca54464a4" category="list-text">修改每个集群中已转移节点的集群对等方的IP地址：</block>
+  <block id="5f733ea5e4f1c7cf03ff4e0dcc486e49" category="list-text">按照中的步骤进行操作 <block ref="e5ebde3067c5558de277c40cd868d611" category="inline-link-macro-rx"></block> 以删除旧DR组。</block>
+  <block id="91658906d8262381ddcdb44c01a8989d" category="list-text">如果要刷新八节点配置中的两个DR组、则必须对每个DR组重复整个操作步骤。</block>
+  <block id="e50b66bedcb52077182d77c650db0ca0" category="paragraph">删除旧DR组后、配置将如以下图像所示：</block>
+  <block id="47468b9007c8d1b64ee8a7229933b739" category="image-title">八节点配置</block>
+  <block id="e73093705babe6125a16df08eedb00cc" category="image-alt">MCC DR组C5</block>
+  <block id="68f99a795ff5a89f522232c02dc3bdef" category="paragraph"><block ref="ded257afb157d474a6461a3bc1b48d84" category="inline-link-macro-rx"></block> 在 _IP MetroCluster 安装和配置 _ 中。</block>
+  <block id="d64734f1819a8d6339e74ffe37dc5430" category="paragraph">如果未列出您的平台、则表示没有受支持的控制器升级组合。</block>
+  <block id="9cc4e1f05676227146cf00108c59fa28" category="image-alt">MetroCluster IP升级表9 13 1.</block>
+  <block id="183ffd679adb1c9e843df285f2b91466" category="list-text">注2：运行ONTAP 9.13.1或更高版本的系统支持控制器升级。</block>
+  <block id="565b432bf0dbccb436556aa228477fc4" category="image-alt">MetroCluster 光纤信道升级表p 13 1.</block>
+  <block id="ef7e86617c6692f308d834d239d77e9e" category="list-text">注4：运行ONTAP 9.13.1或更高版本的系统支持控制器升级。</block>
+  <block id="5abae7190ce598d45fe390e44304cde0" category="paragraph">9.13.1及更高版本</block>
+  <block id="80fd06bae5a00e691ac9334058ccace5" category="paragraph"><block ref="80fd06bae5a00e691ac9334058ccace5" category="inline-link-macro-rx"></block></block>
+  <block id="338b3842cbe6f0ae991509f38e7d0cca" category="list-text">您必须先完成技术更新操作步骤 、然后才能添加新负载。</block>
+  <block id="0fa55a9001a26a5414307fd992cd4661" category="image-alt">MetroCluster IP技术更新组合</block>
+  <block id="c38f34e2c50bf5ed2113077f8269019c" category="list-text">如果目标平台限制低于MetroCluster 限制、则必须先将MetroCluster 重新配置为等于或低于目标平台限制、然后才能添加新节点。</block>
+  <block id="fdc1be4b61fa768dbfcc3e8f0dab2595" category="paragraph">下表显示了八节点MetroCluster FC配置支持的平台组合。</block>
+  <block id="49782ec67fb4809f5d138aa07412fd9d" category="list-text">此表中的组合仅适用于常规或永久八节点配置。</block>
+  <block id="ea95591996a43e78cc0b5f96cb4d8f1c" category="list-text">如果您使用的是过渡或刷新过程，则此表中的平台组合*不*适用。</block>
+  <block id="c6e46da968a03eccf97571ae7315a6ce" category="image-alt">修改了AFF a320 c400 a400 a700 c800 a800到Cisco 9336c共享交换机的MCC IP布线</block>
+  <block id="1251b37475039ca3d9d370458002ce7c" category="paragraph">ONTAP 调解器将有关 MetroCluster 节点的状态信息存储在调解器主机上的邮箱中。MetroCluster 节点可以使用此信息监控其DR配对节点的状态、并在发生灾难时实施MAUSO。</block>
+  <block id="8227e4d84dc1594bf85338cfe09f1747" category="list-text">发生站点灾难时。站点灾难是指同一站点上的*所有*节点发生故障。</block>
+  <block id="792f2e5a1dddb8ed73154e39c1bf5e77" category="list-text">从ONTAP 9.13.1开始、如果满足上述条件、并且风扇或硬件故障导致环境关闭、例如电源设备、NVRAM电池或服务处理器检测信号故障、或者温度过高或过低。</block>
+  <block id="08d29117f113494cf7bd34ddc0d0a7e0" category="doc">更换IP交换机或更改现有MetroCluster IP交换机的使用</block>
+  <block id="2454620eb6c11598ab9b657181cc0f55" category="paragraph">您可能需要更换发生故障的交换机、升级或降级交换机或更改现有MetroCluster IP交换机的使用。</block>
+  <block id="057120c40cd4c9c1a072526b368d97f4" category="paragraph">此操作步骤 支持以下转换：</block>
+  <block id="31d37e1e42011bd98b80703dc464aba6" category="list-text">更改交换机供应商、类型或两者。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。</block>
+  <block id="140c4f749e3092d3a7c3a67473f0dc03" category="paragraph">例如、要将MetroCluster IP配置从使用AFF A400控制器和BES-53248交换机的单个四节点配置扩展为使用AFF A400控制器的八节点配置、您必须将交换机更改为配置支持的类型、因为新配置不支持BES-53248交换机。</block>
+  <block id="dbe41527f45d328d1c442eb0dbad0503" category="paragraph">如果您要将发生故障的交换机更换为相同类型的交换机、则只需更换发生故障的交换机即可。如果要升级或降级交换机、必须调整同一网络中的两个交换机。如果两个交换机通过交换机间链路(ISL)连接、并且不位于同一站点、则这两个交换机位于同一网络中。例如、网络1包括IP_switch_A_1和IP_switch_B_1、网络2包括IP_switch_A_2和IP_switch_B_1、如下图所示：</block>
+  <block id="9cdb975932394169c1a7da25c603b227" category="admonition">如果您更换了交换机或升级到不同的交换机、则可以通过安装交换机固件和RCF文件来预配置交换机。</block>
+  <block id="dc90672e58a69bbca66b20395c1f39b7" category="list-text">使用共享存储MetroCluster 交换机将MetroCluster IP配置转换为MetroCluster IP配置。</block>
+  <block id="86d1d4ce5bcdca5be40df18599a99316" category="paragraph">例如、如果您有一个使用AFF A700控制器的常规MetroCluster IP配置、而您希望重新配置MetroCluster 以将NS224磁盘架连接到相同的交换机。</block>
+  <block id="0a68705a55d8a79d8f02e799bbe59a07" category="inline-link-macro">使用共享存储MetroCluster 交换机向MetroCluster IP添加磁盘架</block>
+  <block id="a26675682d61464ec64687501c97e418" category="list-text">如果要在使用共享存储MetroCluster IP交换机的MetroCluster IP配置中添加或删除磁盘架、请按照中的步骤进行操作 <block ref="a6c32053e88f456cb0f33bc2215c1e48" category="inline-link-macro-rx"></block></block>
+  <block id="db1a71d927fe2da1cf5688ccd43aff7e" category="list-text">您的MetroCluster IP可能已直接连接到NS224磁盘架或专用存储交换机。</block>
+  <block id="40fbbb9d7606643acc0b72d7f28c501f" category="paragraph-title">端口使用情况工作表</block>
+  <block id="738fc50c1eb3a054e9eeacb63a7e72f3" category="paragraph">以下示例工作表用于将MetroCluster IP配置转换为使用现有交换机连接两个NS224磁盘架的共享存储配置。</block>
+  <block id="21eb30d37360c5d8c536d0be6968f476" category="paragraph">工作表定义：</block>
+  <block id="f8974ea8379a4bc6dda041a2f0e7cfa3" category="list-text">现有配置：现有MetroCluster 配置的布线。</block>
+  <block id="2c0c7e8c9405c56506dbb2ee6f1549cf" category="list-text">使用NS224磁盘架的新配置：存储与MetroCluster 之间共享交换机的目标配置。</block>
+  <block id="574fb9fc0e12595fd6be9ec98d4f7361" category="paragraph">此工作表中突出显示的字段表示以下内容：</block>
+  <block id="7e6b37741503afb3e7ddb433e2eb7924" category="list-text">绿色：不需要更改布线。</block>
+  <block id="f06f8cd222932224a11a995ec4ef0ccf" category="list-text">黄色：您必须移动具有相同或不同配置的端口。</block>
+  <block id="b7450015b71c12c709e06c6df0960192" category="list-text">蓝色：新连接的端口。</block>
+  <block id="64a60a68eb306ec5af2b3794eebf0acc" category="paragraph"><block ref="64a60a68eb306ec5af2b3794eebf0acc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="633cc15b1e59b48a46d3c777359a1055" category="list-text">[[all_Step1]]检查配置的运行状况。</block>
+  <block id="7882a4b556b6996eaf604413a9e602d9" category="inline-xref">第 4 步</block>
+  <block id="081cd064d2071e8aa77edcf5d45444be" category="paragraph">如果要重复使用现有交换机、请转至 <block ref="046a26a191748a2899dce4a2c37c0cb7" category="inline-xref-macro-rx"></block>。</block>
+  <block id="a20cd528d8bc7b61469ce5e3d4c9c554" category="list-text">[[existing_Step4]]断开与旧交换机的连接。</block>
+  <block id="7d776215704c45de3e834bbcadf79f9d" category="admonition">您只能断开在旧配置和新配置中使用不同端口的连接。如果您使用的是新交换机、则必须断开所有连接。</block>
+  <block id="75e3c856358f89db923a1a35bcc7533c" category="paragraph">按以下顺序删除连接：</block>
+  <block id="0cde1e9cab83159ca8c4c0066971bfaf" category="list-text">如果本地集群接口连接到交换机：</block>
+  <block id="2d92b42c0c2f47e6ac73af40f63add96" category="list-text">断开本地集群接口的连接</block>
+  <block id="0054fe87c904661c3e1c865d343c0bcc" category="list-text">断开本地集群ISO的连接</block>
+  <block id="ffd6b825c885ce7458a8f30023fc7852" category="list-text">断开MetroCluster IP接口</block>
+  <block id="67cc98572471f894a699ad039887fbf2" category="list-text">断开MetroCluster 的连接</block>
+  <block id="afbde099dc8a26a6394d60f258d7b937" category="paragraph">在示例中 <block ref="6c63cd5b30d21cdd776aa75d41e55cc0" category="inline-xref-macro-rx"></block>，交换机不会发生变化。MetroCluster 的CRL已重新定位、必须断开连接。您无需断开工作表上标记为绿色的连接。</block>
+  <block id="7b9cd3f24cb1c28f865438cbd149932b" category="list-text">如果您使用的是新交换机、请关闭旧交换机、拔下缆线、然后物理卸下旧的IP_switch_B_1。</block>
+  <block id="f5ce4d426c8852e0090ab32842d1cd09" category="inline-xref">第 6 步</block>
+  <block id="a5717edbc2c781c1beaa710a27186585" category="paragraph">如果要重复使用现有交换机、请转至 <block ref="2e61491c69f93a4146be17b4939efb61" category="inline-xref-macro-rx"></block>。</block>
+  <block id="333d2f9cc8c6ad8010d2882a39d82f4b" category="admonition">除管理接口(如果使用)外、请勿*使用缆线连接新交换机。</block>
+  <block id="1fd9c3285779f1beb3a2a86f3db536dd" category="list-text">[[existing_Step6]]配置现有交换机。</block>
+  <block id="00988a383d51754cc7748f6c1b1e0fea" category="paragraph">如果您已经预先配置了交换机、则可以跳过此步骤。</block>
+  <block id="6009872da2f85ec2153eaa9c096839f1" category="paragraph">要配置现有交换机、请按照以下步骤安装和升级固件和RC框架 文件：</block>
+  <block id="9c77ce4749e7ce4cb8afcbc4ebd4e32e" category="list-text"><block ref="9c77ce4749e7ce4cb8afcbc4ebd4e32e" category="inline-link-macro-rx"></block></block>
+  <block id="45cb34f2cec27064a29ed6e3a54a294f" category="list-text"><block ref="45cb34f2cec27064a29ed6e3a54a294f" category="inline-link-macro-rx"></block></block>
+  <block id="3a14a65fbfc927e7fc3c51dcb8d932f8" category="list-text">为交换机布线。</block>
+  <block id="e864e1a0a83c248ec6705eecbb75a2e4" category="paragraph">您可以按照中的_"Ciping the IP switchs_(为IP交换机布线)"部分中的步骤进行操作 <block ref="69c250b2ff0cdf92dd9f1322bce627cf" category="inline-link-macro-rx"></block>。</block>
+  <block id="abba6801f76a30e62f42a339319d8046" category="paragraph">按以下顺序为交换机布线(如果需要)：</block>
+  <block id="eed332b6efe7c74f805fd4d57a6089fa" category="list-text">使用缆线将此ISL连接到远程站点。</block>
+  <block id="c78a73a52795719f0a6c0e4e534be9ef" category="list-text">为MetroCluster IP接口布线。</block>
+  <block id="01deefeeb71ff074c039158073f19265" category="list-text">为本地集群接口布线。</block>
+  <block id="8b6ae3655a41f028d5060b1f3d5aebbf" category="list-text">如果交换机类型不同，则已用端口可能与旧交换机上的端口不同。如果要升级或降级交换机，请勿 * 使用 * 不 * 缆线连接本地 ISL 。只有在要升级或降级第二个网络中的交换机且一个站点中的两个交换机类型和布线相同时、才需要为本地ISO布线。</block>
+  <block id="eaa95352e43bdba50bdd8ae03821eb2f" category="list-text">如果要升级交换机A1和交换机B1、则必须对交换机交换机A2和交换机B2执行步骤1至6。</block>
+  <block id="ab95b1ec0ad168059ea7f20803fa1073" category="list-text">完成本地集群布线。</block>
+  <block id="4ceec7a3943b4f4acd458ca89a818798" category="list-text">使用缆线连接本地集群ISO。</block>
+  <block id="10fb2fd01be021da5cbd6629a96e24a6" category="list-text">如果本地集群接口*未*连接到交换机：</block>
+  <block id="446e9d64184ff722494a9a706bbd9d06" category="inline-link-macro">迁移到交换式 NetApp 集群环境</block>
+  <block id="76424713bb30c73c77e02fc03d7bfa54" category="list-text">使用 <block ref="54de1f7ba3b725e8a672244eb3963d64" category="inline-link-macro-rx"></block> 操作步骤 、用于将无交换机集群转换为有交换机集群。使用中指示的端口 <block ref="69c250b2ff0cdf92dd9f1322bce627cf" category="inline-link-macro-rx"></block> 或RC框架 布线文件以连接本地集群接口。</block>
+  <block id="ef28ede8698d6b9355079c76d077c08d" category="list-text">重复执行、以验证MetroCluster 配置是否运行正常 <block ref="78909af09fbcfe8c1bea7d5cc8b7674c" category="inline-xref-macro-rx"></block>。</block>
+  <block id="15bac38a5276c64284cc172e6de7c1f3" category="list-text">(可选)移动NS224磁盘架。</block>
+  <block id="13c9917203c8c2e988a75ac2cf246dcd" category="paragraph">如果要重新配置的MetroCluster IP配置未将NS224磁盘架连接到MetroCluster IP交换机、请使用相应的操作步骤 添加或移动NS224磁盘架：</block>
+  <block id="a6c32053e88f456cb0f33bc2215c1e48" category="list-text"><block ref="a6c32053e88f456cb0f33bc2215c1e48" category="inline-link-macro-rx"></block></block>
+  <block id="3ebdfe501befb632f105d0771d49b2ed" category="inline-link-macro">从具有直连存储的无交换机集群迁移</block>
+  <block id="38584e0fd95cba0498b35bc2d1409789" category="list-text"><block ref="38584e0fd95cba0498b35bc2d1409789" category="inline-link-macro-rx"></block></block>
+  <block id="2e782f3147ceef5a1435f26ba8fa7daa" category="inline-link-macro">通过重复使用存储交换机，从具有交换机连接存储的无交换机配置进行迁移</block>
+  <block id="a8a61fb8a898cbbd8809029f5f6b5dba" category="list-text"><block ref="a8a61fb8a898cbbd8809029f5f6b5dba" category="inline-link-macro-rx"></block></block>
+  <block id="ba8871c06c0bd003e2160207049c17d5" category="paragraph">默认情况下、AUSO设置为auso-on-cluster-Disaster。其状态可在中查看<block ref="0d51371cbb850772d2130a36f4368df4" prefix=" " category="inline-code"></block> 命令：</block>
+  <block id="c7f2465703040d1f77ba4f73cf6ce393" category="paragraph">从ONTAP 9.13.1开始、在MetroCluster IP配置中、AUSO状态的默认值设置为auso-on-dr-group。对于ONTAP 9.12.1及更早版本、默认值设置为"auuso-on-cluster-퓖 몦"。在八节点MetroCluster IP配置中、如果HA对中的两个节点都发生故障、则此选项将触发一个AUSO。</block>
+  <block id="55e40c2e95a8c835a2e8ddca52499b33" category="paragraph">您可以使用将AUSO域更改为"auso-on-cluster-퓖 몦"域<block ref="eabe864642c195f21f3f5dd17825dd14" prefix=" " category="inline-code"></block> 命令：</block>
+  <block id="d87d22ecaeaff0e5d4bd4030a9e08302" category="sidebar">使用"system controller Replace (system controller Replace)"命令通过切换和切回升级四节点MetroCluster IP中的控制器(ONTAP 9.13.1及更高版本)</block>
+  <block id="12651c133a2edc8c764efaddca32ca42" category="sidebar">刷新四节点或八节点MetroCluster IP配置(ONTAP 9.8及更高版本)</block>
+  <block id="f11af7573a10a71e1161a2099db36bcc" category="sidebar">扩展MetroCluster IP配置</block>
 </blocks>

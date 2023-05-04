@@ -697,7 +697,7 @@ SP 向其 DR 配对节点发送和接收 SNMP 流量，以监控其运行状况�
 
 ==== 更改 MetroCluster FC 配置中的 AUSO 设置
 
-默认情况下， AUSO 设置为 "`auso-on-cluster-disaster` " 。可以使用 MetroCluster show 命令查看其状态。
+默认情况下、AUSO设置为auso-on-cluster-Disaster。其状态可在中查看 `metrocluster show` 命令：
 
 
 NOTE: AUSO 设置不适用于 MetroCluster IP 配置。
@@ -727,6 +727,10 @@ link:task_perform_switchover_for_tests_or_maintenance.html["为测试或维护�
 === MetroCluster IP 配置中的调解器辅助自动计划外切换
 
 在 MetroCluster IP 配置中，系统可以使用 ONTAP 调解器检测故障并执行调解器辅助的自动计划外切换（ MAUSO ）。
+
+从ONTAP 9.13.1开始、在MetroCluster IP配置中、AUSO状态的默认值设置为auso-on-dr-group。对于ONTAP 9.12.1及更早版本、默认值设置为"auuso-on-cluster-퓖 몦"。在八节点MetroCluster IP配置中、如果HA对中的两个节点都发生故障、则此选项将触发一个AUSO。
+
+您可以使用将AUSO域更改为"auso-on-cluster-퓖 몦"域 `metrocluster modify -auto-switchover-failure-domain auso-on-cluster-disaster` 命令：
 
 
 NOTE: MetroCluster FC 配置不支持 MAUSO 。

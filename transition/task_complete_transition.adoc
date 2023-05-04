@@ -103,4 +103,5 @@ not-enabled
 
 cluster_B::>
 ....
+. 如果您使用的是八节点配置、则必须从开始重复整个操作步骤 link:concept_requirements_for_fc_to_ip_transition_mcc.html["准备从 MetroCluster FC 过渡到 MetroCluster IP 配置"] 适用于每个FC DR组。
 

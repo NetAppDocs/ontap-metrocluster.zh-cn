@@ -12,6 +12,9 @@ entries:
     url: "/upgrade/concept_choosing_tech_refresh_mcc.html"
   - title: 选择扩展操作步骤
     url: "/upgrade/concept_choosing_expansion_method_mcc.html"
+- title: 使用"system controller Replace (system controller Replace)"命令通过切换和切回升级四节点MetroCluster
+    IP中的控制器(ONTAP 9.13.1及更高版本)
+  url: "/upgrade/task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html"
 - title: 使用切换和切回升级MetroCluster FC中的控制器
   url: "/upgrade/task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html"
 - title: 使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster FC配置中的控制器(AFF A700/FAS9000到AFF A900/FAS9500)
@@ -24,7 +27,7 @@ entries:
   url: "/upgrade/task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html"
 - title: 刷新四节点 MetroCluster FC 配置
   url: "/upgrade/task_refresh_4n_mcc_fc.html"
-- title: 刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
+- title: 刷新四节点或八节点MetroCluster IP配置(ONTAP 9.8及更高版本)
   url: "/upgrade/task_refresh_4n_mcc_ip.html"
 - title: 将双节点 MetroCluster FC 配置扩展为四节点配置
   entries:
@@ -152,7 +155,7 @@ entries:
     url: "/upgrade/task_send_a_custom_autosupport_message_after_add_nodes_to_the_mcc_configuration.html"
   - title: 验证切换，修复和切回
     url: "/upgrade/task_verify_switchover_heal_and_switchback.html"
-- title: 将四节点 MetroCluster IP 配置扩展为八节点配置
+- title: 扩展MetroCluster IP配置
   url: "/upgrade/task_expand_a_four_node_mcc_ip_configuration.html"
 - title: 删除灾难恢复组
   url: "/upgrade/concept_removing_a_disaster_recovery_group.html"

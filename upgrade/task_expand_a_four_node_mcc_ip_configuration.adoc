@@ -4,17 +4,22 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, refresh, four, node, ip, configuration, add, autosupport 
 summary: 您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。 
 ---
-= 将四节点 MetroCluster IP 配置扩展为八节点配置
+= 扩展MetroCluster IP配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+根据您的ONTAP 版本、您可以通过将四个新节点添加为新的DR组来扩展MetroCluster IP配置。
+
+从ONTAP 9.13.1开始、您可以将四个新节点作为第三个DR组添加到MetroCluster IP配置中。这将创建一个12节点MetroCluster 配置。
+
 从 ONTAP 9.1.1 开始，您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。
 
 .开始之前
 * 新旧节点必须运行相同版本的 ONTAP 。
+* 本操作步骤 介绍了扩展一个四节点DR组所需的步骤。如果您使用的是八节点配置(两个DR组)、则必须对每个DR组重复整个操作步骤。
 * 您必须确保旧平台型号和新平台型号支持平台混合。
 +
 https://hwu.netapp.com["NetApp Hardware Universe"^]
@@ -64,6 +69,26 @@ dr_group_2-new
 
 
 |===
+
+
+== 添加第二个DR组时支持的平台组合
+
+下表显示了八节点IP配置支持的平台组合。
+
+[IMPORTANT]
+====
+* 此表中的组合仅适用于常规或永久8节点配置。
+* 如果您使用的是过渡或刷新过程，*不*表中显示的平台组合将适用。
+* 一个灾难恢复组中的所有节点都必须具有相同的类型和配置。
+
+
+====
+image::../media/8node_comb_ip.png[适用于8节点配置的平台组合]
+
+* *注1*：这些组合需要ONTAP 9.9.1或更高版本(或平台支持的最低ONTAP 版本)。
+* *注2*：这些组合需要ONTAP 9.13.1或更高版本(或平台支持的最低ONTAP 版本)。
+
+
 
 
 == 在维护之前发送自定义 AutoSupport 消息

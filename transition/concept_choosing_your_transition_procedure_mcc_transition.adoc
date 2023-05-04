@@ -25,9 +25,14 @@ image::../media/metrocluster_fc_ip_transition_matrix_yellowdogp1.png[MetroCluste
 * 除非注释中另有说明或各个平台需要、否则过渡过程都需要使用ONTAP 9.8或更高版本。
 
 
+[NOTE]
+====
+* 请勿超过平台组合中"较低"的任何对象限制。应用这两个平台的下限对象。
+* 如果目标平台限制低于MetroCluster 限制、则必须先将MetroCluster 重新配置为等于或低于目标平台限制、然后才能添加新节点。
+* 请参见 link:https://hwu.netapp.html["Hardware Universe"^] 平台限制。
 
-NOTE: 请勿超过平台组合中"较低"的任何对象限制。应用这两个平台的下限对象。请参见 link:https://hwu.netapp.html["Hardware Universe"^] 平台限制。
 
+====
 您必须根据现有 MetroCluster FC 配置选择过渡操作步骤。
 
 过渡操作步骤将后端 FC 交换机网络结构或 FC-VI 连接替换为 IP 交换机网络。确切的操作步骤取决于您的初始配置。

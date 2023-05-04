@@ -1,0 +1,34 @@
+= 
+:allow-uri-read: 
+
+
+您必须将交换机更新为支持新平台型号的配置。
+
+.关于此任务
+您可以在包含当前正在升级的控制器的站点上执行此任务。在此操作步骤中显示的示例中，我们首先升级 site_B 。
+
+当 site_A 上的控制器升级后， site_A 上的交换机将进行升级。
+
+.步骤
+. 准备 IP 交换机以应用新的 RCF 文件。
++
+按照 _IP MetroCluster 安装和配置 _ 部分中适用于您的交换机供应商一节中的步骤进行操作。
+
++
+link:../install-ip/index.html["MetroCluster IP 安装和配置"]
+
++
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["将 Broadcom IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-cisco-ip-switch-to-factory-defaults["将 Cisco IP 交换机重置为出厂默认值"]
+
+
+. 下载并安装 RCF 文件。
++
+按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/index.html["MetroCluster IP 安装和配置"]。
+
++
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom RCF 文件"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
+
+
+

@@ -4,24 +4,40 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, refresh, four, node, ip, configuration, add, autosupport 
 summary: 从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配置扩展为临时八节点配置，然后删除旧的灾难恢复（ Disaster Recovery ， DR ）组来升级四节点 IP 配置中的控制器和存储。 
 ---
-= 刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
+= 刷新四节点或八节点MetroCluster IP配置(ONTAP 9.8及更高版本)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配置扩展为临时八节点配置，然后删除旧的灾难恢复（ Disaster Recovery ， DR ）组来升级四节点 IP 配置中的控制器和存储。
+您可以使用此操作步骤 升级四节点或八节点配置中的控制器和存储。
+
+从ONTAP 9.13.1开始、您可以通过将八节点MetroCluster IP配置扩展为临时十二节点配置、然后删除旧的灾难恢复(DR)组来升级该配置中的控制器和存储。
+
+从ONTAP 9.8开始、您可以通过将四节点MetroCluster IP配置扩展为临时八节点配置并删除旧DR组来升级此配置中的控制器和存储。
 
 .关于此任务
-* 运行 ONTAP 9.8 及更高版本的系统支持此操作步骤。
-* 如果要升级 IP 交换机，则应在执行此刷新操作步骤之前对其进行升级。
+* 如果您使用的是八节点配置、则系统必须运行ONTAP 9.13.1或更高版本。
+* 如果您使用的是四节点配置、则系统必须运行ONTAP 9.8或更高版本。
+* 如果您还在升级IP交换机、则必须先升级这些交换机、然后再执行此刷新操作步骤。
+* 本操作步骤 介绍了刷新一个四节点DR组所需的步骤。如果您使用的是八节点配置(两个DR组)、则可以刷新一个或两个DR组。
++
+如果同时刷新两个DR组、则必须一次刷新一个DR组。
+
 * 引用 " 旧节点 " 是指要替换的节点。
-* 在MetroCluster FC配置中、只能使用此操作步骤 刷新特定平台型号。
+* 对于八节点配置、必须支持源和目标八节点MetroCluster 平台组合。
++
+
+NOTE: 如果同时刷新两个DR组、则在刷新第一个DR组后可能不支持此平台组合。您必须刷新这两个DR组、才能实现受支持的八节点配置。
+
+* 在MetroCluster IP配置中、只能使用此操作步骤 刷新特定平台型号。
 +
 ** 有关支持哪些平台升级组合的信息、请查看中的MetroCluster IP刷新表 link:../upgrade/concept_choosing_tech_refresh_mcc.html#supported-metrocluster-ip-tech-refresh-combinations["选择系统刷新方法"]。
 
 
+* 源平台和目标平台的下限适用。如果要过渡到更高平台、则只有在所有灾难恢复组的技术更新完成后、新平台的限制才适用。
+* 如果您对限制低于源平台的平台执行技术更新、则必须在执行此操作步骤 之前将限制调整为或低于目标平台限制。
 
 
 .步骤
@@ -31,6 +47,12 @@ summary: 从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配�
 
 +
 image::../media/mcc_dr_group_a.png[MCC DR 组 A]
+
++
+此时将显示八节点配置、如下图所示：
+
++
+image::../media/mcc_dr_groups_8_node.gif[MCC DR 组 8 个节点]
 
 . 要防止自动生成支持案例，请发送一条 AutoSupport 消息以指示升级正在进行中。
 +
@@ -59,7 +81,26 @@ image::../media/mcc_dr_group_a.png[MCC DR 组 A]
  a| 
 Tiebreaker
  a| 
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for-modifying-metrocluster-tiebreaker-configurations["删除 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中
+.. 使用 Tiebreaker CLI `monitor remove` 命令删除 MetroCluster 配置。
++
+在以下示例中，从软件中删除了 "`cluster_A` " ：
+
++
+[listing]
+----
+
+NetApp MetroCluster Tiebreaker :> monitor remove -monitor-name cluster_A
+Successfully removed monitor from NetApp MetroCluster Tiebreaker
+software.
+----
+.. 使用Tieb破碎 机命令行界面确认已正确删除MetroCluster 配置 `monitor show -status` 命令：
++
+[listing]
+----
+
+NetApp MetroCluster Tiebreaker :> monitor show -status
+----
+
 
 
 
@@ -78,18 +119,23 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for
 请参见产品文档。
 
 |===
-. 执行中的所有步骤 link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["将四节点 MetroCluster IP 配置扩展为八节点配置"] 将新节点和存储添加到配置中。
+. 执行中的所有步骤 link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["扩展MetroCluster IP配置"] 将新节点和存储添加到配置中。
 +
-扩展操作步骤完成后，此配置将如下图所示：
+扩展操作步骤 完成后、将显示临时配置、如以下图像所示：
 
 +
+.临时八节点配置
 image::../media/mcc_dr_group_b.png[MCC DR 组 b]
+
++
+.临时十二节点配置
+image::../media/mcc_dr_group_c4.png[MCC DR组C4]
 
 . 移动 CRS 卷。
 +
 执行中的步骤 link:../maintain/task_move_a_metadata_volume_in_mcc_configurations.html["在 MetroCluster 配置中移动元数据卷"]。
 
-. 按照中的以下过程将数据从旧节点移动到新节点 https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/home.html["其他平台过程：《控制器硬件升级快速指南》"^]
+. 使用中的以下过程将数据从旧节点移动到新节点 link:https://docs.netapp.com/us-en/ontap-systems-upgrade/index.html["AFF 和 FAS 系统升级文档"^]
 +
 .. 执行中的所有步骤 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["创建聚合并将卷移动到新节点"^]。
 +
@@ -99,15 +145,121 @@ NOTE: 您可以选择在创建聚合时或之后对其进行镜像。
 .. 执行中的所有步骤 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-95CA9262-327D-431D-81AA-C73DEFF3DEE2.html["将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点"]。
 
 
-. 按照操作步骤中的步骤删除旧 DR 组。
+. 修改每个集群中已转移节点的集群对等方的IP地址：
 +
-link:concept_removing_a_disaster_recovery_group.html["删除灾难恢复组"]
+.. 使用确定cluster-A对等方 `cluster peer show` 命令：
++
+[listing]
+----
+cluster_A::> cluster peer show
+Peer Cluster Name         Cluster Serial Number Availability   Authentication
+------------------------- --------------------- -------------- --------------
+cluster_B         1-80-000011           Unavailable    absent
+----
++
+... 修改cluster A对等IP地址：
++
+`cluster peer modify -cluster cluster_A -peer-addrs node_A_3_IP -address-family ipv4`
+
+
+
+.. 使用确定cluster-B对等方 `cluster peer show` 命令：
++
+[listing]
+----
+cluster_B::> cluster peer show
+Peer Cluster Name         Cluster Serial Number Availability   Authentication
+------------------------- --------------------- -------------- --------------
+cluster_A         1-80-000011           Unavailable    absent
+----
++
+... 修改cluster B对等IP地址：
++
+`cluster peer modify -cluster cluster_B -peer-addrs node_B_3_IP -address-family ipv4`
+
+
+
+.. 验证是否已更新每个集群的集群对等IP地址：
++
+... 使用验证是否已更新每个集群的IP地址 `cluster peer show -instance` 命令：
++
+。 `Remote Intercluster Addresses` 字段显示更新后的IP地址。
 
 +
-删除旧 DR 组（ DR 组 1 ）后，此配置将显示为下图所示：
+cluster A的示例：
 
 +
+[listing]
+----
+cluster_A::> cluster peer show -instance
+
+Peer Cluster Name: cluster_B
+           Remote Intercluster Addresses: 172.21.178.204, 172.21.178.212
+      Availability of the Remote Cluster: Available
+                     Remote Cluster Name: cluster_B
+                     Active IP Addresses: 172.21.178.212, 172.21.178.204
+                   Cluster Serial Number: 1-80-000011
+                    Remote Cluster Nodes: node_B_3-IP,
+                                          node_B_4-IP
+                   Remote Cluster Health: true
+                 Unreachable Local Nodes: -
+          Address Family of Relationship: ipv4
+    Authentication Status Administrative: use-authentication
+       Authentication Status Operational: ok
+                        Last Update Time: 4/20/2023 18:23:53
+            IPspace for the Relationship: Default
+Proposed Setting for Encryption of Inter-Cluster Communication: -
+Encryption Protocol For Inter-Cluster Communication: tls-psk
+  Algorithm By Which the PSK Was Derived: jpake
+
+cluster_A::>
+
+----
++
+cluster B的示例
+
++
+[listing]
+----
+cluster_B::> cluster peer show -instance
+
+                       Peer Cluster Name: cluster_A
+           Remote Intercluster Addresses: 172.21.178.188, 172.21.178.196 <<<<<<<< Should reflect the modified address
+      Availability of the Remote Cluster: Available
+                     Remote Cluster Name: cluster_A
+                     Active IP Addresses: 172.21.178.196, 172.21.178.188
+                   Cluster Serial Number: 1-80-000011
+                    Remote Cluster Nodes: node_A_3-IP,
+                                          node_A_4-IP
+                   Remote Cluster Health: true
+                 Unreachable Local Nodes: -
+          Address Family of Relationship: ipv4
+    Authentication Status Administrative: use-authentication
+       Authentication Status Operational: ok
+                        Last Update Time: 4/20/2023 18:23:53
+            IPspace for the Relationship: Default
+Proposed Setting for Encryption of Inter-Cluster Communication: -
+Encryption Protocol For Inter-Cluster Communication: tls-psk
+  Algorithm By Which the PSK Was Derived: jpake
+
+cluster_B::>
+----
+
+
+
+
+. 按照中的步骤进行操作 link:concept_removing_a_disaster_recovery_group.html["删除灾难恢复组"] 以删除旧DR组。
+. 如果要刷新八节点配置中的两个DR组、则必须对每个DR组重复整个操作步骤。
++
+删除旧DR组后、配置将如以下图像所示：
+
++
+.四节点配置
 image::../media/mcc_dr_group_d.png[MCC DR 组 d]
+
++
+.八节点配置
+image::../media/mcc_dr_group_c5.png[MCC DR组C5]
 
 . 确认 MetroCluster 配置的运行模式并执行 MetroCluster 检查。
 +
@@ -148,7 +300,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metro
  a| 
 调解器
  a| 
-链接： ./install-IP/concept_mediator_requirements.html _ MetroCluster IP 安装和配置 _ 中的 " 从 MetroCluster IP 配置配置 ONTAP 调解器服务 " 。
+link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"] 在 _IP MetroCluster 安装和配置 _ 中。
 
 
 

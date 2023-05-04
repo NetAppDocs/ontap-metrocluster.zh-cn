@@ -35,3 +35,19 @@ image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
 image::../media/mcc_dr_groups_8_node.gif[MCC DR 组 8 个节点]
 
 这两个站点必须均衡扩展。MetroCluster FC 配置不能包含数量不均的节点。
+
+
+
+== 添加第二个DR组时支持的平台组合
+
+下表显示了八节点MetroCluster FC配置支持的平台组合。
+
+[IMPORTANT]
+====
+* 此表中的组合仅适用于常规或永久八节点配置。
+* 如果您使用的是过渡或刷新过程，则此表中的平台组合*不*适用。
+* 一个灾难恢复组中的所有节点都必须具有相同的类型和配置。
+
+
+====
+image::../media/8node_comb_fc.png[适用于8节点配置的平台组合]

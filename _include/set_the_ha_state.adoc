@@ -1,0 +1,32 @@
+= 
+:allow-uri-read: 
+
+
+您必须验证控制器和机箱的 HA 状态，并在必要时更新此状态以匹配您的系统配置。
+
+.步骤
+. 在维护模式下，显示控制器模块和机箱的 HA 状态：
++
+`ha-config show`
+
++
+所有组件的 HA 状态均应为 `mCCIP` 。
+
+. 如果显示的控制器或机箱系统状态不正确，请设置 HA 状态：
++
+`ha-config modify controller mccip`
+
++
+`ha-config modify chassis mccip`
+
+. 暂停节点： `halt`
++
+节点应停止在 `loader>` 提示符处。
+
+. 在每个节点上，检查系统日期，时间和时区： `show date`
+. 如有必要，请以 UTC 或 GMT 格式设置日期： `set date <MM/dd/yyy>`
+. 在启动环境提示符处使用以下命令检查时间： `show time`
+. 如有必要，请以 UTC 或 GMT 格式设置时间： `set time <hh ： mm ： ss>`
+. 保存设置： `saveenv`
+. 收集环境变量： `printenv`
+

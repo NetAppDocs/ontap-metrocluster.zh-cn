@@ -54,7 +54,7 @@ entries:
     url: "/maintain/task_add_lsls_to_a_cisco_fc_switch.html"
 - title: IP 交换机维护和更换
   entries:
-  - title: 更换 IP 交换机
+  - title: 更换IP交换机或更改现有MetroCluster IP交换机的使用
     url: "/maintain/task_replace_an_ip_switch.html"
   - title: 升级 MetroCluster IP 交换机上的固件
     url: "/maintain/task_upgrade_firmware_on_mcc_ip_switches.html"
