@@ -13017,7 +13017,6 @@
   <block id="7085ef0783c3069c714c62b941d51195" category="summary">您可以使用此引导式自动MetroCluster 切换操作对四节点MetroCluster IP配置执行无中断控制器升级。</block>
   <block id="be2a104272635035d829d9eb66247a6e" category="doc">使用带有system controller Replace命令的切换和切回升级四节点MetroCluster IP配置中的控制器(ONTAP 9.13.1及更高版本)</block>
   <block id="7644562e2fb618084cb09ad85c576c00" category="paragraph">您可以使用此引导式自动MetroCluster 切换操作在四节点MetroCluster IP配置上执行无中断控制器升级。无法在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
-  <block id="23006e2e0a92cb1615e8aaf31b4fa13e" category="paragraph">此操作步骤 支持FAS8200到FAS9500以及AFF A300到AFF A900控制器升级。</block>
   <block id="db8b16f8a162b64f9227ab0fe83ffe4c" category="paragraph">有关平台升级组合的详细信息、请查看中的MetroCluster IP升级表 <block ref="2a99f679e02927fd36d8e489a7ee9535" category="inline-link-macro-rx"></block>。</block>
   <block id="e9f3eb39072498fcd6fd79f6beb0b0f4" category="list-text">此 操作步骤 适用场景 控制器模块采用运行ONTAP 9.13.1或更高版本的四节点MetroCluster IP配置。</block>
   <block id="d6777f90334e4deb82616ecb9b6f9fb9" category="list-text">MetroCluster 系统必须在两个站点上运行相同版本的ONTAP。</block>
@@ -13025,7 +13024,6 @@
   <block id="c5825fe35515c4155fffecab1329d16f" category="admonition">四节点MetroCluster IP配置不支持使用聚合重新定位(ARL)和"system controller Replace commands"(system controller Replace命令)执行升级。</block>
   <block id="77eb4e36d322d7ab218107d7c498326a" category="list-text">您必须使用自动化NSO控制器升级操作步骤 按顺序升级两个站点上的控制器。</block>
   <block id="06b8cd9278c28e36ddc1fc586a6f840c" category="inline-link-macro">手动重新配置ONTAP 调解器</block>
-  <block id="6647b31592f54f2deed2633fe8863ba5" category="paragraph">在启动预检之前、如果安装了ONTAP 调解器、则会自动检测并删除该调解器。要确认删除、系统会提示您输入用户名和密码。完成升级后、或者如果预检失败或您选择不继续升级、则必须执行此操作 <block ref="8eeedc881b874d23b9b6cbc9929c7075" category="inline-link-macro-rx"></block>。</block>
   <block id="3cc4806cb19cbb655dbea9a73d4aab85" category="paragraph"><block ref="4baef16133ebdeaa64de2abee5aaa778" prefix="" category="inline-code"></block></block>
   <block id="ad84135061ac4d026b0f6b6b0b90c976" category="list-text">如果不运行<block ref="4baef16133ebdeaa64de2abee5aaa778" prefix=" " category="inline-code"></block> 命令时、控制器升级操作步骤 会选择基于NSO的自动切换和切回作为MetroCluster IP系统上的默认操作步骤。</block>
   <block id="c37cd78225bfd28b27aba6fdb4ffdb05" category="paragraph">此任务将对现有MetroCluster IP配置执行。</block>
@@ -13150,7 +13148,6 @@
   <block id="ffd6b825c885ce7458a8f30023fc7852" category="list-text">断开MetroCluster IP接口</block>
   <block id="67cc98572471f894a699ad039887fbf2" category="list-text">断开MetroCluster 的连接</block>
   <block id="afbde099dc8a26a6394d60f258d7b937" category="paragraph">在示例中 <block ref="6c63cd5b30d21cdd776aa75d41e55cc0" category="inline-xref-macro-rx"></block>，交换机不会发生变化。MetroCluster 的CRL已重新定位、必须断开连接。您无需断开工作表上标记为绿色的连接。</block>
-  <block id="7b9cd3f24cb1c28f865438cbd149932b" category="list-text">如果您使用的是新交换机、请关闭旧交换机、拔下缆线、然后物理卸下旧的IP_switch_B_1。</block>
   <block id="f5ce4d426c8852e0090ab32842d1cd09" category="inline-xref">第 6 步</block>
   <block id="a5717edbc2c781c1beaa710a27186585" category="paragraph">如果要重复使用现有交换机、请转至 <block ref="2e61491c69f93a4146be17b4939efb61" category="inline-xref-macro-rx"></block>。</block>
   <block id="333d2f9cc8c6ad8010d2882a39d82f4b" category="admonition">除管理接口(如果使用)外、请勿*使用缆线连接新交换机。</block>
@@ -13186,4 +13183,8 @@
   <block id="d87d22ecaeaff0e5d4bd4030a9e08302" category="sidebar">使用"system controller Replace (system controller Replace)"命令通过切换和切回升级四节点MetroCluster IP中的控制器(ONTAP 9.13.1及更高版本)</block>
   <block id="12651c133a2edc8c764efaddca32ca42" category="sidebar">刷新四节点或八节点MetroCluster IP配置(ONTAP 9.8及更高版本)</block>
   <block id="f11af7573a10a71e1161a2099db36bcc" category="sidebar">扩展MetroCluster IP配置</block>
+  <block id="fd069f5f1b9ec4fce867ea78d80b2049" category="paragraph">此操作步骤 仅支持从AFF A300升级到AFF A900控制器。</block>
+  <block id="f60298ca20150ed82728ebbcf934dcdd" category="paragraph">在启动预检之前、如果安装了ONTAP 调解器、则会自动检测并删除该调解器。要确认删除、系统会提示您输入用户名和密码。完成升级后、或者如果预检失败或您选择不继续升级、则必须执行此操作 <block ref="27c582b1d219a53bd62704e35b9572aa" category="inline-xref-macro-rx"></block>。</block>
+  <block id="cf26e00f9d9d62aac6ab045ca55c7c29" category="list-text">您将使用中收集的信息 <block ref="4349c160b4ba85d15c9d1b99e7fab03e" category="inline-xref-macro-rx"></block>。</block>
+  <block id="a6d521ed969131c6ad881b1c930a769c" category="list-text">如果您使用的是新交换机、请关闭旧交换机、拔下缆线、然后物理卸下旧交换机。</block>
 </blocks>

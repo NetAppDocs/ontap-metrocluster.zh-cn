@@ -17,7 +17,7 @@ summary: 您可以使用此引导式自动MetroCluster 切换操作对四节点M
 
 == 支持的平台组合
 
-此操作步骤 支持FAS8200到FAS9500以及AFF A300到AFF A900控制器升级。
+此操作步骤 仅支持从AFF A300升级到AFF A900控制器。
 
 有关平台升级组合的详细信息、请查看中的MetroCluster IP升级表 link:concept_choosing_controller_upgrade_mcc.html#supported-metrocluster-ip-controller-upgrades["选择控制器升级操作步骤"]。
 
@@ -88,7 +88,7 @@ NOTE: 四节点MetroCluster IP配置不支持使用聚合重新定位(ARL)和"sy
 
 要为控制器升级做准备，您需要执行系统预检并收集配置信息。
 
-在启动预检之前、如果安装了ONTAP 调解器、则会自动检测并删除该调解器。要确认删除、系统会提示您输入用户名和密码。完成升级后、或者如果预检失败或您选择不继续升级、则必须执行此操作 link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html#reconfigure-ontap-mediator["手动重新配置ONTAP 调解器"]。
+在启动预检之前、如果安装了ONTAP 调解器、则会自动检测并删除该调解器。要确认删除、系统会提示您输入用户名和密码。完成升级后、或者如果预检失败或您选择不继续升级、则必须执行此操作 <<man_reconfig_mediator,手动重新配置ONTAP 调解器>>。
 
 在升级期间的任何阶段，您都可以从站点 A 运行 `ssystem controller replace show` 或 `ssystem controller replace show-details` 命令来检查状态。如果这些命令返回空白输出，请等待几分钟，然后重新运行此命令。
 
@@ -282,7 +282,7 @@ dr-group-id cluster    node          node-systemid dr-partner-systemid
 
 .关于此任务
 * 必须对每个旧节点执行此任务。
-* 您将使用中收集的信息 <<正在准备升级>>。
+* 您将使用中收集的信息 <<准备升级。>>。
 
 
 .步骤
