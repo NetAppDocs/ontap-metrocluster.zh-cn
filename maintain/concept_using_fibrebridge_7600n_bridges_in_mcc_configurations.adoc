@@ -13,7 +13,7 @@ summary: ONTAP 9.5 及更高版本支持 FibreBridge 7600N 网桥，以替代 Fi
 [role="lead"]
 ONTAP 9.5 及更高版本支持 FibreBridge 7600N 网桥，以替代 FibreBridge 7500N 或 6500N 网桥，或者在向 MetroCluster 配置添加新存储时。与使用网桥 FC 端口相关的分区要求和限制与 FibreBridge 7500N 网桥相同。
 
-https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
+https://["NetApp 互操作性表工具"^]
 
 
 NOTE: 运行 ONTAP 9.8 及更高版本的配置不支持 FibreBridge 6500N 网桥。

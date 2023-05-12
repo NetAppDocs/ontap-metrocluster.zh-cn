@@ -43,7 +43,7 @@ image::../media/metrocluster_ip_upgrade_table_9_13_1.PNG[MetroCluster IP升级�
 
 image::../media/metrocluster_fc_upgrade_table_p_13_1.PNG[MetroCluster 光纤信道升级表p 13 1.]
 
-* 注1：如果现有FAS8020或AFF8020节点上的FCVI连接使用端口1c和1d、则要升级控制器、请参见以下内容https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Upgrading_controllers_when_FCVI_connections_on_existing_FAS8020_or_AFF8020_nodes_use_ports_1c_and_1d["知识库文章"^]。
+* 注1：如果现有FAS8020或AFF8020节点上的FCVI连接使用端口1c和1d、则要升级控制器、请参见以下内容https://["知识库文章"^]。
 * 注2：只有运行ONTAP 9.1.1的系统才支持从使用板载端口0e和0f作为FC-VI连接的AFF A300或FAS8200平台升级控制器。或更早版本。有关详细信息、请查看 link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1507088["公有 报告"^]。
 * 注3：有关此升级、请参见 link:task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html["使用切换和切回功能将MetroCluster FC配置中的AFF A700/FAS9000控制器升级到AFF A900/FAS9500 (ONTAP 9.10.1或更高版本)"]
 * 注4：运行ONTAP 9.13.1或更高版本的系统支持控制器升级。
@@ -138,7 +138,7 @@ FC
  a| 
 9.10.1 及更高版本
  a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["指向操作步骤 的链接"^]
+https://["指向操作步骤 的链接"^]
 
 
 
@@ -149,7 +149,7 @@ FC
  a| 
 9.8 及更高版本
  a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["指向操作步骤 的链接"^]
+https://["指向操作步骤 的链接"^]
 
 
 
@@ -160,7 +160,7 @@ FC
  a| 
 9.5 到 9.7
  a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html["指向操作步骤 的链接"^]
+https://["指向操作步骤 的链接"^]
 
 
 
@@ -171,7 +171,7 @@ FC
  a| 
 9.8
  a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["指向操作步骤 的链接"^]
+https://["指向操作步骤 的链接"^]
 
 
 
@@ -182,6 +182,6 @@ FC
  a| 
 9.7 及更早版本
  a| 
-https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html["指向操作步骤 的链接"^]
+https://["指向操作步骤 的链接"^]
 
 |===

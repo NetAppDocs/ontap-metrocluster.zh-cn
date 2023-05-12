@@ -25,7 +25,7 @@ summary: 必须为 MetroCluster 配置中的每个 Cisco 交换机正确配置 I
 * 您不能在Cisco FC存储网络结构中使用加密或压缩。MetroCluster 配置不支持此功能。
 
 
-在中 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具（ IMT ）"]，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
+在中 https://["NetApp 互操作性表工具（ IMT ）"]，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
 
 .关于此任务
 以下要求适用场景交换机间链路（ ISL ）连接：
@@ -55,7 +55,7 @@ summary: 必须为 MetroCluster 配置中的每个 Cisco 交换机正确配置 I
 
 
 .相关信息
-https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+https://["NetApp 互操作性表工具"]
 
 
 

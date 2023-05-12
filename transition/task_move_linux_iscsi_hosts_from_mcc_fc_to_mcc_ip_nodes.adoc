@@ -26,7 +26,7 @@ summary: 将 MetroCluster 节点从 FC 过渡到 IP 后，您可能需要将 iSC
 
 . 在 MetroCluster IP 节点上创建 iSCSI 接口，并检查从 iSCSI 客户端到 MetroCluster IP 节点上新 IP 接口的 ping 连接。
 +
-https://docs.netapp.com/us-en/ontap/networking/create_a_lif.html["创建网络接口"^]
+https://["创建网络接口"^]
 
 +
 iSCSI 客户端应可访问 SVM 中的所有 iSCSI 接口。

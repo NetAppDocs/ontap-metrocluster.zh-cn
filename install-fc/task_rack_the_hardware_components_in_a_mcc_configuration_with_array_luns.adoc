@@ -28,7 +28,7 @@ summary: 您必须确保使用阵列 LUN 设置 MetroCluster 配置所需的硬�
 NOTE: 阵列 LUN 不支持 AFF 系统。
 
 +
-https://docs.netapp.com/us-en/ontap-systems/["AFF 或 FAS 系统的安装过程"]
+https://["AFF 或 FAS 系统的安装过程"]
 
 . 在机架或机柜中安装 FC 交换机。
 

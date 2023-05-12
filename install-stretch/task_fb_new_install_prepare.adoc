@@ -20,7 +20,7 @@ summary: 准备在新的 MetroCluster 系统中安装网桥时，必须确保系
 * 如果您的系统未安装在系统机柜中，则必须将其安装在机架中。
 * 您的配置必须使用支持的硬件型号和软件版本。
 +
-https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+https://["NetApp 互操作性表工具"]
 
 +
 在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。

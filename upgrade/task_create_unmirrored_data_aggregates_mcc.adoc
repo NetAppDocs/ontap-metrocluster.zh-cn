@@ -35,7 +35,7 @@ NOTE: 未镜像聚合必须位于其所属节点的本地。
 您可以对平台和磁盘架使用 _Installation and Setup_ 文档中的过程。
 
 +
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://["AFF 和 FAS 文档中心"]
 
 . 手动将新磁盘架上的所有磁盘分配给相应的节点：
 +
@@ -88,4 +88,4 @@ controller_A_1::> storage aggregate create aggr1_controller_A_1 -diskcount 10 -n
 
 
 .相关信息
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+https://["磁盘和聚合管理"]

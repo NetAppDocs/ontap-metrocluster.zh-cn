@@ -21,7 +21,7 @@ summary: 升级配对集群上的控制器模块时，您可以使用 MetroClust
 
 有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC升级表 link:concept_choosing_controller_upgrade_mcc.html#metrocluster-fc-controller-upgrades["选择控制器升级操作步骤"]。
 
-请参见 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"] 以了解其他过程。
+请参见 https://["选择升级或刷新方法"] 以了解其他过程。
 
 
 
@@ -42,7 +42,7 @@ summary: 升级配对集群上的控制器模块时，您可以使用 MetroClust
 
 * 您的原始平台和新平台必须兼容并受支持。
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://["NetApp Hardware Universe"]
 
 +
 
@@ -57,7 +57,7 @@ NOTE: 如果原始或新平台是使用FC-VI模式下端口1c和1d的FAS8020或A
 * 建议提前映射原始节点与新节点之间的存储， FC 和以太网连接。
 * 如果新平台的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。
 +
-有关详细信息，请参见 https://hwu.netapp.com/["NetApp Hardware Universe"^]
+有关详细信息，请参见 https://["NetApp Hardware Universe"^]
 
 
 
@@ -184,7 +184,7 @@ MetroCluster check show`
 +
 .. 下载并运行 Config Advisor 。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+https://["NetApp 下载： Config Advisor"]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
@@ -474,7 +474,7 @@ dr-group-id cluster    node      node-systemid dr-partner-systemid
 
 . 如果 MetroCluster 节点对卷或聚合使用加密，请复制有关密钥和密码短语的信息。
 +
-对于追加信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-1677AE0A-FEF7-45FA-8616-885AA3283BCF.html["手动备份板载密钥管理信息"]。
+对于追加信息，请参见 https://["手动备份板载密钥管理信息"]。
 
 +
 .. 如果配置了板载密钥管理器：
@@ -504,7 +504,7 @@ dr-group-id cluster    node      node-systemid dr-partner-systemid
 .步骤
 . 从 Tiebreaker 软件中删除现有 MetroCluster 配置。
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-34C97A45-0BFF-46DD-B104-2AB2805A983D.html["删除 MetroCluster 配置"]
+http://["删除 MetroCluster 配置"]
 
 . 从可以启动切换的任何第三方应用程序中删除现有 MetroCluster 配置。
 +
@@ -659,7 +659,7 @@ cluster_A::> metrocluster operation show
 例如， e0d 是旧控制器上的一个物理端口，也存在于新控制器上。e0d 不会用作集群端口，也不会在新控制器上用作其他端口。
 
 +
-有关平台型号的端口使用情况，请参见 https://hwu.netapp.com/["NetApp Hardware Universe"]
+有关平台型号的端口使用情况，请参见 https://["NetApp Hardware Universe"]
 
 .. 修改所有数据 LIF 以使用通用端口作为主端口：
 +
@@ -766,7 +766,7 @@ network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
 . 正确接地。
 . 在机架或机柜中安装控制器模块。
 +
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
+https://["AFF 和 FAS 文档中心"^]
 
 . 如果新控制器模块未附带自身的 FC-VI 卡，并且旧控制器中的 FC-VI 卡在新控制器上兼容，请交换 FC-VI 卡并将其安装在正确的插槽中。
 +
@@ -777,7 +777,7 @@ https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
 此时，请勿连接与旧控制器断开连接的任何其他缆线。
 
 +
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
+https://["AFF 和 FAS 文档中心"^]
 
 . 打开新节点的电源，并在系统提示显示 LOADER 提示符时按 Ctrl-C 。
 
@@ -791,7 +791,7 @@ https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
 此任务将对每个新控制器模块执行。
 
 .步骤
-. 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
+. 访问 https://["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
 . 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
 . 转到可通过 Web 访问的目录，并验证所需文件是否可用。
 +
@@ -1330,7 +1330,7 @@ Rebooting to load the restored env file...
 
 .. 根据需要向广播域添加任何端口。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["从广播域添加或删除端口"]
+https://["从广播域添加或删除端口"]
 
 .. 将用于托管集群间 LIF 的物理端口添加到相应的广播域。
 .. 修改集群间 LIF 以使用新的物理端口作为主端口。
@@ -1346,10 +1346,10 @@ link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#peering-the-
 VLAN 和接口组成员资格可能与旧节点不同。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["创建 VLAN"^]
+https://["创建 VLAN"^]
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["组合物理端口以创建接口组"^]
+https://["组合物理端口以创建接口组"^]
 
 
 
@@ -1366,7 +1366,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
  a| 
 `sSecurity key-manager 板载同步`
 
-有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["还原板载密钥管理加密密钥"^]。
+有关详细信息，请参见 https://["还原板载密钥管理加密密钥"^]。
 
 
 
@@ -1375,7 +1375,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
  a| 
 `sSecurity key-manager external restore -vserver _svm_ -node _node_-key-server _host_name_ip_address ： port_ -key-id key_id -key-tag key_tag _node-name_`
 
-有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"^]。
+有关详细信息，请参见 https://["还原外部密钥管理加密密钥"^]。
 
 |===
 
@@ -1567,5 +1567,5 @@ Failed to validate the node and cluster components before the switchover operati
 
 如果先前已将 MetroCluster 配置配置为由 Tiebreaker 软件监控，则可以还原 Tiebreaker 连接。
 
-. 使用中的步骤 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-7259BCA4-104C-49C6-BAD0-1068CA2A3DA5.html["正在添加 MetroCluster 配置"^] 在 MetroCluster Tiebreaker 安装和配置 _ 中。
+. 使用中的步骤 http://["正在添加 MetroCluster 配置"^] 在 MetroCluster Tiebreaker 安装和配置 _ 中。
 

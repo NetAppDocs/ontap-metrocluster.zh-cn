@@ -32,7 +32,7 @@ link:../index.html["MetroCluster 文档"]
 
 
  a| 
-http://www.netapp.com/us/media/tr-4375.pdf["NetApp 技术报告 4375 ：《适用于 ONTAP 9.3 的 NetApp MetroCluster 》"^]
+http://["NetApp 技术报告 4375 ：《适用于 ONTAP 9.3 的 NetApp MetroCluster 》"^]
  a| 
 * MetroCluster 配置和操作的技术概述。
 * MetroCluster 配置最佳实践。
@@ -41,7 +41,7 @@ http://www.netapp.com/us/media/tr-4375.pdf["NetApp 技术报告 4375 ：《适�
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+https://["光纤连接的 MetroCluster 安装和配置"]
  a| 
 * 光纤连接的 MetroCluster 架构
 * 为配置布线
@@ -53,7 +53,7 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤�
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
+https://["延伸型 MetroCluster 安装和配置"]
  a| 
 * 延伸型 MetroCluster 架构
 * 为配置布线
@@ -64,7 +64,7 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/concept_conside
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
+https://["MetroCluster IP 安装和配置"]
  a| 
 * MetroCluster IP 架构
 * 为 MetroCluster IP 配置布线
@@ -74,7 +74,7 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_consideratio
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["维护 MetroCluster 组件"]
+https://["维护 MetroCluster 组件"]
  a| 
 * MetroCluster 配置中的维护准则
 * FC-SAS 网桥和 FC 交换机的硬件更换或升级以及固件升级过程
@@ -90,7 +90,7 @@ https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["维护 Met
  a| 
 Active IQ Unified Manager 文档
 
-https://docs.netapp.com["NetApp 文档：产品指南和资源"^]
+https://["NetApp 文档：产品指南和资源"^]
  a| 
 * 监控 MetroCluster 配置和性能
 
@@ -98,7 +98,7 @@ https://docs.netapp.com["NetApp 文档：产品指南和资源"^]
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["基于副本的过渡"]
+https://["基于副本的过渡"]
  a| 
 * 将数据从 7- 模式存储系统过渡到集群模式存储系统
 

@@ -22,7 +22,7 @@ NOTE: 对 Config Advisor 的支持是有限的，并且只能联机使用。
 .步骤
 . 转到 Config Advisor 下载页面并下载此工具。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+https://["NetApp 下载： Config Advisor"]
 
 . 运行 Config Advisor ，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 

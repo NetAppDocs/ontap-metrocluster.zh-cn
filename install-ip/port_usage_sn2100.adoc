@@ -41,7 +41,7 @@ MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台�
 
 NOTE: 端口13和14可以在支持40 Gbps和100 Gbps的原生 速度模式下使用、也可以在分支模式下使用以支持4×25 Gbps或4×10 Gbps。如果它们使用本机速度模式、则表示为端口13和14。如果它们使用分支模式4×25 Gbps或4×10 Gbps、则表示为端口13s0-3和14s0-3。
 
-以下各节将介绍物理布线概述。您也可以参考 https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator"] 有关详细的布线信息。
+以下各节将介绍物理布线概述。您也可以参考 https://["RcfFileGenerator"] 有关详细的布线信息。
 
 
 

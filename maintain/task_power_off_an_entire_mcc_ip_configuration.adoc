@@ -75,7 +75,7 @@ system node halt -node node1_SiteA -inhibit-takeover true -ignore-quorum-warning
 ** 存储架
 
 
-. 等待 30 分钟，然后打开所有控制器的电源。
+. 等待30分钟、然后启动所有存储架、MetroCluster IP交换机和存储控制器。
 . 打开控制器电源后，从两个站点验证 MetroCluster 配置。
 +
 要验证配置，请重复步骤 1 。

@@ -21,7 +21,7 @@ summary: 在向现有 MetroCluster 配置添加控制器模块时，您必须执
 
 * 系统会自动为新控制器模块分配两个磁盘。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+https://["磁盘和聚合管理"]
 
 
 
@@ -73,14 +73,14 @@ NOTE: 您的接口可能需要其他参数。有关详细信息，请在 LOADER 
  a| 
 FAS2200 ， FAS2500 ， FAS3200 ， FAS6200 ， FAS/AFF8000 系列系统
  a| 
-`网络启动 http://__web_server_ip/path_to_web-accessible_directory__/netboot/kernel`[]
+`网络启动 http://[]
 
 
 
  a| 
 所有其他系统
  a| 
-`网络启动 http://__web_server_ip/path_to_web-accessible_directory__/<ontap_version>_image.tgz`[]
+`网络启动 http://[]
 
 |===
 +

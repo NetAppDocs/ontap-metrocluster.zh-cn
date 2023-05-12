@@ -32,14 +32,14 @@ summary:
 .开始之前
 * 您的系统必须是受支持的配置，并且必须运行受支持的 ONTAP 版本。
 +
-https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
+https://["NetApp 互操作性表工具"^]
 
 * 系统中的所有磁盘驱动器和磁盘架都必须运行最新版本的固件。
 +
 您可能希望在添加磁盘架之前更新整个 MetroCluster 配置中的磁盘和磁盘架固件。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["升级，还原或降级"^]
+https://["升级，还原或降级"^]
 
 * 每个 FC 交换机必须有一个 FC 端口可用于连接一个网桥。
 +
@@ -55,7 +55,7 @@ _ATTO 产品发行说明 _ 提供了最新的受支持 Web 浏览器列表。您
 .步骤
 . 从 NetApp 支持站点下载或查看以下文档：
 +
-** https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
+** https://["NetApp 互操作性表工具"^]
 ** 适用于您的磁盘架型号的安装和服务指南 _ 。
 
 
@@ -90,11 +90,11 @@ NOTE: 在此步骤中，您只能完成链接中提供的说明的下载部分�
 +
 .. 下载磁盘固件并为磁盘固件说明创建一份副本，以供日后参考。
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"^]
+https://["NetApp 下载：磁盘驱动器固件"^]
 
 .. 下载磁盘架固件并为磁盘架固件说明创建一份副本，以供日后参考。
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"^]
+https://["NetApp 下载：磁盘架固件"^]
 
 
 
@@ -134,7 +134,7 @@ link:task_fb_hot_add_stack_of_shelves_and_bridges.html["准备热添加 SAS 磁�
 
 * 如果满足所有互操作性要求，则热添加 SAS 磁盘架和网桥堆栈是一种无中断操作步骤。
 +
-https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
+https://["NetApp 互操作性表工具"^]
 
 +
 link:concept_using_the_interoperability_matrix_tool_to_find_mcc_information.html["使用互操作性表工具查找 MetroCluster 信息"]
@@ -1700,18 +1700,18 @@ NOTE: 可以使用缆线将其他网桥连接到 G620 ， G630 ， G620-1 和 G6
 您必须在两个控制器模块上运行此命令。
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"^]
+https://["NetApp 下载：磁盘驱动器固件"^]
 
 . 按照所下载固件的说明将磁盘架固件更新为最新版本。
 +
 您可以从任一控制器模块的系统控制台中运行操作步骤中的命令。
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"^]
+https://["NetApp 下载：磁盘架固件"^]
 
 . 如果您的系统未启用磁盘自动分配，请分配磁盘驱动器所有权。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
+https://["磁盘和聚合管理"^]
 
 +
 
@@ -1732,7 +1732,7 @@ NOTE: 在更新磁盘驱动器固件和磁盘架固件并完成此任务中的�
 .. 检查交换机上是否存在任何运行状况警报（如果存在）： + `storage switch show`
 .. 运行 Config Advisor 。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
+https://["NetApp 下载： Config Advisor"^]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 

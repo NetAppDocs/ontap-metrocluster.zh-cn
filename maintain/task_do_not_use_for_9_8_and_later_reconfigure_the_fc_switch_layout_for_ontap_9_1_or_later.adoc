@@ -112,7 +112,7 @@ NOTE: 对 Config Advisor 的支持是有限的，并且只能联机使用。
 
 . 下载 Config Advisor 工具。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
+https://["NetApp 下载： Config Advisor"^]
 
 . 运行 Config Advisor ，查看输出并按照其建议解决任何问题。
 
@@ -149,7 +149,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 必须在每个 MetroCluster 站点上执行此任务。
 
 .步骤
-. 使用 ... https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"^] 要确定交换机类型的布线布局，请使用八节点 MetroCluster 配置的端口使用情况。
+. 使用 ... https://["光纤连接的 MetroCluster 安装和配置"^] 要确定交换机类型的布线布局，请使用八节点 MetroCluster 配置的端口使用情况。
 +
 FC 交换机端口使用情况必须与指南中所述的使用情况匹配，才能使用参考配置文件（ Reference Configuration Files ， RCF ）。
 
@@ -165,7 +165,7 @@ NOTE: 如果布线无法使用操作步骤，请勿使用此 RCF 。
 
 您必须应用适当的参考配置（ RCF ）文件来重新配置交换机以容纳新节点。应用 RCF 文件后，您可以对交换机进行重新布线。
 
-FC 交换机端口使用情况必须与中所述的使用情况匹配 https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"^] 以便可以使用 RCF 。
+FC 交换机端口使用情况必须与中所述的使用情况匹配 https://["光纤连接的 MetroCluster 安装和配置"^] 以便可以使用 RCF 。
 
 .步骤
 . 找到适用于您的配置的 RCF 文件。
@@ -225,5 +225,5 @@ vsan [vsna #]no suspend
 
 您应验证 MetroCluster 配置的切换，修复和切回操作。
 
-. 使用中所述的协商切换，修复和切回过程 https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_dr_workflow.html["MetroCluster 管理和灾难恢复"^]。
+. 使用中所述的协商切换，修复和切回过程 https://["MetroCluster 管理和灾难恢复"^]。
 

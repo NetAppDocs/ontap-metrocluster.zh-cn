@@ -287,7 +287,7 @@ NOTE: 如果在重置交换机后以及应用RCF文件之前执行进一步配�
 .步骤
 . 为MetroCluster IP生成NVIDIA RCF文件。
 +
-.. 下载 https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["适用于 MetroCluster IP 的 RcfFileGenerator"^]。
+.. 下载 https://["适用于 MetroCluster IP 的 RcfFileGenerator"^]。
 .. 使用适用于MetroCluster IP的RcfFileGenerator为您的配置生成RCF文件。
 .. 导航到主目录。如果您以"umulus"的形式记录、则文件路径为`/home/umulus`。
 +

@@ -15,7 +15,7 @@ summary: 从 ONTAP 9.5 开始， ONTAP 支持使用虚拟 IP （ VIP ）和边�
 
 规划第 3 层解决方案时，请查看以下准则和图示。有关在 ONTAP 中实施 VIP 和 BGP 的详细信息，请参阅以下部分：
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-A8EF6D34-1717-4813-BBFA-AA33E104CF6F.html["* 配置虚拟 IP （ VIP ） LIF*"]
+http://["* 配置虚拟 IP （ VIP ） LIF*"]
 
 image::../media/vip_and_bgp_in_metrocluster_2.png[MetroCluster 2 中的 VIP 和 BGP]
 

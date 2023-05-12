@@ -48,7 +48,7 @@ link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
 * 新的 MetroCluster IP 平台型号必须支持旧的存储架型号。
 +
-https://hwu.netapp.com["NetApp Hardware Universe"^]
+https://["NetApp Hardware Universe"^]
 
 * 根据现有磁盘架中的可用备用磁盘，必须添加更多驱动器。
 +
@@ -66,7 +66,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 * 您必须确保配置（包括新节点）不超过配置的平台限制，包括驱动器数，根聚合大小容量等
 +
-有关每个平台型号的信息，请访问 https://hwu.netapp.com["NetApp Hardware Universe"^]
+有关每个平台型号的信息，请访问 https://["NetApp Hardware Universe"^]
 
 
 
@@ -175,7 +175,7 @@ system node migrate-root -node node_A_1-IP -disklist 3.11.0,3.11.1,3.11.2 -raid-
 
 . 将数据卷移动到新控制器上的聚合，一次移动一个卷。
 +
-http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["创建聚合并将卷移动到新节点"^]
+http://["创建聚合并将卷移动到新节点"^]
 
 
 

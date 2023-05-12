@@ -24,10 +24,10 @@ summary: 您必须为用于集群对等，管理和数据连接的控制器模�
 可以在专用端口或数据端口上建立集群对等关系。使用专用端口可为集群对等流量提供更高的吞吐量。
 
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"]
+http://["集群和 SVM 对等快速配置"]
 
 . 使用缆线将控制器的管理和数据端口连接到本地站点的管理和数据网络。
 +
-请按照中适用于您的平台的安装说明进行操作 https://docs.netapp.com/us-en/ontap-systems/["AFF 和 FAS 系统文档中心"]。
+请按照中适用于您的平台的安装说明进行操作 https://["AFF 和 FAS 系统文档中心"]。
 
 

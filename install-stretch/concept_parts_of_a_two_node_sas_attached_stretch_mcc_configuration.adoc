@@ -30,7 +30,7 @@ MetroCluster 配置包括以下主要硬件元素：
 NOTE: 在使用 E 系列阵列 LUN 的系统中，存储控制器可以直接连接到 E 系列存储阵列。对于其他阵列 LUN ，需要通过 FC 交换机进行连接。
 
 +
-https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
+https://["NetApp 互操作性表工具"]
 
 +
 在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。

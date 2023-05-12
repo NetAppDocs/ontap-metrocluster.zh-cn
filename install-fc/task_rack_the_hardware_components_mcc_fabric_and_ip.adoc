@@ -24,7 +24,7 @@ summary: 如果您尚未收到机柜中已安装的设备，则必须将这些�
 . 正确接地。
 . 在机架或机柜中安装控制器模块。
 +
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://["AFF 和 FAS 文档中心"]
 
 . 在机架或机柜中安装 FC 交换机。
 . 安装磁盘架，打开其电源，然后设置磁盘架 ID 。

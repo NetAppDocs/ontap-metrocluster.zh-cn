@@ -18,4 +18,4 @@ summary: 您可以通过指定一个远程 URL （ HTTP 或 FTP ）来为集群�
 
 
 
-。 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["使用 CLI 进行集群管理"] 在 _Manag管理 配置备份 _ 一节下包含追加信息。
+。 https://["使用 CLI 进行集群管理"] 在 _Manag管理 配置备份 _ 一节下包含追加信息。

@@ -20,7 +20,7 @@ summary: 您可能需要升级Cisco IP交换机上的RCF文件。例如， ONTAP
 如果您的配置满足以下要求、则可以使用此方法：
 
 * 此时将应用标准RCF配置。
-* 。 https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator"] 必须能够使用相同的版本和配置(平台、VLAN)创建应用的相同RCF文件。
+* 。 https://["RcfFileGenerator"] 必须能够使用相同的版本和配置(平台、VLAN)创建应用的相同RCF文件。
 * 对于特殊配置、NetApp未提供应用的RCF文件。
 * 在应用RCF文件之前、此文件未进行更改。
 * 在应用当前RCF文件之前、已按照以下步骤将交换机重置为出厂默认值。

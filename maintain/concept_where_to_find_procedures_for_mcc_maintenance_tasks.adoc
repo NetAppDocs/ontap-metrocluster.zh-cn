@@ -29,7 +29,7 @@ ONTAP 软件
  a| 
 ONTAP 软件升级
  a| 
-https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级，还原或降级"^]
+https://["升级，还原或降级"^]
 
 
 
@@ -43,7 +43,7 @@ FRU 更换（包括控制器模块， PCIe 卡， FC-VI 卡等）
 
 NOTE: 不支持在 MetroCluster 存储系统之间移动存储控制器模块或 NVRAM 卡。
  a| 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://["AFF 和 FAS 文档中心"]
 
 
 
@@ -90,7 +90,7 @@ FC
  a| 
 所有其他磁盘架维护过程。可以使用标准过程。
  a| 
-https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.html["维护 DS460C DS224C 和 DS212C 磁盘架"^]
+https://["维护 DS460C DS224C 和 DS212C 磁盘架"^]
 
 
 
@@ -99,9 +99,9 @@ IP
  a| 
 所有磁盘架维护过程。可以使用标准过程。
 
-如果要为未镜像聚合添加磁盘架，请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-ip/GUID-EA385AF8-7786-4C3C-B5AE-1B4CFD3AD2EE.html["使用未镜像聚合时的注意事项"^]
+如果要为未镜像聚合添加磁盘架，请参见 http://["使用未镜像聚合时的注意事项"^]
  a| 
-https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.html["维护 DS460C DS224C 和 DS212C 磁盘架"^]
+https://["维护 DS460C DS224C 和 DS212C 磁盘架"^]
 
 
 
@@ -110,7 +110,7 @@ https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.ht
  a| 
 将 IOM12 磁盘架热添加到 IOM6 磁盘架堆栈中
  a| 
-https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["将带有 IOM12 模块的磁盘架热添加到带有 IOM6 模块的磁盘架堆栈中"^]
+https://["将带有 IOM12 模块的磁盘架热添加到带有 IOM6 模块的磁盘架堆栈中"^]
 
 
 

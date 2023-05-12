@@ -54,7 +54,7 @@ link:../install-stretch/concept_considerations_differences.html["延伸型 Metro
 
 * 您必须确保不超过驱动器等的平台限制
 +
-https://hwu.netapp.com["NetApp Hardware Universe"^]
+https://["NetApp Hardware Universe"^]
 
 
 
@@ -86,7 +86,7 @@ image::../media/transition_2n_4_new_ip_nodes_on_the_shelves.png[过渡磁盘架�
 有关每个平台型号的信息，请访问 _NetApp Hardware Universe 。
 
 +
-https://hwu.netapp.com["NetApp Hardware Universe"^]
+https://["NetApp Hardware Universe"^]
 
 
 
@@ -250,7 +250,7 @@ node_B_1-FC 上的第二个 MetroCluster IP 端口
 控制器的端口使用情况取决于要在 MetroCluster IP 配置中使用的平台型号和 IP 交换机型号。您可以从 _NetApp Hardware Universe _ 收集新平台的端口使用情况。
 
 +
-https://hwu.netapp.com["NetApp Hardware Universe"^]
+https://["NetApp Hardware Universe"^]
 
 . 如果需要，请记录 node_A_1-FC 和 node_A_1-IP 的端口信息。
 +
@@ -707,7 +707,7 @@ MetroCluster check show`
 
 .. 运行 Config Advisor 。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
+https://["NetApp 下载： Config Advisor"^]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 

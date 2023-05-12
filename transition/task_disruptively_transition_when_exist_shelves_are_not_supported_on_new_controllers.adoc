@@ -41,11 +41,11 @@ link:concept_supported_platforms_for_transition.html["支持无中断过渡的�
 * 它必须满足中所述的所有要求和布线 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]。
 * 旧控制器（ node_A_1-IP ， node_A_2-IP ， node_B_1-IP 和 node_B_2-IP ）必须支持随新控制器提供的新存储架（ node_A_1-FC 和 node_B_1-FC ）。
 +
-https://hwu.netapp.com["NetApp Hardware Universe"^]
+https://["NetApp Hardware Universe"^]
 
 * 新的 MetroCluster IP 平台型号 * 不 * 支持旧存储架。
 +
-https://hwu.netapp.com["NetApp Hardware Universe"^]
+https://["NetApp Hardware Universe"^]
 
 * 根据现有磁盘架中的可用备用磁盘，必须添加更多驱动器。
 +
@@ -66,7 +66,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 有关每个平台型号的信息，请访问 _NetApp Hardware Universe 。
 
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://["NetApp Hardware Universe"]
 
 * 您必须能够从 MetroCluster 站点对所有六个节点进行远程控制台访问，或者根据操作步骤的要求计划在站点之间进行传输。
 
@@ -469,7 +469,7 @@ MetroCluster check show`
 
 . 将数据卷迁移到新控制器上的聚合，一次迁移一个卷。
 +
-请参见 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["创建聚合并将卷移动到新节点"^]
+请参见 http://["创建聚合并将卷移动到新节点"^]
 
 . 执行中的所有步骤，停用旧磁盘架 link:task_disruptively_transition_while_move_volumes_from_old_shelves_to_new_shelves.html["停用从 node_A_1-FC 和 node_A_2-FC 移动的磁盘架"]。
 

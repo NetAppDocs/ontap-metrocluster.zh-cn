@@ -18,4 +18,4 @@ link:task_configure_the_mcc_hardware_components_fabric.html["为光纤连接的 
 
 link:concept_planning_for_a_mcc_configuration_with_array_luns.html["规划和安装使用阵列 LUN 的 MetroCluster 配置"]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-irrg/home.html["FlexArray 虚拟化安装要求和参考"]
+https://["FlexArray 虚拟化安装要求和参考"]

@@ -22,8 +22,8 @@ NOTE: FAS9000 存储系统控制器模块各使用四个 FC-VI 端口。
 
 对于使用 E 系列阵列 LUN 的配置，您可以直接连接 E 系列 LUN 。
 
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Direct_Attach_support_for_Stretch_MetroCluster_Configuration_with_NetApp_E-Series_array["通过 NetApp E 系列阵列为延伸型 MetroCluster 配置提供直接连接支持"]
+https://["通过 NetApp E 系列阵列为延伸型 MetroCluster 配置提供直接连接支持"]
 
 除了连接 FC-VI 端口之外，此操作步骤的其余部分用于设置使用未使用 E 系列阵列 LUN 的阵列 LUN 的 MetroCluster 配置。这就要求 FC 交换机与在光纤连接配置中使用阵列 LUN 相同。
 
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+https://["光纤连接的 MetroCluster 安装和配置"]

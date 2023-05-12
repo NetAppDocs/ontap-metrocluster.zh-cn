@@ -16,6 +16,6 @@ summary: 添加控制器模块后，您必须在新控制器模块上安装最�
 .步骤
 . 下载适用于您的系统的最新版本固件，并按照说明下载和安装新固件。
 +
-https://mysupport.netapp.com/site/downloads/firmware/system-firmware-diagnostics["NetApp 下载：系统固件和诊断"]
+https://["NetApp 下载：系统固件和诊断"]
 
 

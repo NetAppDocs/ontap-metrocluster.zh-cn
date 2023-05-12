@@ -24,11 +24,11 @@ IMPORTANT: 如果在要删除的磁盘架上包含聚合的非 MetroCluster FC �
 删除聚合涉及拆分要删除的磁盘架上的镜像聚合，然后使用另一组驱动器重新创建镜像聚合。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+https://["磁盘和聚合管理"]
 
 * 从要移除的磁盘架中的驱动器中删除聚合后，您必须已删除驱动器所有权。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+https://["磁盘和聚合管理"]
 
 * 如果要从堆栈中移除一个或多个磁盘架，则必须考虑距离因素，以绕过要移除的磁盘架。
 +
@@ -65,7 +65,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁�
 
 .. 运行 Config Advisor 。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+https://["NetApp 下载： Config Advisor"]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 

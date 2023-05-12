@@ -17,7 +17,7 @@ ONTAP 9.8 及更高版本支持此操作步骤。对于运行ONTAP 9.7或更早�
 
 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_a_DR-Group_from_a_MetroCluster["如何从MetroCluster 配置中删除DR组"]
 
-https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
+https://["NetApp 支持"]
 
 八节点配置包括八个节点，这些节点按两个四节点 DR 组进行组织。
 
@@ -37,7 +37,7 @@ image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
 .. 如果尚未删除 DR 组，请做好删除准备。
 +
 ... 将所有数据卷移动到另一个 DR 组。
-... 将所有 MDV_CRS 元数据卷移动到另一个 DR 组。按照以下操作步骤中的步骤进行操作： https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-service/task_move_a_metadata_volume_in_mcc_configurations.html["在 MetroCluster 配置中移动元数据卷"]
+... 按照将所有MV_CRS元数据卷移动到另一个DR组 link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_move_a_metadata_volume_in_mcc_configurations.html["在 MetroCluster 配置中移动元数据卷"] 操作步骤
 ... 删除要删除的 DR 组中可能存在的所有 MDV_aud 元数据卷。
 ... 删除 DR 组中要删除的所有数据聚合，如以下示例所示：
 +

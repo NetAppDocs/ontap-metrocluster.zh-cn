@@ -17,7 +17,7 @@ summary: 准备好网络启动服务器后，您必须将正确的 ONTAP 网络�
 * 在添加新控制器模块前后，您必须能够从系统访问 HTTP 服务器。
 * 您必须有权访问 NetApp 支持站点，才能下载适用于您的平台和 ONTAP 版本的必要系统文件。
 +
-https://mysupport.netapp.com/site/global/dashboard["NetApp 支持站点"]
+https://["NetApp 支持站点"]
 
 * HA 对中的两个控制器模块必须运行相同版本的 ONTAP 。
 

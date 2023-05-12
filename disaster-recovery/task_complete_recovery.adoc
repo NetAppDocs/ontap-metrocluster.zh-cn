@@ -132,7 +132,7 @@ NOTE: 系统会自动生成所需的新许可证密钥，并将其发送到文�
  a| 
 `sSecurity key-manager 板载同步`
 
-有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["还原板载密钥管理加密密钥"^]。
+有关详细信息，请参见 https://["还原板载密钥管理加密密钥"^]。
 
 
 
@@ -141,7 +141,7 @@ NOTE: 系统会自动生成所需的新许可证密钥，并将其发送到文�
  a| 
 `sSecurity key-manager key query -node node-name`
 
-有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"^]。
+有关详细信息，请参见 https://["还原外部密钥管理加密密钥"^]。
 
 |===
 . 如果根卷已加密，请使用中的操作步骤 link:../transition/task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.html#recovering-key-management-if-the-root-volume-is-encrypted["如果根卷已加密，则恢复密钥管理"]。

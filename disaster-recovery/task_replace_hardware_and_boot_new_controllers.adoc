@@ -414,12 +414,12 @@ site_B::*> storage iscsi-initiator disconnect -node node_B_2 -label *
 * 您必须有权访问 HTTP 服务器。
 * 您必须有权访问 NetApp 支持站点，才能下载适用于您的平台及其所运行的 ONTAP 软件版本的必要系统文件。
 +
-https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"^]
+https://["NetApp 支持"^]
 
 
 
 .步骤
-. 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
+. 访问 https://["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
 . 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
 . 转到可通过 Web 访问的目录，并验证所需文件是否可用。
 +

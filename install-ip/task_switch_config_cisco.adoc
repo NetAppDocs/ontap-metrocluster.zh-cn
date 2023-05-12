@@ -174,12 +174,12 @@ IP_switch_A_1#
 
 您必须使用支持的交换机软件版本。
 
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://["NetApp Hardware Universe"]
 
 .步骤
 . 下载支持的 NX-OS 软件文件。
 +
-https://software.cisco.com/download/home["Cisco 软件下载"]
+https://["Cisco 软件下载"]
 
 . 将交换机软件复制到交换机：
 +
@@ -380,7 +380,7 @@ IP_switch_A_1#
 
 您必须使用支持的交换机软件版本。
 
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://["NetApp Hardware Universe"]
 
 有四个 RCF 文件， MetroCluster IP 配置中的四个交换机中的每个交换机一个。您必须为所使用的交换机型号使用正确的 RCF 文件。
 

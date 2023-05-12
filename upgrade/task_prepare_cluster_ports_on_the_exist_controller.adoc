@@ -16,12 +16,12 @@ summary: 在安装新控制器模块之前，您必须在现有控制器模块�
 .关于此任务
 如果要创建双节点无交换机集群（无集群网络交换机），则必须启用无交换机集群网络模式。
 
-有关 ONTAP 中端口， LIF 和网络配置的详细信息，请参见 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络管理"^]。
+有关 ONTAP 中端口， LIF 和网络配置的详细信息，请参见 link:https://docs.netapp.com/us-en/ontap/network-management/index.html["网络管理"^]。
 
 .步骤
 . 确定应使用哪些端口作为节点的集群端口。
 +
-有关您的平台的默认端口角色列表，请参见 https://hwu.netapp.com/["Hardware Universe"^]
+有关您的平台的默认端口角色列表，请参见 https://["Hardware Universe"^]
 
 +
 NetApp 支持站点上适用于您的平台的 _Installation and Setup Instructions_包含 有关用于集群网络连接的端口的信息。

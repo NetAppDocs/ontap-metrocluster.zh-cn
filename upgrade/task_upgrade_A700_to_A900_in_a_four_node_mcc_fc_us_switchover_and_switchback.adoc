@@ -27,7 +27,7 @@ summary: 升级配对集群上的控制器模块时，您可以使用 MetroClust
 NOTE: AFF A900 系统仅在 ONTAP 9.10.1 或更高版本中受支持。
 
 +
-https://hwu.netapp.com/["NetApp Hardware Universe"^]
+https://["NetApp Hardware Universe"^]
 
 
 
@@ -62,7 +62,7 @@ https://hwu.netapp.com/["NetApp Hardware Universe"^]
 |===
 * 在升级操作步骤期间，您需要更改 MetroCluster 网络结构，包括 RCF 和布线的物理更改。您可以在执行控制器升级之前执行 RCF 和布线更改。
 * 此升级操作步骤不要求您不更改原始节点与新节点之间的存储， FC 和以太网连接。
-* 在升级操作步骤 期间、您不应在AFF A700或FAS9000系统中添加或删除其他卡。有关详细信息，请参见 https://hwu.netapp.com/["NetApp Hardware Universe"^]
+* 在升级操作步骤 期间、您不应在AFF A700或FAS9000系统中添加或删除其他卡。有关详细信息，请参见 https://["NetApp Hardware Universe"^]
 
 
 以下示例名称在此操作步骤 的示例和图形中使用：
@@ -194,7 +194,7 @@ MetroCluster check show`
 +
 .. 下载并运行 Config Advisor 。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
+https://["NetApp 下载： Config Advisor"^]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
@@ -207,7 +207,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 与AFF A700所需的一个四端口FC-VI适配器相比、AFF A900或FAS9500Fabric MetroCluster 要求每个节点使用两个四端口FC-VI适配器。在开始将控制器升级到AFF A900或FAS9500控制器之前、您必须修改光纤交换机RCF文件以支持AFF A900或FAS9500连接拓扑。
 
-. 从 https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["MetroCluster RCF 文件下载页面"^]下、下载适用于AFF A900或FAS9500Fabric MetroCluster 以及AFF A700或FAS9000配置中使用的交换机型号的正确RCF文件。
+. 从 https://["MetroCluster RCF 文件下载页面"^]下、下载适用于AFF A900或FAS9500Fabric MetroCluster 以及AFF A700或FAS9000配置中使用的交换机型号的正确RCF文件。
 . 【更新 RCF 】按照中的步骤更新网络结构 A 交换机，交换机 A1 和交换机 B1 上的 RCF 文件 link:../disaster-recovery/task_cfg_switches_mcfc.html["配置 FC 交换机"]。
 +
 
@@ -312,7 +312,7 @@ MetroCluster check show`
 +
 .. 下载并运行 Config Advisor 。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
+https://["NetApp 下载： Config Advisor"^]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
@@ -401,7 +401,7 @@ dr-group-id cluster    node           node-systemid ha-partner-systemid dr-partn
 
 . 如果 MetroCluster 节点对卷或聚合使用加密，请复制有关密钥和密码短语的信息。
 +
-对于追加信息，请参见 https://docs.netapp.com/us-en/ontap/encryption-at-rest/backup-key-management-information-manual-task.html["手动备份板载密钥管理信息"^]。
+对于追加信息，请参见 https://["手动备份板载密钥管理信息"^]。
 
 +
 .. 如果配置了板载密钥管理器：
@@ -624,9 +624,13 @@ image:../media/drw_a900_move-remove_NVRAM_module.png["NVS 模块"]
 
 
 
+[NOTE]
+====
+* 请勿将插槽6中AFF A700非易失性存储模块上用作核心转储设备的任何附加模块传输到AFF A900 NVS模块。请勿将任何部件从AFF A700控制器和NVS模块转移到AFF A900控制器模块。
+* 对于FAS9000到FAS9500的升级、只能将FAS9000 NVS模块上的Flash Cache模块传输到FAS9500 NVS模块。请勿将任何其他部件从FAS9000控制器和NVS模块传输到FAS9500控制器模块。
 
-NOTE: 如果AFF A700或FAS9000非易失性存储模块上有任何附加模块用作核心转储设备、请勿将其传输到AFF A900或FAS9500NVS。请勿将任何部件从AFF A700或A900控制器模块和NVS传输到AFF A900或FAS9500控制器模块。
 
+====
 
 
 == 安装AFF A900或FAS9500NVS和控制器模块
@@ -727,7 +731,7 @@ image:../media/drw_9500_remove_PCM.png["控制器"]
 
 | 未运行 | 在启动环境提示符处使用以下命令手动配置连接： `ifconfig e0M -addr=<filer_addr> -mask=<netmask> -gw=<gateway> - dns=<dns_addr> domain=<dns_domain>` ` <filer_addr>` 是存储系统的 IP 地址。` < 网络掩码 >` 是存储系统的网络掩码。` < 网关 >` 是存储系统的网关。` <dns_addr>` 是网络上名称服务器的 IP 地址。此参数是可选的。` <dns_domain>` 是域名服务（ DNS ）域名。此参数是可选的。注意：您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 help ifconfig 。 
 |===
-. 在节点 1 上执行 `netboot` ： `netboot http://<web_server_ip/path_to_web_accessible_directory>/netboot/kernel`[]` <path_to_the_web-accessible_directory>` 应指向您在中下载 ` <ontap_version>_image.tgz` 的位置 <<step2-download-software,第 2 步>>。
+. 在节点 1 上执行 `netboot` ： `netboot http://[]` <path_to_the_web-accessible_directory>` 应指向您在中下载 ` <ontap_version>_image.tgz` 的位置 <<step2-download-software,第 2 步>>。
 +
 
 NOTE: 请勿中断启动。
@@ -756,7 +760,7 @@ Selection (1-11)?
 
 NOTE: 请忽略以下消息： `HA 对上的无中断升级不支持此操作步骤。` 本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。请始终使用 netboot 将新节点更新为所需映像。如果您使用其他方法在新控制器上安装映像，则可能会安装不正确的映像。此问题描述适用场景所有 ONTAP 版本。
 
-. 如果系统提示您继续运行操作步骤，请输入 `y` ，并在系统提示您输入软件包时，输入 URL ：http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>_image.tgz[]
+. 如果系统提示您继续运行操作步骤，请输入 `y` ，并在系统提示您输入软件包时，输入 URL ：http://[]
 . 完成以下子步骤以重新启动控制器模块：
 +
 .. 出现以下提示时，输入 `n` 以跳过备份恢复： `do you want to restore the backup configuration now ？｛ y|n ｝`
@@ -1332,6 +1336,17 @@ Remote: cluster_A         Configuration state configured
 .. 显示 MetroCluster 检查的结果：
 +
 MetroCluster check show`
+
++
+运行之后 `metrocluster check run` 和 `metrocluster check show` 命令时、您可能会看到类似于以下示例的错误：
+
++
+[listing]
+----
+Cluster_A:: node_A_1 (non-overridable veto): DR partner NVLog mirroring is not online. Make sure that the links between the two sites are healthy and properly configured.
+----
++
+之所以出现此错误、是因为升级过程中控制器不匹配。您可以安全地忽略此错误并继续升级site_A上的节点
 
 
 

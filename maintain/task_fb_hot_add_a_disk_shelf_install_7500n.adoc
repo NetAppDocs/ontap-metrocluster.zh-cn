@@ -93,7 +93,7 @@ node_A_2             on           on           on           default
 ----
 . 如果您的系统未启用磁盘自动分配，或者同一堆栈中的磁盘驱动器由两个控制器所有，请将磁盘驱动器分配给相应的池。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
+https://["磁盘和聚合管理"]
 
 +
 [NOTE]
@@ -112,7 +112,7 @@ NOTE: 在更新磁盘驱动器和磁盘架固件之前，不得将磁盘驱动�
 您可以从任一控制器的系统控制台中运行操作步骤中的命令。
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"]
+https://["NetApp 下载：磁盘架固件"]
 
 . 安装磁盘架并为其布线：
 +
@@ -150,7 +150,7 @@ NOTE: 您必须重新启动磁盘架，并保持整个存储系统中每个 SAS 
 
 . 从系统控制台将磁盘驱动器固件更新为最新版本。
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"]
+https://["NetApp 下载：磁盘驱动器固件"]
 
 +
 .. 更改为高级权限级别： + ` * 设置 -privilege advanced*`
@@ -181,7 +181,7 @@ https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp
 
 .. 运行 Config Advisor 。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+https://["NetApp 下载： Config Advisor"]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 

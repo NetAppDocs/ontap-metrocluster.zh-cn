@@ -107,7 +107,7 @@ sync-destination SVM 开始从运行正常的站点提供数据。
 
 
 .相关信息
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"^]
+https://["系统管理"^]
 
 
 
@@ -295,7 +295,7 @@ link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["高可用
 
 MetroCluster FC-IP 过渡涉及将 MetroCluster IP 节点和 IP 交换机添加到现有 MetroCluster FC 配置中，然后停用 MetroCluster FC 节点。根据过渡过程的阶段， MetroCluster 切换，修复和切回操作使用不同的工作流。
 
-请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-upgrade/GUID-1870FDC4-1774-4604-86A7-5C979C297ADA.html["过渡期间的切换，修复和切回操作"^]。
+请参见 http://["过渡期间的切换，修复和切回操作"^]。
 
 
 

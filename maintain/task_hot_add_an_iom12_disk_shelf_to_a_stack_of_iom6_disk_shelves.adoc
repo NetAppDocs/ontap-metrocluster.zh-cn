@@ -13,4 +13,4 @@ summary: 根据您的 ONTAP 版本，您可以在桥接 MetroCluster 配置中�
 [role="lead"]
 根据您的 ONTAP 版本，您可以在桥接 MetroCluster 配置中将 IOM12 磁盘架热添加到 IOM6 磁盘架堆栈中。
 
-要执行此操作步骤，请参见 https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["将带有 IOM12 模块的磁盘架热添加到带有 IOM6 模块的磁盘架堆栈中"]。
+要执行此操作步骤，请参见 https://["将带有 IOM12 模块的磁盘架热添加到带有 IOM6 模块的磁盘架堆栈中"]。

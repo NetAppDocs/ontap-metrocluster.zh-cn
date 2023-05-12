@@ -29,7 +29,7 @@ NOTE: 有关从节点故障中恢复的追加信息，请参见中的 " 选择�
  a| 
 此配置通过本地接管进行恢复。RAID 不受影响。查看系统消息并根据需要更换出现故障的 FRU 。
 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
+https://["AFF 和 FAS 文档中心"^]
 
 
 
@@ -40,7 +40,7 @@ https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
  a| 
 如果未在MetroCluster Tiebreaker软件中启用自动切换、则需要手动执行计划外切换(USO)。
 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
+https://["AFF 和 FAS 文档中心"^]
 
 
 
@@ -51,7 +51,7 @@ MetroCluster IP 接口—一个端口出现故障
  a| 
 此时将使用第二个端口。如果与端口的物理链路断开，则运行状况监控器会生成警报。查看系统消息并根据需要更换出现故障的 FRU 。
 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
+https://["AFF 和 FAS 文档中心"^]
 
 
 
@@ -62,7 +62,7 @@ HA 功能受到影响。节点的 RAID SyncMirror 将停止同步。
  a| 
 由于不存在 HA 接管，因此需要立即手动恢复。查看系统消息并根据需要更换出现故障的 FRU 。
 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
+https://["AFF 和 FAS 文档中心"^]
 
 
 

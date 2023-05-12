@@ -195,7 +195,7 @@ MetroCluster check show`
 +
 .. 下载并运行 Config Advisor 。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
+https://["NetApp 下载： Config Advisor"^]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
@@ -311,7 +311,7 @@ aa9a7a7a-9a81-11e7-a4e9-00a098908c35
 
 
 . 如果根卷已加密，请收集并保存用于 key-manager 的密码短语： `security key-manager backup show`
-. 如果 MetroCluster 节点对卷或聚合使用加密，请复制有关密钥和密码短语的信息。对于追加信息，请参见 https://docs.netapp.com/us-en/ontap/encryption-at-rest/backup-key-management-information-manual-task.html["手动备份板载密钥管理信息"^]。
+. 如果 MetroCluster 节点对卷或聚合使用加密，请复制有关密钥和密码短语的信息。对于追加信息，请参见 https://["手动备份板载密钥管理信息"^]。
 +
 .. 如果配置了板载密钥管理器： `security key-manager on板 载 show-backup` + 您稍后将在升级操作步骤中需要密码短语。
 .. 如果配置了企业密钥管理（ KMIP ），请问题描述执行以下命令：
@@ -607,7 +607,7 @@ NOTE: 集群中所有节点上的插槽 7 均应为空，如中所述 <<将端�
 如果安装的 ONTAP 版本与原始控制器上安装的版本不同，则必须通过网络启动新控制器。安装每个新控制器后，您可以从 Web 服务器上存储的 ONTAP 9 映像启动系统。然后，您可以将正确的文件下载到启动介质设备，以供后续系统启动。
 
 .步骤
-. 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
+. 访问 https://["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
 . `步骤 2-download-software]] 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将` ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
 . 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
 . 您的目录列表应包含 <ontap_version>\\_image.tgz 。
@@ -1218,7 +1218,7 @@ NOTE: 在每个节点上，检查中设置的 bootarg link:task_upgrade_controll
  a| 
 `sSecurity key-manager 板载同步`
 
-有关详细信息，请参见 https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["还原板载密钥管理加密密钥"^]。
+有关详细信息，请参见 https://["还原板载密钥管理加密密钥"^]。
 
 
 
@@ -1227,7 +1227,7 @@ NOTE: 在每个节点上，检查中设置的 bootarg link:task_upgrade_controll
  a| 
 `sSecurity key-manager external restore -vserver _svm_ -node _node_-key-server _host_name_ip_address ： port_ -key-id key_id -key-tag key_tag _node-name_`
 
-有关详细信息，请参见 https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["还原外部密钥管理加密密钥"^]。
+有关详细信息，请参见 https://["还原外部密钥管理加密密钥"^]。
 
 |===
 . 验证所有端口是否都位于广播域中：
@@ -1238,17 +1238,17 @@ NOTE: 在每个节点上，检查中设置的 bootarg link:task_upgrade_controll
 
 .. 根据需要向广播域添加任何端口。
 +
-https://docs.netapp.com/us-en/ontap/networking/add_or_remove_ports_from_a_broadcast_domain97.html["从广播域添加或删除端口"^]
+https://["从广播域添加或删除端口"^]
 
 .. 根据需要重新创建 VLAN 和接口组。
 +
 VLAN 和接口组成员资格可能与旧节点不同。
 
 +
-https://docs.netapp.com/us-en/ontap/networking/configure_vlans_over_physical_ports.html#create-a-vlan["创建 VLAN"^]
+https://["创建 VLAN"^]
 
 +
-https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_create_interface_groups.html["组合物理端口以创建接口组"^]
+https://["组合物理端口以创建接口组"^]
 
 
 

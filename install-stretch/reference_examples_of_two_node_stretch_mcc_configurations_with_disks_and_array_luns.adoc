@@ -32,4 +32,4 @@ image::../media/two_node_mcc_combined_array_luns.gif[双节点 MCC 组合阵列 
 
 NOTE: 如果需要，您还可以使用相同的 FC 交换机将原生磁盘和阵列 LUN 连接到 MetroCluster 配置中的控制器。
 
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
+https://["光纤连接的 MetroCluster 安装和配置"]

@@ -21,7 +21,7 @@ link:concept_choosing_your_transition_procedure_mcc_transition.html["支持无�
 
 * 它必须支持交换集群配置。
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://["NetApp Hardware Universe"]
 
 * 它必须满足 _SCSI MetroCluster 安装和配置 _ 过程中所述的所有要求和布线。
 +

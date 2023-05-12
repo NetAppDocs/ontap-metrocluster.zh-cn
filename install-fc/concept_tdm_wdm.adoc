@@ -13,7 +13,7 @@ Hardware Universe 工具提供了一些有关使用光纤连接 MetroCluster 配
 
 例如， TDM/WDM 设备必须支持具有路由策略的链路聚合（中继）功能。帧的交付顺序（ IOD 或 OOD ）在交换机中保持不变，并由有效的路由策略确定。
 
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://["NetApp Hardware Universe"]
 
 下表提供了包含 Brocade 交换机和 Cisco 交换机的配置的路由策略：
 

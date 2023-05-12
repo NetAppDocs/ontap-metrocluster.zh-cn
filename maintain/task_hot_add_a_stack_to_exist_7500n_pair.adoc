@@ -17,10 +17,10 @@ summary: 您可以将 SAS 磁盘架堆栈热添加到具有可用端口的一对
 * 您必须已下载最新的磁盘和磁盘架固件。
 * MetroCluster 配置中的所有磁盘架（现有磁盘架）必须运行相同版本的固件。如果一个或多个磁盘或磁盘架未运行最新固件版本，请在连接新磁盘或磁盘架之前更新固件。
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"^]
+https://["NetApp 下载：磁盘驱动器固件"^]
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"^]
+https://["NetApp 下载：磁盘架固件"^]
 
 * FibreBridge 7500N 网桥必须已连接并具有可用的 SAS 端口。
 
@@ -187,18 +187,18 @@ Tgt VendorID ProductID        Type        SerialNumber
 您必须在两个控制器上运行此命令。
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"^]
+https://["NetApp 下载：磁盘驱动器固件"^]
 
 . 按照所下载固件的说明将磁盘架固件更新为最新版本。
 +
 您可以从任一控制器的系统控制台中运行操作步骤中的命令。
 
 +
-https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"^]
+https://["NetApp 下载：磁盘架固件"^]
 
 . 如果您的系统未启用磁盘自动分配，请分配磁盘驱动器所有权。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
+https://["磁盘和聚合管理"^]
 
 +
 
@@ -237,7 +237,7 @@ MetroCluster check show`
 
 .. 运行 Config Advisor 。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
+https://["NetApp 下载： Config Advisor"^]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 

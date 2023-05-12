@@ -24,7 +24,7 @@ summary: 从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，
 +
 ** 有关支持的平台升级组合的信息、请查看中的MetroCluster IP升级表 link:concept_choosing_controller_upgrade_mcc.html["选择控制器升级操作步骤"]。
 +
-请参见 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_controller_upgrade_mcc.html#choosing-a-procedure-that-uses-the-switchover-and-switchback-process["选择升级或刷新方法"] 以了解其他过程。
+请参见 https://["选择升级或刷新方法"] 以了解其他过程。
 
 
 
@@ -42,7 +42,7 @@ summary: 从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，
 * IP 交换机必须运行受支持的固件版本。
 * 如果新平台的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。
 +
-有关详细信息，请参见 https://hwu.netapp.com/["NetApp Hardware Universe"]。
+有关详细信息，请参见 https://["NetApp Hardware Universe"]。
 
 * 您将在新平台上重复使用原始平台的 IP 地址，网络掩码和网关。
 * 此操作步骤使用以下示例名称：
@@ -383,7 +383,7 @@ SAN
 .步骤
 . 通过网络启动新控制器：
 +
-.. 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"] 下载用于执行系统网络启动的文件。
+.. 访问 https://["NetApp 支持站点"] 下载用于执行系统网络启动的文件。
 .. 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 `ontap-version_image.tgz` 文件存储在可通过 Web 访问的目录中。
 .. 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
 +
@@ -456,7 +456,7 @@ DHCP
  a| 
 FAS/AFF8000 系列系统
  a| 
-`网络启动 http://_web_server_ip/path_to_web-accessible_directory_/netboot/kernel`[]
+`网络启动 http://[]
 
 
 
@@ -599,7 +599,7 @@ MetroCluster check show`
 +
 .. 下载并运行 Config Advisor 。
 +
-https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+https://["NetApp 下载： Config Advisor"]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
@@ -728,7 +728,7 @@ aa9a7a7a-9a81-11e7-a4e9-00a098908c35
 
 . 如果 MetroCluster 节点对卷或聚合使用加密，请复制有关密钥和密码短语的信息。
 +
-对于追加信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-1677AE0A-FEF7-45FA-8616-885AA3283BCF.html["手动备份板载密钥管理信息"]。
+对于追加信息，请参见 https://["手动备份板载密钥管理信息"]。
 
 +
 .. 如果配置了板载密钥管理器： + `security key-manager on板 载 show-backup`
@@ -785,7 +785,7 @@ dr-group-id cluster     node     node-systemid ha-partner-systemid dr-partner-sy
  a| 
 Tiebreaker
  a| 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-34C97A45-0BFF-46DD-B104-2AB2805A983D.html["删除 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中
+http://["删除 MetroCluster 配置"] 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中
 
 
 
@@ -902,7 +902,7 @@ MetroCluster switchover -controller-replacement true`
 例如， e0d 是旧控制器上的一个物理端口，也存在于新控制器上。e0d 不会用作集群端口，也不会在新控制器上用作其他端口。
 
 +
-有关平台型号的端口使用情况，请参见 https://hwu.netapp.com/["NetApp Hardware Universe"]
+有关平台型号的端口使用情况，请参见 https://["NetApp Hardware Universe"]
 
 .. 修改所有数据 LIF 以使用通用端口作为主端口： + `network interface modify -vserver _svm-name_ -lif _data-lif_ -home-port _port-id_`
 +
@@ -1020,7 +1020,7 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 . 正确接地。
 . 在机架或机柜中安装控制器模块。
 +
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://["AFF 和 FAS 文档中心"]
 
 . 按照中所述，使用缆线将控制器连接到 IP 交换机 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]。
 +
@@ -1565,7 +1565,7 @@ Rebooting to load the restored env file...
  a| 
 `sSecurity key-manager 板载同步`
 
-有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["还原板载密钥管理加密密钥"]。
+有关详细信息，请参见 https://["还原板载密钥管理加密密钥"]。
 
 
 
@@ -1574,7 +1574,7 @@ Rebooting to load the restored env file...
  a| 
 `sSecurity key-manager external restore -vserver _svm_ -node _node_-key-server _host_name_ip_address ： port_ -key-id key_id -key-tag key_tag _node-name_`
 
-有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"]。
+有关详细信息，请参见 https://["还原外部密钥管理加密密钥"]。
 
 |===
 . 验证所有端口是否都位于广播域中：
@@ -1585,17 +1585,17 @@ Rebooting to load the restored env file...
 
 .. 根据需要向广播域添加任何端口。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["从广播域添加或删除端口"]
+https://["从广播域添加或删除端口"]
 
 .. 根据需要重新创建 VLAN 和接口组。
 +
 VLAN 和接口组成员资格可能与旧节点不同。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["创建 VLAN"]
+https://["创建 VLAN"]
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["组合物理端口以创建接口组"]
+https://["组合物理端口以创建接口组"]
 
 
 

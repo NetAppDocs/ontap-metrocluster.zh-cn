@@ -19,7 +19,7 @@ summary: 在规划 MetroCluster 配置时，您必须了解所需的和支持的
 
 MetroCluster FC 配置必须支持硬件和软件。
 
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://["NetApp Hardware Universe"]
 
 使用 AFF 系统时，必须将 MetroCluster 配置中的所有控制器模块配置为 AFF 系统。
 
@@ -140,6 +140,6 @@ NOTE: 运行 ONTAP 9.8 及更高版本的配置不支持 FibreBridge 6500N 网�
 
 == 在一个堆栈中混用 IOM12 和 IOM 6 模块
 
-您的 ONTAP 版本必须支持混用磁盘架。请参见互操作性表工具（ IMT ），了解您的 ONTAP 版本是否支持混用磁盘架。 https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性"^]
+您的 ONTAP 版本必须支持混用磁盘架。请参见互操作性表工具（ IMT ），了解您的 ONTAP 版本是否支持混用磁盘架。 https://["NetApp 互操作性"^]
 
-有关混用磁盘架的更多详细信息，请参见： https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["将带有 IOM12 模块的磁盘架热添加到带有 IOM6 模块的磁盘架堆栈中"^]
+有关混用磁盘架的更多详细信息，请参见： https://["将带有 IOM12 模块的磁盘架热添加到带有 IOM6 模块的磁盘架堆栈中"^]
