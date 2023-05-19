@@ -13,12 +13,34 @@ summary: 从 ONTAP 9.4 开始， MetroCluster IP 配置支持使用 ADP （高�
 [role="lead"]
 从 ONTAP 9.4 开始， MetroCluster IP 配置支持使用 ADP （高级驱动器分区）对 AFF 系统进行新安装。在大多数配置中，分区和磁盘分配会在 MetroCluster 站点的初始配置期间自动执行。
 
-ONTAP 9.4 及更高版本对 ADP 支持进行了以下更改：
+ONTAP 9.4及更高版本对ADP支持进行了以下更改：
 
 * 池 0 磁盘分配在出厂时已完成。
 * 未镜像的根在出厂时已创建。
 * 数据分区分配在设置操作步骤期间在客户站点上完成。
 * 大多数情况下，驱动器分配和分区会在设置过程中自动完成。
+* 磁盘及其所有分区必须归同一个高可用性(HA)对中的节点所有。单个驱动器中的分区或驱动器所有权不能在本地HA对与灾难恢复(DR)配对节点或DR辅助配对节点之间混合使用。
++
+支持的配置示例：
+
++
+|===
+
+
+| 驱动器/分区 | 所有者 
+
+
+| 驱动器： | `ClusterA-Node01` 
+
+
+| 分区1： | `ClusterA-Node01` 
+
+
+| 分区2： | `ClusterA-Node02` 
+
+
+| 分区3： | `ClusterA-Node01` 
+|===
 
 
 
@@ -31,7 +53,9 @@ NOTE: 从 ONTAP 9.4 升级到 9.5 时，系统会识别现有的磁盘分配。
 ADP 会在平台初始配置期间自动执行。
 
 
-NOTE: 从 ONTAP 9.5 开始，必须使用命令 `storage disk option modify -autodassign on` 启用磁盘自动分配。
+NOTE: 从ONTAP 9.5开始、必须使用启用磁盘自动分配 `storage disk option modify -autoassign on` 命令：
+
+必须将ha-config状态设置为 `mccip` 在自动配置之前、请确保选择正确的分区大小、以支持适当的根卷大小。有关详细信息，请参见 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_sw_config_verify_haconfig.html["验证组件的 ha-config 状态"]。
 
 在安装期间，最多可以自动对 96 个驱动器进行分区。您可以在初始安装后添加额外的驱动器。
 

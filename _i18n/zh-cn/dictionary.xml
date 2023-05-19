@@ -7593,7 +7593,6 @@
   <block id="b6a9903c2ef511ee44c51b65db292bf6" category="list-text">仅支持四节点 MetroCluster 配置（每个站点两个节点）。</block>
   <block id="b793654a30cf8567ed25af895400affb" category="list-text">每个 MetroCluster 站点需要两个子网—每个网络一个子网。</block>
   <block id="4ef3b220e04ca274abbe1def1b61d2bc" category="list-text">不支持自动 IP 分配。</block>
-  <block id="34e560639ffdd9bc9704af3387945fde" category="paragraph">ONTAP 9.4 及更高版本对 ADP 支持进行了以下更改：</block>
   <block id="a4a9824ba125eba903fb3d347f4f5eb6" category="list-text">池 0 磁盘分配在出厂时已完成。</block>
   <block id="a1fbd6da7a08fa8c0a2a6b92a3b0a9c5" category="list-text">未镜像的根在出厂时已创建。</block>
   <block id="c60c48f30552c5ad7630dd7b31eb4943" category="list-text">数据分区分配在设置操作步骤期间在客户站点上完成。</block>
@@ -11696,7 +11695,6 @@
   <block id="eb737ed666dd88bebf10d994bb6b0a10" category="paragraph"><block ref="eb737ed666dd88bebf10d994bb6b0a10" category="inline-link-rx"></block></block>
   <block id="8bcabb3e778663882c95082b775c75b8" category="summary">从 ONTAP 9.4 开始， MetroCluster IP 配置支持使用 ADP （高级驱动器分区）对 AFF 系统进行新安装。</block>
   <block id="3299ba9863a06ef7650cf2bb56d8651c" category="paragraph">从 ONTAP 9.4 开始， MetroCluster IP 配置支持使用 ADP （高级驱动器分区）对 AFF 系统进行新安装。在大多数配置中，分区和磁盘分配会在 MetroCluster 站点的初始配置期间自动执行。</block>
-  <block id="732888c3eafbc36a6c179a0d04b80675" category="admonition">从 ONTAP 9.5 开始，必须使用命令 `storage disk option modify -autodassign on` 启用磁盘自动分配。</block>
   <block id="b8f6677db24add5f2af4be56aa22ea68" category="list-text">从 ONTAP 9.5 开始，支持在 FAS 系统上安装新的 MetroCluster IP 。</block>
   <block id="04be3a6c5ee416a84b497452ccd41ffd" category="list-text">从 ONTAP 9.4 开始，支持为 ADP 配置的控制器模块。</block>
   <block id="5dddfa582624b89f44517d6ff5b20963" category="paragraph">从 ONTAP 9.7 开始，您可以在 MetroCluster IP 配置中使用 ONTAP 调解器辅助自动计划外切换（ MAUSO ），也可以使用 MetroCluster Tiebreaker 软件。MetroCluster IP 配置只能使用这两种服务中的一种。</block>
@@ -12933,7 +12931,6 @@
   <block id="e5c3d25338f9cf52b0644af8df5dd491" category="admonition">端口13和14可以在支持40 Gbps和100 Gbps的原生 速度模式下使用、也可以在分支模式下使用以支持4×25 Gbps或4×10 Gbps。如果它们使用本机速度模式、则表示为端口13和14。如果它们使用分支模式4×25 Gbps或4×10 Gbps、则表示为端口13s0-3和14s0-3。</block>
   <block id="1ad95d38a718a40f57a452228a018366" category="section-title">FAS500f、AFF C250或AFF A250的交换机端口使用情况</block>
   <block id="32749c9f2fe889b20a4f9ed309297f2b" category="image-alt">MCC IP布线A250 C250 MSN2100</block>
-  <block id="3a1adad502af8b0ad25b006361e23ce5" category="section-title">AFF C400、AFF A400、AFF A700或FAS9000、FAS8300或FAS8700 AFF A800的交换机端口使用情况</block>
   <block id="6f71608a9b02340c422ff3d643b4afd7" category="image-alt">MCC IP布线aff250 400 700 800串行MSN2100</block>
   <block id="0995dd589b8b5229e4b9e28862db9b91" category="paragraph">如果使用缆线将多个MetroCluster 配置连接到一个Cisco 3132Q-V交换机、则必须根据相应表为每个MetroCluster 布线。例如、如果使用缆线将FAS2750和AFF A700连接到同一个Cisco 3132Q-V交换机。然后、按照表1中的"FAS2750"和AFF 表2中的"FAS2" MetroCluster 或MetroCluster MetroCluster 3"为FAS2750布线。您不能将FAS2750和AFF A700以物理方式连接为MetroCluster 1。</block>
   <block id="014322233c716b51b659a375ee0b236f" category="section-title">使用缆线将AFF A150、FAS2750、AFF A220、FAS500f、AFF C250或AFF A250连接到Cisco 3232C或Cisco 9333-FX2C交换机</block>
@@ -13198,4 +13195,18 @@
   <block id="f624129c4d6772a2f62200de12382ad0" category="list-text">按照将所有MV_CRS元数据卷移动到另一个DR组 <block ref="9273ba8e8bd1c5c1cc0cd85662f27754" category="inline-link-macro-rx"></block> 操作步骤</block>
   <block id="112564590ec1ae4e651904cd571ed9d4" category="paragraph">有关 ONTAP 中端口， LIF 和网络配置的详细信息，请参见 <block ref="378e9004462b7ecfad8256f25b57fbf6" category="inline-link-macro-rx"></block>。</block>
   <block id="347bde5f3be96b6c3eab8b4a360b9028" category="list-text">等待30分钟、然后启动所有存储架、MetroCluster IP交换机和存储控制器。</block>
+  <block id="0434950fcf46c88299084ad712ed62cc" category="list-text">FAS9500/ AFF A900</block>
+  <block id="bf63be372af426fed8556dc915b7ccb6" category="section-title">AFF C400、AFF A400、AFF A700、FAS9000、FAS9300的交换机端口使用情况 FAS4700、AFF A800、FAS9500或AFF A900</block>
+  <block id="6789cbf331ef2c9b50d45082c81e74cb" category="paragraph">ONTAP 9.4及更高版本对ADP支持进行了以下更改：</block>
+  <block id="4b72d9ad6a5a5828529f4266cc3f2713" category="list-text">磁盘及其所有分区必须归同一个高可用性(HA)对中的节点所有。单个驱动器中的分区或驱动器所有权不能在本地HA对与灾难恢复(DR)配对节点或DR辅助配对节点之间混合使用。</block>
+  <block id="352c5d749caa22e221b7fc037fede87d" category="paragraph">支持的配置示例：</block>
+  <block id="cd1c00b76cbbe512b20985ec2344b5ed" category="cell">驱动器/分区</block>
+  <block id="de6f944fd72539769b70781e85ebcb0d" category="cell">驱动器：</block>
+  <block id="5eceec2cc5b83a608e155b1545a68237" category="cell"><block ref="3adbe009bdc9265b370999a77c471e08" prefix="" category="inline-code"></block></block>
+  <block id="59e29fe03e3616d7a0f604bccecab054" category="cell">分区1：</block>
+  <block id="282e3c3f77057f75613970647a21e39b" category="cell">分区2：</block>
+  <block id="5e14931fa3c39251787af92197392ae0" category="cell"><block ref="b5713f91ed0348a8e6565b40d2be523a" prefix="" category="inline-code"></block></block>
+  <block id="7794a024d3134acafeb3b112e36c9a3f" category="cell">分区3：</block>
+  <block id="6129d8bcf6f4ed452d528f954ce79ee6" category="admonition">从ONTAP 9.5开始、必须使用启用磁盘自动分配<block ref="9518ee5351ea31dd67cceada18bfcfd6" prefix=" " category="inline-code"></block> 命令：</block>
+  <block id="00427bfa7d8d8bd516409a3466e96821" category="paragraph">必须将ha-config状态设置为<block ref="32b858596eeb9351eca27c2906a21da4" prefix=" " category="inline-code"></block> 在自动配置之前、请确保选择正确的分区大小、以支持适当的根卷大小。有关详细信息，请参见 <block ref="ee9beb37ef6441cda28497e9b5b08a94" category="inline-link-macro-rx"></block>。</block>
 </blocks>

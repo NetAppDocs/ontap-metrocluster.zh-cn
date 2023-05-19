@@ -24,6 +24,7 @@ MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台�
 * FAS8700
 * FAS9000/FASA700 AFF
 * AFF C800/ AFF A800
+* FAS9500/ AFF A900
 
 
 目前不支持以下平台和配置：
@@ -51,6 +52,6 @@ image::../media/mcc_ip_cabling_A250_C250_MSN2100.png[MCC IP布线A250 C250 MSN21
 
 
 
-== AFF C400、AFF A400、AFF A700或FAS9000、FAS8300或FAS8700 AFF A800的交换机端口使用情况
+== AFF C400、AFF A400、AFF A700、FAS9000、FAS9300的交换机端口使用情况 FAS4700、AFF A800、FAS9500或AFF A900
 
 image::../media/mcc_ip_cabling_aff250_400_700_800_cseriesMSN2100.png[MCC IP布线aff250 400 700 800串行MSN2100]
