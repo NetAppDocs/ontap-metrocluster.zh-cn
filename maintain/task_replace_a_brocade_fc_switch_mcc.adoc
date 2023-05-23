@@ -115,7 +115,7 @@ FC_switch_B_1:admin> switchshow
 
 .. 按照 _Brocade 安装和配置中所述配置新交换机，但跳过 "`在操作步骤 FC 交换机上配置分区` " MetroCluster 。
 +
-https://["光纤连接的 MetroCluster 安装和配置"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
 +
 您可以稍后在此操作步骤中配置分区。
@@ -259,7 +259,7 @@ MetroCluster check show`
 +
 `s存储开关显示`
 
-.. 运行 https://["Config Advisor"]。
+.. 运行 https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Config Advisor"]。
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
 

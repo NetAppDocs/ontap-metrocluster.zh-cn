@@ -17,7 +17,7 @@ summary: 您应了解在 MetroCluster IP 配置中使用多路复用设备的某
 
 Hardware Universe 工具提供了一些有关 TDM/xWDM 设备在使用 MetroCluster IP 配置时必须满足的要求的说明。
 
-https://["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"]
 
 
 

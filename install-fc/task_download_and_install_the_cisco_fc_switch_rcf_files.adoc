@@ -21,7 +21,7 @@ summary: 您必须将 RCF 文件下载到 MetroCluster 网络结构配置中的�
 
 您必须使用支持的交换机软件版本。
 
-https://["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"]
 
 有四个 RCF 文件， MetroCluster 网络结构配置中的四个交换机中的每个交换机一个。您必须为所使用的交换机型号使用正确的 RCF 文件。
 
@@ -62,7 +62,7 @@ FC_switch_B_2
 NOTE: 显示的输出适用于 Cisco IP 交换机；但是，这些步骤也适用于 Cisco FC 交换机。
 
 .步骤
-. 从下载 Cisco FC RCF 文件 https://["MetroCluster RCF 下载页面"]。
+. 从下载 Cisco FC RCF 文件 https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["MetroCluster RCF 下载页面"]。
 . 将 RCF 文件复制到交换机。
 +
 .. 将 RCF 文件复制到第一个交换机：

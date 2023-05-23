@@ -19,7 +19,7 @@ summary: 您可以使用每个网络结构的一个启动程序端口和每个�
 
 如果手动执行分区，则按照使用一个 FC 端口（ FC1 或 FC2 ）的 FibreBridge 6500N 或 FibreBridge 7500N 或 7600N 网桥所使用的分区进行操作。在这种情况下，每个网络结构的每个分区成员都会添加一个启动程序端口，而不是两个。
 
-您可以从中使用 FibreBridge 6500N 网桥热插拔操作步骤 _FibreBridge 6500N 网桥并使用 FibreBridge 7500N 或 7600N 网桥 _ 更改分区或从 FibreBridge 6500 升级到 FibreBridge 7500 https://["维护 MetroCluster 组件"]。
+您可以从中使用 FibreBridge 6500N 网桥热插拔操作步骤 _FibreBridge 6500N 网桥并使用 FibreBridge 7500N 或 7600N 网桥 _ 更改分区或从 FibreBridge 6500 升级到 FibreBridge 7500 https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["维护 MetroCluster 组件"]。
 
 下表显示了使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配。
 

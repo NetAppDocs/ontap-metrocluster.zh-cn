@@ -631,7 +631,7 @@ ATTO_10.10.20.13  atto04        true          ok              Atto   FibreBridge
 .. 检查交换机上是否存在任何运行状况警报（如果存在）： + `storage switch show`
 .. 运行 Config Advisor 。
 +
-https://["NetApp 下载： Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
@@ -1015,7 +1015,7 @@ MetroCluster check show`
 .. 检查交换机上是否存在任何运行状况警报（如果存在）： + `storage switch show`
 .. 运行 Config Advisor 。
 +
-https://["NetApp 下载： Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
@@ -1450,7 +1450,7 @@ MetroCluster check show`
 
 .. 运行 Config Advisor 。
 +
-https://["NetApp 下载： Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 

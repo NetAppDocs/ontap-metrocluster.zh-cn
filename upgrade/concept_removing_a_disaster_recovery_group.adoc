@@ -17,7 +17,7 @@ ONTAP 9.8 及更高版本支持此操作步骤。对于运行ONTAP 9.7或更早�
 
 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_a_DR-Group_from_a_MetroCluster["如何从MetroCluster 配置中删除DR组"]
 
-https://["NetApp 支持"]
+https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
 
 八节点配置包括八个节点，这些节点按两个四节点 DR 组进行组织。
 

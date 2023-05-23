@@ -39,4 +39,4 @@ summary: 如果 7- 模式光纤 MetroCluster 配置使用 Brocade 6510 交换机
 link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
 
 .相关信息
-http://["基于副本的过渡"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基于副本的过渡"]

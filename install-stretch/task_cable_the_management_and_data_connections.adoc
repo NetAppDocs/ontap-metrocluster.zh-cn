@@ -20,6 +20,6 @@ summary: 您必须使用缆线将每个存储控制器上的管理和数据端�
 .步骤
 . 使用缆线将控制器的管理和数据端口连接到本地站点的管理和数据网络。
 +
-https://["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
 
 

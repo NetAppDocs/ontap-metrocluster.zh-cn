@@ -82,7 +82,7 @@ MetroCluster check show`
 
 .. 运行 Config Advisor 。
 +
-https://["NetApp 下载： Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
@@ -395,11 +395,11 @@ IP_switch-A-1# reload
 
 您必须使用支持的交换机软件版本。
 
-https://["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"]
 
 . 下载支持的 NX-OS 软件文件。
 +
-https://["Cisco 软件下载"]
+https://software.cisco.com/download/home["Cisco 软件下载"]
 
 . 将交换机软件复制到交换机： ` +copy sftp ： //root@server-IP-address/tftpboot/NX-OS-file-name bootflash ： vRF management+`
 +
@@ -591,7 +591,7 @@ NOTE: MACsec 加密只能应用于 WAN ISL 端口。
 
 === MAC 的许可要求
 
-MACsec 需要安全许可证。有关 Cisco NX-OS 许可方案以及如何获取和申请许可证的完整说明，请参见 https://["《 Cisco NX-OS 许可指南》"]
+MACsec 需要安全许可证。有关 Cisco NX-OS 许可方案以及如何获取和申请许可证的完整说明，请参见 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/nx-os/licensing/guide/b_Cisco_NX-OS_Licensing_Guide/b_Cisco_NX-OS_Licensing_Guide_chapter_01.html["《 Cisco NX-OS 许可指南》"]
 
 
 

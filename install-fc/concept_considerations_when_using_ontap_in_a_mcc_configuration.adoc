@@ -95,14 +95,14 @@ link:https://docs.netapp.com/us-en/ontap/flexcache/index.html["使用命令行�
 === 配置要在镜像 FabricPool 中使用的聚合
 
 
-NOTE: 在配置聚合之前，必须按照中的 " 在 MetroCluster 配置中为 FabricPool 设置对象存储 " 中所述设置对象存储https://["磁盘和聚合管理"]
+NOTE: 在配置聚合之前，必须按照中的 " 在 MetroCluster 配置中为 FabricPool 设置对象存储 " 中所述设置对象存储https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
 .步骤
 要配置要在 FabricPool 中使用的聚合，请执行以下操作：
 
 . 创建聚合或选择现有聚合。
 . 将聚合镜像为 MetroCluster 配置中的典型镜像聚合。
-. 创建包含聚合的 FabricPool 镜像，如中所述 https://["磁盘和聚合管理"]
+. 创建包含聚合的 FabricPool 镜像，如中所述 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 +
 .. 附加主对象存储。
 +
@@ -126,7 +126,7 @@ NOTE: 在配置聚合之前，必须按照中的 " 在 MetroCluster 配置中为
 
 == MetroCluster 配置中的一致性组支持
 
-从ONTAP 9.11.1开始、 https://["一致性组"^] 在MetroCluster 配置中受支持。
+从ONTAP 9.11.1开始、 https://docs.netapp.com/us-en/ontap/consistency-groups/index.html["一致性组"^] 在MetroCluster 配置中受支持。
 
 
 
@@ -158,7 +158,7 @@ NOTE: 系统创建的计划不会复制，您必须在配对集群上手动执�
 您应了解如何在 MetroCluster 配置中创建和复制 LIF 。您还必须了解一致性要求，以便在配置网络时做出正确的决策。
 
 .相关信息
-* https://["网络和 LIF 管理"]
+* https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"]
 * 您应了解将 IP 空间对象复制到配对集群以及在 MetroCluster 配置中配置子网和 IPv6 的要求。
 +
 <<ipspace_obj_rep,IP 空间对象复制和子网配置要求>>

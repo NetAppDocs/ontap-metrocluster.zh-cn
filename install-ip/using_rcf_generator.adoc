@@ -19,7 +19,7 @@ summary: 您必须了解如何使用端口表中的信息正确生成 RCF 文件
 * 下表显示了站点 A 的端口使用情况站点 B 使用相同的布线方式
 * 不能为交换机配置速度不同的端口（例如， 100 Gbps 端口和 40 Gbps 端口的混合）。
 * 跟踪 MetroCluster 端口组（ MetroCluster 1 ， MetroCluster 2 等）。使用 RcfFileGenerator 工具时需要此信息，如此配置操作步骤后面所述。
-* 。 https://["适用于 MetroCluster IP 的 RcfFileGenerator"] 此外，还提供了每个交换机的每端口布线概览。使用此布线概述来验证布线情况。
+* 。 https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["适用于 MetroCluster IP 的 RcfFileGenerator"] 此外，还提供了每个交换机的每端口布线概览。使用此布线概述来验证布线情况。
 
 
 

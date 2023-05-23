@@ -24,21 +24,21 @@ summary: 您可以从 NetApp 文档了解有关 MetroCluster 配置和操作的�
 
 
  a| 
-https://["ONTAP 9 文档"^]
+https://docs.netapp.com/us-en/ontap/index.html["ONTAP 9 文档"^]
  a| 
 * 所有 MetroCluster 信息
 
 
 
 
-| https://["NetApp MetroCluster 解决方案架构和设计， TR-4705"^]  a| 
+| https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf["NetApp MetroCluster 解决方案架构和设计， TR-4705"^]  a| 
 * MetroCluster FC 配置和操作的技术概述。
 * MetroCluster FC 配置的最佳实践。
 
 
 
 
-| https://["MetroCluster IP 解决方案架构和设计， TR-4689"^]  a| 
+| https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf["MetroCluster IP 解决方案架构和设计， TR-4689"^]  a| 
 * MetroCluster IP 配置和操作的技术概述。
 * MetroCluster IP 配置的最佳实践。
 
@@ -46,7 +46,7 @@ https://["ONTAP 9 文档"^]
 
 
  a| 
-https://["延伸型 MetroCluster 安装和配置"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
  a| 
 * 延伸型 MetroCluster 架构
 * 为配置布线
@@ -57,7 +57,7 @@ https://["延伸型 MetroCluster 安装和配置"]
 
 
  a| 
-https://["MetroCluster IP 安装和配置： ONTAP MetroCluster 配置之间的差异"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置： ONTAP MetroCluster 配置之间的差异"]
  a| 
 * MetroCluster IP 架构
 * 为配置布线
@@ -67,7 +67,7 @@ https://["MetroCluster IP 安装和配置： ONTAP MetroCluster 配置之间的�
 
 
  a| 
-https://["MetroCluster 管理和灾难恢复"]
+https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster 管理和灾难恢复"]
  a| 
 * 了解 MetroCluster 配置
 * 切换，修复和切回
@@ -77,7 +77,7 @@ https://["MetroCluster 管理和灾难恢复"]
 
 
  a| 
-https://["维护 MetroCluster 组件"]
+https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["维护 MetroCluster 组件"]
  a| 
 * MetroCluster FC 配置维护准则
 * FC-SAS 网桥和 FC 交换机的硬件更换或升级以及固件升级过程
@@ -91,9 +91,9 @@ https://["维护 MetroCluster 组件"]
 
 
  a| 
-https://["从 MetroCluster FC 过渡到 MetroCluster IP"]
+https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_choosing_your_transition_procedure_mcc_transition.html["从 MetroCluster FC 过渡到 MetroCluster IP"]
 
-https://["《 MetroCluster 升级和扩展指南》"]
+https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["《 MetroCluster 升级和扩展指南》"]
  a| 
 * 升级或刷新 MetroCluster 配置
 * 从 MetroCluster FC 配置过渡到 MetroCluster IP 配置
@@ -103,7 +103,7 @@ https://["《 MetroCluster 升级和扩展指南》"]
 
 
  a| 
-https://["MetroCluster Tiebreaker 软件安装和配置"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/home.html["MetroCluster Tiebreaker 软件安装和配置"]
  a| 
 * 使用 MetroCluster Tiebreaker 软件监控 MetroCluster 配置
 
@@ -113,7 +113,7 @@ https://["MetroCluster Tiebreaker 软件安装和配置"]
  a| 
 Active IQ 数字顾问文档
 
-https://["NetApp 文档：产品指南和资源"^]
+https://www.netapp.com/support-and-training/documentation/["NetApp 文档：产品指南和资源"^]
  a| 
 * 监控 MetroCluster 配置和性能
 
@@ -121,7 +121,7 @@ https://["NetApp 文档：产品指南和资源"^]
 
 
  a| 
-https://["基于副本的过渡"^]
+https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["基于副本的过渡"^]
  a| 
 * 将数据从 7- 模式存储系统过渡到集群模式存储系统
 
@@ -129,7 +129,7 @@ https://["基于副本的过渡"^]
 
 
  a| 
-https://["ONTAP 概念"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"^]
  a| 
 * 镜像聚合的工作原理
 

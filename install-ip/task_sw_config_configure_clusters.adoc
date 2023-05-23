@@ -156,7 +156,7 @@ cluster_B::>
 MetroCluster 配置中的集群必须处于对等关系中，以便它们可以彼此通信并执行对 MetroCluster 灾难恢复至关重要的数据镜像。
 
 .相关信息
-http://["集群和 SVM 对等快速配置"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"]
 
 link:concept_considerations_peering.html#considerations-when-using-dedicated-ports["使用专用端口时的注意事项"]
 
@@ -1935,7 +1935,7 @@ controller_A_1::> storage aggregate mirror aggr0_controller_A_1
 
 
 .相关信息
-https://["逻辑存储管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["逻辑存储管理"]
 
 
 
@@ -1952,7 +1952,7 @@ https://["逻辑存储管理"]
 
 * 聚合名称应符合您在规划 MetroCluster 配置时确定的命名方案。
 +
-https://["磁盘和聚合管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
 
 
@@ -2206,7 +2206,7 @@ MetroCluster modify -enable-unmirrored-aggr-deployment true`
 您可以使用平台和磁盘架的安装和设置文档中的过程。
 
 +
-https://["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
 
 . 手动将新磁盘架上的所有磁盘分配给相应的节点：
 +
@@ -2267,7 +2267,7 @@ MetroCluster modify -enable-unmirrored-aggr-deployment false`
 
 
 .相关信息
-https://["磁盘和聚合管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
 
 
@@ -2405,7 +2405,7 @@ mccint-fas9000-0304
 
 
 .相关信息
-https://["磁盘和聚合管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
 link:https://docs.netapp.com/us-en/ontap/network-management/index.html["网络和 LIF 管理"^]
 

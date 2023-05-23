@@ -24,4 +24,4 @@ link:concept_redundant_fc_switch_fabrics.html["冗余 FC 交换机网络结构"]
 
 link:concept_cluster_peering_network_mcc.html["集群对等网络的图示"]
 
-https://["ONTAP 概念"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"^]

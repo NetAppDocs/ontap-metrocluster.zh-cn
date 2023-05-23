@@ -1082,7 +1082,7 @@ mariadb.service    enabled
 .步骤
 . 下载最新版本的 MetroCluster Tiebreaker 软件。此示例使用1.5版。
 +
-https://["NetApp 支持"^]
+https://mysupport.netapp.com/site/["NetApp 支持"^]
 
 . 以 root 用户身份登录到主机。
 . 验证RPM文件。
@@ -1268,7 +1268,7 @@ NOTE: 如果输入的 MySQL root 密码不正确， Tiebreaker 软件会指示�
 
 
 .相关信息
-https://["NetApp 支持"^]
+https://mysupport.netapp.com/site/["NetApp 支持"^]
 
 
 

@@ -16,11 +16,11 @@ summary: 在使用阵列 LUN 的 MetroCluster 配置中设置 ONTAP 系统之前
 .开始之前
 您计划在配置中使用的存储阵列，固件和交换机必须受特定 ONTAP 版本支持。
 
-* https://["NetApp 互操作性（ IMT ）"]
+* https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性（ IMT ）"]
 +
 在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
 
-* https://["NetApp Hardware Universe"]
+* https://hwu.netapp.com["NetApp Hardware Universe"]
 
 
 .关于此任务
@@ -33,8 +33,8 @@ MetroCluster 配置中的每个节点都需要为根聚合，数据聚合和备�
 
 . 在存储阵列上配置使用 ONTAP 所需的参数。
 +
-** https://["第三方存储的 FlexArray 虚拟化实施"]
-** https://["适用于 NetApp E 系列存储的 FlexArray 虚拟化实施"]
+** https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-ig-third/home.html["第三方存储的 FlexArray 虚拟化实施"]
+** https://docs.netapp.com/ontap-9/topic/com.netapp.doc.vs-ig-es/home.html["适用于 NetApp E 系列存储的 FlexArray 虚拟化实施"]
 
 
 

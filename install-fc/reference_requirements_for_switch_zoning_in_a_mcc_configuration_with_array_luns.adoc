@@ -39,7 +39,7 @@ link:task_fcsw_configure_the_cisco_or_brocade_fc_switches_manually.html["手动�
 但是，共享启动程序或目标端口可能会对性能产生不利影响。
 
 .相关信息
-https://["如何在 MetroCluster 环境中支持使用阵列 LUN 的共享启动程序和共享目标配置"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_support_Shared_Initiator_and_Shared_Target_configuration_with_Array_LUNs_in_a_MetroCluster_environment["如何在 MetroCluster 环境中支持使用阵列 LUN 的共享启动程序和共享目标配置"]
 
 * 交换机分区用于定义已连接节点之间的路径。通过配置分区，您可以定义特定 ONTAP 系统可以查看哪些阵列 LUN 。
 +

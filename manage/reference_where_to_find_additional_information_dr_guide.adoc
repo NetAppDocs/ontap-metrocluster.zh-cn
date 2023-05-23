@@ -32,7 +32,7 @@ link:../index.html["MetroCluster 文档"]
 
 
  a| 
-http://["NetApp 技术报告 4375 ：《适用于 ONTAP 9.3 的 NetApp MetroCluster 》"^]
+http://www.netapp.com/us/media/tr-4375.pdf["NetApp 技术报告 4375 ：《适用于 ONTAP 9.3 的 NetApp MetroCluster 》"^]
  a| 
 * MetroCluster 配置和操作的技术概述。
 * MetroCluster 配置最佳实践。
@@ -41,7 +41,7 @@ http://["NetApp 技术报告 4375 ：《适用于 ONTAP 9.3 的 NetApp MetroClus
 
 
  a| 
-https://["光纤连接的 MetroCluster 安装和配置"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-fabric/home.html["光纤连接的 MetroCluster 安装和配置"]
  a| 
 * 光纤连接的 MetroCluster 架构
 * 为配置布线
@@ -53,7 +53,7 @@ https://["光纤连接的 MetroCluster 安装和配置"]
 
 
  a| 
-https://["延伸型 MetroCluster 安装和配置"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-stretch/home.html["延伸型 MetroCluster 安装和配置"]
  a| 
 * 延伸型 MetroCluster 架构
 * 为配置布线
@@ -64,7 +64,7 @@ https://["延伸型 MetroCluster 安装和配置"]
 
 
  a| 
-http://["MetroCluster IP 安装和配置"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-inst-cnfg-ip/home.html["MetroCluster IP 安装和配置"]
  a| 
 * MetroCluster IP 架构
 * 为配置布线
@@ -82,7 +82,7 @@ link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["MetroCluste
 
 
  a| 
-Active IQ Unified Manager 文档 https://["NetApp 文档：产品指南和资源"^]
+Active IQ Unified Manager 文档 https://www.netapp.com/support-and-training/documentation/["NetApp 文档：产品指南和资源"^]
  a| 
 * 监控 MetroCluster 配置和性能
 
@@ -90,7 +90,7 @@ Active IQ Unified Manager 文档 https://["NetApp 文档：产品指南和资源
 
 
  a| 
-http://["基于副本的过渡"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基于副本的过渡"]
  a| 
 * 将数据从 7- 模式存储系统过渡到集群模式存储系统
 

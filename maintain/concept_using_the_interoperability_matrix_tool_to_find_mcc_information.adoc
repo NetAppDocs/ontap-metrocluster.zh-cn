@@ -13,7 +13,7 @@ summary: 在设置 MetroCluster 配置时，您可以使用互操作性工具来
 [role="lead"]
 在设置 MetroCluster 配置时，您可以使用互操作性工具来确保您使用的是受支持的软件和硬件版本。
 
-https://["NetApp 互操作性表工具"]
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 
 打开互操作性表后，您可以使用 "Storage 解决方案 " 字段选择 MetroCluster 解决方案。
 

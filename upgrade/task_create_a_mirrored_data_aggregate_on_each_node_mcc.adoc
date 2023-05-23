@@ -22,7 +22,7 @@ summary: 您必须在 DR 组中的每个节点上创建镜像数据聚合。
 
 * 聚合名称应符合您在规划 MetroCluster 配置时确定的命名方案。
 +
-https://["磁盘和聚合管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
 
 

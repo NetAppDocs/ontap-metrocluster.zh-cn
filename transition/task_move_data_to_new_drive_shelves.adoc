@@ -22,19 +22,19 @@ summary: 过渡期间，您会将数据从 MetroCluster FC 配置中的驱动器
 
 . 将数据卷移动到新控制器上的聚合，一次移动一个卷。
 +
-使用中的操作步骤 http://["创建聚合并将卷移动到新节点"]。
+使用中的操作步骤 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["创建聚合并将卷移动到新节点"]。
 
 . 在最近添加的节点上创建 SAN LIF 。
 +
-使用中的以下操作步骤 http://["更新新节点的 LUN 路径"^]。
+使用中的以下操作步骤 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-expand/GUID-E3BB89AF-6251-4210-A979-130E845BC9A1.html["更新新节点的 LUN 路径"^]。
 
 . 检查 FC 节点上是否存在任何节点锁定许可证，如果存在，则需要将这些许可证添加到新添加的节点中。
 +
-使用中的以下操作步骤 http://["添加节点锁定许可证"^]。
+使用中的以下操作步骤 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-expand/GUID-487FAC36-3C5C-4314-B4BD-4253CB67ABE8.html["添加节点锁定许可证"^]。
 
 . 迁移数据 LIF 。
 +
-使用中的操作步骤  http://["将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点"^] 但请勿 * 不 * 执行最后两个步骤来迁移集群管理 LIF 。
+使用中的操作步骤  http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-95CA9262-327D-431D-81AA-C73DEFF3DEE2.html["将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点"^] 但请勿 * 不 * 执行最后两个步骤来迁移集群管理 LIF 。
 
 
 

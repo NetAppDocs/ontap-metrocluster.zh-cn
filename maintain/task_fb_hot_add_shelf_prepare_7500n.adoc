@@ -19,7 +19,7 @@ summary: 准备热添加 SAS 磁盘架包括下载文档以及磁盘驱动器和
 您可能希望在添加磁盘架之前更新整个 MetroCluster 配置中的磁盘和磁盘架固件。
 
 +
-https://["升级，还原或降级"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["升级，还原或降级"]
 
 
 
@@ -33,13 +33,13 @@ NOTE: 如果您的系统运行的是受支持的 ONTAP 版本，则在同一个�
 .步骤
 . 从 NetApp 支持站点下载或查看以下文档：
 +
-** https://["NetApp 互操作性表工具"]
+** https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 ** 适用于您的磁盘架型号的安装指南 _ 。
 
 
 . 验证您要热添加的磁盘架是否受支持。
 +
-https://["NetApp 互操作性表工具"]
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 
 . 下载最新的磁盘和磁盘架固件：
 +
@@ -49,11 +49,11 @@ NOTE: 在此步骤中，您只能完成链接中提供的说明的下载部分�
 +
 .. 下载磁盘固件并为磁盘固件说明创建一份副本，以供日后参考。
 +
-https://["NetApp 下载：磁盘驱动器固件"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"]
 
 .. 下载磁盘架固件并为磁盘架固件说明创建一份副本，以供日后参考。
 +
-https://["NetApp 下载：磁盘架固件"]
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"]
 
 
 

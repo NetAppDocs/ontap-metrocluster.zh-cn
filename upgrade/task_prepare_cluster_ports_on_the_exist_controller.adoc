@@ -21,7 +21,7 @@ summary: 在安装新控制器模块之前，您必须在现有控制器模块�
 .步骤
 . 确定应使用哪些端口作为节点的集群端口。
 +
-有关您的平台的默认端口角色列表，请参见 https://["Hardware Universe"^]
+有关您的平台的默认端口角色列表，请参见 https://hwu.netapp.com/["Hardware Universe"^]
 
 +
 NetApp 支持站点上适用于您的平台的 _Installation and Setup Instructions_包含 有关用于集群网络连接的端口的信息。

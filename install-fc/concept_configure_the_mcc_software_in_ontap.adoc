@@ -1620,7 +1620,7 @@ ha-config modify chassis mccip
 
 您必须在每个控制器模块上设置 ONTAP 。
 
-如果需要通过网络启动新控制器，请参见 http://["通过网络启动新控制器模块"] 在 _RAID MetroCluster 升级，过渡和扩展指南中。
+如果需要通过网络启动新控制器，请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-upgrade/GUID-3370EC34-310E-4F09-829F-F632EC8CDD9B.html["通过网络启动新控制器模块"] 在 _RAID MetroCluster 升级，过渡和扩展指南中。
 
 .选项
 * <<setup_ontap_2node_MCC,在双节点 MetroCluster 配置中设置 ONTAP>>
@@ -2700,7 +2700,7 @@ NOTE: 在运行命令`MetroCluster configure`之前、您必须*不*配置板载
 |===
 +
 
-NOTE: 最佳实践是具有多个数据聚合。如果第一个 DR 组只有一个聚合，而您要添加一个具有一个聚合的 DR 组，则必须将元数据卷从单个数据聚合中移出。有关此操作步骤的详细信息，请参见 http://["在 MetroCluster 配置中移动元数据卷"]。
+NOTE: 最佳实践是具有多个数据聚合。如果第一个 DR 组只有一个聚合，而您要添加一个具有一个聚合的 DR 组，则必须将元数据卷从单个数据聚合中移出。有关此操作步骤的详细信息，请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-service/GUID-114DAE6E-F105-4908-ABB1-CE1D7B5C7048.html["在 MetroCluster 配置中移动元数据卷"]。
 
 +
 以下命令将在包含 controller_A_1 的 DR 组中的所有节点上启用 MetroCluster 配置：
@@ -3075,7 +3075,7 @@ controller_A_1::>
 
 
 .相关信息
-https://["系统管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
 
 
 
@@ -3277,7 +3277,7 @@ mccint-fas9000-0304
 
 
 .相关信息
-https://["磁盘和聚合管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
 link:https://docs.netapp.com/us-en/ontap/network-management/index.html["网络和 LIF 管理"^]
 
@@ -3296,7 +3296,7 @@ NOTE: 对 Config Advisor 的支持是有限的，并且只能联机使用。
 .步骤
 . 转到 Config Advisor 下载页面并下载此工具。
 +
-https://["NetApp 下载： Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
 
 . 运行 Config Advisor ，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
@@ -3416,7 +3416,7 @@ link:https://docs.netapp.com/us-en/ontap/cloud/high-availability-concept.html["�
 您应验证 MetroCluster 配置的切换，修复和切回操作。
 
 .步骤
-. 使用中所述的协商切换，修复和切回过程 https://["从灾难中恢复"]。
+. 使用中所述的协商切换，修复和切回过程 https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["从灾难中恢复"]。
 
 
 
@@ -3431,6 +3431,6 @@ link:https://docs.netapp.com/us-en/ontap/cloud/high-availability-concept.html["�
 `s系统配置备份设置 modify _url-of-destination_s`
 
 +
-。 https://["使用 CLI 进行集群管理"] 在 _Manag管理 配置备份 _ 一节下包含追加信息。
+。 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["使用 CLI 进行集群管理"] 在 _Manag管理 配置备份 _ 一节下包含追加信息。
 
 

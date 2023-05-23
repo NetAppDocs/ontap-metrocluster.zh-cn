@@ -19,7 +19,7 @@ summary: 您必须向每个站点添加一个新的控制器模块，以便在�
 您应验证新控制器模块中的 PCIe 卡是否兼容并受新控制器模块支持。
 
 +
-https://["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"]
 
 * 升级到单机箱 HA 对（两个控制器模块位于同一机箱中的 HA 对）时，系统必须为新控制器模块提供一个空插槽。
 +

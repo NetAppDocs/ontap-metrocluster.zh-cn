@@ -137,12 +137,12 @@ image::../media/mcc_dr_group_c4.png[MCC DR组C4]
 
 . 使用中的以下过程将数据从旧节点移动到新节点 link:https://docs.netapp.com/us-en/ontap-systems-upgrade/index.html["AFF 和 FAS 系统升级文档"^]
 +
-.. 执行中的所有步骤 http://["创建聚合并将卷移动到新节点"^]。
+.. 执行中的所有步骤 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["创建聚合并将卷移动到新节点"^]。
 +
 
 NOTE: 您可以选择在创建聚合时或之后对其进行镜像。
 
-.. 执行中的所有步骤 http://["将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点"]。
+.. 执行中的所有步骤 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-95CA9262-327D-431D-81AA-C73DEFF3DEE2.html["将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点"]。
 
 
 . 修改每个集群中已转移节点的集群对等方的IP地址：

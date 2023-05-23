@@ -58,7 +58,7 @@ MetroCluster check show`
 
 .. 运行 Config Advisor 。
 +
-https://["NetApp 下载： Config Advisor"]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 

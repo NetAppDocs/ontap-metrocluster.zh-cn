@@ -204,7 +204,7 @@ NOTE: 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创�
 
 .. 创建 IP 空间并根据需要分配数据端口。
 +
-http://["配置 IP 空间（仅限集群管理员）"^]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-69120CF0-F188-434F-913E-33ACB8751A5D.html["配置 IP 空间（仅限集群管理员）"^]
 
 .. 查看广播域：
 +
@@ -212,17 +212,17 @@ http://["配置 IP 空间（仅限集群管理员）"^]
 
 .. 根据需要将任何数据端口添加到广播域。
 +
-https://["从广播域添加或删除端口"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["从广播域添加或删除端口"^]
 
 .. 根据需要重新创建 VLAN 和接口组。
 +
 VLAN 和接口组成员资格可能与旧节点不同。
 
 +
-https://["创建 VLAN"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["创建 VLAN"^]
 
 +
-https://["组合物理端口以创建接口组"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["组合物理端口以创建接口组"^]
 
 
 

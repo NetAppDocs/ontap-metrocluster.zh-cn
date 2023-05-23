@@ -25,7 +25,7 @@ summary: 用于更新网桥固件的操作步骤取决于您的网桥型号和 O
 * 您需要管理员密码并访问 HTTP 服务器。
 * 您必须使用受支持的固件版本。
 +
-https://["NetApp 互操作性表工具"^]
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
 
 +
 在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
@@ -53,7 +53,7 @@ NOTE: 从 ONTAP 9.8 开始， `storage bridge` 命令将替换为 `ssystem bridg
 
 . 转至 ATTO FibreBridge 页面，然后为网桥选择适当的固件。
 +
-https://["ATTO FibreBridge 固件下载页面"^]
+https://mysupport.netapp.com/site/products/all/details/atto-fibrebridge/downloads-tab["ATTO FibreBridge 固件下载页面"^]
 
 . 查看 Caution/MustRead 和最终用户协议，然后单击复选框以指示接受并继续。
 . 将固件文件置于控制器模块可通过网络访问的网络位置。
@@ -269,7 +269,7 @@ flashimages
 * 您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。
 * 您必须使用受支持的固件版本。
 +
-https://["NetApp 互操作性表工具"^]
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
 
 +
 在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
@@ -298,7 +298,7 @@ NOTE: 此操作步骤不会造成系统中断，大约需要 30 分钟才能完�
 
 . 转至 ATTO FibreBridge 页面，然后为网桥选择适当的固件。
 +
-https://["ATTO FibreBridge 固件下载页面"^]
+https://mysupport.netapp.com/site/products/all/details/atto-fibrebridge/downloads-tab["ATTO FibreBridge 固件下载页面"^]
 
 . 查看 Caution/MustRead 和最终用户协议，然后单击复选框以指示接受并继续。
 . 使用 ATTO FibreBridge 固件下载页面上操作步骤的步骤 1 至 3 下载网桥固件文件。

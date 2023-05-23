@@ -28,7 +28,7 @@ link:../index.html["MetroCluster 文档"]
 
 
  a| 
-https://["NetApp MetroCluster 解决方案架构和设计"^]
+https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf["NetApp MetroCluster 解决方案架构和设计"^]
  a| 
 * MetroCluster 配置和操作的技术概述。
 * MetroCluster 配置最佳实践。
@@ -37,7 +37,7 @@ https://["NetApp MetroCluster 解决方案架构和设计"^]
 
 
  a| 
-https://["光纤连接的 MetroCluster 安装和配置"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
  a| 
 * 光纤连接的 MetroCluster 架构
 * 为配置布线
@@ -49,7 +49,7 @@ https://["光纤连接的 MetroCluster 安装和配置"]
 
 
  a| 
-https://["延伸型 MetroCluster 安装和配置"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
  a| 
 * 延伸型 MetroCluster 架构
 * 为配置布线
@@ -60,7 +60,7 @@ https://["延伸型 MetroCluster 安装和配置"]
 
 
  a| 
-https://["MetroCluster IP 安装和配置"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
  a| 
 * MetroCluster IP 架构
 * 为 MetroCluster IP 配置布线
@@ -70,7 +70,7 @@ https://["MetroCluster IP 安装和配置"]
 
 
  a| 
-https://["NetApp 文档：产品指南和资源"^]
+https://www.netapp.com/support-and-training/documentation/["NetApp 文档：产品指南和资源"^]
  a| 
 * 监控 MetroCluster 配置和性能
 
@@ -78,7 +78,7 @@ https://["NetApp 文档：产品指南和资源"^]
 
 
  a| 
-https://["MetroCluster Tiebreaker 软件安装和配置"]
+https://docs.netapp.com/us-en/ontap-metrocluster/tiebreaker/concept_overview_of_the_tiebreaker_software.html["MetroCluster Tiebreaker 软件安装和配置"]
  a| 
 * 使用 MetroCluster Tiebreaker 软件监控 MetroCluster 配置
 
@@ -86,7 +86,7 @@ https://["MetroCluster Tiebreaker 软件安装和配置"]
 
 
  a| 
-https://["基于副本的过渡"]
+https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["基于副本的过渡"]
  a| 
 * 将数据从 7- 模式存储系统过渡到集群模式存储系统
 

@@ -105,7 +105,7 @@ link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["MetroCluste
 
 
  a| 
-https://["AFF 和 FAS 文档"^]
+https://docs.netapp.com/us-en/ontap-systems/["AFF 和 FAS 文档"^]
 
 * 注： * 标准存储架维护过程可用于 MetroCluster IP 配置。
  a| 
@@ -116,7 +116,7 @@ https://["AFF 和 FAS 文档"^]
 
 
  a| 
-http://["基于副本的过渡"^]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-7mtt-dctg/home.html["基于副本的过渡"^]
  a| 
 * 将数据从 7- 模式存储系统过渡到集群模式存储系统
 
@@ -124,7 +124,7 @@ http://["基于副本的过渡"^]
 
 
  a| 
-https://["ONTAP 概念"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"^]
  a| 
 * 镜像聚合的工作原理
 

@@ -34,7 +34,7 @@ summary: 您必须确定 MetroCluster 配置中每个 FC 交换机网络结构�
 * 用于 ISL 共享的 RCF 文件与用于八节点 MetroCluster 布线的 RCF 文件相同。
 * 您应验证是否支持所有硬件和软件版本。
 +
-https://["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"]
 
 * 必须调整 ISL 的速度和数量，以支持两个 MetroCluster 系统上的客户端负载。
 * 后端 ISL 和后端组件必须仅专用于 MetroCluster 配置。

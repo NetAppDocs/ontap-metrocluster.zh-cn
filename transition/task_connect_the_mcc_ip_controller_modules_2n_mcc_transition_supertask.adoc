@@ -81,7 +81,7 @@ image::../media/transition_2n_4_new_ip_nodes_and_shelves.png[过渡 2n 4 个新 
 有关布线信息，请参见适用于您的型号的控制器安装和设置过程。
 
 +
-https://["AFF 和 FAS 文档中心"^]
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
 
 . 按照中所述，使用缆线将控制器连接到 IP 交换机 link:../install-ip/using_rcf_generator.html["为 IP 交换机布线"]。
 . 准备 IP 交换机以应用新的 RCF 文件。
@@ -199,7 +199,7 @@ MetroCluster Transition: Please confirm if this is the correct value [yes|no]:? 
  a| 
 `sSecurity key-manager 板载同步`
 
-有关详细信息，请参见 https://["还原板载密钥管理加密密钥"^]。
+有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["还原板载密钥管理加密密钥"^]。
 
 
 
@@ -208,7 +208,7 @@ MetroCluster Transition: Please confirm if this is the correct value [yes|no]:? 
  a| 
 `sSecurity key-manager key query -node node-name`
 
-有关详细信息，请参见 https://["还原外部密钥管理加密密钥"^]。
+有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"^]。
 
 |===
 . 如果根卷已加密，请使用中的操作步骤 link:../transition/task_connect_the_mcc_ip_controller_modules_2n_mcc_transition_supertask.html#recovering-key-management-if-the-root-volume-is-encrypted["如果根卷已加密，则恢复密钥管理"]。
@@ -393,7 +393,7 @@ NOTE: 配置 MetroCluster IP 节点后，可能需要进行其他配置才能启
 
 .. 创建 IP 空间并根据需要分配集群端口。
 +
-http://["配置 IP 空间（仅限集群管理员）"^]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-69120CF0-F188-434F-913E-33ACB8751A5D.html["配置 IP 空间（仅限集群管理员）"^]
 
 .. 查看广播域：
 +
@@ -401,17 +401,17 @@ http://["配置 IP 空间（仅限集群管理员）"^]
 
 .. 根据需要将任何集群端口添加到广播域。
 +
-https://["从广播域添加或删除端口"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["从广播域添加或删除端口"^]
 
 .. 根据需要重新创建 VLAN 和接口组。
 +
 VLAN 和接口组成员资格可能与旧节点不同。
 
 +
-https://["创建 VLAN"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["创建 VLAN"^]
 
 +
-https://["组合物理端口以创建接口组"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["组合物理端口以创建接口组"^]
 
 
 
@@ -626,9 +626,9 @@ To accept a default or omit a question, do not enter a value. .
 +
 ** 请勿尝试运行选项 9a 。
 ** 物理断开包含数据的现有磁盘架与原始 MetroCluster FC 配置（ shelf_A_1 ， shelf_A_2 ， shelf_B_1 ， shelf_B_2 ）的连接。
-** 请参考知识库文章联系技术支持 https://["MetroCluster FC 到 IP 过渡—选项 9c 失败"^]。
+** 请参考知识库文章联系技术支持 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/MetroCluster_FC_to_IP_transition_-_Option_9c_Failing["MetroCluster FC 到 IP 过渡—选项 9c 失败"^]。
 +
-https://["NetApp 支持"^]
+https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"^]
 
 
 
@@ -730,7 +730,7 @@ join
  a| 
 `sSecurity key-manager 板载同步`
 
-有关详细信息，请参见 https://["还原板载密钥管理加密密钥"]。
+有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["还原板载密钥管理加密密钥"]。
 
 
 
@@ -739,7 +739,7 @@ join
  a| 
 `sSecurity key-manager key query -node _node-name_`
 
-有关详细信息，请参见 https://["还原外部密钥管理加密密钥"^]。
+有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"^]。
 
 |===
 . 对第二个新控制器模块（ node_B_2-IP ）重复上述步骤。

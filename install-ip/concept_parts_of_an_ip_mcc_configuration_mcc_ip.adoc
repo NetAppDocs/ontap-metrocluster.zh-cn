@@ -64,7 +64,7 @@ image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
 image::../media/mcc_ip_hardware_architecture_ha_pairs.gif[MCC IP 硬件架构 ha 对]
 
 .相关信息
-https://["ONTAP 概念"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"]
 
 
 
@@ -98,7 +98,7 @@ MetroCluster 配置中的两个集群通过客户提供的集群对等网络建�
 image::../media/mcc_ip_hardware_architecture_cluster_peering_network.gif[MCC IP 硬件架构集群对等网络]
 
 .相关信息
-http://["集群和 SVM 对等快速配置"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"]
 
 link:concept_considerations_peering.html["配置集群对等的注意事项"]
 

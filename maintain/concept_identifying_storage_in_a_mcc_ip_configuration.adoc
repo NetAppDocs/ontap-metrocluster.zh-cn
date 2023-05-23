@@ -28,7 +28,7 @@ NOTE: 在运行 ONTAP 9.4 的 MetroCluster IP 配置中，磁盘架 ID 不需要
 
 确定驱动器或磁盘架模块后，您可以使用相应的操作步骤更换组件。
 
-https://["维护 DS460C DS224C 和 DS212C 磁盘架"]
+https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.html["维护 DS460C DS224C 和 DS212C 磁盘架"]
 
 
 

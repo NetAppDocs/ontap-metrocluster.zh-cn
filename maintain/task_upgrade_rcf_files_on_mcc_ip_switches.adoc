@@ -52,8 +52,8 @@ Filename : NX3232_v1.80_Switch-A2.txt
 . 要检查特定 ONTAP 版本，交换机和平台支持哪些文件，请使用 RcfFileGenerator 。如果您可以为所拥有或要升级到的配置生成 RCF 文件，则支持此文件。
 . 要验证是否支持交换机固件，请参阅以下内容：
 +
-** https://["Hardware Universe"]
-** https://["NetApp 互操作性"]
+** https://hwu.netapp.com["Hardware Universe"]
+** https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性"]
 
 
 

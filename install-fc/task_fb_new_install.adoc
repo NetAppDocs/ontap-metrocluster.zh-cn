@@ -62,7 +62,7 @@ NOTE: 建议在禁用 IP 访问的情况下使用带内管理，以通过限制�
 * 如果您的系统未安装在系统机柜中，则必须将其安装在机架中。
 * 您的配置必须使用支持的硬件型号和软件版本。
 +
-https://["NetApp 互操作性表工具"]
+https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 
 +
 在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
@@ -121,7 +121,7 @@ NOTE: 灾难恢复组中的所有磁盘都必须使用相同类型的连接，�
 
 * 使用 50 微米多模式光缆的磁盘架， FC 交换机和备份磁带设备的最大距离的系统连接要求也适用于 FibreBridge 网桥。
 +
-https://["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"]
 
 * 不支持在同一存储堆栈中混合使用 IOM12 模块和 IOM3 模块。如果您的系统运行的是受支持的 ONTAP 版本，则可以在同一存储堆栈中混合使用 IOM12 模块和 IOM6 模块。
 
@@ -513,7 +513,7 @@ FibreBridge 7600N 网桥不支持 IOM3 模块。
 适用于您的磁盘架型号的安装和服务指南提供了有关以菊花链方式连接磁盘架的详细信息。
 
 +
-https://["《适用于 DS4243 ， DS2246 ， DS4486 和 DS4246 的 SAS 磁盘架安装和服务指南》"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1119629["《适用于 DS4243 ， DS2246 ， DS4486 和 DS4246 的 SAS 磁盘架安装和服务指南》"^]
 
 +
 下图显示了一组连接到磁盘架堆栈的网桥：

@@ -1052,7 +1052,7 @@ cluster1-01           true    true
 MetroCluster 配置中的集群必须处于对等关系中，以便它们可以彼此通信并执行对 MetroCluster 灾难恢复至关重要的数据镜像。
 
 .相关信息
-http://["集群和 SVM 对等快速配置"^]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"^]
 
 link:concept_considerations_peering.html#considerations-when-using-dedicated-ports["使用专用端口时的注意事项"]
 
@@ -1715,9 +1715,9 @@ controller_A_1::> storage aggregate mirror aggr0_controller_A_1
 
 
 .相关信息
-https://["逻辑存储管理"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["逻辑存储管理"^]
 
-https://["ONTAP 概念"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"^]
 
 
 
@@ -1734,7 +1734,7 @@ https://["ONTAP 概念"^]
 * 驱动器和阵列 LUN 归特定节点所有；创建聚合时，该聚合中的所有驱动器都必须归同一节点所有，该节点将成为该聚合的主节点。
 * 聚合名称应符合您在规划 MetroCluster 配置时确定的命名方案。
 +
-https://["磁盘和聚合管理"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 
 
 
@@ -1923,7 +1923,7 @@ MetroCluster configure _node-name_`
 |===
 +
 
-NOTE: 最佳实践是具有多个数据聚合。如果第一个 DR 组只有一个聚合，而您要添加一个具有一个聚合的 DR 组，则必须将元数据卷从单个数据聚合中移出。有关此操作步骤的详细信息，请参见 http://["在 MetroCluster 配置中移动元数据卷"^]。
+NOTE: 最佳实践是具有多个数据聚合。如果第一个 DR 组只有一个聚合，而您要添加一个具有一个聚合的 DR 组，则必须将元数据卷从单个数据聚合中移出。有关此操作步骤的详细信息，请参见 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-service/GUID-114DAE6E-F105-4908-ABB1-CE1D7B5C7048.html["在 MetroCluster 配置中移动元数据卷"^]。
 
 +
 以下命令将在包含 "`controller_A_1` " 的 DR 组中的所有节点上启用 MetroCluster 配置：
@@ -2192,7 +2192,7 @@ mccint-fas9000-0304
 
 
 .相关信息
-https://["磁盘和聚合管理"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 
 link:https://docs.netapp.com/us-en/ontap/network-management/index.html["网络和 LIF 管理"^]
 
@@ -2209,7 +2209,7 @@ NOTE: 对 Config Advisor 的支持是有限的，并且只能联机使用。
 
 . 转到 Config Advisor 下载页面并下载此工具。
 +
-https://["NetApp 下载： Config Advisor"^]
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"^]
 
 . 运行 Config Advisor ，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 

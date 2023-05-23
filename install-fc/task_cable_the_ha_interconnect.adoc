@@ -25,7 +25,7 @@ summary: 如果您采用八节点或四节点 MetroCluster 配置，并且 HA �
 .步骤
 . 如果存储控制器的 HA 配对节点位于单独的机箱中，请为 HA 互连布线。
 +
-https://["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
 
 . 如果 MetroCluster 站点包含两个 HA 对，请对第二个 HA 对重复上述步骤。
 . 在 MetroCluster 配对站点上重复此任务。

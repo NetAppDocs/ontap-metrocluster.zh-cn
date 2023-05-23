@@ -154,7 +154,7 @@ NOTE: 系统创建的计划不会复制，您必须在配对集群上手动执�
 您应了解如何在 MetroCluster 配置中创建和复制 LIF 。您还必须了解一致性要求，以便在配置网络时做出正确的决策。
 
 .相关信息
-https://["ONTAP 概念"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"^]
 
 
 
@@ -384,7 +384,7 @@ image::../media/svm_dr_image_2.gif[SVM DR 映像 2]
 
 
 
-请参见中的 "`复制 SVM 配置` " 一节 https://["使用 CLI 进行数据保护"^] 有关配置 SVM DR 关系的详细信息。
+请参见中的 "`复制 SVM 配置` " 一节 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/GUID-983EDECC-A085-46DC-AF11-6FF9C474ABAE.html["使用 CLI 进行数据保护"^] 有关配置 SVM DR 关系的详细信息。
 
 
 

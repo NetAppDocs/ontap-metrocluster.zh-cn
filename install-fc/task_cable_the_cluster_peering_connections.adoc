@@ -28,7 +28,7 @@ summary: 您必须为用于集群对等关系的控制器模块端口布线，�
 
 
 .相关信息
-http://["集群和 SVM 对等快速配置"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"]
 
 每个 MetroCluster 站点都配置为其配对站点的对等站点。您应熟悉配置对等关系以及决定是否为这些关系使用共享端口或专用端口的前提条件和准则。
 

@@ -23,7 +23,7 @@ NOTE: MACsec 加密只能应用于 WAN ISL 端口。
 
 === MAC 的许可要求
 
-MACsec 需要安全许可证。有关 Cisco NX-OS 许可方案以及如何获取和申请许可证的完整说明，请参见 https://["《 Cisco NX-OS 许可指南》"^]
+MACsec 需要安全许可证。有关 Cisco NX-OS 许可方案以及如何获取和申请许可证的完整说明，请参见 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/nx-os/licensing/guide/b_Cisco_NX-OS_Licensing_Guide/b_Cisco_NX-OS_Licensing_Guide_chapter_01.html["《 Cisco NX-OS 许可指南》"^]
 
 
 

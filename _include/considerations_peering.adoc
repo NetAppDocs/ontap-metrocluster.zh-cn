@@ -5,7 +5,7 @@
 每个 MetroCluster 站点都配置为其配对站点的对等站点。您必须熟悉配置对等关系的前提条件和准则。在决定是对这些关系使用共享端口还是专用端口时，这一点非常重要。
 
 .相关信息
-http://["集群和 SVM 对等快速配置"]
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"]
 
 
 

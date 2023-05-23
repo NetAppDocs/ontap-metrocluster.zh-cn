@@ -21,7 +21,7 @@ summary: 您必须将交换机操作系统文件和 RCF 文件下载到 MetroClu
 
 您必须使用支持的交换机软件版本。
 
-https://["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"]
 
 
 NOTE: 显示的输出适用于 Cisco IP 交换机；但是，这些步骤也适用于 Cisco FC 交换机。
@@ -29,7 +29,7 @@ NOTE: 显示的输出适用于 Cisco IP 交换机；但是，这些步骤也适�
 .步骤
 . 下载支持的 NX-OS 软件文件。
 +
-https://["Cisco 下载页面"]
+https://software.cisco.com/download/home["Cisco 下载页面"]
 
 . 将交换机软件复制到交换机：
 +

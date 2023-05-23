@@ -22,7 +22,7 @@ summary: 协商切换会完全关闭配对站点上的进程，然后从配对�
 系统管理参考 _ 在 "`了解仲裁和 epsilon` " 一节中提供了有关集群仲裁的详细信息。
 
 +
-https://["系统管理"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系统管理"]
 
 * 集群对等网络必须可从两个站点访问。
 * MetroCluster 配置中的所有节点都必须运行相同版本的 ONTAP 软件。

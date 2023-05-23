@@ -179,7 +179,7 @@ NOTE: 从ONTAP 9.5开始、必须使用启用磁盘自动分配 `storage disk op
 .相关信息
 link:concept_required_mcc_ip_components_and_naming_guidelines_mcc_ip.html["所需的 MetroCluster IP 组件和命名约定"]
 
-https://["磁盘和聚合管理"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 
 
 
@@ -192,7 +192,7 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 
 您必须满足受支持驱动器数量上限的 MetroCluster 限制以及其他准则。
 
-https://["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"]
 
 
 
