@@ -364,5 +364,11 @@ OLD: Host: scsi5 Channel: 00 Id: 00 Lun: 09
 .
 .
 ----
-. 在 iSCSI 主机上，验证是否仅显示来自 MetroCluster IP 节点的路径： `sanlun lun show -p``multipath -ll -d`
+. 在iSCSI主机上、验证是否仅显示MetroCluster IP节点的路径：
++
+`sanlun lun show -p`
+
++
+`multipath -ll -d`
+
 

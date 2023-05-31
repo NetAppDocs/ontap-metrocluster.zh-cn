@@ -1,0 +1,85 @@
+---
+permalink: maintain/task_modify_switch_or_bridge_ip_address_for_health_monitoring.html 
+sidebar: sidebar 
+keywords: metrocluster, atto, fc, switches, bridges, modify, IP, address 
+summary: 修改MetroCluster FC后端交换机或ATto网桥的IP地址后、更换旧的运行状况监控IP地址。 
+---
+= 修改交换机或ATto网桥IP地址以进行运行状况监控
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+修改MetroCluster FC后端交换机和ATto网桥的IP地址后、必须将旧的运行状况监控IP地址替换为新值。
+
+* <<修改交换机IP地址>>
+* <<修改ATto网桥IP地址>>
+
+
+
+
+== 修改交换机IP地址
+
+更换MetroCluster FC后端交换机的旧运行状况监控IP地址。
+
+.开始之前
+在更改运行状况监控IP地址之前、请参阅交换机供应商提供的适用于您的交换机型号的文档、以更改交换机上的IP地址。
+
+.步骤
+. 运行 `::> storage switch show` 命令和输出中、记下报告错误的交换机。
+. 删除使用旧IP地址的交换机条目：
++
+`::> storage switch remove -name _switch_name_`
+
+. 使用新IP地址添加交换机：
++
+`::> storage switch add -name _switch_name_ -address _new_IP_address_ -managed-by in-band`
+
+. 验证新IP地址并确认没有错误：
++
+`::> storage switch show`
+
+. 如果需要、请刷新条目：
++
+`::> set advanced`
+
++
+`::*> storage switch refresh`
+
++
+`::*> set admin`
+
+
+
+
+
+== 修改ATto网桥IP地址
+
+替换ATto网桥的旧运行状况监控IP地址。
+
+.步骤
+. 运行 `::> storage bridge show` 命令中、记下报告错误的ATto网桥。
+. 删除使用旧IP地址的ATto网桥条目：
++
+`::> storage bridge remove -name _ATTO_bridge_name_`
+
+. 使用新IP地址添加ATto网桥：
++
+`::> storage bridge add -name _ATTO_bridge_name_ -address _new_IP_address_ -managed-by in-band`
+
+. 验证新IP地址并确认没有错误：
++
+`::> storage bridge show`
+
+. 如果需要、请刷新条目：
++
+`::> set advanced`
+
++
+`::*> storage bridge refresh`
+
++
+`::*> set admin`
+
+
