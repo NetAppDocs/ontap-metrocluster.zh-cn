@@ -23,4 +23,19 @@ MetroCluster 配置具有以下 Brocade 许可证要求：
 
 
 
-您可以使用 `licenseshow` 命令验证是否已安装这些许可证。如果您没有这些许可证，应先联系您的销售代表，然后再继续操作。
+您可以使用"license"命令验证是否已安装这些许可证。
+
+[role="tabbed-block"]
+====
+.适用于Fabric OS 8.2.x及更早版本
+--
+运行命令 `licenseshow`。
+
+--
+.适用于Fabric OS 9.0及更高版本
+--
+运行命令 `license --show`。
+
+--
+====
+如果您没有这些许可证，应先联系您的销售代表，然后再继续操作。

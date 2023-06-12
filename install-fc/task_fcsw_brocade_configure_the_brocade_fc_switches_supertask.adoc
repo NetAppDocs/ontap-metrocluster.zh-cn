@@ -80,8 +80,19 @@ MetroCluster 配置具有以下 Brocade 许可证要求：
 .步骤
 . 验证是否已安装许可证：
 +
-`许可说明`
+[role="tabbed-block"]
+====
+.适用于Fabric OS 8.2.x及更早版本
+--
+运行命令 `licenseshow`。
 
+--
+.适用于Fabric OS 9.0及更高版本
+--
+运行命令 `license --show`。
+
+--
+====
 +
 如果您没有这些许可证，应先联系您的销售代表，然后再继续操作。
 
@@ -267,22 +278,14 @@ FC_switch_B_1:admin> fosconfig --disable vf
 ----
 . 清除管理域（ AD ）配置：
 +
-`AD 选项`
-
-+
 以下示例显示了对 FC_switch_A_1 执行的命令：
 
 +
 [listing]
 ----
-FC_switch_A_1:admin> switch:admin> ad --select AD0
 FC_switch_A_1:> defzone --noaccess
 FC_switch_A_1:> cfgsave
 FC_switch_A_1:> exit
-FC_switch_A_1:admin> ad --clear -f
-FC_switch_A_1:admin> ad --apply
-FC_switch_A_1:admin> ad --save
-FC_switch_A_1:admin> exit
 ----
 +
 以下示例显示了对 FC_switch_B_1 执行的命令：
@@ -290,14 +293,9 @@ FC_switch_A_1:admin> exit
 +
 [listing]
 ----
-FC_switch_B_1:admin> switch:admin> ad --select AD0
 FC_switch_A_1:> defzone --noaccess
 FC_switch_A_1:> cfgsave
 FC_switch_A_1:> exit
-FC_switch_B_1:admin> ad --clear -f
-FC_switch_B_1:admin> ad --apply
-FC_switch_B_1:admin> ad --save
-FC_switch_B_1:admin> exit
 ----
 . 重新启动交换机：
 +
@@ -481,20 +479,31 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_configure_th
 +
 .. 运行 license 命令：
 +
+[role="tabbed-block"]
+====
+.适用于Fabric OS 8.2.x及更早版本
 --
-`licensePort -show`
+运行命令 `licenseport --show`。
 
+--
+.适用于Fabric OS 9.0及更高版本
+--
+运行命令 `license --show -port`。
+
+--
+====
++
 [listing]
 ----
-FC_switch_A_1:admin> licenseport -show
+FC_switch_A_1:admin> license --show -port
 24 ports are available in this switch
 Full POD license is installed
 Dynamic POD method is in use
 ----
++
 
 NOTE: Brocade FabricOS 8.0 之前的版本运行以下命令，因为 admin 和 8.0 及更高版本以 root 身份运行这些命令。
 
---
 .. 启用 root 用户。
 +
 如果 Brocade 已禁用 root 用户，请启用 root 用户，如以下示例所示：
@@ -507,23 +516,19 @@ FC_switch_A_1:admin> rootaccess --set consoleonly
 ----
 .. 运行 license 命令：
 +
-`licensePort -show`
+`license --show -port`
 
 +
 [listing]
 ----
-FC_switch_A_1:root> licenseport -show
+FC_switch_A_1:root> license --show -port
 24 ports are available in this switch
 Full POD license is installed
 Dynamic POD method is in use
 ----
-.. 将许可证方法更改为动态：
+.. 如果您运行的是Fabric OS 8.2.x及更早版本、则必须将许可证方法更改为动态：
 +
 `licenseport -method dynamic`
-
-+
-
-NOTE: 如果未使用动态许可证方法（如果此方法为静态），则必须将此许可证方法更改为动态。如果正在使用动态许可证方法，请跳过此步骤。
 
 +
 [listing]
@@ -532,6 +537,10 @@ FC_switch_A_1:admin> licenseport --method dynamic
 The POD method has been changed to dynamic.
 Please reboot the switch now for this change to take effect
 ----
++
+
+NOTE: 在Fabric OS 9.0及更高版本中、默认情况下、许可证方法是动态的。不支持静态许可证方法。
+
 
 
 . 启用 T11-FC-ZONE-SERVER-MIB 陷阱，以便为 ONTAP 中的交换机提供成功的运行状况监控：
