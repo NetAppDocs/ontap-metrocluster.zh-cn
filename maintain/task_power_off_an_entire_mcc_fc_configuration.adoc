@@ -13,9 +13,13 @@ summary: 您必须先关闭整个 MetroCluster FC 配置以及所有设备，然
 [role="lead"]
 您必须先关闭整个 MetroCluster FC 配置以及所有设备，然后才能开始站点维护或重新定位。
 
+.关于此任务
+您必须同时从两个站点执行此操作步骤中的步骤。
+
 
 NOTE: 从 ONTAP 9.8 开始， ` * storage switch*` 命令将替换为 ` * system switch*` 。以下步骤显示了 ` * storage switch*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system switch*` 命令。
 
+.步骤
 . 从 MetroCluster 配置中的两个站点验证 MetroCluster 配置。
 +
 .. 确认 MetroCluster 配置以及操作模式是否正常。+ ` * MetroCluster show*`
@@ -54,11 +58,11 @@ cluster_A_site_A::*>metrocluster modify -auto-switchover-failure-domain auso-dis
 ----
 . 使用以下命令暂停节点：`* halt*`
 +
-** 对于四节点或八节点MetroCluster 配置、请使用参数`* inhibit-takeover*`
+** 对于四节点或八节点MetroCluster配置、请使用 `*inhibit-takeover*` 和 `*skip-lif-migration-before-shutdown*` 参数：
 +
 [listing]
 ----
-system node halt -node node1_SiteA -inhibit-takeover true -ignore-quorum-warnings true
+system node halt -node node1_SiteA -inhibit-takeover true -ignore-quorum-warnings true -skip-lif-migration-before-shutdown true
 ----
 ** 对于双节点 MetroCluster 配置，请使用命令：
 +

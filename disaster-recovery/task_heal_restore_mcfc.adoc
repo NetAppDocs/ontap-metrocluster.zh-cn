@@ -20,7 +20,7 @@ summary: 更换硬件并分配磁盘后，您可以执行 MetroCluster 修复操
 ----
 cluster_B::> metrocluster heal -phase aggregates
 
-cluster_B::> metrocluster heal -phase root aggregates
+cluster_B::> metrocluster heal -phase root-aggregates
 ----
 . 监控修复过程，并验证聚合是否处于重新同步或镜像状态：
 +

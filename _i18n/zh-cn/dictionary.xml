@@ -1617,9 +1617,7 @@
   <block id="3d279499ea2a81f9a00ce4066b98ca8b" category="list-text">重新创建通过镜像聚合删除的任何丛。</block>
   <block id="f4505b4308dc25601259bdbab60912b4" category="list-text">在丛开始重新同步时监控它们：</block>
   <block id="1d831089411388d88325ad5510a3865e" category="list-text">验证存储系统是否按预期运行：</block>
-  <block id="0ddbccff2e33cdad7e25875f8ed5047b" category="summary">您可以将 SAS 磁盘架堆栈热添加到具有可用端口的一对现有 FibreBridge 7500N 网桥中。</block>
   <block id="695e87d61d65625619e3a56919865a2c" category="list-text">您必须已下载最新的磁盘和磁盘架固件。</block>
-  <block id="86c77fb0de5bbd53bda91b1946b5e7d6" category="list-text">FibreBridge 7500N 网桥必须已连接并具有可用的 SAS 端口。</block>
   <block id="8d372617f83f8c0b84203a0c342601a0" category="paragraph">您可以使用 ATTO ExpressNAV 图形用户界面配置和管理网桥，以及更新网桥固件。您可以使用 ATTO QuickNAV 实用程序配置网桥以太网管理 1 端口。</block>
   <block id="0162c27051eec554a97d6a3f03a4a746" category="list-text">从任一控制器的控制台中，验证您的系统是否已启用磁盘自动分配：</block>
   <block id="becfc287d1bcb7464e8d37448baeb034" category="list-text">在对中的每个网桥上，启用要连接到新堆栈的 SAS 端口：</block>
@@ -12088,7 +12086,6 @@
   <block id="f59e44c66a463087eb80b00cc5e7867c" category="list-text">您必须使用四台受支持的Cisco交换机、这些交换机的型号必须相同、并且具有相同的NX-OS版本和许可。</block>
   <block id="de27fc3292cfa48f233ba5969313e590" category="list-text">您不能在Cisco FC存储网络结构中使用加密或压缩。MetroCluster 配置不支持此功能。</block>
   <block id="17a482b02d43109c8b8a1497839ff0b4" category="list-text">使用以下命令暂停节点：`* halt*`</block>
-  <block id="fad9503a100b92ad7c54437a9309f256" category="list-text">对于四节点或八节点MetroCluster 配置、请使用参数`* inhibit-takeover*`</block>
   <block id="63e64e288714d32cded7a6ed8dfec32c" category="list-text">MetroCluster FC交换机(如果正在使用且配置不是双节点延伸型配置)</block>
   <block id="a2a7d27c6bf1ad121aeada48fc70ca1d" category="list-text">等待30分钟、然后启动站点上的以下设备：</block>
   <block id="383d92c84e46dd00caa3dbad6de7fe2f" category="paragraph"><block ref="903819e2154a41f8227f7c0192db71f6" category="inline-link-macro-rx"></block> 在 _Tiebreaker MetroCluster 安装和配置内容 _ 中</block>
@@ -12607,7 +12604,6 @@
   <block id="421c8863e1f7223f216aacf99393b7dd" category="list-text">注1：此平台组合需要ONTAP 9.11.1或更高版本。</block>
   <block id="60ddbd1babdd945c26fbc431202fea6c" category="inline-link-macro">Hardware Universe</block>
   <block id="6e2ee39d0f9ccdad593782674a048e67" category="inline-link-macro">指向操作步骤 的链接</block>
-  <block id="7fcdce91feb430306391667c0a012cd7" category="paragraph"><block ref="7fcdce91feb430306391667c0a012cd7" category="inline-link-macro-rx"></block></block>
   <block id="0a623e8d3b5ae84e14f2fe4f454a3abb" category="paragraph"><block ref="0a623e8d3b5ae84e14f2fe4f454a3abb" category="inline-link-macro-rx"></block></block>
   <block id="8435af9be97e0c50b0d730d64b42f198" category="paragraph"><block ref="8435af9be97e0c50b0d730d64b42f198" category="inline-link-macro-rx"></block></block>
   <block id="f7080628c8d078c209fb6b6b18f03a3a" category="paragraph"><block ref="f7080628c8d078c209fb6b6b18f03a3a" category="inline-link-macro-rx"></block></block>
@@ -13239,4 +13235,12 @@
   <block id="1ad5a70ead9bdd722df6000495e21c24" category="list-text">如果您运行的是Fabric OS 8.2.x及更早版本、则必须将许可证方法更改为动态：</block>
   <block id="7fafa568d6f3c9a0ee98323f64b1c01c" category="admonition">在Fabric OS 9.0及更高版本中、默认情况下、许可证方法是动态的。不支持静态许可证方法。</block>
   <block id="0b6c4085e3a8dba280dd11e4bbbbeee1" category="paragraph">您可以使用"license"命令验证是否已安装这些许可证。</block>
+  <block id="6c05b41ac12af301a1c1201b16997220" category="paragraph">您必须同时从两个站点执行此操作步骤中的步骤。</block>
+  <block id="a934aebb7868eacad4999d15212ac85f" category="list-text">对于四节点或八节点MetroCluster配置、请使用<block ref="1f019d491fcfc3956d780ccfd54601ba" prefix=" " category="inline-code"></block> 和<block ref="6c99881ddd2f188436900ed8d41d99ba" prefix=" " category="inline-code"></block> 参数：</block>
+  <block id="28289de886d4bf23487d962fb6a696a3" category="summary">您可以将SAS磁盘架堆栈热添加到具有可用端口的一对现有的光纤桥7600N或7500 N网桥中。</block>
+  <block id="2e53212ba8ca8b35cbf4ed2b9eb52b0c" category="doc">将SAS磁盘架堆栈热添加到一对现有的光纤桥7600N或7500 N网桥</block>
+  <block id="e3e17f353727a0bf80bc5f781fadd978" category="list-text">必须已连接此光纤桥接器7600N或7500 N网桥、并且此网桥必须具有可用的SAS端口。</block>
+  <block id="7ec840edd23c7b1a5bd3b9167d726942" category="list-text">添加新堆栈后、检查网桥上是否存在任何运行状况警报：</block>
+  <block id="4aa202a3c65f2813f56a71404d4e0d9f" category="paragraph">八节点</block>
+  <block id="74c873abf18bb043c43561d25adce539" category="paragraph"><block ref="74c873abf18bb043c43561d25adce539" category="inline-link-macro-rx"></block></block>
 </blocks>

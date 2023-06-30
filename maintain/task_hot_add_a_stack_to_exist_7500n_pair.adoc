@@ -2,16 +2,16 @@
 permalink: maintain/task_hot_add_a_stack_to_exist_7500n_pair.html 
 sidebar: sidebar 
 keywords: metrocluster, maintain, service, hot, add, stack, sas, disk, shelves, existing, pair, fibrebridge, bridge 
-summary: 您可以将 SAS 磁盘架堆栈热添加到具有可用端口的一对现有 FibreBridge 7500N 网桥中。 
+summary: 您可以将SAS磁盘架堆栈热添加到具有可用端口的一对现有的光纤桥7600N或7500 N网桥中。 
 ---
-= 将 SAS 磁盘架堆栈热添加到一对现有 FibreBridge 7500N 网桥中
+= 将SAS磁盘架堆栈热添加到一对现有的光纤桥7600N或7500 N网桥
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您可以将 SAS 磁盘架堆栈热添加到具有可用端口的一对现有 FibreBridge 7500N 网桥中。
+您可以将SAS磁盘架堆栈热添加到具有可用端口的一对现有的光纤桥7600N或7500 N网桥中。
 
 .开始之前
 * 您必须已下载最新的磁盘和磁盘架固件。
@@ -22,7 +22,7 @@ https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp
 +
 https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"^]
 
-* FibreBridge 7500N 网桥必须已连接并具有可用的 SAS 端口。
+* 必须已连接此光纤桥接器7600N或7500 N网桥、并且此网桥必须具有可用的SAS端口。
 
 
 .关于此任务
@@ -54,11 +54,6 @@ node_A_1             on           on           on           default
 node_A_2             on           on           on           default
 2 entries were displayed.
 ----
-. 禁用新堆栈的交换机端口。
-. 更新每个网桥上的 FibreBridge 固件。
-+
-如果新网桥与配对网桥的类型相同，请升级到与配对网桥相同的固件。如果新网桥与配对网桥的类型不同，请升级到该网桥支持的最新固件以及 ONTAP 版本。请参见 _FibreBridge MetroCluster 维护指南 _ 中的 " 更新 FibreBridge 网桥上的固件 " 一节。
-
 . 在对中的每个网桥上，启用要连接到新堆栈的 SAS 端口：
 +
 `sasportEnable _port-letter_`
@@ -208,7 +203,6 @@ NOTE: 如果要在多个控制器之间拆分一个磁盘架堆栈的所有权�
 
 NOTE: 在更新磁盘驱动器固件和磁盘架固件并完成此任务中的验证步骤之前，不得向聚合或卷添加磁盘驱动器。
 
-. 为新堆栈启用交换机端口。
 . 在 ONTAP 中验证 MetroCluster 配置的运行情况：
 +
 .. 检查系统是否为多路径：
@@ -231,9 +225,9 @@ NOTE: 在更新磁盘驱动器固件和磁盘架固件并完成此任务中的�
 +
 MetroCluster check show`
 
-.. 检查交换机上是否存在任何运行状况警报（如果存在）：
+.. 添加新堆栈后、检查网桥上是否存在任何运行状况警报：
 +
-`s存储开关显示`
+`storage bridge show`
 
 .. 运行 Config Advisor 。
 +
