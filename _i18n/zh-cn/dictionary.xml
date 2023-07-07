@@ -1977,7 +1977,6 @@
   <block id="bd644239cebf0eee7e6c7d4b4e3a0c40" category="paragraph">此任务将在现有 MetroCluster FC 配置上执行。</block>
   <block id="45eedb3b70627315a33ac77a1f76c1b9" category="list-text">为现有控制器的缆线贴上标签，以便在设置新控制器时轻松识别缆线。</block>
   <block id="3894726aa348d9a18ddd016a54497034" category="list-text">收集 MetroCluster 配置中节点的系统 ID ：</block>
-  <block id="3cd530184990375ba5ce23dfb543233c" category="paragraph">在更换操作步骤期间，您将使用新控制器模块的系统 ID 替换这些系统 ID 。</block>
   <block id="783c0ee630587e0a74bf53bfb650c2e7" category="paragraph">在此示例中，对于四节点 MetroCluster FC 配置，将检索以下旧系统 ID ：</block>
   <block id="1cd4744ff6d97a425af9a0e34512335b" category="list-text">node_A_1-old ： 4068741258</block>
   <block id="58091da607d7ce6b90f5b3bdc5df9969" category="list-text">node_A_2-old ： 4068741260</block>
@@ -1986,7 +1985,6 @@
   <block id="5239ea0712b70f8449264a817c925b60" category="paragraph">在此示例中，对于双节点 MetroCluster FC 配置，将检索以下旧系统 ID ：</block>
   <block id="0c5898a1da561b8bab86de214fb4bdc3" category="list-text">node_A_1 ： 4068741258</block>
   <block id="a935a365a62e9c51ec22e6740bc18910" category="list-text">node_B_1 ： 4068741254</block>
-  <block id="3401f9f19dd2ad33d88a3a8363ed6c9b" category="list-text">收集每个节点的端口和 LIF 信息。</block>
   <block id="cb06300d68318f6a2b2782f2f09beaf8" category="paragraph">您应收集每个节点的以下命令输出：</block>
   <block id="b789920aa34a06ff52a0a140eb8211ba" category="list-text">`network interface show -role cluster ， node-mgmt`</block>
   <block id="4fb12e23a9f5fb90c604b2b0c7dbf88a" category="list-text">`network port show -node _node-name_ -type physical`</block>
@@ -7672,7 +7670,6 @@
   <block id="dbe07d3b0e16c3d4d765887b1b29b7bd" category="list-text">第 3 季度： node_B_1 pool1</block>
   <block id="36a6b2d82f1c99925006210a57878b24" category="list-text">第 4 季度： node_B_2 池 1</block>
   <block id="f3a88820bdb6aec9f587dc31d6c8d2a5" category="paragraph">每个磁盘架上的分区用于创建根聚合。根聚合在每个丛中包含以下分区：</block>
-  <block id="ebc41c749d217e4e33d72e9e61f637ae" category="paragraph">仅限 24 个内部驱动器</block>
   <block id="5f09ad28ed34c8a5a9d9a71b6cfab3ac" category="section-title">AFF A300 系统上的 ADP 和磁盘分配</block>
   <block id="e6668b4aac77d165570602be7eb7cec3" category="paragraph">驱动器会按磁盘架自动分配。</block>
   <block id="cbe12377e4ad0771ba766a2156cee232" category="paragraph">根聚合中的两个丛中的每个丛都包括：</block>
@@ -10255,7 +10252,6 @@
   <block id="1ba2ae150e1cee5c2dbe25aa1a0e18b0" category="paragraph">按照提示提供恢复和还原密钥管理器配置所需的输入。</block>
   <block id="9cf18883abd310f0e24341194095b229" category="list-text">如果使用根加密，则根据您使用的 ONTAP 版本，选择启动菜单选项或问题描述启动菜单命令以用于密钥管理配置。</block>
   <block id="716a92112769d0f62895dc8c3a9fe47f" category="list-text">从 ONTAP 9.8 开始，选择启动菜单选项。</block>
-  <block id="52b1f5429bdd6813cde83cf7eb1f6838" category="list-text">在 ONTAP 9.7 及更早版本中，问题描述启动菜单命令。</block>
   <block id="2d9e786c47fe4bbb5d2cec20e0f373eb" category="list-text">如果使用根加密，则根据您使用的 ONTAP 版本，为您的密钥管理配置选择启动菜单选项或再次选择问题描述启动菜单命令。</block>
   <block id="1739256103cb7d112712a588fb2f6506" category="inline-link-macro">设置 ONTAP</block>
   <block id="fa60d55773bc424e586a8c4898b4bc9f" category="inline-link-macro">磁盘和聚合管理</block>
@@ -10763,7 +10759,6 @@
   <block id="4391b07561c519a0e33f2d598bbaf24e" category="paragraph">在执行升级之前，您必须验证 MetroCluster 配置的运行状况和连接。</block>
   <block id="1009168ca9b613e3f4fa7884c8377f36" category="paragraph">在控制器升级过程中，您只能更改此操作步骤中提及的连接。</block>
   <block id="e8b2b31f6129e480376a3948b9b9d73c" category="list-text">收集 MetroCluster 配置节点系统 ID ：</block>
-  <block id="3c0b6cb420c455a5a165c08c7cd7af73" category="paragraph">在更换操作步骤期间，您将使用控制器模块的系统 ID 替换这些系统 ID 。</block>
   <block id="52d83d7ca0d0ff43bc0929d376512989" category="list-text">node_A_1-A700 ： 537037649</block>
   <block id="a0efecab010293ebd247221cd9cca871" category="list-text">node_A_2-A700 ： 537407030</block>
   <block id="c5c663e6628e19ffabcbcb01ecaa23e3" category="list-text">node_B_1-A700 ： 0537407114</block>
@@ -12040,7 +12035,6 @@
   <block id="255e6fa1222b0f5f7521f1965844c1bf" category="paragraph">规划第 3 层解决方案时，请查看以下准则和图示。有关在 ONTAP 中实施 VIP 和 BGP 的详细信息，请参见 <block ref="245303d2c60ac1935683ed89eb13f165" category="inline-link-macro-rx"></block>。</block>
   <block id="83e579bcd33d25206730a931a64a84a1" category="paragraph">如果您的配置运行的是 ONTAP 9.0 或更早版本，请参见 <block ref="249227e2d8f8114c9bdc6db2520e9445" category="inline-link-macro-rx"></block>。</block>
   <block id="bc08b638ff7480a2fa85e0dcdee0d692" category="paragraph"><block ref="bc08b638ff7480a2fa85e0dcdee0d692" category="inline-link-macro-rx"></block></block>
-  <block id="cf5928613cf8b77d8355882cdec38712" category="paragraph">仅限16个内部驱动器</block>
   <block id="90cd0db781b4639c1c46407e5a4f0a93" category="paragraph">+如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。</block>
   <block id="26ae7bdd1d6fb8c4886e6fde8d12601c" category="list-text">延迟</block>
   <block id="37e445da4970f1c0106716e8dba83be8" category="paragraph">如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。</block>
@@ -12633,7 +12627,6 @@
   <block id="5f290ae29562085cc0cef01e0f484b1d" category="paragraph"><block ref="5f290ae29562085cc0cef01e0f484b1d" category="inline-link-macro-rx"></block></block>
   <block id="28d9d9e03b64356e498c630e744a9cdf" category="paragraph"><block ref="28d9d9e03b64356e498c630e744a9cdf" category="inline-link-macro-rx"></block></block>
   <block id="0feef50dfeaf08303a2284d2c2ff6eb4" category="cell">聚合重新定位</block>
-  <block id="5c6fc64fa41aef579f27097f378325cb" category="paragraph">使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 命令并交换控制器模块和NVM (仅限从AFF A700升级到AFF A900)</block>
   <block id="38a031e8dad2eab70ea05c570be3935e" category="paragraph"><block ref="38a031e8dad2eab70ea05c570be3935e" category="inline-link-rx"></block></block>
   <block id="b80a36d83825959bd2fd92ffd36709e2" category="paragraph"><block ref="b80a36d83825959bd2fd92ffd36709e2" category="inline-link-rx"></block></block>
   <block id="ddf68ce76cf70c3d2061e221edeb7ae1" category="paragraph"><block ref="ddf68ce76cf70c3d2061e221edeb7ae1" category="inline-link-rx"></block></block>
@@ -13243,4 +13236,14 @@
   <block id="7ec840edd23c7b1a5bd3b9167d726942" category="list-text">添加新堆栈后、检查网桥上是否存在任何运行状况警报：</block>
   <block id="4aa202a3c65f2813f56a71404d4e0d9f" category="paragraph">八节点</block>
   <block id="74c873abf18bb043c43561d25adce539" category="paragraph"><block ref="74c873abf18bb043c43561d25adce539" category="inline-link-macro-rx"></block></block>
+  <block id="0159b80d745d9b405520a30a29416d2d" category="paragraph">在升级之前、您必须收集每个旧节点的信息、并在必要时调整网络广播域、删除所有VLAN和接口组以及收集加密信息。</block>
+  <block id="3b2740b2f65f79e770509c9b837df2de" category="paragraph">在升级操作步骤期间、您将使用控制器模块的系统ID替换这些旧系统ID。</block>
+  <block id="22891a1da512f437a0d8620852295bd7" category="list-text">收集每个旧节点的端口和LIF信息。</block>
+  <block id="30872b2ff811f5e5d51bcf20468c730a" category="paragraph">使用system controller Replace命令升级同一机箱中的控制器型号</block>
+  <block id="e5fb04e9be2a470a838a8ae287e6100a" category="paragraph">在升级操作步骤期间、您将使用新控制器模块的系统ID替换这些旧系统ID。</block>
+  <block id="9e25219bfef39dc2d94805b599244f8d" category="open-title">ONTAP 9.8及更高版本</block>
+  <block id="5a830b76ff5a71db59759b13f383410c" category="open-title">ONTAP 9.7及更早版本</block>
+  <block id="5227f75c6a1f77d9623c7a089f1e3ea7" category="paragraph">对于ONTAP 9.7及更早版本、问题描述the boot menu command。</block>
+  <block id="3e3df3be76a18ca2c89904765d97f078" category="list-text">在两个集群上运行以下命令、以确认可以接管并且节点已连接：</block>
+  <block id="3963205d7c5d1cb2f000d61f16c10f1d" category="paragraph">24个内部驱动器</block>
 </blocks>

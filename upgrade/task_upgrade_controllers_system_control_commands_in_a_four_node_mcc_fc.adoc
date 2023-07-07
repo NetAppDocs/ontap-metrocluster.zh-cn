@@ -137,7 +137,7 @@ Node-A-1    Failed         MetroCluster check failed. Reason : MCC check showed 
 --
 `MetroCluster node show -fields node-systemID ， dr-partner-systemID`
 
-在更换操作步骤期间，您将使用新控制器模块的系统 ID 替换这些系统 ID 。
+在升级操作步骤期间、您将使用新控制器模块的系统ID替换这些旧系统ID。
 
 在此示例中，对于四节点 MetroCluster FC 配置，将检索以下旧系统 ID ：
 
@@ -175,7 +175,7 @@ dr-group-id cluster    node          node-systemid dr-partner-systemid
 2 entries were displayed.
 ----
 --
-. 收集每个节点的端口和 LIF 信息。
+. 收集每个旧节点的端口和LIF信息。
 +
 您应收集每个节点的以下命令输出：
 

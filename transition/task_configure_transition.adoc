@@ -720,6 +720,22 @@ Do you want to continue? {y|n}: y
 
 cluster_A::>
 ....
+. 在两个集群上运行以下命令、以确认可以接管并且节点已连接：
++
+`s存储故障转移显示`
+
++
+[listing]
+----
+cluster_A::> storage failover show
+                                    Takeover
+Node           Partner              Possible    State Description
+-------------- -------------------- ---------   ------------------
+Node_FC_1      Node_FC_2              true      Connected to Node_FC_2
+Node_FC_2      Node_FC_1              true      Connected to Node_FC_1
+Node_IP_1      Node_IP_2              true      Connected to Node_IP_2
+Node_IP_2      Node_IP_1              true      Connected to Node_IP_1
+----
 . 以高级权限将 MDV_CRS 卷从旧节点移动到新节点。
 +
 .. 显示卷以标识 MDV 卷：

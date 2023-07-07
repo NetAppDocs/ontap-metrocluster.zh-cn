@@ -134,7 +134,7 @@ link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback
  a| 
 FC
  a| 
-使用 `system controller replace` 命令并交换控制器模块和NVM (仅限从AFF A700升级到AFF A900)
+使用system controller Replace命令升级同一机箱中的控制器型号
  a| 
 9.10.1 及更高版本
  a| 
