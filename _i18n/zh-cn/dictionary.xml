@@ -13246,4 +13246,9 @@
   <block id="5227f75c6a1f77d9623c7a089f1e3ea7" category="paragraph">对于ONTAP 9.7及更早版本、问题描述the boot menu command。</block>
   <block id="3e3df3be76a18ca2c89904765d97f078" category="list-text">在两个集群上运行以下命令、以确认可以接管并且节点已连接：</block>
   <block id="3963205d7c5d1cb2f000d61f16c10f1d" category="paragraph">24个内部驱动器</block>
+  <block id="d33f2a600ba4fe43084a26e95e4908c0" category="paragraph">* 相关信息 *</block>
+  <block id="33677e980c1bb7a6aad1c55805e512b3" category="inline-link-macro">了解使用MetroCluster自动强制切换的风险和限制</block>
+  <block id="8358918e22c23bbc5881522d821dd13e" category="list-text"><block ref="8358918e22c23bbc5881522d821dd13e" category="inline-link-macro-rx"></block></block>
+  <block id="e3aa563f27ef718a2d0767e57ad2f0c2" category="inline-link-macro">了解如何在MetroCluster IP配置中管理MAUSO</block>
+  <block id="b1a9c412046cbd6accefdfa3f6f94916" category="list-text"><block ref="b1a9c412046cbd6accefdfa3f6f94916" category="inline-link-macro-rx"></block></block>
 </blocks>

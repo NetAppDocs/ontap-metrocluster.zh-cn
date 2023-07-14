@@ -67,3 +67,9 @@ ONTAP 调解器将有关 MetroCluster 节点的状态信息存储在调解器主
 
 
 
+
+* 相关信息 *
+
+* link:concept-risks-limitations-automatic-switchover.html["了解使用MetroCluster自动强制切换的风险和限制"]
+* link:../manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#mediator-assisted-automatic-unplanned-switchover-in-metrocluster-ip-configurations["了解如何在MetroCluster IP配置中管理MAUSO"]
+
