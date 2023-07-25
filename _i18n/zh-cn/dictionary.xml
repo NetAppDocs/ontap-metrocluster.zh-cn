@@ -13315,4 +13315,6 @@
   <block id="85488d881ebf03beb1eca3be4b5fda44" category="paragraph">您的 ONTAP 版本必须支持混用磁盘架。请参见<block ref="e78382cc6f841e7f00c97b18a2e30f41" category="inline-link-rx"></block> 查看您的 ONTAP 版本是否支持混用磁盘架。</block>
   <block id="5fdc7ff67ace146413ecd7d44157aca4" category="paragraph">有关混用磁盘架的更多详细信息，请参见<block ref="532c1f47a9370f9e21538610051f3830" category="inline-link-rx"></block></block>
   <block id="2b2a5cb87d298900008c3873faf7fc40" category="sidebar">在MetroCluster IP配置中使用ADP迁移根聚合</block>
+  <block id="e868bded76541295e018b74bb15a7920" category="inline-link-macro">NVIDIA SN2100交换机安装和配置概述</block>
+  <block id="b86c7f3554d9472f6a1e417c7f70fb18" category="admonition">有关安装Cumulus Linux的详细信息、请参见 <block ref="ac21c0d53d9fcd547ee85e9d73d53854" category="inline-link-macro-rx"></block></block>
 </blocks>

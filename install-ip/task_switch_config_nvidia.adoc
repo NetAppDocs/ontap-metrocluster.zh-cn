@@ -120,6 +120,10 @@ Enter yes or no: yes
 .开始之前
 * 您必须使用串行控制台连接连接到交换机。
 * 可通过HTTP访问Cumulus交换机软件映像。
++
+
+NOTE: 有关安装Cumulus Linux的详细信息、请参见 link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html#initial-configuration-overview["NVIDIA SN2100交换机安装和配置概述"^]
+
 * 您必须具有`sudo`命令访问权限的root密码。
 
 
