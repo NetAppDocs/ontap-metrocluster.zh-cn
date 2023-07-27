@@ -13249,72 +13249,10 @@
   <block id="8358918e22c23bbc5881522d821dd13e" category="list-text"><block ref="8358918e22c23bbc5881522d821dd13e" category="inline-link-macro-rx"></block></block>
   <block id="e3aa563f27ef718a2d0767e57ad2f0c2" category="inline-link-macro">了解如何在MetroCluster IP配置中管理MAUSO</block>
   <block id="b1a9c412046cbd6accefdfa3f6f94916" category="list-text"><block ref="b1a9c412046cbd6accefdfa3f6f94916" category="inline-link-macro-rx"></block></block>
-  <block id="3ee4e0077776d9fbd0c4f6992af9bbf9" category="summary">您可以无系统地迁移使用高级磁盘分区(ADP)的现有根聚合。</block>
-  <block id="74015d5b319e36b12436216a112999aa" category="doc">迁移在MetroCluster IP配置中使用ADP配置的根聚合</block>
-  <block id="24a789c2302c76cbfe854e55ad5fc147" category="paragraph">如果根聚合即将用尽空间、或者您希望从使用低容量SSD切换到使用大容量SSD、则可以无系统运行地迁移使用高级磁盘分区(ADP)的现有根聚合。</block>
-  <block id="1e6ef0d7d8876fb7ad623724c319d6dc" category="list-text">必须启用本地高可用性(HA)对才能进行存储故障转移。</block>
-  <block id="7fb0823205360f944da2d5bbda7bb66c" category="list-text">此配置应处于稳定状态、并正常提供数据、而不会频繁中断。</block>
-  <block id="f0df128e0728d89f636d034d20727cc3" category="list-text">在此操作步骤期间、请勿执行任何可能导致发生原因中断的硬件升级或任何其他操作。</block>
-  <block id="dcd6c84f0be895a0014bccb3695847f8" category="list-text">一次只能迁移一个根聚合。请勿尝试同时迁移两个根聚合。</block>
-  <block id="cc4ed671d086b5e6b57a7330c8b5a086" category="list-text">[[STEP_1、验证配置的运行状况]]检查配置的运行状况。</block>
-  <block id="056a7858b288e3d7ed97852dd1108acd" category="list-text">检查每个集群上是否已配置 MetroCluster 并处于正常模式：
- +<block ref="0d51371cbb850772d2130a36f4368df4" prefix=" " category="inline-code"></block></block>
-  <block id="25ffe8e51f1f537dafdb1676802b36a5" category="list-text">确认已为本地HA对启用存储故障转移：</block>
-  <block id="f041b96228e7b3d71de8f1c0526b26d2" category="list-text">将备用磁盘置零：</block>
-  <block id="e5d9d6b5400b0657d0060a2823cabd1d" category="paragraph"><block ref="20a01c07125289631f92854eb8396610" prefix="" category="inline-code"></block></block>
-  <block id="6986dfd84142c4fac27da9b3b5c3e670" category="list-text">确定根聚合大小：</block>
-  <block id="a61fbdb6104b1f10d4038d76ca03998e" category="paragraph"><block ref="9914c8f3706500d4a11aa48e975b2509" prefix="" category="inline-code"></block></block>
-  <block id="1dd1bcb3443d6b0f45f22f3f5898cb6a" category="paragraph">在以下示例中、根聚合的"Pool0"中有十个磁盘、"Pool1"中有十个磁盘。</block>
-  <block id="6f375ad06cba5e1bf16231fe03094a5a" category="list-text">分配容器磁盘。</block>
-  <block id="f288bce4376ff298b02106d1f5c7f9ab" category="paragraph">在分配磁盘之前、请确认已为每个节点分配建议数量的备用驱动器。这些驱动器在迁移根聚合之前进行分区。有关详细信息，请参见 <block ref="6d810bbb5852716fcad9edf1241d237a" category="inline-link-macro-rx"></block>。</block>
-  <block id="1ef1457e8523d1b3b994840932af8c34" category="paragraph">运行以下命令以分配磁盘：</block>
-  <block id="85815306b7c321900c699ff1f4aa3aa5" category="paragraph"><block ref="8a06b22dd0db1686240683a5bb516abd" prefix="" category="inline-code"></block></block>
-  <block id="a8c587fec8f9799e9250416b424a84eb" category="list-text">确定根分区大小。</block>
-  <block id="3920f2ea7ca6e1b4f5cf423a53bc9051" category="paragraph">根分区大小取决于每个节点上可用于分区的磁盘数。NetApp建议每个节点至少有12个驱动器可用于分区。</block>
-  <block id="4f814dafb8c2da78db77109cfb4deca0" category="paragraph">您可以使用下表确定根聚合布局：</block>
-  <block id="63cb9f7c10b1721a063c8f1e59881ab1" category="cell">要分区的磁盘数</block>
-  <block id="759b9dbbcbd74f5ad1ddf35c759a3c59" category="cell">根聚合布局</block>
-  <block id="2004308892a701a728d335b9fce41368" category="cell">每个节点4个磁盘</block>
-  <block id="600217b9247426847aab490af6580977" category="cell">2个数据驱动器和2个奇偶校验驱动器</block>
-  <block id="e0304dab20a48b302ec7b0c39efc367d" category="cell">每个节点12个磁盘</block>
-  <block id="8d4c55399ede5d32bca57645cff078c3" category="cell">8个数据驱动器、2个奇偶校验驱动器和2个备用驱动器</block>
-  <block id="feb2a36c1f236464e86e8560b95f695b" category="cell">每个节点24个磁盘</block>
-  <block id="25110366c8f2da7b56b579a6e0552bcb" category="cell">20个数据驱动器、2个奇偶校验驱动器和2个备用驱动器</block>
-  <block id="c773eba71a70989d44e90c6022e99e6c" category="paragraph">为了确定根分区大小、您需要在所有数据驱动器之间平均划分4 k块的总数。</block>
-  <block id="ab9988dc196a45ed6732c7cc31004d6c" category="paragraph">例如、如果根聚合布局包含8个数据驱动器、2个奇偶校验驱动器和2个备用驱动器、并且根聚合大小为112958795块、则必须将112958795除以8才能获得根分区大小。</block>
-  <block id="781da94200d9a07043815bafc29d2c3d" category="paragraph">(112958795/8)= 14119849.375</block>
-  <block id="9e2cac5b50187a5236c91e11f6395855" category="paragraph">将此数字取整后、根分区大小为14119850。</block>
-  <block id="1d3e8acab7097ab9196691e4dad86e0d" category="list-text">对根聚合中的每个磁盘进行分区：</block>
-  <block id="46f57cee9235c6230c51a255d962250c" category="paragraph"><block ref="92a47f55cb3bffcba7f27685c266eba5" prefix="" category="inline-code"></block></block>
-  <block id="105a09c5d661de6f8c24b06c0411962a" category="list-text">分配分区。</block>
-  <block id="f03d16bce31de329c4e742292fc93b37" category="list-text">将P3分区分配给拥有容器磁盘的同一节点：</block>
-  <block id="fa70c741f02b049be375a76bd70aca71" category="paragraph"><block ref="1cf19cfaba68ec589ad709b775196d98" prefix="" category="inline-code"></block></block>
-  <block id="5bfbaf4243f6043be413593a0f7ffdf4" category="list-text">将P1分区分配给HA对中系统ID编号较低的系统：</block>
-  <block id="56e9a79cfa3eed80b5c15da245a60890" category="paragraph"><block ref="6d33ff246b76244db45f233884827afe" prefix="" category="inline-code"></block></block>
-  <block id="62ef6f7ab1c059659a81dc67d8e73e53" category="list-text">将P2分区分配给HA对中系统ID编号较高的系统：</block>
-  <block id="f96d86554fdac108c5a1432d469a729b" category="paragraph"><block ref="f25093ef7292e8988c1b58a77f8c6cb4" prefix="" category="inline-code"></block></block>
-  <block id="e2e637afa208920387f5053e40ed58d2" category="paragraph">对每个分区磁盘重复此步骤。</block>
-  <block id="05676fea1d1887cfdd6f5af68de0df0a" category="list-text">确认可以接管：</block>
-  <block id="8a85734d78fdaf400bfa62b4b651fd99" category="list-text">迁移根聚合。</block>
-  <block id="df71252ed58d68e80437563dfbd33558" category="paragraph">对于每个节点、执行迁移、并将Pool0中的磁盘列表和目标RAID类型指定为参数：</block>
-  <block id="e9e0447af35e7e0de4740db0f20764ed" category="paragraph"><block ref="83aa458cb02ebc1ec53a3792475063c2" prefix="" category="inline-code"></block></block>
-  <block id="cdd05231f7224a23cbac4281a2438326" category="paragraph">例如、如果"cluster-01"的根聚合包含十个带有"Raif_DP"的磁盘、则以下命令将迁移根聚合：</block>
-  <block id="cd0e059df97825ab157f1939efa364e7" category="admonition">如果磁盘数量不足、请添加更多磁盘或选择其他RAID类型。</block>
-  <block id="7d6bbe7b71b13c2b54cec2ee662fbdf1" category="paragraph">此迁移过程可能需要几分钟才能完成。迁移期间、节点会重新启动几次、而其他节点上可能会出现错误、您可以安全地忽略这些错误、并等待迁移过程完成。</block>
-  <block id="d868d604f3bd20c9f9a11a2520543292" category="list-text">(可选)监控迁移进度。</block>
-  <block id="eda60734cb89d535e800dab8da6383eb" category="paragraph">从第二个站点运行：</block>
-  <block id="5881411832603d39f355beead4af51c8" category="paragraph"><block ref="7303f257f154b13cdaca05ba99fbd04f" prefix="" category="inline-code"></block></block>
-  <block id="c0d4d16bc2ccc265fcf1e6ff40c7d881" category="list-text">为所有MetroCluster IP节点重新启用RAID自动分区：</block>
-  <block id="4ae87ec4d41caa9c10f63ab9906652fe" category="paragraph"><block ref="b3c8c569f5af61a744510d8f9bdf90bf" prefix="" category="inline-code"></block></block>
-  <block id="9a11d290badf0b1c9242a25f4679755b" category="list-text">验证迁移是否成功：</block>
-  <block id="8357a096ccf9fce81f2506410698452e" category="paragraph"><block ref="e297cfda2aceb4e7716b304f7e66f6cd" prefix="" category="inline-code"></block></block>
-  <block id="1ea488beca98f867b6167d03c9864f18" category="inline-xref">验证配置的运行状况</block>
-  <block id="6888438bdb2750b7d57e71e38ad05afd" category="list-text">重复步骤至 <block ref="02254f32065f3812e96478a40b394643" category="inline-xref-macro-rx"></block>。</block>
   <block id="7632b8724806890acaf96c668d641251" category="inline-link-macro">了解MetroCluster IP配置中的自动驱动器分配和ADP系统</block>
-  <block id="04a1df006b1c7589273df10cf6fc5ac4" category="paragraph"><block ref="04a1df006b1c7589273df10cf6fc5ac4" category="inline-link-macro-rx"></block></block>
   <block id="85488d881ebf03beb1eca3be4b5fda44" category="paragraph">您的 ONTAP 版本必须支持混用磁盘架。请参见<block ref="e78382cc6f841e7f00c97b18a2e30f41" category="inline-link-rx"></block> 查看您的 ONTAP 版本是否支持混用磁盘架。</block>
   <block id="5fdc7ff67ace146413ecd7d44157aca4" category="paragraph">有关混用磁盘架的更多详细信息，请参见<block ref="532c1f47a9370f9e21538610051f3830" category="inline-link-rx"></block></block>
-  <block id="2b2a5cb87d298900008c3873faf7fc40" category="sidebar">在MetroCluster IP配置中使用ADP迁移根聚合</block>
   <block id="e868bded76541295e018b74bb15a7920" category="inline-link-macro">NVIDIA SN2100交换机安装和配置概述</block>
   <block id="b86c7f3554d9472f6a1e417c7f70fb18" category="admonition">有关安装Cumulus Linux的详细信息、请参见 <block ref="ac21c0d53d9fcd547ee85e9d73d53854" category="inline-link-macro-rx"></block></block>
+  <block id="d173c8f64c2c9e1ca6a4cc8814f4c2ec" category="paragraph"><block ref="04a1df006b1c7589273df10cf6fc5ac4" category="inline-link-macro-rx"></block>。</block>
 </blocks>
