@@ -42,18 +42,6 @@ Password: <user input>
 +
 输入密码后，交换机将下载并执行配置文件。
 
-. 持久启用交换机：
-+
-`sswitchcfgpersistentenable`
-
-+
-此示例显示了如何持久启用 FC switch_A_1 。
-
-+
-[listing]
-----
-FC_switch_A_1:admin> switchcfgpersistentenable
-----
 . 确认配置文件已设置交换机域：
 +
 `sswitchshow`
@@ -161,6 +149,18 @@ FC_switch_A_1:admin> portcfglongdistance 21 LS 1 -distance 30
 [listing]
 ----
 FC_switch_A_1:admin> portcfglongdistance 21 LE 1
+----
+. 持久启用交换机：
++
+`sswitchcfgpersistentenable`
+
++
+此示例显示了如何持久启用 FC switch_A_1 。
+
++
+[listing]
+----
+FC_switch_A_1:admin> switchcfgpersistentenable
 ----
 . 验证是否已正确设置 IP 地址：
 +

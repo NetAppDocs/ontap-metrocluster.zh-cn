@@ -39,7 +39,7 @@ NOTE: 如果您更换了交换机或升级到不同的交换机、则可以通�
 [NOTE]
 ====
 ** 如果要在使用共享存储MetroCluster IP交换机的MetroCluster IP配置中添加或删除磁盘架、请按照中的步骤进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_add_shelves_using_shared_storage.html["使用共享存储MetroCluster 交换机向MetroCluster IP添加磁盘架"]
-** 您的MetroCluster IP可能已直接连接到NS224磁盘架或专用存储交换机。
+** 您的MetroCluster IP配置可能已直接连接到NS224磁盘架或专用存储交换机。
 
 
 ====

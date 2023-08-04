@@ -13083,7 +13083,6 @@
   <block id="86d1d4ce5bcdca5be40df18599a99316" category="paragraph">例如、如果您有一个使用AFF A700控制器的常规MetroCluster IP配置、而您希望重新配置MetroCluster 以将NS224磁盘架连接到相同的交换机。</block>
   <block id="0a68705a55d8a79d8f02e799bbe59a07" category="inline-link-macro">使用共享存储MetroCluster 交换机向MetroCluster IP添加磁盘架</block>
   <block id="a26675682d61464ec64687501c97e418" category="list-text">如果要在使用共享存储MetroCluster IP交换机的MetroCluster IP配置中添加或删除磁盘架、请按照中的步骤进行操作 <block ref="a6c32053e88f456cb0f33bc2215c1e48" category="inline-link-macro-rx"></block></block>
-  <block id="db1a71d927fe2da1cf5688ccd43aff7e" category="list-text">您的MetroCluster IP可能已直接连接到NS224磁盘架或专用存储交换机。</block>
   <block id="40fbbb9d7606643acc0b72d7f28c501f" category="paragraph-title">端口使用情况工作表</block>
   <block id="738fc50c1eb3a054e9eeacb63a7e72f3" category="paragraph">以下示例工作表用于将MetroCluster IP配置转换为使用现有交换机连接两个NS224磁盘架的共享存储配置。</block>
   <block id="21eb30d37360c5d8c536d0be6968f476" category="paragraph">工作表定义：</block>
@@ -13255,4 +13254,14 @@
   <block id="e868bded76541295e018b74bb15a7920" category="inline-link-macro">NVIDIA SN2100交换机安装和配置概述</block>
   <block id="b86c7f3554d9472f6a1e417c7f70fb18" category="admonition">有关安装Cumulus Linux的详细信息、请参见 <block ref="ac21c0d53d9fcd547ee85e9d73d53854" category="inline-link-macro-rx"></block></block>
   <block id="d173c8f64c2c9e1ca6a4cc8814f4c2ec" category="paragraph"><block ref="04a1df006b1c7589273df10cf6fc5ac4" category="inline-link-macro-rx"></block>。</block>
+  <block id="7dd57dad7ab33a64ea80d69dc576695f" category="list-text">您的MetroCluster IP配置可能已直接连接到NS224磁盘架或专用存储交换机。</block>
+  <block id="e6b54b2dde2da7a5ff5d226fbb4c72a9" category="paragraph">IP交换机</block>
+  <block id="c2940722935f500be2023f23b7bc5ee0" category="paragraph">更换交换机或更改使用</block>
+  <block id="805f56a5319b24b11dbae19c7fafc0bc" category="paragraph"><block ref="805f56a5319b24b11dbae19c7fafc0bc" category="inline-link-macro-rx"></block></block>
+  <block id="7c0b97da4c84c6c87c92b1aeab30ad43" category="paragraph"><block ref="7c0b97da4c84c6c87c92b1aeab30ad43" category="inline-link-macro-rx"></block></block>
+  <block id="21ebe2933dbecca61d158de684e14ba8" category="paragraph">RCF文件升级</block>
+  <block id="a34db179fe2b6652c4d8cfee61145d82" category="paragraph"><block ref="a34db179fe2b6652c4d8cfee61145d82" category="inline-link-macro-rx"></block></block>
+  <block id="1bb61f9065b728e677aa4a655bc12365" category="paragraph"><block ref="1bb61f9065b728e677aa4a655bc12365" category="inline-link-macro-rx"></block></block>
+  <block id="c9e8474b98ce13361ef8538974668a72" category="paragraph">重命名交换机</block>
+  <block id="27bead6811af0141e80347fb870c00c6" category="paragraph"><block ref="27bead6811af0141e80347fb870c00c6" category="inline-link-macro-rx"></block></block>
 </blocks>

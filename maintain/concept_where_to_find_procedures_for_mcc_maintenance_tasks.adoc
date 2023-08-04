@@ -178,4 +178,44 @@ link:task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html["更�
 
 link:task_upgrade_or_downgrad_the_firmware_on_a_cisco_fc_switch_mcc.html["更新 Cisco FC 交换机上的固件"]
 
+
+
+ a| 
+IP交换机
+ a| 
+IP
+ a| 
+更换交换机或更改使用
+ a| 
+link:task_replace_an_ip_switch.html["更换IP交换机或更改现有MetroCluster IP交换机的使用"]
+
+
+
+ a| 
+IP
+ a| 
+固件升级
+ a| 
+link:maintain/task_upgrade_firmware_on_mcc_ip_switches.html["升级 MetroCluster IP 交换机上的固件"]
+
+
+
+ a| 
+IP
+ a| 
+RCF文件升级
+ a| 
+link:maintain/task_upgrade_rcf_files_on_mcc_ip_switches.html["升级 MetroCluster IP 交换机上的 RCF 文件"]
+
+link:maintain/task_upgrade_rcf_files_on_cisco_ip_switches_with_cleanupfiles.html["使用CleanUpFiles升级Cisco IP交换机上的RCF文件"]
+
+
+
+ a| 
+IP
+ a| 
+重命名交换机
+ a| 
+link:maintain/task_rename_a_cisco_ip_switch.html["重命名 Cisco IP 交换机"]
+
 |===
