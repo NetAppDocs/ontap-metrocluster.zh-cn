@@ -640,7 +640,7 @@ MetroCluster configuration-settings interface create -cluster-name`
 +
 --
 
-NOTE: 您可以从任一集群配置 MetroCluster IP 接口。此外，从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则还必须指定 ` -gateway` 参数来创建 MetroCluster IP 接口。请参见 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
+NOTE: 您可以从任一集群配置 MetroCluster IP 接口。
 
 --
 +
