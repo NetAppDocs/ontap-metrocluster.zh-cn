@@ -17,7 +17,21 @@ summary: 您可以使用此引导式自动MetroCluster 切换操作对四节点M
 
 == 支持的平台组合
 
-此操作步骤 仅支持从AFF A300升级到AFF A900控制器。
+此操作步骤支持在运行ONTAP 9.13.1及更高版本的系统上进行以下控制器升级。
+
+|===
+
+
+| 旧控制器 | 更换控制器 
+
+
+| AFF A300 | AFF A900 
+
+
+| FAS8200 | FAS9500 
+|===
+
+NOTE: 您可以使用所述的手动升级操作步骤在运行ONTAP 9.12.1或9.11.1的系统上执行上表中列出的控制器升级 link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html["此处"]。
 
 有关平台升级组合的详细信息、请查看中的MetroCluster IP升级表 link:concept_choosing_controller_upgrade_mcc.html#supported-metrocluster-ip-controller-upgrades["选择控制器升级操作步骤"]。
 
