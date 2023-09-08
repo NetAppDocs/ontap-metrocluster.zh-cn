@@ -49,8 +49,11 @@ summary: 如果您正在使用 9.5 之前的 ONTAP 版本，或者计划使用 t
 ** ICMP
 ** QuickNAV
 ** SNMP
-** Telnet + 您可以使用 `get closePort` 命令检查特定协议是否已启用。
+** Telnet
 
+
++
+您可以使用 `get closePort` 命令检查特定协议是否已启用。
 
 . 如果要启用 SNMP ，还必须对 set snmp enabled 命令执行问题描述操作：
 +

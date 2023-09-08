@@ -1717,7 +1717,6 @@
   <block id="1249ce19ef6180e143506b5287be8a7a" category="list-text">ICMP</block>
   <block id="19928e39d24e38d1c9928b94667fa5d5" category="list-text">QuickNAV</block>
   <block id="96f9963e25520a9011c82401920794f0" category="list-text">SNMP</block>
-  <block id="0e9f0a250a9d56072ce7737a3cd51f63" category="list-text">Telnet 您可以使用 `get closePort` 命令检查特定协议是否已启用。</block>
   <block id="9d05079a491a98497153e953bbaddaa4" category="list-text">如果要启用 SNMP ，还必须对 set snmp enabled 命令执行问题描述操作：</block>
   <block id="944957367bcbba5f885d8dc885354148" category="paragraph">` * 设置 SNMP enabled"`</block>
   <block id="2773e82b500feb0530b8577db9c276d7" category="paragraph">SNMP 是唯一需要单独的 enable 命令的协议。</block>
@@ -3399,7 +3398,6 @@
   <block id="0dc491dada4885353b9e96030fce6bd3" category="paragraph">iSCSI 客户端应可访问 SVM 中的所有 iSCSI 接口。</block>
   <block id="acb0e987f9b29d1eab50c31f4f95aa9a" category="list-text">在 iSCSI 主机或客户端上，确定从主机到 MetroCluster FC 节点的现有 iSCSI 连接： `iscsiadm -m session`</block>
   <block id="d163a1c94db271251417ac64b011f503" category="list-text">验证 MetroCluster IP 节点的连接： `iscsi session show -vserver svm-name`</block>
-  <block id="47e1989be910f2a95cba13df244916de" category="list-text">在 ONTAP 中列出包含这些接口的 SVM 的 iSCSI 接口： `iscsi interface show -vserver SVM-name`</block>
   <block id="a36d68710357482d2ab6a01760a3ed96" category="list-text">在 iSCSI 客户端上，对 SVM 上的任一 iSCSI IP 地址运行发现以发现新目标： `iscsiadm -m discovery -t sendtargets -p iscsi-ip-address`</block>
   <block id="6d5e653b42496cb611cacbd3f1622d89" category="paragraph">发现可以在 SVM 的任何 IP 地址上运行，包括非 iSCSI 接口。</block>
   <block id="a461f22b707612a699bc8af021961c83" category="list-text">在 iSCSI 客户端上，登录到所有已发现的地址： `iscsiadm -m node -L all -T node-address -p portal-address -l`</block>
@@ -3413,7 +3411,6 @@
   <block id="ca3831196a5922b44d1bd6c3f098a76e" category="paragraph">以下报告节点是本地节点，因为 LUN 实际位于 FC 节点 node_A_1-FC 和 node_A_2-FC 上。</block>
   <block id="ada767f49af9e4d84ffa661e5dca75c7" category="list-text">在 MetroCluster 节点上，添加报告节点： `lun mapping add-reporting-nodes -vserver svm-name -path /vol/vsa_1_vol* /lun_linux_* -nodes node1 ， node2 -igroup igroup_linux`</block>
   <block id="7b0a84102a195b8e0f8d8953620707ba" category="list-text">在 MetroCluster 节点上，验证新添加的节点是否存在： `lun mapping show -vserver svm-name -fields reporting-nodes -ostype linux vserver path igroup reporting-nodes`</block>
-  <block id="33a3004b4b08a0f2ce598422f5d7b5f6" category="list-text">在主机上，问题描述以下命令以重新扫描主机上的 SCSI 总线并发现新添加的路径：`` /usr/bin/rescan-scsi-bus.sh -a``</block>
   <block id="897e36e6985e9d4eb2bed54f3762a125" category="list-text">在主机上，问题描述以下命令以列出新添加的路径： `sanlun lun show -p`</block>
   <block id="2a12888d763445436f29b56694f714b2" category="paragraph">每个 LUN 显示四个路径。</block>
   <block id="2511d667d00c1cb6eba362bc0093b244" category="list-text">在 MetroCluster 上，将包含 LUN 的卷从 FC 移动到 IP 节点。</block>
@@ -3425,7 +3422,6 @@
   <block id="8ab7ca6cd6e1f79872ab4f322117ca76" category="list-text">从 MetroCluster IP 节点中，删除 Linux LUN 的远程报告节点（ MetroCluster IP 节点）： `lun mapping remove-reporting-nodes -vserver vsa_1 -path * -igroup igroup_linux -remote-nodes true`</block>
   <block id="05048e4fdd078ddd77168cd8270fe3f4" category="paragraph">在这种情况下，远程节点为 FC 节点。</block>
   <block id="e90434592ed415a541e2a6f03284ae2d" category="list-text">从 MetroCluster IP 节点中，检查 LUN 的报告节点： `lun mapping show -vserver vsa_1 -fields reporting-nodes -ostype linux`</block>
-  <block id="1e7ae3480577387e1ba55438a03a4513" category="list-text">在 iSCSI 主机上，重新扫描 SCSI 总线： ` /usr/bin/rescan-scsi-bus.sh -r`</block>
   <block id="d535eedec31c0a58f698132001cbc9bb" category="paragraph">删除的路径是 FC 节点的路径。</block>
   <block id="39128f9051c3d4355aead1a61c996c25" category="summary">您必须了解 MetroCluster 升级，扩展或过渡之间的差异，并选择与您的目标匹配的操作步骤。</block>
   <block id="c614230ffa3ceef0cb27e7fbc1f50307" category="doc">确定要使用的操作步骤</block>
@@ -3874,21 +3870,17 @@
   <block id="aba0064857c6ce89cc764da8d55ce5c1" category="doc">将 FC SAN 工作负载从 MetroCluster FC 移动到 MetroCluster IP 节点</block>
   <block id="73f9743e086ef8ac735d8d9a5a299535" category="list-text">在 MetroCluster IP 节点上设置新的 FC 接口（ LIF ）：</block>
   <block id="e050f35561c7894ee0a0e945c979a806" category="list-text">如果需要，请在 MetroCluster IP 节点上修改 FC 端口，以便客户端连接到 FC 目标特性。</block>
-  <block id="4dbd9443241248d896c42809416cff33" category="paragraph">这可能需要重新启动节点。</block>
-  <block id="24bdd4e6fd63a2598d59b77c5076d636" category="list-text">在 IP 节点上为所有 SAN SVM 创建 FC LIF/ 接口。（可选）验证新创建的 FC LIF 中的 WWPN 是否已登录到 FC SAN 交换机</block>
   <block id="2ea8e9b085e6487dc8f8677dad1b2007" category="list-text">更新 MetroCluster IP 节点上新添加的 FC LIF 的 SAN 分区配置。</block>
   <block id="46be4a0b4ce48ea62086efafc65dbbab" category="paragraph">为了便于移动包含主动为 FC SAN 客户端提供数据的 LUN 的卷，请更新现有 FC 交换机分区，以允许 FC SAN 客户端访问 MetroCluster IP 节点上的 LUN 。</block>
   <block id="7cbcf73edeac7dc26492a2312ceba51d" category="list-text">在 FC SAN 交换机（ Cisco 或 Brocade ）上，将新添加的 FC SAN LIF 的 WWPN 添加到分区中。</block>
   <block id="4c3d801187dd3bd83498ab4cc39962cb" category="list-text">更新，保存并提交分区更改。</block>
   <block id="780d54d0c3dcaee808b6d845b2755068" category="list-text">在客户端中，检查 FC 启动程序是否登录到 MetroCluster IP 节点上的新 SAN LIF ： `sanlun lun show -p`</block>
   <block id="7ff219f4bc061d194735ac6928a7e661" category="paragraph">此时，客户端应看到并登录到 MetroCluster FC 和 MetroCluster IP 节点上的 FC 接口。LUN 和卷仍以物理方式托管在 MetroCluster FC 节点上。</block>
-  <block id="047884ddcb740bc854ce7ccb563642b2" category="paragraph">由于 LUN 仅在 MetroCluster FC 节点接口上报告，因此客户端仅显示 FC 节点上的路径。在 sanlun lun show -p 和 multipath -ll -d 命令的输出中可以看到这一点。</block>
   <block id="7903e3004ba7d039fbd00c128bd855bf" category="list-text">修改报告节点以添加 MetroCluster IP 节点</block>
   <block id="b37c9b18c1fffc0a2c04176485cc32aa" category="list-text">列出 SVM 上 LUN 的报告节点： `lun mapping show -vserver svm-name -fields reporting-nodes -ostype linux`</block>
   <block id="a8ac1b93cf5cb550949dfea97a05b60a" category="paragraph">显示的报告节点是本地节点，因为 LUN 实际位于 FC 节点 A_1 和 A_2 上。</block>
   <block id="ed464784c3f6c07bdf64a809c105429b" category="list-text">添加报告节点以包括 MetroCluster IP 节点。</block>
   <block id="c74a06acbdafccea854827ab3c1389ac" category="list-text">列出报告节点并验证是否存在新节点：</block>
-  <block id="7cb622a0ff86a1bb88637f6d85cf9f43" category="list-text">重新扫描主机上的 SCSI 总线以发现新添加的路径： ` /usr/bin/rescan-scsi-bus.sh -a`</block>
   <block id="e1ee3a062911dfd9a5f37daadbab5edb" category="list-text">显示新添加的路径： `sanlun lun show -p`</block>
   <block id="05eafc0806ed7438ec13d238537264c7" category="paragraph">每个 LUN 将有四个路径。</block>
   <block id="42d2c72ed1b78cf2ef6ae94126ea459b" category="list-text">在控制器上，将包含 LUN 的卷从 MetroCluster FC 移动到 MetroCluster IP 节点。</block>
@@ -3900,7 +3892,6 @@
   <block id="3412078ebeec5a57c10057087d69f64e" category="list-text">删除报告节点并从客户端重新扫描路径。</block>
   <block id="4bb7a2cf16de0e88533fe09d20e8cacf" category="list-text">删除 Linux LUN 的远程报告节点（ MetroCluster FC 节点）： `lun mapping remove-reporting-nodes -vserver vsa_1 -path * -igroup igroup_linux -remote-nodes true`</block>
   <block id="f2eed01c29702a10f9291aaa3e13f368" category="list-text">检查 LUN 的报告节点： `lun mapping show -vserver vsa_1 -fields reporting-nodes -ostype linux`</block>
-  <block id="cb35b692ef8bc5399820e0ba83b8cb35" category="list-text">重新扫描客户端上的 SCSI 总线： ` /usr/bin/rescan-scsi-bus.sh -r`</block>
   <block id="8f8c9a65b706c1177309d44848cd6abe" category="paragraph">从 MetroCluster FC 节点删除路径：</block>
   <block id="9dbd28fb326c06062ade74756b1829ab" category="list-text">验证是否仅可从主机中看到 MetroCluster IP 节点的路径： `sanlun lun show -p`</block>
   <block id="0dcfa974a402a3458da069a245602792" category="list-text">如果需要，请从 MetroCluster FC 节点中删除 iSCSI LIF 。</block>
@@ -9864,7 +9855,6 @@
   <block id="6a711c2982ba094c44be794ffb3bf1a2" category="list-text">单击此链接，然后输入您的用户名以及在配置网桥时指定的密码。</block>
   <block id="3fff43b275954b2824b3aee6836ae256" category="paragraph">`sasargets` 命令输出显示了连接到网桥的设备（磁盘和磁盘架）。输出行按顺序编号，以便您可以快速统计设备数量。</block>
   <block id="4948cb8b3eded5b39ec6d64f06687462" category="list-text">验证命令输出是否显示网桥已连接到其应连接的堆栈中的所有磁盘和磁盘架。</block>
-  <block id="b952b3eddebea29b6169cd5bd56a3bc5" category="paragraph">如果控制器模块配置了四端口 FC 适配器，请确保存储堆栈连接到同一 ASIC 上的两个 FC 端口。端口 a 和端口 b 共享同一个 ASIC ，端口 c 和端口 d 共享同一个 ASIC 。请勿将磁盘架堆栈连接到端口 A 和端口 b请改用端口 A 和端口 c ，或者使用端口 b 和端口 d ，以避免 ASIC 出现故障时出现单点故障。</block>
   <block id="48dda5bb7b1f8b58b068fa47d9879c67" category="paragraph">如果控制器模块配置有多个 FC 适配器，请勿使用缆线将两个网桥端口连接到同一个适配器。您应将 FC 端口 1 分配给适配器 A ，将 FC 端口 2 分配给适配器 B ，以避免单点故障。</block>
   <block id="9c99fef0430bb16c4a28d231ae5f8299" category="paragraph">要设置使用原生磁盘和阵列 LUN 的延伸型 MetroCluster 配置，必须使用 FC-SAS 网桥或 SAS 光缆将 ONTAP 系统连接到磁盘架。此外，还必须使用 FC 交换机将阵列 LUN 连接到 ONTAP 系统。</block>
   <block id="f1ab023e5e9e9bdeb7a934c85edec3d1" category="paragraph">要使 ONTAP 系统同时连接到原生磁盘和阵列 LUN ，至少需要八个 HBA 端口。</block>
@@ -9890,7 +9880,6 @@
   <block id="f2d45f03c22fbeb03b74cbd880d693fe" category="list-text">更换光纤连接或延伸型 MetroCluster FC 配置中灾难恢复站点的硬件</block>
   <block id="786bcd5bd1b18eea716b58462b00e890" category="summary">如果您正在使用 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务 \ （ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。</block>
   <block id="ef402cf927be6e8ac7911e7437ce8e76" category="paragraph">如果您正在使用 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务（ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。</block>
-  <block id="40e7c640678c064d478e2a07e47eb68a" category="list-text">Telnet + 您可以使用 `get closePort` 命令检查特定协议是否已启用。</block>
   <block id="12e1a43f9bf6da32583b815f8c9f66e1" category="summary">配置网桥后，您可以开始为系统布线。</block>
   <block id="6fd15be7f6a37829673663b10699e3a1" category="paragraph">对于磁盘架，插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。</block>
   <block id="ffa7a5441f187dc7d843a978ea76034c" category="list-text">从堆栈中第一个逻辑磁盘架开始，将 IOM A 端口 3 连接到下一个磁盘架的 IOM A 端口 1 。重复此过程，直到堆栈中的每个 IOM A 均已连接。</block>
@@ -13271,4 +13260,14 @@
   <block id="6c92285fa6d3e827b198d120ea3ac674" category="inline-link-macro">此处</block>
   <block id="4992f0045a6913a2fb77a09884c4e55c" category="admonition">您可以使用所述的手动升级操作步骤在运行ONTAP 9.12.1或9.11.1的系统上执行上表中列出的控制器升级 <block ref="4254cdc4ef28ceba663ec4031c88c9dd" category="inline-link-macro-rx"></block>。</block>
   <block id="050dafe962829ef847f34f7607e36eb3" category="list-text"><block ref="050dafe962829ef847f34f7607e36eb3" category="inline-link-macro-rx"></block></block>
+  <block id="96011b4dbcd722924f3c53c7252522f8" category="list-text">在ONTAP中列出包含这些接口的SVM的iSCSI接口：<block ref="3c78b9e1a9fef2eea89905b0233c19ad" prefix=" " category="inline-code"></block></block>
+  <block id="2af958a8143c65676390b5e251abe90a" category="list-text">验证是否已<block ref="a78608714add699f555f2a66df0ee249" prefix=" " category="inline-code"></block> 软件包安装在Linux主机上。这样可以避免<block ref="b0c94f1494e22d963244e235719a2582" prefix=" " category="inline-code"></block> 使用重新扫描Linux主机以查找新映射的LUN时出错<block ref="685ca42026debec2f3691cc5faae67d5" prefix=" " category="inline-code"></block> 命令：</block>
+  <block id="f4b770b44b57fa84a8b8fc29d6c6c8bb" category="list-text">在主机上、问题描述执行以下命令以重新扫描主机上的SCSI总线并发现新添加的路径：<block ref="9e65638d5d13acb691c4bec2ede5a483" prefix=" " category="inline-code"></block></block>
+  <block id="d1b38e9b356895decf6917b400433e15" category="list-text">在iSCSI主机上、重新扫描SCSI总线：<block ref="06653a48f6165608045bd55ec32d95fb" prefix=" " category="inline-code"></block></block>
+  <block id="1f52bd2314f9805b0a0098b0f56a0dc4" category="paragraph">这可能需要重新启动节点。</block>
+  <block id="ab85fd4f549c390675df901a8ef3f78e" category="list-text">在IP节点上为所有SAN SVM创建FC IF/接口。(可选)验证新创建的FC SIFs中的WWPN是否已登录到FC SAN交换机</block>
+  <block id="cbabd53b8268cb963ad7b2c67de0b634" category="paragraph">由于 LUN 仅在 MetroCluster FC 节点接口上报告，因此客户端仅显示 FC 节点上的路径。可从的输出中看到此问题<block ref="41dc2c94e82e1c56ba876085acf5a974" prefix=" " category="inline-code"></block> 和<block ref="2fbf63deae0938cf669e6ca451f1eb2c" prefix=" " category="inline-code"></block> 命令</block>
+  <block id="7162464dfaefdef75b18029dcb1bb1f1" category="list-text">重新扫描主机上的SCSI总线以发现新添加的路径：<block ref="9e65638d5d13acb691c4bec2ede5a483" prefix=" " category="inline-code"></block></block>
+  <block id="9b3bd2afae038f8967e9373560a3b6d2" category="list-text">重新扫描客户端上的SCSI总线：<block ref="06653a48f6165608045bd55ec32d95fb" prefix=" " category="inline-code"></block></block>
+  <block id="77139d079fd912afd88e4ca7f5623393" category="paragraph">如果控制器模块配置有四端口FC适配器、请验证存储堆栈是否未连接到同一ASIC上的两个FC端口。端口 a 和端口 b 共享同一个 ASIC ，端口 c 和端口 d 共享同一个 ASIC 。请勿将磁盘架堆栈连接到端口 A 和端口 b请改用端口 A 和端口 c ，或者使用端口 b 和端口 d ，以避免 ASIC 出现故障时出现单点故障。</block>
 </blocks>

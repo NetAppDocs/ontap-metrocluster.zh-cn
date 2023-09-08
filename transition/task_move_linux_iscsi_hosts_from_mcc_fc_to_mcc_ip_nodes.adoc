@@ -56,7 +56,7 @@ vsa_1 iscsi_lf__n2_p1_ 4 iqn.2020-01.com.netapp.englab.gdl:scspr1789621001 00:02
 
 2 entries were displayed.
 ----
-. 在 ONTAP 中列出包含这些接口的 SVM 的 iSCSI 接口： `iscsi interface show -vserver SVM-name`
+. 在ONTAP中列出包含这些接口的SVM的iSCSI接口： `iscsi interface show -vserver svm-name`
 +
 [listing]
 ----
@@ -210,7 +210,8 @@ vsa_1 /vol/vsa_1_vol1/lun_linux_3 igroup_linux node_A_1-FC,node_A_2-FC,node_A_1-
 
 12 entries were displayed.
 ----
-. 在主机上，问题描述以下命令以重新扫描主机上的 SCSI 总线并发现新添加的路径：`` /usr/bin/rescan-scsi-bus.sh -a``
+. 验证是否已 `sg3-utils` 软件包安装在Linux主机上。这样可以避免 `rescan-scsi-bus.sh utility not found` 使用重新扫描Linux主机以查找新映射的LUN时出错 `rescan-scsi-bus` 命令：
+. 在主机上、问题描述执行以下命令以重新扫描主机上的SCSI总线并发现新添加的路径： `/usr/bin/rescan-scsi-bus.sh -a`
 +
 [listing]
 ----
@@ -331,7 +332,8 @@ vsa_1 /vol/vsa_1_vol2/lun_linux_4   group_linux   node_A_1-IP,node_A_2-IP
 
 12 entries were displayed.
 ----
-. 在 iSCSI 主机上，重新扫描 SCSI 总线： ` /usr/bin/rescan-scsi-bus.sh -r`
+. 验证是否已 `sg3-utils` 软件包安装在Linux主机上。这样可以避免 `rescan-scsi-bus.sh utility not found` 使用重新扫描Linux主机以查找新映射的LUN时出错 `rescan-scsi-bus` 命令：
+. 在iSCSI主机上、重新扫描SCSI总线： `/usr/bin/rescan-scsi-bus.sh -r`
 +
 删除的路径是 FC 节点的路径。
 

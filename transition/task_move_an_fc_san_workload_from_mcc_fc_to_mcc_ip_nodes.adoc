@@ -19,7 +19,7 @@ summary: 在从 MetroCluster FC 无中断过渡到 IP 节点时，您必须无�
 +
 这可能需要重新启动节点。
 
-.. 在 IP 节点上为所有 SAN SVM 创建 FC LIF/ 接口。（可选）验证新创建的 FC LIF 中的 WWPN 是否已登录到 FC SAN 交换机
+.. 在IP节点上为所有SAN SVM创建FC IF/接口。(可选)验证新创建的FC SIFs中的WWPN是否已登录到FC SAN交换机
 
 
 . 更新 MetroCluster IP 节点上新添加的 FC LIF 的 SAN 分区配置。
@@ -34,7 +34,7 @@ summary: 在从 MetroCluster FC 无中断过渡到 IP 节点时，您必须无�
 此时，客户端应看到并登录到 MetroCluster FC 和 MetroCluster IP 节点上的 FC 接口。LUN 和卷仍以物理方式托管在 MetroCluster FC 节点上。
 
 +
-由于 LUN 仅在 MetroCluster FC 节点接口上报告，因此客户端仅显示 FC 节点上的路径。在 sanlun lun show -p 和 multipath -ll -d 命令的输出中可以看到这一点。
+由于 LUN 仅在 MetroCluster FC 节点接口上报告，因此客户端仅显示 FC 节点上的路径。可从的输出中看到此问题 `sanlun lun show -p` 和 `multipath -ll -d` 命令
 
 +
 [listing]
@@ -117,7 +117,8 @@ vsa_1   /vol/vsa_1_vol3/lun_linux_7   igroup_linux    A_1,A_2,B_1,B_2
 
 12 entries were displayed.
 ----
-.. 重新扫描主机上的 SCSI 总线以发现新添加的路径： ` /usr/bin/rescan-scsi-bus.sh -a`
+.. 验证是否已 `sg3-utils` 软件包安装在Linux主机上。这样可以避免 `rescan-scsi-bus.sh utility not found` 使用重新扫描Linux主机以查找新映射的LUN时出错 `rescan-scsi-bus` 命令：
+.. 重新扫描主机上的SCSI总线以发现新添加的路径： `/usr/bin/rescan-scsi-bus.sh -a`
 +
 [listing]
 ----
@@ -234,7 +235,7 @@ vsa_1 /vol/vsa_1_vol2/lun_linux_4 igroup_linux B_1,B_2
 
 12 entries were displayed.
 ----
-.. 重新扫描客户端上的 SCSI 总线： ` /usr/bin/rescan-scsi-bus.sh -r`
+.. 重新扫描客户端上的SCSI总线： `/usr/bin/rescan-scsi-bus.sh -r`
 +
 从 MetroCluster FC 节点删除路径：
 
