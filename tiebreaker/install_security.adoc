@@ -1,0 +1,175 @@
+---
+permalink: tiebreaker/install_security.html 
+sidebar: sidebar 
+keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
+summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，它还会在发生节点连接问题和站点灾难时发送 SNMP 通知。 
+---
+= 确保Tieb破碎 机主机和数据库安装的安全
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+对于运行MetroCluster Tiebreaker 1.5及更高版本的配置、您可以保护和强化主机操作系统和数据库。
+
+
+
+== 保护主机的安全
+
+以下准则介绍了如何保护安装Tiebreaker软件的主机的安全。
+
+
+
+=== 用户管理建议
+
+* 限制"root"用户的访问。
++
+** 您可以使用能够提升到root访问权限的用户来安装和管理Tiebreaker软件。 link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-sudo-access_configuring-basic-system-settings["管理sudo访问"^]
+** 您可以使用无法提升为root访问权限的用户来管理Tiebreaker软件。
+** 安装期间、必须创建一个名为"mcctbgrp"的组。主机root用户和安装期间创建的用户都必须是成员。只有此组的成员才能完全管理Tiebreaker软件。
++
+
+NOTE: 非此组成员用户无法访问Tiebreaker软件或命令行界面。您可以在主机上创建其他用户并使其成为组的成员。这些附加成员无法完全管理Tieber-软件。他们具有只读访问权限、无法添加、更改或删除显示器。
+
+** 请勿以root用户身份运行Tiebreaker。使用专用的无特权服务帐户运行Tiebreaker。
+
+
+* 更改/etc/snmp/snmpd.conf文件中的默认社区字符串。
+* 允许最小写入权限。无权限的Tiebreaker服务帐户不应有权覆盖其可执行二进制文件或任何配置文件。只有本地Tiebreaker存储(例如、集成后端存储)的目录和文件或审核日志才应由Tiebreaker用户写入。
+* 不允许匿名用户。
++
+** 将AllowTcpForwarding设置为"no"或使用match指令限制匿名用户。
+
+
+
+
+.相关信息
+* 用户和帐户管理
++
+link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/assembly_getting-started-with-managing-user-accounts_configuring-basic-system-settings["开始管理用户帐户"^]
+
++
+link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/introduction-to-managing-user-and-group-accounts_configuring-basic-system-settings["管理用户和组帐户简介"^]
+
+* 使用Web控制台或命令行界面管理用户和组
++
+link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-user-accounts-in-the-web-console-new_configuring-basic-system-settings["在Web控制台中管理用户帐户"^]
+
++
+link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-users-from-the-command-line_configuring-basic-system-settings["通过命令行管理用户"^]
+
++
+link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/editing-user-groups-using-the-command-line_configuring-basic-system-settings["使用命令行编辑用户组"^]
+
+* 管理root密码
++
+link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/changing-and-resetting-the-root-password-from-the-command-line_configuring-basic-system-settings["管理和重置根密码"^]
+
+
+
+
+
+=== 基线主机安全建议
+
+* 使用磁盘加密
++
+** 您可以启用磁盘加密。这可以是由Hostos (软件)或SVM主机提供的FullDiskEncryption (硬件)或加密。
+
+
+* 禁用允许传入连接的未使用服务。您可以禁用任何未使用的服务。Tiebreaker软件不需要为传入连接提供服务、因为Tiebreaker安装中的所有连接都是传出的。默认情况下可能启用且可以禁用的服务包括：
++
+** HTTP/HTTPS服务器
+** FTP服务器
+** Telnet、RSH、rlogin
+** NFS、CIFS和其他协议访问
+** RDP (RemoteDesktopProtocol、X11 Server、VNC或其他远程"桌面"服务提供程序。
++
+
+NOTE: 要远程管理主机、您必须保持串行控制台访问(如果支持)或至少启用一个协议。如果禁用所有协议、则需要对主机进行物理访问以进行管理。
+
++
+link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-system-services-with-systemctl_configuring-basic-system-settings["了解如何使用systemc联系 管理系统服务"^]
+
+
+
+* 使用FIPS保护主机安全
++
+** 您可以在FIPS兼容模式下安装主机操作系统、然后安装Tiebreaker。
++
+
+NOTE: OpenJDK 19会在启动时检查主机是否安装在FIPS模式下。无需手动更改。
+
++
+有关详细信息，请参见 link:https://access.redhat.com/documentation/ru-ru/openjdk/8/html/configuring_openjdk_8_on_rhel_with_fips/openjdk-default-fips-configuration["OpenJDK 8中的默认FIPS配置"^]
+
+** 如果您保护主机安全、则必须确保主机能够在没有用户干预的情况下启动。如果需要用户干预、则在主机意外重新启动时、Tieb破碎 机功能可能不可用。如果发生这种情况、Tieb破碎 机功能仅在手动干预后以及主机完全启动后可用。
+
+
+* 禁用Shell命令历史记录。
+* 请经常升级。Tiebreaker是一款主动开发的解决方案、经常更新对于整合安全修复以及对默认设置(如密钥长度或密码套件)进行的任何更改非常重要。
+* 订阅HashiCorp公告邮件列表以接收新版本的公告、并访问Tiebreaker ChangeLog以了解有关新版本最新更新的详细信息。
+* 使用正确的文件权限。在启动Tiebreaker软件之前、请始终确保对文件应用适当的权限、尤其是包含敏感信息的文件。
+* 多因素身份验证(MultiFactor Authentication、MFA)要求管理员使用多个用户名和密码来识别自己、从而增强了组织的安全性。用户名和密码虽然重要、但容易受到暴力攻击、并可能被第三方窃取。 link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/index["详细了解安全强化"^]
++
+** Red Hat Enterprise Linux 8提供了MFA、它要求用户提供多条信息、以便成功向帐户或Linux主机进行身份验证。追加信息 可能是通过SMS或Google Authenticator、Twilio Authy或FreeOTP等应用程序的凭据一次性发送到您的手机的密码。 link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/securing_networks/index["了解有关保护网络安全的更多信息"^]
+
+
+
+
+
+
+== 保护数据库安装的安全
+
+以下准则说明了如何保护和强化MariaDB 10.x数据库安装。
+
+* 限制"root"用户的访问。
++
+** Tiebreaker使用专用帐户。用于存储(配置)数据的帐户和表是在安装Tiebreaker期间创建的。只需要在安装期间提升对数据库的访问权限。
+
+
+* 在安装期间、需要以下访问和权限：
++
+** 创建数据库和表的功能
+** 创建全局选项的功能
+** 创建数据库用户并设置密码的功能
+** 能够将数据库用户与数据库和表关联并分配访问权限
++
+
+NOTE: 在Tiebreaker安装期间指定的用户帐户必须具有所有这些特权。不支持对不同任务使用多个用户帐户。
+
+
+
+* 对数据库使用加密
++
+** 支持空闲数据加密。 link:https://mariadb.com/kb/en/data-at-rest-encryption-overview/["详细了解空闲数据加密"^]
+** 传输中的数据未加密。传输中的数据使用本地"SOCs"文件连接。
+** MariaDB的FIPS兼容性—您不需要在数据库上启用FIPS兼容性。在FIPS兼容模式下安装主机即可。
++
+link:https://www.mysql.com/products/enterprise/tde.html["了解MySQL企业级透明数据加密(TDE)"^]
+
++
+
+NOTE: 在安装TiebrAKER软件之前、必须启用加密设置。
+
+
+
+
+
+.相关信息
+* 数据库用户管理
++
+link:https://dev.mysql.com/doc/refman/8.0/en/access-control.html["访问控制和帐户管理"^]
+
+* 保护数据库的安全
++
+link:https://dev.mysql.com/doc/refman/8.0/en/security-against-attack.html["使MySQL安全防范攻击者攻击"^]
+
++
+link:https://mariadb.com/kb/en/securing-mariadb/["保护MariaDB的安全"^]
+
+* 保护存储安装的安全
++
+link:https://developer.hashicorp.com/vault/tutorials/operations/production-hardening/["生产强化"^]
+
+

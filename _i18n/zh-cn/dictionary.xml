@@ -2904,19 +2904,12 @@
   <block id="4bb6eb436a53b66a4cce0bbf726cb740" category="paragraph">如果您不再需要监控 MetroCluster 配置，则可以删除 Tiebreaker 软件正在监控的 MetroCluster 配置。</block>
   <block id="f434e67fe7c948db94749474e31b44c4" category="summary">版权和商标</block>
   <block id="d5e32abfbd3e5376cc7d90c1003b3516" category="summary">Tiebreaker 软件可为集群存储环境提供监控功能。此外，它还会在发生节点连接问题和站点灾难时发送 SNMP 通知。</block>
-  <block id="1e03abc52b8015d8bfda380a49a74d3d" category="doc">安装 Tiebreaker 软件</block>
-  <block id="dfecead04927b98b4718817e8ee72b45" category="section-title">安装或升级 Tiebreaker 软件的系统要求</block>
-  <block id="41cf1c389a424db4cc6188d92f8873e1" category="paragraph">MetroCluster Tiebreaker 软件具有以下监控功能和要求：</block>
-  <block id="fa16f1eaa9378fa31cb55f8791abfbc4" category="list-text">可同时监控多达 15 个 MetroCluster 配置。</block>
-  <block id="74c24f77157a44b3d1b75c7a631b2f1a" category="list-text">支持 MetroCluster IP ， MetroCluster FC 和延伸型 MetroCluster 配置的组合。</block>
-  <block id="0051a43c14e5ca151dedc81a1b8f3b8e" category="list-text">硬件和软件：</block>
   <block id="f211a801e18d8052b211fd5a87a83253" category="list-text">4 GB RAM</block>
   <block id="6d6a8e3be3c8694034944ec6e631c4be" category="list-text">磁盘容量： 8 GB</block>
   <block id="4c009b85d61ad347b56add00274e7453" category="list-text">防火墙：</block>
   <block id="3c78850f45b6edfc4af8ec0a93a2a1ab" category="list-text">直接访问以设置 AutoSupport 消息</block>
   <block id="cde2b4acd898c32670d230559bc6a550" category="list-text">SSH （端口 22/TCP ）， HTTPS （端口 443/TCP ）和 ping （ ICMP ）</block>
   <block id="d622b09f9e4518b80b223d0f3d83f9cd" category="section-title">安装 MetroCluster Tiebreaker 依赖关系</block>
-  <block id="c484a86c621669bc61d7e0ad166de57f" category="paragraph">在安装或升级 Tiebreaker 软件之前，您必须根据主机所在的 Linux 操作系统安装 MySQL 或 MariaDB 服务器。</block>
   <block id="b56e6f0af6a9b1b27daa95d4a36afdc4" category="list-text">安装 MySQL 或 MariaDB 服务器：</block>
   <block id="6d3e1ad458b8305490e7f3f555ee8c93" category="cell">如果 Linux 主机为</block>
   <block id="2f4f94cc5a0950a910a46c35cf923e05" category="list-text">安装 MySQL</block>
@@ -2937,8 +2930,6 @@
   <block id="35a8ad649b3194dfec4cd801fff9f656" category="section-title">升级运行 Tiebreaker 监控器的主机</block>
   <block id="dd369bd80b51fade2a8040849d0cdfb3" category="list-text">将所有显示器更改为观察者模式。</block>
   <block id="364ba5b8b3d13bcb103f29814c8bdc8b" category="list-text">要升级 Tiebreaker 主机，请按照以下操作步骤中的所有步骤进行操作：</block>
-  <block id="3da068989b58a6354f99f0db984b6df2" category="section-title">为 Tiebreaker 软件选择 NTP 源</block>
-  <block id="ce5425c2550b256ea43d516197da426d" category="paragraph">您应使用 Tiebreaker 软件的本地网络时间协议（ NTP ）源。它不应使用与 Tiebreaker 软件监控的 MetroCluster 站点相同的源。</block>
   <block id="0f96cd982e393bde238790eeffc45a91" category="summary">了解什么是 NetApp MetroCluster Tiebreaker 软件以及该软件如何区分故障类型非常有用，这样您可以高效地监控 MetroCluster 配置。您可以使用 Tiebreaker 命令行界面管理 MetroCluster 配置的设置并监控其状态和操作。</block>
   <block id="6896949575280512a6bafbe8d6a34966" category="doc">Tiebreaker 软件概述</block>
   <block id="afb7e20d234166f2551194936416feee" category="section-title">使用 NetApp MetroCluster Tiebreaker 软件检测故障</block>
@@ -9247,7 +9238,6 @@
   <block id="dd6ee1233d0e34b47648ba9732a67411" category="list-text">MetroCluster IP 配置的最佳实践。</block>
   <block id="8aec6a2bcfb78af1fffa4f2c52dfe49d" category="paragraph">Active IQ 数字顾问文档</block>
   <block id="b71713ca01ebff14cbc13bd7cfcb2b05" category="list-text">在 G720 交换机上，可以使用缆线将其他网桥连接到端口 36 至 39 。</block>
-  <block id="e4099d7825368082bd4b43f083cb9213" category="paragraph">和 ast ；端口 12 到 15 是为 Brocade 7840 交换机上的第二个 MetroCluster 或 DR 组预留的。</block>
   <block id="cab785737f7e01bc6cf334a3297e22c3" category="cell">Cisco 9250i 注：八节点 MetroCluster 配置不支持 Cisco 9250i 交换机。</block>
   <block id="affc2dad5d0c570ef33673937b9be675" category="list-text">按照中的步骤进行操作 <block ref="3165f1b1a2826f5bf149f919c95e9838" category="inline-link-macro-rx"></block> 部分以启用中继和 QoS 区域。</block>
   <block id="a33a00ea9f83279f39be404461d06dc1" category="paragraph">共享网络结构时的端口号与一节中显示的端口号不同。共享时，请使用端口 46 和 47 作为 ISL 端口。如果移动了 ISL 端口，则需要在中使用操作步骤 <block ref="57ce78b7c8c4db3fb44a8dbd447a3f1f" category="inline-link-macro-rx"></block> 部分以配置端口。</block>
@@ -10115,7 +10105,6 @@
   <block id="436d3553136413496f4c1ab193b0224a" category="list-text">验证 MySQL 登录是否正常工作：</block>
   <block id="a4fddf98cdbecd6a73cbff1c16747db4" category="paragraph">` 根@mcctb ~ ]# mysql -u root – p`</block>
   <block id="f514e222790761ef9b22f805623d3f36" category="paragraph">主机系统必须运行在 Red Hat Enterprise Linux （ RHEL ） 8 上。</block>
-  <block id="6dba822f853f76701715a4f97696a53a" category="list-text">安装 MariaDB 服务器：</block>
   <block id="cef7dfc261d8a8420d1938a361c69aa9" category="paragraph">` 根@mcctb ~ ]# yum install MariaDB-server.x86_64`</block>
   <block id="60d8aee94c480f814db37523f4bf4e7c" category="list-text">启动 MariaDB 服务器：</block>
   <block id="5dfdc749670b1b02e69d44bfaebcca7a" category="paragraph">` 根@mcctb ~ ]# systemctl start MariaDB`</block>
@@ -10123,7 +10112,6 @@
   <block id="937a7baab3806f1c4b9f6865102b0452" category="list-text">配置安全性和密码设置：</block>
   <block id="669f62b51efaf771cdc56bbd948e67a7" category="admonition">如果输入的 MySQL root 密码不正确， Tiebreaker 软件会指示已成功安装该密码，但会显示 Access Denied 消息。要解决问题描述问题，您必须使用 `rpm -e` 命令卸载 Tiebreaker 软件，然后使用正确的 MySQL root 密码重新安装该软件。</block>
   <block id="01e2bc057f0d0c9226b9b72fe02073dc" category="paragraph">`m监控器显示– status`</block>
-  <block id="62d21575da14f82a5429be44997ffec0" category="paragraph"><block ref="2d12f9e136c597ced9bd3fed196a9a6b" category="inline-xref-macro-rx"></block></block>
   <block id="69b040d4f8adaa4c34e437207036c73c" category="list-text">验证是否已配置 SNMP 设置：</block>
   <block id="da82ec774885b0fd4ea7e17756ffc01b" category="paragraph">`snmp config test`</block>
   <block id="3b0649c72650c313a357338dcdfb64ec" category="cell">注意</block>
@@ -10147,12 +10135,10 @@
   <block id="907482e03a773bacd1197e79ad353d1a" category="list-text">验证是否已启用 MySQL 在启动时自动启动：</block>
   <block id="9828a53574d333fd2cfd570e38922b4f" category="paragraph">` 根@mcctb ~ ]# systemctl list-unit-files mysqld.service`</block>
   <block id="6b78bf98fe8a405df5e22ad1b5b3a1ba" category="paragraph">如果在启动时未启用 MySQL 自动启动，请参见 MySQL 文档为您的安装启用自动启动功能。</block>
-  <block id="a6a94dd70978b2b80d52534ad2ff0763" category="section-title">为 MariaDB 启用自动启动设置</block>
   <block id="3a792898663e436585860dc61b16ebbe" category="list-text">启用自动启动服务：</block>
   <block id="702b74d571398b97d529b92567ce42a7" category="paragraph">` 根@mcctb ~ ]# systemctl enable mariadb.service`</block>
   <block id="5c77e1603fd1c29c92901cf08deda7ef" category="list-text">验证启动时 MariaDB 是否已启用自动启动：</block>
   <block id="20859c72927d81163c0ef8c70e5f5855" category="paragraph">` 根@mcctb ~ ]# systemctl list-unit-files mariadb.service`</block>
-  <block id="742dc42b1fe2cbc56c22d6c1ccda0d88" category="paragraph">如果您在升级之前将 Tiebreaker 监控器置于观察模式，则可以升级运行该监控器的主机，而不会造成任何中断。</block>
   <block id="c1b20466030a9b3540d83155ad9678ce" category="list-text">验证监控器是否处于观察模式：</block>
   <block id="3e3282862342655e70b0b4d411fbb78b" category="list-text">禁用观察模式可将所有显示器移回联机模式。</block>
   <block id="088c19240da89dbb9f8682a7168eea93" category="paragraph">验证新节点（ site_B ）是否处于 * 正在等待 site_A 的切回状态 *</block>
@@ -12061,7 +12047,6 @@
   <block id="2ad4e214daf4f2fbe760328984025270" category="list-text">两种MetroCluster 配置仅包含FAS2750/AFF A220或仅包含FAS500f/AFF A250、您必须选择MetroCluster 端口组3和4。</block>
   <block id="1c4e028af9d72f4e84ad919004a88581" category="list-text">两种MetroCluster 配置、其中一个MetroCluster 的类型为FAS2750/AFF A220、另一个为FAS500f/AFF A250、您必须为一个选择端口组3和4、为另一个选择端口组1和2。在中<block ref="166489b3c340ece1eccb5706fda90624" category="inline-link-rx"></block>、下拉字段1和2仅在下拉字段3和4中选择平台后才会填充受支持的平台。请参见 <block ref="4dfd72a31c74d2e269d1ca49dcbd7291" category="inline-link-macro-rx"></block> 有关如何使用端口表的详细信息、请参见。</block>
   <block id="eab2b22490c89198b6c41f5b7c6e6104" category="image-alt">通过MCC IP将AFF A250和a220连接到Broadcom bes 53248交换机</block>
-  <block id="cbb84028bf466aea1ee153b79bbe1a90" category="list-text">Red Hat Enterprise Linux 7到7.9或CentOS 7到7.9 64位(物理安装或虚拟机)</block>
   <block id="af5c7720c35a6c5bbdbd9a0118f9b86a" category="list-text">MariaDB 10.x (使用使用"yum install MariaDB-server.x86_64 "安装的默认版本)</block>
   <block id="f59e44c66a463087eb80b00cc5e7867c" category="list-text">您必须使用四台受支持的Cisco交换机、这些交换机的型号必须相同、并且具有相同的NX-OS版本和许可。</block>
   <block id="de27fc3292cfa48f233ba5969313e590" category="list-text">您不能在Cisco FC存储网络结构中使用加密或压缩。MetroCluster 配置不支持此功能。</block>
@@ -12494,8 +12479,6 @@
   <block id="80a030e3352fb989821aa7c6d15bcfad" category="inline-link-macro">公有 报告</block>
   <block id="dda33fc9a3cc083db08123f7d7e692a8" category="inline-link-macro">使用MetroCluster 自动强制切换的风险和限制</block>
   <block id="160ccce82c893f99e3f0614ca209899d" category="admonition">从ONTAP 9.12.1开始、您可以在MetroCluster IP配置中启用MetroCluster 自动强制切换功能。此功能是调解器辅助计划外切换的扩展。启用此功能之前、请查看 <block ref="a3a7e72ce1f5f993a44ac5e44397056b" category="inline-link-macro-rx"></block>。</block>
-  <block id="2c697c75c3912edd44d925cbf3b6566c" category="list-text">如果要配置MetroCluster 自动强制切换、请运行以下命令：<block ref="956c336644e4861eddad733e8ae9f18c" prefix=" " category="inline-code"></block></block>
-  <block id="4830d0eb35b6c7bd558e3bba215a9a3f" category="paragraph">启用此功能之前、请查看 <block ref="a3a7e72ce1f5f993a44ac5e44397056b" category="inline-link-macro-rx"></block>。</block>
   <block id="d49fffd0ec397c8f5b53fbeb1bc93ee2" category="paragraph">从ONTAP 9.12.1开始、您可以在MetroCluster IP配置中启用MetroCluster 自动强制切换功能。此功能是调解器辅助计划外切换(MAUSO)功能的扩展。</block>
   <block id="a6e62874574d6ae8ffc9dc6ea98c08e7" category="paragraph">启用MetroCluster 自动强制切换功能后、检测到站点故障时会自动进行切换。您可以使用此功能来补充MetroCluster IP自动切换功能。</block>
   <block id="64aca5dcd09842ce5e26c9c9f52a5c79" category="paragraph">如果您允许MetroCluster IP配置在自动强制切换模式下运行、则以下已知问题可能会导致数据丢失：</block>
@@ -12717,20 +12700,13 @@
   <block id="928cee617936aa2a4fa44c397f9242d0" category="paragraph">必须安装和配置Tiebreaker软件。</block>
   <block id="2cdf4d361a0254ca58a3bec3a13f4c97" category="admonition">要安装MetroCluster Tiebreaker软件和相关软件包、您必须具有"root"权限。</block>
   <block id="08821d58a0ccf55fa3dc84c09844d2be" category="admonition">每个MetroCluster 配置只能使用一个MetroCluster Tiebreaker监控器、以避免与多个Tiebreaker监控器发生任何冲突。</block>
-  <block id="32c7669c4b727c3dd30ff98a0c602bff" category="list-text">ONTAP 8.3.x、9.0、9.1、9.2、9.3、 9.4、9.5、9.6、9.7、9.8、 9.9.1、9.10.1、9.11.1或9.12.1.</block>
-  <block id="c332d926b941e2e435266f227d47f710" category="admonition">只有MetroCluster Tiebreaker 1.4与RHEL 7-7.9版本兼容。</block>
   <block id="589527a6e982279d79d4094b9cb6a17d" category="list-text">打开JRE 8</block>
   <block id="b54b2f8d3b7da844c5372449a2f2e34b" category="list-text">Red Hat Enterprise Linux 8.1至8.7</block>
-  <block id="b4405cee9bd65889bb2683ee9723f1a6" category="paragraph">对于运行Tiebreaker 1.4及更早版本的系统、请运行JRE 8。对于运行Tiebreaker 1.5及更高版本的系统、请运行OpenJDK 17、18或19。</block>
-  <block id="df3d50023ef4040e27c74e460fb82c76" category="section-title">保护主机和数据库安装的安全</block>
   <block id="a70255bc79978e30e2226102ec52a8b4" category="paragraph">对于运行MetroCluster Tiebreaker 1.5及更高版本的配置、您可以保护和强化主机操作系统和数据库。</block>
   <block id="fb42bff9ef98fcd52bf0394e5b82dbc4" category="section-title">保护主机的安全</block>
   <block id="ba55431ffbe07990825776e0189349f9" category="paragraph">以下准则介绍了如何保护安装Tiebreaker软件的主机的安全。</block>
   <block id="77af0d306f63f871aed8775a2fee284e" category="list-text">限制"root"用户的访问。</block>
-  <block id="61f7733093f25bb223a42607ca2406c1" category="list-text">您可以使用能够提升到root访问权限的用户来安装和管理Tiebreaker软件。</block>
   <block id="30550ee0195aa8c918aee8678daf6dc8" category="list-text">您可以使用无法提升为root访问权限的用户来管理Tiebreaker软件。</block>
-  <block id="33e6988813e236adab8df9d5f7902aa5" category="admonition">在安装期间、您应创建一个名为"mcctbgrp"的组。主机root用户和在安装期间创建的用户都是成员。只有此组的成员才能完全管理Tiebreaker软件。</block>
-  <block id="4c57532a7794b3dceffcfaa9c83555c3" category="list-text">非此组成员用户无法访问Tiebreaker软件或命令行界面。您可以在主机上创建其他用户并使其成为组的成员。这些附加成员无法完全管理Tiebreaker软件—他们只能访问ReadOnly、不能添加、更改或删除监控器。</block>
   <block id="c1f8ac8c1a56ebb5dd571d1786563ed6" category="list-text">使用磁盘加密</block>
   <block id="b0c14dc494b591e529b0b6c13cfbd8dd" category="list-text">您可以启用磁盘加密。这可以是由Hostos (软件)或SVM主机提供的FullDiskEncryption (硬件)或加密。</block>
   <block id="6b1d6ed0d8e28b63b51388bb7b60fd63" category="list-text">禁用允许传入连接的未使用服务。您可以禁用任何未使用的服务。Tiebreaker软件不需要为传入连接提供服务、因为Tiebreaker安装中的所有连接都是传出的。默认情况下可能启用且可以禁用的服务包括：</block>
@@ -12743,20 +12719,15 @@
   <block id="0b188830f4d45166fb7cb045426789cd" category="list-text">使用FIPS保护主机安全</block>
   <block id="94591c4a627b8be3a77cc91a7b0c39ed" category="list-text">您可以在FIPS兼容模式下安装主机操作系统、然后安装Tiebreaker。</block>
   <block id="3e91f62daa13f5b54cc2bbf0a5356d5c" category="admonition">OpenJDK 19会在启动时检查主机是否安装在FIPS模式下。无需手动更改。</block>
-  <block id="dd3533624ea6d478890db012d2a96e07" category="list-text">基线建议</block>
   <block id="28f1a9422a1c43b899dff40ac21f8195" category="list-text">请勿以root用户身份运行Tiebreaker。使用专用的无特权服务帐户运行Tiebreaker。</block>
   <block id="34b38a81712963f8bc96b575fb9e9d63" category="list-text">更改/etc/snmp/snmpd.conf文件中的默认社区字符串。</block>
   <block id="22792bff9ca0a70da01bbf3a534fb0a8" category="list-text">允许最小写入权限。无权限的Tiebreaker服务帐户不应有权覆盖其可执行二进制文件或任何配置文件。只有本地Tiebreaker存储(例如、集成后端存储)的目录和文件或审核日志才应由Tiebreaker用户写入。</block>
-  <block id="78e2f9fbccdc78c822a630b60fdb45d2" category="list-text">端到端传输层安全(TLS)。Tiebreaker应始终与TLS结合使用。如果在前Tiebreaker中使用了中间负载平衡器或反向代理、则应对系统每个组件(包括后端存储)之间的所有网络连接使用TLS、以确保在往返Tiebreaker的传输过程中对所有流量进行加密。如果可能、您应使用Tiebreaker的自定义响应标头功能设置HTTP严格传输安全性(HSTS)标头。</block>
-  <block id="d793625b2b0dd5dc51e94311cfc93a64" category="list-text">您必须安装并运行最新版本的OpenSSH。</block>
   <block id="ce7f15a2d18ae2db0c61e3bd34a36461" category="list-text">不允许匿名用户。</block>
   <block id="8e69b78393ea997402c47bcf5e3dc234" category="list-text">将AllowTcpForwarding设置为"no"或使用match指令限制匿名用户。</block>
   <block id="126a7d9f821252d114afe5a3bd55d49a" category="list-text">禁用Shell命令历史记录。</block>
   <block id="98789e20ad857b904690ce90333052d6" category="list-text">请经常升级。Tiebreaker是一款主动开发的解决方案、经常更新对于整合安全修复以及对默认设置(如密钥长度或密码套件)进行的任何更改非常重要。</block>
   <block id="59c35ef819d1dde06d960624fd6fafd1" category="list-text">订阅HashiCorp公告邮件列表以接收新版本的公告、并访问Tiebreaker ChangeLog以了解有关新版本最新更新的详细信息。</block>
   <block id="43a32642c83792b717745d6ba0b8ce88" category="list-text">使用正确的文件权限。在启动Tiebreaker软件之前、请始终确保对文件应用适当的权限、尤其是包含敏感信息的文件。</block>
-  <block id="1aeb0f3005db6ba70bd420bae561dc5d" category="list-text">多因素身份验证(MultiFactor Authentication、MFA)要求管理员使用多个用户名和密码来识别自己、从而增强了组织的安全性。用户名和密码虽然重要、但容易受到暴力攻击、并可能被第三方窃取。RHEL 8提供的MFA要求用户提供多条信息、以便成功向帐户或Linux主机进行身份验证。追加信息 可能是通过SMS或Google Authenticator、Twilio Authy或FreeOTP等应用程序的凭据一次性发送到您的手机的密码。</block>
-  <block id="92726ab5faeb2cb9208eaac9af0346bd" category="paragraph-title">用户管理</block>
   <block id="29e7446bddd5d43e5b134b0195974dc4" category="inline-link-macro">开始管理用户帐户</block>
   <block id="e7093675e4f7ff464368a2c6885c0eff" category="paragraph"><block ref="e7093675e4f7ff464368a2c6885c0eff" category="inline-link-macro-rx"></block></block>
   <block id="65c86c5fc3a334e5116b9bb178b8f05f" category="inline-link-macro">管理用户和组帐户简介</block>
@@ -12768,20 +12739,9 @@
   <block id="11e979f92d60857c96e7cef79b2098cd" category="inline-link-macro">使用命令行编辑用户组</block>
   <block id="5182eba1834da91a1e9b917f0ba52913" category="paragraph"><block ref="5182eba1834da91a1e9b917f0ba52913" category="inline-link-macro-rx"></block></block>
   <block id="b063c000eb4fba48d6e75b79adf42a9d" category="inline-link-macro">管理sudo访问</block>
-  <block id="9d11eb8265b20d1b5cc3258afeee0197" category="paragraph"><block ref="9d11eb8265b20d1b5cc3258afeee0197" category="inline-link-macro-rx"></block></block>
   <block id="c5d7be9e703097d4676ec00c2b6b552e" category="inline-link-macro">管理和重置根密码</block>
   <block id="6bff5b8adae91af0fd158a7e1d80c4fd" category="paragraph"><block ref="6bff5b8adae91af0fd158a7e1d80c4fd" category="inline-link-macro-rx"></block></block>
-  <block id="addb25ae677e0b8a55734ab57c09d585" category="inline-link-macro">加强安全性</block>
-  <block id="77948500a8ac32e65224ff3e88f584f7" category="paragraph"><block ref="77948500a8ac32e65224ff3e88f584f7" category="inline-link-macro-rx"></block></block>
-  <block id="7e6eb8a8fac82fdcaf2a5595f008d4f8" category="inline-link-macro">保护网络安全</block>
-  <block id="e987f366c618f88054ad128bd499b7ee" category="paragraph"><block ref="e987f366c618f88054ad128bd499b7ee" category="inline-link-macro-rx"></block></block>
-  <block id="48bf78646325b8dac0d057af95860a05" category="inline-link-macro">使用systemctl管理系统服务</block>
-  <block id="47bfa795f3168c6e7510c4c9ad03c05a" category="paragraph"><block ref="47bfa795f3168c6e7510c4c9ad03c05a" category="inline-link-macro-rx"></block></block>
-  <block id="48ff390f0fb64944dc24e6b219359ffe" category="inline-link-macro">RHEL 8文档</block>
-  <block id="810a71e7a8ed8d9a40260fe78cf59339" category="paragraph"><block ref="810a71e7a8ed8d9a40260fe78cf59339" category="inline-link-macro-rx"></block></block>
   <block id="a0b41d356b93c9dfaa68be7187603656" category="inline-link-macro">OpenJDK 8中的默认FIPS配置</block>
-  <block id="afa39d1513aaa715d473b01160b979a5" category="paragraph"><block ref="afa39d1513aaa715d473b01160b979a5" category="inline-link-macro-rx"></block></block>
-  <block id="da450a003a78f5bc0db625b903ebe4df" category="admonition">如果保护主机的安全、则必须确保主机能够在没有用户干预的情况下启动。如果需要用户干预、则在主机意外重新启动时、Tiebreaker功能可能不可用。在这种情况下、只有在手动干预后以及主机完全启动后、Tiebreaker功能才可用。</block>
   <block id="c22cb96c998e3ef3a46e95e20b46cc25" category="section-title">保护数据库安装的安全</block>
   <block id="dde18c163a52fbc5fd51944f7a5cc78a" category="paragraph">以下准则说明了如何保护和强化MariaDB 10.x数据库安装。</block>
   <block id="72cc9b23ef9181d84a5d1574a7d6b0fa" category="list-text">限制"root"用户的访问。</block>
@@ -12793,10 +12753,8 @@
   <block id="35217fef3323400eef6c43eae284fa4f" category="list-text">能够将数据库用户与数据库和表关联并分配访问权限</block>
   <block id="60353b50c7233098e0964ca219364fc6" category="admonition">在Tiebreaker安装期间指定的用户帐户必须具有所有这些特权。不支持对不同任务使用多个用户帐户。</block>
   <block id="9dc09eec2f0b114fc44ada1400453e18" category="list-text">对数据库使用加密</block>
-  <block id="9061f04f4bcdcda1f9e55b752788fb3d" category="list-text">我们支持空闲数据加密</block>
   <block id="aa6d61e03c8f89f9d032024a34407fc4" category="list-text">传输中的数据未加密。传输中的数据使用本地"SOCs"文件连接。</block>
   <block id="247b92755de52d8ede5f08728ea55244" category="list-text">MariaDB的FIPS兼容性—您不需要在数据库上启用FIPS兼容性。在FIPS兼容模式下安装主机即可。</block>
-  <block id="853fa7832b3e31e56f9427d88404dee9" category="admonition">如果您需要加密、则必须在安装Tiebreaker软件之前启用加密设置。</block>
   <block id="26f428eaa625d88e18348654825b4df2" category="list-text">数据库用户管理</block>
   <block id="65c931ac7059c8d8027b5347a2bc458a" category="inline-link-macro">访问控制和帐户管理</block>
   <block id="6e668ee7d7022baf28de7345f448095c" category="paragraph"><block ref="6e668ee7d7022baf28de7345f448095c" category="inline-link-macro-rx"></block></block>
@@ -12805,11 +12763,6 @@
   <block id="529e037a8731bcfd360d39247cd9009f" category="paragraph"><block ref="529e037a8731bcfd360d39247cd9009f" category="inline-link-macro-rx"></block></block>
   <block id="6c64c3998d1974786fb6c7319be77e44" category="inline-link-macro">保护MariaDB的安全</block>
   <block id="85909cec38d8e32308f892163433f22f" category="paragraph"><block ref="85909cec38d8e32308f892163433f22f" category="inline-link-macro-rx"></block></block>
-  <block id="f460d5928c4cc0c85aa0f4f16edeefb7" category="list-text">空闲数据加密</block>
-  <block id="a39641b0bac8191fa991bd279a1cb8aa" category="inline-link-macro">空闲数据加密概述</block>
-  <block id="481b20702b29a344c7e3fbc0ed5c8cd2" category="paragraph"><block ref="481b20702b29a344c7e3fbc0ed5c8cd2" category="inline-link-macro-rx"></block></block>
-  <block id="1d262274bf6315ede4b316f1c1ac7294" category="inline-link-macro">MySQL企业透明数据加密(TDE)</block>
-  <block id="c738467feabecf5154d502220ea938b4" category="paragraph"><block ref="c738467feabecf5154d502220ea938b4" category="inline-link-macro-rx"></block></block>
   <block id="c212b56e6344256b819057aa0ff26e93" category="list-text">保护存储安装的安全</block>
   <block id="adfa274b93101556376a5c1c110a25b1" category="inline-link-macro">生产强化</block>
   <block id="3de794741da4d53ee89d2cfb65848ddb" category="paragraph"><block ref="3de794741da4d53ee89d2cfb65848ddb" category="inline-link-macro-rx"></block></block>
@@ -12819,28 +12772,15 @@
   <block id="6641dbbe07c8e6fe53f1f58917a97776" category="list-text">安装和配置存储。</block>
   <block id="f798a783218170fc044aaf03491e8c63" category="inline-xref">安装和配置存储</block>
   <block id="ef1f1252873864d80f380df4f260b300" category="paragraph"><block ref="11cd3d25aa255f8670dd0bfb1bb1d11c" category="inline-xref-macro-rx"></block></block>
-  <block id="4f98b9e93c5515ca7d85806f3a0879e7" category="paragraph">在安装或升级Tiebreaker软件之前、必须在主机系统上安装JRE。对于运行Tiebreaker 1.4及更早版本的系统、请运行JRE 8。对于运行Tiebreaker 1.5及更高版本的系统、请运行OpenJDK 17、18或19。此示例中的输出显示JRE 1.0.0。(JRE 8)。</block>
   <block id="037b7d55a30f474064c10ac0edbaf6d3" category="list-text">以"root"用户或可更改为高级权限模式的sudo用户身份登录。</block>
-  <block id="a5bdeb77664eccd64392e790b5c620a8" category="paragraph"><block ref="350a7ebb397b46f12bb07dab4792547e" prefix="" category="inline-code"></block></block>
   <block id="75c3358765861dfefd4446691eccaebc" category="paragraph">如果您没有或不想使用本地存储服务器、则必须安装存储。您可以参考此标准操作步骤 来安装存储、也可以参考Hashicorp安装说明来了解其他准则。</block>
-  <block id="ae861828484d4409805ec1edb73c2ede" category="admonition">如果网络中有存储服务器、则可以将MetroCluster Tiebreaker主机配置为使用该存储安装。在这种情况下、您不需要在主机上安装Vault。</block>
   <block id="6ab2b19db2409ff46893b7cf13d70d9d" category="list-text">下载存储zip文件。</block>
   <block id="67445ff9dcb93ae0c427e0999e64cf35" category="list-text">解压缩存储文件。</block>
   <block id="17ddf110eb6e52617c8b7cf887babcb0" category="list-text">验证安装。</block>
-  <block id="cc99362ed38d28fc7af6e2036222f681" category="list-text">创建存储配置文件、并确保已在"/root"目录下创建配置文件。</block>
-  <block id="2a87ce89d72e3f90bd878edd443d805c" category="admonition">要确保与存储的通信安全、您应使用TLS。</block>
-  <block id="e8ab497790f83f5fc3740edafdb6d723" category="list-text">启动存储服务器：<block ref="853dbf1e30ce9caf7a28a537403dabef" prefix=" " category="inline-code"></block></block>
   <block id="c3fa5062efbe5addb0b829217e486e9a" category="list-text">导出存储地址。</block>
-  <block id="4de432bd9c82befd87621d345b19046d" category="paragraph">根据是否使用TLS选择正确的选项。</block>
-  <block id="3279d9dbec65a434bbbaf6075818c7c5" category="open-title">选项1。使用TLS时</block>
-  <block id="3f8c35444ffef5a5d567e66fe6a43370" category="open-title">选项2：不使用TLS时</block>
   <block id="91e6f0d9d3028913e9b2e534b86ef446" category="list-text">初始化存储。</block>
   <block id="4c540f118761cf389d03c5408a7163e8" category="list-text">导出存储根令牌。</block>
-  <block id="30a9676a23282e273d7f6cbe1022a6eb" category="list-text">使用已创建的三个密钥中的任何一个密钥取消存储密封。</block>
   <block id="4abdc80f31b6532d800862a32fe8ed41" category="list-text">验证存储密封状态是否为false。</block>
-  <block id="6244f17ea488fb3773f5740fe78c9df2" category="list-text">验证启动期间主机上是否启动了存储服务。</block>
-  <block id="cb6b0d7f9ede942a2b4f800a3fcfa03e" category="list-text">运行以下命令：<block ref="df6090330d99fecb3392520a0dd713fe" prefix=" " category="inline-code"></block></block>
-  <block id="bccb0874ce0428092d8ca432cf7ff3dc" category="list-text">运行以下命令：<block ref="1ff331fe1baeee901f4e0e0790fc6fc3" prefix=" " category="inline-code"></block></block>
   <block id="b25f8301169ab26c8100b788b5a04f1f" category="list-text">运行以下命令：<block ref="269b117015efb12595eebf74692e5cbc" prefix=" " category="inline-code"></block></block>
   <block id="fe78cd97d75c844b841d778a0e4b605e" category="list-text">运行以下命令：<block ref="cbf0dd11767a9f63b03243350db0a86e" prefix=" " category="inline-code"></block></block>
   <block id="df9fc85b72713a8a0de9939c26c83353" category="admonition">在安装MetroCluster Tiebreaker期间、系统会提示您使用此功能。如果要更改此方法以取消存储密封、则需要卸载并重新安装MetroCluster Tiebreaker软件。</block>
@@ -12850,8 +12790,6 @@
   <block id="c74f17ce72c64bc3a5d3eacc0affa867" category="paragraph">您应验证是否已为MySQL守护进程启用自动启动功能。如果 MetroCluster Tiebreaker 软件所在的系统重新启动，则打开 MySQL 守护进程会自动重新启动 MySQL 。如果 MySQL 守护进程未运行， Tiebreaker 软件将继续运行，但无法重新启动，并且无法更改配置。</block>
   <block id="7b21144e83a2d9bef049269b16711fb4" category="list-text">以登录身份<block ref="63a9f0ea7bb98050796b649e85481845" prefix=" " category="inline-code"></block> 可通过sudo进入高级权限模式的用户。</block>
   <block id="a85ec808ef0cc8f00cfefb33625bee2e" category="list-text">验证MariaDB服务器是否已启动：</block>
-  <block id="39082d88e748813ca7c4289ec8bb91b8" category="admonition">验证是否已为MariaDB启用"enable autosstart"设置。请参见 <block ref="357a9b2b77cd4c5da8d2b51300246283" category="inline-xref-macro-rx"></block>。</block>
-  <block id="516012473dc0564d6ae8f1bb21c934d0" category="paragraph">您应验证是否已为MariaDB启用自动启动功能。如果不启用自动启动功能，并且 MetroCluster Tiebreaker 软件所在的系统必须重新启动，则 Tiebreaker 软件将继续运行，但无法重新启动 MariaDB 服务，也无法更改配置。</block>
   <block id="fe62eeb322eff90b81676630826cee46" category="list-text">您必须已使用安装OpenJDK<block ref="366f2699f7c6384b966350ad31d76b9d" prefix=" " category="inline-code"></block> 命令：对于运行Tiebreaker 1.4及更早版本的系统、请运行JRE 8。对于运行Tiebreaker 1.5及更高版本的系统、请运行OpenJDK 17、18或19。此示例中的输出显示JRE 1.0.0。(JRE 8)。</block>
   <block id="8043dd95e39830a755744f552dcbfe87" category="list-text">您可以将MetroCluster Tiebreaker安装为具有足够管理权限的非root用户、以便执行Tiebreaker安装、创建表、用户以及设置用户密码等</block>
   <block id="9e60d73d0ca4d4a89597b4e9640c5dab" category="list-text">下载最新版本的 MetroCluster Tiebreaker 软件。此示例使用1.5版。</block>
@@ -12866,7 +12804,6 @@
   <block id="fe5c4e6d23d7df5197bb3306f0890eba" category="admonition">只有在从Tiebreaker 1.4版升级时、才能升级到Tiebreaker 1.5版。不支持从早期版本升级到Tiebreaker 1.5。</block>
   <block id="f02f0088b75e56893084f3c6d0e11382" category="paragraph">根据您是执行新安装还是升级现有安装、从下面选择正确的操作步骤。</block>
   <block id="53a3299075fc91e0efbd249fca6a3b62" category="open-title">执行新安装</block>
-  <block id="40459a63d8595edf157d373070798f30" category="list-text">运行命令：<block ref="03b215d9ee73daa38b9c74b25129b68a" prefix=" " category="inline-code"></block></block>
   <block id="d0797ac7be86e76f779b0cdc4f75e306" category="list-text">验证是否已安装受支持的OpenJDK版本、以及是否为主机上的当前Java版本。</block>
   <block id="bf9295a397fc51fb6414b02eb7dce4e7" category="admonition">要升级到Tiebreaker 1.5、您必须安装OpenJDK 17、18或19版。</block>
   <block id="ee7ebb7261a4f55ecf1a40b55f7ec926" category="list-text">验证存储服务是否已取消密封并正在运行：<block ref="95a8292a01bd6ac4b1373bf95faab177" prefix=" " category="inline-code"></block></block>
@@ -13270,4 +13207,114 @@
   <block id="7162464dfaefdef75b18029dcb1bb1f1" category="list-text">重新扫描主机上的SCSI总线以发现新添加的路径：<block ref="9e65638d5d13acb691c4bec2ede5a483" prefix=" " category="inline-code"></block></block>
   <block id="9b3bd2afae038f8967e9373560a3b6d2" category="list-text">重新扫描客户端上的SCSI总线：<block ref="06653a48f6165608045bd55ec32d95fb" prefix=" " category="inline-code"></block></block>
   <block id="77139d079fd912afd88e4ca7f5623393" category="paragraph">如果控制器模块配置有四端口FC适配器、请验证存储堆栈是否未连接到同一ASIC上的两个FC端口。端口 a 和端口 b 共享同一个 ASIC ，端口 c 和端口 d 共享同一个 ASIC 。请勿将磁盘架堆栈连接到端口 A 和端口 b请改用端口 A 和端口 c ，或者使用端口 b 和端口 d ，以避免 ASIC 出现故障时出现单点故障。</block>
+  <block id="9df52fd51f68e1f0a1c54d87fbcf2d9f" category="paragraph">只有当您要从第三个站点监控两个集群及其连接状态时，才需要 Tiebreaker 软件。Tieb破碎 机软件驻留在第三个站点的Linux主机上、可使集群中的每个配对节点区分站点间链路关闭时的ISL故障与站点故障。</block>
+  <block id="776aa0db93dc60ccb39a1a2bac58edd0" category="paragraph">Tieber4软件可以同时监控多达15个MetroCluster配置。它支持MetroCluster IP、MetroCluster FC和延伸型MetroCluster配置的组合。</block>
+  <block id="2c6d3f6cb9e7e0273e71c2ee07e103ef" category="paragraph">根据您的主机Linux操作系统、您必须先安装MySQL或MariaDB服务器、然后再安装或升级Tieb破碎 机软件。</block>
+  <block id="8844126d289515e2e309c080e84ee43c" category="paragraph">在安装或升级Tiebreaker软件之前、必须在主机系统上安装JRE。对于运行Tiebreaker 1.4及更早版本的系统、请运行JRE 8。对于运行Tiebreaker 1.5及更高版本的系统、请运行OpenJDK 17、18或19。</block>
+  <block id="b5331b4efb390ddc30f3887a25420519" category="admonition">以下示例中的输出显示了JRE 1.0.0。(JRE 8)。</block>
+  <block id="154b8d6790ee60fd4d75865b3817482f" category="list-text">检查可用的JRE版本：</block>
+  <block id="7865dda488c185a7d613d74e7df3f15e" category="paragraph"><block ref="a99f9b32ea34805f9efcc4f331f10afc" prefix="" category="inline-code"></block></block>
+  <block id="dbdea63ff1558fc908b06e926327423d" category="list-text">为您要安装的Tiebreer版本安装适当的JRE版本：</block>
+  <block id="27ed5e7119f96428586081a25adfe698" category="paragraph"><block ref="2ca50315d5ef6249cb28806653cc3bfe" prefix="" category="inline-code"></block></block>
+  <block id="b90b751e14131dd4f7b6cf9757e8e97a" category="admonition">如果网络中有存储服务器、则可以将MetroCluster Tiebreaker主机配置为使用该存储安装。如果执行此操作、则不需要在主机上安装存储。</block>
+  <block id="5ecbe9b96b4eb8694b1debe91d9978db" category="list-text">导航到<block ref="1e80cb7e0fbfc9f5c0509a465ecdf6cf" prefix=" " category="inline-code"></block> 目录：</block>
+  <block id="2cfe406f28049c6dd9fc09b125ac017c" category="list-text">导航到<block ref="887904812217cca9bc2b9adb875daf42" prefix=" " category="inline-code"></block> 目录：</block>
+  <block id="e5fed78390db14651df11502997eefc1" category="list-text">在下创建存储配置文件<block ref="887904812217cca9bc2b9adb875daf42" prefix=" " category="inline-code"></block> 目录。</block>
+  <block id="77ee658d0da12a583d90f46142713a70" category="paragraph">在<block ref="0f15246aac8ee03cc7aa24924035fc47" prefix=" " category="inline-code"></block> 提示符下、复制并运行以下命令以创建<block ref="c26ec7c333d6f205a8a1e455e5b63152" prefix=" " category="inline-code"></block> 文件：</block>
+  <block id="af2f867cdde590f904b311cec9ffb55f" category="list-text">启动存储服务器：</block>
+  <block id="50e00d7db9933bcd338f8ad7584b9a82" category="admonition">您必须将密钥ID和初始根令牌记录并存储在一个安全位置、以供日后在操作步骤中使用。</block>
+  <block id="fad6f3fe2d13976932c4de2f7321158a" category="list-text">使用创建的五个密钥中的任意三个来打开存储。</block>
+  <block id="bf66ee77a260c1d89b48aa7abc777a2c" category="paragraph">您必须运行<block ref="6f00b3924e35d47234f86b6ffaa53f3d" prefix=" " category="inline-code"></block> 命令：</block>
+  <block id="8c927363df00bd6b4c2576cf88ba5638" category="list-text">使用第一个密钥打开存储：</block>
+  <block id="bf04d903c71e68612d3567de44b27f15" category="list-text">使用第二个密钥打开存储：</block>
+  <block id="a4eba1eb7596f334db828f94b10645a6" category="list-text">使用第三个密钥打开存储：</block>
+  <block id="d1c2865b61def39472f4abfd355046b1" category="list-text">将存储服务配置为在引导时启动。</block>
+  <block id="edf98314f5da2615b0c5d3b4b5e0b9b4" category="list-text">运行以下命令：<block ref="8c9e9c1b15b194b39e4608bcfd2378bb" prefix=" " category="inline-code"></block></block>
+  <block id="e03f788bbf29419e636a27e1f472e11a" category="list-text">在<block ref="8a496517030fe431ec5836d0c8ae9ba7" prefix=" " category="inline-code"></block> 提示符下、复制并运行以下命令以创建存储服务文件。</block>
+  <block id="9b064180fbc505f7486a763d137edca1" category="list-text">安装MariaDB服务器：</block>
+  <block id="6b79acfbbc5bbc131d2f2f0095452588" category="admonition">当系统提示您输入root密码时、请将其留空、然后按Enter继续配置安全和密码设置。</block>
+  <block id="6f176c8a2e23e14b4e6fbf22deaea7f1" category="section-title">为MariaDB服务器启用自动启动设置</block>
+  <block id="b0d6d2175ecec830760ddc378a14c197" category="paragraph">您应验证是否已为MariaDB服务器启用自动启动功能。如果不启用自动启动功能，并且 MetroCluster Tiebreaker 软件所在的系统必须重新启动，则 Tiebreaker 软件将继续运行，但无法重新启动 MariaDB 服务，也无法更改配置。</block>
+  <block id="457e8f6231f529b8a11028ebae92d27b" category="doc">确保Tieb破碎 机主机和数据库安装的安全</block>
+  <block id="e97506311a4625245b4c7a4b57176ce3" category="section-title">用户管理建议</block>
+  <block id="3232523ff4a40d267f68a13bbb03df0c" category="list-text">您可以使用能够提升到root访问权限的用户来安装和管理Tiebreaker软件。 <block ref="9d11eb8265b20d1b5cc3258afeee0197" category="inline-link-macro-rx"></block></block>
+  <block id="5e5b4bcd476f7fe9e363a188ab99443b" category="list-text">安装期间、必须创建一个名为"mcctbgrp"的组。主机root用户和安装期间创建的用户都必须是成员。只有此组的成员才能完全管理Tiebreaker软件。</block>
+  <block id="0dcb0b0233e3f2356aaca0e848f12cc4" category="admonition">非此组成员用户无法访问Tiebreaker软件或命令行界面。您可以在主机上创建其他用户并使其成为组的成员。这些附加成员无法完全管理Tieber-软件。他们具有只读访问权限、无法添加、更改或删除显示器。</block>
+  <block id="fe59497b414fc467e4ab9b4b2fd0be66" category="list-text">用户和帐户管理</block>
+  <block id="7f727428c803270e583eaddeb013aca4" category="list-text">使用Web控制台或命令行界面管理用户和组</block>
+  <block id="e61515ae08809701bf1ead416820c29d" category="list-text">管理root密码</block>
+  <block id="88ab4db9318fd99a5973f7836c0a8ee2" category="section-title">基线主机安全建议</block>
+  <block id="061515bf7de72fb94353317af70f32a5" category="inline-link-macro">了解如何使用systemc联系 管理系统服务</block>
+  <block id="04c83df2471b53349a1380d6594a6dfb" category="paragraph"><block ref="04c83df2471b53349a1380d6594a6dfb" category="inline-link-macro-rx"></block></block>
+  <block id="cf4ea178c9802758c291b6fe04a80105" category="paragraph">有关详细信息，请参见 <block ref="afa39d1513aaa715d473b01160b979a5" category="inline-link-macro-rx"></block></block>
+  <block id="f6167fc25dca4237241452d4c50ff80f" category="list-text">如果您保护主机安全、则必须确保主机能够在没有用户干预的情况下启动。如果需要用户干预、则在主机意外重新启动时、Tieb破碎 机功能可能不可用。如果发生这种情况、Tieb破碎 机功能仅在手动干预后以及主机完全启动后可用。</block>
+  <block id="627c400de9f499aced07d42c09563122" category="inline-link-macro">详细了解安全强化</block>
+  <block id="cd1ebc5ab6a9193c3eccbb08b0b7ed73" category="list-text">多因素身份验证(MultiFactor Authentication、MFA)要求管理员使用多个用户名和密码来识别自己、从而增强了组织的安全性。用户名和密码虽然重要、但容易受到暴力攻击、并可能被第三方窃取。 <block ref="e9290f469c98ab9e8674920b93043758" category="inline-link-macro-rx"></block></block>
+  <block id="f49bc52f11d809c3633742c41eeec0a7" category="inline-link-macro">了解有关保护网络安全的更多信息</block>
+  <block id="29a308883ebb4a95b6ddf165b75bed02" category="list-text">Red Hat Enterprise Linux 8提供了MFA、它要求用户提供多条信息、以便成功向帐户或Linux主机进行身份验证。追加信息 可能是通过SMS或Google Authenticator、Twilio Authy或FreeOTP等应用程序的凭据一次性发送到您的手机的密码。 <block ref="963efb6e18c87b850ef6a75fe996325a" category="inline-link-macro-rx"></block></block>
+  <block id="0c1569b269fb49dcb3a19e461599f8b2" category="inline-link-macro">详细了解空闲数据加密</block>
+  <block id="d037eff76ce863bc8073ee65a4d7aa0f" category="list-text">支持空闲数据加密。 <block ref="b9ec4fd69d69350fd85a6abd4005da82" category="inline-link-macro-rx"></block></block>
+  <block id="8fdb4169cdca0d0e1f02d4b06965140f" category="inline-link-macro">了解MySQL企业级透明数据加密(TDE)</block>
+  <block id="8d9f6f71afbbb7fa07ef3e65a4faa015" category="paragraph"><block ref="8d9f6f71afbbb7fa07ef3e65a4faa015" category="inline-link-macro-rx"></block></block>
+  <block id="287230691bdd80a939d056f48b82a01a" category="admonition">在安装TiebrAKER软件之前、必须启用加密设置。</block>
+  <block id="74ca9f2037f85f9bee172d20503c7375" category="paragraph"><block ref="74ca9f2037f85f9bee172d20503c7375" category="inline-link-rx"></block></block>
+  <block id="6d4aa18fe97585a33f001d298b030e6f" category="list-text">下载<block ref="24c30cbfcff7f858d1a30b6193122a01" prefix=" " category="inline-code"></block> 密钥：</block>
+  <block id="bf23d230569e17dc83fe9974217175d4" category="list-text">创建非root用户和<block ref="d5a9c5909d563fb968e1c3dc3e45cd64" prefix=" " category="inline-code"></block> 组。</block>
+  <block id="38197215de6dcb136775c6796090b013" category="list-text">创建非root用户并设置密码。</block>
+  <block id="da3c3579b3acc10ce03265f6ec0f662b" category="paragraph">以下示例命令将创建一个名为的非root用户<block ref="9a0193f01098d3db3f929747ecaa2bda" prefix=" " category="inline-code"></block>：</block>
+  <block id="d7bb77ecb3c540f6987ab2f507fe3866" category="list-text">创建一个名为的组<block ref="d5a9c5909d563fb968e1c3dc3e45cd64" prefix=" " category="inline-code"></block>：</block>
+  <block id="43a9e8daa1ed87294695ca1cc6c44bfb" category="paragraph"><block ref="d41ee33fcac5b73ea8ab475ee787f3dc" prefix="" category="inline-code"></block></block>
+  <block id="244e7509a99f4be8215251e45f757157" category="list-text">将您创建的非root用户添加到<block ref="d5a9c5909d563fb968e1c3dc3e45cd64" prefix=" " category="inline-code"></block> 组。</block>
+  <block id="4a2e3179b016527d95a95ddbfdbbfb52" category="paragraph">以下命令将添加<block ref="9a0193f01098d3db3f929747ecaa2bda" prefix=" " category="inline-code"></block> 到<block ref="d5a9c5909d563fb968e1c3dc3e45cd64" prefix=" " category="inline-code"></block> 组：</block>
+  <block id="918fd9b3587bd491716d7f8d146e2977" category="paragraph"><block ref="4e4bd83892276983ed037073ae5e4a67" prefix="" category="inline-code"></block></block>
+  <block id="c59388cc8762bb4b6aadfd611484625f" category="paragraph">从包含RPM密钥的目录运行以下子步骤。</block>
+  <block id="a41a029b875096344ffc788be91b9870" category="list-text">检索并记录Java的绝对路径：</block>
+  <block id="bf2a1a18c2c6398b764f31d46e296f2f" category="list-text">运行以下命令：<block ref="03b215d9ee73daa38b9c74b25129b68a" prefix=" " category="inline-code"></block></block>
+  <block id="3ac11446b528739d814fa9e6668fa288" category="admonition">在安装期间出现提示时、请提供您先前创建并分配给的非root用户<block ref="d5a9c5909d563fb968e1c3dc3e45cd64" prefix=" " category="inline-code"></block> 组。</block>
+  <block id="2d0e9a7694bf5bc701c3af145a6bba71" category="doc">查看要求</block>
+  <block id="7ddb33edf227a18eb76201fcb9e2c9db" category="section-title">软件要求</block>
+  <block id="652ef26e1fed1ab97fdc4a6c15b02207" category="paragraph">您必须满足以下软件要求、具体取决于您正在安装的Tieb破碎 机版本。</block>
+  <block id="7756d8f2d40ed781cebba0f1c1f2b14d" category="cell">ONTAP Tieb破碎 机版本</block>
+  <block id="eae7ed824c301543a7e09d88d74d7b19" category="cell">支持的ONTAP版本</block>
+  <block id="7086defea73bc85dfa4588f2db92a805" category="cell">支持的 Linux 版本</block>
+  <block id="15ba8037db400229bb5f51956efd5111" category="cell">Java/MariaDB要求</block>
+  <block id="64b48b15797ae9ce8dde94af89070b3d" category="paragraph">对于Red Hat Enterprise Linux 8.1至8.7：</block>
+  <block id="389dbd9d6deb8eabbab651256bf77680" category="list-text">OpenJDK 17、18或19</block>
+  <block id="9e605ce3bb6ad134bb55c54d861ceb6a" category="paragraph">1.4.</block>
+  <block id="d1b3737d5bc8f98b3241666f4d0cd1cf" category="paragraph">ONTAP 9.2及更高版本</block>
+  <block id="09eecd50480033ff43835a86efed6607" category="list-text">Red Hat Enterprise Linux 7至7.9</block>
+  <block id="ae1dfcc629f4542382fd6286dbfe5a0d" category="list-text">CentOS 7到7.9 (64位)</block>
+  <block id="3f4ac8596d411de0ef0ad341cbeb82aa" category="paragraph">使用CentOS：</block>
+  <block id="66df7c0e2a0c107715ece74d340b7499" category="paragraph">*MariaDB 10.x (使用使用"yum install MariaDB-server.x86_64 "安装的默认版本)
+*JRE 8.</block>
+  <block id="024464eb7b3fd909a9746dff88c6b9c9" category="section-title">其他要求</block>
+  <block id="4b0a6058e6a6f2eafcc1db1a3a9573fb" category="paragraph">您必须注意以下附加要求：</block>
+  <block id="64f896c377dcdc9e0d5ae4809d1c3a73" category="list-text">在为Tieb破碎 机软件选择网络时间协议(Network Time Protocol、NTP)源时、必须使用本地NTP源。Tieb破碎 机软件不应使用与Tieb破碎 机软件监控的MetroCluster站点相同的源。</block>
+  <block id="490414e0366b091220802d406e52c076" category="doc">新增功能</block>
+  <block id="f68e01d366d2b521019205564511ae77" category="paragraph">每个版本都提供了MetroCluster Tieb破碎 机的增强功能。下面是MetroCluster Tieb破碎 机最新版本中的新增功能。</block>
+  <block id="c1748037d10cffabb8e95e4ccf77c613" category="section-title">增强功能</block>
+  <block id="6a2fab1a92eaec5f3c3d9b2d28d580c4" category="list-text">支持库更新</block>
+  <block id="5f6c185eb38c56187fc699dfbe62654b" category="list-text">安全性增强功能</block>
+  <block id="d278aad9be542d15b42d2b30e3ac0701" category="section-title">操作系统支持列表</block>
+  <block id="bc66e40e6d2b679666709d4696a3e3a0" category="cell">Tieb破碎 机版本</block>
+  <block id="2ff01ce7887ede183a0dcb4bf579a040" category="cell">CentOS 7 - 7.9</block>
+  <block id="afdc9e833dc368813fa4f4ad3b6ff344" category="cell">RedHat 7 - 7.9</block>
+  <block id="a3d07f12ac6e702822c54bd39beca7e2" category="cell">RedHat 8.1 - 8.7</block>
+  <block id="f3bda6ae20e6fe147fffa682501d3941" category="paragraph">如果您在升级之前将显示器置于观察模式、则可以升级运行Tieb破碎 机显示器的主机、而对系统造成的中断微乎其微。</block>
+  <block id="41d2ed82aa95a99454a02273bf71db16" category="inline-link-macro">安装或升级Tieb破碎 机软件包</block>
+  <block id="4df70720c02e1beb11cbc3ae87370ddf" category="paragraph"><block ref="4df70720c02e1beb11cbc3ae87370ddf" category="inline-link-macro-rx"></block></block>
+  <block id="e409cbaf30133c40afd8ba79b71e06ee" category="paragraph">#42；端口12到15是为Brocade 7840交换机上的第二个MetroCluster或DR组预留的。</block>
+  <block id="2a8e60d3a0b3d603c27fa9c4562178bf" category="summary">NetApp MetroCluster配置将基于阵列的集群与同步复制相结合、可提供持续可用性、从而立即按事务复制所有任务关键型数据。</block>
+  <block id="99d7ea00899cf98fde6ae4bd7a763fe6" category="list-text">验证自动计划外切换(Automatic Unun已 计划切换、AUSO)故障域的状态：</block>
+  <block id="914c0f805af7b6a979c9b14a8fca637d" category="admonition">以下示例输出 适用场景 ONTAP 9.13.1.及更高版本。对于ONTAP 9.12.1及更早版本、USO故障域状态应为<block ref="8371e13c4fc64771e634f39be50ec198" prefix=" " category="inline-code"></block>。</block>
+  <block id="1d2738c61f2ddb3b312cabca3378259b" category="list-text">(可选)配置MetroCluster自动强制切换。</block>
+  <block id="09bb2a0904755eb985fc0c00a8eaeb29" category="paragraph">您只能在高级权限级别下使用以下命令。</block>
+  <block id="142e30c0e2bc40260b6bba783159349f" category="admonition">使用此命令之前、请查看 <block ref="a3a7e72ce1f5f993a44ac5e44397056b" category="inline-link-macro-rx"></block>。</block>
+  <block id="626946adf45b7bb7ff18b4ffcb520404" category="paragraph"><block ref="c3c9b152afaa4bfa0aa390b3e2063a6d" prefix="" category="inline-code"></block></block>
+  <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新增功能</block>
+  <block id="f76aaf3aaa7b30238e7a3e2b1a04493b" category="sidebar">准备安装</block>
+  <block id="bbce41d7b43eef36d5db9bed94db0495" category="sidebar">安装依赖项</block>
+  <block id="9adb8eb34f7ed5a25405fe6af3b01c0a" category="sidebar">确保安装安全</block>
+  <block id="357559d73c5bb22e54ab3aeafca1013b" category="sidebar">安装软件包</block>
+  <block id="3689ab983cde586722e4881cdbf1822a" category="sidebar">升级主机</block>
 </blocks>

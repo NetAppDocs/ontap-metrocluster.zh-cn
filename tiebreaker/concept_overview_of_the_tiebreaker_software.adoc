@@ -17,9 +17,11 @@ summary: 了解什么是 NetApp MetroCluster Tiebreaker 软件以及该软件如
 
 == 使用 NetApp MetroCluster Tiebreaker 软件检测故障
 
-Tiebreaker 软件位于 Linux 主机上。只有当您要从第三个站点监控两个集群及其连接状态时，才需要 Tiebreaker 软件。这样可以使集群中的每个配对节点区分站点间链路关闭时的 ISL 故障与站点故障。
+只有当您要从第三个站点监控两个集群及其连接状态时，才需要 Tiebreaker 软件。Tieb破碎 机软件驻留在第三个站点的Linux主机上、可使集群中的每个配对节点区分站点间链路关闭时的ISL故障与站点故障。
 
 在 Linux 主机上安装 Tiebreaker 软件后，您可以在 MetroCluster 配置中配置集群以监控灾难情况。
+
+Tieber4软件可以同时监控多达15个MetroCluster配置。它支持MetroCluster IP、MetroCluster FC和延伸型MetroCluster配置的组合。
 
 
 

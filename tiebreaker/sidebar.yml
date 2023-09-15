@@ -2,12 +2,24 @@
 section: tiebreaker
 title: 安装和配置 MetroCluster Tiebreaker
 entries:
+- title: 新增功能
+  url: "/tiebreaker/whats_new.html"
 - title: Tiebreaker 软件概述
   url: "/tiebreaker/concept_overview_of_the_tiebreaker_software.html"
-- title: 配置对ONTAPI和SSH的管理员访问权限
-  url: "/tiebreaker/task_configure_ssh_ontapi.html"
 - title: 安装 Tiebreaker 软件
-  url: "/tiebreaker/task_install_the_tiebreaker_software.html"
+  entries:
+  - title: 准备安装
+    url: "/tiebreaker/install_prepare.html"
+  - title: 配置对ONTAPI和SSH的管理员访问权限
+    url: "/tiebreaker/task_configure_ssh_ontapi.html"
+  - title: 安装依赖项
+    url: "/tiebreaker/install_dependencies.html"
+  - title: 确保安装安全
+    url: "/tiebreaker/install_security.html"
+  - title: 安装软件包
+    url: "/tiebreaker/install_tiebreaker_package.html"
+  - title: 升级主机
+    url: "/tiebreaker/upgrade_host.html"
 - title: 配置 Tiebreaker 软件
   url: "/tiebreaker/concept_configuring_the_tiebreaker_software.html"
 - title: 为 Tiebreaker 软件配置 SNMP 设置

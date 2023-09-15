@@ -1,0 +1,74 @@
+---
+permalink: tiebreaker/whats_new.html 
+sidebar: sidebar 
+keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
+summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，它还会在发生节点连接问题和站点灾难时发送 SNMP 通知。 
+---
+= 新增功能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+每个版本都提供了MetroCluster Tieb破碎 机的增强功能。下面是MetroCluster Tieb破碎 机最新版本中的新增功能。
+
+
+
+== 增强功能
+
+[cols="25,75"]
+|===
+
+
+| ONTAP Tieb破碎 机版本 | 增强功能 
+
+
+ a| 
+1.5
+ a| 
+* 支持库更新
+* 安全性增强功能
+
+
+
+
+ a| 
+1.4.
+ a| 
+* 支持库更新
+
+
+|===
+
+
+== 操作系统支持列表
+
+[cols="16,12,12,12"]
+|===
+
+
+| Tieb破碎 机版本 | CentOS 7 - 7.9 | RedHat 7 - 7.9 | RedHat 8.1 - 8.7 
+
+
+ a| 
+1.5
+ a| 
+否
+ a| 
+否
+ a| 
+是的。
+
+
+
+ a| 
+1.4.
+ a| 
+是的。
+ a| 
+是的。
+ a| 
+是的。
+
+|===
