@@ -11,7 +11,7 @@ summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，
 
 
 [role="lead"]
-每个版本都提供了MetroCluster Tieb破碎 机的增强功能。下面是MetroCluster Tieb破碎 机最新版本中的新增功能。
+每个版本都提供了MetroCluster Tieb破碎 机软件的增强功能。下面是MetroCluster Tieb破碎 机最新版本中的新增功能。
 
 
 
