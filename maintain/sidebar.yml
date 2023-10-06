@@ -52,6 +52,8 @@ entries:
     url: "/maintain/task_change_speed_of_isl_ports_on_a_cisco_fc_switch.html"
   - title: 将 LSLs 添加到 Cisco 交换机
     url: "/maintain/task_add_lsls_to_a_cisco_fc_switch.html"
+  - title: 更改FC交换机的供应商或型号
+    url: "/maintain/task_change_an_fc_switch.html"
 - title: IP 交换机维护和更换
   entries:
   - title: 更换IP交换机或更改现有MetroCluster IP交换机的使用

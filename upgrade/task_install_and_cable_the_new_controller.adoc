@@ -68,7 +68,7 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2316769["《 FAS8200 系�
 
 .. 如果要配置有交换机的集群，请确定要在集群网络交换机上使用的端口。
 +
-请参见《适用于 Cisco 交换机的集群模式 Data ONTAP 交换机设置指南》，《 _NetApp 10G 集群模式交换机安装指南》或《 _NetApp 1G 集群模式交换机安装指南》，具体取决于您使用的交换机。
+请参见 https://library.netapp.com/ecm/ecm_get_file/ECMP1115327["《适用于Cisco交换机的集群模式Data ONTAP交换机设置指南》"^]， https://library.netapp.com/ecm/ecm_download_file/ECMP1117824["^《NetApp 10G集群模式交换机安装指南》"^] 或 https://library.netapp.com/ecm/ecm_download_file/ECMP1117853["《NetApp 1G集群模式交换机安装指南》"^]，具体取决于您使用的交换机。
 
 .. 将缆线连接到集群端口：
 

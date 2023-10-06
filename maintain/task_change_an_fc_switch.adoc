@@ -1,0 +1,110 @@
+---
+permalink: maintain/task_change_an_fc_switch.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, change, fc, switch 
+summary: '您可能需要更改FC交换机的供应商(从Cisco到Brocade或从Brocade到Brocade)、更改交换机型号或同时更改这两者。' 
+---
+= 更改FC交换机的供应商或型号
+:allow-uri-read: 
+
+
+[role="lead"]
+您可能需要将FC交换机的供应商从Cisco更改为Brocade、反之亦然、更改交换机型号或同时更改这两者。
+
+.关于此任务
+* 如果您使用的是经过NetApp验证的交换机、则此操作步骤适用。
+* 对于配置中的两个网络结构、您必须一次对一个网络结构执行此操作步骤中的步骤。
+
+
+.步骤
+. [[STEP_1, Step 1]]检查配置的运行状况。
++
+.. 检查是否已在每个集群上配置 MetroCluster 并使其处于正常模式： ` * MetroCluster show*`
++
+[listing]
+----
+cluster_A::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_A         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain auso-on-cluster-disaster
+Remote: cluster_B         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain auso-on-cluster-disaster
+----
+.. 检查是否已在每个节点上启用镜像： ` * MetroCluster node show*`
++
+[listing]
+----
+cluster_A::> metrocluster node show
+DR                           Configuration  DR
+Group Cluster Node           State          Mirroring Mode
+----- ------- -------------- -------------- --------- --------------------
+1     cluster_A
+              node_A_1       configured     enabled   normal
+      cluster_B
+              node_B_1       configured     enabled   normal
+2 entries were displayed.
+----
+.. 检查 MetroCluster 组件是否运行正常： ` * MetroCluster check run*`
++
+[listing]
+----
+cluster_A::> metrocluster check run
+
+Last Checked On: 10/1/2014 16:03:37
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          ok
+4 entries were displayed.
+
+Command completed. Use the "metrocluster check show -instance" command or sub-commands in "metrocluster check" directory for detailed results.
+To check if the nodes are ready to do a switchover or switchback operation, run "metrocluster switchover -simulate" or "metrocluster switchback -simulate", respectively.
+----
+.. 检查是否没有运行状况警报： ` * system health alert show*`
+
+
+. 在安装之前配置新交换机。
++
+按照中的步骤进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_reset_the_brocade_fc_switch_to_factory_defaults.html["配置 FC 交换机"]。
+
+. 通过按以下顺序删除连接、从旧交换机断开连接：
++
+.. 如果本地集群接口连接到交换机：
++
+... 断开本地集群接口的连接
+... 断开本地集群ISO的连接
+
+
+.. 断开MetroCluster IP接口。
+.. 断开MetroCluster的连接。
+
+
+. 关闭旧交换机、拔下缆线、然后用新交换机物理更换旧交换机。
+. 按以下顺序为交换机布线：
++
+您必须按照中的步骤进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_rack_the_hardware_components_mcc_fabric_and_ip.html["安装MetroCluster组件并为其布线"]。
+
++
+.. 使用缆线将此ISL连接到远程站点。
+.. 为MetroCluster IP接口布线。
+.. 为本地集群接口布线。
++
+如果本地集群接口连接到交换机：
+
++
+... 为本地集群接口布线。
+... 使用缆线连接本地集群ISO。
+
+
+
+
+. 打开交换机电源。
+. 重复执行、以验证MetroCluster 配置是否运行正常 <<第 1 步>>。
+. 对配置中的第二个网络结构重复步骤1至步骤7。
+

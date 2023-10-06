@@ -865,3 +865,44 @@ IP_switch_A_1# reload
 ----
 . 对 MetroCluster IP 配置中的其他三台交换机重复上述步骤。
 
+
+
+
+== 禁用未使用的ISL端口和端口通道
+
+NetApp建议禁用未使用的ISL端口和端口通道、以避免发出不必要的运行状况警报。
+
+. 使用RCF文件横幅确定未使用的ISL端口和端口通道：
++
+
+NOTE: 如果端口处于分支模式、则您在命令中指定的端口名称可能与RCIF横幅中指定的名称不同。您还可以使用RC框架 布线文件查找端口名称。
+
++
+[role="tabbed-block"]
+====
+.有关ISL端口详细信息、请参见
+--
+运行命令 `show port all`。
+
+--
+.有关端口通道详细信息、请参见
+--
+运行命令 `show port-channel all`。
+
+--
+====
+. 禁用未使用的ISL端口和端口通道。
++
+您必须对每个已确定的未使用端口或端口通道运行以下命令。
+
++
+[listing]
+----
+(SwtichA_1)> enable
+(SwtichA_1)# configure
+(SwtichA_1)(Config)# <port_name>
+(SwtichA_1)(Interface 0/15)# shutdown
+(SwtichA_1)(Interface 0/15)# end
+(SwtichA_1)# write memory
+----
+

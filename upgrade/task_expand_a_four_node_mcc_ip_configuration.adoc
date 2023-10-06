@@ -29,7 +29,6 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 * 新节点必须具有足够的存储空间来容纳旧节点的数据，并具有足够的磁盘来容纳根聚合和备用磁盘。
-* FAS2750或AFF A220系统不支持此操作步骤。
 
 
 

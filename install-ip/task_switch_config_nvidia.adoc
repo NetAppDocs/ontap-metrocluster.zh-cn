@@ -344,3 +344,56 @@ Running Step 24: Final reboot of the switch
 ... The switch will reboot if all steps applied successfully ...
 ----
 
+
+
+
+== 禁用未使用的ISL端口和端口通道
+
+NetApp建议禁用未使用的ISL端口和端口通道、以避免发出不必要的运行状况警报。
+
+. 使用RCF文件横幅确定未使用的ISL端口和端口通道：
++
+
+NOTE: 如果端口处于分支模式、则您在命令中指定的端口名称可能与RCIF横幅中指定的名称不同。您还可以使用RC框架 布线文件查找端口名称。
+
++
+`net show interface`
+
+. 使用RCF文件禁用未使用的ISL端口和端口通道。
++
+[listing]
+----
+cumulus@mcc1-integrity-a1:mgmt:~$ sudo python3 SN2100_v2.0_IP_Switch-A1.py runCmd
+[sudo] password for cumulus:
+    Running cumulus version  : 5.4.0
+    Running RCF file version : v2.0
+Help for runCmd:
+    To run a command execute the RCF script as follows:
+    sudo python3 <script> runCmd <option-1> <option-2> <option-x>
+    Depending on the command more or less options are required. Example to 'up' port 'swp1'
+        sudo python3 SN2100_v2.0_IP_Switch-A1.py runCmd swp1 up
+    Available commands:
+        UP / DOWN the switchport
+            sudo python3 SN2100_v2.0_IP_Switch-A1.py runCmd <switchport> state <up | down>
+        Set the switch port speed
+            sudo python3 SN2100_v2.0_Switch-A1.py runCmd <switchport> speed <10 | 25 | 40 | 100 | AN>
+        Set the fec mode on the switch port
+            sudo python3 SN2100_v2.0_Switch-A1.py runCmd <switchport> fec <default | auto | rs | baser | off>
+        Set the [localISL | remoteISL] to 'UP' or 'DOWN' state
+            sudo python3 SN2100_v2.0_Switch-A1.py runCmd [localISL | remoteISL] state [up | down]
+        Set the option on the port to support DAC cables. This option does not support port ranges.
+            You must reload the switch after changing this option for the required ports. This will disrupt traffic.
+            This setting requires Cumulus 5.4 or a later 5.x release.
+            sudo python3 SN2100_v2.0_Switch-A1.py runCmd <switchport> DacOption [enable | disable]
+cumulus@mcc1-integrity-a1:mgmt:~$
+----
++
+以下命令示例将禁用端口"swp14"：
+
++
+`sudo python3 SN2100_v2.0_Switch-A1.py runCmd swp14 state down`
+
++
+对标识的每个未使用的端口或端口通道重复此步骤。
+
+
