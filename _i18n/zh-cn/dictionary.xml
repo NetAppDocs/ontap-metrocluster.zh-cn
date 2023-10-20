@@ -12338,7 +12338,6 @@
   <block id="c1e630c896fe7378e2dd05cd5272a6ff" category="list-text"><block ref="c1e630c896fe7378e2dd05cd5272a6ff" category="inline-link-macro-rx"></block></block>
   <block id="e36e202b6cdca1dbc2cdea18cfdd7bdb" category="list-text"><block ref="e36e202b6cdca1dbc2cdea18cfdd7bdb" category="inline-link-macro-rx"></block></block>
   <block id="f6d453c97574893aee9bca0a4faee686" category="paragraph">`storage failover modify -node _node-name_-enable false`</block>
-  <block id="d1b92a4930d50c6ed1038655db0d2684" category="sidebar">所有ONTAP 产品文档</block>
   <block id="f91adcd268075ddcfabf631a5a33611e" category="list-text">使每个数据聚合脱机、然后将其删除：</block>
   <block id="d4fbfd12406441eb6b750cde2dcb9137" category="list-text">验证站点间交换机间链路(ISL)是否已启动且端口通道是否正常运行：</block>
   <block id="0e199c470dcfb3a63ccc62156cd2085f" category="paragraph">在以下示例中、对于远程站点链路、ISL端口"Eth1/15"到"Eth1/20"配置为"Po10"、而对于本地集群ISL、"Eth1/7"到"Eth1/8"的配置为"PO1"。"Eth1/15"到"Eth1/20"、"Eth1/7"到"Eth1/8"、"Po10"和"PO1"的状态应为"up"。</block>
@@ -13331,4 +13330,5 @@
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="35c124f455f44a154eb3b514029ee58a" category="section-title">安全信息和法规声明</block>
   <block id="a6518839a3ee2f900f136494094df3cf" category="paragraph"><block ref="a6518839a3ee2f900f136494094df3cf" category="inline-link-rx"></block></block>
+  <block id="f00ba2972a9c532b4ab2bf7cf4fe1350" category="paragraph">对于EFOS 3.10.0.3及更高版本、请使用<block ref="c09633a606c51a161b16f8bf38f5ebb1" prefix=" " category="inline-code"></block> 命令、如以下示例所示：</block>
 </blocks>

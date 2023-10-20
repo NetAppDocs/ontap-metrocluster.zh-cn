@@ -224,6 +224,29 @@ NOTE: 如果密钥已存在，则可能会要求您覆盖这些密钥。
 (Routing) (Config)#exit
 (Routing) (Config)#
 ----
++
+对于EFOS 3.10.0.3及更高版本、请使用 `ntp` 命令、如以下示例所示：
+
++
+[listing]
+----
+> (Config)# ntp ?
+
+authenticate             Enables NTP authentication.
+authentication-key       Configure NTP authentication key.
+broadcast                Enables NTP broadcast mode.
+broadcastdelay           Configure NTP broadcast delay in microseconds.
+server                   Configure NTP server.
+source-interface         Configure the NTP source-interface.
+trusted-key              Configure NTP authentication key number for trusted time source.
+vrf                      Configure the NTP VRF.
+
+>(Config)# ntp server ?
+
+ip-address|ipv6-address|hostname  Enter a valid IPv4/IPv6 address or hostname.
+
+>(Config)# ntp server 10.99.99.5
+----
 . 配置交换机名称：
 +
 `主机名 ip_switch_A_1`
