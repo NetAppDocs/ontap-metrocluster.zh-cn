@@ -3009,6 +3009,8 @@ Priv Protocol [DES(1)/noPriv(2)/AES128(3)/AES256(4)]): (2..2) [3]
 .关于此任务
 这些任务仅适用于具有 FC-SAS 网桥的系统。
 
+从Fabric OS 9.0.0开始、不支持使用SNMPv2监控Brocade交换机的运行状况、您必须改用SNMPv3。如果您使用的是SNMPv3、则必须先在ONTAP中配置SNMPv3、然后再继续下一节。有关详细信息，请参见 <<在 MetroCluster 配置中配置 SNMPv3>>。
+
 [NOTE]
 ====
 * 您应将网桥和节点管理 LIF 放置在专用网络中，以避免来自其他源的干扰。
@@ -3028,8 +3030,22 @@ NOTE: 从 ONTAP 9.8 开始， `storage switch` 命令将替换为 `ssystem switc
 .步骤
 . 将具有 IP 地址的交换机添加到每个 MetroCluster 节点：
 +
+您运行的命令取决于您使用的是SNMPv2还是SNMPv3。
+
++
+[role="tabbed-block"]
+====
+.使用SNMPv3添加交换机：
+--
+`storage switch add -address <ip_adddress> -snmp-version SNMPv3 -snmp-community-or-username <SNMP_user_configured_on_the_switch>`
+
+--
+.使用SNMPv2添加交换机：
+--
 `s存储交换机 add -address ipaddress`
 
+--
+====
 +
 必须对 MetroCluster 配置中的所有四个交换机重复执行此命令。
 

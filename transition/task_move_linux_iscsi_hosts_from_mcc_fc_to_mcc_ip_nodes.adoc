@@ -13,70 +13,83 @@ summary: 将 MetroCluster 节点从 FC 过渡到 IP 后，您可能需要将 iSC
 [role="lead"]
 将 MetroCluster 节点从 FC 过渡到 IP 后，您可能需要将 iSCSI 主机连接移动到新节点。
 
-在此过程中，系统将创建操作步骤 IPv4 接口。
+.关于此任务
+* IPv4接口是在设置新的iSCSI连接时创建的。
+* 主机命令和示例特定于Linux操作系统。
+* MetroCluster FC节点称为旧节点、MetroCluster IP节点称为新节点。
 
-这些过程中提供的主机命令和示例专用于 Linux 操作系统。
 
 
 
-== 设置新的 iSCSI 连接
+== 第1步：设置新的iSCSI连接
 
-[role="lead"]
-要移动 iSCSI 连接，您必须设置与 MetroCluster IP 节点的新 iSCSI 连接。
+要移动iSCSI连接、请设置与新节点的新iSCSI连接。
 
-. 在 MetroCluster IP 节点上创建 iSCSI 接口，并检查从 iSCSI 客户端到 MetroCluster IP 节点上新 IP 接口的 ping 连接。
+.步骤
+. 在新节点上创建iSCSI接口、并检查从iSCSI主机到新节点上新接口的ping连接。
 +
 https://docs.netapp.com/us-en/ontap/networking/create_a_lif.html["创建网络接口"^]
 
 +
-iSCSI 客户端应可访问 SVM 中的所有 iSCSI 接口。
+iSCSI主机应可访问SVM中的所有iSCSI接口。
 
-. 在 iSCSI 主机或客户端上，确定从主机到 MetroCluster FC 节点的现有 iSCSI 连接： `iscsiadm -m session`
+. 在iSCSI主机上、确定从主机到旧节点的现有iSCSI连接：
++
+[source, cli]
+----
+iscsiadm -m session
+----
 +
 [listing]
 ----
 [root@scspr1789621001 ~]# iscsiadm -m session
-
 tcp: [1] 10.230.68.236:3260,1156 iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6 (non-flash)
-
 tcp: [2] 10.230.68.237:3260,1158 iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6 (non-flash)
 ----
-. 验证 MetroCluster IP 节点的连接： `iscsi session show -vserver svm-name`
+. 在新节点上、验证与新节点的连接：
++
+[source, cli]
+----
+iscsi session show -vserver <svm-name>
+----
 +
 [listing]
 ----
-node_A_1-IP::*> iscsi session show -vserver vsa_1
-
+node_A_1-new::*> iscsi session show -vserver vsa_1
  Tpgroup Initiator Initiator
-
 Vserver Name TSIH Name ISID Alias
 --------- ------- ---- ------------------------ --------- ---------------------
 vsa_1 iscsi_lf__n1_p1_ 4 iqn.2020-01.com.netapp.englab.gdl:scspr1789621001 00:02:3d:00:00:01 scspr1789621001.gdl.englab.netapp.com
 vsa_1 iscsi_lf__n2_p1_ 4 iqn.2020-01.com.netapp.englab.gdl:scspr1789621001 00:02:3d:00:00:02 scspr1789621001.gdl.englab.netapp.com
-
 2 entries were displayed.
 ----
-. 在ONTAP中列出包含这些接口的SVM的iSCSI接口： `iscsi interface show -vserver svm-name`
+. 在新节点上、在ONTAP中列出包含这些接口的SVM的iSCSI接口：
++
+[source, cli]
+----
+iscsi interface show -vserver <svm-name>
+----
 +
 [listing]
 ----
 sti8200mcchtp001htp_siteA::*> iscsi interface show -vserver vsa_1
-
  Logical Status Curr Curr
-
-Vserver    Interface  TPGT Admin/Oper IP Address Node Port Enabled
----------- ---------- ---- ---------- --------------- ----------- ---- -------
-
+Vserver Interface  TPGT Admin/Oper IP Address Node Port Enabled
+------- ---------- ---- ---------- --------------- ----------- ---- -------
 vsa_1 iscsi_lf__n1_p1_ 1156 up/up 10.230.68.236 sti8200mcc-htp-001 e0g true
 vsa_1 iscsi_lf__n1_p2_ 1157 up/up fd20:8b1e:b255:805e::78c9 sti8200mcc-htp-001 e0h true
 vsa_1 iscsi_lf__n2_p1_ 1158 up/up 10.230.68.237 sti8200mcc-htp-002 e0g true
 vsa_1 iscsi_lf__n2_p2_ 1159 up/up fd20:8b1e:b255:805e::78ca sti8200mcc-htp-002 e0h true
 vsa_1 iscsi_lf__n3_p1_ 1183 up/up 10.226.43.134 sti8200mccip-htp-005 e0c true
 vsa_1 iscsi_lf__n4_p1_ 1188 up/up 10.226.43.142 sti8200mccip-htp-006 e0c true
-
 6 entries were displayed.
 ----
-. 在 iSCSI 客户端上，对 SVM 上的任一 iSCSI IP 地址运行发现以发现新目标： `iscsiadm -m discovery -t sendtargets -p iscsi-ip-address`
+. 在iSCSI主机上、对SVM上的任一iSCSI IP地址运行发现以发现新目标：
++
+[source, cli]
+----
+iscsiadm -m discovery -t sendtargets -p iscsi-ip-address
+----
 +
 发现可以在 SVM 的任何 IP 地址上运行，包括非 iSCSI 接口。
 
@@ -84,55 +97,65 @@ vsa_1 iscsi_lf__n4_p1_ 1188 up/up 10.226.43.142 sti8200mccip-htp-006 e0c true
 [listing]
 ----
 [root@scspr1789621001 ~]# iscsiadm -m discovery -t sendtargets -p 10.230.68.236:3260
-
 10.230.68.236:3260,1156 iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6
 10.226.43.142:3260,1188 iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6
 10.226.43.134:3260,1183 iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6
 10.230.68.237:3260,1158 iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6
 ----
-. 在 iSCSI 客户端上，登录到所有已发现的地址： `iscsiadm -m node -L all -T node-address -p portal-address -l`
+. 在iSCSI主机上、登录到所有已发现的地址：
++
+[source, cli]
+----
+iscsiadm -m node -L all -T node-address -p portal-address -l
+----
 +
 [listing]
 ----
 [root@scspr1789621001 ~]# iscsiadm -m node -L all -T iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6 -p 10.230.68.236:3260 -l
-
 Logging in to [iface: default, target: iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6, portal: 10.226.43.142,3260] (multiple)
 Logging in to [iface: default, target: iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6, portal: 10.226.43.134,3260] (multiple)
 Login to [iface: default, target: iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6, portal: 10.226.43.142,3260] successful.
 Login to [iface: default, target: iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6, portal: 10.226.43.134,3260] successful.
 ----
-. 在 iSCSI 客户端上，验证登录和连接： `iscsiadm -m session`
+. 在iSCSI主机上、验证登录和连接：
++
+[source, cli]
+----
+iscsiadm -m session
+----
 +
 [listing]
 ----
 [root@scspr1789621001 ~]# iscsiadm -m session
-
 tcp: [1] 10.230.68.236:3260,1156 iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6 (non-flash)
 tcp: [2] 10.230.68.237:3260,1158 iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6 (non-flash)
 tcp: [3] 10.226.43.142:3260,1188 iqn.1992-08.com.netapp:sn.58d7f6df2cc611eaa9c500a098a71638:vs.6 (non-flash)
 ----
-. 从 MetroCluster 节点上，验证登录情况以及与客户端的连接： `iscsi initiator show -vserver vsa_1`
+. 在新节点上、验证与主机的登录和连接：
++
+[source, cli]
+----
+iscsi initiator show -vserver <svm-name>
+----
 +
 [listing]
 ----
 sti8200mcchtp001htp_siteA::*> iscsi initiator show -vserver vsa_1
-
  Tpgroup Initiator
-
 Vserver Name             TSIH Name                  ISID              Igroup Name
 ------- --------         ---- --------------------- ----------------- -----------------
 vsa_1 iscsi_lf__n1_p1_ 4 iqn.2020-01.com.netapp.englab.gdl:scspr1789621001 00:02:3d:00:00:01 igroup_linux
 vsa_1 iscsi_lf__n2_p1_ 4 iqn.2020-01.com.netapp.englab.gdl:scspr1789621001 00:02:3d:00:00:02 igroup_linux
 vsa_1 iscsi_lf__n3_p1_ 1 iqn.2020-01.com.netapp.englab.gdl:scspr1789621001 00:02:3d:00:00:04 igroup_linux
 vsa_1 iscsi_lf__n4_p1_ 1 iqn.2020-01.com.netapp.englab.gdl:scspr1789621001 00:02:3d:00:00:03 igroup_linux
-
 4 entries were displayed.
 ----
 
 
-完成此任务后，客户端可以查看所有 iSCSI 接口（位于 MetroCluster FC 和 MetroCluster IP 节点上），并登录到所有这些接口。
+.结果
+在此任务结束时、主机可以看到所有iSCSI接口(位于新旧节点上)、并登录到所有这些接口。
 
-LUN 和卷仍以物理方式托管在 FC 节点上。由于 LUN 仅在 MetroCluster FC 节点接口上报告，因此客户端将仅显示 MetroCluster FC 节点上的路径。在 sanlun lun show -p 和 multipath -ll -d 命令输出中可以看到这种情况。下一步是将 IP 节点添加为报告节点。
+LUN和卷仍以物理方式托管在旧节点上。由于LUN仅在旧节点接口上报告、因此主机将仅显示旧节点上的路径。要查看此信息、请运行 `sanlun lun show -p` 和 `multipath -ll -d` 命令并检查命令输出。
 
 [listing]
 ----
@@ -144,14 +167,13 @@ ONTAP Path: vsa_1:/vol/vsa_1_vol6/lun_linux_12
  Host Device: 3600a098038304646513f4f674e52774b
  Multipath Policy: service-time 0
  Multipath Provider: Native
---------- ---------- ------- ------------ ----------------------------------------------
+--------- ---------- ------- ------------ -------------------
 host vserver
 path path /dev/ host vserver
-state     type       node     adapter     LIF
---------- ---------- ------- ------------ ----------------------------------------------
+state     type       node    adapter      LIF
+--------- ---------- ------- ------------ -------------------
 up        primary    sdk     host3        iscsi_lf__n2_p1_
 up        secondary  sdh     host2        iscsi_lf__n1_p1_
-
 [root@scspr1789621001 ~]# multipath -ll -d
 3600a098038304646513f4f674e52774b dm-5 NETAPP ,LUN C-Mode
 size=2.0G features='4 queue_if_no_path pg_init_retries 50 retain_attached_hw_handle' hwhandler='1 alua' wp=rw
@@ -162,56 +184,99 @@ size=2.0G features='4 queue_if_no_path pg_init_retries 50 retain_attached_hw_han
 ----
 
 
-== 将 MetroCluster IP 节点添加为报告节点
+== 第2步：将新节点添加为报告节点
 
-[role="lead"]
-设置与新 MetroCluster IP 节点的连接后，必须添加新的报告节点。
+设置与新节点的连接后、您可以将新节点添加为报告节点。
 
-. 在 MetroCluster 节点上，列出 SVM 上 LUN 的报告节点： `lun mapping show -vserver vsa_1 -fields reporting-nodes -ostype linux`
+.步骤
+. 在新节点上、列出SVM上LUN的报告节点：
 +
-以下报告节点是本地节点，因为 LUN 实际位于 FC 节点 node_A_1-FC 和 node_A_2-FC 上。
+[source, cli]
+----
+lun mapping show -vserver <svm-name> -fields reporting-nodes -ostype linux
+----
++
+以下报告节点是本地节点、因为LUN实际位于旧节点NODE_A_1-Oold和NODE_A_2-Oold上。
 
 +
 [listing]
 ----
-node_A_1-IP::*> lun mapping show -vserver vsa_1 -fields reporting-nodes -ostype linux
-
-vserver path igroup reporting-nodes
-------- --------------------------- ------------ -------------------------------------
-vsa_1 /vol/vsa_1_vol1/lun_linux_2 igroup_linux node_A_1-FC,node_A_2-FC
+node_A_1-new::*> lun mapping show -vserver vsa_1 -fields reporting-nodes -ostype linux
+vserver path                         igroup       reporting-nodes
+------- ---------------------------- ------------ ---------------------------
+vsa_1   /vol/vsa_1_vol1/lun_linux_2  igroup_linux node_A_1-old,node_A_2-old
 .
 .
 .
-vsa_1 /vol/vsa_1_vol9/lun_linux_19 igroup_linux node_A_1-FC,node_A_2-FC
+vsa_1   /vol/vsa_1_vol9/lun_linux_19 igroup_linux node_A_1-old,node_A_2-old
 12 entries were displayed.
 ----
-. 在 MetroCluster 节点上，添加报告节点： `lun mapping add-reporting-nodes -vserver svm-name -path /vol/vsa_1_vol* /lun_linux_* -nodes node1 ， node2 -igroup igroup_linux`
+. 在新节点上、添加报告节点：
++
+[source, cli]
+----
+lun mapping add-reporting-nodes -vserver <svm-name> -path /vol/vsa_1_vol*/lun_linux_* -nodes node1,node2 -igroup <igroup_name>
+----
 +
 [listing]
 ----
-node_A_1-IP::*> lun mapping add-reporting-nodes -vserver vsa_1 -path /vol/vsa_1_vol*/lun_linux_* -nodes node_A_1-IP,node_A_2-IP
+node_A_1-new::*> lun mapping add-reporting-nodes -vserver vsa_1 -path /vol/vsa_1_vol*/lun_linux_* -nodes node_A_1-new,node_A_2-new
 -igroup igroup_linux
-
 12 entries were acted on.
 ----
-. 在 MetroCluster 节点上，验证新添加的节点是否存在： `lun mapping show -vserver svm-name -fields reporting-nodes -ostype linux vserver path igroup reporting-nodes`
+. 在新节点上、验证新添加的节点是否存在：
++
+[source, cli]
+----
+lun mapping show -vserver <svm-name> -fields reporting-nodes -ostype linux vserver path igroup reporting-nodes
+----
 +
 [listing]
 ----
-
-node_A_1-IP::*> lun mapping show -vserver vsa_1 -fields reporting-nodes -ostype linux vserver path igroup reporting-nodes
+node_A_1-new::*> lun mapping show -vserver vsa_1 -fields reporting-nodes -ostype linux vserver path igroup reporting-nodes
 ------- --------------------------- ------------ -------------------------------------------------------------------------------
-
-vsa_1 /vol/vsa_1_vol1/lun_linux_2 igroup_linux node_A_1-FC,node_A_2-FC,node_A_1-IP,node_A_2-IP
-vsa_1 /vol/vsa_1_vol1/lun_linux_3 igroup_linux node_A_1-FC,node_A_2-FC,node_A_1-IP,node_A_2-IP.
+vsa_1 /vol/vsa_1_vol1/lun_linux_2 igroup_linux node_A_1-old,node_A_2-old,node_A_1-new,node_A_2-new
+vsa_1 /vol/vsa_1_vol1/lun_linux_3 igroup_linux node_A_1-old,node_A_2-old,node_A_1-new,node_A_2-new
 .
 .
 .
-
 12 entries were displayed.
 ----
-. 验证是否已 `sg3-utils` 软件包安装在Linux主机上。这样可以避免 `rescan-scsi-bus.sh utility not found` 使用重新扫描Linux主机以查找新映射的LUN时出错 `rescan-scsi-bus` 命令：
-. 在主机上、问题描述执行以下命令以重新扫描主机上的SCSI总线并发现新添加的路径： `/usr/bin/rescan-scsi-bus.sh -a`
+. 。 `sg3-utils` 软件包必须安装在Linux主机上。这样可防止出现 `rescan-scsi-bus.sh utility not found` 使用重新扫描Linux主机以查找新映射的LUN时出错 `rescan-scsi-bus` 命令：
++
+在主机上、验证是否已启用 `sg3-utils` 软件包已安装：
+
++
+--
+** 对于基于Debian的发行版：
++
+[source, cli]
+----
+dpkg -l | grep sg3-utils
+----
+** 对于基于Red Hat的分发版：
++
+[source, cli]
+----
+rpm -qa | grep sg3-utils
+----
+
+
+--
++
+如果需要、请安装 `sg3-utils` Linux主机上的软件包：
+
++
+[source, cli]
+----
+sudo apt-get install sg3-utils
+----
+. 在主机上、重新扫描主机上的SCSI总线并发现新添加的路径：
++
+[source, cli]
+----
+/usr/bin/rescan-scsi-bus.sh -a
+----
 +
 [listing]
 ----
@@ -231,7 +296,12 @@ OLD: Host: scsi5 Channel: 00 Id: 00 Lun: 09
 0 remapped or resized device(s) found.
 0 device(s) removed.
 ----
-. 在主机上，问题描述以下命令以列出新添加的路径： `sanlun lun show -p`
+. 在iSCSI主机上、列出新添加的路径：
++
+[source, cli]
+----
+sanlun lun show -p
+----
 +
 每个 LUN 显示四个路径。
 
@@ -246,32 +316,37 @@ ONTAP Path: vsa_1:/vol/vsa_1_vol6/lun_linux_12
  Host Device: 3600a098038304646513f4f674e52774b
  Multipath Policy: service-time 0
  Multipath Provider: Native
---------- ---------- ------- ------------ ----------------------------------------------
+------- ---------- ------- ----------- ---------------------
 host vserver
 path path /dev/ host vserver
-state type node adapter LIF
---------- ---------- ------- ------------ ----------------------------------------------
-up primary sdk host3 iscsi_lf__n2_p1_
-up secondary sdh host2 iscsi_lf__n1_p1_
-up secondary sdag host4 iscsi_lf__n4_p1_
-up secondary sdah host5 iscsi_lf__n3_p1_
+state   type       node    adapter     LIF
+------  ---------- ------- ----------- ---------------------
+up      primary    sdk      host3      iscsi_lf__n2_p1_
+up      secondary  sdh     host2       iscsi_lf__n1_p1_
+up      secondary  sdag    host4       iscsi_lf__n4_p1_
+up      secondary  sdah    host5       iscsi_lf__n3_p1_
 ----
-. 在 MetroCluster 上，将包含 LUN 的卷从 FC 移动到 IP 节点。
+. 在新节点上、将包含LUN的卷从旧节点移动到新节点。
 +
 [listing]
 ----
-node_A_1-IP::*> vol move start -vserver vsa_1 -volume vsa_1_vol1 -destination-aggregate sti8200mccip_htp_005_aggr1
+node_A_1-new::*> vol move start -vserver vsa_1 -volume vsa_1_vol1 -destination-aggregate sti8200mccip_htp_005_aggr1
 [Job 1877] Job is queued: Move "vsa_1_vol1" in Vserver "vsa_1" to aggregate "sti8200mccip_htp_005_aggr1". Use the "volume move show -vserver
 vsa_1 -volume vsa_1_vol1" command to view the status of this operation.
-node_A_1-IP::*> vol move show
-Vserver    Volume     State       Move       Phase            Percent-Complete  Time-To-Complete
----------  ---------- --------    ---------- ---------------- ----------------  ----------------
-vsa_1     vsa_1_vol1  healthy                initializing     -                 -
+node_A_1-new::*> vol move show
+Vserver  Volume      State       Move       Phase            Percent-Complete  Time-To-Complete
+-------- ----------  --------    ---------- ---------------- ----------------  ----------------
+vsa_1    vsa_1_vol1  healthy                initializing     -                 -
 ----
-. 卷移动完成后，在 MetroCluster 上使用 volume show 命令确认卷或 LUN 已联机。
-. LUN 现在所在的 MetroCluster IP 节点上的 iSCSI 接口将更新为主路径。如果在卷移动后未更新主路径，请运行 /usr/bin/rescan-scsi-bus.sh -a 和 multipath -v3 ，或者等待多路径重新扫描发生。
+. 卷移至新节点后、验证卷是否已联机：
 +
-在以下示例中，主路径是 MetroCluster IP 节点上的 LIF 。
+[source, cli]
+----
+volume show -state
+----
+. LUN现在所在的新节点上的iSCSI接口将更新为主路径。如果卷移动后主路径未更新、请运行 `/usr/bin/rescan-scsi-bus.sh -a` 和 `multipath -v3` 或只是等待多路径重新扫描发生。
++
+在以下示例中、主路径是新节点上的LIF。
 
 +
 [listing]
@@ -298,44 +373,83 @@ up        secondary  sdah    host5        iscsi_lf__n3_p1_
 
 
 
-== 删除报告节点并重新扫描路径
+== 第3步：删除报告节点并重新扫描路径
 
-[role="lead"]
 您必须删除报告节点并重新扫描路径。
 
-. 从 MetroCluster IP 节点中，删除 Linux LUN 的远程报告节点（ MetroCluster IP 节点）： `lun mapping remove-reporting-nodes -vserver vsa_1 -path * -igroup igroup_linux -remote-nodes true`
+.步骤
+. 在新节点上、删除Linux LUN的远程报告节点(新节点)：
 +
-在这种情况下，远程节点为 FC 节点。
+[source, cli]
+----
+lun mapping remove-reporting-nodes -vserver <svm-name> -path * -igroup <igroup_name> -remote-nodes true
+----
++
+在这种情况下、远程节点是旧节点。
 
 +
 [listing]
 ----
-node_A_1-IP::*> lun mapping remove-reporting-nodes -vserver vsa_1 -path * -igroup igroup_linux -remote-nodes true
-
+node_A_1-new::*> lun mapping remove-reporting-nodes -vserver vsa_1 -path * -igroup igroup_linux -remote-nodes true
 12 entries were acted on.
 ----
-. 从 MetroCluster IP 节点中，检查 LUN 的报告节点： `lun mapping show -vserver vsa_1 -fields reporting-nodes -ostype linux`
+. 在新节点上、检查报告节点中的LUN：
++
+[source, cli]
+----
+lun mapping show -vserver <svm-name> -fields reporting-nodes -ostype linux
+----
 +
 [listing]
 ----
-node_A_1-IP::*> lun mapping show -vserver vsa_1 -fields reporting-nodes -ostype linux
-
-vserver  path                        igroup      reporting-nodes
-------- --------------------------- ------------ -----------------------------------------
-
-vsa_1 /vol/vsa_1_vol1/lun_linux_2   igroup_linux  node_A_1-IP,node_A_2-IP
-vsa_1 /vol/vsa_1_vol1/lun_linux_3   igroup_linux  node_A_1-IP,node_A_2-IP
-vsa_1 /vol/vsa_1_vol2/lun_linux_4   group_linux   node_A_1-IP,node_A_2-IP
+node_A_1-new::*> lun mapping show -vserver vsa_1 -fields reporting-nodes -ostype linux
+vserver  path                         igroup        reporting-nodes
+-------  ---------------------------  ------------  -------------------------
+vsa_1    /vol/vsa_1_vol1/lun_linux_2  igroup_linux  node_A_1-new,node_A_2-new
+vsa_1    /vol/vsa_1_vol1/lun_linux_3  igroup_linux  node_A_1-new,node_A_2-new
+vsa_1    /vol/vsa_1_vol2/lun_linux_4  group_linux   node_A_1-new,node_A_2-new
 .
 .
 .
-
 12 entries were displayed.
 ----
-. 验证是否已 `sg3-utils` 软件包安装在Linux主机上。这样可以避免 `rescan-scsi-bus.sh utility not found` 使用重新扫描Linux主机以查找新映射的LUN时出错 `rescan-scsi-bus` 命令：
-. 在iSCSI主机上、重新扫描SCSI总线： `/usr/bin/rescan-scsi-bus.sh -r`
+. 。 `sg3-utils` 软件包必须安装在Linux主机上。这样可防止出现 `rescan-scsi-bus.sh utility not found` 使用重新扫描Linux主机以查找新映射的LUN时出错 `rescan-scsi-bus` 命令：
 +
-删除的路径是 FC 节点的路径。
+在主机上、验证是否已启用 `sg3-utils` 软件包已安装：
+
++
+--
+** 对于基于Debian的发行版：
++
+[source, cli]
+----
+dpkg -l | grep sg3-utils
+----
+** 对于基于Red Hat的分发版：
++
+[source, cli]
+----
+rpm -qa | grep sg3-utils
+----
+
+
+--
++
+如果需要、请安装 `sg3-utils` Linux主机上的软件包：
+
++
+[source, cli]
+----
+sudo apt-get install sg3-utils
+----
+. 在iSCSI主机上、重新扫描SCSI总线：
++
+[source, cli]
+----
+/usr/bin/rescan-scsi-bus.sh -r
+----
++
+删除的路径是旧节点的路径。
 
 +
 [listing]
@@ -362,15 +476,19 @@ OLD: Host: scsi5 Channel: 00 Id: 00 Lun: 09
 24 device(s) removed.
  [2:0:0:0]
  [2:0:0:1]
- .
+.
 .
 .
 ----
-. 在iSCSI主机上、验证是否仅显示MetroCluster IP节点的路径：
+. 在iSCSI主机上、验证是否仅显示新节点的路径：
 +
-`sanlun lun show -p`
-
+[source, cli]
+----
+sanlun lun show -p
+----
 +
-`multipath -ll -d`
-
+[source, cli]
+----
+multipath -ll -d
+----
 
