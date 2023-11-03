@@ -24,19 +24,6 @@ summary: 在 MetroCluster 配置中使用 ONTAP 时，您应了解有关许可�
 
 
 
-== ONTAP System Manager 中的 MetroCluster 操作
-
-根据您的 ONTAP 版本，可以使用 ONTAP 系统管理器执行某些特定于 MetroCluster 的操作。
-
-* 在 MetroCluster IP 配置中切换和切回（从 ONTAP 9.7 开始）。
-* 在 MetroCluster IP 配置中配置和扩展镜像聚合（从 ONTAP 9.8 开始）。
-+
-System Manager 不支持未镜像聚合。
-
-
-
-
-
 == MetroCluster 配置中的 FlexCache 支持
 
 从 ONTAP 9.7 开始， MetroCluster 配置支持 FlexCache 卷。您应了解切换或切回操作后手动重复的要求。
