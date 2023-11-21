@@ -1,0 +1,56 @@
+---
+permalink: install-ip/port_usage_9336c_shared.html 
+sidebar: sidebar 
+keywords: cabling, cable, component, link, site, management, network, networks, hardware, component, shared, switch, cluster, connection, management, data, configuring, configure 
+summary: MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台类型。 
+---
+= Cisco 9334C－拧动共享交换机的平台端口分配
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台类型。
+
+在使用表之前，请查看以下注意事项：
+
+* 至少一个MetroCluster配置或DR组必须支持交换机连接的NS224磁盘架。
+* 不支持交换机连接的NS224磁盘架的平台只能作为第二个MetroCluster配置或第二个DR组进行连接。
+* 只有在选择第一个平台时、RcfFileGenerator才会显示符合条件的平台。
+* 连接一个八节点或两个四节点MetroCluster配置需要使用ONTAP 9.14.1或更高版本。
+
+
+
+
+== 为AFF A320、AFF C400、ASA C400、AFF A400、ASA A400布线、 AFF A700、AFF C800、ASA C800、AFF A800、AFF A900、 或ASA A900系统连接到Cisco 9339C－拧发器共享交换机
+
+image::../media/mcc_ip_cabling_a320_c400_a400_a700_c800_a800_a900_to_cisco_9336c_shared_switch.png[MCC IP使用缆线将A320 c400 a400 a700 c800 a800 a900连接到Cisco 9336c共享交换机]
+
+*注1*:如果使用X91440A适配器(40Gbps),则使用端口e4a和e4e或e4a和e8a。如果您使用的是X91153A适配器(100Gbps)、请使用端口e4a和e4b或e4a和e8a。
+
+
+
+== 使用缆线将AFF A150、ASA A150、FAS2750或AFF A220系统连接到Cisco 9336C -拧2共享交换机
+
+image::../media/mcc_ip_cabling_a_aff_a150_asa_a150_fas27500_aff_a220_to_a_cisco_9336c_shared_switch.png[MCC IP使用缆线将AFF A150 ASA A150 fa27500 AFF a220连接到Cisco 9336c共享交换机]
+
+
+
+== 使用缆线将FAS500f、AFF C250、ASA C250、AFF A250或ASA A250系统连接到Cisco 9335C-拧2共享交换机
+
+image::../media/mcc_ip_cabling_c250_asa_c250_a250_asa_a250_to_cisco_9336c_shared_switch.png[MCC IP使用缆线将c250 ASA c250 A250 ASA A250连接到Cisco 9336c共享交换机]
+
+
+
+== 使用缆线将FAS8200或AFF A300系统连接到Cisco 9339C -拧动共享交换机
+
+image::../media/mcc_ip_cabling_fas8200_affa300_to_cisco_9336c_shared_switch.png[MCC IP使用缆线将fas8200 affa300连接到Cisco 9336c共享交换机]
+
+
+
+== 使用缆线将FAS9300、FAS4700、FAS9000或FAS9500系统连接到Cisco 9339C -拧动共享交换机
+
+image::../media/mcc_ip_cabling_fas8300_fas8700_fas9000_fas9500_to_cisco_9336c_shared_switch.png[MCC IP使用缆线将fas9300 fas8700 fas9000 fas9500连接到Cisco 9336c共享交换机]
+
+*注1*:如果使用X91440A适配器(40Gbps),则使用端口e4a和e4e或e4a和e8a。如果您使用的是X91153A适配器(100Gbps)、请使用端口e4a和e4b或e4a和e8a。

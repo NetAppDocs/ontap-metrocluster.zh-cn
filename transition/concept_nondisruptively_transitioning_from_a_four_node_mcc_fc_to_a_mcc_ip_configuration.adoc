@@ -13,6 +13,8 @@ summary: 从ONTAP 9.13.1开始、您可以将工作负载和数据从现有八�
 [role="lead"]
 您可以将工作负载和数据从现有MetroCluster FC配置无中断过渡到新的MetroCluster IP配置。
 
+从ONTAP 9.13.1开始、MetroCluster IP配置支持此操作步骤、其中MetroCluster和驱动器架连接到相同的IP交换机(共享存储交换机配置)。
+
 从ONTAP 9.13.1开始、您可以将工作负载和数据从现有八节点MetroCluster FC配置无中断过渡到新的MetroCluster IP配置。
 
 从ONTAP 9.8开始、您可以将工作负载和数据从现有四节点MetroCluster FC配置无中断过渡到新的MetroCluster IP配置。

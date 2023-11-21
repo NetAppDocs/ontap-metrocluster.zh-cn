@@ -17,13 +17,14 @@ summary: 您使用的刷新操作步骤 取决于平台型号、升级范围和M
 
 === 支持的MetroCluster FC技术更新组合
 
-image::../media/metrocluster_fc_tech_refresh.png[MetroCluster FC技术更新]
+image::../media/metrocluster_fc_tech_refresh_914.png[MetroCluster FC技术更新914]
 
 * 您必须先完成技术更新操作步骤 、然后才能添加新负载。
 
 
 [NOTE]
 ====
+* MetroCluster配置中的所有节点都必须运行相同版本的ONTAP。例如、如果您使用的是八节点配置、则所有八个节点都必须运行相同版本的ONTAP。
 * 请勿超过平台组合中"较低"的任何对象限制。应用这两个平台的下限对象。
 * 如果目标平台限制低于MetroCluster 限制、则必须先将MetroCluster 重新配置为等于或低于目标平台限制、然后才能添加新节点。
 * 请参见 link:https://hwu.netapp.html["Hardware Universe"^] 平台限制。
@@ -34,13 +35,14 @@ image::../media/metrocluster_fc_tech_refresh.png[MetroCluster FC技术更新]
 
 === 支持的MetroCluster IP技术更新组合
 
-image::../media/metrocluster_techref_ip.png[MetroCluster IP技术更新组合]
+image::../media/metrocluster_techref_ip_914.png[MetroCluster IP技术更新组合]
 
 * 您必须先完成技术更新操作步骤 、然后才能添加新负载。
 
 
 [NOTE]
 ====
+* MetroCluster配置中的所有节点都必须运行相同版本的ONTAP。例如、如果您使用的是八节点配置、则所有八个节点都必须运行相同版本的ONTAP。
 * 请勿超过平台组合中"较低"的任何对象限制。应用这两个平台的下限对象。
 * 如果目标平台限制低于MetroCluster 限制、则必须先将MetroCluster 重新配置为等于或低于目标平台限制、然后才能添加新节点。
 * 请参见 link:https://hwu.netapp.html["Hardware Universe"^] 平台限制。

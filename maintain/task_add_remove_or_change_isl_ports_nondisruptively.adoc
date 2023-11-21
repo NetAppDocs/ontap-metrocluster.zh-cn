@@ -20,6 +20,9 @@ summary: 您可能需要添加，删除或更改 ISL 端口。您可以将专用
 
 以下操作步骤假定您要将在交换机端口 Eth1/24/1 上连接的一个 10-Gb ISL 替换为连接到交换机端口 17 和 18 的两个 100-Gb ISL 。
 
+.开始之前
+请参阅的*开关*部分 link:https://hwu.netapp.com/["NetApp Hardware Universe"^] 以验证受支持的收发器。
+
 .步骤
 . 在网络结构中要更改的两个交换机上禁用 ISL 的 ISL 端口。
 +
