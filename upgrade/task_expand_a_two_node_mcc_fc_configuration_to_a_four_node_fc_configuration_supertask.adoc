@@ -28,6 +28,10 @@ link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 link:../install-stretch/concept_considerations_differences.html["延伸型 MetroCluster 安装和配置"]
 
 * 您必须具有可用的 FC 交换机端口以容纳新控制器和任何新网桥。
+* 验证是否已在旧节点上创建默认广播域。
++
+向不具有默认广播域的现有集群添加新节点时、系统会使用通用唯一标识符(UID)(而不是预期名称)为新节点创建节点管理生命周期。有关详细信息、请参见知识库文章 https://kb.netapp.com/onprem/ontap/os/Node_management_LIFs_on_newly-added_nodes_generated_with_UUID_names["使用UUID名称生成的新添加节点上的节点管理生命周期"^]。
+
 * 您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。
 
 

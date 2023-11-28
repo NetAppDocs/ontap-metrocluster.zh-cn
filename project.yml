@@ -110,3 +110,6 @@ homepage:
     - title: NetApp 支持知识库
       summary: 搜索支持问题的答案。
       url: https://kb.netapp.com/
+product-family:
+  name: ONTAP
+  repo: ontap-family

@@ -41,6 +41,10 @@ NOTE: 如果同时刷新两个DR组、则在刷新第一个DR组后可能不支�
 
 
 .步骤
+. 验证是否已在旧节点上创建默认广播域。
++
+向不具有默认广播域的现有集群添加新节点时、系统会使用通用唯一标识符(UID)(而不是预期名称)为新节点创建节点管理生命周期。有关详细信息、请参见知识库文章 https://kb.netapp.com/onprem/ontap/os/Node_management_LIFs_on_newly-added_nodes_generated_with_UUID_names["使用UUID名称生成的新添加节点上的节点管理生命周期"^]。
+
 . 从旧节点收集信息。
 +
 在此阶段，四节点配置如下图所示：

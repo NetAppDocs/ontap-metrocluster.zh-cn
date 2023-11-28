@@ -20,15 +20,19 @@ summary: 您可以将四个新节点作为第二个 DR 组添加到 MetroCluster
 .开始之前
 * 新旧节点必须运行相同版本的 ONTAP 。
 * 本操作步骤 介绍了扩展一个四节点DR组所需的步骤。如果您使用的是八节点配置(两个DR组)、则必须对每个DR组重复整个操作步骤。
-* 您必须确保旧平台型号和新平台型号支持平台混合。
+* 验证是否支持使用新旧平台型号进行平台混合。
 +
 https://hwu.netapp.com["NetApp Hardware Universe"^]
 
-* 您必须确保旧平台型号和新平台型号均受 IP 交换机支持。
+* 确认新旧平台型号均受IP交换机支持。
 +
 https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 * 新节点必须具有足够的存储空间来容纳旧节点的数据，并具有足够的磁盘来容纳根聚合和备用磁盘。
+* 验证是否已在旧节点上创建默认广播域。
++
+向不具有默认广播域的现有集群添加新节点时、系统会使用通用唯一标识符(UID)(而不是预期名称)为新节点创建节点管理生命周期。有关详细信息、请参见知识库文章 https://kb.netapp.com/onprem/ontap/os/Node_management_LIFs_on_newly-added_nodes_generated_with_UUID_names["使用UUID名称生成的新添加节点上的节点管理生命周期"^]。
+
 
 
 

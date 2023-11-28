@@ -2340,8 +2340,6 @@
   <block id="b330eebf161ca27c703eccf6e8e36d29" category="summary">您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。</block>
   <block id="0cd02877aca872fed2b891e70e7d6d9d" category="doc">将四节点 MetroCluster IP 配置扩展为八节点配置</block>
   <block id="44e7e75e628cd7549a2dac175d45b418" category="list-text">新旧节点必须运行相同版本的 ONTAP 。</block>
-  <block id="8af994ab1dc202d685a253237ad12acd" category="list-text">您必须确保旧平台型号和新平台型号支持平台混合。</block>
-  <block id="b721d4593513d27cdfc55ebe6ceb044f" category="list-text">您必须确保旧平台型号和新平台型号均受 IP 交换机支持。</block>
   <block id="2ee2465217913ae7b455ab4ef5e995e6" category="list-text">新节点必须具有足够的存储空间来容纳旧节点的数据，并具有足够的磁盘来容纳根聚合和备用磁盘。</block>
   <block id="1ba701b5ad5528986d9e0eb838638aae" category="section-title">此操作步骤中的命名示例</block>
   <block id="a9b1d4be69539e9b95a2c6672035550c" category="paragraph">此操作步骤会在整个过程中使用示例名称来标识涉及的 DR 组，节点和交换机。</block>
@@ -13360,4 +13358,9 @@
   <block id="825d65b3b18d444d8008136946a33a99" category="list-text">注5：运行ONTAP 9.14.1或更高版本的系统支持控制器升级。</block>
   <block id="50338c34cfec6d9e54eae1256352e18d" category="image-alt">MetroCluster FC技术更新914</block>
   <block id="94487339ee219de4122a1e81d3919b34" category="admonition">根聚合磁盘是控制器升级过程中唯一必须重新分配的磁盘。数据聚合的磁盘所有权在切换/切回操作中进行处理。</block>
+  <block id="67c0d618a712fed303dbbf2eaf09695a" category="list-text">验证是否已在旧节点上创建默认广播域。</block>
+  <block id="4fff770200a5d089fd8db4325afa94fc" category="inline-link">使用UUID名称生成的新添加节点上的节点管理生命周期</block>
+  <block id="fdf5e2eb479f201de0c9c62e9a32e769" category="paragraph">向不具有默认广播域的现有集群添加新节点时、系统会使用通用唯一标识符(UID)(而不是预期名称)为新节点创建节点管理生命周期。有关详细信息、请参见知识库文章<block ref="4808e3ddae1b3b2c14dc148b67bd36ea" category="inline-link-rx"></block>。</block>
+  <block id="f6410291c32fa961402f5a821c332f6c" category="list-text">验证是否支持使用新旧平台型号进行平台混合。</block>
+  <block id="e220a628f1c5f8fb65824aaeb387520e" category="list-text">确认新旧平台型号均受IP交换机支持。</block>
 </blocks>
