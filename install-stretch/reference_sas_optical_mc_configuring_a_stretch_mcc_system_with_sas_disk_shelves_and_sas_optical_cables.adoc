@@ -20,7 +20,7 @@ summary: 存储控制器必须通过缆线连接到存储介质和彼此。此�
 在完成此任务之前，必须满足以下总体要求：
 
 * 安装之前，您必须已熟悉适用于您的磁盘架型号的磁盘架安装和布线注意事项和最佳实践。
-* 必须支持所有 MictoCluster 组件。
+* 所有MetroCluster组件都必须受支持。
 +
 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 

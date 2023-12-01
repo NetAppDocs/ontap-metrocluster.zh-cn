@@ -55,8 +55,14 @@ ONTAP 调解器将有关 MetroCluster 节点的状态信息存储在调解器主
 * 每个节点的非易失性缓存的 SyncMirror 镜像和灾难恢复镜像均在运行，并且在发生故障时，缓存和镜像将保持同步。
 * 运行正常的站点上的节点均未处于接管状态。
 * 发生站点灾难时。站点灾难是指同一站点上的*所有*节点发生故障。
++
+
+NOTE: 从ONTAP 9.13.1开始、您可以更改在集群*或* HA对出现故障时启动MAUSO的行为。对于HA对、两个节点必须同时发生故障。
+
 * 从ONTAP 9.13.1开始、如果满足上述条件、并且风扇或硬件故障导致环境关闭、例如电源设备、NVRAM电池或服务处理器检测信号故障、或者温度过高或过低。
 
+
+对于以上未列出的其他情形、您可以启动MAUSO。有关详细信息，请参见 link:concept-risks-limitations-automatic-switchover.html["使用MetroCluster 自动强制切换的风险和限制"]。
 
 在以下关闭情形下，会 * 未 * 启动 MAUSO ：
 
@@ -70,6 +76,4 @@ ONTAP 调解器将有关 MetroCluster 节点的状态信息存储在调解器主
 
 * 相关信息 *
 
-* link:concept-risks-limitations-automatic-switchover.html["了解使用MetroCluster自动强制切换的风险和限制"]
-* link:../manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#mediator-assisted-automatic-unplanned-switchover-in-metrocluster-ip-configurations["了解如何在MetroCluster IP配置中管理MAUSO"]
-
+link:../manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#mediator-assisted-automatic-unplanned-switchover-in-metrocluster-ip-configurations["详细了解MetroCluster IP配置中的MAUSO"]。

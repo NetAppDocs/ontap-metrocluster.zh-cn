@@ -11,10 +11,14 @@ summary: 从 ONTAP 9.4 开始， MetroCluster IP 配置支持使用 ADP （高�
 
 
 [role="lead"]
-从ONTAP 9.4开始、MetroCluster IP配置支持使用ADP (高级驱动器分区)进行全新安装。在大多数配置中，分区和磁盘分配会在 MetroCluster 站点的初始配置期间自动执行。
+从ONTAP 9.4开始、MetroCluster IP配置支持使用ADP (高级驱动器分区)进行全新安装。
 
-ONTAP 9.4及更高版本对ADP支持进行了以下更改：
+在将ADP与MetroCluster IP配置结合使用时、您应注意以下注意事项：
 
+* 要在MetroCluster IP配置中使用ADP、需要使用ONTAP 9.4及更高版本。
+* MetroCluster IP配置支持ADPv2。
+* 对于两个站点上的所有节点、根聚合必须位于分区3中。
+* 在初始配置MetroCluster站点期间、系统会自动执行分区和磁盘分配。
 * 池 0 磁盘分配在出厂时已完成。
 * 未镜像的根在出厂时已创建。
 * 数据分区分配在设置操作步骤期间在客户站点上完成。
@@ -50,7 +54,7 @@ NOTE: 从 ONTAP 9.4 升级到 9.5 时，系统会识别现有的磁盘分配。
 
 == 自动分区
 
-ADP 会在平台初始配置期间自动执行。
+ADP会在系统初始配置期间自动执行。
 
 
 NOTE: 从ONTAP 9.5开始、必须使用启用磁盘自动分配 `storage disk option modify -autoassign on` 命令：
