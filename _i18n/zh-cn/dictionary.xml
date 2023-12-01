@@ -13368,4 +13368,6 @@
   <block id="a6ab1915ab3c895c47d4e04f54324428" category="paragraph">您可能需要升级 MetroCluster IP 交换机上的 RCF 文件。例如、如果交换机上运行的RCF文件版本不受ONTAP版本、交换机固件版本或这两者的支持。</block>
   <block id="3c895cdeb8d2489a220d797e54ab8b6f" category="section-title">验证RCF文件是否受支持</block>
   <block id="aa71e3dcbe0cdabbe4cce28385ab2fd6" category="paragraph">如果要更改ONTAP版本或交换机固件版本、则应验证您是否具有该版本支持的RCF文件。如果使用 RCF 生成器，则会为您生成正确的 RCF 文件。</block>
+  <block id="9f4a5b5c7a3f862c1d0ff77f72d3eea0" category="paragraph">系统会提示您输入ONTAP调解器管理员用户帐户的用户名和密码。</block>
+  <block id="c471c44c2f26c78f9327863d90427cb7" category="admonition">如果ONTAP调解器已关闭、则<block ref="1eafb93bfc40f298e60cf17e8a8c598c" prefix=" " category="inline-code"></block> 命令仍会提示您输入ONTAP调解器管理员用户帐户的用户名和密码、并从MetroCluster配置中删除ONTAP调解器服务。</block>
 </blocks>

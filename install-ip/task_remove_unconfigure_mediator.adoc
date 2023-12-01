@@ -22,6 +22,13 @@ summary: 您可以从ONTAP IP配置中删除MetroCluster 调解器服务。
 `MetroCluster configuration-settings mediator remove`
 
 +
+系统会提示您输入ONTAP调解器管理员用户帐户的用户名和密码。
+
++
+
+NOTE: 如果ONTAP调解器已关闭、则 `metrocluster configuration-settings mediator remove` 命令仍会提示您输入ONTAP调解器管理员用户帐户的用户名和密码、并从MetroCluster配置中删除ONTAP调解器服务。
+
++
 .. 使用以下命令检查是否存在任何损坏的磁盘：
 +
 `d`显示-broken
