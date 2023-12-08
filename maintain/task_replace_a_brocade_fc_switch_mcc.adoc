@@ -113,7 +113,7 @@ FC_switch_B_1:admin> switchshow
 +
 `固件`
 
-.. 按照 _Brocade 安装和配置中所述配置新交换机，但跳过 "`在操作步骤 FC 交换机上配置分区` " MetroCluster 。
+.. 按照_Brocade安装和配置_中所述配置新交换机、但跳过"`在MetroCluster FC交换机上配置分区`"操作步骤。
 +
 https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 

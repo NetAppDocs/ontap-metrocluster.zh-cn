@@ -20,8 +20,8 @@ summary: 您必须根据现有 MetroCluster FC 配置选择过渡操作步骤。
 image::../media/metrocluster_fc_ip_transition_matrix_914.png[MetroCluster FC IP过渡表914]
 
 * 注1：此平台组合需要ONTAP 9.11.1或更高版本。
-* 注2：FC节点上的本地集群接口必须具有40GbE接口。此平台组合需要使用ONTAP 9.12.1或更高版本。
-* 注3：FC节点上的本地集群接口必须具有100GbE接口。此平台组合需要使用ONTAP 9.12.1或更高版本。
+* 注2：FC节点上的本地集群接口必须具有40GbE接口。此平台组合需要ONTAP 9.11.1或更高版本。
+* 注3：FC节点上的本地集群接口必须具有100GbE接口。此平台组合需要ONTAP 9.11.1或更高版本。
 * 除非注释中另有说明或各个平台需要、否则过渡过程都需要使用ONTAP 9.8或更高版本。
 * MetroCluster配置中的所有节点都必须运行相同版本的ONTAP。例如、如果您使用的是八节点配置、则所有八个节点都必须运行相同版本的ONTAP。
 

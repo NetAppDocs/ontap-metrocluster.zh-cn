@@ -11726,7 +11726,6 @@
   <block id="390dacdbc1f467c1f2e09b1a7cbe743f" category="list-text">如果受损交换机仍在运行，请禁用该交换机上每个端口的 FC-VI 和 HBA 端口：</block>
   <block id="f1772bf3ab42f5c48020304db711ce88" category="list-text">如果受损交换机仍在运行，请收集 `sswitchshow` 命令的输出。</block>
   <block id="6f17ef717caa10c840154e66037357c2" category="list-text">检查交换机上的固件版本以确认其与其他 FC 交换机的版本匹配：</block>
-  <block id="d258e50271440fd57b7ef2810c25e2d0" category="list-text">按照 _Brocade 安装和配置中所述配置新交换机，但跳过 "`在操作步骤 FC 交换机上配置分区` " MetroCluster 。</block>
   <block id="e31d24f4c7323385ac2a49d1fd0bb0e7" category="list-text">如果要启用 ISL 加密，请完成中的适用任务 <block ref="a1fd01e320574c534b3b8a75cd17d943" category="inline-link-macro-rx"></block>。</block>
   <block id="656775e20786e6a8e6b7aa630d1d08a0" category="list-text">禁用虚拟网络结构</block>
   <block id="ba6eab3f1d8d6e906b6a15425ba84446" category="list-text">设置有效负载</block>
@@ -12527,8 +12526,6 @@
   <block id="524f05419622851f7f6289320cc91a6e" category="sidebar">升级、刷新或扩展MetroCluster 配置</block>
   <block id="81cce2035bed6113b6ccecaeb9cf25a9" category="sidebar">选择扩展操作步骤</block>
   <block id="87663f3a8212644181733b0573eae80d" category="sidebar">使用切换和切回升级MetroCluster IP中的控制器(ONTAP 9.8及更高版本)</block>
-  <block id="cbfda5b02caeddc103ebee1baa66d92c" category="list-text">注2：FC节点上的本地集群接口必须具有40GbE接口。此平台组合需要使用ONTAP 9.12.1或更高版本。</block>
-  <block id="55b44ccf6250ba590ce25f63cea8e958" category="list-text">注3：FC节点上的本地集群接口必须具有100GbE接口。此平台组合需要使用ONTAP 9.12.1或更高版本。</block>
   <block id="9418f262fda4ce79d51366cacd6743b2" category="list-text">除非注释中另有说明或各个平台需要、否则过渡过程都需要使用ONTAP 9.8或更高版本。</block>
   <block id="90041d31025da7832d4e0b6bec8c78d3" category="paragraph"><block ref="a29b6e7e71b2408a7ef70fb423944511" prefix="" category="inline-code"></block></block>
   <block id="1ecf45c0e50d338e165546ea9f33580d" category="paragraph">以下示例显示了如何在node_A_3-IP上创建聚合。</block>
@@ -13370,4 +13367,7 @@
   <block id="aa71e3dcbe0cdabbe4cce28385ab2fd6" category="paragraph">如果要更改ONTAP版本或交换机固件版本、则应验证您是否具有该版本支持的RCF文件。如果使用 RCF 生成器，则会为您生成正确的 RCF 文件。</block>
   <block id="9f4a5b5c7a3f862c1d0ff77f72d3eea0" category="paragraph">系统会提示您输入ONTAP调解器管理员用户帐户的用户名和密码。</block>
   <block id="c471c44c2f26c78f9327863d90427cb7" category="admonition">如果ONTAP调解器已关闭、则<block ref="1eafb93bfc40f298e60cf17e8a8c598c" prefix=" " category="inline-code"></block> 命令仍会提示您输入ONTAP调解器管理员用户帐户的用户名和密码、并从MetroCluster配置中删除ONTAP调解器服务。</block>
+  <block id="1aa145ddf3cafc3bf77b04a1c7069f71" category="list-text">按照_Brocade安装和配置_中所述配置新交换机、但跳过"`在MetroCluster FC交换机上配置分区`"操作步骤。</block>
+  <block id="21b5cf2db61fccc0ace8b80bac8b35b7" category="list-text">注2：FC节点上的本地集群接口必须具有40GbE接口。此平台组合需要ONTAP 9.11.1或更高版本。</block>
+  <block id="13cdbd43c145584bcad75658a29e498d" category="list-text">注3：FC节点上的本地集群接口必须具有100GbE接口。此平台组合需要ONTAP 9.11.1或更高版本。</block>
 </blocks>
