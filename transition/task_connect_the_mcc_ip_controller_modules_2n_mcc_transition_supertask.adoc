@@ -81,7 +81,7 @@ image::../media/transition_2n_4_new_ip_nodes_and_shelves.png[过渡 2n 4 个新 
 有关布线信息，请参见适用于您的型号的控制器安装和设置过程。
 
 +
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
+https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 . 按照中所述，使用缆线将控制器连接到 IP 交换机 link:../install-ip/using_rcf_generator.html["为 IP 交换机布线"]。
 . 准备 IP 交换机以应用新的 RCF 文件。

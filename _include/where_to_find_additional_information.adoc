@@ -97,7 +97,7 @@ link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["MetroCluste
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems/["AFF 和 FAS 文档"^]
+https://docs.netapp.com/us-en/ontap-systems/["ONTAP硬件系统文档"^]
 
 * 注： * 标准存储架维护过程可用于 MetroCluster IP 配置。
  a| 

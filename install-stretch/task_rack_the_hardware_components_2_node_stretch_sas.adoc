@@ -23,7 +23,7 @@ summary: 如果您尚未收到机柜中已安装的设备，则必须将这些�
 . 使用标准的车间实践操作电气设备，确保已正确接地。
 . 在机架或机柜中安装存储控制器。
 +
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 . 安装磁盘架，以菊花链方式连接每个堆栈中的磁盘架，打开磁盘架电源并设置磁盘架 ID 。
 +

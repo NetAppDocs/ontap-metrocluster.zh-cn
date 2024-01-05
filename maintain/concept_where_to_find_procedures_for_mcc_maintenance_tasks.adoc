@@ -43,7 +43,7 @@ FRU 更换（包括控制器模块， PCIe 卡， FC-VI 卡等）
 
 NOTE: 不支持在 MetroCluster 存储系统之间移动存储控制器模块或 NVRAM 卡。
  a| 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 
 

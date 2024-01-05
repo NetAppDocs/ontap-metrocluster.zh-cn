@@ -1020,7 +1020,7 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 . 正确接地。
 . 在机架或机柜中安装控制器模块。
 +
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 . 按照中所述，使用缆线将控制器连接到 IP 交换机 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]。
 +

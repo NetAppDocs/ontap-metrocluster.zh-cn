@@ -2206,7 +2206,7 @@ MetroCluster modify -enable-unmirrored-aggr-deployment true`
 您可以使用平台和磁盘架的安装和设置文档中的过程。
 
 +
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 . 手动将新磁盘架上的所有磁盘分配给相应的节点：
 +

@@ -63,7 +63,7 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 
 .. 使用缆线将磁盘架连接到堆栈中的相邻磁盘架以及 FC-SAS 网桥。此时请勿打开磁盘架的电源。
 
-| link:http://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^] 
+| link:http://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^] 
 
 
  a| 
@@ -72,7 +72,7 @@ SAS 缆线
 .. 安装新缆线。此时请勿打开磁盘架的电源。
 
  a| 
-link:http://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
+link:http://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 
 
@@ -120,7 +120,7 @@ link:../install-stretch/concept_considerations_differences.html["延伸型 Metro
 
 
  a| 
-link:http://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
+link:http://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 |===
 . 验证所有组件是否已根据您的配置正确布线。

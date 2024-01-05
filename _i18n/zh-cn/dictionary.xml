@@ -512,7 +512,6 @@
   <block id="ccbbe54d32019572b537370d771a1004" category="paragraph">` * 显示拓扑 ISL*`</block>
   <block id="a3bf857f81a4bba7e1f5e22c53499add" category="list-text">对第二个交换机网络结构重复操作步骤。</block>
   <block id="6397abfc307e631ca1c862e2d899a88a" category="summary">您可能需要添加，删除或更改 ISL 端口。您可以将专用 ISL 端口转换为共享 ISL 端口，也可以更改交换机上 ISL 端口的速度。传输距离较远的 ISL 可能需要较低的速度来提高质量。如果要添加或升级硬件，您可能还需要提高 ISL 端口的速度以利用系统升级并将 ISL 添加到 Cisco IP 交换机。</block>
-  <block id="d10e49d0bde942d5917f6688f5e0de46" category="doc">无中断地添加，删除或更改 ISL 端口</block>
   <block id="f078a67a2f40dd76bea8cfd45ac3fd50" category="paragraph">以下操作步骤假定您要将在交换机端口 Eth1/24/1 上连接的一个 10-Gb ISL 替换为连接到交换机端口 17 和 18 的两个 100-Gb ISL 。</block>
   <block id="cb9c3ddf9101f8fc2f94bd964e4b5972" category="list-text">在网络结构中要更改的两个交换机上禁用 ISL 的 ISL 端口。</block>
   <block id="6239956fd5ce88e71e182ec3e2a298fa" category="admonition">只有在将当前 ISL 端口移动到其他端口或 ISL 速度发生变化时，才需要禁用这些端口。如果要添加速度与现有 ISL 相同的 ISL 端口，请转至步骤 3 。</block>
@@ -778,8 +777,6 @@
   <block id="a2e494f9e893e2ce2495f61aebe60a0a" category="paragraph">控制器模块</block>
   <block id="1e20cffa93df3d0429097954136bfc8c" category="paragraph">FRU 更换（包括控制器模块， PCIe 卡， FC-VI 卡等）</block>
   <block id="d42cf82f955fcaf61a8de7f584bf0e63" category="admonition">不支持在 MetroCluster 存储系统之间移动存储控制器模块或 NVRAM 卡。</block>
-  <block id="2dece9a9495d8764b16760fe7d05d7a9" category="inline-link">AFF 和 FAS 文档中心</block>
-  <block id="112864a76081118148a479a1da39eb09" category="paragraph"><block ref="112864a76081118148a479a1da39eb09" category="inline-link-rx"></block></block>
   <block id="1b11a607d1bb5556b64964d84ade46e0" category="paragraph">升级和扩展</block>
   <block id="85c536a9f52fed53890ea4e081f3019f" category="paragraph">从 FC 连接过渡到 IP 连接</block>
   <block id="efc8f4d1076344beccb8353312cb002a" category="paragraph">驱动器架</block>
@@ -9986,7 +9983,6 @@
   <block id="790ffccea2ff9cd7b795660c9047f0af" category="paragraph">有关平台型号的端口使用情况，请参见<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block></block>
   <block id="28c7702130266714c425efb099b41082" category="list-text">修改广播域以删除需要删除的 VLAN 和物理端口：</block>
   <block id="4446a830a9fbc0b2d0c78c432aa57d3e" category="list-text">删除使用集群端口作为成员端口的所有 VLAN 端口，以及使用集群端口作为成员端口的接口组。</block>
-  <block id="4ab1e5de67e4fdb090409b744f44bb19" category="paragraph"><block ref="4ab1e5de67e4fdb090409b744f44bb19" category="inline-link-rx"></block></block>
   <block id="76947da623011473e258bcef85f2724d" category="paragraph">请参见 <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> 有关 FC-VI 卡的插槽信息。</block>
   <block id="664faa773b897771d732ec0de99d505a" category="paragraph">使用先前收集的 `sysids` 将根聚合磁盘重新分配给新控制器模块</block>
   <block id="34c4e01a7077e9106112da52b0cc894e" category="paragraph">旧系统 ID 在中进行了标识 <block ref="c251a9631962af6f05d9aa0aeb7678df" category="inline-link-macro-rx"></block>。</block>
@@ -10071,8 +10067,6 @@
   <block id="3e3282862342655e70b0b4d411fbb78b" category="list-text">禁用观察模式可将所有显示器移回联机模式。</block>
   <block id="088c19240da89dbb9f8682a7168eea93" category="paragraph">验证新节点（ site_B ）是否处于 * 正在等待 site_A 的切回状态 *</block>
   <block id="70797c25b23e4d3313107866a946ef86" category="paragraph">这些交换机不能与速度不同的远程 ISL 端口（例如，连接到 10 Gbps ISL 端口的 25 Gbps 端口）结合使用。</block>
-  <block id="16319414c65274d365d86327a61ef5dc" category="inline-link">AFF 和 FAS 系统文档中心</block>
-  <block id="63799698c3b4bb55f091a324342f6ef6" category="paragraph">请按照中适用于您的平台的安装说明进行操作<block ref="0b3a876cb84d37c698b419ae2be696d8" category="inline-link-rx"></block>。</block>
   <block id="145dacb3237a86979e113708eea5ccbb" category="list-text">需要四个 IP 交换机，每个交换机网络结构两个。</block>
   <block id="678c0cc3a8e347e1b6670261a41c4c3e" category="list-text">验证修复操作执行的任何自动 LIF 迁移是否已成功完成： `MetroCluster check lif show`</block>
   <block id="3e0af8ae696d5e7c0a0c4cf08d2caa05" category="list-text">执行模拟切回以验证系统是否已准备就绪： `MetroCluster switchback -simulate`</block>
@@ -10128,7 +10122,6 @@
   <block id="a9fd24893aed7bda18921eb1da6f8440" category="inline-link-macro">MetroCluster 过渡</block>
   <block id="b6f8655d9cab6bf8d32e7b0bdc6c8eef" category="inline-link-macro">MetroCluster 升级，过渡和扩展</block>
   <block id="78d0e38065ed90f1fe7de25c50775110" category="paragraph"><block ref="78d0e38065ed90f1fe7de25c50775110" category="inline-link-macro-rx"></block></block>
-  <block id="9b69c1695f55a4595dbf315316635dc3" category="inline-link">AFF 和 FAS 文档</block>
   <block id="01fe01722f1775c1b67e7b20a14951de" category="summary">从 ONTAP 9.1.1 开始，可以使用 IP 路由（第 3 层）后端连接实施 MetroCluster IP 配置。</block>
   <block id="190cbd15f1cbbd86a76eac6847a93472" category="admonition">NetApp 仅支持经过 NetApp 验证的交换机。这些交换机由 NetApp 测试和销售。它们将在中列出 <block ref="d4ffdef7e991262a330f44b113eb81ba" category="inline-link-macro-rx"></block> 和中的 <block ref="d708b823ca770dd1bbb2d28ee68bd021" category="inline-link-macro-rx"></block>。</block>
   <block id="c1444ba460cdd9b59c8ecf988ca907c4" category="list-text">ONTAP 9.7 及更高版本支持自动计划外切换。</block>
@@ -10348,7 +10341,6 @@
   <block id="706be03f02099b320a48663ab49614b7" category="sidebar">IP 交换机维护和更换</block>
   <block id="40414fb3a79648f825985d2f107661f0" category="sidebar">升级 MetroCluster IP 交换机上的固件</block>
   <block id="6fc3e23fc447e1c003feca250d853db5" category="sidebar">重命名 Cisco IP 交换机</block>
-  <block id="c674510981c9027bb4d0c0161679026d" category="sidebar">无中断地添加，删除或更改 ISL 端口</block>
   <block id="8939a3071227e9e768ef56f5cc7f2c4d" category="sidebar">如何识别 MetroCluster IP 配置中的存储</block>
   <block id="1c833178608e8e9495706619170addcc" category="sidebar">使用共享存储 /MetroCluster 交换机向 MetroCluster 添加磁盘架</block>
   <block id="806e10b1bc39f5ac90158ffc4013b751" category="sidebar">将存储热添加到 MetroCluster FC 配置</block>
@@ -10998,7 +10990,6 @@
   <block id="13044932159e150c28f3e3cabd33ea68" category="list-text">重复 <block ref="92a9f0aaafd1755c239f3740bca9b5f0" category="inline-xref-macro-rx"></block> 在其他网桥上，直到所有网桥均已布线。</block>
   <block id="663ca2bb9d69f00e40b12629c141073d" category="paragraph"><block ref="663ca2bb9d69f00e40b12629c141073d" category="inline-link-rx"></block></block>
   <block id="95052b14282825e23d588959737ad63b" category="paragraph"><block ref="95052b14282825e23d588959737ad63b" category="inline-link-macro-rx"></block></block>
-  <block id="f7569c5539a611615a6389d7051bfe9c" category="cell"><block ref="f7569c5539a611615a6389d7051bfe9c" category="inline-link-macro-rx"></block></block>
   <block id="fcc1179d9dc8927679bbc81b610ebfe5" category="list-text">验证所有组件是否已根据您的配置正确布线。</block>
   <block id="45a90cf1797a736ff538fdca7b5c8902" category="list-text"><block ref="45a90cf1797a736ff538fdca7b5c8902" category="inline-link-macro-rx"></block></block>
   <block id="4e3b6dac43e0506da50eaa98573ccb1c" category="inline-link-macro">MetroCluster 光纤连接配置</block>
@@ -11583,7 +11574,6 @@
   <block id="1e9c37d63bd64093dd1167b70b4e684f" category="section-title">MetroCluster 和其他信息</block>
   <block id="a82be0f551b8708bc08eb33cd9ded0cf" category="cell">信息</block>
   <block id="c7892ebbb139886662c6f2fc8c450710" category="cell">主题</block>
-  <block id="2847e89fee2d01cd879013b5c3c38cf6" category="paragraph"><block ref="2847e89fee2d01cd879013b5c3c38cf6" category="inline-link-rx"></block></block>
   <block id="fa06f628b32f0d1ba3fc7ece00862b96" category="paragraph"><block ref="fa06f628b32f0d1ba3fc7ece00862b96" category="inline-link-rx"></block></block>
   <block id="9f6ef9d803a6a101c30a47069149abd6" category="list-text">从 EFOS 3.7.x.x 或更高版本开始，可以使用非 FIPS 兼容版本和 FIPS 兼容版本。从不符合 FIPS 的版本迁移到符合 FIPS 的版本时，需执行不同的步骤，反之亦然。将 EFOS 从不符合 FIPS 的版本更改为符合 FIPS 的版本，或者反之，则会将交换机重置为出厂默认值。此操作步骤需要通过串行控制台端口进行访问。</block>
   <block id="c92c490b97a94b8ad700c26b41c33c18" category="summary">从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信息提供物理上独立的存储库来协助 MetroCluster IP 配置执行自动计划外切换。</block>
@@ -12788,7 +12778,6 @@
   <block id="103e238a461bced8a19653fadfc6b06f" category="paragraph">在此示例中、对于四节点MetroCluster IP配置、将检索以下旧系统ID：</block>
   <block id="f517753faa986ef4fe936b6ef049742a" category="paragraph">在此双节点MetroCluster IP配置示例中、检索到以下旧系统ID：</block>
   <block id="8351b67dee4e0c692cf4f28e83b54b0a" category="paragraph">此自动化操作将启动切换操作。完成这些操作后、此操作会在*暂停以供用户干预*、以便您可以将控制器装入机架并进行安装、启动配对控制器、以及使用从闪存备份将根聚合磁盘重新分配给新控制器模块<block ref="5fb641c5977b93de82b81e36db0454cf" prefix=" " category="inline-code"></block> 已提前收集。</block>
-  <block id="8582c1480060e39fb79b0996133a48d6" category="paragraph"><block ref="8582c1480060e39fb79b0996133a48d6" category="inline-link-rx"></block></block>
   <block id="956cd19055bcda776c4aa38d849f5270" category="paragraph">您的目录列表应包含一个包含内核文件 ontap-version_image.tgz 的 netboot 文件夹</block>
   <block id="d58685908c79a70d5ff1a6db6c223402" category="paragraph">您不需要提取 ontap-version_image.tgz 文件。</block>
   <block id="f3b7262f888ca591450dde27d2e71aaf" category="paragraph">以下示例将使用VLAN 120 (第一个网络)和VLAN 130 (第二个网络)为NODE_B_1设置值：</block>
@@ -12845,8 +12834,6 @@
   <block id="7d7fd277012689535b693bcae0693459" category="image-title">临时八节点配置</block>
   <block id="cb3b06d4f89d32589bbce6abb75941fc" category="image-title">临时十二节点配置</block>
   <block id="830d9e0f5e1de2a97686d67c2397dae5" category="image-alt">MCC DR组C4</block>
-  <block id="6af6b76d592516d40ca101051c678be3" category="inline-link-macro">AFF 和 FAS 系统升级文档</block>
-  <block id="73463ea97bfc9f9e1267ea63ebdd42a3" category="list-text">使用中的以下过程将数据从旧节点移动到新节点 <block ref="292db4887d6135b1e0f2f8467d29f1d6" category="inline-link-macro-rx"></block></block>
   <block id="bbe65d15d9db73ecb088957ca54464a4" category="list-text">修改每个集群中已转移节点的集群对等方的IP地址：</block>
   <block id="5f733ea5e4f1c7cf03ff4e0dcc486e49" category="list-text">按照中的步骤进行操作 <block ref="e5ebde3067c5558de277c40cd868d611" category="inline-link-macro-rx"></block> 以删除旧DR组。</block>
   <block id="91658906d8262381ddcdb44c01a8989d" category="list-text">如果要刷新八节点配置中的两个DR组、则必须对每个DR组重复整个操作步骤。</block>
@@ -13370,4 +13357,13 @@
   <block id="1aa145ddf3cafc3bf77b04a1c7069f71" category="list-text">按照_Brocade安装和配置_中所述配置新交换机、但跳过"`在MetroCluster FC交换机上配置分区`"操作步骤。</block>
   <block id="21b5cf2db61fccc0ace8b80bac8b35b7" category="list-text">注2：FC节点上的本地集群接口必须具有40GbE接口。此平台组合需要ONTAP 9.11.1或更高版本。</block>
   <block id="13cdbd43c145584bcad75658a29e498d" category="list-text">注3：FC节点上的本地集群接口必须具有100GbE接口。此平台组合需要ONTAP 9.11.1或更高版本。</block>
+  <block id="646d7d5f93b4a6d7bbbc65acf5ac1077" category="inline-link">ONTAP硬件系统文档</block>
+  <block id="a6060d4587fc5fc5f841d3287d08316c" category="paragraph"><block ref="a6060d4587fc5fc5f841d3287d08316c" category="inline-link-rx"></block></block>
+  <block id="777cc85682fbb64f0c41aa09dccf0ca4" category="paragraph"><block ref="777cc85682fbb64f0c41aa09dccf0ca4" category="inline-link-rx"></block></block>
+  <block id="9701f608cd28914f41da9cef3b56ba90" category="paragraph">请按照中适用于您的平台的安装说明进行操作<block ref="ba9533a8784109065785b5514b6caa78" category="inline-link-rx"></block>。</block>
+  <block id="1f1b4aed93819376fcceca70dcc661a8" category="paragraph"><block ref="1f1b4aed93819376fcceca70dcc661a8" category="inline-link-rx"></block></block>
+  <block id="ddd2d923df0e2b56b89593bd7e74dec1" category="list-text">使用中的以下过程将数据从旧节点移动到新节点 <block ref="4af1ab31bd03b6b171b2abfc54231e72" category="inline-link-macro-rx"></block></block>
+  <block id="13b7f77edb33af927a5eb756e92d3e1e" category="doc">无干扰地添加、删除或更改Cisco IP交换机上的ISL端口</block>
+  <block id="d0b4d4a01f6fdfe6150ce107537b1a30" category="paragraph">您可能需要添加、删除或更改Cisco IP交换机上的ISL端口。您可以将专用ISL端口转换为共享ISL端口、或者更改Cisco IP交换机上ISL端口的速度。传输距离较远的 ISL 可能需要较低的速度来提高质量。如果要添加或升级硬件、则可能需要提高ISL端口的速度、以便利用系统升级并将ISL添加到Cisco IP交换机。</block>
+  <block id="f8661864113fa686fbcb0e8305046574" category="cell"><block ref="f8661864113fa686fbcb0e8305046574" category="inline-link-macro-rx"></block></block>
 </blocks>

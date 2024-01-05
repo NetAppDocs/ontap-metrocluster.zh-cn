@@ -403,7 +403,7 @@ network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
 . 正确接地。
 . 在机架或机柜中安装控制器模块。
 +
-https://docs.netapp.com/us-en/ontap-systems/index.html["AFF 和 FAS 文档中心"^]
+https://docs.netapp.com/us-en/ontap-systems/index.html["ONTAP硬件系统文档"^]
 
 . 如果新控制器模块未附带自身的 FC-VI 卡，并且旧控制器中的 FC-VI 卡在新控制器上兼容，请交换 FC-VI 卡并将其安装在正确的插槽中。
 +
@@ -414,7 +414,7 @@ https://docs.netapp.com/us-en/ontap-systems/index.html["AFF 和 FAS 文档中心
 此时，请勿连接与旧控制器断开连接的任何其他缆线。
 
 +
-https://docs.netapp.com/us-en/ontap-systems/index.html["AFF 和 FAS 文档中心"^]
+https://docs.netapp.com/us-en/ontap-systems/index.html["ONTAP硬件系统文档"^]
 
 . 打开新节点的电源，并在系统提示显示 LOADER 提示符时按 Ctrl-C 。
 

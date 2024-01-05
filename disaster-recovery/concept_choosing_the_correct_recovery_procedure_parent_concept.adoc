@@ -47,7 +47,7 @@ link:task_recover_from_a_non_controller_failure_mcc_dr.html["从非控制器故�
 
 * 注： * 如果没有驱动器或其他硬件故障，则可以在双节点 MetroCluster 配置中使用控制器模块 FRU 更换操作步骤。
 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"]
+https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 
 
@@ -122,7 +122,7 @@ IMPORTANT: 如果在过渡期间添加或删除节点时发生故障，您必须
 
 * 如果没有需要更换的存储，您可以使用适用于此平台型号的控制器模块 FRU 更换操作步骤。
 +
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
+https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 * 如果存储需要更换，您可以使用多控制器模块恢复操作步骤。
 +
@@ -159,7 +159,7 @@ image::../media/mcc_dr_groups_8_node_with_a_multi_controller_failure.gif[MCC DR 
 FRU 更换操作步骤会执行两次，每个故障控制器模块一次。
 
 +
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
+https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 * 如果存储需要更换，您可以使用多控制器模块恢复操作步骤。
 +
@@ -179,7 +179,7 @@ link:task_recover_from_a_multi_controller_and_or_storage_failure.html["从多控
 
 您可以对 DR 组 2 使用平台专用的控制器模块 FRU 更换操作步骤。
 
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
+https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 image::../media/mcc_dr_groups_8_node_with_a_3_controller_failure.gif[MCC DR 组包含 8 个节点，其中 3 个控制器出现故障]
 
@@ -191,7 +191,7 @@ image::../media/mcc_dr_groups_8_node_with_a_3_controller_failure.gif[MCC DR 组�
 
 * 如果没有需要更换的存储，您可以使用适用于此平台型号的控制器模块 FRU 更换操作步骤。
 +
-https://docs.netapp.com/platstor/index.jsp["AFF 和 FAS 文档中心"^]
+https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 * 如果存储需要更换，您可以使用多控制器模块恢复操作步骤。
 +

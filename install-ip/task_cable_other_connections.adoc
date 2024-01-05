@@ -28,6 +28,6 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集
 
 . 使用缆线将控制器的管理和数据端口连接到本地站点的管理和数据网络。
 +
-请按照中适用于您的平台的安装说明进行操作 https://docs.netapp.com/us-en/ontap-systems/["AFF 和 FAS 系统文档中心"]。
+请按照中适用于您的平台的安装说明进行操作 https://docs.netapp.com/us-en/ontap-systems/["ONTAP硬件系统文档"^]。
 
 
