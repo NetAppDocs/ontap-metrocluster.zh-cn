@@ -146,14 +146,16 @@ NOTE: 您只能断开在旧配置和新配置中使用不同端口的连接。�
 按以下顺序删除连接：
 
 +
-** 如果本地集群接口连接到交换机：
+.. 修改所有集群的Sifs以禁用自动还原：
 +
-*** 断开本地集群接口的连接
-*** 断开本地集群ISO的连接
-
-
-** 断开MetroCluster IP接口
-** 断开MetroCluster 的连接
+[source, asciidoc]
+----
+net int modify -vserver <vserver_name> -lif <lif_name> -auto-revert false
+----
+.. 断开本地集群接口的连接
+.. 断开本地集群ISO的连接
+.. 断开MetroCluster IP接口
+.. 断开MetroCluster 的连接
 +
 在示例中 <<port_usage_worksheet>>，交换机不会发生变化。MetroCluster 的CRL已重新定位、必须断开连接。您无需断开工作表上标记为绿色的连接。
 

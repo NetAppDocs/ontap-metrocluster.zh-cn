@@ -13366,4 +13366,7 @@
   <block id="13b7f77edb33af927a5eb756e92d3e1e" category="doc">无干扰地添加、删除或更改Cisco IP交换机上的ISL端口</block>
   <block id="d0b4d4a01f6fdfe6150ce107537b1a30" category="paragraph">您可能需要添加、删除或更改Cisco IP交换机上的ISL端口。您可以将专用ISL端口转换为共享ISL端口、或者更改Cisco IP交换机上ISL端口的速度。传输距离较远的 ISL 可能需要较低的速度来提高质量。如果要添加或升级硬件、则可能需要提高ISL端口的速度、以便利用系统升级并将ISL添加到Cisco IP交换机。</block>
   <block id="f8661864113fa686fbcb0e8305046574" category="cell"><block ref="f8661864113fa686fbcb0e8305046574" category="inline-link-macro-rx"></block></block>
+  <block id="69f5f299da1076246b1de6b47387e82c" category="list-text">修改所有集群的Sifs以禁用自动还原：</block>
+  <block id="44f3e9b14f204b411afdea78f7b0391c" category="doc">MetroCluster发行说明</block>
+  <block id="af8a69aa12393a4d9b6992e884f1c919" category="sidebar">MetroCluster 文档</block>
 </blocks>
