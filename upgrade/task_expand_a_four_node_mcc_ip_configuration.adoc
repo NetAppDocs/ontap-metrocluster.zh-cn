@@ -13,13 +13,13 @@ summary: 您可以将四个新节点作为第二个 DR 组添加到 MetroCluster
 [role="lead"]
 根据您的ONTAP 版本、您可以通过将四个新节点添加为新的DR组来扩展MetroCluster IP配置。
 
-从ONTAP 9.13.1开始、您可以将四个新节点作为第三个DR组添加到MetroCluster IP配置中。这将创建一个12节点MetroCluster 配置。
+从ONTAP 9.13.1开始、您可以临时扩展八节点MetroCluster配置以刷新控制器和存储。请参见 link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_refresh_4n_mcc_ip.html["刷新四节点或八节点MetroCluster IP配置(ONTAP 9.8及更高版本)"] 有关详细信息 ...
 
 从 ONTAP 9.1.1 开始，您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。
 
 .开始之前
 * 新旧节点必须运行相同版本的 ONTAP 。
-* 本操作步骤 介绍了扩展一个四节点DR组所需的步骤。如果您使用的是八节点配置(两个DR组)、则必须对每个DR组重复整个操作步骤。
+* 本操作步骤介绍了向现有MetroCluster IP配置添加一个四节点DR组所需的步骤。如果要刷新八节点配置、则必须对每个DR组重复整个操作步骤、一次添加一个。
 * 验证是否支持使用新旧平台型号进行平台混合。
 +
 https://hwu.netapp.com["NetApp Hardware Universe"^]

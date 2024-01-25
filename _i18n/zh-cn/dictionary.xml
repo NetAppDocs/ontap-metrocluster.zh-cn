@@ -1241,14 +1241,12 @@
   <block id="9e56f2203627e1f0f852b03165f1f73c" category="cell">Cisco 9148S</block>
   <block id="4d5ea9cc493e38f0bd25ce9f073330be" category="cell">Cisco 9132T</block>
   <block id="0f39a39e2e8a1309b826dae2289dd8fb" category="cell">MDS 模块 1</block>
-  <block id="4ae081212f8a0475febe92be5c491cbc" category="paragraph">MDS 模块 2</block>
   <block id="14f265c9ad9a81b21c667b4042fc7575" category="admonition">下表显示了具有两个 FC-VI 端口的系统。AFF A700 和 FAS9000 系统具有四个 FC-VI 端口（ a ， b ， c 和 d ）。如果使用的是 AFF A700 或 FAS9000 系统，则端口分配会移动一个位置。例如， FC-VI 端口 c 和 d 转到交换机端口 2 ， HBA 端口 a 和 b 转到交换机端口 3 。</block>
   <block id="3db30a6fa1c05224aef86dc9b48a9085" category="cell">Cisco 9250i*</block>
   <block id="7454ecd5190b690ccf9ee77f2e438c0c" category="section-title">运行 ONTAP 9.1 或更高版本的 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况</block>
   <block id="68d960c549d05fc84233ef70c7a67687" category="cell">使用两个 FC 端口的 FibreBridge 7500</block>
   <block id="89eaf3610015ecc12505a2408ff9fda6" category="paragraph">可以按相同模式使用端口 17 到 40 以及 57 到 88 连接其他网桥。</block>
   <block id="a1d4f21ed73518b99dbbab05134b5c9a" category="paragraph">可以按相同模式使用端口 33 到 40 为第二个 DR 组或第二个 MetroCluster 配置连接其他网桥。</block>
-  <block id="c4d2587ed11ac65a9b9af2de531f3dce" category="paragraph">可以在第二个 MDS 模块上使用相同的端口号为第二个 DR 组或第二个 MetroCluster 配置连接其他网桥。</block>
   <block id="f656d69f7bbae519056da03a8e9e50d0" category="cell">Cisco 9250i</block>
   <block id="a6bd250708a75e43f157a7b657e654c5" category="paragraph">可以按相同模式使用端口 25 到 48 为第二个 DR 组或第二个 MetroCluster 配置连接其他网桥。</block>
   <block id="ba310a61cda35bab44af31435467361f" category="paragraph">下表显示了仅使用一个 FC 端口（ FC1 或 FC2 ）使用 FibreBridge 6500 网桥或 FibreBridge 7500 网桥时的网桥端口使用情况。对于使用一个 FC 端口的 FibreBridge 7500 网桥，可以使用缆线将 FC1 或 FC2 连接到指示为 FC1 的端口。可以使用端口 25-48 连接其他网桥。</block>
@@ -8755,48 +8753,6 @@
   <block id="5dd03e8d039863e563e049be198c3fd3" category="sidebar">发行说明</block>
   <block id="13c1fe346da53d3c9c58ab0c190eb172" category="sidebar">了解 MetroCluster 数据保护和灾难恢复</block>
   <block id="f6ded8bde676e251409725df18ef579a" category="sidebar">MetroCluster 如何保护数据并提供灾难恢复</block>
-  <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">入门</block>
-  <block id="2ef693575e01de24e090245f10a59777" category="sidebar">安装 MetroCluster IP</block>
-  <block id="5a3b01a5bff3f06441fb7188a02f105e" category="sidebar">安装光纤连接的 MetroCluster</block>
-  <block id="fdb8b17580937ddecfddeee4298a1482" category="sidebar">安装延伸型 MetroCluster</block>
-  <block id="18bd3543357b4fa11f6a58101dfa61a5" category="sidebar">安装 Tiebreaker</block>
-  <block id="d2875782347edc6066d3025cecc9df38" category="sidebar">安装调解器（仅限 MetroCluster IP ）</block>
-  <block id="ade01a5a398372194a42c36e9f5279ac" category="sidebar">维护</block>
-  <block id="7b8e5f5947a6dadc276f09b5a095667d" category="sidebar">维护和更换 MetroCluster FC 配置中的 FC 交换机。</block>
-  <block id="7f5d1cf6b92b5f6a9e5fe290c7d568fa" category="sidebar">IP 交换机</block>
-  <block id="e9e6a0d40b20996536edcfae7b0ca501" category="sidebar">维护和更换 MetroCluster IP 配置中的 IP 交换机。</block>
-  <block id="5360721f5d15a4a50d1c0ea177551d33" category="sidebar">ATTO 网桥</block>
-  <block id="6659ad060d95c49da27c02efe70880ee" category="sidebar">维护和更换 MetroCluster FC 配置中的 ATTO FC-SAS 网桥。</block>
-  <block id="c89a58741e7240ddf3c43ec7dbb21cd7" category="sidebar">驱动器架</block>
-  <block id="bb2a6473813b98ffe9edacc863bb749e" category="sidebar">热添加和无中断更换驱动器架 MetroCluster FC 配置。</block>
-  <block id="9deb979aa141eacec55a34ce9dfd4cc9" category="sidebar">RCF 文件</block>
-  <block id="277ccac115bb10401c3dbe796a5fd555" category="sidebar">MetroCluster RCF 文件</block>
-  <block id="f4ff45e882d7ee5ad1b4a9e07301850d" category="sidebar">为 MetroCluster 交换机生成或下载 RCF 文件。</block>
-  <block id="d59048f21fd887ad520398ce677be586" category="sidebar">了解更多信息。</block>
-  <block id="b92dd7cb5813aceca4052255be1046a0" category="sidebar">NetApp MetroCluster 解决方案架构和设计 | TR-4705</block>
-  <block id="c8ed4eb56c00a193e2bf85d5a38119ee" category="sidebar">了解 MetroCluster FC 解决方案。</block>
-  <block id="d821955413ef2ce3b63ac32371a5186e" category="sidebar">MetroCluster IP 解决方案架构和设计 | TR-4689</block>
-  <block id="33d6c0f3568f32d65b84533fcc9dcbcb" category="sidebar">了解 MetroCluster IP 解决方案。</block>
-  <block id="3d5cf400e4fb829207d0ab81798b6587" category="sidebar">升级，扩展和转换</block>
-  <block id="64cd3f6f5347e9d6c92e09aa1c656f87" category="sidebar">升级和刷新硬件</block>
-  <block id="fdc7fb09ec4ebc533362a55d221d305f" category="sidebar">升级 MetroCluster 配置中的控制器。</block>
-  <block id="daf3fcb291d6eb9e42a7777197caa458" category="sidebar">将 MetroCluster FC 转换为 MetroCluster IP</block>
-  <block id="689a3f6927feed4862b6b5b03d4f0018" category="sidebar">将现有 MetroCluster IP 配置过渡到 MetroCluster IP 配置。</block>
-  <block id="822970998ef8866cd59ed6ba8d63af83" category="sidebar">升级 MetroCluster IP RCF 文件</block>
-  <block id="b2899a6511f7a2ac6656022f75581e5a" category="sidebar">升级 MetroCluster IP 配置中的交换机 RCF 文件。</block>
-  <block id="b7c02f1bc7ffc889ddb9e99702663c56" category="sidebar">ATTO 网桥固件</block>
-  <block id="ddac5beff5f77bf22595caa98bac08f9" category="sidebar">FibreBridge 7600N</block>
-  <block id="7189e471dda7f4816814f7b74c6948d1" category="sidebar">下载 7600 网桥的固件。</block>
-  <block id="dcb741f9e6e5d6050aeb3d8fd347e9fd" category="sidebar">FibreBridge 7500N</block>
-  <block id="81defdfe6f2018754b9c90215acaf8c1" category="sidebar">下载 7500 网桥的固件。</block>
-  <block id="dcfbd7fd6db6301d4cc61e9b319755d1" category="sidebar">FibreBridge 6500N</block>
-  <block id="230d9a7150bac60512d2faea2daf48aa" category="sidebar">下载 6500 网桥的固件。</block>
-  <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">更多资源</block>
-  <block id="fa0344a10c89a05b4e9232391d5feb01" category="sidebar">NetApp Config Advisor</block>
-  <block id="7bde48e6b0d33c17d731b283a4674428" category="sidebar">验证您的配置和布线。</block>
-  <block id="d5552b01bf48dde88719269e524ddbb9" category="sidebar">验证您的硬件是否受支持。</block>
-  <block id="3f2b90ec5a9b43745b9c8c9fedf48d8d" category="sidebar">NetApp 支持知识库</block>
-  <block id="b2cdf9234a2dabbbb6acb6f71e098209" category="sidebar">搜索支持问题的答案。</block>
   <block id="9117c89e6f250da2f36e47a459f0d84d" category="sidebar">维护 MetroCluster 组件</block>
   <block id="b25d5935c651d85fc394ce7858eb2c60" category="sidebar">安装和配置 MetroCluster Tiebreaker</block>
   <block id="fe8f0af35a77ee3de429b839700538fb" category="sidebar">从 MetroCluster FC 过渡到 MetroCluster IP</block>
@@ -10776,7 +10732,6 @@
   <block id="9135f01e21f3378e93e8e79d77b55ba9" category="cell">LEM2-2</block>
   <block id="fab602535b4be80321a95b9f39dfb023" category="cell">LEM2-3</block>
   <block id="9886bd0d1558f3c4c6b4b7c6ccd6d4ca" category="cell">LEM2-4</block>
-  <block id="8aed0fcdb92053bce2340c69664e26c5" category="list-text">可以使用 2 个 LEM 模块将其他网桥连接到 9132T 交换机中的端口 LEM2-5 到 LEM2-8 。</block>
   <block id="a2529b9a22421965b80dca74f0e8ac35" category="list-text">使用具有 1 个 LEM 模块的 9132T 交换机时，仅支持一（ 1 ）个网桥堆栈。</block>
   <block id="99a578284ada1b8807f86cb25b927d6b" category="inline-link-macro">使用 AFF A900 系统时 FC 交换机的端口分配</block>
   <block id="5383551238fc98d2f75e63be48523c04" category="list-text"><block ref="5383551238fc98d2f75e63be48523c04" category="inline-link-macro-rx"></block></block>
@@ -10823,10 +10778,6 @@
   <block id="aef9e13f2797744b62209b58e52a9a40" category="paragraph">如果使用的是 ONTAP 9.10.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。</block>
   <block id="72fa0ea37e0389a6c2e6107de6bbcbe8" category="summary">下表显示了 AFF A900 系统中 Brocade 交换机的 ISL 端口使用情况。</block>
   <block id="f3089a69f0cb0a583fab7f5c1ea7226c" category="cell">6505 ， G610</block>
-  <block id="e912938f380bdbc5125a46cb6974c985" category="sidebar">展开双节点 MetroCluster</block>
-  <block id="c495f5fb55d923c4b5bdcc9031d17504" category="sidebar">将控制器添加到 MetroCluster 配置中以创建四节点或八节点配置。</block>
-  <block id="8b9fb0a48d871747071a5767bb11c3c9" category="sidebar">展开四节点 MetroCluster</block>
-  <block id="f0de1d093d27614c73e83446489eec92" category="sidebar">将控制器添加到 MetroCluster 配置中以创建八节点配置。</block>
   <block id="b6d684e18fbacf209337f80ec1a6dbd2" category="sidebar">运行 ONTAP 9.10.1 或更高版本的控制器的 AFF A900 Brocade 端口使用情况</block>
   <block id="20be931e6a91f7361d271248d9c2f477" category="sidebar">运行 ONTAP 9.10.1 或更高版本的 ISL 的 AFF A900 Brocade 端口使用情况</block>
   <block id="224ad006d44a9886d7665e4aad6a905c" category="sidebar">运行 ONTAP 9.10.1 或更高版本的 AFF A900 Cisco 端口使用控制器</block>
@@ -11567,7 +11518,6 @@
   <block id="a27983e963a18385eebdc3381062e49b" category="paragraph">是（从 ONTAP 9.8 开始）</block>
   <block id="098fadefd1319cbc560b7d741aa7210e" category="paragraph">是（从 ONTAP 9.7 开始）</block>
   <block id="b9afd1726285b60db7d467ad0820e411" category="list-text">从 ONTAP 9.1.1 开始，支持八节点配置。</block>
-  <block id="fa59de86b7e9bd4898cb6907726259d6" category="paragraph">对于运行 ONTAP 9.8 及更早版本的 MetroCluster 配置，为过渡升级而执行的某些过程要求在配置中再添加一个四节点 DR 组，以创建临时八节点配置。从 ONTAP 9.1.1 开始，支持永久性的 8 节点 MetroCluster 配置。</block>
   <block id="e03959092a5c4014e786cb1caa8e7067" category="summary">从 ONTAP 9.5 开始， ONTAP 支持使用虚拟 IP （ VIP\ ）和边界网关协议（ BGP ）的第 3 层连接。前端网络中用于冗余的 VIP 和 BGP 与后端 MetroCluster 冗余相结合，可提供第 3 层灾难恢复解决方案。</block>
   <block id="ca06ae8121f1cc11363fc78862822c7c" category="summary">您可以从 NetApp 文档了解有关 MetroCluster IP 配置和操作的更多信息。</block>
   <block id="cc3e055fb471a8cb2ae09b695769980f" category="paragraph">您可以了解有关 MetroCluster 配置的更多信息。</block>
@@ -12802,8 +12752,6 @@
   <block id="eae1d6e5dc6115799413390aecfa0c7c" category="paragraph">自动化操作将启动切换、<block ref="4bc031ebd90e06c679bed249595b6c90" prefix=" " category="inline-code"></block>，和<block ref="a233091efff166ee24ee5a89d344dcdf" prefix=" " category="inline-code"></block> 操作。完成这些操作后、此操作会在*暂停以供用户干预*、以便您可以将控制器装入机架并进行安装、启动配对控制器、以及使用从闪存备份将根聚合磁盘重新分配给新控制器模块<block ref="5fb641c5977b93de82b81e36db0454cf" prefix=" " category="inline-code"></block> 已提前收集。</block>
   <block id="3d296dee09f5acd9721e7bd1f885a1ff" category="doc">扩展MetroCluster IP配置</block>
   <block id="f7ebd0c3919ed1a579352a95f757a9e6" category="paragraph">根据您的ONTAP 版本、您可以通过将四个新节点添加为新的DR组来扩展MetroCluster IP配置。</block>
-  <block id="bb12c6e41d92f6e4a5251b0dd54e9b0f" category="paragraph">从ONTAP 9.13.1开始、您可以将四个新节点作为第三个DR组添加到MetroCluster IP配置中。这将创建一个12节点MetroCluster 配置。</block>
-  <block id="1b9d79df22b9bc1c5dc1b1baa6f53e05" category="list-text">本操作步骤 介绍了扩展一个四节点DR组所需的步骤。如果您使用的是八节点配置(两个DR组)、则必须对每个DR组重复整个操作步骤。</block>
   <block id="5ffb6f10d2a660f5653c90be923e511a" category="section-title">添加第二个DR组时支持的平台组合</block>
   <block id="c7a5837b5fbd32fe6a2e393e60dbd4a3" category="paragraph">下表显示了八节点IP配置支持的平台组合。</block>
   <block id="a321522d8592d70cc3e6c26d2e63f256" category="list-text">此表中的组合仅适用于常规或永久8节点配置。</block>
@@ -13369,4 +13317,34 @@
   <block id="69f5f299da1076246b1de6b47387e82c" category="list-text">修改所有集群的Sifs以禁用自动还原：</block>
   <block id="44f3e9b14f204b411afdea78f7b0391c" category="doc">MetroCluster发行说明</block>
   <block id="af8a69aa12393a4d9b6992e884f1c919" category="sidebar">MetroCluster 文档</block>
+  <block id="b8b5370c063dd2b4ce4021558a49ac07" category="paragraph">对于运行 ONTAP 9.8 及更早版本的 MetroCluster 配置，为过渡升级而执行的某些过程要求在配置中再添加一个四节点 DR 组，以创建临时八节点配置。  从ONTAP 9.9.1开始、支持永久八节点MetroCluster配置。</block>
+  <block id="ff66d22d6ddbc0a6a59188599728f8d1" category="paragraph">从ONTAP 9.13.1开始、您可以临时扩展八节点MetroCluster配置以刷新控制器和存储。请参见 <block ref="6e6fb56321b906b7bb3a671d5fc5dfc7" category="inline-link-macro-rx"></block> 有关详细信息 ...</block>
+  <block id="0abe9117fda19697d2dbf1bd1d754e02" category="list-text">本操作步骤介绍了向现有MetroCluster IP配置添加一个四节点DR组所需的步骤。如果要刷新八节点配置、则必须对每个DR组重复整个操作步骤、一次添加一个。</block>
+  <block id="84d04e0c7f711ba6800f8d3bd5bc0847" category="inline-xref">运行ONTAP 9.4或更高版本的MetroCluster配置中的Cisco 9132T端口使用情况</block>
+  <block id="ccdfc130a534c248f558d6495323cb02" category="admonition">有关Cisco 9132T、请参见 <block ref="3db7a367aafc64164b814f36e8341eaa" category="inline-xref-macro-rx"></block>。</block>
+  <block id="da1fe90f1a7c8d5426c9fb653143159c" category="inline-xref">运行ONTAP 9.1或更高版本的MetroCluster配置中用于Cisco 9132T的ISL端口使用情况</block>
+  <block id="ebaff03f6ed502f4a413a1ce08e7b523" category="admonition">有关Cisco 9132T、请参见 <block ref="745f667c2207ac60e33bebf6a26d4908" category="inline-xref-macro-rx"></block>。</block>
+  <block id="b6adc54642d6ea9466bf5956bfd90921" category="section-title">运行ONTAP 9.4及更高版本的MetroCluster四节点和八节点配置中的Cisco 9132T端口使用情况</block>
+  <block id="34adac1b835db756e4bda81aeab17aee" category="paragraph">下表显示了Cisco 9132T交换机上的端口使用情况。下表显示了两个DR组中包含四个和八个控制器模块时支持的最大配置。</block>
+  <block id="65ac5210a13e16ff0c09cc508d39f010" category="admonition">对于八节点配置、由于未提供RCF、您必须手动执行分区。</block>
+  <block id="24ce95dff7cdbe82f47d82b0c5e3c3bd" category="paragraph">LEM2-5.</block>
+  <block id="d1219ba7b45f6028da9ef53dc1d962dc" category="paragraph">LEM2-6</block>
+  <block id="d72635ed8e78c8bf248888485d54fefc" category="paragraph">LEM2-7.</block>
+  <block id="bf56acff15a22deda5e2b827afffd42e" category="paragraph">LEM2-8.</block>
+  <block id="148fa39b011d75fbf87b5c6a6e4eb7ac" category="list-text">在四节点配置中、您可以使用2个LEM使用缆线将其他网桥连接到9132T交换机中的端口LEM2-5至LEM2-8。</block>
+  <block id="1b3edf8d6e61a53c159f115111d76631" category="list-text">在八节点配置中、您可以使用2个LEM使用缆线将其他网桥连接到9132T交换机中的端口LEM2-13至LEM2-16。</block>
+  <block id="7aff2de5bc0a96f53245830100b31a76" category="section-title">运行ONTAP 9.1或更高版本的MetroCluster配置中四节点和八节点配置中用于ISL的Cisco 9132T端口使用情况</block>
+  <block id="e919df0feb57e826b9f8b6224efe2e04" category="paragraph">下表显示了Cisco 9132T交换机的ISL端口使用情况。</block>
+  <block id="a261c053c0fcf9998b34ce893b64a413" category="paragraph"><block ref="c0d0f2b19dc6b7f887420d5bf33adaba" prefix="" category="inline-code"></block></block>
+  <block id="8eca95447c2280ec1cef00c74fbdd026" category="paragraph"><block ref="08781b24c8be1fcc1ac4a86a67a6752f" prefix="" category="inline-code"></block></block>
+  <block id="e7b29d0915f737610eeeb345da9728aa" category="list-text">验证集群中的所有节点是否运行正常：</block>
+  <block id="bd0d55b78c7361cb6bee641b1a3f51f1" category="paragraph">输出应显示<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> 。<block ref="555bf8344ca0caf09b42f55e185526d8" prefix=" " category="inline-code"></block> 字段。</block>
+  <block id="a52d9220769f6761bf129d7261ce8c50" category="list-text">确认连接到新加入的MetroCluster IP节点的所有磁盘均存在：</block>
+  <block id="31fd58e5bb5b343f46192bb2a5c46678" category="list-text">运行以下命令、验证MetroCluster配置的运行状况：</block>
+  <block id="0684ea3076044d6489f161fa34d1768f" category="list-text">您可以使用缆线将其他网桥连接到具有2个LEM模块的9132T交换机中的端口LEM2-5至LEM2-8。</block>
+  <block id="2f446d31523b281d945a5fb6d94e09f7" category="cell">MetroCluster FC配置状态</block>
+  <block id="b25919189b4340e1b84dd00de09921d3" category="cell">MetroCluster IP配置状态</block>
+  <block id="e402ac65c66b96e2f07562ac550c53d8" category="paragraph">脱机(注释1)</block>
+  <block id="5993b684cff34ce50e30b3a1293c1f25" category="paragraph">*注意1*：在MetroCluster IP配置中、切换完成后、您可以手动将未镜像聚合置于联机状态。</block>
+  <block id="0fc1dc5210ab6635b5582671b5100aaf" category="paragraph">了解更多信息 <block ref="26007d4b0afff1c47eeefe43a1492ee9" category="inline-xref-macro-rx"></block>。</block>
 </blocks>

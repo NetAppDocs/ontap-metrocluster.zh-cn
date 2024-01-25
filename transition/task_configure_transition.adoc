@@ -613,7 +613,7 @@ aggr_data_a2
  a| 
 从任何节点的提示符处，配置 MetroCluster ：
 
-MetroCluster configure _node-name_`
+`metrocluster configure <node-name>`
 
 
 NOTE: 您必须运行 `MetroCluster configure` 和 * 不 * `MetroCluster configure -refresh true`
@@ -632,7 +632,7 @@ NOTE: 您必须运行 `MetroCluster configure` 和 * 不 * `MetroCluster configu
 
 .. 使用 ` -allow-with-one-aggregate true` 参数配置 MetroCluster ：
 +
-`MetroCluster configure -allow-with-one-aggregate true _node-name_`
+`metrocluster configure -allow-with-one-aggregate true -node-name <node-name>`
 
 .. 返回到管理权限级别：
 +
@@ -720,6 +720,13 @@ Do you want to continue? {y|n}: y
 
 cluster_A::>
 ....
+. 验证集群中的所有节点是否运行正常：
++
+`cluster show`
+
++
+输出应显示 `true` 。 `health` 字段。
+
 . 在两个集群上运行以下命令、以确认可以接管并且节点已连接：
 +
 `s存储故障转移显示`
@@ -736,6 +743,18 @@ Node_FC_2      Node_FC_1              true      Connected to Node_FC_1
 Node_IP_1      Node_IP_2              true      Connected to Node_IP_2
 Node_IP_2      Node_IP_1              true      Connected to Node_IP_1
 ----
+. 确认连接到新加入的MetroCluster IP节点的所有磁盘均存在：
++
+`d展示`
+
+. 运行以下命令、验证MetroCluster配置的运行状况：
++
+.. `MetroCluster check run`
+.. MetroCluster check show`
+.. `MetroCluster 互连镜像显示`
+.. `MetroCluster 互连适配器 show`
+
+
 . 以高级权限将 MDV_CRS 卷从旧节点移动到新节点。
 +
 .. 显示卷以标识 MDV 卷：

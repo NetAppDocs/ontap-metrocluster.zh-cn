@@ -1942,6 +1942,9 @@ ISL 端口 8
 
 下表显示了两个 DR 组中包含八个控制器模块时支持的最大配置。对于较小的配置，请忽略其他控制器模块对应的行。
 
+
+NOTE: 有关Cisco 9132T、请参见 <<cisco_9132t_port,运行ONTAP 9.4或更高版本的MetroCluster配置中的Cisco 9132T端口使用情况>>。
+
 |===
 
 
@@ -2543,327 +2546,6 @@ HBA 端口 d
 -
  a| 
 32
-
-|===
-|===
-
-
-4+| Cisco 9132T 
-
-
-4+| MDS 模块 1 
-
-
-| 组件 | 端口 | 交换机 1 | 交换机 2 
-
-
- a| 
-controller_x_1
- a| 
-FC-VI 端口 A
- a| 
-1.
- a| 
--
-
-
-
- a| 
-FC-VI 端口 b
- a| 
--
- a| 
-1.
-
-
-
- a| 
-FC-VI 端口 c
- a| 
-2.
- a| 
--
-
-
-
- a| 
-FC-VI 端口 d
- a| 
--
- a| 
-2.
-
-
-
- a| 
-HBA 端口 A
- a| 
-3.
- a| 
--
-
-
-
- a| 
-HBA 端口 b
- a| 
--
- a| 
-3.
-
-
-
- a| 
-HBA 端口 c
- a| 
-4.
- a| 
--
-
-
-
- a| 
-HBA 端口 d
- a| 
--
- a| 
-4.
-
-
-
- a| 
-controller_x_2
- a| 
-FC-VI 端口 A
- a| 
-5.
- a| 
--
-
-
-
- a| 
-FC-VI 端口 b
- a| 
--
- a| 
-5.
-
-
-
- a| 
-FC-VI 端口 c
- a| 
-6.
- a| 
--
-
-
-
- a| 
-FC-VI 端口 d
- a| 
--
- a| 
-6.
-
-
-
- a| 
-HBA 端口 A
- a| 
-7.
- a| 
--
-
-
-
- a| 
-HBA 端口 b
- a| 
--
- a| 
-7.
-
-
-
- a| 
-HBA 端口 c
- a| 
-8.
- a| 
--
-
-
-
- a| 
-HBA 端口 d
- a| 
--
- a| 
-8.
-
-
-
-4+| MDS 模块 2 
-
-
- a| 
-组件
- a| 
-端口
- a| 
-交换机 1
- a| 
-交换机 2
-
-
-
- a| 
-controller_x_3
- a| 
-FC-VI 端口 A
- a| 
-1.
- a| 
--
-
-
-
- a| 
-FC-VI 端口 b
- a| 
--
- a| 
-1.
-
-
-
- a| 
-FC-VI 端口 c
- a| 
-2.
- a| 
--
-
-
-
- a| 
-FC-VI 端口 d
- a| 
--
- a| 
-2.
-
-
-
- a| 
-HBA 端口 A
- a| 
-3.
- a| 
--
-
-
-
- a| 
-HBA 端口 b
- a| 
--
- a| 
-3.
-
-
-
- a| 
-HBA 端口 c
- a| 
-4.
- a| 
--
-
-
-
- a| 
-HBA 端口 d
- a| 
--
- a| 
-4.
-
-
-
- a| 
-controller_x_4
- a| 
-FC-VI 端口 A
- a| 
-5.
- a| 
--
-
-
-
- a| 
-FC-VI 端口 b
- a| 
--
- a| 
-5.
-
-
-
- a| 
-FC-VI 端口 c
- a| 
-6.
- a| 
--
-
-
-
- a| 
-FC-VI 端口 d
- a| 
--
- a| 
-6.
-
-
-
- a| 
-HBA 端口 A
- a| 
-7.
- a| 
--
-
-
-
- a| 
-HBA 端口 b
- a| 
--
- a| 
-7.
-
-
-
- a| 
-HBA 端口 c
- a| 
-8.
- a| 
--
-
-
-
- a| 
-HBA 端口 d
- a| 
--
- a| 
-8.
 
 |===
 
@@ -3444,96 +3126,6 @@ FC2
 
 |===
 可以按相同模式使用端口 33 到 40 为第二个 DR 组或第二个 MetroCluster 配置连接其他网桥。
-
-|===
-
-
-4+| Cisco 9132T 
-
-
-| 使用两个 FC 端口的 FibreBridge 7500 | 端口 | 交换机 | 交换机 2 
-
-
- a| 
-bridge_x_1a
- a| 
-FC1
- a| 
-9
- a| 
--
-
-
-
- a| 
-FC2
- a| 
--
- a| 
-9
-
-
-
- a| 
-bridge_x_1b
- a| 
-FC1
- a| 
-10
- a| 
--
-
-
-
- a| 
-FC2
- a| 
--
- a| 
-10
-
-
-
- a| 
-bridge_x_2a
- a| 
-FC1
- a| 
-11.
- a| 
--
-
-
-
- a| 
-FC2
- a| 
--
- a| 
-11.
-
-
-
- a| 
-bridge_x_2b
- a| 
-FC1
- a| 
-12
- a| 
--
-
-
-
- a| 
-FC2
- a| 
--
- a| 
-12
-
-|===
-可以在第二个 MDS 模块上使用相同的端口号为第二个 DR 组或第二个 MetroCluster 配置连接其他网桥。
 
 |===
 
@@ -4277,6 +3869,9 @@ FC1
 
 下表显示了 ISL 端口使用情况。此配置中的所有交换机上的 ISL 端口使用情况均相同。
 
+
+NOTE: 有关Cisco 9132T、请参见 <<cisco_9132t_port_isl,运行ONTAP 9.1或更高版本的MetroCluster配置中用于Cisco 9132T的ISL端口使用情况>>。
+
 |===
 
 
@@ -4371,34 +3966,656 @@ ISL 4.
  a| 
 48
 
+|===
+
+
+== 运行ONTAP 9.4及更高版本的MetroCluster四节点和八节点配置中的Cisco 9132T端口使用情况
+
+下表显示了Cisco 9132T交换机上的端口使用情况。下表显示了两个DR组中包含四个和八个控制器模块时支持的最大配置。
+
+
+NOTE: 对于八节点配置、由于未提供RCF、您必须手动执行分区。
+
+|===
+
+
+7+| 使用两个 FC 端口（ FC1 和 FC2 ）的 FibreBridge 7500N 或 7600N 的配置 
+
+
+7+| MetroCluster 1 或 DR 组 1 
+
+
+4+|  2+| 四节点 | 八节点 
+
+
+2+| 组件 | 端口 | 连接到 FC_switch... | 9132T （ 1 个 LEM ） | 9132T （ 2 个 LEM ） | 9132T （ 2 个 LEM ） 
 
 
  a| 
-Cisco 9132T
+controller_x_1
  a| 
-ISL 1
+FC-VI 端口 A
  a| 
-MDS 模块 1 端口 13
-
-
-
+1.
  a| 
-ISL 2.
+LEM1-1
  a| 
-MDS 模块 1 端口 14
-
-
-
+LEM1-1
  a| 
-ISL 3.
- a| 
-MDS 模块 1 端口 15
+LEM1-1
 
 
 
  a| 
-ISL 4.
+FC-VI 端口 b
  a| 
-MDS 模块 1 端口 16
+2.
+ a| 
+LEM1-1
+ a| 
+LEM1-1
+ a| 
+LEM1-1
 
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+1.
+ a| 
+LEM1-2
+ a| 
+LEM1-2
+ a| 
+LEM1-2
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+2.
+ a| 
+LEM1-2
+ a| 
+LEM1-2
+ a| 
+LEM1-2
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+1.
+ a| 
+LEM1-5
+ a| 
+LEM1-5
+ a| 
+LEM1-3
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+2.
+ a| 
+LEM1-5
+ a| 
+LEM1-5
+ a| 
+LEM1-3
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+1.
+ a| 
+LEM1-6
+ a| 
+LEM1-6
+ a| 
+LEM1-4
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+2.
+ a| 
+LEM1-6
+ a| 
+LEM1-6
+ a| 
+LEM1-4
+
+
+
+ a| 
+controller_x_2
+ a| 
+FC-VI 端口 A
+ a| 
+1.
+ a| 
+LEM1-7.
+ a| 
+LEM1-7.
+ a| 
+LEM1-5
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+2.
+ a| 
+LEM1-7.
+ a| 
+LEM1-7.
+ a| 
+LEM1-5
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+1.
+ a| 
+LEM1-8.
+ a| 
+LEM1-8.
+ a| 
+LEM1-6
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+2.
+ a| 
+LEM1-8.
+ a| 
+LEM1-8.
+ a| 
+LEM1-6
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+1.
+ a| 
+LEM1-11
+ a| 
+LEM1-11
+ a| 
+LEM1-7.
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+2.
+ a| 
+LEM1-11
+ a| 
+LEM1-11
+ a| 
+LEM1-7.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+1.
+ a| 
+LEM1-12
+ a| 
+LEM1-12
+ a| 
+LEM1-8.
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+2.
+ a| 
+LEM1-12
+ a| 
+LEM1-12
+ a| 
+LEM1-8.
+
+
+
+7+| MetroCluster 2 或 DR 组 2 
+
+
+ a| 
+controller_x_3
+ a| 
+FC-VI 端口 A
+ a| 
+1.
+|  |   a| 
+LEM2-1
+
+
+
+ a| 
+FC-VI 端口 b
+ a| 
+2.
+|  |   a| 
+LEM2-1
+
+
+
+ a| 
+FC-VI 端口 c
+ a| 
+1.
+|  |   a| 
+LEM2-2
+
+
+
+ a| 
+FC-VI 端口 d
+ a| 
+2.
+|  |   a| 
+LEM2-2
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+1.
+|  |   a| 
+LEM2-3
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+2.
+|  |   a| 
+LEM2-3
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+1.
+|  |   a| 
+LEM2-4
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+2.
+|  |   a| 
+LEM2-4
+
+
+
+ a| 
+controller_x_4
+ a| 
+FC-VI-1 端口 A
+ a| 
+1.
+|  |   a| 
+LEM2-5.
+
+
+
+ a| 
+FC-VI-1 端口 b
+ a| 
+2.
+|  |   a| 
+LEM2-5.
+
+
+
+ a| 
+FC-VI-1 端口 c
+ a| 
+1.
+|  |   a| 
+LEM2-6
+
+
+
+ a| 
+FC-VI-1 端口 d
+ a| 
+2.
+|  |   a| 
+LEM2-6
+
+
+
+ a| 
+HBA 端口 A
+ a| 
+1.
+|  |   a| 
+LEM2-7.
+
+
+
+ a| 
+HBA 端口 b
+ a| 
+2.
+|  |   a| 
+LEM2-7.
+
+
+
+ a| 
+HBA 端口 c
+ a| 
+1.
+|  |   a| 
+LEM2-8.
+
+
+
+ a| 
+HBA 端口 d
+ a| 
+2.
+|  |   a| 
+LEM2-8.
+
+
+
+7+| MetroCluster 1 或 DR 组 1 
+
+
+4+|  2+| 四节点 | 八节点 
+
+
+2+| 使用两个 FC 端口的 FibreBridge 7500 | 端口 | 连接到 FC_switch... | 9132T （ 1 个 LEM ） | 9132T （ 2 个 LEM ） | 9132T （ 2 个 LEM ） 
+
+
+ a| 
+堆栈 1
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+1.
+ a| 
+LEM1-13
+ a| 
+LEM1-13
+ a| 
+LEM1-9
+
+
+
+ a| 
+FC2
+ a| 
+2.
+ a| 
+LEM1-13
+ a| 
+LEM1-13
+ a| 
+LEM1-9
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+1.
+ a| 
+LEM1-14
+ a| 
+LEM1-14
+ a| 
+LEM1-10
+
+
+
+ a| 
+FC2
+ a| 
+2.
+ a| 
+LEM1-14
+ a| 
+LEM1-14
+ a| 
+LEM1-10
+
+
+
+ a| 
+堆栈 2
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+1.
+|   a| 
+LEM1-15
+ a| 
+LEM1-11
+
+
+
+ a| 
+FC2
+ a| 
+2.
+|   a| 
+LEM1-15
+ a| 
+LEM1-11
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+1.
+|   a| 
+LEM1-16
+ a| 
+LEM1-12
+
+
+
+ a| 
+FC2
+ a| 
+2.
+|   a| 
+LEM1-16
+ a| 
+LEM1-12
+
+
+
+ a| 
+堆栈 3
+ a| 
+bridge_x_3a
+ a| 
+FC1
+ a| 
+1.
+|   a| 
+LEM2-1
+ a| 
+LEM2-9
+
+
+
+ a| 
+FC2
+ a| 
+2.
+|   a| 
+LEM2-1
+ a| 
+LEM2-9
+
+
+
+ a| 
+bridge_x_3b
+ a| 
+FC1
+ a| 
+1.
+|   a| 
+LEM2-2
+ a| 
+LEM2-10
+
+
+
+ a| 
+FC2
+ a| 
+2.
+|   a| 
+LEM2-2
+ a| 
+LEM2-10
+
+
+
+ a| 
+堆栈 y
+ a| 
+bridge_x_ya
+ a| 
+FC1
+ a| 
+1.
+|   a| 
+LEM2-3
+ a| 
+LEM2-11
+
+
+
+ a| 
+FC2
+ a| 
+2.
+|   a| 
+LEM2-3
+ a| 
+LEM2-11
+
+
+
+ a| 
+bridge_x_YB
+ a| 
+FC1
+ a| 
+1.
+|   a| 
+LEM2-4
+ a| 
+LEM2-12
+
+
+
+ a| 
+FC2
+ a| 
+2.
+|   a| 
+LEM2-4
+ a| 
+LEM2-12
+
+|===
+[NOTE]
+====
+* 在四节点配置中、您可以使用2个LEM使用缆线将其他网桥连接到9132T交换机中的端口LEM2-5至LEM2-8。
+* 在八节点配置中、您可以使用2个LEM使用缆线将其他网桥连接到9132T交换机中的端口LEM2-13至LEM2-16。
+* 使用具有 1 个 LEM 模块的 9132T 交换机时，仅支持一（ 1 ）个网桥堆栈。
+
+
+====
+
+
+== 运行ONTAP 9.1或更高版本的MetroCluster配置中四节点和八节点配置中用于ISL的Cisco 9132T端口使用情况
+
+下表显示了Cisco 9132T交换机的ISL端口使用情况。
+
+|===
+
+
+4+| MetroCluster 1 或 DR 组 1 
+
+
+.2+| 端口 2+| 四节点 | 八节点 
+
+
+| 9132T （ 1 个 LEM ） | 9132T （ 2 个 LEM ） | 9132T （ 2 个 LEM ） 
+
+
+| ISL1 | LEM1-15 | LEM2-9 | LEM1-13 
+
+
+| ISL2 | LEM1-16 | LEM2-10 | LEM1-14 
+
+
+| ISL3 |  | LEM2-11 | LEM1-15 
+
+
+| ISL4 |  | LEM2-12 | LEM1-16 
+
+
+| ISL5. |  | LEM2-13 |  
+
+
+| ISL6 |  | LEM2-14 |  
+
+
+| ISL7. |  | LEM2-15 |  
+
+
+| ISL8. |  | LEM2-16 |  
 |===
