@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: tiebreaker/install-tb-workflow.html 
+keywords: install, upgrade, tiebreaker, workflow, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, upgrade 
+summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，它还会在发生节点连接问题和站点灾难时发送 SNMP 通知。 
+---
+= Tieb破碎 机安装工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Tiebreaker 软件可为集群存储环境提供监控功能。此外，它还会在发生节点连接问题和站点灾难时发送 SNMP 通知。
+
+.关于此工作流
+您可以使用此工作流安装或升级Tieb破碎 机软件。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]link:install_prepare.html["准备安装Tieb破碎 机软件"]
+[role="quick-margin-para"]
+在安装和配置Tieb破碎 机软件之前、请确认您的系统满足特定要求。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["一个"]link:install_security.html["确保安装安全"]
+[role="quick-margin-para"]
+对于运行MetroCluster Tiebreaker 1.5及更高版本的配置、您可以保护和强化主机操作系统和数据库。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["一个"]link:install-choose-procedure.html["安装Tieb破碎 机软件包"]
+[role="quick-margin-para"]
+重新安装或升级Tieberr软件。您遵循的安装操作步骤取决于您要安装的Tieb破碎 机版本。

@@ -1,0 +1,35 @@
+---
+permalink: tiebreaker/install-choose-procedure.html 
+sidebar: sidebar 
+keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
+summary: 您遵循的Tieb破碎 机安装操作步骤取决于您正在安装的Tieb破碎 机版本。 
+---
+= 选择您的安装操作步骤
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您遵循的Tieb破碎 机安装操作步骤取决于您正在安装的Tieb破碎 机版本。
+
+[cols="5,5"]
+|===
+
+
+| Tieb破碎 机版本 | 转至 ... 
+
+
+ a| 
+Tieb破碎 机1.6
+ a| 
+link:tb-16-install.html["安装Tieb破碎 锤1.6"]
+
+
+
+ a| 
+Tieb破碎 机1.5或1.4
+ a| 
+link:install_dependencies.html["安装Tieb破碎 锤1.5或1.4"]
+
+|===

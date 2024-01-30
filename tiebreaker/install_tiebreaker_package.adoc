@@ -13,11 +13,11 @@ summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，
 .关于此任务
 * 存储系统必须运行 ONTAP 8.3.x 或更高版本。
 * 您必须已使用安装OpenJDK `yum install java-x.x.x-openjdk` 命令：对于运行Tiebreaker 1.4及更早版本的系统、请运行JRE 8。对于运行Tiebreaker 1.5及更高版本的系统、请运行OpenJDK 17、18或19。此示例中的输出显示JRE 1.0.0。(JRE 8)。
-* 您可以将MetroCluster Tiebreaker安装为具有足够管理权限的非root用户、以便执行Tiebreaker安装、创建表、用户以及设置用户密码等
+* 您可以使用具有足够管理权限的非root用户身份安装MetroCluster Tieb破碎 镐、以便执行Tieb破碎 镐安装、创建表和用户以及设置用户密码。
 
 
 .步骤
-. 下载最新版本的 MetroCluster Tiebreaker 软件。此示例使用1.5版。
+. 下载MetroCluster Tieb破碎 机软件。此示例使用1.5版。
 +
 https://mysupport.netapp.com/site/["NetApp 支持站点"^]
 

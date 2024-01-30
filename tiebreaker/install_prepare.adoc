@@ -2,30 +2,39 @@
 permalink: tiebreaker/install_prepare.html 
 sidebar: sidebar 
 keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
-summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，它还会在发生节点连接问题和站点灾难时发送 SNMP 通知。 
+summary: 在安装和配置Tieb破碎 机软件之前、您应验证您的系统是否满足特定要求。 
 ---
-= 查看要求
+= 准备安装Tieb破碎 机软件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Tiebreaker 软件可为集群存储环境提供监控功能。此外，它还会在发生节点连接问题和站点灾难时发送 SNMP 通知。
-
-必须安装和配置Tiebreaker软件。
+在安装和配置Tieb破碎 机软件之前、您应验证您的系统是否满足特定要求。
 
 
 
 == 软件要求
 
-您必须满足以下软件要求、具体取决于您正在安装的Tieb破碎 机版本。
+您必须满足以下软件要求、具体取决于您要安装的Tieb破碎 机版本。
 
 [cols="1,1,1,2"]
 |===
 
 
 | ONTAP Tieb破碎 机版本 | 支持的ONTAP版本 | 支持的 Linux 版本 | Java/MariaDB要求 
+
+
+ a| 
+1.6.
+ a| 
+ONTAP 9.12.1及更高版本
+ a| 
+请参见 link:whats_new.html#os-support-matrix["操作系统支持列表"] 了解详细信息。
+ a| 
+无依赖关系与安装捆绑在一起。
+
 
 
  a| 
