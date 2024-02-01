@@ -1,0 +1,14 @@
+---
+permalink: install-fc/concept-configure-fc-switches.html 
+sidebar: sidebar 
+keywords: metrocluster, fabric, installation, configure, brocade, switches, cisco 
+summary:  
+---
+= FC交换机配置概述
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用RCC文件配置Cisco和Brocade FC交换机、也可以根据需要手动配置交换机。

@@ -22,7 +22,7 @@ summary: 用于更新网桥固件的操作步骤取决于您的网桥型号和 O
 * MetroCluster 配置必须运行正常。
 * MetroCluster 配置中的所有 FibreBridge 网桥都必须已启动且正常运行。
 * 所有存储路径都必须可用。
-* 您需要管理员密码并访问 HTTP 服务器。
+* 您需要具有管理员密码并能够访问HTTP、FTP、SFTP或简单文件传输协议(TFTP)服务器。
 * 您必须使用受支持的固件版本。
 +
 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]

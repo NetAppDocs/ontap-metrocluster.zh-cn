@@ -26,7 +26,9 @@ summary: 在使用阵列 LUN 的 MetroCluster 配置中使用交换机分区时�
 
 * 您必须已对 MetroCluster 配置中使用的 FC 交换机执行基本配置。
 +
-link:task_fcsw_configure_the_cisco_or_brocade_fc_switches_manually.html["手动配置 Cisco 或 Brocade FC 交换机"]
+** link:task_fcsw_cisco_configure_a_cisco_switch_supertask.html["手动配置 Cisco FC 交换机"]
+** link:ask_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["手动配置Brocade FC交换机"]
+
 
 
 

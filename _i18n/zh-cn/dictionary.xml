@@ -455,7 +455,6 @@
   <block id="bdf5a4145db18b2c7dd55def53b3ed55" category="list-text">MetroCluster 配置必须运行正常。</block>
   <block id="d5d3590e43714c27f890df20d7fb4b09" category="list-text">MetroCluster 配置中的所有 FibreBridge 网桥都必须已启动且正常运行。</block>
   <block id="0450d35c3e42ba9d9532f666b14a8b24" category="list-text">所有存储路径都必须可用。</block>
-  <block id="6c84f57441ac5f9c9fc0a2b2600dbfcb" category="list-text">您需要管理员密码并访问 HTTP 服务器。</block>
   <block id="166dba728289a6a5685576331ebb01f7" category="list-text">您必须使用受支持的固件版本。</block>
   <block id="b5281259f02365989ee0c66878541c97" category="paragraph">在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。</block>
   <block id="b64e329a5994176cf6b7c2cf5a95361c" category="list-text">只能在运行 ONTAP 9.4 或更高版本的配置中的 FibreBridge 7600N 或 7500N 网桥上使用此任务。</block>
@@ -4446,7 +4445,6 @@
   <block id="2cf96570d05093e79354fdebf6a25c6f" category="paragraph">在四节点配置和双节点光纤连接配置中，需要使用 FC-SAS 网桥才能通过交换机将 ONTAP 系统连接到磁盘架。</block>
   <block id="f1b073b17d11b6a85cff8fafe775f23e" category="paragraph">您必须使用相同的交换机连接到存储阵列和 FC-SAS 网桥。</block>
   <block id="209a28f98adf7a11fd98e407f778da76" category="paragraph">使用 FC 启动程序端口</block>
-  <block id="9e5e027fd19574761ea3d87eebdedffa" category="inline-xref-macro">手动配置 Cisco 或 Brocade FC 交换机</block>
   <block id="db08f81e8313778dec890ddaca5cb3d3" category="inline-xref-macro">使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例</block>
   <block id="207c024d1855ef3c7e08eb0a0aceac8f" category="inline-xref-macro">使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例</block>
   <block id="a9ed40443a225cecce5742ada138b243" category="inline-xref-macro">安装 FC-SAS 网桥和 SAS 磁盘架</block>
@@ -8785,7 +8783,6 @@
   <block id="c941b5c4cf46259dd41b222aa38a58f3" category="paragraph">`sswitchcfgpersistentenable`</block>
   <block id="f22c92f3b10744efbd0e82db9d85f42a" category="paragraph">`sswitchshow`</block>
   <block id="bad3a2380613a08cffd8b317771de374" category="list-text">运行 fmc_dc 实用程序以确保 7- 模式网络结构 MetroCluster 正常运行。</block>
-  <block id="d6d64090fd47c5235492fd5cc4f11ff5" category="paragraph"><block ref="d6d64090fd47c5235492fd5cc4f11ff5" category="inline-link-macro-rx"></block></block>
   <block id="da94a7db0f9882c4b3c67c4b02d65a87" category="paragraph"><block ref="da94a7db0f9882c4b3c67c4b02d65a87" category="inline-link-macro-rx"></block></block>
   <block id="6e2b6e2786426e2aeed4db0ecc5b8890" category="paragraph"><block ref="6e2b6e2786426e2aeed4db0ecc5b8890" category="inline-link-macro-rx"></block></block>
   <block id="5d80f4634e8ee066c641d17f726ec994" category="paragraph"><block ref="5d80f4634e8ee066c641d17f726ec994" category="inline-link-macro-rx"></block></block>
@@ -13383,4 +13380,10 @@
   <block id="7d04b9af5dfbfc78c7040183f68afdc4" category="cell">Red Hat 8.1 - 8.7</block>
   <block id="33ef1f5aa9b12ecd01c340c91d8f9150" category="cell">Red Hat 8.8-9.2</block>
   <block id="003d136e5089a4f9ae0f1df3f6fc37fa" category="cell">多石Linux 9.0</block>
+  <block id="9d0101bb262cf2b07ff8dcfa1f6cf004" category="list-text">您需要具有管理员密码并能够访问HTTP、FTP、SFTP或简单文件传输协议(TFTP)服务器。</block>
+  <block id="c422062a1c7b3d9ed9b2282378699dc7" category="paragraph"><block ref="c422062a1c7b3d9ed9b2282378699dc7" category="inline-link-macro-rx"></block></block>
+  <block id="f54824b249675e35c90a450877126d13" category="inline-link-macro">手动配置Brocade FC交换机</block>
+  <block id="da09acdb1d2e578a9e771c592cf62afa" category="paragraph"><block ref="da09acdb1d2e578a9e771c592cf62afa" category="inline-link-macro-rx"></block></block>
+  <block id="94d0fc55d9356d3d18534836cae75c1d" category="doc">FC交换机配置概述</block>
+  <block id="67af9bc4271944d43da3bdca5451bf73" category="paragraph">您可以使用RCC文件配置Cisco和Brocade FC交换机、也可以根据需要手动配置交换机。</block>
 </blocks>

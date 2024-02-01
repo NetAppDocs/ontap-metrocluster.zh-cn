@@ -81,6 +81,8 @@ entries:
       url: "/install-fc/task_cable_the_management_and_data_connections.html"
   - title: 配置 FC 交换机
     entries:
+    - title: FC交换机配置概述
+      url: "/install-fc/concept-configure-fc-switches.html"
     - title: 使用 RCF 文件配置 Brocade FC 交换机
       entries:
       - title: 将 Brocade FC 交换机重置为出厂默认值
