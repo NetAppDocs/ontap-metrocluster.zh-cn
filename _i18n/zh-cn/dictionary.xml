@@ -13386,4 +13386,5 @@
   <block id="da09acdb1d2e578a9e771c592cf62afa" category="paragraph"><block ref="da09acdb1d2e578a9e771c592cf62afa" category="inline-link-macro-rx"></block></block>
   <block id="94d0fc55d9356d3d18534836cae75c1d" category="doc">FC交换机配置概述</block>
   <block id="67af9bc4271944d43da3bdca5451bf73" category="paragraph">您可以使用RCC文件配置Cisco和Brocade FC交换机、也可以根据需要手动配置交换机。</block>
+  <block id="1399637937931de009069d1a13a152fb" category="paragraph">*注1：*此组合需要ONTAP 9.13.1.或更高版本。</block>
 </blocks>
