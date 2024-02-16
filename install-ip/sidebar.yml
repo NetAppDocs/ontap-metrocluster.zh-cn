@@ -71,6 +71,8 @@ entries:
         url: "/install-ip/task_switch_config_cisco_macsec.html"
     - title: 配置NVIDIA IP交换机
       url: "/install-ip/task_switch_config_nvidia.html"
+    - title: 配置MetroCluster IP交换机以进行运行状况监控
+      url: "/install-ip/task_config_switch_health.html"
 - title: 在 ONTAP 中配置 MetroCluster 软件
   entries:
   - title: 概述

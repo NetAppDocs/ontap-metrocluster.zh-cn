@@ -113,13 +113,7 @@ FC_switch_B_1:admin> switchshow
 +
 `固件`
 
-.. 按照_Brocade安装和配置_中所述配置新交换机、但跳过"`在MetroCluster FC交换机上配置分区`"操作步骤。
-+
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
-
-+
-您可以稍后在此操作步骤中配置分区。
-
+.. 按照中的步骤配置新交换机 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["手动配置 Brocade FC 交换机"]。
 +
 
 NOTE: 此时，新交换机未连接到 MetroCluster 配置。
@@ -173,6 +167,10 @@ FC_switch_B_1:admin> portcfgpersistentdisable 7
 FC_switch_B_1:admin> portcfgpersistentenable 10
 FC_switch_B_1:admin> portcfgpersistentenable 11
 ----
+.. 验证分区配置：
++
+`cfg show`
+
 .. 在替代交换机（示例中为 FC_switch_B_1 ）上，验证 ISL 是否联机：
 +
 `sswitchshow`

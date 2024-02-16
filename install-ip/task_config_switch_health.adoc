@@ -1,0 +1,111 @@
+---
+permalink: install-ip/task_config_switch_health.html 
+sidebar: sidebar 
+keywords: ip, switch, connection, configuring, configure, broadcom, snmp, health, monitoring 
+summary: 您可以将IP交换机配置为使用SNMPv3进行运行状况监控。 
+---
+= 配置MetroCluster IP交换机以进行运行状况监控
+:allow-uri-read: 
+
+
+[role="lead"]
+在MetroCluster IP配置中、您可以将SNMPv3配置为监控IP交换机的运行状况。
+
+
+
+== 第1步：在MetroCluster IP交换机上配置SNMPv3用户
+
+使用以下步骤在MetroCluster IP交换机上配置SNMPv3用户。
+
+
+IMPORTANT: 您必须在命令中同时使用身份验证协议和隐私协议。不支持使用不带隐私的身份验证。
+
+[role="tabbed-block"]
+====
+.适用于Broadcom IP交换机
+--
+.步骤
+. 如果"network-admin"用户组尚不存在、请创建它：
++
+`(IP_switch_1) (Config)# snmp-server group network-admin v3 auth read "Default"`
+
+. 确认已创建"network-admin"组：
++
+`(IP_switch_1) (Config)# show snmp group`
+
+. 在Broadcom IP交换机上配置SNMPv3用户：
++
+[listing]
+----
+(IP_switch_1)# config
+(IP_switch_1) (Config)# snmp-server user <user_name> network-admin [auth-md5/auth-sha/noauth] "<auth_password>" [priv-aes128/priv-des] "<priv_password>"
+----
++
+您必须使用引号将身份验证和隐私密码括起来、如以下示例所示：
+
++
+[listing]
+----
+snmp-server user admin1 network-admin auth-md5 "password" priv-des "password"
+----
+
+
+--
+.适用于Cisco IP交换机
+--
+.步骤
+. 运行以下命令、在Cisco IP交换机上配置SNMPv3用户：
++
+[listing]
+----
+IP_switch_A_1 # configure terminal
+IP_switch_A_1 (config) # snmp-server user <user_name>  auth [md5/sha/sha-256] <auth_password> priv (aes-128) <priv_password>
+----
+. 验证是否已在交换机上配置SNMPv3用户：
++
+`IP_switch_A_1(config) # show snmp user <user_name>`
+
++
+以下示例输出显示了用户 `admin` 已针对SNMPv3进行配置：
+
++
+[listing]
+----
+IP_switch_A_1(config)# show snmp user admin
+User                Auth      Priv(enforce) Groups              acl_filter
+
+____                ____      _____________ ______              __________
+
+admin               md5       aes-128(no)   network-admin
+----
+
+
+--
+====
+
+
+== 第2步：在ONTAP中配置SNMPv3用户
+
+使用以下步骤在ONTAP中配置SNMPv3用户。
+
+. 在ONTAP中配置SNMPv3用户：
++
+`security login create -user-or-group-name <user_name> -application snmp -authentication-method usm -remote-switch-ipaddress <ip_address>`
+
+. 配置交换机运行状况监控以使用新SNMPv3用户监控交换机：
++
+`system switch ethernet modify -device <device_id> -snmp-version SNMPv3 -community-or-username <user_name>`
+
+. 验证要使用新创建的SNMPv3用户监控的设备序列号是否正确：
++
+.. 显示交换机运行状况监控轮询时间段：
++
+`system switch ethernet polling-interval show`
+
+.. 在轮询时间段结束后运行以下命令：
++
+`system switch ethernet show-all -instance -device <device_serial_number>`
+
+
+
+

@@ -745,7 +745,6 @@
   <block id="670c82721eda362e6fbddff0dd85e845" category="list-text">通过禁用网络结构中运行正常的交换机上的 ISL 端口以及受损交换机上的 FC-VI 和 HBA 端口来隔离正在更换的交换机（如果受损交换机仍在运行）：</block>
   <block id="105fa3122987d45fae2de8b9e61228dc" category="list-text">在物理安装新交换机之前，启动并预配置此交换机：</block>
   <block id="e8097a3b165e180d56bd06e7a7f7df02" category="list-text">启动新交换机并让其启动。</block>
-  <block id="b78f0a4f76dcc1e77900d332f928827a" category="paragraph">您可以稍后在此操作步骤中配置分区。</block>
   <block id="b8e631780d1dd27b4f2d09d46aff4b4b" category="admonition">此时，新交换机未连接到 MetroCluster 配置。</block>
   <block id="44cc543a1a8236a9d069faa85442a84b" category="list-text">禁用新交换机上的 FC-VI ， HBA 和存储端口以及连接到 FC-SAS 网桥的端口。</block>
   <block id="32d094a9a039fb0268cc6295ed9c3e91" category="list-text">物理更换交换机：</block>
@@ -13282,7 +13281,6 @@
   <block id="aa71e3dcbe0cdabbe4cce28385ab2fd6" category="paragraph">如果要更改ONTAP版本或交换机固件版本、则应验证您是否具有该版本支持的RCF文件。如果使用 RCF 生成器，则会为您生成正确的 RCF 文件。</block>
   <block id="9f4a5b5c7a3f862c1d0ff77f72d3eea0" category="paragraph">系统会提示您输入ONTAP调解器管理员用户帐户的用户名和密码。</block>
   <block id="c471c44c2f26c78f9327863d90427cb7" category="admonition">如果ONTAP调解器已关闭、则<block ref="1eafb93bfc40f298e60cf17e8a8c598c" prefix=" " category="inline-code"></block> 命令仍会提示您输入ONTAP调解器管理员用户帐户的用户名和密码、并从MetroCluster配置中删除ONTAP调解器服务。</block>
-  <block id="1aa145ddf3cafc3bf77b04a1c7069f71" category="list-text">按照_Brocade安装和配置_中所述配置新交换机、但跳过"`在MetroCluster FC交换机上配置分区`"操作步骤。</block>
   <block id="21b5cf2db61fccc0ace8b80bac8b35b7" category="list-text">注2：FC节点上的本地集群接口必须具有40GbE接口。此平台组合需要ONTAP 9.11.1或更高版本。</block>
   <block id="13cdbd43c145584bcad75658a29e498d" category="list-text">注3：FC节点上的本地集群接口必须具有100GbE接口。此平台组合需要ONTAP 9.11.1或更高版本。</block>
   <block id="646d7d5f93b4a6d7bbbc65acf5ac1077" category="inline-link">ONTAP硬件系统文档</block>
@@ -13387,4 +13385,36 @@
   <block id="94d0fc55d9356d3d18534836cae75c1d" category="doc">FC交换机配置概述</block>
   <block id="67af9bc4271944d43da3bdca5451bf73" category="paragraph">您可以使用RCC文件配置Cisco和Brocade FC交换机、也可以根据需要手动配置交换机。</block>
   <block id="1399637937931de009069d1a13a152fb" category="paragraph">*注1：*此组合需要ONTAP 9.13.1.或更高版本。</block>
+  <block id="9ae99044ddcd14d01b26630cedd8846d" category="list-text">按照中的步骤配置新交换机 <block ref="435cf525be06a494222aa18eba4f6000" category="inline-link-macro-rx"></block>。</block>
+  <block id="02d80d458a48a16bd927a203d6bb2c73" category="list-text">验证分区配置：</block>
+  <block id="62c870995fe52ce6aa5f9fc71ef4da98" category="paragraph"><block ref="ed3badb92af3298762df5a811de2da80" prefix="" category="inline-code"></block></block>
+  <block id="79787dbf023f957de1bd4970858b26be" category="summary">您可以将IP交换机配置为使用SNMPv3进行运行状况监控。</block>
+  <block id="3a4aa5b142f66d14a43abf77cc49c599" category="doc">配置MetroCluster IP交换机以进行运行状况监控</block>
+  <block id="877caefa8e802eac248e66b46636c94b" category="paragraph">在MetroCluster IP配置中、您可以将SNMPv3配置为监控IP交换机的运行状况。</block>
+  <block id="b3d73929ddf74bb4c7d3cac6eeda8684" category="section-title">第1步：在MetroCluster IP交换机上配置SNMPv3用户</block>
+  <block id="038fbd2fc792b1165c5e88791a09113a" category="paragraph">使用以下步骤在MetroCluster IP交换机上配置SNMPv3用户。</block>
+  <block id="f1407eaef69e4aa9948574be11c0a49b" category="admonition">您必须在命令中同时使用身份验证协议和隐私协议。不支持使用不带隐私的身份验证。</block>
+  <block id="165237cf57452c2427f247f1c6589434" category="open-title">适用于Broadcom IP交换机</block>
+  <block id="8d09188a2cfea4cc57e0f38750b68c97" category="list-text">如果"network-admin"用户组尚不存在、请创建它：</block>
+  <block id="0f3a15963e4657a9c97ab6b3db322d27" category="paragraph"><block ref="173ceda524dbc87af297f813b0f50cd8" prefix="" category="inline-code"></block></block>
+  <block id="ec714ba3bea7bae033524709c8ddb144" category="list-text">确认已创建"network-admin"组：</block>
+  <block id="a24bdf92e7d1dc2d2e5714305a56e0eb" category="paragraph"><block ref="77aa57f376fe73c9581fb729ddeb38eb" prefix="" category="inline-code"></block></block>
+  <block id="6697365f2e46593a5513af21ee61a084" category="list-text">在Broadcom IP交换机上配置SNMPv3用户：</block>
+  <block id="3289ce0836654122a2c0d3bfd4fab942" category="paragraph">您必须使用引号将身份验证和隐私密码括起来、如以下示例所示：</block>
+  <block id="9253168d7e5e9b3b8152a8ff1870743f" category="open-title">适用于Cisco IP交换机</block>
+  <block id="4a2ec710ab28d8f45e2fdabacdc2dfc6" category="list-text">运行以下命令、在Cisco IP交换机上配置SNMPv3用户：</block>
+  <block id="a8b5c32b456efe8e0fcb23cd218c6b6c" category="list-text">验证是否已在交换机上配置SNMPv3用户：</block>
+  <block id="dcc1c100b3f25557081f2e0b39235331" category="paragraph"><block ref="b74f60eeed5179550ade1e96ba13e2f9" prefix="" category="inline-code"></block></block>
+  <block id="82551d68c685b978ef7462fc2759040f" category="paragraph">以下示例输出显示了用户<block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block> 已针对SNMPv3进行配置：</block>
+  <block id="54095e9794a9fd93e475a7911543f88e" category="section-title">第2步：在ONTAP中配置SNMPv3用户</block>
+  <block id="584b7eab2aafafcbe01855419f896b21" category="paragraph">使用以下步骤在ONTAP中配置SNMPv3用户。</block>
+  <block id="1bff762b431027892d402682570d40ac" category="list-text">在ONTAP中配置SNMPv3用户：</block>
+  <block id="ddc11f6ac980cbb07f08bef9febcc0e7" category="paragraph"><block ref="d122104842549610cab7a5c1c6e791ab" prefix="" category="inline-code"></block></block>
+  <block id="c74135dc000c228de7018358eaf099e5" category="list-text">配置交换机运行状况监控以使用新SNMPv3用户监控交换机：</block>
+  <block id="19acda7cb8d15af8dcf62dcf74bcbe00" category="paragraph"><block ref="536a54b756351ba8978169ff37fc419d" prefix="" category="inline-code"></block></block>
+  <block id="102bc61adb74b49384536c35a485dea4" category="list-text">验证要使用新创建的SNMPv3用户监控的设备序列号是否正确：</block>
+  <block id="189afc0f727c57bbef41f18728ebe44a" category="list-text">显示交换机运行状况监控轮询时间段：</block>
+  <block id="4e8c2092c0a2bb40fde077763873c66c" category="paragraph"><block ref="c9e6cd6140c9d8677df821c7cce2aac1" prefix="" category="inline-code"></block></block>
+  <block id="b9035c5f27542cbf7fb14fced8e330ba" category="list-text">在轮询时间段结束后运行以下命令：</block>
+  <block id="20c4c39b07a94d810605541c0137f531" category="paragraph"><block ref="9214d4fe696fff6386a131ecee126bc4" prefix="" category="inline-code"></block></block>
 </blocks>
