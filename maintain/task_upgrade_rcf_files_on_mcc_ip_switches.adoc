@@ -65,7 +65,9 @@ Filename : NX3232_v1.80_Switch-A2.txt
 如果要安装新的交换机固件，则必须先安装交换机固件，然后再升级 RCF 文件。
 
 .关于此任务
-此操作步骤会中断升级 RCF 文件的交换机上的流量。应用新 RCF 文件后，流量将恢复。
+* 此操作步骤会中断升级 RCF 文件的交换机上的流量。应用新 RCF 文件后，流量将恢复。
+* 按以下顺序逐个交换机执行这些步骤：Switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。
+
 
 .步骤
 . 验证配置的运行状况。
@@ -96,8 +98,6 @@ cluster_A::*> metrocluster check run
 -----------
 ::*> metrocluster check show
 
-Last Checked On: 4/7/2019 21:15:05
-
 Component           Result
 ------------------- ---------
 nodes               ok
@@ -126,16 +126,14 @@ MetroCluster 操作历史记录显示 -job-id 38`
 +
 ** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"]
 ** link:../install-ip/task_switch_config_cisco.html["将 Cisco IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_nvidia.html["将NVIDIA IP SN2100交换机重置为出厂默认设置"]
 
 
 . 根据交换机供应商的不同、下载并安装IP RCF文件。
 +
-
-NOTE: 按以下顺序更新交换机：switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2
-
-+
 ** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom IP RCF 文件"]
 ** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["下载并安装NVIDIA IP RCP文件"]
 +
 
 NOTE: 如果您使用的是L2共享或L3网络配置、则可能需要调整中间/客户交换机上的ISL端口。交换机端口模式可能会从"访问"模式更改为"中继"模式。只有在交换机A_1和B_1之间的网络连接完全正常且网络运行状况良好的情况下、才能继续升级第二个交换机对(A_2、B_2)。

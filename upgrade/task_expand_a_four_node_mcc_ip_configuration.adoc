@@ -13,7 +13,7 @@ summary: 您可以将四个新节点作为第二个 DR 组添加到 MetroCluster
 [role="lead"]
 根据您的ONTAP 版本、您可以通过将四个新节点添加为新的DR组来扩展MetroCluster IP配置。
 
-从ONTAP 9.13.1开始、您可以临时扩展八节点MetroCluster配置以刷新控制器和存储。请参见 link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_refresh_4n_mcc_ip.html["刷新四节点或八节点MetroCluster IP配置(ONTAP 9.8及更高版本)"] 有关详细信息 ...
+从ONTAP 9.13.1开始、您可以临时扩展八节点MetroCluster配置以刷新控制器和存储。请参见 link:task_refresh_4n_mcc_ip.html["刷新四节点或八节点MetroCluster IP配置(ONTAP 9.8及更高版本)"] 有关详细信息 ...
 
 从 ONTAP 9.1.1 开始，您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。
 
@@ -28,7 +28,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 +
 https://hwu.netapp.com["NetApp Hardware Universe"^]
 
-* 新节点必须具有足够的存储空间来容纳旧节点的数据，并具有足够的磁盘来容纳根聚合和备用磁盘。
+* 如果您是 link:task_refresh_4n_mcc_ip.html["刷新四节点或八节点MetroCluster IP配置"]新节点必须具有足够的存储空间来容纳旧节点的数据、并具有足够的磁盘来容纳根聚合和备用磁盘。
 * 验证是否已在旧节点上创建默认广播域。
 +
 向不具有默认广播域的现有集群添加新节点时、系统会使用通用唯一标识符(UID)(而不是预期名称)为新节点创建节点管理生命周期。有关详细信息、请参见知识库文章 https://kb.netapp.com/onprem/ontap/os/Node_management_LIFs_on_newly-added_nodes_generated_with_UUID_names["使用UUID名称生成的新添加节点上的节点管理生命周期"^]。
@@ -380,8 +380,6 @@ cluster_A::*> metrocluster check run
 ----
 -----------
 ::*> metrocluster check show
-
-Last Checked On: 4/7/2019 21:15:05
 
 Component           Result
 ------------------- ---------

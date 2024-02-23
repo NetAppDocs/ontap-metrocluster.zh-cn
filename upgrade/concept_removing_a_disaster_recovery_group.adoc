@@ -31,15 +31,19 @@ image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
 
 == 从每个集群中删除 DR 组节点
 
+.开始之前
 * 您必须在两个集群上执行此步骤。
 * 只有 ONTAP 9.8 及更高版本才支持 `MetroCluster remove-dr-group` 命令。
+
+
+.步骤
+. 如果尚未删除 DR 组，请做好删除准备。
 +
-.. 如果尚未删除 DR 组，请做好删除准备。
-+
-... 将所有数据卷移动到另一个 DR 组。
-... 按照将所有MV_CRS元数据卷移动到另一个DR组 link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_move_a_metadata_volume_in_mcc_configurations.html["在 MetroCluster 配置中移动元数据卷"] 操作步骤
-... 删除要删除的 DR 组中可能存在的所有 MDV_aud 元数据卷。
-... 删除 DR 组中要删除的所有数据聚合，如以下示例所示：
+.. 将所有数据卷移动到另一个 DR 组。
+.. 如果要删除的DR组包含负载共享镜像卷、则无法移动这些卷。  在另一个DR组中重新创建所有负载共享镜像卷、然后删除要删除的DR组中的负载共享镜像卷。
+.. 按照将所有MV_CRS元数据卷移动到另一个DR组 link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_move_a_metadata_volume_in_mcc_configurations.html["在 MetroCluster 配置中移动元数据卷"] 操作步骤
+.. 删除要删除的 DR 组中可能存在的所有 MDV_aud 元数据卷。
+.. 删除 DR 组中要删除的所有数据聚合，如以下示例所示：
 +
 [listing]
 ----
@@ -52,15 +56,15 @@ ClusterB::> aggr delete -aggregate aggregate_name
 
 NOTE: 不会删除根聚合。
 
-... 将数据LIF置于脱机状态。
+.. 将数据LIF置于脱机状态。
 `network interface modify -vserver _svm-name_ -lif _data-lif_ -status-admin down`
-... 将所有数据 LIF 迁移到另一个 DR 组中的主节点。+ `network interface show -home-node _old_node_s`
+.. 将所有数据 LIF 迁移到另一个 DR 组中的主节点。+ `network interface show -home-node _old_node_s`
 +
 `network interface modify -vserver _svm-name_ -lif _data-lif_ -home-node _new_node_ -home-port _port-id_`
 
-... 将数据LIF重新联机。
+.. 将数据LIF重新联机。
 `network interface modify -vserver _svm-name_ -lif _data-lif_ -status-admin up`
-... 将集群管理 LIF 迁移到另一个 DR 组中的主节点。
+.. 将集群管理 LIF 迁移到另一个 DR 组中的主节点。
 +
 `network interface show -role cluster-mgmt`
 
@@ -70,7 +74,7 @@ NOTE: 不会删除根聚合。
 +
 节点管理和集群间 LIF 不会迁移。
 
-... 如果需要，将 epsilon 传输到另一个 DR 组中的节点。
+.. 如果需要，将 epsilon 传输到另一个 DR 组中的节点。
 +
 [listing]
 ----
@@ -88,13 +92,13 @@ ClusterB::*> set admin
 ----
 
 
-.. 确定并删除 DR 组。
+. 确定并删除 DR 组。
 +
-... 确定要删除的正确 DR 组：
+.. 确定要删除的正确 DR 组：
 +
 `MetroCluster node show`
 
-... 删除 DR 组节点： + MetroCluster remove-dr-group -dr-group-id 1`
+.. 删除 DR 组节点： + MetroCluster remove-dr-group -dr-group-id 1`
 +
 以下示例显示了如何删除 cluster_A 上的 DR 组配置
 
@@ -134,51 +138,49 @@ cluster_A::*>
 ----
 
 
-.. 在配对集群上重复上述步骤。
-.. 如果采用 MetroCluster IP 配置，请删除旧 DR 组节点上的 MetroCluster 连接。
+. 在配对集群上重复上述步骤。
+. 如果采用 MetroCluster IP 配置，请删除旧 DR 组节点上的 MetroCluster 连接。
 +
 这些命令可以从任一集群发出，并应用于跨越两个集群的整个 DR 组。
 
 +
-... 断开连接：
+.. 断开连接：
 +
 MetroCluster configuration-settings connection disconnect _dr-group-id_`
 
-... 删除旧 DR 组节点上的 MetroCluster 接口：
+.. 删除旧 DR 组节点上的 MetroCluster 接口：
 +
 MetroCluster configuration-settings interface delete`
 
-... 删除旧 DR 组的配置。+ MetroCluster configuration-settings dr-group delete`
+.. 删除旧 DR 组的配置。+ MetroCluster configuration-settings dr-group delete`
 
 
-.. 取消加入旧 DR 组中的节点。
+. 取消加入旧 DR 组中的节点。
 +
 您必须在每个集群上执行此步骤。
 
 +
-... 设置高级权限级别：
+.. 设置高级权限级别：
 +
 `set -privilege advanced`
 
-... 禁用存储故障转移：
+.. 禁用存储故障转移：
 +
 `storage failover modify -node _node-name_-enable false`
 
-... Unjoin the node ： + `cluster unjoin -node _node-name_`
+.. Unjoin the node ： + `cluster unjoin -node _node-name_`
 +
 对旧 DR 组中的另一个本地节点重复此步骤。
 
-... 设置管理员权限级别： + `set -privilege admin`
+.. 设置管理员权限级别： + `set -privilege admin`
 
 
-.. 在新 DR 组中重新启用集群 HA ：
+. 在新 DR 组中重新启用集群 HA ：
 +
 `cluster ha modify -configured true`
 
 +
 您必须在每个集群上执行此步骤。
 
-.. 暂停，关闭并卸下旧控制器模块和存储架。
-
-
+. 暂停，关闭并卸下旧控制器模块和存储架。
 
