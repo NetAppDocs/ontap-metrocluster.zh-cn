@@ -123,7 +123,7 @@ NetApp MetroCluster Tiebreaker :> monitor show -status
 请参见产品文档。
 
 |===
-. 执行中的所有步骤 link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["扩展MetroCluster IP配置"] 将新节点和存储添加到配置中。
+. 执行中的所有步骤 link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["扩展MetroCluster IP配置"^] 将新节点和存储添加到配置中。
 +
 扩展操作步骤 完成后、将显示临时配置、如以下图像所示：
 
@@ -153,16 +153,16 @@ Node_IP_2      Node_IP_1              true      Connected to Node_IP_1
 ----
 . 移动 CRS 卷。
 +
-执行中的步骤 link:../maintain/task_move_a_metadata_volume_in_mcc_configurations.html["在 MetroCluster 配置中移动元数据卷"]。
+执行中的步骤 link:../maintain/task_move_a_metadata_volume_in_mcc_configurations.html["在 MetroCluster 配置中移动元数据卷"^]。
 
-. 使用中的以下过程将数据从旧节点移动到新节点 link:https://docs.netapp.com/us-en/ontap-systems-upgrade/index.html["ONTAP硬件系统文档"^]
+. 按照以下步骤将数据从旧节点移动到新节点：
 +
-.. 执行中的所有步骤 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-AFE432F6-60AD-4A79-86C0-C7D12957FA63.html["创建聚合并将卷移动到新节点"^]。
+.. 执行中的所有步骤 https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-create-aggregate-move-volumes.html["创建聚合并将卷移动到新节点"^]。
 +
 
 NOTE: 您可以选择在创建聚合时或之后对其进行镜像。
 
-.. 执行中的所有步骤 http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-95CA9262-327D-431D-81AA-C73DEFF3DEE2.html["将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点"]。
+.. 执行中的所有步骤 https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-move-lifs-to-new-nodes.html["将非SAN数据LUN和集群管理LUN移动到新节点"^]。
 
 
 . 修改每个集群中已转移节点的集群对等方的IP地址：

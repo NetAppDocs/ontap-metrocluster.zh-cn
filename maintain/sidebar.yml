@@ -66,10 +66,10 @@ entries:
     url: "/maintain/task_upgrade_rcf_files_on_cisco_ip_switches_with_cleanupfiles.html"
   - title: 重命名 Cisco IP 交换机
     url: "/maintain/task_rename_a_cisco_ip_switch.html"
+  - title: 无干扰地添加、删除或更改Cisco IP交换机上的ISL端口
+    url: "/maintain/task_add_remove_or_change_isl_ports_nondisruptively.html"
 - title: 修改交换机或ATto网桥IP地址以进行运行状况监控
   url: "/maintain/task_modify_switch_or_bridge_ip_address_for_health_monitoring.html"
-- title: 无干扰地添加、删除或更改Cisco IP交换机上的ISL端口
-  url: "/maintain/task_add_remove_or_change_isl_ports_nondisruptively.html"
 - title: 如何识别 MetroCluster IP 配置中的存储
   url: "/maintain/concept_identifying_storage_in_a_mcc_ip_configuration.html"
 - title: 使用共享存储 /MetroCluster 交换机向 MetroCluster 添加磁盘架

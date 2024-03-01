@@ -25,7 +25,7 @@ summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，
 
 * 限制"root"用户的访问。
 +
-** 您可以使用能够提升到root访问权限的用户来安装和管理Tiebreaker软件。 link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-sudo-access_configuring-basic-system-settings["管理sudo访问"^]
+** 您可以使用能够提升到root访问权限的用户来安装和管理Tiebreaker软件。
 ** 您可以使用无法提升为root访问权限的用户来管理Tiebreaker软件。
 ** 安装期间、必须创建一个名为"mcctbgrp"的组。主机root用户和安装期间创建的用户都必须是成员。只有此组的成员才能完全管理Tiebreaker软件。
 +
@@ -45,27 +45,8 @@ NOTE: 非此组成员用户无法访问Tiebreaker软件或命令行界面。您�
 
 
 .相关信息
-* 用户和帐户管理
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/assembly_getting-started-with-managing-user-accounts_configuring-basic-system-settings["开始管理用户帐户"^]
-
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/introduction-to-managing-user-and-group-accounts_configuring-basic-system-settings["管理用户和组帐户简介"^]
-
-* 使用Web控制台或命令行界面管理用户和组
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-user-accounts-in-the-web-console-new_configuring-basic-system-settings["在Web控制台中管理用户帐户"^]
-
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-users-from-the-command-line_configuring-basic-system-settings["通过命令行管理用户"^]
-
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/editing-user-groups-using-the-command-line_configuring-basic-system-settings["使用命令行编辑用户组"^]
-
-* 管理root密码
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/changing-and-resetting-the-root-password-from-the-command-line_configuring-basic-system-settings["管理和重置根密码"^]
-
+* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/["Red Hat Enterprise Linux 8产品文档"^]
+* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/["Red Hat Enterprise Linux 9产品文档"^]
 
 
 
@@ -88,9 +69,6 @@ link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/ht
 
 NOTE: 要远程管理主机、您必须保持串行控制台访问(如果支持)或至少启用一个协议。如果禁用所有协议、则需要对主机进行物理访问以进行管理。
 
-+
-link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-system-services-with-systemctl_configuring-basic-system-settings["了解如何使用systemc联系 管理系统服务"^]
-
 
 
 * 使用FIPS保护主机安全
@@ -100,9 +78,6 @@ link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/ht
 
 NOTE: OpenJDK 19会在启动时检查主机是否安装在FIPS模式下。无需手动更改。
 
-+
-有关详细信息，请参见 link:https://access.redhat.com/documentation/ru-ru/openjdk/8/html/configuring_openjdk_8_on_rhel_with_fips/openjdk-default-fips-configuration["OpenJDK 8中的默认FIPS配置"^]
-
 ** 如果您保护主机安全、则必须确保主机能够在没有用户干预的情况下启动。如果需要用户干预、则在主机意外重新启动时、Tieb破碎 机功能可能不可用。如果发生这种情况、Tieb破碎 机功能仅在手动干预后以及主机完全启动后可用。
 
 
@@ -110,11 +85,16 @@ NOTE: OpenJDK 19会在启动时检查主机是否安装在FIPS模式下。无需
 * 请经常升级。Tiebreaker是一款主动开发的解决方案、经常更新对于整合安全修复以及对默认设置(如密钥长度或密码套件)进行的任何更改非常重要。
 * 订阅HashiCorp公告邮件列表以接收新版本的公告、并访问Tiebreaker ChangeLog以了解有关新版本最新更新的详细信息。
 * 使用正确的文件权限。在启动Tiebreaker软件之前、请始终确保对文件应用适当的权限、尤其是包含敏感信息的文件。
-* 多因素身份验证(MultiFactor Authentication、MFA)要求管理员使用多个用户名和密码来识别自己、从而增强了组织的安全性。用户名和密码虽然重要、但容易受到暴力攻击、并可能被第三方窃取。 link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/security_hardening/index["详细了解安全强化"^]
+* 多因素身份验证(MultiFactor Authentication、MFA)要求管理员使用多个用户名和密码来识别自己、从而增强了组织的安全性。用户名和密码虽然重要、但容易受到暴力攻击、并可能被第三方窃取。
 +
-** Red Hat Enterprise Linux 8提供了MFA、它要求用户提供多条信息、以便成功向帐户或Linux主机进行身份验证。追加信息 可能是通过SMS或Google Authenticator、Twilio Authy或FreeOTP等应用程序的凭据一次性发送到您的手机的密码。 link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/securing_networks/index["了解有关保护网络安全的更多信息"^]
+** Red Hat Enterprise Linux 8提供了MFA、它要求用户提供多条信息、以便成功向帐户或Linux主机进行身份验证。追加信息 可能是通过SMS或Google Authenticator、Twilio Authy或FreeOTP等应用程序的凭据一次性发送到您的手机的密码。
 
 
+
+
+.相关信息
+* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/["Red Hat Enterprise Linux 8产品文档"^]
+* link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/["Red Hat Enterprise Linux 9产品文档"^]
 
 
 

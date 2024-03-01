@@ -21,9 +21,11 @@ summary: 在灾难站点上的设备进行了任何必要的维护或更换，�
 
 
 
-== 修复 MetroCluster FC 配置中的配置
+== 修复MetroCluster配置中的配置
 
-切换后，您必须按特定顺序执行修复操作，才能还原 MetroCluster 功能。
+在MetroCluster FC配置中、您可以按特定顺序执行修复操作、以便在切换后还原MetroCluster功能。
+
+在MetroCluster IP配置中、修复操作应在切换后自动启动。否则、您可以手动执行修复操作。
 
 .开始之前
 * 必须已执行切换，并且正常运行的站点必须正在提供数据。

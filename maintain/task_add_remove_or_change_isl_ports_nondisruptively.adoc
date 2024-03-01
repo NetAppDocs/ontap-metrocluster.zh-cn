@@ -11,7 +11,7 @@ summary: 您可能需要添加，删除或更改 ISL 端口。您可以将专用
 
 
 [role="lead"]
-您可能需要添加、删除或更改Cisco IP交换机上的ISL端口。您可以将专用ISL端口转换为共享ISL端口、或者更改Cisco IP交换机上ISL端口的速度。传输距离较远的 ISL 可能需要较低的速度来提高质量。如果要添加或升级硬件、则可能需要提高ISL端口的速度、以便利用系统升级并将ISL添加到Cisco IP交换机。
+您可能需要添加、删除或更改Cisco IP交换机上的ISL端口。您可以将专用ISL端口转换为共享ISL端口、或者更改Cisco IP交换机上ISL端口的速度。
 
 .关于此任务
 如果要将专用 ISL 端口转换为共享 ISL 端口，请确保新端口满足要求 link:../install-ip/concept_considerations_layer_2.html["共享 ISL 端口的要求"]。
@@ -19,6 +19,9 @@ summary: 您可能需要添加，删除或更改 ISL 端口。您可以将专用
 您必须在两台交换机上完成所有步骤，以确保 ISL 连接。
 
 以下操作步骤假定您要将在交换机端口 Eth1/24/1 上连接的一个 10-Gb ISL 替换为连接到交换机端口 17 和 18 的两个 100-Gb ISL 。
+
+
+NOTE: 如果您在连接NS224磁盘架的共享配置中使用Cisco 9336C -拧动交换机、则更改ISO可能需要一个新的RCF文件。如果当前和新的ISL速度分别为40 Gbps和100 Gbps、则不需要新的RCF文件。对ISL速度进行的所有其他更改都需要一个新的RCF文件。例如、将ISL速度从40 Gbps更改为100 Gbps不需要新的RCF文件、但将ISL速度从10 Gbps更改为40 Gbps需要新的RCF文件。
 
 .开始之前
 请参阅的*开关*部分 link:https://hwu.netapp.com/["NetApp Hardware Universe"^] 以验证受支持的收发器。
@@ -52,6 +55,10 @@ switch_B_1#
 ----
 . 拆下现有缆线和收发器。
 . 根据需要更改 ISL 端口。
++
+
+NOTE: 如果您要在连接NS224磁盘架的共享配置中使用Cisco 9336C -算 机、并且需要升级RCF文件并为新ISL端口应用新配置、请按照步骤到 link:task_upgrade_rcf_files_on_mcc_ip_switches.html["升级MetroCluster IP交换机上的RCP文件。"]
+
 +
 [cols="30,70"]
 |===
@@ -101,9 +108,9 @@ switch_B_1(config-if)#
 switch_B_1#
 switch_B_1# copy running-config startup-config
 ----
-. 验证是否已在两个交换机之间建立 ISL ：
+. 验证是否已在这两台交换机之间建立了此两个交换机的ISL和端口通道：
 +
-`sswitch_A_1# show int eth1/17 ， eth1/18 brief`
+`switch_A_1# show int brief`
 
 +
 您应在命令输出中看到 ISL 接口，如以下示例所示：
@@ -111,21 +118,20 @@ switch_B_1# copy running-config startup-config
 +
 [listing]
 ----
-switch_A_1# show int eth1/17,eth1/18 brief
+Switch_A_1# show interface brief
 --------------------------------------------------------------------------------
-Ethernet      VLAN    Type Mode   Status  Reason                   Speed     Port
-Interface                                                                                                        Ch #
+Ethernet        VLAN    Type Mode   Status  Reason                 Speed     Port
+Interface                                                                    Ch #
 --------------------------------------------------------------------------------
-Eth1/17       10         eth     access    up      none                       100G(D) 10
-Eth1/18       10         eth     access    up      none                       100G(D) 10
+Eth1/17         1       eth  access down    XCVR not inserted        auto(D) --
+Eth1/18         1       eth  access down    XCVR not inserted        auto(D) --
 
-switch_B_1# show int eth1/17,eth1/18 brief
---------------------------------------------------------------------------------
-Ethernet      VLAN    Type Mode   Status  Reason                   Speed     Port
-Interface                                                                                                        Ch #
---------------------------------------------------------------------------------
-Eth1/17       10         eth     access    up      none                       100G(D) 10
-Eth1/18       10         eth     access    up      none                       100G(D) 10
+------------------------------------------------------------------------------------------
+Port-channel VLAN    Type Mode   Status  Reason                              Speed   Protocol
+Interface
+------------------------------------------------------------------------------------------
+Po10         1       eth  trunk  up      none                                a-100G(D)  lacp
+Po11         1       eth  trunk  up      none                                a-100G(D)  lacp
 ----
 . 对网络结构 2 重复操作步骤。
 
