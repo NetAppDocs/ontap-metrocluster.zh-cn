@@ -312,8 +312,4 @@ Tiebreaker 软件会触发警报，但 ONTAP 会否决此警报。在这种情�
 
 === ONTAP 调解器如何支持自动计划外切换
 
-ONTAP 调解器将有关 MetroCluster 节点的状态信息存储在调解器主机上的邮箱中。MetroCluster 节点可以使用此信息监控其 DR 配对节点的状态，并在发生灾难时实施调解器辅助的自动计划外切换（ MAUSO ）。
-
-当节点检测到需要切换的站点故障时，它会执行相应的步骤来确认切换是否合适，如果是，则会执行切换。
-
-只有当每个节点的非易失性缓存的 SyncMirror 镜像和 DR 镜像均在运行且缓存和镜像在发生故障时保持同步时，才会启动 MAUSO 。
+link:../install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html["了解ONTAP调解器如何在MetroCluster IP配置中支持自动计划外切换"]。

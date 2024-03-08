@@ -89,28 +89,6 @@ FAS 系统上的现有 MetroCluster IP 配置可以升级到 ONTAP 9.4 。
 
 
 
-=== 控制器型号仅限于四节点配置
-
-在 MetroCluster 配置中，这些型号限制为四个。
-
-* AFF A220
-* AFF A250
-* FAS2750
-* FAS500f
-
-
-例如，不支持以下配置：
-
-* 一种由八个 AFF A250 控制器组成的八节点配置。
-* 一种八节点配置，由四个 AFF 220 控制器和四个 FAS500f 控制器组成。
-* 两个四节点 MetroCluster IP 配置，每个配置包含 AFF A250 控制器，并共享相同的后端交换机。
-* 一种八节点配置，由具有 AFF A250 控制器的 DR 组 1 和具有 FAS9000 控制器的 DR 组 2 组成。
-
-
-如果第二个 MetroCluster 不包括上述任何型号，则可以使用相同的后端交换机配置两个单独的四节点 MetroCluster IP 配置。
-
-
-
 === 示例名称
 
 文档中使用了以下示例名称：
@@ -141,7 +119,7 @@ MetroCluster IP 配置使用 40/100 Gbps 或 10/25 Gbps 以太网适配器作为
 | 平台型号 | 需要千兆以太网适配器 | 适配器所需的插槽 | 端口 
 
 
-| AFF A900和FAS9500 | X91146A | 插槽 5 ，插槽 7 | e5b ， e7b 
+| AFF A900、ASA A900和FAS9500 | X91146A | 插槽 5 ，插槽 7 | e5b ， e7b 
 
 
  a| 
@@ -156,7 +134,7 @@ e5a ， e5b
 
 
  a| 
-AFF A800、AFF C800
+AFF A800、AFF C800、ASA A800和ASA C800
  a| 
 X1146A/ 板载端口
  a| 
@@ -167,7 +145,7 @@ e0be1b
 
 
  a| 
-FAS8300、AFF A400和AFF C400
+FAS9300、AFF A400、ASA A400、ASA C400和AFF C400
  a| 
 X1146A
  a| 
@@ -189,7 +167,7 @@ e1a ， e1b
 
 
  a| 
-FAS2750、AFF A150和AFF A220
+FAS2750、AFF A150、ASA A150和AFF A220
  a| 
 板载端口
  a| 
@@ -200,7 +178,7 @@ e0a ， e0b
 
 
  a| 
-FAS500f、AFF A250和AFF C250
+FAS500f、AFF A250、ASA A250、ASA C250和AFF C250
  a| 
 板载端口
  a| 

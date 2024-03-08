@@ -117,7 +117,7 @@ NOTE: 从ONTAP 9.5开始、必须使用启用磁盘自动分配 `storage disk op
 
 
  a| 
-第 4 季度：托架 36 — 48
+第四个四等分：托架36－47
  a| 
 托架 36 — 41
 
@@ -247,7 +247,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 |===
 
 
-=== AFF A150和AFF A220系统上的ADP和磁盘分配
+=== AFF A150、ASA A150和AFF A220系统上的ADP和磁盘分配
 
 |===
 
@@ -310,7 +310,7 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 |===
 
 
-=== AFF C250、AFF A250和FAS500f系统上的ADP和磁盘分配
+=== AFF C250、AFF A250、ASA A250、ASA C250和FAS500f系统上的ADP和磁盘分配
 
 |===
 
@@ -396,7 +396,7 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 |===
 
 
-=== AFF C400和AFF A400系统上的ADP和磁盘分配
+=== AFF C400、AFF A400、ASA C400和ASA A400系统上的ADP和磁盘分配
 
 |===
 
@@ -478,7 +478,7 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 |===
 
 
-=== AFF C800和AFF A800系统上的ADP和磁盘分配
+=== AFF C800、ASA C800、ASA A800和AFF A800系统上的ADP和磁盘分配
 
 |===
 
@@ -523,7 +523,7 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 |===
 
 
-=== AFF A900 系统上的 ADP 和磁盘分配
+=== AFF A900和ASA A900系统上的ADP和磁盘分配
 
 |===
 

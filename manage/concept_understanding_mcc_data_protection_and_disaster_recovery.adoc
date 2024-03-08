@@ -736,18 +736,7 @@ link:task_perform_switchover_for_tests_or_maintenance.html["为测试或维护�
 
 === MetroCluster IP 配置中的调解器辅助自动计划外切换
 
-在 MetroCluster IP 配置中，系统可以使用 ONTAP 调解器检测故障并执行调解器辅助的自动计划外切换（ MAUSO ）。
-
-从ONTAP 9.13.1开始、在MetroCluster IP配置中、AUSO状态的默认值设置为auso-on-dr-group。对于ONTAP 9.12.1及更早版本、默认值设置为"auuso-on-cluster-퓖 몦"。在八节点MetroCluster IP配置中、如果HA对中的两个节点都发生故障、则此选项将触发一个AUSO。
-
-您可以使用将AUSO域更改为"auso-on-cluster-퓖 몦"域 `metrocluster modify -auto-switchover-failure-domain auso-on-cluster-disaster` 命令：
-
-
-NOTE: MetroCluster FC 配置不支持 MAUSO 。
-
-ONTAP 调解器可为 MetroCluster IP 节点提供邮箱 LUN 。这些 LUN 与 ONTAP 调解器位于同一位置，该调解器在与 MetroCluster 站点物理隔离的 Linux 主机上运行。
-
-MetroCluster 节点使用邮箱信息来确定是否需要 MAUSO 。如果存储控制器中的非易失性内存（ NVRAM 或 NVMEM ，具体取决于平台型号）未镜像到配对站点上的远程灾难恢复（ DR ）配对节点，则不会启动 MAUSO
+link:../install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html["了解ONTAP调解器如何在MetroCluster IP配置中支持自动计划外切换"]。
 
 
 

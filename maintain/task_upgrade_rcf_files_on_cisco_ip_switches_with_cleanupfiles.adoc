@@ -14,7 +14,40 @@ summary: 您可能需要升级Cisco IP交换机上的RCF文件。例如， ONTAP
 您可能需要升级Cisco IP交换机上的RCF文件。例如， ONTAP 升级或交换机固件升级都需要新的 RCF 文件。
 
 .关于此任务
-从RcfFileGenerator 1.4a版开始、有一个新选项可用于更改(升级、降级或更换) Cisco IP交换机上的交换机配置、而无需执行"写入擦除"。
+* 从RcfFileGenerator 1.4a版开始、有一个新选项可用于更改(升级、降级或更换) Cisco IP交换机上的交换机配置、而无需执行"写入擦除"。
+* Cisco 9338C－拧动交换机具有两种不同的交换机存储类型，这些存储类型在RC框架 中命名不同。使用下表确定适用于您的配置的正确Cisco 9334c-打 保证存储类型：
++
+[cols="3*"]
+|===
+| 连接以下存储时 | 选择Cisco 9334c-打 的存储类型... | 示例RCF文件Banner /MOTD 
+
+
+ a| 
+** 直接连接的SAS磁盘架
+** 直接连接的NVMe磁盘架
+** 连接到专用存储交换机的NVMe磁盘架
+
+ a| 
+9339S-966–仅限直接存储
+ a| 
+`* Switch    : NX9336C (direct storage, L2 Networks, direct ISL)`
+
+
+
+ a| 
+** 直接连接的SAS磁盘架
+** 连接到MetroCluster IP交换机的NVMe磁盘架
+
+
+
+NOTE: 至少需要一个以太网连接NVMe磁盘架
+ a| 
+9338F-966–SAS和以太网存储
+ a| 
+`* Switch    : NX9336C (SAS and Ethernet storage, L2 Networks, direct ISL)`
+
+|===
+
 
 .开始之前
 如果您的配置满足以下要求、则可以使用此方法：
@@ -140,10 +173,6 @@ IP_switch_A_1#
 +
 
 NOTE: 您必须使用与RCF文件版本相同的CleanUpFiles、并且使用的配置必须完全相同。使用任何CleanUpFile将不起作用、可能需要对交换机进行完全重置。
-
-+
-
-NOTE: 存储类型可能不同—SAS存储或直接存储。
 
 +
 

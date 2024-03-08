@@ -24,7 +24,7 @@ link:https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ON
 
 
 
-CAUTION: 从ONTAP 9.12.1开始、您可以在MetroCluster IP配置中启用MetroCluster 自动强制切换功能。此功能是调解器辅助计划外切换的扩展。启用此功能之前、请查看 link:concept-risks-limitations-automatic-switchover.html["使用MetroCluster 自动强制切换的风险和限制"]。
+CAUTION: 从ONTAP 9.12.1开始、您可以在MetroCluster IP配置中启用MetroCluster 自动强制切换功能。此功能是调解器辅助计划外切换的扩展。启用此功能之前、请查看 link:concept-ontap-mediator-supports-automatic-unplanned-switchover.html#mauso-9-12-1["使用MetroCluster 自动强制切换的风险和限制"]。
 
 .关于此任务
 * 默认情况下，此任务会启用自动计划外切换。
@@ -117,7 +117,7 @@ Remote: cluster_B         Configuration state configured
 
 +
 
-IMPORTANT: 使用此命令之前、请查看 link:concept-risks-limitations-automatic-switchover.html["使用MetroCluster 自动强制切换的风险和限制"]。
+IMPORTANT: 使用此命令之前、请查看 link:concept-ontap-mediator-supports-automatic-unplanned-switchover.html#mauso-9-12-1["使用MetroCluster 自动强制切换的风险和限制"]。
 
 +
 `metrocluster modify -allow-auto-forced-switchover true`

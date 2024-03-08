@@ -109,8 +109,8 @@ entries:
     url: "/install-ip/task_remove_unconfigure_mediator.html"
   - title: 将 MetroCluster 配置连接到其他 ONTAP 调解器实例
     url: "/install-ip/task_connecting_mcc_to_different_mediator_instance.html"
-  - title: 使用MetroCluster 自动强制切换的风险和限制
-    url: "/install-ip/concept-risks-limitations-automatic-switchover.html"
+  - title: ONTAP 调解器如何支持自动计划外切换
+    url: "/install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html"
 - title: 测试 MetroCluster 配置
   url: "/install-ip/task_test_the_mcc_configuration.html"
 - title: 删除 MetroCluster 配置时的注意事项

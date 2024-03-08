@@ -81,7 +81,7 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 ... 断开本地集群ISO的连接
 
 
-.. 断开MetroCluster IP接口。
+.. 断开MetroCluster FC接口。
 .. 断开MetroCluster的连接。
 
 
@@ -92,7 +92,7 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 
 +
 .. 使用缆线将此ISL连接到远程站点。
-.. 为MetroCluster IP接口布线。
+.. 为MetroCluster FC接口布线。
 .. 为本地集群接口布线。
 +
 如果本地集群接口连接到交换机：

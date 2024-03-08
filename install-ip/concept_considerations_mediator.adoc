@@ -11,7 +11,7 @@ summary: 各种 MetroCluster 配置在所需组件方面存在主要差异。
 
 
 [role="lead"]
-从 ONTAP 9.7 开始，您可以在 MetroCluster IP 配置中使用 ONTAP 调解器辅助自动计划外切换（ MAUSO ），也可以使用 MetroCluster Tiebreaker 软件。MetroCluster IP 配置只能使用这两种服务中的一种。
+从 ONTAP 9.7 开始，您可以在 MetroCluster IP 配置中使用 ONTAP 调解器辅助自动计划外切换（ MAUSO ），也可以使用 MetroCluster Tiebreaker 软件。不需要使用MAUSO或Tieber4软件；但是、如果您选择不使用其中任一服务、则必须使用 link:../disaster-recovery/concept_dr_workflow.html["执行手动恢复"] 发生灾难时。
 
 不同的 MetroCluster 配置会在不同情况下执行自动切换：
 
@@ -24,8 +24,7 @@ summary: 各种 MetroCluster 配置在所需组件方面存在主要差异。
 在这些配置中， MAUSO 会在与 AUSO 相同的情况下启动，如上所述，也会在站点完全发生故障（控制器，存储和交换机）后启动。
 
 +
-
-NOTE: 只有在非易失性缓存镜像（ _DR 镜像 _ ）和 SyncMirror 丛镜像在发生故障时处于同步状态时，才会启动 MAUSO 。
+link:concept-ontap-mediator-supports-automatic-unplanned-switchover.html["了解ONTAP调解器如何支持自动计划外切换"]。
 
 * * 在活动模式下使用 Tiebreaker 软件的 MetroCluster IP 或 FC 配置 *
 +
@@ -42,38 +41,5 @@ NOTE: 只有在非易失性缓存镜像（ _DR 镜像 _ ）和 SyncMirror 丛镜
 
 您不能使用可与 ONTAP 调解器结合使用触发切换的任何第三方应用程序或设备。此外，使用 ONTAP 调解器时，不支持使用 MetroCluster Tiebreaker 软件监控 MetroCluster 配置。
 
-
-
-== ONTAP 调解器如何支持自动计划外切换
-
-ONTAP 调解器将有关 MetroCluster 节点的状态信息存储在调解器主机上的邮箱中。MetroCluster 节点可以使用此信息监控其DR配对节点的状态、并在发生灾难时实施MAUSO。
-
-当节点检测到需要切换的站点故障时，它会执行相应的步骤来确认切换是否合适，如果是，则会执行切换。
-
-只有在以下情况下才会启动 MAUSO ：
-
-* 每个节点的非易失性缓存的 SyncMirror 镜像和灾难恢复镜像均在运行，并且在发生故障时，缓存和镜像将保持同步。
-* 运行正常的站点上的节点均未处于接管状态。
-* 发生站点灾难时。站点灾难是指同一站点上的*所有*节点发生故障。
-+
-
-NOTE: 从ONTAP 9.13.1开始、您可以更改在集群*或* HA对出现故障时启动MAUSO的行为。对于HA对、两个节点必须同时发生故障。
-
-* 从ONTAP 9.13.1开始、如果满足上述条件、并且风扇或硬件故障导致环境关闭、例如电源设备、NVRAM电池或服务处理器检测信号故障、或者温度过高或过低。
-
-
-对于以上未列出的其他情形、您可以启动MAUSO。有关详细信息，请参见 link:concept-risks-limitations-automatic-switchover.html["使用MetroCluster 自动强制切换的风险和限制"]。
-
-在以下关闭情形下，会 * 未 * 启动 MAUSO ：
-
-* 您启动了关闭操作。例如，当您：
-+
-** 暂停节点
-** 重新启动节点
-
-
-
-
-* 相关信息 *
-
+.相关信息
 link:../manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#mediator-assisted-automatic-unplanned-switchover-in-metrocluster-ip-configurations["详细了解MetroCluster IP配置中的MAUSO"]。
