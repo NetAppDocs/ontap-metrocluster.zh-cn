@@ -12123,7 +12123,6 @@
   <block id="a7c1dc82620aa47d13a5325a92e48b8b" category="paragraph">如果发现已配置上述任何项、则可能无法应用新的RCF文件配置。但是、您可以通过重新加载交换机*而不*将正在运行的配置保存到启动配置来还原到先前的配置。交换机将显示先前的配置。</block>
   <block id="b96e894aca032efb6ce18c3fee836f2e" category="list-text">应用RCF文件并验证端口是否联机。</block>
   <block id="57eec47f7c1d3f7c578a164a838dcb88" category="list-text">应用RCF文件。</block>
-  <block id="f3f957cad54a09303c58187ea562c4e0" category="admonition">应用配置时会显示一些警告消息。不会显示错误消息。</block>
   <block id="94f2f59cf614fa38bf778db2f227f97f" category="list-text">应用配置后、使用以下命令之一验证集群和MetroCluster 端口是否联机：`show interface brief`、`show cdp neighbors`或`show LLDP neighbors`</block>
   <block id="36654f0d51aef3cf2ff1ad8320086412" category="admonition">如果您更改了本地集群的VLAN并升级了站点上的第一个交换机、则集群运行状况监控可能不会将此状态报告为"运行状况良好"、因为旧配置和新配置中的VLAN不匹配。更新第二个交换机后、此状态应恢复为运行状况良好。</block>
   <block id="d83d3a40a56d46ffaf1367b944bbd493" category="paragraph">如果未正确应用配置、或者您不希望保留配置、则可以通过重新加载交换机*而不将正在运行的配置保存到启动配置来还原到先前的配置。交换机将显示先前的配置。</block>
@@ -12975,7 +12974,6 @@
   <block id="64b48b15797ae9ce8dde94af89070b3d" category="paragraph">对于Red Hat Enterprise Linux 8.1至8.7：</block>
   <block id="389dbd9d6deb8eabbab651256bf77680" category="list-text">OpenJDK 17、18或19</block>
   <block id="9e605ce3bb6ad134bb55c54d861ceb6a" category="paragraph">1.4.</block>
-  <block id="d1b3737d5bc8f98b3241666f4d0cd1cf" category="paragraph">ONTAP 9.2及更高版本</block>
   <block id="09eecd50480033ff43835a86efed6607" category="list-text">Red Hat Enterprise Linux 7至7.9</block>
   <block id="ae1dfcc629f4542382fd6286dbfe5a0d" category="list-text">CentOS 7到7.9 (64位)</block>
   <block id="3f4ac8596d411de0ef0ad341cbeb82aa" category="paragraph">使用CentOS：</block>
@@ -13393,8 +13391,6 @@
   <block id="b6933415b566c13842c75e7153f5e0bd" category="paragraph">从 ONTAP 9.7 开始，您可以在 MetroCluster IP 配置中使用 ONTAP 调解器辅助自动计划外切换（ MAUSO ），也可以使用 MetroCluster Tiebreaker 软件。不需要使用MAUSO或Tieber4软件；但是、如果您选择不使用其中任一服务、则必须使用 <block ref="ffc76c5e8798538fa424ea31c8f712bb" category="inline-link-macro-rx"></block> 发生灾难时。</block>
   <block id="b65bf2d95ccaa5163ee3e519ccc4f46c" category="inline-link-macro">了解ONTAP调解器如何支持自动计划外切换</block>
   <block id="79fa79dc9ecfb5181a7024131b90413f" category="paragraph"><block ref="66850f0d314a9b674fb83121fdb5639b" category="inline-link-macro-rx"></block>。</block>
-  <block id="2927bb12dad92f3aa1e9f54de7ac5c86" category="inline-link-macro">详细了解MetroCluster IP配置中的MAUSO</block>
-  <block id="861d9a7b4136ca5c52adba1b162580b0" category="paragraph"><block ref="dedd67391845326372399eb154d21c6c" category="inline-link-macro-rx"></block>。</block>
   <block id="88ddeb4aaff386fa8928e9ed590bcdd6" category="admonition">从ONTAP 9.12.1开始、您可以在MetroCluster IP配置中启用MetroCluster 自动强制切换功能。此功能是调解器辅助计划外切换的扩展。启用此功能之前、请查看 <block ref="b36331871b99d608d499593ef0805d3b" category="inline-link-macro-rx"></block>。</block>
   <block id="6627a26235928f19183374e55b041466" category="admonition">使用此命令之前、请查看 <block ref="b36331871b99d608d499593ef0805d3b" category="inline-link-macro-rx"></block>。</block>
   <block id="62dab2247ca5697a261fd865abf3712d" category="paragraph">第四个四等分：托架36－47</block>
@@ -13432,4 +13428,11 @@
   <block id="b07b13f7f6740ff05e2edecf69453d1e" category="paragraph">有关详细信息、请查看 <block ref="54dac02f94a6488bb50eb2223b2531dc" category="inline-link-macro-rx"></block>。</block>
   <block id="6c788f4f91230d4481264ef0fc97d4b2" category="inline-link-macro">了解ONTAP调解器如何在MetroCluster IP配置中支持自动计划外切换</block>
   <block id="83401bd8eb751fc79a9ff9e2e69be029" category="paragraph"><block ref="ff41f8886897126f1b4109a0b09cd291" category="inline-link-macro-rx"></block>。</block>
+  <block id="8ee0349da94a79740c2458822156c3f3" category="paragraph">ONTAP 9.13.1.及更早版本</block>
+  <block id="58ff5f456710e2c10351958a374f1bae" category="paragraph">ONTAP 9.11.1及更早版本</block>
+  <block id="0b0ec9f1cc28b3c19dc6c36dcd5af7cc" category="paragraph">1.3.</block>
+  <block id="7477ed6488d6dd27883a39484d4cd5f8" category="paragraph">ONTAP 9.10.1及更早版本</block>
+  <block id="09e34111ef8649a5302b1889e0c7d303" category="list-text">JRE 8.</block>
+  <block id="d434765df1b814e459b22676bed43318" category="paragraph">1.21 Px</block>
+  <block id="b3c0f57dcdb05faa9fbc38832a492a4e" category="admonition">应用配置时会显示一些警告消息。通常不会出现错误消息。但是、如果使用SSH登录、则可能会收到以下错误：<block ref="f6ffe33fb36eb714adf6f81147c665f6" prefix=" " category="inline-code"></block></block>
 </blocks>

@@ -40,6 +40,3 @@ link:concept-ontap-mediator-supports-automatic-unplanned-switchover.html["了解
 == ONTAP 调解器与其他应用程序和设备的互操作性
 
 您不能使用可与 ONTAP 调解器结合使用触发切换的任何第三方应用程序或设备。此外，使用 ONTAP 调解器时，不支持使用 MetroCluster Tiebreaker 软件监控 MetroCluster 配置。
-
-.相关信息
-link:../manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html#mediator-assisted-automatic-unplanned-switchover-in-metrocluster-ip-configurations["详细了解MetroCluster IP配置中的MAUSO"]。

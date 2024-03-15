@@ -305,7 +305,7 @@ IP_switch_A_1# copy bootflash:NX9336_v1.90-X2_Switch-A1.txt running-config
 ----
 +
 
-NOTE: 应用配置时会显示一些警告消息。不会显示错误消息。
+NOTE: 应用配置时会显示一些警告消息。通常不会出现错误消息。但是、如果使用SSH登录、则可能会收到以下错误： `Error: Can't disable/re-enable ssh:Current user is logged in through ssh`
 
 .. 应用配置后、使用以下命令之一验证集群和MetroCluster 端口是否联机：`show interface brief`、`show cdp neighbors`或`show LLDP neighbors`
 +
