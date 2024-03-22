@@ -1,0 +1,21 @@
+---
+permalink: install-ip/concept-network-speeds-and-switchport-modes.html 
+sidebar: sidebar 
+keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, compliant, network speed, switch port mode 
+summary: 如果您使用的是符合MetroCluster的交换机、则应了解特定平台的网络速度和交换机端口模式要求。 
+---
+= 适用于MetroCluster兼容交换机的平台专用网络速度和交换机端口模式
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您使用的是符合MetroCluster的交换机、则应了解特定平台的网络速度和交换机端口模式要求。
+
+下表提供了MetroCluster兼容交换机的平台特定网络速度和交换机端口模式。您应根据表配置交换机端口模式。
+
+
+NOTE: 缺少值表示此平台无法与MetroCluster兼容的交换机结合使用。
+
+image::../media/mcc_compliant_switch_network_speed.png[MCC兼容交换机网络速度]

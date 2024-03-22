@@ -1,0 +1,191 @@
+---
+permalink: install-ip/concept-requirements-isls.html 
+sidebar: sidebar 
+keywords: isl, isls, layer 2, layer 3, shared switch 
+summary: '本节介绍在所有MetroCluster IP配置和网络拓扑上传输MetroCluster流量的交换机间链路(ISL)的要求。' 
+---
+= ISL 注意事项
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+在所有MetroCluster IP配置和网络拓扑上传输MetroCluster流量的交换机间链路(inter-Switch Link、ISL)具有特定要求。这些要求适用于传输MetroCluster流量的所有CRL、无论这些CRL是直接传输还是在客户交换机之间共享。
+
+
+
+== MetroCluster ISL的一般要求
+
+所有IP配置上的以下适用场景MetroCluster：
+
+* 两个网络结构必须具有相同数量的CRL。
+* 一个网络结构上的所有ISO都必须具有相同的速度和长度。
+* 两个网络结构中的ISO必须具有相同的速度和长度。
+* 网络结构1和网络结构2之间的最大支持距离差值为20公里或0.2毫秒。
+* 一个网络结构上的CRL必须具有相同的拓扑。例如、它们都应为直接链路、或者如果配置使用WDM、则它们都必须使用WDM。
+* ISL速度必须至少为10 Gbps。
+* 每个网络结构必须至少有一个10 Gbps ISL端口。
+
+
+
+
+=== ISL 中的延迟和数据包丢失限制
+
+在MetroCluster配置处于稳定状态运行的情况下、site_A和site_B的MetroCluster IP交换机之间的以下适用场景往返流量：
+
+* 随着两个 MetroCluster 站点之间的距离增加，延迟也会增加，通常每 100 公里（ 62 英里）的往返延迟时间为 1 毫秒。延迟还取决于网络服务级别协议(SLA)中ISL链路的带宽、丢包率和网络抖动。低带宽、高抖动和随机数据包丢弃会导致交换机或控制器模块上的TCP引擎采用不同的恢复机制、从而成功传送数据包。这些恢复机制可以增加整体延迟。有关您的配置的往返延迟和最大距离要求的具体信息、请参见 link:https://hwu.netapp.com/["Hardware Universe。"^]
+* 必须考虑导致延迟的任何设备。
+* 。 link:https://hwu.netapp.com/["Hardware Universe。"^] 以公里为单位提供距离您必须为每100公里分配1毫秒。最大距离由首先达到的距离定义、可以是以毫秒为单位的最大往返时间(RTT)、也可以是以公里为单位的距离例如、如果_the ISL_列出的距离为300公里、转换为3毫秒、则Hardware Universe不能超过300公里、最大RTT不能超过3毫秒、以先达到者为准。
+* 丢包率必须小于或等于0.01%。最大数据包丢失量等于MetroCluster节点之间路径上所有链路的所有丢失量与本地MetroCluster IP接口的丢失量之和。
+* 支持的往返抖动值为3毫秒(或单向抖动为1.5毫秒)。
+* 网络应分配并保持MetroCluster流量所需的SLA带宽量、而不管流量中的微突发和峰值如何。
+* 如果您使用的是ONTAP 9.7或更高版本、则两个站点之间的中间网络必须为MetroCluster IP配置提供4.5Gbps的最小带宽。
+
+
+
+
+== 收发器和电缆注意事项
+
+MetroCluster ISL 支持设备供应商支持的任何 SFP 或 QSFP 。交换机和交换机固件必须支持NetApp或设备供应商提供的SFP和QSFP。
+
+在将控制器连接到交换机和本地集群时、必须将NetApp提供的收发器和缆线与MetroCluster一起使用。
+
+
+
+== 使用xWDM、TDM和外部加密设备
+
+在MetroCluster IP配置中使用xWDM/TDM设备或提供加密的设备时、您的环境必须满足以下要求：
+
+* 将MetroCluster IP交换机连接到xWDM/TDM时、外部加密设备或xWDM/TDM设备必须经过交换机和固件供应商的认证。认证必须涵盖操作模式(例如中继和加密)。
+* 整体端到端延迟和抖动(包括加密)不能超过IMT和本文档中规定的最大值。
+
+
+
+
+== 支持的ISL和分支缆线数量
+
+下表显示了可使用参考配置文件(Reference Configuration File、RCF)配置在MetroCluster IP交换机上配置的最大可支持的ISL数。
+
+|===
+
+
+| MetroCluster IP 交换机型号 | 端口类型 | 最大的CRL数 
+
+
+ a| 
+Broadcom 支持的 BES-53248 交换机
+ a| 
+原生端口
+ a| 
+4个使用10 Gbps或25 Gbps的ISL
+
+
+
+ a| 
+Broadcom 支持的 BES-53248 交换机
+ a| 
+本机端口(注释1)
+ a| 
+2个使用40 Gbps或100 Gbps的ISL
+
+
+
+ a| 
+Cisco 3132Q-V
+ a| 
+原生端口
+ a| 
+6个使用40 Gbps的ISL
+
+
+
+ a| 
+Cisco 3132Q-V
+ a| 
+分支缆线
+ a| 
+16个使用10 Gbps的ISL
+
+
+
+ a| 
+Cisco 3232C
+ a| 
+原生端口
+ a| 
+6个使用40 Gbps或100 Gbps的ISL
+
+
+
+ a| 
+Cisco 3232C
+ a| 
+分支缆线
+ a| 
+16个使用10 Gbps的ISL
+
+
+
+ a| 
+Cisco 9336C-x2 (未连接NS224磁盘架)
+ a| 
+原生端口
+ a| 
+6个使用40 Gbps或100 Gbps的ISL
+
+
+
+ a| 
+Cisco 9336C-x2 (未连接NS224磁盘架)
+ a| 
+分支缆线
+ a| 
+16个使用10的ISL
+
+
+
+ a| 
+Cisco 9336C-x2 (连接NS224磁盘架)
+ a| 
+本机端口(注释2)
+ a| 
+4个使用40 Gbps或100 Gbps的ISL
+
+
+
+ a| 
+Cisco 9336C-x2 (连接NS224磁盘架)
+ a| 
+分支电缆(注释2)
+ a| 
+16个使用10 Gbps的ISL
+
+
+
+ a| 
+NVIDIA SN2100
+ a| 
+本机端口(注释2)
+ a| 
+2个使用40 Gbps或100 Gbps的ISL
+
+
+
+ a| 
+NVIDIA SN2100
+ a| 
+分支电缆(注释2)
+ a| 
+8个使用10 Gbps或25 Gbps的ISL
+
+|===
+*注1*:在BES-53248交换机上使用40Gbps或100Gbps的CRL需要额外的许可证。
+
+*注2*:相同的端口用于本机速度和分支模式。创建RCF文件时、必须选择在本机速度模式或分支模式下使用端口。
+
+* 一个IP交换机上的所有MetroCluster必须具有相同的速度。不支持同时使用速度不同的ISL端口。
+* 为了获得最佳性能、每个网络应至少使用一个40 Gbps ISL。对于FAS9000、AFF A700或其他高容量平台、不应在每个网络上使用一个10 Gbps ISL。
+
+
+
+NOTE: NetApp建议您配置少量高带宽的CRL、而不是大量的低带宽的CRL。例如、最好配置一个40 Gbps ISL、而不是四个10 Gbps ISL。使用多个ISL时、统计负载平衡可能会影响最大吞吐量。不平衡会将吞吐量降低到单个ISL的吞吐量。

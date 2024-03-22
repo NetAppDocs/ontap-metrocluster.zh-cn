@@ -1,0 +1,54 @@
+---
+permalink: install-ip/concept-example-network-topologies.html 
+sidebar: sidebar 
+keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, requirements, compliant, configuration 
+summary: 从ONTAP 9.6开始、MetroCluster IP配置还支持其他一些网络配置。 
+---
+= MetroCluster 网络拓扑示例
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+从ONTAP 9.6开始、MetroCluster IP配置还支持其他一些网络配置。本节提供了一些受支持网络配置的示例。并未列出所有受支持的拓扑。
+
+在这些拓扑中、假定ISL和中间网络是根据中所述的要求配置的 link:concept-requirements-isls.html["ISL 注意事项"]。
+
+
+NOTE: 如果要与非MetroCluster流量共享ISL、则必须验证MetroCluster始终至少具有所需的最低可用带宽。
+
+
+
+== 使用直接链路的共享网络配置
+
+在此拓扑中，两个不同的站点通过直接链路进行连接。这些链路可以位于xWDM和TDM设备或交换机之间。这些的容量不是专用于此MetroCluster流量的、而是与其他非MetroCluster流量共享的。
+
+image::../media/mcc_ip_networking_with_shared_isls.gif[使用共享 ISL 建立 MCC IP 网络]
+
+
+
+== 使用中间网络的共享基础架构
+
+在此拓扑中、MetroCluster站点不是直接连接的、而是MetroCluster和主机流量通过网络传输。
+网络可由一系列xWDM、TDM和交换机组成、但与使用直接ISL的共享配置不同、站点之间的链路不是直接的。根据站点之间的基础架构，可以任意组合网络配置。
+
+image::../media/mcc_ip_networking_with_intermediate_private_networks.gif[使用中间专用网络的 MCC IP 网络]
+
+
+
+== 多个MetroCluster配置共享一个中间网络
+
+在此拓扑中，两个单独的 MetroCluster 配置共享同一个中间网络。在此示例中、MetroCluster One switch_A_1和MetroCluster 2 switch_A_1均连接到同一个中间交换机。
+
+
+NOTE: MetroCluster One或MetroCluster two都可以是一个八节点MetroCluster配置或两个四节点MetroCluster配置。
+
+image::../media/mcc_ip_two_mccs_sharing_the_same_shared_network_sx.gif[MCC IP 两个 MCC 共享同一共享网络 sx]
+
+
+
+== 使用NetApp验证的交换机的MetroCluster配置与使用符合MetroCluster的交换机的配置的组合
+
+两个单独的MetroCluster配置共享同一个中间交换机、其中一个MetroCluster使用共享第2层配置(MetroCluster One)中经过NetApp验证的交换机进行配置、另一个MetroCluster使用直接连接到中间交换机的符合MetroCluster的交换机进行配置(MetroCluster 2)。
+
+image::../media/mcc_ip_unsupported_two_mccs_direct_to_shared_switches.png[MCC IP 不支持两个直接连接到共享交换机的 MCC]

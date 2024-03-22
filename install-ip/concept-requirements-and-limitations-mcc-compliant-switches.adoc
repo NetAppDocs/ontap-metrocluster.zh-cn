@@ -1,0 +1,56 @@
+---
+permalink: install-ip/concept-requirement-and-limitations-mcc-compliant-switches.html 
+sidebar: sidebar 
+keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, requirements, compliant, limitations 
+summary: 从ONTAP 9.7开始、MetroCluster IP配置可以使用符合MetroCluster的交换机。这些交换机未经NetApp验证、但符合NetApp规格。本主题概述了MetroCluster兼容交换机的一般要求和限制。 
+---
+= 使用MetroCluster兼容交换机时的要求和限制
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从ONTAP 9.7开始、MetroCluster IP配置可以使用符合MetroCluster的交换机。这些交换机未经NetApp验证、但符合NetApp规格。但是、NetApp不会为任何未经验证的交换机提供故障排除或配置支持服务。您应了解使用MetroCluster兼容交换机时的一般要求和限制。
+
+
+
+== MetroCluster兼容交换机的一般要求
+
+连接MetroCluster IP接口的交换机必须满足以下一般要求：
+
+* 交换机必须支持服务质量(QoS)和流量分类。
+* 交换机必须支持显式拥塞通知（ ECN ）。
+* 交换机必须支持负载平衡策略、才能保持路径顺序。
+* 这些交换机必须支持 L2 流量控制（ L2 FC ）。
+* 交换机端口必须提供专用速率、并且不能过度分配。
+* 将节点连接到交换机的缆线和收发器必须由NetApp提供。交换机供应商必须支持这些缆线。如果您使用的是光缆、则交换机中的收发器可能不是由NetApp提供的。您必须验证它是否与控制器中的收发器兼容。
+* 连接MetroCluster节点的交换机可以传输非MetroCluster流量。
+* 只有为无交换机集群互连提供专用端口的平台才能与符合MetroCluster的交换机结合使用。无法使用FAS2750和AFF A220等平台、因为MetroCluster 流量和MetroCluster 互连流量共享相同的网络端口。
+* 不能使用符合MetroCluster的交换机进行本地集群连接。
+* MetroCluster IP 接口可以连接到可配置为满足要求的任何交换机端口。
+* 需要四个 IP 交换机，每个交换机网络结构两个。如果使用控制器、则可以在每端使用一个控制器、但MetroCluster IP接口必须连接到该控制器上两个不同故障域中的两个不同刀片式服务器。
+* 一个节点的MetroCluster接口必须连接到两个网络交换机或刀片式服务器。一个节点的MetroCluster接口不能连接到同一网络、交换机或刀片。
+* 网络必须满足以下各节中所述的要求：
++
+** link:concept-requirements-isls.html["ISL 注意事项"]
+** link:concept-considerations-layer-2-layer-3.html["在共享的第2层或第3层网络中部署MetroCluster时的注意事项"]
+
+
+* 必须在传输MetroCluster IP流量的所有交换机上配置最大传输单元(MTU) 9216。
+* 不支持还原到ONTAP 9.6或更早版本。
+
+
+在连接两个站点的MetroCluster IP接口的交换机之间使用的任何中间交换机都必须满足要求、并且必须按照中所述进行配置 link:concept-considerations-layer-2-layer-3.html["在共享的第2层或第3层网络中部署MetroCluster时的注意事项"]。
+
+
+
+== 使用MetroCluster兼容交换机时的限制
+
+您不能使用任何需要将本地集群连接到交换机的配置或功能。例如、您不能对符合MetroCluster的交换机使用以下配置和过程：
+
+* 八节点 MetroCluster 配置
+* 从 MetroCluster FC 过渡到 MetroCluster IP 配置
+* 刷新四节点 MetroCluster IP 配置
+* 为本地集群和MetroCluster流量共享物理接口的平台。请参见 link:concept-network-speeds-and-switchport-modes.html["适用于MetroCluster兼容交换机的平台专用网络速度和交换机端口模式"] 以了解支持的速度。
+

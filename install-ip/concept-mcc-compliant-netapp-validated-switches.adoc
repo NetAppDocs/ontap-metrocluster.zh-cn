@@ -1,0 +1,34 @@
+---
+permalink: install-ip/mcc-compliant-netapp-validated-switches.html 
+sidebar: sidebar 
+keywords: isls, ip, layer 2, layer 3, shared switch 
+summary: 本节提供了验证MetroCluster配置和网络是否满足所有要求所需的信息。 
+---
+= 经过NetApp验证且符合MetroCluster标准的交换机
+:allow-uri-read: 
+
+
+您的配置中使用的所有交换机(包括后端交换机)都必须经过NetApp验证或符合MetroCluster。
+
+
+
+== 经过NetApp验证的交换机
+
+如果交换机满足以下要求、则会通过NetApp验证：
+
+* 此交换机由NetApp在MetroCluster IP配置中提供
+* 此交换机列在中 link:https://hwu.netapp.com/["NetApp Hardware Universe"^] 在_MetroCluster-over IP-CONNECS_下作为受支持的交换机
+* 此交换机仅用于连接MetroCluster IP控制器、在某些配置中、还用于连接NS224驱动器架
+* 此交换机可使用NetApp提供的参考配置文件(Reference Configuration File、RCF)进行配置
+
+
+任何不满足这些要求的交换机均为*非* NetApp验证的交换机。
+
+
+
+== 符合MetroCluster的交换机
+
+MetroCluster兼容的交换机未经过NetApp验证、但如果符合特定要求和配置准则、则可在MetroCluster IP配置中使用。
+
+
+NOTE: NetApp不会为任何未经验证的MetroCluster兼容交换机提供故障排除或配置支持服务。

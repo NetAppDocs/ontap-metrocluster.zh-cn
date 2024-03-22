@@ -1,0 +1,43 @@
+---
+permalink: install-ip/overview-isl-requirements.html 
+sidebar: sidebar 
+keywords: isls, ip, layer 2, layer 3, shared switch 
+summary: 了解验证MetroCluster配置和网络是否满足所有ISL要求所需的信息。 
+---
+= ISL要求概述
+:allow-uri-read: 
+
+
+您应验证MetroCluster IP配置和网络是否满足所有交换机间链路(ISL)要求。虽然某些要求可能不适用于您的配置、但您仍应了解所有ISL要求、以便更好地了解整体配置。
+
+下表概述了本节所涵盖的主题。
+
+[cols="25,75"]
+|===
+| 标题 | 说明 
+
+
+| link:mcc-compliant-netapp-validated-switches.html["经过NetApp验证且符合MetroCluster标准的交换机"] | 介绍了交换机要求。
+
+适用场景MetroCluster配置中使用的所有交换机、包括后端交换机。 
+
+
+| link:concept-requirements-isls.html["ISL 注意事项"] | 介绍了ISL要求。
+
+适用场景所有MetroCluster配置、无论网络拓扑如何、也无论您使用的是经过NetApp验证的交换机还是符合MetroCluster标准的交换机。 
+
+
+| link:concept-considerations-layer-2-layer-3.html["在共享的第2层或第3层网络中部署MetroCluster时的注意事项"] | 介绍共享第2层或第3层网络的要求。
+
+适用场景除使用NetApp验证的交换机和直接连接的MetroCluster配置之外的所有配置。 
+
+
+| link:concept-requirement-and-limitations-mcc-compliant-switches.html["使用符合MetroCluster的交换机时的注意事项"] | 介绍与MetroCluster兼容的交换机的要求。
+
+适用场景未使用经过NetApp验证的交换机的所有MetroCluster配置。 
+
+
+| link:concept-example-network-topologies.html["MetroCluster 网络拓扑示例"] | 提供了不同MetroCluster网络拓扑的示例。
+
+适用场景所有MetroCluster配置。 
+|===

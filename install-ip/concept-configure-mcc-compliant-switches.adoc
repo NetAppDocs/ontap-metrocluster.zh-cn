@@ -1,0 +1,280 @@
+---
+permalink: install-ip/concept-configure-mcc-compliant-switches.html 
+sidebar: sidebar 
+keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, requirements, compliant, configuration 
+summary: 了解各种交换机端口配置。 
+---
+= 交换机端口配置示例
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+了解各种交换机端口配置。
+
+
+NOTE: 以下示例使用十进制值、并遵循适用场景Cisco所切换的表。根据交换机供应商的不同、您可能需要为DSCP设置不同的值。请参见您的交换机供应商对应的表、以确认值是否正确。
+
+|===
+
+
+| DSCP值 | 小数 | 十六进制 | 含义 
+
+
+ a| 
+101 000
+ a| 
+16.
+ a| 
+0x10
+ a| 
+CS2
+
+
+
+ a| 
+011 000
+ a| 
+24
+ a| 
+0x18
+ a| 
+CS3
+
+
+
+ a| 
+100 000
+ a| 
+32
+ a| 
+0x20
+ a| 
+CS4
+
+
+
+ a| 
+101 000
+ a| 
+40
+ a| 
+0x28
+ a| 
+cs5
+
+|===
+.用于连接MetroCluster接口的交换机端口
+* 远程直接内存访问(RDMA)流量的分类：
++
+** Match：TCP端口10006、源端口、目标端口或两者
+** 可选匹配项：cos 5
+** 可选匹配项：DSCP 40
+** 设置DSCP 40
+** 设置第5步
+** 可选：整形速率可达20Gbps
+
+
+* iSCSI流量分类：
++
+** Match：TCP端口62500、源、目标或两者
+** 可选匹配项：cos 4
+** 可选匹配项：DSCP 32
+** 设置DSCP 32
+** 设置第4步
+
+
+* L2flowControl (PAUSE)、RX和TX
+
+
+.ISL 端口
+* 分类：
++
+** 匹配第5个或第40个DSCP
++
+*** 设置DSCP 40
+*** 设置第5步
+
+
+** 匹配第4个或第32个DSCP
++
+*** 设置DSCP 32
+*** 设置第4步
+
+
+
+
+* 传出队列
++
+** CoS组4的最小配置阈值为2000、最大阈值为3000
+** CoS组5的最小配置阈值为3500、最大阈值为6500。
++
+
+NOTE: 配置阈值可能因环境而异。您必须根据自己的环境评估配置阈值。
+
+** Q4和Q5启用了ECN
+** 为Q4和Q5启用红色
+
+
+
+
+.带宽分配(连接MetroCluster接口和ISL端口的交换机端口)
+* RDMA、步骤5 / DSCP 40：60%
+* iSCSI、SCP 4 / DSCP 32：40%
+* 每个MetroCluster配置和网络的最低容量要求：10 Gbps
+
+
+
+NOTE: 如果使用速率限制、则流量应保持*整形*、而不会造成损失。
+
+
+
+== 配置连接MetroCluster控制器的交换机端口的示例
+
+提供的示例命令适用于Cisco NX3232或Cisco NX9336交换机。命令因交换机类型而异。
+
+如果交换机上没有示例中所示的功能或等效功能、则交换机不满足最低要求、无法用于部署MetroCluster配置。这对于连接到MetroCluster配置的任何交换机以及所有中间交换机都是如此。
+
+
+NOTE: 以下示例可能仅显示一个网络的配置。
+
+.基本配置
+必须在每个网络中配置一个虚拟LAN (VLAN)。以下示例显示了如何在网络10中配置VLAN。
+
+* 示例： *
+
+[listing]
+----
+# vlan 10
+The load balancing policy should be set so that order is preserved.
+----
+* 示例： *
+
+[listing]
+----
+# port-channel load-balance src-dst ip-l4port-vlan
+----
+
+
+== 配置分类的示例
+
+要将RDMA和iSCSI流量映射到相应的类、必须配置访问和类映射。
+
+在以下示例中、与端口65200之间的所有TCP流量都会映射到存储(iSCSI)类。端口 10006 与端口 10006 之间的所有 TCP 流量都映射到 RDMA 类。这些策略映射将在连接MetroCluster接口的交换机端口上使用。
+
+* 示例： *
+
+[listing]
+----
+ip access-list storage
+  10 permit tcp any eq 65200 any
+  20 permit tcp any any eq 65200
+ip access-list rdma
+  10 permit tcp any eq 10006 any
+  20 permit tcp any any eq 10006
+
+class-map type qos match-all storage
+  match access-group name storage
+class-map type qos match-all rdma
+match access-group name rdma
+----
+您必须配置传入策略。传入策略会将已分类的流量映射到不同的群集管理器组。在此示例中， RDMA 流量映射到 COS 组 5 ， iSCSI 流量映射到 COS 组 4 。传入策略用于连接MetroCluster接口的交换机端口和传输MetroCluster流量的ISL端口。
+
+* 示例： *
+
+[listing]
+----
+policy-map type qos MetroClusterIP_Node_Ingress
+class rdma
+  set dscp 40
+  set cos 5
+  set qos-group 5
+class storage
+  set dscp 32
+  set cos 4
+  set qos-group 4
+----
+NetApp建议您在连接MetroCluster接口的交换机端口上调整流量、如以下示例所示：
+
+* 示例： *
+
+[listing]
+----
+policy-map type queuing MetroClusterIP_Node_Egress
+class type queuing c-out-8q-q7
+  priority level 1
+class type queuing c-out-8q-q6
+  priority level 2
+class type queuing c-out-8q-q5
+  priority level 3
+  shape min 0 gbps max 20 gbps
+class type queuing c-out-8q-q4
+  priority level 4
+class type queuing c-out-8q-q3
+  priority level 5
+class type queuing c-out-8q-q2
+  priority level 6
+class type queuing c-out-8q-q1
+  priority level 7
+class type queuing c-out-8q-q-default
+  bandwidth remaining percent 100
+  random-detect threshold burst-optimized ecn
+----
+
+
+== 节点端口配置示例
+
+您可能需要在分支模式下配置节点端口。在以下示例中、端口25和26配置为4个25 Gbps分支模式。
+
+* 示例： *
+
+[listing]
+----
+interface breakout module 1 port 25-26 map 25g-4x
+----
+您可能需要配置 MetroCluster 接口端口速度。以下示例显示了如何将速度配置为*auto*或进入40Gbps模式：
+
+* 示例： *
+
+[listing]
+----
+	speed auto
+
+	speed 40000
+----
+以下示例显示了配置为连接MetroCluster接口的交换机端口。它是VLAN 10中的访问模式端口、MTU为9216、并以本机速度运行。它启用了对称(发送和接收)流量控制(暂停)、并分配了MetroCluster传入和传出策略。
+
+* 示例： *
+
+[listing]
+----
+interface eth1/9
+description MetroCluster-IP Node Port
+speed auto
+switchport access vlan 10
+spanning-tree port type edge
+spanning-tree bpduguard enable
+mtu 9216
+flowcontrol receive on
+flowcontrol send on
+service-policy type qos input MetroClusterIP_Node_Ingress
+service-policy type queuing output MetroClusterIP_Node_Egress
+no shutdown
+----
+在25Gbps端口上、您可能需要将正向错误更正(FEC)设置为"关闭"、如以下示例所示。
+
+* 示例： *
+
+[listing]
+----
+fec off
+----
+
+
+== 在整个网络中配置ISL端口的示例
+
+兼容MetroCluster的交换机被视为中间交换机、即使它直接连接MetroCluster接口也是如此。MetroCluster兼容交换机上传输MetroCluster流量的ISL端口必须与中间交换机上的ISL端口配置相同。请参见 link:concept-considerations-layer-2-layer-3.html#required-settings-on-intermediate-switches["中间交换机上的必需设置"] 以获得指导和示例。
+
+
+NOTE: 对于连接MetroCluster接口和传输MetroCluster流量的ISL的交换机端口、某些策略映射是相同的。您可以对这两个端口使用使用使用相同的策略映射。
