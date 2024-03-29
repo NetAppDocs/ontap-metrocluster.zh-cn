@@ -12,3 +12,22 @@ summary:
 
 [role="lead"]
 您可以使用RCC文件配置Cisco和Brocade FC交换机、也可以根据需要手动配置交换机。
+
+[cols="2*"]
+|===
+| 如果您 ... | 使用操作步骤 
+
+
+| 拥有符合您要求的RC框架  a| 
+* link:task_reset_the_brocade_fc_switch_to_factory_defaults.html["使用 RCF 文件配置 Brocade FC 交换机"]
+* link:task_reset_the_cisco_fc_switch_to_factory_defaults.html["使用RCC文件配置Cisco FC交换机"]
+
+
+
+
+| 没有不符合您要求的RC框架 或RC框架  a| 
+* link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["手动配置 Brocade FC 交换机"]
+* link:task_fcsw_cisco_configure_a_cisco_switch_supertask.html["手动配置 Cisco FC 交换机"]
+
+
+|===

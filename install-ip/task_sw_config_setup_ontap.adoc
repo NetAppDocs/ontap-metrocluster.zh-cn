@@ -192,6 +192,13 @@ https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/index.html["使
 +
 https://docs.netapp.com/us-en/ontap/index.html#about-ontap-system-manager["ONTAP System Manager （ 9.7 及更高版本）"]
 
+.. 配置服务处理器(SP)：
++
+link:https://docs.netapp.com/us-en/ontap/system-admin/sp-bmc-network-config-concept.html["配置 SP/BMC 网络"^]
+
++
+link:https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_service_processors.html["将服务处理器与 System Manager 结合使用— ONTAP 9.7 及更早版本"^]
+
 
 
 . 按照提示启动下一个控制器并将其加入集群。

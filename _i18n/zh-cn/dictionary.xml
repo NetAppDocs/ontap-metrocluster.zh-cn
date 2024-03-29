@@ -1276,7 +1276,6 @@
   <block id="61e9eafd114033b79115785b3c135abb" category="paragraph">您应看到以下输出：</block>
   <block id="a8d2847903c576898fb0a7f696b03aa1" category="paragraph">更改 ISL 端口的距离</block>
   <block id="43a533d4a7711d238594840dabecdae9" category="paragraph">要删除 ISL ...</block>
-  <block id="0251accfd0a01d6b6678e4acc31b0511" category="paragraph">断开链路（缆线）。</block>
   <block id="30157269456de4c3887b93d1ec060d5c" category="paragraph">重新定位 ISL</block>
   <block id="aef3cfb377e896595d24bea72737dbb1" category="paragraph">重新定位 ISL 与删除然后添加 ISL 相同。首先，断开链路以删除 ISL ，然后将 SFP 插入要添加为 ISL 端口的端口。</block>
   <block id="93852cc642726104756c52dbcffc5cb5" category="list-text">重新配置无序交付（ OOD ）或按顺序交付（ IOD ）。</block>
@@ -13239,7 +13238,6 @@
   <block id="baf55d93093b54950152b6be3f9bfec2" category="list-text">一个网络结构上的所有ISO都必须具有相同的速度和长度。</block>
   <block id="4b00dc01ca120693f1539bf736f11069" category="list-text">两个网络结构中的ISO必须具有相同的速度和长度。</block>
   <block id="ef6ab3e28db1093c7315b30edeb84730" category="list-text">网络结构1和网络结构2之间的最大支持距离差值为20公里或0.2毫秒。</block>
-  <block id="1b6ceb9b8db71407a3be0617e754101e" category="list-text">一个网络结构上的CRL必须具有相同的拓扑。例如、它们都应为直接链路、或者如果配置使用WDM、则它们都必须使用WDM。</block>
   <block id="ddf41f2636c98d00a2698837f55a3f74" category="list-text">ISL速度必须至少为10 Gbps。</block>
   <block id="cb806a9b25dfb1d4470413a3c2dd9944" category="list-text">每个网络结构必须至少有一个10 Gbps ISL端口。</block>
   <block id="25b13aa97e6e9eb228478bfddbcc84e9" category="paragraph">在MetroCluster配置处于稳定状态运行的情况下、site_A和site_B的MetroCluster IP交换机之间的以下适用场景往返流量：</block>
@@ -13500,4 +13498,20 @@
 适用场景所有MetroCluster配置。</block>
   <block id="20f7078fb96bd6060a10b9fed9306941" category="sidebar">MetroCluster兼容交换机的要求和限制</block>
   <block id="3c24829f69028dca3ac0aa982abad68d" category="sidebar">MetroCluster兼容交换机的网络速度和交换机端口模式</block>
+  <block id="61a6d655671eebbd633c1d84fae09e17" category="cell">如果您 ...</block>
+  <block id="9bb5e66f509f87b2056c49d88c3c1ad3" category="cell">使用操作步骤</block>
+  <block id="585259c85fa7332b7408c2bdbdccbd7e" category="cell">拥有符合您要求的RC框架</block>
+  <block id="6cd8985ef1c9ac5bb3c5ba019968286f" category="list-text"><block ref="6cd8985ef1c9ac5bb3c5ba019968286f" category="inline-link-macro-rx"></block></block>
+  <block id="876679dae881403e2f232efc9dd0bb3f" category="inline-link-macro">使用RCC文件配置Cisco FC交换机</block>
+  <block id="eb93031c42594d52b52dea4aa8c60cc7" category="list-text"><block ref="eb93031c42594d52b52dea4aa8c60cc7" category="inline-link-macro-rx"></block></block>
+  <block id="f95c75e9e3d1a3f06e2b3b15e304cf53" category="cell">没有不符合您要求的RC框架 或RC框架</block>
+  <block id="a7479abd1216b38814805eeb38bdbc15" category="list-text"><block ref="a7479abd1216b38814805eeb38bdbc15" category="inline-link-macro-rx"></block></block>
+  <block id="36d1363cb78273718bac11302a6ed445" category="paragraph">断开链路。</block>
+  <block id="cde774a461b1ae0ea7e1a404c874f2a4" category="admonition">更改ISL端口时、您可能还需要应用WDM供应商建议的其他设置。有关指导、请参见WDM供应商文档。</block>
+  <block id="05ad4e95aa7945d2b5bc1c7c8a6eb220" category="list-text">配置服务处理器(SP)：</block>
+  <block id="0e74984a18b6236a912a70cd78328256" category="inline-link-macro">配置 SP/BMC 网络</block>
+  <block id="1aea5f30cf555d730902505e498f4fd0" category="paragraph"><block ref="1aea5f30cf555d730902505e498f4fd0" category="inline-link-macro-rx"></block></block>
+  <block id="4010f2b8e90ddf85f94ac358d78075c1" category="inline-link-macro">将服务处理器与 System Manager 结合使用— ONTAP 9.7 及更早版本</block>
+  <block id="eaa2669881cbe475b9e0b278420a4005" category="paragraph"><block ref="eaa2669881cbe475b9e0b278420a4005" category="inline-link-macro-rx"></block></block>
+  <block id="adf442d82428813618df31b5f35c8c5d" category="list-text">这些ISL必须具有相同的拓扑。例如、它们都应为直接链路、或者如果配置使用WDM、则它们都必须使用WDM。</block>
 </blocks>
