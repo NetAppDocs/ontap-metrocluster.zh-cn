@@ -17,7 +17,6 @@ summary: 您必须从现有 MetroCluster FC 节点收集信息，发送 AutoSupp
 
 == 过渡前从现有控制器模块收集信息
 
-[role="lead"]
 过渡之前，您必须收集每个节点的信息。
 
 此任务将在现有节点上执行：
@@ -100,7 +99,6 @@ summary: 您必须从现有 MetroCluster FC 节点收集信息，发送 AutoSupp
 
 == 在维护之前发送自定义 AutoSupport 消息
 
-[role="lead"]
 在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。这样，他们就无法在假定已发生中断的情况下创建案例。
 
 必须在每个 MetroCluster 站点上执行此任务。
@@ -120,7 +118,6 @@ maintenance-window-in-hours 指定维护时段的长度，最长为 72 小时。
 
 == 过渡，关闭和删除 MetroCluster FC 节点
 
-[role="lead"]
 除了在 MetroCluster FC 节点上发出命令之外，此任务还包括物理断开和删除每个站点的控制器模块。
 
 必须对每个旧节点执行此任务：

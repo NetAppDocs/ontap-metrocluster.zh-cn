@@ -308,7 +308,6 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for
 
 == 准备新控制器模块
 
-[role="lead"]
 您必须准备四个新的 MetroCluster 节点并安装正确的 ONTAP 版本。
 
 .关于此任务
@@ -346,7 +345,6 @@ link:../install-ip/using_rcf_generator.html["为 IP 交换机布线"]
 
 == 升级 RCF 文件
 
-[role="lead"]
 如果要安装新的交换机固件，则必须先安装交换机固件，然后再升级 RCF 文件。
 
 .关于此任务

@@ -127,7 +127,6 @@
   <block id="f99aa604031e5049799e73b5c3748a98" category="paragraph"><block ref="f99aa604031e5049799e73b5c3748a98" category="inline-link-rx"></block></block>
   <block id="875a4f63ab16d76d34a88b4b4e8e22b1" category="doc">将 SAS 磁盘架和网桥堆栈热添加到 MetroCluster 系统</block>
   <block id="556bbef84d582c44d275b1d259773581" category="paragraph">您可以将整个堆栈（包括网桥）热添加（无中断添加）到 MetroCluster 系统中。FC 交换机上必须有可用端口，您必须更新交换机分区以反映所做的更改。</block>
-  <block id="0bfea2edb24bd8a4a4bbb8cda2a3e201" category="list-text">此操作步骤可用于使用 FibreBridge 7500N 或 6500N 网桥添加堆栈。</block>
   <block id="3bdb5b94e9e047f350ef916e04de48b0" category="list-text">编写此操作步骤时假定您使用的是建议的网桥管理界面： ATTO ExpressNAV 图形用户界面和 ATTO QuickNAV 实用程序。</block>
   <block id="382796d45bd36c3702aa7fdd174e2a3f" category="list-text">您可以使用 ATTO ExpressNAV 图形用户界面配置和管理网桥，以及更新网桥固件。您可以使用 ATTO QuickNAV 实用程序配置网桥以太网管理 1 端口。</block>
   <block id="a3d9a1252fb80a064155cc8c80974390" category="inline-xref-macro">其他网桥管理接口</block>
@@ -208,9 +207,6 @@
   <block id="4816c474b056c83a35173d874218184e" category="list-text">配置网桥 FC 端口。</block>
   <block id="0ae098ca81f26216088dd67e626f4774" category="list-text">配置网桥 FC 端口的数据速率 / 速度。</block>
   <block id="6f8fa0d15ba986a207f54e5380590b50" category="paragraph">支持的 FC 数据速率取决于您的网桥型号。</block>
-  <block id="4442c01d444cdf8dfad8eee5a984041f" category="list-text">FibreBridge 7600 网桥最多支持 32 ， 16 或 8 Gbps 。</block>
-  <block id="d7c58cd18c76f6cce444274875661cf3" category="list-text">FibreBridge 7500 网桥最多支持 16 ， 8 或 4 Gbps 。</block>
-  <block id="794e8b1feb84d0af8dfe68bda71f2312" category="list-text">FibreBridge 6500 网桥最多支持 8 ， 4 或 2 Gbps 。</block>
   <block id="0f44b54f212d195c54c4bc124932499b" category="admonition">您选择的 FCDataRate 速度限制为网桥和网桥端口所连接的交换机均支持的最大速度。布线距离不得超过 SFP 和其他硬件的限制。</block>
   <block id="275af246983023d45ca6dfacf6852105" category="paragraph">如果使用命令行界面，则必须运行以下命令：</block>
   <block id="498cdca1ed56090dbe81c2421b2d09a8" category="list-text">如果要配置 FibreBridge 7500N 或 6500N 网桥，请配置端口用于 ptp 的连接模式。</block>
@@ -330,7 +326,6 @@
   <block id="d67d8ab4f4c10bf22aa353e27879133c" category="paragraph">39</block>
   <block id="03afdbd66e7929b125f8597834fa83a4" category="paragraph">63.</block>
   <block id="d8e18a94c6fa97d89aba5bdabe784a13" category="admonition">可以使用缆线将其他网桥连接到 G620 ， G630 ， G620-1 和 G-630-1 交换机中的端口 36 - 39 。</block>
-  <block id="24938029e2776bfd3dacbae21e93a8b1" category="cell">仅使用一个 FC 端口（ FC1 或 FC2 ）的 FibreBridge 6500N 网桥或 FibreBridge 7500N 或 7600N 配置</block>
   <block id="f6cb5eb43574b6b08acea142038b5757" category="cell">Brocade G620 ， Brocade G620-1 ， Brocade G630 ， Brocade G630-1</block>
   <block id="1d28ff844844021e107aa66cfc976e38" category="paragraph">bridge_x_1b</block>
   <block id="ed3fdd8862f782b3adfc86c158c5c6b0" category="paragraph">bridge_x_2b</block>
@@ -487,13 +482,9 @@
   <block id="aebdbdde32f31274fe9fc6e75b482c32" category="list-text">验证两个闪存映像是否已更新到同一版本。</block>
   <block id="1b7c547e0c44744faa2a37c6b0435cc2" category="paragraph">对于这两个分区，输出应显示相同的版本。</block>
   <block id="bb7439d72897f5b031319c5576c3cc67" category="list-text">对下一个网桥重复步骤 5 到 13 ，直到 MetroCluster 配置中的所有网桥都已更新为止。</block>
-  <block id="58cc4f784b9aded3583b845939a81062" category="section-title">更新运行 ONTAP 9.3.x 及更早版本或 6500N 网桥的配置中 FibreBridge 7500N 上的固件</block>
-  <block id="8aa44124bc18ff7af6c04005e961b310" category="paragraph">您可能需要更新 FibreBridge 网桥上的固件，以确保具有最新功能或解决可能的问题。在运行 ONTAP 9.3.x 的配置中，应将此操作步骤用于 FibreBridge 7500N ；在所有受支持的 ONTAP 版本中，此 应用于 FibreBridge 6500N 网桥。</block>
   <block id="8c3f1a5045c47c008de3de6fa5352da3" category="list-text">使用 ATTO FibreBridge 固件下载页面上操作步骤的步骤 1 至 3 下载网桥固件文件。</block>
   <block id="3083b982cc912e364f9e1bc28cc6915a" category="list-text">为 ATTO FibreBridge 固件下载页面和发行说明创建一份副本，以供您在更新每个网桥上的固件时参考。</block>
   <block id="ae87d5531ab43f90dedaa89f103356a1" category="list-text">更新网桥：</block>
-  <block id="b0d472f0b2dbe5d730a80e2962aec6de" category="list-text">在 FibreBridge 网桥上安装固件。</block>
-  <block id="47205d1bbe1b0ebe5f214ffe8a31f30f" category="list-text">如果您使用的是 ATTO FibreBridge 7500N 网桥，请参见 _ATTO FibreBridge 7500N 安装和操作手册 _ 的 "`更新固件` " 一节中提供的说明。</block>
   <block id="6eee07f1028e6e37c9b9675c78a3ecab" category="paragraph">网桥应重新启动。</block>
   <block id="ed0f0385ac6d639a877dbd50ffe09fc9" category="list-text">在同一网桥上重复上述子步骤以更新第二个分区。</block>
   <block id="f716521a03deca3c493b0dbaa94f969c" category="list-text">对下一个网桥重复上述步骤，直到 MetroCluster 配置中的所有网桥都已更新为止。</block>
@@ -547,9 +538,6 @@
   <block id="9684ced23869ffd0ef90656a6aa83c1d" category="paragraph">` * 存储网桥 run-cli -bridge _bridge-name_ -command firmwarerestart*`</block>
   <block id="0d70078385b01668ecfcc33dcc7785e4" category="summary">您可以使用每个网络结构的一个启动程序端口和每个控制器的两个启动程序端口来配置 FAS8020 ， AFF8020 ， FAS8200 和 AFF A300 系统。</block>
   <block id="8db12a7f598538a4f3273d8beec78fa9" category="doc">使用两个启动程序端口的系统的端口分配</block>
-  <block id="918697643ecb503ad41bd41cd21ad85c" category="paragraph">您只能使用一个 FC 端口（ FC1 或 FC2 ）对 FibreBridge 6500N 网桥或 FibreBridge 7500N 或 7600N 网桥进行布线。请仅连接两个启动程序，而不使用四个启动程序，并将连接到交换机端口的另外两个启动程序留空。</block>
-  <block id="caf615d7715d92dbf30bfb0d0b1cc4d7" category="paragraph">您必须为 FibreBridge 6500N 网桥的配置应用正确的 RCF 文件。</block>
-  <block id="efce25b9409a6bd708e7c532b13e8176" category="paragraph">如果手动执行分区，则按照使用一个 FC 端口（ FC1 或 FC2 ）的 FibreBridge 6500N 或 FibreBridge 7500N 或 7600N 网桥所使用的分区进行操作。在这种情况下，每个网络结构的每个分区成员都会添加一个启动程序端口，而不是两个。</block>
   <block id="a8a2bf560173c2071776e7eb62881e05" category="paragraph">下表显示了使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配。</block>
   <block id="dbe4a4387a11d1625ae218ef9f43a996" category="cell">MetroCluster 1 或 DR 组 1</block>
   <block id="967f94774fd0a441a676db03d0d50895" category="cell">Brocade 交换机型号 6505 ， 6510 ， 6520 ， 7840 ， G620 ， G610 和 DCX 8510-8</block>
@@ -577,8 +565,6 @@
   <block id="85c019b69442635697fc1b5b3f6cfad3" category="inline-xref-macro">准备热添加 SAS 磁盘架</block>
   <block id="5c96ab4a94ce2c03e50e3170dc50e8be" category="list-text">要热添加磁盘架，您的环境必须满足以下情形之一：</block>
   <block id="dc7e96665a67891a688cad5299c9216d" category="list-text">您已将两个 FibreBridge 7500N 网桥连接到一个 SAS 磁盘架堆栈。</block>
-  <block id="eece1d4d900f6ebddf86703e79ecc8e1" category="list-text">您已将一个 FibreBridge 7500N 网桥和一个 FibreBridge 6500N 网桥连接到一个 SAS 磁盘架堆栈。</block>
-  <block id="dd1b0f5953e1bb8988271af33d40715c" category="list-text">您已将两个 FibreBridge 6500N 网桥连接到一个 SAS 磁盘架堆栈。</block>
   <block id="bbe46ae98258b21267300cd00fda2d33" category="list-text">此操作步骤用于将磁盘架热添加到堆栈中的最后一个磁盘架。</block>
   <block id="de765cbcb90d504e6ac736ad12d5610f" category="paragraph">编写此操作步骤时，假设堆栈中的最后一个磁盘架是从 IOM A 连接到网桥 A 以及从 IOM B 连接到网桥 B 的</block>
   <block id="898c5906a76d3bd931a038bfaebc8419" category="list-text">这是一个无中断操作步骤。</block>
@@ -599,10 +585,6 @@
   <block id="5b63e4a9bc611666d00f442d845ec5c6" category="admonition">在更新磁盘驱动器和磁盘架固件之前，不得将磁盘驱动器添加到聚合或卷中。</block>
   <block id="03aa0e95dbfb628416dcdc56332bc6b4" category="paragraph">您可以从任一控制器的系统控制台中运行操作步骤中的命令。</block>
   <block id="70a0e75e35d9914b9a2f7708da941117" category="list-text">安装磁盘架并为其布线：</block>
-  <block id="263c15ac5674f01ff68b35e6b6e75bd3" category="paragraph">请注意以下注意事项：</block>
-  <block id="39e6f48b1de9ddbfef92e6f4fcff1ce4" category="list-text">对于 FibreBridge 6500N 网桥：</block>
-  <block id="29c6af38e68b6b8bb268425f0b790887" category="paragraph">请至少等待 10 秒，然后再连接端口。SAS 缆线连接器具有方向性；正确连接到 SAS 端口时，连接器会卡入到位，磁盘架 SAS 端口 LNK LED 会呈绿色亮起。对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。</block>
-  <block id="96c7e7c9134d64da1099df040e16e532" category="list-text">对于 FibreBridge 7500N 网桥：</block>
   <block id="28f13ef1be475bc18398b06c9ee9c0ad" category="paragraph">请勿强制将连接器插入端口。迷你 SAS 缆线具有方向性；正确连接到 SAS 端口时， SAS 缆线会卡入到位，磁盘架 SAS 端口 LNK LED 会呈绿色亮起。对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝上（位于连接器的顶部）。</block>
   <block id="d4fa97d509c1914d4c73c7be277a3f4a" category="list-text">安装磁盘架，打开其电源并设置磁盘架 ID 。</block>
   <block id="d14a1bb2bac60ab5e8c6c23c719dc845" category="paragraph">适用于您的磁盘架型号的 _Installation Guide_ 提供了有关安装磁盘架的详细信息。</block>
@@ -822,13 +804,11 @@
   <block id="8f14e45fceea167a5a36dedd4bea2543" category="cell">7.</block>
   <block id="f65c08d82a4d03d0ccfe8c069b7a950f" category="cell">controller_x_4</block>
   <block id="afad1c27cb5fc5d1d792e5ba791ef840" category="section-title">运行 ONTAP 9.0 的八节点 MetroCluster 配置中用于 FC-SAS 网桥连接的 Brocade 端口使用情况</block>
-  <block id="ae031054e1b7b8ac47164099dbf1db9c" category="paragraph">下表显示了使用 FibreBridge 7500 网桥时的网桥端口使用情况：</block>
   <block id="de8504b73ea228d0ea9bbce69752092e" category="cell">网桥</block>
   <block id="fac64949de3a43257f3c8a97a35449a1" category="cell">网桥端口</block>
   <block id="c74d97b01eae257e44aa9d5bade97baf" category="cell">16.</block>
   <block id="5f3d7a8eab09d202517da1abc99331dc" category="cell">bridge_x_3b</block>
   <block id="b2f10ca95ea95e075db7adc2d019047e" category="cell">bridge_x_4a</block>
-  <block id="260c4e83cf5b055da9148425e2590b41" category="paragraph">下表显示了在 Brocade 6505 ， 6510 或 DCX 8510-8 交换机上使用 FibreBridge 6500 网桥时的网桥端口使用情况：</block>
   <block id="f49308486cec24e5559590a8e8ab5f10" category="cell">bridge_x_5a</block>
   <block id="eb5edae8fa155daf7b0c78acbc5c622e" category="cell">bridge_x_5b</block>
   <block id="2f18a86c8432805a00900af0153918f1" category="cell">bridge_x_6a</block>
@@ -853,32 +833,24 @@
   <block id="a87ff679a2f3e71d9181a67b7542122c" category="cell">4.</block>
   <block id="e4da3b7fbbce2345d7772b0674a318d5" category="cell">5.</block>
   <block id="bb98798a94eabd991690e4d98bb1e93d" category="section-title">运行 ONTAP 9.0 的四节点 MetroCluster 配置中网桥的 Brocade 端口使用情况</block>
-  <block id="d4c2c7d0b904292d2b869aa1f73bf0e8" category="paragraph">下表显示了使用 FibreBridge 7500 网桥时网桥端口使用情况，最多可达端口 17 。可以使用缆线将其他网桥连接到端口 18 到 23 。</block>
   <block id="814568b4249c0114f7f5acf6d86149fb" category="cell">FibreBridge 7500 网桥</block>
   <block id="4b1342698b69db9277c10ae5d059e837" category="cell">FC_switch_x_1 （ 6510 或 DCX 8510-8 ）</block>
   <block id="e49423aa401904cc19d9c93b1dba3f71" category="cell">FC_switch_x_2 （ 6510 或 DCX 8510-8 ）</block>
   <block id="8e8e002bc58d3a842d05c1be7b04ba4c" category="cell">FC_switch_x_1 （ 6505 ）</block>
   <block id="7ab09fefe83fcbd6007a5ac115dfefbc" category="cell">FC_switch_x_2 （ 6505 ）</block>
   <block id="5cf1fa7f2c6c9825315b7608236abe2b" category="cell">可以使用缆线将其他网桥连接到端口 19 ，然后连接到端口 24 到 47</block>
-  <block id="a8e749c2ecbd4bf1e7224f858d4b54e2" category="paragraph">下表显示了使用 FibreBridge 6500 网桥时的网桥端口使用情况：</block>
-  <block id="8593f73dec0b8f87b6881450492db44b" category="cell">6500N 网桥端口</block>
   <block id="c4381a0b6bf2d250fd5afa1d8db80d48" category="cell">可以通过端口 23 为其他网桥布线</block>
   <block id="3f0d7bda291f9b3c6f2f35a20a63c52e" category="section-title">运行 ONTAP 9.0 的四节点 MetroCluster 配置中的 ISL 的 Brocade 端口使用情况</block>
   <block id="69862326bc727c309184d534a3f3cff8" category="paragraph">下表显示了 ISL 端口使用情况：</block>
   <block id="160cef04b33948c7b91144a2fdf46988" category="section-title">运行 ONTAP 9.0 的双节点 MetroCluster 配置中控制器的 Brocade 端口使用情况</block>
   <block id="7699bf8a4df6f7e15f159269bd8927e4" category="paragraph">交换机网络结构中的每个 FC 交换机的布线方式相同。下表显示了 Brocade 6505 ， 6510 和 DCX 8510-8 交换机的布线情况。</block>
   <block id="4d3b4ab0ee0d27226cd4d951952dc8aa" category="section-title">运行 ONTAP 9.0 的双节点 MetroCluster 配置中网桥的 Brocade 端口使用情况</block>
-  <block id="38eeead869e2de976d69521d9b093eb7" category="paragraph">下表显示了在 Brocade 6505 ， 6510 和 DCX 8510-8 交换机上使用 FibreBridge 7500 网桥时，网桥端口使用情况，最高可达端口 17 。可以使用缆线将其他网桥连接到端口 18 到 23 。</block>
-  <block id="77758a81fbabd65f1a0cbd943aa33610" category="paragraph">下表显示了在 Brocade 6505 ， 6510 和 DCX 8510-8 交换机上使用 FibreBridge 6500 网桥时的网桥端口使用情况：</block>
-  <block id="72732277f710e65392cf7492a34e528a" category="cell">FibreBridge 6500 网桥</block>
   <block id="f87cb62014b08eabb93a84e435b02ea9" category="section-title">运行 ONTAP 9.0 的双节点 MetroCluster 配置中的 ISL 的 Brocade 端口使用情况</block>
   <block id="851032b3e8ee16b9eb2ed6098216108e" category="paragraph">下表显示了 Brocade 6505 ， 6510 和 DCX 8510-8 交换机的 ISL 端口使用情况：</block>
   <block id="944ef169ea9b385ec2fc06c60bcdd267" category="section-title">运行 ONTAP 9.0 的八节点 MetroCluster 配置中控制器的 Cisco 端口使用情况</block>
   <block id="062caca7c0bb29ebff9fcc7a33a75d93" category="paragraph">下表显示了 Cisco 9148 和 9148S 交换机上的控制器端口使用情况：</block>
   <block id="7dd0f293a7e09ad1d4ac1014f18a018a" category="section-title">运行 ONTAP 9.0 的八节点 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况</block>
-  <block id="c1eac127cb565fa4817962e9f30a2046" category="paragraph">下表显示了在使用 Cisco 9148 或 9148S 交换机时使用 FibreBridge 7500 网桥时桥端口使用情况，最多为端口 23 。可以使用端口 25 到 48 连接其他网桥。</block>
   <block id="1d8dd340273647eae3a36eff43fc547e" category="paragraph">可以按相同模式使用端口 25 到 48 连接其他网桥。</block>
-  <block id="c55b059fa762d08399351bc6ae5ac539" category="paragraph">下表显示了在 Cisco 9148 或 9148S 交换机上使用 FibreBridge 6500 网桥时，网桥端口使用情况，最多为端口 23 。可以使用端口 25-48 连接其他网桥。</block>
   <block id="c4739fa521713dbbe264a1366afde348" category="section-title">运行 ONTAP 9.0 的八节点 MetroCluster 配置中 ISL 的 Cisco 端口使用情况</block>
   <block id="524e7c19dbf542bdc24be3909a68aa5b" category="paragraph">下表显示了 Cisco 9148 和 9148S 交换机的 ISL 端口使用情况：</block>
   <block id="84a71a9e63ead8784cd365088a3be8c4" category="cell">ISL 端口</block>
@@ -886,9 +858,6 @@
   <block id="bf9995231adba64383dd274717591fad" category="section-title">四节点 MetroCluster 配置中控制器的 Cisco 端口使用情况</block>
   <block id="9009bb494f588eb453c941a0f5346de2" category="paragraph">下表显示了 Cisco 9148 ， 9148S 和 9250i 交换机上的控制器端口使用情况：</block>
   <block id="8a960a450c78ddb1326827d52c10a15a" category="section-title">运行 ONTAP 9.0 的四节点 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况</block>
-  <block id="57cfe04ee8907b137339177ed5bd25a5" category="paragraph">下表显示了在 Cisco 9148 ， 9148S 或 9250i 交换机上使用 FibreBridge 7500 网桥时桥端口使用情况，最多为端口 14 。可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
-  <block id="0d86a304bf0c93bbe64ea2e44e5e5870" category="paragraph">下表显示了在 Cisco 9148 ， 9148S 或 9250i 交换机上使用 FibreBridge 6500 网桥到端口 14 时的网桥端口使用情况。可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
-  <block id="56f993fb26dc8cf4262b56765d09c432" category="paragraph">可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
   <block id="6fcd6dc740970bb42bde0c9a37d97275" category="section-title">运行 ONTAP 9.0 的四节点 MetroCluster 配置中用于 ISL 的 Cisco 9148 和 9148S 端口使用情况</block>
   <block id="d645920e395fedad7bbbed0eca3fe2e0" category="cell">40</block>
   <block id="f7177163c833dff4b38fc8d2872f1ec6" category="cell">44</block>
@@ -898,25 +867,15 @@
   <block id="4389b93bd76334095ae6f5fdb926d4ee" category="paragraph">端口 40 到 48 是 10 GbE 端口，不会在 MetroCluster 配置中使用。</block>
   <block id="fa69aa564bc90d7adecfb54c289d23be" category="section-title">双节点 MetroCluster 配置中控制器的 Cisco 端口使用情况</block>
   <block id="762b426bcd4ea34fc55a0f899cf2086d" category="section-title">运行 ONTAP 9.0 的双节点 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况</block>
-  <block id="8fe37cc6f907399a491cf6418a4bfa16" category="paragraph">下表显示了在 Cisco 9148 ， 9148S 和 9250i 交换机上使用 FibreBridge 7500 网桥时桥端口使用情况，最多为端口 14 。可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
   <block id="ba2044d8a6c35bb667c35d13e7a3277d" category="section-title">运行 ONTAP 9.0 的双节点 MetroCluster 配置中用于 ISL 的 Cisco 9148 或 9148S 端口使用情况</block>
   <block id="2bc92937819403549f510c08d8a54058" category="paragraph">下表显示了 Cisco 9148 或 9148S 交换机的 ISL 端口使用情况：</block>
   <block id="e936a0e4e03d3d3120e966eca42a0b28" category="section-title">运行 ONTAP 9.0 的双节点 MetroCluster 配置中用于 ISL 的 Cisco 9250i 端口使用情况</block>
-  <block id="1abb821f2b965d18052b2448ef4137ed" category="summary">您必须了解如何关闭和启动数据中心以进行站点维护或将站点重新定位到其他位置。</block>
-  <block id="3f7ef4e6486f47719dca790d2a160ae5" category="doc">关闭和启动数据中心</block>
-  <block id="50619d56fd21f33883011467e89403f8" category="paragraph">如果需要重新定位和重新配置站点（例如，如果需要从四节点集群扩展到八节点集群），则无法同时完成这些任务。此操作步骤仅介绍在不更改站点配置的情况下执行站点维护或重新定位站点所需的步骤。</block>
-  <block id="e42120d29d88cc6c3c023d82236437a8" category="admonition">此操作步骤适用于 MetroCluster IP 和 FC 配置。</block>
-  <block id="efe31da79ff42582640c229b718168aa" category="section-title">关闭 MetroCluster 站点</block>
   <block id="4bfd66c37cd5ce244e0dfdd30c499d83" category="list-text">开始之前，请检查站点上的任何非镜像聚合是否已脱机。</block>
   <block id="edc7b16c34c41ad12b6699da441a1e45" category="paragraph">此操作可能需要几分钟才能完成。</block>
   <block id="0829264e645ef456fedfb9d7d6e189a9" category="paragraph">在 MetroCluster FC 配置中，只有当聚合中的远程磁盘可访问时，未镜像聚合才会在切换后联机。如果 ISL 发生故障，本地节点可能无法访问未镜像远程磁盘中的数据。聚合故障可能会导致本地节点重新启动。</block>
   <block id="c35cb6405b316f2999613190b9a610f3" category="list-text">监控并验证切换的完成情况：</block>
-  <block id="d3111cbb50ee3236823b8a9fc96146fd" category="paragraph">以下配置需要执行此步骤：</block>
-  <block id="68d41db03ba61b38417da47f63616c6b" category="list-text">所有 MetroCluster FC 配置。</block>
-  <block id="87da73be0cf8313cf4ae27e67515aaff" category="list-text">运行 ONTAP 9.6 或更高版本的 MetroCluster IP 配置。</block>
   <block id="d728f92d15186acd3ab7bfe69c91c74a" category="paragraph">您应将以下丛移至脱机状态：</block>
   <block id="bb1dbaa590d8d023b92b11955221364e" category="list-text">位于灾难站点磁盘上的非镜像丛。</block>
-  <block id="0780a4c1fe0c3501c0d025f1b600dbdc" category="paragraph">如果不将灾难站点上的非镜像丛脱机移动，则在灾难站点稍后关闭时可能会导致中断。</block>
   <block id="db3cf611b9905283227764c513bd7a82" category="list-text">确定受影响的丛。</block>
   <block id="82e30d8124ea7d730cf5faa5719112de" category="paragraph">正常运行的站点上的节点所拥有的丛由 Pool1 磁盘组成。灾难站点上的节点所拥有的丛由 Pool0 磁盘组成。</block>
   <block id="9256311bcdcb8316f22dcb2897e7395d" category="paragraph">受影响的丛是集群 A 的远程丛下表显示了磁盘是位于集群 A 的本地磁盘还是远程磁盘：</block>
@@ -938,38 +897,20 @@
   <block id="1ab71b25242090a89ae72e4a014667b6" category="paragraph">node_B_1_aggr0/plex0</block>
   <block id="32a38833efcbe07da179dca140dd848a" category="paragraph">node_B_2_aggr0/plex0</block>
   <block id="edce01688e98b58b19121c93fc7ff2e1" category="paragraph">node_B_2_aggr1/plex0</block>
-  <block id="1f6dc3b671503c8d63a1afa2819b223b" category="admonition">对具有 Cluster_A 远程磁盘的所有丛执行此操作</block>
-  <block id="f380dd26f2cf185b17accd909e743fe1" category="list-text">根据交换机类型使交换机端口持久脱机。</block>
-  <block id="a919607ef6e9e47aee6ab7e80893d8c1" category="admonition">只有 MetroCluster FC 配置才需要执行此步骤。如果您的配置是 MetroCluster IP 配置或使用 FC 后端交换机的延伸型 MetroCluster 配置，请跳过此步骤。</block>
   <block id="ec101ec8f4300c01b3e83ccb567aa413" category="cell">交换机类型</block>
   <block id="004bf6c9a40003140292e97330236c53" category="cell">操作</block>
-  <block id="a4856b5d624fb703341d2b6cb1fd8be3" category="paragraph">如果 FC 交换机是 Brocade 交换机 ...</block>
-  <block id="7ed2005e63164c86338f8fb503fec38d" category="paragraph">如果 FC 交换机是 Cisco 交换机 ...</block>
-  <block id="763cdd1475f50ea62662f8b936e2c440" category="list-text">关闭站点。</block>
-  <block id="ad36ac8a7c949cb0a7d855a39368e1af" category="paragraph">以下设备无需按特定顺序关闭：</block>
   <block id="efb6ec8736b8f7b340b21adf8615fbd9" category="cell">配置类型</block>
-  <block id="329805dc23b0f78ee65c229740fe0896" category="cell">要关闭的设备</block>
-  <block id="1b2764afd9aaca6231f2d49e8524a66a" category="paragraph">在 MetroCluster IP 配置中，请关闭 ...</block>
-  <block id="b3894761dbeb99a32f1c40b05d75c5d6" category="paragraph">在 MetroCluster FC 配置中，请关闭 ...</block>
-  <block id="83815a5585829ebe6e18a93710f2ed57" category="list-text">ATTO FibreBridge （如果存在）</block>
   <block id="e9107e97cd9f561e993f9a9105d0f969" category="section-title">重新定位 MetroCluster 的已关闭站点</block>
   <block id="feac0f4e1a7a3880345a6d85bc067870" category="list-text">硬件的布线方式应与上一站点相同。</block>
   <block id="646b1ab7b785db95e65836b91eb5f200" category="list-text">如果交换机间链路（ ISL ）的速度，长度或数量发生变化，则需要重新配置它们。</block>
-  <block id="3f76e37706c9faa6700da35111115ea4" category="list-text">确保仔细记录所有组件的布线，以便可以在新位置正确重新连接。</block>
-  <block id="2b855db90885b553c7efa8495875eff8" category="list-text">物理重新定位所有硬件，存储控制器， FC 和 IP 交换机， FibreBridge 和存储架。</block>
   <block id="18019c4008d233544383989684359349" category="list-text">配置 ISL 端口并验证站点间连接。</block>
-  <block id="bfd9b3b5b8b525583b218437100bfdb7" category="list-text">打开 FC 和 IP 交换机的电源。</block>
   <block id="bf2ae036674fadf7b6a170a21c43abfe" category="admonition">请勿 * 打开 * 任何其他设备的电源。</block>
   <block id="c524ff28ab463ec9b165bc4709db7002" category="list-text">启用端口。</block>
-  <block id="542e15b008a9b862e26cf580f0b01cf8" category="admonition">只有在 MetroCluster FC 配置中才需要执行此步骤。如果您的配置是 MetroCluster IP 配置，则可以跳过此步骤。</block>
   <block id="9f09d6db3803f5975352ce67ba7f717e" category="paragraph">根据下表中正确的交换机类型启用端口：</block>
   <block id="ee97be03cb04119af45014d815621ce1" category="cell">命令</block>
-  <block id="70402b2dd117113d5709d3c7ba2f6c45" category="paragraph">如果 FC 交换机是 Brocade 交换机 ...</block>
   <block id="28e464b91ab6edf27cbd69513c84c803" category="paragraph">以下示例显示 Switch_A_1 上的端口 14 和 15 处于启用状态。</block>
   <block id="2af4b9b090a7e55fa22cb9e55d504e27" category="paragraph">以下示例显示端口 14 和 15 已启用：</block>
-  <block id="8c946acc8fe7903c37ee5e36f1329425" category="paragraph">如果 FC 交换机是 Cisco 交换机 ...</block>
   <block id="7d116444c6dbfce20212f1c247ff48fd" category="list-text">使用交换机上的工具（如果有）验证站点间连接。</block>
-  <block id="867a2618d71bca42427a1b9c72bdbf63" category="admonition">只有当链路配置正确且稳定时，才应继续操作。</block>
   <block id="12ad932abeaa569fcf61513a7bd887dc" category="list-text">如果发现链路处于稳定状态，请再次禁用这些链路。</block>
   <block id="10d03245f20596d5862d16e715e4143e" category="paragraph">根据您使用的是 Brocade 还是 Cisco 交换机禁用端口，如下表所示：</block>
   <block id="d369d42d622a7a0ff4e0309e0f9210ab" category="paragraph">必须在运行正常的站点的两个交换机上执行此操作。以下示例显示 Switch_A_1 上的端口 14 和 15 将被禁用：</block>
@@ -978,25 +919,18 @@
   <block id="25e9ffa59cf0bb083482670fce098fb0" category="section-title">启动 MetroCluster 配置并恢复正常运行</block>
   <block id="e86d011a6ecc19bb8059b2fa5b959f36" category="paragraph">完成维护或移动站点后，您必须启动站点并重新建立 MetroCluster 配置。</block>
   <block id="5b8fc7540adba4e66fd1dc8235e29807" category="list-text">打开交换机的电源。</block>
-  <block id="ccb8cc8f9fc881b0a95752e9b327ef63" category="paragraph">交换机应首先启动。如果站点已重新定位，则它们可能已在上一步中启动。</block>
   <block id="1e4c63725dc9c35c07a4b7c4f5a82dff" category="list-text">如果需要或在重新定位过程中未完成此操作，请重新配置交换机间链路（ ISL ）。</block>
   <block id="21dc076a81ed6f69783e2616c1983762" category="list-text">如果隔离已完成，请启用 ISL 。</block>
   <block id="dfe7a6104d1ae990704b31d6513dbfd9" category="list-text">验证 ISL 。</block>
   <block id="9219cfc955e6beec81a1b4a216127064" category="list-text">打开磁盘架的电源，并留出足够的时间使其完全启动。</block>
   <block id="01bd20df5dc47e7a524bea9169bdedf5" category="list-text">打开 FibreBridge 网桥的电源。</block>
-  <block id="fa84d23aa5f79b2c2b1873ef1111b2a9" category="admonition">如果您的配置是 MetroCluster IP 配置，则可以跳过此步骤。</block>
   <block id="46d125b114551af83f9b4300716884e4" category="list-text">在 FC 交换机上，验证连接网桥的端口是否已联机。</block>
   <block id="4b14478bc266e73c21d8c8e1baefedf8" category="list-text">验证网桥上的磁盘架和磁盘是否清晰可见。</block>
   <block id="d55f68c0f2018d8510fbe5ad7686fa13" category="list-text">在 FC 交换机上启用 ISL 。</block>
-  <block id="8dbba1f3a045398fb8c2068f3d859597" category="admonition">如果您的配置是 MetroCluster IP 配置，请跳过此步骤。</block>
   <block id="874b4480e5736cfb3bb267ac5127e12a" category="paragraph">根据您使用的是 Brocade 还是 Cisco 交换机启用端口，如下表所示：</block>
   <block id="4091cccb2a9363be900b49a8123fd953" category="paragraph">以下示例显示 Switch_A_1 上的端口 14 和 15 处于启用状态：</block>
   <block id="3d3f8220d38456693795f57399e3dd66" category="paragraph">以下示例显示了交换机 A_1 上的端口 fc1/14 和 fc1/15 已启用：</block>
   <block id="d448f82c3dc45aeef9b75bf272bc8ed4" category="list-text">验证交换机端口是否已禁用：</block>
-  <block id="2164a8908dcd0889f81dd9e8f32fb414" category="list-text">验证存储现在是否可见。</block>
-  <block id="83a0bb2026f512c960273d4bdc10525f" category="paragraph">根据您使用的是 MetroCluster IP 还是 FC 配置，选择适当的方法来确定存储是否可见：</block>
-  <block id="1f826b7fd7651c127e286e0bbc129b77" category="paragraph">验证本地存储在节点维护模式下是否可见。</block>
-  <block id="81927ec637b63156a40899d4c547908f" category="paragraph">验证此存储是否可从正常运行的站点中看到。将脱机丛重新联机。此操作将重新启动重新同步操作并重新建立 SyncMirror 。</block>
   <block id="0483b2aca795ea6933a0ab7502b4e963" category="list-text">重新建立 MetroCluster 配置。</block>
   <block id="cee14a47b638f8dc20d2b5241487a64a" category="inline-link-macro">MetroCluster 管理和灾难恢复</block>
   <block id="6ff0f4ae0937d94fe2645f3e68c399e7" category="summary">为了利用 FibreBridge 7600N 或 7500N 网桥上的额外 FC2 端口并降低机架利用率，您可以无中断地更换 6500N 网桥，并在一对 FibreBridge 7600N 或 7500N 网桥下整合多达四个存储堆栈。</block>
@@ -1241,14 +1175,10 @@
   <block id="14f265c9ad9a81b21c667b4042fc7575" category="admonition">下表显示了具有两个 FC-VI 端口的系统。AFF A700 和 FAS9000 系统具有四个 FC-VI 端口（ a ， b ， c 和 d ）。如果使用的是 AFF A700 或 FAS9000 系统，则端口分配会移动一个位置。例如， FC-VI 端口 c 和 d 转到交换机端口 2 ， HBA 端口 a 和 b 转到交换机端口 3 。</block>
   <block id="3db30a6fa1c05224aef86dc9b48a9085" category="cell">Cisco 9250i*</block>
   <block id="7454ecd5190b690ccf9ee77f2e438c0c" category="section-title">运行 ONTAP 9.1 或更高版本的 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况</block>
-  <block id="68d960c549d05fc84233ef70c7a67687" category="cell">使用两个 FC 端口的 FibreBridge 7500</block>
   <block id="89eaf3610015ecc12505a2408ff9fda6" category="paragraph">可以按相同模式使用端口 17 到 40 以及 57 到 88 连接其他网桥。</block>
   <block id="a1d4f21ed73518b99dbbab05134b5c9a" category="paragraph">可以按相同模式使用端口 33 到 40 为第二个 DR 组或第二个 MetroCluster 配置连接其他网桥。</block>
   <block id="f656d69f7bbae519056da03a8e9e50d0" category="cell">Cisco 9250i</block>
   <block id="a6bd250708a75e43f157a7b657e654c5" category="paragraph">可以按相同模式使用端口 25 到 48 为第二个 DR 组或第二个 MetroCluster 配置连接其他网桥。</block>
-  <block id="ba310a61cda35bab44af31435467361f" category="paragraph">下表显示了仅使用一个 FC 端口（ FC1 或 FC2 ）使用 FibreBridge 6500 网桥或 FibreBridge 7500 网桥时的网桥端口使用情况。对于使用一个 FC 端口的 FibreBridge 7500 网桥，可以使用缆线将 FC1 或 FC2 连接到指示为 FC1 的端口。可以使用端口 25-48 连接其他网桥。</block>
-  <block id="5efa1f2cb5eede18bb7294c80eb0d620" category="cell">使用一个 FC 端口的 FibreBridge 6500 网桥或 FibreBridge 7500 网桥</block>
-  <block id="a072aae7bbb53167bbaf8606f2c6e2a0" category="cell">使用一个 FC 端口的 FibreBridge 6500 网桥或 FibreBridge 7500</block>
   <block id="4968e1c4a92e0df27646933918f92be2" category="section-title">运行 ONTAP 9.1 或更高版本的 MetroCluster 配置中八节点配置中 ISL 的 Cisco 端口使用情况</block>
   <block id="81cc761cd2e2757421a8e9242e8e12cc" category="paragraph">下表显示了 ISL 端口使用情况。此配置中的所有交换机上的 ISL 端口使用情况均相同。</block>
   <block id="10ca333ef19b78048d2fedd61c4432e9" category="paragraph">ISL 1</block>
@@ -1329,7 +1259,6 @@
   <block id="74bca6fe4f2c7fc5e1d9f259f2af6e25" category="paragraph">FibreBridge 7600N 网桥的配置必须与 FibreBridge 7500N 网桥完全相同。</block>
   <block id="0844200ff0a1a64af612e81369c551dd" category="paragraph">将一个 FibreBridge 6500N 网桥更换为一个 FibreBridge 7600N 网桥</block>
   <block id="c1b6154853d79aff3153d0360d8109e3" category="paragraph">FibreBridge 7600N 网桥的配置必须与 FibreBridge 6500N 网桥完全相同。</block>
-  <block id="9f75c353bd4a7cb0ce6fe90b3c498736" category="paragraph"><block ref="9f75c353bd4a7cb0ce6fe90b3c498736" category="inline-link-macro-rx"></block></block>
   <block id="ad9a391d7a61680d45246cf29a54f588" category="paragraph">通过添加新的一对 FibreBridge 7600N 网桥来添加新存储</block>
   <block id="d30f280fa32f9327e8485ff0aa1b5b70" category="summary">如果现有 FC 交换机布局是在 ONTAP 9.1 之前配置的，则必须重新配置端口布局并应用最新的参考配置文件（ Reference Configuration Files ， RCF ）。此操作步骤仅适用于 MetroCluster FC 配置。</block>
   <block id="27e12f4375f6135e191cf9fdfdc8740d" category="doc">重新配置在 ONTAP 9.x 之前配置的 FC 交换机布局</block>
@@ -1488,11 +1417,6 @@
   <block id="f1f4987e078356332cdefd0f5375c7b0" category="paragraph">输入命令：</block>
   <block id="69fdaf0b43153d9176ae334b44964e0c" category="list-text">如果网桥采用光纤连接 MetroCluster 配置，请禁用连接到网桥 FC 端口的所有交换机端口。</block>
   <block id="2c38bfd3e1fc55958de34b8ebc994982" category="list-text">从 ONTAP 集群提示符处，从运行状况监控中删除正在维护的网桥：</block>
-  <block id="646f7640c0412bb509ebc11ade2117f9" category="list-text">关闭 ATTO 网桥。</block>
-  <block id="f374d6cd8c51ec88c39bd91a0405a822" category="cell">如果您使用的是 ...</block>
-  <block id="5a19c2aa2027af8ccb87bafe6503ea56" category="paragraph">FibreBridge 7600N 或 7500N 网桥</block>
-  <block id="d315e369fa1477e4884dde927f66cc4c" category="paragraph">拔下连接到网桥的电源线。</block>
-  <block id="8a8591256eac823617f5398950d60602" category="paragraph">FibreBridge 6500N 网桥</block>
   <block id="785d24e60ecad3abd011ca5dd1478bbb" category="paragraph">关闭网桥的电源开关。</block>
   <block id="e3129e36caa5d6bf706b1a5b6b5d79c9" category="list-text">断开连接到旧网桥的缆线。</block>
   <block id="3e6e22b6aa776e503ebf2535dbb1e8c9" category="paragraph">您应记下每条缆线连接到的端口。</block>
@@ -1503,7 +1427,6 @@
   <block id="eec55e58202443699fac88ad24fd8b3a" category="list-text">将网桥连接到电源，然后打开。</block>
   <block id="e9afc5f7979303fe7ef09110626cc71f" category="paragraph">网桥就绪 LED 可能需要长达 30 秒才能亮起，表示网桥已完成其开机自检序列。</block>
   <block id="2e1cd1bf07ae59002e6f5025cdd43bb3" category="list-text">bridge_B_1b</block>
-  <block id="f3065ac3252067556040545ba2157a25" category="paragraph">如果新网桥是 FibreBridge 7600N 或 7500N ，则必须更换将网桥连接到磁盘架堆栈顶部或底部的缆线。FibreBridge 6500N 网桥使用 SAS 缆线； FibreBridge 7600N 和 7500N 网桥需要使用迷你 SAS 缆线进行这些连接。</block>
   <block id="3b5ef1874490ddb39e2ab56e91c15fd9" category="admonition">请至少等待 10 秒，然后再连接端口。SAS 缆线连接器具有方向性；正确连接到 SAS 端口时，连接器会卡入到位，磁盘架 SAS 端口 LNK LED 会呈绿色亮起。对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。对于控制器， SAS 端口的方向可能因平台型号而异；因此，正确的 SAS 缆线连接器方向会有所不同。</block>
   <block id="cf6dbfa4f0192b540abc550aae0f260f" category="list-text">在支持的 Web 浏览器中，在浏览器框中输入网桥的 IP 地址。</block>
   <block id="34edf66bb3dff09e9c2aaf868d030164" category="paragraph">此时将转到 ATTO FibreBridge 主页，其中包含一个链接。</block>
@@ -1614,7 +1537,6 @@
   <block id="386e28e9a82ab9437b9e5520ca030545" category="paragraph">可以从 ONTAP 界面上的 ONTAP interface `storage bridge run-cli -name _bridge-name_ -command _bridge-command-name_` 命令发出网桥命令行界面命令。</block>
   <block id="f5c160717de61a4450a76be740a98cf2" category="admonition">建议在禁用 IP 访问的情况下使用带内管理，以通过限制网桥的物理连接来提高安全性。</block>
   <block id="8b694c77bd2c858a409806961b43208c" category="paragraph"><block ref="8b694c77bd2c858a409806961b43208c" category="inline-link-macro-rx"></block></block>
-  <block id="a2acb78d8cb4843536ea51de17566d1d" category="paragraph"><block ref="a2acb78d8cb4843536ea51de17566d1d" category="inline-link-macro-rx"></block></block>
   <block id="ad30fa95f18f21e4c8674318a12499f8" category="paragraph"><block ref="ad30fa95f18f21e4c8674318a12499f8" category="inline-link-macro-rx"></block></block>
   <block id="f8ab0ac0bcb20f9074bb5111e4de500b" category="section-title">从 ONTAP 管理 FibreBridge 网桥</block>
   <block id="bbd74b9d635efcc9eced3467fe12b324" category="list-text">在 `storage bridge run-cli` 命令中运行适用的 FibreBridge 命令：</block>
@@ -1641,7 +1563,6 @@
   <block id="919d888b59981070bf71b6214f4ab443" category="paragraph">每个交换机上的交换机端口 8 和 9 将网桥连接到网络。</block>
   <block id="702f8bfb0583ba76da1d5453b8963e67" category="paragraph">以下示例显示了 Brocade 交换机上禁用的端口 8 和 9 。</block>
   <block id="327a9880f8e0dd44a44e0909f4debaf5" category="paragraph">以下示例显示了在 Cisco 交换机上禁用端口 8 和 9 。</block>
-  <block id="48e4b75815ecd760177696fc4dd29dda" category="admonition">这不适用于 FibreBridge 6500 网桥。</block>
   <block id="4b09ce830b72db5cca9758e1276d7e12" category="paragraph">以下示例显示了连接四个 SAS 堆栈的一对网桥。SAS 堆栈 2 包含目标磁盘架：</block>
   <block id="e64c1d35a465f6a0d896f63a42127c1e" category="image-alt">具有四个堆栈的 MCC 磁盘架更换网桥</block>
   <block id="6b968bde345a1af02381409979c014c6" category="paragraph">SAS 端口 B 将网桥连接到目标磁盘架。通过仅禁用两个磁盘架上的 SAS 端口 B ，其他 SAS 堆栈可以在更换操作步骤期间继续提供数据。</block>
@@ -1669,7 +1590,6 @@
   <block id="b469cbf627d068144cf37b08bcb2d349" category="paragraph">此示例显示了 Cisco 交换机上正在启用的交换机端口。</block>
   <block id="4b3ef5be9c34b8c0d7cd5aa6aa8ff1f9" category="paragraph">* 如果先前已禁用 SAS 端口 *</block>
   <block id="afd1a46303765732d70810f6dd9b9dd9" category="paragraph">此示例显示正在从网桥启用 SAS 端口 A ，并验证它是否已启用。</block>
-  <block id="a024992ec9deb1644f55dca391af6505" category="admonition">这不适用于 ATTO 6500 FibreBridge 。</block>
   <block id="9c0ceb1f6e71f50cc0c1fd789b320bc9" category="list-text">如果您之前禁用了交换机端口，请验证这些端口是否已启用并联机，以及所有设备是否已正确登录：</block>
   <block id="f4d7883da67897475fff75fd8e1b3742" category="admonition">几分钟后， ONTAP 会检测到新磁盘已插入，并为每个新磁盘显示一条消息。</block>
   <block id="61037eafe17df84ef72715d98ed9e6d6" category="list-text">验证 ONTAP 是否已检测到磁盘：</block>
@@ -1679,7 +1599,6 @@
   <block id="c58436ceeffb789114ef5d94d2e81161" category="summary">如果您正在使用 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务 \ （ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。</block>
   <block id="40fd7b7d6fe8848f1cb5a5e5acf0fd41" category="doc">如有必要，在 FibreBridge 7600N 网桥上启用 IP 端口访问</block>
   <block id="ebda0461d9b282997db74027d2c545a7" category="paragraph">如果您使用的是 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务（ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。</block>
-  <block id="2db131c02bbb96341da732aef89b4993" category="paragraph">与 ATTO FibreBridge 7500N 和 6500N 网桥不同， FibreBridge 7600N 网桥在出厂时已禁用所有 IP 端口协议和服务。</block>
   <block id="3ab84e59a44526486a6dc2185cd0b1e7" category="paragraph">如果您 * 不 * 使用带内管理来管理网桥，则需要执行此任务。在这种情况下，您需要通过以太网管理端口配置网桥。</block>
   <block id="a11843c65824a8d5041267708cd15a23" category="list-text">通过将串行缆线连接到 FibreBridge 7600N 网桥上的串行端口来访问网桥的控制台接口。</block>
   <block id="337cf0ab25324175a6c09dd141e044d5" category="list-text">使用控制台启用访问服务，然后保存配置：</block>
@@ -4631,7 +4550,6 @@
   <block id="6f5ef944a2d6b5db7b0f5eb7664fbe8d" category="paragraph">B_2</block>
   <block id="be5202b28e5b83beb808b3ac26e9742d" category="paragraph">默认情况下，所有端口都配置为以 16 Gbps 的速率运行。您可能会出于以下原因更改端口速度：</block>
   <block id="ba9c767eb14e474535af6d4b9bee5496" category="list-text">使用 8-Gbps FC-VI 适配器时，应更改互连交换机端口速度，并且交换机端口速度应设置为 8 Gbps 。</block>
-  <block id="a0bbe76035aaa0a06b6d98046fa647be" category="list-text">在 ATTO FibreBridge 6500N 中使用 8-Gbps HBA 适配器时，应更改交换机端口速度。</block>
   <block id="88a9be1491a219d7b5dd0ebd6de75774" category="list-text">如果 ISL 无法以 16 Gbps 的速度运行，则必须更改 ISL 端口的速度。</block>
   <block id="88c2572b93887e6bb782f75a86e63745" category="list-text">计算 ISL 距离。</block>
   <block id="0cde63179964e3bf0a8751afc45a15b9" category="paragraph">由于 FC-VI 的行为，您必须将此距离设置为实际距离的 1.5 倍，最小值为 10 （ LE ）。ISL 的距离计算如下，并取整为下一个完整公里： 1.5 × 实际距离 = 距离。</block>
@@ -5144,23 +5062,12 @@
   <block id="f7e3d93b4c145bf696a9e6f193ce4fb7" category="list-text">对于其他磁盘架堆栈，请使用 FibreBridge 网桥上的下一个可用 SAS 端口重复上述步骤，第二个堆栈使用端口 B ，第三个堆栈使用端口 C ，第四个堆栈使用端口 D 。</block>
   <block id="9111bd303b0cb06989b91c9e131eb156" category="paragraph">下图显示了连接到一对 FibreBridge 7600N 或 7500N 网桥的四个堆栈。</block>
   <block id="6704e0f472546c04c5cdc225c2656ec5" category="image-alt">MCC 布线网桥和 SAS 堆栈，包含 7500n 四个堆栈</block>
-  <block id="1ff786282c561a059275f4f66fbb3c02" category="section-title">使用缆线将 FibreBridge 6500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架</block>
-  <block id="c9da011f9debc02fdab80f3b849d7f6e" category="paragraph">配置网桥后，您可以开始为新系统布线。FibreBridge 6500N 网桥使用 QSFP 连接器。</block>
-  <block id="c05c9c89f29541a2e3cafe9c3845e3e8" category="paragraph">FibreBridge 6500N 网桥不支持使用 IOM12 的磁盘架。</block>
-  <block id="7c1615c29340c6fd3d248d789343e1d1" category="paragraph">有关以菊花链方式连接磁盘架的信息，请参见适用于您的磁盘架型号的 _Installation and Service Guide_ 。</block>
-  <block id="0180c8e3cd250ff60d40a92d46bed5f2" category="list-text">对于每个磁盘架堆栈，使用缆线将第一个磁盘架的 IOM A 方形端口连接到 FibreBridge A 上的 SAS 端口 A</block>
-  <block id="3438a63fec3ca234e9dd8cac149f0aba" category="list-text">对于每个磁盘架堆栈，使用缆线将最后一个磁盘架的 IOM B 圆形端口连接到 FibreBridge B 上的 SAS 端口 A</block>
-  <block id="812d5019caa5125426f0aef260c3c3e7" category="paragraph">每个网桥都有一条路径通往其磁盘架堆栈：网桥 A 通过第一个磁盘架连接到堆栈的 A 侧，网桥 B 通过最后一个磁盘架连接到堆栈的 B 侧。</block>
-  <block id="091991cc9aad418748a9606ea3888e0f" category="admonition">已禁用 SAS 端口 B 网桥。</block>
-  <block id="29e7b923f8725202565ab59fd5d6e538" category="paragraph">下图显示了一组网桥，这些网桥连接到由四个磁盘架组成的堆栈：</block>
-  <block id="c44614eb148668338fa95894c5e745ae" category="image-alt">MCC 布线网桥和 SAS 堆栈</block>
   <block id="8cbdbb5be51e2a78d7b472e23327b938" category="section-title">验证网桥连接并为网桥 FC 端口布线</block>
   <block id="605157b79e898676481d263489be287d" category="paragraph">您应验证每个网桥是否可以检测到所有磁盘驱动器，然后使用缆线将每个网桥连接到本地 FC 交换机。</block>
   <block id="bf532d59144bc55a10c7ae835f098f56" category="paragraph">此时，您将转到输入 IP 地址的网桥的 ATTO FibreBridge 主页，其中包含一个链接。</block>
   <block id="2c289d2564b7ae64ce5ddd32d176f7d8" category="paragraph">此时将显示网桥的 ATTO FibreBridge 状态页面，左侧有一个菜单。</block>
   <block id="78d586744784b57424fd44e8680647aa" category="list-text">单击 * 高级 * 。</block>
   <block id="7584130e58d7e346035eb6eabd58a612" category="list-text">使用 sastargets 命令查看已连接的设备，然后单击 * 提交 * 。</block>
-  <block id="5c1a7988cfaa2c9a1f21c9b95b652af9" category="admonition">如果输出开头显示文本 response truncated ，则可以使用 Telnet 连接到网桥并输入相同的命令来查看所有输出。</block>
   <block id="540e154d4e289b6bfd793dd86036768d" category="list-text">验证命令输出是否显示网桥已连接到其应连接到的堆栈中的所有磁盘和磁盘架。</block>
   <block id="6f4a225b29c0975663d0e4b9e1f4547f" category="inline-xref-macro">第 1 步</block>
   <block id="234d9ba6039ff899b95d32b2d5738596" category="list-text">重复布线，检查 SAS 缆线是否松动或更正 SAS 布线。</block>
@@ -5168,7 +5075,6 @@
   <block id="cbf21b0a1a6cb9d0bb203c817705311a" category="admonition">分区完成之前，不应使用缆线连接 FibreBridge 7500N 网桥上的第二个 FC 端口连接。</block>
   <block id="6ccf095006c1d816e28e52dc0e9bd0f6" category="paragraph">请参见适用于您的 ONTAP 版本的端口分配。</block>
   <block id="62610238a732474c3b050bbde67a6d1e" category="list-text">对配对站点的网桥重复上述步骤。</block>
-  <block id="a7961aec4222555642ec51ab8f3cbdb7" category="list-text">可以使用 `unsecurebridge` 命令重新启用以太网端口。</block>
   <block id="92ce9352258f4fd51a93e19057e163df" category="list-text">在 ONTAP 9.7 及更早版本中，在 ATTO FibreBridge 上运行 `securebridge` 命令可能无法正确更新配对集群上的网桥状态。如果发生这种情况，请从配对集群运行 `securebridge` 命令。</block>
   <block id="e3ae9940fbffd31f3b022a7e38fc3a88" category="summary">如果要设置使用阵列 LUN 的四节点光纤连接 MetroCluster 配置，则必须使用缆线将 FC-VI 端口和 HBA 端口连接到交换机端口。</block>
   <block id="fe5772d11639aff667f09bb55dd4726b" category="doc">在使用阵列 LUN 的四节点光纤连接 MetroCluster 配置中为 FC-VI 和 HBA 端口布线</block>
@@ -5230,7 +5136,6 @@
   <block id="e3ac1a6df2ee9f1157c3a5dec5883f3e" category="section-title">FC-SAS 网桥的要求</block>
   <block id="e53dc72303557c1105d977a8451912b3" category="paragraph">光纤连接的 MetroCluster FC 配置要求每个 SAS 磁盘架堆栈组使用一对 FC-SAS 网桥。</block>
   <block id="b70216f5078d65c8860a010a7ccdbdd8" category="list-text">FibreBridge 7600N 或 7500N 网桥最多支持四个 SAS 堆栈。</block>
-  <block id="1d670d96f2ecbfb15c4a81314e20f67d" category="list-text">FibreBridge 6500N 网桥仅支持一个 SAS 堆栈。</block>
   <block id="520e16a62f58f9e73a16fda005e8fe2f" category="list-text">每个堆栈可以使用不同型号的 IOM 。</block>
   <block id="8db51e2a7c564cc042e840346cc8e77f" category="paragraph">支持的 IOM 模块取决于所运行的 ONTAP 版本。</block>
   <block id="f7cf5f699a885086887bab11041a8b25" category="section-title">池和驱动器要求（支持的最低要求）</block>
@@ -5264,7 +5169,6 @@
   <block id="27c139222e5351fb34d2d62b3d965a28" category="paragraph">网桥对连接到的堆栈组的编号。</block>
   <block id="fdeaf3d6c981b83dd3df188d27914262" category="list-text">FibreBridge 7600N 或 7500N 网桥最多支持堆栈组中的四个堆栈。</block>
   <block id="91c3e629f683c97b0153438356cb808e" category="paragraph">堆栈组包含的存储架不能超过 10 个。</block>
-  <block id="059103bb915e843506300718b93905c4" category="list-text">FibreBridge 6500N 网桥仅支持堆栈组中的一个堆栈。</block>
   <block id="3bedeed3aede72d127ad4893c878fb6b" category="paragraph">1 ， 2 等</block>
   <block id="faf844ce6ce8135dec1b710eb9763ba5" category="paragraph">成对位置</block>
   <block id="8d3eb4cb77ea2bbd21bb7417b5cacaca" category="paragraph">网桥对中的网桥。一对网桥连接到特定的堆栈组。</block>
@@ -5294,12 +5198,7 @@
   <block id="6ffb8f2c32009a20c314f0eeec771f81" category="cell">Brocade 6510 ， DCX 8510-8</block>
   <block id="a435d7a239e10d99dd0bb66c0966f44d" category="paragraph">下表显示了 Cisco 交换机上的控制器端口使用情况：</block>
   <block id="b54c734a5be7921355fc2aa93b69ba59" category="cell">Cisco 9148 或 9148S</block>
-  <block id="f0bd256ae87926dc22cadd49e5bfaf85" category="paragraph">下表显示了使用 FibreBridge 7500 网桥时网桥端口使用情况，最多可达端口 23 。可以使用端口 25 到 48 连接其他网桥。</block>
-  <block id="92c57b4343387dab646670955eb22ea3" category="paragraph">下表显示了使用 FibreBridge 6500 网桥时网桥端口使用情况，最多为端口 23 。可以使用端口 25-48 连接其他网桥。</block>
-  <block id="1d52039f20a1cb4fe8774684260c63d7" category="cell">MetroCluster 八节点</block>
   <block id="11278506140805617313d6fd9ed8b0fc" category="cell">Cisco 9148 ， 9148S 或 9250i</block>
-  <block id="84e23d11c4e127e49471824f2e6c9d7c" category="paragraph">下表显示了使用 FibreBridge 7500 网桥时网桥端口使用情况，最多可达端口 14 。可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
-  <block id="a469d4f6876ebd3dc052284b5c5e7509" category="paragraph">下表显示了使用 FibreBridge 6500 网桥到端口 14 时的网桥端口使用情况。可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
   <block id="a9376b40838c95dc0e4da39abdfa72b0" category="summary">您必须通过交换机间链路（ ISL ）跨站点连接 FC 交换机，以便在使用阵列 LUN 的 MetroCluster 配置中形成交换机网络结构。</block>
   <block id="54ac487d2d6ff680a517207a9eced839" category="doc">为使用阵列 LUN 的 MetroCluster 配置中的 ISL 布线</block>
   <block id="ba35d7d9c18ec17168ae6aa733de311d" category="paragraph">您必须通过交换机间链路（ ISL ）跨站点连接 FC 交换机，以便在使用阵列 LUN 的 MetroCluster 配置中形成交换机网络结构。</block>
@@ -5558,7 +5457,6 @@
   <block id="ae39bb80eb3250930bf68b437b7701d9" category="paragraph">以下示例将在端口 0 上启用数据压缩。</block>
   <block id="df09a476320acebda6f08f8d250d6e6d" category="paragraph">您可以使用 islShow 命令检查 E_PORT 是否已联机，并且已配置加密或压缩并处于活动状态。</block>
   <block id="978fbde67977c63ea58137daf2a0c897" category="paragraph">您可以使用 portEncCompShow 命令查看哪些端口处于活动状态。在此示例中，您可以看到加密和压缩已在端口 0 上配置并处于活动状态。</block>
-  <block id="a303e21b6b9e9b6f6c289e91bb7d5d67" category="paragraph">您必须将交换机端口分配给不同的分区，以隔离控制器和存储流量。根据您使用的是 FibreBridge 7500N 网桥还是 FibreBridge 6500N 网桥，操作步骤会有所不同。</block>
   <block id="f10d463e2d297fe413356e23e7923de9" category="section-title">FC-VI 端口的分区</block>
   <block id="caf28de9f878439a25ca8c39e1e746b5" category="paragraph">对于 MetroCluster 中的每个 DR 组，您必须为 FC-VI 连接配置两个分区，以允许控制器到控制器的流量。这些分区包含连接到控制器模块 FC-VI 端口的 FC 交换机端口。这些分区是服务质量（ QoS ）分区。</block>
   <block id="c6e4ca0d92238d04023b15c34ba48994" category="paragraph">QoS 分区名称以前缀 QOSHid_ 开头，后跟用户定义的字符串，以便与常规分区区分开。无论所使用的 FibreBridge 网桥型号如何，这些 QoS 分区都是相同的。</block>
@@ -5633,8 +5531,6 @@
   <block id="875f652a8829c477d23566825a41ce2d" category="cell">FC_switch_A_2 和 FC_switch_B_2</block>
   <block id="03f62b19d6b9509a69d1224a5fd8e73b" category="paragraph">QOSH2_MC1_FAB_2_FCVI （ 6510 ）</block>
   <block id="0ac598b4b15967045c768da6dff300ad" category="paragraph">QOSH2_MC1_FAB_2_FCVI （ 6520 ）</block>
-  <block id="8924407898770c03b8e8f352362d05df" category="section-title">使用一个 FC 端口为 FibreBridge 6500N 网桥， FibreBridge 7500N 或 7600N 网桥分区</block>
-  <block id="ed6cc2e4a5b1eb49bd98a6836c3c16e0" category="paragraph">如果您仅使用两个 FC 端口之一使用 FibreBridge 6500N 网桥，或 FibreBridge 7500N 或 7600N 网桥，则需要为网桥端口创建存储分区。在配置分区之前，您应了解分区和关联的端口。</block>
   <block id="6b31232cf0b2abdcdf2b178f68104f01" category="paragraph">这些示例仅显示 DR 组 1 的分区。如果您的配置包含第二个 DR 组，请使用控制器和网桥的相应端口以相同的方式为第二个 DR 组配置分区。</block>
   <block id="baf9712fec9aa36f25583f754fbdcc36" category="section-title">所需分区</block>
   <block id="8498a500fccebcb4367e73fb3b617503" category="paragraph">您必须为每个 FC-SAS 网桥 FC 端口配置一个分区，以允许每个控制器模块上的启动程序与该 FC-SAS 网桥之间的流量。</block>
@@ -6244,7 +6140,6 @@
   <block id="de10b7ba4ade6acdea8774b5a68bf1ba" category="list-text">创建存储分区并向其中添加存储端口。</block>
   <block id="fe6733f22485938d023679adc9a877ff" category="admonition">请仅对每个网络结构中的一个交换机执行这些步骤。</block>
   <block id="cb2a66d72ad29d5ada076628de3ea506" category="paragraph">分区取决于所使用的 FC-SAS 网桥型号。有关详细信息，请参见适用于您的网桥型号的一节。这些示例显示了 Brocade 交换机端口，因此请相应调整端口。</block>
-  <block id="50fe2d6c304635caf302b58bd0b6dfee" category="inline-link-macro">使用一个 FC 端口对 FibreBridge 6500N 网桥， FibreBridge 7500N 或 7600N 网桥进行分区</block>
   <block id="2c0db800facff01fe96c6b0dcfc7cbbd" category="paragraph">每个存储分区都包含来自所有控制器的 HBA 启动程序端口以及一个连接 FC-SAS 网桥的单个端口。</block>
   <block id="8dc27f662a0c89aac9333e7a3562312e" category="list-text">创建存储分区：</block>
   <block id="27cbbe86005e8d78108cbb80ed07c81f" category="paragraph">`zone name _STOR-zone-name_ vsan _vsanid_`</block>
@@ -6953,9 +6848,7 @@
   <block id="5310be1d33aa12f03867b83248d87de0" category="image-alt">MCC IP 硬件架构 ha 对</block>
   <block id="20d3ce5dec27f8f374403afd88aa2576" category="section-title">MetroCluster IP 和集群互连网络图示</block>
   <block id="57b140d2bdb4a32e43e24402fa90a87d" category="paragraph">ONTAP 集群通常包含一个集群互连网络，用于传输集群中节点之间的流量。在 MetroCluster IP 配置中，此网络还用于在 MetroCluster 站点之间传输数据复制流量。</block>
-  <block id="decd0c57096fb74885b3c3c62892e9df" category="paragraph">MetroCluster IP 配置中的每个节点都具有专用的 LIF ，用于连接到后端 IP 网络：</block>
   <block id="5157984370bbb692d3f2d2a41727e668" category="list-text">两个 MetroCluster IP 接口</block>
-  <block id="5359dd5f381b734f4af8cff7b671c28f" category="list-text">一个集群间 LIF</block>
   <block id="f413ada03786bcba415f9a26d51d3699" category="paragraph">下图显示了这些接口。显示的端口使用情况适用于 AFF A700 或 FAS9000 系统。</block>
   <block id="7fa8c692d2fa9493453528081a86e668" category="image-alt">MCC IP LIF 使用情况</block>
   <block id="86983ba76f02422a54a19be9cff0fcaa" category="inline-xref-macro">MetroCluster IP 配置的注意事项</block>
@@ -8018,7 +7911,6 @@
   <block id="85f0652173fa7b3fc64c286307b3617a" category="list-text">切回镜像聚合：</block>
   <block id="933883823c7d637ca7f531bf57658b6a" category="list-text">在目标集群上运行以下命令，以确保修复操作已完成：</block>
   <block id="79a916b9b9844039e5758f1c19eaa2ea" category="list-text">启动灾难站点上的每个控制器模块。</block>
-  <block id="9273337a1e299dfc8dfe67a6cfac57c8" category="paragraph">如果两个丛都存在，则任何重新同步都将自动启动。如果一个丛出现故障，则必须销毁该丛并使用以下命令重新创建镜像，以重新建立镜像关系。</block>
   <block id="45f24e4f4da42e071e122e2ae4357bb7" category="paragraph">`storage aggregate mirror -aggregate &lt;aggregate-name&gt;`</block>
   <block id="99d347f5ee9c6d06272a3e8abad4bbfd" category="section-title">验证您的系统是否已做好切回准备</block>
   <block id="ba6c2df32f41b2c48352bb19b5534193" category="paragraph">如果您的系统已处于切换状态，您可以使用 ` -simulate` 选项预览切回操作的结果。</block>
@@ -8631,7 +8523,6 @@
   <block id="4e14469d1b9cb5857e2b83704c8ab8d4" category="list-text"><block ref="d277051460abcb0f3a19fb6f4b09af32" category="inline-xref-macro-rx"></block></block>
   <block id="1098ebf3ac123d908705a49af90988ba" category="inline-xref">使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架</block>
   <block id="572e966b8fd8a186b019d7c5d26ff32c" category="list-text"><block ref="f3f03af6d08c988efd686559fcd15483" category="inline-xref-macro-rx"></block></block>
-  <block id="6db0710ae16bb03fe4ed9188d32a68ab" category="list-text"><block ref="5ee3dd6cfd52247d8b37207cfaf13e9b" category="inline-xref-macro-rx"></block></block>
   <block id="8bfac37f0565c6922aeced47caf18f6a" category="list-text">【【第 1 步网桥】验证每个网桥是否都能检测到它所连接的所有磁盘驱动器和磁盘架：</block>
   <block id="9dd06574fbddaf5fab3ebc3605d80dae" category="paragraph">`s星网`</block>
   <block id="eb443924112f8c71329400ac78de9284" category="paragraph">重复 <block ref="2f9ed640880ac5dd95c2cb30edbb02d0" category="inline-xref-macro-rx"></block> 其余每个网桥。</block>
@@ -8991,21 +8882,9 @@
   <block id="aa746e8f9884e017b8a2cf95d83c6f98" category="list-text"><block ref="6a656079a634d1dbb37fdd6960f90ddd" category="inline-link-macro-rx"></block>。</block>
   <block id="287644c0dd9dfb3768d110055e197bde" category="list-text"><block ref="bfaa51242e41c04376a31866ee30c54d" category="inline-link-macro-rx"></block>。</block>
   <block id="7edc9ae22c0cf875e5a35338bef1bdef" category="paragraph"><block ref="07c84706bf0793d59796fc2be1470117" category="inline-link-macro-rx"></block>。</block>
-  <block id="7b3efb5742ffd4881d7f445df634f9a7" category="paragraph">`set ipdhcp MP1 disabled``set ethernetspeed MP1 1000`</block>
-  <block id="00e0abfb46aba6832f65f196e0f3044d" category="paragraph">`set FCDataRate port-numberport-speed`</block>
-  <block id="bef8395e82221d7acad3540cbcc25f3d" category="paragraph">配置 FibreBridge 7600N 网桥时，不需要 FCConnMode 设置。如果使用的是命令行界面，则必须运行以下命令：</block>
-  <block id="acc808880efb90c6f8934d124df0c880" category="paragraph">`set FCConnMode port-number ptp`</block>
   <block id="e56418bb842bd172c1bf2aaff54451fd" category="paragraph">`FCPortDisable port-number`</block>
-  <block id="fe3c5c4aadf855704d7af81d0dc642d9" category="paragraph">`sasportDisable SAS-port`</block>
   <block id="b937671578dea012b5d9e0ca996417fc" category="list-text">保护网桥：</block>
   <block id="cf574293b8ab8a752912f9e7ad222e6b" category="paragraph">`securebridge`</block>
-  <block id="cccc51b51ddeaf1d070119fe26d9dca4" category="list-text">【第 1 步 _verify_bridge]] 验证每个网桥是否可以检测到它所连接的所有磁盘驱动器和磁盘架：</block>
-  <block id="350948e1948da38211704e0e632282d6" category="list-text">使用 `sasargets` 命令查看已连接的设备，然后单击 * 提交 * 。</block>
-  <block id="bb5aca9716acb38283c10f2d735e3acf" category="paragraph">重复 <block ref="2814819d643b5a414bd6cc7c03f47bc3" category="inline-xref-macro-rx"></block> 其余每个网桥。</block>
-  <block id="2eb7016fb2e69bc04a0be5e44dbc69dd" category="paragraph"><block ref="2eb7016fb2e69bc04a0be5e44dbc69dd" category="inline-link-macro-rx"></block></block>
-  <block id="5107f3588b77e26edc1af80f693e8509" category="list-text">重复 <block ref="2814819d643b5a414bd6cc7c03f47bc3" category="inline-xref-macro-rx"></block>。</block>
-  <block id="5c89ff4fb068c362b464eb4fa8108a16" category="paragraph">`storage bridge run-cli -bridge bridge-name -command saveconfiguration`</block>
-  <block id="f649a33fa0f1f3fe81f64356049e86f4" category="paragraph">`storage bridge run-cli -bridge bridge-name -command firmwarerestart`</block>
   <block id="9683bc886e03bf0b6fb2555eb820a5b9" category="paragraph">网桥使用以下示例命名：</block>
   <block id="bb2f4cb66d4e9c0b103783ed18a0a7af" category="paragraph">`bridge_site_stack groupocation in pair`</block>
   <block id="be9e20a5c1946eecb2721766dbc15b77" category="paragraph"><block ref="be9e20a5c1946eecb2721766dbc15b77" category="inline-link-macro-rx"></block></block>
@@ -9035,7 +8914,6 @@
   <block id="331dc41359d84a558b5509cb9fde623e" category="cell">Fabric_1 hh 中的分区</block>
   <block id="4d2d41ee73ba528eda15a914920794c7" category="cell">Fabric_2 hh 中的分区</block>
   <block id="7dc2e1d82f3e11c1d3fa8b2712f6f307" category="paragraph"><block ref="7dc2e1d82f3e11c1d3fa8b2712f6f307" category="inline-link-macro-rx"></block></block>
-  <block id="4e28cc28dc4b1c247e9fc6b5a03ce662" category="paragraph"><block ref="4e28cc28dc4b1c247e9fc6b5a03ce662" category="inline-link-macro-rx"></block></block>
   <block id="89a61a78ea2327ff92f1148721872f22" category="paragraph"><block ref="89a61a78ea2327ff92f1148721872f22" category="inline-link-macro-rx"></block></block>
   <block id="9bb5b14403063a52226996be386c7f39" category="paragraph">`zonecreate "QOSH1_FCVI_1" ， member ； member ...`</block>
   <block id="96298fbd5c72feaf17561a4ac8bcd677" category="paragraph">`cfgadd config_namezone ； zone...`</block>
@@ -9045,7 +8923,6 @@
   <block id="81ec4b613ecae165b1957e588d03a221" category="list-text">从端口删除许可证：</block>
   <block id="c410870763ab138b1bb332e084940bf9" category="paragraph">此任务的示例使用以下命名约定：</block>
   <block id="201493476a4a8eafce0cb8596c732440" category="paragraph">如果使用的是 ONTAP 9.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。请参见 <block ref="fb60c06f4120cd75fc9ac39720fd32d8" category="inline-link-macro-rx"></block></block>
-  <block id="a86ff0af1d79628a912ac6a46ff27030" category="list-text"><block ref="a86ff0af1d79628a912ac6a46ff27030" category="inline-link-macro-rx"></block></block>
   <block id="a03c39da2d1b1ed17db1d6007949ef4e" category="paragraph">`d` assign -shelf local-switch-name ： shelf-name.port -p pool</block>
   <block id="72f3c55c79c5c3713292f0ab302f417d" category="paragraph">`disk assign -shelf local-switch-namelf-name -p pool`</block>
   <block id="42ec1151bc3506b679e500df023c1328" category="paragraph">`d` assign -shelf shelf-name -p pool</block>
@@ -9507,9 +9384,6 @@
   <block id="85977d467dedfc86d900cfc49456f320" category="paragraph">您可以测试协商（计划内）切换操作，以确认数据不会中断。</block>
   <block id="c1fb8df06920f0b1e36ed0e97db05891" category="paragraph">最佳做法是，将组件中的每个电源设备（ PSU ）连接到单独的电源。如果两个 PSU 都连接到同一个配电单元（ PDU ），并且发生电气中断，则站点可能会关闭，并且整个磁盘架可能不可用。测试一条电源线故障，以确认没有布线不匹配，从而发生原因可能导致服务中断。</block>
   <block id="56d23b4bd36ea7e836bbc1283db551b3" category="paragraph">在使用 E 系列存储阵列 LUN 的延伸型 MetroCluster 配置中，您可以直接连接存储控制器和存储阵列。与其他阵列 LUN 不同，不需要 FC 交换机。</block>
-  <block id="a0256b5d14d8f8e278ab1f632644ed83" category="paragraph">接通电源并至少等待 10 秒，然后再连接端口。SAS 缆线连接器具有方向性；正确连接到 SAS 端口时，连接器会卡入到位，磁盘架 SAS 端口 LNK LED 会呈绿色亮起。对于磁盘架，插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。</block>
-  <block id="2826857d59337300555697a88fd8af6c" category="paragraph">FibreBridge 6500N 网桥不支持使用 IOM12 模块的磁盘架。</block>
-  <block id="bed97cf26e962cfbadd9158043d57ebf" category="paragraph">每个网桥都有一条指向其磁盘架堆栈的路径。网桥 A 通过第一个磁盘架连接到堆栈的 A 侧，网桥 B 通过最后一个磁盘架连接到堆栈的 B 侧。</block>
   <block id="632ac78de4a389af16d655089761a651" category="paragraph">此操作步骤假定您使用的是建议的网桥管理界面： ATTO ExpressNAV GUI 和 ATTO QuickNAV 实用程序。</block>
   <block id="132ab6e1ba78a445b535028fd5d74260" category="paragraph">使用 ATTO ExpressNAV 图形用户界面配置和管理网桥，并更新网桥固件。您可以使用 ATTO QuickNAV 实用程序配置网桥以太网管理 1 端口。</block>
   <block id="d08fe7e603a9a3906a2ac376ce5a88c1" category="summary">准备在新的 MetroCluster 系统中安装网桥时，必须确保系统满足特定要求。这包括满足网桥的设置和配置要求。其他要求包括下载必要的文档， ATTO QuickNAV 实用程序和网桥固件。</block>
@@ -9613,7 +9487,6 @@
   <block id="45fcd6873eadf29e5cd4cc3b0c7d3340" category="paragraph">*`无设置剪贴画` *</block>
   <block id="ff0270664e36de08ce3d4ea34091e33b" category="list-text">重新启动交换机： *` （ IP_switch_A_1 ） #reload *`</block>
   <block id="bb618b144b7c6895aa5a8818fa66c1b2" category="list-text">生成 DSA 密钥（可选）</block>
-  <block id="d034cc5a3446b99507240baca90266a0" category="list-text">如果您使用的是符合 FIPS 的 EFOS 版本，请生成 ECDSA 密钥。以下示例将创建长度为 256 的密钥。有效值为 256 ， 384 或 521 。</block>
   <block id="640245482ba700e57c1029dc983e60c0" category="paragraph">* 请注意以下事项： *</block>
   <block id="6a02b7e242bcf6c784d6c8daac02baa6" category="cell">* 操作步骤 *</block>
   <block id="b0bed1183d501e8f5e8cef18312355bd" category="cell">* 当前 EFOS 版本 *</block>
@@ -9832,27 +9705,19 @@
   <block id="a05a5ee5c3ac194989ef258bddaa30d0" category="list-text">位于灾难站点上的磁盘上的镜像丛，用于聚合镜像。脱机后，丛将无法访问。</block>
   <block id="d4f18ae628e27ab34b26b8a43c48ace9" category="list-text">使受影响的丛脱机：</block>
   <block id="2a8e88f52bc016e030fb4bcd3be6617a" category="paragraph">`s存储聚合丛脱机`</block>
-  <block id="9239ccea70d6b0bd2c5d7ed953067b9f" category="list-text">使用 `portcfgpersistentdisable _port_` 命令持久禁用端口，如以下示例所示。必须在运行正常的站点的两个交换机上执行此操作。</block>
   <block id="0a2ddd49f9e299b81cf7c5e078debcc7" category="list-text">使用以下示例中所示的 `sswitchshow` 命令验证端口是否已禁用：</block>
   <block id="a71c1aa8359408f9d2d2ca6505749f51" category="list-text">使用 `interface` 命令持久禁用端口。以下示例显示端口 14 和 15 将被禁用：</block>
   <block id="b344f211c6ef4a7b6fabe45ee6e74946" category="list-text">使用 `show interface brief` 命令验证是否已禁用交换机端口，如以下示例所示：</block>
   <block id="056b0a2f5b039231afdc0b079e5c0490" category="paragraph">关闭站点后，您可以开始维护工作。无论 MetroCluster 组件是在同一数据中心内重新定位还是重新定位到不同数据中心，操作步骤都是相同的。</block>
-  <block id="bc41076628d5d0bb91f9fb460e04ccbc" category="list-text">使用 `portcfgpersistentenable _port number_` 命令持久启用端口。必须在运行正常的站点的两个交换机上执行此操作。</block>
   <block id="1d2dc9ff26f81ff899df7afec43c1cff" category="list-text">验证交换机端口是否已启用： `sswitchshow`</block>
   <block id="dd0b0e83e384f79fb372176f7061dccf" category="list-text">输入 `interface` 命令以启用此端口。</block>
-  <block id="c11fb9d9afe8d36ff83e6aefd247c782" category="list-text">输入 `portcfgpersistentdisable _port number_` 命令以持久禁用此端口。</block>
   <block id="6936ed4cbbd3fdd5e8b27a40bf2f0486" category="list-text">验证交换机端口是否已禁用： `sswitchshow`</block>
   <block id="be63a45d8d88d62821d9d0c3af1a2336" category="list-text">使用 `interface` 命令禁用端口。</block>
   <block id="8b9c414e111d5afbff34d567620625da" category="list-text">使用 `show interface brief` 命令验证是否已禁用交换机端口。</block>
   <block id="ee0b87400ee6781862e8ee67136924ab" category="paragraph">以下步骤中的所有命令都是从您启动的站点发出的。</block>
   <block id="950372b89704e14720897b9cc9143854" category="paragraph">您可以对 Brocade 交换机使用 `sswitchshow` 和 `show interface brief` 等命令。</block>
-  <block id="a0c802a3250ae2fb7360a23c34260ad0" category="paragraph">您可以在 ATTO 命令行界面（ CLI ）上使用 `sastargets` 等命令。</block>
-  <block id="cb4bda83e4b475d4527a306a175f8dc5" category="list-text">输入 `portcfgpersistentenable _port_` 命令以持久启用端口。必须在运行正常的站点的两个交换机上执行此操作。</block>
   <block id="2202782420c4dafcddf766370d515d92" category="list-text">使用 + `sswitchshow` 命令验证是否已启用交换机端口：</block>
   <block id="90249cecea11f452dc769a28231fca6b" category="list-text">使用 `interface` 命令启用端口。</block>
-  <block id="b6929e4968ce2ed48274a887d3709bf9" category="cell">如果您的配置 ...</block>
-  <block id="3badf494f1e5507594701f730003f4b3" category="cell">然后执行此步骤 ...</block>
-  <block id="7ed92f84948f4fe94d9e740b0e479a4e" category="paragraph">MetroCluster FC 配置</block>
   <block id="cc65b45d9cd6a58be27baf40866d52dc" category="paragraph">如果您必须安装 Tiebreaker 软件的新实例，请按照执行操作 <block ref="41bac20da3e04dcec3e43f3b27170310" category="inline-link-macro-rx"></block>。</block>
   <block id="b935de63e2396f2d2fe997c9028969f7" category="inline-link">MetroCluster Tiebreaker 软件安装和配置</block>
   <block id="8510397a0db0873faf52a037f4e5c265" category="paragraph"><block ref="8510397a0db0873faf52a037f4e5c265" category="inline-link-rx"></block></block>
@@ -9918,13 +9783,11 @@
   <block id="05ac71f0be33c2ad0cfeeb90e5f985a7" category="list-text"><block ref="05ac71f0be33c2ad0cfeeb90e5f985a7" category="inline-link-macro-rx"></block></block>
   <block id="a0a108afed95784cbb847a6b3ff2ea68" category="list-text"><block ref="a0a108afed95784cbb847a6b3ff2ea68" category="inline-link-macro-rx"></block></block>
   <block id="24b79d1109d169b3428eb16d56510160" category="list-text">重复步骤 1 以检查配置的运行状况。</block>
-  <block id="cdd098707a5ab09c2aacefd245a22b7d" category="paragraph">您可以从中使用 FibreBridge 6500N 网桥热插拔操作步骤 _FibreBridge 6500N 网桥并使用 FibreBridge 7500N 或 7600N 网桥 _ 更改分区或从 FibreBridge 6500 升级到 FibreBridge 7500<block ref="01d78e686e1360972399f4e6d1d43586" category="inline-link-rx"></block>。</block>
   <block id="46c7885131c64f238f576be014b213f0" category="inline-link">维护 DS460C DS224C 和 DS212C 磁盘架</block>
   <block id="3d46a208f060c32c138a0c945efcbbe0" category="paragraph"><block ref="3d46a208f060c32c138a0c945efcbbe0" category="inline-link-rx"></block></block>
   <block id="0c0a905fe7b3d34fc7c66142e87fa36d" category="inline-link-macro">MetroCluster IP 安装和配置。</block>
   <block id="bd411d4fdabe28e7276d566979ec2b21" category="paragraph">按照中 _Configuring the IP switches_ 一节中的步骤进行操作 <block ref="6ca94d3c62e2aa037b337bfb7e2a3c37" category="inline-link-macro-rx"></block></block>
   <block id="60add77cd3913e8299d20186ba7ec1e0" category="list-text">如果您的 MetroCluster IP 配置运行的是 ONTAP 9.6 或更高版本，请等待灾难站点丛联机并自动完成修复操作。</block>
-  <block id="a0d9123d4cd00ea9771184e3cc69bc3b" category="paragraph">在运行早期版本 ONTAP 的 MetroCluster IP 配置中，灾难站点节点不会自动启动到 ONTAP ，丛会保持脱机状态。对于 MetroCluster FC 配置，所有丛均保持联机，您无需使这些丛联机。</block>
   <block id="5b12aa7a5c28a3989c442d88ecafd4b3" category="list-text">根据您的配置和 ONTAP 版本，确定位于灾难站点（ Cluster_B ）的受影响丛并将其脱机。</block>
   <block id="8f6bfa9270e9bb535722312b07c97064" category="paragraph"><block ref="8f6bfa9270e9bb535722312b07c97064" category="inline-link-rx"></block></block>
   <block id="56ba5c8d245e7af9f26245ccc8eddba9" category="doc">升级 MetroCluster IP 交换机上的 RCF 文件</block>
@@ -10097,7 +9960,6 @@
   <block id="40a09e232a862af1f1a00bbe4b0defb8" category="sidebar">在延伸型 MetroCluster 配置中无中断更换磁盘架</block>
   <block id="6a739570036228dc1447eb1b941f12a0" category="sidebar">在光纤连接的 MetroCluster 配置中无中断更换磁盘架</block>
   <block id="d73f3d20e01c0ae11b268d892b9c7514" category="sidebar">重命名 MetroCluster 配置中的集群</block>
-  <block id="35c80ebe00a0f12bf75ded93997e17cb" category="sidebar">关闭并启动数据中心</block>
   <block id="87e3fddd4347c3eea1eee68f594f1a43" category="sidebar">关闭整个 MetroCluster IP 配置</block>
   <block id="98e0abbb33a3ee2f9258bc3cb733233b" category="sidebar">关闭整个 MetroCluster FC 配置</block>
   <block id="01f252af90871f7cd362d1ce68d6a434" category="sidebar">重新配置在 ONTAP 9.x 之前配置的 FC 交换机布局</block>
@@ -10797,7 +10659,6 @@
   <block id="888372be024925328ca6e321c9a44891" category="paragraph">`vsan vsna #] suspend`</block>
   <block id="37e68b1ed6861ebdf386fc5e91c46ae5" category="list-text">使用 ...<block ref="df3a11b0f7b8977a7ee2ae6dd464c6cb" category="inline-link-rx"></block> 要确定交换机类型的布线布局，请使用八节点 MetroCluster 配置的端口使用情况。</block>
   <block id="f2fa326e6e1c8de922a1dcd02e4670eb" category="paragraph">FC 交换机端口使用情况必须与中所述的使用情况匹配<block ref="df3a11b0f7b8977a7ee2ae6dd464c6cb" category="inline-link-rx"></block> 以便可以使用 RCF 。</block>
-  <block id="2f33c0ab177d6cfd4b52b9e6472de2a0" category="paragraph">您可以从中使用 FibreBridge 6500N 网桥热插拔操作步骤 _FibreBridge 6500N 网桥并使用 FibreBridge 7500N 或 7600N 网桥 _ 更改分区或从 FibreBridge 6500 升级到 FibreBridge 7500 <block ref="aeb2eb91b4a88826f71d1fbd30b29e7b" category="inline-link-macro-rx"></block>。</block>
   <block id="29c81145f8df4c302d2a5db797d28b64" category="paragraph"><block ref="29c81145f8df4c302d2a5db797d28b64" category="inline-link-rx"></block></block>
   <block id="91683a88a240de71b025c11834d0b99a" category="paragraph">您必须为新网桥的每个 FC 端口添加存储分区。</block>
   <block id="d6e62bec4cfc249fd233d49111852ad5" category="paragraph"><block ref="d6e62bec4cfc249fd233d49111852ad5" category="inline-link-macro-rx"></block></block>
@@ -10835,7 +10696,6 @@
   <block id="4ea1a11c006b334a1497dd9d7789547c" category="paragraph"><block ref="4ea1a11c006b334a1497dd9d7789547c" category="inline-link-macro-rx"></block></block>
   <block id="0b0a37d5ae718d4d68f10c5a752437bb" category="paragraph"><block ref="0b0a37d5ae718d4d68f10c5a752437bb" category="inline-link-macro-rx"></block></block>
   <block id="d7ef6a0ac4569dd5ea389384efc59fe4" category="paragraph"><block ref="d7ef6a0ac4569dd5ea389384efc59fe4" category="inline-link-macro-rx"></block></block>
-  <block id="958de5ee2f25b5fa2715cdd4e27fa14c" category="paragraph"><block ref="958de5ee2f25b5fa2715cdd4e27fa14c" category="inline-link-macro-rx"></block></block>
   <block id="5a02bdff215718b5bc1262fbe8d72e13" category="list-text">如果需要，您可以使用其他管理界面。这些选项包括使用串行端口或 Telnet 配置和管理网桥，配置以太网管理 1 端口以及使用 FTP 更新网桥固件。如果您选择其中任何一个管理界面，则您的系统必须满足中的适用要求 <block ref="7ab0568f22b62ca0e98b3c0cd29a60a1" category="inline-link-macro-rx"></block></block>
   <block id="a61acc05d42e32b02e9c3cd51831eeea" category="paragraph"><block ref="a61acc05d42e32b02e9c3cd51831eeea" category="inline-link-rx"></block></block>
   <block id="7c7dd4e5ef930c322d432df8ad10c821" category="paragraph">在此步骤中，您只能完成链接中提供的说明的下载部分。您可以稍后根据中的指示更新每个网桥上的固件 <block ref="c70dfcd5eb5f2383fdba898332cc4483" category="inline-link-macro-rx"></block> 部分。</block>
@@ -10877,13 +10737,11 @@
   <block id="06e7ec6ae7f944544771022d467d0496" category="paragraph">`闪存映像`</block>
   <block id="2ff283b5fcea4bdb853d6b9da8d8948c" category="paragraph"><block ref="2ff283b5fcea4bdb853d6b9da8d8948c" category="inline-link-macro-rx"></block></block>
   <block id="2d0700f1234a9f9dd9937555291170ec" category="paragraph">"` maintenance-window-in-hours_` " 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：</block>
-  <block id="e82d508ae669816742bd73c7a3aa7f20" category="list-text">如果您使用的是 ATTO FibreBridge 6500N 网桥，请参见 _ATTO FibreBridge 6500N 安装和操作手册 _ 的 "`更新固件` " 一节中提供的说明。</block>
   <block id="8458ea1c3c1ea2053887d2f331da77f4" category="paragraph">* 注意： * 请确保现在重新启动各个网桥。如果您等待并同时重新启动堆栈中的两个网桥，则控制器可能无法访问驱动器，从而导致丛故障或多磁盘崩溃。</block>
   <block id="86b1ef008f18b43ce62a9069606c0c6d" category="list-text">从任一控制器的控制台中，验证网桥是否已正确重新启动：</block>
   <block id="7eb8d2db2d90e516a56d7472a56b99bd" category="list-text">从任一控制器的控制台中，验证 FibreBridge 固件是否已更新：</block>
   <block id="c1e404b965bd033d8d0a2284a04382d6" category="list-text">验证两个分区是否均已更新：</block>
   <block id="378d97c929a2501d1e50a01e1e1a5b97" category="paragraph">`运行本地 sysconfig -v`</block>
-  <block id="8a55d02eab45d757aa9762d06c09ae5f" category="list-text">按照以下准则，使用中的操作步骤热插拔 "`Top` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 <block ref="958de5ee2f25b5fa2715cdd4e27fa14c" category="inline-link-macro-rx"></block>：</block>
   <block id="37c8362167e23bbca70c828a9376397b" category="list-text">如果系统布线不正确，请拔下缆线，更正布线，然后重新连接正确的缆线。</block>
   <block id="9c70e58ba306d049dc41ed64cf6e8f62" category="paragraph">有关分区命令的详细信息，请参见中的 FC 交换机部分 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block> 或 <block ref="c4b7332c983d9f374f57570f90ffe107" category="inline-link-macro-rx"></block>。</block>
   <block id="1a4f45d5a5a5d25d76225f6a14a02044" category="cell">图中的颜色（此图仅显示站点 A ）</block>
@@ -11223,7 +11081,6 @@
   <block id="426ee46ac7dd79d76d63e3c2d8bf8243" category="paragraph">确保系统满足 "`准备安装` " 中的所有要求后，您可以安装新系统。</block>
   <block id="7916572f780670b32d722f9441c26db4" category="list-text">通过将端口速度设置为 115000 baud 来配置 ATTO FibreBridge 上的串行控制台端口：</block>
   <block id="dffac67a0b66f79e4f2ff0361643edd1" category="paragraph"><block ref="dffac67a0b66f79e4f2ff0361643edd1" category="inline-link-rx"></block></block>
-  <block id="6edb2b0baf9ed9e4cde065ac51290bc3" category="paragraph">+ 注：如果输出开头显示文本 `reonse truncated` ，则可以使用 Telnet 连接到网桥并输入相同的命令来查看所有输出。</block>
   <block id="9f39b4378a3d44f4f0a500c832ddf6b3" category="list-text">可以使用 `unsecurebridge` 命令重新启用以太网端口。</block>
   <block id="2eef5c9469dc2ce9cbe3c71dabc6f13e" category="paragraph">使用的示例： site_B</block>
   <block id="b72239aa6dab42301b66b43e2f099b73" category="paragraph">使用的示例： controller_B_1</block>
@@ -11240,12 +11097,6 @@
   <block id="14a8fc6fe6b58444388acfef6a176529" category="inline-link">管理配置备份</block>
   <block id="6c0e4fd4b7e2ef11d891ac59729c5f3e" category="inline-link">集群管理</block>
   <block id="3d324eced25a10d4e6f55d473d59805b" category="paragraph"><block ref="3d324eced25a10d4e6f55d473d59805b" category="inline-link-rx"></block></block>
-  <block id="e724cb67436f5eec5573e5a3fd4cb036" category="paragraph">可以从 ONTAP 界面运行网桥命令行界面命令，例如 `storage bridge run-cli -namebridge-name-commandbridge-command-name` 命令。</block>
-  <block id="d0ee1757d9fccb6a2088a8a3f1aede6a" category="paragraph">确保系统满足 "`准备安装` " 中的所有要求后，您可以安装新系统。</block>
-  <block id="715af57300b5c6806072fa2c866065e6" category="list-text">如果需要，可发出 `set closePort _service_` 并根据需要重复执行命令，直到禁用所有所需服务为止，以禁用服务：</block>
-  <block id="74c3270411b35dffcba4c76dadbafc6c" category="paragraph">`set closePort` 命令一次禁用一项服务。可以通过以下方式之一指定此服务：</block>
-  <block id="53f9010a998452330c318a49a19fdad3" category="paragraph">`set bridgename bridgename`</block>
-  <block id="d7513c0e570b2f3453caf0550a333d1e" category="list-text">保护对网桥的访问并保存网桥的配置。根据您的系统运行的 ONTAP 版本，从下方选择一个选项。</block>
   <block id="8f40c45d93fd99743af14410f5bb6b4f" category="list-text">在每个交换机上，配置两个 IPStorage 接口（ "`IPStorage1/1` " 和 "`IPStorage1/2` " ）：</block>
   <block id="0fd0c2fc018d9d95d9e5a42d9c09e57d" category="list-text">【子步骤 A ，子步骤 "`A` ]] 进入配置模式：</block>
   <block id="c8a791ed0c73c0a68f4c09ede0b1a9f3" category="paragraph">` _ipstorage_` 参数值为 "`IPStorage1/1` " 或 "`IPStorage1/2` " 。</block>
@@ -11427,7 +11278,6 @@
   <block id="b2d9f80a5c71fe34bed7839914c2fd68" category="paragraph">如果新网桥与配对网桥的类型相同，请升级到与配对网桥相同的固件。如果新网桥与配对网桥的类型不同，请升级到该网桥支持的最新固件以及 ONTAP 版本。请参见 _FibreBridge MetroCluster 维护 _ 中的 " 更新 FibreBridge 网桥上的固件 " 一节。</block>
   <block id="3240aad2738f70e3ab16c6dadcff4f64" category="list-text">更新网桥固件：</block>
   <block id="befb8d9c3b9caecfce0121a43afa3ce1" category="admonition">从 ATTO 固件版本 2.95 开始，网桥将自动重新启动，不需要执行此步骤。</block>
-  <block id="0bbb89fa01deac898bd6b44e2d10d4b1" category="paragraph">您可以对 FibreBridge 7500N 或 6500N 网桥使用此任务。从 ONTAP 9.3 开始，您可以使用 ONTAP storage bridge firmware update 命令更新 FibreBridge 7500N 网桥上的网桥固件。</block>
   <block id="c72683789a2c53d80a618207766d5e8e" category="paragraph">必须先关闭站点和所有设备，然后才能开始站点维护或重新定位。</block>
   <block id="04b973e3b5c8e23139d9de9d11958a32" category="summary">您可以在 NetApp 丰富的文档中了解有关配置，操作和监控 MetroCluster 配置的更多信息。</block>
   <block id="9e77fd3a877778fdac1dfea74896fc50" category="paragraph">您可以在 NetApp 丰富的文档中了解有关配置，操作和监控 MetroCluster 配置的更多信息。</block>
@@ -11599,12 +11449,10 @@
   <block id="97f70489df0d405722087f0f98dc7c3f" category="paragraph"><block ref="97f70489df0d405722087f0f98dc7c3f" category="inline-link-macro-rx"></block></block>
   <block id="6b85600ee1be273e93253da5e134fb16" category="admonition">有关从节点故障中恢复的追加信息，请参见中的 " 选择正确的恢复操作步骤 " 一节 <block ref="e623fd8091406f43d52a7bc3543c2f9f" category="inline-link-macro-rx"></block>。</block>
   <block id="8ef2465c629a51ad799f916321355ab0" category="paragraph"><block ref="8ef2465c629a51ad799f916321355ab0" category="inline-link-macro-rx"></block></block>
-  <block id="c160b6358f7336db6f2a26360400f661" category="list-text">按照以下准则，使用中的操作步骤热插拔 "`底部` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 <block ref="958de5ee2f25b5fa2715cdd4e27fa14c" category="inline-link-macro-rx"></block>：</block>
   <block id="8b8800e8b5ac43d8ac015a60e243a711" category="admonition">随着 ONTAP 9.8 的发布， MetroCluster 升级和扩展过程已移至 <block ref="97f70489df0d405722087f0f98dc7c3f" category="inline-link-macro-rx"></block> 和 <block ref="a8125364ced10d8a90aedca98aa02032" category="inline-link-macro-rx"></block>。</block>
   <block id="ebe3b07d927344896c24a9e5e5eee917" category="paragraph"><block ref="ebe3b07d927344896c24a9e5e5eee917" category="inline-link-macro-rx"></block></block>
   <block id="5e6d9dff4a682d0558edb1406ac87060" category="paragraph"><block ref="5e6d9dff4a682d0558edb1406ac87060" category="inline-link-macro-rx"></block></block>
   <block id="80063a26d9eb84904fdbb388ac3a5629" category="list-text">使用中所述的协商切换，修复和切回过程<block ref="be2bdafda4a97cad52118e4d9ef914b5" category="inline-link-rx"></block>。</block>
-  <block id="44b7f701c8b22fd32471d911de4c0984" category="paragraph">按照中的说明进行操作 <block ref="c355f6bb3dca677defb89e8a84e6c55b" category="inline-link-macro-rx"></block> 根据 MetroCluster 配置执行修复和切回操作。</block>
   <block id="e3d7ead0f01b9fa985ec5c35c22c44f3" category="paragraph"><block ref="e3d7ead0f01b9fa985ec5c35c22c44f3" category="inline-link-macro-rx"></block></block>
   <block id="6405f02626b672ea5ce042f43244f057" category="paragraph"><block ref="6405f02626b672ea5ce042f43244f057" category="inline-link-macro-rx"></block></block>
   <block id="f62e57388ece8ed3ab39425498977dae" category="paragraph"><block ref="f62e57388ece8ed3ab39425498977dae" category="inline-link-macro-rx"></block></block>
@@ -11668,7 +11516,6 @@
   <block id="a2a7d27c6bf1ad121aeada48fc70ca1d" category="list-text">等待30分钟、然后启动站点上的以下设备：</block>
   <block id="383d92c84e46dd00caa3dbad6de7fe2f" category="paragraph"><block ref="903819e2154a41f8227f7c0192db71f6" category="inline-link-macro-rx"></block> 在 _Tiebreaker MetroCluster 安装和配置内容 _ 中</block>
   <block id="688f019e2f851b28c81904e0acd0c450" category="paragraph"><block ref="6f99ee259693716af238b16f6b3287d3" category="inline-link-macro-rx"></block> 在 _IP MetroCluster 安装和配置 _ 部分中。</block>
-  <block id="e3b4bec7cc0382f3d2b420e4d37da974" category="list-text">打开存储控制器的电源。</block>
   <block id="be8e7921b8bc696adb0f989ee98b7e9f" category="list-text">`s对等`可以是"100"或"1000"。</block>
   <block id="e44042693910b4bd1a0494893ddc1892" category="doc">验证SVM是否正在运行且聚合是否联机</block>
   <block id="0f6663ce923ab095e111674a6a00e20f" category="summary">您可以从ONTAP IP配置中删除MetroCluster 调解器服务。</block>
@@ -11792,8 +11639,6 @@
   <block id="5ac8082d208bbf03d0cce2d606e0f49f" category="paragraph">没有匹配的端口。升级后，您必须重新创建集群端口。<block ref="2305a256def4f5c38d82352fac177e1d" category="inline-link-macro-rx"></block></block>
   <block id="44489e59a236bf582156026d721d7300" category="list-text">根据交换机供应商的不同、下载并安装IP RCF文件。</block>
   <block id="a208547a21e1dc907c538b655cfee7c1" category="admonition">如果您使用的是L2共享或L3网络配置、则可能需要调整中间/客户交换机上的ISL端口。交换机端口模式可能会从"访问"模式更改为"中继"模式。只有在交换机A_1和B_1之间的网络连接完全正常且网络运行状况良好的情况下、才能继续升级第二个交换机对(A_2、B_2)。</block>
-  <block id="05cb8d64e2770620783bfd98ba2c571c" category="paragraph">以下步骤中的所有命令都是从站点发出的、以便保持通电。</block>
-  <block id="714cb8627bb0d04d6b5d032326cab4a3" category="list-text">从要保持正常运行的站点实施切换：</block>
   <block id="e7edce3217788bc841a63851100c9164" category="list-text">将未镜像聚合移至脱机状态：`s将聚合存储到脱机状态`</block>
   <block id="eeb4c33e80d1b1f4f321335e6c0a8948" category="list-text">禁用此网络结构中两个交换机上的所有VSAN。</block>
   <block id="f214faa187b0f8585d0284ecf49f3906" category="paragraph">使用以下操作步骤 禁用VSAN：</block>
@@ -13514,4 +13359,103 @@
   <block id="4010f2b8e90ddf85f94ac358d78075c1" category="inline-link-macro">将服务处理器与 System Manager 结合使用— ONTAP 9.7 及更早版本</block>
   <block id="eaa2669881cbe475b9e0b278420a4005" category="paragraph"><block ref="eaa2669881cbe475b9e0b278420a4005" category="inline-link-macro-rx"></block></block>
   <block id="adf442d82428813618df31b5f35c8c5d" category="list-text">这些ISL必须具有相同的拓扑。例如、它们都应为直接链路、或者如果配置使用WDM、则它们都必须使用WDM。</block>
+  <block id="3ac4da3c19500a46472e39b550233955" category="paragraph">与ATto FABBRIDBRIDge 7500N网桥不同、FABBRIDBRIDge 7600N网桥在出厂时已禁用所有IP端口协议和服务。</block>
+  <block id="cf6dca2d67d60a19d4a17cee9ded8839" category="list-text">此光纤桥接器7600N最多支持32、16或8 Gbps。</block>
+  <block id="eaf41f2c4105da1a7df1e2d6212b3c1f" category="list-text">此光纤桥接器的速率高达16、8或4 Gbps。</block>
+  <block id="0690be6eb1d3773f24e0f2ab2ccaa146" category="list-text">如果要配置一个光纤桥接器、请将端口使用的连接模式配置为"ptp-"。</block>
+  <block id="da76178e1d22c167f6a99e845374ced2" category="admonition">如果输出的开头显示文本`response uncated`、则可以使用Telnet连接到网桥并输入相同的命令来查看所有输出。</block>
+  <block id="fe718489f73382a38802fd47209269cf" category="paragraph">您必须将交换机端口分配给不同的分区，以隔离控制器和存储流量。</block>
+  <block id="2e6da062f65d036e37e8048eb1168cd1" category="section-title">使用一个FC端口的光纤桥接7500 N或7600N网桥的分区</block>
+  <block id="a4ee4d0f79fa6f1bac894cfc957089d6" category="paragraph">如果您使用的是仅使用两个FC端口之一的光纤桥接7500 N或7600N、则需要为这些网桥端口创建存储分区。在配置分区之前，您应了解分区和关联的端口。</block>
+  <block id="7e95951a529361ac1e326cd54359d011" category="paragraph"><block ref="7e95951a529361ac1e326cd54359d011" category="inline-link-macro-rx"></block></block>
+  <block id="4c79922838c9f8d530f20efcd3382822" category="cell">仅使用一个FC端口(FC1或FC2)的光纤网桥7500N或7600N的配置</block>
+  <block id="3a4842c9952a7c657d04e55a3d69b1a4" category="cell">使用两个FC端口的光纤桥7500 N或7600N</block>
+  <block id="f9805d94598bd6a841fddbff1c6ddc7b" category="paragraph">下表显示了仅使用一个FC端口(FC1或FC2)的光纤桥接器的500N或7600N网桥的网桥端口使用情况。对于使用一个FC端口的光纤桥接500N或7600N网桥、可以使用缆线将FC1或FC2连接到指示为FC1的端口。可以使用端口 25-48 连接其他网桥。</block>
+  <block id="126b9e3a8501d897a2356aba96828af6" category="cell">使用一个FC端口的光纤桥接7500 N或7600N网桥</block>
+  <block id="69abf6cf7deeba7ace2f747f7661208f" category="cell">使用一个FC端口的光纤桥7500 N或7600N</block>
+  <block id="1b3c29a52da9672be1cb789bb6d06ae8" category="cell">使用两个FC端口的光纤桥接7500 N</block>
+  <block id="0351289236b3260f9d0c35b64f62689c" category="paragraph">您只能使用一个FC端口(FC1或FC2)来完成对光纤桥接500N或7600N网桥的布线。请仅连接两个启动程序，而不使用四个启动程序，并将连接到交换机端口的另外两个启动程序留空。</block>
+  <block id="4883312b6c36aa2f1d5ce2e2f17638bd" category="paragraph">如果是手动执行分区、请遵循使用一个FC端口(FC1或FC2)的FBRIDBRIDGKIP 7500N或7600N网桥所使用的分区。在这种情况下，每个网络结构的每个分区成员都会添加一个启动程序端口，而不是两个。</block>
+  <block id="1e008e69dc731ad28df3d6927462a7f3" category="paragraph">您可以使用中的操作步骤更改分区或从一个光纤桥6500 N升级到一个光纤桥7500 N <block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block>。</block>
+  <block id="803d845c069720e0ec75ee03ea5a43d4" category="paragraph">下表显示了使用光纤桥接500N和7600N网桥时的网桥端口使用情况：</block>
+  <block id="2cd1f3df6c3bbd7c9891d742ad23d04a" category="cell">光纤桥接7500或7600 N网桥</block>
+  <block id="81b2aac60df91543fcf4f05563b1f80e" category="paragraph">下表显示了在使用光纤桥接500N和7600N网桥时、截至端口17的网桥端口使用情况。可以使用缆线将其他网桥连接到端口 18 到 23 。</block>
+  <block id="85878b4f87459062c8904a27720ba2be" category="paragraph">下表显示了使用光纤桥接500N或7600N网桥时截至端口23的网桥端口使用情况。可以使用端口 25 到 48 连接其他网桥。</block>
+  <block id="6f40fc62599b436af99e9090bcb1fe21" category="paragraph">下表显示了使用光纤桥接500N或7600N网桥时网桥端口使用情况(截至端口14)。可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
+  <block id="836f2645702f9125726ff7335ed42bd5" category="paragraph">下表显示了在使用光纤桥接500N和7600N网桥时、截至端口14的网桥端口使用情况。可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
+  <block id="7f921cbd9f23de85fa3d483b640e428b" category="open-title">如果节点已关闭：</block>
+  <block id="5f4eaac69c780a3f8ab154192e4a1a26" category="paragraph">启动节点。</block>
+  <block id="2900f8420dafccee0a2692e48506c6cb" category="open-title">如果节点位于加载程序提示符处：</block>
+  <block id="796bd1c27d5eea106367802d9fd5bd0e" category="paragraph">运行命令：<block ref="ce54ef17bebf280339d340bd40dff593" prefix=" " category="inline-code"></block></block>
+  <block id="4129cca17421055c633ccbc72f65d61f" category="list-text">节点启动完成后、验证根聚合是否已镜像。</block>
+  <block id="f691b46b240bca97e906bfb1366247a7" category="paragraph">如果两个丛都存在，则任何重新同步都将自动启动。如果丛出现故障、请销毁该丛、然后使用以下命令重新创建镜像、以重新建立镜像关系：</block>
+  <block id="9abd59a18f57d6cb4282adb209f8b563" category="list-text">您有两个连接到SAS磁盘架堆栈的光纤桥接7600N。</block>
+  <block id="fc35f0bbf60965f7ec34001ad687a3f3" category="list-text">您有一个连接到SAS磁盘架堆栈的光纤桥接器7500N网桥和一个光纤桥7600N网桥。</block>
+  <block id="3ed94c5d90da7ee057d27e4a111e2d56" category="list-text">关闭ATto网桥并拔下连接到此网桥的电源线。</block>
+  <block id="44f214a5099f49db147696415a075d47" category="list-text">如果要配置一个光纤桥接器7500、请将端口使用的连接模式配置为"ptp-"。</block>
+  <block id="8abe3c7c95f9615fe71d95df61a4b898" category="paragraph">您必须更换将网桥连接到磁盘架堆栈顶部或底部的缆线。对于这些连接、光纤桥接7600N和7500 N网桥需要使用迷你SAS缆线。</block>
+  <block id="b889bc5ea39fc308a80e7da9aafcd5bb" category="list-text">此光纤桥接器6500N最多支持8、4或2 Gbps。</block>
+  <block id="522ee388aaa608b60a7148c3f95473d7" category="paragraph">与ATto FABBRIDBRIDge 7500N网桥不同、FABBRIDBRIDge 7600N网桥在出厂时已禁用所有IP端口协议和服务。</block>
+  <block id="453c83b73d0ecbb9f09224937b817815" category="list-text">此操作步骤可用于添加使用光纤桥接7600N或7500 N网桥的堆栈。</block>
+  <block id="e05381bfaa686bb26262ce132ba9d898" category="summary">您必须了解如何在MetroCluster FC配置中关闭和启动单个站点、以便进行站点维护或将站点重新定位到其他位置。</block>
+  <block id="81856068a1902936a3d6d361da5c40d9" category="doc">关闭和启动MetroCluster FC配置中的单个站点</block>
+  <block id="d7816243d769abfab3871457907990d1" category="paragraph">如果您需要在MetroCluster FC配置中执行站点维护或重新定位单个站点、则必须了解如何关闭和启动该站点。</block>
+  <block id="8d4c5977271a3cb624fe080526afb7fc" category="paragraph">如果需要重新定位和重新配置站点(例如、如果需要从四节点集群扩展为八节点集群)、则无法同时完成这些任务。此操作步骤仅介绍在不更改站点配置的情况下执行站点维护或重新定位站点所需的步骤。</block>
+  <block id="56d6288c5f791724a871f0f147e12032" category="section-title">关闭MetroCluster站点</block>
+  <block id="1045051bc489dcbac0eba7b7e828fc16" category="paragraph">以下步骤中的所有命令都是从仍保持通电的站点发出的。</block>
+  <block id="3992217858a418dc708f7898927dc589" category="list-text">从要保持正常运行的站点实施切换：</block>
+  <block id="de581c55e079c6aae1e67e65189afbfa" category="paragraph">只有在聚合中的远程磁盘可访问的情况下、未镜像聚合才会在切换后联机。如果这些ISL发生故障、则本地节点可能无法访问未镜像远程磁盘中的数据。聚合故障可能会导致本地节点重新启动。</block>
+  <block id="8786bed4623fe6698abcaad77521bad9" category="paragraph">如果不将灾难站点上的非镜像丛脱机、则在灾难站点稍后关闭时可能会发生中断。</block>
+  <block id="9f3870eb3ed0a7def4c546eeae018089" category="admonition">对包含集群A远程磁盘的所有丛执行此步骤</block>
+  <block id="52aff055e8c859748fa5df921f322567" category="list-text">根据交换机类型使ISL交换机端口持久脱机。</block>
+  <block id="8e3f5197bd01d7914ee8e8fc65fc56e4" category="paragraph">对于Brocade FC交换机...</block>
+  <block id="132fe2b93bc791dd643ed680d1ddaa5e" category="list-text">使用<block ref="2e7f851c1bdee09a500a083d356ad425" prefix=" " category="inline-code"></block> 命令以持久禁用端口、如以下示例所示。必须在运行正常的站点的两个交换机上执行此操作。</block>
+  <block id="06f892e706e2490e96a2a657cd6b479d" category="paragraph">对于Cisco FC交换机...</block>
+  <block id="aa4560fdf6eb931e7acf782f301837db" category="list-text">关闭灾难站点上的设备。</block>
+  <block id="a966334d5468b4c1dcb921af4d8f0060" category="paragraph">必须按所示顺序关闭以下设备：</block>
+  <block id="5129cfd7ac63c37dcae900bb424246fe" category="list-text">存储控制器—存储控制器当前应位于<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> 提示时、您必须将其完全关闭。</block>
+  <block id="eb5d4a4c0c7b75bc1b90f45b192a7523" category="list-text">ATto Fibre Bridge (如果有)</block>
+  <block id="0924753fca83f6aa143b6eebad4e37c4" category="list-text">验证是否已仔细记录所有组件的布线、以便可以在新位置正确重新连接。</block>
+  <block id="23b7edc8743ecdff653ecd31b9ba0b49" category="list-text">物理重新定位所有硬件、存储控制器、FC交换机、Fibre Bridge和存储架。</block>
+  <block id="99b1e28bd58c72b586b1c8c6740b9731" category="list-text">打开FC交换机的电源。</block>
+  <block id="1acfa95e8e2514763ed62036ab3fa9ed" category="list-text">使用<block ref="aa9509625b9b7a7cbd37e4dfa7a53121" prefix=" " category="inline-code"></block> 命令以持久启用端口。必须在运行正常的站点的两个交换机上执行此操作。</block>
+  <block id="ad505825f73570f3e5352620da6fccac" category="admonition">只有在链路配置正确且稳定时、才应继续。</block>
+  <block id="e56dd9ab2becce5cc684eaa96fadcf60" category="list-text">输入<block ref="9ecdb594b01de9fa2c95aec87e6f82e1" prefix=" " category="inline-code"></block> 命令以持久禁用端口。</block>
+  <block id="4fe0323b18610fc616e4b8a765b3e593" category="paragraph">您应首先打开交换机的电源。如果站点已重新定位，则它们可能已在上一步中启动。</block>
+  <block id="2208c2a5a2ab4f46416b8dc29f446d2b" category="list-text">禁用FC交换机上的ISL。</block>
+  <block id="971572bd6aba77ed87a414025a289cb9" category="list-text">打开存储控制器的电源、然后等待直至看到<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> 提示符。控制器不能完全启动。</block>
+  <block id="b5b517b5bd160188f72a49194aee565c" category="paragraph">如果启用了自动启动、请按<block ref="08102569ee3581db669c9d763e14b983" prefix=" " category="inline-code"></block> 停止控制器自动启动。</block>
+  <block id="235d6d36d1eabe510af7ea0ec5e96c6b" category="paragraph">您可以使用等命令<block ref="2aa3751083baf48c1e1ddef8df4ddcc3" prefix=" " category="inline-code"></block> 在ATto命令行界面上。</block>
+  <block id="480cf83fd6c463ccef2ed2a9d0dce2c4" category="list-text">输入<block ref="bedfcd4488b13f5b7062e121a6a8baa5" prefix=" " category="inline-code"></block> 命令以持久启用端口。必须在运行正常的站点的两个交换机上执行此操作。</block>
+  <block id="9d1a338762e03c980c82e8098eb03744" category="list-text">验证此存储是否可从正常运行的站点中看到。使脱机丛恢复联机。此操作将重新启动重新同步操作并重新建立 SyncMirror 。</block>
+  <block id="9f6a23c1abc971d714730192ce961b96" category="paragraph">按照中的说明进行操作 <block ref="9c0d52e0ce7a57d643217990aba10043" category="inline-link-macro-rx"></block> 根据 MetroCluster 配置执行修复和切回操作。</block>
+  <block id="92833b015ed412068659d576a7df1599" category="list-text">按照以下准则，使用中的操作步骤热插拔 "`Top` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 <block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block>：</block>
+  <block id="3753c208918127350b444c3dc052115f" category="list-text">按照以下准则，使用中的操作步骤热插拔 "`底部` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 <block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block>：</block>
+  <block id="0b4bc6296d77be28e33d3b50e0ea0797" category="paragraph"><block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block></block>
+  <block id="e49bc35e0118f2b5a5904c13e1833761" category="section-title">更新运行ONTAP 9.3.x及更早版本的配置中的光纤桥7500N上的固件</block>
+  <block id="1a5e839afe7a716dd2640f7fdb69669a" category="paragraph">您可能需要更新您的光纤桥接器上的固件、以验证是否具有最新功能或解决可能的问题。在运行ONTAP 9.3.x的配置中、应将此操作步骤用于光纤桥接7500</block>
+  <block id="ef1eae725a44cfeb66559e3d3e94f7ec" category="paragraph">从 ONTAP 9.3 开始，您可以使用 ONTAP storage bridge firmware update 命令更新 FibreBridge 7500N 网桥上的网桥固件。</block>
+  <block id="05791e70fbe1537753bf5a023b7623eb" category="list-text">在光纤桥接器上安装固件。</block>
+  <block id="c1a1962dd8879c856d3b821c9622f94c" category="paragraph">您应参考_ATto Firbridge 7500N安装和操作手册_的"`更新固件`"部分中提供的说明。</block>
+  <block id="24ea961e35f1e60e606fd840735a7b80" category="summary">如果您需要在MetroCluster IP配置中执行站点维护或重新定位单个站点、则必须了解如何关闭和启动该站点。</block>
+  <block id="064c811af1591c939040fba47365213b" category="doc">关闭和启动MetroCluster IP配置中的单个站点</block>
+  <block id="b66411bb5022a5619d62ef25fa47b67f" category="paragraph">在运行ONTAP 9.5或更早版本的MetroCluster IP配置中、灾难站点节点不会自动启动到ONTAP、丛会保持脱机状态。</block>
+  <block id="b13f7000aa5add9a5264da17e3dc4f67" category="list-text">在每个节点上运行以下命令、以暂停节点：</block>
+  <block id="de48c3af46bd57dad9f2ad02bbb26041" category="paragraph"><block ref="8a921c8973814d1a72edcc98a6686da9" prefix="" category="inline-code"></block></block>
+  <block id="84b0c3d7ab439004e978c709f15fc230" category="paragraph">您必须按所示顺序关闭以下设备：</block>
+  <block id="98734a3d5b75c8baf95c27fbc27a15f1" category="list-text">物理重新定位所有硬件、存储控制器、IP交换机、Fibre Bridge和存储架。</block>
+  <block id="1cef707d96d59ea52cd45984a36d2f11" category="list-text">打开IP交换机的电源。</block>
+  <block id="ac8327044a4ce63889944095a1b6aed8" category="list-text">打开磁盘架电源、留出足够的时间让其完全启动。</block>
+  <block id="d5061566f9570e151daa3fd59fb31405" category="list-text">验证在维护模式下是否可从节点看到本地存储：</block>
+  <block id="7a492d8ba3deac8ecd729c56c1058794" category="paragraph">下表显示了使用光纤桥接500N或7600N网桥时的网桥端口使用情况：</block>
+  <block id="2d5d944d1466716b339b20936cc4b7ec" category="paragraph">下表显示了使用光纤桥接500N或7600N网桥时网桥端口使用情况(截至端口17)。可以使用缆线将其他网桥连接到端口 18 到 23 。</block>
+  <block id="f912eaa76cd834cbed98a7201254e72e" category="paragraph">下表显示了在Brocade 6505、6510和DCX 8510-8交换机上使用光纤桥接7500 N或7600N网桥时、截至端口17的网桥端口使用情况。可以使用缆线将其他网桥连接到端口 18 到 23 。</block>
+  <block id="e75c88d98fec123855e6503ffa20ae16" category="paragraph">下表显示了在使用Cisco 9148或9148S交换机的同时使用光纤桥接7500 N或7600N网桥时、截至端口23的网桥端口使用情况。</block>
+  <block id="0d792f55f305e85c0f763a05b6d33ae1" category="paragraph">下表显示了在Cisco 9148、9148S或9250i交换机上使用光纤桥接7500 N或7600N网桥时、网桥端口使用情况(截至端口14)。可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
+  <block id="972c5512c843cde59ea3263b1073efea" category="paragraph">下表显示了在Cisco 9148、9148S和9250i交换机上使用光纤桥接7500 N或7600N网桥时、截至端口14的网桥端口使用情况。可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
+  <block id="8bc67669b17eba9ca754ee74dd34564c" category="list-text">如果您使用的是符合 FIPS 的 EFOS 版本，请生成 ECDSA 密钥。以下示例将创建长度为521的密钥。有效值为 256 ， 384 或 521 。</block>
+  <block id="8eb0b3dc24b7128748cd767385d5a9f2" category="paragraph">MetroCluster IP配置中的每个节点都有专用接口、用于连接到后端IP网络：</block>
+  <block id="ad1b97f0744b9c154b01cc69afb505d7" category="list-text">两个本地集群接口</block>
+  <block id="861e1910edbd7f3e677dab91f10869b0" category="sidebar">关闭和启动单个MetroCluster站点</block>
+  <block id="b54f4d527d126f4e54869800ed0e43ac" category="sidebar">关闭整个MetroCluster配置</block>
 </blocks>

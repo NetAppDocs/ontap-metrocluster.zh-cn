@@ -107,7 +107,6 @@ NOTE: MetroCluster 存储交换机不支持长波 SFP 。有关支持的 MetroCl
 NOTE: 运行 ONTAP 9.8 及更高版本的配置不支持 FibreBridge 6500N 网桥。
 
 * FibreBridge 7600N 或 7500N 网桥最多支持四个 SAS 堆栈。
-* FibreBridge 6500N 网桥仅支持一个 SAS 堆栈。
 * 每个堆栈可以使用不同型号的 IOM 。
 +
 不支持在同一存储堆栈中混合使用 IOM12 模块和 IOM3 模块。如果您的系统运行的是受支持的 ONTAP 版本，则可以在同一存储堆栈中混合使用 IOM12 模块和 IOM6 模块。
@@ -197,7 +196,6 @@ A 或 B
 +
 堆栈组包含的存储架不能超过 10 个。
 
-* FibreBridge 6500N 网桥仅支持堆栈组中的一个堆栈。
 
  a| 
 1 ， 2 等

@@ -17,7 +17,6 @@ summary: 您必须执行最终配置步骤并将 MetroCluster 配置恢复正常
 
 == 过渡后验证 MetroCluster 操作并分配驱动器
 
-[role="lead"]
 您必须验证 MetroCluster 是否运行正常，并将驱动器分配给第二对新节点（ node_A_2-IP 和 node_B_2-IP ）。
 
 . 确认 MetroCluster 配置类型为 ip-fabric ： `MetroCluster show`
@@ -35,7 +34,6 @@ summary: 您必须执行最终配置步骤并将 MetroCluster 配置恢复正常
 
 == 为新控制器模块安装许可证
 
-[role="lead"]
 您必须为需要标准（节点锁定）许可证的任何 ONTAP 服务添加新控制器模块的许可证。对于具有标准许可证的功能，集群中的每个节点都必须具有自己的功能密钥。
 
 有关许可的详细信息，请参见 NetApp 支持站点上的知识库文章 3013749 ： Data ONTAP 8.2 许可概述和参考以及 _System Administration References 。
@@ -57,7 +55,6 @@ license_key 的长度为 28 位数。
 
 == 正在完成节点配置
 
-[role="lead"]
 在完成这些过程之前，可以执行其他配置步骤。其中某些步骤是可选的。
 
 . 配置服务处理器： `ssystem service-processor network modify`
@@ -82,7 +79,6 @@ link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["Tiebreaker 
 
 == 维护后发送自定义 AutoSupport 消息
 
-[role="lead"]
 完成过渡后，您应发送一条 AutoSupport 消息，指示维护结束，以便可以恢复自动创建案例。
 
 . 要恢复自动生成支持案例，请发送 AutoSupport 消息以指示维护已完成。

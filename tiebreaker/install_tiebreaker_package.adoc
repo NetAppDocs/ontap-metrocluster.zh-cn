@@ -8,6 +8,7 @@ summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，
 :allow-uri-read: 
 
 
+[role="lead"]
 您必须在本地计算机上安装或升级 MetroCluster Tiebreaker 软件，才能监控 MetroCluster 配置。
 
 .关于此任务

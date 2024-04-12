@@ -115,7 +115,6 @@ FC_switch_A_1:admin> portcfgspeed port number port speed
 
 +
 ** 使用 8-Gbps FC-VI 适配器时，应更改互连交换机端口速度，并且交换机端口速度应设置为 8 Gbps 。
-** 在 ATTO FibreBridge 6500N 中使用 8-Gbps HBA 适配器时，应更改交换机端口速度。
 ** 如果 ISL 无法以 16 Gbps 的速度运行，则必须更改 ISL 端口的速度。
 
 

@@ -1,0 +1,677 @@
+---
+permalink: maintain/task-power-on-and-power-off-a-fc-site.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, power, off, on, data, center, relocate, reconfigure, maintenance 
+summary: 您必须了解如何在MetroCluster FC配置中关闭和启动单个站点、以便进行站点维护或将站点重新定位到其他位置。 
+---
+= 关闭和启动MetroCluster FC配置中的单个站点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您需要在MetroCluster FC配置中执行站点维护或重新定位单个站点、则必须了解如何关闭和启动该站点。
+
+如果需要重新定位和重新配置站点(例如、如果需要从四节点集群扩展为八节点集群)、则无法同时完成这些任务。此操作步骤仅介绍在不更改站点配置的情况下执行站点维护或重新定位站点所需的步骤。
+
+下图显示了 MetroCluster 配置。cluster_B已关闭以进行维护。
+
+image::power-on-off-data-center.gif[关闭数据中心]
+
+
+
+== 关闭MetroCluster站点
+
+必须先关闭站点和所有设备，然后才能开始站点维护或重新定位。
+
+.关于此任务
+以下步骤中的所有命令都是从仍保持通电的站点发出的。
+
+.步骤
+. 开始之前，请检查站点上的任何非镜像聚合是否已脱机。
+. 在 ONTAP 中验证 MetroCluster 配置的运行情况：
++
+.. 检查系统是否为多路径：
++
+`node run -node _node-name_ sysconfig -a`
+
+.. 检查两个集群上是否存在任何运行状况警报：
++
+`s系统运行状况警报显示`
+
+.. 确认 MetroCluster 配置以及操作模式是否正常：
++
+`MetroCluster show`
+
+.. 执行 MetroCluster check ： + MetroCluster check run`
+.. 显示 MetroCluster 检查的结果：
++
+MetroCluster check show`
+
+.. 检查交换机上是否存在任何运行状况警报（如果存在）：
++
+`s存储开关显示`
+
+.. 运行 Config Advisor 。
++
+https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
+
+.. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
+
+
+. 从要保持正常运行的站点实施切换：
++
+`MetroCluster switchover`
+
++
+[listing]
+----
+cluster_A::*> metrocluster switchover
+----
++
+此操作可能需要几分钟才能完成。
+
++
+只有在聚合中的远程磁盘可访问的情况下、未镜像聚合才会在切换后联机。如果这些ISL发生故障、则本地节点可能无法访问未镜像远程磁盘中的数据。聚合故障可能会导致本地节点重新启动。
+
+. 监控并验证切换的完成情况：
++
+`MetroCluster 操作显示`
+
++
+[listing]
+----
+cluster_A::*> metrocluster operation show
+  Operation: Switchover
+ Start time: 10/4/2012 19:04:13
+State: in-progress
+   End time: -
+     Errors:
+
+cluster_A::*> metrocluster operation show
+  Operation: Switchover
+ Start time: 10/4/2012 19:04:13
+      State: successful
+   End time: 10/4/2012 19:04:22
+     Errors: -
+----
+. 将属于未镜像聚合的所有卷和LUN脱机移动。
++
+.. 使卷脱机。
++
+[listing]
+----
+cluster_A::* volume offline <volume name>
+----
+.. 将LUN置于脱机状态。
++
+[listing]
+----
+cluster_A::* lun offline lun_path <lun_path>
+----
+
+
+. 将未镜像聚合移至脱机状态：`s将聚合存储到脱机状态`
++
+[listing]
+----
+cluster_A*::> storage aggregate offline -aggregate <aggregate-name>
+----
+. 根据您的配置和 ONTAP 版本，确定位于灾难站点（ Cluster_B ）的受影响丛并将其脱机。
++
+您应将以下丛移至脱机状态：
+
++
+--
+** 位于灾难站点磁盘上的非镜像丛。
++
+如果不将灾难站点上的非镜像丛脱机、则在灾难站点稍后关闭时可能会发生中断。
+
+** 位于灾难站点上的磁盘上的镜像丛，用于聚合镜像。脱机后，丛将无法访问。
+
+
+--
++
+.. 确定受影响的丛。
++
+正常运行的站点上的节点所拥有的丛由 Pool1 磁盘组成。灾难站点上的节点所拥有的丛由 Pool0 磁盘组成。
+
++
+[listing]
+----
+Cluster_A::> storage aggregate plex show -fields aggregate,status,is-online,Plex,pool
+aggregate    plex  status        is-online pool
+------------ ----- ------------- --------- ----
+Node_B_1_aggr0 plex0 normal,active true     0
+Node_B_1_aggr0 plex1 normal,active true     1
+
+Node_B_2_aggr0 plex0 normal,active true     0
+Node_B_2_aggr0 plex5 normal,active true     1
+
+Node_B_1_aggr1 plex0 normal,active true     0
+Node_B_1_aggr1 plex3 normal,active true     1
+
+Node_B_2_aggr1 plex0 normal,active true     0
+Node_B_2_aggr1 plex1 normal,active true     1
+
+Node_A_1_aggr0 plex0 normal,active true     0
+Node_A_1_aggr0 plex4 normal,active true     1
+
+Node_A_1_aggr1 plex0 normal,active true     0
+Node_A_1_aggr1 plex1 normal,active true     1
+
+Node_A_2_aggr0 plex0 normal,active true     0
+Node_A_2_aggr0 plex4 normal,active true     1
+
+Node_A_2_aggr1 plex0 normal,active true     0
+Node_A_2_aggr1 plex1 normal,active true     1
+14 entries were displayed.
+
+Cluster_A::>
+----
++
+受影响的丛是集群 A 的远程丛下表显示了磁盘是位于集群 A 的本地磁盘还是远程磁盘：
+
++
+[cols="20,25,30,25"]
+|===
+
+
+| 节点 | 池中的磁盘 | 磁盘是否应设置为脱机？ | 要脱机的丛示例 
+
+
+ a| 
+节点 _A_1 和节点 _A_2
+ a| 
+池 0 中的磁盘
+ a| 
+否磁盘是集群 A 的本地磁盘
+ a| 
+-
+
+
+
+ a| 
+池 1 中的磁盘
+ a| 
+是的。磁盘对集群 A 来说是远程的
+ a| 
+node_A_1_aggr0/plex4.
+
+node_A_1_aggr1/plex1
+
+node_A_2_aggr0/plex4.
+
+node_A_2_aggr1/plex1
+
+
+
+ a| 
+节点 _B_1 和节点 _B_2
+ a| 
+池 0 中的磁盘
+ a| 
+是的。磁盘对集群 A 来说是远程的
+ a| 
+node_B_1_aggr1/plex0
+
+node_B_1_aggr0/plex0
+
+node_B_2_aggr0/plex0
+
+node_B_2_aggr1/plex0
+
+
+
+ a| 
+池 1 中的磁盘
+ a| 
+否磁盘是集群 A 的本地磁盘
+ a| 
+-
+
+|===
+.. 使受影响的丛脱机：
++
+`s存储聚合丛脱机`
+
++
+[listing]
+----
+storage aggregate plex offline -aggregate Node_B_1_aggr0 -plex plex0
+----
++
+
+NOTE: 对包含集群A远程磁盘的所有丛执行此步骤
+
+
+
+. 根据交换机类型使ISL交换机端口持久脱机。
++
+[cols="25,75"]
+|===
+
+
+| 交换机类型 | 操作 
+
+
+ a| 
+对于Brocade FC交换机...
+ a| 
+.. 使用 `portcfgpersistentdisable <port>` 命令以持久禁用端口、如以下示例所示。必须在运行正常的站点的两个交换机上执行此操作。
++
+[listing]
+----
+
+ Switch_A_1:admin> portcfgpersistentdisable 14
+ Switch_A_1:admin> portcfgpersistentdisable 15
+ Switch_A_1:admin>
+----
+.. 使用以下示例中所示的 `sswitchshow` 命令验证端口是否已禁用：
++
+[listing]
+----
+
+ Switch_A_1:admin> switchshow
+ switchName:	Switch_A_1
+ switchType:	109.1
+ switchState:	Online
+ switchMode:	Native
+ switchRole:	Principal
+ switchDomain:	2
+ switchId:	fffc02
+ switchWwn:	10:00:00:05:33:88:9c:68
+ zoning:		ON (T5_T6)
+ switchBeacon:	OFF
+ FC Router:	OFF
+ FC Router BB Fabric ID:	128
+ Address Mode:	0
+
+  Index Port Address Media Speed State     Proto
+  ==============================================
+   ...
+   14  14   020e00   id    16G   No_Light    FC  Disabled (Persistent)
+   15  15   020f00   id    16G   No_Light    FC  Disabled (Persistent)
+   ...
+ Switch_A_1:admin>
+----
+
+
+
+
+ a| 
+对于Cisco FC交换机...
+ a| 
+.. 使用 `interface` 命令持久禁用端口。以下示例显示端口 14 和 15 将被禁用：
++
+[listing]
+----
+
+ Switch_A_1# conf t
+ Switch_A_1(config)# interface fc1/14-15
+ Switch_A_1(config)# shut
+
+ Switch_A_1(config-if)# end
+ Switch_A_1# copy running-config startup-config
+----
+.. 使用 `show interface brief` 命令验证是否已禁用交换机端口，如以下示例所示：
++
+[listing]
+----
+
+ Switch_A_1# show interface brief
+ Switch_A_1
+----
+
+
+|===
+. 关闭灾难站点上的设备。
++
+必须按所示顺序关闭以下设备：
+
++
+** MetroCluster FC 交换机
+** 存储控制器—存储控制器当前应位于 `LOADER` 提示时、您必须将其完全关闭。
+** 存储架
+** ATto Fibre Bridge (如果有)
+
+
+
+
+
+
+== 重新定位 MetroCluster 的已关闭站点
+
+关闭站点后，您可以开始维护工作。无论 MetroCluster 组件是在同一数据中心内重新定位还是重新定位到不同数据中心，操作步骤都是相同的。
+
+* 硬件的布线方式应与上一站点相同。
+* 如果交换机间链路（ ISL ）的速度，长度或数量发生变化，则需要重新配置它们。
+
+
+.步骤
+. 验证是否已仔细记录所有组件的布线、以便可以在新位置正确重新连接。
+. 物理重新定位所有硬件、存储控制器、FC交换机、Fibre Bridge和存储架。
+. 配置 ISL 端口并验证站点间连接。
++
+.. 打开FC交换机的电源。
++
+
+NOTE: 请勿 * 打开 * 任何其他设备的电源。
+
+.. 启用端口。
++
+根据下表中正确的交换机类型启用端口：
+
++
+[cols="35,65"]
+|===
+
+
+| 交换机类型 | 命令 
+
+
+ a| 
+对于Brocade FC交换机...
+ a| 
+... 使用 `portcfgpersistentenable <port number>` 命令以持久启用端口。必须在运行正常的站点的两个交换机上执行此操作。
++
+以下示例显示 Switch_A_1 上的端口 14 和 15 处于启用状态。
+
++
+[listing]
+----
+switch_A_1:admin> portcfgpersistentenable 14
+switch_A_1:admin> portcfgpersistentenable 15
+switch_A_1:admin>
+----
+... 验证交换机端口是否已启用： `sswitchshow`
++
+以下示例显示端口 14 和 15 已启用：
+
++
+[listing]
+----
+switch_A_1:admin> switchshow
+switchName:	Switch_A_1
+switchType:	109.1
+
+switchState:	Online
+switchMode:	Native
+switchRole:	Principal
+switchDomain:	2
+switchId:	fffc02
+switchWwn:	10:00:00:05:33:88:9c:68
+zoning:		ON (T5_T6)
+switchBeacon:	OFF
+FC Router:	OFF
+FC Router BB Fabric ID:	128
+Address Mode:	0
+
+Index Port Address Media Speed State     Proto
+==============================================
+ ...
+ 14  14   020e00   id    16G   Online      FC  E-Port  10:00:00:05:33:86:89:cb "Switch_A_1"
+ 15  15   020f00   id    16G   Online      FC  E-Port  10:00:00:05:33:86:89:cb "Switch_A_1" (downstream)
+ ...
+switch_A_1:admin>
+----
+
+
+
+
+ a| 
+对于Cisco FC交换机...
+ a| 
+... 输入 `interface` 命令以启用此端口。
++
+以下示例显示 Switch_A_1 上的端口 14 和 15 处于启用状态。
+
++
+[listing]
+----
+
+ switch_A_1# conf t
+ switch_A_1(config)# interface fc1/14-15
+ switch_A_1(config)# no shut
+ switch_A_1(config-if)# end
+ switch_A_1# copy running-config startup-config
+----
+... 验证交换机端口是否已启用： `sHow interface brief`
++
+[listing]
+----
+
+ switch_A_1# show interface brief
+ switch_A_1#
+----
+
+
+|===
+
+
+. 使用交换机上的工具（如果有）验证站点间连接。
++
+
+NOTE: 只有在链路配置正确且稳定时、才应继续。
+
+. 如果发现链路处于稳定状态，请再次禁用这些链路。
++
+根据您使用的是 Brocade 还是 Cisco 交换机禁用端口，如下表所示：
+
++
+[cols="35,65"]
+|===
+
+
+| 交换机类型 | 命令 
+
+
+ a| 
+对于Brocade FC交换机...
+ a| 
+.. 输入 `portcfgpersistentdisable <port_number>` 命令以持久禁用端口。
++
+必须在运行正常的站点的两个交换机上执行此操作。以下示例显示 Switch_A_1 上的端口 14 和 15 将被禁用：
+
++
+[listing]
+----
+
+ switch_A_1:admin> portpersistentdisable 14
+ switch_A_1:admin> portpersistentdisable 15
+ switch_A_1:admin>
+----
+.. 验证交换机端口是否已禁用： `sswitchshow`
++
+以下示例显示端口 14 和 15 已禁用：
+
++
+[listing]
+----
+switch_A_1:admin> switchshow
+switchName:	Switch_A_1
+switchType:	109.1
+switchState:	Online
+switchMode:	Native
+switchRole:	Principal
+switchDomain:	2
+switchId:	fffc02
+switchWwn:	10:00:00:05:33:88:9c:68
+zoning:		ON (T5_T6)
+switchBeacon:	OFF
+FC Router:	OFF
+FC Router BB Fabric ID:	128
+Address Mode:	0
+
+ Index Port Address Media Speed State     Proto
+ ==============================================
+  ...
+  14  14   020e00   id    16G   No_Light    FC  Disabled (Persistent)
+  15  15   020f00   id    16G   No_Light    FC  Disabled (Persistent)
+  ...
+switch_A_1:admin>
+----
+
+
+
+
+ a| 
+对于Cisco FC交换机...
+ a| 
+.. 使用 `interface` 命令禁用端口。
++
+以下示例显示交换机 A_1 上的端口 fc1/14 和 fc1/15 将被禁用：
+
++
+[listing]
+----
+switch_A_1# conf t
+
+switch_A_1(config)# interface fc1/14-15
+switch_A_1(config)# shut
+switch_A_1(config-if)# end
+switch_A_1# copy running-config startup-config
+----
+.. 使用 `show interface brief` 命令验证是否已禁用交换机端口。
++
+[listing]
+----
+
+  switch_A_1# show interface brief
+  switch_A_1#
+----
+
+
+|===
+
+
+
+
+== 启动 MetroCluster 配置并恢复正常运行
+
+完成维护或移动站点后，您必须启动站点并重新建立 MetroCluster 配置。
+
+.关于此任务
+以下步骤中的所有命令都是从您启动的站点发出的。
+
+.步骤
+. 打开交换机的电源。
++
+您应首先打开交换机的电源。如果站点已重新定位，则它们可能已在上一步中启动。
+
++
+.. 如果需要或在重新定位过程中未完成此操作，请重新配置交换机间链路（ ISL ）。
+.. 如果隔离已完成，请启用 ISL 。
+.. 验证 ISL 。
+
+
+. 禁用FC交换机上的ISL。
+. 打开存储控制器的电源、然后等待直至看到 `LOADER` 提示符。控制器不能完全启动。
++
+如果启用了自动启动、请按 `Ctrl+C` 停止控制器自动启动。
+
+. 打开磁盘架的电源，并留出足够的时间使其完全启动。
+. 打开 FibreBridge 网桥的电源。
++
+.. 在 FC 交换机上，验证连接网桥的端口是否已联机。
++
+您可以对 Brocade 交换机使用 `sswitchshow` 和 `show interface brief` 等命令。
+
+.. 验证网桥上的磁盘架和磁盘是否清晰可见。
++
+您可以使用等命令 `sastargets` 在ATto命令行界面上。
+
+
+
+. 在 FC 交换机上启用 ISL 。
++
+根据您使用的是 Brocade 还是 Cisco 交换机启用端口，如下表所示：
+
++
+[cols="25,75"]
+|===
+
+
+| 交换机类型 | 命令 
+
+
+ a| 
+对于Brocade FC交换机...
+ a| 
+.. 输入 `portcfgpersistentenable <port>` 命令以持久启用端口。必须在运行正常的站点的两个交换机上执行此操作。
++
+以下示例显示 Switch_A_1 上的端口 14 和 15 处于启用状态：
+
++
+[listing]
+----
+
+ Switch_A_1:admin> portcfgpersistentenable 14
+ Switch_A_1:admin> portcfgpersistentenable 15
+ Switch_A_1:admin>
+----
+.. 使用 + `sswitchshow` 命令验证是否已启用交换机端口：
++
+[listing]
+----
+switch_A_1:admin> switchshow
+ switchName:	Switch_A_1
+ switchType:	109.1
+ switchState:	Online
+ switchMode:	Native
+ switchRole:	Principal
+ switchDomain:	2
+ switchId:	fffc02
+ switchWwn:	10:00:00:05:33:88:9c:68
+ zoning:		ON (T5_T6)
+ switchBeacon:	OFF
+ FC Router:	OFF
+ FC Router BB Fabric ID:	128
+ Address Mode:	0
+
+  Index Port Address Media Speed State     Proto
+  ==============================================
+   ...
+   14  14   020e00   id    16G   Online      FC  E-Port  10:00:00:05:33:86:89:cb "Switch_A_1"
+   15  15   020f00   id    16G   Online      FC  E-Port  10:00:00:05:33:86:89:cb "Switch_A_1" (downstream)
+   ...
+ switch_A_1:admin>
+----
+
+
+
+
+ a| 
+对于Cisco FC交换机...
+ a| 
+.. 使用 `interface` 命令启用端口。
++
+以下示例显示了交换机 A_1 上的端口 fc1/14 和 fc1/15 已启用：
+
++
+[listing]
+----
+
+ switch_A_1# conf t
+ switch_A_1(config)# interface fc1/14-15
+ switch_A_1(config)# no shut
+ switch_A_1(config-if)# end
+ switch_A_1# copy running-config startup-config
+----
+.. 验证交换机端口是否已禁用：
++
+[listing]
+----
+switch_A_1# show interface brief
+switch_A_1#
+----
+
+
+|===
+. 验证此存储是否可从正常运行的站点中看到。使脱机丛恢复联机。此操作将重新启动重新同步操作并重新建立 SyncMirror 。
+. 重新建立 MetroCluster 配置。
++
+按照中的说明进行操作 link:../disaster-recovery/task_recover_from_a_non_controller_failure_mcc_dr.html#verifying-that-your-system-is-ready-for-a-switchback["验证您的系统是否已做好切回准备"] 根据 MetroCluster 配置执行修复和切回操作。
+
+

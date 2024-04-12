@@ -107,9 +107,8 @@ NOTE: 请勿在 ATTO FibreBridge 7600N 或 7500N 上配置时间同步。在 ONT
 支持的 FC 数据速率取决于您的网桥型号。
 
 +
-*** FibreBridge 7600 网桥最多支持 32 ， 16 或 8 Gbps 。
-*** FibreBridge 7500 网桥最多支持 16 ， 8 或 4 Gbps 。
-*** FibreBridge 6500 网桥最多支持 8 ， 4 或 2 Gbps 。
+*** 此光纤桥接器7600N最多支持32、16或8 Gbps。
+*** 此光纤桥接器的速率高达16、8或4 Gbps。
 +
 
 NOTE: 您选择的 FCDataRate 速度限制为网桥端口所连接的控制器模块的网桥和 FC 端口均支持的最大速度。布线距离不得超过 SFP 和其他硬件的限制。
@@ -123,7 +122,7 @@ NOTE: 您选择的 FCDataRate 速度限制为网桥端口所连接的控制器�
 --
 
 
-.. 如果要配置 FibreBridge 7500N 或 6500N 网桥，请配置端口用于 ptp 的连接模式。
+.. 如果要配置一个光纤桥接器、请将端口使用的连接模式配置为"ptp-"。
 +
 
 NOTE: 配置 FibreBridge 7600N 网桥时，不需要 FCConnMode 设置。

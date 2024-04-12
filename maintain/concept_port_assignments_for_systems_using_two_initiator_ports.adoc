@@ -14,20 +14,18 @@ summary: 您可以使用每个网络结构的一个启动程序端口和每个�
 您可以使用每个网络结构的一个启动程序端口和每个控制器的两个启动程序端口来配置 FAS8020 ， AFF8020 ， FAS8200 和 AFF A300 系统。
 
 .关于此任务
-您只能使用一个 FC 端口（ FC1 或 FC2 ）对 FibreBridge 6500N 网桥或 FibreBridge 7500N 或 7600N 网桥进行布线。请仅连接两个启动程序，而不使用四个启动程序，并将连接到交换机端口的另外两个启动程序留空。
+您只能使用一个FC端口(FC1或FC2)来完成对光纤桥接500N或7600N网桥的布线。请仅连接两个启动程序，而不使用四个启动程序，并将连接到交换机端口的另外两个启动程序留空。
 
-您必须为 FibreBridge 6500N 网桥的配置应用正确的 RCF 文件。
+如果是手动执行分区、请遵循使用一个FC端口(FC1或FC2)的FBRIDBRIDGKIP 7500N或7600N网桥所使用的分区。在这种情况下，每个网络结构的每个分区成员都会添加一个启动程序端口，而不是两个。
 
-如果手动执行分区，则按照使用一个 FC 端口（ FC1 或 FC2 ）的 FibreBridge 6500N 或 FibreBridge 7500N 或 7600N 网桥所使用的分区进行操作。在这种情况下，每个网络结构的每个分区成员都会添加一个启动程序端口，而不是两个。
-
-您可以从中使用 FibreBridge 6500N 网桥热插拔操作步骤 _FibreBridge 6500N 网桥并使用 FibreBridge 7500N 或 7600N 网桥 _ 更改分区或从 FibreBridge 6500 升级到 FibreBridge 7500 link:../maintain/index.html["维护 MetroCluster 组件"]。
+您可以使用中的操作步骤更改分区或从一个光纤桥6500 N升级到一个光纤桥7500 N link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥"]。
 
 下表显示了使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配。
 
 |===
 
 
-4+| 仅使用一个 FC 端口（ FC1 或 FC2 ）的 FibreBridge 6500N 网桥或 FibreBridge 7500N 或 7600N 配置 
+4+| 仅使用一个FC端口(FC1或FC2)的光纤网桥7500N或7600N的配置 
 
 
 4+| MetroCluster 1 或 DR 组 1 

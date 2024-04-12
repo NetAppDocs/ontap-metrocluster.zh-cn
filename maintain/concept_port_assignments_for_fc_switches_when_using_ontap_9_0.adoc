@@ -89,7 +89,7 @@ summary: 在为 FC 交换机布线时，您需要验证是否正在使用指定�
 
 == 运行 ONTAP 9.0 的八节点 MetroCluster 配置中用于 FC-SAS 网桥连接的 Brocade 端口使用情况
 
-下表显示了使用 FibreBridge 7500 网桥时的网桥端口使用情况：
+下表显示了使用光纤桥接500N或7600N网桥时的网桥端口使用情况：
 
 |===
 | 网桥 | 网桥端口 | FC_switch_x_1 | FC_switch_x_2 
@@ -141,59 +141,6 @@ summary: 在为 FC 交换机布线时，您需要验证是否正在使用指定�
 
 
 | bridge_x_4b | FC2 | - | 19 
-|===
-下表显示了在 Brocade 6505 ， 6510 或 DCX 8510-8 交换机上使用 FibreBridge 6500 网桥时的网桥端口使用情况：
-
-|===
-| 网桥 | 端口 | FC_switch_x_1 | FC_switch_x_2 
-
-
-| bridge_x_1a | FC1 | 12 | - 
-
-
-| bridge_x_1b | FC1 | - | 12 
-
-
-| bridge_x_2a | FC1 | 13 | - 
-
-
-| bridge_x_2b | FC1 | - | 13 
-
-
-| bridge_x_3a | FC1 | 14 | - 
-
-
-| bridge_x_3b | FC1 | - | 14 
-
-
-| bridge_x_4a | FC1 | 15 | - 
-
-
-| bridge_x_4b | FC1 | - | 15 
-
-
-| bridge_x_5a | FC1 | 16. | - 
-
-
-| bridge_x_5b | FC1 | - | 16. 
-
-
-| bridge_x_6a | FC1 | 17 | - 
-
-
-| bridge_x_6b. | FC1 | - | 17 
-
-
-| bridge_x_7a | FC1 | 18 | - 
-
-
-| bridge_x_7b | FC1 | - | 18 
-
-
-| bridge_x_8a | FC1 | 19 | - 
-
-
-| bridge_x_8b | FC1 | - | 19 
 |===
 
 
@@ -267,7 +214,7 @@ summary: 在为 FC 交换机布线时，您需要验证是否正在使用指定�
 
 交换机网络结构中的每个 FC 交换机的布线方式相同。
 
-下表显示了使用 FibreBridge 7500 网桥时网桥端口使用情况，最多可达端口 17 。可以使用缆线将其他网桥连接到端口 18 到 23 。
+下表显示了使用光纤桥接500N或7600N网桥时网桥端口使用情况(截至端口17)。可以使用缆线将其他网桥连接到端口 18 到 23 。
 
 |===
 | FibreBridge 7500 网桥 | 端口 | FC_switch_x_1 （ 6510 或 DCX 8510-8 ） | FC_switch_x_2 （ 6510 或 DCX 8510-8 ） | FC_switch_x_1 （ 6505 ） | FC_switch_x_2 （ 6505 ） 
@@ -323,62 +270,6 @@ summary: 在为 FC 交换机布线时，您需要验证是否正在使用指定�
 
 |  |  | 可以使用缆线将其他网桥连接到端口 19 ，然后连接到端口 24 到 47 |  |  |  
 |===
-下表显示了使用 FibreBridge 6500 网桥时的网桥端口使用情况：
-
-|===
-|  | 6500N 网桥端口 | FC_switch_x_1 （ 6510 或 DCX 8510-8 ） | FC_switch_x_2 （ 6510 或 DCX 8510-8 ） | FC_switch_x_1 （ 6505 ） | FC_switch_x_2 （ 6505 ） 
-
-
-| bridge_x_1a | FC1 | 6. | - | 6. | - 
-
-
-| bridge_x_1b | FC1 | - | 6. | - | 6. 
-
-
-| bridge_x_2a | FC1 | 7. | - | 7. | - 
-
-
-| bridge_x_2b | FC1 | - | 7. | - | 7. 
-
-
-| bridge_x_3a | FC1 | 8. | - | 12 | - 
-
-
-| bridge_x_3b | FC1 | - | 8. | - | 12 
-
-
-| bridge_x_4a | FC1 | 9 | - | 13 | - 
-
-
-| bridge_x_4b | FC1 | - | 9 | - | 13 
-
-
-| bridge_x_5a | FC1 | 10 | - | 14 | - 
-
-
-| bridge_x_5b | FC1 | - | 10 | - | 14 
-
-
-| bridge_x_6a | FC1 | 11. | - | 15 | - 
-
-
-| bridge_x_6b. | FC1 | - | 11. | - | 15 
-
-
-| bridge_x_7a | FC1 | 12 | - | 16. | - 
-
-
-| bridge_x_7b | FC1 | - | 12 | - | 16. 
-
-
-| bridge_x_8a | FC1 | 13 | - | 17 | - 
-
-
-| bridge_x_8b | FC1 | - | 13 | - | 17 
-
-
-|  |  | 可以使用缆线将其他网桥连接到端口 19 ，然后连接到端口 24 到 47 |  | 可以通过端口 23 为其他网桥布线 |  
-|===
 
 
 == 运行 ONTAP 9.0 的四节点 MetroCluster 配置中的 ISL 的 Brocade 端口使用情况
@@ -433,7 +324,7 @@ summary: 在为 FC 交换机布线时，您需要验证是否正在使用指定�
 
 交换机网络结构中的每个 FC 交换机的布线方式相同。
 
-下表显示了在 Brocade 6505 ， 6510 和 DCX 8510-8 交换机上使用 FibreBridge 7500 网桥时，网桥端口使用情况，最高可达端口 17 。可以使用缆线将其他网桥连接到端口 18 到 23 。
+下表显示了在Brocade 6505、6510和DCX 8510-8交换机上使用光纤桥接7500 N或7600N网桥时、截至端口17的网桥端口使用情况。可以使用缆线将其他网桥连接到端口 18 到 23 。
 
 |===
 | FibreBridge 7500 网桥 | 端口 | FC_switch_x_1 （ 6510 或 DCX 8510-8 ） | FC_switch_x_2 （ 6510 或 DCX 8510-8 ） | FC_switch_x_1 （ 6505 ） | FC_switch_x_2 （ 6505 ） 
@@ -485,62 +376,6 @@ summary: 在为 FC 交换机布线时，您需要验证是否正在使用指定�
 
 
 | bridge_x_4b | FC2 | - | 13 | - | 17 
-
-
-|  |  | 可以使用缆线将其他网桥连接到端口 19 ，然后连接到端口 24 到 47 |  | 可以通过端口 23 为其他网桥布线 |  
-|===
-下表显示了在 Brocade 6505 ， 6510 和 DCX 8510-8 交换机上使用 FibreBridge 6500 网桥时的网桥端口使用情况：
-
-|===
-| FibreBridge 6500 网桥 | 端口 | FC_switch_x_1 （ 6510 或 DCX 8510-8 ） | FC_switch_x_2 （ 6510 或 DCX 8510-8 ） | FC_switch_x_1 （ 6505 ） | FC_switch_x_2 （ 6505 ） 
-
-
-| bridge_x_1a | FC1 | 6. | - | 6. | - 
-
-
-| bridge_x_1b | FC1 | - | 6. | - | 6. 
-
-
-| bridge_x_2a | FC1 | 7. | - | 7. | - 
-
-
-| bridge_x_2b | FC1 | - | 7. | - | 7. 
-
-
-| bridge_x_3a | FC1 | 8. | - | 12 | - 
-
-
-| bridge_x_3b | FC1 | - | 8. | - | 12 
-
-
-| bridge_x_4a | FC1 | 9 | - | 13 | - 
-
-
-| bridge_x_4b | FC1 | - | 9 | - | 13 
-
-
-| bridge_x_5a | FC1 | 10 | - | 14 | - 
-
-
-| bridge_x_5b | FC1 | - | 10 | - | 14 
-
-
-| bridge_x_6a | FC1 | 11. | - | 15 | - 
-
-
-| bridge_x_6b. | FC1 | - | 11. | - | 15 
-
-
-| bridge_x_7a | FC1 | 12 | - | 16. | - 
-
-
-| bridge_x_7b | FC1 | - | 12 | - | 16. 
-
-
-| bridge_x_8a | FC1 | 13 | - | 17 | - 
-
-
-| bridge_x_8b | FC1 | - | 13 | - | 17 
 
 
 |  |  | 可以使用缆线将其他网桥连接到端口 19 ，然后连接到端口 24 到 47 |  | 可以通过端口 23 为其他网桥布线 |  
@@ -615,7 +450,7 @@ summary: 在为 FC 交换机布线时，您需要验证是否正在使用指定�
 
 == 运行 ONTAP 9.0 的八节点 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况
 
-下表显示了在使用 Cisco 9148 或 9148S 交换机时使用 FibreBridge 7500 网桥时桥端口使用情况，最多为端口 23 。可以使用端口 25 到 48 连接其他网桥。
+下表显示了在使用Cisco 9148或9148S交换机的同时使用光纤桥接7500 N或7600N网桥时、截至端口23的网桥端口使用情况。
 
 |===
 | FibreBridge 7500 网桥 | 端口 | FC_switch_x_1 | FC_switch_x_2 
@@ -667,61 +502,6 @@ summary: 在为 FC 交换机布线时，您需要验证是否正在使用指定�
 
 
 | bridge_x_4b | FC2 | - | - 
-|===
-可以按相同模式使用端口 25 到 48 连接其他网桥。
-
-下表显示了在 Cisco 9148 或 9148S 交换机上使用 FibreBridge 6500 网桥时，网桥端口使用情况，最多为端口 23 。可以使用端口 25-48 连接其他网桥。
-
-|===
-| FibreBridge 6500 网桥 | 端口 | FC_switch_x_1 | FC_switch_x_2 
-
-
-| bridge_x_1a | FC1 | 14 | - 
-
-
-| bridge_x_1b | FC1 | - | 14 
-
-
-| bridge_x_2a | FC1 | 15 | - 
-
-
-| bridge_x_2b | FC1 | - | 15 
-
-
-| bridge_x_3a | FC1 | 17 | - 
-
-
-| bridge_x_3b | FC1 | - | 17 
-
-
-| bridge_x_4a | FC1 | 18 | - 
-
-
-| bridge_x_4b | FC1 | - | 18 
-
-
-| bridge_x_5a | FC1 | 19 | - 
-
-
-| bridge_x_5b | FC1 | - | 19 
-
-
-| bridge_x_6a | FC1 | 21 | - 
-
-
-| bridge_x_6b. | FC1 | - | 21 
-
-
-| bridge_x_7a | FC1 | 22. | - 
-
-
-| bridge_x_7b | FC1 | - | 22. 
-
-
-| bridge_x_8a | FC1 | 23 | - 
-
-
-| bridge_x_8b | FC1 | - | 23 
 |===
 可以按相同模式使用端口 25 到 48 连接其他网桥。
 
@@ -797,7 +577,7 @@ summary: 在为 FC 交换机布线时，您需要验证是否正在使用指定�
 
 == 运行 ONTAP 9.0 的四节点 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况
 
-下表显示了在 Cisco 9148 ， 9148S 或 9250i 交换机上使用 FibreBridge 7500 网桥时桥端口使用情况，最多为端口 14 。可以按相同模式将其他网桥连接到端口 15 到 32 。
+下表显示了在Cisco 9148、9148S或9250i交换机上使用光纤桥接7500 N或7600N网桥时、网桥端口使用情况(截至端口14)。可以按相同模式将其他网桥连接到端口 15 到 32 。
 
 |===
 | FibreBridge 7500 网桥 | 端口 | FC_switch_x_1 | FC_switch_x_2 
@@ -850,61 +630,6 @@ summary: 在为 FC 交换机布线时，您需要验证是否正在使用指定�
 
 | bridge_x_4b | FC2 | - | 14 
 |===
-下表显示了在 Cisco 9148 ， 9148S 或 9250i 交换机上使用 FibreBridge 6500 网桥到端口 14 时的网桥端口使用情况。可以按相同模式将其他网桥连接到端口 15 到 32 。
-
-|===
-| FibreBridge 6500 网桥 | 端口 | FC_switch_x_1 | FC_switch_x_2 
-
-
-| bridge_x_1a | FC1 | 7. | - 
-
-
-| bridge_x_1b | FC1 | - | 7. 
-
-
-| bridge_x_2a | FC1 | 8. | - 
-
-
-| bridge_x_2b | FC1 | - | 8. 
-
-
-| bridge_x_3a | FC1 | 9 | - 
-
-
-| bridge_x_3b | FC1 | - | 9 
-
-
-| bridge_x_4a | FC1 | 10 | - 
-
-
-| bridge_x_4b | FC1 | - | 10 
-
-
-| bridge_x_5a | FC1 | 11. | - 
-
-
-| bridge_x_5b | FC1 | - | 11. 
-
-
-| bridge_x_6a | FC1 | 12 | - 
-
-
-| bridge_x_6b. | FC1 | - | 12 
-
-
-| bridge_x_7a | FC1 | 13 | - 
-
-
-| bridge_x_7b | FC1 | - | 13 
-
-
-| bridge_x_8a | FC1 | 14 | - 
-
-
-| bridge_x_8b | FC1 | - | 14 
-|===
-可以按相同模式将其他网桥连接到端口 15 到 32 。
-
 
 
 == 运行 ONTAP 9.0 的四节点 MetroCluster 配置中用于 ISL 的 Cisco 9148 和 9148S 端口使用情况
@@ -969,7 +694,7 @@ Cisco 9250i 交换机对 ISL 使用 FCIP 端口。
 
 == 运行 ONTAP 9.0 的双节点 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况
 
-下表显示了在 Cisco 9148 ， 9148S 和 9250i 交换机上使用 FibreBridge 7500 网桥时桥端口使用情况，最多为端口 14 。可以按相同模式将其他网桥连接到端口 15 到 32 。
+下表显示了在Cisco 9148、9148S和9250i交换机上使用光纤桥接7500 N或7600N网桥时、截至端口14的网桥端口使用情况。可以按相同模式将其他网桥连接到端口 15 到 32 。
 
 |===
 | FibreBridge 7500 网桥 | 端口 | FC_switch_x_1 | FC_switch_x_2 
@@ -1022,61 +747,6 @@ Cisco 9250i 交换机对 ISL 使用 FCIP 端口。
 
 | bridge_x_4b | FC2 | - | 14 
 |===
-下表显示了在 Cisco 9148 ， 9148S 或 9250i 交换机上使用 FibreBridge 6500 网桥到端口 14 时的网桥端口使用情况。可以按相同模式将其他网桥连接到端口 15 到 32 。
-
-|===
-| FibreBridge 6500 网桥 | 端口 | FC_switch_x_1 | FC_switch_x_2 
-
-
-| bridge_x_1a | FC1 | 7. | - 
-
-
-| bridge_x_1b | FC1 | - | 7. 
-
-
-| bridge_x_2a | FC1 | 8. | - 
-
-
-| bridge_x_2b | FC1 | - | 8. 
-
-
-| bridge_x_3a | FC1 | 9 | - 
-
-
-| bridge_x_3b | FC1 | - | 9 
-
-
-| bridge_x_4a | FC1 | 10 | - 
-
-
-| bridge_x_4b | FC1 | - | 10 
-
-
-| bridge_x_5a | FC1 | 11. | - 
-
-
-| bridge_x_5b | FC1 | - | 11. 
-
-
-| bridge_x_6a | FC1 | 12 | - 
-
-
-| bridge_x_6b. | FC1 | - | 12 
-
-
-| bridge_x_7a | FC1 | 13 | - 
-
-
-| bridge_x_7b | FC1 | - | 13 
-
-
-| bridge_x_8a | FC1 | 14 | - 
-
-
-| bridge_x_8b | FC1 | - | 14 
-|===
-可以按相同模式将其他网桥连接到端口 15 到 32 。
-
 
 
 == 运行 ONTAP 9.0 的双节点 MetroCluster 配置中用于 ISL 的 Cisco 9148 或 9148S 端口使用情况

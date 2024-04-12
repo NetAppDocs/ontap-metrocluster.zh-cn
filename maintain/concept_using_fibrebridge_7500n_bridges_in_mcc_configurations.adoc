@@ -28,7 +28,7 @@ NOTE: 运行 ONTAP 9.8 及更高版本的配置不支持 FibreBridge 6500N 网�
  a| 
 FibreBridge 7500N 网桥的配置必须与 FibreBridge 6500N 网桥完全相同，使用一个 FC 端口并连接到一个堆栈。不得使用 FibreBridge 7500N 上的第二个 FC 端口。
  a| 
-link:task_replace_a_sle_fc_to_sas_bridge.html["热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥"]
+link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥"]
 
 
 

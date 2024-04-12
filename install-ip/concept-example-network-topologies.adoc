@@ -10,6 +10,7 @@ summary: 从ONTAP 9.6开始、MetroCluster IP配置还支持其他一些网络�
 :imagesdir: ../media/
 
 
+[role="lead"]
 从ONTAP 9.6开始、MetroCluster IP配置还支持其他一些网络配置。本节提供了一些受支持网络配置的示例。并未列出所有受支持的拓扑。
 
 在这些拓扑中、假定ISL和中间网络是根据中所述的要求配置的 link:concept-requirements-isls.html["ISL 注意事项"]。

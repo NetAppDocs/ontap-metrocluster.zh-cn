@@ -10,6 +10,7 @@ summary: '本节介绍在所有MetroCluster IP配置和网络拓扑上传输Metr
 :imagesdir: ../media/
 
 
+[role="lead"]
 在所有MetroCluster IP配置和网络拓扑上传输MetroCluster流量的交换机间链路(inter-Switch Link、ISL)具有特定要求。这些要求适用于传输MetroCluster流量的所有CRL、无论这些CRL是直接传输还是在客户交换机之间共享。
 
 

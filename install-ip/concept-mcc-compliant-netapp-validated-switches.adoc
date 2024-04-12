@@ -8,6 +8,7 @@ summary: 本节提供了验证MetroCluster配置和网络是否满足所有要�
 :allow-uri-read: 
 
 
+[role="lead"]
 您的配置中使用的所有交换机(包括后端交换机)都必须经过NetApp验证或符合MetroCluster。
 
 

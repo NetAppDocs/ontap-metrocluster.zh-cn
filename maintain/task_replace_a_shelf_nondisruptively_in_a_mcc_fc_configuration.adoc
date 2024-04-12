@@ -103,10 +103,6 @@ FC_switch_A_2(config)# end
 ----
 ** 如果网桥连接两个或更多 SAS 堆栈，请禁用将网桥连接到目标磁盘架的 SAS 端口： + `SASportDisable _port number_`
 +
-
-NOTE: 这不适用于 FibreBridge 6500 网桥。
-
-+
 以下示例显示了连接四个 SAS 堆栈的一对网桥。SAS 堆栈 2 包含目标磁盘架：
 
 +
@@ -252,9 +248,6 @@ SASPortEnable A
 SAS Port A has been enabled.
 ----
 
-
-
-NOTE: 这不适用于 ATTO 6500 FibreBridge 。
 
 |===
 . 如果您之前禁用了交换机端口，请验证这些端口是否已启用并联机，以及所有设备是否已正确登录：

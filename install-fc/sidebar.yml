@@ -104,7 +104,7 @@ entries:
     - title: 手动配置 Cisco FC 交换机
       url: "/install-fc/task_fcsw_cisco_configure_a_cisco_switch_supertask.html"
   - title: 安装 FC-SAS 网桥和 SAS 磁盘架
-    url: "/install-fc/task_fb_new_install.html"
+    url: "/install-fc/task_install_fc_sas_bridges_shelves.html"
 - title: 配置硬件，以便在过渡期间共享 Brocade 6510 FC 网络结构
   entries:
   - title: 概述

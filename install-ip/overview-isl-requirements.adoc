@@ -8,6 +8,7 @@ summary: 了解验证MetroCluster配置和网络是否满足所有ISL要求所�
 :allow-uri-read: 
 
 
+[role="lead"]
 您应验证MetroCluster IP配置和网络是否满足所有交换机间链路(ISL)要求。虽然某些要求可能不适用于您的配置、但您仍应了解所有ISL要求、以便更好地了解整体配置。
 
 下表概述了本节所涵盖的主题。

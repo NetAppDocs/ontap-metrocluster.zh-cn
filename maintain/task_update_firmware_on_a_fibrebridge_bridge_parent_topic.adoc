@@ -258,9 +258,9 @@ flashimages
 
 
 
-== 更新运行 ONTAP 9.3.x 及更早版本或 6500N 网桥的配置中 FibreBridge 7500N 上的固件
+== 更新运行ONTAP 9.3.x及更早版本的配置中的光纤桥7500N上的固件
 
-您可能需要更新 FibreBridge 网桥上的固件，以确保具有最新功能或解决可能的问题。在运行 ONTAP 9.3.x 的配置中，应将此操作步骤用于 FibreBridge 7500N ；在所有受支持的 ONTAP 版本中，此 应用于 FibreBridge 6500N 网桥。
+您可能需要更新您的光纤桥接器上的固件、以验证是否具有最新功能或解决可能的问题。在运行ONTAP 9.3.x的配置中、应将此操作步骤用于光纤桥接7500
 
 .开始之前
 * MetroCluster 配置必须运行正常。
@@ -276,7 +276,7 @@ https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
 
 
 
-您可以对 FibreBridge 7500N 或 6500N 网桥使用此任务。从 ONTAP 9.3 开始，您可以使用 ONTAP storage bridge firmware update 命令更新 FibreBridge 7500N 网桥上的网桥固件。
+从 ONTAP 9.3 开始，您可以使用 ONTAP storage bridge firmware update 命令更新 FibreBridge 7500N 网桥上的网桥固件。
 
 link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["更新运行 ONTAP 9.4 及更高版本的配置中 FibreBridge 7600N 或 7500N 网桥上的固件"]
 
@@ -305,17 +305,15 @@ https://mysupport.netapp.com/site/products/all/details/atto-fibrebridge/download
 . 为 ATTO FibreBridge 固件下载页面和发行说明创建一份副本，以供您在更新每个网桥上的固件时参考。
 . 更新网桥：
 +
-.. 在 FibreBridge 网桥上安装固件。
+.. 在光纤桥接器上安装固件。
 +
-*** 如果您使用的是 ATTO FibreBridge 7500N 网桥，请参见 _ATTO FibreBridge 7500N 安装和操作手册 _ 的 "`更新固件` " 一节中提供的说明。
-*** 如果您使用的是 ATTO FibreBridge 6500N 网桥，请参见 _ATTO FibreBridge 6500N 安装和操作手册 _ 的 "`更新固件` " 一节中提供的说明。
+您应参考_ATto Firbridge 7500N安装和操作手册_的"`更新固件`"部分中提供的说明。
+
 +
 * 注意： * 请确保现在重新启动各个网桥。如果您等待并同时重新启动堆栈中的两个网桥，则控制器可能无法访问驱动器，从而导致丛故障或多磁盘崩溃。
 
 +
 网桥应重新启动。
-
-
 
 .. 从任一控制器的控制台中，验证网桥是否已正确重新启动：
 +

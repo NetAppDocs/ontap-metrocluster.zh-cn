@@ -74,10 +74,10 @@ ONTAP 集群通常包含一个集群互连网络，用于传输集群中节点�
 
 image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[MCC IP 硬件架构 IP 互连]
 
-MetroCluster IP 配置中的每个节点都具有专用的 LIF ，用于连接到后端 IP 网络：
+MetroCluster IP配置中的每个节点都有专用接口、用于连接到后端IP网络：
 
 * 两个 MetroCluster IP 接口
-* 一个集群间 LIF
+* 两个本地集群接口
 
 
 下图显示了这些接口。显示的端口使用情况适用于 AFF A700 或 FAS9000 系统。

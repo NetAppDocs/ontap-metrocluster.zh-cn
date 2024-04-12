@@ -86,7 +86,6 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 NOTE: 运行 ONTAP 9.8 及更高版本的配置不支持 FibreBridge 6500N 网桥。
 
 * FibreBridge 7600N 和 7500N 网桥最多支持四个 SAS 堆栈。
-* FibreBridge 6500N 网桥仅支持一个 SAS 堆栈。
 * 每个堆栈可以使用不同型号的 IOM ，但一个堆栈中的所有磁盘架都必须使用相同型号。
 +
 支持的 IOM 型号取决于您运行的 ONTAP 版本。

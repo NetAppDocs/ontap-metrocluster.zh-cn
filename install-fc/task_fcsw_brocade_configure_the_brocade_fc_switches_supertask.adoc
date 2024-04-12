@@ -1725,7 +1725,7 @@ Port   Configured    Active   Configured   Active  Speed
 
 == 在 Brocade FC 交换机上配置分区
 
-您必须将交换机端口分配给不同的分区，以隔离控制器和存储流量。根据您使用的是 FibreBridge 7500N 网桥还是 FibreBridge 6500N 网桥，操作步骤会有所不同。
+您必须将交换机端口分配给不同的分区，以隔离控制器和存储流量。
 
 
 
@@ -1947,9 +1947,9 @@ QOSH2_MC1_FAB_2_FCVI （ 6520 ）
 |===
 
 
-=== 使用一个 FC 端口为 FibreBridge 6500N 网桥， FibreBridge 7500N 或 7600N 网桥分区
+=== 使用一个FC端口的光纤桥接7500 N或7600N网桥的分区
 
-如果您仅使用两个 FC 端口之一使用 FibreBridge 6500N 网桥，或 FibreBridge 7500N 或 7600N 网桥，则需要为网桥端口创建存储分区。在配置分区之前，您应了解分区和关联的端口。
+如果您使用的是仅使用两个FC端口之一的光纤桥接7500 N或7600N、则需要为这些网桥端口创建存储分区。在配置分区之前，您应了解分区和关联的端口。
 
 这些示例仅显示 DR 组 1 的分区。如果您的配置包含第二个 DR 组，请使用控制器和网桥的相应端口以相同的方式为第二个 DR 组配置分区。
 
@@ -1999,7 +1999,6 @@ A 或 B
 +
 堆栈组包含的存储架不能超过 10 个。
 
-* FibreBridge 6500N 网桥仅支持堆栈组中的一个堆栈。
 
  a| 
 1 ， 2 等
@@ -2443,7 +2442,6 @@ A 或 B
 +
 堆栈组包含的存储架不能超过 10 个。
 
-* FibreBridge 6500N 网桥仅支持堆栈组中的一个堆栈。
 
  a| 
 1 ， 2 等
@@ -4294,7 +4292,7 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_2_BOT_FC2
 
 link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["FC-VI 端口的分区"]
 
-link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["使用一个 FC 端口为 FibreBridge 6500N 网桥， FibreBridge 7500N 或 7600N 网桥分区"]
+link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["使用一个FC端口的光纤桥接7500 N或7600N网桥的分区"]
 
 link:task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["使用两个 FC 端口的 FibreBridge 7500N 网桥的分区"]
 
