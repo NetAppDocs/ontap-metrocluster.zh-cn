@@ -947,7 +947,6 @@
   <block id="4a18eaea016103675a5da405a57fbed8" category="paragraph">如果满足以下条件，也可以使用此操作步骤：</block>
   <block id="49304b5a3e77f6b22f9f39b8cf0e1186" category="list-text">您要更换一对连接到同一 SAS 存储堆栈的 FibreBridge 6500N 网桥。</block>
   <block id="520879137e3e1dd05fc10803bb01fbcd" category="list-text">您先前已更换此网桥对中的一个 FibreBridge 6500N 网桥，而您的存储堆栈配置了一个 FibreBridge 6500N 网桥和一个 FibreBridge 7600N 或 7500N 网桥。</block>
-  <block id="73152dad4acad3208bc063c3951344c5" category="paragraph">在这种情况下，您应从以下步骤开始，将 "`底部` " FibreBridge 6500N 网桥热插拔为 FibreBridge 7600N 或 7500N 网桥。</block>
   <block id="f9c1933f3b94ffee14ef186b2709352c" category="paragraph">下图显示了一个初始配置示例，其中四个 FibreBridge 6500N 网桥连接两个 SAS 存储堆栈：</block>
   <block id="3dcba5083263c26dc21f695136013a58" category="image-alt">以前整合堆栈</block>
   <block id="dc876c7ff2512b544d84916000f3f0d0" category="list-text">将 FibreBridge 7600N 或 7500N 网桥 FC1 端口连接到交换机或控制器。</block>
@@ -13429,8 +13428,6 @@
   <block id="480cf83fd6c463ccef2ed2a9d0dce2c4" category="list-text">输入<block ref="bedfcd4488b13f5b7062e121a6a8baa5" prefix=" " category="inline-code"></block> 命令以持久启用端口。必须在运行正常的站点的两个交换机上执行此操作。</block>
   <block id="9d1a338762e03c980c82e8098eb03744" category="list-text">验证此存储是否可从正常运行的站点中看到。使脱机丛恢复联机。此操作将重新启动重新同步操作并重新建立 SyncMirror 。</block>
   <block id="9f6a23c1abc971d714730192ce961b96" category="paragraph">按照中的说明进行操作 <block ref="9c0d52e0ce7a57d643217990aba10043" category="inline-link-macro-rx"></block> 根据 MetroCluster 配置执行修复和切回操作。</block>
-  <block id="92833b015ed412068659d576a7df1599" category="list-text">按照以下准则，使用中的操作步骤热插拔 "`Top` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 <block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block>：</block>
-  <block id="3753c208918127350b444c3dc052115f" category="list-text">按照以下准则，使用中的操作步骤热插拔 "`底部` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 <block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block>：</block>
   <block id="0b4bc6296d77be28e33d3b50e0ea0797" category="paragraph"><block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block></block>
   <block id="e49bc35e0118f2b5a5904c13e1833761" category="section-title">更新运行ONTAP 9.3.x及更早版本的配置中的光纤桥7500N上的固件</block>
   <block id="1a5e839afe7a716dd2640f7fdb69669a" category="paragraph">您可能需要更新您的光纤桥接器上的固件、以验证是否具有最新功能或解决可能的问题。在运行ONTAP 9.3.x的配置中、应将此操作步骤用于光纤桥接7500</block>
@@ -13458,4 +13455,11 @@
   <block id="ad1b97f0744b9c154b01cc69afb505d7" category="list-text">两个本地集群接口</block>
   <block id="861e1910edbd7f3e677dab91f10869b0" category="sidebar">关闭和启动单个MetroCluster站点</block>
   <block id="b54f4d527d126f4e54869800ed0e43ac" category="sidebar">关闭整个MetroCluster配置</block>
+  <block id="3918b9a89aceefd41e40355d1f97ba48" category="list-text">重新启动每个新节点：</block>
+  <block id="fedca74b48d819e0ff016411f2964078" category="paragraph"><block ref="d690f5fb4faed2f81ce54caed818eaf8" prefix="" category="inline-code"></block></block>
+  <block id="0266a1f477a71d63c95d6ad418f2a596" category="paragraph">您可以使用中的操作步骤更改分区或从一个光纤桥6500 N升级到一个光纤桥7500 N <block ref="7352d8244ff0bfad7d2b5214b0bb9616" category="inline-link-macro-rx"></block>。</block>
+  <block id="72a027f2830c7a189cc919fbbc72c98b" category="paragraph">在这种情况下、您应从以下步骤开始、将底部的光纤桥接器(即、底部的光纤桥接器)热插拔为一个光纤桥接器(即、7600N或7500N)。</block>
+  <block id="5a74832dfdf0bb3064f1c60224b5cf2a" category="list-text">按照以下准则、使用中的操作步骤热插拔顶部的FBRIDBRIDge 6500N网桥以更换为FBRIDBRIDge 7600N或7500N网桥 <block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block>：</block>
+  <block id="ea8d3ee31ee0fcdd012de17493f6fb2c" category="list-text">按照以下准则、使用中的操作步骤热插拔底部的FBRIDGE 6500N网桥以更换为FBRIDGE 7600N或7500N网桥 <block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block>：</block>
+  <block id="16bdceed077292999c9190c699d66beb" category="list-text">修改所有集群的Sifs以重新启用自动还原：</block>
 </blocks>

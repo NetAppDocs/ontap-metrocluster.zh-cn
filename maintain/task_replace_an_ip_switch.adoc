@@ -137,6 +137,15 @@ NOTE: 如果要升级或降级交换机，则必须配置网络中的所有交�
 +
 ` * 网络端口显示 *`
 
++
+.. 修改所有集群的Sifs以禁用自动还原：
++
+[source, asciidoc]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name> -auto-revert false
+----
+
+
 . [[existing_Step4]]断开与旧交换机的连接。
 +
 
@@ -146,12 +155,6 @@ NOTE: 您只能断开在旧配置和新配置中使用不同端口的连接。�
 按以下顺序删除连接：
 
 +
-.. 修改所有集群的Sifs以禁用自动还原：
-+
-[source, asciidoc]
-----
-net int modify -vserver <vserver_name> -lif <lif_name> -auto-revert false
-----
 .. 断开本地集群接口的连接
 .. 断开本地集群ISO的连接
 .. 断开MetroCluster IP接口
@@ -228,6 +231,12 @@ NOTE: 除管理接口(如果使用)外、请勿*使用缆线连接新交换机�
 
 NOTE: 如果要升级或降级网络，请对第二个网络重复所有步骤。
 
+. 修改所有集群的Sifs以重新启用自动还原：
++
+[source, asciidoc]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name> -auto-revert true
+----
 . (可选)移动NS224磁盘架。
 +
 如果要重新配置的MetroCluster IP配置未将NS224磁盘架连接到MetroCluster IP交换机、请使用相应的操作步骤 添加或移动NS224磁盘架：

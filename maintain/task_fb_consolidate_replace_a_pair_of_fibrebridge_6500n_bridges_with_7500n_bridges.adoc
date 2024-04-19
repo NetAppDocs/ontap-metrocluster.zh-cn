@@ -109,7 +109,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 * 您要更换一对连接到同一 SAS 存储堆栈的 FibreBridge 6500N 网桥。
 * 您先前已更换此网桥对中的一个 FibreBridge 6500N 网桥，而您的存储堆栈配置了一个 FibreBridge 6500N 网桥和一个 FibreBridge 7600N 或 7500N 网桥。
 +
-在这种情况下，您应从以下步骤开始，将 "`底部` " FibreBridge 6500N 网桥热插拔为 FibreBridge 7600N 或 7500N 网桥。
+在这种情况下、您应从以下步骤开始、将底部的光纤桥接器(即、底部的光纤桥接器)热插拔为一个光纤桥接器(即、7600N或7500N)。
 
 
 
@@ -118,7 +118,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 image::../media/consolidating_stacks_before.gif[以前整合堆栈]
 
 .步骤
-. 按照以下准则，使用中的操作步骤热插拔 "`Top` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥"]：
+. 按照以下准则、使用中的操作步骤热插拔顶部的FBRIDBRIDge 6500N网桥以更换为FBRIDBRIDge 7600N或7500N网桥 link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥"]：
 +
 ** 将 FibreBridge 7600N 或 7500N 网桥 FC1 端口连接到交换机或控制器。
 +
@@ -182,7 +182,7 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 		.
 		.
 ----
-. 按照以下准则，使用中的操作步骤热插拔 "`底部` FibreBridge 6500N 网桥与 FibreBridge 7600N 或 7500N 网桥 link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥"]：
+. 按照以下准则、使用中的操作步骤热插拔底部的FBRIDGE 6500N网桥以更换为FBRIDGE 7600N或7500N网桥 link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥"]：
 +
 ** 将 FibreBridge 7600N 或 7500N 网桥 FC2 端口连接到交换机或控制器。
 +

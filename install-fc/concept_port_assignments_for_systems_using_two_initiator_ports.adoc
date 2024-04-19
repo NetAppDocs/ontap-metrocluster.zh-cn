@@ -17,7 +17,7 @@ summary: 您可以使用每个网络结构的一个启动程序端口和每个�
 
 如果是手动执行分区、请遵循使用一个FC端口(FC1或FC2)的FBRIDBRIDGKIP 7500N或7600N网桥所使用的分区。在这种情况下，每个网络结构的每个分区成员都会添加一个启动程序端口，而不是两个。
 
-您可以使用中的操作步骤更改分区或从一个光纤桥6500 N升级到一个光纤桥7500 N link:task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥"]。
+您可以使用中的操作步骤更改分区或从一个光纤桥6500 N升级到一个光纤桥7500 N link:../maintain/task_replace_a_sle_fc_to_sas_bridge.html#hot_swap_6500n["热插拔 FibreBridge 6500N 网桥和 FibreBridge 7600N 或 7500N 网桥"]。
 
 下表显示了使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配。
 
