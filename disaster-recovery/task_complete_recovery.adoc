@@ -10,6 +10,9 @@ summary: 如果 FabricPool 镜像中的某个对象存储与 MetroCluster 灾难
 :imagesdir: ../media/
 
 
+[role="lead"]
+执行所需任务、完成从多控制器或存储故障中恢复的过程。
+
 
 
 == 为 FabricPool 配置重新建立对象存储

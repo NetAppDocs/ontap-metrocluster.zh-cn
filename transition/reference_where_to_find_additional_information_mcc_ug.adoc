@@ -10,7 +10,7 @@ summary: 您可以从 NetApp 文档了解有关 MetroCluster 配置和操作的�
 :imagesdir: ../media/
 
 
-[role="lead"]
+[role="lead lead"]
 您可以了解有关 MetroCluster 配置的更多信息。
 
 

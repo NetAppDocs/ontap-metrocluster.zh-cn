@@ -10,6 +10,7 @@ summary: 下表显示了一个 DR 组中包含八个 AFF A900 控制器模块时
 :imagesdir: ../media/
 
 
+[role="lead"]
 下表显示了一个DR组中包含八个AFF A900或FAS9500控制 器模块时支持的最大配置。
 
 [NOTE]

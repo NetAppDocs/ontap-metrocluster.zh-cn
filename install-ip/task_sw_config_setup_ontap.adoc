@@ -184,7 +184,7 @@ Where is the controller located []: site_A
 ----
 .. 完成节点配置，但不创建数据聚合。
 +
-您可以使用 ONTAP 系统管理器将 Web 浏览器指向集群管理 IP 地址 。
+您可以使用ONTAP系统管理器、将Web浏览器指向集群管理IP地址(\https://172.17.12.153).
 
 +
 https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/index.html["使用System Manager进行集群管理(ONTAP 9.7及更早版本)"^]

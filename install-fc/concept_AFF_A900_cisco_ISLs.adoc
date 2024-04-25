@@ -10,6 +10,7 @@ summary: 下表显示了 ISL 端口使用情况。
 :imagesdir: ../media/
 
 
+[role="lead"]
 下表显示了 ISL 端口使用情况。此配置中的所有交换机上的 ISL 端口使用情况均相同。
 
 |===

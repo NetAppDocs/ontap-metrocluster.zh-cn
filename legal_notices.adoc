@@ -10,7 +10,7 @@ summary: 法律声明提供对版权声明、商标、专利等的访问。
 :imagesdir: ../media/
 
 
-[role="lead"]
+[role="lead lead"]
 法律声明提供对版权声明、商标、专利等的访问。
 
 

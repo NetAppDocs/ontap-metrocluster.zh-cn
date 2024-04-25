@@ -10,6 +10,7 @@ summary: 下表显示了 AFF A900 系统中 Brocade 交换机的 ISL 端口使�
 :imagesdir: ../media/
 
 
+[role="lead"]
 下表显示了AFF A900或FAS9500系统中Brocade交换机的ISL端口使用情况。
 
 

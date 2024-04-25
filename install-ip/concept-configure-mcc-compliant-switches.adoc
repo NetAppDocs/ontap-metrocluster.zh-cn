@@ -274,7 +274,7 @@ fec off
 
 == 在整个网络中配置ISL端口的示例
 
-兼容MetroCluster的交换机被视为中间交换机、即使它直接连接MetroCluster接口也是如此。MetroCluster兼容交换机上传输MetroCluster流量的ISL端口必须与中间交换机上的ISL端口配置相同。请参见 link:concept-considerations-layer-2-layer-3.html#required-settings-on-intermediate-switches["中间交换机上的必需设置"] 以获得指导和示例。
+兼容MetroCluster的交换机被视为中间交换机、即使它直接连接MetroCluster接口也是如此。MetroCluster兼容交换机上传输MetroCluster流量的ISL端口必须与中间交换机上的ISL端口配置相同。请参见 link:concept-considerations-layer-2-layer-3.html#required-settings-for-intermediate-switches["中间交换机上的必需设置"] 以获得指导和示例。
 
 
 NOTE: 对于连接MetroCluster接口和传输MetroCluster流量的ISL的交换机端口、某些策略映射是相同的。您可以对这两个端口使用使用使用相同的策略映射。

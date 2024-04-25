@@ -1906,7 +1906,6 @@
   <block id="996ae2958095991e77250398220eb3d5" category="paragraph">如果使用 MetroCluster Tiebreaker 配置或可启动切换的其他第三方应用程序（例如 ClusterLion ）监控现有配置，则必须在过渡之前从 Tiebreaker 或其他软件中删除 MetroCluster 配置。</block>
   <block id="8db7c34118d5425403025b6210cacb71" category="list-text">从 Tiebreaker 软件中删除现有 MetroCluster 配置。</block>
   <block id="c9038e013b6927b428c3bb5f3d842a05" category="inline-link">删除 MetroCluster 配置</block>
-  <block id="25b61bcede8b65f37afa4e4a2a2fab02" category="paragraph"><block ref="25b61bcede8b65f37afa4e4a2a2fab02" category="inline-link-rx"></block></block>
   <block id="715a557335c993fbdddacfeead63bcfb" category="list-text">从可以启动切换的任何第三方应用程序中删除现有 MetroCluster 配置。</block>
   <block id="c587e54ff9ed88f954efbfffaff5cb81" category="paragraph">请参见该应用程序的文档。</block>
   <block id="33b42dde3af7fa60ce4cdf4e33ceebb3" category="section-title">在维护之前发送自定义 AutoSupport 消息</block>
@@ -2546,7 +2545,6 @@
   <block id="dde95b5b53c4eb899d678641fd957d06" category="section-title">删除调解器或 Tiebreaker 监控</block>
   <block id="8721fdb505c6c36bb5be2e19130e698c" category="paragraph">升级平台之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。</block>
   <block id="bcbf87e4f078f82908e59d6fe8c31f6e" category="list-text">收集以下命令的输出：</block>
-  <block id="a244701f5abda60a99d71bfb0315fea7" category="paragraph"><block ref="0ef4432e8d7270c716b0b9fdd42f2d64" category="inline-link-rx"></block> 在 _Data MetroCluster Tiebreaker 安装和配置指南 _ 中</block>
   <block id="2a48a344c8ec986dbb3d64b273b3ce40" category="paragraph">完成此任务后， cluster_A 将处于活动状态，并为两个站点提供数据。cluster_B 处于非活动状态，并已准备好开始升级过程。</block>
   <block id="5426384928a13db30fcee7b4f5c3da08" category="list-text">操作完成后，确认节点处于切换状态：</block>
   <block id="058e49cbd0c1f29381ec01c701554a62" category="list-text">检查 MetroCluster 节点的状态：</block>
@@ -2794,19 +2792,10 @@
   <block id="4c009b85d61ad347b56add00274e7453" category="list-text">防火墙：</block>
   <block id="3c78850f45b6edfc4af8ec0a93a2a1ab" category="list-text">直接访问以设置 AutoSupport 消息</block>
   <block id="cde2b4acd898c32670d230559bc6a550" category="list-text">SSH （端口 22/TCP ）， HTTPS （端口 443/TCP ）和 ping （ ICMP ）</block>
-  <block id="d622b09f9e4518b80b223d0f3d83f9cd" category="section-title">安装 MetroCluster Tiebreaker 依赖关系</block>
   <block id="b56e6f0af6a9b1b27daa95d4a36afdc4" category="list-text">安装 MySQL 或 MariaDB 服务器：</block>
   <block id="6d3e1ad458b8305490e7f3f555ee8c93" category="cell">如果 Linux 主机为</block>
-  <block id="2f4f94cc5a0950a910a46c35cf923e05" category="list-text">安装 MySQL</block>
   <block id="bbc93c3b548f7e6b61051cdcdda436b9" category="paragraph">Red Hat Enterprise Linux 7/CentOS 7.</block>
-  <block id="4edc6e3711a7b2b1f3ee14f852711a72" category="list-text">安装 MariaDB</block>
-  <block id="4a857d4819f55ec889deb5379b9ce9c7" category="paragraph">在安装或升级 Tiebreaker 软件之前，必须在主机系统上安装 MySQL Server 5.5.30 或更高版本以及 5.6.x 版本。</block>
   <block id="b1cef06f6d0dbb6b0907ba2828c01658" category="paragraph">如果 MySQL 登录正常，输出将在 `mysql&gt;` 提示符处结束。</block>
-  <block id="ee2d0facfca7cf9da7afc98606d041bb" category="section-title">启用 MySQL 自动启动设置</block>
-  <block id="42effa8417ecaca249eb75ef3af93551" category="paragraph">在安装或升级 Tiebreaker 软件之前，必须在主机系统上安装 MariaDB 服务器。</block>
-  <block id="998939e20c88d175779417ce100fafed" category="section-title">安装或升级软件包</block>
-  <block id="aa0bf4d75253e028ce83fbc2fe035e54" category="paragraph">您必须在本地计算机上安装或升级 MetroCluster Tiebreaker 软件，才能监控 MetroCluster 配置。</block>
-  <block id="3f18eec2af554a1393e91a90bacbc4e0" category="list-text">存储系统必须运行 ONTAP 8.3.x 或更高版本。</block>
   <block id="0181a996142ce88d36927257090dd51b" category="list-text">以 root 用户身份登录到主机。</block>
   <block id="5c0951f5a767642dcb5de6e5878a5032" category="cell">问题描述此命令 ...</block>
   <block id="5a1ca385deb8381ffff2ed6a33fd752d" category="paragraph">成功安装时，系统将显示以下输出：</block>
@@ -3150,7 +3139,6 @@
   <block id="1c6294eb77701485d2ae327b46b59539" category="section-title">在新节点上设置数据 LIF</block>
   <block id="8345c96812842070f55253a68a64d332" category="paragraph">您必须在新节点 node_A_2-IP 和 node_B_2-IP 上配置数据 LIF 。</block>
   <block id="4344cf9672839a368c8fd958fef1ec6a" category="inline-link">网络和 LIF 管理</block>
-  <block id="bc3d619cb2db28a4bb6fdf98a10e1f1f" category="paragraph"><block ref="bc3d619cb2db28a4bb6fdf98a10e1f1f" category="inline-link-rx"></block></block>
   <block id="b6dbbb02ae906a0c16e5c721f83e7d1c" category="list-text">根据需要向广播域和 VLAN 添加端口。</block>
   <block id="20c787bb1414c87fa1b8effb485a0d54" category="list-text">创建 IP 空间并根据需要分配数据端口。</block>
   <block id="1d9ea8dfb2595cba61598637cf0319fe" category="inline-link">配置 IP 空间（仅限集群管理员）</block>
@@ -4289,7 +4277,6 @@
   <block id="defba62f473a0ece29de1061c423edbd" category="list-text">不支持使用 IP 路由（第 3 层）后端连接的配置。</block>
   <block id="9a4e34d604d657bc7d946d4a0a4e96e4" category="list-text">不支持使用共享私有第 2 层网络的配置。</block>
   <block id="8fdea79aece0ad1322e81be87031775a" category="list-text">不支持使用 Cisco 9336C-x2 共享交换机的配置。</block>
-  <block id="75d7363908012fa0907c5a27d0b79c63" category="paragraph">中列出了支持的平台配置<block ref="ed4326c3351d8ac0e334b8b4d9b37c82" category="inline-link-rx"></block>。</block>
   <block id="ee576c01fd9d6961677d0a6255745ad9" category="list-text">将节点启动至启动菜单： `boot_ontap menu`</block>
   <block id="535a1b9f22b2c711bbc48344a4608a4b" category="paragraph">运行此命令后，请等待，直到显示启动菜单为止。</block>
   <block id="af247723d3e5855980c90c146b7390f5" category="paragraph">以下屏幕将显示启动菜单提示符：</block>
@@ -4372,7 +4359,6 @@
   <block id="c25ab44b50d7096a2ad90bccd3cd2c9b" category="admonition">显示的输出适用于 Cisco IP 交换机；但是，这些步骤也适用于 Cisco FC 交换机。</block>
   <block id="45ffc94e7a6a06c5cc630808204d30c2" category="list-text">下载支持的 NX-OS 软件文件。</block>
   <block id="ed2bdca812d4a492e40bce0bf250aea0" category="inline-link">Cisco 下载页面</block>
-  <block id="2f625a7deff483a3e15edd07e62f829f" category="paragraph"><block ref="2f625a7deff483a3e15edd07e62f829f" category="inline-link-rx"></block></block>
   <block id="696deaa8173dd6cec00abf83cfff691a" category="list-text">将交换机软件复制到交换机：</block>
   <block id="e0f676df07e9272737ae4f0ef7b19999" category="paragraph">在此示例中，将 `nxos.7.0.3.I4.6.bin` 文件从 SFTP 服务器 10.10.99.99 复制到本地 bootflash ：</block>
   <block id="faad079b7ec28960694c1f5f10a77c55" category="list-text">在每个交换机上验证交换机 NX-OS 文件是否位于每个交换机的 bootflash 目录中：</block>
@@ -6865,7 +6851,6 @@
   <block id="34803cb116ee35e467612e2cd53b7294" category="paragraph">您必须将交换机操作系统文件和 RCF 文件下载到 MetroCluster IP 配置中的每个交换机。</block>
   <block id="5b4ae80e47d05e89adb87962a5a7bd98" category="paragraph">必须对 MetroCluster IP 配置中的每个 IP 交换机重复执行这些步骤。</block>
   <block id="c00379eb260028495e53ff62fa9b3a5a" category="inline-link">Cisco 软件下载</block>
-  <block id="2e3e8617975ce08f365e434cca216c04" category="paragraph"><block ref="2e3e8617975ce08f365e434cca216c04" category="inline-link-rx"></block></block>
   <block id="5aedab8d739511d2dba79600be296c2e" category="paragraph">安装交换机软件后，交换机将自动重新加载（重新启动）。</block>
   <block id="15035122b1bddd8c3fe67b67b0705420" category="list-text">对 MetroCluster IP 配置中的其余三个 IP 交换机重复上述步骤。</block>
   <block id="ae5a9e1b352beed4f4e81e14f93b2027" category="paragraph">您必须将 RCF 文件下载到 MetroCluster IP 配置中的每个交换机。</block>
@@ -6982,7 +6967,6 @@
   <block id="8c6652271cf9962cf25d57593f2e0998" category="list-text">添加许可证，设置集群管理 SVM ，并通过响应提示输入 DNS 信息。</block>
   <block id="529c1647bb7154274999ead05402d316" category="list-text">启用存储故障转移并通过响应提示来设置节点。</block>
   <block id="b842db396e001f50d74b654f1314df5d" category="list-text">完成节点配置，但不创建数据聚合。</block>
-  <block id="3dda58d6d9375a71c538f50ab53299f6" category="paragraph">您可以使用 ONTAP 系统管理器将 Web 浏览器指向集群管理 IP 地址 <block ref="a014d2689df7be806072ba0665b78ca6" category="inline-link-rx"></block>。</block>
   <block id="cbb4f42385447257b0524c80bc88c203" category="list-text">按照提示启动下一个控制器并将其加入集群。</block>
   <block id="c8a47a2f93307e796690ebd7d82f5573" category="paragraph">此时未配置 MetroCluster IP 接口，并且此接口不会显示在命令输出中。</block>
   <block id="76c896ac6b7a90ae2d17c2b3934e8219" category="paragraph">以下示例显示了 node_A_1 上的两个集群端口：</block>
@@ -7273,7 +7257,6 @@
   <block id="c827f7df05c6916afe05fd36408cafb0" category="paragraph">第 3 季度：托架 24-35</block>
   <block id="93dcc09acf50956dd3f108153247603c" category="paragraph">托架 24-29</block>
   <block id="77c79465aa008b1bff68e784406b5273" category="paragraph">托架 36 — 41</block>
-  <block id="a66208eb43ca07208dc54b23ce6f191c" category="paragraph">如果每个站点使用两个磁盘架，则会使用半磁盘架策略分配磁盘。如果磁盘架未完全填充，请从磁盘架的任意一端等分安装驱动器。</block>
   <block id="2ab5641f353f5df97a5b55aecef151f4" category="section-title">手动分配驱动器（ ONTAP 9.5 ）</block>
   <block id="c3d1a88e0877d50245bcf17b1d6331bb" category="paragraph">在 ONTAP 9.5 中，具有以下磁盘架配置的系统需要手动分配驱动器：</block>
   <block id="ada9dd1c8ed46555b8f14a5ab772f840" category="list-text">每个站点三个外部磁盘架。</block>
@@ -8968,7 +8951,6 @@
   <block id="1a29ce3d863e175d333643f75803d49b" category="paragraph">`ifconfig e0M -addr=_filer_addr_ -mask=_netmask__ -gw=_gateway_ -dns=_dns_addr_ -domain=_dns_domain_`</block>
   <block id="792eb4d1b571ca19a55c8073d075e399" category="paragraph">FAS2200 ， FAS2500 ， FAS3200 ， FAS6200 ， FAS/AFF8000 系列系统</block>
   <block id="461d7e2424f72a59c55adf97e846017a" category="paragraph">`网络启动<block ref="06f9d34e62d99a2aae0864928de56974" category="inline-link-rx"></block></block>
-  <block id="12d8187c539b6d3d79f907aa6887be93" category="paragraph">`网络启动<block ref="5b83c67dc948392fb21e3e1b9f0f33e8" category="inline-link-rx"></block></block>
   <block id="92eb59915112c4c38980cc2f0d6e3d0a" category="list-text">当系统提示您输入 image.tgz 文件的 URL 时，应按如下所示输入路径：</block>
   <block id="64e9673c88aad37c64ca08769586e344" category="paragraph">`http://__path_to_the_web-accessible_directory__/image.tgz`</block>
   <block id="538f577c4284d097aef57681a2acf728" category="paragraph">`ssystem node AutoSupport invoke -node * -type all -message MAINT=end`</block>
@@ -9582,7 +9564,6 @@
   <block id="2b378caa5145e2c7adf8d8e9a477ac03" category="paragraph">下表显示了控制器升级支持的型号列表。</block>
   <block id="7c5ee56a01b06b00d2d910cc295d8c56" category="paragraph"><block ref="7c5ee56a01b06b00d2d910cc295d8c56" category="inline-link-rx"></block></block>
   <block id="0e490704226a6f678e043e59eee46210" category="inline-link">使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件</block>
-  <block id="433c23ac1d50e2f792a96846827071e3" category="list-text">您可以使用此操作步骤通过基于 NSO 的自动切换和切回升级四节点 MetroCluster FC 配置中的控制器。如果要使用聚合重新定位（ Aggregate Relocation ， ARL ）执行控制器升级，请参见<block ref="ce0fc11b0e13b00ed4b15a0d6c2e1624" category="inline-link-rx"></block>。建议使用基于 NSO 的自动化操作步骤。</block>
   <block id="8c6987e319eda195c069e8158e10721f" category="list-text">如果 MetroCluster 站点实际位于两个不同位置，则应使用自动化 NSO 控制器升级操作步骤按顺序升级这两个站点的控制器。</block>
   <block id="7ad155deddf063088b2af594f769192c" category="list-text">此基于 NSO 的自动控制器升级操作步骤使您能够对 MetroCluster 灾难恢复（ DR ）站点启动控制器更换。一次只能在一个站点启动控制器更换。</block>
   <block id="7399fd0657c56a93aa88aad61e36136e" category="list-text">要在站点 A 启动控制器更换，您需要从站点 B 运行 controller replacement start 命令此操作仅会指导您更换站点 A 上两个节点的控制器。要更换站点 B 的控制器，您需要从站点 A 运行 controller replacement start 命令此时将显示一条消息，指出要更换控制器的站点。</block>
@@ -9634,13 +9615,8 @@
   <block id="9ce3a90e3d49883df1e4a6b1ae489300" category="list-text">检查升级后检查状态：</block>
   <block id="4b8d3036a6a3b35e4c0a516d96f6388c" category="paragraph">如果升级后检查未报告任何错误，则说明升级已完成。</block>
   <block id="f6b539ea59b73f9b259ffed026e616d0" category="list-text">完成控制器升级后，登录站点 B 并验证是否已正确配置更换的控制器。</block>
-  <block id="995e564ca3c05e931e1da79c841f6b29" category="paragraph">Tiebreaker 软件安装在第三个站点上，该软件可以区分交换机间链路（ ISL ）故障（站点间链路关闭时）和站点故障。在本地计算机上安装或升级 Tiebreaker 软件以监控 MetroCluster 配置之前，主机系统必须满足特定要求。</block>
   <block id="1622cddcc8d92c2f521cf45ebeeb83b0" category="list-text">MariaDB 5.5.52.x/MySQL Server 5.6x</block>
-  <block id="1635ad66e06d76cdccc25bb248323398" category="inline-xref">在 Red Hat Enterprise Linux 6 或 CentOS 7 上安装 MySQL Server 5.5.30 或更高版本以及 5.7x 版本</block>
-  <block id="9955d510e571b5772146c4294aa083ad" category="paragraph"><block ref="dcceacb3de1856e2fea539e535a7cebb" category="inline-xref-macro-rx"></block></block>
   <block id="5508505cbdbe4c572010783025a1150d" category="paragraph">Red Hat Enterprise Linux 8</block>
-  <block id="6b415ecff4f67f832fb78f9c6ed7945a" category="inline-xref">在 Red Hat Enterprise Linux 8 上安装 MariaDB 服务器</block>
-  <block id="8ced9fc9cddb4453095058632c12c49f" category="paragraph"><block ref="fcc472ae70179ceec6c9e23c4db15f10" category="inline-xref-macro-rx"></block></block>
   <block id="982777ff7445d76450443abffc937386" category="list-text">将 MySQL 存储库添加到主机系统：</block>
   <block id="76597904d13ed6703126a060cc752f6b" category="paragraph">` 根@mcctb ~ ]# yum localinstall \https://dev.mysql.com/get/mysql57-community-release-el6-11.noarch.rpm`</block>
   <block id="b668a67d489eec4f62521bbd12885266" category="paragraph">` 根@mcctb ~ ]# yam-config-manager -disable mysql57-community`</block>
@@ -9759,7 +9735,6 @@
   <block id="2f7d5c27e8b4b2f56baa093dffe33f27" category="paragraph">此操作步骤概述了所需步骤。有关详细步骤，您必须参阅中的特定章节 <block ref="a1fd01e320574c534b3b8a75cd17d943" category="inline-link-macro-rx"></block>。您无需执行完整安装和配置。</block>
   <block id="ca637c494aa991a55365cdad5e63b258" category="list-text">仔细查看的 " 准备 MetroCluster 安装 " 一节，为升级做准备 <block ref="a1fd01e320574c534b3b8a75cd17d943" category="inline-link-macro-rx"></block>。</block>
   <block id="b7195ecc3920afa55c50750064ed75a4" category="admonition">您应使用的 " 为光纤连接的 MetroCluster 配置布线 " 一节中的过程 <block ref="a1fd01e320574c534b3b8a75cd17d943" category="inline-link-macro-rx"></block>。</block>
-  <block id="481db0d99428fce199355e8490acb803" category="paragraph">请勿使用链接 https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html[Fabric-attached MetroCluster installation and configuration] 中 " 在 ONTAP 中配置 MetroCluster 软件 " 一节中的过程。</block>
   <block id="bce6e50d132e2d8b90bf22b569c48d10" category="paragraph">您应使用的以下部分中的过程 <block ref="a1fd01e320574c534b3b8a75cd17d943" category="inline-link-macro-rx"></block>：</block>
   <block id="244e3fc26c43465b8d77ffc9aef56cb7" category="inline-link">MetroCluster IP 安装和配置： ONTAP MetroCluster 配置之间的差异</block>
   <block id="c0fe5b8c641b3e2d20403ec4aa244ff8" category="paragraph"><block ref="c0fe5b8c641b3e2d20403ec4aa244ff8" category="inline-link-rx"></block></block>
@@ -9812,7 +9787,6 @@
   <block id="343c2d0dbf210b79686912b38bd4f45d" category="list-text"><block ref="680a4f630b21eab8e23842ce1e77c536" category="inline-link-macro-rx"></block> *</block>
   <block id="d618e096c793dc69ae5eecca55aed391" category="list-text"><block ref="d618e096c793dc69ae5eecca55aed391" category="inline-link-macro-rx"></block></block>
   <block id="b42bad79baad4f4f943c81fc37bedccd" category="list-text">使用缆线将 MetroCluster IP 节点连接到 IP 交换机，如所示 <block ref="657bcb6c51639854c4fdede551507755" category="inline-link-macro-rx"></block>。</block>
-  <block id="302236925d66f4e5011613180b9839b1" category="admonition">在配置聚合之前，必须按照中的 " 在 MetroCluster 配置中为 FabricPool 设置对象存储 " 中所述设置对象存储<block ref="6ca1f1c4f557736e9b169b0bb2581c65" category="inline-link-rx"></block></block>
   <block id="99dc2e42eb5cbad5dfa0fe00d5193924" category="list-text">创建包含聚合的 FabricPool 镜像，如中所述<block ref="d80da76762d0e5fadaefb2c12eee2740" category="inline-link-rx"></block></block>
   <block id="9f1e892e838f85f0b4330fcfad0f245a" category="paragraph">请参见中的 "`复制 SVM 配置` " 一节 <block ref="eedeed859392052ace3070cab5bd7d76" category="inline-link-macro-rx"></block> 有关配置 SVM DR 关系的详细信息。</block>
   <block id="06eff1ae70df860b6c817c9ab3858d3d" category="list-text">使用中所述的协商切换，修复和切回过程<block ref="6d6ef49fcb406c2ba2bda06977913f53" category="inline-link-rx"></block>。</block>
@@ -10150,7 +10124,6 @@
   <block id="c05c7a2303ef34ab95234ebadd79fc8f" category="paragraph">在启动环境提示符处使用以下命令自动配置连接： `ifconfig e0M -auto`</block>
   <block id="19e185aea92cb0890229c16489d9c4cc" category="paragraph">未运行</block>
   <block id="78da5f94688332d9080947e0f923b416" category="paragraph">在启动环境提示符处使用以下命令手动配置连接： `ifconfig e0M -addr=&lt;filer_addr&gt; -mask=&lt;netmask&gt; -gw=&lt; 网关 &gt; - dns=&lt;dns_addr&gt; domain=&lt;dns_domain&gt;`</block>
-  <block id="8cadcd3d278c7bf112a3d2eb870dfb3e" category="list-text">对 node_B_1 执行 netboot ： `netboot` `http://&lt;web_server_ip/path_to_web_accessible_directory&gt;/netboot/kernel`</block>
   <block id="e31ad1284b7618a9c10777ed99b12e64" category="inline-xref">第 2 步</block>
   <block id="85bd8aebb41cb27f7bc364e977313958" category="admonition">请勿中断启动。</block>
   <block id="2653300b079109b65a613fd185414faa" category="list-text">从启动菜单中，选择选项 `` （ 7 ） Install new software first.`` 此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。注意：请忽略以下消息： `HA 对上的无中断升级不支持此操作步骤。` 本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。</block>
@@ -10272,7 +10245,6 @@
   <block id="3e740d926a40d82c2fcc72ee1fb84e5b" category="list-text">在节点 1 上执行 `netboot` ： `netboot<block ref="489fdc1c448bf7fbb7b53d2ad099b1ec" category="inline-link-rx"></block>` &lt;path_to_the_web-accessible_directory&gt;` 应指向您在中下载 ` &lt;ontap_version&gt;_image.tgz` 的位置 <block ref="28cd24b5ecf937229eb419cc55587b9d" category="inline-xref-macro-rx"></block>。</block>
   <block id="188edb9f514b65304cf0a3564a7bc692" category="list-text">从启动菜单中，选择选项 ` （ 7 ） Install new software first` 。此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。</block>
   <block id="81ff6a54875aaf720a2c324484bc2178" category="admonition">请忽略以下消息： `HA 对上的无中断升级不支持此操作步骤。` 本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。请始终使用 netboot 将新节点更新为所需映像。如果您使用其他方法在新控制器上安装映像，则可能会安装不正确的映像。此问题描述适用场景所有 ONTAP 版本。</block>
-  <block id="9fbd27646b729fd730070da29cb836c5" category="list-text">如果系统提示您继续运行操作步骤，请输入 `y` ，并在系统提示您输入软件包时，输入 URL ：<block ref="a2ba1d0ee1c156220079edd2f4d50848" category="inline-link-rx"></block></block>
   <block id="e127fec27e4f62227f578ce3dd283c35" category="list-text">出现以下提示时，输入 `y` 以重新启动： `必须重新启动节点才能开始使用新安装的软件。是否要立即重新启动？｛ y|n ｝`</block>
   <block id="504d065328326a8677a260e4447bea63" category="paragraph">控制器模块重新启动，但停留在启动菜单处，因为启动设备已重新格式化，并且需要还原配置数据。</block>
   <block id="f02a9a7436db38c9278de96d8940fedc" category="list-text">当您看到以下消息时，问题解答 `yes` ： `此操作将删除关键系统配置，包括集群成员资格。警告：不要在已被接管的 HA 节点上运行此选项。确实要继续？：`</block>
@@ -10474,7 +10446,6 @@
   <block id="84225993604927d7b2805e680fc6afb7" category="paragraph">这可以是默认 IP 空间，也可以是管理员创建的 IP 空间。此 IP 空间将用于 FabricPool 对象存储配置设置。</block>
   <block id="d3478949021db31ee899464708ca14ab" category="admonition">在配置聚合之前，必须按照中的 " 在 MetroCluster 配置中为 FabricPool 设置对象存储 " 所述设置对象存储<block ref="46a180d322a34c1f2719942dadd3e4fb" category="inline-link-rx"></block>。</block>
   <block id="79dcbafadac58a942bac3ebf531c5894" category="list-text">使用聚合创建 FabricPool 镜像，如中所述<block ref="46a180d322a34c1f2719942dadd3e4fb" category="inline-link-rx"></block></block>
-  <block id="8dc768991d5b26a5dd964209b0336989" category="paragraph"><block ref="8dc768991d5b26a5dd964209b0336989" category="inline-link-rx"></block></block>
   <block id="65bbb6a451cc080e3b7ee47c366c3253" category="paragraph">请参见中的 "`复制 SVM 配置` "<block ref="26e370aec20dfe01945665ebaf4ffc1f" category="inline-link-rx"></block> 有关配置 SVM DR 关系的详细信息。</block>
   <block id="d0ed0d8f16085a6601b051dbf42f09e4" category="paragraph"><block ref="d0ed0d8f16085a6601b051dbf42f09e4" category="inline-link-rx"></block></block>
   <block id="1fb135b5dd970a96db5c2b3025ddcbf8" category="list-text">您启动了关闭操作。例如，当您：</block>
@@ -10593,7 +10564,6 @@
   <block id="ab1dba64bb6e8de017000d69dfdb9ac8" category="paragraph"><block ref="ab1dba64bb6e8de017000d69dfdb9ac8" category="inline-link-macro-rx"></block></block>
   <block id="e5d7a25b7e762503563170086c5defa9" category="paragraph"><block ref="e5d7a25b7e762503563170086c5defa9" category="inline-link-macro-rx"></block></block>
   <block id="f6fe6f33a84912b05293bb29c427b220" category="summary">您可以在计划内维护操作或发生灾难时执行 MetroCluster 切换和切回操作。</block>
-  <block id="af49f84fdbd0ceabe619e6c96b5c3965" category="paragraph"><block ref="af49f84fdbd0ceabe619e6c96b5c3965" category="inline-link-rx"></block></block>
   <block id="6cf335b042bd73c23f6af76221b432bf" category="paragraph">以下示例显示了 MetroCluster 配置的 SVM ，其中 `SVM_cluster_A` 是源站点上的 SVM ， `SVM_cluster_A-mc` 是灾难恢复站点上的 sync-destination 聚合。</block>
   <block id="760481252d481e55778f320967eca451" category="paragraph"><block ref="760481252d481e55778f320967eca451" category="inline-link-rx"></block></block>
   <block id="2063370ab85c6fcebccb497878d43f83" category="admonition">切换后，如果未镜像聚合位于 DR 配对节点上，并且交换机间链路（ ISL ）出现故障，则此本地节点可能会失败。</block>
@@ -11177,7 +11147,6 @@
   <block id="0af6886a9c45bb0f127ab39da3242e24" category="paragraph">以下示例将 LIF " `datalif1` " 还原到其新主端口 "`e1b` " ：</block>
   <block id="65dc196cc8a195ab3fc51f0ddc804a67" category="paragraph">以下示例显示端口 "`e0a` " ， "`e0b` " ， "`e0c` " 和 "`e0d` " 现在为集群端口：</block>
   <block id="61a9d2fcb1a19cf607c57206c54d6509" category="inline-link">删除现有 MetroCluster 配置</block>
-  <block id="b24e63ce15f1e7e3e5cb5bd1ce3fad34" category="list-text"><block ref="89b361038893a3d43bca666b6da4721b" category="inline-link-rx"></block> 来自 Tiebreaker 软件。</block>
   <block id="b13266858f69c83d67ff15214dfa7a27" category="paragraph">在启动切换之前，自动化操作将暂停，以便您可以手动验证站点 B 上的所有 LIF 是否为 "`up` "如有必要，请将任何 " `down` " 移至 "`up` " ，然后使用 `ssystem controller replace resume` 命令恢复自动化操作。</block>
   <block id="06dd50ba0fbb8fe8e1275ce3a8f1780c" category="paragraph">包括 SAN 和 NAS 在内的所有数据 LIF 都将为 admin "`up` " 和 Operationally "`down` " ，因为这些 LIF 在切换站点（ cluster_A ）上已启动。</block>
   <block id="e5d9bbeb62634011317a03db540cbd41" category="paragraph">例如， "`e0d` " 是旧控制器上的物理端口，也存在于新控制器上。"`e0d` " 不会用作集群端口，也不会在新控制器上使用。</block>
@@ -11245,7 +11214,6 @@
   <block id="7603191f0254db94419fd8d36cf742f6" category="list-text">还原 FC 端口配置：</block>
   <block id="a77229060b2e30fc1aecdae29d9000fd" category="list-text">验证变量的值：</block>
   <block id="2eb016ab0f18b2ada34df66ecade6e4b" category="list-text">退出维护模式并显示 LOADER 提示符：</block>
-  <block id="2872394e3c89268bb37adaa024dc9195" category="paragraph">。<block ref="6e7f74aa9001f0524a965144f528bbc2" category="inline-link-rx"></block> 描述新功能，升级说明，已修复的问题，已知限制和已知问题。</block>
   <block id="64c598a52dd8cdadea545647c7d064a6" category="summary">您可以在 NetApp 的丰富文档中了解有关 MetroCluster 配置和操作的更多信息。</block>
   <block id="04d9ec83167120e239825f4726f351cc" category="paragraph">Active IQ Unified Manager 文档<block ref="1cf4a9f6324bfcec73ee8652129ceb47" category="inline-link-rx"></block></block>
   <block id="7b173496e8f6041144abc83f7e17506f" category="list-text">验证运行正常的集群上的所有 sync-destination SVM 是否均处于休眠状态（显示管理状态为 `sstopped` ），以及灾难集群上的 sync-source SVM 是否已启动且正在运行：</block>
@@ -11368,8 +11336,6 @@
   <block id="f1573b913aebef18602249e23e196f67" category="paragraph"><block ref="09965663397032e7c8c3dcc98b9deca2" category="inline-link-rx"></block> 包含追加信息。</block>
   <block id="3b60cd7b393721dca2be281ca53a4351" category="paragraph">从 ONTAP 9.2 开始，您可以在以下情况下使用 ISL 共享：</block>
   <block id="8adae693d3240e468a2042cfca460ce7" category="inline-link">NetApp MetroCluster 解决方案架构和设计， TR-4705</block>
-  <block id="414fe9bb5df6ded9e2e5bb6d9f0f44f8" category="cell"><block ref="414fe9bb5df6ded9e2e5bb6d9f0f44f8" category="inline-link-rx"></block></block>
-  <block id="6e5c7bc246474fb731e86f864362b4fb" category="cell"><block ref="6e5c7bc246474fb731e86f864362b4fb" category="inline-link-rx"></block></block>
   <block id="2afcc48289d48527e519adacbd3a8bce" category="paragraph"><block ref="2afcc48289d48527e519adacbd3a8bce" category="inline-link-rx"></block></block>
   <block id="ba3a8565a212242efc7fb4b43feb56d5" category="list-text">确认配置文件已设置交换机域：</block>
   <block id="c3473aa37fb65a96d05747e3b9043979" category="paragraph">如果需要，您可以设置 IP 地址：</block>
@@ -11464,7 +11430,6 @@
   <block id="398ca4e3f9e65b681f95fee13804bab9" category="list-text">您的目录列表应包含 &lt;ontap_version&gt;\\_image.tgz 。</block>
   <block id="befdb6ab41f0cd39ff57e00b0ee8c3f6" category="paragraph">` &lt;filer_addr&gt;` 是存储系统的 IP 地址。` &lt; 网络掩码 &gt;` 是存储系统的网络掩码。` &lt; 网关 &gt;` 是存储系统的网关。` &lt;dns_addr&gt;` 是网络上名称服务器的 IP 地址。此参数是可选的。` &lt;dns_domain&gt;` 是域名服务（ DNS ）域名。此参数是可选的。注意：您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。</block>
   <block id="f9917e026c23b682e18bcd6bc125c1b9" category="paragraph">` &lt;path_to_the_web-accessible_directory&gt;` 应指向您在中下载 ` &lt;ontap_version&gt;\_image.tgz` 的位置 <block ref="28cd24b5ecf937229eb419cc55587b9d" category="inline-xref-macro-rx"></block>。</block>
-  <block id="b04e99a0adbd90ade4803bbd436b76af" category="list-text">如果系统提示您继续运行操作步骤 ，请输入 `y` ，然后在系统提示您输入软件包时，输入 URL ： `http://&lt;web_server_ip/path_to_web-accessible_directory&gt;/&lt;ontap_version&gt;\_image.tgz`</block>
   <block id="dbfa5994b398cd0fb3a814715f0dc252" category="list-text">从启动菜单中选择选项 `5` 以转到维护模式。按问题解答 `yes` 显示提示，直到节点在维护模式和命令提示符 \* &gt; 处停止。</block>
   <block id="76c06c220bafe4dc7e175b4584717344" category="paragraph"><block ref="76c06c220bafe4dc7e175b4584717344" category="inline-link-macro-rx"></block></block>
   <block id="2445f74267948c10619896a5e47cd3d6" category="paragraph">执行中的步骤 <block ref="0e3caa859006182753aee07c6f57c3cf" category="inline-link-macro-rx"></block>。</block>
@@ -11484,7 +11449,6 @@
   <block id="3ee537e70a06614ada97e070ef70fe96" category="paragraph">FAS8300/A400/FAS8700</block>
   <block id="8e41be9a68008dd9f01c00807dd75f69" category="section-title">MetroCluster 配置中的一致性组支持</block>
   <block id="b36742dbca767f044c826ec8fbe9b099" category="inline-link">一致性组</block>
-  <block id="2b9902d272c75c4def3400c620342746" category="paragraph">从ONTAP 9.11.1开始、<block ref="cf613318e210a5e8a8ae9de011eafc43" category="inline-link-rx"></block> 在MetroCluster 配置中受支持。</block>
   <block id="8a4f175190a1710cdcd52e7efde01268" category="section-title">在MetroCluster IP配置中启用Cisco MACsec加密WAN ISL</block>
   <block id="dbbfd3dd70a4d25284d890b07ad9bc31" category="section-title">配置MACsec密钥链和密钥</block>
   <block id="2903318a6fa99cbae17be8d84747e6f4" category="section-title">配置MAC秒策略</block>
@@ -11991,7 +11955,6 @@
   <block id="8435af9be97e0c50b0d730d64b42f198" category="paragraph"><block ref="8435af9be97e0c50b0d730d64b42f198" category="inline-link-macro-rx"></block></block>
   <block id="f7080628c8d078c209fb6b6b18f03a3a" category="paragraph"><block ref="f7080628c8d078c209fb6b6b18f03a3a" category="inline-link-macro-rx"></block></block>
   <block id="4975610bd246038bf0371f5dff472f85" category="list-text">在MetroCluster FC配置中、只能使用此操作步骤 刷新特定平台型号。</block>
-  <block id="0defe01fed70ecdf301ed45ee130f658" category="list-text">有关支持的平台升级组合的信息、请查看中的MetroCluster FC升级表 <block ref="5e51ded3128b8f60bc0b91c41dccbb25" category="inline-link-macro-rx"></block>。</block>
   <block id="7aeedda5f35486a7239b2a68ae68fb9a" category="paragraph">根据设备升级的范围、您可以选择控制器升级操作步骤 、系统更新操作步骤 或扩展操作步骤。</block>
   <block id="959c17d1eadff13225c68a5578c6da93" category="paragraph">您使用的控制器升级操作步骤 取决于MetroCluster 配置的平台型号和类型。</block>
   <block id="789c52582d523f3977d636da81e92dc0" category="list-text">在基于 ARL 的控制器升级操作步骤中，聚合重新定位操作用于无中断地将数据从旧配置移动到升级后的新配置。</block>
@@ -12042,7 +12005,6 @@
   <block id="ad06b1bad80df72d4f2fa24312c0a9bf" category="cell">刷新方法</block>
   <block id="56ad29882b1f5aa7a765e42a0bd3ca97" category="paragraph"><block ref="56ad29882b1f5aa7a765e42a0bd3ca97" category="inline-link-macro-rx"></block></block>
   <block id="65fc2b3acec6ee29de6484f084e9ad51" category="paragraph">您可以在MetroCluster FC配置中使用切换和切回操作升级某些平台。</block>
-  <block id="7c5f3ae5aa1416c77224608ca167ed4c" category="paragraph">有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC升级表 <block ref="5e51ded3128b8f60bc0b91c41dccbb25" category="inline-link-macro-rx"></block>。</block>
   <block id="524f05419622851f7f6289320cc91a6e" category="sidebar">升级、刷新或扩展MetroCluster 配置</block>
   <block id="81cce2035bed6113b6ccecaeb9cf25a9" category="sidebar">选择扩展操作步骤</block>
   <block id="87663f3a8212644181733b0573eae80d" category="sidebar">使用切换和切回升级MetroCluster IP中的控制器(ONTAP 9.8及更高版本)</block>
@@ -12165,12 +12127,7 @@
   <block id="c212b56e6344256b819057aa0ff26e93" category="list-text">保护存储安装的安全</block>
   <block id="adfa274b93101556376a5c1c110a25b1" category="inline-link-macro">生产强化</block>
   <block id="3de794741da4d53ee89d2cfb65848ddb" category="paragraph"><block ref="3de794741da4d53ee89d2cfb65848ddb" category="inline-link-macro-rx"></block></block>
-  <block id="f2bc12f5f4eebffc4fcfe148f063406b" category="list-text">安装JRE。</block>
-  <block id="1eb28a6954d3f0d52944773f2001d377" category="inline-xref">安装JRE</block>
-  <block id="441101d3b94f5fe418ef67bd1081c0a6" category="paragraph"><block ref="06f50206a2b466fef1529155ff096c98" category="inline-xref-macro-rx"></block></block>
-  <block id="6641dbbe07c8e6fe53f1f58917a97776" category="list-text">安装和配置存储。</block>
   <block id="f798a783218170fc044aaf03491e8c63" category="inline-xref">安装和配置存储</block>
-  <block id="ef1f1252873864d80f380df4f260b300" category="paragraph"><block ref="11cd3d25aa255f8670dd0bfb1bb1d11c" category="inline-xref-macro-rx"></block></block>
   <block id="037b7d55a30f474064c10ac0edbaf6d3" category="list-text">以"root"用户或可更改为高级权限模式的sudo用户身份登录。</block>
   <block id="75c3358765861dfefd4446691eccaebc" category="paragraph">如果您没有或不想使用本地存储服务器、则必须安装存储。您可以参考此标准操作步骤 来安装存储、也可以参考Hashicorp安装说明来了解其他准则。</block>
   <block id="6ab2b19db2409ff46893b7cf13d70d9d" category="list-text">下载存储zip文件。</block>
@@ -12189,7 +12146,6 @@
   <block id="c74f17ce72c64bc3a5d3eacc0affa867" category="paragraph">您应验证是否已为MySQL守护进程启用自动启动功能。如果 MetroCluster Tiebreaker 软件所在的系统重新启动，则打开 MySQL 守护进程会自动重新启动 MySQL 。如果 MySQL 守护进程未运行， Tiebreaker 软件将继续运行，但无法重新启动，并且无法更改配置。</block>
   <block id="7b21144e83a2d9bef049269b16711fb4" category="list-text">以登录身份<block ref="63a9f0ea7bb98050796b649e85481845" prefix=" " category="inline-code"></block> 可通过sudo进入高级权限模式的用户。</block>
   <block id="a85ec808ef0cc8f00cfefb33625bee2e" category="list-text">验证MariaDB服务器是否已启动：</block>
-  <block id="fe62eeb322eff90b81676630826cee46" category="list-text">您必须已使用安装OpenJDK<block ref="366f2699f7c6384b966350ad31d76b9d" prefix=" " category="inline-code"></block> 命令：对于运行Tiebreaker 1.4及更早版本的系统、请运行JRE 8。对于运行Tiebreaker 1.5及更高版本的系统、请运行OpenJDK 17、18或19。此示例中的输出显示JRE 1.0.0。(JRE 8)。</block>
   <block id="b11583eaa66ec31ee30afd4772390654" category="paragraph"><block ref="b11583eaa66ec31ee30afd4772390654" category="inline-link-rx"></block></block>
   <block id="afe5c13e8c0820ecf86c92cb3af131ee" category="list-text">验证RPM文件。</block>
   <block id="65efc23e428017c909aa7ce5f2ab429e" category="list-text">下载并导入RPM密钥文件：</block>
@@ -12199,7 +12155,6 @@
   <block id="e5dc6ecd3ca37b58ada5f81277474d69" category="admonition">只有在成功验证签名后、才能继续安装。</block>
   <block id="1181eacfe8bc53d389900389ceb7d577" category="list-text">【安装- Tiebreaker】安装或升级Tiebreaker软件：</block>
   <block id="fe5c4e6d23d7df5197bb3306f0890eba" category="admonition">只有在从Tiebreaker 1.4版升级时、才能升级到Tiebreaker 1.5版。不支持从早期版本升级到Tiebreaker 1.5。</block>
-  <block id="f02f0088b75e56893084f3c6d0e11382" category="paragraph">根据您是执行新安装还是升级现有安装、从下面选择正确的操作步骤。</block>
   <block id="53a3299075fc91e0efbd249fca6a3b62" category="open-title">执行新安装</block>
   <block id="d0797ac7be86e76f779b0cdc4f75e306" category="list-text">验证是否已安装受支持的OpenJDK版本、以及是否为主机上的当前Java版本。</block>
   <block id="bf9295a397fc51fb6414b02eb7dce4e7" category="admonition">要升级到Tiebreaker 1.5、您必须安装OpenJDK 17、18或19版。</block>
@@ -12232,7 +12187,6 @@
   <block id="d8e49cb116ea5302a217647ce0506ea6" category="list-text">如果您使用的是四节点配置、则所有节点都必须运行ONTAP 9.8或更高版本。</block>
   <block id="b8c86c478bbb73c53f5440966b9fb7d1" category="list-text">请勿超过平台组合中"较低"的任何对象限制。应用这两个平台的下限对象。</block>
   <block id="c5c0eb8cddac9e2347091241dce72719" category="list-text">如果目标平台限制低于MetroCluster 限制、则必须先将MetroCluster 重新配置为等于或低于目标平台限制、然后才能添加新节点。</block>
-  <block id="b6f6c085e7f98b78ea8fa6d3dd82bb6d" category="list-text">请参见 <block ref="62911b0739c1772914819ee9e7282ee4" category="inline-link-macro-rx"></block> 平台限制。</block>
   <block id="dc63943b5b97ad0f10f23219d6f93cd4" category="list-text">修改每个集群中已转移IP节点的集群对等方的IP地址：</block>
   <block id="6ea6f99dac44cf31a220dfe1e63e9825" category="list-text">使用确定cluster-A对等方<block ref="ecb6aba8bb04d2d32562d54c8601a0e1" prefix=" " category="inline-code"></block> 命令：</block>
   <block id="f01a5704368544da9ef6bb24a5a2e763" category="list-text">修改cluster A对等IP地址：</block>
@@ -12458,7 +12412,6 @@
   <block id="5e14931fa3c39251787af92197392ae0" category="cell"><block ref="b5713f91ed0348a8e6565b40d2be523a" prefix="" category="inline-code"></block></block>
   <block id="7794a024d3134acafeb3b112e36c9a3f" category="cell">分区3：</block>
   <block id="6129d8bcf6f4ed452d528f954ce79ee6" category="admonition">从ONTAP 9.5开始、必须使用启用磁盘自动分配<block ref="9518ee5351ea31dd67cceada18bfcfd6" prefix=" " category="inline-code"></block> 命令：</block>
-  <block id="00427bfa7d8d8bd516409a3466e96821" category="paragraph">必须将ha-config状态设置为<block ref="32b858596eeb9351eca27c2906a21da4" prefix=" " category="inline-code"></block> 在自动配置之前、请确保选择正确的分区大小、以支持适当的根卷大小。有关详细信息，请参见 <block ref="ee9beb37ef6441cda28497e9b5b08a94" category="inline-link-macro-rx"></block>。</block>
   <block id="5338d1a8478f350f9f873b7c89a98b0f" category="summary">修改MetroCluster FC后端交换机或ATto网桥的IP地址后、更换旧的运行状况监控IP地址。</block>
   <block id="ab82e5baf31743b1a6f1bdd378ba458b" category="doc">修改交换机或ATto网桥IP地址以进行运行状况监控</block>
   <block id="e3dbdae2799d2ed863a853d87ba77fd1" category="paragraph">修改MetroCluster FC后端交换机和ATto网桥的IP地址后、必须将旧的运行状况监控IP地址替换为新值。</block>
@@ -12549,12 +12502,7 @@
   <block id="9df52fd51f68e1f0a1c54d87fbcf2d9f" category="paragraph">只有当您要从第三个站点监控两个集群及其连接状态时，才需要 Tiebreaker 软件。Tieb破碎 机软件驻留在第三个站点的Linux主机上、可使集群中的每个配对节点区分站点间链路关闭时的ISL故障与站点故障。</block>
   <block id="776aa0db93dc60ccb39a1a2bac58edd0" category="paragraph">Tieber4软件可以同时监控多达15个MetroCluster配置。它支持MetroCluster IP、MetroCluster FC和延伸型MetroCluster配置的组合。</block>
   <block id="2c6d3f6cb9e7e0273e71c2ee07e103ef" category="paragraph">根据您的主机Linux操作系统、您必须先安装MySQL或MariaDB服务器、然后再安装或升级Tieb破碎 机软件。</block>
-  <block id="8844126d289515e2e309c080e84ee43c" category="paragraph">在安装或升级Tiebreaker软件之前、必须在主机系统上安装JRE。对于运行Tiebreaker 1.4及更早版本的系统、请运行JRE 8。对于运行Tiebreaker 1.5及更高版本的系统、请运行OpenJDK 17、18或19。</block>
-  <block id="b5331b4efb390ddc30f3887a25420519" category="admonition">以下示例中的输出显示了JRE 1.0.0。(JRE 8)。</block>
-  <block id="154b8d6790ee60fd4d75865b3817482f" category="list-text">检查可用的JRE版本：</block>
   <block id="7865dda488c185a7d613d74e7df3f15e" category="paragraph"><block ref="a99f9b32ea34805f9efcc4f331f10afc" prefix="" category="inline-code"></block></block>
-  <block id="dbdea63ff1558fc908b06e926327423d" category="list-text">为您要安装的Tiebreer版本安装适当的JRE版本：</block>
-  <block id="27ed5e7119f96428586081a25adfe698" category="paragraph"><block ref="2ca50315d5ef6249cb28806653cc3bfe" prefix="" category="inline-code"></block></block>
   <block id="b90b751e14131dd4f7b6cf9757e8e97a" category="admonition">如果网络中有存储服务器、则可以将MetroCluster Tiebreaker主机配置为使用该存储安装。如果执行此操作、则不需要在主机上安装存储。</block>
   <block id="5ecbe9b96b4eb8694b1debe91d9978db" category="list-text">导航到<block ref="1e80cb7e0fbfc9f5c0509a465ecdf6cf" prefix=" " category="inline-code"></block> 目录：</block>
   <block id="2cfe406f28049c6dd9fc09b125ac017c" category="list-text">导航到<block ref="887904812217cca9bc2b9adb875daf42" prefix=" " category="inline-code"></block> 目录：</block>
@@ -12572,7 +12520,6 @@
   <block id="e03f788bbf29419e636a27e1f472e11a" category="list-text">在<block ref="8a496517030fe431ec5836d0c8ae9ba7" prefix=" " category="inline-code"></block> 提示符下、复制并运行以下命令以创建存储服务文件。</block>
   <block id="9b064180fbc505f7486a763d137edca1" category="list-text">安装MariaDB服务器：</block>
   <block id="6b79acfbbc5bbc131d2f2f0095452588" category="admonition">当系统提示您输入root密码时、请将其留空、然后按Enter继续配置安全和密码设置。</block>
-  <block id="6f176c8a2e23e14b4e6fbf22deaea7f1" category="section-title">为MariaDB服务器启用自动启动设置</block>
   <block id="b0d6d2175ecec830760ddc378a14c197" category="paragraph">您应验证是否已为MariaDB服务器启用自动启动功能。如果不启用自动启动功能，并且 MetroCluster Tiebreaker 软件所在的系统必须重新启动，则 Tiebreaker 软件将继续运行，但无法重新启动 MariaDB 服务，也无法更改配置。</block>
   <block id="457e8f6231f529b8a11028ebae92d27b" category="doc">确保Tieb破碎 机主机和数据库安装的安全</block>
   <block id="e97506311a4625245b4c7a4b57176ce3" category="section-title">用户管理建议</block>
@@ -12585,8 +12532,6 @@
   <block id="8fdb4169cdca0d0e1f02d4b06965140f" category="inline-link-macro">了解MySQL企业级透明数据加密(TDE)</block>
   <block id="8d9f6f71afbbb7fa07ef3e65a4faa015" category="paragraph"><block ref="8d9f6f71afbbb7fa07ef3e65a4faa015" category="inline-link-macro-rx"></block></block>
   <block id="287230691bdd80a939d056f48b82a01a" category="admonition">在安装TiebrAKER软件之前、必须启用加密设置。</block>
-  <block id="74ca9f2037f85f9bee172d20503c7375" category="paragraph"><block ref="74ca9f2037f85f9bee172d20503c7375" category="inline-link-rx"></block></block>
-  <block id="6d4aa18fe97585a33f001d298b030e6f" category="list-text">下载<block ref="24c30cbfcff7f858d1a30b6193122a01" prefix=" " category="inline-code"></block> 密钥：</block>
   <block id="bf23d230569e17dc83fe9974217175d4" category="list-text">创建非root用户和<block ref="d5a9c5909d563fb968e1c3dc3e45cd64" prefix=" " category="inline-code"></block> 组。</block>
   <block id="38197215de6dcb136775c6796090b013" category="list-text">创建非root用户并设置密码。</block>
   <block id="da3c3579b3acc10ce03265f6ec0f662b" category="paragraph">以下示例命令将创建一个名为的非root用户<block ref="9a0193f01098d3db3f929747ecaa2bda" prefix=" " category="inline-code"></block>：</block>
@@ -12610,8 +12555,6 @@
   <block id="09eecd50480033ff43835a86efed6607" category="list-text">Red Hat Enterprise Linux 7至7.9</block>
   <block id="ae1dfcc629f4542382fd6286dbfe5a0d" category="list-text">CentOS 7到7.9 (64位)</block>
   <block id="3f4ac8596d411de0ef0ad341cbeb82aa" category="paragraph">使用CentOS：</block>
-  <block id="66df7c0e2a0c107715ece74d340b7499" category="paragraph">*MariaDB 10.x (使用使用"yum install MariaDB-server.x86_64 "安装的默认版本)
-*JRE 8.</block>
   <block id="024464eb7b3fd909a9746dff88c6b9c9" category="section-title">其他要求</block>
   <block id="4b0a6058e6a6f2eafcc1db1a3a9573fb" category="paragraph">您必须注意以下附加要求：</block>
   <block id="64f896c377dcdc9e0d5ae4809d1c3a73" category="list-text">在为Tieb破碎 机软件选择网络时间协议(Network Time Protocol、NTP)源时、必须使用本地NTP源。Tieb破碎 机软件不应使用与Tieb破碎 机软件监控的MetroCluster站点相同的源。</block>
@@ -12864,7 +12807,6 @@
   <block id="5993b684cff34ce50e30b3a1293c1f25" category="paragraph">*注意1*：在MetroCluster IP配置中、切换完成后、您可以手动将未镜像聚合置于联机状态。</block>
   <block id="0fc1dc5210ab6635b5582671b5100aaf" category="paragraph">了解更多信息 <block ref="26007d4b0afff1c47eeefe43a1492ee9" category="inline-xref-macro-rx"></block>。</block>
   <block id="edcdea907176b4b6176bfac47c1c23cc" category="doc">安装Tieb破碎 锤1.6</block>
-  <block id="51e78330040131fe6b93cb04e0fa15ec" category="paragraph">执行全新安装或升级Tieberr软件。</block>
   <block id="9a9884d3e2c33b612fd52c46591cdf8b" category="list-text">存储系统必须运行ONTAP 9.12.1或更高版本。</block>
   <block id="f616ec898f7359b274487a4c46b54cfc" category="list-text">您可以使用具有足够管理权限的非root用户身份安装MetroCluster Tieb破碎 镐、以便执行Tieb破碎 镐安装、创建表和用户以及设置用户密码。</block>
   <block id="e19f14d0b2d10c8920d70cbad23314da" category="list-text">下载MetroCluster Tieb破碎 机1.6软件。</block>
@@ -12900,10 +12842,6 @@
   <block id="686cbe9ae98dac9e3c34fe747bedda27" category="doc">选择您的安装操作步骤</block>
   <block id="de537937e28d6ff9bfed73c24f238620" category="paragraph">Tieb破碎 机1.6</block>
   <block id="3d0eb4e198ae6fd77a45e8e5eeab8df8" category="paragraph"><block ref="3d0eb4e198ae6fd77a45e8e5eeab8df8" category="inline-link-macro-rx"></block></block>
-  <block id="fc8e9fcd20abea214d32b4b417fe9ee7" category="paragraph">Tieb破碎 机1.5或1.4</block>
-  <block id="2ffd1c81489309e0073aecd5609369ad" category="inline-link-macro">安装Tieb破碎 锤1.5或1.4</block>
-  <block id="133f62a92e5c4fe1c8e0583979dbcf43" category="paragraph"><block ref="133f62a92e5c4fe1c8e0583979dbcf43" category="inline-link-macro-rx"></block></block>
-  <block id="9fc6565c0dbc4f2911a9e92430c80179" category="list-text">下载MetroCluster Tieb破碎 机软件。此示例使用1.5版。</block>
   <block id="92c6c9c27fa6ff626915d050a03cd801" category="doc">升级运行Tieb破碎 机监控器的主机</block>
   <block id="bb6cdee210874ecf03d44e914a8ca0e2" category="paragraph">您可能需要升级运行Tieb破碎 机监控器的主机。</block>
   <block id="5d7ada76e0c335aff8880d70d7058de7" category="list-text">卸载Tieb破碎 机软件：</block>
@@ -12919,7 +12857,6 @@
   <block id="9d0101bb262cf2b07ff8dcfa1f6cf004" category="list-text">您需要具有管理员密码并能够访问HTTP、FTP、SFTP或简单文件传输协议(TFTP)服务器。</block>
   <block id="c422062a1c7b3d9ed9b2282378699dc7" category="paragraph"><block ref="c422062a1c7b3d9ed9b2282378699dc7" category="inline-link-macro-rx"></block></block>
   <block id="f54824b249675e35c90a450877126d13" category="inline-link-macro">手动配置Brocade FC交换机</block>
-  <block id="da09acdb1d2e578a9e771c592cf62afa" category="paragraph"><block ref="da09acdb1d2e578a9e771c592cf62afa" category="inline-link-macro-rx"></block></block>
   <block id="94d0fc55d9356d3d18534836cae75c1d" category="doc">FC交换机配置概述</block>
   <block id="67af9bc4271944d43da3bdca5451bf73" category="paragraph">您可以使用RCC文件配置Cisco和Brocade FC交换机、也可以根据需要手动配置交换机。</block>
   <block id="1399637937931de009069d1a13a152fb" category="paragraph">*注1：*此组合需要ONTAP 9.13.1.或更高版本。</block>
@@ -13061,12 +12998,7 @@
   <block id="b07b13f7f6740ff05e2edecf69453d1e" category="paragraph">有关详细信息、请查看 <block ref="54dac02f94a6488bb50eb2223b2531dc" category="inline-link-macro-rx"></block>。</block>
   <block id="6c788f4f91230d4481264ef0fc97d4b2" category="inline-link-macro">了解ONTAP调解器如何在MetroCluster IP配置中支持自动计划外切换</block>
   <block id="83401bd8eb751fc79a9ff9e2e69be029" category="paragraph"><block ref="ff41f8886897126f1b4109a0b09cd291" category="inline-link-macro-rx"></block>。</block>
-  <block id="8ee0349da94a79740c2458822156c3f3" category="paragraph">ONTAP 9.13.1.及更早版本</block>
-  <block id="58ff5f456710e2c10351958a374f1bae" category="paragraph">ONTAP 9.11.1及更早版本</block>
-  <block id="0b0ec9f1cc28b3c19dc6c36dcd5af7cc" category="paragraph">1.3.</block>
-  <block id="7477ed6488d6dd27883a39484d4cd5f8" category="paragraph">ONTAP 9.10.1及更早版本</block>
   <block id="09e34111ef8649a5302b1889e0c7d303" category="list-text">JRE 8.</block>
-  <block id="d434765df1b814e459b22676bed43318" category="paragraph">1.21 Px</block>
   <block id="b3c0f57dcdb05faa9fbc38832a492a4e" category="admonition">应用配置时会显示一些警告消息。通常不会出现错误消息。但是、如果使用SSH登录、则可能会收到以下错误：<block ref="f6ffe33fb36eb714adf6f81147c665f6" prefix=" " category="inline-code"></block></block>
   <block id="c15b62e6a5ff15a0315735efe0205145" category="doc">修改MetroCluster IP配置中的地址、网络掩码和网关</block>
   <block id="907d0a00eecf52dcc4562775faad470a" category="paragraph">从 ONTAP 9.10.1 开始，您可以更改 MetroCluster IP 接口的以下属性： IP 地址和掩码以及网关。您可以使用任意参数组合进行更新。</block>
@@ -13204,7 +13136,6 @@
   <block id="a510a743559d6f2f71e9d8bf3b5f0f30" category="paragraph">以下示例显示了配置为连接MetroCluster接口的交换机端口。它是VLAN 10中的访问模式端口、MTU为9216、并以本机速度运行。它启用了对称(发送和接收)流量控制(暂停)、并分配了MetroCluster传入和传出策略。</block>
   <block id="a791c23bf43a913e9bc2dd3fbb04acf3" category="paragraph">在25Gbps端口上、您可能需要将正向错误更正(FEC)设置为"关闭"、如以下示例所示。</block>
   <block id="c1e9e67d43bd92599acf6de487a61c65" category="section-title">在整个网络中配置ISL端口的示例</block>
-  <block id="18b91592ae3775f34f65c991d793f843" category="paragraph">兼容MetroCluster的交换机被视为中间交换机、即使它直接连接MetroCluster接口也是如此。MetroCluster兼容交换机上传输MetroCluster流量的ISL端口必须与中间交换机上的ISL端口配置相同。请参见 <block ref="d4732e32817c639c5e57cf150621c360" category="inline-link-macro-rx"></block> 以获得指导和示例。</block>
   <block id="a05b3cdfc5cc23ee6b2d90f33be54635" category="admonition">对于连接MetroCluster接口和传输MetroCluster流量的ISL的交换机端口、某些策略映射是相同的。您可以对这两个端口使用使用使用相同的策略映射。</block>
   <block id="80d1269e99768d5e883ffa70dd8f6aeb" category="summary">根据您的要求、您可以使用共享的第2层或第3层网络来部署MetroCluster。</block>
   <block id="1c46b7bbd317f603895892a646ef8b2d" category="doc">在共享的第2层或第3层网络中部署MetroCluster时的注意事项</block>
@@ -13462,4 +13393,119 @@
   <block id="5a74832dfdf0bb3064f1c60224b5cf2a" category="list-text">按照以下准则、使用中的操作步骤热插拔顶部的FBRIDBRIDge 6500N网桥以更换为FBRIDBRIDge 7600N或7500N网桥 <block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block>：</block>
   <block id="ea8d3ee31ee0fcdd012de17493f6fb2c" category="list-text">按照以下准则、使用中的操作步骤热插拔底部的FBRIDGE 6500N网桥以更换为FBRIDGE 7600N或7500N网桥 <block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block>：</block>
   <block id="16bdceed077292999c9190c699d66beb" category="list-text">修改所有集群的Sifs以重新启用自动还原：</block>
+  <block id="0b066e9ada255be8bb3edf9bbafc5857" category="paragraph">请勿使用中的"在ONTAP中配置MetroCluster软件"一节中的过程 <block ref="a1fd01e320574c534b3b8a75cd17d943" category="inline-link-macro-rx"></block>。</block>
+  <block id="bd679c1b50ef29c3a2537bd953a296b8" category="paragraph">中列出了支持的平台配置 <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block>。</block>
+  <block id="98bcbbda2dba004809da92e37f439632" category="list-text">请参见 <block ref="b733b3de6818a363ac85112743571bca" category="inline-link-macro-rx"></block> 平台限制。</block>
+  <block id="88f5df506ae767ece15283ecefae4507" category="paragraph"><block ref="033cb4615d688419178b9228444df52e" prefix="" category="inline-code"></block></block>
+  <block id="99b40f9970dd46441776d7fc691341bd" category="paragraph">了解如何配置FC-SAS网桥以进行运行状况监控。</block>
+  <block id="89ce1e648a3661d4fdaf064dad88bb5a" category="list-text">对NODE_B_1执行网络启动：<block ref="83a4445bcfef2bd179eaffaabe3b3c20" prefix=" " category="inline-code"></block><block ref="61d04e9e86f00700e5224db919a90d37" prefix=" " category="inline-code"></block></block>
+  <block id="c9c51a398271de7dac80eb6ae49f5a4a" category="list-text">如果系统提示您继续执行操作步骤、请输入<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>，当系统提示您输入软件包时，输入URL：<block ref="e882cf97975cf7cbc82946fdfbfc50d7" prefix=" " category="inline-code"></block></block>
+  <block id="453251ed281496384c5feb5900cc31ba" category="paragraph">有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC升级表  <block ref="9595cfad5a4deb04d4a443245fae3f76" category="inline-link-macro-rx"></block>。</block>
+  <block id="3929d13da5d4b97eff76f8a6ec8c5501" category="list-text">访问 <block ref="a42716fdd3c80ae75cadfb8024b65de0" category="inline-link-macro-rx"></block> 下载用于执行系统网络启动的文件。</block>
+  <block id="94416aa661a92cc8d67b1bd6459ef472" category="list-text">有关支持的平台升级组合的信息、请查看中的MetroCluster FC升级表  <block ref="9595cfad5a4deb04d4a443245fae3f76" category="inline-link-macro-rx"></block>。</block>
+  <block id="636a367cc04fb36c02707f67c1a70771" category="paragraph">请参见 <block ref="ff174d1e305f5f579b29dcdb0a617c23" category="inline-link-macro-rx"></block> 以了解其他过程。</block>
+  <block id="332fe4e638c485c04f214b0a13747f6d" category="list-text">您可以使用此操作步骤通过基于 NSO 的自动切换和切回升级四节点 MetroCluster FC 配置中的控制器。如果要使用聚合重新定位（ Aggregate Relocation ， ARL ）执行控制器升级，请参见 <block ref="0fe967effd4f0eaf84576f897dbfd368" category="inline-link-macro-rx"></block>。建议使用基于 NSO 的自动化操作步骤。</block>
+  <block id="75132a926df50e23a26bd72dde0371b7" category="list-text"><block ref="46f4c9c8d582aa241b60c75ea3bcb2c9" category="inline-link-macro-rx"></block> 来自 Tiebreaker 软件。</block>
+  <block id="3f37428974fb63458f8dd07028049c05" category="paragraph">请参见 <block ref="9fe99ab9f2ddf89daf4666d8f9010550" category="inline-link-macro-rx"></block> 以了解其他过程。</block>
+  <block id="d1f739b347487947f18d3ad9cfbc668e" category="paragraph">有关平台型号的端口使用情况，请参见 <block ref="41f66f34b3a905f864500c9319fdff8f" category="inline-link-macro-rx"></block></block>
+  <block id="0b22fb8d0feec85055f45c8c4a298766" category="list-text">如果系统提示您继续执行操作步骤、请输入<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>，当系统提示您输入软件包时，输入URL：</block>
+  <block id="84ea00dba7c6a1cf0426e58385307e4f" category="paragraph"><block ref="5b9047ebb0d87499d679fd69fbda42cf" prefix="" category="inline-code"></block></block>
+  <block id="b57c06e6dad65cb8a7fb01050706349f" category="paragraph">您可以使用ONTAP系统管理器、将Web浏览器指向集群管理IP地址(\https://172.17.12.153).</block>
+  <block id="29b27683e4b3c944e67201fc18022943" category="paragraph">使用QSFP-SFP适配器时、是将端口配置为分支模式还是本机速度模式取决于交换机型号和固件。例如、如果将QSFP-SFP适配器与运行NX-OS固件9.x或10.x的Cisco 9336 C交换机结合使用、则需要将端口配置为本机速度模式。</block>
+  <block id="55caf57bfe7d9bc28b6ffc6c7d49f237" category="admonition">如果您配置了RCIF、请验证您是否选择了正确的速度模式或使用具有适当速度模式的端口。</block>
+  <block id="46dd6914bcca3c3b8a2609c6a420dc0c" category="paragraph"><block ref="46dd6914bcca3c3b8a2609c6a420dc0c" category="inline-link-macro-rx"></block></block>
+  <block id="aaf601495cda3687aff1783b9f086561" category="paragraph">兼容MetroCluster的交换机被视为中间交换机、即使它直接连接MetroCluster接口也是如此。MetroCluster兼容交换机上传输MetroCluster流量的ISL端口必须与中间交换机上的ISL端口配置相同。请参见 <block ref="a55ec765b3e97100c983e617f9d68e39" category="inline-link-macro-rx"></block> 以获得指导和示例。</block>
+  <block id="7c1481d1c9b970b7d299c0c5dad3d8b5" category="paragraph">必须将ha-config状态设置为<block ref="32b858596eeb9351eca27c2906a21da4" prefix=" " category="inline-code"></block> 在自动配置之前、请确保选择正确的分区大小、以支持适当的根卷大小。有关详细信息，请参见 <block ref="6b54dfc1103fb8ab70a56160f0fd8161" category="inline-link-macro-rx"></block>。</block>
+  <block id="688da24e96580a94ac368ba20c7993eb" category="paragraph">如果您使用的是内部和外部驱动器、则首先使用ADP仅使用内部驱动器初始化MetroCluster。完成安装或设置任务后、您可以手动连接外部磁盘架。</block>
+  <block id="724b35256a117cacc7c70cc2777472fb" category="inline-xref">系统的ADP和磁盘分配差异</block>
+  <block id="b97518c4a28d7962f4cab20f62a9403c" category="paragraph">您必须确保内部磁盘架具有中所述的建议的最小驱动器数 <block ref="ededfefc169c9cc0e0251fda89f5bc17" category="inline-xref-macro-rx"></block>。</block>
+  <block id="e704d09991934a15e8d23053550c2b89" category="paragraph">对于内部驱动器和外部驱动器、必须按照中所述填充部分已满的磁盘架 <block ref="ecc5b42a6ea0f9e8652c9de01d6a9fd8" category="inline-xref-macro-rx"></block>。</block>
+  <block id="4566c4fa13f90f4737cd5d791e5fb12e" category="paragraph">下表显示了如何在一个包含24个驱动器的内部磁盘架中放置16个磁盘的示例。</block>
+  <block id="76fc4cbf8ed1ecf271a1492d3a7004eb" category="cell">24个驱动器托架分为四个四等分：</block>
+  <block id="fde574379c71eb09acde49d6562d4638" category="cell">在每个季度的前四个托架中安装四个驱动器...</block>
+  <block id="8456de52cfbc9bf31f8ec12ada868660" category="paragraph">四分之一：托架0-5</block>
+  <block id="06be898ea2064ea890d25f80d955e244" category="paragraph">托架0-3</block>
+  <block id="6933f32f73e1ecebba5ce7f14d601258" category="paragraph">第二个四等分：托架6-11</block>
+  <block id="19190dbecce756f4c55169a24c17d3ca" category="paragraph">托架6-9.</block>
+  <block id="5192974bc80c661fde58a493fc941742" category="paragraph">第三个四等分：托架12-17</block>
+  <block id="db6232695faa98029dec20606cea2f02" category="paragraph">托架12-15.</block>
+  <block id="abff8504421e7d3697d654877cde8fcb" category="paragraph">第四个四等分：托架18-23</block>
+  <block id="df01ff151b76cec5843a2eccb978e938" category="paragraph">托架18-21.</block>
+  <block id="ad20882646761a02dd54414dbeca9ccb" category="paragraph">如果您要在每个站点上使用两个外部磁盘架、则会使用半磁盘架策略分配磁盘。如果磁盘架未完全填充，请从磁盘架的任意一端等分安装驱动器。</block>
+  <block id="48b5b1437ce3b483bb5ca8daf97655ff" category="summary">在主机Linux操作系统上全新安装或升级到Tieb破碎 机1.5、以监控MetroCluster配置。</block>
+  <block id="f8d2f649ab74ec933c327952e8bb2928" category="doc">安装或升级到Tieb破碎 机1.5</block>
+  <block id="d0326b8b5ab3d73f0c473a86657f8120" category="list-text">存储系统必须运行受支持的ONTAP版本。请参见 <block ref="baa1c8503450ae393332ce081dcd2dcb" category="inline-link-macro-rx"></block> 表以了解更多详细信息。</block>
+  <block id="9dcb328e6e745d546e4551bec0b851f5" category="list-text">您必须已使用安装OpenJDK<block ref="366f2699f7c6384b966350ad31d76b9d" prefix=" " category="inline-code"></block> 命令：Tieber1.5及更高版本支持OpenJDK 17、18或19。</block>
+  <block id="96894f4b4543e59d1a0f367969a6dde7" category="list-text">下载MetroCluster Tieb破碎 机软件和MetroCluster_Tieb破碎 机_RPM_GPG密钥。</block>
+  <block id="a5bed4d92c3921863940826187da9e98" category="admonition">可以从NetApp 支持站点 上下载Tieb破碎 机1.5软件包的同一页面下载MetroCluster_Tieb破碎 机_RPM_GPG密钥。</block>
+  <block id="912c701bea2a07b0f2e994ecbbfe39bb" category="inline-link">MetroCluster Tieb破碎 机(下载)—NetApp 支持站点</block>
+  <block id="c91ec8afdbbb8c5302115832907272a9" category="paragraph"><block ref="c91ec8afdbbb8c5302115832907272a9" category="inline-link-rx"></block></block>
+  <block id="a02a46a02dea350b2d7c3fe6c8195784" category="paragraph">根据您是执行新安装还是升级现有安装、选择正确的操作步骤。</block>
+  <block id="42a6071f1b74c23c6f01ed4ee83e84a9" category="summary">在主机Linux操作系统上全新安装或升级到Tieb破碎 机1.4、以监控MetroCluster配置。</block>
+  <block id="fb40d4c34084890fcaf25f365a76ac12" category="doc">安装或升级到Tieb破碎 机1.4</block>
+  <block id="ac6b423e5ba71dfd63c97271456a6104" category="list-text">您必须已使用安装OpenJDK<block ref="366f2699f7c6384b966350ad31d76b9d" prefix=" " category="inline-code"></block> 命令：TiebreAKER 1.4及更早版本支持JDK 1.8.0 (JRE 8)。</block>
+  <block id="4eb7fa04b05f83fec825fec60b3d37e2" category="list-text">下载MetroCluster Tieb破碎 机软件。</block>
+  <block id="17506b44d3cfa6cc5f2f179b8cbb9798" category="list-text">通过运行来安装Tieb破碎 机软件：</block>
+  <block id="6007545ec605289d47e5a070851a6ae7" category="paragraph"><block ref="805b9922cac1dbcb1d1759c3f16ff8c5" prefix="" category="inline-code"></block></block>
+  <block id="9cd57fceaa8db70100b7208b29c2c079" category="open-title">升级现有安装</block>
+  <block id="3dca3d249f3a84b4f5a55036870e7d54" category="summary">Tieber1.5软件可为集群模式存储环境提供监控功能。此外，它还会在发生节点连接问题和站点灾难时发送 SNMP 通知。</block>
+  <block id="610f72644dc6ccb3bdc02753fac9e40d" category="doc">安装MetroCluster Tieber1.5依赖关系</block>
+  <block id="6a3551c9dec48fcefff0bc798b26377a" category="inline-xref">安装JDK</block>
+  <block id="54adfea66c44ae53db53d861cde177b3" category="list-text"><block ref="a9e34c1f0eacc89d99d89ac6db5755f3" category="inline-xref-macro-rx"></block></block>
+  <block id="64fadfb89c70aba2596b6e898f7407c0" category="list-text"><block ref="13bc549387f74fffb9fb85518815a4cf" category="inline-xref-macro-rx"></block></block>
+  <block id="6b2a10b36edc245209f8197126ad892c" category="inline-xref">在Red Hat Enterprise Linux 7或CentOS 7上安装MySQL Server 5.5.30或更高版本以及5.6.x版本</block>
+  <block id="b05c84f48a507c37a035eb90f1b6c263" category="paragraph"><block ref="74ab92a4a42a2343cbaea196d9ceb7fd" category="inline-xref-macro-rx"></block></block>
+  <block id="130d22d651a0bfe0d3bffb9a78c07b35" category="inline-xref">在Red Hat Enterprise Linux 8上安装MariaDB服务器</block>
+  <block id="88f1b3322487dc544fa1497636c53c3f" category="paragraph"><block ref="38f5e34ed2b52836f2486dd4da76671d" category="inline-xref-macro-rx"></block></block>
+  <block id="8631612f56a0f0da48ccb69a5eea4dea" category="paragraph">在安装或升级Tieb破碎 机软件之前、您必须在主机系统上安装JDK。Tieber1.5及更高版本支持OpenJDK 17、18或19。</block>
+  <block id="5b98f0672601b4637ec30dd3a1bf5971" category="list-text">检查可用的JDK版本：</block>
+  <block id="4611184615658a82d926bbdd22cead09" category="list-text">安装JDK 17、18或19。</block>
+  <block id="788e6d81c6159e5597665dfbda001f3b" category="paragraph">以下命令将安装JDK 17：</block>
+  <block id="1a2fcbb7ed3658f96924e4c40d25238f" category="paragraph"><block ref="65a8cc094f7c9bd3e6406d7b03afe579" prefix="" category="inline-code"></block></block>
+  <block id="fac4447e0ea2e4cd1a2d9e2fefeab694" category="list-text">验证安装。</block>
+  <block id="d349bda8382351b9fe435583c56eca3b" category="paragraph"><block ref="5d7f69486483ec9123c78fb391309819" prefix="" category="inline-code"></block></block>
+  <block id="710a5de3b1bfbb26f90cb380ca34843a" category="paragraph">成功安装将显示以下输出：</block>
+  <block id="bce356412a95327bfdb1db19b9151953" category="inline-xref">安装MariaDB服务器</block>
+  <block id="3f808a8a84dbaf66d2b1d4ec08d41caa" category="paragraph">在安装或升级 Tiebreaker 软件之前，必须在主机系统上安装 MySQL Server 5.5.30 或更高版本以及 5.6.x 版本。对于Red Hat Enterprise Linux 8、 <block ref="cce1670a787ab2bd35f1046a8f26c68f" category="inline-xref-macro-rx"></block>。</block>
+  <block id="532310374e7793ddf9ac8cbed30210c8" category="section-title">启用MySQL自动启动设置</block>
+  <block id="6db66be6094d7b7ca07b0b3051e97f54" category="inline-xref">安装MySQL Server</block>
+  <block id="6b1d36d5ec1c94e1eec93df2718edee7" category="paragraph">在安装或升级 Tiebreaker 软件之前，必须在主机系统上安装 MariaDB 服务器。对于Red Hat Enterprise Linux 7或CentOS 7、 <block ref="d6e81ea95129f7cd9f785433c5e134df" category="inline-xref-macro-rx"></block>。</block>
+  <block id="fa386ba9d241750f0dd45fd600a79941" category="section-title">为MariaDB服务器启用自动启动设置</block>
+  <block id="adbb94f0ccbbe34d5296dc1c35a84726" category="summary">Tieber1.4软件可为集群模式存储环境提供监控功能。此外，它还会在发生节点连接问题和站点灾难时发送 SNMP 通知。</block>
+  <block id="1e9941e8f30babc5f8d431af23393f7b" category="doc">安装MetroCluster Tieb破碎 机1.4依赖关系</block>
+  <block id="b42aef8e8328a4c8ad2b06e4b83e7881" category="paragraph">根据您的主机Linux操作系统、在安装或升级Tieb破碎 机软件之前安装MySQL或MariaDB服务器。</block>
+  <block id="d657089a50577a75e88660c58f4d436a" category="list-text"><block ref="096ececee6bc95e521d7c85980720207" category="inline-xref-macro-rx"></block>。</block>
+  <block id="76cb36f0dbb8e7d76743141613cda859" category="paragraph">在安装或升级Tieb破碎 机软件之前、您必须在主机系统上安装JDK。Tieb破碎 机1.4及更早版本支持JDK 1.0.0。(JRE 8)。</block>
+  <block id="10636ba52a9f69969f1baeff2e8772ce" category="list-text">以"root"用户身份登录。</block>
+  <block id="45ce42c9ad0e5706beb13690d8d1c528" category="list-text">安装JDK 1.0.0：</block>
+  <block id="a5bdeb77664eccd64392e790b5c620a8" category="paragraph"><block ref="350a7ebb397b46f12bb07dab4792547e" prefix="" category="inline-code"></block></block>
+  <block id="433d65bdb306eb4928e6ae75fb7922c9" category="inline-xref">安装MariaDB服务器</block>
+  <block id="fccf81e975f1d68aff179d395513ad66" category="paragraph">在安装或升级 Tiebreaker 软件之前，必须在主机系统上安装 MySQL Server 5.5.30 或更高版本以及 5.6.x 版本。  对于Red Hat Enterprise Linux 8、 <block ref="5d0470d05292387d11d62aa5fd312b3d" category="inline-xref-macro-rx"></block>。</block>
+  <block id="34ddff2815f871a4f2a5c1843943d259" category="list-text">以 root 用户身份登录。</block>
+  <block id="7a695adbd64da12b14f0e04ae1c198fb" category="paragraph">当MySQL登录按预期运行时、输出将在结束<block ref="ed49d1cb9ebac71351e6bbd4d88ef634" prefix=" " category="inline-code"></block> 提示符。</block>
+  <block id="aa8305dc53f7db3e2d15d3f5d4b0fd91" category="paragraph">在安装或升级 Tiebreaker 软件之前，必须在主机系统上安装 MariaDB 服务器。  对于Red Hat Enterprise Linux 7或CentOS 7、 <block ref="d6e81ea95129f7cd9f785433c5e134df" category="inline-xref-macro-rx"></block>。</block>
+  <block id="7ccb3226f303f524c6a3b00fc264270f" category="list-text">以登录身份<block ref="63a9f0ea7bb98050796b649e85481845" prefix=" " category="inline-code"></block> 用户。</block>
+  <block id="9cd256a82b5d6fd3425bcd9646641d4b" category="paragraph">ONTAP 9.8到ONTAP 9.14.1</block>
+  <block id="a6f5218693cab1cdc7285498cbdf0ce8" category="paragraph">ONTAP 9.1到ONTAP 9.9.1</block>
+  <block id="80dd536fbb98ad1689bfbebc73338f0e" category="list-text">Tiebreaker 软件安装在第三个站点上，该软件可以区分交换机间链路（ ISL ）故障（站点间链路关闭时）和站点故障。您的主机系统必须满足特定要求、然后才能安装或升级Tieb破碎 机软件以监控MetroCluster配置。</block>
+  <block id="b4c29468243fd329e285a7eb342829dc" category="paragraph">Tieb破碎 机1.5</block>
+  <block id="4f5b54f9c941cadc92b42e83ba2d625f" category="inline-link-macro">安装Tieb破碎 锤1.5</block>
+  <block id="53bf421364084851b0e9802944474422" category="paragraph"><block ref="53bf421364084851b0e9802944474422" category="inline-link-macro-rx"></block></block>
+  <block id="7dfc6eda1cb7a514db22096a11fb5874" category="paragraph">Tieb破碎 机1.4</block>
+  <block id="06aef4d1d6158c53520054dd04cc3a52" category="inline-link-macro">安装Tieb破碎 锤1.4</block>
+  <block id="bd7d740c7178aa2df12a81e3a095cf7a" category="paragraph"><block ref="bd7d740c7178aa2df12a81e3a095cf7a" category="inline-link-macro-rx"></block></block>
+  <block id="afd755a1fe90c01febccbd2e397b9780" category="summary">在主机Linux操作系统上全新安装或升级到Tieb破碎 机1.6以监控MetroCluster配置。</block>
+  <block id="92cf4933e9c8bfb818863f455e477af5" category="paragraph"><block ref="92cf4933e9c8bfb818863f455e477af5" category="inline-link-macro-rx"></block></block>
+  <block id="00395061ba5a721f2a906e4ac75f9fde" category="inline-link-macro">在 MetroCluster 配置中为 FabricPool 设置对象存储</block>
+  <block id="e0e300856a5e4a2a419fdf0d5fb20e62" category="admonition">在配置聚合之前、必须按照中所述设置对象存储 <block ref="bf6f1feb5dfb0381998cf99478ab26ea" category="inline-link-macro-rx"></block>。</block>
+  <block id="39998026607048d04a8bc09fac18fa8f" category="paragraph">从ONTAP 9.11.1开始、 <block ref="7a1a77fa3bd3a175233cd6cdfe493836" category="inline-link-macro-rx"></block> 在MetroCluster 配置中受支持。</block>
+  <block id="664f9c52f93e2fbf6e801148b0f573ad" category="inline-link-macro">HA对管理</block>
+  <block id="fc0b22bb38f11521c03de86c56643d5d" category="paragraph"><block ref="fc0b22bb38f11521c03de86c56643d5d" category="inline-link-macro-rx"></block></block>
+  <block id="0f87578f11104e3d1178b1b6a73f5684" category="paragraph"><block ref="0f87578f11104e3d1178b1b6a73f5684" category="inline-link-macro-rx"></block></block>
+  <block id="3973235e869d719328cf4b37e59562e5" category="paragraph"><block ref="3973235e869d719328cf4b37e59562e5" category="inline-link-macro-rx"></block></block>
+  <block id="c5d34bb560e327e8975a1da2f0e0c0fe" category="cell"><block ref="c5d34bb560e327e8975a1da2f0e0c0fe" category="inline-link-macro-rx"></block></block>
+  <block id="25f1ab87c0a26d25aae4f64158a13958" category="cell"><block ref="25f1ab87c0a26d25aae4f64158a13958" category="inline-link-macro-rx"></block></block>
+  <block id="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="paragraph"><block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block></block>
+  <block id="2a35142a0e6eda28748cdf00899dc98b" category="paragraph">。 <block ref="0c7bf211a7cb9712977652add2e31f3e" category="inline-link-macro-rx"></block> 描述新功能，升级说明，已修复的问题，已知限制和已知问题。</block>
+  <block id="0f25553cdf8eb8de83ad715008d4617b" category="paragraph">执行所需任务、完成从多控制器或存储故障中恢复的过程。</block>
 </blocks>

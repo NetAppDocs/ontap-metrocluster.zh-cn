@@ -17,10 +17,10 @@ summary: 您可以使用此引导式自动 MetroCluster 切换操作对四节点
 
 == 支持的平台组合
 
-* 有关支持的平台升级组合的信息、请查看中的MetroCluster FC升级表 link:concept_choosing_controller_upgrade_mcc.html#metrocluster-fc-controller-upgrades["选择控制器升级操作步骤"]。
+* 有关支持的平台升级组合的信息、请查看中的MetroCluster FC升级表  link:concept_choosing_controller_upgrade_mcc.html#supported-metrocluster-fc-controller-upgrades["选择控制器升级操作步骤"]。
 
 
-请参见 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"] 以了解其他过程。
+请参见 link:concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"] 以了解其他过程。
 
 
 
@@ -35,7 +35,7 @@ summary: 您可以使用此引导式自动 MetroCluster 切换操作对四节点
 +
 https://hwu.netapp.com["NetApp Hardware Universe"^]
 
-* 您可以使用此操作步骤通过基于 NSO 的自动切换和切回升级四节点 MetroCluster FC 配置中的控制器。如果要使用聚合重新定位（ Aggregate Relocation ， ARL ）执行控制器升级，请参见 https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"]。建议使用基于 NSO 的自动化操作步骤。
+* 您可以使用此操作步骤通过基于 NSO 的自动切换和切回升级四节点 MetroCluster FC 配置中的控制器。如果要使用聚合重新定位（ Aggregate Relocation ， ARL ）执行控制器升级，请参见 link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"]。建议使用基于 NSO 的自动化操作步骤。
 * 如果 MetroCluster 站点实际位于两个不同位置，则应使用自动化 NSO 控制器升级操作步骤按顺序升级这两个站点的控制器。
 * 此基于 NSO 的自动控制器升级操作步骤使您能够对 MetroCluster 灾难恢复（ DR ）站点启动控制器更换。一次只能在一个站点启动控制器更换。
 * 要在站点 A 启动控制器更换，您需要从站点 B 运行 controller replacement start 命令此操作仅会指导您更换站点 A 上两个节点的控制器。要更换站点 B 的控制器，您需要从站点 A 运行 controller replacement start 命令此时将显示一条消息，指出要更换控制器的站点。
@@ -241,7 +241,7 @@ dr-group-id cluster    node          node-systemid dr-partner-systemid
 如果使用 MetroCluster Tiebreaker 配置或其他可启动切换的第三方应用程序（例如 ClusterLion ）监控现有配置，则在更换旧控制器之前，必须先从 Tiebreaker 或其他软件中删除 MetroCluster 配置。
 
 .步骤
-. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-34C97A45-0BFF-46DD-B104-2AB2805A983D.html["删除现有 MetroCluster 配置"^] 来自 Tiebreaker 软件。
+. link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["删除现有 MetroCluster 配置"] 来自 Tiebreaker 软件。
 . 从可以启动切换的任何第三方应用程序中删除现有 MetroCluster 配置。
 +
 请参见该应用程序的文档。
@@ -400,7 +400,7 @@ https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 此任务将对每个新控制器模块执行。
 
 .步骤
-. 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
+. 访问 link:https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
 . 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
 . 转到可通过 Web 访问的目录，并验证所需文件是否可用。
 +

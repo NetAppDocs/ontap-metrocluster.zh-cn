@@ -20,7 +20,7 @@ entries:
       url: "/tiebreaker/install-choose-procedure.html"
     - title: 安装Tieb破碎 锤1.6
       url: "/tiebreaker/tb-16-install.html"
-    - title: 安装Tieb破碎 锤1.5或1.4
+    - title: 安装Tieb破碎 锤1.5
       entries:
       - title: 配置对ONTAPI和SSH的管理员访问权限
         url: "/tiebreaker/task_configure_ssh_ontapi.html"
@@ -28,6 +28,12 @@ entries:
         url: "/tiebreaker/install_dependencies.html"
       - title: 安装软件包
         url: "/tiebreaker/install_tiebreaker_package.html"
+    - title: 安装Tieb破碎 锤1.4
+      entries:
+      - title: 安装依赖项
+        url: "/tiebreaker/install-dependencies-14.html"
+      - title: 安装软件包
+        url: "/tiebreaker/install-tiebreaker-package-14.html"
 - title: 升级主机
   url: "/tiebreaker/upgrade_host.html"
 - title: 配置 Tiebreaker 软件

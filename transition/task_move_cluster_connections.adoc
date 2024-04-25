@@ -17,7 +17,6 @@ summary: 在查看所有要求并为过渡做准备之后，您可以执行过�
 
 == 移动 MetroCluster FC 节点上的集群连接
 
-[role="lead"]
 您必须将 MetroCluster FC 节点上的集群连接移动到 IP 交换机。这些步骤取决于您使用的是现有 IP 交换机还是新的 IP 交换机。
 
 您必须在两个 MetroCluster 站点上执行此任务。

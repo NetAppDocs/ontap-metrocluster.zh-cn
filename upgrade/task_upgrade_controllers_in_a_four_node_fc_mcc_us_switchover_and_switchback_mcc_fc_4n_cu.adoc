@@ -19,7 +19,7 @@ summary: 升级配对集群上的控制器模块时，您可以使用 MetroClust
 
 您可以在MetroCluster FC配置中使用切换和切回操作升级某些平台。
 
-有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC升级表 link:concept_choosing_controller_upgrade_mcc.html#metrocluster-fc-controller-upgrades["选择控制器升级操作步骤"]。
+有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC升级表  link:concept_choosing_controller_upgrade_mcc.html#supported-metrocluster-fc-controller-upgrades["选择控制器升级操作步骤"]。
 
 请参见 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"] 以了解其他过程。
 
@@ -504,7 +504,7 @@ dr-group-id cluster    node      node-systemid dr-partner-systemid
 .步骤
 . 从 Tiebreaker 软件中删除现有 MetroCluster 配置。
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-34C97A45-0BFF-46DD-B104-2AB2805A983D.html["删除 MetroCluster 配置"]
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["删除 MetroCluster 配置"]
 
 . 从可以启动切换的任何第三方应用程序中删除现有 MetroCluster 配置。
 +
@@ -791,7 +791,7 @@ https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 此任务将对每个新控制器模块执行。
 
 .步骤
-. 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
+. 访问 link:https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
 . 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
 . 转到可通过 Web 访问的目录，并验证所需文件是否可用。
 +

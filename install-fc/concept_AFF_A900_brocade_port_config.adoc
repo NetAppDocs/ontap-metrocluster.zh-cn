@@ -10,6 +10,7 @@ summary: 下表显示了 AFF A900 系统的 Brocade 交换机上的端口使用�
 :imagesdir: ../media/
 
 
+[role="lead"]
 下表显示了 Brocade 交换机上的端口使用情况。下表显示了支持的最大配置，其中四个 DR 组包含八个控制器模块。AFF A900和FAS9500系统具有八个FC-VI端口(FC-VI-1和FC-VI-2的A、b、c和d)
 
 |===

@@ -2,29 +2,29 @@
 permalink: tiebreaker/install_tiebreaker_package.html 
 sidebar: sidebar 
 keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
-summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，它还会在发生节点连接问题和站点灾难时发送 SNMP 通知。 
+summary: 在主机Linux操作系统上全新安装或升级到Tieb破碎 机1.5、以监控MetroCluster配置。 
 ---
-= 安装或升级软件包
+= 安装或升级到Tieb破碎 机1.5
 :allow-uri-read: 
 
 
 [role="lead"]
-您必须在本地计算机上安装或升级 MetroCluster Tiebreaker 软件，才能监控 MetroCluster 配置。
+在主机Linux操作系统上全新安装或升级到Tieb破碎 机1.5、以监控MetroCluster配置。
 
 .关于此任务
-* 存储系统必须运行 ONTAP 8.3.x 或更高版本。
-* 您必须已使用安装OpenJDK `yum install java-x.x.x-openjdk` 命令：对于运行Tiebreaker 1.4及更早版本的系统、请运行JRE 8。对于运行Tiebreaker 1.5及更高版本的系统、请运行OpenJDK 17、18或19。此示例中的输出显示JRE 1.0.0。(JRE 8)。
+* 存储系统必须运行受支持的ONTAP版本。请参见 link:install_prepare.html#software-requirements["软件要求"] 表以了解更多详细信息。
+* 您必须已使用安装OpenJDK `yum install java-x.x.x-openjdk` 命令：Tieber1.5及更高版本支持OpenJDK 17、18或19。
 * 您可以使用具有足够管理权限的非root用户身份安装MetroCluster Tieb破碎 镐、以便执行Tieb破碎 镐安装、创建表和用户以及设置用户密码。
 
 
 .步骤
-. 下载MetroCluster Tieb破碎 机软件。此示例使用1.5版。
+. 下载MetroCluster Tieb破碎 机软件和MetroCluster_Tieb破碎 机_RPM_GPG密钥。
 +
-https://mysupport.netapp.com/site/["NetApp 支持站点"^]
 
-. 下载 `MetroCluster_Tiebreaker_RPM_GPG` 密钥：
+NOTE: 可以从NetApp 支持站点 上下载Tieb破碎 机1.5软件包的同一页面下载MetroCluster_Tieb破碎 机_RPM_GPG密钥。
+
 +
-https://mysupport.netapp.com/site/["NetApp 支持站点"^]
+https://mysupport.netapp.com/site/products/all/details/metrocluster-tiebreaker/downloads-tab["MetroCluster Tieb破碎 机(下载)—NetApp 支持站点"^]
 
 . 以 root 用户身份登录到主机。
 . 创建非root用户和 `mcctbgrp` 组。
@@ -97,7 +97,7 @@ NOTE: 只有在成功验证签名后、才能继续安装。
 NOTE: 只有在从Tiebreaker 1.4版升级时、才能升级到Tiebreaker 1.5版。不支持从早期版本升级到Tiebreaker 1.5。
 
 +
-根据您是执行新安装还是升级现有安装、从下面选择正确的操作步骤。
+根据您是执行新安装还是升级现有安装、选择正确的操作步骤。
 
 +
 [role="tabbed-block"]
@@ -123,7 +123,6 @@ NOTE: 在安装期间出现提示时、请提供您先前创建并分配给的�
 +
 [listing]
 ----
-
 Verifying...                          ################################# [100%]
 Preparing...                          ################################# [100%]
 Updating / installing...

@@ -35,7 +35,7 @@ NOTE: 您可以使用所述的手动升级操作步骤在运行ONTAP 9.12.1或9.
 
 有关平台升级组合的详细信息、请查看中的MetroCluster IP升级表 link:concept_choosing_controller_upgrade_mcc.html#supported-metrocluster-ip-controller-upgrades["选择控制器升级操作步骤"]。
 
-请参见 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"] 以了解其他过程。
+请参见 link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"] 以了解其他过程。
 
 
 
@@ -269,7 +269,7 @@ dr-group-id cluster    node          node-systemid dr-partner-systemid
 如果使用 MetroCluster Tiebreaker 配置或其他可启动切换的第三方应用程序（例如 ClusterLion ）监控现有配置，则在更换旧控制器之前，必须先从 Tiebreaker 或其他软件中删除 MetroCluster 配置。
 
 .步骤
-. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-34C97A45-0BFF-46DD-B104-2AB2805A983D.html["删除现有 MetroCluster 配置"^] 来自 Tiebreaker 软件。
+. link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["删除现有 MetroCluster 配置"] 来自 Tiebreaker 软件。
 . 从可以启动切换的任何第三方应用程序中删除现有 MetroCluster 配置。
 +
 请参见该应用程序的文档。
@@ -318,7 +318,7 @@ dr-group-id cluster    node          node-systemid dr-partner-systemid
 例如， "`e0d` " 是旧控制器上的物理端口，也存在于新控制器上。"`e0d` " 不会用作集群端口，也不会在新控制器上使用。
 
 +
-有关平台型号的端口使用情况，请参见 https://hwu.netapp.com/["NetApp Hardware Universe"^]
+有关平台型号的端口使用情况，请参见 link:https://hwu.netapp.com/["NetApp Hardware Universe"^]
 
 .. 修改所有数据 LIF 以使用通用端口作为主端口：
 +
@@ -428,7 +428,7 @@ https://docs.netapp.com/us-en/ontap-systems/index.html["ONTAP硬件系统文档"
 此任务将对每个新控制器模块执行。
 
 .步骤
-. 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
+. 访问 link:https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
 . 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
 . 转到可通过 Web 访问的目录，并验证所需文件是否可用。
 +

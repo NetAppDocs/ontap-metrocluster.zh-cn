@@ -10,11 +10,12 @@ summary: 如果需要更换硬件组件，您必须使用其各自的硬件更�
 :imagesdir: ../media/
 
 
+[role="lead"]
+如果需要更换硬件组件，您必须使用其各自的硬件更换和安装指南进行更换。
+
 
 
 == 更换灾难站点上的硬件
-
-如果需要更换硬件组件，您必须使用其各自的硬件更换和安装指南进行更换。
 
 .开始之前
 存储控制器必须关闭电源或保持暂停状态（显示 LOADER 提示符）。
@@ -419,7 +420,7 @@ https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"^]
 
 
 .步骤
-. 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
+. 访问 link:https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
 . 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。
 . 转到可通过 Web 访问的目录，并验证所需文件是否可用。
 +

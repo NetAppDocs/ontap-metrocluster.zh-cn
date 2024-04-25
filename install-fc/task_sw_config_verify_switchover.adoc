@@ -3372,7 +3372,7 @@ mccint-fas9000-0304
 .相关信息
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]
 
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/home.html["网络和 LIF 管理"^]
+link:https://docs.netapp.com/us-en/ontap/network-management/index.html["网络和 LIF 管理"^]
 
 
 
@@ -3500,7 +3500,7 @@ controller_A_2 controller_A_1 true     Connected to controller_A_1
 
 
 .相关信息
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["高可用性配置"^]
+link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["HA对管理"^]
 
 
 

@@ -6,8 +6,11 @@ summary: 如果使用的是 ONTAP 9.1 及更高版本，则在为 FC 交换机�
 ---
 = 使用 ONTAP 9.1 或更高版本时 FC 交换机的端口分配
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
+[role="lead"]
 使用 ONTAP 9.1 及更高版本为 FC 交换机布线时，需要验证是否使用了指定的端口分配。
 
 不用于连接启动程序端口， FC-VI 端口或 ISL 的端口可以重新配置为用作存储端口。但是，如果正在使用受支持的 RCF ，则必须相应地更改分区。

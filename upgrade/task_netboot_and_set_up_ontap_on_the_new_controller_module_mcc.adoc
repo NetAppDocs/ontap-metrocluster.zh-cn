@@ -80,7 +80,7 @@ FAS2200 ， FAS2500 ， FAS3200 ， FAS6200 ， FAS/AFF8000 系列系统
  a| 
 所有其他系统
  a| 
-`网络启动 http://__web_server_ip/path_to_web-accessible_directory__/<ontap_version>_image.tgz`[]
+`netboot \http://__web_server_ip/path_to_web-accessible_directory__/<ontap_version>_image.tgz`
 
 |===
 +

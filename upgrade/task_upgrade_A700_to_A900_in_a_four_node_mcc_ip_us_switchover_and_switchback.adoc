@@ -638,7 +638,8 @@ NOTE: 您应使用管理端口和 IP 作为网络启动连接。请勿使用数�
 ` <filer_addr>` 是存储系统的 IP 地址。` < 网络掩码 >` 是存储系统的网络掩码。` < 网关 >` 是存储系统的网关。` <dns_addr>` 是网络上名称服务器的 IP 地址。此参数是可选的。` <dns_domain>` 是域名服务（ DNS ）域名。此参数是可选的。注意：您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。
 
 |===
-. 对 node_B_1 执行 netboot ： `netboot` `http://<web_server_ip/path_to_web_accessible_directory>/netboot/kernel`
+. 对NODE_B_1执行网络启动：
+`netboot` `\http://<web_server_ip/path_to_web_accessible_directory>/netboot/kernel`
 +
 ` <path_to_the_web-accessible_directory>` 应指向您在中下载 ` <ontap_version>\_image.tgz` 的位置 <<step2-download-software,第 2 步>>。
 
@@ -669,7 +670,8 @@ Selection (1-11)?
 +
 请始终使用 netboot 将新节点更新为所需映像。如果您使用其他方法在新控制器上安装映像，则可能会安装不正确的映像。此问题描述适用场景所有 ONTAP 版本。
 
-. 如果系统提示您继续运行操作步骤 ，请输入 `y` ，然后在系统提示您输入软件包时，输入 URL ： `http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>\_image.tgz`
+. 如果系统提示您继续执行操作步骤、请输入 `y`，当系统提示您输入软件包时，输入URL：
+`\http://<web_server_ip/path_to_web-accessible_directory>/<ontap_version>\_image.tgz`
 . 完成以下子步骤以重新启动控制器模块：
 +
 .. 出现以下提示时，输入 `n` 以跳过备份恢复： `do you want to restore the backup configuration now ？｛ y|n ｝`

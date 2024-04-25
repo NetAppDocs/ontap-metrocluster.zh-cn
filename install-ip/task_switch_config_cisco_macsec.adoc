@@ -6,9 +6,12 @@ summary: 您只能在站点之间运行的 WAN ISL 端口上配置 MACsec 加密
 ---
 = 在 Cisco 9336C 交换机上配置 MACsec 加密
 :allow-uri-read: 
+:firstname: [.lead]
+:author: [.lead]
+:authorinitials: [
+:authors: [.lead]
+:revdate: You can configure MACsec encryption on the WAN ISL ports that run between the sites. You must configure MACsec after applying the correct RCF file.
 
-
-如果需要，您可以在站点之间运行的 WAN ISL 端口上配置 MACsec 加密。在应用正确的 RCF 文件后，您必须配置 MACsec 。
 
 
 NOTE: MACsec 加密只能应用于 WAN ISL 端口。

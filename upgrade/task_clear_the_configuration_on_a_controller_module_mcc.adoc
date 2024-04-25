@@ -10,7 +10,7 @@ summary: 在 MetroCluster 配置中使用新控制器模块之前，必须清除
 :imagesdir: ../media/
 
 
-[role="lead"]
+[role="lead lead"]
 在 MetroCluster 配置中使用新控制器模块之前，必须清除现有配置。
 
 .步骤

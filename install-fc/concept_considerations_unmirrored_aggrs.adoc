@@ -6,6 +6,8 @@ summary: 如果您的配置包含未镜像聚合，则必须注意在执行切�
 ---
 = 使用未镜像聚合时的注意事项
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 

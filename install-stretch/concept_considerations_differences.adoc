@@ -233,4 +233,4 @@ summary: 各种 MetroCluster 配置在所需组件方面存在主要差异。
 
 MetroCluster 配置支持部分全 SAN 阵列（ ASA ）。在 MetroCluster 文档中， AFF 型号的信息会对相应的 ASA 系统进行适用场景。例如， AFF A400 系统的所有布线和其他信息也会对 ASA AFF A400 系统进行适用场景。
 
-中列出了支持的平台配置 https://hwu.netapp.com["NetApp Hardware Universe"]。
+中列出了支持的平台配置 link:https://hwu.netapp.com["NetApp Hardware Universe"^]。

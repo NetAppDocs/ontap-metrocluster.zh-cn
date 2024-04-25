@@ -1,0 +1,113 @@
+---
+permalink: tiebreaker/install-tiebreaker-package-14.html 
+sidebar: sidebar 
+keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
+summary: 在主机Linux操作系统上全新安装或升级到Tieb破碎 机1.4、以监控MetroCluster配置。 
+---
+= 安装或升级到Tieb破碎 机1.4
+:allow-uri-read: 
+
+
+[role="lead"]
+在主机Linux操作系统上全新安装或升级到Tieb破碎 机1.4、以监控MetroCluster配置。
+
+.关于此任务
+* 存储系统必须运行受支持的ONTAP版本。请参见 link:install_prepare.html#software-requirements["软件要求"] 表以了解更多详细信息。
+* 您必须已使用安装OpenJDK `yum install java-x.x.x-openjdk` 命令：TiebreAKER 1.4及更早版本支持JDK 1.8.0 (JRE 8)。
+
+
+.步骤
+. 下载MetroCluster Tieb破碎 机软件。
++
+https://mysupport.netapp.com/site/products/all/details/metrocluster-tiebreaker/downloads-tab["MetroCluster Tieb破碎 机(下载)—NetApp 支持站点"^]
+
+. 以 root 用户身份登录到主机。
+. 【安装- Tiebreaker】安装或升级Tiebreaker软件：
++
+根据您是执行新安装还是升级现有安装、选择正确的操作步骤。
+
++
+[role="tabbed-block"]
+====
+.执行新安装
+--
+.. 通过运行来安装Tieb破碎 机软件：
++
+`rpm -ivh NetApp-MetroCluster-Tiebreaker-Software-1.4-1.x86_64.rpm`
+
++
+成功安装时，系统将显示以下输出：
+
++
+[listing]
+----
+
+Verifying...                          ################################# [100%]
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:NetApp-MetroCluster-Tiebreaker-So################################# [100%]
+Post installation start Fri Apr  5 02:28:09 EDT 2024
+Enter MetroCluster Tiebreaker user password:
+
+Please enter mysql root password when prompted
+Enter password:
+Synchronizing state of netapp-metrocluster-tiebreaker-software.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable netapp-metrocluster-tiebreaker-software
+Created symlink /etc/systemd/system/multi-user.target.wants/netapp-metrocluster-tiebreaker-software.service → /etc/systemd/system/netapp-metrocluster-tiebreaker-software.service.
+Attempting to start NetApp MetroCluster Tiebreaker software services
+Started NetApp MetroCluster Tiebreaker software services
+Enabled autostart of NetApp MetroCluster Tiebreaker software daemon during boot
+Created symbolic link for NetApp MetroCluster Tiebreaker software CLI
+Post installation end Fri Apr  5 02:28:22 EDT 2024
+Successfully installed NetApp MetroCluster Tiebreaker software version 1.4.
+----
+
+
+--
+.升级现有安装
+--
+.. 升级Tiebreaker软件。
++
+[listing]
+----
+[root@mcctb ~]# rpm -Uvh NetApp-MetroCluster-Tiebreaker-Software-1.4-1.x86_64.rpm
+----
++
+成功升级后，系统将显示以下输出：
+
++
+[listing]
+----
+
+Verifying...                          ################################# [100%]
+Preparing...                          ################################# [100%]
+Upgrading NetApp MetroCluster Tiebreaker software....
+Stopping NetApp MetroCluster Tiebreaker software services before upgrade.
+Updating / installing...
+   1:NetApp-MetroCluster-Tiebreaker-So################################# [ 50%]
+Post installation start Mon Apr  8 06:29:51 EDT 2024
+Synchronizing state of netapp-metrocluster-tiebreaker-software.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable netapp-metrocluster-tiebreaker-software
+Attempting to start NetApp MetroCluster Tiebreaker software services
+Started NetApp MetroCluster Tiebreaker software services
+Enabled autostart of NetApp MetroCluster Tiebreaker software daemon during boot
+Created symbolic link for NetApp MetroCluster Tiebreaker software CLI
+Post upgrade end Mon Apr  8 06:29:51 EDT 2024
+Successfully upgraded NetApp MetroCluster Tiebreaker software to version 1.4.
+Cleaning up / removing...
+   2:NetApp-MetroCluster-Tiebreaker-So################################# [100%]
+
+----
+
+
+--
+====
++
+
+NOTE: 如果输入的 MySQL root 密码不正确， Tiebreaker 软件会指示已成功安装该密码，但会显示 Access Denied 消息。要解决问题描述问题，您必须使用 `rpm -e` 命令卸载 Tiebreaker 软件，然后使用正确的 MySQL root 密码重新安装该软件。
+
+. 通过打开从Tiebreaker主机到每个节点管理LIF和集群管理LIF的SSH连接、检查Tiebreaker与MetroCluster 软件的连接。
+
+
+.相关信息
+https://mysupport.netapp.com/site/["NetApp 支持"^]

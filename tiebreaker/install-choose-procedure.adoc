@@ -28,8 +28,15 @@ link:tb-16-install.html["安装Tieb破碎 锤1.6"]
 
 
  a| 
-Tieb破碎 机1.5或1.4
+Tieb破碎 机1.5
  a| 
-link:install_dependencies.html["安装Tieb破碎 锤1.5或1.4"]
+link:task_configure_ssh_ontapi.html["安装Tieb破碎 锤1.5"]
+
+
+
+ a| 
+Tieb破碎 机1.4
+ a| 
+link:install-dependencies-14.html["安装Tieb破碎 锤1.4"]
 
 |===

@@ -8,7 +8,7 @@ summary: 您必须重置和还原控制器模块上的默认设置，以确保�
 :allow-uri-read: 
 
 
-[role="lead"]
+[role="lead lead"]
 重置和还原控制器模块上的默认值。
 
 . 在 LOADER 提示符处，将环境变量返回到其默认设置： `set-defaults`

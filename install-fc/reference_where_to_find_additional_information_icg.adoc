@@ -24,21 +24,21 @@ summary: 您可以从 NetApp 文档了解有关 MetroCluster 配置和操作的�
 
 
  a| 
-https://docs.netapp.com/us-en/ontap/index.html["ONTAP 9 文档"^]
+link:https://docs.netapp.com/us-en/ontap/index.html["ONTAP 9 文档"^]
  a| 
 * 所有 MetroCluster 信息
 
 
 
 
-| https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf["NetApp MetroCluster 解决方案架构和设计， TR-4705"^]  a| 
+| link:https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf["NetApp MetroCluster 解决方案架构和设计， TR-4705"^]  a| 
 * MetroCluster FC 配置和操作的技术概述。
 * MetroCluster FC 配置的最佳实践。
 
 
 
 
-| https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf["MetroCluster IP 解决方案架构和设计， TR-4689"^]  a| 
+| link:https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf["MetroCluster IP 解决方案架构和设计， TR-4689"^]  a| 
 * MetroCluster IP 配置和操作的技术概述。
 * MetroCluster IP 配置的最佳实践。
 

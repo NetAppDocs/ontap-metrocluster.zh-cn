@@ -178,7 +178,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 .步骤
 . 下载支持的 NX-OS 软件文件。
 +
-https://software.cisco.com/download/home["Cisco 软件下载"]
+link:https://software.cisco.com/download/home["Cisco 软件下载"^]
 
 . 将交换机软件复制到交换机：
 +

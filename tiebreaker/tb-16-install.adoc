@@ -2,7 +2,7 @@
 permalink: tiebreaker/tb-16-install.html 
 sidebar: sidebar 
 keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
-summary:  
+summary: 在主机Linux操作系统上全新安装或升级到Tieb破碎 机1.6以监控MetroCluster配置。 
 ---
 = 安装Tieb破碎 锤1.6
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary:
 
 
 [role="lead"]
-执行全新安装或升级Tieberr软件。
+在主机Linux操作系统上全新安装或升级到Tieb破碎 机1.6以监控MetroCluster配置。
 
 .关于此任务
 * 存储系统必须运行ONTAP 9.12.1或更高版本。
@@ -21,7 +21,7 @@ summary:
 .步骤
 . 下载MetroCluster Tieb破碎 机1.6软件。
 +
-https://mysupport.netapp.com/site/["NetApp 支持站点"^]
+https://mysupport.netapp.com/site/products/all/details/metrocluster-tiebreaker/downloads-tab["MetroCluster Tieb破碎 机(下载)—NetApp 支持站点"^]
 
 . 以 root 用户身份登录到主机。
 . 如果要执行升级、请验证所运行的Tieb破碎 机版本：
@@ -231,19 +231,6 @@ Started NetApp MetroCluster Tiebreaker software services
 Successfully installed NetApp MetroCluster Tiebreaker software version 1.6.
 
 
-IMPORTANT: Please ensure you store the following private key used to decrypt audit logs securely in a safe location.
-Consider the following recommendations:
-- Save it to an encrypted storage device or file.
-- Use strong, unique passwords to protect the storage device or file.
-- Restrict access to the private key file to authorized individuals only.
-
-The Private key is:
-
------BEGIN PRIVATE KEY-----
-
-<private_key_id>
-
------END PRIVATE KEY-----
 ----
 
 
@@ -439,18 +426,6 @@ Successfully upgraded NetApp MetroCluster Tiebreaker software to version 1.6.
 Cleaning up / removing...
    2:NetApp-MetroCluster-Tiebreaker-So################################# [100%]
 
-
-IMPORTANT: Please ensure you store the following private key used to decrypt audit logs securely in a safe location.
-Consider the following recommendations:
-- Save it to an encrypted storage device or file.
-- Use strong, unique passwords to protect the storage device or file.
-- Restrict access to the private key file to authorized individuals only.
-
-The Private key is:
-
------BEGIN PRIVATE KEY-----
-<private_key_id>
------END PRIVATE KEY-----
 
 ----
 
@@ -649,19 +624,6 @@ Started NetApp MetroCluster Tiebreaker software services
 Successfully upgraded NetApp MetroCluster Tiebreaker software to version 1.6.
 Cleaning up / removing...
    2:NetApp-MetroCluster-Tiebreaker-So################################# [100%]
-
-
- IMPORTANT: Please ensure you store the following private key used to decrypt audit logs securely in a safe location.
-Consider the following recommendations:
-- Save it to an encrypted storage device or file.
-- Use strong, unique passwords to protect the storage device or file.
-- Restrict access to the private key file to authorized individuals only.
-
-The Private key is:
-
------BEGIN PRIVATE KEY-----
-<private_key_id>
------END PRIVATE KEY-----
 ----
 
 

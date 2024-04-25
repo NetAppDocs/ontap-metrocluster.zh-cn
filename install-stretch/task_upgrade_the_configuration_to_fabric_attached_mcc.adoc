@@ -33,7 +33,7 @@ NOTE: 您应使用的 " 为光纤连接的 MetroCluster 配置布线 " 一节中
 
 . 按照以下步骤刷新 MetroCluster 配置。
 +
-请勿使用链接 https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html[Fabric-attached MetroCluster installation and configuration] 中 " 在 ONTAP 中配置 MetroCluster 软件 " 一节中的过程。
+请勿使用中的"在ONTAP中配置MetroCluster软件"一节中的过程 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]。
 
 +
 .. 进入高级权限模式： + ` * 设置 -privilege advanced*`
