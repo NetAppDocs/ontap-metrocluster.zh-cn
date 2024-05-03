@@ -86,11 +86,14 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 NOTE: 您必须按以下顺序在交换机上安装交换机软件： switch_A_1 ， switch_B_1 ， switch_A_2 ， switch_B_2 。
 
 +
-根据交换机类型是 Broadcom 还是 MetroCluster ，按照 _Broadcom IP 安装和配置 _ 信息相关主题中有关安装交换机软件的步骤进行操作：
+根据交换机类型是MetroCluster、Cisco还是NVIDIA、按照_Broadcom IP安装和配置_信息的相关主题中的步骤安装交换机软件：
 
 +
-** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-switch-efos-software["下载并安装 Broadcom 交换机 EFOS 软件"]
-** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-switch-nx-os-software["下载并安装 Cisco 交换机 NX-OS 软件"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-switch-efos-software["下载并安装Broadcom交换机EFOS软件"]
+** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-switch-nx-os-software["下载并安装Cisco交换机NX-OS软件"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-cumulus-software["下载并安装NVIDIA SN2100交换机Cumulus软件"]
+
+
 
 
 . 对每个交换机重复上述步骤。

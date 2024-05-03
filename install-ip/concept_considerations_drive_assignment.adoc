@@ -59,7 +59,7 @@ ADP会在系统初始配置期间自动执行。
 
 NOTE: 从ONTAP 9.5开始、必须使用启用磁盘自动分配 `storage disk option modify -autoassign on` 命令：
 
-必须将ha-config状态设置为 `mccip` 在自动配置之前、请确保选择正确的分区大小、以支持适当的根卷大小。有关详细信息，请参见 link:install-ip/task_sw_config_verify_haconfig.html["验证组件的 ha-config 状态"]。
+必须将ha-config状态设置为 `mccip` 在自动配置之前、请确保选择正确的分区大小、以支持适当的根卷大小。有关详细信息，请参见 link:task_sw_config_verify_haconfig.html["验证组件的 ha-config 状态"]。
 
 在安装期间，最多可以自动对 96 个驱动器进行分区。您可以在初始安装后添加额外的驱动器。
 

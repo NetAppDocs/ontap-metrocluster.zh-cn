@@ -57,7 +57,7 @@ NOTE: 输出可以显示备份文件、保留的文件或这两者。如果备�
 +
 [listing, subs="+quotes"]
 ----
-cumulus@IP_switch_A_1:mgmt:~$ sudo python3 MSN2100_v1.0_IP_switch_A_1.py
+cumulus@IP_switch_A_1:mgmt:~$ sudo python3 SN2100_v2.0.0_IP_switch_A_1.py
 [sudo] password for cumulus:
 >>> Opened RcfApplyLog
 *A RCF configuration has been successfully applied.*
@@ -96,7 +96,7 @@ cumulus@IP_switch_A_1:mgmt:~$
 +
 [listing]
 ----
-cumulus@IP_switch_A_1:mgmt:~$ sudo python3 MSN2100_v1.0_IP_switch_A_2.py restoreDefaults
+cumulus@IP_switch_A_1:mgmt:~$ sudo python3 SN2100_v2.0.0_IP_switch_A_2.py restoreDefaults
 [sudo] password for cumulus:
 >>> Opened RcfApplyLog
 Can restore from backup directory. Continuing.
@@ -112,7 +112,7 @@ Enter yes or no: yes
 
 
 
-=== ["Cumulus-install-option]]使用"Cumulus安装选项重置交换机
+=== [[cumulus-install-option ]]下载并安装Cumulus软件
 
 .关于此任务
 如果要通过应用Cumulus映像完全重置交换机、请执行以下步骤。
@@ -130,14 +130,14 @@ NOTE: 有关安装Cumulus Linux的详细信息、请参见 link:https://docs.net
 .步骤
 . 从Cumulus控制台下载交换机软件安装并将其加入队列、命令`onie-install -a -i`后跟交换机软件的文件路径：
 +
-在此示例中、将固件文件`cumulus-linux-4.4.2-mlx-amd64.bin`从HTTP服务器"50.050.50"复制到本地交换机。
+在此示例中、为固件文件 `cumulus-linux-4.4.3-mlx-amd64.bin` 从HTTP服务器"50.50.50.50.50"复制到本地交换机。
 
 +
 [listing]
 ----
-cumulus@IP_switch_A_1:mgmt:~$ sudo onie-install -a -i http://50.50.50.50/switchsoftware/cumulus-linux-4.4.2-mlx-amd64.bin
-Fetching installer: http://50.50.50.50/switchsoftware/cumulus-linux-4.4.2-mlx-amd64.bin
-Downloading URL: http://50.50.50.50/switchsoftware/cumulus-linux-4.4.2-mlx-amd64.bin
+cumulus@IP_switch_A_1:mgmt:~$ sudo onie-install -a -i http://50.50.50.50/switchsoftware/cumulus-linux-4.4.3-mlx-amd64.bin
+Fetching installer: http://50.50.50.50/switchsoftware/cumulus-linux-4.4.3-mlx-amd64.bin
+Downloading URL: http://50.50.50.50/switchsoftware/cumulus-linux-4.4.3-mlx-amd64.bin
 ######################################################################### 100.0%
 Success: HTTP download complete.
 tar: ./sysroot.tar: time stamp 2021-01-30 17:00:58 is 53895092.604407122 s in the future
@@ -207,7 +207,7 @@ Changing password for cumulus.
 Current password:
 New password:
 Retype new password:
-Linux cumulus 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.2u1 (2021-12-18) x86_64
+Linux cumulus 4.19.0-cl-1-amd64 #1 SMP Cumulus 4.19.206-1+cl4.4.3u1 (2021-12-18) x86_64
 
 Welcome to NVIDIA Cumulus (R) Linux (R)
 
@@ -222,13 +222,21 @@ cumulus@cumulus:mgmt:~$
 ----
 . 配置管理网络接口。
 +
-
-NOTE: 以下示例说明如何使用以下命令配置主机名(IP_switch_A_1)、IP地址(10.10.10.10)、网络掩码(255.255.255.0 (24)和网关(10.10.10.1)：`net add hostname <hostname>`、`net add interface eth0 ip address <IPAddress/mask>`和`net add interface eth0 ip gateway <Gateway>`。
+您使用的命令取决于所运行的交换机固件版本。
 
 +
+
+NOTE: 以下示例命令将主机名配置为IP_switch_A_1、IP地址配置为10.10.10.10、网络掩码配置为255.255.255.0 (24)、网关地址配置为10.10.10.1。
+
++
+[role="tabbed-block"]
+====
+.Cumulus 4.4.x
+--
+以下示例命令在运行CUMULUS 4.4.x的交换机上配置主机名、IP地址、网络掩码和网关
+
 [listing]
 ----
-
 cumulus@cumulus:mgmt:~$ net add hostname IP_switch_A_1
 cumulus@cumulus:mgmt:~$ net add interface eth0 ip address 10.0.10.10/24
 cumulus@cumulus:mgmt:~$ net add interface eth0 ip gateway 10.10.10.1
@@ -257,6 +265,19 @@ cumulus 2021-05-17 22:21:57.635729 net add interface eth0 ip gateway 10.10.10.1
 
 cumulus@cumulus:mgmt:~$
 ----
+--
+.CUMULUS 5.4.x及更高版本
+--
+以下示例命令在运行CUMULUS 5.4.x的交换机上配置主机名、IP地址、网络掩码和网关或更高版本。
+
+[listing]
+----
+cumulus@cumulus:mgmt:~$ nv set system hostname IP_switch_A_1
+cumulus@cumulus:mgmt:~$ nv set interface eth0 ip address 10.0.10.10/24 cumulus@cumulus:mgmt:~$ nv set interface eth0 ip gateway 10.10.10.1 cumulus@cumulus:mgmt:~$ nv config apply
+cumulus@cumulus:mgmt:~$ nv config save
+----
+--
+====
 . 使用`sudo reboot`命令重新启动交换机。
 +
 [listing]
@@ -302,11 +323,12 @@ cumulus@IP_switch_A_1:mgmt:~$ pwd
 /home/cumulus
 cumulus@IP_switch_A_1:mgmt:~$
 ----
-.. 将RCF文件下载到此目录。以下示例显示您使用SCP将文件switch_2100_v1.0_ip switch_A_1.txt`从服务器"50.050.50"下载到主目录、并将其保存为`M 2100_v1.0_ip_switch_A_1.py `M`：
+.. 将RCF文件下载到此目录。
+以下示例显示您使用SCP下载文件 `SN2100_v2.0.0_IP_switch_A_1.txt` 从服务器"50.50.50.50.50"到您的主目录、并将其另存为 `SN2100_v2.0.0_IP_switch_A_1.py`：
 +
 [listing]
 ----
-cumulus@Switch-A-1:mgmt:~$ scp username@50.50.50.50:/RcfFiles/MSN2100_v1.0_IP_switch_A_1.txt ./MSN2100_v1.0_IP_switch-A1.py
+cumulus@Switch-A-1:mgmt:~$ scp username@50.50.50.50:/RcfFiles/SN2100_v2.0.0_IP_switch_A_1.txt ./SN2100_v2.0.0_IP_switch-A1.py
 The authenticity of host '50.50.50.50 (50.50.50.50)' can't be established.
 RSA key fingerprint is SHA256:B5gBtOmNZvdKiY+dPhh8=ZK9DaKG7g6sv+2gFlGVF8E.
 Are you sure you want to continue connecting (yes/no)? yes
@@ -315,7 +337,7 @@ Warning: Permanently added '50.50.50.50' (RSA) to the list of known hosts.
 Banner of the SCP server
 ***********************************************************************
 username@50.50.50.50's password:
-MSN2100_v1.0-X2_IP_switch_A1.txt 100% 55KB 1.4MB/s 00:00
+SN2100_v2.0.0_IP_switch_A1.txt 100% 55KB 1.4MB/s 00:00
 cumulus@IP_switch_A_1:mgmt:~$
 ----
 
@@ -325,7 +347,7 @@ cumulus@IP_switch_A_1:mgmt:~$
 [listing]
 ----
 
-cumulus@IP_switch_A_1:mgmt:~$ sudo python3 MSN2100_v1.0_IP_switch_A_1.py
+cumulus@IP_switch_A_1:mgmt:~$ sudo python3 SN2100_v2.0.0_IP_switch_A_1.py
 all
 [sudo] password for cumulus:
 The switch will be rebooted after the step(s) have been run.
@@ -343,6 +365,35 @@ Running Step 24: Final reboot of the switch
 
 ... The switch will reboot if all steps applied successfully ...
 ----
+. 如果您的配置使用DAC缆线、请在交换机端口上启用DAC选项：
++
+[listing]
+----
+cumulus@IP_switch_A_1:mgmt:~$ sudo python3 SN2100_v2.0.0-X10_Switch-A1.py runCmd <switchport> DacOption [enable | disable]
+----
++
+以下示例将为端口启用DAC选项 `swp7`：
+
++
+[listing]
+----
+cumulus@IP_switch_A_1:mgmt:~$ sudo python3 SN2100_v2.00_Switch-A1.py runCmd swp7 DacOption enable
+    Running cumulus version  : 5.4.0
+    Running RCF file version : v2.00
+    Running command: Enabling the DacOption for port swp7
+    runCmd: 'nv set interface swp7 link fast-linkup on', ret: 0
+    runCmd: committed, ret: 0
+    Completion: SUCCESS
+cumulus@IP_switch_A_1:mgmt:~$
+----
+. 在交换机端口上启用DAC选项后、重新启动交换机：
++
+`sudo reboot`
+
++
+
+NOTE: 如果为多个交换机端口设置了DAC选项、则只需重新启动交换机一次。
+
 
 
 
