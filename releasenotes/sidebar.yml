@@ -1,0 +1,22 @@
+---
+section: releasenotes
+title: MetroCluster发行说明
+entries:
+- title: 发行说明
+  url: "/releasenotes/releasenotes.html"
+- title: ONTAP功能支持中的新增功能
+  url: "/releasenotes/mcc-config-support-features.html"
+- title: MetroCluster功能中的新增功能
+  url: "/releasenotes/mcc-new-features.html"
+- title: MetroCluster IP配置支持中的新增功能
+  url: "/releasenotes/mcc-ip-config-platform-support.html"
+- title: MetroCluster FC配置支持中的新增功能
+  url: "/releasenotes/mcc-fc-config-platform-support.html"
+- title: MetroCluster FC中支持Brocade交换机的新增功能
+  url: "/releasenotes/mcc-fc-config-support-brocade-cisco-switches.html"
+- title: 在MetroCluster IP中支持Broadcom、Cisco、NVIDIA交换机的新增功能
+  url: "/releasenotes/mcc-ip-configuration-support-broadcom-cisco-nvidia-switches.html"
+- title: ONTAP调解器支持中的新增功能
+  url: "/releasenotes/mcc-mediator-whats-new.html"
+- title: MetroCluster Tieb破碎 机支持中的新增功能
+  url: "/releasenotes/mcc-tiebreaker-whats-new.html"

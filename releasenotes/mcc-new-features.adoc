@@ -1,0 +1,269 @@
+---
+permalink: releasenotes/mcc-new-features.html 
+sidebar: sidebar 
+keywords: new metrocluster features 
+summary:  
+---
+= MetroCluster功能中的新增功能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[cols="20,65,15"]
+|===
+| MetroCluster配置中支持的功能 | 问题描述 以及从何处了解更多信息 | 可从一开始使用 
+
+
+ a| 
+使用MetroCluster IP和以太网连接存储的共享交换机从MetroCluster FC过渡到MetroCluster IP
+ a| 
+您可以使用共享交换机从MetroCluster FC无故障过渡到MetroCluster IP配置(ONTAP 9.8及更高版本)。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html["无中断地从 MetroCluster FC 过渡到 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）"]
+ a| 
+ONTAP 9.13.1
+
+
+
+ a| 
+从八节点MetroCluster FC配置无中断过渡到MetroCluster IP配置
+ a| 
+您可以无系统地将工作负载和数据从现有八节点MetroCluster FC配置过渡到新的MetroCluster IP配置。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html["无系统地从MetroCluster FC过渡到MetroCluster IP配置"]
+ a| 
+ONTAP 9.13.1
+
+
+
+ a| 
+通过切换和切回升级四节点MetroCluster IP配置
+ a| 
+您可以使用切换和切回升级四节点MetroCluster IP配置中的控制器 `system controller replace` 命令
+
+https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html["升级四节点MetroCluster IP配置中的控制器"]
+ a| 
+ONTAP 9.13.1
+
+
+
+ a| 
+在环境关闭时触发调解器辅助的自动计划外切换(MAUSO)
+ a| 
+如果一个站点因环境关闭而正常关闭、则会触发MAUSO。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_mediator.html#interoperability-of-ontap-mediator-with-other-applications-and-appliances["ONTAP 调解器与其他应用程序和设备的互操作性"]
+ a| 
+ONTAP 9.13.1
+
+
+
+ a| 
+支持八节点MetroCluster IP配置
+ a| 
+您可以通过将八节点MetroCluster IP配置扩展为临时十二节点配置、然后删除旧的DR组来升级该配置中的控制器和存储。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_refresh_4n_mcc_ip.html["刷新四节点 MetroCluster IP 配置"]
+ a| 
+ONTAP 9.13.1
+
+
+
+ a| 
+将MetroCluster IP配置转换为共享存储MetroCluster交换机配置
+ a| 
+您可以将MetroCluster IP配置转换为共享存储MetroCluster交换机配置。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_replace_an_ip_switch.html["更换 IP 交换机"]
+ a| 
+ONTAP 9.13.1
+
+
+
+ a| 
+MetroCluster IP配置中的MetroCluster自动强制切换功能
+ a| 
+您可以在MetroCluster IP配置中启用MetroCluster自动强制切换功能。此功能是调解器辅助计划外切换(MAUSO)功能的扩展。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept-risks-limitations-automatic-switchover.html["自动切换限制"]
+ a| 
+ONTAP 9.12.1
+
+
+
+ a| 
+MetroCluster IP配置中未镜像聚合上的SVM上的S3
+ a| 
+您可以在MetroCluster IP配置中未镜像聚合的SVM上启用ONTAP简单存储服务(S3)对象存储服务器。
+
+https://docs.netapp.com/us-en/ontap/s3-config/index.html#s3-configuration-with-system-manager-and-the-ontap-cli["使用System Manager和ONTAP 命令行界面进行S3配置"]
+ a| 
+ONTAP 9.12.1
+
+
+
+ a| 
+从MetroCluster FC配置过渡到AFF A250或FAS500f MetroCluster IP配置
+ a| 
+您可以从MetroCluster FC配置过渡到AFF A250或FAS500f MetroCluster IP配置。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/transition/task_move_cluster_connections.html#which-connections-to-move["移动本地集群连接"]
+ a| 
+ONTAP 9.11.1
+
+
+
+ a| 
+在MetroCluster IP配置中配置第3层MetroCluster IP地址
+ a| 
+您可以编辑第3层配置中节点的MetroCluster IP地址、网络掩码和网关。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_modify_ip_netmask_gateway_properties.html["修改 MetroCluster IP 中的地址，网络掩码和网关"]
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
+简化了MetroCluster FC配置中节点的控制器升级
+ a| 
+通过切换和切回执行升级过程的升级操作步骤已得到简化。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["使用切换和切回升级 MetroCluster FC 配置中的控制器"]
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
+第3层共享链路的IP支持
+ a| 
+MetroCluster IP配置可通过IP路由(第3层)后端连接来实施。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]
+ a| 
+ONTAP 9.9.1
+
+
+
+ a| 
+支持8节点集群
+ a| 
+IP和光纤连接配置支持永久8节点集群。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_install_and_cable_the_mcc_components.html["安装 MetroCluster 组件并为其布线"]
+ a| 
+ONTAP 9.9.1
+
+
+
+ a| 
+简化了使用System Manager管理IP MetroCluster操作的界面
+ a| 
+您可以使用System Manager管理IP MetroCluster操作、包括设置IP MetroCluster站点、对站点配对以及配置集群。
+
+https://docs.netapp.com/us-en/ontap/concept_metrocluster_manage_nodes.html["管理 MetroCluster 站点"]
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+使用System Manager执行IP MetroCluster切换和切回
+ a| 
+您可以使用System Manager对IP MetroCluster配置执行计划内或计划外切换和切回过程的所有步骤。
+
+https://docs.netapp.com/us-en/ontap/task_metrocluster_switchover_switchback.html["MetroCluster 切换和切回"]
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+从 MetroCluster FC 过渡到 MetroCluster IP 配置
+ a| 
+支持将工作负载和数据从现有四节点MetroCluster FC配置过渡到新的MetroCluster IP配置。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["升级、刷新或扩展MetroCluster 配置"]
+
+https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_choosing_your_transition_procedure_mcc_transition.html["从 MetroCluster FC 过渡到 MetroCluster IP"]
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+新的升级和刷新过程
+ a| 
+支持对四节点MetroCluster FC和IP配置进行硬件升级或刷新。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["升级、刷新或扩展MetroCluster 配置"]
+
+https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_choosing_your_transition_procedure_mcc_transition.html["从 MetroCluster FC 过渡到 MetroCluster IP"]
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+未镜像聚合
+ a| 
+MetroCluster IP配置支持未镜像聚合。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/considerations_unmirrored_aggrs.html["未镜像聚合的注意事项"]
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+符合MetroCluster的交换机
+ a| 
+MetroCluster IP配置可以支持未经NetApp验证的交换机、但前提是它们符合NetApp规范。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_mc_compliant_switches.html["使用符合 MetroCluster 的交换机的注意事项"]
+ a| 
+ONTAP 9.7
+
+
+
+ a| 
+专用第2层网络共享
+ a| 
+使用受支持的Cisco交换机的MetroCluster IP配置可以共享现有的网络、而不是使用专用的Cisco MetroCluster。早期的 ONTAP 版本需要专用 ISL 。
+
+MetroCluster IP交换机专用于MetroCluster配置、不能共享。只有 MetroCluster IP 交换机上的 MetroCluster ISL 端口才能连接到共享交换机。
+
+[CAUTION]
+====
+如果使用共享网络，则客户负责满足共享网络中的 MetroCluster 网络要求。
+
+====
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/index.html["MetroCluster IP 安装和配置"]
+ a| 
+ONTAP 9.6
+
+
+
+ a| 
+MetroCluster 切换和切回
+ a| 
+您可以允许一个集群站点接管另一个集群站点的任务。通过此功能，您可以方便地进行维护或从灾难中恢复。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster 切换和切回"]
+ a| 
+ONTAP 9.6
+
+
+
+ a| 
+使用ONTAP System Manager更新集群
+ a| 
+您可以更新MetroCluster配置中的集群。对于MetroCluster配置中的集群、除了更新集群之外、您必须同时对两个集群执行每个操作。
+
+https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/index.html["使用 System Manager 进行集群管理"]
+ a| 
+ONTAP 9.5
+
+|===

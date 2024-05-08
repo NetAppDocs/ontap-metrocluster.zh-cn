@@ -1,0 +1,97 @@
+---
+permalink: releasenotes/mcc-ip-config-platform-support.html 
+sidebar: sidebar 
+keywords: metrocluster, ip configuration, platform, support 
+summary:  
+---
+= MetroCluster IP平台支持中的新增功能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+阵列LUN不支持MetroCluster IP配置。
+
+[cols="2*"]
+|===
+| MetroCluster IP配置中支持的平台 | 可从一开始使用 
+
+
+ a| 
+AFF A150
+ a| 
+ONTAP 9.131及更高版本的ONTAP
+
+ONTAP 9.12.1P1
+
+ONTAP 9.11.1P8.
+
+ONTAP 9.10.1P12
+
+
+
+ a| 
+AFF C250、AFF C400、AFF C800
+ a| 
+ONTAP 9.12.1P1
+
+ONTAP 9.13.1GA及更高版本的ONTAP。
+
+[NOTE]
+====
+ONTAP 9.13.1RC1不支持这些平台。
+
+====
+
+
+ a| 
+AFF A900
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
+AFF A250
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+FAS500f
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+纯闪存SAN阵列平台
+
+在 MetroCluster 文档中， AFF 型号的信息会对相应的 ASA 系统进行适用场景。例如， AFF A400 系统的所有布线和其他信息也会对 ASA AFF A400 系统进行适用场景。
+ a| 
+ONTAP 9.7
+
+
+
+ a| 
+AFF A320
+ a| 
+ONTAP 9.6P3
+
+
+
+ a| 
+AFF A220 和 FAS2750
+ a| 
+ONTAP 9.6
+
+
+
+ a| 
+AFF A300 和 FAS8200
+ a| 
+ONTAP 9.5
+
+|===

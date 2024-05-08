@@ -1,0 +1,59 @@
+---
+permalink: releasenotes/mcc-ip-configuration-support-broadcom-cisco-nvidia-switches.html 
+sidebar: sidebar 
+keywords: metrocluster, ip configuration, support for broadcom, cisco, NVIDIA switches 
+summary:  
+---
+= Broadcom、Cisco和NVIDIA交换机的MetroCluster IP支持新增功能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[cols="2*"]
+|===
+| Broadcom IP交换机 | 可从一开始使用 
+
+
+ a| 
+Quanta 9．8
+ a| 
+ONTAP 9.6
+
+|===
+[cols="2*"]
+|===
+| Cisco IP交换机 | 可从一开始使用 
+
+
+ a| 
+Nexus 9336C-x2
+ a| 
+ONTAP 9.9.1
+
+
+
+ a| 
+933966
+ a| 
+ONTAP 9.8
+
+|===
+[cols="2*"]
+|===
+| NVIDIA交换机 | 可从一开始使用 
+
+
+ a| 
+同一个NVIDIA SN2100交换机上有多个MC IP配置
+ a| 
+ONTAP 9.14.1
+
+
+
+ a| 
+SN2100
+ a| 
+ONTAP 9.12.1
+
+|===
