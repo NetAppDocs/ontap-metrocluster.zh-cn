@@ -15,6 +15,7 @@ summary: 升级 MetroCluster IP 交换机上的固件。
 
 您必须连续对每个交换机重复此任务。
 
+[[step_1_fw_upgrade]]
 .步骤
 . 检查配置的运行状况。
 +
@@ -86,7 +87,7 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 NOTE: 您必须按以下顺序在交换机上安装交换机软件： switch_A_1 ， switch_B_1 ， switch_A_2 ， switch_B_2 。
 
 +
-根据交换机类型是MetroCluster、Cisco还是NVIDIA、按照_Broadcom IP安装和配置_信息的相关主题中的步骤安装交换机软件：
+根据交换机类型是Broadcom、Cisco还是NVIDIA、按照相关主题中的步骤安装交换机软件：
 
 +
 ** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-switch-efos-software["下载并安装Broadcom交换机EFOS软件"]
@@ -94,8 +95,6 @@ NOTE: 您必须按以下顺序在交换机上安装交换机软件： switch_A_1
 ** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-cumulus-software["下载并安装NVIDIA SN2100交换机Cumulus软件"]
 
 
-
-
 . 对每个交换机重复上述步骤。
-. 重复步骤 1 以检查配置的运行状况。
+. 重复 <<step_1_fw_upgrade,第 1 步>> 以检查配置的运行状况。
 

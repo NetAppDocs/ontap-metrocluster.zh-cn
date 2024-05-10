@@ -18,7 +18,7 @@ summary:
  a| 
 使用MetroCluster IP和以太网连接存储的共享交换机从MetroCluster FC过渡到MetroCluster IP
  a| 
-您可以使用共享交换机从MetroCluster FC无故障过渡到MetroCluster IP配置(ONTAP 9.8及更高版本)。
+您可以使用共享存储交换机从MetroCluster FC无故障过渡到MetroCluster IP配置。
 
 https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html["无中断地从 MetroCluster FC 过渡到 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）"]
  a| 
@@ -254,16 +254,5 @@ MetroCluster 切换和切回
 https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster 切换和切回"]
  a| 
 ONTAP 9.6
-
-
-
- a| 
-使用ONTAP System Manager更新集群
- a| 
-您可以更新MetroCluster配置中的集群。对于MetroCluster配置中的集群、除了更新集群之外、您必须同时对两个集群执行每个操作。
-
-https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/index.html["使用 System Manager 进行集群管理"]
- a| 
-ONTAP 9.5
 
 |===

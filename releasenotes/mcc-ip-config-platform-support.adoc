@@ -10,8 +10,9 @@ summary:
 :imagesdir: ./media/
 
 
-[role="lead"]
-阵列LUN不支持MetroCluster IP配置。
+
+
+== 平台支持
 
 [cols="2*"]
 |===
@@ -38,11 +39,6 @@ ONTAP 9.12.1P1
 
 ONTAP 9.13.1GA及更高版本的ONTAP。
 
-[NOTE]
-====
-ONTAP 9.13.1RC1不支持这些平台。
-
-====
 
 
  a| 
@@ -93,5 +89,56 @@ ONTAP 9.6
 AFF A300 和 FAS8200
  a| 
 ONTAP 9.5
+
+|===
+
+
+== 交换机支持
+
+[cols="2*"]
+|===
+| Broadcom IP交换机 | 可从一开始使用 
+
+
+ a| 
+Quanta 9．8
+ a| 
+ONTAP 9.6
+
+|===
+[cols="2*"]
+|===
+| Cisco IP交换机 | 可从一开始使用 
+
+
+ a| 
+Nexus 9336C-x2
+ a| 
+ONTAP 9.9.1
+
+
+
+ a| 
+933966
+ a| 
+ONTAP 9.8
+
+|===
+[cols="2*"]
+|===
+| NVIDIA交换机 | 可从一开始使用 
+
+
+ a| 
+同一个NVIDIA SN2100交换机上有多个MC IP配置
+ a| 
+ONTAP 9.14.1
+
+
+
+ a| 
+SN2100
+ a| 
+ONTAP 9.12.1
 
 |===

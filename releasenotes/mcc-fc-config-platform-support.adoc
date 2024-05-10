@@ -4,11 +4,15 @@ sidebar: sidebar
 keywords: metrocluster, fc configuration, platform, support 
 summary:  
 ---
-= MetroCluster FC平台支持中的新增功能
+= MetroCluster FC平台和交换机支持中的新增功能
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
+
+
+
+== 平台支持
 
 [cols="2*"]
 |===
@@ -40,5 +44,34 @@ ONTAP 9.7
 AFF A300 和 FAS8200
  a| 
 ONTAP 9.5
+
+|===
+
+
+== 交换机支持
+
+[cols="2*"]
+|===
+| Brocade FC交换机 | 可从一开始使用 
+
+
+ a| 
+G720
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+G620-1、G630-1
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+G630
+ a| 
+ONTAP 9.6
 
 |===

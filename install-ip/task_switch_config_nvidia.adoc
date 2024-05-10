@@ -20,7 +20,7 @@ summary: 您必须将NVIDIA IP交换机配置为用作集群互连和后端Metro
 您可以从以下方法中选择将交换机重置为出厂默认设置。
 
 * <<RCF-file-option,使用RCF文件选项重置交换机>>
-* <<Cumulus-install-option,使用Cumulus安装选项重置交换机>>
+* <<Cumulus-install-option,下载并安装Cumulus软件>>
 
 
 

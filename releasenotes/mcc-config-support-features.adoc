@@ -10,6 +10,11 @@ summary:
 :imagesdir: ./media/
 
 
+[role="lead"]
+ONTAP 9数据管理软件的每个版本都提供了一些新增功能和增强功能、可提高ONTAP MetroCluster配置的功能、易管理性和性能。
+
+有关影响ONTAP MetroCluster配置的已知问题、限制和升级注意事项的详细信息、请参阅 https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["《 ONTAP 9 发行说明》"^]。您必须使用NetApp帐户登录或创建帐户才能访问发行说明。
+
 [cols="20,65,15"]
 |===
 | MetroCluster配置中支持的功能 | 说明 | 可从一开始使用 
@@ -33,17 +38,6 @@ ONTAP 9.14.1
 
 https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-mcc-task.html["在MetroCluster配置中的镜像或未镜像聚合上创建分段"]
  a| 
-ONTAP 9.14.1
-
-
-
- a| 
-MetroCluster IP配置支持ONTAP调解器1.5
- a| 
-ONTAP调解器1.5可用于监控MetroCluster IP配置。
-
-https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ONTAP 调解器服务"]
- a| 
 ONTAP 9.12.1
 
 
@@ -55,17 +49,6 @@ IPSEC支持在MetroCluster IP和MetroCluster光纤连接配置中使用前端主
 
 https://docs.netapp.com/us-en/ontap/networking/configure_ip_security_@ipsec@_over_wire_encryption.html["通过线缆加密配置 IP 安全性（ IP security ， IPsec ）"]
  a| 
-ONTAP 9.12.1
-
-
-
- a| 
-ONTAP调解器1.4
- a| 
-MetroCluster IP配置支持ONTAP调解器软件1.4版。
-
-https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ONTAP 调解器服务"]
- a| 
 ONTAP 9.11.1
 
 
@@ -76,17 +59,6 @@ ONTAP 9.11.1
 MetroCluster配置支持一致性组。
 
 https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ONTAP 调解器服务"]
- a| 
-ONTAP 9.11.1
-
-
-
- a| 
-MetroCluster IP配置支持ONTAP调解器
- a| 
-ONTAP调解器服务可通过为状态信息提供物理上单独的存储库来协助MetroCluster IP配置执行自动计划外切换。
-
-https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["为计划外自动切换配置 ONTAP 调解器服务"]
  a| 
 ONTAP 9.7
 

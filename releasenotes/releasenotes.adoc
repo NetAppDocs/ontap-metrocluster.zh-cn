@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: release, notes, new, features, fixed, issues, known, limitations, 7-mode, transition, tool 
 summary: 介绍新增功能，升级说明，已修复的问题，已知限制和已知问题。 
 ---
-= MetroCluster发行说明
+= 《 ONTAP 发行说明》
 :allow-uri-read: 
 
 

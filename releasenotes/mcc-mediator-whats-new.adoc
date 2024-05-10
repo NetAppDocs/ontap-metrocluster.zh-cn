@@ -13,34 +13,26 @@ summary: 每个版本都提供了ONTAP 调解器的新功能。  下面是新增
 [role="lead"]
 每个版本都对ONTAP 调解器进行了新的增强。  下面是新增功能。
 
+有关在MetroCluster配置中安装或升级ONTAP调解器的详细信息、请访问 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html["准备安装 ONTAP 调解器服务"^]。
+
 [cols="75,25"]
 |===
 
 
-| ONTAP调解器版本/功能 | ONTAP 版本 
+| ONTAP调解器功能 | ONTAP 版本 
 
 
  a| 
-ONTAP调解器1.5可用于监控MetroCluster IP配置。
+在环境关闭时、支持调解器辅助的自动计划外切换(MAUSO)。
 
-link:https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ONTAP 调解器服务"^]
+如果一个站点因环境关闭而正常关闭、则会触发MAUSO。
  a| 
-ONTAP 9.12.1
-
-
-
- a| 
-MetroCluster IP配置支持ONTAP调解器软件1.4版。
-
-link:https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ONTAP 调解器服务"^]
- a| 
-ONTAP 9.11.1
+ONTAP 9.13.1
 
 
 
  a| 
-ONTAP调解器服务可通过为状态信息提供物理上单独的存储库来协助MetroCluster IP配置执行自动计划外切换。
-为计划外自动切换配置 ONTAP 调解器服务
+最初支持在MetroCluster IP配置中使用ONTAP调解器服务
  a| 
 ONTAP 9.7
 
