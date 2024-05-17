@@ -44,6 +44,7 @@ summary: 从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，
 +
 有关详细信息，请参见 https://hwu.netapp.com/["NetApp Hardware Universe"]。
 
+* 如果在系统上启用了该功能、 link:../maintain/task-configure-encryption.html#disable-end-to-end-encryption["禁用端到端加密"] 在执行控制器升级之前。
 * 您将在新平台上重复使用原始平台的 IP 地址，网络掩码和网关。
 * 此操作步骤使用以下示例名称：
 +
@@ -1817,3 +1818,9 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metro
 
 
 
+
+
+
+== 配置端到端加密
+
+如果系统支持、则可以对MetroCluster IP站点之间的后端流量(例如NVlog和存储复制数据)进行加密。请参见 link:../maintain/task-configure-encryption.html["配置端到端加密"] 有关详细信息 ...

@@ -2972,10 +2972,21 @@ node_A_1 SVM 4 snmpv3user     snmp        usm                   10.10.10.13
 ----
 . 从交换机提示符处为交换机配置 SNMPv3 ：
 +
+[role="tabbed-block"]
+====
+.Brocade交换机
+--
 `snmpconfig —设置 SNMPv3`
 
+--
+.Cisco switches
+--
+`snmp-server user <user_name>  auth [md5/sha/sha-256] <auth_password> priv (aes-128) <priv_password>`
+
+--
+====
 +
-如果需要 RO 访问，请在 "User （ ro ）： " 之后指定 "snmpv3user" ，如示例所示：
+如果您需要RO访问权限、请在"User (ro)："之后指定"smpv3user"。以下示例将使用Brocade交换机：
 
 +
 [listing]

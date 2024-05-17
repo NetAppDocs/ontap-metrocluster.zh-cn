@@ -73,6 +73,7 @@ image::../media/mcc_dr_groups_8_node.gif[MCC DR 组 8 个节点]
 .. 在配对集群上重复此命令。
 
 
+. 如果启用了端到端加密、请按照步骤执行 link:../maintain/task-configure-encryption.html#disable-end-to-end-encryption["禁用端到端加密"]。
 . 从 Tiebreaker ，调解器或其他可启动切换的软件中删除现有 MetroCluster 配置。
 +
 [cols="2*"]
@@ -301,6 +302,7 @@ MetroCluster check show`
 
 
 
+. 如果您在添加新节点之前禁用了端到端加密、则可以按照中的步骤重新启用它 link:../maintain/task-configure-encryption.html#enable-end-to-end-encryption["启用端到端加密"]。
 . 根据需要使用适用于您的配置的操作步骤还原监控。
 +
 [cols="2*"]

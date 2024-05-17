@@ -514,6 +514,10 @@ setenv bootarg.mcc.lun_part true
 ----
 
 
+. 如果原始系统已配置端到端加密、请在每个替代节点的加载程序提示符处设置以下启动程序：
++
+`setenv bootarg.mccip.encryption_enabled 1`
+
 . 如果原始系统配置了 ADP ，请在每个替代节点的 LOADER 提示符处设置原始系统 ID （ * 不 * 替代控制器模块的系统 ID ）和节点的 DR 配对节点的系统 ID ：
 +
 `setenv bootarg.mcc.local_config_id original-sysID`

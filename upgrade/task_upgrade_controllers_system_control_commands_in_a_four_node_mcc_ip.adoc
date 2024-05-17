@@ -55,6 +55,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 NOTE: 四节点MetroCluster IP配置不支持使用聚合重新定位(ARL)和"system controller Replace commands"(system controller Replace命令)执行升级。
 
+* 如果在系统上启用了该功能、 link:../maintain/task-configure-encryption.html#disable-end-to-end-encryption["禁用端到端加密"] 在执行升级之前。
 * 您必须使用自动化NSO控制器升级操作步骤 按顺序升级两个站点上的控制器。
 * 此基于 NSO 的自动控制器升级操作步骤使您能够对 MetroCluster 灾难恢复（ DR ）站点启动控制器更换。一次只能在一个站点启动控制器更换。
 * 要在站点 A 启动控制器更换，您需要从站点 B 运行 controller replacement start 命令此操作仅会指导您更换站点 A 上两个节点的控制器。要更换站点 B 的控制器，您需要从站点 A 运行 controller replacement start 命令此时将显示一条消息，指出要更换控制器的站点。
@@ -1145,9 +1146,15 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 
 
-=== 正在还原 Tiebreaker 监控
+=== 还原 Tiebreaker 监控
 
 如果先前已将 MetroCluster 配置配置为由 Tiebreaker 软件监控，则可以还原 Tiebreaker 连接。
 
 . 使用中的步骤 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-7259BCA4-104C-49C6-BAD0-1068CA2A3DA5.html["正在添加 MetroCluster 配置"]。
 
+
+
+
+=== 配置端到端加密
+
+如果系统支持、则可以对MetroCluster IP站点之间的后端流量(例如NVlog和存储复制数据)进行加密。请参见 link:../maintain/task-configure-encryption.html["配置端到端加密"] 有关详细信息 ...

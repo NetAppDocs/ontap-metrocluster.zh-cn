@@ -10,9 +10,51 @@ summary:
 :imagesdir: ./media/
 
 
+[role="lead"]
+了解MetroCluster的新增功能。
+
 [cols="20,65,15"]
 |===
 | MetroCluster配置中支持的功能 | 问题描述 以及从何处了解更多信息 | 可从一开始使用 
+
+
+ a| 
+MetroCluster IP支持端到端加密
+ a| 
+AFF A400、FAS9300和FAS4700系统支持端到端加密、用于加密MetroCluster IP配置中站点之间的后端流量、例如NVlog和存储复制数据。
+
+link:../maintain//task-configure-encryption.html["在MetroCluster IP配置中配置端到端加密"]
+ a| 
+ONTAP 9.15.1.
+
+
+
+ a| 
+提高AFF A800和AFF C800系统上四节点MetroCluster IP配置的卷限制
+ a| 
+在四节点MetroCluster IP配置中、AFF A800和AFF C800系统的以下卷限制已增加：
+
+* 每个聚合的最大FlexVol卷数从200增加到625。
+* 每个节点的最大FlexVol卷数从800增加到1250。
+* 每个高可用性(HA)对的最大FlexVol卷数从1600个增加到2500个。
+
+ a| 
+ONTAP 9.15.1.
+
+
+
+ a| 
+提高AFF A900系统上四节点MetroCluster IP配置的卷限制
+ a| 
+在四节点MetroCluster IP配置中、AFF A900系统的以下卷限制已增加：
+
+* 每个聚合的最大FlexVol卷数从200增加到625。
+* 每个节点的最大FlexVol卷数从800增加到1250。
+* 每个高可用性(HA)对的最大FlexVol卷数从1600个增加到2500个。
+
+ a| 
+ONTAP 9.14.1
+
 
 
  a| 
@@ -53,7 +95,7 @@ ONTAP 9.13.1
  a| 
 如果一个站点因环境关闭而正常关闭、则会触发MAUSO。
 
-https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_mediator.html#interoperability-of-ontap-mediator-with-other-applications-and-appliances["ONTAP 调解器与其他应用程序和设备的互操作性"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html["ONTAP 调解器如何支持自动计划外切换"]
  a| 
 ONTAP 9.13.1
 

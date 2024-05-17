@@ -2,15 +2,13 @@
 section: releasenotes
 title: MetroCluster发行说明
 entries:
-- title: 发行说明
-  url: "/releasenotes/releasenotes.html"
-- title: ONTAP功能支持中的新增功能
+- title: MetroCluster中的新增功能对ONTAP功能的支持
   url: "/releasenotes/mcc-config-support-features.html"
 - title: MetroCluster功能中的新增功能
   url: "/releasenotes/mcc-new-features.html"
-- title: MetroCluster IP配置支持中的新增功能
+- title: MetroCluster IP平台和交换机支持中的新增功能
   url: "/releasenotes/mcc-ip-config-platform-support.html"
-- title: MetroCluster FC配置支持中的新增功能
+- title: MetroCluster FC平台和交换机支持中的新增功能
   url: "/releasenotes/mcc-fc-config-platform-support.html"
 - title: ONTAP调解器支持中的新增功能
   url: "/releasenotes/mcc-mediator-whats-new.html"

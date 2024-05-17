@@ -134,7 +134,7 @@ link:http://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 
 
-== 确定旧控制器模块的系统 ID 和 VLAN ID
+== 确定旧控制器模块的系统ID和VLAN ID
 
 在更换灾难站点上的所有硬件后，您必须确定已更换的控制器模块的系统 ID 。在将磁盘重新分配给新控制器模块时，您需要旧系统 ID 。如果系统为 AFF A220 ， AFF A250 ， AFF A400 ， AFF A800 ， FAS2750 ， 对于 FAS500f ， FAS8300 或 FAS8700 型号，您还必须确定 MetroCluster IP 接口使用的 VLAN ID 。
 
@@ -328,7 +328,7 @@ Node_A_2 Node_A_1 HA      enabled  online
 
 
 
-== 将替代驱动器与正常运行的站点隔离（ MetroCluster IP 配置）
+== 将替代驱动器与运行正常的站点隔离(MetroCluster IP配置)
 
 您必须通过从运行正常的节点断开 MetroCluster iSCSI 启动程序连接来隔离任何替代驱动器。
 
@@ -483,7 +483,7 @@ The node must be rebooted to start using the newly installed software. Do you wa
 
 
 
-== 确定替代控制器模块的系统 ID
+== 确定更换用的控制器模块的系统ID
 
 更换灾难站点上的所有硬件后，您必须确定新安装的存储控制器模块的系统 ID 。
 
@@ -725,4 +725,33 @@ MetroCluster IP 配置
 
 |===
 . 在另一个替代节点上重复上述步骤。
+
+
+
+
+== 确定原始系统上是否启用了端到端加密
+
+您应验证原始系统是否配置了端到端加密。
+
+.步骤
+. 从运行正常的站点运行以下命令：
++
+`metrocluster node show -fields is-encryption-enabled`
+
++
+如果启用了加密、则会显示以下输出：
+
++
+[listing]
+----
+1 cluster_A node_A_1 true
+1 cluster_A node_A_2 true
+1 cluster_B node_B_1 true
+1 cluster_B node_B_2 true
+4 entries were displayed.
+----
++
+
+NOTE: 请参见 link:../install-ip/task-configure-end-to-end-encryption.html["配置端到端加密"] 适用于受支持的系统。
+
 

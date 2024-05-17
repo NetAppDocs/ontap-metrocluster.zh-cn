@@ -100,6 +100,8 @@ entries:
     url: "/install-ip/task_sw_config_setup_ontap.html"
   - title: 将集群配置为 MetroCluster 配置
     url: "/install-ip/task_sw_config_configure_clusters.html"
+  - title: 配置端到端加密
+    url: "/install-ip/task-configure-end-to-end-encryption.html"
   - title: 验证切换，修复和切回
     url: "/install-ip/task_sw_config_verify_switchover.html"
   - title: 配置 MetroCluster Tiebreaker 或 ONTAP 调解器软件

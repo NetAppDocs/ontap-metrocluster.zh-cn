@@ -21,6 +21,17 @@ ONTAP 9数据管理软件的每个版本都提供了一些新增功能和增强�
 
 
  a| 
+NVMe的MetroCluster IP支持
+ a| 
+四节点MetroCluster IP配置支持NVMe/TCP前端主机协议。
+
+link:https://docs.netapp.com/us-en/ontap/san-admin/san-config-mcc-concept.html["MetroCluster 环境中的SAN配置"^]
+ a| 
+ONTAP 9.15.1.
+
+
+
+ a| 
 镜像和未镜像聚合上的S3对象存储支持
  a| 
 您可以在MetroCluster IP和FC配置中的镜像或未镜像聚合中的SVM上启用S3对象存储服务器。
@@ -43,6 +54,17 @@ ONTAP 9.12.1
 
 
  a| 
+NVMe的MetroCluster IP支持
+ a| 
+四节点MetroCluster IP配置支持NVMe/FC协议。
+
+link:https://docs.netapp.com/us-en/ontap/san-admin/san-config-mcc-concept.html["MetroCluster 环境中的SAN配置"^]
+ a| 
+ONTAP 9.12.1
+
+
+
+ a| 
 IPSEC支持在MetroCluster IP和MetroCluster光纤连接配置中使用前端主机协议
  a| 
 在MetroCluster IP和MetroCluster光纤连接配置中、可以为前端主机协议(例如NFS和iSCSI)提供IPSEC支持。
@@ -57,8 +79,6 @@ ONTAP 9.11.1
 一致性组
  a| 
 MetroCluster配置支持一致性组。
-
-https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ONTAP 调解器服务"]
  a| 
 ONTAP 9.7
 

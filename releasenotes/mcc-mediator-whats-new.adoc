@@ -26,6 +26,8 @@ summary: 每个版本都提供了ONTAP 调解器的新功能。  下面是新增
 在环境关闭时、支持调解器辅助的自动计划外切换(MAUSO)。
 
 如果一个站点因环境关闭而正常关闭、则会触发MAUSO。
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html["ONTAP 调解器如何支持自动计划外切换"]
  a| 
 ONTAP 9.13.1
 
