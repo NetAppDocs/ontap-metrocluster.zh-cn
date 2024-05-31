@@ -58,6 +58,8 @@ entries:
   entries:
   - title: 更换IP交换机或更改现有MetroCluster IP交换机的使用
     url: "/maintain/task_replace_an_ip_switch.html"
+  - title: 联机或脱机MetroCluster IP接口端口
+    url: "/maintain/task_online_or_offline_the_mcc_ip_interface.html"
   - title: 升级 MetroCluster IP 交换机上的固件
     url: "/maintain/task_upgrade_firmware_on_mcc_ip_switches.html"
   - title: 升级 MetroCluster IP 交换机上的 RCF 文件

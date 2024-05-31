@@ -526,7 +526,7 @@ setenv bootarg.mcc.lun_part true
 `setenv bootarg.mcc.dr_partner dr_partner-sysID`
 
 +
-link:task_replace_hardware_and_boot_new_controllers.html#determining-the-system-ids-of-the-replacement-controller-modules["确定旧控制器模块的系统 ID 和 VLAN ID"]
+link:task_replace_hardware_and_boot_new_controllers.html#determine-the-system-ids-and-vlan-ids-of-the-old-controller-modules["确定旧控制器模块的系统ID"]
 
 +
 .. 设置 node_A_1 上的变量。
