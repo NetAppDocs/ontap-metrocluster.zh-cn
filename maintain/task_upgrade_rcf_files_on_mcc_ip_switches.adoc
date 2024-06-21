@@ -53,7 +53,7 @@ Filename : NX3232_v1.80_Switch-A2.txt
 . 要验证是否支持交换机固件，请参阅以下内容：
 +
 ** https://hwu.netapp.com["Hardware Universe"]
-** https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性"]
+** https://imt.netapp.com/matrix/["NetApp 互操作性表"^]
 
 
 

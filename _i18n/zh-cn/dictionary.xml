@@ -785,9 +785,7 @@
   <block id="ed4a502c887b2722808aaf25fe0da89e" category="inline-xref-macro">更换 Brocade FC 交换机（ MetroCluster ）</block>
   <block id="f689e6e9b515e75d91cdc511bc0ce0c4" category="inline-xref-macro">更新 Brocade FC 交换机上的固件</block>
   <block id="7468e609fefb605430146763cd15a282" category="inline-xref-macro">更新 Cisco FC 交换机上的固件</block>
-  <block id="a89a5b71cb60acbd82724db1a629420a" category="summary">在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。ONTAP 9.0 和更高版本的 ONTAP 之间的端口分配不同。</block>
   <block id="2688c925fec0ab4e936ae385ba142c24" category="paragraph">不用于连接启动程序端口， FC-VI 端口或 ISL 的端口可以重新配置为用作存储端口。但是，如果正在使用受支持的 RCF ，则必须相应地更改分区。</block>
-  <block id="3db4017b12769c890b399a8cee60dfb5" category="paragraph">如果使用受支持的 RCF 文件， ISL 端口可能无法连接到此处所示的相同端口，可能需要手动重新配置。</block>
   <block id="a45eb6ab149dfb9c88ab3dcd2184e695" category="section-title">总体布线准则</block>
   <block id="c41d521acb0fc63853fafb5270777e87" category="paragraph">使用布线表时，应注意以下准则：</block>
   <block id="85efea09b8971fa839b814e34e5b06b9" category="list-text">Brocade 和 Cisco 交换机使用不同的端口编号：</block>
@@ -797,15 +795,11 @@
   <block id="fa15cd6e7a73a7cac602236af691b901" category="list-text">AFF A300 和 FAS8200 存储系统可通过以下两种 FC-VI 连接选项之一订购：</block>
   <block id="f8ead55cd533754df60e1d996c261dcc" category="list-text">在 FC-VI 模式下配置的板载端口 0e 和 0f 。</block>
   <block id="f39eec234d6cdc6ec6c13fbe95529ebe" category="list-text">插槽 1 中 FC-VI 卡上的端口 1a 和 1b 。</block>
-  <block id="7cdeeb5d6c1afe20f2835793af3716df" category="section-title">运行 ONTAP 9.0 的八节点 MetroCluster 配置中用于控制器连接的 Brocade 端口使用情况</block>
-  <block id="4c400b3f7160abe1ed688a9b8979589e" category="paragraph">下表显示了 Brocade 型号 Brocade 6505 ， 6510 或 DCX 8510-8 上的控制器端口使用情况：</block>
   <block id="9bf4e8720024939a31910559506487e8" category="cell">controller_x_3</block>
   <block id="1679091c5a880faf6fb5e6087eb1b2dc" category="cell">6.</block>
   <block id="8f14e45fceea167a5a36dedd4bea2543" category="cell">7.</block>
   <block id="f65c08d82a4d03d0ccfe8c069b7a950f" category="cell">controller_x_4</block>
-  <block id="afad1c27cb5fc5d1d792e5ba791ef840" category="section-title">运行 ONTAP 9.0 的八节点 MetroCluster 配置中用于 FC-SAS 网桥连接的 Brocade 端口使用情况</block>
   <block id="de8504b73ea228d0ea9bbce69752092e" category="cell">网桥</block>
-  <block id="fac64949de3a43257f3c8a97a35449a1" category="cell">网桥端口</block>
   <block id="c74d97b01eae257e44aa9d5bade97baf" category="cell">16.</block>
   <block id="5f3d7a8eab09d202517da1abc99331dc" category="cell">bridge_x_3b</block>
   <block id="b2f10ca95ea95e075db7adc2d019047e" category="cell">bridge_x_4a</block>
@@ -817,8 +811,6 @@
   <block id="f5bad2a06048272d8713fb8303c967a5" category="cell">bridge_x_7b</block>
   <block id="968f63536cc26e1ac460060836284646" category="cell">bridge_x_8a</block>
   <block id="4409c993164a314b23d52edf9f7ddb07" category="cell">bridge_x_8b</block>
-  <block id="ecbaae7ed0bf3689e37afedee8f6c249" category="section-title">运行 ONTAP 9.0 的八节点 MetroCluster 配置中的 ISL 的 Brocade 端口使用情况</block>
-  <block id="394f60a83bf45a2e06134eded4e6adc2" category="paragraph">下表显示了 Brocade 6505 ， 6510 或 DCX 8510-8 交换机的 ISL 端口使用情况：</block>
   <block id="780738b38ccf649c36173b77e28ff349" category="cell">ISL 端口</block>
   <block id="771258dc7c4b533338a8b8c444330806" category="cell">ISL 端口 1</block>
   <block id="d585063a1f5911eb803b6ce616351c61" category="cell">ISL 端口 2</block>
@@ -826,50 +818,17 @@
   <block id="b6d767d2f8ed5d21a44b0e5886680cb9" category="cell">22.</block>
   <block id="7baac79c2a4b41b76452ed707ff7f4a8" category="cell">ISL 端口 4</block>
   <block id="37693cfc748049e45d87b8c7d8b9aacd" category="cell">23</block>
-  <block id="720e1fb07c36d94aa69e0ee7eb5cb7f3" category="section-title">运行 ONTAP 9.0 的四节点 MetroCluster 配置中控制器的 Brocade 端口使用情况</block>
-  <block id="253a9adeaa7038a2700f39aad347d73d" category="paragraph">交换机网络结构中的每个 FC 交换机的布线方式相同。下表显示了 Brocade 6505 ， 6510 和 DCX 8510-8 交换机的使用情况。</block>
   <block id="af86c239e657127cf0c5e7987a178e14" category="cell">controller_x_2</block>
   <block id="eccbc87e4b5ce2fe28308fd9f2a7baf3" category="cell">3.</block>
   <block id="a87ff679a2f3e71d9181a67b7542122c" category="cell">4.</block>
   <block id="e4da3b7fbbce2345d7772b0674a318d5" category="cell">5.</block>
-  <block id="bb98798a94eabd991690e4d98bb1e93d" category="section-title">运行 ONTAP 9.0 的四节点 MetroCluster 配置中网桥的 Brocade 端口使用情况</block>
-  <block id="814568b4249c0114f7f5acf6d86149fb" category="cell">FibreBridge 7500 网桥</block>
-  <block id="4b1342698b69db9277c10ae5d059e837" category="cell">FC_switch_x_1 （ 6510 或 DCX 8510-8 ）</block>
-  <block id="e49423aa401904cc19d9c93b1dba3f71" category="cell">FC_switch_x_2 （ 6510 或 DCX 8510-8 ）</block>
-  <block id="8e8e002bc58d3a842d05c1be7b04ba4c" category="cell">FC_switch_x_1 （ 6505 ）</block>
-  <block id="7ab09fefe83fcbd6007a5ac115dfefbc" category="cell">FC_switch_x_2 （ 6505 ）</block>
-  <block id="5cf1fa7f2c6c9825315b7608236abe2b" category="cell">可以使用缆线将其他网桥连接到端口 19 ，然后连接到端口 24 到 47</block>
-  <block id="c4381a0b6bf2d250fd5afa1d8db80d48" category="cell">可以通过端口 23 为其他网桥布线</block>
-  <block id="3f0d7bda291f9b3c6f2f35a20a63c52e" category="section-title">运行 ONTAP 9.0 的四节点 MetroCluster 配置中的 ISL 的 Brocade 端口使用情况</block>
-  <block id="69862326bc727c309184d534a3f3cff8" category="paragraph">下表显示了 ISL 端口使用情况：</block>
-  <block id="160cef04b33948c7b91144a2fdf46988" category="section-title">运行 ONTAP 9.0 的双节点 MetroCluster 配置中控制器的 Brocade 端口使用情况</block>
-  <block id="7699bf8a4df6f7e15f159269bd8927e4" category="paragraph">交换机网络结构中的每个 FC 交换机的布线方式相同。下表显示了 Brocade 6505 ， 6510 和 DCX 8510-8 交换机的布线情况。</block>
-  <block id="4d3b4ab0ee0d27226cd4d951952dc8aa" category="section-title">运行 ONTAP 9.0 的双节点 MetroCluster 配置中网桥的 Brocade 端口使用情况</block>
-  <block id="f87cb62014b08eabb93a84e435b02ea9" category="section-title">运行 ONTAP 9.0 的双节点 MetroCluster 配置中的 ISL 的 Brocade 端口使用情况</block>
-  <block id="851032b3e8ee16b9eb2ed6098216108e" category="paragraph">下表显示了 Brocade 6505 ， 6510 和 DCX 8510-8 交换机的 ISL 端口使用情况：</block>
-  <block id="944ef169ea9b385ec2fc06c60bcdd267" category="section-title">运行 ONTAP 9.0 的八节点 MetroCluster 配置中控制器的 Cisco 端口使用情况</block>
-  <block id="062caca7c0bb29ebff9fcc7a33a75d93" category="paragraph">下表显示了 Cisco 9148 和 9148S 交换机上的控制器端口使用情况：</block>
-  <block id="7dd0f293a7e09ad1d4ac1014f18a018a" category="section-title">运行 ONTAP 9.0 的八节点 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况</block>
   <block id="1d8dd340273647eae3a36eff43fc547e" category="paragraph">可以按相同模式使用端口 25 到 48 连接其他网桥。</block>
-  <block id="c4739fa521713dbbe264a1366afde348" category="section-title">运行 ONTAP 9.0 的八节点 MetroCluster 配置中 ISL 的 Cisco 端口使用情况</block>
-  <block id="524e7c19dbf542bdc24be3909a68aa5b" category="paragraph">下表显示了 Cisco 9148 和 9148S 交换机的 ISL 端口使用情况：</block>
   <block id="84a71a9e63ead8784cd365088a3be8c4" category="cell">ISL 端口</block>
   <block id="1ff1de774005f8da13f42943881c655f" category="cell">24</block>
-  <block id="bf9995231adba64383dd274717591fad" category="section-title">四节点 MetroCluster 配置中控制器的 Cisco 端口使用情况</block>
-  <block id="9009bb494f588eb453c941a0f5346de2" category="paragraph">下表显示了 Cisco 9148 ， 9148S 和 9250i 交换机上的控制器端口使用情况：</block>
-  <block id="8a960a450c78ddb1326827d52c10a15a" category="section-title">运行 ONTAP 9.0 的四节点 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况</block>
-  <block id="6fcd6dc740970bb42bde0c9a37d97275" category="section-title">运行 ONTAP 9.0 的四节点 MetroCluster 配置中用于 ISL 的 Cisco 9148 和 9148S 端口使用情况</block>
   <block id="d645920e395fedad7bbbed0eca3fe2e0" category="cell">40</block>
   <block id="f7177163c833dff4b38fc8d2872f1ec6" category="cell">44</block>
   <block id="642e92efb79421734881b53e1e1b18b6" category="cell">48</block>
-  <block id="d8547f2a1e0767433bffe41b5c4ca3bc" category="section-title">运行 ONTAP 9.0 的四节点 MetroCluster 配置中用于 ISL 的 Cisco 9250i 端口使用情况</block>
-  <block id="183f17b261b81d0d886cf2452983cce8" category="paragraph">Cisco 9250i 交换机对 ISL 使用 FCIP 端口。</block>
   <block id="4389b93bd76334095ae6f5fdb926d4ee" category="paragraph">端口 40 到 48 是 10 GbE 端口，不会在 MetroCluster 配置中使用。</block>
-  <block id="fa69aa564bc90d7adecfb54c289d23be" category="section-title">双节点 MetroCluster 配置中控制器的 Cisco 端口使用情况</block>
-  <block id="762b426bcd4ea34fc55a0f899cf2086d" category="section-title">运行 ONTAP 9.0 的双节点 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况</block>
-  <block id="ba2044d8a6c35bb667c35d13e7a3277d" category="section-title">运行 ONTAP 9.0 的双节点 MetroCluster 配置中用于 ISL 的 Cisco 9148 或 9148S 端口使用情况</block>
-  <block id="2bc92937819403549f510c08d8a54058" category="paragraph">下表显示了 Cisco 9148 或 9148S 交换机的 ISL 端口使用情况：</block>
-  <block id="e936a0e4e03d3d3120e966eca42a0b28" category="section-title">运行 ONTAP 9.0 的双节点 MetroCluster 配置中用于 ISL 的 Cisco 9250i 端口使用情况</block>
   <block id="4bfd66c37cd5ce244e0dfdd30c499d83" category="list-text">开始之前，请检查站点上的任何非镜像聚合是否已脱机。</block>
   <block id="edc7b16c34c41ad12b6699da441a1e45" category="paragraph">此操作可能需要几分钟才能完成。</block>
   <block id="0829264e645ef456fedfb9d7d6e189a9" category="paragraph">在 MetroCluster FC 配置中，只有当聚合中的远程磁盘可访问时，未镜像聚合才会在切换后联机。如果 ISL 发生故障，本地节点可能无法访问未镜像远程磁盘中的数据。聚合故障可能会导致本地节点重新启动。</block>
@@ -1541,7 +1500,6 @@
   <block id="bbd74b9d635efcc9eced3467fe12b324" category="list-text">在 `storage bridge run-cli` 命令中运行适用的 FibreBridge 命令：</block>
   <block id="09792e5e867bb3fa1654982ccf93f3e4" category="paragraph">以下命令从 ONTAP 提示符处运行 FibreBridge `SasportDisable` 命令，以禁用网桥上的 SAS 端口 b ：</block>
   <block id="5cb7ce670094889d3c954b543759f688" category="summary">准备热添加 SAS 磁盘架包括下载文档以及磁盘驱动器和磁盘架固件。</block>
-  <block id="c073c8226440025a816eb4efa16a17a3" category="admonition">如果您的系统运行的是受支持的 ONTAP 版本，则在同一个堆栈中支持混合使用 IOM12 模块和 IOM6 模块。要确定您的 ONTAP 版本是否支持混用磁盘架， 请参阅互操作性表工具（ IMT ）。 https://mysupport.netapp.com/NOW/products/interoperability[NetApp 互操作性 ] 如果您的 ONTAP 版本不受支持，并且您无法升级或降级现有堆栈或要添加到受支持的 IOM 模块组合中的新磁盘架上的 IOM 模块， 您需要执行以下操作之一：</block>
   <block id="64974d0b5eb2e258428a89835ce229c9" category="list-text">在新 SAS 端口上启动新堆栈（如果网桥对支持）。</block>
   <block id="ad45a06e82c1f0983fdfd0e3d30dc8f8" category="list-text">在另一个网桥对上启动新堆栈。</block>
   <block id="8e916218cb72668e639a5859eade4041" category="list-text">适用于您的磁盘架型号的安装指南 _ 。</block>
@@ -4641,7 +4599,6 @@
   <block id="e7c51f571509030a8b7301dc8bc8a7fe" category="summary">在使用阵列 LUN 的 MetroCluster 配置中设置 ONTAP 系统之前，存储阵列管理员必须准备用于 ONTAP 的存储。</block>
   <block id="0298c9d72aff4562d5434fe4a448c6a1" category="doc">准备用于 ONTAP 系统的存储阵列</block>
   <block id="6ceeef6f6fdaf06b95cae87e460cfe9b" category="paragraph">您计划在配置中使用的存储阵列，固件和交换机必须受特定 ONTAP 版本支持。</block>
-  <block id="10f02f59043b28fac9ff50a9e24e6044" category="inline-link">NetApp 互操作性</block>
   <block id="567997ebab95ad5c797a8c2164e69988" category="paragraph">要在存储阵列上执行此任务，您必须与存储阵列管理员进行协调。</block>
   <block id="c6d70523707016c24377e7ebb500eef1" category="list-text">根据 MetroCluster 配置中的节点数在存储阵列上创建 LUN 。</block>
   <block id="b30da40dcd4e32f00364fe223122c3ab" category="paragraph">MetroCluster 配置中的每个节点都需要为根聚合，数据聚合和备用磁盘配置阵列 LUN 。</block>
@@ -5140,7 +5097,6 @@
   <block id="93d2c0db4f12f10c56f582f82171c52b" category="paragraph">要在使用半填充磁盘架（ 24 驱动器磁盘架中有 12 个驱动器）时正确地自动分配驱动器，驱动器应位于插槽 0-5 和 18-23 中。</block>
   <block id="7bf8ecae55a24d61a71e36a03be28010" category="paragraph">在磁盘架部分填充的配置中，驱动器必须均匀分布在磁盘架的四个象限中。</block>
   <block id="2ad434ab593fd445c83cdbf1d5d00216" category="section-title">在一个堆栈中混用 IOM12 和 IOM 6 模块</block>
-  <block id="d5d16fad39e71fb59dc90d88df5e1025" category="paragraph">您的 ONTAP 版本必须支持混用磁盘架。请参见互操作性表工具（ IMT ），了解您的 ONTAP 版本是否支持混用磁盘架。<block ref="ac420cca75b9dbbf7e4e74995a005185" category="inline-link-rx"></block></block>
   <block id="d963cd5338d788b5f26861ebd6ae6f27" category="paragraph">有关混用磁盘架的更多详细信息，请参见：<block ref="96c52bfd2d59063b848ae852888ce36d" category="inline-link-rx"></block></block>
   <block id="2577b62ff20a44feeb798ea94e578a0b" category="section-title">网桥命名约定</block>
   <block id="3c140973dafbe403da4d648de7fb7d10" category="paragraph">网桥使用以下命名示例： bridge_site_stack groupocation in pair</block>
@@ -5176,14 +5132,6 @@
   <block id="b687dd86b8db3b030c46a3fbc2a2d024" category="paragraph">`ha-config modify chassis mccip`</block>
   <block id="a557db64e7a1a7811ee58be8f70a14b6" category="list-text">将节点启动至 ONTAP ：</block>
   <block id="49eb5704f61afb2484b6cc1439fa40de" category="list-text">对 MetroCluster 配置中的每个节点重复上述步骤。</block>
-  <block id="1070ce9e7bae97d7e7228e149c0b9eb4" category="paragraph">下表显示了 Brocade 交换机上的控制器端口使用情况：</block>
-  <block id="cd45205e4fc2077e0c4d75cfa092a45c" category="cell">MetroCluster 八节点配置</block>
-  <block id="8fa7af407bf3527ae51a64903584fb97" category="cell">MetroCluster 四节点配置</block>
-  <block id="b568f2bc70056e5c549443721bcfb52b" category="cell">Brocade 6510 或 DCX 8510-8</block>
-  <block id="6ffb8f2c32009a20c314f0eeec771f81" category="cell">Brocade 6510 ， DCX 8510-8</block>
-  <block id="a435d7a239e10d99dd0bb66c0966f44d" category="paragraph">下表显示了 Cisco 交换机上的控制器端口使用情况：</block>
-  <block id="b54c734a5be7921355fc2aa93b69ba59" category="cell">Cisco 9148 或 9148S</block>
-  <block id="11278506140805617313d6fd9ed8b0fc" category="cell">Cisco 9148 ， 9148S 或 9250i</block>
   <block id="a9376b40838c95dc0e4da39abdfa72b0" category="summary">您必须通过交换机间链路（ ISL ）跨站点连接 FC 交换机，以便在使用阵列 LUN 的 MetroCluster 配置中形成交换机网络结构。</block>
   <block id="54ac487d2d6ff680a517207a9eced839" category="doc">为使用阵列 LUN 的 MetroCluster 配置中的 ISL 布线</block>
   <block id="ba35d7d9c18ec17168ae6aa733de311d" category="paragraph">您必须通过交换机间链路（ ISL ）跨站点连接 FC 交换机，以便在使用阵列 LUN 的 MetroCluster 配置中形成交换机网络结构。</block>
@@ -8676,7 +8624,6 @@
   <block id="60bd1a2e6e7581b5d37f41673f11b0bf" category="list-text"><block ref="60bd1a2e6e7581b5d37f41673f11b0bf" category="inline-link-macro-rx"></block></block>
   <block id="15fde4f082e6ff5ca3488be202f0dbcb" category="list-text"><block ref="15fde4f082e6ff5ca3488be202f0dbcb" category="inline-link-macro-rx"></block></block>
   <block id="a011aa6047381b9696e67c3b40f1802e" category="inline-link">NetApp 互操作性（ IMT ）</block>
-  <block id="adbd7f6da5b8c687e8c9973fbac44739" category="list-text"><block ref="adbd7f6da5b8c687e8c9973fbac44739" category="inline-link-rx"></block></block>
   <block id="fb60c06f4120cd75fc9ac39720fd32d8" category="paragraph"><block ref="fb60c06f4120cd75fc9ac39720fd32d8" category="inline-link-macro-rx"></block></block>
   <block id="b8a418bfdd11bf6855f54b269c217252" category="list-text">在每个节点上创建镜像数据聚合：</block>
   <block id="f6a27c7799db7275b366d6aa5824f156" category="inline-link-macro">镜像根聚合：</block>
@@ -9760,7 +9707,6 @@
   <block id="e36320198d71e90e7fbc80a9b47b9394" category="paragraph">对于任一交换机，请在输出中找到指示 RCF 文件版本的行。例如，以下输出来自 Cisco 交换机，表示 RCF 文件版本为 "`v1.80` " 。</block>
   <block id="c7534d571d84fdfe4912d24b4f1f30bf" category="list-text">要检查特定 ONTAP 版本，交换机和平台支持哪些文件，请使用 RcfFileGenerator 。如果您可以为所拥有或要升级到的配置生成 RCF 文件，则支持此文件。</block>
   <block id="282bc05e82ec2895ab48f3f9377e06d3" category="list-text">要验证是否支持交换机固件，请参阅以下内容：</block>
-  <block id="8ae1a8b6dc4a3df150f27ca419fb9a6c" category="list-text"><block ref="8ae1a8b6dc4a3df150f27ca419fb9a6c" category="inline-link-rx"></block></block>
   <block id="bde0605fb74695c23ddd122685cfc65e" category="section-title">升级 RCF 文件</block>
   <block id="1a9778326fd00d0e011a777089b2bc6a" category="list-text">检查正在运行的 MetroCluster 检查操作的状态：</block>
   <block id="fbd55aa6c7d3ee9ec90836dfa01b62d2" category="paragraph">MetroCluster 操作历史记录显示 -job-id 38`</block>
@@ -11169,7 +11115,6 @@
   <block id="abb1e047e2333a743b5e05cb2a26c2c8" category="list-text">重复 LIF ：不能在一个 IP 空间中创建多个具有相同 IP 地址的 LIF （重复 LIF ）。</block>
   <block id="9678ea3a4b3cf82f2a3d066928c01fbf" category="list-text">NFS 和 SAN 配置：必须对未镜像聚合和镜像聚合使用不同的 Storage Virtual Machine （ SVM ）。</block>
   <block id="562c481a4722b64967a4fc3b654ce42b" category="paragraph">此操作步骤中用作示例的建议名称用于标识网桥连接到的控制器模块和端口。</block>
-  <block id="76379c0e7357a2749284a8099ed9c896" category="paragraph">您的 ONTAP 版本必须支持混用磁盘架。请参见互操作性表工具（ IMT ），了解您的 ONTAP 版本是否支持混用磁盘架。<block ref="02d7a1e934f8b62a0243dc749b1b650b" category="inline-link-rx"></block></block>
   <block id="40478efcbffc865e999b3e1e2108a0cc" category="paragraph">有关混用磁盘架的更多详细信息，请参见：<block ref="532c1f47a9370f9e21538610051f3830" category="inline-link-rx"></block></block>
   <block id="44b34304fe9dbc559df5c8eec0e37bb6" category="admonition">从 ONTAP 9.8 开始， ` * storage bridge*` 命令将替换为 ` * system bridge*` 命令。以下步骤显示了 ` * storage bridge*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system bridge*` 命令。</block>
   <block id="4eddf6976105fa027f2ae8a47fff2624" category="summary">您可以从 NetApp 文档了解有关 MetroCluster 配置和操作的更多信息。</block>
@@ -11389,7 +11334,6 @@
   <block id="6257739eb87a755c28bf814ad261df2d" category="section-title">移动 MetroCluster FC 节点上的集群连接</block>
   <block id="9d8f122e284d64a31d50c5040fe4f338" category="section-title">要移动哪些连接</block>
   <block id="508763c5ecfa3096ab25520f14c971f5" category="paragraph">使用中所述的端口 <block ref="10769c5348734bed7e40370eea435ab1" category="inline-xref-macro-rx"></block>。</block>
-  <block id="fe45fe811f6f58baafc88df1114b43df" category="paragraph">链接： ./install-IP/concept_mediator_requirements.html #configuring-th-ontap-medier-service-from-a-metrocluster-IP-configuration[ 从 MetroCluster IP 配置配置 ONTAP 调解器服务 ]</block>
   <block id="353f64efd56caa103dcbf2b9e24c3129" category="paragraph">链接： ./install-IP/concept_mediator_requirements.html</block>
   <block id="dd23316b696cd08f3479c6e2d7baadc0" category="inline-link">AFF 或 FAS 系统的安装过程</block>
   <block id="17959b19c1c128d5d74608a22de28cf9" category="paragraph"><block ref="17959b19c1c128d5d74608a22de28cf9" category="inline-link-rx"></block></block>
@@ -12441,7 +12385,6 @@
   <block id="3e3df3be76a18ca2c89904765d97f078" category="list-text">在两个集群上运行以下命令、以确认可以接管并且节点已连接：</block>
   <block id="3963205d7c5d1cb2f000d61f16c10f1d" category="paragraph">24个内部驱动器</block>
   <block id="7632b8724806890acaf96c668d641251" category="inline-link-macro">了解MetroCluster IP配置中的自动驱动器分配和ADP系统</block>
-  <block id="85488d881ebf03beb1eca3be4b5fda44" category="paragraph">您的 ONTAP 版本必须支持混用磁盘架。请参见<block ref="e78382cc6f841e7f00c97b18a2e30f41" category="inline-link-rx"></block> 查看您的 ONTAP 版本是否支持混用磁盘架。</block>
   <block id="5fdc7ff67ace146413ecd7d44157aca4" category="paragraph">有关混用磁盘架的更多详细信息，请参见<block ref="532c1f47a9370f9e21538610051f3830" category="inline-link-rx"></block></block>
   <block id="e868bded76541295e018b74bb15a7920" category="inline-link-macro">NVIDIA SN2100交换机安装和配置概述</block>
   <block id="b86c7f3554d9472f6a1e417c7f70fb18" category="admonition">有关安装Cumulus Linux的详细信息、请参见 <block ref="ac21c0d53d9fcd547ee85e9d73d53854" category="inline-link-macro-rx"></block></block>
@@ -12723,9 +12666,7 @@
   <block id="fdf5e2eb479f201de0c9c62e9a32e769" category="paragraph">向不具有默认广播域的现有集群添加新节点时、系统会使用通用唯一标识符(UID)(而不是预期名称)为新节点创建节点管理生命周期。有关详细信息、请参见知识库文章<block ref="4808e3ddae1b3b2c14dc148b67bd36ea" category="inline-link-rx"></block>。</block>
   <block id="f6410291c32fa961402f5a821c332f6c" category="list-text">验证是否支持使用新旧平台型号进行平台混合。</block>
   <block id="e220a628f1c5f8fb65824aaeb387520e" category="list-text">确认新旧平台型号均受IP交换机支持。</block>
-  <block id="56f1ca12910041b73ea6fcc9bc18a954" category="paragraph">从ONTAP 9.4开始、MetroCluster IP配置支持使用ADP (高级驱动器分区)进行全新安装。</block>
   <block id="72a38a5af8be1c706e478add3356ba90" category="paragraph">在将ADP与MetroCluster IP配置结合使用时、您应注意以下注意事项：</block>
-  <block id="3cae0a231aac97485961fb33cea76ca2" category="list-text">要在MetroCluster IP配置中使用ADP、需要使用ONTAP 9.4及更高版本。</block>
   <block id="959bb45d9851a2b3efaeb05db74e0a80" category="list-text">MetroCluster IP配置支持ADPv2。</block>
   <block id="a393732e5defe7b7a921a586e53ec51d" category="list-text">对于两个站点上的所有节点、根聚合必须位于分区3中。</block>
   <block id="9ef6aecb7d030435d81fe80cacca477e" category="list-text">在初始配置MetroCluster站点期间、系统会自动执行分区和磁盘分配。</block>
@@ -13272,12 +13213,6 @@
   <block id="0351289236b3260f9d0c35b64f62689c" category="paragraph">您只能使用一个FC端口(FC1或FC2)来完成对光纤桥接500N或7600N网桥的布线。请仅连接两个启动程序，而不使用四个启动程序，并将连接到交换机端口的另外两个启动程序留空。</block>
   <block id="4883312b6c36aa2f1d5ce2e2f17638bd" category="paragraph">如果是手动执行分区、请遵循使用一个FC端口(FC1或FC2)的FBRIDBRIDGKIP 7500N或7600N网桥所使用的分区。在这种情况下，每个网络结构的每个分区成员都会添加一个启动程序端口，而不是两个。</block>
   <block id="1e008e69dc731ad28df3d6927462a7f3" category="paragraph">您可以使用中的操作步骤更改分区或从一个光纤桥6500 N升级到一个光纤桥7500 N <block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block>。</block>
-  <block id="803d845c069720e0ec75ee03ea5a43d4" category="paragraph">下表显示了使用光纤桥接500N和7600N网桥时的网桥端口使用情况：</block>
-  <block id="2cd1f3df6c3bbd7c9891d742ad23d04a" category="cell">光纤桥接7500或7600 N网桥</block>
-  <block id="81b2aac60df91543fcf4f05563b1f80e" category="paragraph">下表显示了在使用光纤桥接500N和7600N网桥时、截至端口17的网桥端口使用情况。可以使用缆线将其他网桥连接到端口 18 到 23 。</block>
-  <block id="85878b4f87459062c8904a27720ba2be" category="paragraph">下表显示了使用光纤桥接500N或7600N网桥时截至端口23的网桥端口使用情况。可以使用端口 25 到 48 连接其他网桥。</block>
-  <block id="6f40fc62599b436af99e9090bcb1fe21" category="paragraph">下表显示了使用光纤桥接500N或7600N网桥时网桥端口使用情况(截至端口14)。可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
-  <block id="836f2645702f9125726ff7335ed42bd5" category="paragraph">下表显示了在使用光纤桥接500N和7600N网桥时、截至端口14的网桥端口使用情况。可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
   <block id="7f921cbd9f23de85fa3d483b640e428b" category="open-title">如果节点已关闭：</block>
   <block id="5f4eaac69c780a3f8ab154192e4a1a26" category="paragraph">启动节点。</block>
   <block id="2900f8420dafccee0a2692e48506c6cb" category="open-title">如果节点位于加载程序提示符处：</block>
@@ -13339,12 +13274,6 @@
   <block id="1cef707d96d59ea52cd45984a36d2f11" category="list-text">打开IP交换机的电源。</block>
   <block id="ac8327044a4ce63889944095a1b6aed8" category="list-text">打开磁盘架电源、留出足够的时间让其完全启动。</block>
   <block id="d5061566f9570e151daa3fd59fb31405" category="list-text">验证在维护模式下是否可从节点看到本地存储：</block>
-  <block id="7a492d8ba3deac8ecd729c56c1058794" category="paragraph">下表显示了使用光纤桥接500N或7600N网桥时的网桥端口使用情况：</block>
-  <block id="2d5d944d1466716b339b20936cc4b7ec" category="paragraph">下表显示了使用光纤桥接500N或7600N网桥时网桥端口使用情况(截至端口17)。可以使用缆线将其他网桥连接到端口 18 到 23 。</block>
-  <block id="f912eaa76cd834cbed98a7201254e72e" category="paragraph">下表显示了在Brocade 6505、6510和DCX 8510-8交换机上使用光纤桥接7500 N或7600N网桥时、截至端口17的网桥端口使用情况。可以使用缆线将其他网桥连接到端口 18 到 23 。</block>
-  <block id="e75c88d98fec123855e6503ffa20ae16" category="paragraph">下表显示了在使用Cisco 9148或9148S交换机的同时使用光纤桥接7500 N或7600N网桥时、截至端口23的网桥端口使用情况。</block>
-  <block id="0d792f55f305e85c0f763a05b6d33ae1" category="paragraph">下表显示了在Cisco 9148、9148S或9250i交换机上使用光纤桥接7500 N或7600N网桥时、网桥端口使用情况(截至端口14)。可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
-  <block id="972c5512c843cde59ea3263b1073efea" category="paragraph">下表显示了在Cisco 9148、9148S和9250i交换机上使用光纤桥接7500 N或7600N网桥时、截至端口14的网桥端口使用情况。可以按相同模式将其他网桥连接到端口 15 到 32 。</block>
   <block id="8bc67669b17eba9ca754ee74dd34564c" category="list-text">如果您使用的是符合 FIPS 的 EFOS 版本，请生成 ECDSA 密钥。以下示例将创建长度为521的密钥。有效值为 256 ， 384 或 521 。</block>
   <block id="8eb0b3dc24b7128748cd767385d5a9f2" category="paragraph">MetroCluster IP配置中的每个节点都有专用接口、用于连接到后端IP网络：</block>
   <block id="ad1b97f0744b9c154b01cc69afb505d7" category="list-text">两个本地集群接口</block>
@@ -13771,4 +13700,15 @@
   <block id="478093bd7e01c5abe587038bf808af00" category="paragraph">下表显示了Cisco 9132T交换机上的端口使用情况。下表显示了在两个DR组中使用四个和八个控制器模块时支持的最大配置。</block>
   <block id="9e667988f536ce55f0a4c5cf0908d042" category="cell">具有2个LEM和1个四节点MetroCluster或DR组的Cisco 9132T</block>
   <block id="7d83eb0736445dbf18519e99146d2fff" category="cell">具有两个四节点MetroCluster或一个具有两个DR组的八节点MetroCluster的Cisco 9132T</block>
+  <block id="a786547181c9c8f446791420d2be691f" category="paragraph">您的 ONTAP 版本必须支持混用磁盘架。请参见<block ref="f93341e63c1888be05256ff042174623" category="inline-link-rx"></block> 查看您的 ONTAP 版本是否支持混用磁盘架。</block>
+  <block id="27211cf5d485f8491ca9b566aefe2d6d" category="paragraph">从ONTAP 9.4开始、MetroCluster IP配置支持使用自动磁盘分配和ADP (高级驱动器分区)进行新安装。</block>
+  <block id="e528d26e96f91b34e70a35c4661d620d" category="list-text">要在AFF和ASA系统上将ADP与MetroCluster IP配置结合使用、需要使用ONTAP 9.4及更高版本。</block>
+  <block id="bacc4dbebf17d22c9a0361ded0994067" category="paragraph"><block ref="bacc4dbebf17d22c9a0361ded0994067" category="inline-link-macro-rx"></block></block>
+  <block id="bc8be72fdc9d6054f356bb2b7f80fd12" category="inline-link">NetApp 互操作性表</block>
+  <block id="769db6797bc8c70f9ceb0ea238fcfef2" category="list-text"><block ref="769db6797bc8c70f9ceb0ea238fcfef2" category="inline-link-rx"></block></block>
+  <block id="c9dd6bad4c7d561872f2e2d498a990bf" category="inline-link-macro">互操作性表工具（ IMT ）</block>
+  <block id="520ac91f29d97371c4fac829efc70617" category="admonition">如果您的系统运行的是受支持的 ONTAP 版本，则在同一个堆栈中支持混合使用 IOM12 模块和 IOM6 模块。要确定您的ONTAP版本是否支持磁盘架混合、请参见 <block ref="cd3982462c40dc1b1a511ada7c72bab9" category="inline-link-macro-rx"></block>。如果您的ONTAP版本不受支持、并且您无法升级或降级现有堆栈或要添加到受支持的IOM模块组合的新磁盘架上的IOM模块、则需要执行以下操作之一：</block>
+  <block id="c5dcd35af16918a17ee9c3a5c153f0af" category="inline-link">IMT</block>
+  <block id="24d65add9a27d74b80e9a9cebdfc8e56" category="paragraph">您的 ONTAP 版本必须支持混用磁盘架。请参见互操作性表工具（ IMT ），了解您的 ONTAP 版本是否支持混用磁盘架。<block ref="30796bf173a80af0dc9c120f98ffaed6" category="inline-link-rx"></block></block>
+  <block id="8872b0d09737dfd9b6fcafd4e8c2356b" category="list-text"><block ref="8872b0d09737dfd9b6fcafd4e8c2356b" category="inline-link-rx"></block></block>
 </blocks>

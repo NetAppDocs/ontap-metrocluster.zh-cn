@@ -16,7 +16,7 @@ summary: 在使用阵列 LUN 的 MetroCluster 配置中设置 ONTAP 系统之前
 .开始之前
 您计划在配置中使用的存储阵列，固件和交换机必须受特定 ONTAP 版本支持。
 
-* https://mysupport.netapp.com/NOW/products/interoperability["NetApp 互操作性（ IMT ）"]
+* https://imt.netapp.com/matrix/["NetApp 互操作性（ IMT ）"^]
 +
 在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
 

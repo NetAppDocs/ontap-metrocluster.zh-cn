@@ -56,9 +56,7 @@ entries:
       url: "/install-fc/task_cable_the_isl_between_the_mcc_sites_fabric_config.html"
     - title: 使用两个启动程序端口的系统的端口分配
       url: "/install-fc/concept_port_assignments_for_systems_using_two_initiator_ports.html"
-    - title: 使用 ONTAP 9.0 时 FC 交换机的端口分配
-      url: "/install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html"
-    - title: 使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配
+    - title: 使用 ONTAP 9.1 或更高版本时 FC 交换机的端口分配
       url: "/install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html"
     - title: 使用 AFF A900 系统时 FC 交换机的端口分配
       url: "/install-fc/concept_AFF_A900_port_assign_fc_switches_ontap_9_1.html"

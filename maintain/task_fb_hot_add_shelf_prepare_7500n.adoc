@@ -24,7 +24,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["�
 
 
 
-NOTE: 如果您的系统运行的是受支持的 ONTAP 版本，则在同一个堆栈中支持混合使用 IOM12 模块和 IOM6 模块。要确定您的 ONTAP 版本是否支持混用磁盘架， 请参阅互操作性表工具（ IMT ）。 https://mysupport.netapp.com/NOW/products/interoperability[NetApp 互操作性 ] 如果您的 ONTAP 版本不受支持，并且您无法升级或降级现有堆栈或要添加到受支持的 IOM 模块组合中的新磁盘架上的 IOM 模块， 您需要执行以下操作之一：
+NOTE: 如果您的系统运行的是受支持的 ONTAP 版本，则在同一个堆栈中支持混合使用 IOM12 模块和 IOM6 模块。要确定您的ONTAP版本是否支持磁盘架混合、请参见 link:https://imt.netapp.com/matrix/["互操作性表工具（ IMT ）"^]。如果您的ONTAP版本不受支持、并且您无法升级或降级现有堆栈或要添加到受支持的IOM模块组合的新磁盘架上的IOM模块、则需要执行以下操作之一：
 
 * 在新 SAS 端口上启动新堆栈（如果网桥对支持）。
 * 在另一个网桥对上启动新堆栈。
