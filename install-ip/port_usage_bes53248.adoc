@@ -40,36 +40,83 @@ MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台�
 
 
 
-.表中引用的注释：
+
+
+== 为您的配置选择正确的布线表
+
+使用下表确定您应遵循的布线表。
+
+[cols="2*"]
+|===
+| 您的系统 | 使用此布线表... 
+
+
+ a| 
+AFF A150、ASA A150
+
+FAS2750
+
+AFF A220
+| <<table_1_bes_53248,Broadcom BES-53248平台端口分配(组1)>> 
+
+
+| FAS500f AFF C250、ASA C250 AFF A250、ASA A250 | <<table_2_bes_53248,Broadcom BES-53248平台端口分配(组2)>> 
+
+
+| FAS8200、AFF A300 | <<table_3_bes_53248,Broadcom BES-53248平台端口分配(第3组)>> 
+
+
+| AFF A320 | <<table_4_bes_53248,Broadcom BES-53248平台端口分配(第4组)>> 
+
+
+| FAS9300 AFF C400、ASA C400 AFF A400、ASA A400 FAS4700 | <<table_5_bes_53248,Broadcom BES-53248平台端口分配(第5组)>> 
+|===
+.Broadcom BES-53248平台端口分配(组1)
+查看将AFF A150、ASA A150、FAS2750或AFF A220系统连接到Broadcom BES-53248交换机的平台端口分配：
+
+image::../media/mcc_ip_cabling_a_aff_asa_a150_a220_fas2750_to_a_broadcom_bes_53248_switch.png[显示了Broadcom BES-53248平台端口分配]
+
+* *注1*:使用这些端口需要额外的许可证。
+* 如果两个MetroCluster配置使用相同的平台、NetApp建议为一个配置选择组MetroCluster 3、为另一个配置选择组MetroCluster 4。如果平台不同、则必须为第一个配置选择MetroCluster 3或MetroCluster 4、为第二个配置选择MetroCluster 1或MetroCluster 2。
+
+
+.Broadcom BES-53248平台端口分配(组2)
+查看使用缆线将FAS500f、AFF C250、ASA C250、AFF A250或ASA A250系统连接到Broadcom BES-53248交换机的平台端口分配：
+
+image::../media/mcc_ip_cabling_a_aff_asa_c250_a250_fas500f_to_a_broadcom_bes_53248_switch.png[显示了Broadcom BES-53248平台端口分配]
+
+* *注1*:使用这些端口需要额外的许可证。
+* 如果两个MetroCluster配置使用相同的平台、NetApp建议为一个配置选择组MetroCluster 3、为另一个配置选择组MetroCluster 4。如果平台不同、则必须为第一个配置选择MetroCluster 3或MetroCluster 4、为第二个配置选择MetroCluster 1或MetroCluster 2。
+
+
+.Broadcom BES-53248平台端口分配(第3组)
+查看使用缆线将FAS8200或AFF A300系统连接到Broadcom BES-53248交换机的平台端口分配：
+
+image::../media/mcc_ip_cabling_a_aff_a300_or_fas8200_to_a_broadcom_bes_53248_switch.png[显示了Broadcom BES-53248平台端口分配]
+
+* *注1*:使用这些端口需要额外的许可证。
+
+
+.Broadcom BES-53248平台端口分配(第4组)
+查看将AFF A320系统连接到Broadcom BES-53248交换机的平台端口分配：
+
+image::../media/mcc_ip_cabling_a_aff_a320_to_a_broadcom_bes_53248_switch.png[显示了Broadcom BES-53248平台端口分配]
+
 * *注1*:使用这些端口需要额外的许可证。
 * *注2*:只能将一个使用AFF A320系统的四节点MetroCluster连接到交换机。
 +
-此配置不支持需要有交换机集群的功能、包括MetroCluster FC到IP的过渡和技术更新过程。
+此配置不支持需要有交换机集群的功能。其中包括MetroCluster FC到IP的过渡和技术更新过程。
 
-* *注3*：BES-53248交换机要求四端口组中的所有端口以相同速度运行。要混合连接AFF 150、ASA A150、FAS2750、AFF A220和FAS500f、AFF C250、ASA C250、AFF A250和ASA A250平台、必须使用位于单独四端口组中的交换机端口。如果您需要此类配置、请遵循以下要求：
+
+
+.Broadcom BES-53248平台端口分配(第5组)
+查看使用缆线连接FAS9300、AFF C400、ASA C400、AFF A400、ASA A400的平台端口分配、 或FAS4700系统连接到Broadcom BES-53248交换机：
+
+image::../media/mcc_ip_cabling_a_fas8300_a400_c400_or_fas8700_to_a_broadcom_bes_53248_switch.png[显示了Broadcom BES-53248平台端口分配]
+
+* *注1*:使用这些端口需要额外的许可证。
+* *注2*:只能将一个使用AFF A320系统的四节点MetroCluster连接到交换机。
 +
-** 在中 https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["适用于 MetroCluster IP 的 RcfFileGenerator"]下拉字段“MetroCluster 1”和“MetroCluster 2”仅在为MetroCluster 3或“MetroCluster 4”选择平台后才会填充。  请参见 link:../install-ip/using_rcf_generator.html["在 RcfFileGenerator 工具或多个 MetroCluster 配置中使用端口表"] 有关如何使用端口表的详细信息、请参见。
-** 如果两个MetroCluster配置使用相同的平台、NetApp建议您为一个配置选择组MetroCluster 3、为另一个配置选择组MetroCluster 4。如果平台不同、则必须为第一个配置选择MetroCluster 3或MetroCluster 4、并为第二个配置选择MetroCluster 1或MetroCluster 2。
+此配置不支持需要有交换机集群的功能。其中包括MetroCluster FC到IP的过渡和技术更新过程。
 
 
-
-
-
-
-== 为AFF A150、ASA A150、FAS2750、AFF A220、FAS500f布线、 AFF C250、ASA C250、AFF A250或ASA A250连接到Broadcom BES-53248交换机
-
-image::../media/mcc_ip_cabling_a_aff_asa_a150_a220_c250_a250_fas2750_to_a_broadcom_bes_53248_switch.png[MCC IP使用缆线将AFF ASA A150 a220 c250 A250 FAS2750连接到Broadcom bes 53248交换机]
-
-
-
-== 将FAS8200、AFF A300或AFF A320系统连接到Broadcom BES-53248交换机
-
-image::../media/mcc_ip_cabling_a_aff_a300_or_fas8200_to_a_broadcom_bes_53248_switch.png[通过 MCC IP 将 AFF a300 或 fas8200 连接到 Broadcom bes 53248 交换机]
-
-image::../media/mcc_ip_cabling_a_aff_a320_to_a_broadcom_bes_53248_switch.png[通过 MCC IP 将 AFF A320 连接到 Broadcom Bes 53248 交换机]
-
-
-
-== 使用缆线将FAS9300、AFF C400、ASA C400、AFF A400、ASA A400或FAS8700系统连接到Broadcom BES-53248交换机
-
-image::../media/mcc_ip_cabling_a_fas8300_a400_c400_or_fas8700_to_a_broadcom_bes_53248_switch.png[MCC IP使用缆线将FAS9300 a400 C400或FAS4700连接到Broadcom bes 53248交换机]

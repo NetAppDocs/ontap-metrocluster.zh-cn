@@ -32,6 +32,6 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集
 
 +
 
-NOTE: MetroCluster IP系统没有专用的高可用性(HA)端口。在使用_ ONTAP硬件系统文档_安装平台时、不应按照说明为集群和HA端口布线。
+NOTE: MetroCluster IP系统没有专用的高可用性(HA)端口。根据您的平台、可使用MetroCluster、本地集群或共享集群/MetroCluster接口提供HA流量。在使用_ ONTAP硬件系统文档_安装平台时、不应按照说明为集群和HA端口布线。
 
 

@@ -37,25 +37,69 @@ MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台�
 
 
 
-== 为AFF A150、ASA A150、FAS2750、AFF A220、FAS500f布线、 将AFF C250、ASA C250、AFF A250或ASA A250系统连接到Cisco 3232C或Cisco 9330-FX2C交换机
+== 为您的配置选择正确的布线表
 
-image::../media/mcc_ip_cabling_a150_a220_a250_to_a_cisco_3232c_or_cisco_9336c_switch.png[MCC IP使用缆线将A150 a220 A250连接到Cisco 3232c或Cisco 9336c交换机]
+使用下表确定您应遵循的布线表。
+
+[cols="2*"]
+|===
+| 您的系统 | 使用此布线表... 
 
 
+ a| 
+AFF A150、ASA A150、FAS2750、AFF A220
 
-== 使用缆线将FAS8200或AFF A300系统连接到Cisco 3232C或Cisco 9336C交换机
+FAS500f、AFF C250、ASA C250、AFF A250、ASA A250
+| <<table_1_cisco_3232c_9336c,Cisco 3232C或Cisco 9336C平台端口分配(组1)>> 
 
-image::../media/mcc_ip_cabling_a_aff_a300_or_fas8200_to_a_cisco_3232c_or_cisco_9336c_switch.png[通过 MCC IP 将 AFF a300 或 fas8200 连接到 Cisco 3232c 或 Cisco 9336c 交换机]
+
+| FAS8200、AFF A300 | <<table_2_cisco_3232c_9336c,Cisco 3232C或Cisco 9336C平台端口分配(第2组)>> 
+
+
+| AFF A320 FAS9300、AFF C400、ASA C400、FAS4700 AFF A400、ASA A400 | <<table_3_cisco_3232c_9336c,Cisco 3232C或Cisco 9336C平台端口分配(第3组)>> 
+
+
+| FAS9000、AFF A700 AFF C800、ASA C800、AFF A800、ASA A800 FAS9500、AFF A900、 ASA A900 | <<table_4_cisco_3232c_9336c,Cisco 3232C或Cisco 9336C平台端口分配(第4组)>> 
+
+
+| AFF A70 AFF A90 AFF A1K *注：*这些系统需要ONTAP 9.15.1.或更高版本。 | <<table_5_cisco_3232c_9336c,Cisco 3232C或Cisco 9336C平台端口分配(第5组)>> 
+|===
+.Cisco 3232C或Cisco 9336C平台端口分配(组1)
+查看为AFF A150、ASA A150、FAS2750、AFF A220、FAS500f布线所需的平台端口分配。 将AFF C250、ASA C250、AFF A250或ASA A250系统连接到Cisco 3232C或9336C交换机：
+
+image::../media/mcc_ip_cabling_a150_a220_a250_to_a_cisco_3232c_or_cisco_9336c_switch.png[显示了Cisco 3232C或Cisco 9336C平台端口分配]
+
+.Cisco 3232C或Cisco 9336C平台端口分配(第2组)
+查看使用缆线将FAS8200或AFF A300系统连接到Cisco 3232C或9336C交换机的平台端口分配：
+
+image::../media/mcc_ip_cabling_a_aff_a300_or_fas8200_to_a_cisco_3232c_or_cisco_9336c_switch.png[显示了Cisco 3232C或Cisco 9336C平台端口分配]
 
 如果要从旧版MetroCluster文件升级、则布线配置可能正在使用"RCF4"组中的端口(端口25/ 26和29/30)。
 
+.Cisco 3232C或Cisco 9336C平台端口分配(第3组)
+查看为AFF A320、FAS9300、AFF C400、ASA C400、FAS8700布线所需的平台端口分配。 将AFF A400或ASA A400系统连接到Cisco 3232C或9336C交换机：
 
-
-== 为AFF A320、FAS9300、AFF C400、ASA C400、AFF A400布线、 ASA A400、FAS4700、FAS9000、AFF A700、AFF C800、 ASA C800、AFF A800、ASA A800、FAS9500、AFF A900、 或ASA A900系统连接到Cisco 3232C或Cisco 9335C-拧 开交换机
-
-image::../media/mcc_ip_cabling_a320_a400_a700_a800_a900 _cisco_3232C or_9336c_switch.png[MCC IP布线A320 a400 a700 a800 a900 Cisco 3232C或9336c交换机]
+image::../media/mcc_ip_cabling_a320_a400_cisco_3232C_or_9336c_switch.png[显示了Cisco 3232C或Cisco 9336C平台端口分配]
 
 *注1*:如果使用X91440A适配器(40Gbps),则使用端口e4a和e4e或e4a和e8a。如果您使用的是X91153A适配器(100Gbps)、请使用端口e4a和e4b或e4a和e8a。
 
 
 NOTE: 使用MetroCluster 4组中的端口需要使用ONTAP 9.13.1.或更高版本。
+
+.Cisco 3232C或Cisco 9336C平台端口分配(第4组)
+查看使用缆线连接FAS9000、AFF A700、AFF C800、ASA C800、AFF A800的平台端口分配 将ASA A800、FAS9500、AFF A900或ASA A900系统连接到Cisco 3232C或9336C交换机：
+
+image::../media/mcc_ip_cabling_fas9000_a700_fas9500_a800_a900_cisco_3232C_or_9336c_switch.png[显示了Cisco 3232C或Cisco 9336C平台端口分配]
+
+*注1*:如果使用X91440A适配器(40Gbps),则使用端口e4a和e4e或e4a和e8a。如果您使用的是X91153A适配器(100Gbps)、请使用端口e4a和e4b或e4a和e8a。
+
+
+NOTE: 使用MetroCluster 4组中的端口需要使用ONTAP 9.13.1.或更高版本。
+
+.Cisco 3232C或Cisco 9336C平台端口分配(第5组)
+查看将AFF A70、AFF A90或AFF A1K系统连接到Cisco 3232C或9336C交换机的平台端口分配：
+
+
+NOTE: 此表中的系统需要ONTAP 9.151或更高版本。
+
+image::../media/mcc_ip_cabling_a90_a70_a1k_cisco_3232C_or_9336c_switch.png[显示了Cisco 3232C或Cisco 9336C平台端口分配]

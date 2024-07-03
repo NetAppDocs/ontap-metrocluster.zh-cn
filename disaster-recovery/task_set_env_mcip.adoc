@@ -216,6 +216,9 @@ node_A_1
 
 
  a| 
+* AFF A70
+* AFF A90
+* AFF A1K
 * AFF A220
 * AFF A250
 * AFF A400
@@ -237,9 +240,48 @@ node_A_1
 所需地址为 * 目标网络地址 * 列中显示的 DR 配对节点地址。
 
 +
-以下输出显示了 AFF A700 和 FAS9000 系统配置的 IP 地址，这些系统的 MetroCluster IP 接口位于端口 e5a 和 e5b 上。接口因平台类型而异。
+命令输出因平台型号而异。
 
 +
+[role="tabbed-block"]
+====
+.ONTAP 9.151或更高版本中推出的系统
+--
+在ONTAP 9.151或更高版本中推出的系统(AFF A70、AFF A90和AFF A1K)具有单独的HA和DR端口、如以下示例输出所示：
+
+[listing]
+----
+cluster_B::*> metrocluster configuration-settings connection show
+DR                    Source          Destination
+DR                    Source          Destination
+Group Cluster Node    Network Address Network Address Partner Type Config State
+----- ------- ------- --------------- --------------- ------------ ------------
+1     cluster_B
+              node_B_1
+                 Home Port: e5a
+                      172.17.26.13    172.17.26.10    DR Partner   completed
+                 Home Port: e5a
+                      172.17.26.13    172.17.26.11    DR Auxiliary completed
+                 Home Port: e5b
+                      172.17.27.13    172.17.27.10    DR Partner   completed
+                 Home Port: e5b
+                      172.17.27.13    172.17.27.11    DR Auxiliary completed
+              node_B_2
+                 Home Port: e5a
+                      172.17.26.12    172.17.26.11    DR Partner   completed
+                 Home Port: e5a
+                      172.17.26.12    172.17.26.10    DR Auxiliary completed
+                 Home Port: e5b
+                      172.17.27.12    172.17.27.11    DR Partner   completed
+                 Home Port: e5b
+                      172.17.27.12    172.17.27.10    DR Auxiliary completed
+12 entries were displayed.
+----
+--
+.所有其他系统
+--
+以下输出显示了 AFF A700 和 FAS9000 系统配置的 IP 地址，这些系统的 MetroCluster IP 接口位于端口 e5a 和 e5b 上。接口可能因平台类型而异。
+
 [listing]
 ----
 cluster_B::*> metrocluster configuration-settings connection show
@@ -276,12 +318,14 @@ Group Cluster Node    Network Address Network Address Partner Type Config State
                       172.17.27.12    172.17.27.10    DR Auxiliary completed
 12 entries were displayed.
 ----
+--
+====
 . 如果需要确定接口的 VLAN ID 或网关地址，请从正常运行的站点确定 VLAN ID ：
 +
 `MetroCluster configuration-settings interface show`
 
 +
-** 如果平台型号使用 VLAN ID （请参见上面的列表），而您不使用默认 VLAN ID ，则需要 VLAN ID 。
+** 如果平台型号使用VLAN ID (请参见上面的列表)、并且不使用默认VLAN ID、则需要VLAN ID。
 ** 如果使用，则需要网关地址 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网"]。
 +
 VLAN ID 包含在输出的 * 网络地址 * 列中。* 网关 * 列显示网关 IP 地址。
@@ -306,27 +350,56 @@ Group Cluster Node     Network Address Netmask         Gateway         State
 ----
 
 
-. 如果灾难站点节点使用 VLAN ID （请参见上面的列表），请在每个灾难站点节点的 LOADER 提示符处设置以下 bootarg ：
+. 在每个灾难站点节点的加载程序提示符处、根据平台型号设置启动程序值：
 +
+[NOTE]
+====
+** 如果接口使用的是默认VLAN、或者平台型号不使用VLAN ID (请参见上面的列表)、则不需要_vla-id_。
+** 如果配置未使用 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网"]， _gateway-ip-address_ 的值为 * 0 * （零）。
+
+
+====
++
+[role="tabbed-block"]
+====
+.ONTAP 9.151或更高版本中推出的系统
 --
+在ONTAP 9.151或更高版本中引入的系统上、_ha-pender-ip-address_的值必须设置为* 0 (零)、因为它们具有用于灾难恢复和HA的单独端口。
+
+设置以下布塔格：
+
+[listing]
+----
+setenv bootarg.mcc.port_a_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
+
+setenv bootarg.mcc.port_b_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
+----
+以下命令使用 VLAN 120 为第一个网络设置 node_A_1 的值，并使用 VLAN 130 为第二个网络设置 VLAN 130 ：
+
+....
+setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,0,172.17.26.13,172.17.26.12,120
+
+setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,0,172.17.27.13,172.17.27.12,130
+....
+以下示例显示了不带 VLAN ID 的 node_A_1 的命令：
+
+[listing]
+----
+setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,0,172.17.26.13,172.17.26.12
+
+setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,0,172.17.27.13,172.17.27.12
+----
+--
+.所有其他系统
+--
+设置以下布塔格：
+
 ....
 setenv bootarg.mcc.port_a_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
 
 setenv bootarg.mcc.port_b_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
 ....
-[NOTE]
-====
-** 如果接口使用默认 VLAN ，或者平台型号不需要 VLAN （请参见上面的列表），则不需要 _vlan-id_ 。
-** 如果配置未使用 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网"]， _gateway-ip-address_ 的值为 * 0 * （零）。
-
-
-====
-** 如果接口使用默认 VLAN ，或者平台型号不需要 VLAN （请参见上面的列表），则不需要 _vlan-id_ 。
-** 如果配置未使用 link:../install-ip/concept_considerations_layer_3.html["第 3 层后端连接"]， _gateway-ip-address_ 的值为 * 0 * （零）。
-+
 以下命令使用 VLAN 120 为第一个网络设置 node_A_1 的值，并使用 VLAN 130 为第二个网络设置 VLAN 130 ：
-
-
 
 ....
 setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,172.17.26.11,172.17.26.13,172.17.26.12,120
@@ -335,37 +408,14 @@ setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,172.17.27.11,172.17.27.13,
 ....
 以下示例显示了不带 VLAN ID 的 node_A_1 的命令：
 
-....
+[listing]
+----
 setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,172.17.26.11,172.17.26.13,172.17.26.12
 
 setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,172.17.27.11,172.17.27.13,172.17.27.12
-....
+----
 --
-. 如果灾难站点节点不是使用 VLAN ID 的系统，请在每个灾难节点的 LOADER 提示符处，使用 local_IP/mask ， gateway 设置以下 bootarg ：
-+
-....
-setenv bootarg.mcc.port_a_ip_config local-IP-address/local-IP-mask,0,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address
-
-
-setenv bootarg.mcc.port_b_ip_config local-IP-address/local-IP-mask,0,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address
-....
-+
-[NOTE]
 ====
-** 如果接口使用默认 VLAN ，或者平台型号不需要 VLAN （请参见上面的列表），则不需要 _vlan-id_ 。
-** 如果配置未使用 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网"]， _gateway-ip-address_ 的值为 * 0 * （零）。
-
-
-====
-+
-以下命令用于设置 node_A_1 的值。在此示例中，不使用 _gateway-ip-address_ 和 _vlan-id_ 值。
-
-+
-....
-setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,172.17.26.11,172.17.26.13,172.17.26.12
-
-setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,172.17.27.11,172.17.27.13,172.17.27.12
-....
 . 从正常运行的站点收集灾难站点的 UUID ：
 +
 `MetroCluster node show -fields node-cluster-uuid ， node-uuid`

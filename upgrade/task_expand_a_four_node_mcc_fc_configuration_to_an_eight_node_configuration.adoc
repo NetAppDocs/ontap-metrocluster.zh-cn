@@ -51,4 +51,27 @@ image::../media/mcc_dr_groups_8_node.gif[MCC DR 组 8 个节点]
 
 
 ====
-image::../media/8node_comb_fc_914.png[适用于8节点配置的平台组合]
+.支持的AFF和FAS MetroCluster FC扩展组合
+下表显示了在MetroCluster FC配置中扩展AFF或FAS系统时支持的平台组合：
+
+image::../media/8node_comb_fc.png[适用于8节点配置的平台组合]
+
+.支持的ASA MetroCluster FC扩展组合
+下表显示了在MetroCluster FC配置中扩展ASA系统时支持的平台组合：
+
+[cols="3*"]
+|===
+| 八节点DR组1 | 八节点DR组2 | supported 
+
+
+.2+| ASA A400 | ASA A400 | 是的。 
+
+
+| ASA A900 | 否 
+
+
+.2+| ASA A900 | ASA A400 | 否 
+
+
+| ASA A900 | 是的。 
+|===

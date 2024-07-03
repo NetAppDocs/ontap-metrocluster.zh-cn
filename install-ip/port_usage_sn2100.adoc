@@ -38,14 +38,58 @@ NOTE: 端口13和14可以在支持40 Gbps和100 Gbps的原生 速度模式下使
 
 
 
-== 为AFF A150、ASA A150、FAS500f、AFF C250、ASA C250、 将AFF A250或ASA A250系统连接到NVIDIA SN2100交换机
+== 为您的配置选择正确的布线表
 
-image::../media/mcc_ip_cabling_aff_asa_a150_fas500f_A250_C250_MSN2100.png[MCC IP AFF ASA A150 fas500f A250 C250 MSN2100布线]
+使用下表确定您应遵循的布线表。
+
+[cols="2*"]
+|===
+| 您的系统 | 使用此布线表... 
 
 
+ a| 
+AFF A150、ASA A150
 
-== 为FAS9300、AFF C400、ASA C400、AFF A400、ASA A400布线、 FAS4700、FAS9000、AFF A700、AFF C800、ASA C800、 将AFF A800、ASA A800、FAS9500、AFF A900或ASA A900系统连接到NVIDIA SN2100交换机
+FAS500f
 
-image::../media/mcc_ip_cabling_fas8300_aff_asa_c400_a400_fas8700_fas9000_a700_a800_a900_fas9500_MSN2100.png[mcc IP布线fas9300 AFF ASA c400 a400 fas8700 fas9000 a700 a800 a900 fas9500 MSN2100]
+AFF C250、ASA C250
+
+AFF A250、ASA A250
+| <<table_1_nvidia_sn2100,NVIDIA SN2100平台端口分配(组1)>> 
+
+
+| FAS9300 AFF C400、ASA C400 AFF A400、ASA A400 FAS4700 FAS9000、AFF A700 | <<table_2_nvidia_sn2100,NVIDIA SN2100平台端口分配(第2组)>> 
+
+
+| AFF C800、ASA C800 AFF A800、ASA A800 FAS9500 AFF A900、ASA A900 | <<table_3_nvidia_sn2100,NVIDIA SN2100平台端口分配(第3组)>> 
+
+
+| AFF A70 AFF A90 AFF A1K *注：*这些系统需要ONTAP 9.15.1.或更高版本。 | <<table_4_nvidia_sn2100,NVIDIA SN2100平台端口分配(第4组)>> 
+|===
+.NVIDIA SN2100平台端口分配(组1)
+查看为AFF A150、ASA A150、FAS500f、AFF C250、ASA C250、 将AFF A250或ASA A250系统连接到NVIDIA SN2100交换机：
+
+[#table_1_nvidia_sn2100]
+image::../media/mcc_ip_cabling_aff_asa_a150_fas500f_A250_C250_MSN2100.png[显示了NVIDIA SN2100平台端口分配]
+
+.NVIDIA SN2100平台端口分配(第2组)
+查看使用缆线连接FAS9300、AFF C400、ASA C400、AFF A400、ASA A400的平台端口分配、 将FAS4700、FAS9000或AFF A700系统连接到NVIDIA SN2100交换机：
+
+image::../media/mcc_ip_cabling_aff_asa_c400_a400_fas8700_fas9000_MSN2100.png[显示了NVIDIA SN2100平台端口分配]
 
 *注1*:如果使用X91440A适配器(40Gbps),则使用端口e4a和e4e或e4a和e8a。如果您使用的是X91153A适配器(100Gbps)、请使用端口e4a和e4b或e4a和e8a。
+
+.NVIDIA SN2100平台端口分配(第3组)
+查看为AFF C800、ASA C800、AFF A800、ASA A800、FAS9500、 将AFF A900或ASA A900系统连接到NVIDIA SN2100交换机：
+
+image::../media/mcc_ip_cabling_fas8300_aff_asa_a800_a900_fas9500_MSN2100.png[显示了NVIDIA SN2100平台端口分配]
+
+*注1*:如果使用X91440A适配器(40Gbps),则使用端口e4a和e4e或e4a和e8a。如果您使用的是X91153A适配器(100Gbps)、请使用端口e4a和e4b或e4a和e8a。
+
+.NVIDIA SN2100平台端口分配(第4组)
+查看将AFF A90、AFF A70或AFF A1K系统连接到NVIDIA SN2100交换机的平台端口分配：
+
+
+NOTE: 此表中的系统需要ONTAP 9.151或更高版本。
+
+image::../media/mcc_ip_cabling_fas8300_aff_a90_a70_a1k_MSN2100.png[显示了NVIDIA SN2100平台端口分配]

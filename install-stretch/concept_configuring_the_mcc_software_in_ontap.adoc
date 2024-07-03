@@ -2221,7 +2221,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 您应验证 MetroCluster 配置的切换，修复和切回操作。
 
-. 使用中所述的协商切换，修复和切回过程 link:https:../manage/index.html["从灾难中恢复"]。
+. 使用中所述的协商切换、修复和切回过程 link:../manage/task_perform_switchover_for_tests_or_maintenance.html["执行切换，修复和切回"]。
 
 
 

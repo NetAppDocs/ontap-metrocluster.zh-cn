@@ -398,6 +398,52 @@ NOTE: 如果为多个交换机端口设置了DAC选项、则只需重新启动�
 
 
 
+== 设置MetroCluster IP接口的交换机端口速度
+
+.关于此任务
+使用此过程将以下系统的交换机端口速度设置为100G：
+
+* AFF A70
+* AFF A90
+* AFF A1K
+
+
+.步骤
+. 使用带有选项的RCF文件 `runCmd` 设置速度。此操作将应用设置并保存配置。
++
+以下命令可设置MetroCluster接口和的速度 `swp7` `swp8`：
+
++
+[source, cli]
+----
+sudo python3 SN2100_v2.20 _Switch-A1.py runCmd swp7 speed 100
+----
++
+[source, cli]
+----
+sudo python3 SN2100_v2.20 _Switch-A1.py runCmd swp8 speed 100
+----
++
+* 示例 *
+
++
+[listing]
+----
+cumulus@Switch-A-1:mgmt:~$ sudo python3 SN2100_v2.20_Switch-A1.py runCmd swp7 speed 100
+[sudo] password for cumulus: <password>
+    Running cumulus version  : 5.4.0
+    Running RCF file version : v2.20
+    Running command: Setting switchport swp7 to 100G speed
+    runCmd: 'nv set interface swp7 link auto-negotiate off', ret: 0
+    runCmd: 'nv set interface swp7 link speed 100G', ret: 0
+    runCmd: committed, ret: 0
+    Completion: SUCCESS
+cumulus@Switch-A-1:mgmt:~$
+----
+
+
+
+
 == 禁用未使用的ISL端口和端口通道
 
 NetApp建议禁用未使用的ISL端口和端口通道、以避免发出不必要的运行状况警报。

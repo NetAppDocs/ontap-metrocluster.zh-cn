@@ -19,7 +19,6 @@ summary: 从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，
 
 * 这些平台必须运行 ONTAP 9.8 或更高版本。
 * 目标(新)平台的型号必须与原始平台不同。
-* 不支持使用内部磁盘架的平台型号。
 * 在MetroCluster IP配置中、只能使用此操作步骤 升级特定平台型号。
 +
 ** 有关支持的平台升级组合的信息、请查看中的MetroCluster IP升级表 link:concept_choosing_controller_upgrade_mcc.html["选择控制器升级操作步骤"]。
@@ -39,54 +38,95 @@ summary: 从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，
 +
 在此维护活动之外，不支持使用不同类型的控制器运行 MetroCluster 配置。
 
-* IP 交换机必须运行受支持的固件版本。
+* 升级配置中的现有控制器和新控制器必须支持MetroCluster IP交换机(交换机类型、供应商和型号)和固件版本。
++
+有关支持的交换机和固件版本、请参见 link:https://hwu.netapp.com["NetApp Hardware Universe"^] 或 link:https://imt.netapp.com/matrix/["IMT"^] 。
+
+* 如果在系统上启用了此功能、则 link:../maintain/task-configure-encryption.html#disable-end-to-end-encryption["禁用端到端加密"] 在执行升级之前执行此操作。
 * 如果新平台的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。
+* 您可以在新平台上重复使用原始平台的IP地址、网络掩码和网关。
+
+
+此操作步骤使用以下示例名称：
+
+* site_A
 +
-有关详细信息，请参见 https://hwu.netapp.com/["NetApp Hardware Universe"]。
-
-* 如果在系统上启用了该功能、 link:../maintain/task-configure-encryption.html#disable-end-to-end-encryption["禁用端到端加密"] 在执行控制器升级之前。
-* 您将在新平台上重复使用原始平台的 IP 地址，网络掩码和网关。
-* 此操作步骤使用以下示例名称：
+** 升级前：
 +
-** site_A
+*** node_A_1-old
+*** node_A_2-old
+
+
+** 升级后：
 +
-*** 升级前：
+*** node_A_1-new
+*** node_A_2-new
+
+
+
+
+* 站点 B
 +
-**** node_A_1-old
-**** node_A_2-old
-
-
-*** 升级后：
+** 升级前：
 +
-**** node_A_1-new
-**** node_A_2-new
+*** node_B_1-old
+*** node_B_2-old
 
 
-
-
-** 站点 B
+** 升级后：
 +
-*** 升级前：
+*** node_B_1-new
+*** node_B_2-new
+
+
+
+
+
+
+
+
+== 在现有系统上设置所需的启动程序
+
+如果要升级到AFF A70、AFF A90或AFF A1K系统、请按照以下步骤设置启动程序。 `hw.cxgbe.toe_keepalive_disable=1`
+
+
+CAUTION: 如果您要升级到AFF A70、AFF A90或AFF A1K系统，您*必须*在执行升级前完成此任务。此任务*仅*适用于从受支持的系统升级到AFF A70、AFF A90或AFF A1K系统。对于所有其他升级，您可以跳过此任务并直接转到 <<prepare_so_sb_upgrade,准备升级。>>。
+
+.步骤
+. 暂停每个站点上的一个节点、并允许其HA配对节点对该节点执行存储接管：
 +
-**** node_B_1-old
-**** node_B_2-old
+`halt  -node <node_name>`
 
-
-*** 升级后：
+. 在暂停节点的提示符处 `LOADER` 、输入以下内容：
 +
-**** node_B_1-new
-**** node_B_2-new
+`setenv hw.cxgbe.toe_keepalive_disable 1`
+
++
+`saveenv`
+
++
+`printenv hw.cxgbe.toe_keepalive_disable`
+
+. 启动节点：
++
+`boot_ontap`
+
+. 当节点启动时、在提示符处对节点执行一次返回：
++
+`storage failover giveback -ofnode <node_name>`
+
+. 对要升级的灾难恢复组中的每个节点重复上述步骤。
 
 
 
 
+== 准备升级。
+
+在对现有 MetroCluster 配置进行任何更改之前，您必须检查此配置的运行状况，准备新平台并执行其他各种任务。
 
 
 
-
-
-
-== 用于升级 MetroCluster IP 配置中控制器的工作流
+=== 用于升级 MetroCluster IP 配置中控制器的工作流
 
 您可以使用工作流图帮助您规划升级任务。
 
@@ -94,13 +134,7 @@ image::../media/workflow_ip_upgrade.png[工作流 IP 升级]
 
 
 
-== 正在准备升级
-
-在对现有 MetroCluster 配置进行任何更改之前，您必须检查此配置的运行状况，准备新平台并执行其他各种任务。
-
-
-
-=== 在升级控制器之前更新 MetroCluster 交换机 RCF 文件
+=== 升级控制器之前，请更新 MetroCluster 交换机 RCF 文件
 
 根据旧平台型号，或者交换机配置不在最低版本上，或者您要更改后端 MetroCluster 连接使用的 VLAN ID ，您必须在开始平台升级操作步骤之前更新交换机 RCF 文件。
 
@@ -168,20 +202,22 @@ VLAN ID 范围为 101 到 4096 （含 101 到 4096 ）。
 .步骤
 . 准备 IP 交换机以应用新的 RCF 文件。
 +
-按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]。
+按照适用于您的交换机供应商的部分中的步骤进行操作：
 
 +
 ** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"]
-** link:../install-ip/task_switch_config_cisco.html["将 Cisco IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_cisco.html["将Cisco IP交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_nvidia.html["将NVIDIA IP SN2100交换机重置为出厂默认值"]
 
 
 . 下载并安装 RCF 文件。
 +
-按照中的步骤进行操作 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]。
+按照适用于您的交换机供应商的部分中的步骤进行操作：
 
 +
-** link:../install-ip/task_switch_config_broadcom.html["下载并安装 Broadcom RCF 文件"]
-** link:../install-ip/task_switch_config_cisco.html["下载并安装 Cisco IP RCF 文件"]
+** link:../install-ip/task_switch_config_broadcom.html["下载并安装Broadcom RC框架 文件"]
+** link:../install-ip/task_switch_config_cisco.html["下载并安装Cisco IP RCC文件"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["下载并安装NVIDIA IP RCP文件"]
 
 
 
@@ -388,39 +424,14 @@ SAN
 .. 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 `ontap-version_image.tgz` 文件存储在可通过 Web 访问的目录中。
 .. 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
 +
-[cols="1,3"]
-|===
-
-
-| 平台型号 | 那么 ... 
-
-
- a| 
-8000系列系统
- a| 
-将 ` _ontap-version___image.tgz` 文件的内容提取到目标目录：
-
-`tar -zxvf _ontap-version___image.tgz`
-
-
-NOTE: 如果要在 Windows 上提取内容，请使用 7-Zip 或 WinRAR 提取网络启动映像。您的目录列表应包含一个包含内核文件 netboot/kernel 的 netboot 文件夹
-
 您的目录列表应包含一个包含内核文件的 netboot 文件夹：
 
-`netboot/kernel`
-
-
-
- a| 
-所有其他系统
- a| 
-您的目录列表应包含一个包含内核文件的 netboot 文件夹：
-
++
 ` ontap-version_image.tgz`
 
++
 您不需要提取 ` ontap-version_image.tgz` 文件。
 
-|===
 .. 在 LOADER 提示符处，为管理 LIF 配置网络启动连接：
 +
 |===
@@ -448,25 +459,8 @@ DHCP
 |===
 .. 执行网络启动。
 +
-|===
-
-
-| 平台型号 | 那么 ... 
-
-
- a| 
-FAS/AFF8000 系列系统
- a| 
-`网络启动 http://_web_server_ip/path_to_web-accessible_directory_/netboot/kernel`[]
-
-
-
- a| 
-所有其他系统
- a| 
 `netboot \http://_web_server_ip/path_to_web-accessible_directory/ontap-version_image.tgz`
 
-|===
 .. 从启动菜单中，选择选项 "* （ 7 ） Install new software first"* ，将新软件映像下载并安装到启动设备。
 +
 请忽略以下消息：
@@ -483,7 +477,7 @@ FAS/AFF8000 系列系统
 +
 [listing]
 ----
-Do you want to restore the backup configuration now? {y|n} **n**
+Do you want to restore the backup configuration now? {y|n} n
 ----
 .. 出现类似以下内容的提示时，输入 ` * y*` 以重新启动：
 +
@@ -544,7 +538,8 @@ The node must be rebooted to start using the newly installed software. Do you wa
 .步骤
 . 在 ONTAP 中验证 MetroCluster 配置的运行情况：
 +
-.. 检查节点是否为多路径： + `node run -node _node-name_ sysconfig -a`
+.. 检查节点是否为多路径：+
+`node run -node <node_name> sysconfig -a`
 +
 您应对 MetroCluster 配置中的每个节点使用此命令问题描述。
 
@@ -609,7 +604,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 
 
-=== 升级前收集信息
+=== 在升级之前收集信息
 
 在升级之前，您必须收集每个节点的信息，并在必要时调整网络广播域，删除任何 VLAN 和接口组以及收集加密信息。
 
@@ -623,15 +618,20 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 ** `MetroCluster interconnect show`
 ** `MetroCluster configuration-settings connection show`
 ** `network interface show -role cluster ， node-mgmt`
-** `network port show -node node_name -type physical`
-** `network port vlan show -node _node-name_`
-** `network port ifgrp show -node _node_name_ -instance`
+** `network port show -node <node_name> -type physical`
+** `network port vlan show -node <node_name>`
+** `network port ifgrp show -node <node_name> -instance`
 ** `network port broadcast-domain show`
 ** `网络端口可访问性 show -detail`
 ** `network IPspace show`
 ** `volume show`
 ** `s存储聚合显示`
-** `ssystem node run -node _node-name_ sysconfig -a`
+** `system node run -node <node_name> sysconfig -a`
+** `aggr show -r`
+** `d展示`
+** `system node run <node-name> disk show`
+** `vol show -fields type`
+** `vol show -fields type , space-guarantee`
 ** `SVM FCP 启动程序 show`
 ** `s存储磁盘显示`
 ** `MetroCluster configuration-settings interface show`
@@ -881,7 +881,7 @@ MetroCluster switchover -controller-replacement true`
 
 .关于此任务
 * 这些步骤在旧控制器（ node_B_1-old ， node_B_2-old ）上执行。
-* 查看您在中收集的信息 link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html["将端口从旧节点映射到新节点"]。
+* 请参阅中收集的信息 link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html["将端口从旧节点映射到新节点"]。
 
 
 .步骤
@@ -905,7 +905,8 @@ MetroCluster switchover -controller-replacement true`
 +
 有关平台型号的端口使用情况，请参见 https://hwu.netapp.com/["NetApp Hardware Universe"]
 
-.. 修改所有数据 LIF 以使用通用端口作为主端口： + `network interface modify -vserver _svm-name_ -lif _data-lif_ -home-port _port-id_`
+.. 修改所有数据L以使用通用端口作为主端口：+
+`network interface modify -vserver <svm-name> -lif <data-lif> -home-port <port-id>`
 +
 在以下示例中，此值为 "e0d" 。
 
@@ -919,9 +920,17 @@ network interface modify -vserver vs0 -lif datalif1 -home-port e0d
 ----
 
 
+. 修改广播域以删除需要删除的 VLAN 和物理端口：
++
+`broadcast-domain remove-ports -broadcast-domain <broadcast-domain-name> -ports <node-name:port-id>`
+
++
+对所有 VLAN 和物理端口重复此步骤。
+
 . 删除使用集群端口作为成员端口的所有 VLAN 端口，以及使用集群端口作为成员端口的 ifgrp 。
 +
-.. 删除 VLAN 端口： + `network port vlan delete -node _node-name_ -vlan-name _portID-vlandid_`
+.. 删除VLAN端口：+
+`network port vlan delete -node <node_name> -vlan-name <portid-vlandid>`
 +
 例如：
 
@@ -932,7 +941,7 @@ network port vlan delete -node node1 -vlan-name e1c-80
 ----
 .. 从接口组中删除物理端口：
 +
-`network port ifgrp remove-port -node _node-name_ -ifgrp _interface-group-name_ -port _portID_`
+`network port ifgrp remove-port -node <node_name> -ifgrp <interface-group-name> -port <portid>`
 
 +
 例如：
@@ -944,11 +953,11 @@ network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
 ----
 .. 从广播域中删除 VLAN 和接口组端口：
 +
-`network port broadcast-domain remove-ports -ipspace _ipspace_ -broadcast-domain _broadcast-domain-name_ -ports _nodename ： portname ， nodename ： portname_ ， ...`
+`network port broadcast-domain remove-ports -ipspace <ipspace> -broadcast-domain <broadcast-domain-name> -ports <nodename:portname,nodename:portnamee>,..`
 
-.. 根据需要修改接口组端口以使用其他物理端口作为成员。：
+.. 根据需要修改接口组端口以使用其他物理端口作为成员：
 +
-`ifgrp add-port -node _node-name_ -ifgrp _interface-group-name_ -port _port-id_`
+`ifgrp add-port -node <node_name> -ifgrp <interface-group-name> -port <port-id>`
 
 
 
@@ -968,47 +977,6 @@ network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
 
 
 
-== 更新交换机 RCF 以适应新平台
-
-您必须将交换机更新为支持新平台型号的配置。
-
-.关于此任务
-您可以在包含当前正在升级的控制器的站点上执行此任务。在此操作步骤中显示的示例中，我们首先升级 site_B 。
-
-当 site_A 上的控制器升级后， site_A 上的交换机将进行升级。
-
-.步骤
-. 准备 IP 交换机以应用新的 RCF 文件。
-+
-按照适用于您的交换机供应商的操作步骤中的步骤进行操作：
-
-+
-link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
-
-+
-** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"]
-** link:../install-ip/task_switch_config_cisco.html["将 Cisco IP 交换机重置为出厂默认值"]
-
-
-. 下载并安装 RCF 文件。
-+
-按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]。
-
-+
-** link:../install-ip/task_switch_config_broadcom.html["下载并安装 Broadcom RCF 文件"]
-** link:../install-ip/task_switch_config_cisco.html["下载并安装 Cisco IP RCF 文件"]
-
-
-
-
-
-
-== 配置新控制器
-
-您必须将控制器装入机架并进行安装，在维护模式下执行所需的设置，然后启动控制器并验证控制器上的 LIF 配置。
-
-
-
 === 设置新控制器
 
 您必须将新控制器装入机架并进行布线。
@@ -1019,14 +987,42 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 机架空间取决于控制器模块的平台型号，交换机类型以及配置中的存储架数量。
 
 . 正确接地。
-. 在机架或机柜中安装控制器模块。
+. 如果您的升级需要更换控制器模块、例如、从AFF 800升级到AFF A90系统、则在更换控制器模块时、您必须从机箱中卸下控制器模块。对于所有其他升级，请跳至 <<ip_upgrades_so_sb_4,第 4 步>>。
 +
-https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
+在机箱正面、用拇指用力推入每个驱动器、直到您感觉到有一定的停机。这可确认驱动器已牢固地固定在机箱中板上。
 
-. 按照中所述，使用缆线将控制器连接到 IP 交换机 link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]。
 +
-** link:["为 IP 交换机布线"]
+image::../media/drw_a800_drive_seated.png[显示了如何从机箱中卸下控制器模块]
 
+. [[ip_U台 升级_sO_sb_4]]安装控制器模块。
++
+
+NOTE: 您执行的安装步骤取决于您的升级是否需要更换控制器模块、例如从AFF 800升级到AFF A90系统。
+
++
+[role="tabbed-block"]
+====
+.更换控制器模块
+--
+单独安装新控制器不适用于磁盘和控制器位于同一机箱中的集成系统的升级、例如、从AFF A800系统升级到AFF A90系统。关闭旧控制器电源后、必须交换新控制器模块和I/O卡、如下图所示。
+
+以下示例图像仅用于表示、控制器模块和I/O卡可能因系统而异。
+
+image::../media/a90_a70_pcm_swap.png[显示了控制器模块交换]
+
+--
+.所有其他升级
+--
+在机架或机柜中安装控制器模块。
+
+--
+====
+. 按照中所述、为控制器的电源、串行控制台和管理连接布线 link:../install-ip/using_rcf_generator.html["为MetroCluster IP交换机布线"]
++
+此时，请勿连接与旧控制器断开连接的任何其他缆线。
+
++
+https://docs.netapp.com/us-en/ontap-systems/index.html["ONTAP硬件系统文档"^]
 
 . 启动新节点并将其启动至维护模式。
 
@@ -1057,28 +1053,28 @@ https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
  a| 
 CNA FC
  a| 
-`ucadmin modify -m fc -t initiator _adapter-name_`
+`ucadmin modify -m fc -t initiator <adapter-name>`
 
 
 
  a| 
 CNA 以太网
  a| 
-`ucadmin modify -mode cna _adapter-name_`
+`ucadmin modify -mode cna <adapter-name>`
 
 
 
  a| 
 FC 目标
  a| 
-`fcadmin config -t target _adapter-name_`
+`fcadmin config -t target <adapter-name>`
 
 
 
  a| 
 FC 启动程序
  a| 
-`fcadmin config -t initiator _adapter-name_`
+`fcadmin config -t initiator <adapter-name>`
 
 |===
 . 退出维护模式：
@@ -1136,6 +1132,88 @@ FC
 +
 `ha-config modify chassis mccip`
 
+. 验证并修改连接到NS224磁盘架或存储交换机的以太网端口。
++
+.. 验证连接到NS224磁盘架或存储交换机的以太网端口：
++
+`storage port show`
+
+.. 将连接到以太网磁盘架或存储交换机的所有以太网端口(包括用于存储和集群的共享交换机)设置为 `storage` 模式：
++
+`storage port modify -p <port> -m storage`
+
++
+示例：
+
++
+[listing]
+----
+*> storage port modify -p e5b -m storage
+Changing NVMe-oF port e5b to storage mode
+----
++
+
+NOTE: 要成功升级、必须在所有受影响的端口上设置此值。
+
++
+输出将报告连接到以太网端口的磁盘架中的磁盘 `sysconfig -v` 。
+
++
+有关要升级到的系统的存储端口的信息、请参见 link:https://hwu.netapp.com["NetApp Hardware Universe"^] 。
+
+.. 验证是否 `storage` 已设置模式、并确认端口是否处于联机状态：
++
+`storage port show`
+
+
+
+. 暂停节点： `halt`
++
+节点应停止在 `loader>` 提示符处。
+
+. 在每个节点上，检查系统日期，时间和时区： `show date`
+. 如有必要，请以 UTC 或 GMT 格式设置日期： `set date <MM/dd/yyy>`
+. 在启动环境提示符处使用以下命令检查时间： `show time`
+. 如有必要，请以 UTC 或 GMT 格式设置时间： `set time <hh ： mm ： ss>`
+. 保存设置： `saveenv`
+. 收集环境变量： `printenv`
+
+
+
+
+=== 更新交换机RCF以适应新平台
+
+您必须将交换机更新为支持新平台型号的配置。
+
+.关于此任务
+您可以在包含当前正在升级的控制器的站点上执行此任务。在此过程中显示的示例中、我们首先升级site_B。
+
+当 site_A 上的控制器升级后， site_A 上的交换机将进行升级。
+
+.步骤
+. 准备 IP 交换机以应用新的 RCF 文件。
++
+按照适用于您的交换机供应商的操作步骤中的步骤进行操作：
+
++
+link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
+
++
+** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_cisco.html["将Cisco IP交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_nvidia.html["将NVIDIA IP SN2100交换机重置为出厂默认值"]
+
+
+. 下载并安装 RCF 文件。
++
+按照适用于您的交换机供应商的部分中的步骤进行操作：
+
++
+** link:../install-ip/task_switch_config_broadcom.html["下载并安装Broadcom RC框架 文件"]
+** link:../install-ip/task_switch_config_cisco.html["下载并安装Cisco IP RCC文件"]
+** link:../install-ip/task_switch_config_nvidia.html["下载并安装NVIDIA IP SN2100交换机RC框架 文件"]
+
+
 
 
 
@@ -1145,15 +1223,15 @@ FC
 必须在新控制器模块上配置某些 MetroCluster IP bootarg 值。这些值必须与旧控制器模块上配置的值匹配。
 
 .关于此任务
-在此任务中，您将使用先前在中的升级操作步骤中标识的 UUID 和系统 ID link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html["升级前收集信息"]。
+在此任务中，您将使用中先前升级过程中确定的UID和系统ID <<gather_info_so_sb,在升级之前收集信息>>。
 
 .步骤
 . 如果要升级的节点为 AFF A400 ， FAS8300 或 FAS8700 型号，请在 LOADER 提示符处设置以下 bootarg ：
 +
-`setenv bootarg.mcc.port_a_ip_config _local-ip-address/local-ip-mask ， 0 ， ha-partner-ip-address ， DR-partner-ip-address ， DR-aux-partnerip-address ， vlan-id_`
+`setenv bootarg.mcc.port_a_ip_config <local-IP-address/local-IP-mask,0,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id>`
 
 +
-`setenv bootarg.mcc.port_b_ip_config _local-ip-address/local-ip-mask ， 0 ， ha-partner-ip-address ， DR-partner-ip-address ， DR-aux-partnerip-address ， vlan-id_`
+`setenv bootarg.mcc.port_b_ip_config <local-IP-address/local-IP-mask,0,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id>`
 
 +
 
@@ -1197,10 +1275,10 @@ setenv bootarg.mcc.port_b_ip_config 172.17.27.11/23,0,172.17.27.10,172.17.27.12,
 ----
 . 如果要升级的节点不是上一步中列出的系统，请在每个运行正常的节点的 LOADER 提示符处，使用 local_IP/mask 设置以下 bootarg ：
 +
-`setenv bootarg.mcc.port_a_ip_config _local-ip-address/local-ip-mask ， 0 ， ha-partner-ip-address ， DR-partner-ip-address ， DR-aux-partnerip-address_`
+`setenv bootarg.mcc.port_a_ip_config <local-IP-address/local-IP-mask,0,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address>`
 
 +
-`setenv bootarg.mcc.port_b_ip_config _local-ip-address/local-ip-mask ， 0 ， ha-partner-ip-address ， DR-partner-ip-address ， DR-aux-partnerip-address_`
+`setenv bootarg.mcc.port_b_ip_config <local-IP-address/local-IP-mask,0,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address>`
 
 +
 以下命令用于设置 node_B_1-new 的值：
@@ -1222,19 +1300,19 @@ setenv bootarg.mcc.port_b_ip_config 172.17.27.11/23,0,172.17.27.10,172.17.27.12,
 ----
 . 在新节点的 LOADER 提示符处，设置 UUID ：
 +
-`setenv bootarg.mgwd.partner_cluster_uuid _partner-cluster-UUUID_`
+`setenv bootarg.mgwd.partner_cluster_uuid <partner-cluster-UUID>`
 
 +
-`setenv bootarg.mgwd.cluster_uuid _local-cluster-UUUID_`
+`setenv bootarg.mgwd.cluster_uuid <local-cluster-UUID>`
 
 +
-`setenv bootarg.mcc.pri_partner_uuid _DR-partner-node-UUUID_`
+`setenv bootarg.mcc.pri_partner_uuid <DR-partner-node-UUID>`
 
 +
-`setenv bootarg.mcc.aux_partner_uuid _DR-aux-partner-node-UUUUID_`
+`setenv bootarg.mcc.aux_partner_uuid <DR-aux-partner-node-UUID>`
 
 +
-`setenv bootarg.mcc_iscsi.node_uuid _local-node-UUUUID_`
+`setenv bootarg.mcc_iscsi.node_uuid <local-node-UUID>`
 
 +
 .. 设置 node_B_1-new 上的 UUID 。
@@ -1265,16 +1343,37 @@ setenv bootarg.mcc_iscsi.node_uuid aa9a7a7a-9a81-11e7-a4e9-00a098908c35
 ----
 
 
-. 如果原始系统配置了 ADP ，请在每个替代节点的 LOADER 提示符处启用 ADP ：
+. 从已启动的站点运行以下命令、以确定原始系统是否配置了高级驱动器分区(ADP)：
++
+`d展示`
+
++
+如果配置了ADP、则输出中的"container type"列将显示"shared" `disk show` 。如果"container type"具有任何其他值、则系统上未配置ADP。以下示例输出显示了配置了ADP的系统：
+
++
+[listing]
+----
+::> disk show
+                    Usable               Disk    Container   Container
+Disk                Size       Shelf Bay Type    Type        Name      Owner
+
+Info: This cluster has partitioned disks. To get a complete list of spare disk
+      capacity use "storage aggregate show-spare-disks".
+----------------    ---------- ----- --- ------- ----------- --------- --------
+1.11.0              894.0GB    11    0   SSD      shared     testaggr  node_A_1
+1.11.1              894.0GB    11    1   SSD      shared     testaggr  node_A_1
+1.11.2              894.0GB    11    2   SSD      shared     testaggr  node_A_1
+----
+. 如果原始系统配置了用于ADP的分区磁盘、请在每个替代节点的提示符处启用它 `LOADER` ：
 +
 `setenv bootarg.mcc.ADP 启用 true`
 
 . 设置以下变量：
 +
-`setenv bootarg.mcc.local_config_id _original-sys-id_`
+`setenv bootarg.mcc.local_config_id <original-sys-id>`
 
 +
-`setenv bootarg.mcc.dr_partner _dr-partner-sys-id_`
+`setenv bootarg.mcc.dr_partner <dr-partner-sys-id>`
 
 +
 
@@ -1340,6 +1439,10 @@ NOTE: 根聚合磁盘是控制器升级过程中唯一必须重新分配的磁�
 `d` 展示 -A
 
 +
+
+CAUTION: 在继续进行磁盘重新分配之前、您必须验证属于节点根聚合的pool0和pool1磁盘是否显示在输出中 `disk show` 。在以下示例中、输出列出了由NODE_B_1-Oold拥有的pool0和pool1磁盘。
+
++
 命令输出将显示新控制器模块（ 1574774970 ）的系统 ID 。但是，根聚合磁盘仍归旧系统 ID （ 537403322 ）所有。此示例不显示 MetroCluster 配置中其他节点拥有的驱动器。
 
 +
@@ -1370,19 +1473,19 @@ prod1-rk18:9.126L27   node_B_1-old(537403322)  Pool0  S0M1PSDW     node_B_1-old(
  a| 
 是的。
  a| 
-`dreassign -s _old-sysid_ -d _new-sysid_ -r _dr-partner-sysid_`
+`disk reassign -s <old-sysid> -d <new-sysid> -r <dr-partner-sysid>`
 
 
 
  a| 
 否
  a| 
-`dreassign -s _old-sysid_ -d _new-sysid_`
+`disk reassign -s <old-sysid> -d <new-sysid>`
 
 |===
 . 将驱动器架上的根聚合磁盘重新分配给新控制器：
 +
-`dreassign -s old-sysid -d new-sysid`
+`disk reassign -s <old-sysid> -d <new-sysid>`
 
 +
 以下示例显示了在非 ADP 配置中重新分配驱动器的情况：
@@ -1445,16 +1548,16 @@ aggr0_node_B_1           online          raid_dp, aggr         root, nosnap=on,
 
 . 如果配置了外部密钥管理器，请设置相关的 boottargets ：
 +
-`setenv bootarg.kmip.init.ipaddr _ip-address_`
+`setenv bootarg.kmip.init.ipaddr <ip-address>`
 
 +
-`setenv bootarg.kmip.init.netmask _netmask_`
+`setenv bootarg.kmip.init.netmask <netmask>`
 
 +
-`setenv bootarg.kmip.init.gateway _gateway-address_`
+`setenv bootarg.kmip.init.gateway <gateway-addres>`
 
 +
-`setenv bootarg.kmip.init.interface _interface-id_`
+`setenv bootarg.kmip.init.interface <interface-id>`
 
 . 检查 partner-sysid 是否为最新版本：
 +
@@ -1464,7 +1567,7 @@ aggr0_node_B_1           online          raid_dp, aggr         root, nosnap=on,
 如果 partner-sysid 不正确，请将其设置为：
 
 +
-`setenv partner-sysid _partner-sysID_`
+`setenv partner-sysid <partner-sysID>`
 
 . 显示 ONTAP 启动菜单：
 +
@@ -1522,7 +1625,7 @@ Rebooting to load the restored env file...
 如果 partner-sysid 不正确，请将其设置为：
 
 +
-`setenv partner-sysid _partner-sysID_`
+`setenv partner-sysid <partner-sysID>`
 
 . 如果使用根加密，请为密钥管理配置再次选择启动菜单选项。
 +
@@ -1576,7 +1679,7 @@ Rebooting to load the restored env file...
  a| 
 外部密钥管理
  a| 
-`sSecurity key-manager external restore -vserver _svm_ -node _node_-key-server _host_name_ip_address ： port_ -key-id key_id -key-tag key_tag _node-name_`
+`security key-manager external restore -vserver <SVM> -node <node> -key-server <host_name|IP_address:port> -key-id key_id -key-tag key_tag <node_name>`
 
 有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"]。
 
@@ -1586,6 +1689,14 @@ Rebooting to load the restored env file...
 .. 查看广播域：
 +
 `network port broadcast-domain show`
+
+.. 如果为新升级的控制器上的数据端口创建了新的广播域、请删除此广播域：
++
+
+NOTE: 仅删除新广播域。请勿删除在开始升级之前存在的任何广播域。
+
++
+`broadcast-domain delete -broadcast-domain <broadcast_domain_name>`
 
 .. 根据需要向广播域添加任何端口。
 +
@@ -1607,11 +1718,11 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 
 
-=== 验证和还原 LIF 配置
+=== 验证并还原 LIF 配置
 
 验证 LIF 是否托管在升级操作步骤开始时映射的相应节点和端口上。
 
-.关于这家 TSAK
+.关于此任务
 * 此任务在 site_B 上执行
 * 请参见您在中创建的端口映射计划 link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html["将端口从旧节点映射到新节点"]。
 
@@ -1625,7 +1736,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 .. 覆盖端口配置以确保 LIF 放置正确：
 +
-`vserver config override -command "network interface modify -vserver _vserver_name_ -home-port _active_port_after_upgrade_-lif _lif_name_ -home-node _new_node_name_"`
+`vserver config override -command "network interface modify -vserver <svm-name> -home-port <active_port_after_upgrade> -lif <lif_name> -home-node <new_node_name>`
 
 +
 在 `vserver config override` 命令中输入 network interface modify 命令时，您不能使用选项卡自动完成功能。您可以使用 autoscomplete 创建网络 `interface modify` ，然后将其括在 `vserver config override` 命令中。
@@ -1638,7 +1749,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 . 将接口还原到其主节点：
 +
-`network interface revert * -vserver _vserver-name_`
+`network interface revert * -vserver <svm-name>`
 
 +
 根据需要对所有 SVM 执行此步骤。
@@ -1758,7 +1869,7 @@ MetroCluster check show`
 
 
 
-== 升级 cluster_A 上的节点
+== 升级cluster-A上的节点
 
 您必须对 cluster_A 重复升级任务
 

@@ -522,7 +522,7 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 |===
 
 
-=== AFF C800、ASA C800、ASA A800和AFF A800系统上的ADP和磁盘分配
+=== AFF C800、ASA C800、ASA A800、AFF A800、AFF A70上的ADP和磁盘分配 和AFF A90系统
 
 |===
 
@@ -567,7 +567,7 @@ NOTE: 在配置 MetroCluster 之前，一半的内部驱动器保持未分配状
 |===
 
 
-=== AFF A900和ASA A900系统上的ADP和磁盘分配
+=== AFF A900、ASA A900和AFF A1K系统上的ADP和磁盘分配
 
 |===
 

@@ -76,7 +76,7 @@ dr_group_2-new
 
 == 添加第二个DR组时支持的平台组合
 
-下表显示了八节点IP配置支持的平台组合。
+下表显示了八节点MetroCluster IP配置支持的平台组合。
 
 [IMPORTANT]
 ====
@@ -87,11 +87,22 @@ dr_group_2-new
 
 
 ====
-image::../media/8node_comb_ip_914.png[适用于8节点配置的平台组合]
+.支持的AFF和FAS MetroCluster IP扩展组合
+下表显示了在MetroCluster IP配置中扩展AFF或FAS系统时支持的平台组合：
+
+
+NOTE: AFF A70、AFF A90和AFF A1K系统需要使用ONTAP 9.151或更高版本。
+
+image::../media/8node_comb_ip_aff_fas.png[适用于8节点配置的平台组合]
 
 * *注1*：这些组合需要ONTAP 9.9.1或更高版本(或平台支持的最低ONTAP 版本)。
 * *注2*：这些组合需要ONTAP 9.13.1或更高版本(或平台支持的最低ONTAP 版本)。
 
+
+.支持的ASA MetroCluster IP扩展组合
+下表显示了在MetroCluster IP配置中扩展ASA系统时支持的平台组合：
+
+image::../media/8node_comb_ip_asa.png[适用于8节点配置的平台组合]
 
 
 

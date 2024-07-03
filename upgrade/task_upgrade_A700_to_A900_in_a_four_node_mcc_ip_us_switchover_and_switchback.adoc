@@ -583,7 +583,7 @@ image::../media/drw_9500_remove_PCM.png[控制器模块]
 .. 将 e5a 连接移至 e5b 。
 +
 
-NOTE: 集群中所有节点上的插槽 7 均应为空，如中所述 <<将端口从旧节点映射到新节点>> 部分。
+NOTE: 集群中所有节点上的插槽7均应为空、如一节所述 <<upgrade_a700_a900_ip_map,将端口从旧节点映射到新节点>> 。
 
 
 
@@ -821,23 +821,22 @@ FC
 .步骤
 . 准备 IP 交换机以应用新的 RCF 文件。
 +
-按照 _IP MetroCluster 安装和配置 _ 部分中适用于您的交换机供应商一节中的步骤进行操作。
-
-+
-link:../install-ip/index.html["MetroCluster IP 安装和配置"]
+按照适用于您的交换机供应商的部分中的步骤进行操作：
 
 +
 ** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["将 Broadcom IP 交换机重置为出厂默认值"]
-** link:../install-ip/task_switch_config_broadcom.html#resetting-the-cisco-ip-switch-to-factory-defaults["将 Cisco IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-cisco-ip-switch-to-factory-defaults["将Cisco IP交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_nvidia.html["将NVIDIA IP SN2100交换机重置为出厂默认值"]
 
 
 . 下载并安装 RCF 文件。
 +
-按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/index.html["MetroCluster IP 安装和配置"]。
+按照适用于您的交换机供应商的部分中的步骤进行操作：
 
 +
-** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom RCF 文件"]
-** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装Broadcom RC框架 文件"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装Cisco IP RCC文件"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["下载并安装NVIDIA IP RCP文件"]
 
 
 
@@ -855,7 +854,7 @@ link:../install-ip/index.html["MetroCluster IP 安装和配置"]
 必须在新控制器模块上配置某些 MetroCluster IP bootarg 值。这些值必须与旧控制器模块上配置的值匹配。
 
 .关于此任务
-在此任务中，您将使用先前在中的升级操作步骤中标识的 UUID 和系统 ID link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#gathering-information-before-the-upgrade["升级前收集信息"]。
+在此任务中，您将使用中先前升级过程中确定的UID和系统ID <<在升级之前收集信息>>。
 
 .步骤
 . 在 `loader>` 提示符处，在 site_B 的新节点上设置以下 bootarg ：
@@ -1266,7 +1265,7 @@ https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_create_
 
 .关于此任务
 * 此任务在 site_B 上执行
-* 请参见您在中创建的端口映射计划 link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#mapping-ports-from-the-old-nodes-to-the-new-nodes["将端口从旧节点映射到新节点"]。
+* 请参见您在中创建的端口映射计划 <<upgrade_a700_a900_ip_map,将端口从旧节点映射到新节点>>
 
 
 .步骤
@@ -1416,7 +1415,7 @@ MetroCluster check show`
 您必须对 site_A 重复升级任务
 
 .步骤
-. 从开始，重复上述步骤升级 site_A 上的节点 link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#preparing-for-the-upgrade["准备升级。"]。
+. 重复上述步骤以升级site_A上的节点，从开始 <<upgrade_a700_a900_ip_prepare,准备升级。>>。
 +
 在执行任务时，对站点和节点的所有示例引用都将反转。例如，如果提供了从 site_A 切换的示例，则您将从 site_B 切换
 

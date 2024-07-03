@@ -19,7 +19,7 @@ summary: 如果要添加或升级硬件，例如其他或更快的控制器或�
 如果 ISL 链路上的设备发生变化，而新的链路配置不再支持当前配置—中继和有序交付—则需要根据正确的路由策略重新配置网络结构：按顺序交付（ IOD ）或无序交付（ OOD ）。
 
 
-NOTE: 要使用 ONTAP 软件更改 OOD ，请执行以下步骤： link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software#configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software["在 ONTAP 软件上配置帧的按顺序交付或无序交付"]
+NOTE: 要从ONTAP软件更改ood、请使用以下步骤： link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software["在 ONTAP 软件上配置帧的按顺序交付或无序交付"]
 
 .步骤
 . 禁用 FCVI 和存储 HBA 端口：
