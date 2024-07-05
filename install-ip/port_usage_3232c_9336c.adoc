@@ -67,12 +67,12 @@ FAS500f、AFF C250、ASA C250、AFF A250、ASA A250
 .Cisco 3232C或Cisco 9336C平台端口分配(组1)
 查看为AFF A150、ASA A150、FAS2750、AFF A220、FAS500f布线所需的平台端口分配。 将AFF C250、ASA C250、AFF A250或ASA A250系统连接到Cisco 3232C或9336C交换机：
 
-image::../media/mcc_ip_cabling_a150_a220_a250_to_a_cisco_3232c_or_cisco_9336c_switch.png[显示了Cisco 3232C或Cisco 9336C平台端口分配]
+image::../media/mcc-ip-cabling-a150-a220-a250-to-a-cisco-3232c-or-cisco-9336c-switch.png[显示了Cisco 3232C或Cisco 9336C平台端口分配]
 
 .Cisco 3232C或Cisco 9336C平台端口分配(第2组)
 查看使用缆线将FAS8200或AFF A300系统连接到Cisco 3232C或9336C交换机的平台端口分配：
 
-image::../media/mcc_ip_cabling_a_aff_a300_or_fas8200_to_a_cisco_3232c_or_cisco_9336c_switch.png[显示了Cisco 3232C或Cisco 9336C平台端口分配]
+image::../media/mcc-ip-cabling-a-aff-a300-or-fas8200-to-a-cisco-3232c-or-cisco-9336c-switch.png[显示了Cisco 3232C或Cisco 9336C平台端口分配]
 
 如果要从旧版MetroCluster文件升级、则布线配置可能正在使用"RCF4"组中的端口(端口25/ 26和29/30)。
 

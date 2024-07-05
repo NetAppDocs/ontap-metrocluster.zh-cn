@@ -70,7 +70,7 @@ AFF A250、ASA A250
 查看为AFF A150、ASA A150、FAS500f、AFF C250、ASA C250、 将AFF A250或ASA A250系统连接到NVIDIA SN2100交换机：
 
 [#table_1_nvidia_sn2100]
-image::../media/mcc_ip_cabling_aff_asa_a150_fas500f_A250_C250_MSN2100.png[显示了NVIDIA SN2100平台端口分配]
+image::../media/mcc-ip-cabling-aff-asa-a150-fas500f-a25-c250-MSN2100.png[显示了NVIDIA SN2100平台端口分配]
 
 .NVIDIA SN2100平台端口分配(第2组)
 查看使用缆线连接FAS9300、AFF C400、ASA C400、AFF A400、ASA A400的平台端口分配、 将FAS4700、FAS9000或AFF A700系统连接到NVIDIA SN2100交换机：

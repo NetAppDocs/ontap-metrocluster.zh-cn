@@ -94,7 +94,7 @@ image::../media/mcc_ip_cabling_a70_a90_a1k_to_cisco_9336c_shared_switch.png[显�
 | FAS8200、AFF A300 | <<table_6_cisco_9336c_fx2,Cisco 9336C－拧2共享交换机平台端口分配(第6组)>> 
 
 
-| AFF A320 FAS9300、AFF C400、ASA C400、FAS4700 AFF A900、ASA A900 | <<table_7_cisco_9336c_fx2,Cisco 9335C－拧2共享交换机平台端口分配(第7组)>> 
+| AFF A320 FAS9300、AFF C400、ASA C400、FAS4700 AFF A400、ASA A400 | <<table_7_cisco_9336c_fx2,Cisco 9335C－拧2共享交换机平台端口分配(第7组)>> 
 
 
 | FAS9000、AFF A700 AFF C800、ASA C800、AFF A800、ASA A800 FAS9500、AFF A900、 ASA A900 | <<table_8_cisco_9336c_fx2,Cisco 9336 C－6．2共享交换机平台端口分配(第8组)>> 
@@ -105,20 +105,20 @@ image::../media/mcc_ip_cabling_a70_a90_a1k_to_cisco_9336c_shared_switch.png[显�
 .Cisco 9336 C－拧2共享交换机平台端口分配(第4组)
 查看平台端口分配情况、以便将未将交换机连接的NSS24磁盘架连接到Cisco 9336C -拧2共享交换机的AFF A150、ASA A150、FAS2750或AFF A220系统布线：
 
-image::../media/mcc_ip_cabling_a_aff_a150_asa_a150_fas27500_aff_a220_to_a_cisco_9336c_shared_switch.png[显示了Cisco 9334C－拧动共享交换机平台的端口分配]
+image::../media/mcc-ip-cabling-a-aff-a150-asa-a150-fas2750-aff-a220-to-a-cisco-9336c-shared-switch.png[显示了Cisco 9334C－拧动共享交换机平台的端口分配]
 
 .Cisco 9335C－拧2共享交换机平台端口分配(第5组)
 查看平台端口分配、以便将FAS500f、AFF C250、ASA C250、AFF A250或ASA A250系统连接到未将交换机连接的NSS24磁盘架连接到Cisco 9335C-拧2共享交换机的缆线：
 
-image::../media/mcc_ip_cabling_c250_asa_c250_a250_asa_a250_to_cisco_9336c_shared_switch.png[显示了Cisco 9334C－拧动共享交换机平台的端口分配]
+image::../media/mcc-ip-cabling-c250-asa-c250-a250-asa-a250-to-cisco-9336c-shared-switch.png[显示了Cisco 9334C－拧动共享交换机平台的端口分配]
 
 .Cisco 9336C－拧2共享交换机平台端口分配(第6组)
 查看平台端口分配情况、以便为未将交换机连接的NSS24磁盘架连接到Cisco 9336 C－拧2共享交换机的FAS8200或AFF A300系统布线：
 
-image::../media/mcc_ip_cabling_fas8200_affa300_to_cisco_9336c_shared_switch.png[显示了Cisco 9334C－拧动共享交换机平台的端口分配]
+image::../media/mcc-ip-cabling-fas8200-affa300-to-cisco-9336c-shared-switch.png[显示了Cisco 9334C－拧动共享交换机平台的端口分配]
 
 .Cisco 9335C－拧2共享交换机平台端口分配(第7组)
-查看为AFF A320、FAS9300、AFF C400、ASA C400、FAS8700布线所需的平台端口分配。 AFF A900或ASA A900系统未将交换机连接的NSS24磁盘架连接到Cisco 9336 C -拧2共享交换机：
+查看为AFF A320、FAS9300、AFF C400、ASA C400、FAS8700布线所需的平台端口分配。 AFF A400或ASA A400系统未将交换机连接的NSS24磁盘架连接到Cisco 9336 C -拧2共享交换机：
 
 image::../media/mcc_ip_cabling_a320_fas8300_a400_fas8700_to_a_cisco_9336c_shared_switch.png[显示了Cisco 9334C－拧动共享交换机平台的端口分配]
 

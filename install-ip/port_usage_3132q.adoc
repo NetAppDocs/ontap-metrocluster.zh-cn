@@ -52,4 +52,4 @@ image::../media/mcc_ip_cabling_a_fas9000_or_aff_a700_to_a_cisco_3132q_v_switch.p
 .Cisco 3132Q-V平台端口分配(第3组)
 查看将AFF A800或ASA A800系统连接到Cisco 3132Q-V交换机所需的平台端口分配：
 
-image::../media/cabling_an_aff_a800_to_a_cisco_3132q_v_switch.png[显示了Cisco 3132Q-V平台端口分配]
+image::../media/cabling-an-aff-a800-to-a-cisco-3132q-v-switch.png[显示了Cisco 3132Q-V平台端口分配]
