@@ -953,8 +953,6 @@ DR 配对节点的池 1
 .关于此任务
 此任务适用于使用原生 NetApp 存储的双节点 MetroCluster 配置。
 
-新的 MetroCluster 系统已预先配置；您无需执行这些步骤。但是，您应配置 AutoSupport 。
-
 必须对 MetroCluster 配置中的两个集群执行此任务。
 
 有关设置 ONTAP 的更多常规信息，请参见 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["设置 ONTAP"]

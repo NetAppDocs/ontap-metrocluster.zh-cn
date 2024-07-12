@@ -293,7 +293,7 @@ cumulus@cumulus:~$ sudo reboot
 
 == 【下载并安装】下载并安装NVIDIA RCF文件
 
-您必须将交换机 RCF 文件下载并安装到 MetroCluster IP 配置中的每个交换机。
+您必须为MetroCluster IP配置中的每个交换机生成并安装交换机RCF文件。
 
 .开始之前
 * 您必须具有`sudo`命令访问权限的root密码。

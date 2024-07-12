@@ -14,15 +14,36 @@ summary: 在 MetroCluster IP 配置中，您可以检索以太网端口上 Metro
 在 MetroCluster IP 配置中，您必须检索以太网端口上 MetroCluster 接口的 IP 地址，然后使用它们配置替代控制器模块上的接口。
 
 .关于此任务
-只有在 MetroCluster IP 配置中才需要执行此任务。
+* 只有在 MetroCluster IP 配置中才需要执行此任务。
+* 此任务中的命令可从运行正常的站点的集群提示符和灾难站点节点的 LOADER 提示符执行。
 
-此任务中的命令可从运行正常的站点的集群提示符和灾难站点节点的 LOADER 提示符执行。
 
-这些示例中的节点的 MetroCluster IP 连接具有以下 IP 地址：
+[[vlan_id_supported_platfoms]]
+* 某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。
++
+如果支持、您还可以使用参数指定一个高于100 (介于101和4095之间)的其他(非默认) VLAN `vlan-id` 。
 
++
+以下平台*不*支持 `vlan-id` 参数：
+
++
+** FAS8200 和 AFF A300
+** AFF A320
+** FAS9000和AFF A700
+** AFF C800、ASA C800、AFF A800和ASA A800
++
+所有其他平台均支持 `vlan-id` 参数。
+
+
+
+
+
+* 这些示例中的节点的 MetroCluster IP 连接具有以下 IP 地址：
++
 
 NOTE: 这些示例适用于 AFF A700 或 FAS9000 系统。接口因平台型号而异。
 
++
 |===
 
 
@@ -92,8 +113,10 @@ e5b
 172.17.27.12
 
 |===
++
 下表总结了节点与每个节点的 MetroCluster IP 地址之间的关系。
 
++
 |===
 
 
@@ -103,26 +126,26 @@ e5b
  a| 
 node_A_1
 
-* e5a ： 172.17.26.10
-* e5b ： 172.17.27.10
+** e5a ： 172.17.26.10
+** e5b ： 172.17.27.10
 
  a| 
 node_A_2
 
-* e5a ： 172.17.26.11
-* e5b ： 172.17.27.11
+** e5a ： 172.17.26.11
+** e5b ： 172.17.27.11
 
  a| 
 node_B_1
 
-* e5a ： 172.17.26.13
-* e5b ： 172.17.27.13
+** e5a ： 172.17.26.13
+** e5b ： 172.17.27.13
 
  a| 
 node_B_2
 
-* e5a ： 172.17.26.12
-* e5b ： 172.17.27.12
+** e5a ： 172.17.26.12
+** e5b ： 172.17.27.12
 
 
 
@@ -130,26 +153,26 @@ node_B_2
  a| 
 node_A_2
 
-* e5a ： 172.17.26.11
-* e5b ： 172.17.27.11
+** e5a ： 172.17.26.11
+** e5b ： 172.17.27.11
 
  a| 
 node_A_1
 
-* e5a ： 172.17.26.10
-* e5b ： 172.17.27.10
+** e5a ： 172.17.26.10
+** e5b ： 172.17.27.10
 
  a| 
 node_B_2
 
-* e5a ： 172.17.26.12
-* e5b ： 172.17.27.12
+** e5a ： 172.17.26.12
+** e5b ： 172.17.27.12
 
  a| 
 node_B_1
 
-* e5a ： 172.17.26.13
-* e5b ： 172.17.27.13
+** e5a ： 172.17.26.13
+** e5b ： 172.17.27.13
 
 
 
@@ -157,26 +180,26 @@ node_B_1
  a| 
 node_B_1
 
-* e5a ： 172.17.26.13
-* e5b ： 172.17.27.13
+** e5a ： 172.17.26.13
+** e5b ： 172.17.27.13
 
  a| 
 node_B_2
 
-* e5a ： 172.17.26.12
-* e5b ： 172.17.27.12
+** e5a ： 172.17.26.12
+** e5b ： 172.17.27.12
 
  a| 
 node_A_1
 
-* e5a ： 172.17.26.10
-* e5b ： 172.17.27.10
+** e5a ： 172.17.26.10
+** e5b ： 172.17.27.10
 
  a| 
 node_A_2
 
-* e5a ： 172.17.26.11
-* e5b ： 172.17.27.11
+** e5a ： 172.17.26.11
+** e5b ： 172.17.27.11
 
 
 
@@ -184,53 +207,31 @@ node_A_2
  a| 
 node_B_2
 
-* e5a ： 172.17.26.12
-* e5b ： 172.17.27.12
+** e5a ： 172.17.26.12
+** e5b ： 172.17.27.12
 
  a| 
 node_B_1
 
-* e5a ： 172.17.26.13
-* e5b ： 172.17.27.13
+** e5a ： 172.17.26.13
+** e5b ： 172.17.27.13
 
  a| 
 node_A_2
 
-* e5a ： 172.17.26.11
-* e5b ： 172.17.27.11
+** e5a ： 172.17.26.11
+** e5b ： 172.17.27.11
 
  a| 
 node_A_1
 
-* e5a ： 172.17.26.10
-* e5b ： 172.17.27.10
+** e5a ： 172.17.26.10
+** e5b ： 172.17.27.10
 
 
 |===
-下表列出了在 MetroCluster IP 接口上使用 VLAN ID 的平台型号。如果您不使用默认 VLAN ID ，则这些型号可能需要执行其他步骤。
-
-|===
 
 
-2+| 使用 MetroCluster IP 接口的 VLAN ID 的平台型号 
-
-
- a| 
-* AFF A70
-* AFF A90
-* AFF A1K
-* AFF A220
-* AFF A250
-* AFF A400
-
- a| 
-* FAS500f
-* FAS2750
-* FAS8300
-* FAS8700
-
-
-|===
 .步骤
 . 从正常运行的站点收集灾难站点上 MetroCluster 接口的 IP 地址：
 +
@@ -325,7 +326,7 @@ Group Cluster Node    Network Address Network Address Partner Type Config State
 `MetroCluster configuration-settings interface show`
 
 +
-** 如果平台型号使用VLAN ID (请参见上面的列表)、并且不使用默认VLAN ID、则需要VLAN ID。
+** 如果平台型号支持VLAN ID (请参见)，并且不使用默认VLAN ID，则需要确定VLAN <<vlan_id_supported_platfoms,列表>>ID。
 ** 如果使用，则需要网关地址 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网"]。
 +
 VLAN ID 包含在输出的 * 网络地址 * 列中。* 网关 * 列显示网关 IP 地址。
@@ -354,7 +355,7 @@ Group Cluster Node     Network Address Netmask         Gateway         State
 +
 [NOTE]
 ====
-** 如果接口使用的是默认VLAN、或者平台型号不使用VLAN ID (请参见上面的列表)、则不需要_vla-id_。
+** 如果接口使用的是默认VLAN，或者平台型号不使用VLAN ID (请参见 <<vlan_id_supported_platfoms,列表>>)，则不需要_vla-id_。
 ** 如果配置未使用 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网"]， _gateway-ip-address_ 的值为 * 0 * （零）。
 
 

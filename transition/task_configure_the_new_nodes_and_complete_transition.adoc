@@ -19,57 +19,75 @@ summary: 添加新节点后，您必须完成过渡步骤并配置 MetroCluster 
 
 您必须实施 MetroCluster IP 连接，刷新 MetroCluster 配置并禁用过渡模式。
 
+.步骤
 . 从控制器 node_A_1-IP 发出以下命令，将新节点组成 DR 组：
 +
-`MetroCluster configuration-settings dr-group create -partner-cluster peer-cluster-name -local-node local-controller-name -remote-node remote-controller-name`
+`metrocluster configuration-settings dr-group create -partner-cluster <peer_cluster_name> -local-node <local_controller_name> -remote-node <remote_controller_name>`
 
 +
 `MetroCluster configuration-settings dr-group show`
 
 . 创建 MetroCluster IP 接口（ node_A_1-IP ， node_A_2-IP ， node_B_1-IP ， node_B_2-IP ）—每个控制器需要创建两个接口；总共八个接口：
 +
-`MetroCluster configuration-settings interface create -cluster-name cluster-name -home-node controller-name -home-port port -address IP-address -netmask -vlan-id vlan-id``metrocluster configuration-settings interface show`
+`metrocluster configuration-settings interface create -cluster-name <cluster_name> -home-node <controller_name> -home-port <port_name> -address <ip_address> -netmask <netmask_address> -vlan-id <vlan_id>`
 
 +
-
-NOTE: 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
-
-+
-只有在未使用默认 VLAN ID 时，才需要 -vlan-id 参数。只有某些系统支持非默认 VLAN ID 。
+`MetroCluster configuration-settings interface show`
 
 +
---
-[NOTE]
+某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。
+
++
+如果支持、您还可以使用命令中的参数指定一个高于100 (介于101和4095之间)的其他(非默认) VLAN `-vlan-id` `metrocluster configuration-settings interface create` 。
+
++
+以下平台*不*支持 `-vlan-id` 参数：
+
++
+** FAS8200 和 AFF A300
+** AFF A320
+** FAS9000和AFF A700
+** AFF C800、ASA C800、AFF A800和ASA A800
++
+所有其他平台均支持 `-vlan-id` 参数。
+
++
+默认VLAN分配和有效VLAN分配取决于平台是否支持 `-vlan-id` 以下参数：
+
++
+[role="tabbed-block"]
 ====
-** 某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。您也可以在 MetroCluster configuration-settings interface create` 命令中使用 ` -vlan-id 参数` 指定一个大于 100 （ 101 到 4095 之间）的其他（非默认） VLAN 。
-** 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
-
-
-====
+.支持<code>－VLAN－</code>的平台
 --
-+
-如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。
+默认VLAN：
 
-+
-|===
-
-
-| AFF 平台 | FAS 平台 
+*** 如果 `-vlan-id` 未指定参数、则会使用VLAN 10为"A"端口创建接口、并使用VLAN 20为"B"端口创建接口。
+*** 指定的VLAN必须与在RC框架 中选择的VLAN匹配。
 
 
- a| 
-** AFF A220
-** AFF A250
-** AFF A400
+有效VLAN范围：
 
- a| 
-** FAS2750
-** FAS500f
-** FAS8300
-** FAS8700
+*** 默认VLAN 10和20
+*** VLAN 101及更高版本(介于101和4095之间)
 
 
-|===
+--
+.不支持<code>－VLAN－</code>的平台
+--
+默认VLAN：
+
+*** 不适用。此接口不需要在MetroCluster接口上指定VLAN。交换机端口用于定义所使用的VLAN。
+
+
+有效VLAN范围：
+
+*** 生成RC框架 时未明确排除所有VLAN。如果VLAN无效、RCZ将向您发出警报。
+
+
+--
+====
+
+
 
 
 . 从控制器 node_A_1-IP 执行 MetroCluster 连接操作以连接 MetroCluster 站点 - 此操作可能需要几分钟才能完成：
@@ -237,11 +255,11 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 .. 如有必要，请修改 LIF 配置：
 +
-`vserver config override -command "network interface modify -vserver vserver_name -home-port active_port_after_upgrade -lif lif_name -home-node new_node_name"`
+`vserver config override -command "network interface modify -vserver <svm_name> -home-port <active_port_after_upgrade> -lif <lif_name> -home-node <new_node_name>`
 
 .. 将 LIF 还原到其主端口：
 +
-`network interface revert * -vserver _vserver_name_`
+`network interface revert * -vserver <svm_name>`
 
 
 
@@ -260,7 +278,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 . 在 cluster_A 上重新启动不具有 "` -mc` " 后缀的 SVM ：
 +
-`vserver start -vserver svm-name -force true`
+`vserver start -vserver <svm_name> -force true`
 
 . 在配对集群上重复上述步骤。
 . 检查所有 SVM 是否均处于运行状况良好的状态：
@@ -289,7 +307,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 +
 .. 在控制器 node_A_2-IP 上创建镜像聚合以存放系统卷：
 +
-`aggr create -aggregate new_node_A_2-ip_aggr -diskcount 10 -mirror true -node nodename_node_A_2-ip`
+`aggr create -aggregate new_node_A_2-IP_aggr -diskcount 10 -mirror true -node node_A_2-IP`
 
 +
 `aggr show`
@@ -305,7 +323,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 `vserver show`
 
 +
-`volume show -vserver _admin-vserver-name_`
+`volume show -vserver <admin_svm_name>`
 
 +
 您应标识 site_A 拥有的聚合所包含的卷此外，还会显示 site_B 系统卷。
@@ -316,7 +334,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 +
 .. 检查可能的目标聚合：
 +
-`volume move target-aggr show -vserver _admin-vserver-name_ -volume system_vol_MDV_B`
+`volume move target-aggr show -vserver <admin_svm_name> -volume MDV_CRS_*_B`
 
 +
 应列出 node_A_2-IP 上新创建的聚合。
@@ -326,18 +344,18 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 `set advanced`
 
 +
-`volume move start -vserver _admin-vserver_-volume system_vol_mDV_B -destination-aggregate new_node_A_2-ip_aggr -cutover-window 40`
+`volume move start -vserver <admin_svm_name> -volume MDV_CRS_*_B -destination-aggregate new_node_A_2-IP_aggr -cutover-window 40`
 
 .. 检查移动操作的状态：
 +
-`volume move show -vserver _admin-vserver-name_ -volume system_vol_MDV_B`
+`volume move show -vserver <admin_svm_name> -volume MDV_CRS_*_B`
 
 .. 移动操作完成后，验证 node_A_2-IP 上的新聚合是否包含 MDV_CRS_*_B 系统：
 +
 `set admin`
 
 +
-`volume show -vserver _admin-vserver_`
+`volume show -vserver <admin_svm_name>`
 
 
 

@@ -27,9 +27,6 @@ summary: 您使用的刷新操作步骤 取决于平台型号、升级范围和M
 .支持的AFF和FAS MetroCluster IP技术更新组合
 下表显示了在MetroCluster IP配置中刷新AFF或FAS系统时支持的平台组合：
 
-
-NOTE: AFF A70、AFF A90和AFF A1K系统需要使用ONTAP 9.151或更高版本。
-
 image::../media/metrocluster_techref_ip.png[MetroCluster IP技术更新组合]
 
 *注1：*此组合需要ONTAP 9.13.1.或更高版本。

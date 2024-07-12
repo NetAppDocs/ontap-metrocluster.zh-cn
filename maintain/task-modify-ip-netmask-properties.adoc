@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: vlan, ip, gateway,netmask, address, network, interface, subnet 
 summary: 您可以更改 MetroCluster IP 接口， IP 地址和掩码以及网关的以下属性。您可以使用任意参数组合进行更新。 
 ---
-= 修改MetroCluster IP配置中的地址、网络掩码和网关
+= 修改MetroCluster IP接口的属性
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,19 +15,23 @@ summary: 您可以更改 MetroCluster IP 接口， IP 地址和掩码以及网�
 
 您可能需要更新这些属性，例如，如果检测到重复的 IP 地址，或者在第 3 层网络中，如果由于路由器配置更改而需要更改网关。
 
-一次只能更改一个接口。在更新其他接口并重新建立连接之前，此接口上的流量将中断。
-
-使用 `MetroCluster configuration-settings interface modify` 命令更改任何 MetroCluster IP 接口属性。
-
+.关于此任务
+* 一次只能更改一个接口。在更新其他接口并重新建立连接之前，此接口上的流量将中断。
+* 使用 `MetroCluster configuration-settings interface modify` 命令更改任何 MetroCluster IP 接口属性。
++
 
 NOTE: 这些命令用于更改特定端口的特定节点上的配置。要还原完整的网络连接，需要在其他端口上使用类似的命令。同样，网络交换机也需要更新其配置。例如，如果网关已更新，则理想情况下，它会在 HA 对的两个节点上进行更改，因为它们是相同的。此外，连接到这些节点的交换机还需要更新其网关。
 
-使用 `MetroCluster configuration-settings interface show` ， `MetroCluster connection` check 和 `MetroCluster connection show` 命令验证所有接口中的所有连接是否正常工作。
+* 使用 `metrocluster configuration-settings interface show`、 `metrocluster connection check`和 `metrocluster connection show` 命令验证所有连接在所有接口上均正常工作。
+
 
 
 
 == 修改 IP 地址，网络掩码和网关
 
+执行以下步骤以修改MetroCluster IP接口的IP地址、网络掩码和网关。
+
+.步骤
 . 更新单个节点和接口的 IP 地址，网络掩码和网关： `MetroCluster configuration-settings interface modify`
 +
 以下命令显示如何更新 IP 地址，网络掩码和网关：

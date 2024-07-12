@@ -35,9 +35,6 @@ summary: 您可以使用此引导式自动MetroCluster 切换操作对四节点M
 .支持的AFF和FAS MetroCluster IP控制器升级
 下表显示了在MetroCluster IP配置中升级AFF或FAS系统时支持的平台组合：
 
-
-NOTE: AFF A90、AFF A70和AFF A1K系统需要使用ONTAP 9.151或更高版本。
-
 image::../media/mcc_ip_system_controller_replace_aff_fas.png[MCC IP系统控制器取代了AFF FAS]
 
 * 注1：运行ONTAP 9.131或更高版本的系统支持控制器升级。

@@ -90,9 +90,6 @@ dr_group_2-new
 .支持的AFF和FAS MetroCluster IP扩展组合
 下表显示了在MetroCluster IP配置中扩展AFF或FAS系统时支持的平台组合：
 
-
-NOTE: AFF A70、AFF A90和AFF A1K系统需要使用ONTAP 9.151或更高版本。
-
 image::../media/8node_comb_ip_aff_fas.png[适用于8节点配置的平台组合]
 
 * *注1*：这些组合需要ONTAP 9.9.1或更高版本(或平台支持的最低ONTAP 版本)。
@@ -118,7 +115,7 @@ image::../media/8node_comb_ip_asa.png[适用于8节点配置的平台组合]
 +
 .. 问题描述以下命令：
 +
-`ssystem node AutoSupport invoke -node * -type all -message "MAIN=10h upgrading _old-model_ to _new-model"_`
+`system node autosupport invoke -node * -type all -message "MAINT=10h Upgrading <old-model> to <new-model>`
 
 +
 此示例指定了一个 10 小时的维护时段。根据您的计划，您可能需要留出更多时间。
@@ -136,16 +133,82 @@ image::../media/8node_comb_ip_asa.png[适用于8节点配置的平台组合]
 
 
 
+== 添加新DR组时VLAN的注意事项
+
+* 扩展MetroCluster IP配置时、需要考虑以下VLAN注意事项：
++
+某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。
+
++
+如果支持、您还可以使用命令中的参数指定一个高于100 (介于101和4095之间)的其他(非默认) VLAN `-vlan-id` `metrocluster configuration-settings interface create` 。
+
++
+以下平台*不*支持 `-vlan-id` 参数：
+
++
+** FAS8200 和 AFF A300
+** AFF A320
+** FAS9000和AFF A700
+** AFF C800、ASA C800、AFF A800和ASA A800
++
+所有其他平台均支持 `-vlan-id` 参数。
+
++
+默认VLAN分配和有效VLAN分配取决于平台是否支持 `-vlan-id` 以下参数：
+
++
+[role="tabbed-block"]
+====
+.支持<code>－VLAN－</code>的平台
+--
+默认VLAN：
+
+*** 如果 `-vlan-id` 未指定参数、则会使用VLAN 10为"A"端口创建接口、并使用VLAN 20为"B"端口创建接口。
+*** 指定的VLAN必须与在RC框架 中选择的VLAN匹配。
+
+
+有效VLAN范围：
+
+*** 默认VLAN 10和20
+*** VLAN 101及更高版本(介于101和4095之间)
+
+
+--
+.不支持<code>－VLAN－</code>的平台
+--
+默认VLAN：
+
+*** 不适用。此接口不需要在MetroCluster接口上指定VLAN。交换机端口用于定义所使用的VLAN。
+
+
+有效VLAN范围：
+
+*** 生成RC框架 时未明确排除所有VLAN。如果VLAN无效、RCZ将向您发出警报。
+
+
+--
+====
+
+
+
+
+* 从四节点配置扩展为八节点MetroCluster配置时、这两个DR组使用相同的VLAN。
+* 如果不能使用同一个VLAN配置两个DR组、则必须升级不支持参数的DR组 `vlan-id` 、以使用另一个DR组支持的VLAN。
+* 根据您的ONTAP版本、您可以在初始配置后更改某些MetroCluster IP接口属性。有关支持的功能的详细信息、请参见 link:../maintain/task-modify-ip-netmask-properties.html["修改MetroCluster IP接口的属性"] 。
+
+
+
+
 == 验证 MetroCluster 配置的运行状况
 
-在执行过渡之前，您必须验证 MetroCluster 配置的运行状况和连接
+在执行扩展之前、您必须验证MetroCluster配置的运行状况和连接性。
 
 .步骤
 . 在 ONTAP 中验证 MetroCluster 配置的运行情况：
 +
 .. 检查系统是否为多路径：
 +
-`node run -node _node-name_ sysconfig -a`
+`node run -node <node-name> sysconfig -a`
 
 .. 检查两个集群上是否存在任何运行状况警报：
 +
@@ -334,16 +397,13 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for
 
 .步骤
 . 将新控制器装入机架。
-. 按照 _IP MetroCluster 安装和配置 _ 中所示，使用缆线将新的 MetroCluster IP 节点连接到 IP 交换机
-+
-link:../install-ip/using_rcf_generator.html["为 IP 交换机布线"]
-
-. 使用 MetroCluster 安装和配置 _ 的以下部分配置 MetroCluster IP 节点
+. 将新的MetroCluster IP节点连接到IP交换机，如所示 link:../install-ip/using_rcf_generator.html["为IP交换机布线"]。
+. 使用以下过程配置MetroCluster IP节点：
 +
 .. link:../install-ip/task_sw_config_gather_info.html["收集所需信息"]
 .. link:../install-ip/task_sw_config_restore_defaults.html["还原控制器模块上的系统默认值"]
 .. link:../install-ip/task_sw_config_verify_haconfig.html["验证组件的 ha-config 状态"]
-.. link:../install-ip/task_sw_config_assign_pool0.html#manually-assigning-drives-for-pool-0-ontap-9-4-and-later["手动为池 0 分配驱动器（ ONTAP 9.4 及更高版本）"]
+.. link:../install-ip/task_sw_config_assign_pool0.html#manually-assigning-drives-for-pool-0-ontap-9-4-and-later["手动为池0分配驱动器(ONTAP 9.4及更高版本)"]
 
 
 . 在维护模式下，问题描述 halt 命令退出维护模式，然后问题描述 boot_ontap 命令启动系统并进入集群设置。
@@ -395,7 +455,7 @@ Component           Result
 nodes               ok
 lifs                ok
 config-replication  ok
-aggregates          warning
+aggregates          ok
 clusters            ok
 connections         not-applicable
 volumes             ok
@@ -416,8 +476,9 @@ MetroCluster 操作历史记录显示 -job-id 38`
 按照适用于您的交换机供应商的步骤进行操作：
 
 +
-** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"^]
-** link:../install-ip/task_switch_config_cisco.html["将 Cisco IP 交换机重置为出厂默认值"^]
+** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_cisco.html["将Cisco IP交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_nvidia.html["将NVIDIA IP SN2100交换机重置为出厂默认值"]
 
 
 . 根据交换机供应商的不同、下载并安装IP RCF文件。
@@ -426,8 +487,9 @@ MetroCluster 操作历史记录显示 -job-id 38`
 NOTE: 按以下顺序更新交换机：switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2
 
 +
-** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom IP RCF 文件"]
-** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
+** link:../install-ip/task_switch_config_broadcom.html["下载并安装Broadcom IP RC框架 文件"]
+** link:../install-ip/task_switch_config_cisco.html["下载并安装Cisco IP RCC文件"]
+** link:../install-ip/task_switch_config_nvidia.html["下载并安装NVIDIA IP RCP文件"]
 +
 
 NOTE: 如果您使用的是L2共享或L3网络配置、则可能需要调整中间/客户交换机上的ISL端口。交换机端口模式可能会从"访问"模式更改为"中继"模式。只有在交换机A_1和B_1之间的网络连接完全正常且网络运行状况良好的情况下、才能继续升级第二个交换机对(A_2、B_2)。
@@ -526,7 +588,9 @@ Do you want to use this configuration? {yes, no} [yes]: yes
 您必须创建集群对等 LIF ，并在新的 MetroCluster IP 节点上创建 MetroCluster 接口。
 
 .关于此任务
-示例中使用的主端口是特定于平台的。您应使用特定于 MetroCluster IP 节点平台的相应主端口。
+* 示例中使用的主端口是特定于平台的。您应使用特定于MetroCluster IP节点平台的主端口。
+* 在执行此任务之前、请查看中的信息 <<添加新DR组时VLAN的注意事项>> 。
+
 
 .步骤
 . 在新的 MetroCluster IP 节点上，使用以下过程配置集群间 LIF ：
@@ -613,47 +677,16 @@ cluster_A::>
 ----
 . 为新加入的 MetroCluster IP 节点配置 MetroCluster IP 接口：
 +
-MetroCluster configuration-settings interface create -cluster-name`
-
-+
---
 [NOTE]
 ====
-** 某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。您也可以在 MetroCluster configuration-settings interface create` 命令中使用 ` -vlan-id 参数` 指定一个大于 100 （ 101 到 4095 之间）的其他（非默认） VLAN 。
-** 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
+** 如果支持、您可以使用命令中的参数指定一个高于100 (介于101和4095之间)的其他(非默认) VLAN `-vlan-id` `metrocluster configuration-settings interface create` 。有关支持的平台信息、请参见 <<添加新DR组时VLAN的注意事项>> 。
+** 您可以从任一集群配置 MetroCluster IP 接口。
 
 
 ====
---
 +
-如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。
+MetroCluster configuration-settings interface create -cluster-name`
 
-+
-|===
-
-
-| AFF 平台 | FAS 平台 
-
-
- a| 
-** AFF A220
-** AFF A250
-** AFF A400
-
- a| 
-** FAS2750
-** FAS500f
-** FAS8300
-** FAS8700
-
-
-|===
-+
---
-
-NOTE: 您可以从任一集群配置 MetroCluster IP 接口。
-
---
 +
 [listing]
 ----
@@ -1028,7 +1061,7 @@ cluster_A::*> metrocluster configure -refresh true
 
 . 在每个新 MetroCluster 节点上创建镜像数据聚合：
 +
-`storage aggregate create -aggregate _aggregate-name_ -node _node-name_ -diskcount _no-of-disks_-mirror true`
+`storage aggregate create -aggregate <aggregate-name> -node <node-name> -diskcount <no-of-disks> -mirror true`
 
 +
 
@@ -1135,7 +1168,7 @@ cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
 
 .. 一次移动一个 MDV 卷：
 +
-`volume move start -volume _mDV-volume" -destination-aggregate _aggr-on-new-node" -vserver _vserver-name_`
+`volume move start -volume <mdv-volume> -destination-aggregate <aggr-on-new-node> -vserver <svm-name>`
 
 +
 以下示例显示了将 "MDV_CRS_d6b0b313ff5611e9837100a098544e51_a" 移动到 "node_A_3" 上的 "data_a3" 的命令和输出。
@@ -1153,7 +1186,7 @@ Warning: You are about to modify the system volume
 ----
 .. 使用 volume show 命令检查是否已成功移动 MDV 卷：
 +
-`volume show _mDV-name_`
+`volume show <mdv-name>`
 
 +
 以下输出显示 MDV 卷已成功移动。
@@ -1189,11 +1222,11 @@ node_A_4-new      false
 ----
 .. 在旧节点（ node_A_1-old ）上将 epsilon 设置为 false ：
 +
-`cluster modify -node _old-nodge_ -epsilon false*`
+`cluster modify -node <old-node> -epsilon false*`
 
 .. 在新节点（ node_A_3-new ）上将 epsilon 设置为 true ：
 +
-`cluster modify -node _new-nodge_ -epsilon true`
+`cluster modify -node <new-node> -epsilon true`
 
 .. 验证 epsilon 是否已移至正确的节点：
 +

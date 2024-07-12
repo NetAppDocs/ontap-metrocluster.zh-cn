@@ -2,37 +2,48 @@
 :allow-uri-read: 
 
 
+某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。
+
++如果支持、您还可以使用命令中的参数指定一个高于100 (介于101和4095之间)的其他(非默认) VLAN `-vlan-id` `metrocluster configuration-settings interface create` 。
+
++以下平台*不*支持 `-vlan-id` 参数：
+
++** FAS8200和AFF A300** AFF A320** FAS9000和AFF A700** AFF C800、ASA C800、AFF A800和ASA A800
+
++所有其他平台均支持此 `-vlan-id` 参数。
+
++默认和有效的VLAN分配取决于平台是否支持 `-vlan-id` 以下参数：
+
 +
 
---
-[NOTE]
+[role="tabbed-block"]
 ====
-* 某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。您也可以在 MetroCluster configuration-settings interface create` 命令中使用 ` -vlan-id 参数` 指定一个大于 100 （ 101 到 4095 之间）的其他（非默认） VLAN 。
-* 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
-
-
-====
+.支持<code>－VLAN－</code>的平台
 --
-+如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。
+默认VLAN：
 
-+
-
-|===
-
-
-| AFF 平台 | FAS 平台 
+* 如果 `-vlan-id` 未指定参数、则会使用VLAN 10为"A"端口创建接口、并使用VLAN 20为"B"端口创建接口。
+* 指定的VLAN必须与在RC框架 中选择的VLAN匹配。
 
 
- a| 
-* AFF A220
-* AFF A250
-* AFF A400
+有效VLAN范围：
 
- a| 
-* FAS2750
-* FAS500f
-* FAS8300
-* FAS8700
+* 默认VLAN 10和20
+* VLAN 101及更高版本(介于101和4095之间)
 
 
-|===
+--
+.不支持<code>－VLAN－</code>的平台
+--
+默认VLAN：
+
+* 不适用。此接口不需要在MetroCluster接口上指定VLAN。交换机端口用于定义所使用的VLAN。
+
+
+有效VLAN范围：
+
+* 生成RC框架 时未明确排除所有VLAN。如果VLAN无效、RCZ将向您发出警报。
+
+
+--
+====

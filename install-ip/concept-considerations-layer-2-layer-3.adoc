@@ -70,7 +70,7 @@ image::../media/MCC_layer2.png[MCC层2.]
 
 
 .ONTAP中的VLAN配置
-只能在创建接口期间指定VLAN。创建MetroCluster接口后、无法更改VLAN ID。您可以在创建接口期间配置其他VLAN、但这些VLAN必须介于10到20之间或介于101到4096之间(或交换机供应商支持的数量、以较低的数字为准)。
+只能在创建接口期间指定VLAN。您可以配置默认VLAN 10和20、也可以配置介于101到4096 (或交换机供应商支持的数量、以较低的数量为准)范围内的VLAN。创建MetroCluster接口后、您将无法更改VLAN ID。
 
 
 NOTE: 某些交换机供应商可能会保留对某些VLAN的使用。

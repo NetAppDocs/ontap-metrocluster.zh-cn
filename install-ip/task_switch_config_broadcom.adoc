@@ -679,7 +679,7 @@ unit 	active 	   backup   current-active  next-active
 
 == 下载并安装 Broadcom RCF 文件
 
-您必须将交换机 RCF 文件下载并安装到 MetroCluster IP 配置中的每个交换机。
+您必须为MetroCluster IP配置中的每个交换机生成并安装交换机RCF文件。
 
 .开始之前
 此任务需要使用文件传输软件，例如 FTP ， TFTP ， SFTP 或 SCP ， 将文件复制到交换机。
@@ -739,7 +739,7 @@ NOTE: EFOS 3.4.4.6 或更高版本 3.4.x.x 的 RCF 文件版本和 EFOS 版本 3
 .步骤
 . 为 MetroCluster IP 生成 Broadcom RCF 文件。
 +
-.. 下载 https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["适用于 MetroCluster IP 的 RcfFileGenerator"]
+.. 下载 https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["适用于 MetroCluster IP 的 RcfFileGenerator"^]
 .. 使用适用于MetroCluster IP的RcfFileGenerator为您的配置生成RCF文件。
 +
 

@@ -2241,13 +2241,10 @@
   <block id="49bbf1feafd5bd1fce43e87c0b9dbd0b" category="inline-link-macro">收集所需信息</block>
   <block id="1cbfeb82dbc642ca3cfc8e2db84c469c" category="list-text"><block ref="1cbfeb82dbc642ca3cfc8e2db84c469c" category="inline-link-macro-rx"></block></block>
   <block id="89ec261ce88167cf44741974c5031e50" category="inline-link-macro">还原控制器模块上的系统默认值</block>
-  <block id="80fb18040e16ccb3a6c8dc20fc5f11f1" category="list-text"><block ref="80fb18040e16ccb3a6c8dc20fc5f11f1" category="inline-link-macro-rx"></block></block>
   <block id="251fa3a6289ecafe7b95d67056605968" category="list-text"><block ref="251fa3a6289ecafe7b95d67056605968" category="inline-link-macro-rx"></block></block>
   <block id="9db419369e9211f992a02b77873b9294" category="inline-link-macro">手动为池 0 分配驱动器（ ONTAP 9.4 及更高版本）</block>
-  <block id="55f78f2dd63e2732947016115017bd0f" category="list-text"><block ref="55f78f2dd63e2732947016115017bd0f" category="inline-link-macro-rx"></block></block>
   <block id="d93785c679dd9ecbbe55df9329146a8d" category="list-text">在维护模式下，问题描述 halt 命令退出维护模式，然后问题描述 boot_ontap 命令启动系统并进入集群设置。</block>
   <block id="ccaa4e34c729aaba9db9c5a44c41381f" category="paragraph">此时请勿完成集群向导或节点向导。</block>
-  <block id="b425f6bdd0c31b91b100e2fdd5e1f615" category="section-title">将新节点加入集群</block>
   <block id="6fd67a5ed9276ba994c073cf2c532faf" category="paragraph">您必须将四个新的 MetroCluster IP 节点添加到现有 MetroCluster 配置中。</block>
   <block id="b74949b8fefb7fd6ee33defaa6372e00" category="paragraph">您必须在两个集群上执行此任务。</block>
   <block id="dd1fe3592fd98072942cfb0278eb80b6" category="list-text">将新的 MetroCluster IP 节点添加到现有 MetroCluster 配置中。</block>
@@ -2269,8 +2266,6 @@
   <block id="0c6db123ffc5dea85a5d6efa7537d50b" category="paragraph"><block ref="0c6db123ffc5dea85a5d6efa7537d50b" category="inline-link-macro-rx"></block></block>
   <block id="0dd39f853425a9e387372f6c79ab0533" category="list-text">验证是否已创建灾难恢复组。</block>
   <block id="333744f802db71c53ff9d4ad61fbc125" category="list-text">为新加入的 MetroCluster IP 节点配置 MetroCluster IP 接口：</block>
-  <block id="9ace720c417350af9e7b31ebc811b5de" category="cell">AFF 平台</block>
-  <block id="cc04b828d9f0654ce99362fa4a96bb32" category="cell">FAS 平台</block>
   <block id="8fd3ca5f66dff5be16e79560dd28171e" category="list-text">AFF A220</block>
   <block id="68b23d3f7da36f1f08be0727f515bcb1" category="list-text">AFF A250</block>
   <block id="3eab1bbd4a3f05ea0803f3bcf5fac9e5" category="list-text">FAS2750</block>
@@ -2962,12 +2957,9 @@
   <block id="09f2306a6f2ede6943b6299ba6f08e6f" category="paragraph">e0h</block>
   <block id="1cee36e7d177f47699c566a98cdd28b7" category="cell">AFF A300 和 FAS8200</block>
   <block id="9cb7b36b3f2bccc776862e6f2f494077" category="paragraph">e1a</block>
-  <block id="8f3d53e328e933c1c823ad812070ee9a" category="cell">AFF A220 和 FAS2750</block>
   <block id="922c556baf6272bffc4fa28b2e9a0bbc" category="paragraph">e0a</block>
-  <block id="b33c216ed444f03f1d7617747a6e7d14" category="cell">在这些系统上，这些物理端口也用作集群接口。</block>
   <block id="931c3299e4495428df74c7ef15981af6" category="cell">AFF A250 和 FAS500f</block>
   <block id="96640993dd2592a16c29226daf83b860" category="paragraph">e0c</block>
-  <block id="5191792b1ad05675fea3bbf015036b3b" category="paragraph">e0d</block>
   <block id="fda43d88062de906d48d810772c64af8" category="paragraph">您可以填写下表，稍后在 Transition 操作步骤中进行参考。</block>
   <block id="121d6548b0fad19b15d7c092e2f5e930" category="cell">对应的 MetroCluster IP 接口端口（上表）</block>
   <block id="8066e9c42a7cdbdefb04bce6280fbc6c" category="cell">MetroCluster FC 节点上这些端口上的 LIF 发生冲突</block>
@@ -3072,7 +3064,6 @@
   <block id="ac4f7ed0780d8b54e6eb410d7adcd458" category="doc">配置新节点并完成过渡</block>
   <block id="2f27031fa0ef15874103f9c3c2bb2cdb" category="section-title">配置 MetroCluster IP 节点并禁用过渡</block>
   <block id="328e2e9e10966db8ddcc53513bf291f7" category="paragraph">您必须实施 MetroCluster IP 连接，刷新 MetroCluster 配置并禁用过渡模式。</block>
-  <block id="e236c571f68a8abbf9f63cbdda82b284" category="paragraph">只有在未使用默认 VLAN ID 时，才需要 -vlan-id 参数。只有某些系统支持非默认 VLAN ID 。</block>
   <block id="7f4213ba547153050e227bb7e83660cf" category="paragraph">您应看到属于配置中其他节点的远程磁盘。</block>
   <block id="8c15601542a4a3c04530817628d2af6a" category="list-text">为 node_A_2-IP 和 node_B_2-IP 分配磁盘。</block>
   <block id="bb50c17a0e9cd6e1adac508ca2cb8849" category="paragraph">在启动菜单中发出 boot_after_mcc_transtion 命令时，池 1 的磁盘分配已针对 node_A_1-IP 和 node_B_1-IP 进行。</block>
@@ -6421,7 +6412,6 @@
   <block id="0b39c5cb4b3f3f49373baeeadf7dc123" category="paragraph">在双节点 MetroCluster 配置中，您必须在每个集群上启动节点，退出集群设置向导，然后使用 cluster setup 命令将节点配置为单节点集群。</block>
   <block id="2dafecd33d1bcc030e5a4330614efcc0" category="paragraph">您不能事先配置服务处理器。</block>
   <block id="3d97e23b9e037dc67358be022977af8f" category="paragraph">此任务适用于使用原生 NetApp 存储的双节点 MetroCluster 配置。</block>
-  <block id="0db317f78e958b4fc0a151a64a160872" category="paragraph">新的 MetroCluster 系统已预先配置；您无需执行这些步骤。但是，您应配置 AutoSupport 。</block>
   <block id="f82209ba761a7a3841706c46b4b7c662" category="paragraph">必须对 MetroCluster 配置中的两个集群执行此任务。</block>
   <block id="1b8e8c7488b5a9cb01bbce47b4cbfd12" category="paragraph">有关设置 ONTAP 的更多常规信息，请参见 _Software 设置指南 _</block>
   <block id="65ed7b3de2c8dfe1b7246d59c4b26a4f" category="list-text">打开第一个节点的电源。</block>
@@ -6793,7 +6783,6 @@
   <block id="c00379eb260028495e53ff62fa9b3a5a" category="inline-link">Cisco 软件下载</block>
   <block id="5aedab8d739511d2dba79600be296c2e" category="paragraph">安装交换机软件后，交换机将自动重新加载（重新启动）。</block>
   <block id="15035122b1bddd8c3fe67b67b0705420" category="list-text">对 MetroCluster IP 配置中的其余三个 IP 交换机重复上述步骤。</block>
-  <block id="ae5a9e1b352beed4f4e81e14f93b2027" category="paragraph">您必须将 RCF 文件下载到 MetroCluster IP 配置中的每个交换机。</block>
   <block id="ea0d999dd84d8036206106a29fbde270" category="paragraph">有四个 RCF 文件， MetroCluster IP 配置中的四个交换机中的每个交换机一个。您必须为所使用的交换机型号使用正确的 RCF 文件。</block>
   <block id="73c6d760f528fa449fd643ef68f79a32" category="paragraph">IP_switch_A_1</block>
   <block id="334910bbc7198eea40a5718a09788dc1" category="paragraph">NX3232_v1.80_Switch-A1.txt</block>
@@ -6874,7 +6863,6 @@
   <block id="f1782a056fe3c67c3b672e085d43d4d7" category="paragraph">您将收到类似于以下示例的提示和输出：</block>
   <block id="2820fb4a624285c62742b62da6679fb8" category="paragraph">必须对 MetroCluster IP 配置中的每个交换机重复执行此任务。</block>
   <block id="1ff36fa740a0902025854b326dfe57e6" category="list-text">等待交换机重新启动。</block>
-  <block id="5d975c1dd11d51c95b55f14295457c6d" category="paragraph">您必须将交换机 RCF 文件下载并安装到 MetroCluster IP 配置中的每个交换机。</block>
   <block id="8dbef93c578a2dd1a148ce7a8e7ed428" category="list-text">对其他三个交换机中的每一个交换机重复上述步骤，确保将匹配的 RCF 文件复制到相应的交换机。</block>
   <block id="2ac5b29f2d20bbfbdc32651d31618463" category="summary">一个八节点配置将包含两个 DR 组。使用本节中的任务配置第一个 DR 组。</block>
   <block id="146d142d8ea797f93d593a6fe9556787" category="doc">处理八节点配置</block>
@@ -7018,20 +7006,14 @@
   <block id="447d3c6954efb460e6f47e331615176f" category="paragraph">10.1.2.3</block>
   <block id="87d86e0d3cf65f69738c696c5ab800b4" category="paragraph">10.1.1.4</block>
   <block id="cc291563cd7eddd5afa9db9213280427" category="paragraph">10.1.2.4</block>
-  <block id="7836fec023af8279b6813ce6178cea83" category="paragraph">MetroCluster IP 接口使用的物理端口取决于平台型号，如下表所示。</block>
-  <block id="e84adb514eb7cf544f0458fa9f233a94" category="paragraph">FAS8300 和 FAS8700</block>
-  <block id="bb696bca91d9d001f9391644f8ffc55b" category="paragraph">以下示例中的端口使用情况适用于 AFF A700 或 FAS9000 系统。</block>
   <block id="26474283e53d2bcc6e465bb015d10ac6" category="paragraph">磁盘自动分配将按磁盘架分配池 0 和池 1 磁盘。</block>
   <block id="3b5ce19996941b3d479b35bc903fc3c5" category="paragraph">自动分配列指示是否已启用磁盘自动分配。</block>
   <block id="9f7283c1c792ddad181076fee0869a5a" category="paragraph">所有节点均应准备就绪：</block>
   <block id="8f955ed5a582fae9866401d6c28b2e2b" category="list-text">在 node_A_1 上创建接口。</block>
-  <block id="d6bd32bf1126979c2d4e6ece8c95299c" category="list-text">以下示例中的端口使用情况适用于 AFF A700 或 FAS9000 系统（ e5a 和 e5b ）。您必须按照上述说明在适用于您的平台型号的正确端口上配置接口。</block>
-  <block id="5164fe99511e449f9e8845c15ef34f48" category="list-text">在支持 MetroCluster IP 接口的 的平台型号上，如果不想使用默认 VLAN ID ，可以使用 ` -vlan-id` 参数。</block>
   <block id="7038283390e1896174a1ee9c0a0abffd" category="admonition">您可以使用 `MetroCluster configuration-settings interface show` 命令验证这些接口是否存在。</block>
   <block id="c22374f63564b93ff51df38b4b1bd900" category="list-text">在 node_A_2 上创建接口。</block>
   <block id="57b75395c7f63a75a4e6b6d3198f299b" category="paragraph">以下示例显示了每个接口的配置状态已完成。</block>
   <block id="81b3ec87aa382eaeed6816109d653991" category="paragraph">以下示例显示了处于 " 准备连接 " 状态的所有节点：</block>
-  <block id="b3aefc653b3e34234962d0fd4751384e" category="paragraph">问题描述此命令后，无法更改 IP 地址。</block>
   <block id="5477c0f2f19c548117af0a9f6d15e1cd" category="paragraph">以下示例显示 cluster_A 已成功连接：</block>
   <block id="18247a699f6a66787ed75bb08c337588" category="paragraph">所有节点的配置设置状态均应为已完成：</block>
   <block id="bfef0aed3eee854d17924912c8945230" category="list-text">验证是否已建立 iSCSI 连接：</block>
@@ -8015,8 +7997,6 @@
   <block id="4d02019723a4017318fe7fcb3cebc7cc" category="list-text">e5b ： 172.17.27.13</block>
   <block id="54a37fb90fee103691197fc9d5ac4722" category="list-text">e5a ： 172.17.26.12</block>
   <block id="8a5c2788729f7d71adc6ea3073bef0a7" category="list-text">e5b ： 172.17.27.12</block>
-  <block id="293eb0cec46bbaec87fb533441fc6a62" category="paragraph">下表列出了在 MetroCluster IP 接口上使用 VLAN ID 的平台型号。如果您不使用默认 VLAN ID ，则这些型号可能需要执行其他步骤。</block>
-  <block id="c19058170bee0e83b964c0c32018bf9a" category="cell">使用 MetroCluster IP 接口的 VLAN ID 的平台型号</block>
   <block id="84880048c8db4bb557c571e15f6437c7" category="list-text">从正常运行的站点收集灾难站点上 MetroCluster 接口的 IP 地址：</block>
   <block id="7a401d723d877e99188e0a3d18003e13" category="paragraph">所需地址为 * 目标网络地址 * 列中显示的 DR 配对节点地址。</block>
   <block id="940e6eb81cb9ea67ed6a7924fe4f6444" category="list-text">如果需要确定接口的 VLAN ID 或网关地址，请从正常运行的站点确定 VLAN ID ：</block>
@@ -8894,7 +8874,6 @@
   <block id="c1f192f6d626bc5f27fc74b0848a1250" category="paragraph">`cluster ha modify -configured true`</block>
   <block id="f701f89f7ca2ae6b3b4586149d7f51e3" category="paragraph">MetroCluster node show -fields node ， dr-partner ， dr-partner-systemID`</block>
   <block id="2f311d11b06ed91a28142e5c25bbdfb5" category="list-text"><block ref="2f311d11b06ed91a28142e5c25bbdfb5" category="inline-link-macro-rx"></block></block>
-  <block id="fe7cd7570699a4adf147f5f7b9a04721" category="paragraph">`ssystem node AutoSupport invoke -node * -type all -message "MAIN=10h upgrading _old-model_ to _new-model"_`</block>
   <block id="217c8768ad5ec1b4b90b1244cd1221a7" category="paragraph">此示例指定了一个 10 小时的维护时段。根据您的计划，您可能需要留出更多时间。</block>
   <block id="bb8ad4609bcc62e85b4c9841b8d5f950" category="paragraph">`node run -node _node-name_ sysconfig -a`</block>
   <block id="e3ccf677e56366a417a172944cdd9599" category="paragraph">MetroCluster check show`</block>
@@ -8912,16 +8891,11 @@
   <block id="2dccf53d6ed326f889d8e764529b9794" category="list-text">验证磁盘自动分配和分区：</block>
   <block id="f65ec829d063a64803356b190c18d5ab" category="paragraph">`disk show -pool Pool1`</block>
   <block id="3f95b2ea711d433e26a8b5eb63bbd17a" category="paragraph">`storage aggregate mirror -aggregate aggr0_node_A_1-new`</block>
-  <block id="170c0bd348671980b8974da23b1a29d5" category="paragraph">`storage aggregate create -aggregate _aggregate-name_ -node _node-name_ -diskcount _no-of-disks_-mirror true`</block>
   <block id="f00a8c2c5126c8a92b929c756950f0f8" category="list-text">在其中一个新节点上刷新 MetroCluster 配置：</block>
   <block id="2ae5190e09d5d39bdc4388104b1ebcd4" category="paragraph">MetroCluster configure`</block>
-  <block id="b7eb0ab9143e83a0ba9eaa1b24abb788" category="paragraph">`volume move start -volume _mDV-volume" -destination-aggregate _aggr-on-new-node" -vserver _vserver-name_`</block>
   <block id="aacab676cefc900d32e2155650f1b66e" category="paragraph">以下示例显示了将 "MDV_CRS_d6b0b313ff5611e9837100a098544e51_a" 移动到 "node_A_3" 上的 "data_a3" 的命令和输出。</block>
-  <block id="a25df1c27211fa258fda2429e25619ba" category="paragraph">`volume show _mDV-name_`</block>
   <block id="cc863d7088764c07fa87ffea3cae245e" category="list-text">确定哪个节点当前具有 epsilon ：</block>
   <block id="19b075b0ff8fbdf79efbef8787bbf0d7" category="paragraph">`cluster show -fields epsilon`</block>
-  <block id="d75b73420fff0db8b490d51327d3ac30" category="paragraph">`cluster modify -node _old-nodge_ -epsilon false*`</block>
-  <block id="7e8573f61e56d88c570a9b47a35d2872" category="paragraph">`cluster modify -node _new-nodge_ -epsilon true`</block>
   <block id="70ede8550fd471e8c5c1bef06eb1447b" category="list-text">确定现有节点的聚合所在位置：</block>
   <block id="9fb69b3f5bbfa809364de634824a9137" category="list-text">如果磁盘所有权自动分配已启用，请将其关闭：</block>
   <block id="268f1e3113b76d1115b1dfd6ea2805c8" category="paragraph">`s存储磁盘选项 modify -node _node_name_ -autosassign off`</block>
@@ -9167,10 +9141,8 @@
   <block id="cb8db61556b998f0533a4e329749c0f3" category="list-text">您必须在同一 VLAN 中创建所有 MetroCluster IP 接口 "A" 端口，在另一 VLAN 中创建所有 MetroCluster IP 接口 "B" 端口。请参见 <block ref="0d7e2206ca44f9cb7344ddf469b6d625" category="inline-link-macro-rx"></block>。</block>
   <block id="815655232c25fc83e97a6545a3d32ad0" category="list-text">确认每个节点均已启用磁盘自动分配：</block>
   <block id="a6f575cfbb092754b19dcdd7684049de" category="list-text">验证是否可以在节点上创建 MetroCluster IP 接口：</block>
-  <block id="45ad6e06c40844c6f5b57d8932e2f7ff" category="paragraph">MetroCluster configuration-settings interface create -cluster-name _cluster-name_ -home-node _node-name_ -home-port e5a -address _ip-address_ -netmask _netmask_`</block>
   <block id="27dcaaf47e1da08f00a2b2187c12fb1c" category="paragraph">以下示例显示了如何在 "node_A_1" 上的端口 "e5a" 上创建 IP 地址为 10.1.1.1" 的接口：</block>
   <block id="05dbfe1f868a1f51583d39356b69e4e2" category="list-text">在 "node_A_1" 上的端口 "e5b" 上配置接口：</block>
-  <block id="20c3f3b4b951b2af82631bde02fb51b9" category="paragraph">MetroCluster configuration-settings interface create -cluster-name _cluster-name_ -home-node _node-name_ -home-port e5b -address _ip-address_ -netmask _netmask_`</block>
   <block id="1803e10a14f354e79a75c68f1ec4c3c3" category="paragraph">以下示例显示了如何在 "node_A_1" 上的端口 "e5b" 上创建 IP 地址为 10.1.2.1 的接口：</block>
   <block id="3facfe536f4f52048e9d7222f2d8250f" category="list-text">在 "node_A_2" 上的端口 "e5a" 上配置接口：</block>
   <block id="0e2dc7ff2639ee165230de13a347688d" category="paragraph">以下示例显示了如何在 "node_A_2" 上的端口 "e5a" 上创建 IP 地址为 10.1.1.2" 的接口：</block>
@@ -9192,7 +9164,6 @@
   <block id="7f252cde9b9d80bca3f1b99cc3c2ae55" category="paragraph">有关确定系统是否需要手动分配磁盘的详细信息，请参见 <block ref="e40d6a178d9137d254eca9144fcc5d3c" category="inline-link-macro-rx"></block>。</block>
   <block id="93a05e12a5b6edba257e33f8d132f672" category="list-text">显示未分配驱动器的列表：</block>
   <block id="9541d0a2ec2001b79a5021245bc8097d" category="paragraph">`disk show -host-adapter 0m -container-type unassigned`</block>
-  <block id="43e6ad4a7595ffb998ecabca800a4499" category="paragraph">`ddisk assign -disk _disk-id_ -pool 1 -owner _owner-node-name_`</block>
   <block id="3eb645c2e2e57a4fa839c890ce5500a5" category="list-text">确认驱动器已分配给池 1 ：</block>
   <block id="0b9ffe41b53e309536e3f5708172ef6b" category="admonition">用于访问远程驱动器的 iSCSI 连接显示为设备 0m 。</block>
   <block id="537950db1fe03e9e3a49db57addd85c6" category="paragraph">您必须先将磁盘架上的磁盘分配给 pool1 。然后， ONTAP 会自动将磁盘架上的其余磁盘分配到同一个池。</block>
@@ -9201,17 +9172,14 @@
   <block id="ee7e48631bbfc8e832cadee5bbbc03a9" category="paragraph">您必须通过在每个磁盘架上指定一个磁盘来 " 传播 " 自动分配。</block>
   <block id="94427a4d5177b2ba3264de4433e877c3" category="list-text">显示未分配磁盘的列表：</block>
   <block id="97047fcf259462467b79b76f81bc261f" category="list-text">选择一个远程磁盘（ 0m ）并将该磁盘的所有权分配给第一个节点的池 1 （例如， "node_A_1" ）：</block>
-  <block id="1df04fb323d4da59ba3f98ebc5f1b64e" category="paragraph">`disk-id` 必须标识远程磁盘架 `owner-node-name` 上的磁盘。</block>
   <block id="123e6c3d9c94f11e38d58164f434bdf4" category="paragraph">ONTAP 磁盘自动分配功能可分配包含指定磁盘的远程磁盘架上的所有磁盘。</block>
   <block id="81b4294a2f342064d8a63544ff17f60d" category="list-text">至少等待 60 秒，以便执行磁盘自动分配后，验证磁盘架上的远程磁盘是否已自动分配到池 1 ：</block>
   <block id="22d6fa72a4ea2e4fe27cd33123cd3604" category="admonition">用于访问远程磁盘的 iSCSI 连接显示为设备 0m 。</block>
   <block id="e2decc514aafe4bdb93b0e8ed1164162" category="list-text">重复上述步骤，将池 1 磁盘分配给站点 A 上的第二个节点（例如， "node_A_2" ）。</block>
   <block id="e1ba2dd99f6f83bc8a965b69cf5d438e" category="list-text">启用自动驱动器分配：</block>
-  <block id="c6aa0c3762cef91596cb5364dc0519ff" category="paragraph">`s存储磁盘选项 modify -node _node_name_ -autodassign on`</block>
   <block id="f85d453a151727b424ea32911c308179" category="paragraph">最佳实践是具有多个数据聚合。如果第一个 DR 组只有一个聚合，而您要添加一个具有一个聚合的 DR 组，则必须将元数据卷从单个数据聚合中移出。有关此操作步骤的详细信息，请参见 <block ref="bf3d05f18b73f1c62d283d02a0c83e7a" category="inline-link-macro-rx"></block>。</block>
   <block id="a0015e0604e545ee6945f1fa8fdce38f" category="paragraph">以下命令将在包含 controller_A_1 的 DR 组中的所有节点上启用 MetroCluster 配置：</block>
   <block id="317d0fe753c44e0c763e684785e3b0bd" category="list-text">为了避免非易失性内存镜像可能出现的问题，请重新启动四个节点中的每个节点：</block>
-  <block id="752dca7721b956b1795d215187b7376f" category="paragraph">`node reboot -node _node-name_ -inhibit-takeover true`</block>
   <block id="0a61a44a1765390d027f85da70024fd8" category="list-text">在两个集群上运行 `MetroCluster show` 命令以再次验证配置。问题描述</block>
   <block id="43a86ca9910ac10add49d293714b50f6" category="section-title">在八节点配置中配置第二个 DR 组</block>
   <block id="fb2c0ebeb18b9e1080333a65b192bdc3" category="list-text">如果使用的是现有的 ONTAP 调解器实例，请将 ONTAP 调解器服务添加到 ONTAP ：</block>
@@ -9236,7 +9204,6 @@
   <block id="053fd046deb54dbacad889f05ffee8e0" category="paragraph">以下示例显示 "e0c" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0d" 端口。</block>
   <block id="93bd31ad3f01a4e23f09c1115d310eba" category="list-text">在每个节点上输入以下命令，以验证节点是否已准备好创建 DR 组：</block>
   <block id="1e1bd4d49c72f5651a7bf56c3b28ad9e" category="list-text">创建 DR 组：</block>
-  <block id="398261489fd871e4bf365185e2f10654" category="paragraph">MetroCluster configuration-settings dr-group create -partner-cluster _partner-cluster-name_ -local-node _local-node-name_ -remote-node _remote-node-name_`</block>
   <block id="6fdec1a2f60a774bc364863d2853cc3f" category="list-text">在 "node_A_1" 上的端口 "e5a" 上配置接口：</block>
   <block id="157a6bcaaff3b669e668545751fae86b" category="paragraph">在支持 MetroCluster IP 接口的 的平台型号上，如果不想使用默认 VLAN ID ，可以使用 ` -vlan-id` 参数。以下示例显示了 VLAN ID 为 120 的 AFF A220 系统的命令：</block>
   <block id="2be2ed51bf35c58daab1a1526efc5100" category="paragraph">在支持 MetroCluster IP 接口的 的平台型号上，如果不想使用默认 VLAN ID ，可以使用 ` -vlan-id` 参数。以下示例显示了 VLAN ID 为 220 的 AFF A220 系统的命令：</block>
@@ -9246,7 +9213,6 @@
   <block id="4a4f0dbbec7c6fc22577537e368451fa" category="list-text">验证池 1 磁盘是否已自动分配：</block>
   <block id="322e2c846116040bff9937c4eb03cb07" category="paragraph">驱动器自动分配已将四分之一（ 8 个驱动器）分配给 "node_A_1" ，将四分之一分配给 "node_A_2" 。其余驱动器将是 "node_B_1 和 "node_B_2" 的远程（池 1 ）磁盘。</block>
   <block id="ebf25afcc7ec4438e4e8b495a9c10a1b" category="list-text">将远程驱动器（ 0m ）的所有权分配给第一个节点的池 1 （例如 node_A_1 ）：</block>
-  <block id="d2d4ec61bf8acc60eba25fa2650dd53e" category="paragraph">`disk-id` must identify a drive on a remote shelf of `owner-node-name` .</block>
   <block id="17da74bf82e8d747a23d8c6d18cc7bf9" category="list-text">重复上述步骤，将池 1 驱动器分配给站点 A 上的第二个节点（例如， "node_A_2" ）。</block>
   <block id="7ac859a003981d6ae416588202d0dbb4" category="paragraph">如果每个节点至少有两个磁盘架，则可以使用 ONTAP 的自动分配功能自动分配远程（ pool1 ）磁盘。</block>
   <block id="472d27b022b8174e4ae4cbdabe2bc8a7" category="list-text">site_B-shelf_2 上的所有磁盘都会自动分配给 node_A_1 的 pool1</block>
@@ -9349,7 +9315,6 @@
   <block id="f8749c965ed2c1726c2137bc6a8da847" category="list-text">安装交换机软件： `install all nxos bootflash ： nxos.version-number.bin`</block>
   <block id="4f9c0725d0d15a8e91511fc6c394410b" category="paragraph">以下示例显示了 IP_switch_A_1 上的软件安装：</block>
   <block id="2abfbcb3b6483942c4afa57d53f93914" category="list-text">验证是否已安装交换机软件： `show version`</block>
-  <block id="837bb09325ae9b33d183f31d5f605c2f" category="list-text">下载 MetroCluster IP RCF 文件。</block>
   <block id="6f1e191c9822753ed22d3be112079696" category="paragraph">在此示例中， NX3232_v1.80_Switch-A1.txt RCF 文件将从位于 10.10.99.99 的 SFTP 服务器复制到本地 bootflash 。您必须使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 文件的文件名。</block>
   <block id="aa2b4a7618116e3e8d57f32b079650e7" category="list-text">在 Cisco 3132Q-V 和 Cisco 3232C 交换机上配置 TCAM 区域。</block>
   <block id="11f4fcfb5097e0ea2628fb4a1004ccde" category="admonition">如果您没有 Cisco 3132Q-V 或 Cisco 3232C 交换机，请跳过此步骤。</block>
@@ -9429,7 +9394,6 @@
   <block id="30fb21972afba53cd103c9063e54815b" category="cell">3.7.x.x</block>
   <block id="ca06807503101d86e21d40fd5c8ff94b" category="cell">v2.x</block>
   <block id="ab4a2de3931dbed092e0d44be3c87116" category="list-text">为 MetroCluster IP 生成 Broadcom RCF 文件。</block>
-  <block id="fd550a9c3a7b7c6106ae07bc6bb69106" category="list-text">下载<block ref="166489b3c340ece1eccb5706fda90624" category="inline-link-rx"></block></block>
   <block id="83be746defb3baacbca8a27913d5e887" category="summary">您可能需要使用共享 Storage MetroCluster 交换机将 NS224 磁盘架添加到 MetroCluster 中。</block>
   <block id="81614ec1c85e193dd436e86dd56ed40d" category="doc">使用共享 Storage MetroCluster 交换机向 MetroCluster IP 添加磁盘架</block>
   <block id="0aefe0e277b60b987afe007a43a31ca0" category="paragraph">从 ONTAP 9.10.1 开始，您可以使用共享存储 /NS224 MetroCluster 交换机从 MetroCluster 添加 NS224 磁盘架。您可以一次添加多个磁盘架。</block>
@@ -9459,7 +9423,6 @@
   <block id="6479a6c19128ccb1ed55ac097ef1e1e7" category="list-text">使用从 "**RcfFileGenerate" 工具生成的布线布局将磁盘架连接到相应的端口。</block>
   <block id="3dc0d5b9eac0c50a790964bb3a643fa3" category="paragraph">正确连接新磁盘架后， ONTAP 会自动在网络上检测到该磁盘架。</block>
   <block id="f18720a1eb7d7bace925c2a97a20075f" category="list-text">访问<block ref="3725c06f412bedb14ffd610de312875d" category="inline-link-rx"></block> 下载用于执行系统网络启动的文件。</block>
-  <block id="e4194351c70f628f28ee542a65494961" category="list-text">某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。您也可以在 MetroCluster configuration-settings interface create` 命令中使用 ` -vlan-id 参数` 指定一个大于 100 （ 101 到 4095 之间）的其他（非默认） VLAN 。</block>
   <block id="f49f60b6304797900db897e855566402" category="inline-link-macro">使用切换和切回命令使用 system controller replace 升级四节点 MetroCluster FC 配置中的控制器（ ONTAP 9.10.1 及更高版本）</block>
   <block id="c305ce21377f146200c5e9ef13536599" category="summary">您可以使用此引导式自动 MetroCluster 切换操作对四节点 MetroCluster FC 配置执行无中断控制器升级。</block>
   <block id="66c25daffc009801ab74d25814bedafb" category="paragraph">您可以使用此引导式自动 MetroCluster 切换操作对四节点 MetroCluster FC 配置执行无中断控制器升级。无法在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
@@ -9544,13 +9507,11 @@
   <block id="669f62b51efaf771cdc56bbd948e67a7" category="admonition">如果输入的 MySQL root 密码不正确， Tiebreaker 软件会指示已成功安装该密码，但会显示 Access Denied 消息。要解决问题描述问题，您必须使用 `rpm -e` 命令卸载 Tiebreaker 软件，然后使用正确的 MySQL root 密码重新安装该软件。</block>
   <block id="69b040d4f8adaa4c34e437207036c73c" category="list-text">验证是否已配置 SNMP 设置：</block>
   <block id="da82ec774885b0fd4ea7e17756ffc01b" category="paragraph">`snmp config test`</block>
-  <block id="3b0649c72650c313a357338dcdfb64ec" category="cell">注意</block>
   <block id="09cb6984bdf1b82c9749906ba1a69331" category="summary">您可以更改 MetroCluster IP 接口， IP 地址和掩码以及网关的以下属性。您可以使用任意参数组合进行更新。</block>
   <block id="d7fffb0ac95f2fd216c5e3fd04365cca" category="paragraph">您可能需要更新这些属性，例如，如果检测到重复的 IP 地址，或者在第 3 层网络中，如果由于路由器配置更改而需要更改网关。</block>
   <block id="383d9b07e1ef0cfcfa9ec36fecccfe02" category="paragraph">一次只能更改一个接口。在更新其他接口并重新建立连接之前，此接口上的流量将中断。</block>
   <block id="8450a359c3efc774857fe0f3189456e0" category="paragraph">使用 `MetroCluster configuration-settings interface modify` 命令更改任何 MetroCluster IP 接口属性。</block>
   <block id="6a644f6158922e284b18d4232a152b9f" category="admonition">这些命令用于更改特定端口的特定节点上的配置。要还原完整的网络连接，需要在其他端口上使用类似的命令。同样，网络交换机也需要更新其配置。例如，如果网关已更新，则理想情况下，它会在 HA 对的两个节点上进行更改，因为它们是相同的。此外，连接到这些节点的交换机还需要更新其网关。</block>
-  <block id="7c7233877526ac5d7617b812df525ea4" category="paragraph">使用 `MetroCluster configuration-settings interface show` ， `MetroCluster connection` check 和 `MetroCluster connection show` 命令验证所有接口中的所有连接是否正常工作。</block>
   <block id="700215bf58e5cc6edce60155aeb7c44a" category="section-title">修改 IP 地址，网络掩码和网关</block>
   <block id="2747f7ff86cce509295bfb4ba2b1c4fa" category="list-text">更新单个节点和接口的 IP 地址，网络掩码和网关： `MetroCluster configuration-settings interface modify`</block>
   <block id="2f545dcb650b5848061814c5ce3b4cf4" category="paragraph">以下命令显示如何更新 IP 地址，网络掩码和网关：</block>
@@ -9618,9 +9579,6 @@
   <block id="5594b012385083b2dd778011df3d6f3d" category="paragraph"><block ref="5594b012385083b2dd778011df3d6f3d" category="inline-link-rx"></block></block>
   <block id="9a0dfb0af7717632c4b3bc7de1ff2fff" category="paragraph"><block ref="9a0dfb0af7717632c4b3bc7de1ff2fff" category="inline-link-rx"></block></block>
   <block id="8891488ccf0af3b6c4a946824e6f0cdc" category="admonition">当前仅支持一个 SNMP 陷阱主机。</block>
-  <block id="f6acb42dff1f31025b3df225af9cfeb7" category="list-text">按照 _IP MetroCluster 安装和配置 _ 中所示，使用缆线将新的 MetroCluster IP 节点连接到 IP 交换机</block>
-  <block id="657bcb6c51639854c4fdede551507755" category="paragraph"><block ref="657bcb6c51639854c4fdede551507755" category="inline-link-macro-rx"></block></block>
-  <block id="f8f9e49e85005888d8da2b71cfd36720" category="list-text">使用 MetroCluster 安装和配置 _ 的以下部分配置 MetroCluster IP 节点</block>
   <block id="680a4f630b21eab8e23842ce1e77c536" category="list-text"><block ref="680a4f630b21eab8e23842ce1e77c536" category="inline-link-macro-rx"></block></block>
   <block id="fe829dd203a0238e92149d6e50fe01a3" category="list-text"><block ref="fe829dd203a0238e92149d6e50fe01a3" category="inline-link-macro-rx"></block></block>
   <block id="87c6a5076eda134fab631a4899bd23d4" category="list-text"><block ref="87c6a5076eda134fab631a4899bd23d4" category="inline-link-macro-rx"></block></block>
@@ -9928,7 +9886,6 @@
   <block id="89cd18493d151ae11e875d4edf6b6e66" category="list-text">第二季度有四个驱动器： 6 ， 7 ， 8 ， 9</block>
   <block id="8d48afc2af7642b1eb38cbfe7c3b33d8" category="list-text">第三季度有四个驱动器： 12 ， 13 ， 14 ， 15</block>
   <block id="807910399f003942a09396612760caef" category="list-text">第四季度有四个驱动器： 18 ， 19 ， 20 ， 21</block>
-  <block id="ef552e9c89303b51a8bdce9d5298edba" category="paragraph">e7b</block>
   <block id="1700747af42734556058284b63ef6e71" category="paragraph"><block ref="1700747af42734556058284b63ef6e71" category="inline-link-macro-rx"></block></block>
   <block id="04c19f5eb2ebdc099239a7074f8d6534" category="paragraph">9.10.1 及更高版本</block>
   <block id="3c0d1e1f00418201fc22f92ffeea2a6f" category="summary">从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
@@ -10795,9 +10752,7 @@
   <block id="14b3de5cc3b7ebe82cf797d4c070ce27" category="list-text">此操作步骤无中断。</block>
   <block id="c360a01208e0f0cebb82608c945309e8" category="paragraph">在此操作期间， MetroCluster 配置可以继续提供数据。</block>
   <block id="303070df2456faa853aadfa7ea3999db" category="list-text">从控制器 node_A_1-IP 发出以下命令，将新节点组成 DR 组：</block>
-  <block id="e7973dc96fbf00a42cc73b5c38c79955" category="paragraph">`MetroCluster configuration-settings dr-group create -partner-cluster peer-cluster-name -local-node local-controller-name -remote-node remote-controller-name`</block>
   <block id="ba687aa6b66d0caad63c23e4f8056daa" category="list-text">创建 MetroCluster IP 接口（ node_A_1-IP ， node_A_2-IP ， node_B_1-IP ， node_B_2-IP ）—每个控制器需要创建两个接口；总共八个接口：</block>
-  <block id="fa8131efc320bb8e280052bd108e5171" category="paragraph">`MetroCluster configuration-settings interface create -cluster-name cluster-name -home-node controller-name -home-port port -address IP-address -netmask -vlan-id vlan-id``metrocluster configuration-settings interface show`</block>
   <block id="eae306387b2384204fa6a3c19690890a" category="admonition">从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 <block ref="babfc343bda1ae07500c981be392a72d" category="inline-link-macro-rx"></block>。</block>
   <block id="9a0b9eb8837eefadab01d020fa11e1d5" category="list-text">从控制器 node_A_1-IP 执行 MetroCluster 连接操作以连接 MetroCluster 站点 - 此操作可能需要几分钟才能完成：</block>
   <block id="5d8ecedd372251a662a8070efd4d44a1" category="list-text">验证远程集群磁盘是否可通过 iSCSI 连接从每个控制器中看到：</block>
@@ -10820,31 +10775,23 @@
   <block id="92c03821cf1fd0c73a5e49dcca72a754" category="paragraph">请参见中收集的信息 <block ref="5526fc01172ddb0cb9f7fe4ff9dd9143" category="inline-link-macro-rx"></block>。</block>
   <block id="0f017cab6ec74ba1f4afec8f68cba30b" category="paragraph">`network interface show -field home-port`</block>
   <block id="ebb1f0f568f8a927428fc83bb9ebb26c" category="list-text">如有必要，请修改 LIF 配置：</block>
-  <block id="cf5ad87d9cad301afa5079b192ec4fe1" category="paragraph">`vserver config override -command "network interface modify -vserver vserver_name -home-port active_port_after_upgrade -lif lif_name -home-node new_node_name"`</block>
   <block id="d97bb8f76cd270b3d3f4ad15bf1ad581" category="list-text">将 LIF 还原到其主端口：</block>
   <block id="1d7b64edfdea8f80d1f2ac282bdb2bc3" category="list-text">检查 SVM 的状态：</block>
   <block id="ff52cbccdf312c3ea8a620732c8adcbb" category="list-text">在 cluster_A 上重新启动不具有 "` -mc` " 后缀的 SVM ：</block>
-  <block id="92227e5460eb525c285dd05f872c0b0b" category="paragraph">`vserver start -vserver svm-name -force true`</block>
   <block id="f62ca81f37424307e221ec33ca15ce2c" category="list-text">检查所有 SVM 是否均处于运行状况良好的状态：</block>
   <block id="10ccf225d5b66e557c92de3b160a830f" category="list-text">验证所有数据 LIF 是否均已联机：</block>
   <block id="898812d66585786df66f46dc03dbd2fe" category="paragraph">系统卷的名称格式为 `MDV\_CRS_*\_A` 或 `MDV_CRS_*\_B` "` _A` " 和 "` _B` " 与本节中使用的 site_A 和 site_B 参考无关；例如， MDV_CRS_*_A 与 site_A 不相关</block>
   <block id="1accc6cb1f1118e060a5ddb1cbcdc858" category="list-text">在控制器 node_A_2-IP 上创建镜像聚合以存放系统卷：</block>
-  <block id="0df1338723e7e2dede2b69ee215ab08d" category="paragraph">`aggr create -aggregate new_node_A_2-ip_aggr -diskcount 10 -mirror true -node nodename_node_A_2-ip`</block>
   <block id="10404496bc3fdbc20b1a8cb6f40290ac" category="paragraph">`aggr show`</block>
   <block id="7bfd01cb125fbc7dbcaca1c1a5ba6b84" category="paragraph">高级选项 "` force-Small-aggregate true` " 可用于将磁盘使用限制为 3 个池 0 磁盘和 3 个池 1 磁盘，前提是磁盘的供应不足。</block>
   <block id="07d91fa2c5be95dfee421615bc50eb6a" category="list-text">列出与管理 SVM 关联的系统卷：</block>
   <block id="d18522f509115a3fc2cb993d3bb07341" category="paragraph">`vserver show`</block>
-  <block id="2bcc2af8321d27cf62ad615dcc09c890" category="paragraph">`volume show -vserver _admin-vserver-name_`</block>
   <block id="c526c532810479af3143f75c0b926db1" category="paragraph">您应标识 site_A 拥有的聚合所包含的卷此外，还会显示 site_B 系统卷。</block>
   <block id="de77dddd8bae21c040010b1563afa176" category="list-text">检查可能的目标聚合：</block>
-  <block id="1785091900894e2dd266e14ada9cac43" category="paragraph">`volume move target-aggr show -vserver _admin-vserver-name_ -volume system_vol_MDV_B`</block>
   <block id="f5863f82786e791434401c19871905fc" category="list-text">将卷移动到 node_A_2-IP 上新创建的聚合：</block>
-  <block id="05b2e5e5779185fe4f513ff169317139" category="paragraph">`volume move start -vserver _admin-vserver_-volume system_vol_mDV_B -destination-aggregate new_node_A_2-ip_aggr -cutover-window 40`</block>
   <block id="79a5088dfdd3b710c037e8edaced2831" category="list-text">检查移动操作的状态：</block>
-  <block id="28764cb9000d8ef2fcf0b5d81981277b" category="paragraph">`volume move show -vserver _admin-vserver-name_ -volume system_vol_MDV_B`</block>
   <block id="6fbae0f85a9fb1a4a76eda149fb886d3" category="list-text">移动操作完成后，验证 node_A_2-IP 上的新聚合是否包含 MDV_CRS_*_B 系统：</block>
   <block id="7d751970b8113a85136b22a70fa38bcc" category="paragraph">`set admin`</block>
-  <block id="ef4b82047d91f505fc870c69b3a59831" category="paragraph">`volume show -vserver _admin-vserver_`</block>
   <block id="d2a94c092559712281a15572ce935fb9" category="list-text">它必须满足中所述的所有要求和布线 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block>。</block>
   <block id="95d3d0e2d747e0347bca20c1101069fa" category="list-text">将新存储架连接到新的 MetroCluster IP 控制器模块后，执行中的所有步骤 <block ref="e8679447a78c1d85bc8cd74bd3122785" category="inline-link-macro-rx"></block>。</block>
   <block id="c7b313252c68991d5222ddae282e1d47" category="list-text">在 node_A_1-FC 和 node_A_2-FC 上禁用磁盘自动分配：</block>
@@ -10991,7 +10938,6 @@
   <block id="c1420c708cdb03e8e6259f7cb1285a08" category="paragraph">控制器模块和机箱应显示值 `mCCIP` 。</block>
   <block id="717daacc38ffb11ae03c79a7871ba94a" category="list-text">如果显示的控制器系统状态不是 " `mCCIP` " ，请设置控制器的 HA 状态：</block>
   <block id="1be7c4ddc79016b4335125e64b368241" category="list-text">如果显示的机箱系统状态不是 " `mCCIP` " ，请设置机箱的 HA 状态：</block>
-  <block id="1631c24dd2645318c89e780c4904812a" category="list-text">从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 <block ref="c0c95b98444cb413fd783099a9c566d2" category="inline-link-macro-rx"></block>。</block>
   <block id="9bdf1ed180b1b862f7cea11085897aca" category="paragraph">是（从 ONTAP 9.4 开始）</block>
   <block id="a27983e963a18385eebdc3381062e49b" category="paragraph">是（从 ONTAP 9.8 开始）</block>
   <block id="098fadefd1319cbc560b7d741aa7210e" category="paragraph">是（从 ONTAP 9.7 开始）</block>
@@ -11314,9 +11260,7 @@
   <block id="255e6fa1222b0f5f7521f1965844c1bf" category="paragraph">规划第 3 层解决方案时，请查看以下准则和图示。有关在 ONTAP 中实施 VIP 和 BGP 的详细信息，请参见 <block ref="245303d2c60ac1935683ed89eb13f165" category="inline-link-macro-rx"></block>。</block>
   <block id="83e579bcd33d25206730a931a64a84a1" category="paragraph">如果您的配置运行的是 ONTAP 9.0 或更早版本，请参见 <block ref="249227e2d8f8114c9bdc6db2520e9445" category="inline-link-macro-rx"></block>。</block>
   <block id="bc08b638ff7480a2fa85e0dcdee0d692" category="paragraph"><block ref="bc08b638ff7480a2fa85e0dcdee0d692" category="inline-link-macro-rx"></block></block>
-  <block id="90cd0db781b4639c1c46407e5a4f0a93" category="paragraph">+如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。</block>
   <block id="26ae7bdd1d6fb8c4886e6fde8d12601c" category="list-text">延迟</block>
-  <block id="37e445da4970f1c0106716e8dba83be8" category="paragraph">如果使用的MetroCluster 为10/20或大于100、则可以将以下平台型号添加到现有VLAN配置中。如果使用了任何其他VLAN、则无法将这些平台添加到现有配置中、因为无法配置MetroCluster 接口。如果您使用的是任何其他平台、则VLAN配置不相关、因为ONTAP 中不需要此配置。</block>
   <block id="9e9a93655547f7858baef5194a909e2c" category="cell">Cisco 3132Q-V、3232C或9336C-x2</block>
   <block id="a825d9b135e0604b1a8244aa950f4952" category="paragraph">FC节点上的本地集群接口</block>
   <block id="32e69a0f5d950aefcb7cefee34c73d19" category="paragraph">FAS500f/A250</block>
@@ -11912,8 +11856,6 @@
   <block id="779a44ac931df50e9ba3ac26bbca035e" category="list-text">如果<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block> 命令成功完成、然后控制器模块出现故障、请使用上表确定正确的恢复操作步骤。</block>
   <block id="57c5f3148ec34d732973b7f905f1ca84" category="section-title">MetroCluster FC-IP过渡期间的控制器模块故障场景</block>
   <block id="b79001d76282bba800ccc9b5187d2ad4" category="list-text">将数据LIF置于脱机状态。<block ref="58d060d8bc95409e743c7b8e95e72710" prefix=" " category="inline-code"></block></block>
-  <block id="6bf7a249268f3de77afe5f47cab93371" category="list-text"><block ref="6bf7a249268f3de77afe5f47cab93371" category="inline-link-macro-rx"></block></block>
-  <block id="6a6fc2b9cb4bc74b0b6f0528b0da3e1e" category="list-text"><block ref="6a6fc2b9cb4bc74b0b6f0528b0da3e1e" category="inline-link-macro-rx"></block></block>
   <block id="467f07382f2568a4248a6dee67437d64" category="paragraph"><block ref="467f07382f2568a4248a6dee67437d64" category="inline-link-macro-rx"></block></block>
   <block id="d570f5d821344a6838aaa260987eafc8" category="inline-link-macro">高可用性对管理</block>
   <block id="519460f530eb0c6817aeafcaef72fd69" category="paragraph">在四节点 MetroCluster 配置中，此故障可能会导致受损节点的自动接管或协商接管，具体取决于发生故障的组件。中介绍了数据恢复 <block ref="098c4bee7c591ea5429ed6be6c4ddd42" category="inline-link-macro-rx"></block> 。</block>
@@ -12802,12 +12744,10 @@
   <block id="83401bd8eb751fc79a9ff9e2e69be029" category="paragraph"><block ref="ff41f8886897126f1b4109a0b09cd291" category="inline-link-macro-rx"></block>。</block>
   <block id="09e34111ef8649a5302b1889e0c7d303" category="list-text">JRE 8.</block>
   <block id="b3c0f57dcdb05faa9fbc38832a492a4e" category="admonition">应用配置时会显示一些警告消息。通常不会出现错误消息。但是、如果使用SSH登录、则可能会收到以下错误：<block ref="f6ffe33fb36eb714adf6f81147c665f6" prefix=" " category="inline-code"></block></block>
-  <block id="c15b62e6a5ff15a0315735efe0205145" category="doc">修改MetroCluster IP配置中的地址、网络掩码和网关</block>
   <block id="907d0a00eecf52dcc4562775faad470a" category="paragraph">从 ONTAP 9.10.1 开始，您可以更改 MetroCluster IP 接口的以下属性： IP 地址和掩码以及网关。您可以使用任意参数组合进行更新。</block>
   <block id="5e1f7c325aa2c4eb9ee527a8279eb798" category="list-text">[[STEP3]]验证所有连接是否均正常工作：</block>
   <block id="cf07fc29a0bf48b43804bd5e97849449" category="summary">如果您使用的是符合MetroCluster的交换机、则应了解特定平台的网络速度和交换机端口模式要求。</block>
   <block id="b6c12395a961cf95058c6e4d4412ac09" category="paragraph">下表提供了MetroCluster兼容交换机的平台特定网络速度和交换机端口模式。您应根据表配置交换机端口模式。</block>
-  <block id="f2ac555a8b496557dba2555170124225" category="image-alt">MCC兼容交换机网络速度</block>
   <block id="8c425f952493015588fb91113b5b2dd8" category="summary">本节介绍在所有MetroCluster IP配置和网络拓扑上传输MetroCluster流量的交换机间链路(ISL)的要求。</block>
   <block id="422a6c8c8d23cb29ed822adac0da8cd9" category="paragraph">在所有MetroCluster IP配置和网络拓扑上传输MetroCluster流量的交换机间链路(inter-Switch Link、ISL)具有特定要求。这些要求适用于传输MetroCluster流量的所有CRL、无论这些CRL是直接传输还是在客户交换机之间共享。</block>
   <block id="78464639db6e6acf657d9d576a0f2888" category="section-title">MetroCluster ISL的一般要求</block>
@@ -12969,7 +12909,6 @@
   <block id="6acf5532efb336e0d8001419f26ef951" category="list-text">中间网络必须在两个站点之间提供相同的VLAN。此VLAN必须与RCF文件中设置的MetroCluster VLAN匹配。</block>
   <block id="ac8a1f1bfd836ba146d1ab2feb59b2fa" category="list-text">RcfFileGenerator可能会限制某些VLAN ID的使用、例如、如果这些VLAN ID是将来使用的。通常，预留的 VLAN 最多为 100 个，其中包括 100 个。</block>
   <block id="d4a11c01614c17bddc7d41960498137a" category="paragraph-title">ONTAP中的VLAN配置</block>
-  <block id="2fdb610706dea62a50ca16baa1d63c2a" category="paragraph">只能在创建接口期间指定VLAN。创建MetroCluster接口后、无法更改VLAN ID。您可以在创建接口期间配置其他VLAN、但这些VLAN必须介于10到20之间或介于101到4096之间(或交换机供应商支持的数量、以较低的数字为准)。</block>
   <block id="5c7b46710dbc52038abeae30dc7410f8" category="admonition">某些交换机供应商可能会保留对某些VLAN的使用。</block>
   <block id="c42b50e941d0ad3822d8ba3c571ef6c4" category="paragraph">以下系统不需要在ONTAP中配置VLAN。VLAN由交换机端口配置指定：</block>
   <block id="24eb498f969850d03efc1a22afbc9649" category="list-text">FAS8200 和 AFF A300</block>
@@ -13613,9 +13552,7 @@
   <block id="a5742dd38006c09197d0e488bba89bf7" category="open-title">ONTAP 9.151或更高版本中推出的系统</block>
   <block id="566a13604e83a8fff73bdf14020a980a" category="paragraph">在ONTAP 9.151或更高版本中推出的系统(AFF A70、AFF A90和AFF A1K)具有单独的HA和DR端口、如以下示例输出所示：</block>
   <block id="5703319e138fc00c827014acd16d0376" category="paragraph">以下输出显示了 AFF A700 和 FAS9000 系统配置的 IP 地址，这些系统的 MetroCluster IP 接口位于端口 e5a 和 e5b 上。接口可能因平台类型而异。</block>
-  <block id="b843496219829d61ebc41138be0194e6" category="list-text">如果平台型号使用VLAN ID (请参见上面的列表)、并且不使用默认VLAN ID、则需要VLAN ID。</block>
   <block id="e2974b23926ca4d7d377fe83a01893cc" category="list-text">在每个灾难站点节点的加载程序提示符处、根据平台型号设置启动程序值：</block>
-  <block id="ac0f64413607e314a8c6c9ca1bcf8171" category="list-text">如果接口使用的是默认VLAN、或者平台型号不使用VLAN ID (请参见上面的列表)、则不需要_vla-id_。</block>
   <block id="7e9ada96e6c7ea5b82a0e953f38fc85c" category="paragraph">在ONTAP 9.151或更高版本中引入的系统上、_ha-pender-ip-address_的值必须设置为* 0 (零)、因为它们具有用于灾难恢复和HA的单独端口。</block>
   <block id="fd053f45281bc461c7ff13c80dc7a0ef" category="paragraph">设置以下布塔格：</block>
   <block id="b1656b6f4acc345525c67f4fc0341f24" category="section-title">AFF C800、ASA C800、ASA A800、AFF A800、AFF A70上的ADP和磁盘分配 和AFF A90系统</block>
@@ -13774,7 +13711,6 @@
   <block id="ea246a6495df1b87df40d7c322d23942" category="list-text">MetroCluster配置中的所有节点(旧节点和新节点)都必须运行相同版本的ONTAP。</block>
   <block id="5505f24f1b03305d31aacdd035c7f251" category="paragraph-title">支持的AFF和FAS MetroCluster IP控制器升级</block>
   <block id="fcb21df516134bd5563b8b7bef30f98b" category="paragraph">下表显示了在MetroCluster IP配置中升级AFF或FAS系统时支持的平台组合：</block>
-  <block id="bda013124fcd29c13b3794671c5907a2" category="admonition">AFF A90、AFF A70和AFF A1K系统需要使用ONTAP 9.151或更高版本。</block>
   <block id="7b8670a76cf1dc8cbe357ce34cc11736" category="image-alt">MetroCluster IP升级sb AFF FAS</block>
   <block id="ae189029f72cc261fbad1afff41d9552" category="list-text">注3：目标平台必须在控制器升级完成后才能具有内部驱动器。您可以在升级后添加内部驱动器。</block>
   <block id="39eb8422a5f49fae94f0335febb78701" category="list-text">注4：需要更换控制器模块。</block>
@@ -13799,7 +13735,6 @@
   <block id="5f59766a690e00008d7b09d26244b85f" category="paragraph">您使用的系统刷新操作步骤 取决于平台型号和MetroCluster 配置类型。更新过程适用于控制器和存储架。在刷新过程中，会将新控制器和磁盘架添加到 MetroCluster 配置中，从而创建第二个 DR 组，然后无中断地将数据迁移到新节点。然后，原始控制器将停用。</block>
   <block id="cf35ca12d11c5730282da68bdb26e696" category="paragraph-title">支持的AFF和FAS MetroCluster IP技术更新组合</block>
   <block id="3a2b3b39311d9a61b3a9bb66f7feec5c" category="paragraph">下表显示了在MetroCluster IP配置中刷新AFF或FAS系统时支持的平台组合：</block>
-  <block id="70fdfec9430ed4893168e5c59eb64e08" category="admonition">AFF A70、AFF A90和AFF A1K系统需要使用ONTAP 9.151或更高版本。</block>
   <block id="cb8925996d20b2dc27bec26b66db8e61" category="paragraph-title">支持的ASA MetroCluster IP技术更新组合</block>
   <block id="03c48c75d06f3446ef94029cbbce579a" category="paragraph">下表显示了在MetroCluster IP配置中刷新ASA系统时支持的平台组合：</block>
   <block id="a3a15df2eb8fb472342a575b30857763" category="image-alt">MetroCluster IP ASA技术更新组合</block>
@@ -13966,4 +13901,113 @@
   <block id="c848af1101f629db69baafb2b08b9915" category="paragraph"><block ref="ce889b95687da5aee0c3d9ec48e819b4" prefix="" category="inline-code"></block></block>
   <block id="2d425665af37b9989f89179649650990" category="section-title">完成升级</block>
   <block id="0ca215bc0428424e5cb9556db1b478d9" category="paragraph">查看为AFF A320、FAS9300、AFF C400、ASA C400、FAS8700布线所需的平台端口分配。 AFF A400或ASA A400系统未将交换机连接的NSS24磁盘架连接到Cisco 9336 C -拧2共享交换机：</block>
+  <block id="7bf9d1ef7aeb37de6171f77014cb7475" category="paragraph">某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。</block>
+  <block id="b676a1207e184308799f51c46b2c49b4" category="paragraph">+如果支持、您还可以使用命令中的参数指定一个高于100 (介于101和4095之间)的其他(非默认) VLAN<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block><block ref="f2986433c79fe84ff207e72d4ed9fd6f" prefix=" " category="inline-code"></block> 。</block>
+  <block id="89ec7be62a41e52b11c54d2aedfc03bf" category="paragraph">+以下平台*不*支持<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> 参数：</block>
+  <block id="94c7b7802191ba5792f013727a36b74a" category="paragraph">+** FAS8200和AFF A300** AFF A320** FAS9000和AFF A700** AFF C800、ASA C800、AFF A800和ASA A800</block>
+  <block id="4c2e03631cb543e4bf4e7ef67224daf1" category="paragraph">+所有其他平台均支持此<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> 参数。</block>
+  <block id="4a1ac4ba70bb5d6773aeed24d616a2f3" category="paragraph">+默认和有效的VLAN分配取决于平台是否支持<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> 以下参数：</block>
+  <block id="aabac265f84bb9461925573aa630c391" category="open-title">支持&lt;code&gt;－VLAN－&lt;/code&gt;的平台</block>
+  <block id="009e0a1c99c8ad5bfabf6f11303ce60a" category="paragraph">默认VLAN：</block>
+  <block id="a78983875cad001a26c3723e0f50eb6a" category="list-text">如果<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> 未指定参数、则会使用VLAN 10为"A"端口创建接口、并使用VLAN 20为"B"端口创建接口。</block>
+  <block id="02b813307ad3752283ec290b82273753" category="list-text">指定的VLAN必须与在RC框架 中选择的VLAN匹配。</block>
+  <block id="1715ee402796bdf40dff29a889304866" category="paragraph">有效VLAN范围：</block>
+  <block id="8ea94730f2193c8723e3b27c5aebe078" category="list-text">默认VLAN 10和20</block>
+  <block id="01ec4d3102007958d709faf3df32136d" category="list-text">VLAN 101及更高版本(介于101和4095之间)</block>
+  <block id="aaa04ff0a589d6aed0e5512a0e4a08e3" category="open-title">不支持&lt;code&gt;－VLAN－&lt;/code&gt;的平台</block>
+  <block id="20b1ece0621452d9d6d4e784484585f1" category="list-text">不适用。此接口不需要在MetroCluster接口上指定VLAN。交换机端口用于定义所使用的VLAN。</block>
+  <block id="a5bd965731e0cc4104031ebde55f5c85" category="list-text">生成RC框架 时未明确排除所有VLAN。如果VLAN无效、RCZ将向您发出警报。</block>
+  <block id="0afa15de79026c2cb84906cb7a4acaa3" category="paragraph">如果支持、您还可以使用参数指定一个高于100 (介于101和4095之间)的其他(非默认) VLAN<block ref="883efb435dfcdbab29a2ff69d0287888" prefix=" " category="inline-code"></block> 。</block>
+  <block id="3a62ad5f83f9a3bdc5429900d03b6af5" category="paragraph">以下平台*不*支持<block ref="883efb435dfcdbab29a2ff69d0287888" prefix=" " category="inline-code"></block> 参数：</block>
+  <block id="f3ab2c03b6ddff7d085fba83ebc3a6b3" category="list-text">AFF C800、ASA C800、AFF A800和ASA A800</block>
+  <block id="f70f8fd274ec7fa58bf8ba6d99937b3c" category="paragraph">所有其他平台均支持<block ref="883efb435dfcdbab29a2ff69d0287888" prefix=" " category="inline-code"></block> 参数。</block>
+  <block id="318e6115888f5535c580151d3c337eeb" category="inline-xref">列表</block>
+  <block id="601779c42f052b558b7ac9443d399420" category="list-text">如果平台型号支持VLAN ID (请参见)，并且不使用默认VLAN ID，则需要确定VLAN <block ref="05a2d2a273433dceaaaa95abd8b74c34" category="inline-xref-macro-rx"></block>ID。</block>
+  <block id="99d8e07cf22b54bf1c4fe9ecde3bd413" category="list-text">如果接口使用的是默认VLAN，或者平台型号不使用VLAN ID (请参见 <block ref="05a2d2a273433dceaaaa95abd8b74c34" category="inline-xref-macro-rx"></block>)，则不需要_vla-id_。</block>
+  <block id="26c0375297253dbcc942fe30cefa7b4b" category="paragraph">只能在创建接口期间指定VLAN。您可以配置默认VLAN 10和20、也可以配置介于101到4096 (或交换机供应商支持的数量、以较低的数量为准)范围内的VLAN。创建MetroCluster接口后、您将无法更改VLAN ID。</block>
+  <block id="3faee78823aa7a1dc8ffca46972f6fb2" category="image-alt">显示了MetroCluster兼容交换机的平台特定网络速度和交换机端口模式。</block>
+  <block id="c189be7568f7fe77db4a889353024935" category="admonition">RCF文件版本与用于生成文件的RCF文件生成器工具版本不同。例如、您可以使用RCF文件生成器v1.6c生成2.00版RCF文件。</block>
+  <block id="a796207f93572cbc190249400ba34b9b" category="paragraph"><block ref="08689ca588d2fd5d0e0a12366a8cd0a6" prefix="" category="inline-code"></block></block>
+  <block id="fc902c4c5eb117926b80fc3a1066d5f9" category="paragraph"><block ref="31e96f11307c41bb11d8a37f3c919979" prefix="" category="inline-code"></block></block>
+  <block id="10c6f8561201e68a979db34a4c1af328" category="open-title">在ONTAP 9.6及更高版本中、运行：</block>
+  <block id="3bc064a1902725a8ae62c8e84b7feb99" category="paragraph"><block ref="c37572c95fddef7657d9a0fcd9b24e75" prefix="" category="inline-code"></block></block>
+  <block id="ec9ff736da1fa54423820b62f41ff662" category="open-title">在ONTAP 9.5及更早版本中、运行：</block>
+  <block id="243afd0bf9b328c9bc054e76fad2abe8" category="paragraph"><block ref="85428d08b368376af762be33f6c812b4" prefix="" category="inline-code"></block></block>
+  <block id="86ef160c7fdcafc5a4252298190d95a2" category="paragraph"><block ref="761632925b707d885dfeb15b72afe768" prefix="" category="inline-code"></block></block>
+  <block id="b98723dad5619921c9fbdb7e0e0050ad" category="paragraph"><block ref="e66e929e19af3d0ee4af9e0e58bd7e5c" prefix="" category="inline-code"></block></block>
+  <block id="80dcc4edac2d765045f64b4c38d1d603" category="paragraph"><block ref="8e2d8ef88fdca0c2d84f0bc37a725a61" prefix="" category="inline-code"></block></block>
+  <block id="51f368c2c1d8b5478b6282cb7c1d5750" category="paragraph"><block ref="d80e7838e2fc707884fbff7e375981c9" prefix="" category="inline-code"></block></block>
+  <block id="4ae2f4a2aef26662b47c70763eb4279d" category="paragraph"><block ref="90a8f7d7f597974a89c88091d170056f" prefix="" category="inline-code"></block></block>
+  <block id="ddf0bc53a0486fe472c9c2802cb8a024" category="inline-link-macro">修改MetroCluster IP接口的属性</block>
+  <block id="c2101bcd2959ec896c34ad3ac441e668" category="list-text">根据您的ONTAP版本、您可以在初始配置后更改某些MetroCluster IP接口属性。有关支持的功能的详细信息、请参见 <block ref="b5882dba0d9962f87b1ec9d2a9ef135c" category="inline-link-macro-rx"></block> 。</block>
+  <block id="fdc2f9c59b3906cedb6920c830ed095c" category="paragraph">如果支持、您还可以使用命令中的参数指定一个高于100 (介于101和4095之间)的其他(非默认) VLAN<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block><block ref="f2986433c79fe84ff207e72d4ed9fd6f" prefix=" " category="inline-code"></block> 。</block>
+  <block id="eb2b66b1668ae6b216f98bedcd551ca7" category="paragraph">以下平台*不*支持<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> 参数：</block>
+  <block id="b98986071c014fdcc3eb14230209b05d" category="paragraph">所有其他平台均支持<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> 参数。</block>
+  <block id="777f7436eaaa59005ece3683cc156ffb" category="paragraph">默认VLAN分配和有效VLAN分配取决于平台是否支持<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> 以下参数：</block>
+  <block id="519e24d9a1a55a3bd63ec91a1eb5f3a2" category="list-text">MetroCluster IP接口使用的物理端口取决于平台型号。有关系统的端口使用情况、请参见 <block ref="7176836221733e9bf6fcbaccc1aa9ffd" category="inline-link-macro-rx"></block> 。</block>
+  <block id="1b629c5d185b0a312899fd30cf61b757" category="list-text">此过程使用以下示例：</block>
+  <block id="1609e614328e6c8547b5eb4d2587160c" category="paragraph">AFF A700或FAS9000系统的端口(e5a和e5b)。</block>
+  <block id="dbf6dd8fe37bef64292c8bb330136895" category="paragraph">AFF A220系统的端口、用于显示如何在支持的平台上使用<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> 参数。</block>
+  <block id="5744d7aa47c69584562886d1537eef6c" category="paragraph">在适用于您的平台型号的正确端口上配置接口。</block>
+  <block id="66139ebecd22b7bd276fa21a6e992e09" category="paragraph"><block ref="9f7725524d39b585acc780018710c3b5" prefix="" category="inline-code"></block></block>
+  <block id="3649ee884444b305dd9be194280a7e4c" category="paragraph"><block ref="d768449437ec0f2ec05972fa5734930a" prefix="" category="inline-code"></block></block>
+  <block id="69ec827ee345a01514240a2f136400ed" category="paragraph">如果您运行的版本早于ONTAP 9.10.1、则在发出此命令后、无法更改IP地址。</block>
+  <block id="1eaed4d1bc56491d94753ba682a805e3" category="paragraph"><block ref="7e6322a29fc1352727c14f0ff12a2160" prefix="" category="inline-code"></block></block>
+  <block id="df2b000d2262493c81df70ac97ba9f57" category="paragraph"><block ref="9817e7d5e354e00e27c230cd87198379" prefix="" category="inline-code"></block> 必须标识远程磁盘架上的驱动器<block ref="b17fa57bf075ee17088a62c487e99a79" prefix=" " category="inline-code"></block>。</block>
+  <block id="69eed086d7a8a5fd87cfc0c2ec925654" category="paragraph"><block ref="222508883cb9789fa0260600a3a92e79" prefix="" category="inline-code"></block></block>
+  <block id="d2c8fe635684963077359ae30bbb97d8" category="paragraph"><block ref="9817e7d5e354e00e27c230cd87198379" prefix=" " category="inline-code"></block>必须标识远程磁盘架上的磁盘<block ref="b17fa57bf075ee17088a62c487e99a79" prefix=" " category="inline-code"></block>。</block>
+  <block id="8a97215f1bc3ba891c3674a251e6f272" category="paragraph"><block ref="ca7759d53e9fa9fc63fbc14e6519386b" prefix="" category="inline-code"></block></block>
+  <block id="d99c28bd9db861f076913fb0ceac646d" category="paragraph"><block ref="e0764014c3bd1ac6934ad9c6d416ff33" prefix="" category="inline-code"></block></block>
+  <block id="96c0692401701908c0022bdceb9555d2" category="paragraph"><block ref="59cae235ae742e8f746c0ec9daf9709c" prefix="" category="inline-code"></block></block>
+  <block id="0b15bc4339fc9ca757229e60724602c3" category="paragraph"><block ref="e786ea4dfa5c88bb0e334e54700ffb79" prefix="" category="inline-code"></block></block>
+  <block id="fc8cd930b76d28c02db9703a924fcbc5" category="paragraph"><block ref="7604ec0db3686df86574dac0a83e939c" prefix="" category="inline-code"></block></block>
+  <block id="dee14e1bdab8dbac6ebd23082f44ad6c" category="paragraph"><block ref="e88be64a9e3e854938970e5cd537eab0" prefix="" category="inline-code"></block></block>
+  <block id="acc972bbe2508be48bbc4c72aa01da78" category="paragraph"><block ref="1c2fae678145f8165afe06d13aac27d2" prefix="" category="inline-code"></block></block>
+  <block id="970fd9ae6b41014fb26adcdd699de900" category="paragraph"><block ref="07f05fef8407c50eb9469e72873810d1" prefix="" category="inline-code"></block></block>
+  <block id="7628c397a6518a332d1e7c6b45b4d3c8" category="paragraph"><block ref="29f2c8c292b68f6f42c1df6782b911b3" prefix="" category="inline-code"></block></block>
+  <block id="cf3326a1f08e63b551e2d071556e0598" category="paragraph">您必须为MetroCluster IP配置中的每个交换机生成并安装交换机RCF文件。</block>
+  <block id="a7ecf6e9de3b493515ff606fc0532227" category="list-text">下载<block ref="b3f8a8564bd91efeacbc3b6197426c6e" category="inline-link-rx"></block></block>
+  <block id="b0e1fb1b9093a23db84f9fe9ec414a05" category="paragraph">您必须为MetroCluster IP配置中的每个交换机生成并安装RCF文件。</block>
+  <block id="5f6300d6cef757d6670c2170d0ee50fb" category="list-text">为MetroCluster IP生成Cisco RCC文件。</block>
+  <block id="f0af72ee7b95606742238881f6d3d746" category="list-text">使用<block ref="0dea99cd92a8ce54e8bf65bd553a3e89" prefix=" " category="inline-code"></block>、<block ref="05f7f2ea3536c78a494ee9ec91b6fef9" prefix=" " category="inline-code"></block>和<block ref="1fb1e9c05efc96eb745333b035ce6d59" prefix=" " category="inline-code"></block> 命令验证所有连接在所有接口上均正常工作。</block>
+  <block id="696ca372052e4e85401e9ef266b57375" category="paragraph">执行以下步骤以修改MetroCluster IP接口的IP地址、网络掩码和网关。</block>
+  <block id="164748ab1cab79cb53ebb8d067fb41df" category="paragraph"><block ref="3b73cc9aa0167fa80aa8a786a4871e88" prefix="" category="inline-code"></block></block>
+  <block id="8c8de216c09126479bba8f0a636ceac7" category="paragraph"><block ref="34b1158d44c89ca8031563bdf424ba84" prefix="" category="inline-code"></block></block>
+  <block id="711aa9967b438e020ee72c9773739e5d" category="paragraph"><block ref="c7462aa9b4e3acfeadac46864ab81636" prefix="" category="inline-code"></block></block>
+  <block id="f33223d33643f0a6a65b83484e66763b" category="paragraph"><block ref="bbe7345a3b57d077a14ca7c861fdc510" prefix="" category="inline-code"></block></block>
+  <block id="9058dcd22d8900bb4bf3607938ba011e" category="paragraph"><block ref="50b65f64b784537f4059e17dbc0cddb8" prefix="" category="inline-code"></block></block>
+  <block id="10b199a11023cc52bf03a4affa5f0105" category="paragraph"><block ref="3110c51feae074637e0930ba61181573" prefix="" category="inline-code"></block></block>
+  <block id="edc1d1fde5aa71226989f69fc30ad581" category="paragraph"><block ref="a10c5f9f83d239029a4f450d6915ef80" prefix="" category="inline-code"></block></block>
+  <block id="2b17135ccdcd7ba37ad016691c03a649" category="paragraph"><block ref="a93cf91a50990ac0c34a2db5a2934eb0" prefix="" category="inline-code"></block></block>
+  <block id="3d49a79afad45f39959ecfef872b641e" category="paragraph"><block ref="64c7ad0cb2888e06ba6c73486d3dff85" prefix="" category="inline-code"></block></block>
+  <block id="88cea512e9153abf88fe978449806ce2" category="paragraph"><block ref="8472522f9b339858f68ec32c5fba569e" prefix="" category="inline-code"></block></block>
+  <block id="7efe6a75c4cace6f7d8d2037b41fcb11" category="paragraph"><block ref="9c6a2d5ce4c1bdc82e1982314ba6847d" prefix="" category="inline-code"></block></block>
+  <block id="a36b67419575cf5ffa05ec3b5f7683a4" category="section-title">添加新DR组时VLAN的注意事项</block>
+  <block id="d22d7ddfee8653f07bbab4b5554c7e8d" category="list-text">扩展MetroCluster IP配置时、需要考虑以下VLAN注意事项：</block>
+  <block id="180998c1506f167022c7569e93485cf6" category="list-text">从四节点配置扩展为八节点MetroCluster配置时、这两个DR组使用相同的VLAN。</block>
+  <block id="14cbcb11bb60726b28bad9deb474ecca" category="list-text">如果不能使用同一个VLAN配置两个DR组、则必须升级不支持参数的DR组<block ref="883efb435dfcdbab29a2ff69d0287888" prefix=" " category="inline-code"></block> 、以使用另一个DR组支持的VLAN。</block>
+  <block id="ff265cea659d94d2bb616f30f406a802" category="paragraph">在执行扩展之前、您必须验证MetroCluster配置的运行状况和连接性。</block>
+  <block id="9ff1de752473d0e8f9618f724dd22ff9" category="paragraph"><block ref="e0c8c2b46ec80ac4a0d764213e3acc22" prefix="" category="inline-code"></block></block>
+  <block id="8b2ecfdc07e5fe6a0cccb7c1f6495624" category="inline-link-macro">为IP交换机布线</block>
+  <block id="76793d2295cd7f845d6a07404968d739" category="list-text">将新的MetroCluster IP节点连接到IP交换机，如所示 <block ref="f8673193926534b844ce0bb3f56d4c82" category="inline-link-macro-rx"></block>。</block>
+  <block id="daecb091e8e1b92970e1e47c88cae707" category="list-text">使用以下过程配置MetroCluster IP节点：</block>
+  <block id="c9e5d01137879d19a0099ceaee84e6a0" category="list-text"><block ref="c9e5d01137879d19a0099ceaee84e6a0" category="inline-link-macro-rx"></block></block>
+  <block id="336a0d2c139a7b999e8638c73ae958c8" category="inline-link-macro">还原控制器模块上的系统默认值</block>
+  <block id="1d593a4f9525e6f2ca9ec32621f1db90" category="list-text"><block ref="1d593a4f9525e6f2ca9ec32621f1db90" category="inline-link-macro-rx"></block></block>
+  <block id="f66b08223139cc88d367e9f8ba658bb8" category="list-text"><block ref="f66b08223139cc88d367e9f8ba658bb8" category="inline-link-macro-rx"></block></block>
+  <block id="355e13ab500dceb89a56c4317cdfae82" category="inline-link-macro">手动为池0分配驱动器(ONTAP 9.4及更高版本)</block>
+  <block id="825d410ac3ad0bbf292a80f8c6135d02" category="list-text"><block ref="825d410ac3ad0bbf292a80f8c6135d02" category="inline-link-macro-rx"></block></block>
+  <block id="01a84b5c8cad7ed0a15f89b1e64d1751" category="inline-link-macro">下载并安装Broadcom IP RC框架 文件</block>
+  <block id="2cb55225768d53c7a8c62d73b71595b8" category="list-text"><block ref="2cb55225768d53c7a8c62d73b71595b8" category="inline-link-macro-rx"></block></block>
+  <block id="bda05896fe9c6a54adda73ed2403937c" category="list-text"><block ref="bda05896fe9c6a54adda73ed2403937c" category="inline-link-macro-rx"></block></block>
+  <block id="7d7b3e7f82a4c62f0a1e1c6c7bf36942" category="admonition">如果您使用的是L2共享或L3网络配置、则可能需要调整中间/客户交换机上的ISL端口。交换机端口模式可能会从"访问"模式更改为"中继"模式。只有在交换机A_1和B_1之间的网络连接完全正常且网络运行状况良好的情况下、才能继续升级第二个交换机对(A_2、B_2)。</block>
+  <block id="78047aee32ead93280f971895b902f6f" category="section-title">将新节点加入集群</block>
+  <block id="07d3f381efeb375a8fe18cc6f11404e7" category="list-text">示例中使用的主端口是特定于平台的。您应使用特定于MetroCluster IP节点平台的主端口。</block>
+  <block id="78697dcb303aaaf46c68a191d70983f2" category="list-text">在执行此任务之前、请查看中的信息 <block ref="f8cbfe9b9b2f8ea45f944b8dcf8bd730" category="inline-xref-macro-rx"></block> 。</block>
+  <block id="e337731f47dd5caec3953f6c88c4ba3f" category="list-text">如果支持、您可以使用命令中的参数指定一个高于100 (介于101和4095之间)的其他(非默认) VLAN<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block><block ref="f2986433c79fe84ff207e72d4ed9fd6f" prefix=" " category="inline-code"></block> 。有关支持的平台信息、请参见 <block ref="f8cbfe9b9b2f8ea45f944b8dcf8bd730" category="inline-xref-macro-rx"></block> 。</block>
+  <block id="24e03425b754f9c14624daf47f474e76" category="paragraph"><block ref="5b8e8c4a107a486fdbb855e0962cf1ee" prefix="" category="inline-code"></block></block>
+  <block id="2868832443fa457c67292a9b7be9937e" category="paragraph"><block ref="8d2b5e6dcd7abb7368984243bc33eb7d" prefix="" category="inline-code"></block></block>
+  <block id="ef5e947e6fcfcc998981842db2980963" category="paragraph"><block ref="03c173f1a61527f819558186b9d61be9" prefix="" category="inline-code"></block></block>
+  <block id="f17f69c6edf98777a15cba11703ecfa4" category="paragraph"><block ref="3e67c1f4fcc76e1369016e8e183fdf3b" prefix="" category="inline-code"></block></block>
+  <block id="0f137b9473f8c1720c69f6c82c079dba" category="paragraph"><block ref="3b297593c0c2375482cbced8777ea2a8" prefix="" category="inline-code"></block></block>
 </blocks>
