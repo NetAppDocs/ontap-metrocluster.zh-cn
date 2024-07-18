@@ -358,7 +358,57 @@ dr-group-id cluster    node          node-systemid dr-partner-systemid
 +
 `boot_ontap`
 
-. 将旧控制器上所有数据 LIF 的主端口分配给新旧控制器模块上相同的通用端口。
+. 修改旧控制器上的集群间LUN、使其使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口不同的主端口。
++
+
+NOTE: 要成功升级、需要执行此步骤。
+
++
+旧控制器上的集群间LUN必须使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口不同的主端口。例如、在升级到AFF A90控制器时、HA互连端口为e1a和e7a、MetroCluster IP DR互连端口为e2b和e3b。如果旧控制器托管在端口e1a、e7a、e2b或e3b上、则必须移动这些控制器上的集群间LUN。
+
++
+有关新节点上的端口分布和分配，请参阅 https://hwu.netapp.com["NetApp Hardware Universe"]。
+
++
+.. 在旧控制器上、查看集群间的Sifs：
++
+`network interface show  -role intercluster`
+
++
+根据旧控制器上的集群间是否使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口相同的端口、执行以下操作之一。
+
++
+[cols="2*"]
+|===
+| 如果集群间的IFS... | 转至 ... 
+
+
+| 使用相同的主端口 | <<controller_replace_upgrade_prepare_network_ports_2b,子步骤b.>> 
+
+
+| 使用其他主端口 | <<controller_replace_upgrade_prepare_network_ports_3,第 3 步>> 
+|===
+.. [[controller_REPLACE _UPREPREPARE NETWORM_ports_2b]]修改集群间LI以使用其他主端口：
++
+`network interface modify -vserver <vserver> -lif <intercluster_lif> -home-port <port-not-used-for-ha-interconnect-or-mcc-ip-dr-interconnect-on-new-nodes>`
+
+.. 验证所有集群间的SIFs是否都位于其新的主端口上：
++
+`network interface show -role intercluster -is-home  false`
+
++
+此命令输出应为空、表示所有集群间的Rifs都位于各自的主端口上。
+
+.. 如果主端口上没有任何LUN、请使用以下命令将其还原：
++
+`network interface revert -lif <intercluster_lif>`
+
++
+对不在主端口上的每个集群间LIF重复此命令。
+
+
+
+. [[controller_Replace _upgrade prepare_network_ports_3]]将旧控制器上所有数据LI的主端口分配给新旧控制器模块上相同的通用端口。
 +
 .. 显示 LIF ：
 +

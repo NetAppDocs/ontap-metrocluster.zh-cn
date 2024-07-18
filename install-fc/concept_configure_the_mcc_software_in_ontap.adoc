@@ -1301,7 +1301,7 @@ HA 配对节点池 1 的 DR 配对节点
 +
 .. 在第一个节点上，系统地将每个磁盘架上一半的磁盘分配给池 0 ，而将另一半磁盘分配给 HA 配对节点的池 0 ：
 +
-`ddisk assign -disk _disk-name_ -p _pool_ -n _number-of-disks_m`
+`disk assign -shelf <shelf-name> -p <pool> -n <number-of-disks>`
 
 +
 如果存储控制器 Controller_A_1 有四个磁盘架，每个磁盘架具有 8 个 SSD ，则您可以问题描述执行以下命令：

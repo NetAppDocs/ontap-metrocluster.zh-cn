@@ -105,4 +105,4 @@ NOTE: 使用MetroCluster 4组中的端口需要使用ONTAP 9.13.1.或更高版�
 
 NOTE: 此表中的系统需要ONTAP 9.151或更高版本。
 
-image::../media/mcc_ip_cabling_a90_a70_a1k_cisco_3232C_or_9336c_switch.png[显示了Cisco 3232C或Cisco 9336C平台端口分配]
+image:../media/mcc-ip-cabling-a90-a70-a1k-cisco-3232C-or-9336c-switch.png["显示了Cisco 3232C或Cisco 9336C平台端口分配"]
