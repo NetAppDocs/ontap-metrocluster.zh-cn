@@ -17,7 +17,6 @@ summary: 必须使用缆线将 FC-VI 端口和 HBA （主机总线适配器）�
 . 按照您的配置和交换机型号对应的表，为 FC-VI 端口和 HBA 端口布线。
 +
 ** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
-** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]
 ** link:concept_AFF_A900_port_assign_fc_switches_ontap_9_1.html["使用 AFF A900 系统时 FC 交换机的端口分配"]
 ** link:concept_port_assignments_for_systems_using_two_initiator_ports.html["使用两个启动程序端口的系统的端口分配"]
 

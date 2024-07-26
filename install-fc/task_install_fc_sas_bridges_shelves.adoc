@@ -648,10 +648,6 @@ link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.htm
 
 如果使用的是 ONTAP 9.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。
 
-link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]
-
-在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。ONTAP 9.0 和更高版本的 ONTAP 之间的端口分配不同。
-
 
 
 == 固定或取消固定 FibreBridge 网桥

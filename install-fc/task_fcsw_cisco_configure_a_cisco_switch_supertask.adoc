@@ -354,7 +354,6 @@ switch(config-if)# end
 请参阅以下各节以确定适用于您的配置的 F 端口（交换机到节点）：
 
 * link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
-* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]
 
 
 必须对 MetroCluster 配置中的每个交换机执行此任务。

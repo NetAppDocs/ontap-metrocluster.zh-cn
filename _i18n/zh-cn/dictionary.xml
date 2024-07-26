@@ -367,7 +367,6 @@
   <block id="9db38090d74d3c900ffdd688465bb5e8" category="image-alt">Brocade 与 G620 的升级取代了 A 1</block>
   <block id="7b78e18dcd3185c34c9f26454f6f184a" category="paragraph">命令将禁用交换机网络结构中的两个交换机。</block>
   <block id="d0ec9e05561bfe12c0306959eddf56c8" category="list-text">使用建议的端口分配为新交换机布线。</block>
-  <block id="b061acf9e57b52553e1039e7a5289a52" category="inline-xref-macro">使用 ONTAP 9.0 时 FC 交换机的端口分配</block>
   <block id="9eecb7c801dc57fbe6e2bb323f2ab061" category="inline-xref-macro">使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配</block>
   <block id="98865fdc5c9769318f840c5f626b7ec2" category="list-text">在配对 MetroCluster 站点上重复这些子步骤，以更换第一个交换机网络结构中的第二个交换机。</block>
   <block id="5a5070abc66ad4ba93c9599236c17675" category="paragraph">已更换网络结构 1 中的两个交换机。</block>
@@ -7730,8 +7729,6 @@
   <block id="b04cfca24a6159d3846c140fb98e810d" category="summary">如果您更换了灾难站点中的 FC 交换机，则必须使用供应商专用的过程对其进行配置。</block>
   <block id="861537da733c3c33390e1bb718e7d543" category="doc">配置 FC 交换机（仅限 MetroCluster FC 配置）</block>
   <block id="6fc1ae41ce34d8dbe0674eae90086def" category="paragraph">如果您更换了灾难站点中的 FC 交换机，则必须使用供应商专用的过程对其进行配置。您必须配置一个交换机，验证运行正常的站点上的存储访问不受影响，然后配置第二个交换机。</block>
-  <block id="914dab9fff1417a4f447a3feac720983" category="inline-link-macro">使用 9.0 时 FC 交换机的端口分配</block>
-  <block id="6c720f524797154130f39ef291f10146" category="paragraph"><block ref="6c720f524797154130f39ef291f10146" category="inline-link-macro-rx"></block></block>
   <block id="0984e83667fc512bfc1adc48478ded1c" category="paragraph"><block ref="0984e83667fc512bfc1adc48478ded1c" category="inline-link-macro-rx"></block></block>
   <block id="ebfcfc0cdc71cf93176408da80c45caa" category="section-title">在站点灾难后配置 Brocade FC 交换机</block>
   <block id="550c787ba4aa16cc8545b89a8c4aaf2f" category="paragraph">您必须使用此 Brocade 专用的操作步骤配置替代交换机并启用 ISL 端口。</block>
@@ -7741,7 +7738,6 @@
   <block id="c74d65ce7533a3eaad64399ac890c9d7" category="list-text">FC_switch_B_1 运行状况良好。</block>
   <block id="4bc15ba4a069cab27481833acd9bb27b" category="list-text">FC_switch_B_2 运行状况良好。</block>
   <block id="d368b9a876decfc4013cf824df52f471" category="paragraph">在为 FC 交换机布线时，您必须验证是否正在使用指定的端口分配：</block>
-  <block id="314a33d74f4f0a6e853b23a18224e122" category="list-text"><block ref="314a33d74f4f0a6e853b23a18224e122" category="inline-link-macro-rx"></block></block>
   <block id="b17c000a9e41cbbe17f5f1e1e345a85b" category="paragraph">这些示例显示了两个 FC-SAS 网桥。如果有更多网桥，则必须禁用并随后启用其他端口。</block>
   <block id="bd7cebfd0d4899123488e8d095ef408f" category="list-text">启动并预配置新交换机：</block>
   <block id="155c169278f557467a3570fc93000a19" category="list-text">检查交换机上的固件版本以确认其与其他 FC 交换机的版本匹配：</block>
@@ -8406,7 +8402,6 @@
   <block id="eb443924112f8c71329400ac78de9284" category="paragraph">重复 <block ref="2f9ed640880ac5dd95c2cb30edbb02d0" category="inline-xref-macro-rx"></block> 其余每个网桥。</block>
   <block id="0aeba4fd83ea38faeb00ddbf389be6ad" category="paragraph"><block ref="48f604bdf2d3bf06f58ee9f10e668948" category="inline-xref-macro-rx"></block></block>
   <block id="2c0892c11c37aec07e0a746c4c7fbe0d" category="list-text">重复 <block ref="2f9ed640880ac5dd95c2cb30edbb02d0" category="inline-xref-macro-rx"></block>。</block>
-  <block id="979780f3d72e1e779c1418145ea73bcb" category="paragraph">在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。ONTAP 9.0 和更高版本的 ONTAP 之间的端口分配不同。</block>
   <block id="896822419043c00441403336af7e4108" category="paragraph">`cluster_A&gt; storage bridge run-cli -bridge bridge_A_1 -command securebridge`</block>
   <block id="347f47cb38d61664308e2cc323981b92" category="paragraph">`cluster_A&gt; storage bridge run-cli -bridge bridge_A_1 -command unsecurebridge`</block>
   <block id="68e3506a2ff45bf22418c9f70fdecb49" category="paragraph">`storage bridge run-cli -bridge _bridge-name_ -command saveconfiguration`</block>
@@ -8632,7 +8627,6 @@
   <block id="d5be49e19529d423d0240f9a2da9e1c4" category="paragraph">`storage aggregate show -r -node _node-name_ ！ * root`</block>
   <block id="bfdae250f2b83258ca4329559623480d" category="paragraph">`storage aggregate show -r -node node_A_2 ！ * root`</block>
   <block id="66edbe3b99033472367f932eea8c1068" category="paragraph">驱动器位于已关闭电源架上的聚合应具有 " 已降级 " RAID 状态，而受影响丛上的驱动器应具有 " 故障 " 状态，如以下示例所示：</block>
-  <block id="249227e2d8f8114c9bdc6db2520e9445" category="list-text"><block ref="249227e2d8f8114c9bdc6db2520e9445" category="inline-link-macro-rx"></block></block>
   <block id="be4390855c7255687268115d7024953b" category="cell">* MetroCluster 1 或 DR 组 1*</block>
   <block id="12504d160a257d30aeee1aa86bcd4320" category="cell">* Brocade 交换机型号 6505 ， 6510 ， 6520 ， 7840 ， G620 ， G610 和 DCX 8510-8*</block>
   <block id="0617e4d07d12b0af8212c27b7e1c91bc" category="cell">* 连接到 FC 交换机 ...*</block>
@@ -9664,7 +9658,6 @@
   <block id="9e22e5887d35d0e7eed7b0656d5e7bfa" category="sidebar">监控 MetroCluster 配置</block>
   <block id="6e1b901662872166ef0e661d1481924c" category="sidebar">将双节点 MetroCluster FC 配置扩展为四节点配置</block>
   <block id="fbda6a351e5c32b65583383006360afa" category="sidebar">验证 MetroCluster 配置的状态</block>
-  <block id="c3f3140743256f4b3b23e2414dda5987" category="sidebar">在将已注册的 AutoSupport 添加到 MetroCluster 配置之前，发送自定义 消息</block>
   <block id="b8e92406eb7a6fca550b1d6570cceffc" category="sidebar">在光纤连接的 MetroCluster 配置中添加控制器模块时新控制器端口的分区</block>
   <block id="5718f7671797ad3f1f095d0aebd2f2df" category="sidebar">向每个集群添加一个新控制器模块</block>
   <block id="2e93b137ca8dae100d477cd0ce20ea2f" category="sidebar">准备升级。</block>
@@ -11257,7 +11250,6 @@
   <block id="b0f85a0199d1b83b2b8a32a5f34bdd8d" category="paragraph">如果您使用的是现有交换机，请继续执行 <block ref="4da30401760153ceb5481ac559dbe601" category="inline-link-macro-rx"></block>。</block>
   <block id="f44903a02a813582e3877d0c017bdfcb" category="paragraph"><block ref="f44903a02a813582e3877d0c017bdfcb" category="inline-link-macro-rx"></block></block>
   <block id="255e6fa1222b0f5f7521f1965844c1bf" category="paragraph">规划第 3 层解决方案时，请查看以下准则和图示。有关在 ONTAP 中实施 VIP 和 BGP 的详细信息，请参见 <block ref="245303d2c60ac1935683ed89eb13f165" category="inline-link-macro-rx"></block>。</block>
-  <block id="83e579bcd33d25206730a931a64a84a1" category="paragraph">如果您的配置运行的是 ONTAP 9.0 或更早版本，请参见 <block ref="249227e2d8f8114c9bdc6db2520e9445" category="inline-link-macro-rx"></block>。</block>
   <block id="bc08b638ff7480a2fa85e0dcdee0d692" category="paragraph"><block ref="bc08b638ff7480a2fa85e0dcdee0d692" category="inline-link-macro-rx"></block></block>
   <block id="26ae7bdd1d6fb8c4886e6fde8d12601c" category="list-text">延迟</block>
   <block id="9e9a93655547f7858baef5194a909e2c" category="cell">Cisco 3132Q-V、3232C或9336C-x2</block>
@@ -11280,7 +11272,6 @@
   <block id="dc58a5917fbb05da0e560a4cbcb1f72c" category="list-text">删除接口上配置的密钥链和策略以删除MACsec配置：</block>
   <block id="c988e8ca5d6e6bb62b67254721e13586" category="paragraph">`no MACsec keychain keychain-name policy policy-name`</block>
   <block id="8d0f34f00997c62960ad51adbe64457d" category="list-text"><block ref="8d0f34f00997c62960ad51adbe64457d" category="inline-link-rx"></block></block>
-  <block id="2687b88898e3642fcc69aaef6be8e73c" category="paragraph">过渡到 MetroCluster IP 配置时，您必须同时拥有受支持的平台型号。此外、您还应确保MetroCluster IP平台的大小适合要从MetroCluster FC配置过渡到MetroCluster IP配置的负载。</block>
   <block id="d9599a6265b31306f6c79d760a47a9aa" category="paragraph">下表显示了支持的平台组合。您可以从左侧列中的平台过渡到右侧列中列出的受支持平台、如彩色表单元格所示。</block>
   <block id="d84d4239724af43bfdc3b74836c335fe" category="paragraph">配置后、v0a (v0b等)的存在将持续验证连接、从而保证LIF迁移或故障转移成功(与L2不同、L2仅在中断后才会显示损坏的配置)。</block>
   <block id="222561f9cba21343a81a9b2ee1890d68" category="paragraph"><block ref="222561f9cba21343a81a9b2ee1890d68" category="inline-link-macro-rx"></block></block>
@@ -12369,18 +12360,11 @@
   <block id="91d96627fcbee13a9d474587060d13f8" category="paragraph">AFF C250和AFF A250系统的磁盘分配准则和规则同样适用于FAS500f系统。有关FAS500f系统上的磁盘分配、请参见 <block ref="62481755a241b3efc5c68e4e7dd00bb5" category="inline-xref-macro-rx"></block> 表。</block>
   <block id="d39fc122b5bc72857d3bc1cb28b2528b" category="summary">您可能需要更改FC交换机的供应商(从Cisco到Brocade或从Brocade到Brocade)、更改交换机型号或同时更改这两者。</block>
   <block id="dc97a56f45d09eb47627be2f51eaacac" category="doc">更改FC交换机的供应商或型号</block>
-  <block id="588f711b0852bf6ebac518663e6bf15c" category="paragraph">您可能需要将FC交换机的供应商从Cisco更改为Brocade、反之亦然、更改交换机型号或同时更改这两者。</block>
   <block id="34b3750efa9ad33069e758e1d20702b2" category="list-text">如果您使用的是经过NetApp验证的交换机、则此操作步骤适用。</block>
   <block id="038dcdf6b816f0dea514171c0fbec340" category="list-text">对于配置中的两个网络结构、您必须一次对一个网络结构执行此操作步骤中的步骤。</block>
   <block id="12e792350f2f2a26f26efec238939f8c" category="list-text">[[STEP_1, Step 1]]检查配置的运行状况。</block>
-  <block id="2aadc0e8757be310d2a25c139de10d8a" category="paragraph">按照中的步骤进行操作 <block ref="71433a7a2e7b6001aee2288bc93568fd" category="inline-link-macro-rx"></block>。</block>
-  <block id="4b0b73acfce5119dcc60f2f7b6dac2c4" category="list-text">通过按以下顺序删除连接、从旧交换机断开连接：</block>
   <block id="66700e9b823419320bcf568412b3c8f5" category="list-text">断开MetroCluster的连接。</block>
-  <block id="c4f64a0c7e0a39b3f68c6c76b119f9b7" category="list-text">关闭旧交换机、拔下缆线、然后用新交换机物理更换旧交换机。</block>
   <block id="39c4de53c442cd522fc67edfc4cc59c8" category="list-text">按以下顺序为交换机布线：</block>
-  <block id="0f192214376d7c0e958d509a331b7c82" category="inline-link-macro">安装MetroCluster组件并为其布线</block>
-  <block id="ca71188f7f4bbd1ad7fb2b3ac50145fa" category="paragraph">您必须按照中的步骤进行操作 <block ref="f09498c56b761bf8471aa49436b9c6b5" category="inline-link-macro-rx"></block>。</block>
-  <block id="d7c72b026579f98d6108723379befa5c" category="list-text">打开交换机电源。</block>
   <block id="4c49ac5fd96c13efa7ddbce7575dd9e4" category="list-text">重复执行、以验证MetroCluster 配置是否运行正常 <block ref="70a312d559ac5bac88a63c5c7c2e52d3" category="inline-xref-macro-rx"></block>。</block>
   <block id="b81576b1956a4793e86cfb62d8774b3f" category="list-text">对配置中的第二个网络结构重复步骤1至步骤7。</block>
   <block id="899dd799064eace0f16728f2bf38c96b" category="paragraph">FC交换机端口使用情况必须与文档中所述的使用情况匹配、才能使用参考配置文件(Reference Configuration Files、RCF)。</block>
@@ -12691,8 +12675,6 @@
   <block id="8c8b7a01f7186e24025ef8e89ee4deb8" category="admonition">至少需要一个以太网连接NVMe磁盘架</block>
   <block id="ad87745a64591ff679affa48fe663b39" category="paragraph">9338F-966–SAS和以太网存储</block>
   <block id="462b36259caf681453d6d7b142217c3d" category="paragraph"><block ref="419f67b8b89585d3be41af97b158dd9e" prefix="" category="inline-code"></block></block>
-  <block id="3a9ef4ec11f1ec3fddae2461f053c31a" category="list-text">断开MetroCluster FC接口。</block>
-  <block id="439c5d8621fe2376ba1455a5e5502727" category="list-text">为MetroCluster FC接口布线。</block>
   <block id="6a62571ce4203a1671da10509f3013e0" category="cell">AFF A900、ASA A900和FAS9500</block>
   <block id="d7b1c9d4f2a52b2d3648ce28baa0dd5c" category="paragraph">AFF A800、AFF C800、ASA A800和ASA C800</block>
   <block id="2bba389392c3b789eaa9d1c8c6fc87d2" category="paragraph">FAS9300、AFF A400、ASA A400、ASA C400和AFF C400</block>
@@ -12876,7 +12858,6 @@
   <block id="a05b3cdfc5cc23ee6b2d90f33be54635" category="admonition">对于连接MetroCluster接口和传输MetroCluster流量的ISL的交换机端口、某些策略映射是相同的。您可以对这两个端口使用使用使用相同的策略映射。</block>
   <block id="80d1269e99768d5e883ffa70dd8f6aeb" category="summary">根据您的要求、您可以使用共享的第2层或第3层网络来部署MetroCluster。</block>
   <block id="1c46b7bbd317f603895892a646ef8b2d" category="doc">在共享的第2层或第3层网络中部署MetroCluster时的注意事项</block>
-  <block id="2ff08728ea0124138aa06bf0f8c8ea31" category="paragraph">从ONTAP 9.6开始、使用受支持的Cisco交换机的MetroCluster IP配置可以为交换机间链路(Inter-Switch Link、ISL)共享现有网络、而不是使用专用的MetroCluster ISL。此拓扑称为_shared Layer 2 networks_。</block>
   <block id="cc723d7803ba423b47b353cc9dfa54ff" category="paragraph">从 ONTAP 9.1.1 开始，可以使用 IP 路由（第 3 层）后端连接实施 MetroCluster IP 配置。此拓扑称为_shared Layer 3 networks_。</block>
   <block id="80a482ff4ac144c8d8c1e668a348dd67" category="list-text">您必须确认网络容量充足、并且ISL大小适合您的配置。低延迟对于在 MetroCluster 站点之间复制数据至关重要。这些连接上的延迟问题可能会影响客户端 I/O</block>
   <block id="37eee3b9ac9781ca0484f54aeef70602" category="list-text">所有提及的MetroCluster后端交换机均指经过NetApp验证或符合MetroCluster的交换机。请参见 <block ref="16daa185b92984fefaae8aa04a4cd437" category="inline-link-macro-rx"></block> 有关详细信息：</block>
@@ -14008,8 +13989,6 @@
   <block id="df0de59a7d82bfac9aeb4c3a4d0ff3d5" category="paragraph"><block ref="593e2b872fdc863863b3175980b503ee" prefix="" category="inline-code"></block></block>
   <block id="ce4d776f761276cab4718597907e9b25" category="paragraph"><block ref="ce4d776f761276cab4718597907e9b25" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4bbabfb39bdaa67802b5f83f085672a9" category="image-alt">显示了IP到FC过渡支持的平台组合</block>
-  <block id="32571d30b5ea67a42d51725233459057" category="list-text">注1：此平台组合需要ONTAP 9.13.1或更高版本。</block>
-  <block id="c6a7b9b858b4fca6a11eb81808875db0" category="list-text">注2：FC节点上的本地集群接口必须具有100GbE接口。此平台组合需要ONTAP 9.11.1或更高版本。</block>
   <block id="5a4027b63d6ed294211392e256667c2c" category="list-text">修改旧控制器上的集群间LUN、使其使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口不同的主端口。</block>
   <block id="931a74601edef3262a75c3d8d8e6acda" category="admonition">要成功升级、需要执行此步骤。</block>
   <block id="f7f8cd16da4423b24e25a4d21cb4bc83" category="paragraph">旧控制器上的集群间LUN必须使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口不同的主端口。例如、在升级到AFF A90控制器时、HA互连端口为e1a和e7a、MetroCluster IP DR互连端口为e2b和e3b。如果旧控制器托管在端口e1a、e7a、e2b或e3b上、则必须移动这些控制器上的集群间LUN。</block>
@@ -14036,4 +14015,28 @@
   <block id="b0b6d9c342452ad19a9b24e1caf2ff35" category="cell"><block ref="e7896f2437c8c50a74bfea383fc26eb3" category="inline-xref-macro-rx"></block></block>
   <block id="3872acc735c86484cf5289e6f36d9d09" category="list-text">[[controller_REPLACE _UPREPREPARE NETWORM_ports_2b]]修改集群间LI以使用其他主端口：</block>
   <block id="bd14e125f8f9035fe1f7a46be559035d" category="list-text">[[controller_Replace _upgrade prepare_network_ports_3]]将旧控制器上所有数据LI的主端口分配给新旧控制器模块上相同的通用端口。</block>
+  <block id="bf8ab32fb11672e6514cae71dc5fafe7" category="paragraph">从ONTAP 9.6开始、使用受支持交换机的MetroCluster IP配置可以为交换机间链路(Inter-Switch Link、ISL)共享现有网络、而不是使用专用的MetroCluster ISL。此拓扑称为_shared Layer 2 networks_。</block>
+  <block id="ecf6e6f3fcedd63b625249365c65593c" category="list-text">并非所有网络拓扑都支持所有功能。</block>
+  <block id="8358ac5f612a66f1c1de4d949b9a86ae" category="doc">更改FC交换机的供应商或型号</block>
+  <block id="52fe3712857160698c1b014e83579ba9" category="paragraph">您可能需要将FC交换机的供应商从Cisco更改为Brocade、反之亦然、更改交换机型号或同时更改这两者。</block>
+  <block id="32e3da7a69b04d14731b2ee761e658ba" category="list-text">在安装之前配置新交换机。</block>
+  <block id="26f5dee585e3373bb2d4d532d8840b7a" category="paragraph">按照中的步骤进行 <block ref="8891b6de7b2070c584bdeb67b522b51b" category="inline-link-macro-rx"></block>操作。</block>
+  <block id="da05a72c6769f77035f88e9c4a38fa5f" category="list-text">通过按以下顺序删除连接、从旧交换机断开连接：</block>
+  <block id="02ee3aa1129af6cfff90a9db0232239e" category="list-text">断开MetroCluster FC和FFC-VI接口的连接。</block>
+  <block id="f4682cedd049931c51d74f398ef3fb36" category="list-text">断开ATto光纤桥接器的连接。</block>
+  <block id="450cb91595a8d54efc773a3e450fd1f3" category="list-text">关闭旧交换机、拔下缆线、然后用新交换机物理更换旧交换机。</block>
+  <block id="a139b1c04214aec0693f828d23631fcf" category="paragraph">必须按照中的步骤 <block ref="37a983721e8c37719820fe5091c30d35" category="inline-link-macro-rx"></block>进行操作。</block>
+  <block id="0695aadd5e22ca576036ee74e37a609e" category="list-text">为ATto光纤桥接器布线。</block>
+  <block id="bc1e1a74eeb5d30d0aec52f0e7d3fc2c" category="list-text">为MetroCluster FC和FFC-VI接口布线。</block>
+  <block id="0498d59ca3d1dcff64193b28d0aad43b" category="list-text">打开交换机电源。</block>
+  <block id="7e78f2c6ef0bb1c644bf13957f799b3e" category="paragraph">过渡到 MetroCluster IP 配置时，您必须同时拥有受支持的平台型号。</block>
+  <block id="4c3904f4170d85c115c47ba3f7c7991f" category="paragraph">此外、您还应确保MetroCluster IP平台的大小适合要从MetroCluster FC配置过渡到MetroCluster IP配置的负载。</block>
+  <block id="b58285eb9b24d9fe796b9063f265bfb5" category="paragraph-title">支持的AFF和FAS过渡组合</block>
+  <block id="c1e51816977e0a0a7222c23da2cc2cb9" category="list-text">注1：此平台组合需要ONTAP 9.11.1或更高版本。</block>
+  <block id="234207cc1f3002485022da1892b4559b" category="list-text">注2：FC节点上的本地集群接口必须具有40GbE接口。</block>
+  <block id="6ae32e231af4316f91162f3b9a761e43" category="list-text">注3：FC节点上的本地集群接口必须具有100GbE接口。</block>
+  <block id="2e16237b0ca66b75b7c3d7fdd40e4d39" category="paragraph-title">支持的ASA过渡平台组合</block>
+  <block id="5feb826151198d290926a00c8f0166bd" category="paragraph">下表显示了ASA系统支持的平台组合。</block>
+  <block id="26f5174a535725c2475715c5b1747824" category="cell">目标MetroCluster IP平台</block>
+  <block id="315289188a5b2b11bb8fe0c80160e8d4" category="sidebar">在将节点添加到MetroCluster配置之前、发送自定义AutoSupport消息</block>
 </blocks>

@@ -11,12 +11,13 @@ summary: 根据您的要求、您可以使用共享的第2层或第3层网络来
 [role="lead"]
 根据您的要求、您可以使用共享的第2层或第3层网络来部署MetroCluster。
 
-从ONTAP 9.6开始、使用受支持的Cisco交换机的MetroCluster IP配置可以为交换机间链路(Inter-Switch Link、ISL)共享现有网络、而不是使用专用的MetroCluster ISL。此拓扑称为_shared Layer 2 networks_。
+从ONTAP 9.6开始、使用受支持交换机的MetroCluster IP配置可以为交换机间链路(Inter-Switch Link、ISL)共享现有网络、而不是使用专用的MetroCluster ISL。此拓扑称为_shared Layer 2 networks_。
 
 从 ONTAP 9.1.1 开始，可以使用 IP 路由（第 3 层）后端连接实施 MetroCluster IP 配置。此拓扑称为_shared Layer 3 networks_。
 
 [NOTE]
 ====
+* 并非所有网络拓扑都支持所有功能。
 * 您必须确认网络容量充足、并且ISL大小适合您的配置。低延迟对于在 MetroCluster 站点之间复制数据至关重要。这些连接上的延迟问题可能会影响客户端 I/O
 * 所有提及的MetroCluster后端交换机均指经过NetApp验证或符合MetroCluster的交换机。请参见 link:mcc-compliant-netapp-validated-switches.html["经过NetApp验证且符合MetroCluster标准的交换机"] 有关详细信息：
 

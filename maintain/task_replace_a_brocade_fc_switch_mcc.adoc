@@ -57,7 +57,6 @@ NOTE: 此操作步骤不会造成系统中断，大约需要两小时才能完�
 
 您的交换机端口使用情况应遵循建议的分配。
 
-* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]
 * link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
 
 

@@ -14,8 +14,6 @@ summary: 如果您更换了灾难站点中的 FC 交换机，则必须使用供�
 如果您更换了灾难站点中的 FC 交换机，则必须使用供应商专用的过程对其进行配置。您必须配置一个交换机，验证运行正常的站点上的存储访问不受影响，然后配置第二个交换机。
 
 .相关任务
-link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 9.0 时 FC 交换机的端口分配"]
-
 link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
 
 
@@ -37,7 +35,6 @@ link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1
 
 在为 FC 交换机布线时，您必须验证是否正在使用指定的端口分配：
 
-* link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]
 * link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
 
 

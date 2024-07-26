@@ -18,7 +18,6 @@ summary: 如果要设置使用阵列 LUN 的八节点光纤连接 MetroCluster �
 * 如果您计划在 MetroCluster 配置中除了使用阵列 LUN 外还使用磁盘，则必须使用为使用磁盘配置而指定的 HBA 端口和交换机端口。
 +
 ** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
-** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_0.html["使用 ONTAP 9.0 时 FC 交换机的端口分配"]
 
 
 

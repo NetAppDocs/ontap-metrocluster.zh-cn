@@ -53,8 +53,6 @@ Group Cluster Node           State          Mirroring Mode
 ----
 cluster_A::> metrocluster check run
 
-Last Checked On: 10/1/2014 16:03:37
-
 Component           Result
 ------------------- ---------
 nodes               ok
@@ -71,37 +69,24 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 
 . 在安装之前配置新交换机。
 +
-按照中的步骤进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_reset_the_brocade_fc_switch_to_factory_defaults.html["配置 FC 交换机"]。
+按照中的步骤进行 link:../install-fc/concept-configure-fc-switches.html["配置 FC 交换机"]操作。
 
 . 通过按以下顺序删除连接、从旧交换机断开连接：
 +
-.. 如果本地集群接口连接到交换机：
-+
-... 断开本地集群接口的连接
-... 断开本地集群ISO的连接
-
-
-.. 断开MetroCluster FC接口。
+.. 断开MetroCluster FC和FFC-VI接口的连接。
+.. 断开ATto光纤桥接器的连接。
 .. 断开MetroCluster的连接。
 
 
 . 关闭旧交换机、拔下缆线、然后用新交换机物理更换旧交换机。
 . 按以下顺序为交换机布线：
 +
-您必须按照中的步骤进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_rack_the_hardware_components_mcc_fabric_and_ip.html["安装MetroCluster组件并为其布线"]。
+必须按照中的步骤 link:../install-fc/task_configure_the_mcc_hardware_components_fabric.html["为光纤连接的 MetroCluster 配置布线"]进行操作。
 
 +
 .. 使用缆线将此ISL连接到远程站点。
-.. 为MetroCluster FC接口布线。
-.. 为本地集群接口布线。
-+
-如果本地集群接口连接到交换机：
-
-+
-... 为本地集群接口布线。
-... 使用缆线连接本地集群ISO。
-
-
+.. 为ATto光纤桥接器布线。
+.. 为MetroCluster FC和FFC-VI接口布线。
 
 
 . 打开交换机电源。
