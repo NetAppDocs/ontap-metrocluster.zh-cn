@@ -23,14 +23,19 @@ summary: 您使用的升级操作步骤 取决于平台型号。
 
 == 支持的控制器升级
 
-从下面的FC或IP表中选择当前平台。如果当前平台行和目标平台列的交叉路口为空、则不支持升级。
-
-
-NOTE: 有关支持在四节点MetroCluster IP配置中使用命令进行升级的 `system controller replace` 信息、请参阅中的表 link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html["使用带有system controller Replace命令的切换和切回升级四节点MetroCluster IP配置中的控制器(ONTAP 9.13.1及更高版本)"]
+了解支持的MetroCluster IP和FC控制器升级组合。
 
 
 
-=== 支持的MetroCluster IP控制器升级
+=== 支持使用system controller Replace命令升级MetroCluster IP控制器
+
+有关支持的平台、请参见中的表 link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html["使用带有system controller Replace命令的切换和切回升级四节点MetroCluster IP配置中的控制器(ONTAP 9.13.1及更高版本)"] 。
+
+
+
+=== 所有其他受支持的MetroCluster IP控制器升级
+
+从本节的MetroCluster控制器升级表中查找您的*Source*平台。如果*Source*平台行与*Target*平台列的交叉点为空，则不支持升级。
 
 * 如果未列出您的平台、则表示没有受支持的控制器升级组合。
 * 执行控制器升级时，旧平台类型和新平台类型*Must*匹配：
@@ -46,7 +51,7 @@ NOTE: 有关支持在四节点MetroCluster IP配置中使用命令进行升级�
 
 
 .支持的AFF和FAS MetroCluster IP控制器升级
-下表显示了在MetroCluster IP配置中升级AFF或FAS系统时支持的平台组合：
+下表显示了在MetroCluster IP配置中手动升级AFF或FAS系统时支持的平台组合：
 
 image::../media/metrocluster_ip_upgrade_so_sb_aff_fas.png[MetroCluster IP升级sb AFF FAS]
 
@@ -57,7 +62,7 @@ image::../media/metrocluster_ip_upgrade_so_sb_aff_fas.png[MetroCluster IP升级s
 
 
 .支持的ASA MetroCluster IP控制器升级
-下表显示了在MetroCluster IP配置中升级ASA系统时支持的平台组合：
+下表显示了在MetroCluster IP配置中手动升级ASA系统时支持的平台组合：
 
 image::../media/metrocluster_ip_upgrade_so_sb_asa_fas.png[MetroCluster IP升级sb ASA FAS]
 
@@ -67,6 +72,8 @@ image::../media/metrocluster_ip_upgrade_so_sb_asa_fas.png[MetroCluster IP升级s
 
 
 === 支持的MetroCluster FC控制器升级
+
+从本节的MetroCluster控制器升级表中查找您的*Source*平台。如果*Source*平台行与*Target*平台列的交叉点为空，则不支持升级。
 
 * 如果未列出您的平台、则表示没有受支持的控制器升级组合。
 * 执行控制器升级时，旧平台类型和新平台类型*Must*匹配：

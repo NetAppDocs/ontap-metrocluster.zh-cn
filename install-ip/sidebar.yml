@@ -26,16 +26,16 @@ entries:
       url: "/install-ip/concept-requirements-isls.html"
     - title: 在共享的第2层或第3层网络中部署MetroCluster时的注意事项
       url: "/install-ip/concept-considerations-layer-2-layer-3.html"
-    - title: 使用符合 MetroCluster 的交换机的注意事项
-      entries:
-      - title: MetroCluster兼容交换机的要求和限制
-        url: "/install-ip/concept-requirement-and-limitations-mcc-compliant-switches.html"
-      - title: MetroCluster兼容交换机的网络速度和交换机端口模式
-        url: "/install-ip/concept-network-speeds-and-switchport-modes.html"
-      - title: 交换机端口配置示例
-        url: "/install-ip/concept-configure-mcc-compliant-switches.html"
     - title: MetroCluster 网络拓扑示例
       url: "/install-ip/concept-example-network-topologies.html"
+  - title: 使用符合 MetroCluster 的交换机的注意事项
+    entries:
+    - title: MetroCluster兼容交换机的要求和限制
+      url: "/install-ip/concept-requirement-and-limitations-mcc-compliant-switches.html"
+    - title: MetroCluster兼容交换机的网络速度和交换机端口模式
+      url: "/install-ip/concept-network-speeds-and-switchport-modes.html"
+    - title: 交换机端口配置示例
+      url: "/install-ip/concept-configure-mcc-compliant-switches.html"
   - title: MetroCluster IP 配置中的未镜像聚合
     url: "/install-ip/concept_considerations_unmirrored_aggrs.html"
   - title: MetroCluster 站点上的防火墙使用情况

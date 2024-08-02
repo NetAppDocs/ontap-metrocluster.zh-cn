@@ -30,7 +30,7 @@ summary: 如果在灾难站点上更换了控制器模块或 NVRAM 卡，则必�
 * node_B_2 运行状况良好。
 
 
-旧的和新的系统 ID 在中进行了标识 link:../disaster-recovery/task_replace_hardware_and_boot_new_controllers.html#determining-the-system-ids-of-the-replacement-controller-modules["确定替代控制器模块的新系统 ID"]。
+旧的和新的系统ID在中进行了标识 link:../disaster-recovery/task_replace_hardware_and_boot_new_controllers.html["更换硬件并启动新控制器"]。
 
 此操作步骤中的示例使用具有以下系统 ID 的控制器：
 

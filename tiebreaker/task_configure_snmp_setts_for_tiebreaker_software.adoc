@@ -13,20 +13,48 @@ summary: 要在 Tiebreaker 软件中使用 SNMP ，必须配置 SNMP 设置。
 [role="lead"]
 要在Tiebreaker软件中使用SNMP、必须配置SNMP设置。
 
+.关于此任务
+* Tieb破碎 机1.6仅支持SNMPv3。
+* 尽管Tieb破碎 机1.5和1.4支持SNMPv1和SNMPv3、但NetApp强烈建议您配置SNMPv3以获得最佳安全性。
+
+
+.步骤
 . 使用Tiebreaker CLI `snmp config wizard` 用于添加MetroCluster 配置的命令。
 +
 
 NOTE: 当前仅支持一个 SNMP 陷阱主机。
 
 +
-以下示例显示了一个SNMP接收器的配置、该接收器支持SNMP V3、其IP地址为10.240.45.66、端口号为162、用于发送陷阱消息。Tiebreaker 软件已准备好向您指定的 SNMP 接收器发送陷阱。
+ `snmp config wizard`命令响应取决于您运行的Tieb破碎 机版本。
 
 +
+[role="tabbed-block"]
+====
+.Tieb破碎 机1.6
+--
+以下示例显示了SNMP接收器的配置、该接收器支持SNMPv3、其IP地址为192.0.2.255、端口号为162、用于发送陷阱消息。Tiebreaker 软件已准备好向您指定的 SNMP 接收器发送陷阱。
+
+
+NOTE: Tieb破碎 机1.6仅支持SNMPv3
+
+[listing]
+----
+NetApp MetroCluster Tiebreaker :> snmp config wizard
+Enter SNMP Host: 192.0.2.255
+Enter SNMP Port: 162
+Enter SNMP V3 Security Name: v3sec
+Enter SNMP V3 Authentication password:
+----
+--
+.Tieb破碎 机1.5和1.4
+--
+以下示例显示了SNMP接收器的配置、该接收器支持SNMPv3、其IP地址为192.0.2.255、端口号为162、用于发送陷阱消息。Tiebreaker 软件已准备好向您指定的 SNMP 接收器发送陷阱。
+
 ....
 
 NetApp MetroCluster Tiebreaker :> snmp config wizard
 Enter SNMP Version[V1/V3]: v3
-Enter SNMP Host: 10.240.45.66
+Enter SNMP Host: 192.0.2.255
 Enter SNMP Port: 162
 Enter SNMP V3 Security Name: v3sec
 Enter SNMP V3 Authentication password:
@@ -34,10 +62,11 @@ Enter SNMP V3 Privacy password:
 Engine ID : 8000031504932eff571825192a6f1193b265e24593
 Successfully added SNMP properties to NetApp MetroCluster Tiebreaker software.
 ....
-+
 
-NOTE: 您应配置SNMPv3、因为SNMPv1不安全。确保默认社区字符串*未*设置为public。
+NOTE: 您应配置SNMPv3、因为SNMPv1不安全。验证默认社区字符串是否设置为*NOT * public。
 
+--
+====
 . 验证是否已配置 SNMP 设置：
 +
 `snmp config test`
@@ -49,7 +78,7 @@ NOTE: 您应配置SNMPv3、因为SNMPv1不安全。确保默认社区字符串*�
 ....
 
 NetApp MetroCluster Tiebreaker :> snmp config test
-Sending SNMP trap to localhost. Version : V1.
+Sending SNMP trap to localhost. Version : V3.
 Successfully sent SNMP trap for event TEST_SNMP_CONFIG
 NetApp MetroCluster Tiebreaker :>
 ....

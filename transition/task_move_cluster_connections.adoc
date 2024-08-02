@@ -278,7 +278,7 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 .. 准备 IP 交换机以应用新的 RCF 文件。
 +
 *** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"] *
-*** link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_switch_config_broadcom.html["将 Cisco IP 交换机重置为出厂默认值"]
+*** link:../install-ip/task_switch_config_cisco.html["将 Cisco IP 交换机重置为出厂默认值"]
 
 
 .. 根据交换机供应商的不同，下载并安装 IP RCF 文件。

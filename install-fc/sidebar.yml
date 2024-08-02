@@ -59,8 +59,9 @@ entries:
     - title: 使用 ONTAP 9.1 或更高版本时 FC 交换机的端口分配
       url: "/install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html"
     - title: 使用 AFF A900 系统时 FC 交换机的端口分配
-      url: "/install-fc/concept_AFF_A900_port_assign_fc_switches_ontap_9_1.html"
       entries:
+      - title: 使用AFF A900或FAS9500系统时FC交换机的端口分配
+        url: "/install-fc/concept_AFF_A900_port_assign_fc_switches_ontap_9_1.html"
       - title: 运行 ONTAP 9.10.1 或更高版本的控制器的 AFF A900 Brocade 端口使用情况
         url: "/install-fc/concept_AFF_A900_brocade_port_config.html"
       - title: 运行 ONTAP 9.10.1 或更高版本的 ISL 的 AFF A900 Brocade 端口使用情况

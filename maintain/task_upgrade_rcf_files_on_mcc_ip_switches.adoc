@@ -124,15 +124,15 @@ MetroCluster 操作历史记录显示 -job-id 38`
 按照适用于您的交换机供应商的步骤进行操作：
 
 +
-** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"]
-** link:../install-ip/task_switch_config_cisco.html["将 Cisco IP 交换机重置为出厂默认值"]
-** link:../install-ip/task_switch_config_nvidia.html["将NVIDIA IP SN2100交换机重置为出厂默认设置"]
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["将 Broadcom IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_cisco.html#resetting-the-cisco-ip-switch-to-factory-defaults["将Cisco IP交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_nvidia.html#reset-the-nvidia-ip-sn2100-switch-to-factory-defaults["将NVIDIA IP SN2100交换机重置为出厂默认值"]
 
 
 . 根据交换机供应商的不同、下载并安装IP RCF文件。
 +
-** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom IP RCF 文件"]
-** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装 Cisco IP RCF 文件"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装Broadcom IP RC框架 文件"]
+** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装Cisco IP RCC文件"]
 ** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["下载并安装NVIDIA IP RCP文件"]
 +
 
