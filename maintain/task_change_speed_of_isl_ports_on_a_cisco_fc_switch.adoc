@@ -13,8 +13,12 @@ summary: 您可能需要更改交换机上 ISL 端口的速度，以提高 ISL �
 [role="lead"]
 您可能需要更改交换机上 ISL 端口的速度，以提高 ISL 的质量。距离较远的 ISL 可能需要降低其速度以提高质量。
 
-您必须在两台交换机上完成所有步骤，以确保 ISL 连接。
+.关于此任务
+* 在两台交换机上完成所有步骤、以确保ISL连接。
+* link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
 
+
+.步骤
 . 在网络结构中的两个交换机上禁用要更改速度的 ISL 端口：
 +
 ` * FC_switch_A_1# config t*`

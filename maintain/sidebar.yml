@@ -8,6 +8,8 @@ entries:
   url: "/maintain/reference_mcc_failure_scenarios.html"
 - title: 在执行维护任务之前，请删除 ONTAP 调解器或 Tiebreaker 监控
   url: "/maintain/concept_remove_mediator_or_tiebreaker_when_performing_maintenance_tasks.html"
+- title: 在执行维护任务之前启用控制台日志记录
+  url: "/maintain/enable-console-logging-before-maintenance.html"
 - title: FC-SAS 网桥维护
   entries:
   - title: 支持 MetroCluster 配置中的 FibreBridge 7600N 网桥

@@ -67,6 +67,7 @@ Filename : NX3232_v1.80_Switch-A2.txt
 .关于此任务
 * 此操作步骤会中断升级 RCF 文件的交换机上的流量。应用新 RCF 文件后，流量将恢复。
 * 按以下顺序逐个交换机执行这些步骤：Switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。
+* link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
 
 
 .步骤

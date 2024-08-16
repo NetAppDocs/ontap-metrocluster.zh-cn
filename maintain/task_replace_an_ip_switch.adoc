@@ -13,7 +13,10 @@ summary: 您可能需要更换发生故障的交换机，或者升级或降级�
 [role="lead"]
 您可能需要更换发生故障的交换机、升级或降级交换机或更改现有MetroCluster IP交换机的使用。
 
+.关于此任务
 使用经过 NetApp 验证的交换机时，此操作步骤 适用。如果您使用的是符合 MetroCluster 的交换机，请咨询交换机供应商。
+
+link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
 
 此操作步骤 支持以下转换：
 

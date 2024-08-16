@@ -13,9 +13,12 @@ summary: 执行维护时、您可能需要关闭MetroCluster IP接口端口。
 [role="lead"]
 执行维护任务时、可能需要使MetroCluster IP接口端口脱机或联机。
 
-您可以使用以下步骤使MetroCluster IP接口端口脱机或联机。
+.关于此任务
+link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
 
 .步骤
+您可以使用以下步骤使MetroCluster IP接口端口联机或脱机。
+
 . 将权限级别设置为高级：
 +
 [source, cli]

@@ -13,7 +13,10 @@ summary: 您必须使用此 Brocade 专用操作步骤来更换发生故障的�
 [role="lead"]
 您必须使用此 Brocade 专用操作步骤来更换发生故障的交换机。
 
+.关于此任务
 您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。
+
+link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
 
 在以下示例中， FC_switch_A_1 是运行正常的交换机， FC_switch_B_1 是受损的交换机。下表显示了示例中的交换机端口使用情况：
 

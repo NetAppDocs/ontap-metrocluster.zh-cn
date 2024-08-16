@@ -13,6 +13,11 @@ summary: 在从 MetroCluster FC 无中断过渡到 IP 节点时，您必须无�
 [role="lead"]
 在从 MetroCluster FC 无中断过渡到 IP 节点时，您必须无中断地将 FC SAN 主机对象从 MetroCluster FC 移动到 IP 节点。
 
+
+
+== 将 FC SAN 工作负载从 MetroCluster FC 移动到 MetroCluster IP 节点
+
+.步骤
 . 在 MetroCluster IP 节点上设置新的 FC 接口（ LIF ）：
 +
 .. 如果需要，请在 MetroCluster IP 节点上修改 FC 端口，以便客户端连接到 FC 目标特性。

@@ -13,6 +13,7 @@ summary: '您可能需要更改FC交换机的供应商(从Cisco到Brocade或从B
 
 .关于此任务
 * 如果您使用的是经过NetApp验证的交换机、则此操作步骤适用。
+* link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
 * 对于配置中的两个网络结构、您必须一次对一个网络结构执行此操作步骤中的步骤。
 
 

@@ -26,6 +26,8 @@ NOTE: 如果您在连接NS224磁盘架的共享配置中使用Cisco 9336C -拧�
 .开始之前
 请参阅的*开关*部分 link:https://hwu.netapp.com/["NetApp Hardware Universe"^] 以验证受支持的收发器。
 
+link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
+
 .步骤
 . 在网络结构中要更改的两个交换机上禁用 ISL 的 ISL 端口。
 +

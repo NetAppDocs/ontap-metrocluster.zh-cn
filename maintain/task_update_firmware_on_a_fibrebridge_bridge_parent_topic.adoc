@@ -13,6 +13,9 @@ summary: 用于更新网桥固件的操作步骤取决于您的网桥型号和 O
 [role="lead"]
 用于更新网桥固件的操作步骤取决于您的网桥型号和 ONTAP 版本。
 
+.关于此任务
+link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
+
 
 
 == 更新运行 ONTAP 9.4 及更高版本的配置中 FibreBridge 7600N 或 7500N 网桥上的固件

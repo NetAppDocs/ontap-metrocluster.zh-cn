@@ -3,13 +3,6 @@
   <block id="e5fe800fef736c2c8af1453a59683d3c" category="summary">要升级或降级 Brocade FC 交换机上的固件，必须使用 Brocade 专用命令禁用交换机，执行并验证固件更改，然后重新启动并重新启用交换机。</block>
   <block id="1ab0f1fa27ba43bfea0e9de2529316c8" category="doc">升级或降级 Brocade FC 交换机上的固件</block>
   <block id="168f20b249437abf8c684700d798efa2" category="list-text">您必须具有固件文件。</block>
-  <block id="0f294b3681e7ea001f509f89246b65d2" category="list-text">系统必须已正确布线。</block>
-  <block id="bc395a51f08bad16bb57e9887139d5c8" category="list-text">存储架的所有路径都必须可用。</block>
-  <block id="e0d2e110035c5d5f573b9877e7fa674e" category="list-text">磁盘架堆栈必须稳定。</block>
-  <block id="cd824f26e7bab15b79976a27f27c206d" category="list-text">FC 交换机网络结构必须运行状况良好。</block>
-  <block id="04dbc16ee806b5ebad0693ef3708205e" category="list-text">系统中不能存在任何故障组件。</block>
-  <block id="dc3821b7037b803e8843a37994a7bc2e" category="list-text">系统必须正常运行。</block>
-  <block id="d2b16b08756dbd9f703dd67a7e2f8759" category="list-text">您必须具有管理员密码并能够访问 FTP 或 SCP 服务器。</block>
   <block id="db6e0c8057b108f77da141b83e047b8d" category="paragraph">在固件升级或降级期间，交换机网络结构将被禁用， MetroCluster 配置将依靠第二个网络结构继续运行。</block>
   <block id="6751765455c440079966f9a59475b0bc" category="paragraph">必须连续对每个交换机网络结构执行此任务，以使所有交换机运行相同版本的固件。</block>
   <block id="da01ecb08b133106887a13853c00c37a" category="admonition">此操作步骤不会造成系统中断，大约需要一小时才能完成。</block>
@@ -62,7 +55,6 @@
   <block id="3a22912e4973e8f3bedeb2bd6bde725d" category="paragraph">您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。</block>
   <block id="b51ae922bb862c3daed086b031b039a1" category="summary">要升级或降级 Cisco FC 交换机上的固件，必须使用 Cisco 专用的命令禁用交换机，执行并验证升级，然后重新启动并重新启用交换机。</block>
   <block id="7dd5dd10d7f07bdbe6967e7acfbcce32" category="doc">升级或降级 Cisco FC 交换机上的固件</block>
-  <block id="5288f12ee509f0c3b2cc280c5be85d44" category="list-text">系统中的所有组件都必须运行正常。</block>
   <block id="f2bd3f00211cc48acb66c611b574098b" category="list-text">您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。</block>
   <block id="37152fbf6505ff7869875fddafc189ff" category="paragraph">在固件升级或降级期间，交换机网络结构将被禁用， MetroCluster 配置将依靠第二个网络结构继续运行。</block>
   <block id="59ec1a2958e0d74f2e94cf39df69df0a" category="paragraph">您必须连续对每个交换机网络结构重复此任务，以确保所有交换机都运行相同版本的固件。</block>
@@ -1200,7 +1192,6 @@
   <block id="6016a2b341113bf496b719905398ecd2" category="doc">版权</block>
   <block id="bd19bf00e1fbfd96fcc2339c755e0467" category="summary">如果您要添加或升级硬件，例如其他或更快的控制器或更快的交换机，则可能需要向交换机添加 ISL 。</block>
   <block id="a6237977252c00c91d0b5db5336baec2" category="doc">将 LSLs 添加到 Cisco 交换机</block>
-  <block id="23ccb323627c51faf14f36b4cb4ca713" category="paragraph">在一台交换机上完成的步骤也必须在另一台交换机上完成，以确保 ISL 连接。</block>
   <block id="de71f5ad868db8c978c7f3225fdfdf6a" category="list-text">禁用要在网络结构中的两个交换机上添加的 ISL 端口：</block>
   <block id="2853dcfcc60d2e6dc08e90bf6acb95f6" category="paragraph">` * FC_switch_A_1#config t*`</block>
   <block id="5cd2ac3c7ee0ee9b3836b2cdeb2a3924" category="paragraph">输入配置命令，每行输入一个。输入完所有配置命令后，以 CTRL-Z 结尾。</block>
@@ -7663,16 +7654,12 @@
   <block id="84976775b57e1cc840a09f2c88a286ac" category="summary">如果控制器故障扩展到 MetroCluster 配置中 DR 组一侧的所有控制器模块（包括双节点 MetroCluster 配置中的单个控制器），或者存储已被更换，则必须更换设备并重新分配驱动器的所有权，才能从灾难中恢复。</block>
   <block id="5b15a3f0a5da2641b113bfa00db4f4cd" category="doc">从多控制器或存储故障中恢复</block>
   <block id="24f844bc7daaf81496d7a3c7d46e885b" category="paragraph">如果控制器故障扩展到 MetroCluster 配置中 DR 组一侧的所有控制器模块（包括双节点 MetroCluster 配置中的单个控制器），或者存储已被更换，则必须更换设备并重新分配驱动器的所有权，才能从灾难中恢复。</block>
-  <block id="ec5ed92d6a768271cc29ccf291c8dc38" category="list-text">在决定使用此操作步骤之前，您应查看可用的恢复过程。</block>
   <block id="82bbfcee09add33fd33001d4761a8949" category="inline-link-macro">选择正确的恢复操作步骤</block>
   <block id="de8c0fb03e206ceba27f199881fead35" category="paragraph"><block ref="de8c0fb03e206ceba27f199881fead35" category="inline-link-macro-rx"></block></block>
-  <block id="789f8748d0208455975814250fce3373" category="list-text">必须隔离灾难站点。</block>
   <block id="43f5f5a19bf60d6ad8ac66652cef316d" category="inline-link-macro">隔离灾难站点</block>
   <block id="4ec51c7a14aec89211955ef5982bc635" category="paragraph"><block ref="9d20893d97b1f685de0a5e2bbba0f4a9" category="inline-link-macro-rx"></block>。</block>
-  <block id="250b09385f6cdc02560becd09aac8d01" category="list-text">必须已执行切换。</block>
   <block id="be832f713abe208d3c2b4ab97540b471" category="inline-link-macro">执行强制切换</block>
   <block id="bf2e2751dcaaaee268be12b1bacadb6b" category="paragraph"><block ref="72a3a195ac0fa089c021b23e356908eb" category="inline-link-macro-rx"></block>。</block>
-  <block id="aa046910a7ecd63d9a04798d1b9149b4" category="list-text">更换用的驱动器和控制器模块必须是新的，并且以前不能为其分配所有权。</block>
   <block id="d8dfcd71dcf8c400455bfbfc7ec188d2" category="paragraph">此操作步骤中的示例显示了两个或四节点配置。如果您使用的是八节点配置（两个 DR 组），则必须考虑所有故障，并对其他控制器模块执行所需的恢复任务。</block>
   <block id="c79468b94118562478a247649c7e919d" category="image-alt">工作流冒烟弹口恢复</block>
   <block id="333c2429701c5b1407dd5f1815377913" category="paragraph">在发生故障时处于过渡中的系统上执行恢复时，可以使用此操作步骤。在这种情况下，您必须按照操作步骤中的说明在准备切回时执行相应的步骤。</block>
@@ -8467,7 +8454,6 @@
   <block id="a96b46d6c220e82969d9ba10b064f72d" category="paragraph">以下示例将在故障转移组 "intercluster01" 中创建集群间 LIF "cluster01_icl01" 和 "cluster01_icl02" ：</block>
   <block id="1456cda5fcdd4ba6dc58aaeb75ae33ca" category="paragraph">以下示例显示 SVM "e0e" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0f" 端口。</block>
   <block id="2c473c2b0dd7e7fd0a780aba4f6b52cb" category="paragraph">在确定使用专用端口进行集群间复制是否是正确的集群间网络解决方案时，您应考虑 LAN 类型，可用 WAN 带宽，复制间隔，更改率和端口数等配置和要求。</block>
-  <block id="376d4fd6163673e8ce3ef73b91ff9c9d" category="cell">`network interface create -vserver _system_svm_ -lif _LIF_name_ -service-policy default-intercluster -home-node _node_-home-port _port_ -address _port_ip_ -netmask _netmask_`</block>
   <block id="70368afdba29ef090427320b39d6868b" category="paragraph">以下示例显示 "e0c" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0d" 端口。</block>
   <block id="d3895c0d50943a96774ef267cc45ca30" category="paragraph">`cluster peer create -generate-passphrase -offer-expiration _MM/DD/YYYY HH ： MM ： SS|1...7 天 |1...168 小时 _ -peer-Addrs _peer_LIF_IP_ -IPspace _IPspace _IPspace _`</block>
   <block id="797647e34bade9092632b77423181a50" category="list-text">在源集群上，将源集群身份验证到目标集群：</block>
@@ -13472,7 +13458,6 @@
   <block id="262891df0c6ebb50acbcb126fb5c8761" category="summary">执行维护时、您可能需要关闭MetroCluster IP接口端口。</block>
   <block id="4261a47766ada379b26b2c3a719f75b2" category="doc">联机或脱机MetroCluster IP接口端口</block>
   <block id="cb6838ec9d371f50679bbbc58c45370a" category="paragraph">执行维护任务时、可能需要使MetroCluster IP接口端口脱机或联机。</block>
-  <block id="c8611b3438fb84a6c442fe7b05f52a15" category="paragraph">您可以使用以下步骤使MetroCluster IP接口端口脱机或联机。</block>
   <block id="3c84f1de018751821bb0b4202f14bf0a" category="list-text">将权限级别设置为高级：</block>
   <block id="6ca857f7a44a21cfffda914cf9549710" category="paragraph">*示例输出*</block>
   <block id="260ab9e602296cf4759b74ba30cbd850" category="list-text">使MetroCluster IP接口端口脱机。</block>
@@ -14065,4 +14050,52 @@
   <block id="8a97a528989bc12cbf81ee0102a889dc" category="list-text"><block ref="8a97a528989bc12cbf81ee0102a889dc" category="inline-link-macro-rx"></block></block>
   <block id="5517f0f4079cbe32b861155b72575d78" category="paragraph">下表显示了在MetroCluster IP配置中使用system controller Replace命令升级AFF或FAS系统时支持的平台组合：</block>
   <block id="0ef5c60e365bf027441cd538ad7f03c9" category="paragraph"><block ref="0ef5c60e365bf027441cd538ad7f03c9" category="inline-link-rx"></block></block>
+  <block id="218202ab36e31b93dc4b302be0cb5ac3" category="paragraph">NetApp强烈建议您在使用的设备上启用控制台日志记录、并在执行此过程时执行以下操作：</block>
+  <block id="7a15fb36e18a42514f358533c9af4dae" category="list-text">在维护期间保持AutoSupport处于启用状态。</block>
+  <block id="a6c9ebf435ce24dbca32935db32b4e35" category="list-text">在维护前后触发维护AutoSupport消息、以便在维护活动期间禁用案例创建。</block>
+  <block id="4b48b65f16187f40e68db0c4df7cb08a" category="inline-link-macro">如何在计划的维护时段禁止自动创建案例</block>
+  <block id="0eafdee0286606284032d28995910629" category="paragraph">请参阅知识库文章 <block ref="43a9e9e8f025f3c2afe24aebcd141a3a" category="inline-link-macro-rx"></block>。</block>
+  <block id="fb42fce84a1f5a648367e2e027a6c941" category="inline-link-macro">如何配置PuTTY以优化与ONTAP系统的连接</block>
+  <block id="e7eb1d6e4b304d33e217b4f030083151" category="list-text">为任何命令行界面会话启用会话日志记录。有关如何启用会话日志记录的说明，请查看知识库文章中的“日志记录会话输出”部分 <block ref="ae1393e25ee1e0fef17808399d9484a8" category="inline-link-macro-rx"></block>。</block>
+  <block id="ae4e133851dd07ec525f234788c266ff" category="summary">在设备上启用控制台日志记录。</block>
+  <block id="bf2e41df1fe93346157f93aa59a48dd6" category="doc">启用控制台日志记录</block>
+  <block id="fc8027ada1541f34dcd52a5227ef9bad" category="paragraph">在继续更换硬件和启动新控制器之前、请在设备上启用控制台日志记录。</block>
+  <block id="4a2da7d198b8a877d8b4732bccaba7a7" category="paragraph">在使用此过程之前、请确认您已检查并执行以下任务：</block>
+  <block id="b8974eaac3807720c168d885dd734501" category="list-text">在决定使用此过程之前、请查看可用的恢复过程。</block>
+  <block id="1aae3e6bab44ed7ab10e4bad0142ad21" category="list-text">确认已在设备上启用控制台日志记录。</block>
+  <block id="946d513cb1710a22af3c951f5fd8d11a" category="paragraph"><block ref="946d513cb1710a22af3c951f5fd8d11a" category="inline-link-macro-rx"></block></block>
+  <block id="ed70e782190a12cec566e8f2d271ca08" category="list-text">确保灾难站点已隔离。</block>
+  <block id="5d8bc995547a4fd7415d44fbfe0b7c8d" category="list-text">验证是否已执行切换。</block>
+  <block id="a4de6cfbccf4ecc5b3859b3d67703a6d" category="list-text">确认更换的驱动器和控制器模块是新的、并且之前未向其分配所有权。</block>
+  <block id="221a3239afd85b15c0a082e006cc9d76" category="summary">在执行维护任务之前、在设备上启用控制台日志记录。</block>
+  <block id="377bd72f596f8fb4cb973eb33ab1c3c3" category="doc">在执行维护任务之前启用控制台日志记录</block>
+  <block id="60fda9f0d4f66fd0b517637868752be0" category="paragraph">NetApp强烈建议您在使用的设备上启用控制台日志记录、并在执行维护过程之前采取以下措施：</block>
+  <block id="1ba38a7c71055c7f849086255d5169f3" category="list-text">在两台交换机上完成所有步骤、以确保ISL连接。</block>
+  <block id="d83f1e34f43df0bbaa3ee4017c09e1b4" category="list-text"><block ref="88e4990ce21c0256eb827c7e19fa0648" category="inline-link-macro-rx"></block> 执行此任务之前。</block>
+  <block id="403a10bd737423e3cac1fc37dacbdcd3" category="list-text">在两台交换机上完成所有步骤、以确保ISL连接。</block>
+  <block id="66673dfafcae9371f075b879dc217aa9" category="paragraph">您可以使用以下步骤使MetroCluster IP接口端口联机或脱机。</block>
+  <block id="423cc95dedd4ee68f0dd8126c7d0dc86" category="paragraph">确认您已为您的配置检查并执行以下任务：</block>
+  <block id="577c57afc12db82055cff4fa1ef601e7" category="list-text">您已有固件文件。</block>
+  <block id="c6fa690d72fcffddb9bdb475dd8ae167" category="list-text">系统布线正确。</block>
+  <block id="fb4bd25875431d37c83447b250f9d281" category="list-text">存储架的所有路径均可用。</block>
+  <block id="8f644e9a7993858252a69ddaf2937d0c" category="list-text">磁盘架堆栈保持稳定。</block>
+  <block id="99eca056429a99dde78e7b139fd2b975" category="list-text">FC交换机网络结构运行状况良好。</block>
+  <block id="165c653c6ed0625748424aeeeb0ef24e" category="list-text">系统中没有出现故障的组件。</block>
+  <block id="48bfd850a47cde148101474e67b99af6" category="list-text">系统运行正常。</block>
+  <block id="7b61bf1ddfda66ef66b87ef9e5dcd5e4" category="list-text">您具有管理员密码并可访问FTP或SCP服务器。</block>
+  <block id="229c127d4cd1b67df183593436247200" category="list-text">已启用控制台日志记录。</block>
+  <block id="88e4990ce21c0256eb827c7e19fa0648" category="paragraph"><block ref="88e4990ce21c0256eb827c7e19fa0648" category="inline-link-macro-rx"></block></block>
+  <block id="1106f5bc975d7a5d94945cc9443c00f1" category="list-text">FC交换机网络结构运行状况良好。</block>
+  <block id="2f92d909a1337c9b15582940d470ab00" category="list-text">系统中的所有组件运行状况良好。</block>
+  <block id="7a8e384268b9400de9a6ef3a88bdf329" category="paragraph">在执行此任务之前、请在设备上启用控制台日志记录。</block>
+  <block id="7e850954ab384102f5d4e5df99c6d067" category="summary">您可以在专用端口或共享端口上配置集群间生命周期。</block>
+  <block id="ccee519a1fcde58f406284ffad2387a9" category="paragraph">了解如何在专用端口和共享端口上配置集群间生命周期。</block>
+  <block id="50165fcf3d7c35a722bd224b3bf13c54" category="paragraph">您可以在专用端口上配置集群间的Cifs、以增加可用于复制流量的带宽。</block>
+  <block id="fd16b3ea934ba7646ac0406aa7920e8e" category="paragraph"><block ref="cbfe237569042c016ace79222e8d1dc9" prefix="" category="inline-code"></block></block>
+  <block id="bc67b6197fe081f8d788efcd57f33aa4" category="paragraph"><block ref="321305800246910a9b8518ff256b173e" prefix="" category="inline-code"></block></block>
+  <block id="f809d9a3338a2f0d5ef91a9a558afeda" category="paragraph"><block ref="a5e9df1216c92a4ed4602bf96263cd9d" prefix="" category="inline-code"></block></block>
+  <block id="7d98f261082c6c1cb481396d03302b0e" category="paragraph">您可以在与数据网络共享的端口上配置集群间CIP、以减少集群间网络连接所需的端口数量。</block>
+  <block id="764a523cf339780ca4471f143c5ae04c" category="paragraph"><block ref="d1f7a93b5f0792c01647ca314d5d7e27" prefix="" category="inline-code"></block></block>
+  <block id="6e7eea4bc90b7da31497a85ace82eec8" category="paragraph"><block ref="751a8e9d76de229f9092fac6fb23b628" prefix="" category="inline-code"></block></block>
+  <block id="f1fe27301697eb21073abfcd231c91ab" category="section-title">执行刷新过程</block>
 </blocks>

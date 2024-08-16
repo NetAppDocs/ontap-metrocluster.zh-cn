@@ -19,6 +19,7 @@ summary: 您可能需要使用共享 Storage MetroCluster 交换机将 NS224 磁
 * 节点必须运行 ONTAP 9.9.1 或更高版本。
 * 当前连接的所有 NS224 磁盘架都必须与 MetroCluster （共享存储 /NS224 MetroCluster 交换机配置）连接到相同的交换机。
 * 不能使用此操作步骤将直接连接的 NS224 磁盘架或 NS224 磁盘架连接到专用以太网交换机的配置转换为使用共享存储 /NS224 MetroCluster 交换机的配置。
+* link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
 
 
 

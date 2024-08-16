@@ -24,6 +24,7 @@ https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
 
 * 此操作步骤不会造成系统中断，大约需要两小时才能完成。
 * 您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。
+* link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
 
 
 交换机网络结构一次升级一个。

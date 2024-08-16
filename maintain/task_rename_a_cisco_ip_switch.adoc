@@ -13,8 +13,12 @@ summary: 您可能需要重命名 Cisco IP 交换机，以便在整个配置中�
 [role="lead"]
 您可能需要重命名 Cisco IP 交换机，以便在整个配置中提供一致的命名。
 
-在此任务的示例中，交换机名称将从 `myswitch` 更改为 `IP_switch_A_1` 。
+.关于此任务
+* 在此任务的示例中，交换机名称将从 `myswitch` 更改为 `IP_switch_A_1` 。
+* link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
 
+
+.步骤
 . 进入全局配置模式：
 +
 ` * 配置终端 *`

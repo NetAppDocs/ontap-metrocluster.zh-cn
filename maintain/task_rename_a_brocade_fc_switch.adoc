@@ -13,6 +13,9 @@ summary: 您可能需要重命名 Brocade FC 交换机，以确保在整个配�
 [role="lead"]
 您可能需要重命名 Brocade FC 交换机，以确保在整个配置中的命名一致。
 
+.关于此任务
+link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
+
 .步骤
 . 持久禁用一个网络结构中的一个或多个交换机：
 +

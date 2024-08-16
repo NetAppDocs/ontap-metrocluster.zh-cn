@@ -15,6 +15,9 @@ summary: 您可能需要升级Cisco IP交换机上的RCF文件。例如， ONTAP
 
 .关于此任务
 * 从RcfFileGenerator 1.4a版开始、有一个新选项可用于更改(升级、降级或更换) Cisco IP交换机上的交换机配置、而无需执行"写入擦除"。
+* link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
+
+
 * Cisco 9338C－拧动交换机具有两种不同的交换机存储类型，这些存储类型在RC框架 中命名不同。使用下表确定适用于您的配置的正确Cisco 9334c-打 保证存储类型：
 +
 [cols="3*"]
