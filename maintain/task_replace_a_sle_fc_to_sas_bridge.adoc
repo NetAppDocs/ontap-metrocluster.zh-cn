@@ -407,11 +407,12 @@ NOTE: 如果以太网端口 MP2 也已启用，请对端口 MP2 重复上述子�
 
 
 
+. 将FC缆线连接到新网桥上的相同端口。
 . 更新每个网桥上的 FibreBridge 固件。
 +
-如果新网桥与配对网桥的类型相同，请升级到与配对网桥相同的固件。如果新网桥与配对网桥的类型不同，请升级到该网桥支持的最新固件以及 ONTAP 版本。请参见 _FibreBridge MetroCluster 维护 _ 中的 " 更新 FibreBridge 网桥上的固件 " 一节。
+如果新网桥与配对网桥的类型相同、请升级到与配对网桥相同的固件。如果新网桥与配对网桥的类型不同，请升级到该网桥支持的最新固件以及 ONTAP 版本。请参见 link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["更新 FibreBridge 网桥上的固件"]
 
-. 【第 17 步 - 重新连接 - 新网桥】将 SAS 和 FC 缆线重新连接到新网桥上的相同端口。
+. [[步骤18-REINCON连接-Newb桥]]将SAS缆线重新连接到新网桥上的相同端口。
 +
 您必须更换将网桥连接到磁盘架堆栈顶部或底部的缆线。对于这些连接、光纤桥接7600N和7500 N网桥需要使用迷你SAS缆线。
 
@@ -419,7 +420,7 @@ NOTE: 如果以太网端口 MP2 也已启用，请对端口 MP2 重复上述子�
 
 NOTE: 请至少等待 10 秒，然后再连接端口。SAS 缆线连接器具有方向性；正确连接到 SAS 端口时，连接器会卡入到位，磁盘架 SAS 端口 LNK LED 会呈绿色亮起。对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。对于控制器， SAS 端口的方向可能因平台型号而异；因此，正确的 SAS 缆线连接器方向会有所不同。
 
-. 【第 18 步 - 验证 - 每个网桥 ]] 验证每个网桥是否可以识别网桥所连接的所有磁盘驱动器和磁盘架。
+. [[步骤19-verify-each-b桥]]验证每个网桥是否都可以看到该网桥所连接的所有磁盘驱动器和磁盘架。
 +
 [cols="35,65"]
 |===
@@ -494,15 +495,15 @@ Tgt VendorID ProductID        Type SerialNumber
  a| 
 正确
  a| 
-重复 <<step18-verify-each-bridge,第 18 步>> 其余每个网桥。
+<<step19-verify-each-bridge,第19步>>对其余每个网桥重复上述步骤。
 
 
 
  a| 
 不正确
  a| 
-.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 <<step17-reconnect-newbridge,第 17 步>>。
-.. 重复 <<step18-verify-each-bridge,第 18 步>>。
+.. 重复检查SAS电缆是否松动或更正SAS布线<<step18-reconnect-newbridge,第 18 步>>。
+.. 重复。<<step19-verify-each-bridge,第19步>>
 
 
 |===

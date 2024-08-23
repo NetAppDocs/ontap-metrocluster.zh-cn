@@ -10547,13 +10547,8 @@
   <block id="54a9d9c6ebf1a9314ea2b6e91c5456f8" category="paragraph">`set ipaddress MP1 _ip-address`</block>
   <block id="73ddd59b62d7cac14fe61d1197513233" category="list-text">从控制器提示符处，检查网桥的状态： `storage bridge show`</block>
   <block id="4fbce0abe0f7baa2bbb93f9658cfc55b" category="list-text">如果已启用以太网端口 MP1 ，请运行以下命令：</block>
-  <block id="9013c925bc3a423f843c073690ed8081" category="list-text">【第 17 步 - 重新连接 - 新网桥】将 SAS 和 FC 缆线重新连接到新网桥上的相同端口。</block>
-  <block id="6795687b051fe5f1cb692559517648dd" category="list-text">【第 18 步 - 验证 - 每个网桥 ]] 验证每个网桥是否可以识别网桥所连接的所有磁盘驱动器和磁盘架。</block>
   <block id="b9da98e99c8057fc3b9a54d9d19ff501" category="inline-xref">第 18 步</block>
-  <block id="828e19cfb619dbe3f082c13af71c8804" category="paragraph">重复 <block ref="eecb3f0fe03b243e2ecc1f82fe37ecc5" category="inline-xref-macro-rx"></block> 其余每个网桥。</block>
   <block id="9c709df0d0930ada3ab147bf9abe8f06" category="inline-xref">第 17 步</block>
-  <block id="78cffeb475b967afce30e7091b0a7aec" category="list-text">重复检查 SAS 缆线是否松动或更正 SAS 布线 <block ref="34712c7e0b7391b53f3aade40f6e2ba2" category="inline-xref-macro-rx"></block>。</block>
-  <block id="daae67946266f0e5177fa51a3f38fec3" category="list-text">重复 <block ref="eecb3f0fe03b243e2ecc1f82fe37ecc5" category="inline-xref-macro-rx"></block>。</block>
   <block id="2273b85e84dfebeb5a21bbd359461d0f" category="list-text">如果网桥采用光纤连接的 MetroCluster 配置，请重新启用在此操作步骤开头禁用的 FC 交换机端口。</block>
   <block id="a36f5ac1a4498274515cb489c0748194" category="paragraph">`运行本地 sysconfig`</block>
   <block id="fc1ab446984d76191a3ba6741c4e09aa" category="paragraph">由于轮询间隔，可能需要长达 15 分钟才能反映所有数据。如果 " `S状态` " 列中的值为 "`ok` " ，并且显示了其他信息，例如全球通用名称（ WWN ），则 ONTAP 运行状况监控器可以联系并监控网桥。</block>
@@ -14098,4 +14093,14 @@
   <block id="764a523cf339780ca4471f143c5ae04c" category="paragraph"><block ref="d1f7a93b5f0792c01647ca314d5d7e27" prefix="" category="inline-code"></block></block>
   <block id="6e7eea4bc90b7da31497a85ace82eec8" category="paragraph"><block ref="751a8e9d76de229f9092fac6fb23b628" prefix="" category="inline-code"></block></block>
   <block id="f1fe27301697eb21073abfcd231c91ab" category="section-title">执行刷新过程</block>
+  <block id="a713923def413049fcd7bd32d239c3b4" category="list-text">将FC缆线连接到新网桥上的相同端口。</block>
+  <block id="c09b16f8a5b97a430a942e2624c2ffc8" category="paragraph">如果新网桥与配对网桥的类型相同、请升级到与配对网桥相同的固件。如果新网桥与配对网桥的类型不同，请升级到该网桥支持的最新固件以及 ONTAP 版本。请参见 <block ref="55e804464be1a7c24451c93244c66ff0" category="inline-link-macro-rx"></block></block>
+  <block id="b5a56495c6cd7b15008b12f44e1c09f9" category="list-text">[[步骤18-REINCON连接-Newb桥]]将SAS缆线重新连接到新网桥上的相同端口。</block>
+  <block id="1bf1e8417c00edaec85599df5b47ee94" category="list-text">[[步骤19-verify-each-b桥]]验证每个网桥是否都可以看到该网桥所连接的所有磁盘驱动器和磁盘架。</block>
+  <block id="287bc804244a679c73d0cac4cb0c0b2c" category="inline-xref">第19步</block>
+  <block id="c582e7ac4118500a1aaf382ea318eeeb" category="paragraph"><block ref="1c41b1b96665f865995fbed1d8884dfe" category="inline-xref-macro-rx"></block>对其余每个网桥重复上述步骤。</block>
+  <block id="2788b7f6b6e21bc5a33df0d4aebf4730" category="list-text">重复检查SAS电缆是否松动或更正SAS布线<block ref="4f69a23cfa1cdd17cebbee3d88ffc0e9" category="inline-xref-macro-rx"></block>。</block>
+  <block id="dd59329be100bd10605cd63312522627" category="list-text">重复。<block ref="1c41b1b96665f865995fbed1d8884dfe" category="inline-xref-macro-rx"></block></block>
+  <block id="0b9029dad5ded8eb8b9621381b59b85b" category="paragraph">按照以下步骤刷新MetroCluster FC配置。</block>
+  <block id="e80b737c5dcc4e6b9a5a4eecb2dc9582" category="paragraph">按照以下步骤刷新MetroCluster IP配置。</block>
 </blocks>
