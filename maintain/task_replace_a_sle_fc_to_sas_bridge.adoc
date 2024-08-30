@@ -831,11 +831,12 @@ NOTE: 如果以太网端口 MP2 也已启用，请对端口 MP2 重复上述子�
 
 
 
+. 将FC缆线连接到新网桥上的相同端口。
 . 更新每个网桥上的 FibreBridge 固件。
 +
-link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["更新运行 ONTAP 9.4 及更高版本的配置中 FibreBridge 7600N 或 7500N 网桥上的固件"]
+link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["更新 FibreBridge 网桥上的固件"]
 
-. 【第 17 步 - 重新连接 - 缆线】将 SAS 和 FC 缆线重新连接到新网桥上的相同端口。
+. [[步骤18-reConnect—缆线]]将SAS缆线重新连接到新网桥上的相同端口。
 +
 
 NOTE: 请至少等待 10 秒，然后再连接端口。SAS 缆线连接器具有方向性；正确连接到 SAS 端口时，连接器会卡入到位，磁盘架 SAS 端口 LNK LED 会呈绿色亮起。对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。对于控制器， SAS 端口的方向可能因平台型号而异；因此，正确的 SAS 缆线连接器方向会有所不同。
@@ -884,7 +885,7 @@ Tgt VendorID ProductID        Type        SerialNumber
  a| 
 不正确
  a| 
-.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 <<step17-reconnect-cables,第 17 步>>。
+.. 重复检查SAS电缆是否松动或更正SAS布线<<step18-reconnect-cables,第 18 步>>。
 .. 重复上一步。
 
 
@@ -1226,16 +1227,20 @@ NOTE: 如果以太网端口 MP2 也已启用，请对端口 MP2 重复上述子�
 
 
 . 为 FibreBridge 7600N 或 7500N 网桥打开运行状况监控。
+. 将FC缆线连接到新网桥上的光纤通道1端口。
++
+您必须使用缆线将FC端口连接到与此FBRIDBRIDBRIDCH 6500N网桥连接的同一交换机或控制器端口。
+
 . 更新每个网桥上的 FibreBridge 固件。
 +
-如果新网桥与配对网桥的类型相同，请升级到与配对网桥相同的固件。如果新网桥与配对网桥的类型不同，请升级到该网桥支持的最新固件以及 ONTAP 版本。请参见 _FibreBridge MetroCluster 维护指南 _ 中的 " 更新 FibreBridge 网桥上的固件 " 一节。
+如果新网桥与配对网桥的类型相同、请升级到与配对网桥相同的固件。如果新网桥的类型与配对网桥不同、请升级到此网桥支持的最新固件和ONTAP版本。
 
-. 【第 17 步 - 可重新布线】将 SAS 和 FC 缆线重新连接到新网桥上的 SAS A 和光纤通道 1 端口。
++
+link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["更新 FibreBridge 网桥上的固件"]
+
+. [[Step18-Recable]]将SAS缆线重新连接到新网桥上的SAS A端口。
 +
 SAS 端口必须连接到 FibreBridge 6500N 网桥所连接的同一磁盘架端口。
-
-+
-FC 端口必须连接到 FibreBridge 6500N 网桥所连接的同一交换机或控制器端口。
 
 +
 
@@ -1320,7 +1325,7 @@ NOTE: 如果输出的开头显示文本 `reonse truncated` ，则可以使用 Te
  a| 
 不正确
  a| 
-.. 重复检查 SAS 缆线是否松动或更正 SAS 布线 <<step17-recable,第 17 步>>。
+.. 重复检查SAS电缆是否松动或更正SAS布线<<step18-recable,第 18 步>>。
 .. 对其余每个网桥重复上述步骤。
 
 

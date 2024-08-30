@@ -13,8 +13,14 @@ summary: 在执行 MetroCluster 硬件维护任务时，您应确保选择正确
 [role="lead"]
 在执行 MetroCluster 硬件维护任务时，您应确保选择正确的操作步骤。
 
+.不同类型MetroCluster配置的维护过程
+* 如果您使用的是MetroCluster IP配置，请查看中的过程link:task-modify-ip-netmask-properties.html["MetroCluster IP配置的维护过程"]。
+* 如果您使用的是MetroCluster FC配置，请查看中的过程link:task_modify_switch_or_bridge_ip_address_for_health_monitoring.html["MetroCluster FC配置的维护过程"]。
+* 如果在特定章节中找不到适用于您的配置的过程，请查看中的过程link:task_replace_a_shelf_nondisruptively_in_a_stretch_mcc_configuration.html["所有MetroCluster配置的维护过程"]。
 
-NOTE: 随着 ONTAP 9.8 的发布， MetroCluster 升级和扩展过程已移至 link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster 升级和扩展"] 和 link:../transition/concept_choosing_your_transition_procedure_mcc_transition.html["从 MetroCluster FC 过渡到 MetroCluster IP"]。
+
+.所有其他维护程序
+下表提供了上述三节中未介绍的与MetroCluster维护相关的步骤的链接：
 
 |===
 
@@ -50,7 +56,7 @@ https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
  a| 
 升级和扩展
  a| 
-link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster ® 升级和扩展"]
+link:../upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster 升级和扩展"]
 
 
 
@@ -63,28 +69,6 @@ link:../transition/concept_choosing_your_transition_procedure_mcc_transition.htm
 
  a| 
 驱动器架
- a| 
-FC
- a| 
-添加磁盘架（包含网桥或单个磁盘架的堆栈）
- a| 
-link:task_hot_add_a_stack_to_exist_7500n_pair.html["将 SAS 磁盘架堆栈热添加到一对现有 FibreBridge 7500N 网桥中"]
-
-link:task_fb_hot_add_stack_of_shelves_and_bridges.html["将 SAS 磁盘架和网桥堆栈热添加到 MetroCluster 系统"]
-
-link:task_fb_hot_add_shelf_prepare_7500n.html["将 SAS 磁盘架热添加到 SAS 磁盘架堆栈"]
-
-
-
- a| 
-FC
- a| 
-卸下磁盘架
- a| 
-link:task_hot_remove_storage_from_a_mcc_fc_configuration.html["从 MetroCluster FC 配置中热删除存储"]
-
-
-
  a| 
 FC
  a| 
@@ -111,111 +95,5 @@ https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.ht
 将 IOM12 磁盘架热添加到 IOM6 磁盘架堆栈中
  a| 
 https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["将带有 IOM12 模块的磁盘架热添加到带有 IOM6 模块的磁盘架堆栈中"^]
-
-
-
- a| 
-FC-SAS 网桥
- a| 
-FC
- a| 
-更换网桥
- a| 
-link:task_replace_a_sle_fc_to_sas_bridge.html["更换单个 FC-SAS 网桥"]
-
-link:task_fb_consolidate_replace_a_pair_of_fibrebridge_6500n_bridges_with_7500n_bridges.html["将一对 FibreBridge 6500N 网桥更换为 7600N 或 7500N 网桥"]
-
-link:task_replace_a_sle_fc_to_sas_bridge.html#hot-swapping-a-fibrebridge-7500n-with-a-7600n-bridge["热插拔 FibreBridge 7500N 和 7600N 网桥"]
-
-
-
- a| 
-FC
- a| 
-固件升级
- a| 
-link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["更新 FibreBridge 网桥上的固件"]
-
-
-
- a| 
-FC
- a| 
-更换发生故障的电源模块
- a| 
-link:reference_fb_replace_a_power_supply.html["热更换发生故障的电源模块"]
-
-
-
- a| 
-FC 交换机
- a| 
-FC
- a| 
-交换机升级
- a| 
-link:task_upgrade_to_new_brocade_switches.html["升级到新的 Brocade FC 交换机"]
-
-
-
- a| 
-FC
- a| 
-交换机更换
- a| 
-link:task_replace_a_brocade_fc_switch_mcc.html["更换 Brocade FC 交换机（ MetroCluster ）"]
-
-link:task_replace_a_cisco_fc_switch_mcc.html["更换 Cisco FC 交换机"]
-
-
-
- a| 
-FC
- a| 
-固件升级
- a| 
-link:task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html["更新 Brocade FC 交换机上的固件"]
-
-link:task_upgrade_or_downgrad_the_firmware_on_a_cisco_fc_switch_mcc.html["更新 Cisco FC 交换机上的固件"]
-
-
-
- a| 
-IP交换机
- a| 
-IP
- a| 
-更换交换机或更改使用
- a| 
-link:task_replace_an_ip_switch.html["更换IP交换机或更改现有MetroCluster IP交换机的使用"]
-
-
-
- a| 
-IP
- a| 
-固件升级
- a| 
-link:task_upgrade_firmware_on_mcc_ip_switches.html["升级 MetroCluster IP 交换机上的固件"]
-
-
-
- a| 
-IP
- a| 
-RCF文件升级
- a| 
-link:task_upgrade_rcf_files_on_mcc_ip_switches.html["升级 MetroCluster IP 交换机上的 RCF 文件"]
-
-link:task_upgrade_rcf_files_on_cisco_ip_switches_with_cleanupfiles.html["使用CleanUpFiles升级Cisco IP交换机上的RCF文件"]
-
-
-
- a| 
-IP
- a| 
-重命名交换机
- a| 
-link:task_rename_a_cisco_ip_switch.html["重命名 Cisco IP 交换机"]
 
 |===
