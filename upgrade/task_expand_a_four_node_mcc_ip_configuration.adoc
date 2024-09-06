@@ -1063,20 +1063,32 @@ aggr_data_a2
 +
 `set -privilege advanced`
 
-.. 在其中一个新节点上刷新 MetroCluster 配置：
+.. 刷新任一节点上的MetroCluster配置：
 +
-MetroCluster configure`
+[cols="30,70"]
+|===
 
-+
-以下示例显示了在两个 DR 组上刷新的 MetroCluster 配置：
 
-+
-[listing]
-----
-cluster_A::*> metrocluster configure -refresh true
+| 如果您的 MetroCluster 配置 ... | 然后执行此操作 ... 
 
-[Job 726] Job succeeded: Configure is successful.
-----
+
+ a| 
+多个数据聚合
+ a| 
+从任何节点的提示符处、运行：
+
+`metrocluster configure <node-name>`
+
+
+
+ a| 
+一个或两个站点上的一个镜像数据聚合
+ a| 
+在任一节点的提示符处、使用 `-allow-with-one-aggregate true`参数配置MetroCluster：
+
+`metrocluster configure -allow-with-one-aggregate true <node-name>`
+
+|===
 .. 重新启动每个新节点：
 +
 `node reboot -node <node_name> -inhibit-takeover true`
@@ -1093,7 +1105,7 @@ cluster_A::*> metrocluster configure -refresh true
 
 +
 
-NOTE: 每个站点必须至少创建一个镜像数据聚合。建议在 MetroCluster IP 节点上为每个站点配置两个镜像数据聚合以托管 MDV 卷，但支持每个站点一个聚合（但不建议这样做）。支持 MetroCluster 的一个站点具有一个镜像数据聚合，而另一个站点具有多个镜像数据聚合。
+NOTE: 每个站点必须至少创建一个镜像数据聚合。建议在 MetroCluster IP 节点上为每个站点配置两个镜像数据聚合以托管 MDV 卷，但支持每个站点一个聚合（但不建议这样做）。MetroCluster的一个站点具有一个镜像数据聚合、而另一个站点具有多个镜像数据聚合、这是可以接受的。
 
 +
 以下示例显示了如何在 node_A_1-new 上创建聚合。
@@ -1161,12 +1173,14 @@ Group Cluster Node               State          Mirroring Mode
 
 cluster_A::*>
 ----
-. 以高级权限将 MDV_CRS 卷从旧节点移动到新节点。
+. 在高级权限模式下移动MDV_CRS卷。
 +
 .. 显示卷以标识 MDV 卷：
 +
+如果每个站点有一个镜像数据聚合，则将两个 MDV 卷移动到此一个聚合。如果您有两个或更多镜像数据聚合，请将每个 MDV 卷移动到其他聚合。
 
-NOTE: 如果每个站点有一个镜像数据聚合，则将两个 MDV 卷移动到此一个聚合。如果您有两个或更多镜像数据聚合，请将每个 MDV 卷移动到其他聚合。
++
+如果要将四节点MetroCluster配置扩展为永久八节点配置、则应将其中一个MDV卷移动到新的DR组。
 
 +
 以下示例显示了 `volume show` 输出中的 MDV 卷：

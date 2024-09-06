@@ -2217,7 +2217,6 @@
   <block id="6c46e592d5f16891d3a16e5f364e031b" category="section-title">完成新节点的添加</block>
   <block id="756f29d7bcbe7decf6b979c0706fc9a1" category="paragraph">您必须将新的 DR 组加入 MetroCluster 配置，并在新节点上创建镜像数据聚合。</block>
   <block id="b24de9180a5deb759a394eebcd1a0305" category="list-text">在每个新 MetroCluster 节点上创建镜像数据聚合：</block>
-  <block id="aabce8f4cea0092b527adf5c08e57ba7" category="admonition">每个站点必须至少创建一个镜像数据聚合。建议在 MetroCluster IP 节点上为每个站点配置两个镜像数据聚合以托管 MDV 卷，但支持每个站点一个聚合（但不建议这样做）。支持 MetroCluster 的一个站点具有一个镜像数据聚合，而另一个站点具有多个镜像数据聚合。</block>
   <block id="7062dd7205e5ed0cba84efd4203bc9cc" category="paragraph">以下示例显示了如何在 node_A_1-new 上创建聚合。</block>
   <block id="f7695325c497f5514c126672cf022583" category="list-text">刷新 MetroCluster 配置：</block>
   <block id="50457dca5a837dbab5a5d65f7d4bcf58" category="paragraph">以下示例显示了在两个 DR 组上刷新的 MetroCluster 配置：</block>
@@ -8807,8 +8806,6 @@
   <block id="2dccf53d6ed326f889d8e764529b9794" category="list-text">验证磁盘自动分配和分区：</block>
   <block id="f65ec829d063a64803356b190c18d5ab" category="paragraph">`disk show -pool Pool1`</block>
   <block id="3f95b2ea711d433e26a8b5eb63bbd17a" category="paragraph">`storage aggregate mirror -aggregate aggr0_node_A_1-new`</block>
-  <block id="f00a8c2c5126c8a92b929c756950f0f8" category="list-text">在其中一个新节点上刷新 MetroCluster 配置：</block>
-  <block id="2ae5190e09d5d39bdc4388104b1ebcd4" category="paragraph">MetroCluster configure`</block>
   <block id="aacab676cefc900d32e2155650f1b66e" category="paragraph">以下示例显示了将 "MDV_CRS_d6b0b313ff5611e9837100a098544e51_a" 移动到 "node_A_3" 上的 "data_a3" 的命令和输出。</block>
   <block id="cc863d7088764c07fa87ffea3cae245e" category="list-text">确定哪个节点当前具有 epsilon ：</block>
   <block id="19b075b0ff8fbdf79efbef8787bbf0d7" category="paragraph">`cluster show -fields epsilon`</block>
@@ -14030,4 +14027,12 @@
   <block id="4ac7d2ae8e04576a892556ab9a493959" category="list-text">从广播域中删除VLAN和ifgrp端口：<block ref="bd72bbf935a7a9d39c21cf3731500f70" prefix=" " category="inline-code"></block></block>
   <block id="07b3edb46d2774fa411b0f9a1b01bead" category="sidebar">准备MetroCluster维护</block>
   <block id="053564114ce5591908a1b29312289c15" category="sidebar">使用共享存储MetroCluster交换机向MetroCluster IP配置添加磁盘架</block>
+  <block id="59a029b0a65d8928b8afd42fd7a5bfe2" category="admonition">每个站点必须至少创建一个镜像数据聚合。建议在 MetroCluster IP 节点上为每个站点配置两个镜像数据聚合以托管 MDV 卷，但支持每个站点一个聚合（但不建议这样做）。MetroCluster的一个站点具有一个镜像数据聚合、而另一个站点具有多个镜像数据聚合、这是可以接受的。</block>
+  <block id="478e4322f0111cf3e7bdad12bea24701" category="list-text">刷新任一节点上的MetroCluster配置：</block>
+  <block id="4ad402ea3fb0bcfdc921fd3083047f45" category="paragraph">从任何节点的提示符处、运行：</block>
+  <block id="28d0a71b806dfc9c57cc495498c72954" category="paragraph">一个或两个站点上的一个镜像数据聚合</block>
+  <block id="d419812c67afb77388be54f4cb41eb86" category="paragraph">在任一节点的提示符处、使用<block ref="d972f8bbe9b04d39b8b96b699cf921e9" prefix=" " category="inline-code"></block>参数配置MetroCluster：</block>
+  <block id="3635681631407e08104ac78c0039ed70" category="paragraph"><block ref="0825cd88596408a485ffc279f70b9da9" prefix="" category="inline-code"></block></block>
+  <block id="753303bac17f77fab4f01ca22a7ff80e" category="list-text">在高级权限模式下移动MDV_CRS卷。</block>
+  <block id="4e934a5efc9ac0d78daef92737cd79bf" category="paragraph">如果要将四节点MetroCluster配置扩展为永久八节点配置、则应将其中一个MDV卷移动到新的DR组。</block>
 </blocks>
