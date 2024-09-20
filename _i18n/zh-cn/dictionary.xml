@@ -9040,7 +9040,6 @@
   <block id="d0aa5bb25a5ec51528b605049e583e4c" category="list-text">从 MetroCluster 配置中删除当前 ONTAP 调解器：</block>
   <block id="fb936fa23d866b3d364f6eb5c606725a" category="list-text">与 MetroCluster 配置建立新的 ONTAP 调解器连接：</block>
   <block id="f8dc7177731310562718d80a3440fa9d" category="paragraph">MetroCluster configuration-settings mediator add -mediate-address _ip-address-fo-medier-host_`</block>
-  <block id="d0dddd5779102f5b72e8edf336fef717" category="list-text">显示控制器模块和机箱的 HA 状态：</block>
   <block id="f753a91b4868b4d2d7ad06fa15958542" category="paragraph">`storage failover modify -mode ha -node _localhost_`</block>
   <block id="e40d6a178d9137d254eca9144fcc5d3c" category="paragraph"><block ref="e40d6a178d9137d254eca9144fcc5d3c" category="inline-link-macro-rx"></block></block>
   <block id="dfedcd37df868d1ac2683539148a334c" category="list-text">禁用自动驱动器分配：</block>
@@ -9561,7 +9560,6 @@
   <block id="e42ae5049bd4441f35fc1a5c789393b6" category="sidebar">如何在 RcfFileGenerator 工具或多个 MetroCluster 配置中使用端口表</block>
   <block id="b25308b36735da11e4a37c52a93d5b81" category="sidebar">在 ONTAP 中配置 MetroCluster 软件</block>
   <block id="3b878279a04dc47d60932cb294d96259" category="sidebar">概述</block>
-  <block id="2e513789c4a513cc3bc3dbb07880d342" category="sidebar">如何配置八节点配置</block>
   <block id="41aa5998b40e00d8eb4f7bb40bb2bc22" category="sidebar">收集所需信息</block>
   <block id="4497ab40f5579cccfc00e6aed35cdae9" category="sidebar">验证组件的 ha-config 状态</block>
   <block id="aa9c71b40476a8ccda9213b9a9416d55" category="sidebar">将集群配置为 MetroCluster 配置</block>
@@ -10817,10 +10815,6 @@
   <block id="04be3a6c5ee416a84b497452ccd41ffd" category="list-text">从 ONTAP 9.4 开始，支持为 ADP 配置的控制器模块。</block>
   <block id="c94a009c5a39824e241500e9f7d49cad" category="summary">从 ONTAP 9.5 开始， ONTAP 支持使用虚拟 IP （ VIP ）和边界网关协议（ BGP ）的第 3 层连接。</block>
   <block id="7dec0067013edb1b7d2d18b5bc21f4a8" category="paragraph">从 ONTAP 9.5 开始， ONTAP 支持使用虚拟 IP （ VIP ）和边界网关协议（ BGP ）的第 3 层连接。前端网络中用于冗余的 VIP 和 BGP 与后端 MetroCluster 冗余相结合，可提供第 3 层灾难恢复解决方案。</block>
-  <block id="b09496e62afe76db185677ab92dd3695" category="paragraph">在出厂时未预配置的 MetroCluster IP 配置中，您必须验证控制器和机箱组件的 ha-config 状态是否设置为 `mCCIP` ，以便它们可以正常启动。对于从工厂收到的系统，此值是预配置的，您无需对其进行验证。</block>
-  <block id="c1420c708cdb03e8e6259f7cb1285a08" category="paragraph">控制器模块和机箱应显示值 `mCCIP` 。</block>
-  <block id="717daacc38ffb11ae03c79a7871ba94a" category="list-text">如果显示的控制器系统状态不是 " `mCCIP` " ，请设置控制器的 HA 状态：</block>
-  <block id="1be7c4ddc79016b4335125e64b368241" category="list-text">如果显示的机箱系统状态不是 " `mCCIP` " ，请设置机箱的 HA 状态：</block>
   <block id="9bdf1ed180b1b862f7cea11085897aca" category="paragraph">是（从 ONTAP 9.4 开始）</block>
   <block id="a27983e963a18385eebdc3381062e49b" category="paragraph">是（从 ONTAP 9.8 开始）</block>
   <block id="098fadefd1319cbc560b7d741aa7210e" category="paragraph">是（从 ONTAP 9.7 开始）</block>
@@ -14035,4 +14029,19 @@
   <block id="3635681631407e08104ac78c0039ed70" category="paragraph"><block ref="0825cd88596408a485ffc279f70b9da9" prefix="" category="inline-code"></block></block>
   <block id="753303bac17f77fab4f01ca22a7ff80e" category="list-text">在高级权限模式下移动MDV_CRS卷。</block>
   <block id="4e934a5efc9ac0d78daef92737cd79bf" category="paragraph">如果要将四节点MetroCluster配置扩展为永久八节点配置、则应将其中一个MDV卷移动到新的DR组。</block>
+  <block id="dbe62ccc612e92f8dc68e42a4661fecb" category="paragraph">如果控制器模块和机箱的HA状态不正确、则必须重新初始化节点、才能配置MetroCluster。您必须使用此过程更正设置、然后使用以下过程之一初始化系统：</block>
+  <block id="a86b0de4e0b4c477962412e4fb878fa1" category="list-text">在MetroCluster IP配置中，按照中的步骤进行操作<block ref="46904e83320ab310261c288a6a607871" category="inline-link-macro-rx"></block>。</block>
+  <block id="73fa02989b9da1f069817272869a683b" category="inline-link-macro">还原系统默认值并在控制器模块上配置HBA类型</block>
+  <block id="20e47a9aa4ad4f6197046707d54204fc" category="list-text">在MetroCluster FC配置中，按照中的步骤进行操作<block ref="61b5232c30227f4608eee40560fc97c5" category="inline-link-macro-rx"></block>。</block>
+  <block id="db298781944827895a870278a91cf51d" category="paragraph">验证系统是否处于维护模式。</block>
+  <block id="8043a3bf6cce640e7454f2cd339995d4" category="cell">MetroCluster配置类型</block>
+  <block id="b2044c373529567844418af6b99b9c47" category="cell">所有组件的HA状态...</block>
+  <block id="3ec28b19df1922ba15c732a6c9ce26e7" category="paragraph">八节点或四节点MetroCluster FC配置</block>
+  <block id="02c92aa95863fe523d726679c13e1c11" category="paragraph">八节点或四节点MetroCluster IP配置</block>
+  <block id="8d1f63834a0230ca4c300e584f887131" category="list-text">如果为控制器显示的系统状态不正确、请在控制器模块上为您的配置设置正确的HA状态：</block>
+  <block id="46be68db9978eb3b9ac4054e394c92ce" category="list-text">如果为机箱显示的系统状态不正确、请为机箱上的配置设置正确的HA状态：</block>
+  <block id="330acb0fa4964235e5dabc85b0488f57" category="list-text">重复此整个过程以验证MetroCluster配置中每个节点上的HA状态。</block>
+  <block id="84afb0fe12dfc2a5fa1e2e978393b33c" category="paragraph">在MetroCluster FC配置中配置存储系统时、必须确保控制器模块和机箱组件的高可用性(HA)状态为MCC或MCC－2n、以便这些组件可以正常启动。尽管此值应在从工厂收到的系统上进行预配置、但您仍应验证设置、然后再继续。</block>
+  <block id="cbc29e9b371b7013e6625c2fa3c7ec20" category="paragraph">在MetroCluster IP配置中、您必须验证控制器和机箱组件的ha-config状态是否设置为`mCCIP`、以使其正常启动。尽管此值应在从工厂收到的系统上进行预配置、但您仍应验证设置、然后再继续。</block>
+  <block id="b6eb7f38a057c8f63ffc29f23e6be071" category="sidebar">如何配置八节点配置</block>
 </blocks>
