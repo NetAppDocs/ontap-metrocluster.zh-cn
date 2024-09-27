@@ -6,6 +6,8 @@ summary: 您可以从第三个站点下载并安装 MetroCluster Tiebreaker 软�
 ---
 = 配置 MetroCluster Tiebreaker 或 ONTAP 调解器软件
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

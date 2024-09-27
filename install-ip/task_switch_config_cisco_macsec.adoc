@@ -6,6 +6,8 @@ summary: 您只能在站点之间运行的 WAN ISL 端口上配置 MACsec 加密
 ---
 = 在 Cisco 9336C 交换机上配置 MACsec 加密
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 :firstname: [.lead]
 :author: [.lead]
 :authorinitials: [

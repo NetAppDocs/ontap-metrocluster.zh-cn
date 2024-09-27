@@ -7,7 +7,7 @@ summary:
 = MetroCluster配置中的新增功能支持ONTAP功能
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

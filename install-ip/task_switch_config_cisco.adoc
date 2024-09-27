@@ -6,6 +6,8 @@ summary: 您必须将 Cisco IP 交换机配置为用作集群互连以及用于�
 ---
 = 配置 Cisco IP 交换机
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

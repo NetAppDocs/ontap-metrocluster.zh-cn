@@ -7,7 +7,7 @@ summary:
 = MetroCluster FC平台和交换机支持中的新增功能
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 

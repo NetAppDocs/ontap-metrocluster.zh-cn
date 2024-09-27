@@ -6,6 +6,8 @@ summary: 您必须对集群建立对等关系，镜像根聚合，创建镜像�
 ---
 = 将集群配置为 MetroCluster 配置
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

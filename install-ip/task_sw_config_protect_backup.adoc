@@ -6,6 +6,8 @@ summary: 您可以通过指定一个远程 URL （ HTTP 或 FTP ）来为集群�
 ---
 = 保护配置备份文件
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -6,6 +6,8 @@ summary: 在准备 MetroCluster 安装时，您应了解 MetroCluster 硬件架�
 ---
 = 在光纤连接 MetroCluster 配置中使用 TDM/WDM 设备的注意事项
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

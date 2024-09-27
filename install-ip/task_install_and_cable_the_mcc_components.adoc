@@ -6,6 +6,8 @@ summary: 您必须配置IP交换机以提供后端MetroCluster IP连接。
 ---
 = 配置交换机
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

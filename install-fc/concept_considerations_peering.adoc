@@ -6,6 +6,8 @@ summary: 在准备 MetroCluster 安装时，您应了解 MetroCluster 硬件架�
 ---
 = 集群对等
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

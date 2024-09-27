@@ -6,6 +6,8 @@ summary: 在准备 MetroCluster 安装时，您应了解 MetroCluster 硬件架�
 ---
 = MetroCluster 站点上的防火墙使用情况
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 

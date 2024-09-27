@@ -53,12 +53,9 @@ image::../media/brocade_upgr_to_g620_fab_1_down.gif[Brocade 与 G620 Fab 1 的�
 +
 image::../media/brocade_upgr_to_g620_replaced_a_1.gif[Brocade 与 G620 的升级取代了 A 1]
 
-.. 禁用新交换机：
+.. 通过在两个交换机上运行以下命令来禁用新交换机：
 +
 `sswitchcfgpersistentdisable`
-
-+
-命令将禁用交换机网络结构中的两个交换机。
 
 +
 [listing]
@@ -79,8 +76,13 @@ image::../media/brocade_upgr_to_g620_replaced_b_1.gif[Brocade 与 G620 的升级
 
 
 . 启动新交换机并让其启动。
-. 下载新交换机的 RCF 文件。
-. 按照下载页面上的说明，将 RCF 文件应用于网络结构中的两个新交换机。
+. 使用以下过程之一配置Brocade FC交换机：
++
+link:../install-fc/task_reset_the_brocade_fc_switch_to_factory_defaults.html["使用 RCF 文件配置 Brocade FC 交换机"]
+
++
+link:../install-fc/task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html["手动配置 Brocade FC 交换机"]
+
 . 保存交换机配置：
 +
 `cfgsave`

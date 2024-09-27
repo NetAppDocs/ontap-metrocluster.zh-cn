@@ -31,9 +31,9 @@ summary: 您必须准备四个新的 MetroCluster IP 节点并安装正确的 ON
 . 使用以下部分配置 MetroCluster IP 节点：
 +
 .. link:../install-ip/task_sw_config_gather_info.html["收集所需信息"]
-.. link:../install-ip/task_sw_config_restore_defaults.html["清除控制器模块上的配置"]
+.. link:../install-ip/task_sw_config_restore_defaults.html["还原控制器模块上的系统默认值"]
 .. link:../install-ip/task_sw_config_verify_haconfig.html["验证组件的 ha-config 状态"]
-.. link:../install-ip/task_sw_config_assign_pool0.html["手动为池 0 分配驱动器（ ONTAP 9.4 及更高版本）"]
+.. link:../install-ip/task_sw_config_assign_pool0.html["手动为池0分配驱动器(ONTAP 9.4及更高版本)"]
 
 
 . 在维护模式下，问题描述 halt 命令退出维护模式，然后问题描述 boot_ontap 命令启动系统并进入集群设置。

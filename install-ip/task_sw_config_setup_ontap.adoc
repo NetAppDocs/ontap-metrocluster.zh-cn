@@ -6,6 +6,8 @@ summary: 启动每个节点后，系统将提示您执行基本节点和集群�
 ---
 = 设置 ONTAP
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

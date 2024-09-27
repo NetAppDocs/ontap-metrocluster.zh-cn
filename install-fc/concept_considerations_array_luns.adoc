@@ -6,6 +6,8 @@ summary: MetroCluster 配置仅支持安装原生（ NetApp ）磁盘架，仅�
 ---
 = 使用原生磁盘架或阵列 LUN 的 MetroCluster 配置的注意事项
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

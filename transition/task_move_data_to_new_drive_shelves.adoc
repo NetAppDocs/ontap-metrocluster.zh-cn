@@ -6,6 +6,8 @@ summary: 过渡期间，您会将数据从 MetroCluster FC 配置中的驱动器
 ---
 = 将数据移动到新驱动器架
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

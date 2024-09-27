@@ -6,6 +6,8 @@ summary: 在出厂时未预配置的 MetroCluster IP 配置中，您必须验证
 ---
 = 验证组件的 ha-config 状态
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -15,7 +17,7 @@ summary: 在出厂时未预配置的 MetroCluster IP 配置中，您必须验证
 ====
 如果控制器模块和机箱的HA状态不正确、则必须重新初始化节点、才能配置MetroCluster。您必须使用此过程更正设置、然后使用以下过程之一初始化系统：
 
-* 在MetroCluster IP配置中，按照中的步骤进行操作link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_sw_config_verify_haconfig.html["还原控制器模块上的系统默认值"]。
+* 在MetroCluster IP配置中，按照中的步骤进行操作link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_sw_config_restore_defaults.html["还原控制器模块上的系统默认值"]。
 * 在MetroCluster FC配置中，按照中的步骤进行操作link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_configure_the_mcc_software_in_ontap.html#restoring-system-defaults-and-configuring-the-hba-type-on-a-controller-module["还原系统默认值并在控制器模块上配置HBA类型"]。
 
 
