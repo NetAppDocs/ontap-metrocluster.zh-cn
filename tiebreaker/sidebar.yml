@@ -18,7 +18,7 @@ entries:
     entries:
     - title: 选择您的安装操作步骤
       url: "/tiebreaker/install-choose-procedure.html"
-    - title: 安装Tieb破碎 锤1.6
+    - title: 安装Tieb破碎 机1.6或更高版本
       url: "/tiebreaker/tb-16-install.html"
     - title: 安装Tieb破碎 锤1.5
       entries:

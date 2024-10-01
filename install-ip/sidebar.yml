@@ -82,32 +82,42 @@ entries:
       url: "/install-ip/task_config_switch_health.html"
 - title: 在 ONTAP 中配置 MetroCluster 软件
   entries:
-  - title: 概述
-    url: "/install-ip/concept_configure_the_mcc_software_in_ontap.html"
-  - title: 如何配置八节点配置
-    url: "/install-ip/task_sw_config_8n.html"
-  - title: 收集所需信息
-    url: "/install-ip/task_sw_config_gather_info.html"
-  - title: 标准集群和 MetroCluster 配置之间的相似之处和不同之处
-    url: "/install-ip/task_sw_config_differences.html"
-  - title: 验证组件的 ha-config 状态
-    url: "/install-ip/task_sw_config_verify_haconfig.html"
-  - title: 还原控制器模块上的系统默认值
-    url: "/install-ip/task_sw_config_restore_defaults.html"
-  - title: 手动将驱动器分配给池 0
-    url: "/install-ip/task_sw_config_assign_pool0.html"
-  - title: 设置 ONTAP
-    url: "/install-ip/task_sw_config_setup_ontap.html"
-  - title: 将集群配置为 MetroCluster 配置
-    url: "/install-ip/task_sw_config_configure_clusters.html"
-  - title: 配置端到端加密
-    url: "/install-ip/task-configure-end-to-end-encryption.html"
-  - title: 验证切换，修复和切回
-    url: "/install-ip/task_sw_config_verify_switchover.html"
-  - title: 配置 MetroCluster Tiebreaker 或 ONTAP 调解器软件
-    url: "/install-ip/task_sw_config_configure_mediator.html"
-  - title: 保护配置备份文件
-    url: "/install-ip/task_sw_config_protect_backup.html"
+  - title: 使用命令行界面配置MetroCluster软件
+    entries:
+    - title: 概述
+      url: "/install-ip/concept_configure_the_mcc_software_in_ontap.html"
+    - title: 如何配置八节点配置
+      url: "/install-ip/task_sw_config_8n.html"
+    - title: 收集所需信息
+      url: "/install-ip/task_sw_config_gather_info.html"
+    - title: 标准集群和 MetroCluster 配置之间的相似之处和不同之处
+      url: "/install-ip/task_sw_config_differences.html"
+    - title: 验证组件的 ha-config 状态
+      url: "/install-ip/task_sw_config_verify_haconfig.html"
+    - title: 还原控制器模块上的系统默认值
+      url: "/install-ip/task_sw_config_restore_defaults.html"
+    - title: 手动将驱动器分配给池 0
+      url: "/install-ip/task_sw_config_assign_pool0.html"
+    - title: 设置 ONTAP
+      url: "/install-ip/task_sw_config_setup_ontap.html"
+    - title: 将集群配置为 MetroCluster 配置
+      url: "/install-ip/task_sw_config_configure_clusters.html"
+    - title: 配置端到端加密
+      url: "/install-ip/task-configure-end-to-end-encryption.html"
+    - title: 验证切换，修复和切回
+      url: "/install-ip/task_sw_config_verify_switchover.html"
+    - title: 配置 MetroCluster Tiebreaker 或 ONTAP 调解器软件
+      url: "/install-ip/task_sw_config_configure_mediator.html"
+    - title: 保护配置备份文件
+      url: "/install-ip/task_sw_config_protect_backup.html"
+  - title: 使用System Manager配置MetroCluster软件
+    entries:
+    - title: 设置MetroCluster IP站点
+      url: "/install-ip/set-up-mcc-site-system-manager.html"
+    - title: 设置MetroCluster IP对等
+      url: "/install-ip/set-up-mcc-peering-system-manager.html"
+    - title: 配置MetroCluster IP站点
+      url: "/install-ip/configure-mcc-site-system-manager.html"
 - title: 为计划外自动切换配置 ONTAP 调解器服务
   entries:
   - title: 准备安装 ONTAP 调解器服务
@@ -120,6 +130,8 @@ entries:
     url: "/install-ip/task_connecting_mcc_to_different_mediator_instance.html"
   - title: ONTAP 调解器如何支持自动计划外切换
     url: "/install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html"
+  - title: 使用系统管理器管理ONTAP调解器
+    url: "/install-ip/task-sm-mediator.html"
 - title: 测试 MetroCluster 配置
   url: "/install-ip/task_test_the_mcc_configuration.html"
 - title: 删除 MetroCluster 配置时的注意事项

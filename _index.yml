@@ -31,12 +31,6 @@ indexpage:
     links:
     - title: MetroCluster RCF 文件
       url: https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/docsandkb-tab
-  - title: 了解更多信息。
-    links:
-    - title: NetApp MetroCluster 解决方案架构和设计 | TR-4705
-      url: https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf
-    - title: MetroCluster IP 解决方案架构和设计 | TR-4689
-      url: https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf
   - title: 升级，扩展和转换
     links:
     - title: 升级和刷新硬件
@@ -49,6 +43,16 @@ indexpage:
       url: "/transition/concept_choosing_your_transition_procedure_mcc_transition.html"
     - title: 升级 MetroCluster IP RCF 文件
       url: "/maintain/task_upgrade_rcf_files_on_mcc_ip_switches.html"
+    - title: 升级 MetroCluster 集群上的 ONTAP
+      url: https://docs.netapp.com/us-en/ontap/task_metrocluster_ANDU_upgrade.html
+  - title: 利用MetroCluster实现数据保护
+    links:
+    - title: 了解 MetroCluster 数据保护和灾难恢复
+      url: "/manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html"
+    - title: 执行切换，修复和切回
+      url: "/manage/task_perform_switchover_for_tests_or_maintenance.html"
+    - title: 从灾难中恢复
+      url: "/disaster-recovery/concept_dr_workflow.html"
   - title: ATTO 网桥固件
     links:
     - title: FibreBridge 7600N
@@ -63,3 +67,9 @@ indexpage:
       url: https://hwu.netapp.com/
     - title: NetApp 支持知识库
       url: https://kb.netapp.com/
+  - title: 了解更多信息。
+    links:
+    - title: NetApp MetroCluster 解决方案架构和设计 | TR-4705
+      url: https://www.netapp.com/pdf.html?item=/media/13480-tr4705.pdf
+    - title: MetroCluster IP 解决方案架构和设计 | TR-4689
+      url: https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf

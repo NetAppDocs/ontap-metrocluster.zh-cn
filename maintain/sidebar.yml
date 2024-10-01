@@ -130,5 +130,7 @@ entries:
     url: "/maintain/task_move_a_metadata_volume_in_mcc_configurations.html"
   - title: 重命名 MetroCluster 配置中的集群
     url: "/maintain/task_rename_the_cluster_for_mcc_configuration.html"
+  - title: 检查MetroCluster配置的运行状况
+    url: "/maintain/verify-health-mcc-config.html"
   - title: 从何处查找追加信息
     url: "/maintain/reference_where_to_find_additional_information_mcc_service_guide.html"

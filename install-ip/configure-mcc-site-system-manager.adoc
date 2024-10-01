@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: install-ip/configure-mcc-site-system-manager.html 
+keywords: metrocluster, configuration, config, mcc, HA, cluster 
+summary: 从System Manager-8开始、您可以使用ONTAP 9管理器管理MetroCluster IP配置操作。其中包括设置、建立对等关系和配置两个集群。 
+---
+= 配置MetroCluster IP站点
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+从System Manager-8开始、您可以使用ONTAP 9管理器管理MetroCluster IP配置操作。其中包括设置两个集群、执行集群对等以及配置集群。
+
+.开始之前
+完成以下过程：
+
+* link:set-up-mcc-site-system-manager.html["设置MetroCluster IP站点"]
+* link:set-up-mcc-peering-system-manager.html["设置MetroCluster IP对等"]
+
+
+
+
+== 配置集群之间的连接
+
+.步骤
+. 登录其中一个站点上的 System Manager ，然后选择 * 信息板 * 。
++
+在 * MetroCluster * 部分中，此图显示了您为 MetroCluster 站点设置和建立对等关系的两个集群。左侧显示了您正在使用的集群（本地集群）。
+
+. 单击 * 配置 MetroCluster * 。在此窗口中、执行以下步骤：
++
+.. 此时将显示 MetroCluster 配置中每个集群的节点。使用下拉列表选择本地集群中要与远程集群中的节点成为灾难恢复配对节点的节点。
+.. 如果要配置ONTAP调解器服务、请单击此复选框。请参阅。 link:./task-sm-mediator.html["配置 ONTAP 调解器服务"]
+.. 如果两个集群都有用于启用加密的许可证，则会显示 * 加密 * 部分。
++
+要启用加密，请输入密码短语。
+
+.. 如果要为MetroCluster配置共享的第3层网络、请单击此复选框。
++
+
+NOTE: 连接到这些节点的 HA 配对节点和网络交换机必须具有匹配的配置。
+
+
+
+. 单击 * 保存 * 以配置 MetroCluster 站点。
++
+在 * 信息板 * 的 * MetroCluster 集群 * 部分中，此图在两个集群之间的链路上显示一个复选标记，表示连接运行状况良好。
+
+

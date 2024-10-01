@@ -9091,7 +9091,6 @@
   <block id="6852fcac58b417258b30784060002d89" category="list-text">跟踪 MetroCluster 端口组（ MetroCluster 1 ， MetroCluster 2 等）。使用 RcfFileGenerator 工具时需要此信息，如此配置操作步骤后面所述。</block>
   <block id="b070262d5faad84092129cb1c7a44daa" category="list-text">。<block ref="166489b3c340ece1eccb5706fda90624" category="inline-link-rx"></block> 此外，还提供了每个交换机的每端口布线概览。使用此布线概述来验证布线情况。</block>
   <block id="1645e08f0bfdf72de9dd9cf2ec8208de" category="admonition">系统将提示您输入调解器管理员用户帐户的用户名和密码。</block>
-  <block id="80e98c813fb4e1db7539339fdcc19d00" category="list-text">验证中的自动切换功能是否已启用：</block>
   <block id="241c04bf46a427ee9559a37db9cfc64c" category="list-text">显示调解器虚拟磁盘：</block>
   <block id="549e9ae28a978e7598586f13c962b013" category="paragraph">`storage disk show -container-type mediator`</block>
   <block id="e0a63c2d875daa748729bbc9b043b578" category="list-text">将权限模式设置为高级：</block>
@@ -9414,7 +9413,6 @@
   <block id="d7fffb0ac95f2fd216c5e3fd04365cca" category="paragraph">您可能需要更新这些属性，例如，如果检测到重复的 IP 地址，或者在第 3 层网络中，如果由于路由器配置更改而需要更改网关。</block>
   <block id="383d9b07e1ef0cfcfa9ec36fecccfe02" category="paragraph">一次只能更改一个接口。在更新其他接口并重新建立连接之前，此接口上的流量将中断。</block>
   <block id="8450a359c3efc774857fe0f3189456e0" category="paragraph">使用 `MetroCluster configuration-settings interface modify` 命令更改任何 MetroCluster IP 接口属性。</block>
-  <block id="6a644f6158922e284b18d4232a152b9f" category="admonition">这些命令用于更改特定端口的特定节点上的配置。要还原完整的网络连接，需要在其他端口上使用类似的命令。同样，网络交换机也需要更新其配置。例如，如果网关已更新，则理想情况下，它会在 HA 对的两个节点上进行更改，因为它们是相同的。此外，连接到这些节点的交换机还需要更新其网关。</block>
   <block id="700215bf58e5cc6edce60155aeb7c44a" category="section-title">修改 IP 地址，网络掩码和网关</block>
   <block id="2747f7ff86cce509295bfb4ba2b1c4fa" category="list-text">更新单个节点和接口的 IP 地址，网络掩码和网关： `MetroCluster configuration-settings interface modify`</block>
   <block id="2f545dcb650b5848061814c5ce3b4cf4" category="paragraph">以下命令显示如何更新 IP 地址，网络掩码和网关：</block>
@@ -12393,10 +12391,8 @@
   <block id="a7f55356cc47030db5528f30a58edfb2" category="list-text">安装或升级Tieb破碎 机软件。</block>
   <block id="aad71198aa2c8b35c39182535fa9f425" category="paragraph">按照以下步骤全新安装Tieb破碎 机1.6。</block>
   <block id="73bcbbea382be16f93642da3ea4e23a7" category="list-text">在运行以下命令<block ref="e9af9a0ef1d120bf3a16357375ed6d36" prefix=" " category="inline-code"></block> 提示您开始安装：</block>
-  <block id="30c295d71ca99219187fc6466ee21568" category="open-title">从Tieb破碎 机1.5升级到1.6</block>
   <block id="8be93a7c27b9b66803ef47f46f3d4a36" category="paragraph">按照以下步骤将Tieber1.5软件版本升级到Tieber1.6。</block>
   <block id="b9a8b4d6a676fac167bcd49bac74376b" category="list-text">在运行以下命令<block ref="e9af9a0ef1d120bf3a16357375ed6d36" prefix=" " category="inline-code"></block> 提示升级软件：</block>
-  <block id="cf316c5c67469aab7dcc16eed2309753" category="open-title">从Tieb破碎 机1.4升级到1.6</block>
   <block id="b6afd444ae977b739cc436bd2a8b5c0b" category="paragraph">按照以下步骤将Tieber1.4软件版本升级到Tieber1.6。</block>
   <block id="67449e50a32d34759e501e37496d3308" category="doc">Tieb破碎 机安装工作流</block>
   <block id="a6812db2442ae325a9ccd39373bbd9dd" category="paragraph-title">关于此工作流</block>
@@ -12419,7 +12415,6 @@
   <block id="4a558332080902b1daf6c9eb900f075a" category="summary">您遵循的Tieb破碎 机安装操作步骤取决于您正在安装的Tieb破碎 机版本。</block>
   <block id="686cbe9ae98dac9e3c34fe747bedda27" category="doc">选择您的安装操作步骤</block>
   <block id="de537937e28d6ff9bfed73c24f238620" category="paragraph">Tieb破碎 机1.6</block>
-  <block id="3d0eb4e198ae6fd77a45e8e5eeab8df8" category="paragraph"><block ref="3d0eb4e198ae6fd77a45e8e5eeab8df8" category="inline-link-macro-rx"></block></block>
   <block id="92c6c9c27fa6ff626915d050a03cd801" category="doc">升级运行Tieb破碎 机监控器的主机</block>
   <block id="bb6cdee210874ecf03d44e914a8ca0e2" category="paragraph">您可能需要升级运行Tieb破碎 机监控器的主机。</block>
   <block id="5d7ada76e0c335aff8880d70d7058de7" category="list-text">卸载Tieb破碎 机软件：</block>
@@ -12430,7 +12425,6 @@
   <block id="be7c560a571a01eeb644e3be4ae88e59" category="list-text">更易于安装</block>
   <block id="6106648cc4773cdde37c48ca810022c0" category="cell">Red Hat 7 - 7.9</block>
   <block id="7d04b9af5dfbfc78c7040183f68afdc4" category="cell">Red Hat 8.1 - 8.7</block>
-  <block id="33ef1f5aa9b12ecd01c340c91d8f9150" category="cell">Red Hat 8.8-9.2</block>
   <block id="003d136e5089a4f9ae0f1df3f6fc37fa" category="cell">多石Linux 9.0</block>
   <block id="9d0101bb262cf2b07ff8dcfa1f6cf004" category="list-text">您需要具有管理员密码并能够访问HTTP、FTP、SFTP或简单文件传输协议(TFTP)服务器。</block>
   <block id="c422062a1c7b3d9ed9b2282378699dc7" category="paragraph"><block ref="c422062a1c7b3d9ed9b2282378699dc7" category="inline-link-macro-rx"></block></block>
@@ -13778,7 +13772,6 @@
   <block id="b0e1fb1b9093a23db84f9fe9ec414a05" category="paragraph">您必须为MetroCluster IP配置中的每个交换机生成并安装RCF文件。</block>
   <block id="5f6300d6cef757d6670c2170d0ee50fb" category="list-text">为MetroCluster IP生成Cisco RCC文件。</block>
   <block id="f0af72ee7b95606742238881f6d3d746" category="list-text">使用<block ref="0dea99cd92a8ce54e8bf65bd553a3e89" prefix=" " category="inline-code"></block>、<block ref="05f7f2ea3536c78a494ee9ec91b6fef9" prefix=" " category="inline-code"></block>和<block ref="1fb1e9c05efc96eb745333b035ce6d59" prefix=" " category="inline-code"></block> 命令验证所有连接在所有接口上均正常工作。</block>
-  <block id="696ca372052e4e85401e9ef266b57375" category="paragraph">执行以下步骤以修改MetroCluster IP接口的IP地址、网络掩码和网关。</block>
   <block id="164748ab1cab79cb53ebb8d067fb41df" category="paragraph"><block ref="3b73cc9aa0167fa80aa8a786a4871e88" prefix="" category="inline-code"></block></block>
   <block id="8c8de216c09126479bba8f0a636ceac7" category="paragraph"><block ref="34b1158d44c89ca8031563bdf424ba84" prefix="" category="inline-code"></block></block>
   <block id="711aa9967b438e020ee72c9773739e5d" category="paragraph"><block ref="c7462aa9b4e3acfeadac46864ab81636" prefix="" category="inline-code"></block></block>
@@ -14037,4 +14030,243 @@
   <block id="705abb444ac66e0442a9ae4646471061" category="list-text">通过在两个交换机上运行以下命令来禁用新交换机：</block>
   <block id="f67761c61087dd0914ed518ef2c5f8e3" category="list-text">使用以下过程之一配置Brocade FC交换机：</block>
   <block id="4aa62d2d0cdae8fdaf47d41d558bac24" category="list-text"><block ref="4aa62d2d0cdae8fdaf47d41d558bac24" category="inline-link-macro-rx"></block></block>
+  <block id="bfa00e3106960b2480f83fadff713a4f" category="paragraph">1.6P1</block>
+  <block id="6bfcd5ea08a80cd94155fdf88dcf6123" category="paragraph">下表列出了每个Tieb破碎 机版本支持的操作系统。</block>
+  <block id="1b768ce691e5eb1aa740065a1f672bfa" category="cell">适用于Tieb破碎 机的操作系统</block>
+  <block id="540490e777cd8d6d9e7c6fc96ae66c78" category="paragraph">落基Linux 9.4</block>
+  <block id="5462f235f897a01fa661bab622beabc8" category="paragraph">落基Linux 8.10</block>
+  <block id="a19c888b1dfc0d7cae495bcb3d337fc0" category="paragraph">Red Hat 9.4</block>
+  <block id="3e6f4ea6825b1c15c5caa424f32e8e56" category="paragraph">Red Hat 9.3</block>
+  <block id="990892a05d2ae7871bb10520e7d92e70" category="paragraph">Red Hat 9.2</block>
+  <block id="b846d756ce474e84306c1784e17929a2" category="paragraph">Red Hat 9.1</block>
+  <block id="a9a9af4fc514b12a09fbdb4e9dc69b3e" category="paragraph">Red Hat 9.0</block>
+  <block id="7f1240813348dba5070feb8fcbcd1ef6" category="paragraph">Red Hat 8.11 - 9.0</block>
+  <block id="dfb323b8bbf2e9913deb2acdece0c7f4" category="paragraph">Red Hat 8.10.</block>
+  <block id="df0cfaadf30e71fdaa61f84b52c44994" category="paragraph">Red Hat 8.9</block>
+  <block id="04dca81afefd0df779a73a7d71167788" category="paragraph">Red Hat 8.8</block>
+  <block id="38a72bda83bf45017fe822ff4eba9612" category="summary">从System Manager-8开始、您可以使用ONTAP 9管理器管理MetroCluster IP配置操作。其中包括设置、建立对等关系和配置两个集群。</block>
+  <block id="36f25b89c535d52dd7602dc98235602e" category="doc">配置MetroCluster IP站点</block>
+  <block id="28899ffbbfaa5ea10173ff0ea7d1a3c4" category="paragraph">从System Manager-8开始、您可以使用ONTAP 9管理器管理MetroCluster IP配置操作。其中包括设置两个集群、执行集群对等以及配置集群。</block>
+  <block id="ab5b4f0eeffd1a9db4154301438d854e" category="paragraph">完成以下过程：</block>
+  <block id="db2d063a7c49bffea6360ca914ed7b80" category="inline-link-macro">设置MetroCluster IP站点</block>
+  <block id="6752a5e24c893d34589e26378fa69a36" category="list-text"><block ref="6752a5e24c893d34589e26378fa69a36" category="inline-link-macro-rx"></block></block>
+  <block id="666700b42fe1d56ec812d1016bf00474" category="inline-link-macro">设置MetroCluster IP对等</block>
+  <block id="432b1852c060822f86f6a936e2d5a657" category="list-text"><block ref="432b1852c060822f86f6a936e2d5a657" category="inline-link-macro-rx"></block></block>
+  <block id="11de751fc3a61ece2c4369c7f228d262" category="section-title">配置集群之间的连接</block>
+  <block id="4f98dcf943b7a3cd7ed4f88ca8839b1b" category="list-text">登录其中一个站点上的 System Manager ，然后选择 * 信息板 * 。</block>
+  <block id="d3ab8079aafa01dd2443858e1958cde3" category="paragraph">在 * MetroCluster * 部分中，此图显示了您为 MetroCluster 站点设置和建立对等关系的两个集群。左侧显示了您正在使用的集群（本地集群）。</block>
+  <block id="4dbd519ea68e9fdd1535b92dd4afd5fb" category="list-text">单击 * 配置 MetroCluster * 。在此窗口中、执行以下步骤：</block>
+  <block id="1786426d5d80efd6c5165d556166c28b" category="list-text">此时将显示 MetroCluster 配置中每个集群的节点。使用下拉列表选择本地集群中要与远程集群中的节点成为灾难恢复配对节点的节点。</block>
+  <block id="5b4f1da4fd53e0370a93b132cee09135" category="inline-link-macro">配置 ONTAP 调解器服务</block>
+  <block id="79929ab5271f1ea472573389b4d83491" category="list-text">如果要配置ONTAP调解器服务、请单击此复选框。请参阅。 <block ref="5f1311c68626dc6800182a56591c319d" category="inline-link-macro-rx"></block></block>
+  <block id="2e04b49bb4e33ec691ac2f426d41203d" category="list-text">如果两个集群都有用于启用加密的许可证，则会显示 * 加密 * 部分。</block>
+  <block id="12d02fba21726eafac4f9ce09b0d1801" category="paragraph">要启用加密，请输入密码短语。</block>
+  <block id="39391d3e9d1021130d7922046a90931b" category="list-text">如果要为MetroCluster配置共享的第3层网络、请单击此复选框。</block>
+  <block id="efe042b7cd567da6e7a1991e57562f95" category="admonition">连接到这些节点的 HA 配对节点和网络交换机必须具有匹配的配置。</block>
+  <block id="3ff0da84e96e24c0f2119aa4d9252fc8" category="list-text">单击 * 保存 * 以配置 MetroCluster 站点。</block>
+  <block id="a84590effe20f7cfc7a37800f946342b" category="paragraph">在 * 信息板 * 的 * MetroCluster 集群 * 部分中，此图在两个集群之间的链路上显示一个复选标记，表示连接运行状况良好。</block>
+  <block id="0a2cb077aceb828b74111b3c72d0875f" category="summary">从ONTAP 9。8开始、您可以使用System Manager管理MetroCluster IP站点操作。其中包括设置两个集群和执行集群对等。</block>
+  <block id="2fecebbfac11150535911d877966c9e3" category="paragraph">从System Manager-8开始、您可以使用ONTAP 9管理器管理MetroCluster IP配置操作。设置两个集群后，您可以在它们之间建立对等关系。</block>
+  <block id="8301378659a3e958b3ed8bee628d4fed" category="paragraph">设置两个集群。请参见<block ref="6752a5e24c893d34589e26378fa69a36" category="inline-link-macro-rx"></block>过程。</block>
+  <block id="fd52b08a1d5c4aa668d8747cad70b430" category="paragraph">此过程的某些步骤由位于每个集群的地理站点的不同系统管理员执行。为了解释此过程，这些集群称为 " 站点 A 集群 " 和 " 站点 B 集群 " 。</block>
+  <block id="800f6bec4d7bccca8986aece418ad1de" category="section-title">从站点A执行对等过程</block>
+  <block id="91e08e596d03b4598a0cb6e18b3b7323" category="paragraph">此过程由站点 A 的系统管理员执行</block>
+  <block id="1b22a2a59202338d982fba5bbb33fa30" category="list-text">登录到站点 A 集群。</block>
+  <block id="37d02710ca9beb5be0727430fb2162b8" category="list-text">在 System Manager 中，从左侧导航列中选择 * 信息板 * 以显示集群概述。</block>
+  <block id="400cef5b08c0727ecc8dc2c820f4cc03" category="paragraph">信息板显示此集群（站点 A ）的详细信息。在 * MetroCluster 站点 A 集群 * 部分中，站点 A 集群显示在左侧。</block>
+  <block id="6107d832d713643417cdcb1247850b8d" category="list-text">单击 * 附加配对集群 * 。</block>
+  <block id="1ad364a11b40005802e1f84d90d041cf" category="list-text">输入允许站点 A 集群中的节点与站点 B 集群中的节点进行通信的网络接口的详细信息。</block>
+  <block id="e2aa96095bb2f8cb065ca1dbb1797062" category="list-text">单击 * 保存并继续 * 。</block>
+  <block id="0fb2a7e128a2eac45533dd8f9ae55f5e" category="list-text">在*连接配对集群*窗口中，选择*我没有密码短语*。这样、您可以生成密码短语。</block>
+  <block id="c049d3b7f45a9d71a026303b72bd3c89" category="list-text">复制生成的密码短语并与站点 B 的系统管理员共享</block>
+  <block id="4a553bf9ebe9a32a6743c78be912cfbc" category="list-text">选择 * 关闭 * 。</block>
+  <block id="b05890405a4f635e4f56b65031e75631" category="section-title">从站点B执行对等过程</block>
+  <block id="0b4aea80df80bf888adc9518474f6947" category="paragraph">此过程由站点 B 的系统管理员执行</block>
+  <block id="dd50214e47fa588d26e3c92a3d198338" category="list-text">登录到站点 B 集群。</block>
+  <block id="734cc1d7de8d108a27e917887214636f" category="list-text">在 System Manager 中，选择 * 信息板 * 以显示集群概述。</block>
+  <block id="1f10efcab03c53da22ba08cb6bbc8598" category="paragraph">信息板显示此集群（站点 B ）的详细信息。在 MetroCluster 部分中，站点 B 集群显示在左侧。</block>
+  <block id="b7c19af97bcc09d6c21203f84e692348" category="list-text">单击 * 附加配对集群 * 以启动对等过程。</block>
+  <block id="8ca83d09916f639dd29a3ed4f3b639b4" category="list-text">输入允许站点 B 集群中的节点与站点 A 集群中的节点进行通信的网络接口的详细信息。</block>
+  <block id="bfee858eb2d3fe3045afebb6acac2a29" category="list-text">在*连接配对集群*窗口中，选择*我有密码短语*。这样、您就可以输入从站点A的系统管理员处收到的密码短语</block>
+  <block id="3dada8e82959cb16ca8382065e3028f9" category="list-text">选择 * 对等 * 以完成对等过程。</block>
+  <block id="58eaebf972358f1cf03d386a4ade1a0f" category="paragraph-title">下一步是什么？</block>
+  <block id="1d5ce8d0636fdf8fd5bc5cb4e8a960df" category="paragraph">对等过程成功完成后、您可以配置集群。请参阅。 <block ref="f4b8cb4c8ba1cae03984184387785b0f" category="inline-link-macro-rx"></block></block>
+  <block id="6860105c09c16d5d7eaa1e78fed2b5e5" category="summary">从ONTAP 9 8开始、您可以使用System Manager设置MetroCluster IP站点。</block>
+  <block id="466f762f177e526457605fb9ac8c08f3" category="paragraph">MetroCluster 站点由两个集群组成。通常，集群位于不同的地理位置。</block>
+  <block id="b0d3ebac943d2ae6f9252023ec4372af" category="inline-link">安装和设置说明</block>
+  <block id="ad7d040781ae344cb798e4643b544189" category="list-text">您的系统应已根据系统附带的进行安装和布线<block ref="fe37fd3178daac666b0ecf82dc69d67e" category="inline-link-rx"></block>。</block>
+  <block id="3521850b1984afef04220756150edd6f" category="list-text">应在每个集群的每个节点上配置集群网络接口，以便进行集群内通信。</block>
+  <block id="333626d7eac89dbbbfc0adb558126fa5" category="section-title">分配节点管理 IP 地址</block>
+  <block id="b6aad8c4ffa5342dbf2d86461d5eacd0" category="section-title">Windows 系统</block>
+  <block id="5239b38f72ba4e5cf31c91f53e96fbed" category="paragraph">您应将 Windows 计算机连接到与控制器相同的子网。此操作会自动为您的系统分配节点管理IP地址。</block>
+  <block id="3ce0ea9ab77c17a59c6c5bc699f28c5f" category="list-text">在 Windows 系统中，打开 * 网络 * 驱动器以发现节点。</block>
+  <block id="19695fc87bb0fcfd896be28e7208553d" category="list-text">双击节点以启动集群设置向导。</block>
+  <block id="4df67b430c2c93a881bdfcb608ac9d64" category="section-title">其他系统</block>
+  <block id="088e15bd429f3ce14d70d95c30e1e122" category="paragraph">您应为集群中的一个节点配置节点管理 IP 地址。您可以使用此节点管理 IP 地址启动集群设置向导。</block>
+  <block id="35993a777fd55e9b8652d85b9bcdb437" category="inline-link-macro">在第一个节点上创建集群</block>
+  <block id="f6d314ce096e8231f7a5bc9785329bcb" category="paragraph">有关分配节点管理IP地址的信息、请参见<block ref="6a6a97d50b361c85b6a1efd6b8465455" category="inline-link-macro-rx"></block>。</block>
+  <block id="01aefac0a86b676c1949a51d6e866a82" category="section-title">初始化和配置集群</block>
+  <block id="49fad8a8e436dfc1d8668e654044de3c" category="paragraph">您可以通过设置集群的管理密码以及设置集群管理和节点管理网络来初始化集群。您还可以配置域名服务器(DNS)等服务来解析主机名、并配置NTP服务器来同步时间。</block>
+  <block id="cc1405b96b23f7d6e3c371baa8cee9fd" category="list-text">在Web浏览器中、输入已配置的节点管理IP地址：<block ref="c3d870229fd69ece8d3d772339d7351c" category="inline-link-rx"></block></block>
+  <block id="b4ab57535e2494a9072f367bc0cc66ac" category="paragraph">System Manager 会自动发现集群中的其余节点。</block>
+  <block id="b32feae1add7ad238c11b701aebd6a4d" category="list-text">在 * 初始化存储系统 * 窗口中，执行以下操作：</block>
+  <block id="0723981d0cd8540448ade0ad0c2bce4f" category="list-text">输入集群管理网络配置数据。</block>
+  <block id="d9e5bca04bba2210fd7133286123d23b" category="list-text">输入所有节点的节点管理 IP 地址。</block>
+  <block id="89b17fac13461899552af00e761c444f" category="list-text">提供 DNS 详细信息。</block>
+  <block id="f2cf1382fae972d1f657f56bdf1ccd2f" category="list-text">在 * 其他 * 部分中，选中标记为 * 使用时间服务（ NTP ） * 的复选框以添加时间服务器。</block>
+  <block id="d385f8f7be7049af17b707b814da972d" category="paragraph">单击 * 提交 * 后，请等待创建和配置集群。然后，将执行验证过程。</block>
+  <block id="e66cf0363da426ff5fc40b5dff923ee7" category="paragraph-title">下一步是什么？</block>
+  <block id="fb0527aaad3b8834bb5bd8b9aaac2d14" category="paragraph">设置、初始化和配置两个集群后、执行[Set up MetroCluster IP peering]过程。</block>
+  <block id="5a8cb11351ec1c2ae0f6ece191a675b3" category="section-title">在新的集群视频上配置 ONTAP</block>
+  <block id="de87e59d2852e752153034440b599942" category="summary">您可以使用System Manager执行任务来管理调解器。</block>
+  <block id="4a75c782083d91f8442fa0793b7cfbf5" category="doc">使用System Manager管理ONTAP调解器</block>
+  <block id="a92f4998e6033fa7b4c91230afa4eb31" category="paragraph">您可以使用System Manager执行管理ONTAP调解器的任务。</block>
+  <block id="58d9a382438a6ccf3362b70996f2217e" category="paragraph-title">关于这些任务</block>
+  <block id="06d19fcd882f22629288f03ed5b7cdbf" category="paragraph">从System Manager-8开始、您可以使用ONTAP 9作为管理四节点MetroCluster IP配置的简化界面、其中可以包括安装在第三个位置的ONTAP调解器。</block>
+  <block id="7cd65d7812b2b9ccfca9369428e81afc" category="paragraph">从System Manager.14.1开始、您还可以使用ONTAP 9对八节点MetroCluster IP站点执行这些操作。尽管您无法使用System Manager设置或扩展八节点系统、但如果您已设置八节点MetroCluster IP系统、则可以执行这些操作。</block>
+  <block id="cf5d5c60759eb97116f97dba2f94928f" category="paragraph">执行以下任务以管理ONTAP调解器。</block>
+  <block id="34c30a40821bf0600cbb66a443eaa256" category="cell">以执行此任务。</block>
+  <block id="ed48cbb0bf6ff16f983dee37b0fa56db" category="cell">执行以下操作 ...</block>
+  <block id="fbdb3c4696d4af3abdd40a7c4d39dff1" category="paragraph">配置调解器服务</block>
+  <block id="5887ba6bb1083b1733f935c989ce8798" category="paragraph">MetroCluster 站点上的两个集群都应已启动并建立对等关系。</block>
+  <block id="e41b8f6d50b100db120f723ab2d80b55" category="list-text">在 ONTAP 9.8 的 System Manager 中，选择 * 集群 &gt; 设置 * 。</block>
+  <block id="5ad3e303fff11348579be9fa7186a3bf" category="inline-image-macro">操作图标</block>
+  <block id="91137d8840d5756932cbbe95191ebef9" category="list-text">在*调解 器*部分中，单击<block ref="7d54718dbc3f6ea214f7c0852ad5f778" category="inline-image-macro-rx" type="image"></block>。</block>
+  <block id="08e18262fd4a21acec4d96a4a34ce874" category="list-text">在 * 配置调解器 * 窗口中，单击 * 添加 +* 。</block>
+  <block id="7106fd9d66839587984098b5b110af62" category="list-text">输入 ONTAP 调解器的配置详细信息。</block>
+  <block id="4454fd0f209c519ab968807065d1d63d" category="paragraph">在使用System Manager配置ONTAP调解器时、您可以输入以下详细信息。</block>
+  <block id="2396a51918b19da4a570bb6eeefaf733" category="list-text">调解器的IP地址。</block>
+  <block id="bf3c0dfedfed52264992478ab75c11ab" category="list-text">用户名。</block>
+  <block id="818e503323563216b4a9556e8c414a99" category="list-text">密码。</block>
+  <block id="db76a646cbffaec942b46f13ae610cdf" category="paragraph">启用或禁用调解器辅助自动切换(MAUSO)</block>
+  <block id="8a9b7c6da233afe1b94f2908370636ae" category="list-text">在 System Manager 中，单击 * 信息板 * 。</block>
+  <block id="33ba5213ca4a1cf4e94a02d0ba4e50a8" category="list-text">滚动到MetroCluster部分。</block>
+  <block id="9b5ce2fc82e55a2629051893f8d8d4ff" category="inline-image-macro">菜单图标</block>
+  <block id="8048f4b95111b36ae736e0db22032afc" category="list-text">单击 <block ref="fc003bdefc684d1fa6047f466b3a4572" category="inline-image-macro-rx" type="image"></block> MetroCluster站点名称旁边的。</block>
+  <block id="5451b90704453cd0f976a20853b71515" category="list-text">选择*Enable*或*Disable"。</block>
+  <block id="e7d8532df0bf3db8251352a8238be289" category="list-text">输入管理员用户名和密码，然后单击*Enable*或*Disable"。</block>
+  <block id="1f48f2b275c8a8c7c346ee84a099bf8d" category="admonition">如果可以访问调解器且两个站点均处于"`Normal`"模式、则可以启用或禁用此调解器。如果MetroCluster系统运行状况良好、则在启用或禁用MAUSO后、仍可访问调解器。</block>
+  <block id="7f4fa61d4e9b9b925c8fb71469e17d9d" category="paragraph">从MetroCluster配置中删除调解器</block>
+  <block id="90e2fb7737ff30cfb4976eadc47866a4" category="list-text">选择*Remove调解器*。</block>
+  <block id="08c3fe5d52a59ab36d7b3b7acab670d1" category="list-text">输入管理员用户名和密码，然后单击*Remove*。</block>
+  <block id="7f4010553b429e7c90d3b1f0da9fa64b" category="paragraph">检查调解器的运行状况</block>
+  <block id="88696f657e6e364490e66c4462936660" category="inline-link-macro">验证MetroCluster配置的运行状况</block>
+  <block id="b01e706bfb46755bbdbe42d170a1b23a" category="paragraph">执行中的System Manager特定步骤<block ref="1dc6f14de17f840d44d583754a4c8527" category="inline-link-macro-rx"></block>。</block>
+  <block id="d643e31d547d643afdddd05a8a4f7112" category="paragraph">执行切换和切回</block>
+  <block id="95232b2668851dd7e6d065abeee1ed20" category="inline-link-macro">使用系统管理器执行切换和切回(仅限MetroCluster IP配置)</block>
+  <block id="94728a8f449ff84b5ac878653ab4ad67" category="paragraph">执行中的步骤<block ref="5b3a204b8bc535419d3d88f0ef6f3046" category="inline-link-macro-rx"></block>。</block>
+  <block id="a4d7653998b91da503a24fc71e65ad4f" category="list-text">验证是否已启用自动切换功能：</block>
+  <block id="b03614d885f56be6dafeebbbaa010a5f" category="paragraph">您遵循的过程取决于您使用的是ONTAP系统管理器还是命令行界面。</block>
+  <block id="26ed02718973e705cd69ee6e109400e0" category="open-title">System Manager</block>
+  <block id="a8f22e0a130b300278ead25d693a43d5" category="paragraph">使用System Manager修改IP地址、网络掩码和网关属性。</block>
+  <block id="7cdf282c18fa11c6df4d9d55af90d450" category="paragraph">更新每个节点和接口的IP地址、网络掩码和网关。</block>
+  <block id="91af5705f16502125e8b2187e64202c0" category="open-title">命令行界面</block>
+  <block id="f9a65892b48ad466104ac3eb33403881" category="paragraph">使用命令行界面修改IP地址、网络掩码和网关属性。</block>
+  <block id="0efcd0c9061820674001fdd91f087bf1" category="admonition">这些命令用于更改特定端口的特定节点上的配置。要还原完整的网络连接，需要在其他端口上使用类似的命令。同样，网络交换机也需要更新其配置。例如，如果网关已更新，则理想情况下，它会在 HA 对的两个节点上进行更改，因为它们是相同的。连接到这些节点的交换机还需要更新其网关。</block>
+  <block id="1e7bea8d62062fd522d5f5c2523a3c72" category="summary">了解如何验证MetroCluster组件是否运行正常。</block>
+  <block id="f505230c63d40beb8fbcb47fba267ed7" category="list-text">在MetroCluster IP和FC配置中、您可以使用命令行界面运行运行状况检查命令并验证MetroCluster组件的状态。</block>
+  <block id="8b0de0e20dd0b02520681f56e79ebae0" category="list-text">在运行ONTAP 9™8或更高版本的MetroCluster IP配置中，您还可以使用ONTAP系统管理器来监控运行状况检查警报并对其进行故障排除。</block>
+  <block id="1583d2d97747ba72311f2e67c5e8cbb4" category="paragraph">根据您使用的是命令行界面还是System Manager、验证MetroCluster配置的运行状况。</block>
+  <block id="37dcbbe313fadb76f239174825a5a989" category="paragraph">按照以下步骤使用命令行界面检查MetroCluster配置的运行状况。</block>
+  <block id="c4a17569a8bf29b7e14beddf0509bffc" category="list-text">操作完成后<block ref="c2966f2f3bfc7e81dae5df7c44ce66ea" prefix=" " category="inline-code"></block>、显示结果：</block>
+  <block id="207b1edaa970369e13d7a443fcd16244" category="open-title">ONTAP系统管理器(仅限MetroCluster IP)</block>
+  <block id="a2c21bc044f933ab565d513bcc14eb44" category="paragraph">从ONTAP 9．8开始，System Manager可以监控MetroCluster IP配置的运行状况，并帮助您识别和更正可能出现的问题。</block>
+  <block id="d679b550fc7e920c8d317b30292d5b72" category="paragraph">System Manager会定期检查MetroCluster IP配置的运行状况。在信息板中查看 MetroCluster 部分时，通常会显示消息 MetroCluster systems are healthy 。</block>
+  <block id="744b05e9d4a2bf5cfaf4233e162b7287" category="paragraph">但是，发生问题时，此消息将显示事件数量。您可以单击此消息并查看以下组件的运行状况检查结果：</block>
+  <block id="fbebc6739678d32573bdcc8e7d9712a2" category="list-text">网络接口</block>
+  <block id="9db57734568bdbbb6cb1f1ae0e91c96e" category="list-text">层（存储）</block>
+  <block id="249694a485fc5d3289c38986b4f8e887" category="list-text">集群</block>
+  <block id="c2cc7082a89c1ad6631a2f66af5f00c0" category="list-text">连接</block>
+  <block id="bd7a9717d29c5ddcab1bc175eda1e298" category="list-text">卷</block>
+  <block id="21094294c878b9478fc6a4481429dd3b" category="list-text">配置复制</block>
+  <block id="b06582224c79e1b61467fdec14da2228" category="paragraph">"* 状态 * " 列用于标识存在问题的组件， "* 详细信息 * " 列用于建议如何更正问题。</block>
+  <block id="1d1e5cd96b3e552f9fc410fb90447401" category="list-text">在 System Manager 中，选择 * 信息板 * 。</block>
+  <block id="68c5b182341ec0270d2cfc783a5cb3a8" category="list-text">在*Windows* MetroCluster部分中查看消息：</block>
+  <block id="2e957c43738afa0268a948e2ddbfc90a" category="list-text">如果此消息指示您的 MetroCluster 配置运行状况良好，并且集群与 ONTAP 调解器之间的连接运行状况良好（显示时带有复选标记），则表示您没有问题需要更正。</block>
+  <block id="5ead04b6add34a12036cdfd7b3076e12" category="list-text">如果消息列出了事件数量，或者连接已断开（显示为 "X" ），则继续执行下一步。</block>
+  <block id="5eade9ac1d44db33dfd4a3c509a9f1db" category="list-text">单击显示事件数量的消息。</block>
+  <block id="2c0ee5124aa4e5392364a27cc1881b73" category="paragraph">此时将显示 MetroCluster 运行状况报告。</block>
+  <block id="0d5b953768363f4a9dfdd80e2f7c966b" category="list-text">使用 * 详细信息 * 列中的建议对报告中显示的问题进行故障排除。</block>
+  <block id="b9a9a239553d33237233de0bfd8f65f6" category="list-text">更正完所有问题后，单击 * 检查 MetroCluster 运行状况 * 。</block>
+  <block id="e4fd105ae14d31c18bec3c48cfbb91dd" category="admonition">在运行检查之前、您应执行所有故障排除任务、因为MetroCluster运行状况检查会占用大量资源。</block>
+  <block id="aafba8024f058e44bbc108aceb7544c0" category="paragraph">MetroCluster 运行状况检查在后台运行。您可以在等待其他任务完成的同时处理这些任务。</block>
+  <block id="f3f0554af4f46e3b78864e3ee8cf634d" category="paragraph">您可以将控制权从一个MetroCluster IP站点切换到另一个站点、以执行维护或从问题中恢复。</block>
+  <block id="e332e690f18abf1e6fbf15bb2839f91f" category="admonition">只有MetroCluster IP配置才支持切换和切回过程。</block>
+  <block id="476bb76a6bf7614cd646479d690f0355" category="section-title">切换和切回概述</block>
+  <block id="4e487442ec743c75d773efc8d7eb4975" category="paragraph">在以下两种情况下，可能会发生切换：</block>
+  <block id="7d22a9492e26d8b6f7e62e754b8038bc" category="list-text">* 计划内切换 *</block>
+  <block id="122a8d927b5f2bfbd5c05e151d100ecf" category="paragraph">此切换由系统管理员使用 System Manager 启动。通过计划内切换，本地集群的系统管理员可以切换控制权，以便远程集群的数据服务由本地集群处理。然后，远程集群位置的系统管理员可以对远程集群执行维护。</block>
+  <block id="e8fac69a545ec9a20c2f066fd2d5c64c" category="list-text">* 计划外切换 *</block>
+  <block id="7ee58ef1472684aca1fe0fe874b6d592" category="paragraph">在某些情况下、当MetroCluster集群关闭或集群之间的连接关闭时、ONTAP会自动启动切换、以便仍在运行的集群处理已关闭的集群的数据处理职责。</block>
+  <block id="97ea4ec8c53cbd7aa2f77e41af35214d" category="paragraph">在其他情况下、如果ONTAP无法确定其中一个集群的状态、则正在工作的站点的系统管理员将启动切换、以控制另一站点的数据处理职责。</block>
+  <block id="b04fc1c1a947340b6295bca4e15296fa" category="paragraph">对于任何类型的切换操作步骤，都会使用 _switchback_ 进程将数据服务功能返回到集群。</block>
+  <block id="3a6a5031743305019642718d6b386a76" category="paragraph">您可以对 ONTAP 9.7 和 9.8 执行不同的切换和切回过程：</block>
+  <block id="e6930e280c751418022003bf9fa97d63" category="inline-xref">在ONTAP 9.7中使用System Manager进行切换和切回</block>
+  <block id="fbb89290a9f0639df9fd99dd91afccee" category="list-text"><block ref="256c277ba57abb095e4dc34a115bfd87" category="inline-xref-macro-rx"></block></block>
+  <block id="90984242656b59b4ec4bc8b2dc652b47" category="inline-xref">在ONTAP 9.8中使用System Manager进行切换和切回</block>
+  <block id="7bf20936df7319e027dcb25cf3be240e" category="list-text"><block ref="b26721d6058aa62e04e032c9956f0274" category="inline-xref-macro-rx"></block></block>
+  <block id="84e994bcb8ec0880899d43da827eb4f8" category="list-text">登录到ONTAP 9.7中的System Manager。</block>
+  <block id="ef676a956a1111a97c4b6d5a5313ec0c" category="list-text">单击 * （返回经典版本） * 。</block>
+  <block id="c6b17260f6c04748cb3b263e07841d9c" category="list-text">单击 * 配置 &gt; MetroCluster * 。</block>
+  <block id="9512c15d06f8ebc094a9ff5468e46042" category="paragraph">System Manager 将验证是否可以进行协商切换。</block>
+  <block id="1184e7d21efeb90e1213fb76b1a8ab92" category="list-text">验证过程完成后，执行以下子步骤之一：</block>
+  <block id="d70c82e05495e05abc2021dc54100a96" category="list-text">如果验证失败，但站点 B 已启动，则表示发生错误。例如，子系统可能存在问题，或者 NVRAM 镜像可能未同步。</block>
+  <block id="158ad5b32c8309811884b5700c04c866" category="list-text">修复导致此错误的问题描述，单击 * 关闭 * ，然后在步骤 2 中重新开始。</block>
+  <block id="2da490367d961d43e4786cecfbde3d6b" category="inline-link-macro">执行计划外切换</block>
+  <block id="37950e07940a13e856cb50dc1a9291b9" category="list-text">暂停站点B节点，单击*Close*，然后执行中的步骤 <block ref="fb6c16196bc2d21511884d5617718b51" category="inline-link-macro-rx"></block>。</block>
+  <block id="47cb9ca4992d157c03e7725803af8e2a" category="list-text">如果验证失败、并且站点B已关闭、则很可能出现连接问题。验证站点B是否已关闭，然后执行中的步骤<block ref="fb6c16196bc2d21511884d5617718b51" category="inline-link-macro-rx"></block>。</block>
+  <block id="f40d6676f14af4f7006dc55f7866a8cc" category="list-text">单击 * 从站点 B 切换到站点 A* 以启动切换过程。</block>
+  <block id="3fa63b2ebfe34a52015afed9c4be0676" category="list-text">单击 * 切换到新体验 * 。</block>
+  <block id="a0bbb21498df4682785de3ad118d2112" category="section-title">执行计划内切换（ ONTAP 9.8 ）</block>
+  <block id="7032cb0fb8b2c734e0b3330b170287a8" category="list-text">登录到ONTAP 9.8中的System Manager。</block>
+  <block id="d86b98757fa72a3091b65699a17b3724" category="list-text">选择 * 信息板 * 。在 * MetroCluster 集群 * 部分中，两个集群显示有一个连接。</block>
+  <block id="b7833a52299d966f41b82417259c5239" category="inline-image-macro">" 串器 " 图标</block>
+  <block id="6b466076a02d34c371b188caa9b5a5ea" category="list-text">在本地集群(如左侧所示)中，单击 <block ref="2f6e127087f9ef4b927e204474c5d0b2" category="inline-image-macro-rx" type="image"></block>，然后选择*将远程数据服务切换到本地站点*。</block>
+  <block id="aa0bfd6a3a3db9e5b0409213f48708d9" category="paragraph">验证切换请求后、控制权将从远程站点传输到本地站点。本地站点会为两个集群执行数据服务请求。</block>
+  <block id="3c8328130d9ea4793e2bc9f3551b90e0" category="paragraph">远程集群重新启动，但存储组件未处于活动状态，并且集群不会处理数据请求。现在，它可用于计划内维护。</block>
+  <block id="6f83354e8ce958bae1f9ffca3c39c278" category="admonition">在执行切回之前，不应使用远程集群进行数据服务。</block>
+  <block id="defaf88320e88f259a284fdbcd5986c2" category="section-title">执行计划外切换（ ONTAP 9.8 ）</block>
+  <block id="ef7ccb5f4ce99dc2e349e8c6c47a3d17" category="paragraph">ONTAP 可能会自动启动计划外切换。如果 ONTAP 无法确定是否需要切回，则仍在运行的 MetroCluster 站点的系统管理员将通过以下步骤启动切换：</block>
+  <block id="612770839809215b203a58fa260be49e" category="list-text">选择 * 信息板 * 。</block>
+  <block id="940768454917470cad252dfa341a9bae" category="paragraph">在* MetroCluster *部分中，两个集群之间的连接显示有一个"X"。这意味着无法检测到连接、并且连接或集群已关闭。</block>
+  <block id="0b85c3b32c8fd95dfef8906dc740c0b2" category="paragraph">如果切换失败并出现错误、请单击错误消息中的"查看详细信息"链接并确认计划外切换。</block>
+  <block id="b2a8c150e46a4d6da48aa21c7035a5ec" category="paragraph">必须先修复集群，然后才能使其重新联机。</block>
+  <block id="dacd599c11508c590c3afe8309bc777e" category="admonition">远程集群联机后、在执行切回之前、不应使用它来提供数据服务。</block>
+  <block id="b7066bce35bcdc9bde30393cfe83bbdd" category="section-title">执行切回（ ONTAP 9.8 ）</block>
+  <block id="83d20468f433e569baf2f41de2670745" category="paragraph">如果远程集群因计划内维护或灾难而关闭、则它现在应已启动且正在运行、并等待切回。</block>
+  <block id="a91ed0fc67b86b9a97667032dc887550" category="list-text">在本地集群上，登录到 ONTAP 9.8 中的 System Manager 。</block>
+  <block id="e722eda52729a565e292380da3b9cd9e" category="paragraph">在 * MetroCluster 集群 * 部分中，显示了两个集群。</block>
+  <block id="3964a12029e4869f90c22d4b7b86e4d7" category="list-text">在本地集群(如左侧所示)中，单击 <block ref="2f6e127087f9ef4b927e204474c5d0b2" category="inline-image-macro-rx" type="image"></block>，然后选择*收回控制权*。</block>
+  <block id="9650db837519c6f15dca6f446f677c65" category="paragraph">首先、会_heed-heALed.以验证数据是否已在两个集群之间同步和镜像。</block>
+  <block id="76cc37c77093b53852f92d0bedaab777" category="list-text">数据修复完成后，单击 <block ref="2f6e127087f9ef4b927e204474c5d0b2" category="inline-image-macro-rx" type="image"></block>，然后选择*Initiate switchback*。</block>
+  <block id="99ce5ee29ba72294092dc372ec9cdde8" category="paragraph">切回完成后，两个集群均处于活动状态并为数据请求提供服务。此外、还会在集群之间镜像和同步数据。</block>
+  <block id="1634280924da564c571e77a82a5ca015" category="paragraph">Tieb破碎 机1.6或更高版本</block>
+  <block id="10090a98eb5a0c97ffdfee7c207fcda3" category="inline-link-macro">安装Tieb破碎 机1.6或更高版本</block>
+  <block id="01edf779844a94aabbe0472729e9db87" category="paragraph"><block ref="01edf779844a94aabbe0472729e9db87" category="inline-link-macro-rx"></block></block>
+  <block id="96e17598e0060c107f4db8b804505693" category="inline-link-macro">落基Linux产品文档</block>
+  <block id="98f9ad5cd8db49b652b4f699146c5868" category="list-text"><block ref="98f9ad5cd8db49b652b4f699146c5868" category="inline-link-macro-rx"></block></block>
+  <block id="95bf514988fe6b2ae6d2c4683d39fc01" category="paragraph">在主机Linux操作系统上全新安装或升级到Tieb破碎 机1.6或Tieb破碎 机1.6P1、以监控MetroCluster配置。</block>
+  <block id="a83518fbb29b384795513d23f16fd04e" category="section-title">安装或升级到Tieb破碎 机1.6P1</block>
+  <block id="d09d293bdd140120cf0307019e78b0cd" category="paragraph">您可以安装Tieb破碎 机1.6P1、也可以从Tieb破碎 机1.6、1.5或1.4升级到Tieb破碎 机1.6P1。</block>
+  <block id="05a80bec4c4faf7292bd76d0ea9f6892" category="list-text">下载MetroCluster Tieb破碎 机1.6P1软件。</block>
+  <block id="1363760bda4dfedc53bb20d35c4168e0" category="open-title">安装Tieb破碎 机1.6P1</block>
+  <block id="0497a99a53a8d060e80a9df590a19dc2" category="paragraph">请按照以下步骤全新安装Tieb破碎 机1.6P1。</block>
+  <block id="0c1fd6dcabaf349cd3a6aa337ab277da" category="open-title">将1.6升级到1.6P1</block>
+  <block id="ac34f0a5488c43ea34fb716ad2b99542" category="paragraph">按照以下步骤将Tieber1.6软件版本升级到Tieber1.6P1。</block>
+  <block id="c9c37d73e375ec3a682ea8da2ddda245" category="admonition">从1.6升级到Tiebre破碎 机1.6P1后、您可以删除现有的监控器、然后重新添加要监控的MetroCluster配置。</block>
+  <block id="5fd58ebc01ff0738d8e9d5d32822a902" category="list-text">按照中的步骤删除并重新添加MetroCluster配置<block ref="eb6675758f8fdd2ff1cefe24d56fcfaa" category="inline-link-macro-rx"></block>。</block>
+  <block id="aeaf036ca6e5c33b5742d712e2156fbb" category="open-title">将1.5升级到1.6P1</block>
+  <block id="bbda4afc2f394a21e70bf3c4c7453f1d" category="paragraph">按照以下步骤将Tieber1.5软件版本升级到Tieber1.6P1。</block>
+  <block id="e9465edd6afc2f3bafbc90e1474f330a" category="open-title">将1.4升级到1.6P1</block>
+  <block id="507339937a8a4d04acddad9a85364c30" category="paragraph">按照以下步骤将Tieber1.4软件版本升级到Tieber1.6P1。</block>
+  <block id="0981d7670ea8cbff51e1b8ebf522d26f" category="section-title">安装或升级到Tieb破碎 机1.6</block>
+  <block id="a04a5cbd4bb79cf4f0cf1dc258588888" category="paragraph">您可以安装Tieb破碎 机1.6、也可以从Tieb破碎 机1.5或1.4升级到Tieb破碎 机1.6。</block>
+  <block id="0f9ed37231c3e05c40c3439b54c05a31" category="open-title">将1.5升级到1.6</block>
+  <block id="6377e594d18868747f42ff493652c09e" category="open-title">将1.4升级到1.6</block>
+  <block id="27a3d314127445dc4a7f93184b84d65e" category="sidebar">升级 MetroCluster 集群上的 ONTAP</block>
+  <block id="4e04b2ebfeef2f344cfa9299a14a7f15" category="sidebar">利用MetroCluster实现数据保护</block>
+  <block id="eb2ce2e6e8dd207e0722c727b11bf523" category="sidebar">使用命令行界面配置MetroCluster软件</block>
+  <block id="ae58261cc60a8a566f51001fa9647cc8" category="sidebar">使用System Manager配置MetroCluster软件</block>
+  <block id="7dbb00295563db0482d1cd647c85ce79" category="sidebar">使用系统管理器管理ONTAP调解器</block>
+  <block id="08df7de62062ac541a6aa573389a0bff" category="sidebar">检查MetroCluster配置的运行状况</block>
 </blocks>

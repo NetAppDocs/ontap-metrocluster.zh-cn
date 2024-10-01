@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: install-ip/set-up-mcc-peering-system-manager.html 
+keywords: metrocluster, peer, peering, pair, pairing, configuration, config, mcc, HA 
+summary: 从ONTAP 9。8开始、您可以使用System Manager管理MetroCluster IP站点操作。其中包括设置两个集群和执行集群对等。 
+---
+= 设置MetroCluster IP对等
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+从System Manager-8开始、您可以使用ONTAP 9管理器管理MetroCluster IP配置操作。设置两个集群后，您可以在它们之间建立对等关系。
+
+.开始之前
+设置两个集群。请参见link:set-up-mcc-site-system-manager.html["设置MetroCluster IP站点"]过程。
+
+此过程的某些步骤由位于每个集群的地理站点的不同系统管理员执行。为了解释此过程，这些集群称为 " 站点 A 集群 " 和 " 站点 B 集群 " 。
+
+
+
+== 从站点A执行对等过程
+
+此过程由站点 A 的系统管理员执行
+
+.步骤
+. 登录到站点 A 集群。
+. 在 System Manager 中，从左侧导航列中选择 * 信息板 * 以显示集群概述。
++
+信息板显示此集群（站点 A ）的详细信息。在 * MetroCluster 站点 A 集群 * 部分中，站点 A 集群显示在左侧。
+
+. 单击 * 附加配对集群 * 。
+. 输入允许站点 A 集群中的节点与站点 B 集群中的节点进行通信的网络接口的详细信息。
+. 单击 * 保存并继续 * 。
+. 在*连接配对集群*窗口中，选择*我没有密码短语*。这样、您可以生成密码短语。
+. 复制生成的密码短语并与站点 B 的系统管理员共享
+. 选择 * 关闭 * 。
+
+
+
+
+== 从站点B执行对等过程
+
+此过程由站点 B 的系统管理员执行
+
+.步骤
+. 登录到站点 B 集群。
+. 在 System Manager 中，选择 * 信息板 * 以显示集群概述。
++
+信息板显示此集群（站点 B ）的详细信息。在 MetroCluster 部分中，站点 B 集群显示在左侧。
+
+. 单击 * 附加配对集群 * 以启动对等过程。
+. 输入允许站点 B 集群中的节点与站点 A 集群中的节点进行通信的网络接口的详细信息。
+. 单击 * 保存并继续 * 。
+. 在*连接配对集群*窗口中，选择*我有密码短语*。这样、您就可以输入从站点A的系统管理员处收到的密码短语
+. 选择 * 对等 * 以完成对等过程。
+
+
+.下一步是什么？
+对等过程成功完成后、您可以配置集群。请参阅。 link:configure-mcc-site-system-manager.html["配置MetroCluster IP站点"]

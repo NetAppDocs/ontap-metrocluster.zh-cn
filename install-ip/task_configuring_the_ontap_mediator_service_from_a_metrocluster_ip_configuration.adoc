@@ -41,7 +41,7 @@ MetroCluster configuration-settings mediator add -mediate-address _ip-address-fo
 
 NOTE: 系统将提示您输入调解器管理员用户帐户的用户名和密码。
 
-. 验证中的自动切换功能是否已启用：
+. 验证是否已启用自动切换功能：
 +
 `MetroCluster show`
 

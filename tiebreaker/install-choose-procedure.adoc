@@ -21,9 +21,9 @@ summary: 您遵循的Tieb破碎 机安装操作步骤取决于您正在安装的
 
 
  a| 
-Tieb破碎 机1.6
+Tieb破碎 机1.6或更高版本
  a| 
-link:tb-16-install.html["安装Tieb破碎 锤1.6"]
+link:tb-16-install.html["安装Tieb破碎 机1.6或更高版本"]
 
 
 

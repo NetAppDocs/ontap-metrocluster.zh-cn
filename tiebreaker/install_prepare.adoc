@@ -27,6 +27,17 @@ summary: 在安装和配置Tieb破碎 机软件之前、您应验证您的系统
 
 
  a| 
+1.6P1
+ a| 
+ONTAP 9.12.1及更高版本
+ a| 
+请参见 link:whats_new.html#os-support-matrix["操作系统支持列表"] 了解详细信息。
+ a| 
+无依赖关系与安装捆绑在一起。
+
+
+
+ a| 
 1.6.
  a| 
 ONTAP 9.12.1及更高版本

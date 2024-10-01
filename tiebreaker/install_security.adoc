@@ -47,6 +47,7 @@ NOTE: 非此组成员用户无法访问Tiebreaker软件或命令行界面。您�
 .相关信息
 * link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/["Red Hat Enterprise Linux 8产品文档"^]
 * link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/["Red Hat Enterprise Linux 9产品文档"^]
+* link:https://docs.rockylinux.org["落基Linux产品文档"^]
 
 
 
@@ -95,6 +96,7 @@ NOTE: OpenJDK 19会在启动时检查主机是否安装在FIPS模式下。无需
 .相关信息
 * link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/["Red Hat Enterprise Linux 8产品文档"^]
 * link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/["Red Hat Enterprise Linux 9产品文档"^]
+* link:https://docs.rockylinux.org["落基Linux产品文档"^]
 
 
 
