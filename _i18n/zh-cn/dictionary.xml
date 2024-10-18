@@ -2959,7 +2959,6 @@
   <block id="0bc360ed08fdc8afeea8f81d91928a49" category="cell">正在启动配置</block>
   <block id="1a6ef31c02bc656e4fbac4327c5198d9" category="cell">无中断或无中断</block>
   <block id="5a2ebfb8baa378cfcfcba58bbb1380c2" category="cell">要求</block>
-  <block id="ae4bcbe3a4d8a4dd251ebc90c0689dc3" category="paragraph">四节点</block>
   <block id="b8910962b1d031cc1eb8e8ad588c4c48" category="paragraph">无中断</block>
   <block id="b1967383562a98a66ed0eff3ea640595" category="paragraph">新平台支持新存储架。</block>
   <block id="5c85f685c62c106f7c5565f5f9efa724" category="paragraph">双节点</block>
@@ -8242,7 +8241,6 @@
   <block id="13c1fe346da53d3c9c58ab0c190eb172" category="sidebar">了解 MetroCluster 数据保护和灾难恢复</block>
   <block id="f6ded8bde676e251409725df18ef579a" category="sidebar">MetroCluster 如何保护数据并提供灾难恢复</block>
   <block id="9117c89e6f250da2f36e47a459f0d84d" category="sidebar">维护 MetroCluster 组件</block>
-  <block id="b25d5935c651d85fc394ce7858eb2c60" category="sidebar">安装和配置 MetroCluster Tiebreaker</block>
   <block id="fe8f0af35a77ee3de429b839700538fb" category="sidebar">从 MetroCluster FC 过渡到 MetroCluster IP</block>
   <block id="3ab25d5f5087226e9601e9405341d073" category="sidebar">安装光纤连接的 MetroCluster</block>
   <block id="e43d65812abd17cff1b088f40916853a" category="sidebar">FC 交换机和 FC-SAS 网桥的配置工作表</block>
@@ -11087,7 +11085,6 @@
   <block id="5981ded82c976bff5c9a73686842655a" category="list-text">可以将调解器服务从早期版本升级到当前版本。</block>
   <block id="6bec966647e1b9c8a03ddd277c8fe864" category="inline-link-macro">部件退回和放大器；更换</block>
   <block id="844f223d5d27d9ea92473e2d258ee969" category="list-text">更换部件后，按照套件随附的 RMA 说明将故障部件退回 NetApp 。请参见 <block ref="af64d870205b209887217377e716cd40" category="inline-link-macro-rx"></block> 第页，了解更多信息。</block>
-  <block id="455aeb5b6e6bb2c51d7485e26da56e30" category="paragraph">链接： ./install-IP/concept_mediator_requirements.html 【从 MetroCluster IP 配置配置 ONTAP 调解器服务】。</block>
   <block id="861ef6676813cbc81369ee701ae73269" category="paragraph">如果您使用的是第三方防火墙：</block>
   <block id="041f3a27fe8b40cc213210949eb4f036" category="list-text">必须启用 HTTPS 访问。</block>
   <block id="8b8101ed71d5bd32d2f9d4de05e470c1" category="list-text">必须将其配置为允许在端口 31784 和 3260 上进行访问。</block>
@@ -12101,7 +12098,6 @@
   <block id="2e53212ba8ca8b35cbf4ed2b9eb52b0c" category="doc">将SAS磁盘架堆栈热添加到一对现有的光纤桥7600N或7500 N网桥</block>
   <block id="e3e17f353727a0bf80bc5f781fadd978" category="list-text">必须已连接此光纤桥接器7600N或7500 N网桥、并且此网桥必须具有可用的SAS端口。</block>
   <block id="7ec840edd23c7b1a5bd3b9167d726942" category="list-text">添加新堆栈后、检查网桥上是否存在任何运行状况警报：</block>
-  <block id="4aa202a3c65f2813f56a71404d4e0d9f" category="paragraph">八节点</block>
   <block id="74c873abf18bb043c43561d25adce539" category="paragraph"><block ref="74c873abf18bb043c43561d25adce539" category="inline-link-macro-rx"></block></block>
   <block id="0159b80d745d9b405520a30a29416d2d" category="paragraph">在升级之前、您必须收集每个旧节点的信息、并在必要时调整网络广播域、删除所有VLAN和接口组以及收集加密信息。</block>
   <block id="3b2740b2f65f79e770509c9b837df2de" category="paragraph">在升级操作步骤期间、您将使用控制器模块的系统ID替换这些旧系统ID。</block>
@@ -13192,7 +13188,6 @@
   <block id="19aa48eac8765adacdffd4326cf95a85" category="paragraph">您可以允许一个集群站点接管另一个集群站点的任务。通过此功能，您可以方便地进行维护或从灾难中恢复。</block>
   <block id="5b8155e42c3d2db8152488c62b6cf9ea" category="paragraph"><block ref="5b8155e42c3d2db8152488c62b6cf9ea" category="inline-link-rx"></block></block>
   <block id="5575ad3a333d0c5383b802ef33e4e17a" category="cell">Broadcom IP交换机</block>
-  <block id="db639aacb326d316570b69a39011f1b2" category="paragraph">Quanta 9．8</block>
   <block id="a28a8f1b6ed98f7c514003193e44ac48" category="cell">Cisco IP交换机</block>
   <block id="f0936c8d947d6fc9958bb86b9f3f74f8" category="paragraph">Nexus 9336C-x2</block>
   <block id="aff36115ba8ba0cb671d3dfa2208bed1" category="paragraph">933966</block>
@@ -14269,4 +14264,9 @@
   <block id="ae58261cc60a8a566f51001fa9647cc8" category="sidebar">使用System Manager配置MetroCluster软件</block>
   <block id="7dbb00295563db0482d1cd647c85ce79" category="sidebar">使用系统管理器管理ONTAP调解器</block>
   <block id="08df7de62062ac541a6aa573389a0bff" category="sidebar">检查MetroCluster配置的运行状况</block>
+  <block id="bcaee96b0ab793907da56767503991e2" category="admonition">MetroCluster IP和连接的交换机端口只有在创建MetroCluster IP接口后才会联机。</block>
+  <block id="6db27f68adde7b6578b513891108402f" category="paragraph">BES-53248</block>
+  <block id="c71b2061a1720b5d01c7a9a079938384" category="paragraph">四节点或八节点</block>
+  <block id="be0859f362012838e5040b2ef44bc04b" category="paragraph"><block ref="bacc4dbebf17d22c9a0361ded0994067" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="04615ba020125ab8e6efd72006cee7b6" category="sidebar">安装和配置MetroCluster Tieb破碎 机</block>
 </blocks>

@@ -1967,7 +1967,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metro
  a| 
 调解器
  a| 
-链接： ./install-IP/concept_mediator_requirements.html 【从 MetroCluster IP 配置配置 ONTAP 调解器服务】。
+link:../install-ip/concept_mediator_requirements.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"](英文)
 
 
 

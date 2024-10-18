@@ -712,6 +712,9 @@ Cluster_A::> metrocluster configuration-settings dr-group create -partner-cluste
 
 您必须配置用于复制每个节点的存储和非易失性缓存的 MetroCluster IP 接口。然后，使用 MetroCluster IP 接口建立连接。这将创建用于存储复制的 iSCSI 连接。
 
+
+NOTE: MetroCluster IP和连接的交换机端口只有在创建MetroCluster IP接口后才会联机。
+
 .关于此任务
 * 您必须为每个节点创建两个接口。这些接口必须与 MetroCluster RCF 文件中定义的 VLAN 相关联。
 * 根据您的ONTAP版本、您可以在初始配置后更改某些MetroCluster IP接口属性。有关支持的功能的详细信息、请参见 link:../maintain/task-modify-ip-netmask-properties.html["修改MetroCluster IP接口的属性"] 。
