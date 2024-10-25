@@ -128,7 +128,7 @@ Cisco 3232C
  a| 
 分支缆线
  a| 
-16个使用10 Gbps的ISL
+16个使用10 Gbps或25 Gbps的ISL
 
 
 
@@ -146,7 +146,7 @@ Cisco 9336C-x2 (未连接NS224磁盘架)
  a| 
 分支缆线
  a| 
-16个使用10的ISL
+16个使用10 Gbps或25 Gbps的ISL
 
 
 
@@ -164,7 +164,7 @@ Cisco 9336C-x2 (连接NS224磁盘架)
  a| 
 分支电缆(注释2)
  a| 
-16个使用10 Gbps的ISL
+16个使用10 Gbps或25 Gbps的ISL
 
 
 

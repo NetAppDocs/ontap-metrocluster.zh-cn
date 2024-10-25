@@ -645,6 +645,14 @@ NOTE: 您必须运行 `MetroCluster configure` 和 * 不 * `MetroCluster configu
 
 NOTE: 最佳做法是、具有多个镜像数据聚合。如果只有一个镜像聚合、则保护程度较低、因为元数据卷位于同一个聚合上、而不是位于不同的聚合上。
 
+. 重新启动每个新节点：
++
+`node reboot -node <node_name> -inhibit-takeover true`
+
++
+
+NOTE: 您无需按特定顺序重新启动节点、但应等待一个节点完全启动并建立所有连接后、再重新启动下一个节点。
+
 . 验证节点是否已添加到其 DR 组：
 +
 `MetroCluster node show`
