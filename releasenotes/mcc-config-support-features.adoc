@@ -21,6 +21,28 @@ ONTAP 9数据管理软件的每个版本都提供了一些新增功能和增强�
 
 
  a| 
+支持迁移MetroCluster配置的SVM数据移动性
+ a| 
+ONTAP支持将SVM从非MetroCluster HA对迁移到MetroCluster配置或从MetroCluster配置迁移到非MetroCluster HA对。您不能在MetroCluster配置之间迁移SVM。
+
+link:https://docs.netapp.com/us-en/ontap/svm-migrate/index.html["SVM 数据移动性"^]
+ a| 
+ONTAP 9.16.1.
+
+
+
+ a| 
+为BGP对等组提供MD5身份验证支持
+ a| 
+ONTAP支持对BGP对等组进行MD5身份验证、以保护BGP会话。启用MD5后、只能在授权对等方之间建立和处理BGP会话、从而防止未经授权的行为者可能中断会话。
+
+link:https://docs.netapp.com/us-en/ontap/networking/configure_virtual_ip_@vip@_lifs.html["配置虚拟 IP （ VIP ） LIF"^]
+ a| 
+ONTAP 9.16.1.
+
+
+
+ a| 
 NVMe的MetroCluster IP支持
  a| 
 四节点MetroCluster IP配置支持NVMe/TCP前端主机协议。

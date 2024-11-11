@@ -10413,14 +10413,10 @@
   <block id="bfb3061b4360d35f3ba8ba813d677ccf" category="paragraph">" `maintenance-window-in-hours` " 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：</block>
   <block id="ea8034ee0a77612faec6f38e92e0afcb" category="paragraph"><block ref="ea8034ee0a77612faec6f38e92e0afcb" category="inline-link-rx"></block></block>
   <block id="1f06fb185175c42c17ad8392e330767e" category="paragraph">在系统提示您继续进入高级模式并查看高级模式提示符（ * &gt; ）时，您必须回答 "`y` " 。</block>
-  <block id="661e2204cb2e8d5d76cdeb2ec6dd4c82" category="paragraph">`storage bridge firmware update -bridge name -uri _url-of-firmware-package_`</block>
   <block id="e8ecfd692141a2af654944f772388550" category="paragraph">`job show -name "_job-name_"`</block>
-  <block id="c91321ecefb3f3097824082b2b8ad47e" category="paragraph">以下示例显示作业 " `s存储网桥固件更新` " 仍在运行：</block>
   <block id="43a806bb99e8f0edad8b37f740681371" category="list-text">在网桥的控制台上运行 `flashimages` 命令，并确认显示的固件版本正确。</block>
   <block id="fc586f4b0980908d4372323e410963a4" category="list-text">在网桥上运行 `firmwarerestart` 命令，以重新启动网桥。</block>
-  <block id="dae4d2e67917b362ddd1f681a84bbf3c" category="list-text">运行 `storage bridge run-cli -name _bridge-name_ -command FlashImages` 命令。</block>
   <block id="5bd4b5b50c5ac874303a8d602e07a3df" category="list-text">如有必要，重新启动网桥：</block>
-  <block id="58a8b36ecd6128fba6f2a930d1870915" category="paragraph">`storage bridge run-cli -name ATto_7500N_IB_1 -command firmwareRestart`</block>
   <block id="871912239094dc44baa2ec93ffb8d632" category="paragraph">`storage bridge show -fields fw-version ， symbol-name`</block>
   <block id="06e7ec6ae7f944544771022d467d0496" category="paragraph">`闪存映像`</block>
   <block id="2ff283b5fcea4bdb853d6b9da8d8948c" category="paragraph"><block ref="2ff283b5fcea4bdb853d6b9da8d8948c" category="inline-link-macro-rx"></block></block>
@@ -13499,10 +13495,7 @@
   <block id="65bd6763ac7ddd88c7008054cb6bc624" category="admonition">要从ONTAP软件更改ood、请使用以下步骤： <block ref="b0ca457fe34ed30c44119bccf9b89d7d" category="inline-link-macro-rx"></block></block>
   <block id="7b195fd8d412843052bdca8035a73b9b" category="paragraph">了解MetroCluster IP平台支持中的新增功能。</block>
   <block id="5fa70989a3e04b27c407da750f3d94fe" category="paragraph">AFF A70、AFF A90、AFF A1K</block>
-  <block id="4b96de8aec25594d2021f91d86aa38cb" category="paragraph">ONTAP 9.151及更高版本</block>
   <block id="09165c2d4ac9e01ef347c57ffcbe1ce5" category="paragraph">ASA A150、ASA A250、ASA A400、ASA A800、ASA A900、 ASA C250、ASA C400、ASA C800</block>
-  <block id="fafe6583a668a5a00cfd6d5e611b9ce3" category="paragraph">ONTAP 9.14.1 及更高版本</block>
-  <block id="f8f1cacc3272f3e60fb1b860d1134be6" category="paragraph">ONTAP 9.13.1GA及更高版本</block>
   <block id="2f709669cbfb385626cf55d7c80120be" category="paragraph">ASA AFF A220 ， ASA AFF A250 ， ASA AFF A400 ， ASA AFF A700 ， ASA AFF A800</block>
   <block id="e4d3a0569925dd58f4e2c0c40b889993" category="paragraph">AFF A220、FAS2750</block>
   <block id="fc028e3a959d5040cb2c7b0ceac73cf8" category="paragraph">AFF A300、FAS8200</block>
@@ -14270,4 +14263,28 @@
   <block id="04615ba020125ab8e6efd72006cee7b6" category="sidebar">安装和配置MetroCluster Tieb破碎 机</block>
   <block id="f292b4f87450c271c690d67e1d3a03e8" category="paragraph">16个使用10 Gbps或25 Gbps的ISL</block>
   <block id="d20d5c9d070e6369690ed4a79cf3c4bd" category="admonition">您无需按特定顺序重新启动节点、但应等待一个节点完全启动并建立所有连接后、再重新启动下一个节点。</block>
+  <block id="65a32997b66c0fa9964c46d8ce3023c5" category="admonition">从ONTAP 9．8开始，此<block ref="81f0734b378bc1ed5fb99125faf1d47a" prefix=" " category="inline-code"></block>命令将取代<block ref="c5c5939ad24a4bc4cca8c77f5105d463" prefix=" " category="inline-code"></block>。以下步骤显示了<block ref="81f0734b378bc1ed5fb99125faf1d47a" prefix=" " category="inline-code"></block>命令、但如果您运行的版本早于ONTAP 9。8、则应使用命令。<block ref="c5c5939ad24a4bc4cca8c77f5105d463" prefix=" " category="inline-code"></block></block>
+  <block id="e0b676f47094dac51c79372806a1021a" category="list-text">更新网桥固件。</block>
+  <block id="1e8d4e4a0ce5b464f6997d0bbb8d8ba2" category="paragraph">从ONTAP 9．16．1开始，如果服务器需要使用凭据来下载固件包，则可以使用凭据来更新网桥固件。</block>
+  <block id="38cbc38ca036975e59d1ee4168bc50a2" category="open-title">如果不需要凭据：</block>
+  <block id="db7fff50b13f73830f7aaaf34fd5371e" category="open-title">如果需要凭据：</block>
+  <block id="c540a55c1af8888d4507b7c80af2d372" category="list-text">更新网桥固件并指定所需的用户名：</block>
+  <block id="e9b9a2eac9e5ccde661c85666e1bebfc" category="list-text">在输出中出现提示时输入密码、如以下示例所示：</block>
+  <block id="9f81eba7dfa3609b17894df364395597" category="paragraph">以下示例显示作业"`ssystem bridge固件更新`"仍在运行：</block>
+  <block id="92289ea5a47b731862869f48712c9527" category="list-text">运行<block ref="e595c34083a230fd789d64c7de21c72a" prefix=" " category="inline-code"></block>命令。</block>
+  <block id="52e06a42c952a2b1bdb77dfc0f6f90ff" category="paragraph"><block ref="a51df89c214b1838fdbc8273e8704555" prefix="" category="inline-code"></block></block>
+  <block id="968258a4c4370a9f6fe8b87ce4255cca" category="paragraph"><block ref="6604a22a7f45489dfc4b36fa6c37c036" prefix="" category="inline-code"></block></block>
+  <block id="afdf08fe53823e29ce4e277959c64b1e" category="paragraph">支持迁移MetroCluster配置的SVM数据移动性</block>
+  <block id="61576ee193ce4ae8f8a1aea237cc4781" category="paragraph">ONTAP支持将SVM从非MetroCluster HA对迁移到MetroCluster配置或从MetroCluster配置迁移到非MetroCluster HA对。您不能在MetroCluster配置之间迁移SVM。</block>
+  <block id="aeaa758085c5e2389b9072b1ced2dc57" category="inline-link-macro">SVM 数据移动性</block>
+  <block id="deff601e347d3753345e223f0dece2ac" category="paragraph"><block ref="deff601e347d3753345e223f0dece2ac" category="inline-link-macro-rx"></block></block>
+  <block id="31272abf1c9209ab4acd0bf10f129338" category="paragraph">ONTAP 9.16.1.</block>
+  <block id="b186fa8da6778f3ac2d4aa8499deffeb" category="paragraph">为BGP对等组提供MD5身份验证支持</block>
+  <block id="a74281ed4b15e1a42fc798b20f31018b" category="paragraph">ONTAP支持对BGP对等组进行MD5身份验证、以保护BGP会话。启用MD5后、只能在授权对等方之间建立和处理BGP会话、从而防止未经授权的行为者可能中断会话。</block>
+  <block id="ef78f11e7aec890f1dc53f6a0176cdf4" category="inline-link-macro">配置虚拟 IP （ VIP ） LIF</block>
+  <block id="43d93948b7becfd15462e91085fd63cc" category="paragraph"><block ref="43d93948b7becfd15462e91085fd63cc" category="inline-link-macro-rx"></block></block>
+  <block id="94ffd34b73e540c50265688d834cea45" category="paragraph">ONTAP 9．1 GA</block>
+  <block id="0cb8709673d91d9b41f7a2d9110be6db" category="paragraph">使用凭据更新光纤桥固件</block>
+  <block id="cca6b3113bea250bb0e5ecb42fcd1f6b" category="paragraph">如果服务器需要使用凭据下载固件包、您可以使用凭据更新此网桥上的固件。</block>
+  <block id="7f35c16e72037a8dea668c5bb0e6327d" category="paragraph"><block ref="7f35c16e72037a8dea668c5bb0e6327d" category="inline-link-macro-rx"></block></block>
 </blocks>

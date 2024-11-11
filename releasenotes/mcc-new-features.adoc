@@ -19,6 +19,17 @@ summary:
 
 
  a| 
+使用凭据更新光纤桥固件
+ a| 
+如果服务器需要使用凭据下载固件包、您可以使用凭据更新此网桥上的固件。
+
+link:../maintain/task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["更新 FibreBridge 网桥上的固件"]
+ a| 
+ONTAP 9.16.1.
+
+
+
+ a| 
 MetroCluster IP支持端到端加密
  a| 
 AFF A400、FAS9300和FAS4700系统支持端到端加密、用于加密MetroCluster IP配置中站点之间的后端流量、例如NVlog和存储复制数据。
