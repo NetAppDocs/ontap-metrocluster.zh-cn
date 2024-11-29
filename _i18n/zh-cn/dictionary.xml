@@ -468,12 +468,6 @@
   <block id="aebdbdde32f31274fe9fc6e75b482c32" category="list-text">验证两个闪存映像是否已更新到同一版本。</block>
   <block id="1b7c547e0c44744faa2a37c6b0435cc2" category="paragraph">对于这两个分区，输出应显示相同的版本。</block>
   <block id="bb7439d72897f5b031319c5576c3cc67" category="list-text">对下一个网桥重复步骤 5 到 13 ，直到 MetroCluster 配置中的所有网桥都已更新为止。</block>
-  <block id="8c3f1a5045c47c008de3de6fa5352da3" category="list-text">使用 ATTO FibreBridge 固件下载页面上操作步骤的步骤 1 至 3 下载网桥固件文件。</block>
-  <block id="3083b982cc912e364f9e1bc28cc6915a" category="list-text">为 ATTO FibreBridge 固件下载页面和发行说明创建一份副本，以供您在更新每个网桥上的固件时参考。</block>
-  <block id="ae87d5531ab43f90dedaa89f103356a1" category="list-text">更新网桥：</block>
-  <block id="6eee07f1028e6e37c9b9675c78a3ecab" category="paragraph">网桥应重新启动。</block>
-  <block id="ed0f0385ac6d639a877dbd50ffe09fc9" category="list-text">在同一网桥上重复上述子步骤以更新第二个分区。</block>
-  <block id="f716521a03deca3c493b0dbaa94f969c" category="list-text">对下一个网桥重复上述步骤，直到 MetroCluster 配置中的所有网桥都已更新为止。</block>
   <block id="89ddd460f27ddf4dacfc453eddcd2ecb" category="summary">您可能需要更改交换机上 ISL 端口的速度，以提高 ISL 的质量。距离较远的 ISL 可能需要降低其速度以提高质量。</block>
   <block id="30c3b951201788d25b66c685dcd79fd0" category="doc">更改 Cisco FC 交换机上 ISL 端口的速度</block>
   <block id="81cb74811132f21a42025036363e5af8" category="paragraph">您必须在两台交换机上完成所有步骤，以确保 ISL 连接。</block>
@@ -10413,18 +10407,10 @@
   <block id="bfb3061b4360d35f3ba8ba813d677ccf" category="paragraph">" `maintenance-window-in-hours` " 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：</block>
   <block id="ea8034ee0a77612faec6f38e92e0afcb" category="paragraph"><block ref="ea8034ee0a77612faec6f38e92e0afcb" category="inline-link-rx"></block></block>
   <block id="1f06fb185175c42c17ad8392e330767e" category="paragraph">在系统提示您继续进入高级模式并查看高级模式提示符（ * &gt; ）时，您必须回答 "`y` " 。</block>
-  <block id="e8ecfd692141a2af654944f772388550" category="paragraph">`job show -name "_job-name_"`</block>
   <block id="43a806bb99e8f0edad8b37f740681371" category="list-text">在网桥的控制台上运行 `flashimages` 命令，并确认显示的固件版本正确。</block>
   <block id="fc586f4b0980908d4372323e410963a4" category="list-text">在网桥上运行 `firmwarerestart` 命令，以重新启动网桥。</block>
   <block id="5bd4b5b50c5ac874303a8d602e07a3df" category="list-text">如有必要，重新启动网桥：</block>
-  <block id="871912239094dc44baa2ec93ffb8d632" category="paragraph">`storage bridge show -fields fw-version ， symbol-name`</block>
   <block id="06e7ec6ae7f944544771022d467d0496" category="paragraph">`闪存映像`</block>
-  <block id="2ff283b5fcea4bdb853d6b9da8d8948c" category="paragraph"><block ref="2ff283b5fcea4bdb853d6b9da8d8948c" category="inline-link-macro-rx"></block></block>
-  <block id="2d0700f1234a9f9dd9937555291170ec" category="paragraph">"` maintenance-window-in-hours_` " 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：</block>
-  <block id="8458ea1c3c1ea2053887d2f331da77f4" category="paragraph">* 注意： * 请确保现在重新启动各个网桥。如果您等待并同时重新启动堆栈中的两个网桥，则控制器可能无法访问驱动器，从而导致丛故障或多磁盘崩溃。</block>
-  <block id="86b1ef008f18b43ce62a9069606c0c6d" category="list-text">从任一控制器的控制台中，验证网桥是否已正确重新启动：</block>
-  <block id="7eb8d2db2d90e516a56d7472a56b99bd" category="list-text">从任一控制器的控制台中，验证 FibreBridge 固件是否已更新：</block>
-  <block id="c1e404b965bd033d8d0a2284a04382d6" category="list-text">验证两个分区是否均已更新：</block>
   <block id="378d97c929a2501d1e50a01e1e1a5b97" category="paragraph">`运行本地 sysconfig -v`</block>
   <block id="37c8362167e23bbca70c828a9376397b" category="list-text">如果系统布线不正确，请拔下缆线，更正布线，然后重新连接正确的缆线。</block>
   <block id="9c70e58ba306d049dc41ed64cf6e8f62" category="paragraph">有关分区命令的详细信息，请参见中的 FC 交换机部分 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block> 或 <block ref="c4b7332c983d9f374f57570f90ffe107" category="inline-link-macro-rx"></block>。</block>
@@ -12901,11 +12887,6 @@
   <block id="480cf83fd6c463ccef2ed2a9d0dce2c4" category="list-text">输入<block ref="bedfcd4488b13f5b7062e121a6a8baa5" prefix=" " category="inline-code"></block> 命令以持久启用端口。必须在运行正常的站点的两个交换机上执行此操作。</block>
   <block id="9f6a23c1abc971d714730192ce961b96" category="paragraph">按照中的说明进行操作 <block ref="9c0d52e0ce7a57d643217990aba10043" category="inline-link-macro-rx"></block> 根据 MetroCluster 配置执行修复和切回操作。</block>
   <block id="0b4bc6296d77be28e33d3b50e0ea0797" category="paragraph"><block ref="0b4bc6296d77be28e33d3b50e0ea0797" category="inline-link-macro-rx"></block></block>
-  <block id="e49bc35e0118f2b5a5904c13e1833761" category="section-title">更新运行ONTAP 9.3.x及更早版本的配置中的光纤桥7500N上的固件</block>
-  <block id="1a5e839afe7a716dd2640f7fdb69669a" category="paragraph">您可能需要更新您的光纤桥接器上的固件、以验证是否具有最新功能或解决可能的问题。在运行ONTAP 9.3.x的配置中、应将此操作步骤用于光纤桥接7500</block>
-  <block id="ef1eae725a44cfeb66559e3d3e94f7ec" category="paragraph">从 ONTAP 9.3 开始，您可以使用 ONTAP storage bridge firmware update 命令更新 FibreBridge 7500N 网桥上的网桥固件。</block>
-  <block id="05791e70fbe1537753bf5a023b7623eb" category="list-text">在光纤桥接器上安装固件。</block>
-  <block id="c1a1962dd8879c856d3b821c9622f94c" category="paragraph">您应参考_ATto Firbridge 7500N安装和操作手册_的"`更新固件`"部分中提供的说明。</block>
   <block id="24ea961e35f1e60e606fd840735a7b80" category="summary">如果您需要在MetroCluster IP配置中执行站点维护或重新定位单个站点、则必须了解如何关闭和启动该站点。</block>
   <block id="064c811af1591c939040fba47365213b" category="doc">关闭和启动MetroCluster IP配置中的单个站点</block>
   <block id="b66411bb5022a5619d62ef25fa47b67f" category="paragraph">在运行ONTAP 9.5或更早版本的MetroCluster IP配置中、灾难站点节点不会自动启动到ONTAP、丛会保持脱机状态。</block>
@@ -13854,33 +13835,6 @@
   <block id="dff95cb9e5adc8c22082286195b9c18b" category="list-text"><block ref="dff95cb9e5adc8c22082286195b9c18b" category="inline-link-macro-rx"></block></block>
   <block id="86e4bcdd91ae737b95a3cf066dd128f7" category="paragraph">旧的和新的系统ID在中进行了标识 <block ref="e3858d0d76295d35179b2ac088c574f3" category="inline-link-macro-rx"></block>。</block>
   <block id="f411a218519aacec5088cc5a3d23eb64" category="paragraph">旧的和新的系统ID在中进行了标识 <block ref="372daca62ea6308294fd70c00fcc8af2" category="inline-link-macro-rx"></block>。</block>
-  <block id="11ceccfd751fe28a61b558ba07583aff" category="section-title">支持的光纤桥接7600N和7500N网桥上的磁盘和磁盘架数量</block>
-  <block id="ff2961229b46cc89dffec4aab67d010d" category="paragraph">下表显示了一对光纤桥7600N和7500N网桥支持的磁盘和磁盘架数量。</block>
-  <block id="b8cbb75a8c2b1413bcddd7c532ccc064" category="list-text">您达到的第一个限制适用。</block>
-  <block id="2a3f0c8b0ca6744889b3ffa76d4b9f5b" category="list-text">如果您使用的是DS460C磁盘架、则最多只能使用240个驱动器、即4个磁盘架。</block>
-  <block id="5ccf1f9193b673f77fa0a023f0c64238" category="list-text">如果您使用的是DS212C磁盘架、则最多只能使用120个驱动器、即10个磁盘架。</block>
-  <block id="402fb729f11d0452c518d4172b605b2c" category="paragraph-title">支持的磁盘数</block>
-  <block id="c75f82dd210bf38bdd42ff246823dd9e" category="paragraph">查看一对光纤桥接7600N或7500N网桥支持的磁盘数量：</block>
-  <block id="3baa66bdd3ca9158478ad78d6079db1c" category="cell">磁盘配置</block>
-  <block id="3d0bf05155f3dfd0eeccf9e953d46156" category="cell">磁盘类型</block>
-  <block id="eda8b8dec444e51f3afb1c089a183afc" category="cell">每个网桥对的总磁盘数</block>
-  <block id="4a761ba24826218f4585e8feddc64d7c" category="cell">所有SSD</block>
-  <block id="34df20bab5e85dc75bfc94ef569cced9" category="cell">SSD</block>
-  <block id="b0df25be54449fa53d1180d01ad8bdc5" category="cell">所有HDD</block>
-  <block id="9c2dc227590d4220750b52b21b0aeb99" category="cell">HDD</block>
-  <block id="335f5352088d7d9bf74191e006d8e24c" category="cell">240</block>
-  <block id="de97ed9eb6dc112873264b693e05c88c" category="cell">混合(96个SSD)</block>
-  <block id="0a09c8844ba8f0936c20bd791130d6b6" category="cell">144</block>
-  <block id="1b48b5dfad482eb966c69b885c217e13" category="cell">混合(72个SSD)</block>
-  <block id="006f52e9102a8d3be2fe5614f42ba989" category="cell">168</block>
-  <block id="79fa5a72c63f064bf5ae4709ac221926" category="cell">混合(48个SSD)</block>
-  <block id="58a2fc6ed39fd083f55d4182bf88826d" category="cell">192</block>
-  <block id="1c151db89d2679449be5c45bb7b8d994" category="cell">混合(24个SSD)</block>
-  <block id="45fbc6d3e05ebd93369ce542e8f2322d" category="cell">216</block>
-  <block id="c742d6affaef84b501d784319fca6de4" category="paragraph-title">支持的磁盘架数量</block>
-  <block id="22daa6b9c9c5e98028929434af5223de" category="paragraph">查看一对光纤桥7600N和7500N网桥支持的磁盘架数量：</block>
-  <block id="ca7ac3a83947da614de147e934674475" category="cell">磁盘架总数</block>
-  <block id="699b4f79215d191584653efebf156e52" category="cell">混合</block>
   <block id="04e334293a29a0fcdf98b56004e27edc" category="section-title">符合MetroCluster的交换机与经过NetApp验证的交换机</block>
   <block id="5c5c34d5e7843e9424f3ca2380ae18ea" category="list-text"><block ref="5c5c34d5e7843e9424f3ca2380ae18ea" category="inline-link-macro-rx"></block></block>
   <block id="a629fe794ff2e51df541a99e4468ebb2" category="paragraph">如果需要通过网络启动新控制器，请参阅 <block ref="a7e3b7fa9390de21e9e66df9d4048c53" category="inline-link-macro-rx"></block>。</block>
@@ -14271,7 +14225,6 @@
   <block id="c540a55c1af8888d4507b7c80af2d372" category="list-text">更新网桥固件并指定所需的用户名：</block>
   <block id="e9b9a2eac9e5ccde661c85666e1bebfc" category="list-text">在输出中出现提示时输入密码、如以下示例所示：</block>
   <block id="9f81eba7dfa3609b17894df364395597" category="paragraph">以下示例显示作业"`ssystem bridge固件更新`"仍在运行：</block>
-  <block id="92289ea5a47b731862869f48712c9527" category="list-text">运行<block ref="e595c34083a230fd789d64c7de21c72a" prefix=" " category="inline-code"></block>命令。</block>
   <block id="52e06a42c952a2b1bdb77dfc0f6f90ff" category="paragraph"><block ref="a51df89c214b1838fdbc8273e8704555" prefix="" category="inline-code"></block></block>
   <block id="968258a4c4370a9f6fe8b87ce4255cca" category="paragraph"><block ref="6604a22a7f45489dfc4b36fa6c37c036" prefix="" category="inline-code"></block></block>
   <block id="afdf08fe53823e29ce4e277959c64b1e" category="paragraph">支持迁移MetroCluster配置的SVM数据移动性</block>
@@ -14287,4 +14240,30 @@
   <block id="0cb8709673d91d9b41f7a2d9110be6db" category="paragraph">使用凭据更新光纤桥固件</block>
   <block id="cca6b3113bea250bb0e5ecb42fcd1f6b" category="paragraph">如果服务器需要使用凭据下载固件包、您可以使用凭据更新此网桥上的固件。</block>
   <block id="7f35c16e72037a8dea668c5bb0e6327d" category="paragraph"><block ref="7f35c16e72037a8dea668c5bb0e6327d" category="inline-link-macro-rx"></block></block>
+  <block id="dd5e73f11c8453deab39cc51184b718c" category="admonition">建议在禁用IP访问的情况下使用带内管理、以便通过限制与网桥的物理连接来提高安全性。</block>
+  <block id="794172cd90da1900d6103d0859717cae" category="section-title">光纤桥7600N和7500 N网桥限制和连接规则</block>
+  <block id="6640e784b645fe9fb8ac2e43bbd6435c" category="paragraph">查看连接光纤桥7600N和7500 N网桥时的限制和注意事项。</block>
+  <block id="2578541f645016c0cd8de75379c88d3e" category="list-title">光纤桥7600N和7500 N网桥限制</block>
+  <block id="33993760dba186d29e6c1b1c4a5a9eb6" category="list-text">HDD和SSD驱动器的最大总数为240。</block>
+  <block id="0ea95754c61ccceaa6093ef60f306589" category="list-text">SSD驱动器的最大数量为96个。</block>
+  <block id="6aa9ec42d5ec998ae8c42e6ff59ac177" category="list-text">每个SAS端口的最大SSD数量为48个。</block>
+  <block id="3443a5a71e5726152a93cb7f1222c252" category="list-text">每个SAS端口的最大磁盘架数量为10个。</block>
+  <block id="c15552ec0e1dcd2dc0268b8f8853f8b0" category="list-title">光纤桥7600N和7500N网桥连接规则</block>
+  <block id="cd4785cfe3cc59dcc3af8a0b3d1c2d26" category="list-text">请勿在同一SAS端口上混用SSD和HDD驱动器。</block>
+  <block id="bfbbc9e02b02d4cba470cc14b2b71995" category="list-text">在SAS端口之间均匀分布磁盘架。</block>
+  <block id="b2d9a3d2403921e9bad0f2de39898557" category="list-text">您不应将DS460磁盘架与其他类型的磁盘架(例如、DS212或DS224磁盘架)放置在同一SAS端口上。</block>
+  <block id="881aa664fe300b14a430d83d71657f1b" category="paragraph-title">配置示例</block>
+  <block id="4849ab8ff2c4f06051acea06836aec90" category="paragraph">下面显示了一个使用SSD驱动器连接四个DS224磁盘架和使用HDD驱动器连接六个DS224磁盘架的配置示例：</block>
+  <block id="b13899cc9055a7a129cc3597a28caf33" category="cell">SAS 端口</block>
+  <block id="b559966ca417caecbc925fd04a9d4253" category="cell">磁盘架和驱动器</block>
+  <block id="a56114e15d97418161a772996c894a0c" category="cell">SAS端口A</block>
+  <block id="823cebd40c22009076dea45c51d568b3" category="cell">2个带有SSD驱动器的DS224磁盘架</block>
+  <block id="d375b409cacda3ce9f6afe9379e101ce" category="cell">SAS端口B</block>
+  <block id="0b7b249cf6a212613080ac29d6eda992" category="cell">SAS端口C</block>
+  <block id="c394385c28e9969eb81c66b053fd009c" category="cell">3个DS224磁盘架、带HDD驱动器</block>
+  <block id="f7cdd2784709f45955fc9f25497956ae" category="cell">SAS端口D</block>
+  <block id="e5246bcdb743ec1c543a9253bc3a20f0" category="inline-link-macro">Broadcom支持站点</block>
+  <block id="7e8efc833fbde0ff722d85e00415edec" category="list-text">从下载交换机固件<block ref="7b0bfad9e7dd6186ed0f14c867034109" category="inline-link-macro-rx"></block>。</block>
+  <block id="e6d64e0eb5e781bce7f755d1457a9170" category="paragraph"><block ref="b2f8990b0f3f5de2520bc483556b14eb" prefix="" category="inline-code"></block></block>
+  <block id="b0782c02cc2d2b20315a3f6a825b3fbe" category="list-text">运行<block ref="2586ba33015a99bfc10dda523f819039" prefix=" " category="inline-code"></block>命令。</block>
 </blocks>

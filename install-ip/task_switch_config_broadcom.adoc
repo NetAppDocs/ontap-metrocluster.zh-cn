@@ -308,6 +308,7 @@ Configuration Saved!
 
 ====
 .步骤
+. 从下载交换机固件link:https://www.broadcom.com/support/bes-switch["Broadcom支持站点"^]。
 . 使用`show FIPS status`命令检查您的EFOS版本是否符合FIPS或非FIPS。在以下示例中、`IP_switch_A_1`正在使用符合FIPS的EFOS、而`IP_switch_A_2`正在使用不符合FIPS的EFOS。
 +
 *示例1*

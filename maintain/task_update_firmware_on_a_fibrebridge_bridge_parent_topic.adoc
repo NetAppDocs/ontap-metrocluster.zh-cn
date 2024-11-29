@@ -122,7 +122,7 @@ Enter the password:
 
 . 验证固件升级是否已完成：
 +
-`job show -name "_job-name_"`
+`job show -name "<job_name>"`
 
 +
 以下示例显示作业"`ssystem bridge固件更新`"仍在运行：
@@ -188,7 +188,7 @@ Ready.
 *** 如果您运行的是 ONTAP 9.5 或更高版本，则支持带内管理，并且可以从集群提示符处发出命令：
 
 
-.. 运行 `system bridge run-cli -name _bridge-name_ -command FlashImages`命令。
+.. 运行 `system bridge run-cli -name <bridge_name> -command FlashImages`命令。
 +
 
 NOTE: 此示例显示主闪存映像显示新固件映像，而二级闪存映像显示旧映像。
@@ -294,121 +294,4 @@ flashimages
  Ready.
 ----
 . 对下一个网桥重复步骤 5 到 13 ，直到 MetroCluster 配置中的所有网桥都已更新为止。
-
-
-
-
-== 更新运行ONTAP 9.3.x及更早版本的配置中的光纤桥7500N上的固件
-
-您可能需要更新您的光纤桥接器上的固件、以验证是否具有最新功能或解决可能的问题。在运行ONTAP 9.3.x的配置中、应将此操作步骤用于光纤桥接7500
-
-.开始之前
-* MetroCluster 配置必须运行正常。
-* MetroCluster 配置中的所有 FibreBridge 网桥都必须已启动且正常运行。
-* 所有存储路径都必须可用。
-* 您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。
-* 您必须使用受支持的固件版本。
-+
-https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
-
-+
-在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
-
-
-
-从 ONTAP 9.3 开始，您可以使用 ONTAP storage bridge firmware update 命令更新 FibreBridge 7500N 网桥上的网桥固件。
-
-link:task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["更新运行 ONTAP 9.4 及更高版本的配置中 FibreBridge 7600N 或 7500N 网桥上的固件"]
-
-您必须对 MetroCluster 配置中的每个 FibreBridge 网桥执行此任务，以使所有网桥都运行相同版本的固件。
-
-
-NOTE: 此操作步骤不会造成系统中断，大约需要 30 分钟才能完成。
-
-.步骤
-. 调用指示维护开始的 AutoSupport 消息：
-+
-`ssystem node AutoSupport invoke -node * -type all -message MAIN=_maintenance-window-in-hours_`
-
-+
-"` maintenance-window-in-hours_` " 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：
-
-+
-`ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
-
-. 转至 ATTO FibreBridge 页面，然后为网桥选择适当的固件。
-+
-https://mysupport.netapp.com/site/products/all/details/atto-fibrebridge/downloads-tab["ATTO FibreBridge 固件下载页面"^]
-
-. 查看 Caution/MustRead 和最终用户协议，然后单击复选框以指示接受并继续。
-. 使用 ATTO FibreBridge 固件下载页面上操作步骤的步骤 1 至 3 下载网桥固件文件。
-. 为 ATTO FibreBridge 固件下载页面和发行说明创建一份副本，以供您在更新每个网桥上的固件时参考。
-. 更新网桥：
-+
-.. 在光纤桥接器上安装固件。
-+
-您应参考_ATto Firbridge 7500N安装和操作手册_的"`更新固件`"部分中提供的说明。
-
-+
-* 注意： * 请确保现在重新启动各个网桥。如果您等待并同时重新启动堆栈中的两个网桥，则控制器可能无法访问驱动器，从而导致丛故障或多磁盘崩溃。
-
-+
-网桥应重新启动。
-
-.. 从任一控制器的控制台中，验证网桥是否已正确重新启动：
-+
-`ssysconfig`
-
-+
-系统布线时应使用多路径高可用性（两个控制器均可通过网桥访问每个堆栈中的磁盘架）。
-
-+
-[listing]
-----
-cluster_A::> node run -node cluster_A-01 -command sysconfig
-NetApp Release 9.1P7: Sun Aug 13 22:33:49 PDT 2017
-System ID: 1234567890 (cluster_A-01); partner ID: 0123456789 (cluster_A-02)
-System Serial Number: 200012345678 (cluster_A-01)
-System Rev: A4
-System Storage Configuration: Quad-Path HA
-----
-.. 从任一控制器的控制台中，验证 FibreBridge 固件是否已更新：
-+
-`storage bridge show -fields fw-version ， symbol-name`
-
-+
-[listing]
-----
-cluster_A::> storage bridge show -fields fw-version,symbolic-name
- name              fw-version        symbolic-name
- ----------------- ----------------- -------------
- ATTO_10.0.0.1     1.63 071C 51.01   bridge_A_1a
- ATTO_10.0.0.2     1.63 071C 51.01   bridge_A_1b
- ATTO_10.0.1.1     1.63 071C 51.01   bridge_B_1a
- ATTO_10.0.1.2     1.63 071C 51.01   bridge_B_1b
- 4 entries were displayed.
-----
-.. 在同一网桥上重复上述子步骤以更新第二个分区。
-.. 验证两个分区是否均已更新：
-+
-`闪存映像`
-
-+
-对于这两个分区，输出应显示相同的版本。
-
-+
-[listing]
-----
-Ready.
-flashimages
-4
-;Type         Version
-;=====================================================
-Primary    2.80 003T
-Secondary    2.80 003T
-Ready.
-----
-
-
-. 对下一个网桥重复上述步骤，直到 MetroCluster 配置中的所有网桥都已更新为止。
 
