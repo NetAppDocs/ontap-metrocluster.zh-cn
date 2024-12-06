@@ -7007,7 +7007,6 @@
   <block id="777915564b2f2870366331ca85d7d9a9" category="paragraph">X1116A</block>
   <block id="c4ea0eec15aeb871f4ff708460f06623" category="paragraph">e1a ， e1b</block>
   <block id="d30fc67c2a1cee6e54e9714145270705" category="paragraph">板载端口</block>
-  <block id="f1044ba6bab78a278fa587f690217ea7" category="paragraph">插槽 0</block>
   <block id="b05a1e68af8885ea43084ad2698d8a02" category="paragraph">e0g ， e0h</block>
   <block id="29ba4cceab75148bfed3dc347fde6a29" category="paragraph">四节点 MetroCluster IP 配置要求每个站点至少配置以下内容：</block>
   <block id="eef29324db217b9ec771d620247c685b" category="section-title">AFF A800 内部驱动器的驱动器位置注意事项</block>
@@ -8816,7 +8815,6 @@
   <block id="9a2a15d781f7232859f638bf1caffe2c" category="paragraph">MetroCluster modify -enable-unmirrored-aggr-deployment true`</block>
   <block id="fe70f7867c2218d2dd655cc792782973" category="paragraph">`d` 选项显示</block>
   <block id="b2fa14e3df9342c7d9ce9f5ac1643744" category="paragraph">您可以对平台和磁盘架使用 _Installation and Setup_ 文档中的过程。</block>
-  <block id="29d368b17fa8f6a4c00f53e0b1b0ddcd" category="paragraph">`ddisk assign -disk _disk-id_ -owner _owner-node-name_`</block>
   <block id="3df32f645f09cd9947fb507e70dfddd2" category="paragraph">MetroCluster modify -enable-unmirrored-aggr-deployment false`</block>
   <block id="192be3850da5f8f6f36f9c637a13cc65" category="list-text">从现有控制器模块提示符处暂停节点：</block>
   <block id="a0f166275a301177f6c2068f95dcace7" category="paragraph">`halt local -inhibit-takeover true`</block>
@@ -14266,4 +14264,9 @@
   <block id="7e8efc833fbde0ff722d85e00415edec" category="list-text">从下载交换机固件<block ref="7b0bfad9e7dd6186ed0f14c867034109" category="inline-link-macro-rx"></block>。</block>
   <block id="e6d64e0eb5e781bce7f755d1457a9170" category="paragraph"><block ref="b2f8990b0f3f5de2520bc483556b14eb" prefix="" category="inline-code"></block></block>
   <block id="b0782c02cc2d2b20315a3f6a825b3fbe" category="list-text">运行<block ref="2586ba33015a99bfc10dda523f819039" prefix=" " category="inline-code"></block>命令。</block>
+  <block id="a32cead873928387fe22f14cfa816430" category="admonition">板载端口内置在控制器硬件(插槽0)中、无法更换、因此适配器所需的插槽不适用。</block>
+  <block id="ca024a4ac8a10799527aecc96451c4ce" category="paragraph">插槽1/不适用于板载端口</block>
+  <block id="ad084693a846cdc2cf77ad2bb2e7382a" category="paragraph"><block ref="1c61f86d2f111f8c80a5d8ff728df70d" prefix="" category="inline-code"></block></block>
+  <block id="5f9a9e91fc7e98f1998a1dcee4eab83f" category="paragraph">确认聚合仅包含未镜像磁盘架上的驱动器。</block>
+  <block id="6f1eb898d916ac10201421006f5406e2" category="admonition">您也可以在命令中使用<block ref="2ee4c97cd7e2dff2e12ae3225818c09b" prefix=" " category="inline-code"></block>参数来指定要用于聚合的磁盘。</block>
 </blocks>

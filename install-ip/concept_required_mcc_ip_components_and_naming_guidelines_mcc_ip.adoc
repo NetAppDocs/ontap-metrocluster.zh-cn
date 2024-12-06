@@ -113,6 +113,9 @@ FAS 系统上的现有 MetroCluster IP 配置可以升级到 ONTAP 9.4 。
 
 MetroCluster IP 配置使用 40/100 Gbps 或 10/25 Gbps 以太网适配器作为 MetroCluster IP 网络结构所用 IP 交换机的 IP 接口。
 
+
+NOTE: 板载端口内置在控制器硬件(插槽0)中、无法更换、因此适配器所需的插槽不适用。
+
 |===
 
 
@@ -138,7 +141,7 @@ AFF A800、AFF C800、ASA A800和ASA C800
  a| 
 X1146A/ 板载端口
  a| 
-插槽 1
+插槽1/不适用于板载端口
  a| 
 e0be1b
 
@@ -171,7 +174,7 @@ FAS2750、AFF A150、ASA A150和AFF A220
  a| 
 板载端口
  a| 
-插槽 0
+不适用
  a| 
 e0a ， e0b
 
@@ -182,7 +185,7 @@ FAS500f、AFF A250、ASA A250、ASA C250和AFF C250
  a| 
 板载端口
  a| 
-插槽 0
+不适用
  a| 
 e0c ， e0d
 
@@ -193,7 +196,7 @@ AFF A320
  a| 
 板载端口
  a| 
-插槽 0
+不适用
  a| 
 e0g ， e0h
 
