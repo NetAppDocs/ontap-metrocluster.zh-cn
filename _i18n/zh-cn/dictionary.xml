@@ -14269,4 +14269,5 @@
   <block id="ad084693a846cdc2cf77ad2bb2e7382a" category="paragraph"><block ref="1c61f86d2f111f8c80a5d8ff728df70d" prefix="" category="inline-code"></block></block>
   <block id="5f9a9e91fc7e98f1998a1dcee4eab83f" category="paragraph">确认聚合仅包含未镜像磁盘架上的驱动器。</block>
   <block id="6f1eb898d916ac10201421006f5406e2" category="admonition">您也可以在命令中使用<block ref="2ee4c97cd7e2dff2e12ae3225818c09b" prefix=" " category="inline-code"></block>参数来指定要用于聚合的磁盘。</block>
+  <block id="668c968f31daa1f3b0b86ddf4b09543e" category="list-text">在创建LIF之前、应创建子网对象。通过子网对象、ONTAP可以确定目标集群上的故障转移目标、因为它具有关联的广播域。</block>
 </blocks>

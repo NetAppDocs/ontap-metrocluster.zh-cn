@@ -2444,8 +2444,6 @@ FC_switch_B_1# show zoneset active
 +
 *** VSAN 10 中 FC_switch_A_1 上的 Zoneset_A
 *** VSAN 20 中 FC_switch_B_1 上的 Zoneset_B
-
-
 +
 [listing]
 ----
@@ -2453,6 +2451,8 @@ FC_switch_A_1# no zoneset activate name ZoneSet_A vsan 10
 
 FC_switch_B_1# no zoneset activate name ZoneSet_B vsan 20
 ----
+
+
 .. 停用所有分区集后，清除分区数据库：
 +
 `清除分区数据库 _zone-name_`
