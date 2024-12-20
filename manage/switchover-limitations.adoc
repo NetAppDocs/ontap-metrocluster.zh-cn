@@ -1,0 +1,52 @@
+---
+permalink: manage/switchover-limitations.html 
+sidebar: sidebar 
+keywords: switchover, perform, heal, operation, restore, metrocluster, functionality, fc, configuration, ip, limitations, 
+summary: 在切换期间、不应执行某些操作。 
+---
+= MetroCluster配置处于切换状态时的限制
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+当系统处于切换状态时、不应执行某些操作。了解系统处于切换状态时的受限操作。
+
+
+
+== 切换中的操作受限
+
+当系统处于切换状态时、不支持以下操作：
+
+* 创建或删除聚合和卷
+* 创建或删除SVM
+* 正在创建或删除此文件
+* 添加或删除磁盘(仅当在恢复过程中更换磁盘时)
+* 对SnapMirror SVM DR执行配置更改
+* 修改现有广播域或创建新广播域
+* 修改网络子网
+
+
+
+
+== 切换时更换硬件
+
+在系统处于切换状态时、请使用以下过程更换控制器硬件：
+
+* 如果您需要在不处于切换状态的站点上更换相同类型的控制器，请按照中的过程进行操作link:../disaster-recovery/task_recover_from_a_multi_controller_and_or_storage_failure.html["从多控制器或存储故障中恢复"]。
++
+** 如果在正常运行的站点上切换节点时需要更换控制器模块和机箱，请关闭这两个控制器，然后执行至的过程link:../disaster-recovery/task_recover_from_a_multi_controller_and_or_storage_failure.html["从多控制器或存储故障中恢复"]。
+
+
+* 如果需要将控制器更换为其他类型的控制器，请按照中适用于您的配置的过程进行操作link:../upgrade/concept_choosing_controller_upgrade_mcc.html["选择控制器升级操作步骤"]。
++
+** 如果您的系统因控制器故障而处于切换状态、或者您在切换期间遇到控制器故障、则必须先更换控制器硬件、执行切回、然后再执行控制器升级：
++
+... 要更换控制器硬件并执行切回，请执行link:../disaster-recovery/task_recover_from_a_multi_controller_and_or_storage_failure.html["从多控制器或存储故障中恢复"]。
+... 更换硬件后，请按照中的过程执行控制器升级link:../upgrade/concept_choosing_controller_upgrade_mcc.html["选择控制器升级操作步骤"]。
+
+
+
+
+

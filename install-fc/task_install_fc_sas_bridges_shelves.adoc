@@ -112,7 +112,8 @@ _ATTO 产品发行说明 _ 提供了最新的受支持 Web 浏览器列表。您
 
 .步骤
 . 下载适用于您的磁盘架型号的 _Installation and Service Guide_ ：
-. 使用为您的 FibreBridge 型号提供的链接访问 ATTO 网站，然后下载手册和 QuickNAV 实用程序。
++
+.. 使用为您的 FibreBridge 型号提供的链接访问 ATTO 网站，然后下载手册和 QuickNAV 实用程序。
 +
 [NOTE]
 ====
@@ -121,6 +122,8 @@ _ATTO 产品发行说明 _ 提供了最新的受支持 Web 浏览器列表。您
 您可以使用 ATTO Fibrebridge 问题描述页面上提供的链接访问 ATTO 网站上的此内容以及其他内容。
 
 ====
+
+
 . 收集使用建议的网桥管理界面， ATTO ExpressNAV GUI 和 ATTO QuickNAV 实用程序所需的硬件和信息：
 +
 .. 确定非默认用户名和密码（用于访问网桥）。
@@ -139,7 +142,7 @@ _ATTO 产品发行说明 _ 提供了最新的受支持 Web 浏览器列表。您
 
 
 
-== 安装 FC-SAS 网桥和 SAS 磁盘架
+== 安装FC-SAS网桥和SAS磁盘架
 
 确保系统满足 "`准备安装` " 中的所有要求后，您可以安装新系统。
 
@@ -187,7 +190,7 @@ NOTE: MetroCluster 配置中的 SAS 磁盘架不支持 ACP 布线。
 如果您 * 不 * 使用带内管理来管理网桥，则需要执行此任务。在这种情况下，您需要通过以太网管理端口配置网桥。
 
 .步骤
-. 通过将串行缆线连接到 FibreBridge 7600N 网桥上的串行端口来访问网桥的控制台接口。
+. 将串行缆线连接到光纤桥7600N网桥上的串行端口、以访问网桥控制台界面。
 . 使用控制台启用访问服务，然后保存配置：
 +
 `set closePort none`
@@ -233,7 +236,7 @@ SNMP 是唯一需要单独的 enable 命令的协议。
 
 
 
-=== 配置 FC-SAS 网桥
+=== 配置FC-SAS网桥
 
 在为您的 FC-SAS 网桥型号布线之前，您必须在 FibreBridge 软件中配置设置。
 
@@ -358,7 +361,7 @@ NOTE: 您选择的 FCDataRate 速度限制为网桥端口所连接的控制器�
 
 如果使用命令行界面，则必须运行以下命令：
 
-`set FCDataRate _port-number_ _port-speed_`
+`set FCDataRate <port-number> <port-speed>`
 
 --
 .. 如果要配置一个光纤桥接器、请将端口使用的连接模式配置为"ptp-"。
@@ -370,14 +373,14 @@ NOTE: 配置 FibreBridge 7600N 网桥时，不需要 FCConnMode 设置。
 如果使用命令行界面，则必须运行以下命令：
 
 +
-`s设置 FCConnMode _port-number_ ptp`
+`set FCConnMode <port-number> ptp`
 
 .. 如果要配置 FibreBridge 7600N 或 7500N 网桥，则必须配置或禁用 FC2 端口。
 +
 *** 如果使用的是第二个端口，则必须对 FC2 端口重复上述子步骤。
 *** 如果不使用第二个端口，则必须禁用此端口：
 +
-`FCPortDisable _port-number_`
+`FCPortDisable <port-number>`
 
 +
 以下示例显示了如何禁用 FC 端口 2 ：
@@ -484,9 +487,6 @@ link:../maintain/index.html["维护 MetroCluster 组件"]
 
 
 
-.相关信息
-link:task_fb_new_install.html["FC-SAS 网桥的带内管理"]
-
 
 
 === 使用缆线将磁盘架连接到网桥
@@ -494,13 +494,13 @@ link:task_fb_new_install.html["FC-SAS 网桥的带内管理"]
 您必须使用正确的 FC-SAS 网桥为磁盘架布线。
 
 .选项
-* <<cabling_fb_7600N_7500N_with_iom12,使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM12 模块的磁盘架>>
-* <<cabling_fb_7600N_7500N_with_iom6_iom3,使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架>>
+* <<cabling_fb_7600N_7500N_with_iom12,使用缆线将一个光纤桥7600N或7500 N网桥连接到使用IOM12模块的磁盘架>>
+* <<cabling_fb_7600N_7500N_with_iom6_iom3,使用缆线将一个光纤桥接7600N或7500 N网桥连接到使用IOM6或IOM3模块的磁盘架>>
 
 
 
 
-==== 使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM12 模块的磁盘架
+==== 使用缆线将一个光纤桥7600N或7500 N网桥连接到使用IOM12模块的磁盘架
 
 配置网桥后，您可以开始为新系统布线。
 
@@ -510,7 +510,7 @@ link:task_fb_new_install.html["FC-SAS 网桥的带内管理"]
 .步骤
 . 以菊花链方式连接每个堆栈中的磁盘架：
 +
-.. 从堆栈中的第一个逻辑磁盘架开始，将 IOM A 端口 3 连接到下一个磁盘架的 IOM A 端口 1 ，直到堆栈中的每个 IOM A 均已连接。
+.. 从堆栈中的第一个逻辑磁盘架开始、将IOM A端口3连接到下一个磁盘架上的IOM A端口1、直到堆栈中的每个IOM A都已连接。
 .. 对 IOM B 重复上述子步骤
 .. 对每个堆栈重复上述子步骤。
 
@@ -545,7 +545,7 @@ image::../media/mcc_cabling_bridge_and_sas3_stack_with_7500n_and_multiple_stacks
 
 
 
-==== 使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架
+==== 使用缆线将一个光纤桥7600N或7500 N网桥连接到使用IOM6或IOM3模块的磁盘架
 
 配置网桥后，您可以开始为新系统布线。FibreBridge 7600N 或 7500N 网桥使用迷你 SAS 连接器，并支持使用 IOM6 或 IOM3 模块的磁盘架。
 
@@ -582,7 +582,7 @@ image::../media/mcc_cabling_bridge_and_sas_stack_with_7500n_four_stacks.gif[MCC 
 
 
 
-=== 验证网桥连接并为网桥 FC 端口布线
+=== 验证网桥连接并为网桥FC端口布线
 
 您应验证每个网桥是否可以检测到所有磁盘驱动器，然后使用缆线将每个网桥连接到本地 FC 交换机。
 
@@ -682,13 +682,13 @@ IMPORTANT: 分区完成之前，不应使用缆线连接 FibreBridge 7500N 网�
 
 
 .相关信息
-link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
-
 如果使用的是 ONTAP 9.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。
 
+link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
 
 
-== 固定或取消固定 FibreBridge 网桥
+
+== 保护或取消保护 FibreBridge 网桥
 
 要轻松禁用网桥上可能不安全的以太网协议，从 ONTAP 9.5 开始，您可以保护网桥。此操作将禁用网桥的以太网端口。您还可以重新启用以太网访问。
 

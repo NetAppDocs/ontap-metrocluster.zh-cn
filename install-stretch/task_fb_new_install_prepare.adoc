@@ -1,64 +1,8 @@
 ---
 permalink: install-stretch/task_fb_new_install_prepare.html 
-sidebar: sidebar 
-keywords: metrocluster, stretch, installation, prepare 
-summary: 准备在新的 MetroCluster 系统中安装网桥时，必须确保系统满足特定要求。这包括满足网桥的设置和配置要求。其他要求包括下载必要的文档， ATTO QuickNAV 实用程序和网桥固件。 
+redirect: ontap-metrocluster/install-stretch/task_fb_new_install.html 
 ---
-= 准备安装
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
-
-
-[role="lead"]
-准备在新的 MetroCluster 系统中安装网桥时，必须确保系统满足特定要求。这包括满足网桥的设置和配置要求。其他要求包括下载必要的文档， ATTO QuickNAV 实用程序和网桥固件。
-
-
-
-== 开始之前
-
-* 如果您的系统未安装在系统机柜中，则必须将其安装在机架中。
-* 您的配置必须使用支持的硬件型号和软件版本。
-+
-https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
-
-+
-在 IMT 中，您可以使用 Storage 解决方案字段选择 MetroCluster 解决方案。您可以使用 * 组件资源管理器 * 来选择组件和 ONTAP 版本以细化搜索范围。您可以单击 * 显示结果 * 以显示与此条件匹配的受支持配置列表。
-
-* 每个 FC 交换机必须有一个 FC 端口可用于连接一个网桥。
-* 您必须已熟悉如何处理 SAS 缆线以及磁盘架安装和布线的注意事项和最佳实践。
-+
-适用于您的磁盘架型号的《安装和服务指南》介绍了注意事项和最佳实践。
-
-* 要使用 ATTO ExpressNAV 图形用户界面，用于设置网桥的计算机必须运行支持 ATTO 的 Web 浏览器。
-+
-_ATTO 产品发行说明 _ 提供了最新的受支持 Web 浏览器列表。您可以按照以下步骤所述，从 ATTO 网站访问此文档。
-
-
-
-.步骤
-. 下载适用于您的磁盘架型号的 _Installation and Service Guide_ ：
-. 使用为您的 FibreBridge 型号提供的链接访问 ATTO 网站，然后下载手册和 QuickNAV 实用程序。
-+
-[NOTE]
-====
-适用于您的型号网桥的 _ATTO FibreBridge 安装和操作手册 _ 提供了有关管理接口的详细信息。
-
-您可以使用 ATTO Fibrebridge 问题描述页面上提供的链接访问 ATTO 网站上的此内容以及其他内容。
-
-====
-. 收集使用建议的网桥管理界面， ATTO ExpressNAV GUI 和 ATTO QuickNAV 实用程序所需的硬件和信息：
-+
-.. 确定非默认用户名和密码（用于访问网桥）。
-+
-您应更改默认用户名和密码。
-
-.. 如果要配置网桥的 IP 管理，则需要使用网桥随附的屏蔽以太网缆线（用于从网桥以太网管理 1 端口连接到网络）。
-.. 如果配置网桥的 IP 管理，则需要每个网桥上以太网管理 1 端口的 IP 地址，子网掩码和网关信息。
-.. 在要用于设置的计算机上禁用 VPN 客户端。
-+
-活动 VPN 客户端对网桥故障进行发生原因 QuickNAV 扫描。
-
-
 
 

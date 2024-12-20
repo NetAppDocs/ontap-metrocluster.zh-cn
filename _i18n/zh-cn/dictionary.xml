@@ -2421,7 +2421,6 @@
   <block id="5426384928a13db30fcee7b4f5c3da08" category="list-text">操作完成后，确认节点处于切换状态：</block>
   <block id="058e49cbd0c1f29381ec01c701554a62" category="list-text">检查 MetroCluster 节点的状态：</block>
   <block id="982f6eba58d95bda2318d44b2dcea2e3" category="paragraph">在控制器升级期间禁用协商切换后自动修复聚合。</block>
-  <block id="0486f17c3c2c0ba93636ea2cc6f050dd" category="paragraph">您必须将数据 LIF 移动到通用端口，删除旧控制器上的 VLAN 和接口组，然后物理卸载这些控制器。</block>
   <block id="895a79b8b51d133ae9c32d8cb48b9eb7" category="list-text">这些步骤在旧控制器（ node_B_1-old ， node_B_2-old ）上执行。</block>
   <block id="4339dfdd37f410724931874e2a95e452" category="list-text">启动旧节点并登录到节点：</block>
   <block id="0be3d44fabdd20b3537c941fe3904d2a" category="list-text">显示 LIF ：</block>
@@ -4837,7 +4836,6 @@
   <block id="22352eb03ff7e6b8795e4f237f27d8d1" category="paragraph">编写此操作步骤时假定您使用的是建议的网桥管理界面： ATTO ExpressNAV 图形用户界面和 ATTO QuickNAV 实用程序。</block>
   <block id="b6b0aa1e441ae0f9c94362e6f0aae763" category="paragraph">如果需要，您可以改用其他管理接口，例如串行端口或 Telnet 来配置和管理网桥并配置以太网管理 1 端口，以及使用 FTP 来更新网桥固件。</block>
   <block id="76545d4e8668be942098ed242d25351a" category="image-alt">工作流网桥安装和配置</block>
-  <block id="6f47fdb0056f04198e0f13d4914a9c42" category="section-title">准备安装</block>
   <block id="b9af642f4c94393d1d86928e1df7b939" category="paragraph">准备在新的 MetroCluster 系统中安装网桥时，必须确保系统满足特定要求，包括满足网桥的设置和配置要求。其他要求包括下载必要的文档， ATTO QuickNAV 实用程序和网桥固件。</block>
   <block id="58eb0a3f95df2104f4ac005bbd51d244" category="list-text">如果您的系统未安装在系统机柜中，则必须将其安装在机架中。</block>
   <block id="f824444af694573f23438938a9e1aa1e" category="list-text">您的配置必须使用支持的硬件型号和软件版本。</block>
@@ -4873,13 +4871,11 @@
   <block id="981db1aa49a6ebb733f68a8d0f82b483" category="paragraph">* ONTAP 9.4 或更早版本 *</block>
   <block id="432636e8eef96bb91e359b5d1c50f5aa" category="paragraph">`saveConfiguration`</block>
   <block id="59583139c0c6a4bb9d3bdaee0a866cfa" category="paragraph">`FirmwareRestart`</block>
-  <block id="9e67b76e63359167fbde69e351c8b8b0" category="section-title">使用缆线将磁盘架连接到网桥</block>
   <block id="dddcbe39d238e711998c52c432aeaa31" category="paragraph">您必须使用正确的 FC-SAS 网桥为磁盘架布线。</block>
   <block id="c53ab245e3b357260ea30380dfbae527" category="section-title">使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM12 模块的磁盘架</block>
   <block id="fcf216ba8187b4017a22716585d4a6fa" category="paragraph">配置网桥后，您可以开始为新系统布线。</block>
   <block id="3745e1eacc753de05da3d0afc4e15cea" category="paragraph">对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。</block>
   <block id="95a5b0b928eb5c6139f9cd2a021f72a6" category="list-text">以菊花链方式连接每个堆栈中的磁盘架：</block>
-  <block id="779c08e01ec265d0aff357c180fceb48" category="list-text">从堆栈中的第一个逻辑磁盘架开始，将 IOM A 端口 3 连接到下一个磁盘架的 IOM A 端口 1 ，直到堆栈中的每个 IOM A 均已连接。</block>
   <block id="dd2732570ab5d206b7d405c05f7d2831" category="list-text">对 IOM B 重复上述子步骤</block>
   <block id="3e57f4f14607c1133fa7931d611d438f" category="list-text">对每个堆栈重复上述子步骤。</block>
   <block id="46fee005531651ebcbae735c06b5ef74" category="list-text">打开磁盘架电源，然后设置磁盘架 ID 。</block>
@@ -4903,7 +4899,6 @@
   <block id="f7e3d93b4c145bf696a9e6f193ce4fb7" category="list-text">对于其他磁盘架堆栈，请使用 FibreBridge 网桥上的下一个可用 SAS 端口重复上述步骤，第二个堆栈使用端口 B ，第三个堆栈使用端口 C ，第四个堆栈使用端口 D 。</block>
   <block id="9111bd303b0cb06989b91c9e131eb156" category="paragraph">下图显示了连接到一对 FibreBridge 7600N 或 7500N 网桥的四个堆栈。</block>
   <block id="6704e0f472546c04c5cdc225c2656ec5" category="image-alt">MCC 布线网桥和 SAS 堆栈，包含 7500n 四个堆栈</block>
-  <block id="8cbdbb5be51e2a78d7b472e23327b938" category="section-title">验证网桥连接并为网桥 FC 端口布线</block>
   <block id="605157b79e898676481d263489be287d" category="paragraph">您应验证每个网桥是否可以检测到所有磁盘驱动器，然后使用缆线将每个网桥连接到本地 FC 交换机。</block>
   <block id="bf532d59144bc55a10c7ae835f098f56" category="paragraph">此时，您将转到输入 IP 地址的网桥的 ATTO FibreBridge 主页，其中包含一个链接。</block>
   <block id="2c289d2564b7ae64ce5ddd32d176f7d8" category="paragraph">此时将显示网桥的 ATTO FibreBridge 状态页面，左侧有一个菜单。</block>
@@ -7378,13 +7373,7 @@
   <block id="ec7770ca503ad90a46ee5c3850ef8ae5" category="list-text">SAS 铜缆可用于较短距离。</block>
   <block id="e510f66049d1338325f0a62dd3ffc0f4" category="list-text">SAS 光缆可用于较长的距离。</block>
   <block id="6262d156e479edd8f826ba586e43575b" category="admonition">在使用 E 系列阵列 LUN 的系统中，存储控制器可以直接连接到 E 系列存储阵列。对于其他阵列 LUN ，需要通过 FC 交换机进行连接。</block>
-  <block id="4b82b05e56bc303e7e70ebb815ebfc6c" category="summary">在双节点桥接 MetroCluster 配置中，必须使用缆线将网桥连接到控制器模块。</block>
-  <block id="468824e6d6059f37612b1e891b27c464" category="doc">在双节点网桥连接的 MetroCluster 配置中，使用缆线将 FC-SAS 网桥连接到控制器模块</block>
-  <block id="337d79852891a37d41285c9101c3fff4" category="paragraph">运行以下命令：</block>
   <block id="1d1fa4befa7e2188095e2cc64c17fc9e" category="list-text">检查 SAS 缆线是否松动，或者通过将磁盘架重新连接到网桥来更正 SAS 布线。</block>
-  <block id="4422c879aa9ea654583488de1d4d4e82" category="list-text">使用缆线将网桥的 FC 端口 1 连接到 cluster_A 中控制器模块上的 FC 端口</block>
-  <block id="db0e7a22facf5e7460258a2022b5e9d5" category="list-text">使用缆线将网桥的 FC 端口 2 连接到 cluster_B 中控制器模块上的 FC 端口</block>
-  <block id="67d7a49e616a0e579f0506ada050a36b" category="image-alt">集群对等网络</block>
   <block id="2d5ce426423eeeead4f35769cd8b1b27" category="inline-xref">第 3 步</block>
   <block id="9edea398610f8b9e7bf8eb4d72f75daa" category="summary">您可以从灾难恢复 \ （ DR\ ）组中的所有节点中删除 MetroCluster 配置。删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。</block>
   <block id="9a220a3f22f8641906ad7cfa0dd3502b" category="paragraph">您可以从灾难恢复（ DR ）组中的所有节点中删除 MetroCluster 配置。删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。</block>
@@ -8287,7 +8276,6 @@
   <block id="b4e24055c6990c249536cf83d67a87f0" category="paragraph">`s设定网络速度 MP1 1000`</block>
   <block id="d239a1837adf4e352883e5bb91938a87" category="paragraph">`set bridgename _bridge_name_`</block>
   <block id="0d77538b2ad1e8b5f624512685596cda" category="list-text">如果运行的是 ONTAP 9.4 或更早版本，请在网桥上启用 SNMP ：</block>
-  <block id="63f92d601e0f07d76d9c59bbdcfeed47" category="paragraph">`set FCDataRate _port-number_ _port-speed_`</block>
   <block id="0d75f039d58b1a4c51a1e6fa7f5db62a" category="paragraph">`s设置 FCConnMode _port-number_ ptp`</block>
   <block id="e0a5f23db1ea016ca393b0dc436ce2f7" category="list-text">如果不使用第二个端口，则必须禁用此端口：</block>
   <block id="a21a379f45bf979b7778722f7375ec61" category="paragraph">`FCPortDisable _port-number_`</block>
@@ -8299,15 +8287,10 @@
   <block id="c1cfcf486927345ca5a36825e44e61a8" category="paragraph">`信息`</block>
   <block id="29431d66f3109c0b5ee445b6502a5c33" category="list-text">如果已启用以太网端口 MP1 ，请运行：</block>
   <block id="ce912b7c813332cfeb20e9cdecbe7dd1" category="paragraph">`sET EthernetPort MP1 disabled`</block>
-  <block id="98e83072472ff49bb361fe30e4df171e" category="paragraph"><block ref="98e83072472ff49bb361fe30e4df171e" category="inline-link-macro-rx"></block></block>
   <block id="6ef697f11922be2e4de0971f7d70997f" category="list-title">选项</block>
-  <block id="4e14469d1b9cb5857e2b83704c8ab8d4" category="list-text"><block ref="d277051460abcb0f3a19fb6f4b09af32" category="inline-xref-macro-rx"></block></block>
-  <block id="1098ebf3ac123d908705a49af90988ba" category="inline-xref">使用缆线将 FibreBridge 7600N 或 7500N 网桥连接到使用 IOM6 或 IOM3 模块的磁盘架</block>
-  <block id="572e966b8fd8a186b019d7c5d26ff32c" category="list-text"><block ref="f3f03af6d08c988efd686559fcd15483" category="inline-xref-macro-rx"></block></block>
   <block id="8bfac37f0565c6922aeced47caf18f6a" category="list-text">【【第 1 步网桥】验证每个网桥是否都能检测到它所连接的所有磁盘驱动器和磁盘架：</block>
   <block id="9dd06574fbddaf5fab3ebc3605d80dae" category="paragraph">`s星网`</block>
   <block id="eb443924112f8c71329400ac78de9284" category="paragraph">重复 <block ref="2f9ed640880ac5dd95c2cb30edbb02d0" category="inline-xref-macro-rx"></block> 其余每个网桥。</block>
-  <block id="0aeba4fd83ea38faeb00ddbf389be6ad" category="paragraph"><block ref="48f604bdf2d3bf06f58ee9f10e668948" category="inline-xref-macro-rx"></block></block>
   <block id="2c0892c11c37aec07e0a746c4c7fbe0d" category="list-text">重复 <block ref="2f9ed640880ac5dd95c2cb30edbb02d0" category="inline-xref-macro-rx"></block>。</block>
   <block id="896822419043c00441403336af7e4108" category="paragraph">`cluster_A&gt; storage bridge run-cli -bridge bridge_A_1 -command securebridge`</block>
   <block id="347f47cb38d61664308e2cc323981b92" category="paragraph">`cluster_A&gt; storage bridge run-cli -bridge bridge_A_1 -command unsecurebridge`</block>
@@ -9129,9 +9112,6 @@
   <block id="85977d467dedfc86d900cfc49456f320" category="paragraph">您可以测试协商（计划内）切换操作，以确认数据不会中断。</block>
   <block id="c1fb8df06920f0b1e36ed0e97db05891" category="paragraph">最佳做法是，将组件中的每个电源设备（ PSU ）连接到单独的电源。如果两个 PSU 都连接到同一个配电单元（ PDU ），并且发生电气中断，则站点可能会关闭，并且整个磁盘架可能不可用。测试一条电源线故障，以确认没有布线不匹配，从而发生原因可能导致服务中断。</block>
   <block id="56d23b4bd36ea7e836bbc1283db551b3" category="paragraph">在使用 E 系列存储阵列 LUN 的延伸型 MetroCluster 配置中，您可以直接连接存储控制器和存储阵列。与其他阵列 LUN 不同，不需要 FC 交换机。</block>
-  <block id="632ac78de4a389af16d655089761a651" category="paragraph">此操作步骤假定您使用的是建议的网桥管理界面： ATTO ExpressNAV GUI 和 ATTO QuickNAV 实用程序。</block>
-  <block id="132ab6e1ba78a445b535028fd5d74260" category="paragraph">使用 ATTO ExpressNAV 图形用户界面配置和管理网桥，并更新网桥固件。您可以使用 ATTO QuickNAV 实用程序配置网桥以太网管理 1 端口。</block>
-  <block id="d08fe7e603a9a3906a2ac376ce5a88c1" category="summary">准备在新的 MetroCluster 系统中安装网桥时，必须确保系统满足特定要求。这包括满足网桥的设置和配置要求。其他要求包括下载必要的文档， ATTO QuickNAV 实用程序和网桥固件。</block>
   <block id="fff420db73f86f193b0309d5cb8fae2f" category="paragraph">确认已下载并安装 System Manager 。可以从 NetApp 支持站点获取 System Manager 。</block>
   <block id="5ddac338fa0803205a82e38309aa44f9" category="list-text">发生接管后，您无法修改故障节点或配对节点的时区设置。</block>
   <block id="3abb76413b81aeec2b1531b8193b98d1" category="paragraph">在使用阵列 LUN 的延伸型 MetroCluster 配置中，您必须在控制器之间连接 FC-VI 端口。控制器和 E 系列存储阵列之间支持直接连接。对于所有其他 LUN 配置阵列，您必须在配置中使用 FC 交换机。</block>
@@ -9141,17 +9121,12 @@
   <block id="eb4c2154e73813f8ea66d1960d562b2e" category="paragraph">除了连接 FC-VI 端口之外，此操作步骤的其余部分用于设置使用未使用 E 系列阵列 LUN 的阵列 LUN 的 MetroCluster 配置。这就要求 FC 交换机与在光纤连接配置中使用阵列 LUN 相同。</block>
   <block id="f42de1b08d2be30deb3f92505955941e" category="paragraph">如果要使用网桥的带内管理而不是 IP 管理，则可以跳过配置以太网端口和 IP 设置的步骤。</block>
   <block id="f0b56d16950bab81d00cfeaf82d6183a" category="paragraph">此串行连接将用于初始配置。然后，可以使用 ONTAP 和 FC 端口的带内管理来监控和管理网桥。</block>
-  <block id="3a23706b743b24f9521e22417f1d30d0" category="paragraph">此时，您将转到网桥链接的 ATTO FibreBridge 主页上输入的 IP 地址。</block>
-  <block id="6a711c2982ba094c44be794ffb3bf1a2" category="list-text">单击此链接，然后输入您的用户名以及在配置网桥时指定的密码。</block>
   <block id="3fff43b275954b2824b3aee6836ae256" category="paragraph">`sasargets` 命令输出显示了连接到网桥的设备（磁盘和磁盘架）。输出行按顺序编号，以便您可以快速统计设备数量。</block>
-  <block id="4948cb8b3eded5b39ec6d64f06687462" category="list-text">验证命令输出是否显示网桥已连接到其应连接的堆栈中的所有磁盘和磁盘架。</block>
-  <block id="48dda5bb7b1f8b58b068fa47d9879c67" category="paragraph">如果控制器模块配置有多个 FC 适配器，请勿使用缆线将两个网桥端口连接到同一个适配器。您应将 FC 端口 1 分配给适配器 A ，将 FC 端口 2 分配给适配器 B ，以避免单点故障。</block>
   <block id="9c99fef0430bb16c4a28d231ae5f8299" category="paragraph">要设置使用原生磁盘和阵列 LUN 的延伸型 MetroCluster 配置，必须使用 FC-SAS 网桥或 SAS 光缆将 ONTAP 系统连接到磁盘架。此外，还必须使用 FC 交换机将阵列 LUN 连接到 ONTAP 系统。</block>
   <block id="f1ab023e5e9e9bdeb7a934c85edec3d1" category="paragraph">要使 ONTAP 系统同时连接到原生磁盘和阵列 LUN ，至少需要八个 HBA 端口。</block>
   <block id="920da881cae411ea78d6cb953a970a64" category="paragraph">以下示例显示了使用磁盘和阵列 LUN 的双节点延伸型 MetroCluster 配置，其中， HBA 端口 0a 到 0d 用于连接阵列 LUN 。HBA 端口 1a 到 1d 用于连接原生磁盘。</block>
   <block id="cd05172187157436bfb2ba5bf1f04694" category="paragraph">下图显示了双节点延伸型 MetroCluster 配置，其中，原生磁盘使用 SAS 光缆连接到 ONTAP 系统：</block>
   <block id="ea8debab29aa9d3caee7fdbdd472b388" category="paragraph">下图显示了双节点延伸型 MetroCluster 配置，其中，原生磁盘使用 FC-SAS 网桥连接到 ONTAP 系统：</block>
-  <block id="d970522a2c535f4a798076f2c36b8af8" category="paragraph">必须使用正确的 FC-SAS 网桥为这些磁盘架布线。</block>
   <block id="f889df12ea9fb88367e834a6ea3528cf" category="list-text">您必须通过运行 MetroCluster modify -auto-switchover-failure-domain auto-disabled` 命令在两个集群上禁用自动切换。</block>
   <block id="a2b91b36fe2f171ecdfe2293a4dedbcb" category="paragraph">上图是典型的典型缆线连接。具体的 FC-VI 端口因控制器模块而异。</block>
   <block id="f6c4685383c21cd45ac1dd62ff0d2357" category="list-text">板载端口 0e 和 0f 配置为 FC-VI 模式。</block>
@@ -10271,13 +10246,8 @@
   <block id="4ae8d24c72dd765a4920ac53c2dafe90" category="paragraph">ONTAP 9.4 及更早版本</block>
   <block id="361772e9851772534036695f2c569190" category="paragraph">由于轮询间隔，可能需要长达 15 分钟才能反映所有数据。如果 " `S状态` " 列中的值为 "`ok` " ，并且显示了其他信息，例如全球通用名称（ WWN ），则 ONTAP 运行状况监控器可以联系并监控网桥。</block>
   <block id="c0aba19592ccfed38799730fe622ca35" category="list-text">显示更详细的结果：</block>
-  <block id="a977177241046fa392e812a609420ace" category="list-text">【第 1 步 - 验证 - 检测 ]] 验证每个网桥是否可以检测到网桥所连接的所有磁盘驱动器和磁盘架。</block>
-  <block id="13174ed6300232fa48d1a5b59eb7e2f4" category="list-text">运行以下命令，然后单击 * 提交 * ： + `sastargets`</block>
-  <block id="3d40cc4f5f094dc369c0eb1e445aecea" category="admonition">如果输出开头显示 "`text response truncated` " ，则可以使用 Telnet 连接到网桥并运行相同的命令来查看所有输出。</block>
   <block id="065575055836b7cada67fa8852ea3ef7" category="paragraph">重复 <block ref="760439458840ee59fb7794af4bb5b199" category="inline-xref-macro-rx"></block> 其余每个网桥。</block>
-  <block id="4c86d491f2865662ab58a2679a13b3ab" category="paragraph"><block ref="4c86d491f2865662ab58a2679a13b3ab" category="inline-link-macro-rx"></block></block>
   <block id="fa5d02c46c643a9eedee519211b4d9d4" category="list-text">重复 <block ref="760439458840ee59fb7794af4bb5b199" category="inline-xref-macro-rx"></block> 其余每个网桥。</block>
-  <block id="b29b8c83f7d8c55b39ae87067330f426" category="list-text">【第 3 步 - 使用缆线连接每个网桥 ]] 使用缆线将每个网桥连接到控制器模块：</block>
   <block id="13044932159e150c28f3e3cabd33ea68" category="list-text">重复 <block ref="92a9f0aaafd1755c239f3740bca9b5f0" category="inline-xref-macro-rx"></block> 在其他网桥上，直到所有网桥均已布线。</block>
   <block id="663ca2bb9d69f00e40b12629c141073d" category="paragraph"><block ref="663ca2bb9d69f00e40b12629c141073d" category="inline-link-rx"></block></block>
   <block id="95052b14282825e23d588959737ad63b" category="paragraph"><block ref="95052b14282825e23d588959737ad63b" category="inline-link-macro-rx"></block></block>
@@ -10886,7 +10856,6 @@
   <block id="2eb016ab0f18b2ada34df66ecade6e4b" category="list-text">退出维护模式并显示 LOADER 提示符：</block>
   <block id="64c598a52dd8cdadea545647c7d064a6" category="summary">您可以在 NetApp 的丰富文档中了解有关 MetroCluster 配置和操作的更多信息。</block>
   <block id="04d9ec83167120e239825f4726f351cc" category="paragraph">Active IQ Unified Manager 文档<block ref="1cf4a9f6324bfcec73ee8652129ceb47" category="inline-link-rx"></block></block>
-  <block id="7b173496e8f6041144abc83f7e17506f" category="list-text">验证运行正常的集群上的所有 sync-destination SVM 是否均处于休眠状态（显示管理状态为 `sstopped` ），以及灾难集群上的 sync-source SVM 是否已启动且正在运行：</block>
   <block id="90755aace4dbf79660e4f610c3481e12" category="paragraph">MetroCluster 配置中的 sync-destination 聚合会在其名称中自动附加后缀 "` -mc` " ，以帮助标识它们。</block>
   <block id="a06ba402461ed4d507397d322c6630a2" category="list-text">从 ONTAP 9.5 开始，如果灾难站点节点仍处于启动状态，则本地丛和远程丛都会保持联机状态。</block>
   <block id="9c02f16bec605fc43993ca0ced188f41" category="paragraph">从 ONTAP 9.5 开始，在对 MetroCluster IP 配置执行协商切换操作期间，可以自动执行修复。从 ONTAP 9.6 开始，支持在计划外切换后自动修复。这样就无需执行 MetroCluster `问题描述 heal` 命令。</block>
@@ -12105,7 +12074,6 @@
   <block id="cbabd53b8268cb963ad7b2c67de0b634" category="paragraph">由于 LUN 仅在 MetroCluster FC 节点接口上报告，因此客户端仅显示 FC 节点上的路径。可从的输出中看到此问题<block ref="41dc2c94e82e1c56ba876085acf5a974" prefix=" " category="inline-code"></block> 和<block ref="2fbf63deae0938cf669e6ca451f1eb2c" prefix=" " category="inline-code"></block> 命令</block>
   <block id="7162464dfaefdef75b18029dcb1bb1f1" category="list-text">重新扫描主机上的SCSI总线以发现新添加的路径：<block ref="9e65638d5d13acb691c4bec2ede5a483" prefix=" " category="inline-code"></block></block>
   <block id="9b3bd2afae038f8967e9373560a3b6d2" category="list-text">重新扫描客户端上的SCSI总线：<block ref="06653a48f6165608045bd55ec32d95fb" prefix=" " category="inline-code"></block></block>
-  <block id="77139d079fd912afd88e4ca7f5623393" category="paragraph">如果控制器模块配置有四端口FC适配器、请验证存储堆栈是否未连接到同一ASIC上的两个FC端口。端口 a 和端口 b 共享同一个 ASIC ，端口 c 和端口 d 共享同一个 ASIC 。请勿将磁盘架堆栈连接到端口 A 和端口 b请改用端口 A 和端口 c ，或者使用端口 b 和端口 d ，以避免 ASIC 出现故障时出现单点故障。</block>
   <block id="9df52fd51f68e1f0a1c54d87fbcf2d9f" category="paragraph">只有当您要从第三个站点监控两个集群及其连接状态时，才需要 Tiebreaker 软件。Tieb破碎 机软件驻留在第三个站点的Linux主机上、可使集群中的每个配对节点区分站点间链路关闭时的ISL故障与站点故障。</block>
   <block id="776aa0db93dc60ccb39a1a2bac58edd0" category="paragraph">Tieber4软件可以同时监控多达15个MetroCluster配置。它支持MetroCluster IP、MetroCluster FC和延伸型MetroCluster配置的组合。</block>
   <block id="2c6d3f6cb9e7e0273e71c2ee07e103ef" category="paragraph">根据您的主机Linux操作系统、您必须先安装MySQL或MariaDB服务器、然后再安装或升级Tieb破碎 机软件。</block>
@@ -13626,7 +13594,6 @@
   <block id="fb0d5feb3def76f90b6408f32f99f4b7" category="list-text">如果为新升级的控制器上的数据端口创建了新的广播域、请删除此广播域：</block>
   <block id="3ab5e50e5fd6dc477690730212c6785f" category="admonition">仅删除新广播域。请勿删除在开始升级之前存在的任何广播域。</block>
   <block id="8cb8d05546274856c8c2cb56b7cd62ac" category="paragraph"><block ref="7bbb7f17a19e67be5ebaaa8410749ad2" prefix="" category="inline-code"></block></block>
-  <block id="c46b37082c4b8a5ecb54ed082719f5fa" category="paragraph"><block ref="6ed2488c75aad6332e02665ab7c30031" prefix="" category="inline-code"></block></block>
   <block id="a51de836d51a26774e16aa7066519185" category="paragraph"><block ref="6a6db1083e2f8c53b07cc196dec3cafb" prefix="" category="inline-code"></block></block>
   <block id="641cba091515001a3bb48d030bddd608" category="section-title">升级cluster-A上的节点</block>
   <block id="2ce39beb4bd7e0662d271e0be20e56c4" category="paragraph">开始升级之前、请查看以下注意事项、以验证您的配置是否受支持。</block>
@@ -14270,4 +14237,94 @@
   <block id="5f9a9e91fc7e98f1998a1dcee4eab83f" category="paragraph">确认聚合仅包含未镜像磁盘架上的驱动器。</block>
   <block id="6f1eb898d916ac10201421006f5406e2" category="admonition">您也可以在命令中使用<block ref="2ee4c97cd7e2dff2e12ae3225818c09b" prefix=" " category="inline-code"></block>参数来指定要用于聚合的磁盘。</block>
   <block id="668c968f31daa1f3b0b86ddf4b09543e" category="list-text">在创建LIF之前、应创建子网对象。通过子网对象、ONTAP可以确定目标集群上的故障转移目标、因为它具有关联的广播域。</block>
+  <block id="6d42a1c65d48ed3ec77f037a50004258" category="list-text">如果使用专用网络进行运行状况监控、则每个节点都必须在该专用网络中具有一个节点管理LIF。</block>
+  <block id="b729f80ba307f8a8e8ea6189b1ed6313" category="paragraph">NetApp仅支持使用以下工具监控MetroCluster FC配置中的组件：</block>
+  <block id="f60d1385c75cfef525be8497e2137ee8" category="list-text">Brocade Network Advisor （ BNA ）</block>
+  <block id="138e272b0320fc1ffcdc8dee378b177b" category="list-text">Brocade SANNAV</block>
+  <block id="865e9b4ef52f3b0d3050c8b3c14eb660" category="list-text">Active IQ Config Advisor</block>
+  <block id="5ed4e53c285d1a7046c38f429a94ef7b" category="list-text">NetApp运行状况监控(ONTAP)</block>
+  <block id="fb4d5d69523a984853a5295db93de123" category="list-text">MetroCluster数据收集器(MC_DC)</block>
+  <block id="0d48c29aadd238b08bcb06f357acd9d8" category="section-title">准备安装</block>
+  <block id="e30f0ace1e7e67755e7318eeab1b0204" category="section-title">安装FC-SAS网桥和SAS磁盘架</block>
+  <block id="0dc04f427f83d4c5afa311fe8042eddc" category="list-text">将串行缆线连接到光纤桥7600N网桥上的串行端口、以访问网桥控制台界面。</block>
+  <block id="2323990b6fbb7b7ee5ee14dbdb21eaf0" category="section-title">配置FC-SAS网桥</block>
+  <block id="ff48ad0dc104d3885573fa0f45161299" category="paragraph"><block ref="77d54c8e2e9adc9e2bc031facbe82b7c" prefix="" category="inline-code"></block></block>
+  <block id="a21e2af264b592c03f6b1f88af93dd36" category="paragraph"><block ref="a32ef1a4f91191b408d6aa3ceeed03a8" prefix="" category="inline-code"></block></block>
+  <block id="49cc2eac13c61da60904b157e05ec5dc" category="paragraph"><block ref="e9580cd86794b774ad27b65b0a805b73" prefix="" category="inline-code"></block></block>
+  <block id="b2c196d04c27ee6d1c55877714d8d6f9" category="section-title">使用缆线将磁盘架连接到网桥</block>
+  <block id="4273704f66fca16606c90100e4c57808" category="inline-xref">使用缆线将一个光纤桥7600N或7500 N网桥连接到使用IOM12模块的磁盘架</block>
+  <block id="242108261e892329ec8e41357fad0678" category="list-text"><block ref="57fecdddd64dc6d4f5e9d97874ea43bc" category="inline-xref-macro-rx"></block></block>
+  <block id="e3136c071e40d473a2ed2f7295c2ead2" category="inline-xref">使用缆线将一个光纤桥接7600N或7500 N网桥连接到使用IOM6或IOM3模块的磁盘架</block>
+  <block id="e88d980772f7b12fbca752322a5e5307" category="list-text"><block ref="e59f261da41fd9be2eaf7f1b955dc162" category="inline-xref-macro-rx"></block></block>
+  <block id="e42bb9af7fd1e3b1641a18782a424fb0" category="list-text">从堆栈中的第一个逻辑磁盘架开始、将IOM A端口3连接到下一个磁盘架上的IOM A端口1、直到堆栈中的每个IOM A都已连接。</block>
+  <block id="df728bff4207a1d17e007189ab445eaa" category="section-title">使用缆线将一个光纤桥7600N或7500 N网桥连接到使用IOM6或IOM3模块的磁盘架</block>
+  <block id="8a6b192e89e003168a9dec4c4b9059a7" category="section-title">验证网桥连接并为网桥FC端口布线</block>
+  <block id="1127370baf663b49c7993f8a6ab9f41e" category="paragraph"><block ref="eba7ba40406886cad3add195d043cd08" category="inline-xref-macro-rx"></block></block>
+  <block id="d277bf5cc4237c95ff26e4f98eefaf07" category="paragraph">向配置中添加新存储时、请安装ATto光纤桥接器和SAS磁盘架并为其布线。</block>
+  <block id="760e34100c7db8b067f655d415a342c1" category="paragraph">使用带内管理时、可以通过与网桥的FC连接从ONTAP命令行界面管理和监控网桥。不需要通过网桥以太网端口对网桥进行物理访问、从而减少了网桥的安全漏洞。</block>
+  <block id="74f6533c5153d90867b32b519b275c65" category="list-text">在ONTAP 9.5之前、仅支持带外SNMP管理。</block>
+  <block id="967c96558959e91e943843e6263ec970" category="paragraph">可以从ONTAP界面的ONTAP界面命令发出网桥命令行<block ref="52f6597c8dcf79b6137c2435b9c9efcb" prefix=" " category="inline-code"></block>界面命令。</block>
+  <block id="d22ab9487f4f57c6ecf56a0875e0c070" category="paragraph">准备在新的MetroCluster系统中安装网桥时、必须确认系统满足特定要求、包括满足网桥的设置和配置要求。其他要求包括下载必要的文档， ATTO QuickNAV 实用程序和网桥固件。</block>
+  <block id="9d46de9346ca8af89ab03ed382fc9ab1" category="paragraph">在中<block ref="a5900d751cd970c3de875b616ebb9e28" category="inline-link-rx"></block>，您可以使用*存储解决方案*字段选择MetroCluster解决方案。您可以使用*组件资源管理器*选择组件和ONTAP版本以细化搜索。您可以选择*Show results*来显示符合条件的受支持配置列表。</block>
+  <block id="1654c802242a5762f6e28996b1f5e854" category="list-text">每个FC控制器都必须有一个FC端口可供一个网桥连接。</block>
+  <block id="4178aa1558026aafc5b0376eacf267e6" category="list-text">您必须熟悉如何处理SAS缆线、以及磁盘架安装和布线注意事项和最佳实践。</block>
+  <block id="e0661cfc6d44d7098774766995e5913c" category="list-text">对于使用50微米多模式光缆的磁盘架、FC控制器和备份磁带设备、系统连接要求的最大距离也适用于Fibre Bridge网桥。</block>
+  <block id="7bcf16804afe2d3ed86d658c4f355f74" category="paragraph"><block ref="eece6350c77c4c173bc5eac22d38a3d8" prefix="" category="inline-code"></block></block>
+  <block id="8f94293e801572ab9458b1e91111b45b" category="list-text">从堆栈中的第一个逻辑磁盘架开始、将IOM A端口3连接到下一个磁盘架上的IOM A端口1、直到堆栈中的每个IOM A都已连接。</block>
+  <block id="a73aaf062bae9a1d7a52d1bdd78a1927" category="section-title">验证网桥连接、并使用缆线将FC-SAS网桥连接到控制器FC端口</block>
+  <block id="40eba83ddff63a60c0f3132156cbb034" category="paragraph">在双节点桥接MetroCluster配置中、必须使用缆线将网桥连接到控制器FC端口。</block>
+  <block id="3ce46fc9a15b5c37d69e1d5ae43448c1" category="list-text">[[步骤1-verify-detect]]验证每个网桥是否都能检测到该网桥所连接的所有磁盘驱动器和磁盘架：</block>
+  <block id="78d9123f52b553c11386801c7e6ee30c" category="list-text">验证命令输出是否显示网桥已连接到堆栈中正确的磁盘和磁盘架。</block>
+  <block id="84be3f4668a661e6d6ab8a9c8e8b7640" category="list-text">[[步骤3-cable-each-b桥]]使用缆线将每个网桥连接到控制器FC端口：</block>
+  <block id="1832e58c6444b28a1738bf5e7d5f4bad" category="list-text">使用缆线将网桥的FC端口1连接到cluster A中控制器上的FC端口</block>
+  <block id="147fb5a8c36cf6f6239310bbf3fbd96d" category="list-text">使用缆线将网桥的FC端口2连接到cluster B中控制器上的FC端口</block>
+  <block id="620ef8e255d79ca87184c0f6bd5b96c6" category="list-text">如果控制器配置有四端口FC适配器、请确保存储堆栈两端的网桥未连接到同一ASIC上的两个FC端口。例如：</block>
+  <block id="7def08188c3514b9c48ff9e90fc4b0e8" category="list-text">端口a和端口b共享同一个ASIC。</block>
+  <block id="02ab53167e774ae8d9d95cd3bfbfc09a" category="list-text">端口c和端口d共享同一个ASIC。</block>
+  <block id="00476bfdbf527b84c0b7fbcbde326f75" category="paragraph">在此示例中、将FC_bridge A_1连接到端口A、将FC_bridge A2连接到端口C</block>
+  <block id="db25c93b70e2d449bc0eacd997bc5392" category="list-text">如果此控制器配置有多个FC适配器、请勿使用缆线将存储堆栈两端的网桥连接到同一适配器。</block>
+  <block id="860a61ba6dae3941046ced6d468fe4e9" category="paragraph">在这种情况下、您应将FC_bridge A_1连接到板载FC端口、并将FC_bridge A_2连接到扩展插槽中适配器上的FC端口。</block>
+  <block id="fdd11dfe0e9d69317902be2abf4845cf" category="inline-image-macro">集群对等网络图示</block>
+  <block id="56571215fb83a5614f4f1ed3deb7e93c" category="paragraph"><block ref="56571215fb83a5614f4f1ed3deb7e93c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c451d21d9b1e4faa6b241f172e690c0b" category="paragraph"><block ref="deceade8c0d17544f65a6ede664b23e2" prefix="" category="inline-code"></block></block>
+  <block id="be4fd0012ddc006ea303591c9df6f76d" category="paragraph"><block ref="39b06b9a26b49c3db6d9409a6abaa9d8" prefix="" category="inline-code"></block></block>
+  <block id="9e1d9b9e8b88355df08194559af6865a" category="summary">在切换期间、不应执行某些操作。</block>
+  <block id="fa33dcb38c0cd6e15dd757f1ef3072ee" category="doc">MetroCluster配置处于切换状态时的限制</block>
+  <block id="5722cde27dfa05f795a5466b6d0859c9" category="paragraph">当系统处于切换状态时、不应执行某些操作。了解系统处于切换状态时的受限操作。</block>
+  <block id="b72a4837907e7fef0771c42da901c811" category="section-title">切换中的操作受限</block>
+  <block id="1b5f91752d52b3bac4319cf07ea0efb8" category="paragraph">当系统处于切换状态时、不支持以下操作：</block>
+  <block id="272c8dfc8e0821088d85ed5d0fe037a8" category="list-text">创建或删除聚合和卷</block>
+  <block id="d825dd35fde2fe33a56ef95c52f545a0" category="list-text">创建或删除SVM</block>
+  <block id="8c120d60e412429a6f43b748c02dc233" category="list-text">正在创建或删除此文件</block>
+  <block id="9cc6607cba1650bc799439425f9b085e" category="list-text">添加或删除磁盘(仅当在恢复过程中更换磁盘时)</block>
+  <block id="8fe0d36b4759e6e40b887b096584644e" category="list-text">对SnapMirror SVM DR执行配置更改</block>
+  <block id="d6509169a6409458c70d9934cd8159d0" category="list-text">修改现有广播域或创建新广播域</block>
+  <block id="0e4fc6663e95531e1c48cb8fcdc5fc7c" category="list-text">修改网络子网</block>
+  <block id="be2a1f6ebcf2096180a7211fc2d40f49" category="section-title">切换时更换硬件</block>
+  <block id="1bf38e1e76b1ffa01784928faef533bd" category="paragraph">在系统处于切换状态时、请使用以下过程更换控制器硬件：</block>
+  <block id="35ee9e73034b599a0e2236f1e215fb3d" category="list-text">如果您需要在不处于切换状态的站点上更换相同类型的控制器，请按照中的过程进行操作<block ref="9b067f6cfdd46edd11b6f92353f05956" category="inline-link-macro-rx"></block>。</block>
+  <block id="787b5b0c67b18976c91dc3f6628778e0" category="list-text">如果在正常运行的站点上切换节点时需要更换控制器模块和机箱，请关闭这两个控制器，然后执行至的过程<block ref="9b067f6cfdd46edd11b6f92353f05956" category="inline-link-macro-rx"></block>。</block>
+  <block id="49ad2bb3d2de07281d3d8fd2e16644ed" category="list-text">如果需要将控制器更换为其他类型的控制器，请按照中适用于您的配置的过程进行操作<block ref="1bee30f9c5932b39ca60631e46d351c4" category="inline-link-macro-rx"></block>。</block>
+  <block id="e9e319505f06fc728bd8dcb2a9b67412" category="list-text">如果您的系统因控制器故障而处于切换状态、或者您在切换期间遇到控制器故障、则必须先更换控制器硬件、执行切回、然后再执行控制器升级：</block>
+  <block id="d54ffc167bc880d77acd9d1b6d020080" category="list-text">要更换控制器硬件并执行切回，请执行<block ref="9b067f6cfdd46edd11b6f92353f05956" category="inline-link-macro-rx"></block>。</block>
+  <block id="f63242f4292325b063838517abc2c1a1" category="list-text">更换硬件后，请按照中的过程执行控制器升级<block ref="1bee30f9c5932b39ca60631e46d351c4" category="inline-link-macro-rx"></block>。</block>
+  <block id="1dc725a140606a258f54d59d9ad3d9bd" category="list-text">验证运行正常的集群上的所有同步目标SVM是否均处于休眠状态(显示运行状态为`s已`")：</block>
+  <block id="5dfed22feb54647dbd9e9ae827290f6b" category="paragraph"><block ref="67611e9f528c6078257c414670af6b52" prefix="" category="inline-code"></block></block>
+  <block id="1225fe0de146a130add7eeefae9e0925" category="list-text">验证灾难集群上的同步源SVM是否已启动且正在运行：</block>
+  <block id="ad29c49a8377862a59f9aae0ab4431cd" category="paragraph">验证LIF放置是否正确。然后、删除旧控制器上的VLAN和接口组、并以物理方式卸载这些控制器。</block>
+  <block id="253982549e381b6f58f66b3e289a0a83" category="admonition">如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<block ref="45cc57eb3654a2ae89efabc6fb9d271a" category="inline-xref-macro-rx"></block>。</block>
+  <block id="ba20cbe478ea7b912f1d044734df2884" category="list-text">[[U台 升级_MANUAL_without _匹配_ports]]修改广播域以删除需要删除的VLAN和物理端口：</block>
+  <block id="ae359c5763df3f6130f697d17d090551" category="admonition">在执行切回之前、您必须验证新节点上的数据SIFs位置是否正确。切回配置时、ONTAP会尝试恢复由这些LUN使用的主端口上的流量。如果主端口与交换机端口和VLAN的连接不正确、则可能会发生I/O故障。</block>
+  <block id="1c780702501fd89538731057505e0a04" category="list-text">在切回之前、请验证是否已在相应的节点和端口上托管了这些文件。</block>
+  <block id="bc12d3bc2a2c1526b655930b56efc183" category="list-text">显示LIF、并确认每个数据LIF使用的主端口正确无误：</block>
+  <block id="b98ffe19185977668c0712d9626bb6b1" category="list-text">修改未使用正确主端口的任何SID:</block>
+  <block id="823bc5ae6e724dd8994efcc4dbeb49d2" category="paragraph">如果此命令返回错误、您可以覆盖端口配置：</block>
+  <block id="ec14487a214982a1ea6572636724761f" category="paragraph"><block ref="afdc229346561af3e5aba3a6d67eea09" prefix="" category="inline-code"></block></block>
+  <block id="c9ba655979127851f6a6f01489815e47" category="list-text">确认现在所有数据Sifs都位于正确的主端口上：</block>
+  <block id="fd7b222b3cb6aff1e0aef0b1e7a16998" category="paragraph">要在新控制器上正常恢复网络连接、请验证LIF放置是否正确、然后删除旧控制器的网络配置。</block>
+  <block id="ef1038ce81a2c9d70181057dd381a59a" category="admonition">如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<block ref="186451ebe57c46550834233237ebac90" category="inline-xref-macro-rx"></block>。</block>
+  <block id="3432abc562d1049e115fc0bcb6f569ab" category="list-text">[[uelds_assisted_without _匹配_ports]]修改广播域以删除需要删除的VLAN和物理端口：</block>
+  <block id="07bfa9093a8ef293dfd6099e38fde255" category="list-text">验证是否已正确配置MetroCluster。检查节点状态：</block>
+  <block id="d64694bac02c7b4eea890e175a53a0c7" category="paragraph">在继续执行自动切回操作之前、请验证是否已在相应节点上托管了此类文件。</block>
+  <block id="db85d3fd5e7d7beaa319d4ebe299145b" category="sidebar">系统处于切换状态时的限制</block>
 </blocks>

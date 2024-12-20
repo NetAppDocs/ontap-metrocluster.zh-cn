@@ -3029,10 +3029,19 @@ Priv Protocol [DES(1)/noPriv(2)/AES128(3)/AES256(4)]): (2..2) [3]
 [NOTE]
 ====
 * 您应将网桥和节点管理 LIF 放置在专用网络中，以避免来自其他源的干扰。
-* 如果您使用专用网络进行运行状况监控，则每个节点在该专用网络中都必须具有一个节点管理 LIF 。
+* 如果使用专用网络进行运行状况监控、则每个节点都必须在该专用网络中具有一个节点管理LIF。
 
 
 ====
+NetApp仅支持使用以下工具监控MetroCluster FC配置中的组件：
+
+* Brocade Network Advisor （ BNA ）
+* Brocade SANNAV
+* Active IQ Config Advisor
+* NetApp运行状况监控(ONTAP)
+* MetroCluster数据收集器(MC_DC)
+
+
 
 
 ==== 配置 MetroCluster FC 交换机以进行运行状况监控

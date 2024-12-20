@@ -362,7 +362,7 @@ dr-group-id cluster    node          node-systemid dr-partner-systemid
 
 === 准备旧控制器的网络配置
 
-要确保新控制器上的网络连接恢复正常，必须将 LIF 移动到一个通用端口，然后删除旧控制器的网络配置。
+要在新控制器上正常恢复网络连接、请验证LIF放置是否正确、然后删除旧控制器的网络配置。
 
 .关于此任务
 * 必须对每个旧节点执行此任务。
@@ -426,6 +426,10 @@ NOTE: 要成功升级、需要执行此步骤。
 
 . [[controller_Replace _upgrade prepare_network_ports_3]]将旧控制器上所有数据LI的主端口分配给新旧控制器模块上相同的通用端口。
 +
+
+CAUTION: 如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<<upgrades_assisted_without_matching_ports,第 4 步>>。
+
++
 .. 显示 LIF ：
 +
 `network interface show`
@@ -457,7 +461,7 @@ network interface modify -vserver vs0 -lif datalif1 -home-port e0d
 ----
 
 
-. 修改广播域以删除需要删除的 VLAN 和物理端口：
+. [[uelds_assisted_without _匹配_ports]]修改广播域以删除需要删除的VLAN和物理端口：
 +
 `broadcast-domain remove-ports -broadcast-domain <broadcast-domain-name>-ports <node-name:port-id>`
 
@@ -1323,12 +1327,68 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"^]。
 
 |===
-. 在恢复此操作之前，请验证是否已正确配置 MetroCluster 。检查节点状态：
+. 验证是否已正确配置MetroCluster。检查节点状态：
 +
 `MetroCluster node show`
 
 +
 验证新节点（ site_B ）是否处于 * 正在等待 site_A 的切回状态 *
+
+
+
+
+
+=== 验证并还原 LIF 配置
+
+在继续执行自动切回操作之前、请验证是否已在相应节点上托管了此类文件。
+
+.关于此任务
+* 此任务在 site_B 上执行
+
+
+
+CAUTION: 在执行切回之前、您必须验证新节点上的数据SIFs位置是否正确。切回配置时、ONTAP会尝试恢复由这些LUN使用的主端口上的流量。如果主端口与交换机端口和VLAN的连接不正确、则可能会发生I/O故障。
+
+.步骤
+. 在切回之前、请验证是否已在相应的节点和端口上托管了这些文件。
++
+.. 更改为高级权限级别：
++
+`set -privilege advanced`
+
+.. 显示LIF、并确认每个数据LIF使用的主端口正确无误：
++
+`network interface show`
+
+.. 修改未使用正确主端口的任何SID:
++
+`network interface modify -vserver <svm-name> -lif <data-lif> -home-port <port-id>`
+
++
+如果此命令返回错误、您可以覆盖端口配置：
+
++
+`vserver config override -command "network interface modify -vserver <svm-name> -home-port <active_port_after_upgrade> -lif <lif_name> -home-node <new_node_name>"`
+
++
+在 `vserver config override` 命令中输入 network interface modify 命令时，您不能使用选项卡自动完成功能。您可以使用 autoscomplete 创建网络 `interface modify` ，然后将其括在 `vserver config override` 命令中。
+
+.. 确认现在所有数据Sifs都位于正确的主端口上：
++
+`network interface show`
+
+.. 返回到管理权限级别：
++
+`set -privilege admin`
+
+
+
+. 将接口还原到其主节点：
++
+`network interface revert * -vserver <svm-name>`
+
++
+根据需要对所有 SVM 执行此步骤。
 
 . 恢复操作：
 +
