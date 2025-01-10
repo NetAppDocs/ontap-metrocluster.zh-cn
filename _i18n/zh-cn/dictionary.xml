@@ -12371,7 +12371,6 @@
   <block id="ec714ba3bea7bae033524709c8ddb144" category="list-text">确认已创建"network-admin"组：</block>
   <block id="a24bdf92e7d1dc2d2e5714305a56e0eb" category="paragraph"><block ref="77aa57f376fe73c9581fb729ddeb38eb" prefix="" category="inline-code"></block></block>
   <block id="6697365f2e46593a5513af21ee61a084" category="list-text">在Broadcom IP交换机上配置SNMPv3用户：</block>
-  <block id="3289ce0836654122a2c0d3bfd4fab942" category="paragraph">您必须使用引号将身份验证和隐私密码括起来、如以下示例所示：</block>
   <block id="9253168d7e5e9b3b8152a8ff1870743f" category="open-title">适用于Cisco IP交换机</block>
   <block id="4a2ec710ab28d8f45e2fdabacdc2dfc6" category="list-text">运行以下命令、在Cisco IP交换机上配置SNMPv3用户：</block>
   <block id="a8b5c32b456efe8e0fcb23cd218c6b6c" category="list-text">验证是否已在交换机上配置SNMPv3用户：</block>
@@ -14327,4 +14326,5 @@
   <block id="1a5991cd222add52b1f5aa51350d470e" category="list-title">使用共享的MetroCluster或HA端口的系统</block>
   <block id="f4c0383379a5ae93d0b5e4c4f8586e47" category="open-title">使用共享集群/HA端口的系统</block>
   <block id="fce1683696c48d3d34e98e19d634ae19" category="open-title">使用共享的MetroCluster或HA端口的系统</block>
+  <block id="eabf799ca909dc7fa9808c3abb476773" category="paragraph">出现提示时、输入身份验证密码。</block>
 </blocks>
