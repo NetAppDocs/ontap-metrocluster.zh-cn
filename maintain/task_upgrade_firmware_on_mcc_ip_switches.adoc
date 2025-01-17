@@ -63,9 +63,22 @@ Group Cluster Node           State          Mirroring Mode
 +
 [listing]
 ----
-cluster_A::> metrocluster check run
+cluster_A::*> metrocluster check run
+----
++
+此操作将在后台运行。
 
-Last Checked On: 10/1/2014 16:03:37
+.. 在之后 `metrocluster check run` 操作完成、运行：
++
+MetroCluster check show`
+
++
+大约五分钟后，将显示以下结果：
+
++
+[listing]
+----
+cluster_A:::*> metrocluster check show
 
 Component           Result
 ------------------- ---------
@@ -73,10 +86,10 @@ nodes               ok
 lifs                ok
 config-replication  ok
 aggregates          ok
-4 entries were displayed.
-
-Command completed. Use the "metrocluster check show -instance" command or sub-commands in "metrocluster check" directory for detailed results.
-To check if the nodes are ready to do a switchover or switchback operation, run "metrocluster switchover -simulate" or "metrocluster switchback -simulate", respectively.
+clusters            ok
+connections         ok
+volumes             ok
+7 entries were displayed.
 ----
 .. 检查是否没有运行状况警报：
 +

@@ -2929,7 +2929,6 @@
   <block id="26335ad95c44f5e233c28d27ab09f461" category="doc">无中断 FC-IP 过渡的要求</block>
   <block id="ab15e3a0446aa2c30baef0a6d039dff1" category="list-text">现有平台和新平台必须是过渡支持的组合。</block>
   <block id="c5ca83d0e723113560fb2c95b33b532b" category="inline-xref-macro">支持无中断过渡的平台</block>
-  <block id="1c80ea06ae866b6e42e9d266e0cb8906" category="list-text">它必须支持交换集群配置。</block>
   <block id="1799408ec992ed3e5561f7b04ccef0fe" category="paragraph">例如，支持从包含 AFF8060 控制器模块的 MetroCluster FC 配置过渡到包含 AFF A400 控制器模块的 IP 配置。</block>
   <block id="2380f44f4dcec1f84b76f71d467c0c65" category="doc">无中断地从 MetroCluster FC 过渡到 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）</block>
   <block id="e420954c9496e6eb99455a2aac546e3f" category="inline-xref-macro">选择过渡操作步骤</block>
@@ -3093,7 +3092,6 @@
   <block id="ee6ed7097775dc1dd54c183bab7fabca" category="list-text">MetroCluster FC 是一个无交换机集群，因此需要新的交换机。</block>
   <block id="f6ee19cc42b9955140e50bd5845ab941" category="list-text">MetroCluster FC 是一个交换集群，但 MetroCluster IP 配置不支持现有 IP 交换机。</block>
   <block id="f2e4f8254f9371aba3bca00c7ae823a3" category="list-text">您希望在 MetroCluster IP 配置中使用不同的交换机。</block>
-  <block id="4ee1b040d263e389d67330e3d505f6c5" category="paragraph">有关平台型号和交换机支持的信息，请参见 _NetApp Hardware Universe 。</block>
   <block id="2a4236cf8b7e41561ac336d36bcbb970" category="inline-link-macro">MetroCluster 管理</block>
   <block id="13b07c992fe0293fccd52c0935d98849" category="paragraph"><block ref="13b07c992fe0293fccd52c0935d98849" category="inline-link-macro-rx"></block></block>
   <block id="46307856034c0d19deb4348b4c6fdf64" category="summary">将 MetroCluster 节点从 FC 过渡到 IP 后，您可能需要将 iSCSI 主机连接移动到新节点。</block>
@@ -11771,8 +11769,6 @@
   <block id="65cc666ecd4a5bdf3c624b12e425c91f" category="admonition">要更改配置、必须重新启动控制器。</block>
   <block id="57d89ae0fa9051439d76f5f61398fa16" category="list-text">通过双向执行高可用性(HA)接管来重新启动控制器。</block>
   <block id="ee587f5bd979b8f81d1cbf341f0b2470" category="list-text">如果您使用的是八节点配置、则必须从开始重复整个操作步骤 <block ref="e821f1828723ededc57f2e891aea4a6a" category="inline-link-macro-rx"></block> 适用于每个FC DR组。</block>
-  <block id="bb6c47f32358fe5242b175ac608f7d32" category="list-text">如果您使用的是八节点配置、则所有节点都必须运行ONTAP 9.13.1或更高版本。</block>
-  <block id="d8e49cb116ea5302a217647ce0506ea6" category="list-text">如果您使用的是四节点配置、则所有节点都必须运行ONTAP 9.8或更高版本。</block>
   <block id="b8c86c478bbb73c53f5440966b9fb7d1" category="list-text">请勿超过平台组合中"较低"的任何对象限制。应用这两个平台的下限对象。</block>
   <block id="c5c0eb8cddac9e2347091241dce72719" category="list-text">如果目标平台限制低于MetroCluster 限制、则必须先将MetroCluster 重新配置为等于或低于目标平台限制、然后才能添加新节点。</block>
   <block id="dc63943b5b97ad0f10f23219d6f93cd4" category="list-text">修改每个集群中已转移IP节点的集群对等方的IP地址：</block>
@@ -14327,4 +14323,16 @@
   <block id="f4c0383379a5ae93d0b5e4c4f8586e47" category="open-title">使用共享集群/HA端口的系统</block>
   <block id="fce1683696c48d3d34e98e19d634ae19" category="open-title">使用共享的MetroCluster或HA端口的系统</block>
   <block id="eabf799ca909dc7fa9808c3abb476773" category="paragraph">出现提示时、输入身份验证密码。</block>
+  <block id="8c62b33499e87d946c3be674c109e802" category="inline-link-macro">扩展为八节点MetroCluster IP配置</block>
+  <block id="d3f54bf5e1d7bcb93c8d615f71713d7f" category="paragraph">如果您使用的是共享存储MetroCluster交换机、则只能过渡到四节点MetroCluster IP配置。不支持过渡到使用共享存储MetroCluster交换机的八节点MetroCluster IP配置。过渡到四节点MetroCluster IP配置后，您可以<block ref="6dee49609367b51155e32a3a9526bace" category="inline-link-macro-rx"></block>。</block>
+  <block id="2e6fac9e7be327118126470b28ac80e9" category="paragraph">有关平台型号和交换机支持的信息、请参见<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block>。</block>
+  <block id="e77208401ec89552ec5e85789d235879" category="paragraph">在开始过渡过程之前、请确认配置满足要求。</block>
+  <block id="1229d62fc62771990d4aca35e86babbb" category="paragraph">如果您的配置满足以下要求、则可以执行无中断FC-IP过渡：</block>
+  <block id="c93eb5b603c598e0771b611b95a1f13a" category="list-text">如果您使用的是八节点配置、则所有节点都运行9.13.1 9.13.1.或更高版本。</block>
+  <block id="fbe14351123598a8a64fee33aa1a2a2b" category="list-text">如果您使用的是四节点配置、则所有节点均运行ONTAP 9.8或更高版本。</block>
+  <block id="d7b625bf0290f633deca10fab483feb9" category="list-text">现有平台和新平台是支持过渡的组合。</block>
+  <block id="449f221b85b0830ccbe6f932311166dc" category="list-text">您的配置支持有交换机集群配置。</block>
+  <block id="ec4312d0db3bce928129e7e5c3a58d73" category="paragraph"><block ref="ec4312d0db3bce928129e7e5c3a58d73" category="inline-link-rx"></block></block>
+  <block id="c42a1c17fcba2c3f1c614f6d301144e6" category="paragraph">如果您使用的是共享存储MetroCluster交换机、则只能过渡到四节点MetroCluster IP配置。不支持过渡到使用共享存储MetroCluster交换机的八节点MetroCluster IP配置。过渡到四节点MetroCluster IP配置后，您可以<block ref="6dee49609367b51155e32a3a9526bace" category="inline-link-macro-rx"></block>。</block>
+  <block id="fb9168c2e293c1ba8ecd781a9f35d00f" category="list-text">您的配置符合所有要求、并按照以下_ MetroCluster安装和配置_过程中所述进行布线。</block>
 </blocks>

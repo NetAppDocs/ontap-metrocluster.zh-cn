@@ -31,6 +31,9 @@ summary: 您必须确保 IP 交换机受支持。如果原始 MetroCluster FC �
 
 
 
-有关平台型号和交换机支持的信息，请参见 _NetApp Hardware Universe 。
+[CAUTION]
+====
+如果您使用的是共享存储MetroCluster交换机、则只能过渡到四节点MetroCluster IP配置。不支持过渡到使用共享存储MetroCluster交换机的八节点MetroCluster IP配置。过渡到四节点MetroCluster IP配置后，您可以link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["扩展为八节点MetroCluster IP配置"]。
 
-https://hwu.netapp.com["NetApp Hardware Universe"]
+====
+有关平台型号和交换机支持的信息、请参见 https://hwu.netapp.com["Hardware Universe"^]。

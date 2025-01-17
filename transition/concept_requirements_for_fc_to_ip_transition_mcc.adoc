@@ -11,19 +11,28 @@ summary: 在开始过渡过程之前，您必须确保配置满足要求。
 
 
 [role="lead"]
-在开始过渡过程之前，您必须确保配置满足要求。
+在开始过渡过程之前、请确认配置满足要求。
 
-* 如果您使用的是八节点配置、则所有节点都必须运行ONTAP 9.13.1或更高版本。
-* 如果您使用的是四节点配置、则所有节点都必须运行ONTAP 9.8或更高版本。
-* 现有平台和新平台必须是过渡支持的组合。
+如果您的配置满足以下要求、则可以执行无中断FC-IP过渡：
+
+* 如果您使用的是八节点配置、则所有节点都运行9.13.1 9.13.1.或更高版本。
+* 如果您使用的是四节点配置、则所有节点均运行ONTAP 9.8或更高版本。
+* 现有平台和新平台是支持过渡的组合。
 +
 link:concept_choosing_your_transition_procedure_mcc_transition.html["支持无中断过渡的平台"]
 
-* 它必须支持交换集群配置。
+* 您的配置支持有交换机集群配置。
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://hwu.netapp.com["Hardware Universe"^]
 
-* 它必须满足 _SCSI MetroCluster 安装和配置 _ 过程中所述的所有要求和布线。
+
+
+[CAUTION]
+====
+如果您使用的是共享存储MetroCluster交换机、则只能过渡到四节点MetroCluster IP配置。不支持过渡到使用共享存储MetroCluster交换机的八节点MetroCluster IP配置。过渡到四节点MetroCluster IP配置后，您可以link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["扩展为八节点MetroCluster IP配置"]。
+
+====
+* 您的配置符合所有要求、并按照以下_ MetroCluster安装和配置_过程中所述进行布线。
 +
 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
 
