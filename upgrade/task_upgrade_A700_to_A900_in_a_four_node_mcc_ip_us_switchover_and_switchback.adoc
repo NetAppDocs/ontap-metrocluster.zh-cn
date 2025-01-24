@@ -833,7 +833,7 @@ FC
 当 site_A 上的控制器升级后， site_A 上的交换机将进行升级。
 
 .步骤
-. 准备 IP 交换机以应用新的 RCF 文件。
+. 准备IP交换机以应用新RCF。
 +
 按照适用于您的交换机供应商的部分中的步骤进行操作：
 
@@ -843,14 +843,14 @@ FC
 ** link:../install-ip/task_switch_config_nvidia.html#reset-the-nvidia-ip-sn2100-switch-to-factory-defaults["将NVIDIA IP SN2100交换机重置为出厂默认值"]
 
 
-. 下载并安装 RCF 文件。
+. 下载并安装RCF。
 +
 按照适用于您的交换机供应商的部分中的步骤进行操作：
 
 +
-** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装Broadcom RC框架 文件"]
-** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装Cisco IP RCC文件"]
-** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["下载并安装NVIDIA IP RCP文件"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装Broadcom RCF"]
+** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装Cisco IP RCF"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["下载并安装NVIDIA IP RCF"]
 
 
 

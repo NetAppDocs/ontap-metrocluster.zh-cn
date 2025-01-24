@@ -1,0 +1,131 @@
+---
+permalink: upgrade/upgrade-mcc-ip-manual-reassign-root-agg.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 使用先前收集的系统ID将根聚合磁盘重新分配给新控制器模块。 
+---
+= 将根聚合磁盘重新分配给新的MetroCluster IP控制器模块
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用先前收集的系统ID将根聚合磁盘重新分配给新控制器模块。
+
+.关于此任务
+旧系统ID在中标识 link:upgrade-mcc-ip-prepare-system.html#gather-information-before-the-upgrade["在升级之前收集信息"]。
+
+您可以在维护模式下执行这些步骤。
+
+
+NOTE: 根聚合磁盘是控制器升级过程中唯一必须重新分配的磁盘。数据聚合的磁盘所有权在切换/切回操作中进行处理。
+
+.步骤
+. 将系统启动至维护模式：
++
+`boot_ontap maint`
+
+. 从维护模式提示符处显示 node_B_1-new 上的磁盘：
++
+`d` 展示 -A
+
++
+
+CAUTION: 在继续进行磁盘重新分配之前、请验证属于节点根聚合的pool0和pool1磁盘是否显示在输出中 `disk show`。在以下示例中、输出列出了由NODE_B_1-Oold拥有的pool0和pool1磁盘。
+
++
+命令输出将显示新控制器模块（ 1574774970 ）的系统 ID 。但是、旧系统ID (537403322)仍拥有根聚合磁盘。此示例不会显示MetroCluster配置中其他节点拥有的驱动器。
+
++
+[listing]
+----
+*> disk show -a
+Local System ID: 1574774970
+DISK                  OWNER                 POOL   SERIAL NUMBER   HOME                  DR HOME
+------------          ---------             -----  -------------   -------------         -------------
+prod3-rk18:9.126L44   node_B_1-old(537403322)  Pool1  PZHYN0MD     node_B_1-old(537403322)  node_B_1-old(537403322)
+prod4-rk18:9.126L49   node_B_1-old(537403322)  Pool1  PPG3J5HA     node_B_1-old(537403322)  node_B_1-old(537403322)
+prod4-rk18:8.126L21   node_B_1-old(537403322)  Pool1  PZHTDSZD     node_B_1-old(537403322)  node_B_1-old(537403322)
+prod2-rk18:8.126L2    node_B_1-old(537403322)  Pool0  S0M1J2CF     node_B_1-old(537403322)  node_B_1-old(537403322)
+prod2-rk18:8.126L3    node_B_1-old(537403322)  Pool0  S0M0CQM5     node_B_1-old(537403322)  node_B_1-old(537403322)
+prod1-rk18:9.126L27   node_B_1-old(537403322)  Pool0  S0M1PSDW     node_B_1-old(537403322)  node_B_1-old(537403322)
+.
+.
+.
+----
+. 将驱动器架上的根聚合磁盘重新分配给新控制器。
++
+|===
+
+
+| 如果您使用的是 ADP | 然后使用此命令 ... 
+
+
+ a| 
+是的。
+ a| 
+`disk reassign -s <old-sysid> -d <new-sysid> -r <dr-partner-sysid>`
+
+
+
+ a| 
+否
+ a| 
+`disk reassign -s <old-sysid> -d <new-sysid>`
+
+|===
+. 将驱动器架上的根聚合磁盘重新分配给新控制器：
++
+`disk reassign -s <old-sysid> -d <new-sysid>`
+
++
+以下示例显示了在非 ADP 配置中重新分配驱动器的情况：
+
++
+[listing]
+----
+*> disk reassign -s 537403322 -d 1574774970
+Partner node must not be in Takeover mode during disk reassignment from maintenance mode.
+Serious problems could result!!
+Do not proceed with reassignment if the partner is in takeover mode. Abort reassignment (y/n)? n
+
+After the node becomes operational, you must perform a takeover and giveback of the HA partner node to ensure disk reassignment is successful.
+Do you want to continue (y/n)? y
+Disk ownership will be updated on all disks previously belonging to Filer with sysid 537403322.
+Do you want to continue (y/n)? y
+----
+. 验证是否已正确重新分配根聚合的磁盘：
++
+`d展示`
+
++
+`s存储聚合状态`
+
++
+[listing]
+----
+
+*> disk show
+Local System ID: 537097247
+
+  DISK                    OWNER                    POOL   SERIAL NUMBER   HOME                     DR HOME
+------------              -------------            -----  -------------   -------------            -------------
+prod03-rk18:8.126L18 node_B_1-new(537097247)  Pool1  PZHYN0MD        node_B_1-new(537097247)   node_B_1-new(537097247)
+prod04-rk18:9.126L49 node_B_1-new(537097247)  Pool1  PPG3J5HA        node_B_1-new(537097247)   node_B_1-new(537097247)
+prod04-rk18:8.126L21 node_B_1-new(537097247)  Pool1  PZHTDSZD        node_B_1-new(537097247)   node_B_1-new(537097247)
+prod02-rk18:8.126L2  node_B_1-new(537097247)  Pool0  S0M1J2CF        node_B_1-new(537097247)   node_B_1-new(537097247)
+prod02-rk18:9.126L29 node_B_1-new(537097247)  Pool0  S0M0CQM5        node_B_1-new(537097247)   node_B_1-new(537097247)
+prod01-rk18:8.126L1  node_B_1-new(537097247)  Pool0  S0M1PSDW        node_B_1-new(537097247)   node_B_1-new(537097247)
+::>
+::> aggr status
+           Aggr          State           Status                Options
+aggr0_node_B_1           online          raid_dp, aggr         root, nosnap=on,
+                                         mirrored              mirror_resync_priority=high(fixed)
+                                         fast zeroed
+                                         64-bit
+----
+
+
+.下一步是什么？
+link:upgrade-mcc-ip-manual-boot-new-controllers.html["启动新控制器并还原LIF配置"](英文)

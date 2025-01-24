@@ -1,0 +1,92 @@
+---
+permalink: upgrade/upgrade-mcc-ip-manual-requirements.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc, requirements 
+summary: 在执行控制器升级之前、请验证您的系统是否满足所有要求。 
+---
+= 使用此MetroCluster IP升级过程的要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在执行控制器升级之前、请验证您的系统是否满足所有要求。
+
+
+
+== 此操作步骤 支持的平台
+
+* 这些平台必须运行 ONTAP 9.8 或更高版本。
+* 目标(新)平台的型号必须与原始平台不同。
+* 在MetroCluster IP配置中、只能使用此操作步骤 升级特定平台型号。
++
+** 有关支持的平台升级组合的信息，请查看中的MetroCluster IP升级表link:concept_choosing_controller_upgrade_mcc.html["选择控制器升级操作步骤"]。
++
+请参见 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_controller_upgrade_mcc.html#choosing-a-procedure-that-uses-the-switchover-and-switchback-process["选择升级或刷新方法"] 以了解其他过程。
+
+
+
+
+
+
+
+== 要求
+
+* 此操作步骤适用场景控制器模块采用 MetroCluster IP 配置。
+* 配置中的所有控制器都应在同一维护期间进行升级。
++
+在此维护活动之外，不支持使用不同类型的控制器运行 MetroCluster 配置。
+
+* 两个站点的MetroCluster IP系统必须运行相同版本的ONTAP。
+* 升级配置中的现有控制器和新控制器必须支持MetroCluster IP交换机(交换机类型、供应商和型号)和固件版本。
++
+有关支持的交换机和固件版本、请参见 link:https://hwu.netapp.com["Hardware Universe"^] 或 link:https://imt.netapp.com/matrix/["IMT"^] 。
+
+* 从插槽或端口比新系统多的系统升级时、您需要验证新系统上是否有足够的插槽和端口。
++
+开始升级之前、请参阅link:https://hwu.netapp.com["Hardware Universe"^]以验证新系统上的插槽和端口数量。
+
+* 如果您的系统上已启用、则link:../maintain/task-configure-encryption.html#disable-end-to-end-encryption["禁用端到端加密"]在执行升级之前。
+* 如果新平台的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。
+* 您可以在新平台上重复使用原始平台的IP地址、网络掩码和网关。
+
+
+此操作步骤使用以下示例名称：
+
+* cluster_A 位于 site_A
++
+** 升级前：
++
+*** node_A_1-old
+*** node_A_2-old
+
+
+** 升级后：
++
+*** node_A_1-new
+*** node_A_2-new
+
+
+
+
+* site_B 上的 cluster_B
++
+** 升级前：
++
+*** node_B_1-old
+*** node_B_2-old
+
+
+** 升级后：
++
+*** node_B_1-new
+*** node_B_2-new
+
+
+
+
+
+
+.下一步是什么？
+link:upgrade-mcc-ip-manual-console-logging.html["启用控制台日志记录"](英文)

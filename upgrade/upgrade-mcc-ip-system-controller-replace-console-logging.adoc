@@ -1,0 +1,27 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-console-logging.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 在执行控制器升级之前、请在设备上启用控制台日志记录。 
+---
+= 在升级MetroCluster IP之前启用控制台日志记录
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在执行控制器升级之前、请在设备上启用控制台日志记录。
+
+NetApp强烈建议您在使用的设备上启用控制台日志记录、并在执行此过程时执行以下操作：
+
+* 在维护期间保持AutoSupport处于启用状态。
+* 在维护前后触发维护AutoSupport消息、以便在维护活动期间禁用案例创建。
++
+请参阅知识库文章 link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["如何在计划的维护时段禁止自动创建案例"^]。
+
+* 为任何命令行界面会话启用会话日志记录。有关如何启用会话日志记录的说明，请查看知识库文章中的“日志记录会话输出”部分 link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["如何配置PuTTY以优化与ONTAP系统的连接"^]。
+
+
+.下一步是什么？
+查看中的信息link:upgrade-mcc-ip-system-controller-replace-set-bootarg.html["设置所需的启动程序(用于升级到引入9.15.1或更高版本的系统)"]、确认是否需要在现有系统上设置所需的启动程序。

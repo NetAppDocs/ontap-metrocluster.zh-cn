@@ -1,0 +1,125 @@
+---
+permalink: upgrade/upgrade-mcc-ip-manual-complete-upgrade.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc, complete 
+summary: 升级控制器模块后、请执行必要的任务以完成控制器升级。 
+---
+= 完成MetroCluster IP控制器升级
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+升级控制器模块后、请执行必要的任务以完成控制器升级。
+
+
+
+== 检查 MetroCluster 配置的运行状况
+
+升级控制器模块后，您必须验证 MetroCluster 配置的运行状况。
+
+.关于此任务
+您可以对MetroCluster配置中的任何节点执行此任务。
+
+.步骤
+. 验证 MetroCluster 配置的运行情况：
++
+.. 确认 MetroCluster 配置以及操作模式是否正常： + MetroCluster show`
+.. 执行 MetroCluster check ： + MetroCluster check run`
+.. 显示 MetroCluster 检查的结果：
++
+MetroCluster check show`
+
+
+
+. 验证 MetroCluster 连接和状态。
++
+.. 检查 MetroCluster IP 连接：
++
+`storage iscsi-initiator show`
+
+.. 检查节点是否正在运行：
++
+`MetroCluster node show`
+
+.. 检查 MetroCluster IP 接口是否已启动：
++
+`MetroCluster configuration-settings interface show`
+
+.. 检查本地故障转移是否已启用：
++
+`s存储故障转移显示`
+
+
+
+
+
+
+
+== 升级cluster-A上的节点
+
+要升级站点A上的cluster-A上的节点、必须重复执行升级任务
+
+.步骤
+. 重复上述步骤以升级cluster-A上的节点，从开始link:upgrade-mcc-ip-manual-requirements.html["准备升级。"]。
++
+在执行任务时，对集群和节点的所有示例引用都将反转。例如，如果提供了从 cluster_A 切换的示例，则您将从 cluster_B 切换
+
+
+
+
+
+== 还原 Tiebreaker 或调解器监控
+
+完成 MetroCluster 配置升级后，您可以使用 Tiebreaker 或调解器实用程序恢复监控。
+
+.步骤
+. 根据需要使用适用于您的配置的操作步骤还原监控。
++
+|===
+| 如果您使用的是 ... | 使用此操作步骤 
+
+
+ a| 
+Tiebreaker
+ a| 
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["添加 MetroCluster 配置"](英文)
+
+
+
+ a| 
+调解器
+ a| 
+link:../install-ip/concept_mediator_requirements.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"](英文)
+
+
+
+ a| 
+第三方应用程序
+ a| 
+请参见产品文档。
+
+|===
+
+
+
+
+== 维护后发送自定义 AutoSupport 消息
+
+完成升级后，您应发送一条 AutoSupport 消息，指示维护结束，以便可以恢复自动创建案例。
+
+.步骤
+. 要恢复自动生成支持案例，请发送 AutoSupport 消息以指示维护已完成。
++
+.. 问题描述以下命令： + `ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
+.. 在配对集群上重复此命令。
+
+
+
+
+
+
+== 配置端到端加密
+
+如果系统支持、则可以对MetroCluster IP站点之间的后端流量(例如NVlog和存储复制数据)进行加密。请参见 link:../maintain/task-configure-encryption.html["配置端到端加密"] 有关详细信息 ...

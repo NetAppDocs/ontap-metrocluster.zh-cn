@@ -23,7 +23,12 @@ ONTAP 9数据管理软件的每个版本都提供了一些新增功能和增强�
  a| 
 支持迁移MetroCluster配置的SVM数据移动性
  a| 
-ONTAP支持将SVM从非MetroCluster HA对迁移到MetroCluster配置或从MetroCluster配置迁移到非MetroCluster HA对。您不能在MetroCluster配置之间迁移SVM。
+ONTAP支持以下MetroCluster SVM迁移：
+
+* 在非MetroCluster HA对和MetroCluster IP配置之间迁移SVM
+* 在两个MetroCluster IP配置之间迁移SVM
+* 在MetroCluster FC配置和MetroCluster IP配置之间迁移SVM
+
 
 link:https://docs.netapp.com/us-en/ontap/svm-migrate/index.html["SVM 数据移动性"^]
  a| 
@@ -58,7 +63,7 @@ ONTAP 9.15.1.
  a| 
 您可以在MetroCluster IP和FC配置中的镜像或未镜像聚合中的SVM上启用S3对象存储服务器。
 
-https://docs.netapp.com/us-en/ontap/s3-config/index.html["S3配置概述"]
+https://docs.netapp.com/us-en/ontap/s3-config/index.html["S3配置概述"^]
  a| 
 ONTAP 9.14.1
 
@@ -69,7 +74,7 @@ ONTAP 9.14.1
  a| 
 您可以在MetroCluster配置中的镜像或未镜像聚合上创建分段。
 
-https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-mcc-task.html["在MetroCluster配置中的镜像或未镜像聚合上创建分段"]
+https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-mcc-task.html["在MetroCluster配置中的镜像或未镜像聚合上创建分段"^]
  a| 
 ONTAP 9.12.1
 
@@ -91,7 +96,7 @@ IPSEC支持在MetroCluster IP和MetroCluster光纤连接配置中使用前端主
  a| 
 在MetroCluster IP和MetroCluster光纤连接配置中、可以为前端主机协议(例如NFS和iSCSI)提供IPSEC支持。
 
-https://docs.netapp.com/us-en/ontap/networking/configure_ip_security_@ipsec@_over_wire_encryption.html["通过线缆加密配置 IP 安全性（ IP security ， IPsec ）"]
+https://docs.netapp.com/us-en/ontap/networking/configure_ip_security_@ipsec@_over_wire_encryption.html["通过线缆加密配置 IP 安全性（ IP security ， IPsec ）"^]
  a| 
 ONTAP 9.11.1
 
@@ -111,7 +116,7 @@ MetroCluster 配置上的 FabricPool 镜像
  a| 
 您可以在MetroCluster配置上设置镜像FabricPool、以便将冷数据分层到两个不同的故障分区。
 
-https://docs.netapp.com/us-en/ontap/fabricpool/setup-object-stores-mcc-task.html["在 MetroCluster 配置中为 FabricPool 设置对象存储"]
+https://docs.netapp.com/us-en/ontap/fabricpool/setup-object-stores-mcc-task.html["在 MetroCluster 配置中为 FabricPool 设置对象存储"^]
  a| 
 ONTAP 9.7
 

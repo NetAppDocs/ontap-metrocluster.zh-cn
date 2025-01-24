@@ -14,17 +14,80 @@ entries:
     url: "/upgrade/concept_choosing_expansion_method_mcc.html"
 - title: 使用"system controller Replace (system controller Replace)"命令通过切换和切回升级四节点MetroCluster
     IP中的控制器(ONTAP 9.13.1及更高版本)
-  url: "/upgrade/task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html"
+  entries:
+  - title: 升级工作流
+    url: "/upgrade/upgrade-mcc-ip-system-controller-replace.html"
+  - title: 准备升级
+    entries:
+    - title: 支持使用system controller Replace命令升级MetroCluster IP控制器
+      url: "/upgrade/upgrade-mcc-ip-system-controller-replace-supported-platforms.html"
+    - title: 使用此升级过程的要求
+      url: "/upgrade/upgrade-mcc-ip-system-controller-replace-requirements.html"
+    - title: 启用控制台日志记录
+      url: "/upgrade/upgrade-mcc-ip-system-controller-replace-console-logging.html"
+    - title: 设置所需的启动程序(对于9.15.1 9.151或更高版本中引入的系统升级)
+      url: "/upgrade/upgrade-mcc-ip-system-controller-replace-set-bootarg.html"
+    - title: 准备系统以进行升级
+      url: "/upgrade/upgrade-mcc-ip-system-controller-replace-prechecks.html"
+  - title: 升级控制器
+    entries:
+    - title: 准备旧控制器的网络配置
+      url: "/upgrade/upgrade-mcc-ip-system-controller-replace-prepare-network-configuration.html"
+    - title: 设置并通过网络启动新控制器
+      url: "/upgrade/upgrade-mcc-ip-system-controller-replace-setup-new-controllers.html"
+    - title: 还原HBA配置并设置HA状态
+      url: "/upgrade/upgrade-mcc-ip-system-controller-replace-restore-hba-set-ha.html"
+    - title: 更新交换机RC框架 文件并设置MetroCluster IP启动程序值
+      url: "/upgrade/upgrade-mcc-ip-system-controller-replace-apply-rcf-set-bootarg.html"
+    - title: 重新分配根聚合磁盘
+      url: "/upgrade/upgrade-mcc-ip-system-controller-replace-reassign-root-agg.html"
+    - title: 启动新控制器并还原LIF配置
+      url: "/upgrade/upgrade-mcc-ip-system-controller-replace-boot-new-controllers.html"
+  - title: 完成升级
+    url: "/upgrade/upgrade-mcc-ip-system-controller-replace-complete-upgrade.html"
+- title: 使用切换和切回升级MetroCluster IP中的控制器(ONTAP 9.8及更高版本)
+  entries:
+  - title: 升级工作流
+    url: "/upgrade/upgrade-mcc-ip-manual.html"
+  - title: 准备升级
+    entries:
+    - title: 使用此升级过程的要求
+      url: "/upgrade/upgrade-mcc-ip-manual-requirements.html"
+    - title: 启用控制台日志记录
+      url: "/upgrade/upgrade-mcc-ip-manual-console-logging.html"
+    - title: 设置所需的启动程序(对于9.15.1 9.151或更高版本中引入的系统升级)
+      url: "/upgrade/upgrade-mcc-ip-manual-set-bootarg.html"
+    - title: 准备系统以进行升级
+      url: "/upgrade/upgrade-mcc-ip-prepare-system.html"
+  - title: 升级控制器
+    entries:
+    - title: 切换 MetroCluster 配置
+      url: "/upgrade/upgrade-mcc-ip-manual-switchover.html"
+    - title: 删除接口配置并卸载旧控制器
+      url: "/upgrade/upgrade-mcc-ip-manual-uninstall-controllers.html"
+    - title: 设置新控制器
+      url: "/upgrade/upgrade-mcc-ip-manual-setup-controllers.html"
+    - title: 还原HBA配置并设置HA状态
+      url: "/upgrade/upgrade-mcc-ip-manual-hba-set-ha.html"
+    - title: 更新交换机RC框架 文件并设置MetroCluster IP启动程序值
+      url: "/upgrade/upgrade-mcc-ip-manual-apply-rcf-set-bootarg.html"
+    - title: 重新分配根聚合磁盘
+      url: "/upgrade/upgrade-mcc-ip-manual-reassign-root-agg.html"
+    - title: 启动新控制器并还原LIF配置
+      url: "/upgrade/upgrade-mcc-ip-manual-boot-new-controllers.html"
+    - title: 切回配置
+      url: "/upgrade/upgrade-mcc-ip-manual-switchback.html"
+  - title: 完成升级
+    url: "/upgrade/upgrade-mcc-ip-manual-complete-upgrade.html"
+- title: 使用切换和切回将MetroCluster IP中的控制器(AFF A700到AFF A900、FAS9000到FAS9500)升级(9.10.1
+    9.10.1或更高版本)
+  url: "/upgrade/task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html"
 - title: 使用切换和切回升级MetroCluster FC中的控制器
   url: "/upgrade/task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html"
-- title: 使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster FC配置中的控制器(AFF A700/FAS9000到AFF A900/FAS9500)
+- title: 使用切换和切回(9.10.1 9.10.1或更高版本)升级MetroCluster FC配置中的控制器(AFF A700到AFF A900、FAS9000到FAS9500)
   url: "/upgrade/task_upgrade_A700_to_A900_in_a_four_node_mcc_fc_us_switchover_and_switchback.html"
 - title: 使用切换和切回命令使用system controller replace升级四节点MetroCluster FC中的控制器(ONTAP 9.10.1及更高版本)
   url: "/upgrade/task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_fc.html"
-- title: 使用切换和切回升级MetroCluster IP中的控制器(ONTAP 9.8及更高版本)
-  url: "/upgrade/task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html"
-- title: 使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster IP中的控制器(AFF A700/FAS9000到AFF A900/FAS9500）
-  url: "/upgrade/task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html"
 - title: 刷新四节点 MetroCluster FC 配置
   url: "/upgrade/task_refresh_4n_mcc_fc.html"
 - title: 刷新四节点或八节点MetroCluster IP配置(ONTAP 9.8及更高版本)

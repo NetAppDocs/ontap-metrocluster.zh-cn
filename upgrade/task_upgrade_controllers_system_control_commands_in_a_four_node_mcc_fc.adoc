@@ -477,15 +477,14 @@ The node must be rebooted to start using the newly installed software. Do you wa
 
 === 清除控制器模块上的配置
 
-[role="lead"]
 在 MetroCluster 配置中使用新控制器模块之前，必须清除现有配置。
 
 .步骤
-. 如有必要，暂停节点以显示 LOADER 提示符：
+. 如有必要、暂停节点以显示 `LOADER`提示符：
 +
 `halt`
 
-. 在 LOADER 提示符处，将环境变量设置为默认值：
+. 在提示符处 `LOADER`、将环境变量设置为默认值：
 +
 `set-defaults`
 
@@ -493,7 +492,7 @@ The node must be rebooted to start using the newly installed software. Do you wa
 +
 `saveenv`
 
-. 在 LOADER 提示符处，启动启动菜单：
+. 在提示符处 `LOADER`、启动启动菜单：
 +
 `boot_ontap 菜单`
 

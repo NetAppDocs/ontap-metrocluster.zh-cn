@@ -1,0 +1,50 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-supported-platforms.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 开始升级MetroCluster IP控制器之前、您需要验证您的升级组合是否受支持。 
+---
+= 支持使用system controller Replace命令升级MetroCluster IP控制器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+开始升级MetroCluster IP控制器之前、您需要验证您的升级组合是否受支持。
+
+从本节的MetroCluster控制器升级表中查找您的*Source*平台。如果*Source*平台行与*Target*平台列的交叉点为空，则不支持升级。
+
+开始升级之前、请查看以下注意事项、以验证您的配置是否受支持。
+
+* 如果未列出您的平台、则表示没有受支持的控制器升级组合。
+* 执行控制器升级时，旧平台类型和新平台类型*Must*匹配：
++
+** 您可以将FAS系统升级到FAS系统、或者将AFF A系列升级到AFF A系列。
+** 您不能将FAS系统升级到AFF A系列、也不能将AFF A系列升级到AFF C系列。
++
+例如、如果要升级的平台是FAS8200、则可以升级到FAS9000。您不能将FAS8200系统升级到AFF A700系统。
+
+
+
+* MetroCluster配置中的所有节点(旧节点和新节点)都必须运行相同版本的ONTAP。有关您的组合支持的最低ONTAP版本、请参见link:https://hwu.netapp.com["Hardware Universe"^]。
+
+
+.支持的AFF和FAS MetroCluster IP控制器升级
+下表显示了在MetroCluster IP配置中使用system controller Replace命令升级AFF或FAS系统时支持的平台组合：
+
+image:../media/mccip_assisted_controller_upgrade_comb.png["显示了使用system controller Replace命令升级MetroCluster IP时支持的平台组合。"]
+
+* 注1：运行ONTAP 9.131或更高版本的系统支持控制器升级。
+* 注2：目标平台必须在控制器升级完成后才能具有内部驱动器。您可以在升级后添加内部驱动器。
+* 注3：需要更换控制器模块。
+* 注4：需要使用IOM模块将旧控制器转换为外部SAS磁盘架。有关支持的IOM模块、请参见link:https://hwu.netapp.com/["Hardware Universe"^]。
+
+
+.支持的ASA MetroCluster IP控制器升级
+不支持在ASA系统上使用命令升级控制器 `system controller replace` 。
+
+有关其他步骤、请参见link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"]。
+
+.下一步是什么？
+查看 link:upgrade-mcc-ip-system-controller-replace-requirements.html["使用此升级过程的要求"]。

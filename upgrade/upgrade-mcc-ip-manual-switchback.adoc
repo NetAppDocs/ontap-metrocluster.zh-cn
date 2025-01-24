@@ -1,0 +1,80 @@
+---
+permalink: upgrade/upgrade-mcc-ip-manual-switchback.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 执行切回操作以使MetroCluster配置恢复正常运行。site_A 上的节点仍在等待升级。 
+---
+= 切回MetroCluster IP配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+执行切回操作以使MetroCluster配置恢复正常运行。site_A 上的节点仍在等待升级。
+
+image::../media/mcc_upgrade_cluster_a_switchback.png[MCC 升级集群 A 切回]
+
+.步骤
+. 在 site_B 上执行 `MetroCluster node show` 命令并检查输出。问题描述
++
+.. 验证新节点的表示是否正确。
+.. 验证新节点是否处于 " 正在等待切回状态 " 。
+
+
+. 从活动集群（未进行升级的集群）中的任何节点运行所需的命令，以执行修复和切回。
++
+.. 修复数据聚合： + MetroCluster heal aggregates`
+.. 修复根聚合：
++
+MetroCluster 修复根`
+
+.. 切回集群：
++
+`MetroCluster 切回`
+
+
+
+. 检查切回操作的进度：
++
+`MetroCluster show`
+
++
+当输出显示 `waiting for-switchback` 时，切回操作仍在进行中：
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_B         Configuration state configured
+                          Mode                switchover
+                          AUSO Failure Domain -
+Remote: cluster_A         Configuration state configured
+                          Mode                waiting-for-switchback
+                          AUSO Failure Domain -
+----
++
+当输出显示正常时，切回操作完成：
+
++
+[listing]
+----
+cluster_B::> metrocluster show
+Cluster                   Entry Name          State
+------------------------- ------------------- -----------
+ Local: cluster_B         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain -
+Remote: cluster_A         Configuration state configured
+                          Mode                normal
+                          AUSO Failure Domain -
+----
++
+如果切回需要很长时间才能完成，您可以使用 `MetroCluster config-replication resync-status show` 命令检查正在进行的基线的状态。此命令处于高级权限级别。
+
+
+
+.下一步是什么？
+link:upgrade-mcc-ip-manual-complete-upgrade.html["完成升级"](英文)

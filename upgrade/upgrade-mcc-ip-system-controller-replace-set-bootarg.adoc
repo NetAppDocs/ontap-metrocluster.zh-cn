@@ -1,0 +1,113 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-set-bootarg.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 升级到9.15.1 9.151或更高版本中引入的系统需要先设置启动程序、然后才能继续升级。 
+---
+= 设置所需的启动程序(对于在9.15.1 9.151或更高版本中引入的系统的MetroCluster IP升级)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+升级到9.15.1 9.151或更高版本中引入的系统需要先设置启动程序、然后才能继续升级。
+
+
+
+== 第1步：确定需要在旧控制器上设置的启动程序
+
+以下系统的所有受支持升级都要求您在执行控制器升级之前、在旧控制器上设置一个启动程序：
+
+* AFF A70、AFF A90、AFF A1K
+* FAS70、FAS90
+* AFF C80
+* AFF A50、AFF A20、AFF A30
+* AFF C30、AFF C60
+
+
+
+CAUTION: 如果要升级到列出的任何系统，则在执行升级之前，*必须*在现有系统上设置所需的启动程序。对于所有其他升级，您可以跳过此任务并直接转到 link:upgrade-mcc-ip-system-controller-replace-prechecks.html["准备系统以进行升级"]。
+
+9.15.1 9.151或更高版本中引入的大多数系统升级都要求在旧控制器上设置 `hw.cxgbe.toe_keepalive_disable`启动程序。但是、某些升级路径要求您设置 `bootarg.siw.interop_enabled`布塔格。
+
+使用下表确定您需要为特定升级组合设置的bootarg。
+
+[cols="2*"]
+|===
+| 此升级的版本 | 设置了布塔格... 
+
+
+| 从AFF A250到AFF A30 | `bootarg.siw.interop_enabled` 
+
+
+| 从AFF C250到AFF C30 | `bootarg.siw.interop_enabled` 
+
+
+| 从AFF A150到AFF 2020 | `bootarg.siw.interop_enabled` 
+
+
+| 从AFF A220到AFF 2020 | `bootarg.siw.interop_enabled` 
+
+
+| 所有其他受支持的AFF A70、AFF A90、AFF A1K、FAS70、FAS90、AFF C80、AFF A50、AFF 2020、AFF A30、AFF C30或AFF C60系统升级 | `hw.cxgbe.toe_keepalive_disable` 
+|===
+
+
+== 第2步：在旧控制器上设置所需的启动程序
+
+只有在升级到AFF A70、AFF A90、AFF A1K、FAS70、FAS90、AFF C80、AFF A50、AFF 2020、AFF A30、AFF C30或AFF C60系统时、*才需要执行此任务。
+
+.步骤
+. 暂停每个站点上的一个节点、并允许其HA配对节点对该节点执行存储接管：
++
+`halt  -node <node_name>`
+
+. 为您的升级组合设置所需的bootarg。您已使用中的表确定需要设置的启动<<upgrade_paths_bootarg_assisted,确定需要设置的布塔格>>程序。
++
+[role="tabbed-block"]
+====
+.hw.cxgbe。toe_keepAlive_disable
+--
+.. 在暂停节点的提示符处 `LOADER` 、输入以下内容：
++
+`setenv hw.cxgbe.toe_keepalive_disable 1`
+
++
+`saveenv`
+
++
+`printenv hw.cxgbe.toe_keepalive_disable`
+
+
+
+--
+.bootarg.siw.interop_enabled
+--
+.. 在暂停节点的提示符处 `LOADER` 、输入以下内容：
++
+`setenv bootarg.siw.interop_enabled 1`
+
++
+`saveenv`
+
++
+`printenv bootarg.siw.interop_enabled`
+
+
+
+--
+====
+. 启动节点：
++
+`boot_ontap`
+
+. 当节点启动时、在提示符处对节点执行一次返回：
++
+`storage failover giveback -ofnode <node_name>`
+
+. 对要升级的灾难恢复组中的每个节点重复上述步骤。
+
+
+.下一步行动
+link:upgrade-mcc-ip-system-controller-replace-prechecks.html["准备系统以进行升级"](英文)

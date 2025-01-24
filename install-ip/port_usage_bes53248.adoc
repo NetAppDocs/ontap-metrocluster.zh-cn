@@ -13,9 +13,9 @@ summary: MetroCluster IP 配置中的端口使用情况取决于交换机型号�
 [role="lead"]
 MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台类型。
 
-这些交换机不能与速度不同的远程 ISL 端口（例如，连接到 10 Gbps ISL 端口的 25 Gbps 端口）结合使用。
+在使用配置表之前、请查看以下注意事项：
 
-.在使用表之前、请查看此信息：
+* 您不能使用具有不同速度的远程ISL端口的交换机(例如、连接到10 Gbps ISL端口的25 Gbps端口)。
 * 如果为交换机配置MetroCluster FC到IP过渡、则会根据您选择的目标平台使用以下端口：
 +
 [cols="75,25"]
@@ -63,13 +63,16 @@ AFF A220
 | FAS500f AFF C250、ASA C250 AFF A250、ASA A250 | <<table_2_bes_53248,Broadcom BES-53248平台端口分配(组2)>> 
 
 
-| FAS8200、AFF A300 | <<table_3_bes_53248,Broadcom BES-53248平台端口分配(第3组)>> 
+| AFF 2020 AFF C30、AFF A30 AFF C60 | <<table_3_bes_53248,Broadcom BES-53248平台端口分配(第3组)>> 
 
 
-| AFF A320 | <<table_4_bes_53248,Broadcom BES-53248平台端口分配(第4组)>> 
+| FAS8200、AFF A300 | <<table_4_bes_53248,Broadcom BES-53248平台端口分配(第4组)>> 
 
 
-| FAS9300 AFF C400、ASA C400 AFF A400、ASA A400 FAS4700 | <<table_5_bes_53248,Broadcom BES-53248平台端口分配(第5组)>> 
+| AFF A320 | <<table_5_bes_53248,Broadcom BES-53248平台端口分配(第5组)>> 
+
+
+| FAS9300 AFF C400、ASA C400 AFF A400、ASA A400 FAS4700 | <<table_6_bes_53248,Broadcom BES-53248平台端口分配(第6组)>> 
 |===
 .Broadcom BES-53248平台端口分配(组1)
 查看将AFF A150、ASA A150、FAS2750或AFF A220系统连接到Broadcom BES-53248交换机的平台端口分配：
@@ -90,14 +93,22 @@ image::../media/mcc_ip_cabling_a_aff_asa_c250_a250_fas500f_to_a_broadcom_bes_532
 
 
 .Broadcom BES-53248平台端口分配(第3组)
-查看使用缆线将FAS8200或AFF A300系统连接到Broadcom BES-53248交换机的平台端口分配：
+查看将AFF A20、AFF C30、AFF A30或AFF C60系统连接到Broadcom BES-53248交换机的平台端口分配：
 
-image::../media/mcc-ip-cabling-a-aff-a300-or-fas8200-to-a-broadcom-bes-53248-switch.png[显示了Broadcom BES-53248平台端口分配]
+image:../media/mcc-ip-cabling-aff-a20-a30-c30-c60-to-a-broadcom-bes-53248-switch.png["显示了Broadcom BES-53248平台端口分配"]
 
 * *注1*:使用这些端口需要额外的许可证。
 
 
 .Broadcom BES-53248平台端口分配(第4组)
+查看使用缆线将FAS8200或AFF A300系统连接到Broadcom BES-53248交换机的平台端口分配：
+
+image::../media/mcc-ip-cabling-a-aff-a300-or-fas8200-to-a-broadcom-bes-53248-switch-9161.png[显示了Broadcom BES-53248平台端口分配]
+
+* *注1*:使用这些端口需要额外的许可证。
+
+
+.Broadcom BES-53248平台端口分配(第5组)
 查看将AFF A320系统连接到Broadcom BES-53248交换机的平台端口分配：
 
 image::../media/mcc-ip-cabling-a-aff-a320-to-a-broadcom-bes-53248-switch.png[显示了Broadcom BES-53248平台端口分配]
@@ -109,7 +120,7 @@ image::../media/mcc-ip-cabling-a-aff-a320-to-a-broadcom-bes-53248-switch.png[显
 
 
 
-.Broadcom BES-53248平台端口分配(第5组)
+.Broadcom BES-53248平台端口分配(第6组)
 查看使用缆线连接FAS9300、AFF C400、ASA C400、AFF A400、ASA A400的平台端口分配、 或FAS4700系统连接到Broadcom BES-53248交换机：
 
 image::../media/mcc-ip-cabling-a-fas8300-a400-c400-or-fas8700-to-a-broadcom-bes-53248-switch.png[显示了Broadcom BES-53248平台端口分配]

@@ -1,0 +1,77 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-requirements.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 在执行控制器升级之前、请验证您的系统是否满足所有要求。 
+---
+= 使用此MetroCluster IP升级过程的要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在执行控制器升级之前、请验证您的系统是否满足所有要求。
+
+* 此操作步骤只能用于控制器升级。
++
+无法同时升级配置中的其他组件，例如存储架或交换机。
+
+* 升级配置中的现有控制器和新控制器必须支持MetroCluster IP交换机(交换机类型、供应商和型号)以及固件版本。
++
+有关支持的交换机和固件版本、请参见 link:https://hwu.netapp.com["Hardware Universe"^] 或 link:https://imt.netapp.com/matrix/["IMT"^] 。
+
+* 两个站点的MetroCluster IP系统必须运行相同版本的ONTAP。
+* 从插槽或端口比新系统多的系统升级时、您需要验证新系统上是否有足够的插槽和端口。
++
+开始升级之前、请参阅link:https://hwu.netapp.com["Hardware Universe"^]以验证新系统上的插槽和端口数量。
+
+* 您可以使用此操作步骤 通过基于NSO的自动切换和切回来升级四节点MetroCluster IP配置中的控制器。
++
+
+NOTE: 四节点MetroCluster IP配置不支持使用聚合重新定位(ARL)和"system controller Replace (系统控制器更换)"命令执行升级。
+
+* 如果在系统上启用了此功能、则 link:../maintain/task-configure-encryption.html#disable-end-to-end-encryption["禁用端到端加密"] 在执行升级之前执行此操作。
+* 您必须使用自动化NSO控制器升级操作步骤 按顺序升级两个站点上的控制器。
+* 此基于 NSO 的自动控制器升级操作步骤使您能够对 MetroCluster 灾难恢复（ DR ）站点启动控制器更换。一次只能在一个站点启动控制器更换。
+* 要在站点 A 启动控制器更换，您需要从站点 B 运行 controller replacement start 命令此操作仅会指导您更换站点 A 上两个节点的控制器。要更换站点 B 的控制器，您需要从站点 A 运行 controller replacement start 命令此时将显示一条消息，指出要更换控制器的站点。
+
+
+此操作步骤使用以下示例名称：
+
+* cluster_A 位于 site_A
++
+** 升级前：
++
+*** node_A_1-old
+*** node_A_2-old
+
+
+** 升级后：
++
+*** node_A_1-new
+*** node_A_2-new
+
+
+
+
+* site_B 上的 cluster_B
++
+** 升级前：
++
+*** node_B_1-old
+*** node_B_2-old
+
+
+** 升级后：
++
+*** node_B_1-new
+*** node_B_2-new
+
+
+
+
+
+
+.下一步是什么？
+link:upgrade-mcc-ip-system-controller-replace-console-logging.html["启用控制台日志记录"](英文)

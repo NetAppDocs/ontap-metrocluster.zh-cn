@@ -18,4 +18,4 @@ summary: 如果您使用的是符合MetroCluster的交换机、则应了解特�
 
 NOTE: 缺少值表示此平台无法与MetroCluster兼容的交换机结合使用。
 
-image::../media/mcc-compliant-switches-network-speed-9151.png[显示了MetroCluster兼容交换机的平台特定网络速度和交换机端口模式。]
+image:../media/mcc-compliant-network-speed-9161.png["显示了MetroCluster兼容交换机的平台特定网络速度和交换机端口模式。"]

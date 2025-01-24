@@ -1,0 +1,57 @@
+---
+permalink: upgrade/upgrade-mcc-ip-manual-switchover.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 您可以将配置切换到site_A、以便可以升级site_B上的平台。 
+---
+= 切换MetroCluster IP配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将配置切换到site_A、以便可以升级site_B上的平台。
+
+.关于此任务
+必须在 site_A 上执行此任务
+
+完成此任务后：
+
+* cluster-A处于活动状态、并为这两个站点提供数据。
+* cluster-B处于非活动状态、已准备好开始升级过程。
+
+
+image::../media/mcc_upgrade_cluster_a_in_switchover.png[显示cluster-A已做好升级准备、而cluster-B正在切换]
+
+.步骤
+. 将 MetroCluster 配置切换到 site_A ，以便可升级 site_B 的节点：
++
+.. 对 cluster_A 执行问题描述以下命令：
++
+MetroCluster switchover -controller-replacement true`
+
++
+此操作可能需要几分钟才能完成。
+
+.. 监控切换操作：
++
+`MetroCluster 操作显示`
+
+.. 操作完成后，确认节点处于切换状态：
++
+`MetroCluster show`
+
+.. 检查 MetroCluster 节点的状态：
++
+`MetroCluster node show`
+
++
+在控制器升级期间、协商切换后的聚合自动修复功能处于禁用状态。
+
+
+
+
+
+.下一步是什么？
+link:upgrade-mcc-ip-manual-uninstall-controllers.html["删除接口配置并卸载旧控制器"](英文)

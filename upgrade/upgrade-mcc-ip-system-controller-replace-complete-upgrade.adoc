@@ -1,0 +1,78 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-complete-upgrade.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 通过验证网络可访问性并还原任何监控配置来完成自动控制器升级过程。 
+---
+= 完成MetroCluster IP控制器升级
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过验证网络可访问性并还原任何监控配置来完成自动控制器升级过程。
+
+
+
+== 验证网络可连接
+
+此自动化操作将运行验证系统检查，然后暂停，以便您可以验证网络可访问性。验证后，将启动资源重新获取阶段，自动化操作将在站点 A 执行切回，并在升级后检查时暂停。恢复自动化操作后，它将执行升级后检查，如果未检测到错误，则会将升级标记为完成。
+
+.步骤
+. 按照控制台消息验证网络可访问性。
+. 完成验证后，恢复此操作：
++
+`s系统控制器更换恢复`
+
+. 此时将执行自动化操作 `heal-aggregate`， `heal-root-aggregate`和站点A上的切回操作以及升级后检查。操作暂停后，手动检查 SAN LIF 状态，并按照控制台消息验证网络配置。
+. 完成验证后，恢复此操作：
++
+`s系统控制器更换恢复`
+
+. 检查升级后检查状态：
++
+`ssystem controller replace show`
+
++
+如果升级后检查未报告任何错误、则表示升级已完成。
+
+. 完成控制器升级后，登录站点 B 并验证是否已正确配置更换的控制器。
+
+
+
+
+== 升级cluster-A上的节点
+
+要升级站点A上的cluster-A上的节点、必须重复执行升级任务
+
+.步骤
+. 重复上述步骤以升级cluster-A上的节点，从开始link:upgrade-mcc-ip-system-controller-replace-supported-platforms.html["准备升级。"]。
++
+在执行任务时，对集群和节点的所有示例引用都将反转。
+
+
+
+
+
+== 重新配置ONTAP 调解器
+
+手动配置在开始升级之前自动删除的ONTAP 调解器。
+
+. 使用中的步骤 link:../install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"]。
+
+
+
+
+== 还原 Tiebreaker 监控
+
+如果先前已将 MetroCluster 配置配置为由 Tiebreaker 软件监控，则可以还原 Tiebreaker 连接。
+
+. 使用中的步骤 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-7259BCA4-104C-49C6-BAD0-1068CA2A3DA5.html["添加 MetroCluster 配置"]。
+
+
+
+
+== 配置端到端加密
+
+如果系统支持、则可以对MetroCluster IP站点之间的后端流量(例如NVlog和存储复制数据)进行加密。请参见 link:../maintain/task-configure-encryption.html["配置端到端加密"] 有关详细信息 ...

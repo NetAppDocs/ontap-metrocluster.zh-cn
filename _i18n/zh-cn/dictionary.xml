@@ -1607,9 +1607,7 @@
   <block id="043433cd6601b119cc11c871f6f3ac48" category="list-text">在配对站点上重复此步骤。</block>
   <block id="c6084eb130de0b018e621dc1c9cf963f" category="summary">在 MetroCluster 配置中使用新控制器模块之前，必须清除此配置。</block>
   <block id="9d288331dcbf3df246af2a35300324d8" category="doc">清除控制器模块上的配置</block>
-  <block id="7c118227cfe507ef660214732b94e5ac" category="list-text">如有必要，暂停节点以显示 LOADER 提示符：</block>
   <block id="819817945fea31f0c3596c841e685904" category="paragraph">`halt`</block>
-  <block id="7945c50dd819c63cfdc35bac7aeea32c" category="list-text">在 LOADER 提示符处，将环境变量设置为默认值：</block>
   <block id="70dbb49a6cbad96a6befa2a87cf2c5ce" category="paragraph">`set-defaults`</block>
   <block id="9e3a2189ad08237fac40cc74ecf0cb68" category="list-text">保存环境：</block>
   <block id="4efce637d6ec3bc2a69f403fd39b9b41" category="paragraph">`saveenv`</block>
@@ -1727,12 +1725,10 @@
   <block id="8350941ac33c250a74a7bdf85a15fb0c" category="cell">所需操作</block>
   <block id="021129e5b6cda3c7398d4240f38ab938" category="paragraph">e0a ， e0b</block>
   <block id="112ed9eca68e97857fba4d0db6ce268d" category="paragraph">e3a ， e3b</block>
-  <block id="1804bc4c5fb7a95408fded0e6818ecaf" category="paragraph">没有匹配的端口。升级后，您必须重新创建集群端口。</block>
   <block id="976dfaa29917d0a4edcbb9a22b57a8e5" category="paragraph">e0c ， e0d</block>
   <block id="229d858313e11e88210813eb6c3082e7" category="paragraph">e0a ， e0b ， e0c ， e0d</block>
   <block id="8ebf2ebde560540be4173f22041f6955" category="paragraph">e0c 和 e0d 是匹配的端口。您无需更改配置，但升级后，您可以将集群 LIF 分布在可用的集群端口上。</block>
   <block id="de88222e72c721931475b633a0ac0ac0" category="list-text">确定新控制器上可用的物理端口以及这些端口上可以托管的 LIF 。</block>
-  <block id="91d33818fef965162b77e41ea0904f19" category="paragraph">控制器的端口使用情况取决于平台模块以及要在 MetroCluster IP 配置中使用的交换机。您可以从收集新平台的端口使用情况 <block ref="c7de98113170eef3b5acdc2cf9602241" category="inline-link-macro-rx"></block>。</block>
   <block id="2b9f16df870bf7f9ae5d01346b8a4ca7" category="paragraph">此外，还要确定 FC-VI 卡插槽的使用情况。</block>
   <block id="2bfe0466886d075338fffdda007a312b" category="list-text">规划端口使用情况，如果需要，请填写下表，以供每个新节点参考。</block>
   <block id="611be5236bae1ce073bb1dda8cc61c8c" category="paragraph">在执行升级操作步骤时，您将参考下表。</block>
@@ -1842,7 +1838,6 @@
   <block id="1494e61022d43a77210d5dc678a3a88d" category="section-title">通过网络启动新控制器</block>
   <block id="edc643a9505fab515a007a1aa3dc38cc" category="paragraph">安装新节点后，您需要通过网络启动来确保新节点运行的 ONTAP 版本与原始节点相同。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。</block>
   <block id="9fedaeee9e87c87e46105dc0f2af2cae" category="paragraph">此任务将对每个新控制器模块执行。</block>
-  <block id="7d7b595501a22c5e8b1d85aae62b9d71" category="list-text">访问<block ref="ce05c15478baf1fd107c1e0b09c6e8b0" category="inline-link-rx"></block> 下载用于执行系统网络启动的文件。</block>
   <block id="b766f72a6d760e806b313f201b12c31b" category="list-text">从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ontap-version_image.tgz 文件存储在可通过 Web 访问的目录中。</block>
   <block id="5649001554632acee7f17de29854ba9d" category="cell">平台型号</block>
   <block id="383b9c142d0ac9c95fc6323618a87c9b" category="cell">FAS/AFF8000 系列系统</block>
@@ -1941,15 +1936,12 @@
   <block id="3a55d609c352263354400d0d692b7107" category="list-text">根据需要重新创建 VLAN 和接口组。</block>
   <block id="01c8a680f5810522a1ede00d0a15d7a0" category="paragraph">VLAN 和接口组成员资格可能与旧节点不同。</block>
   <block id="d9c67b11fb081a3a5fd6ab259edb40ca" category="inline-link">创建 VLAN</block>
-  <block id="48e70a95a504e447ce8a3651dbabebad" category="paragraph"><block ref="48e70a95a504e447ce8a3651dbabebad" category="inline-link-rx"></block></block>
   <block id="cc7470404d19816588d1ae5af4d078ba" category="inline-link">组合物理端口以创建接口组</block>
-  <block id="5c45da4ca5ec7e9d28eb987314a5305e" category="paragraph"><block ref="5c45da4ca5ec7e9d28eb987314a5305e" category="inline-link-rx"></block></block>
   <block id="9da201c92a516e6f31f68187562fdcc5" category="list-text">如果使用加密，请使用适用于您的密钥管理配置的正确命令还原密钥。</block>
   <block id="0a83ed732b07426c840d56d0ee6e648b" category="paragraph">`sSecurity key-manager 板载同步`</block>
   <block id="5bf2f359266fb5938e485eea48778d7e" category="inline-link">还原板载密钥管理加密密钥</block>
   <block id="69687d9e117e78e71f70786c5e0c9c43" category="paragraph">有关详细信息，请参见<block ref="86f91be7985367f70a4a919a829a9f9e" category="inline-link-rx"></block>。</block>
   <block id="58c1a66269a7ccc7b04879a387e7c3ae" category="inline-link">还原外部密钥管理加密密钥</block>
-  <block id="9fb51d4d13437ec63f1213f3923021a6" category="paragraph">有关详细信息，请参见<block ref="776d197cbf08d1a48ca3c854fbecd090" category="inline-link-rx"></block>。</block>
   <block id="80d9624a4e183629cc80dcaae44aedaa" category="section-title">验证 LIF 配置</block>
   <block id="34e041fe9ecda3607a3bb424cba8d99b" category="paragraph">在切回之前，验证 LIF 是否托管在相应的节点 / 端口上。需要执行以下步骤</block>
   <block id="87706eccebcd85e1210a84c72b5e2c9b" category="paragraph">此任务在 site_B 上执行，其中的节点已使用根聚合启动。</block>
@@ -2345,39 +2337,27 @@
   <block id="41365539a8ffcff55d887255791f26f6" category="list-text">打开现有控制器模块上的电源。</block>
   <block id="81849b984186456aa612c556a4914aaa" category="list-text">对新控制器模块重复上述步骤</block>
   <block id="4b7867ffe681fd760cc93c409952f239" category="paragraph">每个控制器模块应显示 LOADER 提示符（`LOADER&gt;` ， `LOADER-A&gt;` 或 `LOADER-B&gt;` ）。</block>
-  <block id="48f1cbfd98903541f8e454a15e0879c3" category="doc">使用切换和切回升级 MetroCluster IP 配置中的控制器（ ONTAP 9.8 及更高版本）</block>
   <block id="bcd52c133e0292437778058a5ed793b1" category="list-text">这些平台必须运行 ONTAP 9.8 或更高版本。</block>
   <block id="5606659eb62f79273b91080445f7165a" category="list-text">此操作步骤适用场景控制器模块采用 MetroCluster IP 配置。</block>
   <block id="73ab298c8e00d66d28156892903a39ce" category="list-text">AFF A320</block>
   <block id="ec5c696a4bc57321a5a79c91b886d5ff" category="list-text">FAS9000</block>
   <block id="60182e6504cabd5c1f32193f850cc537" category="list-text">IP 交换机必须运行受支持的固件版本。</block>
   <block id="6aad6e6acf8d07a11804f458ffbdcd50" category="list-text">您将在新平台上重复使用原始平台的 IP 地址，网络掩码和网关。</block>
-  <block id="7eff81fa57d161d2ba7ff45b22720013" category="section-title">用于升级 MetroCluster IP 配置中控制器的工作流</block>
   <block id="8b9cf8e3d13d6e63ca169861310c3b62" category="paragraph">您可以使用工作流图帮助您规划升级任务。</block>
   <block id="ea10aa2075899edae7e9fbbdb6876804" category="image-alt">工作流 IP 升级</block>
-  <block id="b61b94c87764061cb7ada38fa4273155" category="paragraph">根据旧平台型号，或者交换机配置不在最低版本上，或者您要更改后端 MetroCluster 连接使用的 VLAN ID ，您必须在开始平台升级操作步骤之前更新交换机 RCF 文件。</block>
-  <block id="6a17bc0f56c24d8e5fe4a9640dca29f0" category="paragraph">在以下情况下，您必须更新 RCF 文件：</block>
-  <block id="0aa42d3b4e9fea86e18bc380dd4833e1" category="list-text">对于某些平台型号，交换机必须使用支持的 VLAN ID 进行后端 MetroCluster IP 连接。如果下表中列出了旧平台或新平台型号，并且 * 不 * 使用支持的 VLAN ID ，则必须更新交换机 RCF 文件。</block>
-  <block id="5ef697d15178cf944c213dee85218dda" category="admonition">本地集群连接可以使用任何 VLAN ，不需要处于给定范围内。</block>
-  <block id="8cd92b0f95565d027b5c8cc1e51b94ef" category="cell">平台型号（旧版或新版）</block>
   <block id="3729b89fda71c7ed2534a805a350c78d" category="cell">支持的 VLAN ID</block>
   <block id="4805338ef95506460c3b178e1d80db0d" category="list-text">介于 101 到 4096 之间的任何值（含 101 到 4096 ）。</block>
-  <block id="2fa54ae7bf07959b7479dbdbc60f56b5" category="list-text">未为交换机配置配置支持的最低 RCF 版本：</block>
-  <block id="cba1b73e0a7dce1b5aeb4cf091cab09b" category="cell">所需的 RCF 文件版本</block>
   <block id="f606ada25615407b042f8f189d1b9fab" category="paragraph">Cisco 3132Q-V</block>
   <block id="6383d84a4827bb60fdcfc949929e33de" category="paragraph">1.7 或更高版本</block>
   <block id="c83195c9d5e5dd5960c0976c81d14ea5" category="paragraph">Cisco 3232C</block>
   <block id="4dd13a124f96d89e0fd6c36f6d82e131" category="paragraph">Broadcom BES-53248</block>
   <block id="79ddbe00231bda83f336a9a9821115f2" category="paragraph">1.3 或更高版本</block>
-  <block id="86cc371c694e2f7ff373b6b274812466" category="list-text">要更改 VLAN 配置。</block>
-  <block id="21eaf0cdaaa2f979118e1696c6ca3fe7" category="paragraph">VLAN ID 范围为 101 到 4096 （含 101 到 4096 ）。</block>
   <block id="c613f1172544a92bcf8317b060382224" category="paragraph">当 site_A 上的控制器升级后， site_A 上的交换机将进行升级。</block>
   <block id="2ebb906b498ab8a5d2a34e709577d28e" category="inline-link-macro">将 Broadcom IP 交换机重置为出厂默认值</block>
   <block id="2c59a5fac27581359d001c6a429618fa" category="inline-link-macro">将 Cisco IP 交换机重置为出厂默认值</block>
   <block id="d93b7c25b0652bbfad8e295f71218dcb" category="list-text">下载并安装 RCF 文件。</block>
   <block id="69178c95258ab0089e5d81bfed9c36dd" category="inline-link-macro">下载并安装 Broadcom RCF 文件</block>
   <block id="11a5f8de5dc8fd3561b2b849e4277433" category="inline-link-macro">下载并安装 Cisco IP RCF 文件</block>
-  <block id="6e6782d6710ef4f900b4910ccf50eff4" category="paragraph">您必须验证 node_A_1-old 上的物理端口是否正确映射到 node_A_1-new 上的物理端口，从而使 node_A_1-new 能够在升级后与集群中的其他节点以及网络进行通信。</block>
   <block id="0d4ad75e0716be856c986b26056dc9e0" category="list-text">规划端口使用情况，并填写下表，以供每个新节点参考。</block>
   <block id="a22d8b3d45a0a714676015f3d6879afe" category="list-text">通过网络启动新控制器：</block>
   <block id="3dcdfa7154959e2158a0ec92a60660c4" category="list-text">从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 `ontap-version_image.tgz` 文件存储在可通过 Web 访问的目录中。</block>
@@ -2388,7 +2368,6 @@
   <block id="c1ebb7e2c78f5822be6dd1d59f8ae92a" category="paragraph">配置手动连接：</block>
   <block id="15e148fc4b52c094ee57889a642d7cb8" category="list-text">出现类似以下内容的提示时，输入 ` * y*` 以重新启动：</block>
   <block id="c8dfe04508a3da43b270064844344274" category="list-text">记录每个节点的物理布线，根据需要为缆线添加标签，以便为新节点正确布线。</block>
-  <block id="7438295fe2bd85e74c4dfae7d7d32936" category="list-text">收集每个节点的互连，端口和 LIF 信息。</block>
   <block id="5791a8e499bd6374b69018568f374756" category="list-text">`MetroCluster interconnect show`</block>
   <block id="05118acd5e1652296ce7c835f60987d6" category="list-text">`MetroCluster configuration-settings connection show`</block>
   <block id="b2f40a9dc3acf5ec2f558edbcfa7ab8b" category="list-text">`network port show -node node_name -type physical`</block>
@@ -2396,7 +2375,6 @@
   <block id="aef2d68ce514382ca5e133b7ec208ecf" category="list-text">`s存储磁盘显示`</block>
   <block id="e98f1370c6e6734e34547668e2b7885e" category="list-text">`MetroCluster configuration-settings interface show`</block>
   <block id="88f8061f6e1681a4b263515885a900e3" category="list-text">收集 site_B （当前正在升级其平台的站点）的 UUID ：</block>
-  <block id="9ef5a5d531a716f744c14e463cdbd35a" category="paragraph">必须在新的 site_B 控制器模块上准确配置这些值，以确保成功升级。将这些值复制到文件，以便稍后在升级过程中将其复制到正确的命令中。</block>
   <block id="9bc90fe013f61635e9dbb97bc6c05864" category="paragraph">以下示例显示了具有 UUID 的命令输出：</block>
   <block id="30a9da9e23c7723d344ea077332337a0" category="paragraph">建议您将 UUID 记录到如下表中。</block>
   <block id="dd16201801d5e3f7069602a499327a3b" category="cell">集群或节点</block>
@@ -2417,14 +2395,10 @@
   <block id="6f439aaac5a6f2528f54f717e0c55a39" category="paragraph">以下输出显示了重新分配的驱动器。</block>
   <block id="8721fdb505c6c36bb5be2e19130e698c" category="paragraph">升级平台之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。</block>
   <block id="bcbf87e4f078f82908e59d6fe8c31f6e" category="list-text">收集以下命令的输出：</block>
-  <block id="2a48a344c8ec986dbb3d64b273b3ce40" category="paragraph">完成此任务后， cluster_A 将处于活动状态，并为两个站点提供数据。cluster_B 处于非活动状态，并已准备好开始升级过程。</block>
   <block id="5426384928a13db30fcee7b4f5c3da08" category="list-text">操作完成后，确认节点处于切换状态：</block>
   <block id="058e49cbd0c1f29381ec01c701554a62" category="list-text">检查 MetroCluster 节点的状态：</block>
-  <block id="982f6eba58d95bda2318d44b2dcea2e3" category="paragraph">在控制器升级期间禁用协商切换后自动修复聚合。</block>
-  <block id="895a79b8b51d133ae9c32d8cb48b9eb7" category="list-text">这些步骤在旧控制器（ node_B_1-old ， node_B_2-old ）上执行。</block>
   <block id="4339dfdd37f410724931874e2a95e452" category="list-text">启动旧节点并登录到节点：</block>
   <block id="0be3d44fabdd20b3537c941fe3904d2a" category="list-text">显示 LIF ：</block>
-  <block id="edb043a5bb74f4379f9f716b89bda737" category="list-text">将节点暂停到 LOADER 提示符处：</block>
   <block id="7d0c5485611d6bb6608dc139509b8698" category="list-text">收集 bootarg 值：</block>
   <block id="4c21e041670c346a702fabcf0aa3b403" category="paragraph">您必须将交换机更新为支持新平台型号的配置。</block>
   <block id="9c7486b863d548a10cb42f0cf9fbf593" category="paragraph">您可以在包含当前正在升级的控制器的站点上执行此任务。在此操作步骤中显示的示例中，我们首先升级 site_B 。</block>
@@ -2453,12 +2427,10 @@
   <block id="2966266a696baa950f4296b63669343d" category="paragraph">`dreassign -s _old-sysid_ -d _new-sysid_`</block>
   <block id="02917ef51e91d158bb9a70ce6faf632f" category="list-text">将驱动器架上的根聚合磁盘重新分配给新控制器：</block>
   <block id="682312d6fb2d213713dbbccaf667e448" category="paragraph">以下示例显示了在非 ADP 配置中重新分配驱动器的情况：</block>
-  <block id="4d51e88535cd7d4f18d9f99b4757f877" category="list-text">验证是否已正确重新分配根聚合中的磁盘 old-remove ：</block>
   <block id="ee0682e27073aa7ab2b44c7bee29901f" category="paragraph">您必须启动新控制器，并注意确保 bootarg 变量正确无误，如果需要，请执行加密恢复步骤。</block>
   <block id="ff5b593f0ddbe1960558539ae27dd364" category="list-text">暂停新节点：</block>
   <block id="e24bfcb02a47c3b7077da9516f2b1d05" category="list-text">检查 partner-sysid 是否为最新版本：</block>
   <block id="67c2d501fbc195df8d8653087a675318" category="list-text">显示 ONTAP 启动菜单：</block>
-  <block id="0d011eba353e9308f99977dbb07116e8" category="list-text">在 LOADER 上，双击 bootarg 值并根据需要更新这些值。</block>
   <block id="33928d4ecda567e3601cb7a7751bbb76" category="list-text">查看广播域：</block>
   <block id="43ff4ab1c4898911d769055ba707316a" category="paragraph">验证 LIF 是否托管在升级操作步骤开始时映射的相应节点和端口上。</block>
   <block id="a540bdcaed3fd12428a82fd3efdaa52e" category="paragraph">在 `vserver config override` 命令中输入 network interface modify 命令时，您不能使用选项卡自动完成功能。您可以使用 autoscomplete 创建网络 `interface modify` ，然后将其括在 `vserver config override` 命令中。</block>
@@ -7108,7 +7080,6 @@
   <block id="2f28509978682fccbfb9bad9e2c95163" category="cell">根分区的 ADP 布局</block>
   <block id="36927b3f609916615a039c55b35adb83" category="paragraph">每个外部磁盘架上的驱动器分为两个相等的组（半个）。每个半架会自动分配给一个单独的池。</block>
   <block id="00221b2e9e3a8c400840ac5ddfcf9694" category="paragraph">本地 HA 对使用一个磁盘架。第二个磁盘架由远程 HA 对使用。</block>
-  <block id="3b6570c59271e36a9045425efd003349" category="list-text">每个磁盘架上的分区用于创建根聚合。根聚合中的两个丛中的每个丛都包含以下分区</block>
   <block id="0721787c5c1b5b09a38630ae8113913b" category="list-text">八个数据分区</block>
   <block id="284789f6546c0cb3d37138cb7153f429" category="list-text">两个奇偶校验分区</block>
   <block id="11e35192cb11fd0648408f836e3bb54e" category="list-text">两个备用分区</block>
@@ -7118,7 +7089,6 @@
   <block id="9ac045d53981694ac00085732bed2ef9" category="list-text">一个备用分区</block>
   <block id="878451b3c3409179461a8121430d2819" category="paragraph">仅限内部驱动器</block>
   <block id="5d21f0ca4249a1dd3aa1ca99ea4c1b10" category="paragraph">内部驱动器分为四个相等的组。每个组会自动分配给一个单独的池，而每个池会分配给配置中的一个单独的控制器。</block>
-  <block id="de5c61f9b523e845d26faafc2efdf938" category="admonition">在配置 MetroCluster 之前，一半的内部驱动器保持未分配状态。</block>
   <block id="92d5f34519d09561aa3770a5781117ee" category="paragraph">本地 HA 对使用了两个季度。其余两个季度将由远程 HA 对使用。</block>
   <block id="b21312eba495855ff66394e02bb5ffa6" category="paragraph">根聚合在每个丛中包含以下分区：</block>
   <block id="2111210e0771d89abc3101ae163a348a" category="paragraph">16 个内部驱动器</block>
@@ -7138,7 +7108,6 @@
   <block id="25bc5caf83c0d709344d7afcc2319c3e" category="paragraph">驱动器分为四个相等的组（四个）。每个四分之一架会自动分配给一个单独的池。</block>
   <block id="e53bff6863910b8dc61a899d411a0628" category="section-title">AFF A700 系统上的 ADP 和磁盘分配</block>
   <block id="c53b7d3a6a4dec447344623203b7118a" category="cell">根聚合的 ADP 布局</block>
-  <block id="6f53d85533c3e60dad3733efac10ae04" category="paragraph">创建根聚合时，内部磁盘架上会有 12 个根分区。</block>
   <block id="982a2e1944b422fa6826f45f24630643" category="paragraph">内部分区分为四个相等的组（四个季度）。每个季度都会自动分配给一个单独的池。</block>
   <block id="f674c4dddbf3c8f5d8282775b8f64dfc" category="list-text">一个备用分区</block>
   <block id="e544ed43da5fbe5f1ff53ed83f313e27" category="section-title">在 FAS2750 系统上分配磁盘</block>
@@ -7146,8 +7115,6 @@
   <block id="9b69500f7139e9ab34f753b13df6c609" category="section-title">在 FAS8200 系统上分配磁盘</block>
   <block id="f5282c0c22db3753989149a870ee22a6" category="paragraph">外部磁盘架上的驱动器分为两个相等的组（半个）。每个半架会自动分配给一个单独的池。</block>
   <block id="f279008175291c0c57dfde21cb38762c" category="section-title">FAS500f 系统上的磁盘分配</block>
-  <block id="f0c4d23b82531840374581ef188b7b09" category="section-title">在 FAS9000 系统上分配磁盘</block>
-  <block id="b31528d4d44f8ae9a9a8ee050022bd35" category="paragraph">磁盘架上的驱动器分为两个相等的组（半个）。每个半架会自动分配给一个单独的池。</block>
   <block id="967e7fe5e26ac9c522059f0a938773bb" category="section-title">ISL 要求</block>
   <block id="6c3d514454f211b4331e09486e926e74" category="image-alt">Cisco 交换机的交换机流量</block>
   <block id="60878e723ef52f68f389c7c8fd6c072c" category="paragraph">在此示例中，将为 MetroCluster 流量创建以下策略和映射：</block>
@@ -8802,7 +8769,6 @@
   <block id="6ab951153b2906cfc8684f401835c18e" category="paragraph">以下命令将元数据卷 "mdv_CRS_14c00d4ac9f311e7922800a0984395f1" 从 "aggregate Node_A_1_aggr1" 移动到 "aggregate Node_A_1_aggr2" ：</block>
   <block id="cac3d29269cf69756d4750034581575a" category="paragraph">`volume move show -volume vol_constituent_name`</block>
   <block id="61e842763712fd979eba9fa9d8c334e2" category="paragraph">` ontap-version_image.tgz`</block>
-  <block id="0070312d07f58e9d845938da3303af9d" category="paragraph">您不需要提取 ` ontap-version_image.tgz` 文件。</block>
   <block id="f54a24cc66a313efd5a257045a3ed5ce" category="paragraph">`ifconfig e0M -addr=_ip_addr_ -mask=_netmask_ -gw=_gateway_`</block>
   <block id="93aa31e0fca191c5cb8bdcc4dd998b67" category="paragraph">`netboot \http://_web_server_ip/path_to_web-accessible_directory/ontap-version_image.tgz`</block>
   <block id="b24a4bccb6b1dcb2f41814efd594a0f6" category="list-text">从启动菜单中，选择选项 "* （ 7 ） Install new software first"* ，将新软件映像下载并安装到启动设备。</block>
@@ -8863,9 +8829,7 @@
   <block id="814a61c853e0924925006646c354415b" category="list-text">从启动菜单中，选择 "` （ 6 ） Update flash from backup config` " 。</block>
   <block id="54e8ddb7f828b5837090d07ce05e08c3" category="admonition">选项 6 将重新启动节点两次，然后再完成</block>
   <block id="f3201d3871f5963f615afc28ccf4d91a" category="paragraph">对系统 ID 更改提示回答 `y` 。等待第二条重新启动消息：</block>
-  <block id="b62c48c82e4ea4a71a96e2e228f80a9b" category="paragraph">使用中的步骤 <block ref="c3652d8371e8759d3786637bc5f1c8bc" category="inline-link-macro-rx"></block>。</block>
   <block id="d477a37d10aff8dfb1c93b1fa5e33de8" category="paragraph">`sSecurity key-manager external restore -vserver _svm_ -node _node_-key-server _host_name_ip_address ： port_ -key-id key_id -key-tag key_tag _node-name_`</block>
-  <block id="eee74a5fbb91c1e61f0861dec4f05ecf" category="list-text">请参见您在中创建的端口映射计划 <block ref="ab9fddb5e9f46cc8a59622b30650af49" category="inline-link-macro-rx"></block>。</block>
   <block id="dd90e8a9a6ec169f911d6de53840e5b0" category="list-text">覆盖端口配置以确保 LIF 放置正确：</block>
   <block id="fd6749a20a942d2125b164a12dde1996" category="paragraph">`vserver config override -command "network interface modify -vserver _vserver_name_ -home-port _active_port_after_upgrade_-lif _lif_name_ -home-node _new_node_name_"`</block>
   <block id="99f4b5df4f6dc50627e069f95f4b85eb" category="paragraph">`network interface revert * -vserver _vserver-name_`</block>
@@ -8874,7 +8838,6 @@
   <block id="885314737b875a9b3b522fd0bdb4fcf6" category="list-text">确认 MetroCluster 配置以及操作模式是否正常： + MetroCluster show`</block>
   <block id="022942de091290a8b18bacb14495745e" category="list-text">执行 MetroCluster check ： + MetroCluster check run`</block>
   <block id="e93b4f4b950c6b2eecdda6126421a501" category="list-text">检查本地故障转移是否已启用：</block>
-  <block id="50f4e96f99c70a7e3b9840b8f3295862" category="list-text">从开始，重复上述步骤升级 cluster_A 上的节点 <block ref="757f7f08bca76a1242dc77528a445472" category="inline-link-macro-rx"></block>。</block>
   <block id="38327b7824e5a35266d03145c15c04f9" category="list-text">问题描述以下命令： + `ssystem node AutoSupport invoke -node * -type all -message MAINT=end`</block>
   <block id="692e96e67f3cae58709b480db60fc5e0" category="paragraph">`mmaintenance-window-in-hours` 参数指定维护窗口的长度，最长可为 72 小时。如果您在该时间之前完成维护，则可以问题描述以下命令以指示维护期已结束：</block>
   <block id="22c3fe21df9e672128143869cc64097f" category="paragraph">`ssystem license add -license-code _license_key_`</block>
@@ -9051,7 +9014,6 @@
   <block id="43a86ca9910ac10add49d293714b50f6" category="section-title">在八节点配置中配置第二个 DR 组</block>
   <block id="fb2c0ebeb18b9e1080333a65b192bdc3" category="list-text">如果使用的是现有的 ONTAP 调解器实例，请将 ONTAP 调解器服务添加到 ONTAP ：</block>
   <block id="6852fcac58b417258b30784060002d89" category="list-text">跟踪 MetroCluster 端口组（ MetroCluster 1 ， MetroCluster 2 等）。使用 RcfFileGenerator 工具时需要此信息，如此配置操作步骤后面所述。</block>
-  <block id="b070262d5faad84092129cb1c7a44daa" category="list-text">。<block ref="166489b3c340ece1eccb5706fda90624" category="inline-link-rx"></block> 此外，还提供了每个交换机的每端口布线概览。使用此布线概述来验证布线情况。</block>
   <block id="1645e08f0bfdf72de9dd9cf2ec8208de" category="admonition">系统将提示您输入调解器管理员用户帐户的用户名和密码。</block>
   <block id="241c04bf46a427ee9559a37db9cfc64c" category="list-text">显示调解器虚拟磁盘：</block>
   <block id="549e9ae28a978e7598586f13c962b013" category="paragraph">`storage disk show -container-type mediator`</block>
@@ -9383,7 +9345,6 @@
   <block id="5c77e1603fd1c29c92901cf08deda7ef" category="list-text">验证启动时 MariaDB 是否已启用自动启动：</block>
   <block id="20859c72927d81163c0ef8c70e5f5855" category="paragraph">` 根@mcctb ~ ]# systemctl list-unit-files mariadb.service`</block>
   <block id="088c19240da89dbb9f8682a7168eea93" category="paragraph">验证新节点（ site_B ）是否处于 * 正在等待 site_A 的切回状态 *</block>
-  <block id="70797c25b23e4d3313107866a946ef86" category="paragraph">这些交换机不能与速度不同的远程 ISL 端口（例如，连接到 10 Gbps ISL 端口的 25 Gbps 端口）结合使用。</block>
   <block id="678c0cc3a8e347e1b6670261a41c4c3e" category="list-text">验证修复操作执行的任何自动 LIF 迁移是否已成功完成： `MetroCluster check lif show`</block>
   <block id="3e0af8ae696d5e7c0a0c4cf08d2caa05" category="list-text">执行模拟切回以验证系统是否已准备就绪： `MetroCluster switchback -simulate`</block>
   <block id="776259e77c1e67fef13df14be8a5ad8e" category="list-text">在两个集群中，使受影响磁盘架堆栈上的所有磁盘丛脱机：</block>
@@ -10766,11 +10727,9 @@
   <block id="a4aa69385ab0a1b92a7a5635cdb2f2b2" category="paragraph"><block ref="903819e2154a41f8227f7c0192db71f6" category="inline-link-macro-rx"></block>。</block>
   <block id="1cab2231671234cf1e23b1ca0a52ef3e" category="list-text">在新的 MetroCluster IP 节点上，使用以下过程配置集群间 LIF ：</block>
   <block id="bc13f269b8fcdbac7ef84f083e616363" category="paragraph">有关 MetroCluster 配置设置和连接的详细信息，请参见以下内容：</block>
-  <block id="cd60490d5712d0d4fead93178d76d0d7" category="paragraph">按照适用于您的交换机供应商的操作步骤中的步骤进行操作：</block>
   <block id="c09c91c40853cc803259a2c27d8fa946" category="paragraph">对系统 ID 更改提示回答 "`y` " 。等待第二条重新启动消息：</block>
   <block id="f1318dc614d34488bcb6f8bef3e32bff" category="paragraph">选项 "`11` "</block>
   <block id="37ef00a03e6b4bacbc26b2ee369f838f" category="paragraph">根据密钥管理器设置，执行恢复操作步骤的方法是选择选项 "`10` " 或选项 "`11` " ，然后在第一个启动菜单提示符处选择选项 `6` 。要完全启动节点，您可能需要重复恢复操作步骤，然后选择 "`1` " （正常启动）。</block>
-  <block id="ff8648705a32483b6efc36e81f3ff6c9" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block>。</block>
   <block id="9dc1904e0c3ace141704b477cd9b345d" category="inline-link-macro">网络管理</block>
   <block id="84c335ab98bb834a85c89e20e223e638" category="paragraph">有关您的平台的默认端口角色列表，请参见<block ref="a9613e1dbacf145285c45df4264fe797" category="inline-link-rx"></block></block>
   <block id="4b921a602b7b9dfd3ef2bf07ef52ad90" category="paragraph">在以下示例中，端口 "`e0a` " ， "`e0b` " ， "`e0c` " 和 "`e0d` " 必须更改为集群端口：</block>
@@ -11129,7 +11088,6 @@
   <block id="dfed8939b1f16a32e24cbf7db94e77b4" category="paragraph">下表显示了一个DR组中包含八个AFF A900或FAS9500控制 器模块时支持的最大配置。</block>
   <block id="850f7b79a5d7e3532f3461f2abbf9036" category="list-text">下表显示了具有八个 FC-VI 端口的系统。AFF A900和FAS9500具有八个FC-VI端口(FC-VI-1和FC-VI-2的A、b、c和d)。</block>
   <block id="756d409209ace98589705774b5011aa0" category="paragraph">FAS9500</block>
-  <block id="413a1a8040eaed9020b7af4ba6c24e5f" category="section-title">在FAS9500系统上分配磁盘</block>
   <block id="dd6721b9055a32492dda0434480da44d" category="admonition">不支持在下载后修改RCF文件。</block>
   <block id="03b9eedf57c55a2eb9b4feaa990c85f6" category="list-text">使用适用于MetroCluster IP的RcfFileGenerator为您的配置生成RCF文件。</block>
   <block id="52ad3b024ecc6eae02e8415cef1140ba" category="summary">您必须配置IP交换机以提供后端MetroCluster IP连接。</block>
@@ -11208,7 +11166,6 @@
   <block id="202fc6604bcb0268741426bb0d623520" category="list-text">HA接口已脱机。</block>
   <block id="9064d0cb38703eeae4019097f2ba6dee" category="list-text">HA模式、存储故障转移和接口将在该过程的稍后部分进行配置。</block>
   <block id="a5820aab646669a3b5a9ad826ceaf514" category="list-text">您可以将此操作步骤 与某些ONTAP 版本结合使用：</block>
-  <block id="5ac8082d208bbf03d0cce2d606e0f49f" category="paragraph">没有匹配的端口。升级后，您必须重新创建集群端口。<block ref="2305a256def4f5c38d82352fac177e1d" category="inline-link-macro-rx"></block></block>
   <block id="44489e59a236bf582156026d721d7300" category="list-text">根据交换机供应商的不同、下载并安装IP RCF文件。</block>
   <block id="a208547a21e1dc907c538b655cfee7c1" category="admonition">如果您使用的是L2共享或L3网络配置、则可能需要调整中间/客户交换机上的ISL端口。交换机端口模式可能会从"访问"模式更改为"中继"模式。只有在交换机A_1和B_1之间的网络连接完全正常且网络运行状况良好的情况下、才能继续升级第二个交换机对(A_2、B_2)。</block>
   <block id="e7edce3217788bc841a63851100c9164" category="list-text">将未镜像聚合移至脱机状态：`s将聚合存储到脱机状态`</block>
@@ -11439,8 +11396,6 @@
   <block id="7332a56dad899da7a26afe16c9ca077a" category="list-text">导航到主目录。如果您以"umulus"的形式记录、则文件路径为`/home/umulus`。</block>
   <block id="59c778d760eb930375b77337b3ee45b9" category="list-text">执行RCF文件。RCF文件需要一个选项来应用一个或多个步骤。除非技术支持指示、否则请在不使用命令行选项的情况下运行RCF文件。要验证RCF文件各个步骤的完成状态、请使用选项"-1"或"全部"应用所有(待定)步骤。</block>
   <block id="91fda6ec6c364088ae4a9e6553b26f99" category="doc">NVIDIA支持的SN2100 IP交换机的平台端口分配</block>
-  <block id="1f0b82560627b660c6c6958a1df834b8" category="section-title">支持的配置</block>
-  <block id="570a8334b13f037157ca46f8cbbf662b" category="list-text">MetroCluster FC-IP过渡</block>
   <block id="5aa692c4552b821f69bb151f7aa0f216" category="paragraph">如果使用缆线连接多个MetroCluster 配置、请按照相应的表进行操作。例如：</block>
   <block id="10fe94c98083f4e751ef035d96910a62" category="paragraph">以下各节将介绍物理布线概述。您也可以参考<block ref="c52b4d12f68853a25c52576697c6b2b5" category="inline-link-rx"></block> 有关详细的布线信息。</block>
   <block id="fb66ffdb7a65b64035629ded64b78faf" category="sidebar">配置NVIDIA IP交换机</block>
@@ -11477,7 +11432,6 @@
   <block id="62cbee147331935911956f9a0173e5dc" category="sidebar">选择system refresh操作步骤</block>
   <block id="3cf7b8011f891632a5de191822ee417b" category="sidebar">使用切换和切回升级MetroCluster FC中的控制器</block>
   <block id="ebd157c1e8defc9bf33ac98105172329" category="sidebar">使用切换和切回命令使用system controller replace升级四节点MetroCluster FC中的控制器(ONTAP 9.10.1及更高版本)</block>
-  <block id="0f0bf8d23aa860be830e25b6f1b90c86" category="sidebar">使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster IP中的控制器(AFF A700/FAS9000到AFF A900/FAS9500）</block>
   <block id="34e0a85e8dfaaeca6dadc1260cdef2ae" category="sidebar">刷新四节点 MetroCluster FC 配置</block>
   <block id="80a030e3352fb989821aa7c6d15bcfad" category="inline-link-macro">公有 报告</block>
   <block id="dda33fc9a3cc083db08123f7d7e692a8" category="inline-link-macro">使用MetroCluster 自动强制切换的风险和限制</block>
@@ -11522,7 +11476,6 @@
   <block id="ebf8099b0d57d09213f64014fd257ea1" category="section-title">【重置交换机】将NVIDIA IP SN2100交换机重置为出厂默认值</block>
   <block id="841793e4a1e005b1b9596c374804395a" category="section-title">【RCF文件选项】使用RCF文件选项重置交换机</block>
   <block id="66dfac56c9206023b345746e3fd92eae" category="section-title">【下载并安装】下载并安装NVIDIA RCF文件</block>
-  <block id="c938b5cfd075c2f653372f886805b37a" category="paragraph-title">在使用配置表之前、请查看这些注意事项</block>
   <block id="3f710cadb0123c693533da68aaf5b596" category="paragraph-title">下一步操作</block>
   <block id="0fcee5126250d77f3f33a330fd9c5a17" category="paragraph">将 SFP 插入要添加为 ISL 端口的端口。确保中列出了这些端口 <block ref="5488151483f7e2bfe24758bbbb4d6f40" category="inline-link-macro-rx"></block> 用于要添加它们的交换机。</block>
   <block id="4b18b6ffcae5c35c0fd047b621fdb59e" category="section-title">站点A nbsp AutoSupport信息</block>
@@ -11592,7 +11545,6 @@
   <block id="f75b229104808ecf96fca33d4778f2a8" category="paragraph">四节点IP</block>
   <block id="1ff96f961a0386158191fbc0f4fb218b" category="paragraph">ONTAP 9.9.1及更高版本</block>
   <block id="f775e4c4edc895975c9cd478e2a512c1" category="paragraph"><block ref="f775e4c4edc895975c9cd478e2a512c1" category="inline-link-macro-rx"></block></block>
-  <block id="cc6f5bdcaa380f5a02b85aa487423648" category="list-text">有关支持的平台升级组合的信息、请查看中的MetroCluster IP升级表 <block ref="a934c7831e4c0e5d9741460d2b55f4b9" category="inline-link-macro-rx"></block>。</block>
   <block id="5f565b56a7ba868b460ab51ab73790d6" category="paragraph">请参见<block ref="6ddc20d2276dd2fc9d58822a83f46769" category="inline-link-rx"></block> 以了解其他过程。</block>
   <block id="d0b28fd083b63a9e12330f486ca47625" category="section-title">支持的MetroCluster FC技术更新组合</block>
   <block id="cfd1300cd3db131e8f69dc38177b5658" category="section-title">支持的MetroCluster IP技术更新组合</block>
@@ -11753,7 +11705,6 @@
   <block id="8ac6e9edd68ffb00104a32fd0a3ef455" category="list-text">通过打开从Tiebreaker主机到每个节点管理LIF和集群管理LIF的SSH连接、检查Tiebreaker与MetroCluster 软件的连接。</block>
   <block id="92d17a99a2247a42900b1a4c61e8e7d0" category="paragraph">要在Tiebreaker软件中使用SNMP、必须配置SNMP设置。</block>
   <block id="b108689bc1b65903b90d77f19e30d295" category="list-text">使用Tiebreaker CLI<block ref="5ef546c28db0706808d8d451d5a71029" prefix=" " category="inline-code"></block> 用于添加MetroCluster 配置的命令。</block>
-  <block id="a645efc9b9e1d2189f4d79d85cfaefce" category="sidebar">使用切换和切回(ONTAP 9.10.1或更高版本)升级MetroCluster FC配置中的控制器(AFF A700/FAS9000到AFF A900/FAS9500)</block>
   <block id="6f4c27e539cc3005215fed00a58a0521" category="sidebar">使用缆线将新控制器模块的FC-VI和HBA端口连接到FC交换机</block>
   <block id="da3f2d04a7e97d4412b48daacd47915e" category="sidebar">为新控制器模块的集群对等连接布线</block>
   <block id="2a077243240a3af8fdb5a2c53c8dfd93" category="sidebar">在两个控制器模块上启用存储故障转移并启用集群HA</block>
@@ -11807,24 +11758,15 @@
   <block id="99e6dcb4734e7eef8858b52e3c36d08c" category="list-text">本操作步骤 介绍了过渡一个四节点FC DR组所需的步骤。如果您使用的是八节点配置(两个FC DR组)、则必须对每个FC DR组重复整个操作步骤。</block>
   <block id="7085ef0783c3069c714c62b941d51195" category="summary">您可以使用此引导式自动MetroCluster 切换操作对四节点MetroCluster IP配置执行无中断控制器升级。</block>
   <block id="be2a104272635035d829d9eb66247a6e" category="doc">使用带有system controller Replace命令的切换和切回升级四节点MetroCluster IP配置中的控制器(ONTAP 9.13.1及更高版本)</block>
-  <block id="7644562e2fb618084cb09ad85c576c00" category="paragraph">您可以使用此引导式自动MetroCluster 切换操作在四节点MetroCluster IP配置上执行无中断控制器升级。无法在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
-  <block id="d6777f90334e4deb82616ecb9b6f9fb9" category="list-text">MetroCluster 系统必须在两个站点上运行相同版本的ONTAP。</block>
   <block id="55a7a35f233fa5c7dc761790158ed06d" category="list-text">您可以使用此操作步骤 通过基于NSO的自动切换和切回来升级四节点MetroCluster IP配置中的控制器。</block>
-  <block id="c5825fe35515c4155fffecab1329d16f" category="admonition">四节点MetroCluster IP配置不支持使用聚合重新定位(ARL)和"system controller Replace commands"(system controller Replace命令)执行升级。</block>
   <block id="77eb4e36d322d7ab218107d7c498326a" category="list-text">您必须使用自动化NSO控制器升级操作步骤 按顺序升级两个站点上的控制器。</block>
-  <block id="06b8cd9278c28e36ddc1fc586a6f840c" category="inline-link-macro">手动重新配置ONTAP 调解器</block>
   <block id="3cc4806cb19cbb655dbea9a73d4aab85" category="paragraph"><block ref="4baef16133ebdeaa64de2abee5aaa778" prefix="" category="inline-code"></block></block>
   <block id="ad84135061ac4d026b0f6b6b0b90c976" category="list-text">如果不运行<block ref="4baef16133ebdeaa64de2abee5aaa778" prefix=" " category="inline-code"></block> 命令时、控制器升级操作步骤 会选择基于NSO的自动切换和切回作为MetroCluster IP系统上的默认操作步骤。</block>
   <block id="c37cd78225bfd28b27aba6fdb4ffdb05" category="paragraph">此任务将对现有MetroCluster IP配置执行。</block>
   <block id="41658c9a662bf36d1d1079b0d7e61f18" category="paragraph">。<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> 命令输出显示三个表、其中包含MetroCluster 接口IP、系统ID和系统UID。稍后、要在启动新节点时设置bootargs、需要在操作步骤 中提供此信息。</block>
   <block id="103e238a461bced8a19653fadfc6b06f" category="paragraph">在此示例中、对于四节点MetroCluster IP配置、将检索以下旧系统ID：</block>
   <block id="f517753faa986ef4fe936b6ef049742a" category="paragraph">在此双节点MetroCluster IP配置示例中、检索到以下旧系统ID：</block>
-  <block id="8351b67dee4e0c692cf4f28e83b54b0a" category="paragraph">此自动化操作将启动切换操作。完成这些操作后、此操作会在*暂停以供用户干预*、以便您可以将控制器装入机架并进行安装、启动配对控制器、以及使用从闪存备份将根聚合磁盘重新分配给新控制器模块<block ref="5fb641c5977b93de82b81e36db0454cf" prefix=" " category="inline-code"></block> 已提前收集。</block>
-  <block id="956cd19055bcda776c4aa38d849f5270" category="paragraph">您的目录列表应包含一个包含内核文件 ontap-version_image.tgz 的 netboot 文件夹</block>
-  <block id="d58685908c79a70d5ff1a6db6c223402" category="paragraph">您不需要提取 ontap-version_image.tgz 文件。</block>
-  <block id="ca0df34f59e377032b2f4b42096b5055" category="admonition">如果您的MetroCluster IP系统配置了高级磁盘分段功能、则必须通过运行来包含DR配对系统ID<block ref="1d9572d24113365244a97e4cb81d5a77" prefix=" " category="inline-code"></block> 命令：</block>
   <block id="3d76ebef670d0f7bd3eab697fb186812" category="paragraph">在选项"`6`"后的一次重新启动期间、将显示确认提示<block ref="adeeb123a02ab1bcf79fc4bdffdd3b9f" prefix=" " category="inline-code"></block> 显示。输入 ...<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>。</block>
-  <block id="16de7447f84bfaba1c8cf72b93fbf6ee" category="paragraph"><block ref="16de7447f84bfaba1c8cf72b93fbf6ee" category="inline-link-macro-rx"></block></block>
   <block id="9d278f0716d4f0b8bdeaa91150592096" category="list-text">此时将执行自动化操作<block ref="f62e58c376725d0e22a9e8040934124c" prefix=" " category="inline-code"></block>，<block ref="f71080a9d0eed0afac5e99d0ac5f5781" prefix=" " category="inline-code"></block>和站点A上的切回操作以及升级后检查。操作暂停后，手动检查 SAN LIF 状态，并按照控制台消息验证网络配置。</block>
   <block id="7058a4e91dbbbe7dcf2fde3987421db0" category="section-title">重新配置ONTAP 调解器</block>
   <block id="37a1beb7755a7b8722d2585dbc965263" category="paragraph">手动配置在开始升级之前自动删除的ONTAP 调解器。</block>
@@ -11833,7 +11775,6 @@
   <block id="3d296dee09f5acd9721e7bd1f885a1ff" category="doc">扩展MetroCluster IP配置</block>
   <block id="f7ebd0c3919ed1a579352a95f757a9e6" category="paragraph">根据您的ONTAP 版本、您可以通过将四个新节点添加为新的DR组来扩展MetroCluster IP配置。</block>
   <block id="5ffb6f10d2a660f5653c90be923e511a" category="section-title">添加第二个DR组时支持的平台组合</block>
-  <block id="a321522d8592d70cc3e6c26d2e63f256" category="list-text">此表中的组合仅适用于常规或永久8节点配置。</block>
   <block id="999074f8fe2e3e48d827312298ab3915" category="list-text">如果您使用的是过渡或刷新过程，*不*表中显示的平台组合将适用。</block>
   <block id="33ad7ee6bdd54750e4657cc259182b15" category="list-text">一个灾难恢复组中的所有节点都必须具有相同的类型和配置。</block>
   <block id="0f186c4f0b005580a0159670474d7e66" category="image-alt">适用于8节点配置的平台组合</block>
@@ -11942,7 +11883,6 @@
   <block id="d87d22ecaeaff0e5d4bd4030a9e08302" category="sidebar">使用"system controller Replace (system controller Replace)"命令通过切换和切回升级四节点MetroCluster IP中的控制器(ONTAP 9.13.1及更高版本)</block>
   <block id="12651c133a2edc8c764efaddca32ca42" category="sidebar">刷新四节点或八节点MetroCluster IP配置(ONTAP 9.8及更高版本)</block>
   <block id="f11af7573a10a71e1161a2099db36bcc" category="sidebar">扩展MetroCluster IP配置</block>
-  <block id="f60298ca20150ed82728ebbcf934dcdd" category="paragraph">在启动预检之前、如果安装了ONTAP 调解器、则会自动检测并删除该调解器。要确认删除、系统会提示您输入用户名和密码。完成升级后、或者如果预检失败或您选择不继续升级、则必须执行此操作 <block ref="27c582b1d219a53bd62704e35b9572aa" category="inline-xref-macro-rx"></block>。</block>
   <block id="a6d521ed969131c6ad881b1c930a769c" category="list-text">如果您使用的是新交换机、请关闭旧交换机、拔下缆线、然后物理卸下旧交换机。</block>
   <block id="3e49e5936cffd2e96856c25fa0417df2" category="inline-link-macro">网络管理</block>
   <block id="a4c47e03a7d497b0826db4991d94d6d6" category="paragraph">如果尚未分配给广播域，则必须将新控制器上可用的任何新端口添加到广播域中。如果需要，请在新端口上创建 VLAN 或接口组。请参见 <block ref="1c21ab35e530b06d4d331f67f55dccef" category="inline-link-macro-rx"></block></block>
@@ -12222,9 +12162,7 @@
   <block id="53eaf367aa3b61105b8ddce45278ab85" category="paragraph">要了解更多信息、请参见 <block ref="eef6283454e42ed2d47fdb00a9ff3e0c" category="inline-link-macro-rx"></block> 文档。</block>
   <block id="e896a08242f1b8600bd891680083c89c" category="paragraph">在使用表之前、请查看以下准则：</block>
   <block id="11b0a2bdfcd224ea773788cafe8f7027" category="list-text">如果为交换机配置MetroCluster FC到IP过渡、则可以使用端口5、端口6、端口13或端口14连接MetroCluster FC节点的本地集群接口。请参见 <block ref="46a459674905c476821f71bc8486a4ba" category="inline-link-macro-rx"></block> 和生成的布线文件、了解有关为此配置布线的更多详细信息。对于所有其他连接、您可以使用表中列出的端口使用情况分配。</block>
-  <block id="91166ddb2661684df8dbc56e903ec043" category="paragraph">当前不支持以下配置：</block>
   <block id="ffbf0166c7ab0c630d8081caba93b8ff" category="list-text">要连接八节点或两个四节点MetroCluster配置、需要使用ONTAP 9.14.1或更高版本以及RCF文件2.00或更高版本。</block>
-  <block id="2f37bf7d3a80ef892a37b5867710dc5e" category="paragraph">*注1*:如果使用X91440A适配器(40Gbps),则使用端口e4a和e4e或e4a和e8a。如果您使用的是X91153A适配器(100Gbps)、请使用端口e4a和e4b或e4a和e8a。</block>
   <block id="8232ac4b6380b290738aa1ce5cc7cff3" category="paragraph">跟踪MetroCluster端口组(MetroCluster 1、MetroCluster 2、MetroCluster 3或MetroCluster 4)。使用 RcfFileGenerator 工具时需要此工具，如此配置操作步骤后面所述。</block>
   <block id="554d0ed2f8464fefa6da872d6dbcf5c5" category="list-text">对于MetroCluster ISL、25G分支模式需要使用RCF文件v2.10或更高版本。</block>
   <block id="5b43fcab432560bae73db4e0c9e34232" category="list-text">要在"FAS4" MetroCluster组中使用8200或AFF A300以外的平台、需要使用ONTAP 9.13.1或更高版本以及RCF文件版本2.00。</block>
@@ -12234,7 +12172,6 @@
   <block id="3209e9c123d4238593063149c7f8b0e2" category="list-text">不支持交换机连接的NS224磁盘架的平台只能作为第二个MetroCluster配置或第二个DR组进行连接。</block>
   <block id="dae9a493a0381746910b46f271097afc" category="list-text">只有在选择第一个平台时、RcfFileGenerator才会显示符合条件的平台。</block>
   <block id="dfaaea754370da30cfd269ee856da3a9" category="list-text">连接一个八节点或两个四节点MetroCluster配置需要使用ONTAP 9.14.1或更高版本。</block>
-  <block id="82e2d7798ab15559f8ebbae8125f55c3" category="list-title">在使用表之前、请查看此信息：</block>
   <block id="a5d0cab9bff9a930a5eb4ad5c7bce183" category="list-text">如果为交换机配置MetroCluster FC到IP过渡、则会根据您选择的目标平台使用以下端口：</block>
   <block id="f2a26c5fb823530f83a5b4d6bf512eb9" category="cell">目标平台</block>
   <block id="c2a1880d9ec21424185dc32c708f7c2f" category="cell">FAS500f、AFF C250、ASA C250、AFF A250、ASA A250、 FAS9300、AFF C400、ASA C400、AFF A400、ASA A400、 或FAS4700平台</block>
@@ -12449,7 +12386,6 @@
   <block id="6627a26235928f19183374e55b041466" category="admonition">使用此命令之前、请查看 <block ref="b36331871b99d608d499593ef0805d3b" category="inline-link-macro-rx"></block>。</block>
   <block id="62dab2247ca5697a261fd865abf3712d" category="paragraph">第四个四等分：托架36－47</block>
   <block id="c81d9f1aaf4df29053805f321b5b089d" category="section-title">AFF A150、ASA A150和AFF A220系统上的ADP和磁盘分配</block>
-  <block id="f7895982d569530633368489a09d6077" category="section-title">AFF C250、AFF A250、ASA A250、ASA C250和FAS500f系统上的ADP和磁盘分配</block>
   <block id="6a0fb9ba6a0c02751fb5fc909455894f" category="section-title">AFF C400、AFF A400、ASA C400和ASA A400系统上的ADP和磁盘分配</block>
   <block id="fd659a09a0244eaf6b3f61e3ca61a14d" category="paragraph">ONTAP调解器提供邮箱LUN来存储有关MetroCluster IP节点的状态信息。这些 LUN 与 ONTAP 调解器位于同一位置，该调解器在与 MetroCluster 站点物理隔离的 Linux 主机上运行。MetroCluster IP节点可以使用邮箱信息监控其灾难恢复(DR)配对节点的状态、并在发生灾难时实施调解器辅助计划外切换(MAUSO)。</block>
   <block id="30340ec1ae42c7ca90b5fdd7fab0a4a3" category="paragraph">当节点检测到需要切换的站点故障时，它会执行相应的步骤来确认切换是否合适，如果是，则会执行切换。默认情况下、在以下情况下会启动MAUSO：</block>
@@ -12861,8 +12797,6 @@
   <block id="636a367cc04fb36c02707f67c1a70771" category="paragraph">请参见 <block ref="ff174d1e305f5f579b29dcdb0a617c23" category="inline-link-macro-rx"></block> 以了解其他过程。</block>
   <block id="332fe4e638c485c04f214b0a13747f6d" category="list-text">您可以使用此操作步骤通过基于 NSO 的自动切换和切回升级四节点 MetroCluster FC 配置中的控制器。如果要使用聚合重新定位（ Aggregate Relocation ， ARL ）执行控制器升级，请参见 <block ref="0fe967effd4f0eaf84576f897dbfd368" category="inline-link-macro-rx"></block>。建议使用基于 NSO 的自动化操作步骤。</block>
   <block id="75132a926df50e23a26bd72dde0371b7" category="list-text"><block ref="46f4c9c8d582aa241b60c75ea3bcb2c9" category="inline-link-macro-rx"></block> 来自 Tiebreaker 软件。</block>
-  <block id="3f37428974fb63458f8dd07028049c05" category="paragraph">请参见 <block ref="9fe99ab9f2ddf89daf4666d8f9010550" category="inline-link-macro-rx"></block> 以了解其他过程。</block>
-  <block id="d1f739b347487947f18d3ad9cfbc668e" category="paragraph">有关平台型号的端口使用情况，请参见 <block ref="41f66f34b3a905f864500c9319fdff8f" category="inline-link-macro-rx"></block></block>
   <block id="0b22fb8d0feec85055f45c8c4a298766" category="list-text">如果系统提示您继续执行操作步骤、请输入<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>，当系统提示您输入软件包时，输入URL：</block>
   <block id="84ea00dba7c6a1cf0426e58385307e4f" category="paragraph"><block ref="5b9047ebb0d87499d679fd69fbda42cf" prefix="" category="inline-code"></block></block>
   <block id="b57c06e6dad65cb8a7fb01050706349f" category="paragraph">您可以使用ONTAP系统管理器、将Web浏览器指向集群管理IP地址(\https://172.17.12.153).</block>
@@ -13009,24 +12943,20 @@
   <block id="983ef706fb7088bc127ca2ea08447cd2" category="paragraph">镜像和未镜像聚合上的S3对象存储支持</block>
   <block id="9200b87f425cf8ffb4a16ea10431a73e" category="paragraph">您可以在MetroCluster IP和FC配置中的镜像或未镜像聚合中的SVM上启用S3对象存储服务器。</block>
   <block id="c89f9fd1a8019dc4d7a2559a982d3aa8" category="inline-link">S3配置概述</block>
-  <block id="ef9047c785e1f9b26fe99b3bcf88bd4d" category="paragraph"><block ref="ef9047c785e1f9b26fe99b3bcf88bd4d" category="inline-link-rx"></block></block>
   <block id="8020ad245e7cbc2ac49c84b7f4ace684" category="paragraph">ONTAP 9.14.1</block>
   <block id="1e4cf16edaf417e94a695644f4089a2f" category="paragraph">支持在MetroCluster集群中的镜像和未镜像聚合上配置S3存储分段</block>
   <block id="54c9cab829044acca6994285d3185409" category="paragraph">您可以在MetroCluster配置中的镜像或未镜像聚合上创建分段。</block>
   <block id="ea0c90724ad3d5959704fb91a048c28c" category="inline-link">在MetroCluster配置中的镜像或未镜像聚合上创建分段</block>
-  <block id="7a5d298867b0efc5adf88dfe965f7137" category="paragraph"><block ref="7a5d298867b0efc5adf88dfe965f7137" category="inline-link-rx"></block></block>
   <block id="594e1ec3daa27e540baa061f731f028f" category="paragraph">ONTAP 9.12.1</block>
   <block id="6eaae443849a6746c6ace7f4204bd085" category="paragraph">IPSEC支持在MetroCluster IP和MetroCluster光纤连接配置中使用前端主机协议</block>
   <block id="d70d383ef18fafd59eb655545c1017bd" category="paragraph">在MetroCluster IP和MetroCluster光纤连接配置中、可以为前端主机协议(例如NFS和iSCSI)提供IPSEC支持。</block>
   <block id="3d84ccfa2f8722220108717d5cfdc457" category="inline-link">通过线缆加密配置 IP 安全性（ IP security ， IPsec ）</block>
-  <block id="ad8910c15c5709955bf29783dc65c7b6" category="paragraph"><block ref="ad8910c15c5709955bf29783dc65c7b6" category="inline-link-rx"></block></block>
   <block id="b59cced8914a5ae4b2997c54c8cfeb8d" category="paragraph">ONTAP 9.11.1</block>
   <block id="6165c4352e1504dbaeef34d0cc50c187" category="paragraph">一致性组</block>
   <block id="3fb697436dcc4f2ae2cdd29dc91fd043" category="paragraph">MetroCluster配置支持一致性组。</block>
   <block id="7b25d54164390a979173c966708bcd3e" category="paragraph">MetroCluster 配置上的 FabricPool 镜像</block>
   <block id="456a60d3d7f70b899491cde66c53e366" category="paragraph">您可以在MetroCluster配置上设置镜像FabricPool、以便将冷数据分层到两个不同的故障分区。</block>
   <block id="50adf775e4799022cdc6de484f49f3f1" category="inline-link">在 MetroCluster 配置中为 FabricPool 设置对象存储</block>
-  <block id="64d61908c9d9a568c06988ad32aea4f4" category="paragraph"><block ref="64d61908c9d9a568c06988ad32aea4f4" category="inline-link-rx"></block></block>
   <block id="4bac6a2c11bf11dd13d68729ea0a8869" category="paragraph">SVM 灾难恢复</block>
   <block id="757efaf9f255f5bc7d684262790601ff" category="paragraph">MetroCluster配置中的活动Storage Virtual Machine (SVM)可用作SnapMirror SVM灾难恢复功能的源。</block>
   <block id="47d81ac708cab22da7ea952550b6f757" category="summary">每个版本都提供了ONTAP 调解器的新功能。  下面是新增功能。</block>
@@ -13274,12 +13204,10 @@
   <block id="e2974b23926ca4d7d377fe83a01893cc" category="list-text">在每个灾难站点节点的加载程序提示符处、根据平台型号设置启动程序值：</block>
   <block id="7e9ada96e6c7ea5b82a0e953f38fc85c" category="paragraph">在ONTAP 9.151或更高版本中引入的系统上、_ha-pender-ip-address_的值必须设置为* 0 (零)、因为它们具有用于灾难恢复和HA的单独端口。</block>
   <block id="fd053f45281bc461c7ff13c80dc7a0ef" category="paragraph">设置以下布塔格：</block>
-  <block id="b1656b6f4acc345525c67f4fc0341f24" category="section-title">AFF C800、ASA C800、ASA A800、AFF A800、AFF A70上的ADP和磁盘分配 和AFF A90系统</block>
   <block id="9f4ca92781c17387aacdcaad01922666" category="section-title">AFF A900、ASA A900和AFF A1K系统上的ADP和磁盘分配</block>
   <block id="855e77b312a37887818fdd759e02e635" category="paragraph">X50132A</block>
   <block id="cb90ff75f6769672089edcf1b5a430c2" category="paragraph">插槽 2</block>
   <block id="1861ea3bcf41c2d0077d0ec89bff163f" category="paragraph">e2a、e2b</block>
-  <block id="e6f9eb6f48a1c73f8869c3018d94ce49" category="paragraph">AFF A90和AFF A1K</block>
   <block id="7c941395c7474fbf4256f8c308a5d9a8" category="paragraph">插槽 2 ，插槽 3</block>
   <block id="00e2655d7c31ea9101ed27d4696d5c94" category="paragraph">e2b、e3b</block>
   <block id="875e533ea6255c6d2f92900744fe1528" category="paragraph">*注：*端口E2A和E3A必须保持未使用状态。不支持将这些端口用于前端网络或对等关系。</block>
@@ -13300,8 +13228,6 @@
   <block id="8d0d4c4989ca3a66a7d2d68ea1014ba3" category="image-alt">显示了Cisco 3132Q-V平台端口分配</block>
   <block id="bc96235583bdab0e6796c3feabb688a2" category="paragraph">查看使用缆线将FAS9000或AFF A700系统连接到Cisco 3132Q-V交换机的平台端口分配：</block>
   <block id="f147a65f5cf3438e76a8b0e61ed4bc9a" category="paragraph">查看将AFF A800或ASA A800系统连接到Cisco 3132Q-V交换机所需的平台端口分配：</block>
-  <block id="c04953afd7340fd5dc8facf4675172a9" category="paragraph">AFF A150、ASA A150、FAS2750、AFF A220</block>
-  <block id="3e28b7f2fae6fd64638704a6984b0c6b" category="paragraph">FAS500f、AFF C250、ASA C250、AFF A250、ASA A250</block>
   <block id="a55997bcb52ea47d76c7693089c4411b" category="inline-xref">Cisco 3232C或Cisco 9336C平台端口分配(组1)</block>
   <block id="c024b3c7d421518d7eb77f06a0afffb1" category="cell"><block ref="6d3d31dd5453e3b467ac6e4ca8f02d56" category="inline-xref-macro-rx"></block></block>
   <block id="0b3e5d156cf864da2f269d95d3fcc8fa" category="cell">FAS8200、AFF A300</block>
@@ -13313,7 +13239,6 @@
   <block id="054b22baf62d3195ebaf8ecfe2361739" category="cell">FAS9000、AFF A700 AFF C800、ASA C800、AFF A800、ASA A800 FAS9500、AFF A900、 ASA A900</block>
   <block id="2226e1588cfda1f99bdd93ae81369cbc" category="inline-xref">Cisco 3232C或Cisco 9336C平台端口分配(第4组)</block>
   <block id="c943d58a767750622bb22e4321d98b49" category="cell"><block ref="959c288a998a0080d9480c0767159234" category="inline-xref-macro-rx"></block></block>
-  <block id="1d895f249034078e8d0864ccac388901" category="cell">AFF A70 AFF A90 AFF A1K *注：*这些系统需要ONTAP 9.15.1.或更高版本。</block>
   <block id="59c59d66414422c937d61eff4de12116" category="inline-xref">Cisco 3232C或Cisco 9336C平台端口分配(第5组)</block>
   <block id="fe7a114e5e984cbae45640593d3154ca" category="cell"><block ref="80843075b55b672cbe9cacce61884d3c" category="inline-xref-macro-rx"></block></block>
   <block id="2f08fa253f72ece3683a45d943018e9e" category="paragraph">查看为AFF A150、ASA A150、FAS2750、AFF A220、FAS500f布线所需的平台端口分配。 将AFF C250、ASA C250、AFF A250或ASA A250系统连接到Cisco 3232C或9336C交换机：</block>
@@ -13321,8 +13246,6 @@
   <block id="95b3cf0d5bfefca59c78627146fba641" category="paragraph">查看使用缆线将FAS8200或AFF A300系统连接到Cisco 3232C或9336C交换机的平台端口分配：</block>
   <block id="be6fae0369c7f11eec2fbd1d464b74fd" category="paragraph">查看为AFF A320、FAS9300、AFF C400、ASA C400、FAS8700布线所需的平台端口分配。 将AFF A400或ASA A400系统连接到Cisco 3232C或9336C交换机：</block>
   <block id="9d55c6ea91959d97bbe3100622e6c086" category="paragraph">查看使用缆线连接FAS9000、AFF A700、AFF C800、ASA C800、AFF A800的平台端口分配 将ASA A800、FAS9500、AFF A900或ASA A900系统连接到Cisco 3232C或9336C交换机：</block>
-  <block id="e2f3683f965e8d15cad454e450ed2654" category="paragraph">查看将AFF A70、AFF A90或AFF A1K系统连接到Cisco 3232C或9336C交换机的平台端口分配：</block>
-  <block id="ead5ac015522b2debf023fd3b632c5b7" category="admonition">此表中的系统需要ONTAP 9.151或更高版本。</block>
   <block id="e896857ceffdb603548885cb5100edfc" category="list-text">至少一个MetroCluster配置或DR组必须支持交换机连接的NS224磁盘架。</block>
   <block id="bc72159143eff0b74341b77947b6f3ff" category="paragraph">查看适用于您的配置的正确端口分配表。本节包含两组布线表：</block>
   <block id="1c704961a2a6e9aa5979ae30105b7b6f" category="inline-xref">用于连接到交换机连接的NS224磁盘架的控制器的布线表</block>
@@ -13338,7 +13261,6 @@
   <block id="b6098cea8a2777e5c03f397eddba1384" category="cell">AFF A700 AFF C800、ASA C800、AFF A800 AFF A900、ASA A900</block>
   <block id="97686b663fd0ef0bfb1351a275bd7837" category="inline-xref">Cisco 9336 C－拧2共享交换机平台端口分配(第2组)</block>
   <block id="c476b4dbd1c1a1575bd0cb7b9b6cee78" category="cell"><block ref="72d365170c1b13f78ac51fd21ca790fe" category="inline-xref-macro-rx"></block></block>
-  <block id="c297b27e164f9fd07153033bee6aaf14" category="cell">AFF A90 AFF A70 AFF A1K *注：*这些系统需要ONTAP 9.15.1.或更高版本。</block>
   <block id="48d80fb496b1141bc0d1f4a4840501c2" category="inline-xref">Cisco 9336 C－拧2共享交换机平台端口分配(第3组)</block>
   <block id="a294de1141d085225e66991a6734d64b" category="cell"><block ref="8e3178499467cafbbfb2609edfa411f5" category="inline-xref-macro-rx"></block></block>
   <block id="e4880392f55e1cdd66933d586afaff9b" category="paragraph-title">Cisco 9336 C－拧2共享交换机平台端口分配(组1)</block>
@@ -13347,16 +13269,12 @@
   <block id="4ba16f9ec1ea989c0867b1ad14e3e091" category="paragraph-title">Cisco 9336 C－拧2共享交换机平台端口分配(第2组)</block>
   <block id="c20e08f5a68ee9f336acc3f80791cdce" category="paragraph">查看为AFF A700、AFF C800、ASA C800、AFF A800、AFF A900布线的平台端口分配 或将交换机连接的NSS24磁盘架连接到Cisco 9336 C－拧2共享交换机的ASA A900系统：</block>
   <block id="b9fb7e19d674be0780dc144fff0db677" category="paragraph-title">Cisco 9336 C－拧2共享交换机平台端口分配(第3组)</block>
-  <block id="d6e68f55f351c47669a81d202281bc62" category="paragraph">查看将交换机连接的NSS24磁盘架连接到Cisco 9337C -查对AFF A90、AFF A70或AFF A1K系统进行布线的平台端口分配：</block>
-  <block id="2132d8564677098806bf7e79d1419f3a" category="paragraph">对于交换机连接的集群、AFF A90或AFF A70节点上的相同集群端口应位于同一交换机上。例如、应将node1上的e1a和node2上的e1a连接到一个集群交换机。同样、两个节点的第二个集群端口应连接到第二个集群交换机。共享集群HA端口的交叉连接(其中、node1中的e1a连接到IP_Switch_x_1、node2中的e1a连接到IP_Switch_x_2)可防止HA通信失败。</block>
   <block id="78de8bf922780f385bf681428e5b091b" category="section-title">控制器未连接到交换机连接的NS224磁盘架</block>
   <block id="b75c967687ccfedfdc9af6a7cf47fb61" category="paragraph">确定未连接到交换机连接的NS224磁盘架的控制器应遵循的端口分配表。</block>
   <block id="f767a875f72b50f5b4ba095c00dd1361" category="cell">AFF A150、ASA A150 FAS2750、AFF A220</block>
   <block id="320197c44c5a2bfa0ef4783c1891047b" category="inline-xref">Cisco 9336 C－拧2共享交换机平台端口分配(第4组)</block>
-  <block id="819461ccb150f80740e4b719f03fb5a4" category="cell"><block ref="45c8171ea8358d622e0f29ed63cf68ee" category="inline-xref-macro-rx"></block></block>
   <block id="c4a769675a2e89fcb65e84a2b2c8e6c1" category="cell">FAS500f AFF C250、ASA C250 AFF A250、ASA A250</block>
   <block id="598cde4c76afa98039e2123bffe9a9e0" category="inline-xref">Cisco 9335C－拧2共享交换机平台端口分配(第5组)</block>
-  <block id="c3e9cb3ab828df155f62b05cf84026de" category="cell"><block ref="2a5db636fcd422105bb7d2120d9ab60f" category="inline-xref-macro-rx"></block></block>
   <block id="b3d39e1de10317a22681104f98025f7c" category="inline-xref">Cisco 9336C－拧2共享交换机平台端口分配(第6组)</block>
   <block id="1d3c4364253180c31aadc7e665f06be3" category="cell"><block ref="fb232079a476121800e01709dcbcc120" category="inline-xref-macro-rx"></block></block>
   <block id="69ecd98e97e7a9e1d19f24f861c7f0f2" category="inline-xref">Cisco 9335C－拧2共享交换机平台端口分配(第7组)</block>
@@ -13370,7 +13288,6 @@
   <block id="8418c0c9975450b9880acd41079c06de" category="paragraph">查看平台端口分配、以便将FAS500f、AFF C250、ASA C250、AFF A250或ASA A250系统连接到未将交换机连接的NSS24磁盘架连接到Cisco 9335C-拧2共享交换机的缆线：</block>
   <block id="a1b0f4d668ec59f7dde1f302ecf91dd8" category="paragraph">查看平台端口分配情况、以便为未将交换机连接的NSS24磁盘架连接到Cisco 9336 C－拧2共享交换机的FAS8200或AFF A300系统布线：</block>
   <block id="6ece60b094d75c94ab49d4300d236c1e" category="paragraph">查看使用缆线连接FAS9000、AFF A700、AFF C800、ASA C800、AFF A800的平台端口分配 如果ASA A800、FAS9500、AFF A900或ASA A900系统未将交换机连接的NSS24磁盘架连接到Cisco 9336 C -拧2共享交换机、请执行以下操作：</block>
-  <block id="d54985a1df7bc0a159fa1afcc15f305e" category="paragraph">查看平台端口分配情况、以便为未将交换机连接的NSS24磁盘架连接到Cisco 9336 C－查2共享交换机的AFF A70、AFF A90或AFF A1K系统布线：</block>
   <block id="e3703245932789dbe7c10cc1431475fa" category="paragraph">AFF A150、ASA A150</block>
   <block id="d8e09f41a0140bcadce2023c9fc846c8" category="inline-xref">Broadcom BES-53248平台端口分配(组1)</block>
   <block id="76e892ed2593b2d95aee4f548fdf5623" category="cell"><block ref="7a1d34aae389c65629b6ff5d8aa067cc" category="inline-xref-macro-rx"></block></block>
@@ -13407,7 +13324,6 @@
   <block id="5169dd4952c3ed61fc8c586565b6f671" category="image-alt">显示了NVIDIA SN2100平台端口分配</block>
   <block id="8c0dfd424cf2846a6c5d57af4d4c1c67" category="paragraph">查看使用缆线连接FAS9300、AFF C400、ASA C400、AFF A400、ASA A400的平台端口分配、 将FAS4700、FAS9000或AFF A700系统连接到NVIDIA SN2100交换机：</block>
   <block id="359054a58638f835e3a1aabcead61be2" category="paragraph">查看为AFF C800、ASA C800、AFF A800、ASA A800、FAS9500、 将AFF A900或ASA A900系统连接到NVIDIA SN2100交换机：</block>
-  <block id="8aa8fb06f3ec29afe8a9aeb09f780eac" category="paragraph">查看将AFF A90、AFF A70或AFF A1K系统连接到NVIDIA SN2100交换机的平台端口分配：</block>
   <block id="d3b56d16ca05e3f25ef1d8c401cfa7c7" category="admonition">MetroCluster IP系统没有专用的高可用性(HA)端口。根据您的平台、可使用MetroCluster、本地集群或共享集群/MetroCluster接口提供HA流量。在使用_ ONTAP硬件系统文档_安装平台时、不应按照说明为集群和HA端口布线。</block>
   <block id="829170dbc66398be3778968ebb183d6b" category="section-title">设置MetroCluster IP接口的交换机端口速度</block>
   <block id="6a0285e4a2b9116faf78c0ce3f22b522" category="paragraph">使用此过程将以下系统的交换机端口速度设置为100G：</block>
@@ -13423,13 +13339,10 @@
   <block id="fc028e3a959d5040cb2c7b0ceac73cf8" category="paragraph">AFF A300、FAS8200</block>
   <block id="28cf84e4b9c7d19ba37159218fdea6f0" category="section-title">支持的控制器升级</block>
   <block id="00422b8712ec5454364e6489bb81ba29" category="list-text">执行控制器升级时，旧平台类型和新平台类型*Must*匹配：</block>
-  <block id="ea246a6495df1b87df40d7c322d23942" category="list-text">MetroCluster配置中的所有节点(旧节点和新节点)都必须运行相同版本的ONTAP。</block>
   <block id="5505f24f1b03305d31aacdd035c7f251" category="paragraph-title">支持的AFF和FAS MetroCluster IP控制器升级</block>
-  <block id="7b8670a76cf1dc8cbe357ce34cc11736" category="image-alt">MetroCluster IP升级sb AFF FAS</block>
   <block id="ae189029f72cc261fbad1afff41d9552" category="list-text">注3：目标平台必须在控制器升级完成后才能具有内部驱动器。您可以在升级后添加内部驱动器。</block>
   <block id="39eb8422a5f49fae94f0335febb78701" category="list-text">注4：需要更换控制器模块。</block>
   <block id="2d5d2a9ece12ce430adc9f20c9e9464d" category="paragraph-title">支持的ASA MetroCluster IP控制器升级</block>
-  <block id="6d340f03110b449d466e554ef5a4a7af" category="image-alt">MetroCluster IP升级sb ASA FAS</block>
   <block id="9311605dda14c8d475dd817b196dbe33" category="list-text">注1：运行ONTAP 9.131或更高版本的系统支持控制器升级。</block>
   <block id="e201b3063a835c6ab815286f4d0dc126" category="paragraph-title">支持的AFF和FAS MetroCluster FC控制器升级</block>
   <block id="9226549359438ca0927aca7ed11e792d" category="paragraph">下表显示了在MetroCluster FC配置中升级AFF或FAS系统时支持的平台组合：</block>
@@ -13475,13 +13388,9 @@
   <block id="1d54ab78a8d8a5d4636ecd98bafaa94c" category="list-text">请参见您在中创建的端口映射计划 <block ref="9c46692563a7a73a73f8ba6108f40e8e" category="inline-xref-macro-rx"></block></block>
   <block id="4588d3b79e3f8ce0a7e6076cf876c211" category="list-text">重复上述步骤以升级site_A上的节点，从开始 <block ref="7fa78a877decced6b84ff8ffe1fa85ad" category="inline-xref-macro-rx"></block>。</block>
   <block id="6ba7fae9c91de06a7a5516b00fcb41ba" category="list-text">升级配置中的现有控制器和新控制器必须支持MetroCluster IP交换机(交换机类型、供应商和型号)和固件版本。</block>
-  <block id="a1dc413e9196fca73e67e1bc8dc0d617" category="paragraph">有关支持的交换机和固件版本、请参见 <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> 或 <block ref="4bda12a91fa486a6aaeafafb55098b01" category="inline-link-macro-rx"></block> 。</block>
   <block id="cb2b71f7328cfbc51d68290fdef5e64a" category="inline-link-macro">禁用端到端加密</block>
   <block id="2843a33605079ab99cc2f26a41a2bcbb" category="list-text">如果在系统上启用了此功能、则 <block ref="7a9d12e6dbd7c75c145032be8c2b8549" category="inline-link-macro-rx"></block> 在执行升级之前执行此操作。</block>
   <block id="973338f6a10e6b7ac7c39f19d7b492b2" category="list-text">您可以在新平台上重复使用原始平台的IP地址、网络掩码和网关。</block>
-  <block id="728081f5343425576647f8cdc1547b4f" category="section-title">在现有系统上设置所需的启动程序</block>
-  <block id="b497fddd1b7ae2c734d492c373d8a31d" category="paragraph">如果要升级到AFF A70、AFF A90或AFF A1K系统、请按照以下步骤设置启动程序。<block ref="b4317656058abaf147d385d72f465e96" prefix=" " category="inline-code"></block></block>
-  <block id="eab65329b52feb70202b3b63019614c9" category="admonition">如果您要升级到AFF A70、AFF A90或AFF A1K系统，您*必须*在执行升级前完成此任务。此任务*仅*适用于从受支持的系统升级到AFF A70、AFF A90或AFF A1K系统。对于所有其他升级，您可以跳过此任务并直接转到 <block ref="0433885c96c3661856ac21abb470fe33" category="inline-xref-macro-rx"></block>。</block>
   <block id="77cd2bc0bfe264cad96e3619cb8678b1" category="list-text">暂停每个站点上的一个节点、并允许其HA配对节点对该节点执行存储接管：</block>
   <block id="8b0fde7ba026b4e4de5c975b52e10b78" category="paragraph"><block ref="fc0e5e4abc6e1b590b3364b384105526" prefix="" category="inline-code"></block></block>
   <block id="807f12cb6d4e38b470996608263f29ac" category="list-text">在暂停节点的提示符处<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> 、输入以下内容：</block>
@@ -13504,7 +13413,6 @@
   <block id="eb7ead4ebc1b8fb1973480e7ff4df23a" category="list-text"><block ref="dcb54aa5c6e1195dc43cf43c7130da89" prefix="" category="inline-code"></block></block>
   <block id="21abd3e611a550d5b10a01fcf5ca52e4" category="list-text"><block ref="d0e63dc99f0f9ab0cd3804cc52f2f14d" prefix="" category="inline-code"></block></block>
   <block id="d9014ee527061be66eca52c07922ed61" category="section-title">删除接口配置并卸载旧控制器</block>
-  <block id="d2d52925cbd8484ff94ad34530b8e39e" category="list-text">请参阅中收集的信息 <block ref="00db6c743ab233bbb7a0f2af5426c89f" category="inline-link-macro-rx"></block>。</block>
   <block id="adb5e3c9ae1ad5b6f24674dd9ebfd089" category="list-text">修改所有数据L以使用通用端口作为主端口：+<block ref="0fb328b10f563b95b74bd7f9f7c1dff8" prefix=" " category="inline-code"></block></block>
   <block id="80525b50d6d20908e1237b7fcfb33f33" category="paragraph"><block ref="d49e4d90611cfe958eb08579bdba1a56" prefix="" category="inline-code"></block></block>
   <block id="73d1f75273a2727c2821ff6d3dad9a15" category="list-text">删除VLAN端口：+<block ref="5663bc15ef357125573b62d1575462ad" prefix=" " category="inline-code"></block></block>
@@ -13513,18 +13421,12 @@
   <block id="9527b7e6d25fbd673c7aa986d53e3613" category="list-text">根据需要修改接口组端口以使用其他物理端口作为成员：</block>
   <block id="3ee1dd792a8a0d98f869dbe20e9b97fd" category="paragraph"><block ref="3aff4c494709a6fa57ba8e7f89683ca4" prefix="" category="inline-code"></block></block>
   <block id="5a3861a411bc9378f869f34214613778" category="section-title">设置新控制器</block>
-  <block id="e7c47d238f75412631a564557da2bc71" category="list-text">如果您的升级需要更换控制器模块、例如、从AFF 800升级到AFF A90系统、则在更换控制器模块时、您必须从机箱中卸下控制器模块。对于所有其他升级，请跳至 <block ref="24265808136e02e671f66c0cb3dc4c8f" category="inline-xref-macro-rx"></block>。</block>
   <block id="e0db71ee18c918b2fb9cf7bb7bc22103" category="paragraph">在机箱正面、用拇指用力推入每个驱动器、直到您感觉到有一定的停机。这可确认驱动器已牢固地固定在机箱中板上。</block>
   <block id="cfbaa04507f429235b91aeb8a2e58b69" category="image-alt">显示了如何从机箱中卸下控制器模块</block>
   <block id="5c022366b2db3d6cabc706b5adfd5d02" category="list-text">[[ip_U台 升级_sO_sb_4]]安装控制器模块。</block>
-  <block id="5096ae3aa61d737563ca50af57b6a84c" category="admonition">您执行的安装步骤取决于您的升级是否需要更换控制器模块、例如从AFF 800升级到AFF A90系统。</block>
-  <block id="17382e6c05506fde2286b2e5dae91856" category="open-title">更换控制器模块</block>
-  <block id="6b50d38047bdebbcc32c9ca6b9323732" category="paragraph">单独安装新控制器不适用于磁盘和控制器位于同一机箱中的集成系统的升级、例如、从AFF A800系统升级到AFF A90系统。关闭旧控制器电源后、必须交换新控制器模块和I/O卡、如下图所示。</block>
   <block id="4037df45fcdc21d8082737fa6a5f619c" category="paragraph">以下示例图像仅用于表示、控制器模块和I/O卡可能因系统而异。</block>
   <block id="ae5b8daa970b204d0926f573edfb5cfc" category="image-alt">显示了控制器模块交换</block>
   <block id="6792e24f226516b977ca3032c72dc9c0" category="open-title">所有其他升级</block>
-  <block id="1bedc0026c41c72d7a7aa8b440ef5bef" category="inline-link-macro">为MetroCluster IP交换机布线</block>
-  <block id="b2e5e44e032ff888908bf30a6d1363e9" category="list-text">按照中所述、为控制器的电源、串行控制台和管理连接布线 <block ref="372cb7466d83d18a80a5c66f3e7de0d7" category="inline-link-macro-rx"></block></block>
   <block id="7bcb5422335c0a99341ce4ca865d4d51" category="paragraph"><block ref="a9d89a967736a4739d72a512b1135fdc" prefix="" category="inline-code"></block></block>
   <block id="799d4aa3e6d958764f8d2ce8e3acbe7b" category="paragraph"><block ref="baffa317cbf489e351762c96e205eda3" prefix="" category="inline-code"></block></block>
   <block id="2c49372dd5cdc60d281c7eb567cf96ae" category="paragraph"><block ref="62e24a463974fe4c20f07377ffc9a58b" prefix="" category="inline-code"></block></block>
@@ -13537,11 +13439,8 @@
   <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph">示例：</block>
   <block id="2b12e1cd88a050cc4ef4573b7b8ed185" category="admonition">要成功升级、必须在所有受影响的端口上设置此值。</block>
   <block id="4674a3884dbcf3d07ba55d73b36083ff" category="paragraph">输出将报告连接到以太网端口的磁盘架中的磁盘<block ref="7939c23e48e62d500cafffa3ef074000" prefix=" " category="inline-code"></block> 。</block>
-  <block id="ee0313699461965bf1b1ef53c7a817b7" category="paragraph">有关要升级到的系统的存储端口的信息、请参见 <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> 。</block>
   <block id="4b679e72a63d0449bb929b4db3f51f3e" category="list-text">验证是否<block ref="ddecebdea58b5f264d27f1f7909bab74" prefix=" " category="inline-code"></block> 已设置模式、并确认端口是否处于联机状态：</block>
   <block id="ef53a1465284a8eba202285b88ef0eb2" category="section-title">更新交换机RCF以适应新平台</block>
-  <block id="8aedcbe06dc4ee85bfbfe46c6a62713c" category="paragraph">您可以在包含当前正在升级的控制器的站点上执行此任务。在此过程中显示的示例中、我们首先升级site_B。</block>
-  <block id="097b5e4a3935e7904f9e57e130711c8b" category="inline-link-macro">下载并安装NVIDIA IP SN2100交换机RC框架 文件</block>
   <block id="080c153c3d5c3f5a7519058826d07cb8" category="paragraph"><block ref="579363eabf2a70eb9e6c8d9b1bca9609" prefix="" category="inline-code"></block></block>
   <block id="ba2a7c5e352255c376b6b0d315a1ffc1" category="paragraph"><block ref="3edfeb45325920fedac6b21b22c6872d" prefix="" category="inline-code"></block></block>
   <block id="53eeb8487a1b47736074a390cc992c92" category="paragraph"><block ref="cce414ec64a9c4e23a2e870045abf8dc" prefix="" category="inline-code"></block></block>
@@ -13554,7 +13453,6 @@
   <block id="75820e0601a3c59aad8a8dceec394bd6" category="list-text">如果原始系统配置了用于ADP的分区磁盘、请在每个替代节点的提示符处启用它<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> ：</block>
   <block id="8022cf4f701be252369cf100dd5baa7b" category="paragraph"><block ref="e0d0774e240e04e4dbb4273a2eaee9f6" prefix="" category="inline-code"></block></block>
   <block id="9ebcad9e46018b72734aa9fbbdfa219b" category="paragraph"><block ref="fbd3e774e33f59804bebcd92ab2a4244" prefix="" category="inline-code"></block></block>
-  <block id="3ae0893018c6b1f91afe11d7988c558d" category="admonition">在继续进行磁盘重新分配之前、您必须验证属于节点根聚合的pool0和pool1磁盘是否显示在输出中<block ref="63328c72194085e2f8ff497b866f6d24" prefix=" " category="inline-code"></block> 。在以下示例中、输出列出了由NODE_B_1-Oold拥有的pool0和pool1磁盘。</block>
   <block id="f4c6f29ba66b2f3a6e2464ffa195af0e" category="paragraph"><block ref="787c105d1c5bfa1b8d60ab9af669c3a8" prefix="" category="inline-code"></block></block>
   <block id="696c94c37fce23292aa92ad48ca067a6" category="paragraph"><block ref="1e939dd587f894b1b60a5423d23202c2" prefix="" category="inline-code"></block></block>
   <block id="9245451042eaae2bfd411dd23d891968" category="paragraph"><block ref="ae2fc05183e1e2ad0194df7ea8b55230" prefix="" category="inline-code"></block></block>
@@ -13564,24 +13462,19 @@
   <block id="81c0cfa4d81a326f65d742ed4d1ee46b" category="paragraph"><block ref="ab36db401b8d98490b7c51ef5a618243" prefix="" category="inline-code"></block></block>
   <block id="fdf8e4fe9b3e05181cd8befb0c17897f" category="paragraph"><block ref="a8dfa60f338d6757ce57f0b05c861249" prefix="" category="inline-code"></block></block>
   <block id="fb0d5feb3def76f90b6408f32f99f4b7" category="list-text">如果为新升级的控制器上的数据端口创建了新的广播域、请删除此广播域：</block>
-  <block id="3ab5e50e5fd6dc477690730212c6785f" category="admonition">仅删除新广播域。请勿删除在开始升级之前存在的任何广播域。</block>
   <block id="8cb8d05546274856c8c2cb56b7cd62ac" category="paragraph"><block ref="7bbb7f17a19e67be5ebaaa8410749ad2" prefix="" category="inline-code"></block></block>
   <block id="a51de836d51a26774e16aa7066519185" category="paragraph"><block ref="6a6db1083e2f8c53b07cc196dec3cafb" prefix="" category="inline-code"></block></block>
   <block id="641cba091515001a3bb48d030bddd608" category="section-title">升级cluster-A上的节点</block>
   <block id="2ce39beb4bd7e0662d271e0be20e56c4" category="paragraph">开始升级之前、请查看以下注意事项、以验证您的配置是否受支持。</block>
-  <block id="43b1f641e5f77402602790aae4de8aa8" category="image-alt">MCC IP系统控制器取代了AFF FAS</block>
   <block id="a63b5e3f602b86fc07da490951d07b9f" category="list-text">注2：目标平台必须在控制器升级完成后才能具有内部驱动器。您可以在升级后添加内部驱动器。</block>
   <block id="3b2d91208084a85415d107e904b61128" category="list-text">注3：需要更换控制器模块。</block>
   <block id="15301c23263e749022234eacd3de3300" category="paragraph">不支持在ASA系统上使用命令升级控制器<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="8f93576e78d28328ad0cf696ed0604e4" category="list-text">升级配置中的现有控制器和新控制器必须支持MetroCluster IP交换机(交换机类型、供应商和型号)以及固件版本。</block>
-  <block id="65fecbe73cb3b9a9e0cbd9f4bbf96d31" category="admonition">如果您要升级到AFF A70、AFF A90或AFF A1K系统，您*必须*在执行升级前完成此任务。此任务*仅*适用于从受支持的系统升级到AFF A70、AFF A90或AFF A1K系统。对于所有其他升级，您可以跳过此任务并直接转到 <block ref="02f6e5eb3c922d029954da501f60e8dc" category="inline-xref-macro-rx"></block>。</block>
   <block id="1df73bda435b5d96d663aead5cdd3220" category="list-text"><block ref="d6f593c128c20b2b477999ba1d624969" prefix="" category="inline-code"></block></block>
   <block id="b9e74339cddf2376c4fcf457d7d9967e" category="list-text"><block ref="ed3509e3e823bae2ba10a9a7ec8eaff4" prefix="" category="inline-code"></block></block>
   <block id="a96df66ebe1c662a8a888ba2287dfdeb" category="list-text"><block ref="e787e952889da363af52a21e43548b99" prefix="" category="inline-code"></block></block>
   <block id="821ecda5b12a4ae913a41ee4e1c8f69d" category="list-text"><block ref="1538762b856ca2c2223e05fc9fec0cea" prefix="" category="inline-code"></block></block>
-  <block id="05c698302b9abd36f7cf0a1dc90a86d3" category="section-title">更换旧控制器并启动新控制器</block>
   <block id="2dfa544e322fc5325af38a1322229fbf" category="section-title">准备旧控制器的网络配置</block>
-  <block id="fc5dda3d1f939197b1b70fd3a5d0a9d2" category="list-text">您将使用中收集的信息 <block ref="02f6e5eb3c922d029954da501f60e8dc" category="inline-xref-macro-rx"></block>。</block>
   <block id="3e455a613e5c171ec2e4181d0ad70184" category="paragraph"><block ref="0fb328b10f563b95b74bd7f9f7c1dff8" prefix="" category="inline-code"></block></block>
   <block id="55dbcede861ea070999275166b475f91" category="paragraph"><block ref="69175deff8fb24f558ddfe600d2027fd" prefix="" category="inline-code"></block></block>
   <block id="87e5d57130567bbc85fc6eb99a2cedc9" category="paragraph"><block ref="7ecace99fc10588df8f1c6ed5522cef4" prefix="" category="inline-code"></block></block>
@@ -13590,17 +13483,11 @@
   <block id="36f35af4019cb5c58ee0704181d060cb" category="paragraph"><block ref="6a09bfab96d691e097c0193857bfe613" prefix="" category="inline-code"></block></block>
   <block id="ac2ed3241e44a82e5e64c36b76836980" category="paragraph"><block ref="ec6fcea2c4874df3647526f88e0bcc1c" prefix="" category="inline-code"></block></block>
   <block id="9e638affbbd1393718538967090cf19b" category="paragraph"><block ref="7f982816e7f246ae34f4204aca737000" prefix="" category="inline-code"></block></block>
-  <block id="c9d109c912be03296cc2456120162642" category="list-text">验证节点是否位于提示符处<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> 、然后收集并保留当前环境变量。</block>
   <block id="df6f7543a4649f72632e2cd4f87e78a9" category="list-text">关闭要升级控制器的站点上的节点和磁盘架。</block>
-  <block id="a3ead214eb8bf55a0be2a34576e9b461" category="list-text">如果您的升级需要更换控制器模块、例如、从AFF 800升级到AFF A90系统、则在更换控制器模块时、您必须从机箱中卸下控制器模块。对于所有其他升级，请跳至 <block ref="4ee00eba6649125448d979c5e5c0a049" category="inline-xref-macro-rx"></block>。</block>
   <block id="4bd95e3200fc7290c93acc7331fe6ab7" category="list-text">[[IP_U台 升级_REPLACE _4]]安装控制器模块。</block>
-  <block id="7b4b195a48028efcfbd1e629573dc6ce" category="open-title">需要更换控制器模块的升级</block>
   <block id="58d7ca4c8c3e89d8d921fc52e28adc1c" category="list-text">打开新节点的电源、并在系统提示时按Ctrl-C以显示<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> 提示符。</block>
   <block id="b18f9742d77912f838f8a0bc859bbf11" category="list-text">在提示符处<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> 、为管理LIF配置网络启动连接：</block>
   <block id="7c9dbc13c4af0588948dc0974ad07931" category="paragraph">运行命令后、请等待、直到节点停留在提示符处<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> 。</block>
-  <block id="6efdcf657072c6d286d4dff5b0919f19" category="list-text">如果原始系统已配置ADP、则在每个替代节点的提示符处<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> 启用ADP：</block>
-  <block id="2a881aa88a35b35de21b4af29f7c41a7" category="paragraph">旧系统ID在中标识 <block ref="315917271da740413467f609180e49f8" category="inline-xref-macro-rx"></block>。</block>
-  <block id="b2d1a6a95156d238b86f82d812e29748" category="admonition">在继续重新分配磁盘之前、必须验证属于节点根聚合的pool0和pool1磁盘是否显示在输出中<block ref="63328c72194085e2f8ff497b866f6d24" prefix=" " category="inline-code"></block> 。在以下示例中、输出列出了由NODE_B_1-Oold拥有的pool0和pool1磁盘。</block>
   <block id="c200b51f243e6499b1e4aff027683496" category="paragraph"><block ref="4ce4e1d2d83eceacd4a0a0cf1bad8e14" prefix="" category="inline-code"></block></block>
   <block id="c848af1101f629db69baafb2b08b9915" category="paragraph"><block ref="ce889b95687da5aee0c3d9ec48e819b4" prefix="" category="inline-code"></block></block>
   <block id="2d425665af37b9989f89179649650990" category="section-title">完成升级</block>
@@ -13714,12 +13601,10 @@
   <block id="f17f69c6edf98777a15cba11703ecfa4" category="paragraph"><block ref="3e67c1f4fcc76e1369016e8e183fdf3b" prefix="" category="inline-code"></block></block>
   <block id="0f137b9473f8c1720c69f6c82c079dba" category="paragraph"><block ref="3b297593c0c2375482cbced8777ea2a8" prefix="" category="inline-code"></block></block>
   <block id="df0de59a7d82bfac9aeb4c3a4d0ff3d5" category="paragraph"><block ref="593e2b872fdc863863b3175980b503ee" prefix="" category="inline-code"></block></block>
-  <block id="ce4d776f761276cab4718597907e9b25" category="paragraph"><block ref="ce4d776f761276cab4718597907e9b25" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4bbabfb39bdaa67802b5f83f085672a9" category="image-alt">显示了IP到FC过渡支持的平台组合</block>
   <block id="5a4027b63d6ed294211392e256667c2c" category="list-text">修改旧控制器上的集群间LUN、使其使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口不同的主端口。</block>
   <block id="931a74601edef3262a75c3d8d8e6acda" category="admonition">要成功升级、需要执行此步骤。</block>
   <block id="f7f8cd16da4423b24e25a4d21cb4bc83" category="paragraph">旧控制器上的集群间LUN必须使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口不同的主端口。例如、在升级到AFF A90控制器时、HA互连端口为e1a和e7a、MetroCluster IP DR互连端口为e2b和e3b。如果旧控制器托管在端口e1a、e7a、e2b或e3b上、则必须移动这些控制器上的集群间LUN。</block>
-  <block id="8a09de643687f0a8327c0493bea75cfb" category="paragraph">有关新节点上的端口分布和分配，请参阅<block ref="ed4326c3351d8ac0e334b8b4d9b37c82" category="inline-link-rx"></block>。</block>
   <block id="898c71cbc0947646bf37a832e77fa31f" category="list-text">在旧控制器上、查看集群间的Sifs：</block>
   <block id="ebaeb89c15e72f7de931e5d21d67c21b" category="paragraph"><block ref="a8ef5efd140dbfca42670e5d3b15ccff" prefix="" category="inline-code"></block></block>
   <block id="1e81235f7b13b0f2e88bd765d2e46a34" category="paragraph">根据旧控制器上的集群间是否使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口相同的端口、执行以下操作之一。</block>
@@ -13734,7 +13619,6 @@
   <block id="67feed2eb0a24db24a92109ddf08b1d3" category="list-text">验证所有集群间的SIFs是否都位于其新的主端口上：</block>
   <block id="eceba4f3e0b4a9871c405b2a29588160" category="paragraph"><block ref="e4179081ff1589282042af635786a6a1" prefix="" category="inline-code"></block></block>
   <block id="e053c6b6612e1badd81926ae9048a6d0" category="paragraph">此命令输出应为空、表示所有集群间的Rifs都位于各自的主端口上。</block>
-  <block id="424031e17e88451da4f8822abbe10ecc" category="list-text">如果主端口上没有任何LUN、请使用以下命令将其还原：</block>
   <block id="85c3f52ae5c990518a32da157e1d43de" category="paragraph"><block ref="7f926cf3edf705b92de0cde858fac3c8" prefix="" category="inline-code"></block></block>
   <block id="39b8c0f5fb5a1532d766cc2a0500ae92" category="paragraph">对不在主端口上的每个集群间LIF重复此命令。</block>
   <block id="270f1324a7b7f1a7e5f85816e9ee67a1" category="list-text">[[controller_manual_upgrade prepare_network_ports_3]]将旧控制器上所有数据LI的主端口分配给新旧控制器模块上相同的通用端口。</block>
@@ -13787,9 +13671,6 @@
   <block id="17c7cb78cf2f2286d3034a3959bc800e" category="paragraph">从本节的MetroCluster控制器升级表中查找您的*Source*平台。如果*Source*平台行与*Target*平台列的交叉点为空，则不支持升级。</block>
   <block id="ece07deebff7293937869fc01fd521f0" category="paragraph">下表显示了在MetroCluster IP配置中手动升级AFF或FAS系统时支持的平台组合：</block>
   <block id="8430e377fbc83f194587bd875ac99b4b" category="paragraph">下表显示了在MetroCluster IP配置中手动升级ASA系统时支持的平台组合：</block>
-  <block id="13457800bf31e25265b68e75f49b98c7" category="inline-link-macro">[将Broadcom IP交换机重置为出厂默认值</block>
-  <block id="0f664d89fa7312c24449004d102db687" category="list-text"><block ref="0f664d89fa7312c24449004d102db687" category="inline-link-macro-rx"></block></block>
-  <block id="8a97a528989bc12cbf81ee0102a889dc" category="list-text"><block ref="8a97a528989bc12cbf81ee0102a889dc" category="inline-link-macro-rx"></block></block>
   <block id="5517f0f4079cbe32b861155b72575d78" category="paragraph">下表显示了在MetroCluster IP配置中使用system controller Replace命令升级AFF或FAS系统时支持的平台组合：</block>
   <block id="0ef5c60e365bf027441cd538ad7f03c9" category="paragraph"><block ref="0ef5c60e365bf027441cd538ad7f03c9" category="inline-link-rx"></block></block>
   <block id="218202ab36e31b93dc4b302be0cb5ac3" category="paragraph">NetApp强烈建议您在使用的设备上启用控制台日志记录、并在执行此过程时执行以下操作：</block>
@@ -14147,7 +14028,6 @@
   <block id="bcaee96b0ab793907da56767503991e2" category="admonition">MetroCluster IP和连接的交换机端口只有在创建MetroCluster IP接口后才会联机。</block>
   <block id="6db27f68adde7b6578b513891108402f" category="paragraph">BES-53248</block>
   <block id="c71b2061a1720b5d01c7a9a079938384" category="paragraph">四节点或八节点</block>
-  <block id="be0859f362012838e5040b2ef44bc04b" category="paragraph"><block ref="bacc4dbebf17d22c9a0361ded0994067" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="04615ba020125ab8e6efd72006cee7b6" category="sidebar">安装和配置MetroCluster Tieb破碎 机</block>
   <block id="f292b4f87450c271c690d67e1d3a03e8" category="paragraph">16个使用10 Gbps或25 Gbps的ISL</block>
   <block id="d20d5c9d070e6369690ed4a79cf3c4bd" category="admonition">您无需按特定顺序重新启动节点、但应等待一个节点完全启动并建立所有连接后、再重新启动下一个节点。</block>
@@ -14162,7 +14042,6 @@
   <block id="52e06a42c952a2b1bdb77dfc0f6f90ff" category="paragraph"><block ref="a51df89c214b1838fdbc8273e8704555" prefix="" category="inline-code"></block></block>
   <block id="968258a4c4370a9f6fe8b87ce4255cca" category="paragraph"><block ref="6604a22a7f45489dfc4b36fa6c37c036" prefix="" category="inline-code"></block></block>
   <block id="afdf08fe53823e29ce4e277959c64b1e" category="paragraph">支持迁移MetroCluster配置的SVM数据移动性</block>
-  <block id="61576ee193ce4ae8f8a1aea237cc4781" category="paragraph">ONTAP支持将SVM从非MetroCluster HA对迁移到MetroCluster配置或从MetroCluster配置迁移到非MetroCluster HA对。您不能在MetroCluster配置之间迁移SVM。</block>
   <block id="aeaa758085c5e2389b9072b1ced2dc57" category="inline-link-macro">SVM 数据移动性</block>
   <block id="deff601e347d3753345e223f0dece2ac" category="paragraph"><block ref="deff601e347d3753345e223f0dece2ac" category="inline-link-macro-rx"></block></block>
   <block id="31272abf1c9209ab4acd0bf10f129338" category="paragraph">ONTAP 9.16.1.</block>
@@ -14282,7 +14161,6 @@
   <block id="1225fe0de146a130add7eeefae9e0925" category="list-text">验证灾难集群上的同步源SVM是否已启动且正在运行：</block>
   <block id="ad29c49a8377862a59f9aae0ab4431cd" category="paragraph">验证LIF放置是否正确。然后、删除旧控制器上的VLAN和接口组、并以物理方式卸载这些控制器。</block>
   <block id="253982549e381b6f58f66b3e289a0a83" category="admonition">如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<block ref="45cc57eb3654a2ae89efabc6fb9d271a" category="inline-xref-macro-rx"></block>。</block>
-  <block id="ba20cbe478ea7b912f1d044734df2884" category="list-text">[[U台 升级_MANUAL_without _匹配_ports]]修改广播域以删除需要删除的VLAN和物理端口：</block>
   <block id="ae359c5763df3f6130f697d17d090551" category="admonition">在执行切回之前、您必须验证新节点上的数据SIFs位置是否正确。切回配置时、ONTAP会尝试恢复由这些LUN使用的主端口上的流量。如果主端口与交换机端口和VLAN的连接不正确、则可能会发生I/O故障。</block>
   <block id="1c780702501fd89538731057505e0a04" category="list-text">在切回之前、请验证是否已在相应的节点和端口上托管了这些文件。</block>
   <block id="bc12d3bc2a2c1526b655930b56efc183" category="list-text">显示LIF、并确认每个数据LIF使用的主端口正确无误：</block>
@@ -14290,13 +14168,11 @@
   <block id="823bc5ae6e724dd8994efcc4dbeb49d2" category="paragraph">如果此命令返回错误、您可以覆盖端口配置：</block>
   <block id="ec14487a214982a1ea6572636724761f" category="paragraph"><block ref="afdc229346561af3e5aba3a6d67eea09" prefix="" category="inline-code"></block></block>
   <block id="c9ba655979127851f6a6f01489815e47" category="list-text">确认现在所有数据Sifs都位于正确的主端口上：</block>
-  <block id="fd7b222b3cb6aff1e0aef0b1e7a16998" category="paragraph">要在新控制器上正常恢复网络连接、请验证LIF放置是否正确、然后删除旧控制器的网络配置。</block>
   <block id="ef1038ce81a2c9d70181057dd381a59a" category="admonition">如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<block ref="186451ebe57c46550834233237ebac90" category="inline-xref-macro-rx"></block>。</block>
   <block id="3432abc562d1049e115fc0bcb6f569ab" category="list-text">[[uelds_assisted_without _匹配_ports]]修改广播域以删除需要删除的VLAN和物理端口：</block>
   <block id="07bfa9093a8ef293dfd6099e38fde255" category="list-text">验证是否已正确配置MetroCluster。检查节点状态：</block>
   <block id="d64694bac02c7b4eea890e175a53a0c7" category="paragraph">在继续执行自动切回操作之前、请验证是否已在相应节点上托管了此类文件。</block>
   <block id="db85d3fd5e7d7beaa319d4ebe299145b" category="sidebar">系统处于切换状态时的限制</block>
-  <block id="e2b04aa38f9463877227eab80f2afa55" category="list-text">您需要中先前升级过程中确定的UID和系统ID<block ref="a74b37b1135e46e1745610d5ef77ba43" category="inline-xref-macro-rx"></block>。</block>
   <block id="1ee9e9c6e0682332b92cf414d56216e5" category="list-text">根据您的平台型号、您可以使用参数指定VLAN ID<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block>。以下平台不支持<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block>参数：</block>
   <block id="2c17b709cf340ae9f4b202df67582f0d" category="list-text">AFF C800、ASA C800、AFF A800和ASA A800</block>
   <block id="9a7bf3cb6e6fcf5bc8021ad8b24c709d" category="list-text">您设置的MetroCluster启动程序值取决于新系统使用的是共享集群/HA端口还是共享MetroCluster或HA端口。</block>
@@ -14320,8 +14196,6 @@
   <block id="a1909236f08f260f2b52aebf539344be" category="paragraph">以下示例将使用默认VLAN为所有MetroCluster IP DR连接设置NODE_B_1-NEW的值：</block>
   <block id="a0436481bda3531d4a5eda5dac0e5608" category="paragraph">以下示例将使用默认VLAN为所有MetroCluster IP DR连接设置NODE_B_2-NEW的值：</block>
   <block id="1a5991cd222add52b1f5aa51350d470e" category="list-title">使用共享的MetroCluster或HA端口的系统</block>
-  <block id="f4c0383379a5ae93d0b5e4c4f8586e47" category="open-title">使用共享集群/HA端口的系统</block>
-  <block id="fce1683696c48d3d34e98e19d634ae19" category="open-title">使用共享的MetroCluster或HA端口的系统</block>
   <block id="eabf799ca909dc7fa9808c3abb476773" category="paragraph">出现提示时、输入身份验证密码。</block>
   <block id="8c62b33499e87d946c3be674c109e802" category="inline-link-macro">扩展为八节点MetroCluster IP配置</block>
   <block id="d3f54bf5e1d7bcb93c8d615f71713d7f" category="paragraph">如果您使用的是共享存储MetroCluster交换机、则只能过渡到四节点MetroCluster IP配置。不支持过渡到使用共享存储MetroCluster交换机的八节点MetroCluster IP配置。过渡到四节点MetroCluster IP配置后，您可以<block ref="6dee49609367b51155e32a3a9526bace" category="inline-link-macro-rx"></block>。</block>
@@ -14335,4 +14209,417 @@
   <block id="ec4312d0db3bce928129e7e5c3a58d73" category="paragraph"><block ref="ec4312d0db3bce928129e7e5c3a58d73" category="inline-link-rx"></block></block>
   <block id="c42a1c17fcba2c3f1c614f6d301144e6" category="paragraph">如果您使用的是共享存储MetroCluster交换机、则只能过渡到四节点MetroCluster IP配置。不支持过渡到使用共享存储MetroCluster交换机的八节点MetroCluster IP配置。过渡到四节点MetroCluster IP配置后，您可以<block ref="6dee49609367b51155e32a3a9526bace" category="inline-link-macro-rx"></block>。</block>
   <block id="fb9168c2e293c1ba8ecd781a9f35d00f" category="list-text">您的配置符合所有要求、并按照以下_ MetroCluster安装和配置_过程中所述进行布线。</block>
+  <block id="49ccc6dd1b64d1680fb90a6e9f6f0bba" category="list-text">如有必要、暂停节点以显示<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block>提示符：</block>
+  <block id="33d82cc8277c510a8d328f8f56447200" category="list-text">在提示符处<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block>、将环境变量设置为默认值：</block>
+  <block id="e4f7024fd43ad3a1e792d2420b7f19ea" category="list-text">在提示符处<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block>、启动启动菜单：</block>
+  <block id="a3b2cb8aa6b7d60a651d6aa33a91f9ae" category="list-text">准备IP交换机以应用新RCF。</block>
+  <block id="e5e9500d80a24a955b0b888ac13dc7df" category="list-text">下载并安装RCF。</block>
+  <block id="5050b5bbebd5e57841ab34ceb0bb5b80" category="inline-link-macro">下载并安装Broadcom RCF</block>
+  <block id="a8742a7ed915dbf436a1468be619398d" category="list-text"><block ref="a8742a7ed915dbf436a1468be619398d" category="inline-link-macro-rx"></block></block>
+  <block id="51b7523f6d489586220f89e6a87ff0bb" category="inline-link-macro">下载并安装Cisco IP RCF</block>
+  <block id="5a242666138c5c7e9c4d2facda243c69" category="list-text"><block ref="5a242666138c5c7e9c4d2facda243c69" category="inline-link-macro-rx"></block></block>
+  <block id="d220a64cb2cd81dfbeab831c88a1e91d" category="inline-link-macro">下载并安装NVIDIA IP RCF</block>
+  <block id="cae1b37282b7f5677f3224d10650f07f" category="list-text"><block ref="cae1b37282b7f5677f3224d10650f07f" category="inline-link-macro-rx"></block></block>
+  <block id="8186a6f3c6857ac00360d47ac04a1203" category="paragraph"><block ref="8186a6f3c6857ac00360d47ac04a1203" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="17354808febb5791d3c64764c271fc5b" category="paragraph">每个磁盘架上的分区用于创建根聚合。根聚合中的两个plexes中的每个都包含以下分区：</block>
+  <block id="4b38b69284009d5af792544d8b0be650" category="paragraph">*注意:*配置MetroCluster之前,有一半的内部驱动器保持未分配状态。</block>
+  <block id="dcf482ebabd734e754ede4590987cfb5" category="section-title">AFF A250、AFF C250、AFF、AFF、FAS500f、ASA A250 A20、ASA C250 A30和AFF C30系统上的ADP和磁盘分配</block>
+  <block id="ac754ee1e551645a6db1392cbe6546c9" category="paragraph">48个驱动器(仅外部驱动器、无内部驱动器)</block>
+  <block id="6634a8c56506159fbd87caadfa2bb1c0" category="paragraph">48个驱动器(外部和内部驱动器)</block>
+  <block id="6c1db89bd0ceda01b95e84451e63deaa" category="paragraph">内部分区分为四个相等的组（四个季度）。每个季度都会自动分配给一个单独的池。外部磁盘架上的驱动器划分为四个相等的组(四分之一)。每个季度都会自动分配给一个单独的池。</block>
+  <block id="560b7cb44949466818bcf1ce98e6f01a" category="section-title">AFF A50和AFF C60系统上的ADP和磁盘分配</block>
+  <block id="d1501f0cbc9e2d325ef6e1725a424549" category="paragraph">本地HA对使用一个磁盘架。远程HA对使用第二个磁盘架。</block>
+  <block id="ce18baa4e98793cae29bac3255df9775" category="section-title">AFF C800、ASA C800、ASA A800和AFF A800系统上的ADP和磁盘分配</block>
+  <block id="bedc0d1dd130c2b1659e835e86201315" category="paragraph">*注意：*根聚合在内部磁盘架上具有12个根分区。</block>
+  <block id="d31a1f5cad351cb7b22068350f8211d3" category="section-title">AFF A70、AFF A90和AFF C80系统上的ADP和磁盘分配</block>
+  <block id="18d6e0751db8b96d97053bf7cd9ad014" category="paragraph">内部分区分为四个相等的组（四个季度）。每个季度都会自动分配给一个单独的池。外部磁盘架上的驱动器会按磁盘架自动分配，每个磁盘架上的所有驱动器都会分配给 MetroCluster 配置中的四个节点之一。</block>
+  <block id="18ee6168fcb42f4cbb19836787e6aa0c" category="section-title">FAS9000、FAS9500、FAS70和FAS90系统上的磁盘分配</block>
+  <block id="2d1fe013e868579afa18af7cb56220c2" category="paragraph">AFF A70、FAS70</block>
+  <block id="03e4e34912e74f99bcc188842b2088d2" category="paragraph">AFF A90、AFF A1K、FAS90、AFF C80</block>
+  <block id="cc6089132b9a5e4af29a76834480cc1a" category="paragraph">AFF A50</block>
+  <block id="b4f15258765c83a1223f6ad33f797dbd" category="paragraph">X60134A</block>
+  <block id="1cb4f6c34cb1af85680c6d9e63b2a86d" category="paragraph">AFF A30、AFF C30、AFF C60</block>
+  <block id="9d9de1698f7e401c78687204de906ee5" category="paragraph">AFF A20</block>
+  <block id="764552ebb0f871bc4b68c98b31d746d0" category="paragraph">X60132A</block>
+  <block id="6fa048cd3558a7c8e85c121dd6b53c9c" category="paragraph">插槽 4 ，插槽 2</block>
+  <block id="e3ff124e75bf3d8e6a3ed71982b4a775" category="paragraph">e2b、e4b</block>
+  <block id="3c1618b255b11d5961631276508d6713" category="paragraph">在使用配置表之前、请查看以下注意事项：</block>
+  <block id="2d6d56b43e4a834788f26c1cd6e48426" category="cell">AFF A150、ASA A150、FAS2750、AFF A220 FAS500f、ASA A250、ASA C250、AFF A250、AFF C250</block>
+  <block id="1c6bff44c8cb48ef51ded46c607872c5" category="cell">AFF A30、AFF C30 AFF C60</block>
+  <block id="1e152cfb71fc591846d262cbd9c05737" category="inline-xref">Cisco 3232C或Cisco 9336C平台端口分配(第6组)</block>
+  <block id="cf7225c2369f8007e72d8f26a60c7547" category="cell"><block ref="fa098c30ae489e9ffb1312675247b796" category="inline-xref-macro-rx"></block></block>
+  <block id="b70c12944934893c90b896af1d842e59" category="inline-xref">Cisco 3232C或Cisco 9336C平台端口分配(第7组)</block>
+  <block id="1f4c9e06210f9e72c2b6974a8d201b1e" category="cell"><block ref="23f0031045d4c5a6d0a31d66a4414eaa" category="inline-xref-macro-rx"></block></block>
+  <block id="cef91d9ca2107b217772ee91bf4476b2" category="cell">FAS70、AFF A70 AFF C80 FAS90、AFF A90 AFF A1K</block>
+  <block id="de34f03873cad278e1b5cd4034a7ed03" category="inline-xref">Cisco 3232C或Cisco 9336C平台端口分配(第8组)</block>
+  <block id="f17bf6b1d2e916bc883701ca762c7d31" category="cell"><block ref="4ae0459daad462bd8cb96fe95602c48c" category="inline-xref-macro-rx"></block></block>
+  <block id="9e741c4a3ec9010708b84c50ab61cf6e" category="paragraph"><block ref="9e741c4a3ec9010708b84c50ab61cf6e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b55dcdcc0e907408a3a25b6bcf0040c8" category="paragraph">查看使用缆线将AFF A20系统连接到Cisco 3232C或9336C交换机的平台端口分配：<block ref="cc80c8cbafd505af3cd79f69a7bd10e3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="85f49e412a48aec206a5bcf559b8fb51" category="paragraph">查看将AFF A30、AFF C30或AFF C60系统连接到Cisco 3232C或9336C交换机的平台端口分配：</block>
+  <block id="4ddd72f5e814500908f0ff1c734ddaf1" category="paragraph"><block ref="4ddd72f5e814500908f0ff1c734ddaf1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="267e30226a55e10038a24c84fc6de6d0" category="paragraph">查看将AFF A50系统连接到Cisco 3232C或9336C交换机的平台端口分配：</block>
+  <block id="ca69a76035ac5f2a63eff361c33eb7c2" category="paragraph">*注1*:如果您使用的是X91440A适配器40GBps，请使用端口e4a和e4e或e4a和e8a。如果使用的是X91153A适配器(100Gbps)、请使用端口e4a和e4b或e4a和e8a。</block>
+  <block id="5e579c5398f759c591e5b8c0846adbb0" category="paragraph">查看使用缆线将AFF A70、FAS70、AFF C80、FAS90、AFF A90或AFF A1K系统连接到Cisco 3232C或9334C交换机的平台端口分配：</block>
+  <block id="f9bdd6da8ab810967faa5779c97025ed" category="paragraph"><block ref="f9bdd6da8ab810967faa5779c97025ed" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="da0acefbf33111de9e67d3fee11be371" category="cell">AFF C30、AFF A30 AFF C60</block>
+  <block id="c13a6988988f63fb2f0783cdb7f3480a" category="inline-xref">Cisco 9336－6 2共享交换机平台端口分配(第4组)</block>
+  <block id="80013ebf782c405ff60125a0a3b79606" category="cell"><block ref="9ad543bbe652f0e404a3df2b4a4d1b1f" category="inline-xref-macro-rx"></block></block>
+  <block id="44d35f94e4a501d55fdfa6b53538e69c" category="cell">AFF A70 AFF C80 AFF A90 AFF A1K</block>
+  <block id="0eafd073bf4026904c5daafe661c747c" category="inline-xref">Cisco 9335C)—用于分配共享交换机平台端口(第5组)</block>
+  <block id="7a1eb95696daac0dca1551d649074117" category="cell"><block ref="ee60950f7332a78c3b30312d3652b3ef" category="inline-xref-macro-rx"></block></block>
+  <block id="507ea3ef945286961cf543c4f96379f1" category="paragraph">查看将交换机连接的NSS24磁盘架连接到Cisco 9337C -查对AFF C30、AFF A30或AFF C60系统进行布线的平台端口分配：</block>
+  <block id="65afbc35a986d1cfa9a50f2cb2f5c44d" category="paragraph">查看平台端口分配、以便为将交换机连接的NSS24磁盘架连接到Cisco 9336A-拧2共享交换机的AFF A50系统布线：</block>
+  <block id="2891ff907bd9a2918aeaefa751bd8b7e" category="paragraph"><block ref="2891ff907bd9a2918aeaefa751bd8b7e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="84db7c71380402803e5d913e48b35f9a" category="paragraph"><block ref="84db7c71380402803e5d913e48b35f9a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="68976b911135d6d243ebf110e9f88265" category="paragraph">查看将交换机连接的NSS24磁盘架连接到Cisco 9336 C-拧2共享交换机的AFF A70、AFF C80、AFF A90或AFF A1K系统的平台端口分配：</block>
+  <block id="4fd79b147d352f14562f4c5d7e89f964" category="inline-xref">Cisco 9336－6 2共享交换机平台端口分配(第10组)</block>
+  <block id="c7d921dc9f69695e913778aed6fb550a" category="cell"><block ref="cf3df2d950f3000c56f3761e778688b1" category="inline-xref-macro-rx"></block></block>
+  <block id="12879b167ec75cedd2db08e4e1e21f30" category="inline-xref">Cisco 9336－6．2共享交换机平台端口分配(第11组)</block>
+  <block id="449215cbb598b048f38ac62a19edaccc" category="cell"><block ref="f346d8d091e3e8c5429e3c222db57782" category="inline-xref-macro-rx"></block></block>
+  <block id="69274cffd982cace552cf08333fd2197" category="inline-xref">Cisco 9336－6．2共享交换机平台端口分配(第12组)</block>
+  <block id="fcdb378438479c3a2b9f59a508a7c5dd" category="cell"><block ref="fcc464a5306b3b14bb86df291d905ee3" category="inline-xref-macro-rx"></block></block>
+  <block id="286f9d0abf2865761c8318556c3ce84b" category="inline-xref">Cisco 9336－6．2共享交换机平台端口分配(第13组)</block>
+  <block id="6d12b70b56483f7a9a17d9c9246b0486" category="cell"><block ref="905d9f873e6d338924d7e00318dbac8e" category="inline-xref-macro-rx"></block></block>
+  <block id="8d1cfa543fa92c144d23d144a2d727f3" category="inline-xref">Cisco 9336－6．2共享交换机平台端口分配(第14组)</block>
+  <block id="e89910d5913faa95f696c756b3e7db34" category="cell"><block ref="b35ee61663441f30da82bb8ec139d4c5" category="inline-xref-macro-rx"></block></block>
+  <block id="ce88107e356865e8486d9e02f7bb585b" category="paragraph">查看平台端口分配情况、以便为未将交换机连接的NSS24磁盘架连接到Cisco 9336－拧2共享交换机的AFF 2020系统布线：</block>
+  <block id="81b5cc186cb1dd31d7bddf749a59442b" category="paragraph"><block ref="81b5cc186cb1dd31d7bddf749a59442b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a212a7a5cb7dccf83a8209b64b53ce39" category="paragraph">查看平台端口分配情况、以便为未将交换机连接的NSS24磁盘架连接到Cisco 9336 C－查2共享交换机的AFF A30、AFF C30或AFF C60系统布线：</block>
+  <block id="3d8a9d7f8aa09c53731690f8feed0d87" category="paragraph"><block ref="3d8a9d7f8aa09c53731690f8feed0d87" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7df7474e58c19dd78cdaa94db11e8aa2" category="paragraph">查看平台端口分配、以便为未将交换机连接的NSS24磁盘架连接到Cisco 9336－拧2共享交换机的AFF A50系统布线：</block>
+  <block id="bc7ed33551532e8e8d306161aa5071b6" category="paragraph">查看未将交换机连接的NSS24磁盘架连接到Cisco 9336 C-拧2共享交换机的AFF A70、FAS70、AFF C80、FAS90、AFF A90或AFF A1K系统的平台端口分配：</block>
+  <block id="d092f23abfbbe763c64b549b968de1d8" category="list-text">您不能使用具有不同速度的远程ISL端口的交换机(例如、连接到10 Gbps ISL端口的25 Gbps端口)。</block>
+  <block id="99cd6147dd59c5abb2b297eb370705fd" category="cell">AFF 2020 AFF C30、AFF A30 AFF C60</block>
+  <block id="42abd6d583788764c25c15490505431f" category="inline-xref">Broadcom BES-53248平台端口分配(第6组)</block>
+  <block id="0f0bfb73ae173d3403dfb828e3b70090" category="cell"><block ref="9b5811314abfca1bd43a24f4e0adf3bc" category="inline-xref-macro-rx"></block></block>
+  <block id="88f4a3e621c1e03d3874437f6fd99649" category="paragraph">查看将AFF A20、AFF C30、AFF A30或AFF C60系统连接到Broadcom BES-53248交换机的平台端口分配：</block>
+  <block id="12e60ca81eb494c1b5e0d457d7d02e5e" category="paragraph"><block ref="12e60ca81eb494c1b5e0d457d7d02e5e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0249844e1f636ba2a87d5274987756b9" category="inline-xref">NVIDIA SN2100平台端口分配(第5组)</block>
+  <block id="d7ec8f712b0287990517bca50b922dd2" category="cell"><block ref="8a9b949124695689f864f9f14f50eeaa" category="inline-xref-macro-rx"></block></block>
+  <block id="efde678a43c998c7a8714fa732aeef5c" category="inline-xref">NVIDIA SN2100平台端口分配(第6组)</block>
+  <block id="0c842c8cfa0977316ec48eb73a6e8c65" category="cell"><block ref="c902f072c35742409c62fc6312fe330d" category="inline-xref-macro-rx"></block></block>
+  <block id="392dc7f33e7aa7683783fda67e23d99a" category="inline-xref">NVIDIA SN2100平台端口分配(第7组)</block>
+  <block id="1b9fa75426bc9ea5a3e240768f7a5026" category="cell"><block ref="061897057bd63bf85fce438fefe1968e" category="inline-xref-macro-rx"></block></block>
+  <block id="b8daabd197dd8e2bc7a41f393d355429" category="paragraph">查看将AFF A20系统连接到NVIDIA SN2100交换机所需的平台端口分配：</block>
+  <block id="8b744dad2482b2535e39efca18cba426" category="paragraph">查看将AFF C30、AFF A30或AFF C60系统连接到NVIDIA SN2100交换机的平台端口分配：</block>
+  <block id="84c81745f11cf4b9dd01463dfef9dbc3" category="paragraph">查看将AFF A50系统连接到NVIDIA SN2100交换机所需的平台端口分配：</block>
+  <block id="035caab2257a510c9564c10c61d3be85" category="paragraph">查看使用缆线将FAS70、AFF A70、AFF C80、FAS90、AFF A90或AFF A1K系统连接到NVIDIA SN2100交换机的平台端口分配：</block>
+  <block id="831ac3266017b395cbffe218fe03bd88" category="list-text">您应以相同方式为所有节点布线。如果有不同的端口组合选项可用于为节点布线、则所有节点都应使用相同的端口组合。例如、应将node1上的e1a和node2上的e1a连接到一个交换机。同样、两个节点的第二个端口应连接到第二个交换机。</block>
+  <block id="7e045fcc35aa6e7b8247a2404c520e67" category="list-text"><block ref="b3f8a8564bd91efeacbc3b6197426c6e" category="inline-link-rx"></block>还提供了每个交换机的每端口布线概览。使用此布线概述来验证布线情况。</block>
+  <block id="df37dda7d3f4fd0dda442a98ec30d071" category="paragraph">ONTAP支持以下MetroCluster SVM迁移：</block>
+  <block id="1066b653c05c9422872505d252585c67" category="list-text">在非MetroCluster HA对和MetroCluster IP配置之间迁移SVM</block>
+  <block id="5816bf9644a6b97b7fab54df8e6d7b87" category="list-text">在两个MetroCluster IP配置之间迁移SVM</block>
+  <block id="f2e68eb15ce94074c593f47c4551c279" category="list-text">在MetroCluster FC配置和MetroCluster IP配置之间迁移SVM</block>
+  <block id="3216bae762aaea90ccbe2d5d66257bd4" category="paragraph"><block ref="3216bae762aaea90ccbe2d5d66257bd4" category="inline-link-rx"></block></block>
+  <block id="880eaa973bb0ff52dbc4df4784ed8c3c" category="paragraph"><block ref="880eaa973bb0ff52dbc4df4784ed8c3c" category="inline-link-rx"></block></block>
+  <block id="6b4b294441005b502ad66f4e60a001a3" category="paragraph"><block ref="6b4b294441005b502ad66f4e60a001a3" category="inline-link-rx"></block></block>
+  <block id="9bebdd73a8a23cb6bb096e8f8b057db5" category="paragraph"><block ref="9bebdd73a8a23cb6bb096e8f8b057db5" category="inline-link-rx"></block></block>
+  <block id="3ced15298365cc7265357bcef11cbe1f" category="paragraph">AFF A20、AFF A30、AFF A50、AFF C30、AFF C60、AFF C80</block>
+  <block id="8643f1ec20c68bd9122a5e9c431fe6fe" category="paragraph">FAS70、FAS90</block>
+  <block id="cf937098cb61f15ebce14d9fb043e796" category="paragraph">ONTAP 9.15.1P3</block>
+  <block id="913f5a631a4dd475cc429d73f4eb5562" category="list-text">MetroCluster配置中的所有节点都必须运行相同版本的ONTAP。例如、如果您使用的是八节点配置、则所有八个节点都必须运行相同版本的ONTAP。有关您的组合支持的最低ONTAP版本、请参见<block ref="b733b3de6818a363ac85112743571bca" category="inline-link-macro-rx"></block>。</block>
+  <block id="acbf04eb6bf5b13ddd4c3b937f1a2977" category="admonition">如果正在进行SVM迁移、请等待所有迁移过程完成、然后再启动控制器升级或系统刷新过程。在升级或刷新过程中、不要启动新的SVM迁移操作。</block>
+  <block id="796c8474326dba1b1854d83dffa10f16" category="list-text">MetroCluster配置中的所有节点(旧节点和新节点)都必须运行相同版本的ONTAP。有关您的组合支持的最低ONTAP版本、请参见<block ref="b733b3de6818a363ac85112743571bca" category="inline-link-macro-rx"></block>。</block>
+  <block id="0c8cc583e1b78e7d1f1c2177a5d48391" category="inline-image-macro">显示了支持通过切换和切回手动升级控制器的AFF和FAS平台</block>
+  <block id="ab2fd3384da8987a5d6b168cf98589bc" category="paragraph"><block ref="ab2fd3384da8987a5d6b168cf98589bc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="06eb0e84d2d75da0fab3f5ad095287d5" category="list-text">注5：需要使用IOM模块将旧控制器转换为外部SAS磁盘架。有关支持的IOM模块、请参见<block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block>。</block>
+  <block id="fd62dc6a841ff0a9f6159888bf7d8458" category="inline-image-macro">显示了ASA支持的MetroCluster IP控制器升级平台组合</block>
+  <block id="d7aa961bff867be5607fff47afcc1269" category="paragraph"><block ref="d7aa961bff867be5607fff47afcc1269" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="48b9a403e4a45281e156e3aab3850410" category="list-text">MetroCluster配置中的所有节点都必须运行相同版本的ONTAP。例如、如果您使用的是八节点配置、则所有八个节点都必须运行相同版本的ONTAP。有关您的组合支持的最低ONTAP版本、请参见<block ref="b733b3de6818a363ac85112743571bca" category="inline-link-macro-rx"></block>。</block>
+  <block id="b994a29eaf12e18a7cce3c9305a59fad" category="paragraph">没有匹配的端口。升级后、重新创建集群端口。<block ref="2305a256def4f5c38d82352fac177e1d" category="inline-link-macro-rx"></block></block>
+  <block id="31234814056be4e15bcffbd10fa0cd65" category="summary">更新新平台的交换机RC框架 文件、并在控制器模块上设置MetroCluster IP启动程序值。</block>
+  <block id="572d3ffeed6df6220869d4a086c5f363" category="doc">更新交换机RCF并设置MetroCluster IP启动程序值</block>
+  <block id="5787d7fabbad5b870fc2724fd3a9ecef" category="paragraph">更新新平台的交换机参考配置文件(RCF)、并在控制器模块上设置MetroCluster IP启动程序值。</block>
+  <block id="6acdeb3c60892cae30d3f8e304029e2b" category="paragraph">您必须在新控制器模块上配置某些MetroCluster IP启动程序值。这些启动程序值必须与旧控制器模块上配置的值匹配。</block>
+  <block id="ccd564b924782d18bcc01f309876c8fb" category="list-text">您可以使用中先前升级过程中确定的UID和系统ID<block ref="386f6ebd60fa6e17417ac4602f500fee" category="inline-link-macro-rx"></block>。</block>
+  <block id="4ec20de17dc6c2b3d48c9a7bfde35dbe" category="paragraph">您执行的步骤取决于新平台型号使用的端口。</block>
+  <block id="b3197481b1ab681ae7bf6f0cd3e101c8" category="list-text">设置 node_B_1-new 上的 UUID ：</block>
+  <block id="86d25e073b1fede02ba642654ae4ff4a" category="inline-link-macro">重新分配根聚合磁盘</block>
+  <block id="63d8e1399245a06cee0d856d0b7b85d2" category="paragraph"><block ref="512b0051487212671853eb4b1fc70afa" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="3d147d29cc4d9f667048bad28a6a87cc" category="summary">启动新控制器、并验证是否已在适当的节点和端口上托管了此类控制器。</block>
+  <block id="6a8e2de76c8d950bd5c6cdd123f13722" category="doc">启动新的MetroCluster IP控制器并还原LIF配置</block>
+  <block id="74ce24f26f26a2970f58e105c862798d" category="section-title">启动新控制器</block>
+  <block id="468dcab00b5c47edccdf62261920b18f" category="admonition">选项6会在该过程完成之前重新启动节点两次。</block>
+  <block id="b25d3c6a0d21aecae94214a7f781a85c" category="paragraph">对系统ID更改提示回答"`y`"。等待第二条重新启动消息：</block>
+  <block id="ba17cc181b5f6d0b03e12015e8fe880c" category="list-text">在提示符处<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block>、验证引导程序值并根据需要更新这些值。</block>
+  <block id="ba12c3eba43f6492ea9583caec9621d5" category="paragraph">使用中的步骤<block ref="06c3fdcb6cd8d64a7d2e8bffb99c9b80" category="inline-link-macro-rx"></block>。</block>
+  <block id="fe2206a1db4a7041c6f41cab92c92fdb" category="list-text">验证配对系统是否正确：</block>
+  <block id="5ac26ea9e60117dcd636c320bce09041" category="list-text">等待已更换的节点启动。</block>
+  <block id="7b5b637cc082477a9dd4c129c225152e" category="inline-link">还原板载密钥管理加密密钥</block>
+  <block id="0c0444533bc17d6a1dca6ae2f45c21cd" category="paragraph">有关详细信息，请参见<block ref="e62bea146b06f19dbbb70e4e5ed98859" category="inline-link-rx"></block>。</block>
+  <block id="1ee623098df2f7856a034824be882999" category="inline-link">还原外部密钥管理加密密钥</block>
+  <block id="4f19dfda9dc16be72272d4a9057514fa" category="paragraph">有关详细信息，请参见<block ref="094017ff0202ed61957e49060c847f6d" category="inline-link-rx"></block>。</block>
+  <block id="d4277e86fb561a84c70306fd74133038" category="admonition">仅删除新广播域。请勿删除在开始升级之前存在的任何广播域。</block>
+  <block id="d971ef7b809aea8ad29277e39947e282" category="list-text">根据需要向广播域添加端口。</block>
+  <block id="7f20d60ce675674d56ced7a249309d4b" category="paragraph"><block ref="7f20d60ce675674d56ced7a249309d4b" category="inline-link-rx"></block></block>
+  <block id="dbcc6a0ce0d05e46a1646e5173caa478" category="paragraph">VLAN和接口组成员资格可能与旧节点不同。</block>
+  <block id="afbd27ae71fcfac624980e215bb4ae35" category="inline-link">创建VLAN</block>
+  <block id="a927b4a9cd36e6a9611de8779c28544e" category="paragraph"><block ref="a927b4a9cd36e6a9611de8779c28544e" category="inline-link-rx"></block></block>
+  <block id="8ac76f8d63bdd9f33127acd62a88b8d3" category="inline-link">用于创建接口组的Combi物理端口</block>
+  <block id="1c754d7b45168982fb58ef395c44a466" category="paragraph"><block ref="1c754d7b45168982fb58ef395c44a466" category="inline-link-rx"></block></block>
+  <block id="b03b1b6cc6ccb369bd1170d895fc73be" category="list-text">请参见您在中创建的端口映射计划<block ref="8720acbe29768fbbc9ec27340c363459" category="inline-link-macro-rx"></block>。</block>
+  <block id="bee636015f5bf9aec647b848d93e58c5" category="inline-link-macro">切回MetroCluster配置</block>
+  <block id="80236810516b8f0c4d3577692f6d368e" category="paragraph"><block ref="e8e19bf2d561e49f93602fa595e74a48" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="3330337d33366bc29e1ad8701247ed43" category="summary">升级控制器模块后、请执行必要的任务以完成控制器升级。</block>
+  <block id="1a8a68405249829d7c103fff5d38f958" category="doc">完成MetroCluster IP控制器升级</block>
+  <block id="75bbd650c002272bab8aee5b5d6588e0" category="paragraph">您可以对MetroCluster配置中的任何节点执行此任务。</block>
+  <block id="92f5715a55706897a1d8dd41533ea2ad" category="paragraph">要升级站点A上的cluster-A上的节点、必须重复执行升级任务</block>
+  <block id="c0d421f4948fca7693af31b81667650d" category="list-text">重复上述步骤以升级cluster-A上的节点，从开始<block ref="fdc81b8422a2d3a4dc8579b364ffd7ac" category="inline-link-macro-rx"></block>。</block>
+  <block id="9708813a6edf75a072848cc8c19d1d0b" category="inline-link-macro">添加 MetroCluster 配置</block>
+  <block id="1452de87b0c5b157dc8a7594223b5265" category="paragraph"><block ref="9b8797650089db2aa56d22b65e4ec45b" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="448025dd8ef817882b16f81c3c2c401f" category="paragraph"><block ref="65a4078ac1b82a84ce7a38a387b8b31c" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="337d2ccc4953efb0209e4bf2012ca1be" category="summary">在执行控制器升级之前、请在设备上启用控制台日志记录。</block>
+  <block id="ec75a12b665b34d0cdc8d12746fc8cfa" category="doc">在升级MetroCluster IP控制器之前启用控制台日志记录</block>
+  <block id="f31a964269837fa383f7baad3584db47" category="inline-link-macro">设置所需的启动程序(用于升级到引入9.15.1或更高版本的系统)</block>
+  <block id="df1a5689b1950da5f94321b90393b1dc" category="paragraph">查看中的信息<block ref="2498528fe56bae6c8b4f34c34587ac02" category="inline-link-macro-rx"></block>、确认是否需要在现有系统上设置所需的启动程序。</block>
+  <block id="b665e6673f7c6f79f5b7bd74d4529fc0" category="summary">在控制器模块中配置HBA卡、并验证和设置控制器和机箱的HA状态。</block>
+  <block id="c3aa9da1524917943d5c4fc825572ad8" category="doc">还原HBA配置并设置MetroCluster IP控制器和机箱的HA状态</block>
+  <block id="e8235ba5b8b549fdd6b720227b5486f3" category="paragraph">根据控制器模块中是否存在HBA卡以及HBA卡的配置、您需要为站点正确配置HBA卡。</block>
+  <block id="cb2b2de240ea8ecebe1a6f6aee92c043" category="list-text">在维护模式下、为系统中的任何HBA配置设置：</block>
+  <block id="dd14766d881405d86219496a398759b4" category="list-text">将节点启动回维护模式以应用配置更改：</block>
+  <block id="e2354fafc5a0b8d2c45509b30201b525" category="list-text">验证所做的更改：</block>
+  <block id="9820621814c515f5849a0d5cfb428863" category="list-text">如果为控制器或机箱显示的系统状态不正确、请设置HA状态：</block>
+  <block id="649d0478fa9717c67f3c5f7e85dda738" category="paragraph">有关要升级到的系统的存储端口的信息、请参见 <block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block> 。</block>
+  <block id="8f24dbaf533511f782fcbc02b546e56e" category="paragraph"><block ref="ae10eb53c75e6634989db7c220c52bfd" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="97ec803fec0ffe7f0d1dfac02cc24f7b" category="summary">使用先前收集的系统ID将根聚合磁盘重新分配给新控制器模块。</block>
+  <block id="68f7a5b61351531f8821d347873b1a7b" category="doc">将根聚合磁盘重新分配给新的MetroCluster IP控制器模块</block>
+  <block id="bcad2682de4382232b01bb2cc72df554" category="paragraph">使用先前收集的系统ID将根聚合磁盘重新分配给新控制器模块。</block>
+  <block id="efa041469859edff24019ccf400f4934" category="paragraph">旧系统ID在中标识 <block ref="386f6ebd60fa6e17417ac4602f500fee" category="inline-link-macro-rx"></block>。</block>
+  <block id="b5dd5b7586a816d36a746e2886b45a30" category="paragraph">您可以在维护模式下执行这些步骤。</block>
+  <block id="e858a88baed197f0640f2b247ac9ae3a" category="admonition">在继续进行磁盘重新分配之前、请验证属于节点根聚合的pool0和pool1磁盘是否显示在输出中<block ref="63328c72194085e2f8ff497b866f6d24" prefix=" " category="inline-code"></block>。在以下示例中、输出列出了由NODE_B_1-Oold拥有的pool0和pool1磁盘。</block>
+  <block id="8882938a559cd1cc01b2a755a4e5507f" category="paragraph">命令输出将显示新控制器模块（ 1574774970 ）的系统 ID 。但是、旧系统ID (537403322)仍拥有根聚合磁盘。此示例不会显示MetroCluster配置中其他节点拥有的驱动器。</block>
+  <block id="5a3712e89200b04baeccf98a09fece58" category="list-text">验证是否已正确重新分配根聚合的磁盘：</block>
+  <block id="05a68831292c395345439b837ba5dc6c" category="inline-link-macro">启动新控制器并还原LIF配置</block>
+  <block id="51fd44c59805171ee429c9a8a7467789" category="paragraph"><block ref="52d0c98e53a297315b347a6378a8bd50" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="092dbfab1a4385bfef7e3b497957bdd4" category="summary">在执行控制器升级之前、请验证您的系统是否满足所有要求。</block>
+  <block id="19ad3c72e2594ceb9c300eb26b1ca5b6" category="doc">使用此MetroCluster IP升级过程的要求</block>
+  <block id="a874d121d30ef8578b609fd6d3c977dd" category="paragraph">在执行控制器升级之前、请验证您的系统是否满足所有要求。</block>
+  <block id="9dce7419ee3cb74caefd7c2519d4d0c2" category="list-text">有关支持的平台升级组合的信息，请查看中的MetroCluster IP升级表<block ref="a934c7831e4c0e5d9741460d2b55f4b9" category="inline-link-macro-rx"></block>。</block>
+  <block id="171bdebca93ae21307df67a82a60faeb" category="list-text">两个站点的MetroCluster IP系统必须运行相同版本的ONTAP。</block>
+  <block id="8b1ccf5fd9359b98ead86c2d488f978e" category="paragraph">有关支持的交换机和固件版本、请参见 <block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block> 或 <block ref="4bda12a91fa486a6aaeafafb55098b01" category="inline-link-macro-rx"></block> 。</block>
+  <block id="76449e8c940f275d7de02a6e01270abe" category="list-text">从插槽或端口比新系统多的系统升级时、您需要验证新系统上是否有足够的插槽和端口。</block>
+  <block id="1ac39e5d37e2f177b8ec8535d378b98d" category="paragraph">开始升级之前、请参阅<block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block>以验证新系统上的插槽和端口数量。</block>
+  <block id="85ba24554ef457741ae00adfb30303f5" category="list-text">如果您的系统上已启用、则<block ref="7a9d12e6dbd7c75c145032be8c2b8549" category="inline-link-macro-rx"></block>在执行升级之前。</block>
+  <block id="3d8c3985ef8f7b9c50308a5dfab923c4" category="paragraph"><block ref="f85c62a3a981a8b83a61b1dc7959165b" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="ed1dd620ec6ed4baac7e1208e4a9d25d" category="summary">升级到9.15.1 9.151或更高版本中引入的系统需要先设置启动程序、然后才能继续进行控制器升级。</block>
+  <block id="496db1855de52190cc06d85f972a650b" category="doc">设置所需的启动程序(对于在9.15.1 9.151或更高版本中引入的系统的MetroCluster IP升级)</block>
+  <block id="46e4bb8c59f161cfa278e9cc00ce227a" category="paragraph">要对9.15.1 9.151或更高版本中引入的系统进行控制器升级、需要先设置启动程序、然后才能开始升级。</block>
+  <block id="59b020257dd689cba5d5780a512943fd" category="section-title">第1步：确定需要在旧控制器上设置的启动程序</block>
+  <block id="6e9eadf85899a23a56a99cb9a6df7652" category="paragraph">以下系统的所有受支持升级都要求您在执行控制器升级之前、在旧控制器上设置一个启动程序：</block>
+  <block id="724bf3ae18d86521a5b9d77a13fcfddb" category="list-text">AFF C80</block>
+  <block id="bf35733b2711515e1aa7614ca7dd1ef0" category="list-text">AFF A50、AFF A20、AFF A30</block>
+  <block id="b1a7d02f89c62c97fedf60bb09caa4bc" category="list-text">AFF C30、AFF C60</block>
+  <block id="55aa8632230fb0a23186560320c2411c" category="inline-link-macro">准备系统以进行升级</block>
+  <block id="f5c6ae4b822813aea6f2b6fda7d434b4" category="admonition">如果要升级到列出的任何系统，则在执行升级之前，*必须*在现有系统上设置所需的启动程序。对于所有其他升级，您可以跳过此任务并直接转到 <block ref="727f54dda0b5a83234ee2910d3353f77" category="inline-link-macro-rx"></block>。</block>
+  <block id="05c6aa6eca73dc8505cf4bcf7e51677a" category="paragraph">9.15.1 9.151或更高版本中引入的大多数系统升级都要求在旧控制器上设置<block ref="ee06f9ce95f0e4407845e7566ca3219e" prefix=" " category="inline-code"></block>启动程序。但是、某些升级路径要求您设置<block ref="547c6b727c1ad89e0e0a9fab4efaf59d" prefix=" " category="inline-code"></block>布塔格。</block>
+  <block id="ffe782ee595f504f732429ce74813c9c" category="paragraph">使用下表确定您需要为特定升级组合设置的bootarg。</block>
+  <block id="9a5481a4499f03b428516e1e655b2247" category="cell">此升级的版本</block>
+  <block id="2960c7c521e801666250bc33502b1481" category="cell">设置了布塔格...</block>
+  <block id="4d272531f47fb35f917318ca6d72fcbd" category="cell">从AFF A250到AFF A30</block>
+  <block id="a66e9459957720c55aa25deae5fbc49f" category="cell"><block ref="547c6b727c1ad89e0e0a9fab4efaf59d" prefix="" category="inline-code"></block></block>
+  <block id="744cbc5aaac839f431e460a5364441e5" category="cell">从AFF C250到AFF C30</block>
+  <block id="1587ade3a80eae494164e86cb2dd5734" category="cell">从AFF A150到AFF 2020</block>
+  <block id="66d5b6c0a5d29009937264288b2bed0e" category="cell">从AFF A220到AFF 2020</block>
+  <block id="98dc42b6205c2e3f5114dc1e108cea47" category="cell">所有其他受支持的AFF A70、AFF A90、AFF A1K、FAS70、FAS90、AFF C80、AFF A50、AFF 2020、AFF A30、AFF C30或AFF C60系统升级</block>
+  <block id="3ea751f5e7ad018c7a1c4ebe22608ee6" category="cell"><block ref="ee06f9ce95f0e4407845e7566ca3219e" prefix="" category="inline-code"></block></block>
+  <block id="4e154455580c2924ab538f717efce366" category="section-title">第2步：在旧控制器上设置所需的启动程序</block>
+  <block id="2b8367c2b0fd32c8f7c396289d11179f" category="paragraph">只有在升级到AFF A70、AFF A90、AFF A1K、FAS70、FAS90、AFF C80、AFF A50、AFF 2020、AFF A30、AFF C30或AFF C60系统时、*才需要执行此任务。</block>
+  <block id="31bb07ea477e7a663bf099ca3ed9b374" category="inline-xref">确定需要设置的布塔格</block>
+  <block id="b0eddbd28deec4566b9a1e2f57d34c8f" category="list-text">为您的升级组合设置所需的bootarg。您已使用中的表确定需要设置的启动<block ref="092a73eeb155f2a0de79637a5ae185e0" category="inline-xref-macro-rx"></block>程序。</block>
+  <block id="ee06f9ce95f0e4407845e7566ca3219e" category="open-title">hw.cxgbe。toe_keepAlive_disable</block>
+  <block id="547c6b727c1ad89e0e0a9fab4efaf59d" category="open-title">bootarg.siw.interop_enabled</block>
+  <block id="de35b336a143e486699a86372016a748" category="paragraph"><block ref="efeb32226eba442b449980c3cc3a59eb" prefix="" category="inline-code"></block></block>
+  <block id="5d1bcdb8cc9a99bad295f5980c3d8f32" category="paragraph"><block ref="92c4600f17ef6b0912309104bda27fd5" prefix="" category="inline-code"></block></block>
+  <block id="378140461414afa0e47bca089223ba18" category="paragraph"><block ref="727f54dda0b5a83234ee2910d3353f77" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="b2026c6aa91ea681e3c71a722fc33d1d" category="summary">将新的MetroCluster IP控制器装入机架并进行布线。</block>
+  <block id="e4fac3584ae1aa47cf5625367b734935" category="doc">设置新的MetroCluster IP控制器</block>
+  <block id="a298136c2902b0d160837ca8e28c65cc" category="list-text">如果您的升级需要更换控制器模块、例如从AFF A800升级到AFF A90系统或从AFF C800升级到AFF C80系统、则在更换控制器模块时、您必须从机箱中卸下控制器模块。对于所有其他升级，请跳至 <block ref="24265808136e02e671f66c0cb3dc4c8f" category="inline-xref-macro-rx"></block>。</block>
+  <block id="e81179c7b41d0d2f839b6bd0b1f06e8a" category="paragraph">您需要执行的安装步骤取决于您的升级是否需要更换控制器模块、或者是否需要使用IOM模块将旧控制器转换为外部磁盘架。</block>
+  <block id="81d414842f970a8b10fba94dddf79fd9" category="cell">升级条件</block>
+  <block id="b9e8d0d6724995270e7fd196f817b6a0" category="cell">请按照以下步骤操作...</block>
+  <block id="d029eea43b6141a148b7e4f708df36cc" category="list-text">AFF 2020系统的AFF A150</block>
+  <block id="9ac8fb9b2fc9fb9acb65314e07a3fc75" category="list-text">AFF 2020系统的AFF A220</block>
+  <block id="bab257db1e9528dc1b531f2927e2d7f3" category="cell">控制器到外部磁盘架的转换</block>
+  <block id="f0ecc85a47250eb431d70facc1b0f391" category="list-text">AFF A90系统的AFF A800</block>
+  <block id="ddc8448f70002b17b2400cae6b9c48e9" category="list-text">AFF C80系统的AFF C800</block>
+  <block id="38d05e1fec0218209e5efe97b6e65f0b" category="cell">更换控制器模块</block>
+  <block id="b8ef6a3a829fa4c460a700df908603c3" category="cell">任何其他控制器升级组合</block>
+  <block id="8fed2e91fbb6c5683d39102b9ba23da4" category="paragraph">如果原始MetroCluster IP控制器为AFF A150或AFF A220型号、则可以将AFF A150或AFF A220 HA对转换为DS224C驱动器架、然后将其连接到新节点。</block>
+  <block id="dc7e359f1094a814c0918c6712903e32" category="paragraph">例如、在从AFF A150或AFF A220系统升级到AFF 2020系统时、您可以通过将AFF A150或AFF A220控制器模块更换为IOM12模块来将AFF A150或AFF A220 HA对转换为DS224C磁盘架。</block>
+  <block id="792da7ae6f10b0a538b7c8126371f6b3" category="list-text">更换要使用IOM12磁盘架模块转换的节点中的控制器模块。</block>
+  <block id="e420822bb33a20469fdc3f065d3d63ca" category="list-text">设置驱动器架 ID 。</block>
+  <block id="e3a1e42d336af98f7116d009f256cff5" category="paragraph">每个驱动器架（包括机箱）都需要一个唯一 ID 。</block>
+  <block id="bf4f5599e53150e46e0e54293db42d76" category="list-text">根据需要重置其他驱动器架 ID 。</block>
+  <block id="807ab2bf66297dc418f10fd561479666" category="list-text">关闭磁盘架。</block>
+  <block id="3c3916219a878033fa2aaddd792ed605" category="list-text">将转换后的驱动器架连接到新系统上的 SAS 端口，如果使用带外 ACP 布线，则连接到新节点上的 ACP 端口。</block>
+  <block id="28391dfe8511b351c91dba3094b1ba03" category="list-text">打开转换后的驱动器架以及连接到新节点的任何其他驱动器架的电源。</block>
+  <block id="c2f0cd821e5ee148eb1900a96d516f19" category="list-text">打开新节点的电源，然后按 Ctrl-C 访问启动环境提示符，以中断每个节点上的启动过程。</block>
+  <block id="a873eb4fd00094f4922d6dbbbcac22c8" category="paragraph">单独安装新控制器不适用于磁盘和控制器位于同一机箱中的集成系统的升级、例如、从AFF A800系统升级到AFF A90系统。关闭旧控制器后、您必须交换新控制器模块和I/O卡、如下图所示。</block>
+  <block id="94d70a7bf1715ed12e11a9d10a22a3da" category="list-text">按照中所述为控制器的电源、串行控制台和管理连接布线<block ref="7176836221733e9bf6fcbaccc1aa9ffd" category="inline-link-macro-rx"></block>。</block>
+  <block id="697e6df255668d1e50ec4f1cecdcb640" category="paragraph">此时请勿连接与旧控制器断开连接的任何其他缆线。</block>
+  <block id="cab03c56bcbe5f0a4a06249fb9b47222" category="inline-link-macro">还原HBA配置并设置HA状态</block>
+  <block id="e0ae736ed8185e0a40d5a4d8a8bc5607" category="paragraph"><block ref="48f91d84b066a3d0371b8fede70c72d0" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="a17e1793c60a266571d24f52d0f0a985" category="summary">执行切回操作以使MetroCluster配置恢复正常运行。site_A 上的节点仍在等待升级。</block>
+  <block id="fea594ef91e674c46b201435a45a39cd" category="doc">切回MetroCluster IP配置</block>
+  <block id="421121dfd8b43beac0d485be366616a3" category="paragraph"><block ref="0fd9e0ef024074cec9e787b45185e421" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="1f0f2309cd21b29eea4a5d1331553671" category="summary">您可以将配置切换到site_A、以便可以升级site_B上的平台。</block>
+  <block id="0ae501b723b7514026e2b4b99be2aa5a" category="doc">切换MetroCluster IP配置</block>
+  <block id="2a5ecf0bfff946ccae253aba8f2e4419" category="paragraph">完成此任务后：</block>
+  <block id="ff2d4b02b6d126a6cd716b062b750906" category="list-text">cluster-A处于活动状态、并为这两个站点提供数据。</block>
+  <block id="7178372d1ce96780aa2cc00ee39c9f53" category="list-text">cluster-B处于非活动状态、已准备好开始升级过程。</block>
+  <block id="6df83f985659f62ff0b661bce0fec248" category="image-alt">显示cluster-A已做好升级准备、而cluster-B正在切换</block>
+  <block id="a4767539443cd0b8facd6dde840d58c4" category="paragraph">在控制器升级期间、协商切换后的聚合自动修复功能处于禁用状态。</block>
+  <block id="982d6ff8ebf96c899c25ee9534386f53" category="paragraph"><block ref="909db924b30ea3c39cf2e7063d49160f" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="7becbe2ac4a2a23dde7c16c3e23d77af" category="summary">将数据LIP移动到通用端口、删除旧控制器上的VLAN和接口组、然后物理卸载这些控制器。</block>
+  <block id="df659d3c538f0a4dbd702fd9590b16a6" category="doc">删除接口配置并卸载旧的MetroCluster IP控制器</block>
+  <block id="e7fa6b8df7c104823307a6177ea39a64" category="list-text">您可以在旧控制器(NODE_B_1-Oold、NODE_B_2-Oold)上执行这些步骤。</block>
+  <block id="14b524dac669666576229b9b289062f6" category="list-text">您需要在此过程中使用在中收集的信息<block ref="8720acbe29768fbbc9ec27340c363459" category="inline-link-macro-rx"></block>。</block>
+  <block id="cd171858353ac5afefcde1a10ecc4d2b" category="paragraph">有关新节点上的端口分布和分配，请参阅<block ref="e8018b6e740a667345f4bcc94e4023fc" category="inline-link-rx"></block>。</block>
+  <block id="609705d960d3eb8865688141bee64514" category="list-text">还原不在主端口上的任何生命周期：</block>
+  <block id="2c33fd0cf23bb7e3394bbefc985bb336" category="paragraph">对不在主端口上的每个集群间LIF重复此命令。</block>
+  <block id="5d017d18dffe9ea2002cf58c5028e761" category="paragraph">包括SAN和NAS在内的所有数据生命周期都由管理员启动、操作也会关闭、因为这些生命周期在切换站点(cluster A)启动。</block>
+  <block id="6f4692f84dcb13549704950c86285bed" category="paragraph">有关平台型号的端口使用情况、请参见<block ref="5e0886f1b46d76ea4adb1e1719b4ddb5" category="inline-link-rx"></block></block>
+  <block id="404849d025b51f7a9b000948be830642" category="list-text">[[U台 升级_MANUAL_without _匹配_ports]]修改广播域以删除需要删除的VLAN和物理端口：</block>
+  <block id="b5232e117010c63512e6646cdcc5b782" category="list-text">暂停节点并显示<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block>提示符：</block>
+  <block id="8678abfcaeb1b4e7b04802e25402ccf6" category="list-text">连接到site_B上旧控制器(NODE_B_1-Oold和NODE_B_2-Oold)的串行控制台、并验证它是否显示<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block>提示符。</block>
+  <block id="5d77b80fe38db1f45d5d09f27dcd0e59" category="list-text">断开节点B_1-old和节点B_2-old上的存储和网络连接。为缆线贴上标签、以便可以将其重新连接到新节点。</block>
+  <block id="babccc809b9a10912d9d8a4de927ba3c" category="paragraph"><block ref="0c4ac37e524073d6c973003f56f3fc6c" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="26574f9e2197dc37d66e8e0dad63c6ca" category="summary">从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。</block>
+  <block id="8958d0af9b9ce2023eb6669c72fdac02" category="doc">使用切换和切回的MetroCluster IP控制器升级工作流(ONTAP 9.8及更高版本)</block>
+  <block id="5e37747995982979fde1e791f10c1ccd" category="paragraph">您可以使用此工作流在运行ONTAP 9.8或更高版本的系统上通过切换和切回来升级MetroCluster IP控制器。</block>
+  <block id="82107b1d3adefdea392b36f7697a120d" category="inline-link-macro">准备升级</block>
+  <block id="c240e88598326f9699f8db139f25d673" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="bdad88c10e021b717a14ac2abd1ce700" category="inline-link-macro-rx"></block></block>
+  <block id="141a2f25dc2c490b7e4938e522c74714" category="paragraph">查看支持的升级组合和要求、并完成必要的任务、为控制器升级做好系统准备。</block>
+  <block id="1d2721feb5212f6ecee441581bfac06c" category="inline-link-macro">升级控制器</block>
+  <block id="55fd8e266a61a047ef281919387159f3" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="854326e7cf2bbddea748bafc02951127" category="inline-link-macro-rx"></block></block>
+  <block id="d63296cf1970dbebe3fdbc235a090595" category="paragraph">切换MetroCluster配置、以便从旧控制器中删除配置、将新控制器装入机架并安装、重新分配根聚合磁盘并启动新控制器、然后再执行切回。</block>
+  <block id="ca8a2087e5557e317599344687a57391" category="inline-image-macro">三个</block>
+  <block id="7d603a7e3254c4bd0e81652af6b886ad" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="0fd9e0ef024074cec9e787b45185e421" category="inline-link-macro-rx"></block></block>
+  <block id="41cb0fd6e8dace24229a952aff1b1d0c" category="paragraph">在第二个站点重复执行升级任务并还原任何监控配置、以完成控制器升级。</block>
+  <block id="3c98ffbe5d744028e41fa1471641dc43" category="doc">准备MetroCluster IP系统以进行升级</block>
+  <block id="71e4a8bf257a07bf7ecdc859973f4cb4" category="paragraph">在对现有MetroCluster配置进行任何更改之前、请检查配置的运行状况、准备新平台并执行其他任务。</block>
+  <block id="6e6e0fb236cdc03dc93e1e5208bd4177" category="section-title">在升级控制器之前更新MetroCluster交换机RCF</block>
+  <block id="821b7ee3ab084a4c1cb4aacbc8490711" category="paragraph">根据新旧平台型号、您可能需要在升级控制器之前更新MetroCluster交换机参考配置文件(RCF)。</block>
+  <block id="ecc0c0067302a2cab8e48568d6aa3d14" category="paragraph">在以下情况下执行此任务：</block>
+  <block id="5d573e48cb48ae7a461c21264443ea79" category="list-text">交换机RC框架 配置不是最低版本。</block>
+  <block id="9a2fe7775fd869cec26fe4fb94d21a70" category="list-text">您需要更改后端MetroCluster连接使用的VLAN ID。</block>
+  <block id="a35fe4efc635d0d7bcc082e45d7960b1" category="paragraph">确定是否需要在升级控制器之前更新RCF：</block>
+  <block id="244070638cfeb58d571009aca0145142" category="list-text">如果交换机配置未配置支持的最低RCF版本、则需要在升级控制器之前更新RCF：</block>
+  <block id="9eb583b6acdc2b5e19e78b3f3c82122f" category="cell">所需的RC框架 版本</block>
+  <block id="0b46cc265817697812b9625109c89c9a" category="paragraph">2.0或更高版本</block>
+  <block id="bf9a01b246043f83aa128ae30e25612a" category="list-text">如果您的旧平台型号和新平台型号都在以下列表中、则在升级控制器之前、您不需要*更新VLAN ID：</block>
+  <block id="14a82d4aca6a5abb724d6196464cc879" category="list-text">FAS8200或AFF A300</block>
+  <block id="ef14d222f7c72bb44cf5c71ce439930e" category="list-text">FAS9000或AFF A700</block>
+  <block id="7007169941c9fdfbb00da3f003acbe3d" category="list-text">AFF A800、AFF C800、ASA A800或ASA C800</block>
+  <block id="dc77dc9abccbb87eac0650f7b2423680" category="paragraph">如果您的旧平台型号或新平台型号未在上面列出、则必须确认MetroCluster接口使用的是受支持的VLAN ID。MetroCluster接口支持的VLAN ID为10、20或介于101到4096之间。</block>
+  <block id="0817f4611c0ed330aa92c7e57c87d562" category="list-text">如果VLAN ID不是10、20或介于101到4096之间、则必须先升级交换机RCIF、然后再升级控制器。</block>
+  <block id="c161c6c1c89a525fc357732467253475" category="list-text">本地集群连接可以使用任何VLAN、它们不需要位于给定范围内。</block>
+  <block id="6e734dc996cb4ccb983b69acf7b09ed2" category="list-text">要升级到的新RC框架 必须使用VLAN 10、20或介于101到4096之间。除非需要、否则不要更改本地集群的VLAN。</block>
+  <block id="35876e862caa9e22507177b3603679ae" category="admonition">您应按以下顺序更新交换机：switch_A_1、switch_B_1、switch_A_2、switch_B_2。</block>
+  <block id="f2b11c5207eaad83377af1bdfcd548dd" category="paragraph">您必须验证NODE_A_1-Oold上的物理端口是否正确映射到NODE_A_1-NEW上的物理端口。这样、在升级后、NODE_A_1-NEW便可与集群中的其他节点以及网络进行通信。</block>
+  <block id="64c6cb0305ddeb8c2751f478d0dd512f" category="paragraph">当新节点在升级过程中首次启动时、它会回显要更换的旧节点的最新配置。启动 node_A_1-new 时， ONTAP 会尝试在 node_A_1-old 上使用的相同端口上托管 LIF 。这意味着、您必须在升级过程中调整端口和LIF配置、以使其与旧节点的配置兼容。在升级过程中、您可以对新旧节点执行相应步骤、以确保集群、管理和数据Cifs配置正确</block>
+  <block id="f59bb1c88c6077619a5706968dbeebbc" category="paragraph">没有匹配的端口。升级后、您必须重新创建集群端口。</block>
+  <block id="e2c7c578642aed12a7ba3fc1b702afeb" category="paragraph">e0c 和 e0d 是匹配的端口。您无需更改配置、但升级后、您可以将集群的集群利器分布在可用的集群端口上。</block>
+  <block id="3cfe914b28d9b06fab728475928cc9b8" category="paragraph">控制器的端口使用情况取决于平台模块以及要在 MetroCluster IP 配置中使用的交换机。您可以从收集新平台的端口使用情况<block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block>。</block>
+  <block id="6d168bef84b6a3328128dae36215329a" category="paragraph">您不需要提取<block ref="51654457d77e7151c919912e5b745ae2" prefix=" " category="inline-code"></block>文件。</block>
+  <block id="694e80fb957523fc4d9e2cd89de01703" category="paragraph">对MetroCluster配置中的每个节点发出此命令。</block>
+  <block id="ac67d8294302a95bff318b5ac264e96f" category="paragraph">对MetroCluster配置中的每个节点发出此命令。</block>
+  <block id="886efe444af6918654bc4ab978418f6f" category="paragraph">对每个集群发出此命令。</block>
+  <block id="8cc920f2fe957b537e32556ab19fc2d6" category="paragraph">对每个集群发出此命令。您可以使用<block ref="98d08184a8d3d7b486b1a774622f7675" prefix=" " category="inline-code"></block>命令配置时间和时区。</block>
+  <block id="d717838e07a3238809a337e757ad545e" category="list-text">收集每个节点的互连、端口和LIF信息。</block>
+  <block id="2bd6f53f70717822994364eab0bf6cbb" category="paragraph">必须在新的 site_B 控制器模块上准确配置这些值，以确保成功升级。将值复制到文件、以便稍后在升级过程中将其复制到命令中。</block>
+  <block id="ed2b77aa370645814dafbf5dd8aef15f" category="paragraph">NetApp建议您将这些UID记录在如下表中：</block>
+  <block id="6bfdd861df764d52de7823dd5958fab3" category="paragraph">收集以下命令的输出：</block>
+  <block id="f3f4fd8fb847fe1a5ad11aacd71b5fad" category="list-text">如果根卷已加密、请收集并保存用于密钥管理器的密码短语：</block>
+  <block id="3c3a3838848890665c5d4969e896b405" category="inline-link">手动备份板载密钥管理信息</block>
+  <block id="a99b2b056456bd0991317c897eb6b8b6" category="paragraph">有关更多信息，请参见<block ref="3c8480dc65ec7d91021d4d612b6bf420" category="inline-link-rx"></block>。</block>
+  <block id="a1f17dd5bd9c97697b58a9f90f8bfe7d" category="paragraph">您需要在稍后的升级过程中提供密码短语。</block>
+  <block id="e6790e163decf815ae94c9137d60eb13" category="paragraph"><block ref="766cba2090a16f1ed1bcf4bf4dada91b" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="b52a41eb513dc979f4cf2a4a13686ecd" category="summary">更新新平台的交换机RCF、并在控制器模块上设置MetroCluster IP启动程序值。</block>
+  <block id="bad868fbc306571d732100a7612b6381" category="list-text">您需要中先前升级过程中确定的UID和系统ID<block ref="aacd1fc1f619acd6603cbd45ee223ad9" category="inline-link-macro-rx"></block>。</block>
+  <block id="2f7475e5d10323798c907dce394ba254" category="paragraph"><block ref="cd86f597b1843cd46dca1a45b8d833bb" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="48fc0b783fa78b7d13c355f64927a3be" category="summary">从启动菜单重新启动控制器以更新控制器闪存映像。如果配置了加密，则需要执行其他步骤。</block>
+  <block id="c0b1dbf234cdf7b3f03c6d52170d19ac" category="paragraph">启动新控制器、并验证是否已在适当的节点和端口上托管了此生命周期、然后使用命令恢复此操作<block ref="73226fabfade9b9a2472baed8321894c" prefix=" " category="inline-code"></block>。</block>
+  <block id="1c03e17896e23037622d3bf9a7ef5905" category="paragraph">启动新控制器、验证bootarg变量是否正确、如果需要、请执行加密恢复步骤。</block>
+  <block id="9ba1750339ef5d849eebfaf000508762" category="admonition">选项"`6`"会在该过程完成之前重新启动节点两次。</block>
+  <block id="433a25ed1de0abd9caa3a0a9c6b97b4f" category="admonition">仅删除新广播域。请勿删除在开始升级之前存在的任何广播域。</block>
+  <block id="72a7cb3bbba56280bfb0dbf79f420147" category="inline-link-macro">创建集群对等关系</block>
+  <block id="8f65f393817703ba6500e9440cba0af1" category="paragraph"><block ref="8f65f393817703ba6500e9440cba0af1" category="inline-link-macro-rx"></block></block>
+  <block id="a51cd3bd8dc9efabd4808d4faa54cb85" category="inline-link">将物理端口组合在一起以创建接口组</block>
+  <block id="68e69b7b0e7a0b539632ccdbabb31e7d" category="paragraph"><block ref="68e69b7b0e7a0b539632ccdbabb31e7d" category="inline-link-rx"></block></block>
+  <block id="d996dbe2f4ba96e844468e9c625b01f0" category="inline-link-macro">完成控制器升级</block>
+  <block id="6d46f278d01e8305ac7185886c002984" category="paragraph"><block ref="ae947831c3d070a4eb9e8092c2682d0e" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="0060ba87094261e8c011d7b8419677ed" category="summary">通过验证网络可访问性并还原任何监控配置来完成自动控制器升级过程。</block>
+  <block id="4653682314828cb5425dae789da06002" category="section-title">验证网络可连接</block>
+  <block id="2f7033d68b421f3c87221d29b6075017" category="paragraph">如果升级后检查未报告任何错误、则表示升级已完成。</block>
+  <block id="37c813460b2b0635d69e528d1110fffc" category="list-text">重复上述步骤以升级cluster-A上的节点，从开始<block ref="2e9e222a79bc86deb25c4111d82b6614" category="inline-link-macro-rx"></block>。</block>
+  <block id="e21d56847dfd42d679e8b2e0c0314d6e" category="paragraph">在执行任务时，对集群和节点的所有示例引用都将反转。</block>
+  <block id="6055a0810b2c2df62e85dfcb8b447c2e" category="list-text">使用中的步骤<block ref="9dc3875c163144dba4e47010e217fce8" category="inline-link-rx"></block>。</block>
+  <block id="83162cb24e71760f89d5962835905ed0" category="doc">在升级MetroCluster IP之前启用控制台日志记录</block>
+  <block id="bab0338cc638de785269282fe0b4df1e" category="paragraph">查看中的信息<block ref="e0071a426543185e159ab522bd36850e" category="inline-link-macro-rx"></block>、确认是否需要在现有系统上设置所需的启动程序。</block>
+  <block id="cb990f25bc5eb8215bf8eb74c16807f3" category="summary">要为控制器升级做准备、请执行系统预检并收集配置信息。</block>
+  <block id="c458b5225672f84c61d5b9931863ae60" category="paragraph">要为控制器升级做准备、您可能需要根据新旧平台型号升级交换机参考配置文件(RCF)。然后、您可以执行系统预检、收集配置信息并删除现有监控软件。</block>
+  <block id="0c21b75966b293902f32e19c44cfee40" category="list-text">交换机RC框架 配置不是最低版本。</block>
+  <block id="cbde96365d4f8077bc47cc3245bf5730" category="section-title">执行系统预检</block>
+  <block id="b5fe45c4891c6d19896e92fee5883a19" category="inline-link-macro">重新配置ONTAP调解器服务</block>
+  <block id="be523ee24c95ff3261d845514671c9b1" category="paragraph">在启动预检之前、如果安装了ONTAP 调解器、则会自动检测并删除该调解器。要确认删除、系统会提示您输入用户名和密码。完成升级后，或者如果预检失败或您选择不继续升级，则必须手动执行<block ref="059689c27028be05419054623185eb12" category="inline-link-macro-rx"></block>。</block>
+  <block id="2592dc8685229c73a77e91741c837a63" category="paragraph">有关更多信息，请参见<block ref="8d2708bcc3f1eaf7281ec3a4227ab734" category="inline-link-rx"></block>。</block>
+  <block id="0db7751284ee845ba2b1c67a8d8704db" category="section-title">从Tieb破碎 机或其他监控软件中删除现有配置</block>
+  <block id="0cd4dc9ba4eb47708afdb2049d98c13a" category="paragraph">在开始升级之前、请从Tieb破碎 机或其他监控软件中删除现有配置。</block>
+  <block id="63176d27bda1b994565a28492ed02e97" category="paragraph"><block ref="209008f8360496ff2e8d9d6e8b8625cb" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="b6d5a1b988920561660edfbb59c8b381" category="summary">收集信息并恢复操作后、自动化操作将继续执行切换。</block>
+  <block id="a4a7a1e3ac3667680b4a5e6ab2b9dc12" category="doc">准备旧MetroCluster IP控制器的网络配置</block>
+  <block id="b28e3b943a6b1bc331fc8f6307558058" category="paragraph">此自动化操作将启动切换操作。完成这些操作后、此操作会在*暂停以供用户干预*、以便您可以将控制器装入机架并进行安装、启动配对控制器、并使用先前收集的从闪存备份将根聚合磁盘重新分配给新控制器模块<block ref="5fb641c5977b93de82b81e36db0454cf" prefix=" " category="inline-code"></block>。</block>
+  <block id="3bd449656c8f9918efa0c6a3ffb67f35" category="list-text">您可以使用在中收集的信息<block ref="aacd1fc1f619acd6603cbd45ee223ad9" category="inline-link-macro-rx"></block>。</block>
+  <block id="cb1d34c3507ba01d2cb2d80efb952c46" category="list-text">还原不在其主端口上的任何生命周期：</block>
+  <block id="aa982af7072275376390d3bbb6688cf7" category="paragraph">有关每个平台型号的端口使用情况、请参见<block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block>。</block>
+  <block id="ca2d894726ab5d6f98b54a8f5a9a68f1" category="list-text">根据需要修改接口组端口以使用其他物理端口作为成员：</block>
+  <block id="c2fec5501e10273100f9b9b6fbc3167d" category="list-text">验证节点是否位于提示符处<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block>、然后收集并保留当前环境变量。</block>
+  <block id="badf169d1e3a98e87ec699a27e36973e" category="inline-link-macro">设置并通过网络启动新控制器</block>
+  <block id="ef981c1c63c22e1055257ab17c228d0d" category="paragraph"><block ref="31bf2e2f0c56e7a2af110bee4998f2d7" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="2d6c2faa1510a1abbf511186d036a809" category="paragraph">旧系统ID在中标识 <block ref="aacd1fc1f619acd6603cbd45ee223ad9" category="inline-link-macro-rx"></block>。</block>
+  <block id="b81de37a349498d964469c412909f544" category="list-text">使用缆线将所有其他连接连接到新控制器模块(FC-VI、存储、集群互连等)。</block>
+  <block id="c030f6772f3af36940b46d4c256dc6c7" category="paragraph">命令输出将显示新控制器模块（ 1574774970 ）的系统 ID 。但是，根聚合磁盘仍归旧系统 ID （ 4068741254 ）所有。此示例不会显示MetroCluster配置中其他节点拥有的驱动器。</block>
+  <block id="cd3645f6babaf4e4c1171003b3d056f5" category="admonition">如果您的MetroCluster IP系统配置了高级磁盘部分功能、则必须运行命令以包含DR配对系统ID<block ref="1d9572d24113365244a97e4cb81d5a77" prefix=" " category="inline-code"></block>。</block>
+  <block id="ef5358bea095b88966697d1cef9aca78" category="paragraph"><block ref="92e7e14dad7d6c754e49f694366186c6" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="a0d27186cb018d5b511664786fa7702e" category="admonition">四节点MetroCluster IP配置不支持使用聚合重新定位(ARL)和"system controller Replace (系统控制器更换)"命令执行升级。</block>
+  <block id="7301cea1f280c9b34a93ad98d0996c01" category="paragraph"><block ref="550153a4a6a617ac81f98d9353eb3610" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="7f94b8f9b32c8613afa8a7a6723c5502" category="inline-link-macro">更新交换机RC框架 文件并设置MetroCluster IP启动程序值</block>
+  <block id="95a0dc0cefe38a8a65f4b4857599a767" category="paragraph"><block ref="7540bef2d37c83ab15db307604964774" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="471b1d5bf7b9020a821b9612fad3ac61" category="summary">升级到9.15.1 9.151或更高版本中引入的系统需要先设置启动程序、然后才能继续升级。</block>
+  <block id="867034ce824c06d2ae20a2782eada4c4" category="list-text">AFF A70、AFF A90、AFF A1K</block>
+  <block id="e13c96308702af19fbafc3aa4886ae41" category="admonition">如果要升级到列出的任何系统，则在执行升级之前，*必须*在现有系统上设置所需的启动程序。对于所有其他升级，您可以跳过此任务并直接转到 <block ref="7316c75eb3c5ee7c2327a2b6a0fcc53b" category="inline-link-macro-rx"></block>。</block>
+  <block id="f05c544454e5ae504161071bcf104914" category="list-text">为您的升级组合设置所需的bootarg。您已使用中的表确定需要设置的启动<block ref="4e6a8a5f8b225717259653d744f685bb" category="inline-xref-macro-rx"></block>程序。</block>
+  <block id="01e12de62fa77fda2815719aed8ff892" category="paragraph-title">下一步行动</block>
+  <block id="9a24b7f06d5ef108e1e9e3a9b9635840" category="paragraph"><block ref="7316c75eb3c5ee7c2327a2b6a0fcc53b" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="93f8500ac24198be47183091f57b31d0" category="summary">在通过网络启动控制器之前设置新控制器、以确认新节点运行的ONTAP版本与原始节点相同。</block>
+  <block id="d73d8b1608960d6e496ea29a17610f41" category="doc">设置并通过网络启动新的MetroCluster IP控制器</block>
+  <block id="bfc582b530d6f8e1a6179a19e7c24e66" category="list-text">如果您的升级需要更换控制器模块、例如从AFF A800升级到AFF A90系统或从AFF C800升级到AFF C80系统、则在更换控制器模块时、您必须从机箱中卸下控制器模块。对于所有其他升级，请跳至 <block ref="4ee00eba6649125448d979c5e5c0a049" category="inline-xref-macro-rx"></block>。</block>
+  <block id="d96b5430d0f962c1eb59e8c50c79e603" category="list-text">按照中所述、为控制器的电源、串行控制台和管理连接布线 <block ref="7176836221733e9bf6fcbaccc1aa9ffd" category="inline-link-macro-rx"></block></block>
+  <block id="d327ebd5e8d98adf66c42d588ef640d1" category="paragraph">您的目录列表应包含一个包含内核文件的网络启动文件夹：<block ref="24f58b52875ae0cf9e2f71f5f4715aba" prefix=" " category="inline-code"></block></block>
+  <block id="15d63e3040229aa69f2bacf54450c8aa" category="paragraph">您不需要提取<block ref="24f58b52875ae0cf9e2f71f5f4715aba" prefix=" " category="inline-code"></block>文件。</block>
+  <block id="553c80eee3874db37c74026e9cd54f1c" category="paragraph"><block ref="669980a1306854f119900d6a8876f53d" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="1134c88b3e27b3208779089225a7548e" category="summary">开始升级MetroCluster IP控制器之前、您需要验证您的升级组合是否受支持。</block>
+  <block id="7624bf7be4ed54fdaaf6abd264ec56f1" category="inline-image-macro">显示了使用system controller Replace命令升级MetroCluster IP时支持的平台组合。</block>
+  <block id="eea98b077c7972fc76313c08c73fcd8d" category="paragraph"><block ref="eea98b077c7972fc76313c08c73fcd8d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3bd44928438eecd88373e90938479338" category="list-text">注4：需要使用IOM模块将旧控制器转换为外部SAS磁盘架。有关支持的IOM模块、请参见<block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block>。</block>
+  <block id="fd82efb2b9fc7033a2ee19efb493d464" category="inline-link-macro">选择升级或刷新方法</block>
+  <block id="cbbc95c0b1d7c5d8feea0d31eafa9a28" category="paragraph">有关其他步骤、请参见<block ref="1547bd533de8078ec6c6f72dc3468122" category="inline-link-macro-rx"></block>。</block>
+  <block id="a397b8fc1d64d0e666558911201a9d53" category="inline-link-macro">使用此升级过程的要求</block>
+  <block id="97fd50265456f865138d015468645cb7" category="paragraph">查看 <block ref="b26a80311d05e322b17b954a108f547a" category="inline-link-macro-rx"></block>。</block>
+  <block id="e716ba8afd7707b81c0012ca2d240899" category="doc">使用system controller Replace命令升级MetroCluster IP控制器的工作流(9.13.1 9.131或更高版本)</block>
+  <block id="c5b6e762a71a6bb5ff91cfa8e00a4f28" category="paragraph">您可以使用此引导式自动MetroCluster切换操作在运行9.13.1 9.13.1.更高版本的四节点MetroCluster IP配置上执行无中断控制器升级。无法在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
+  <block id="6bae23f4c16096f75936d03d366e6ca8" category="paragraph">您可以使用此工作流通过切换和切回命令升级运行9.13.1 9.131或更高版本的MetroCluster IP控制器<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>。</block>
+  <block id="95f189c9c3198eedfd091c1c5a66a3ef" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="9f3c427d5d3af6ef2473cbb7eb6963ff" category="inline-link-macro-rx"></block></block>
+  <block id="fd59b1a35af432acc6cfe409da3cdc0b" category="paragraph">查看支持的升级组合和要求、并完成必要的任务、为控制器升级做好系统准备。在收集配置信息并删除任何现有监控软件之前、自动控制器升级过程将从一系列预检开始。</block>
+  <block id="cdd6d962f7c1157b5ba9a2c43f2e3bc8" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="44742bdd1705b3cb66d4b2036598983b" category="inline-link-macro-rx"></block></block>
+  <block id="534ad9cbf8e7037fccd0ac62e82e1266" category="paragraph">此自动化操作将启动切换操作。完成这些操作后、此操作将暂停、以便您可以准备旧控制器的网络配置、将新控制器装入机架并进行安装、重新分配根聚合磁盘以及启动新控制器。</block>
+  <block id="1a36f27e528182104ced1c09ac758a02" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="e0a16c6d634174c8e45507db2ae1af5a" category="inline-link-macro-rx"></block></block>
+  <block id="6f76e096cb208964d821ba05d162651f" category="paragraph">通过验证网络可访问性、在第二个站点上重复执行升级任务并还原监控配置来完成自动控制器升级。</block>
+  <block id="5b416e1633d16aad217a2e0fc2d097f8" category="sidebar">升级工作流</block>
+  <block id="77ad3860f6eb24d1f2e8b5e88ed38c11" category="sidebar">使用此升级过程的要求</block>
+  <block id="2121d804f7506346a64be149284a7f4e" category="sidebar">设置所需的启动程序(对于9.15.1 9.151或更高版本中引入的系统升级)</block>
+  <block id="17c2940e7b2cfcc2faa4d1ef00e56d9e" category="sidebar">切回配置</block>
+  <block id="11174a5afd588b4b0362df983b5f76c6" category="sidebar">使用切换和切回将MetroCluster IP中的控制器(AFF A700到AFF A900、FAS9000到FAS9500)升级(9.10.1 9.10.1或更高版本)</block>
+  <block id="9154ca816ab69e291b499f5a2579f66c" category="sidebar">使用切换和切回(9.10.1 9.10.1或更高版本)升级MetroCluster FC配置中的控制器(AFF A700到AFF A900、FAS9000到FAS9500)</block>
 </blocks>

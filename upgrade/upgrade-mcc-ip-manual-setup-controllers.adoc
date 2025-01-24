@@ -1,0 +1,107 @@
+---
+permalink: upgrade/upgrade-mcc-ip-manual-setup-controllers.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 将新的MetroCluster IP控制器装入机架并进行布线。 
+---
+= 设置新的MetroCluster IP控制器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将新的MetroCluster IP控制器装入机架并进行布线。
+
+.步骤
+. 根据需要规划新控制器模块和存储架的位置。
++
+机架空间取决于控制器模块的平台型号，交换机类型以及配置中的存储架数量。
+
+. 正确接地。
+. 如果您的升级需要更换控制器模块、例如从AFF A800升级到AFF A90系统或从AFF C800升级到AFF C80系统、则在更换控制器模块时、您必须从机箱中卸下控制器模块。对于所有其他升级，请跳至 <<ip_upgrades_so_sb_4,第 4 步>>。
++
+在机箱正面、用拇指用力推入每个驱动器、直到您感觉到有一定的停机。这可确认驱动器已牢固地固定在机箱中板上。
+
++
+image::../media/drw-a800-drive-seated.png[显示了如何从机箱中卸下控制器模块]
+
+. [[ip_U台 升级_sO_sb_4]]安装控制器模块。
++
+您需要执行的安装步骤取决于您的升级是否需要更换控制器模块、或者是否需要使用IOM模块将旧控制器转换为外部磁盘架。
+
++
+[cols="2*"]
+|===
+| 升级条件 | 请按照以下步骤操作... 
+
+
+ a| 
+** AFF 2020系统的AFF A150
+** AFF 2020系统的AFF A220
+
+| 控制器到外部磁盘架的转换 
+
+
+ a| 
+** AFF A90系统的AFF A800
+** AFF C80系统的AFF C800
+
+| 更换控制器模块 
+
+
+| 任何其他控制器升级组合 | 所有其他升级 
+|===
++
+[role="tabbed-block"]
+====
+.控制器到外部磁盘架的转换
+--
+如果原始MetroCluster IP控制器为AFF A150或AFF A220型号、则可以将AFF A150或AFF A220 HA对转换为DS224C驱动器架、然后将其连接到新节点。
+
+例如、在从AFF A150或AFF A220系统升级到AFF 2020系统时、您可以通过将AFF A150或AFF A220控制器模块更换为IOM12模块来将AFF A150或AFF A220 HA对转换为DS224C磁盘架。
+
+.步骤
+.. 更换要使用IOM12磁盘架模块转换的节点中的控制器模块。
++
+https://hwu.netapp.com["Hardware Universe"^]
+
+.. 设置驱动器架 ID 。
++
+每个驱动器架（包括机箱）都需要一个唯一 ID 。
+
+.. 根据需要重置其他驱动器架 ID 。
+.. 关闭磁盘架。
+.. 将转换后的驱动器架连接到新系统上的 SAS 端口，如果使用带外 ACP 布线，则连接到新节点上的 ACP 端口。
+.. 打开转换后的驱动器架以及连接到新节点的任何其他驱动器架的电源。
+.. 打开新节点的电源，然后按 Ctrl-C 访问启动环境提示符，以中断每个节点上的启动过程。
+
+
+--
+.更换控制器模块
+--
+单独安装新控制器不适用于磁盘和控制器位于同一机箱中的集成系统的升级、例如、从AFF A800系统升级到AFF A90系统。关闭旧控制器后、您必须交换新控制器模块和I/O卡、如下图所示。
+
+以下示例图像仅用于表示、控制器模块和I/O卡可能因系统而异。
+
+image::../media/a90-a70-pcm-swap.png[显示了控制器模块交换]
+
+--
+.所有其他升级
+--
+在机架或机柜中安装控制器模块。
+
+--
+====
+. 按照中所述为控制器的电源、串行控制台和管理连接布线link:../install-ip/using_rcf_generator.html["为 MetroCluster IP 交换机布线"]。
++
+此时请勿连接与旧控制器断开连接的任何其他缆线。
+
++
+https://docs.netapp.com/us-en/ontap-systems/index.html["ONTAP硬件系统文档"^]
+
+. 启动新节点并将其启动至维护模式。
+
+
+.下一步是什么？
+link:upgrade-mcc-ip-manual-hba-set-ha.html["还原HBA配置并设置HA状态"](英文)

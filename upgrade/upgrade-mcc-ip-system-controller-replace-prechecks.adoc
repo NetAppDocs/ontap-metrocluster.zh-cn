@@ -1,0 +1,305 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-prechecks.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 要为控制器升级做准备、请执行系统预检并收集配置信息。 
+---
+= 准备MetroCluster IP系统以进行升级
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要为控制器升级做准备、您可能需要根据新旧平台型号升级交换机参考配置文件(RCF)。然后、您可以执行系统预检、收集配置信息并删除现有监控软件。
+
+
+
+== 在升级控制器之前更新MetroCluster交换机RCF
+
+根据新旧平台型号、您可能需要在升级控制器之前更新MetroCluster交换机参考配置文件(RCF)。
+
+.关于此任务
+在以下情况下执行此任务：
+
+* 交换机RC框架 配置不是最低版本。
+* 您需要更改后端MetroCluster连接使用的VLAN ID。
+
+
+.开始之前
+确定是否需要在升级控制器之前更新RCF：
+
+* 如果交换机配置未配置支持的最低RCF版本、则需要在升级控制器之前更新RCF：
++
+|===
+
+
+| 交换机型号 | 所需的RC框架 版本 
+
+
+ a| 
+Cisco 3132Q-V
+ a| 
+1.7 或更高版本
+
+
+
+ a| 
+Cisco 3232C
+ a| 
+1.7 或更高版本
+
+
+
+ a| 
+Broadcom BES-53248
+ a| 
+1.3 或更高版本
+
+
+
+ a| 
+NVIDIA SN2100
+ a| 
+2.0或更高版本
+
+|===
+* 如果您的旧平台型号和新平台型号都在以下列表中、则在升级控制器之前、您不需要*更新VLAN ID：
++
+** FAS8200或AFF A300
+** AFF A320
+** FAS9000或AFF A700
+** AFF A800、AFF C800、ASA A800或ASA C800
++
+如果您的旧平台型号或新平台型号未在上面列出、则必须确认MetroCluster接口使用的是受支持的VLAN ID。MetroCluster接口支持的VLAN ID为10、20或介于101到4096之间。
+
++
+[CAUTION]
+====
+*** 如果VLAN ID不是10、20或介于101到4096之间、则必须先升级交换机RCIF、然后再升级控制器。
+*** 本地集群连接可以使用任何VLAN、它们不需要位于给定范围内。
+*** 要升级到的新RC框架 必须使用VLAN 10、20或介于101到4096之间。除非需要、否则不要更改本地集群的VLAN。
+
+
+====
+
+
+
+
+.步骤
+. 准备IP交换机以应用新RCF。
++
+按照适用于您的交换机供应商的部分中的步骤进行操作：
+
++
+
+NOTE: 您应按以下顺序更新交换机：switch_A_1、switch_B_1、switch_A_2、switch_B_2。
+
++
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["将 Broadcom IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_cisco.html#resetting-the-cisco-ip-switch-to-factory-defaults["将Cisco IP交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_nvidia.html#reset-the-nvidia-ip-sn2100-switch-to-factory-defaults["将NVIDIA IP SN2100交换机重置为出厂默认值"]
+
+
+. 下载并安装RCF。
++
+按照适用于您的交换机供应商的部分中的步骤进行操作：
+
++
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装Broadcom RCF"]
+** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装Cisco IP RCF"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["下载并安装NVIDIA IP RCF"]
+
+
+
+
+
+
+== 执行系统预检
+
+在启动预检之前、如果安装了ONTAP 调解器、则会自动检测并删除该调解器。要确认删除、系统会提示您输入用户名和密码。完成升级后，或者如果预检失败或您选择不继续升级，则必须手动执行link:../install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["重新配置ONTAP调解器服务"]。
+
+在升级期间的任何阶段，您都可以从站点 A 运行 `ssystem controller replace show` 或 `ssystem controller replace show-details` 命令来检查状态。如果这些命令返回空白输出，请等待几分钟，然后重新运行此命令。
+
+.步骤
+. 从站点 A 启动自动控制器更换操作步骤，以更换站点 B 的控制器：
++
+`system controller replace start -nso true`
+
++
+自动操作将执行预检。如果未发现任何问题，此操作将暂停，以便您可以手动收集与配置相关的信息。
+
++
+[NOTE]
+====
+** 如果不运行 `system controller replace start -nso true` 命令时、控制器升级操作步骤 会选择基于NSO的自动切换和切回作为MetroCluster IP系统上的默认操作步骤。
+** 此时将显示当前源系统和所有兼容的目标系统。如果您将源控制器更换为 ONTAP 版本不同或平台不兼容的控制器，则在启动新节点后，自动化操作将暂停并报告错误。要将集群恢复为运行状况良好的状态，您需要按照手动恢复操作步骤进行操作。
++
+`scontroller replace start` 命令可能会报告以下预检错误：
+
++
+[listing]
+----
+Cluster-A::*>system controller replace show
+Node        Status         Error-Action
+----------- -------------- ------------------------------------
+Node-A-1    Failed         MetroCluster check failed. Reason : MCC check showed errors in component aggregates
+----
++
+检查此错误是否是由于未镜像聚合或其他聚合问题描述而发生的。验证所有镜像聚合是否运行正常，并且未降级或镜像降级。如果此错误仅由未镜像聚合引起，则可以通过在 `ssystem controller replace start` 命令中选择 ` skip-metrocluster-check true` 选项来覆盖此错误。如果可以访问远程存储，则未镜像聚合会在切换后联机。如果远程存储链路发生故障，未镜像的聚合将无法联机。
+
+
+
+====
+. `s站点 B 并按照控制台消息中列出的命令在` system controller replace show `s或` system controller replace show-details 命令下手动收集配置信息。
+
+
+
+
+== 在升级之前收集信息
+
+在升级之前，如果根卷已加密，则必须收集备份密钥和其他信息以使用旧的加密根卷启动新控制器。
+
+.关于此任务
+此任务将对现有MetroCluster IP配置执行。
+
+.步骤
+. 为现有控制器的缆线贴上标签，以便在设置新控制器时轻松识别缆线。
+. 显示用于捕获备份密钥和其他信息的命令：
++
+`ssystem controller replace show`
+
++
+从配对集群运行 `show` 命令下列出的命令。
+
++
+。 `show` 命令输出显示三个表、其中包含MetroCluster 接口IP、系统ID和系统UID。稍后、要在启动新节点时设置bootargs、需要在操作步骤 中提供此信息。
+
+. 收集 MetroCluster 配置中节点的系统 ID ：
++
+--
+`MetroCluster node show -fields node-systemID ， dr-partner-systemID`
+
+在升级操作步骤期间、您将使用新控制器模块的系统ID替换这些旧系统ID。
+
+在此示例中、对于四节点MetroCluster IP配置、将检索以下旧系统ID：
+
+** node_A_1-old ： 4068741258
+** node_A_2-old ： 4068741260
+** node_B_1-old ： 4068741254
+** node_B_2-old ： 4068741256
+
+
+[listing]
+----
+metrocluster-siteA::> metrocluster node show -fields node-systemid,ha-partner-systemid,dr-partner-systemid,dr-auxiliary-systemid
+dr-group-id        cluster           node            node-systemid     ha-partner-systemid     dr-partner-systemid    dr-auxiliary-systemid
+-----------        ---------------   ----------      -------------     -------------------     -------------------    ---------------------
+1                    Cluster_A       Node_A_1-old    4068741258        4068741260              4068741256             4068741256
+1                    Cluster_A       Node_A_2-old    4068741260        4068741258              4068741254             4068741254
+1                    Cluster_B       Node_B_1-old    4068741254        4068741256              4068741258             4068741260
+1                    Cluster_B       Node_B_2-old    4068741256        4068741254              4068741260             4068741258
+4 entries were displayed.
+----
+在此双节点MetroCluster IP配置示例中、检索到以下旧系统ID：
+
+** node_A_1 ： 4068741258
+** node_B_1 ： 4068741254
+
+
+[listing]
+----
+metrocluster node show -fields node-systemid,dr-partner-systemid
+
+dr-group-id cluster    node          node-systemid dr-partner-systemid
+----------- ---------- --------      ------------- ------------
+1           Cluster_A  Node_A_1-old  4068741258    4068741254
+1           Cluster_B  node_B_1-old  -             -
+2 entries were displayed.
+----
+--
+. 收集每个旧节点的端口和LIF信息。
++
+您应收集每个节点的以下命令输出：
+
++
+** `network interface show -role cluster ， node-mgmt`
+** `network port show -node <node-name> -type physical`
+** `network port vlan show -node <node-name>`
+** `network port ifgrp show -node <node-name> -instance`
+** `network port broadcast-domain show`
+** `网络端口可访问性 show -detail`
+** `network IPspace show`
+** `volume show`
+** `s存储聚合显示`
+** `system node run -node <node-name> sysconfig -a`
+** `aggr show -r`
+** `d展示`
+** `system node run <node-name> disk show`
+** `vol show -fields type`
+** `vol show -fields type , space-guarantee`
+** `SVM FCP 启动程序 show`
+** `s存储磁盘显示`
+** `MetroCluster configuration-settings interface show`
+
+
+. 如果 MetroCluster 节点采用 SAN 配置，请收集相关信息。
++
+您应收集以下命令的输出：
+
++
+** `fcp adapter show -instance`
+** `fcp interface show -instance`
+** `iscsi interface show`
+** `ucadmin show`
+
+
+. 如果根卷已加密，请收集并保存用于 key-manager 的密码短语：
++
+`security key-manager backup show`
+
+. 如果 MetroCluster 节点对卷或聚合使用加密，请复制有关密钥和密码短语的信息。
++
+有关更多信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-1677AE0A-FEF7-45FA-8616-885AA3283BCF.html["手动备份板载密钥管理信息"^]。
+
++
+.. 如果配置了板载密钥管理器：
++
+`s安全密钥管理器板载 show-backup`
+
++
+您稍后将在升级操作步骤中需要此密码短语。
+
+.. 如果配置了企业密钥管理（ KMIP ），请问题描述执行以下命令：
++
+`security key-manager external show -instance`
+
++
+`s安全密钥管理器密钥查询`
+
+
+
+. 收集完配置信息后，恢复此操作：
++
+`s系统控制器更换恢复`
+
+
+
+
+
+== 从Tieb破碎 机或其他监控软件中删除现有配置
+
+在开始升级之前、请从Tieb破碎 机或其他监控软件中删除现有配置。
+
+如果使用 MetroCluster Tiebreaker 配置或其他可启动切换的第三方应用程序（例如 ClusterLion ）监控现有配置，则在更换旧控制器之前，必须先从 Tiebreaker 或其他软件中删除 MetroCluster 配置。
+
+.步骤
+. link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["删除现有 MetroCluster 配置"] 来自 Tiebreaker 软件。
+. 从可以启动切换的任何第三方应用程序中删除现有 MetroCluster 配置。
++
+请参见该应用程序的文档。
+
+
+
+.下一步是什么？
+link:upgrade-mcc-ip-system-controller-replace-prepare-network-configuration.html["准备旧控制器的网络配置"](英文)

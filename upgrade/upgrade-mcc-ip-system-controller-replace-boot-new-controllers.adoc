@@ -1,0 +1,264 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-boot-new-controllers.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 从启动菜单重新启动控制器以更新控制器闪存映像。如果配置了加密，则需要执行其他步骤。 
+---
+= 启动新的MetroCluster IP控制器并还原LIF配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+启动新控制器、并验证是否已在适当的节点和端口上托管了此生命周期、然后使用命令恢复此操作 `system controller replace resume`。
+
+
+
+== 启动新控制器
+
+启动新控制器、验证bootarg变量是否正确、如果需要、请执行加密恢复步骤。
+
+.关于此任务
+必须对所有新控制器执行此任务。
+
+.步骤
+. 暂停节点：
++
+`halt`
+
+. 如果配置了外部密钥管理器，请设置相关的 boottargets ：
++
+`setenv bootarg.kmip.init.ipaddr <ip-address>`
+
++
+`setenv bootarg.kmip.init.netmask <netmask>`
+
++
+`setenv bootarg.kmip.init.gateway <gateway-address>`
+
++
+`setenv bootarg.kmip.init.interface <interface-id>`
+
+. 显示启动菜单：
++
+`boot_ontap 菜单`
+
+. 如果使用根加密，请为密钥管理配置选择启动菜单选项。
++
+|===
+
+
+| 如果您使用的是 ... | 选择此启动菜单选项 ... 
+
+
+ a| 
+板载密钥管理
+ a| 
+选项 "`10` "
+
+按照提示提供恢复和还原密钥管理器配置所需的输入。
+
+
+
+ a| 
+外部密钥管理
+ a| 
+选项 "`11` "
+
+按照提示提供恢复和还原密钥管理器配置所需的输入。
+
+|===
+. 从启动菜单中，运行选项 "`6` " 。
++
+
+NOTE: 选项"`6`"会在该过程完成之前重新启动节点两次。
+
++
+对系统ID更改提示回答"`y`"。等待第二条重新启动消息：
+
++
+[listing]
+----
+Successfully restored env file from boot media...
+
+Rebooting to load the restored env file...
+----
++
+在选项"`6`"后的一次重新启动期间、将显示确认提示 `Override system ID? {y|n}` 显示。输入 ... `y`。
+
+. 如果使用根加密，请为密钥管理配置再次选择启动菜单选项。
++
+|===
+
+
+| 如果您使用的是 ... | 选择此启动菜单选项 ... 
+
+
+ a| 
+板载密钥管理
+ a| 
+选项 "`10` "
+
+按照提示提供恢复和还原密钥管理器配置所需的输入。
+
+
+
+ a| 
+外部密钥管理
+ a| 
+选项 "`11` "
+
+按照提示提供恢复和还原密钥管理器配置所需的输入。
+
+|===
++
+根据密钥管理器设置，执行恢复操作步骤的方法是在第一个启动菜单提示符处选择选项 "`10` " 或选项 "`11` " ，然后选择选项 "`6` " 。要完全启动节点，您可能需要重复恢复操作步骤，然后选择 "`1` " （正常启动）。
+
+. 启动节点：
++
+`boot_ontap`
+
+. 等待更换的节点启动。
++
+如果任一节点处于接管模式，请使用 `storage failover giveback` 命令执行交还。
+
+. 验证所有端口是否都位于广播域中：
++
+.. 查看广播域：
++
+`network port broadcast-domain show`
+
+.. 如果为新升级的控制器上的数据端口创建了新的广播域、请删除此广播域：
++
+
+NOTE: 仅删除新广播域。请勿删除在开始升级之前存在的任何广播域。
+
++
+`broadcast-domain delete -broadcast-domain <broadcast_domain_name>`
+
+.. 根据需要向广播域添加任何端口。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["在广播域中添加或删除端口"^]
+
+.. 将用于托管集群间LIF的物理端口添加到相应的广播域中。
+.. 修改集群间 LIF 以使用新的物理端口作为主端口。
+.. 集群间 LIF 启动后，检查集群对等状态，并根据需要重新建立集群对等关系。
++
+您可能需要重新配置集群对等关系。
+
++
+link:../install-ip/task_sw_config_configure_clusters.html#peering-the-clusters["创建集群对等关系"]
+
+.. 根据需要重新创建 VLAN 和接口组。
++
+VLAN 和接口组成员资格可能与旧节点不同。
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["创建VLAN"^]
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["将物理端口组合在一起以创建接口组"^]
+
+.. 验证配对集群是否可访问、以及配置是否已在配对集群上成功重新同步：
++
+`metrocluster switchback -simulate true`
+
+
+
+. 如果使用加密，请使用适用于您的密钥管理配置的正确命令还原密钥。
++
+|===
+
+
+| 如果您使用的是 ... | 使用此命令 ... 
+
+
+ a| 
+板载密钥管理
+ a| 
+`sSecurity key-manager 板载同步`
+
+有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-E4AB2ED4-9227-4974-A311-13036EB43A3D.html["还原板载密钥管理加密密钥"^]。
+
+
+
+ a| 
+外部密钥管理
+ a| 
+`security key-manager external restore -vserver <svm-name> -node <node-name> -key-server <host_name|IP_address:port> -key-id <key_id> -key-tag key_tag <node-name>`
+
+有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"^]。
+
+|===
+. 验证是否已正确配置MetroCluster。检查节点状态：
++
+`MetroCluster node show`
+
++
+验证新节点（ site_B ）是否处于 * 正在等待 site_A 的切回状态 *
+
+
+
+
+
+== 验证并还原 LIF 配置
+
+在继续执行自动切回操作之前、请验证是否已在相应节点上托管了此类文件。
+
+.关于此任务
+* 此任务在 site_B 上执行
+
+
+
+CAUTION: 在执行切回之前、您必须验证新节点上的数据SIFs位置是否正确。切回配置时、ONTAP会尝试恢复由这些LUN使用的主端口上的流量。如果主端口与交换机端口和VLAN的连接不正确、则可能会发生I/O故障。
+
+.步骤
+. 在切回之前、请验证是否已在相应的节点和端口上托管了这些文件。
++
+.. 更改为高级权限级别：
++
+`set -privilege advanced`
+
+.. 显示LIF、并确认每个数据LIF使用的主端口正确无误：
++
+`network interface show`
+
+.. 修改未使用正确主端口的任何SID:
++
+`network interface modify -vserver <svm-name> -lif <data-lif> -home-port <port-id>`
+
++
+如果此命令返回错误、您可以覆盖端口配置：
+
++
+`vserver config override -command "network interface modify -vserver <svm-name> -home-port <active_port_after_upgrade> -lif <lif_name> -home-node <new_node_name>"`
+
++
+在 `vserver config override` 命令中输入 network interface modify 命令时，您不能使用选项卡自动完成功能。您可以使用 autoscomplete 创建网络 `interface modify` ，然后将其括在 `vserver config override` 命令中。
+
+.. 确认现在所有数据Sifs都位于正确的主端口上：
++
+`network interface show`
+
+.. 返回到管理权限级别：
++
+`set -privilege admin`
+
+
+
+. 将接口还原到其主节点：
++
+`network interface revert * -vserver <svm-name>`
+
++
+根据需要对所有 SVM 执行此步骤。
+
+. 恢复操作：
++
+`s系统控制器更换恢复`
+
+
+
+.下一步是什么？
+link:upgrade-mcc-ip-system-controller-replace-complete-upgrade.html["完成控制器升级"](英文)

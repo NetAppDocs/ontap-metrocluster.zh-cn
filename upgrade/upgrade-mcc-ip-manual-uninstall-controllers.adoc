@@ -1,0 +1,167 @@
+---
+permalink: upgrade/upgrade-mcc-ip-manual-uninstall-controllers.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 将数据LIP移动到通用端口、删除旧控制器上的VLAN和接口组、然后物理卸载这些控制器。 
+---
+= 删除接口配置并卸载旧的MetroCluster IP控制器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+验证LIF放置是否正确。然后、删除旧控制器上的VLAN和接口组、并以物理方式卸载这些控制器。
+
+.关于此任务
+* 您可以在旧控制器(NODE_B_1-Oold、NODE_B_2-Oold)上执行这些步骤。
+* 您需要在此过程中使用在中收集的信息link:upgrade-mcc-ip-prepare-system.html#map-ports-from-the-old-nodes-to-the-new-nodes["将端口从旧节点映射到新节点"]。
+
+
+.步骤
+. 启动旧节点并登录到节点：
++
+`boot_ontap`
+
+. 修改旧控制器上的集群间LUN、使其使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口不同的主端口。
++
+
+NOTE: 要成功升级、需要执行此步骤。
+
++
+旧控制器上的集群间LUN必须使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口不同的主端口。例如、在升级到AFF A90控制器时、HA互连端口为e1a和e7a、MetroCluster IP DR互连端口为e2b和e3b。如果旧控制器托管在端口e1a、e7a、e2b或e3b上、则必须移动这些控制器上的集群间LUN。
+
++
+有关新节点上的端口分布和分配，请参阅 https://hwu.netapp.com["Hardware Universe"]。
+
++
+.. 在旧控制器上、查看集群间的Sifs：
++
+`network interface show  -role intercluster`
+
++
+根据旧控制器上的集群间是否使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口相同的端口、执行以下操作之一。
+
++
+[cols="2*"]
+|===
+| 如果集群间的IFS... | 转至 ... 
+
+
+| 使用相同的主端口 | <<controller_manual_upgrade_prepare_network_ports_2b,子步骤b.>> 
+
+
+| 使用其他主端口 | <<controller_manual_upgrade_prepare_network_ports_3,第 3 步>> 
+|===
+.. [[controller_manual_upgrade prepare_network_ports_2b]]修改集群间Lifs以使用其他主端口：
++
+`network interface modify -vserver <vserver> -lif <intercluster_lif> -home-port <port-not-used-for-ha-interconnect-or-mcc-ip-dr-interconnect-on-new-nodes>`
+
+.. 验证所有集群间的SIFs是否都位于其新的主端口上：
++
+`network interface show -role intercluster -is-home  false`
+
++
+此命令输出应为空、表示所有集群间的Rifs都位于各自的主端口上。
+
+.. 还原不在主端口上的任何生命周期：
++
+`network interface revert -lif <intercluster_lif>`
+
++
+对不在主端口上的每个集群间LIF重复此命令。
+
+
+
+. [[controller_manual_upgrade prepare_network_ports_3]]将旧控制器上所有数据LI的主端口分配给新旧控制器模块上相同的通用端口。
++
+
+CAUTION: 如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<<upgrades_manual_without_matching_ports,第 4 步>>。
+
++
+.. 显示 LIF ：
++
+`network interface show`
+
++
+包括SAN和NAS在内的所有数据生命周期都由管理员启动、操作也会关闭、因为这些生命周期在切换站点(cluster A)启动。
+
+.. 查看输出以查找未用作集群端口的旧控制器和新控制器上相同的通用物理网络端口。
++
+例如， e0d 是旧控制器上的一个物理端口，也存在于新控制器上。e0d 不会用作集群端口，也不会在新控制器上用作其他端口。
+
++
+有关平台型号的端口使用情况、请参见 https://hwu.netapp.com/["Hardware Universe"]
+
+.. 修改所有数据L以使用通用端口作为主端口：+
+`network interface modify -vserver <svm-name> -lif <data-lif> -home-port <port-id>`
++
+在以下示例中，此值为 "e0d" 。
+
++
+例如：
+
++
+[listing]
+----
+network interface modify -vserver vs0 -lif datalif1 -home-port e0d
+----
+
+
+. [[U台 升级_MANUAL_without _匹配_ports]]修改广播域以删除需要删除的VLAN和物理端口：
++
+`broadcast-domain remove-ports -broadcast-domain <broadcast-domain-name> -ports <node-name:port-id>`
+
++
+对所有 VLAN 和物理端口重复此步骤。
+
+. 删除使用集群端口作为成员端口的所有 VLAN 端口，以及使用集群端口作为成员端口的接口组。
++
+.. 删除VLAN端口：+
+`network port vlan delete -node <node_name> -vlan-name <portid-vlandid>`
++
+例如：
+
++
+[listing]
+----
+network port vlan delete -node node1 -vlan-name e1c-80
+----
+.. 从接口组中删除物理端口：
++
+`network port ifgrp remove-port -node <node_name> -ifgrp <interface-group-name> -port <portid>`
+
++
+例如：
+
++
+[listing]
+----
+network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
+----
+.. 从广播域中删除VLAN和接口组端口：
++
+`network port broadcast-domain remove-ports -ipspace <ipspace> -broadcast-domain <broadcast-domain-name> -ports <nodename:portname,nodename:portnamee>,..`
+
+.. 根据需要修改接口组端口以使用其他物理端口作为成员：
++
+`ifgrp add-port -node <node_name> -ifgrp <interface-group-name> -port <port-id>`
+
+
+
+. 暂停节点并显示 `LOADER`提示符：
++
+`halt -inhibit-takeover true`
+
+. 连接到site_B上旧控制器(NODE_B_1-Oold和NODE_B_2-Oold)的串行控制台、并验证它是否显示 `LOADER`提示符。
+. 收集 bootarg 值：
++
+`printenv`
+
+. 断开节点B_1-old和节点B_2-old上的存储和网络连接。为缆线贴上标签、以便可以将其重新连接到新节点。
+. 断开 node_B_1-old 和 node_B_2-old 的电源线。
+. 从机架中卸下 node_B_1-old 和 node_B_2-old 控制器。
+
+
+.下一步是什么？
+link:upgrade-mcc-ip-manual-setup-controllers.html["设置新控制器"](英文)

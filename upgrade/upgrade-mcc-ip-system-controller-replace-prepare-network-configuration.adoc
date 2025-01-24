@@ -1,0 +1,177 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-prepare-network-configuration.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 收集信息并恢复操作后、自动化操作将继续执行切换。 
+---
+= 准备旧MetroCluster IP控制器的网络配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+收集信息并恢复操作后、自动化操作将继续执行切换。
+
+.开始之前
+在启动切换之前，自动化操作将暂停，以便您可以手动验证站点 B 上的所有 LIF 是否为 "`up` "如有必要，请将任何 " `down` " 移至 "`up` " ，然后使用 `ssystem controller replace resume` 命令恢复自动化操作。
+
+此自动化操作将启动切换操作。完成这些操作后、此操作会在*暂停以供用户干预*、以便您可以将控制器装入机架并进行安装、启动配对控制器、并使用先前收集的从闪存备份将根聚合磁盘重新分配给新控制器模块 `sysids`。
+
+.关于此任务
+* 必须对每个旧节点执行此任务。
+* 您可以使用在中收集的信息link:upgrade-mcc-ip-system-controller-replace-prechecks.html#gather-information-before-the-upgrade["在升级之前收集信息"]。
+
+
+.步骤
+. 启动旧节点，然后登录到这些节点：
++
+`boot_ontap`
+
+. 修改旧控制器上的集群间LUN、使其使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口不同的主端口。
++
+
+NOTE: 要成功升级、需要执行此步骤。
+
++
+旧控制器上的集群间LUN必须使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口不同的主端口。例如、在升级到AFF A90控制器时、HA互连端口为e1a和e7a、MetroCluster IP DR互连端口为e2b和e3b。如果旧控制器托管在端口e1a、e7a、e2b或e3b上、则必须移动这些控制器上的集群间LUN。
+
++
+有关新节点上的端口分布和分配，请参阅 https://hwu.netapp.com["Hardware Universe"]。
+
++
+.. 在旧控制器上、查看集群间的Sifs：
++
+`network interface show  -role intercluster`
+
++
+根据旧控制器上的集群间是否使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口相同的端口、执行以下操作之一。
+
++
+[cols="2*"]
+|===
+| 如果集群间的IFS... | 转至 ... 
+
+
+| 使用相同的主端口 | <<controller_replace_upgrade_prepare_network_ports_2b,子步骤b.>> 
+
+
+| 使用其他主端口 | <<controller_replace_upgrade_prepare_network_ports_3,第 3 步>> 
+|===
+.. [[controller_REPLACE _UPREPREPARE NETWORM_ports_2b]]修改集群间LI以使用其他主端口：
++
+`network interface modify -vserver <vserver> -lif <intercluster_lif> -home-port <port-not-used-for-ha-interconnect-or-mcc-ip-dr-interconnect-on-new-nodes>`
+
+.. 验证所有集群间的SIFs是否都位于其新的主端口上：
++
+`network interface show -role intercluster -is-home  false`
+
++
+此命令输出应为空、表示所有集群间的Rifs都位于各自的主端口上。
+
+.. 还原不在其主端口上的任何生命周期：
++
+`network interface revert -lif <intercluster_lif>`
+
++
+对不在主端口上的每个集群间LIF重复此命令。
+
+
+
+. [[controller_Replace _upgrade prepare_network_ports_3]]将旧控制器上所有数据LI的主端口分配给新旧控制器模块上相同的通用端口。
++
+
+CAUTION: 如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<<upgrades_assisted_without_matching_ports,第 4 步>>。
+
++
+.. 显示 LIF ：
++
+`network interface show`
+
++
+包括 SAN 和 NAS 在内的所有数据 LIF 都将为 admin "`up` " 和 Operationally "`down` " ，因为这些 LIF 在切换站点（ cluster_A ）上已启动。
+
+.. 查看输出以查找未用作集群端口的旧控制器和新控制器上相同的通用物理网络端口。
++
+例如， "`e0d` " 是旧控制器上的物理端口，也存在于新控制器上。"`e0d` " 不会用作集群端口，也不会在新控制器上使用。
+
++
+有关每个平台型号的端口使用情况、请参见link:https://hwu.netapp.com/["Hardware Universe"^]。
+
+.. 修改所有数据 LIF 以使用通用端口作为主端口：
++
+`network interface modify -vserver <svm-name> -lif <data-lif> -home-port <port-id>`
+
++
+在以下示例中，此值为 "`e0d` " 。
+
++
+例如：
+
++
+[listing]
+----
+network interface modify -vserver vs0 -lif datalif1 -home-port e0d
+----
+
+
+. [[uelds_assisted_without _匹配_ports]]修改广播域以删除需要删除的VLAN和物理端口：
++
+`broadcast-domain remove-ports -broadcast-domain <broadcast-domain-name>-ports <node-name:port-id>`
+
++
+对所有 VLAN 和物理端口重复此步骤。
+
+. 删除使用集群端口作为成员端口的所有 VLAN 端口，以及使用集群端口作为成员端口的接口组。
++
+.. 删除 VLAN 端口：
++
+`network port vlan delete -node <node-name> -vlan-name <portid-vlandid>`
+
++
+例如：
+
++
+[listing]
+----
+network port vlan delete -node node1 -vlan-name e1c-80
+----
+.. 从接口组中删除物理端口：
++
+`network port ifgrp remove-port -node <node-name> -ifgrp <interface-group-name> -port <portid>`
+
++
+例如：
+
++
+[listing]
+----
+network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
+----
+.. 从广播域中删除VLAN和接口组端口：
++
+`network port broadcast-domain remove-ports -ipspace <ipspace> -broadcast-domain <broadcast-domain-name>-ports <nodename:portname,nodename:portname>,..`
+
+.. 根据需要修改接口组端口以使用其他物理端口作为成员：
++
+`ifgrp add-port -node <node-name> -ifgrp <interface-group-name> -port <port-id>`
+
+
+
+. 暂停节点：
++
+`halt -inhibit-takeover true -node <node-name>`
+
++
+必须在两个节点上执行此步骤。
+
+. 验证节点是否位于提示符处 `LOADER`、然后收集并保留当前环境变量。
+. 收集 bootarg 值：
++
+`printenv`
+
+. 关闭要升级控制器的站点上的节点和磁盘架。
+
+
+.下一步是什么？
+link:upgrade-mcc-ip-system-controller-replace-setup-new-controllers.html["设置并通过网络启动新控制器"](英文)

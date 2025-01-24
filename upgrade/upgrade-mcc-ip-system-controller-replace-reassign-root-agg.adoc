@@ -1,0 +1,134 @@
+---
+permalink: upgrade/upgrade-mcc-ip-system-controller-replace-reassign-root-agg.html 
+sidebar: sidebar 
+keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
+summary: 使用先前收集的系统ID将根聚合磁盘重新分配给新控制器模块。 
+---
+= 将根聚合磁盘重新分配给新的MetroCluster IP控制器模块
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+使用先前收集的系统ID将根聚合磁盘重新分配给新控制器模块。
+
+.关于此任务
+此任务在维护模式下执行。
+
+旧系统ID在中标识 link:upgrade-mcc-ip-system-controller-replace-prechecks.html#gather-information-before-the-upgrade["在升级之前收集信息"]。
+
+此操作步骤中的示例使用具有以下系统 ID 的控制器：
+
+|===
+
+
+| 节点 | 旧系统 ID | 新系统 ID 
+
+
+ a| 
+node_B_1
+ a| 
+4068741254
+ a| 
+1574774970
+
+|===
+.步骤
+. 使用缆线将所有其他连接连接到新控制器模块(FC-VI、存储、集群互连等)。
+. 从 `LOADER` 提示符处暂停系统并启动到维护模式：
++
+`boot_ontap maint`
+
+. 显示 node_B_1-old 拥有的磁盘：
++
+`d` 展示 -A
+
++
+命令输出将显示新控制器模块（ 1574774970 ）的系统 ID 。但是，根聚合磁盘仍归旧系统 ID （ 4068741254 ）所有。此示例不会显示MetroCluster配置中其他节点拥有的驱动器。
+
++
+
+CAUTION: 在继续进行磁盘重新分配之前、请验证属于节点根聚合的pool0和pool1磁盘是否显示在输出中 `disk show`。在以下示例中、输出列出了由NODE_B_1-Oold拥有的pool0和pool1磁盘。
+
++
+[listing]
+----
+*> disk show -a
+Local System ID: 1574774970
+
+  DISK         OWNER                     POOL   SERIAL NUMBER    HOME                      DR HOME
+------------   -------------             -----  -------------    -------------             -------------
+...
+rr18:9.126L44 node_B_1-old(4068741254)   Pool1  PZHYN0MD         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:9.126L49 node_B_1-old(4068741254)   Pool1  PPG3J5HA         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:8.126L21 node_B_1-old(4068741254)   Pool1  PZHTDSZD         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:8.126L2  node_B_1-old(4068741254)   Pool0  S0M1J2CF         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:8.126L3  node_B_1-old(4068741254)   Pool0  S0M0CQM5         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+rr18:9.126L27 node_B_1-old(4068741254)   Pool0  S0M1PSDW         node_B_1-old(4068741254)  node_B_1-old(4068741254)
+...
+----
+. 将驱动器架上的根聚合磁盘重新分配给新控制器：
++
+`disk reassign -s <old-sysid> -d <new-sysid>`
+
++
+
+NOTE: 如果您的MetroCluster IP系统配置了高级磁盘部分功能、则必须运行命令以包含DR配对系统ID `disk reassign -s old-sysid -d new-sysid -r dr-partner-sysid`。
+
++
+以下示例显示了驱动器的重新分配：
+
++
+[listing]
+----
+*> disk reassign -s 4068741254 -d 1574774970
+Partner node must not be in Takeover mode during disk reassignment from maintenance mode.
+Serious problems could result!!
+Do not proceed with reassignment if the partner is in takeover mode. Abort reassignment (y/n)? n
+
+After the node becomes operational, you must perform a takeover and giveback of the HA partner node to ensure disk reassignment is successful.
+Do you want to continue (y/n)? Jul 14 19:23:49 [localhost:config.bridge.extra.port:error]: Both FC ports of FC-to-SAS bridge rtp-fc02-41-rr18:9.126L0 S/N [FB7500N107692] are attached to this controller.
+y
+Disk ownership will be updated on all disks previously belonging to Filer with sysid 4068741254.
+Do you want to continue (y/n)? y
+----
+. 检查是否已按预期重新分配所有磁盘：
++
+`d展示`
+
++
+[listing]
+----
+*> disk show
+Local System ID: 1574774970
+
+  DISK        OWNER                      POOL   SERIAL NUMBER   HOME                      DR HOME
+------------  -------------              -----  -------------   -------------             -------------
+rr18:8.126L18 node_B_1-new(1574774970)   Pool1  PZHYN0MD        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:9.126L49 node_B_1-new(1574774970)   Pool1  PPG3J5HA        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:8.126L21 node_B_1-new(1574774970)   Pool1  PZHTDSZD        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:8.126L2  node_B_1-new(1574774970)   Pool0  S0M1J2CF        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:9.126L29 node_B_1-new(1574774970)   Pool0  S0M0CQM5        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+rr18:8.126L1  node_B_1-new(1574774970)   Pool0  S0M1PSDW        node_B_1-new(1574774970)  node_B_1-new(1574774970)
+*>
+----
+. 显示聚合状态：
++
+`聚合状态`
+
++
+[listing]
+----
+*> aggr status
+           Aggr            State       Status           Options
+aggr0_node_b_1-root        online      raid_dp, aggr    root, nosnap=on,
+                           mirrored                     mirror_resync_priority=high(fixed)
+                           fast zeroed
+                           64-bit
+----
+. 在配对节点（ node_B_2-new ）上重复上述步骤。
+
+
+.下一步是什么？
+link:upgrade-mcc-ip-system-controller-replace-boot-new-controllers.html["启动新控制器并还原LIF配置"](英文)
