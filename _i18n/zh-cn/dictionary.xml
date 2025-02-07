@@ -10841,7 +10841,6 @@
   <block id="390dacdbc1f467c1f2e09b1a7cbe743f" category="list-text">如果受损交换机仍在运行，请禁用该交换机上每个端口的 FC-VI 和 HBA 端口：</block>
   <block id="f1772bf3ab42f5c48020304db711ce88" category="list-text">如果受损交换机仍在运行，请收集 `sswitchshow` 命令的输出。</block>
   <block id="6f17ef717caa10c840154e66037357c2" category="list-text">检查交换机上的固件版本以确认其与其他 FC 交换机的版本匹配：</block>
-  <block id="e31d24f4c7323385ac2a49d1fd0bb0e7" category="list-text">如果要启用 ISL 加密，请完成中的适用任务 <block ref="a1fd01e320574c534b3b8a75cd17d943" category="inline-link-macro-rx"></block>。</block>
   <block id="656775e20786e6a8e6b7aa630d1d08a0" category="list-text">禁用虚拟网络结构</block>
   <block id="ba6eab3f1d8d6e906b6a15425ba84446" category="list-text">设置有效负载</block>
   <block id="c903fafc5d225ee7da0b8589482d4f6f" category="list-text">设置身份验证策略</block>
@@ -12289,7 +12288,6 @@
   <block id="94d0fc55d9356d3d18534836cae75c1d" category="doc">FC交换机配置概述</block>
   <block id="67af9bc4271944d43da3bdca5451bf73" category="paragraph">您可以使用RCC文件配置Cisco和Brocade FC交换机、也可以根据需要手动配置交换机。</block>
   <block id="1399637937931de009069d1a13a152fb" category="paragraph">*注1：*此组合需要ONTAP 9.13.1.或更高版本。</block>
-  <block id="9ae99044ddcd14d01b26630cedd8846d" category="list-text">按照中的步骤配置新交换机 <block ref="435cf525be06a494222aa18eba4f6000" category="inline-link-macro-rx"></block>。</block>
   <block id="02d80d458a48a16bd927a203d6bb2c73" category="list-text">验证分区配置：</block>
   <block id="62c870995fe52ce6aa5f9fc71ef4da98" category="paragraph"><block ref="ed3badb92af3298762df5a811de2da80" prefix="" category="inline-code"></block></block>
   <block id="79787dbf023f957de1bd4970858b26be" category="summary">您可以将IP交换机配置为使用SNMPv3进行运行状况监控。</block>
@@ -14622,4 +14620,8 @@
   <block id="17c2940e7b2cfcc2faa4d1ef00e56d9e" category="sidebar">切回配置</block>
   <block id="11174a5afd588b4b0362df983b5f76c6" category="sidebar">使用切换和切回将MetroCluster IP中的控制器(AFF A700到AFF A900、FAS9000到FAS9500)升级(9.10.1 9.10.1或更高版本)</block>
   <block id="9154ca816ab69e291b499f5a2579f66c" category="sidebar">使用切换和切回(9.10.1 9.10.1或更高版本)升级MetroCluster FC配置中的控制器(AFF A700到AFF A900、FAS9000到FAS9500)</block>
+  <block id="cb037476ec4486d51b86d5dbeede8008" category="inline-link-macro">配置日志收集</block>
+  <block id="661221d64894eb71f90ac5ef75331837" category="paragraph">(可选)按照步骤执行<block ref="d3ee677e2efae042d4f3199a44815074" category="inline-link-macro-rx"></block>。</block>
+  <block id="3931310703263c726d52a1768504781f" category="list-text">按照中的Brocade过程配置新交换机<block ref="8891b6de7b2070c584bdeb67b522b51b" category="inline-link-macro-rx"></block>。</block>
+  <block id="a01a953cf57a4a3591be7c4dd9dd14fa" category="list-text">要启用ISL加密，请参见<block ref="fb6e086ddbfd6d800d2c601996554df4" category="inline-link-macro-rx"></block>。</block>
 </blocks>
