@@ -30,7 +30,7 @@ NOTE: 此操作步骤仅适用于光纤连接的 MetroCluster 配置。
 `aggr offline _plex_name_`
 
 +
-此示例显示了用于使运行集群模式 OTNAP 的控制器的丛脱机的命令。
+此示例显示了用于使运行ONTAP的控制器的plexes脱机的命令。
 
 +
 [listing]

@@ -84,6 +84,10 @@ to skip the remaining dialogs.
 您可以在下一组提示中输入基本信息，包括交换机名称，管理地址和网关，然后选择 SSH with RSA 。
 
 +
+
+NOTE: 此示例显示了配置RC框架 所需的最低信息、在应用RC框架 后、可以配置其他选项。例如、您可以在应用RCP后配置SNMPv3、NTP或SCP或SFTP。
+
++
 [listing]
 ----
 Would you like to enter the basic configuration dialog (yes/no): yes

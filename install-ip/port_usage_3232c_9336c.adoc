@@ -78,7 +78,9 @@ NOTE: RCF文件版本与用于生成文件的RCF文件生成器工具版本不�
 image:../media/mcc-ip-cabling-a150-a220-a250-to-a-cisco-3232c-or-cisco-9336c-switch-9161.png["显示了Cisco 3232C或Cisco 9336C平台端口分配"]
 
 .Cisco 3232C或Cisco 9336C平台端口分配(第2组)
-查看使用缆线将AFF A20系统连接到Cisco 3232C或9336C交换机的平台端口分配：image:../media/mcc-ip-cabling-aff-a20-9161.png["显示了Cisco 3232C或Cisco 9336C平台端口分配"]
+查看将AFF A20系统连接到Cisco 3232C或9336C交换机的平台端口分配：
+
+image:../media/mcc-ip-cabling-aff-a20-9161.png["显示了Cisco 3232C或Cisco 9336C平台端口分配"]
 
 .Cisco 3232C或Cisco 9336C平台端口分配(第3组)
 查看将AFF A30、AFF C30或AFF C60系统连接到Cisco 3232C或9336C交换机的平台端口分配：
@@ -118,4 +120,4 @@ NOTE: 使用MetroCluster 4组中的端口需要使用ONTAP 9.13.1.或更高版�
 .Cisco 3232C或Cisco 9336C平台端口分配(第8组)
 查看使用缆线将AFF A70、FAS70、AFF C80、FAS90、AFF A90或AFF A1K系统连接到Cisco 3232C或9334C交换机的平台端口分配：
 
-image:../media/mcc-ip-cabling-a90-fas90-c80-fas70-a70-a1k-cisco-3232C-or-9336c-switch.png["显示了Cisco 3232C或Cisco 9336C平台端口分配"]
+image:../media/mcc-ip-cabling-a90-fas90-c80-fas70-a70-a1k-cisco-3232C-or-9336c-switch-updated.png["显示了Cisco 3232C或Cisco 9336C平台端口分配"]

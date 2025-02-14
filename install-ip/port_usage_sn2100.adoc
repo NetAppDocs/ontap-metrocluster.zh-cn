@@ -114,4 +114,4 @@ image::../media/mcc_ip_cabling_fas8300_aff_asa_a800_a900_fas9500_MSN2100.png[显
 .NVIDIA SN2100平台端口分配(第7组)
 查看使用缆线将FAS70、AFF A70、AFF C80、FAS90、AFF A90或AFF A1K系统连接到NVIDIA SN2100交换机的平台端口分配：
 
-image::../media/mccip-cabling-fas90-fas70-aff-a70--a90-c80-a1k-nvidia-sn2100.png[显示了NVIDIA SN2100平台端口分配]
+image::../media/mccip-cabling-fas90-fas70-aff-a70--a90-c80-a1k-nvidia-sn2100-updated.png[显示了NVIDIA SN2100平台端口分配]

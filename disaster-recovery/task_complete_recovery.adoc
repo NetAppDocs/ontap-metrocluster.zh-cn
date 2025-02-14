@@ -281,34 +281,41 @@ aggr_b2          -         -     - unknown      - node_A_1
 +
 如果灾难站点包含未镜像聚合，而未镜像聚合不再存在，则该聚合可能会在 storage aggregate show 命令的输出中显示为 "`unknown` " 状态。要删除未镜像聚合的过期条目、请联系技术支持、请参阅知识库文章 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_stale_unmirrored_aggregate_entries_in_a_MetroCluster_following_disaster_where_storage_was_lost["如何在存储丢失的灾难发生后删除MetroCluster 中陈旧的未镜像聚合条目。"^]
 
-. 验证运行正常的集群上的所有 sync-destination SVM 是否均处于休眠状态（显示 Admin State 为 `sstopped` ），以及灾难集群上的 sync-source SVM 是否已启动且正在运行：
+. 验证运行正常的集群上的所有同步目标SVM是否均处于休眠状态(显示运行状态为`s已`")：
++
+`vserver show -subtype sync-destination`
+
++
+[listing]
+----
+node_B_1::> vserver show -subtype sync-destination
+                                 Admin    Operational  Root
+Vserver       Type    Subtype    State    State        Volume    Aggregate
+-----------   ------- ---------- -------- ----------   --------  ----------
+...
+cluster_A-vs1a-mc data sync-destination
+                               running    stopped    vs1a_vol   aggr_b2
+
+----
++
+MetroCluster 配置中的 sync-destination 聚合会在其名称中自动附加后缀 "` -mc` " ，以帮助标识它们。
+
+. 验证灾难集群上的同步源SVM是否已启动且正在运行：
 +
 `vserver show -subtype sync-source`
 
 +
 [listing]
 ----
-node_B_1::> vserver show -subtype sync-source
-                               Admin      Root                       Name    Name
-Vserver     Type    Subtype    State      Volume     Aggregate       Service Mapping
------------ ------- ---------- ---------- ---------- ----------      ------- -------
+node_A_1::> vserver show -subtype sync-source
+                                  Admin    Operational  Root
+Vserver        Type    Subtype    State    State        Volume     Aggregate
+-----------    ------- ---------- -------- ----------   --------   ----------
 ...
-vs1a        data    sync-source
-                               running    vs1a_vol   node_B_2        file    file
-                                                                     aggr_b2
+vs1a           data    sync-source
+                                  running  running    vs1a_vol  aggr_b2
 
-node_A_1::> vserver show -subtype sync-destination
-                               Admin      Root                         Name    Name
-Vserver            Type    Subtype    State      Volume     Aggregate  Service Mapping
------------        ------- ---------- ---------- ---------- ---------- ------- -------
-...
-cluster_A-vs1a-mc  data    sync-destination
-                                      stopped    vs1a_vol   sosb_      file    file
-                                                                       aggr_b2
 ----
-+
-MetroCluster 配置中的 sync-destination 聚合会在其名称中自动附加后缀 "-mc" ，以帮助标识它们。
-
 . 使用 `MetroCluster operation show` 命令确认切回操作成功。
 +
 |===

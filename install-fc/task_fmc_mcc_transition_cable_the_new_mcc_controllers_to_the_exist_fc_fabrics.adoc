@@ -11,7 +11,7 @@ summary: 在集群模式 ONTAP MetroCluster 配置中的每个控制器上，必
 
 
 [role="lead"]
-在集群模式 ONTAP MetroCluster 配置中的每个控制器上，必须使用缆线将 FC-VI 适配器和 HBA 连接到现有 FC 交换机上的特定端口。
+在ONTAP MetroCluster配置中的每个控制器上、必须使用缆线将FC-VI适配器和HBA连接到现有FC交换机上的特定端口。
 
 .步骤
 . 按照下表为 FC-VI 和 HBA 端口布线：

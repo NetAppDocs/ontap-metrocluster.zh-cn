@@ -230,6 +230,44 @@ node_A_1
 
 
 |===
+* 您设置的MetroCluster启动程序值取决于新系统使用的是共享集群/HA端口还是共享MetroCluster或HA端口。使用以下信息确定系统的端口。
++
+下表中列出的系统使用*共享的MetroCluster HA/HA端口*。
+
++
+所有其他系统均使用*共享集群/HA端口*。
+
++
+[cols="2*"]
+|===
+| 使用共享MetroCluster或HA端口的AFF和ASA系统 | 使用共享MetroCluster或HA端口的FAS系统 
+
+
+ a| 
+** AFF A150、ASA A150
+** AFF A220
+** AFF C250、ASA C250
+** AFF A250、ASA A250
+** AFF A300
+** AFF A320
+** AFF C400、ASA C400
+** AFF A400、ASA A400
+** AFF A700
+** AFF C800、ASA C800
+** AFF A800、ASA A800
+** AFF A900、ASA A900
+
+ a| 
+** FAS2750
+** FAS500f
+** FAS8200
+** FAS8300
+** FAS8700
+** FAS9000
+** FAS9500
+
+
+|===
 
 
 .步骤
@@ -241,15 +279,13 @@ node_A_1
 所需地址为 * 目标网络地址 * 列中显示的 DR 配对节点地址。
 
 +
-命令输出因平台型号而异。
+根据您的平台型号使用的是共享集群/HA端口还是共享MetroCluster端口、命令输出会有所不同。
 
 +
 [role="tabbed-block"]
 ====
-.ONTAP 9.151或更高版本中推出的系统
+.使用共享集群/HA端口的系统
 --
-在ONTAP 9.151或更高版本中推出的系统(AFF A70、AFF A90和AFF A1K)具有单独的HA和DR端口、如以下示例输出所示：
-
 [listing]
 ----
 cluster_B::*> metrocluster configuration-settings connection show
@@ -279,7 +315,7 @@ Group Cluster Node    Network Address Network Address Partner Type Config State
 12 entries were displayed.
 ----
 --
-.所有其他系统
+.使用共享的MetroCluster或HA端口的系统
 --
 以下输出显示了 AFF A700 和 FAS9000 系统配置的 IP 地址，这些系统的 MetroCluster IP 接口位于端口 e5a 和 e5b 上。接口可能因平台类型而异。
 
@@ -351,7 +387,7 @@ Group Cluster Node     Network Address Netmask         Gateway         State
 ----
 
 
-. 在每个灾难站点节点的加载程序提示符处、根据平台型号设置启动程序值：
+. 在每个灾难站点节点的提示符处 `LOADER`、根据您的平台型号是使用共享集群/HA端口还是共享MetroCluster /HA端口设置启动程序值：
 +
 [NOTE]
 ====
@@ -363,17 +399,15 @@ Group Cluster Node     Network Address Netmask         Gateway         State
 +
 [role="tabbed-block"]
 ====
-.ONTAP 9.151或更高版本中推出的系统
+.使用共享集群/HA端口的系统
 --
-在ONTAP 9.151或更高版本中引入的系统上、_ha-pender-ip-address_的值必须设置为* 0 (零)、因为它们具有用于灾难恢复和HA的单独端口。
-
 设置以下布塔格：
 
 [listing]
 ----
-setenv bootarg.mcc.port_a_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
+setenv bootarg.mcc.port_a_ip_config local-IP-address/local-IP-mask,0,0,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
 
-setenv bootarg.mcc.port_b_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
+setenv bootarg.mcc.port_b_ip_config local-IP-address/local-IP-mask,0,0,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
 ----
 以下命令使用 VLAN 120 为第一个网络设置 node_A_1 的值，并使用 VLAN 130 为第二个网络设置 VLAN 130 ：
 
@@ -391,14 +425,14 @@ setenv bootarg.mcc.port_a_ip_config 172.17.26.10/23,0,0,172.17.26.13,172.17.26.1
 setenv bootarg.mcc.port_b_ip_config 172.17.27.10/23,0,0,172.17.27.13,172.17.27.12
 ----
 --
-.所有其他系统
+.使用共享的MetroCluster或HA端口的系统
 --
 设置以下布塔格：
 
 ....
-setenv bootarg.mcc.port_a_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
+setenv bootarg.mcc.port_a_ip_config local-IP-address/local-IP-mask,0,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
 
-setenv bootarg.mcc.port_b_ip_config local-IP-address/local-IP-mask,gateway-IP-address,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
+setenv bootarg.mcc.port_b_ip_config local-IP-address/local-IP-mask,0,HA-partner-IP-address,DR-partner-IP-address,DR-aux-partnerIP-address,vlan-id
 ....
 以下命令使用 VLAN 120 为第一个网络设置 node_A_1 的值，并使用 VLAN 130 为第二个网络设置 VLAN 130 ：
 
