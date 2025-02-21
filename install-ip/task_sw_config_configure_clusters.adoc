@@ -717,7 +717,6 @@ NOTE: MetroCluster IP和连接的交换机端口只有在创建MetroCluster IP�
 
 .关于此任务
 * 您必须为每个节点创建两个接口。这些接口必须与 MetroCluster RCF 文件中定义的 VLAN 相关联。
-* 根据您的ONTAP版本、您可以在初始配置后更改某些MetroCluster IP接口属性。有关支持的功能的详细信息、请参见 link:../maintain/task-modify-ip-netmask-properties.html["修改MetroCluster IP接口的属性"] 。
 * 您必须在同一 VLAN 中创建所有 MetroCluster IP 接口 "A" 端口，在另一 VLAN 中创建所有 MetroCluster IP 接口 "B" 端口。请参见 link:concept_considerations_mcip.html["MetroCluster IP 配置的注意事项"]。
 * 从 ONTAP 9.1.1 开始，如果您使用的是第 3 层配置，则在创建 MetroCluster IP 接口时还必须指定 ` 网关` 参数。请参见 link:../install-ip/concept_considerations_layer_3.html["第 3 层广域网的注意事项"]。
 +
@@ -921,6 +920,10 @@ cluster_B
 . 在 node_A_1 上创建接口。
 +
 .. 在 "node_A_1" 上的端口 "e5a" 上配置接口：
++
+
+CAUTION: 创建MetroCluster IP接口时、请勿使用169.254.17.x或169.254.18.x IP地址、以避免与系统自动生成的同一范围内的接口IP地址冲突。
+
 +
 `metrocluster configuration-settings interface create -cluster-name <cluster_name> -home-node <node_name> -home-port e5a -address <ip_address> -netmask <netmask>`
 

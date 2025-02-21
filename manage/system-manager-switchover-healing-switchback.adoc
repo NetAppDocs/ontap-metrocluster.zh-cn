@@ -37,18 +37,18 @@ NOTE: 只有MetroCluster IP配置才支持切换和切回过程。
 
 对于任何类型的切换操作步骤，都会使用 _switchback_ 进程将数据服务功能返回到集群。
 
-您可以对 ONTAP 9.7 和 9.8 执行不同的切换和切回过程：
+您执行的切换和切回过程取决于您的ONTAP版本：
 
-* <<sm97-sosb,在ONTAP 9.7中使用System Manager进行切换和切回>>
-* <<sm98-sosb,在ONTAP 9.8中使用System Manager进行切换和切回>>
-
-
+* <<sm97-sosb,在ONTAP 9.6或9.7中使用System Manager进行切换和切回>>
+* <<sm98-sosb,在ONTAP 9.8或更高版本中使用System Manager进行切换和切回>>
 
 
-== 在ONTAP 9.7中使用System Manager进行切换和切回
+
+
+== 在ONTAP 9.6或9.7中使用System Manager进行切换和切回
 
 .步骤
-. 登录到ONTAP 9.7中的System Manager。
+. 登录到ONTAP 9.6或9.7中的System Manager。
 . 单击 * （返回经典版本） * 。
 . 单击 * 配置 > MetroCluster * 。
 +
@@ -71,14 +71,14 @@ System Manager 将验证是否可以进行协商切换。
 
 
 
-== 在ONTAP 9.8中使用System Manager进行切换和切回
+== 在ONTAP 9.8或更高版本中使用System Manager进行切换和切回
 
 
 
-=== 执行计划内切换（ ONTAP 9.8 ）
+=== 执行计划内切换(ONTAP 9.8或更高版本)
 
 .步骤
-. 登录到ONTAP 9.8中的System Manager。
+. 在ONTAP 9.8或更高版本中登录到System Manager。
 . 选择 * 信息板 * 。在 * MetroCluster 集群 * 部分中，两个集群显示有一个连接。
 . 在本地集群(如左侧所示)中，单击 image:icon_kabob.gif["\" 串器 \" 图标"]，然后选择*将远程数据服务切换到本地站点*。
 +
@@ -94,12 +94,12 @@ NOTE: 在执行切回之前，不应使用远程集群进行数据服务。
 
 
 
-=== 执行计划外切换（ ONTAP 9.8 ）
+=== 执行计划外切换(ONTAP 9.8或更高版本)
 
 ONTAP 可能会自动启动计划外切换。如果 ONTAP 无法确定是否需要切回，则仍在运行的 MetroCluster 站点的系统管理员将通过以下步骤启动切换：
 
 .步骤
-. 登录到ONTAP 9.8中的System Manager。
+. 在ONTAP 9.8或更高版本中登录到System Manager。
 . 选择 * 信息板 * 。
 +
 在* MetroCluster *部分中，两个集群之间的连接显示有一个"X"。这意味着无法检测到连接、并且连接或集群已关闭。
@@ -121,13 +121,13 @@ NOTE: 远程集群联机后、在执行切回之前、不应使用它来提供�
 
 
 
-=== 执行切回（ ONTAP 9.8 ）
+=== 执行切回(ONTAP 9.8或更高版本)
 
 .开始之前
 如果远程集群因计划内维护或灾难而关闭、则它现在应已启动且正在运行、并等待切回。
 
 .步骤
-. 在本地集群上，登录到 ONTAP 9.8 中的 System Manager 。
+. 在本地集群上、登录到ONTAP 9.8或更高版本中的System Manager。
 . 选择 * 信息板 * 。
 +
 在 * MetroCluster 集群 * 部分中，显示了两个集群。

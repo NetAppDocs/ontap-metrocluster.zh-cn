@@ -27,7 +27,7 @@ summary: 各种 MetroCluster 配置在所需组件方面存在主要差异。
  a| 
 控制器数量
  a| 
-四个或八个 *
+四个或八个^1^
  a| 
 四个或八个
  a| 
@@ -216,15 +216,15 @@ summary: 各种 MetroCluster 配置在所需组件方面存在主要差异。
 是的。
 
 |===
-* 重要 * ：
+* 注释 *
 
-对于八节点 MetroCluster IP 配置，请注意以下注意事项：
+. 查看八节点MetroCluster IP配置的以下注意事项：
++
+** 从 ONTAP 9.1.1 开始，支持八节点配置。
+** 仅支持经过 NetApp 验证的 MetroCluster 交换机（从 NetApp 订购）。
+** 不支持使用 IP 路由（第 3 层）后端连接的配置。
 
-* 从 ONTAP 9.1.1 开始，支持八节点配置。
-* 仅支持经过 NetApp 验证的 MetroCluster 交换机（从 NetApp 订购）。
-* 不支持使用 IP 路由（第 3 层）后端连接的配置。
-* 不支持使用共享私有第 2 层网络的配置。
-* 不支持使用 Cisco 9336C-x2 共享交换机的配置。
+
 
 
 

@@ -104,7 +104,7 @@ dr_group_2-new
 .支持的AFF和FAS MetroCluster IP扩展组合
 下表显示了在MetroCluster IP配置中扩展AFF或FAS系统时支持的平台组合：
 
-image::../media/mccip_expand_ip_8node_9161.png[适用于8节点配置的平台组合]
+image::../media/mccip_expand_ip_8node_9161-updated.png[适用于8节点配置的平台组合]
 
 * *注1*：这些组合需要ONTAP 9.9.1或更高版本(或平台支持的最低ONTAP 版本)。
 * *注2*：这些组合需要ONTAP 9.13.1或更高版本(或平台支持的最低ONTAP 版本)。
@@ -208,7 +208,6 @@ image::../media/8node_comb_ip_asa.png[适用于8节点配置的平台组合]
 
 * 从四节点配置扩展为八节点MetroCluster配置时、这两个DR组使用相同的VLAN。
 * 如果不能使用同一个VLAN配置两个DR组、则必须升级不支持参数的DR组 `vlan-id` 、以使用另一个DR组支持的VLAN。
-* 根据您的ONTAP版本、您可以在初始配置后更改某些MetroCluster IP接口属性。有关支持的功能的详细信息、请参见 link:../maintain/task-modify-ip-netmask-properties.html["修改MetroCluster IP接口的属性"] 。
 
 
 
@@ -693,6 +692,7 @@ cluster_A::>
 +
 [NOTE]
 ====
+** 创建MetroCluster IP接口时、请勿使用169.254.17.x或169.254.18.x IP地址、以避免与系统自动生成的同一范围内的接口IP地址冲突。
 ** 如果支持、您可以使用命令中的参数指定一个高于100 (介于101和4095之间)的其他(非默认) VLAN `-vlan-id` `metrocluster configuration-settings interface create` 。有关支持的平台信息、请参见 <<添加新DR组时VLAN的注意事项>> 。
 ** 您可以从任一集群配置 MetroCluster IP 接口。
 

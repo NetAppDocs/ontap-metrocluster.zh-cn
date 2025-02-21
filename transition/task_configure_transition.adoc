@@ -336,6 +336,10 @@ Group Cluster Node               State          Mirroring Mode
 ....
 . 为新加入的 MetroCluster IP 节点配置 MetroCluster IP 接口：
 +
+
+CAUTION: 创建MetroCluster IP接口时、请勿使用169.254.17.x或169.254.18.x IP地址、以避免与系统自动生成的同一范围内的接口IP地址冲突。
+
++
 MetroCluster configuration-settings interface create -cluster-name`
 
 +

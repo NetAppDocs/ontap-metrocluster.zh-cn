@@ -92,8 +92,6 @@ entries:
     url: "/maintain/task_power_off_an_entire_mcc_fc_configuration.html"
 - title: MetroCluster IP配置的维护过程
   entries:
-  - title: 修改MetroCluster IP接口的属性
-    url: "/maintain/task-modify-ip-netmask-properties.html"
   - title: IP 交换机维护和更换
     entries:
     - title: 更换IP交换机或更改现有MetroCluster IP交换机的使用

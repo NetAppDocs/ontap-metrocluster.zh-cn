@@ -68,7 +68,7 @@ license_key 的长度为 28 位数。
 link:../install-ip/concept_considerations_mediator.html["调解器注意事项"]
 
 +
-链接： ./install-IP/concept_mediator_requirements.html
+link:../install-ip/concept_mediator_requirements.html["为计划外自动切换配置 ONTAP 调解器服务"]
 
 +
 link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["Tiebreaker 软件安装和配置"]

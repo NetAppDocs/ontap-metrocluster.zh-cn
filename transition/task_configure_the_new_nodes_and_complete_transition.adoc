@@ -29,6 +29,10 @@ summary: 添加新节点后，您必须完成过渡步骤并配置 MetroCluster 
 
 . 创建 MetroCluster IP 接口（ node_A_1-IP ， node_A_2-IP ， node_B_1-IP ， node_B_2-IP ）—每个控制器需要创建两个接口；总共八个接口：
 +
+
+CAUTION: 创建MetroCluster IP接口时、请勿使用169.254.17.x或169.254.18.x IP地址、以避免与系统自动生成的同一范围内的接口IP地址冲突。
+
++
 `metrocluster configuration-settings interface create -cluster-name <cluster_name> -home-node <controller_name> -home-port <port_name> -address <ip_address> -netmask <netmask_address> -vlan-id <vlan_id>`
 
 +

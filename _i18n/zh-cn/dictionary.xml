@@ -4062,7 +4062,6 @@
   <block id="237e9199acfc2099c6fdb2422149d307" category="paragraph">* 双节点网桥连接 *</block>
   <block id="6154b5bc195e8c515f02ba57209f1335" category="paragraph">* 双节点直连 *</block>
   <block id="e5e45159e2d2510782860c93c2e99b08" category="paragraph">控制器数量</block>
-  <block id="ea90d32d257870c8f91747a3c4a8f0d5" category="paragraph">四个或八个 *</block>
   <block id="7e3e02d13212719c3d8773beef5f7abe" category="paragraph">四个或八个</block>
   <block id="242a70418ad236145729860e4eb9b40d" category="paragraph">使用 FC 交换机存储网络结构</block>
   <block id="cea58f30062c8e891bf54971eb426c46" category="paragraph">使用 IP 交换机存储网络结构</block>
@@ -4080,8 +4079,6 @@
   <block id="fac065b7050351a30490ea7f2e2b6ef4" category="cell">支持 <block ref="695031be3524d896e2d9482b9b2c38c3" category="inline-xref-macro-rx"></block></block>
   <block id="1f6f2e3f30d4f600718cbbaa7e3ab6f1" category="list-text">仅支持经过 NetApp 验证的 MetroCluster 交换机（从 NetApp 订购）。</block>
   <block id="defba62f473a0ece29de1061c423edbd" category="list-text">不支持使用 IP 路由（第 3 层）后端连接的配置。</block>
-  <block id="9a4e34d604d657bc7d946d4a0a4e96e4" category="list-text">不支持使用共享私有第 2 层网络的配置。</block>
-  <block id="8fdea79aece0ad1322e81be87031775a" category="list-text">不支持使用 Cisco 9336C-x2 共享交换机的配置。</block>
   <block id="ee576c01fd9d6961677d0a6255745ad9" category="list-text">将节点启动至启动菜单： `boot_ontap menu`</block>
   <block id="535a1b9f22b2c711bbc48344a4608a4b" category="paragraph">运行此命令后，请等待，直到显示启动菜单为止。</block>
   <block id="af247723d3e5855980c90c146b7390f5" category="paragraph">以下屏幕将显示启动菜单提示符：</block>
@@ -8527,8 +8524,6 @@
   <block id="f69e3ec9eb18b508cb9d4ee4a9a0a1cc" category="paragraph">* 注： * 标准存储架维护过程可用于 MetroCluster IP 配置。</block>
   <block id="a7713bac791ac8cc787ef32f9fe12631" category="paragraph">如果不使任何未镜像聚合脱机，则运行正常的站点上的节点可能会因多磁盘崩溃而关闭。如果切换后的未镜像聚合因与灾难站点上的存储的连接断开而脱机或丢失，则可能会发生这种情况。这是由于关闭电源或丢失 ISL 而导致的。</block>
   <block id="7590f50d513217fd399b68fb75ecf5f6" category="paragraph">在所有配置中，两个 MetroCluster 站点中的每个站点都配置为 ONTAP 集群。在双节点 MetroCluster 配置中，每个节点均配置为单节点集群。</block>
-  <block id="2dc54bb9a28c3c1cdc37fbc81153563b" category="paragraph">* 重要 * ：</block>
-  <block id="c01b9d68c1a553405e5fe6d96621e245" category="paragraph">对于八节点 MetroCluster IP 配置，请注意以下注意事项：</block>
   <block id="21cdd63bb00e685a661edb2068282e6e" category="paragraph">MetroCluster 配置支持部分全 SAN 阵列（ ASA ）。在 MetroCluster 文档中， AFF 型号的信息会对相应的 ASA 系统进行适用场景。例如， AFF A400 系统的所有布线和其他信息也会对 ASA AFF A400 系统进行适用场景。</block>
   <block id="eda305d42ec583654b52519383e60dce" category="paragraph">要确保 MetroCluster 安装成功，请重置和还原控制器模块上的默认值。</block>
   <block id="1f29c988b0d415e6dd457fbee6a61149" category="paragraph">只有使用 FC-SAS 网桥的延伸型配置才需要执行此任务。</block>
@@ -9308,16 +9303,6 @@
   <block id="669f62b51efaf771cdc56bbd948e67a7" category="admonition">如果输入的 MySQL root 密码不正确， Tiebreaker 软件会指示已成功安装该密码，但会显示 Access Denied 消息。要解决问题描述问题，您必须使用 `rpm -e` 命令卸载 Tiebreaker 软件，然后使用正确的 MySQL root 密码重新安装该软件。</block>
   <block id="69b040d4f8adaa4c34e437207036c73c" category="list-text">验证是否已配置 SNMP 设置：</block>
   <block id="da82ec774885b0fd4ea7e17756ffc01b" category="paragraph">`snmp config test`</block>
-  <block id="09cb6984bdf1b82c9749906ba1a69331" category="summary">您可以更改 MetroCluster IP 接口， IP 地址和掩码以及网关的以下属性。您可以使用任意参数组合进行更新。</block>
-  <block id="d7fffb0ac95f2fd216c5e3fd04365cca" category="paragraph">您可能需要更新这些属性，例如，如果检测到重复的 IP 地址，或者在第 3 层网络中，如果由于路由器配置更改而需要更改网关。</block>
-  <block id="383d9b07e1ef0cfcfa9ec36fecccfe02" category="paragraph">一次只能更改一个接口。在更新其他接口并重新建立连接之前，此接口上的流量将中断。</block>
-  <block id="8450a359c3efc774857fe0f3189456e0" category="paragraph">使用 `MetroCluster configuration-settings interface modify` 命令更改任何 MetroCluster IP 接口属性。</block>
-  <block id="700215bf58e5cc6edce60155aeb7c44a" category="section-title">修改 IP 地址，网络掩码和网关</block>
-  <block id="2747f7ff86cce509295bfb4ba2b1c4fa" category="list-text">更新单个节点和接口的 IP 地址，网络掩码和网关： `MetroCluster configuration-settings interface modify`</block>
-  <block id="2f545dcb650b5848061814c5ce3b4cf4" category="paragraph">以下命令显示如何更新 IP 地址，网络掩码和网关：</block>
-  <block id="c8a08760312508ec804450cb7fad4702" category="list-text">【第 2 步】验证所有接口的所有连接是否正常工作： `MetroCluster configuration-settings interface show`</block>
-  <block id="3fc201ecdcbc7e37cc8a9b91bd0c01b3" category="paragraph">以下命令显示如何验证所有接口的所有连接是否正常工作：</block>
-  <block id="1a8c6f33d0bdd54f26272fc3c497ec01" category="paragraph">以下命令显示如何验证所有连接是否正常工作：</block>
   <block id="c988965fbbe340c601c83f0611367b30" category="list-text">安装 MySQL 社区服务器：</block>
   <block id="19814756461082c5d291432219d95924" category="paragraph">` 根@mcctb ~ ]# yum install mysql-commune-server`</block>
   <block id="907482e03a773bacd1197e79ad353d1a" category="list-text">验证是否已启用 MySQL 在启动时自动启动：</block>
@@ -10970,7 +10955,6 @@
   <block id="6257739eb87a755c28bf814ad261df2d" category="section-title">移动 MetroCluster FC 节点上的集群连接</block>
   <block id="9d8f122e284d64a31d50c5040fe4f338" category="section-title">要移动哪些连接</block>
   <block id="508763c5ecfa3096ab25520f14c971f5" category="paragraph">使用中所述的端口 <block ref="10769c5348734bed7e40370eea435ab1" category="inline-xref-macro-rx"></block>。</block>
-  <block id="353f64efd56caa103dcbf2b9e24c3129" category="paragraph">链接： ./install-IP/concept_mediator_requirements.html</block>
   <block id="dd23316b696cd08f3479c6e2d7baadc0" category="inline-link">AFF 或 FAS 系统的安装过程</block>
   <block id="17959b19c1c128d5d74608a22de28cf9" category="paragraph"><block ref="17959b19c1c128d5d74608a22de28cf9" category="inline-link-rx"></block></block>
   <block id="e5303b615c196a6ae1c68873f1d05073" category="sidebar">手动配置 Brocade FC 交换机</block>
@@ -12396,8 +12380,6 @@
   <block id="83401bd8eb751fc79a9ff9e2e69be029" category="paragraph"><block ref="ff41f8886897126f1b4109a0b09cd291" category="inline-link-macro-rx"></block>。</block>
   <block id="09e34111ef8649a5302b1889e0c7d303" category="list-text">JRE 8.</block>
   <block id="b3c0f57dcdb05faa9fbc38832a492a4e" category="admonition">应用配置时会显示一些警告消息。通常不会出现错误消息。但是、如果使用SSH登录、则可能会收到以下错误：<block ref="f6ffe33fb36eb714adf6f81147c665f6" prefix=" " category="inline-code"></block></block>
-  <block id="907d0a00eecf52dcc4562775faad470a" category="paragraph">从 ONTAP 9.10.1 开始，您可以更改 MetroCluster IP 接口的以下属性： IP 地址和掩码以及网关。您可以使用任意参数组合进行更新。</block>
-  <block id="5e1f7c325aa2c4eb9ee527a8279eb798" category="list-text">[[STEP3]]验证所有连接是否均正常工作：</block>
   <block id="cf07fc29a0bf48b43804bd5e97849449" category="summary">如果您使用的是符合MetroCluster的交换机、则应了解特定平台的网络速度和交换机端口模式要求。</block>
   <block id="b6c12395a961cf95058c6e4d4412ac09" category="paragraph">下表提供了MetroCluster兼容交换机的平台特定网络速度和交换机端口模式。您应根据表配置交换机端口模式。</block>
   <block id="8c425f952493015588fb91113b5b2dd8" category="summary">本节介绍在所有MetroCluster IP配置和网络拓扑上传输MetroCluster流量的交换机间链路(ISL)的要求。</block>
@@ -13500,8 +13482,6 @@
   <block id="80dcc4edac2d765045f64b4c38d1d603" category="paragraph"><block ref="8e2d8ef88fdca0c2d84f0bc37a725a61" prefix="" category="inline-code"></block></block>
   <block id="51f368c2c1d8b5478b6282cb7c1d5750" category="paragraph"><block ref="d80e7838e2fc707884fbff7e375981c9" prefix="" category="inline-code"></block></block>
   <block id="4ae2f4a2aef26662b47c70763eb4279d" category="paragraph"><block ref="90a8f7d7f597974a89c88091d170056f" prefix="" category="inline-code"></block></block>
-  <block id="ddf0bc53a0486fe472c9c2802cb8a024" category="inline-link-macro">修改MetroCluster IP接口的属性</block>
-  <block id="c2101bcd2959ec896c34ad3ac441e668" category="list-text">根据您的ONTAP版本、您可以在初始配置后更改某些MetroCluster IP接口属性。有关支持的功能的详细信息、请参见 <block ref="b5882dba0d9962f87b1ec9d2a9ef135c" category="inline-link-macro-rx"></block> 。</block>
   <block id="fdc2f9c59b3906cedb6920c830ed095c" category="paragraph">如果支持、您还可以使用命令中的参数指定一个高于100 (介于101和4095之间)的其他(非默认) VLAN<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block><block ref="f2986433c79fe84ff207e72d4ed9fd6f" prefix=" " category="inline-code"></block> 。</block>
   <block id="eb2b66b1668ae6b216f98bedcd551ca7" category="paragraph">以下平台*不*支持<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> 参数：</block>
   <block id="b98986071c014fdcc3eb14230209b05d" category="paragraph">所有其他平台均支持<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block> 参数。</block>
@@ -13531,7 +13511,6 @@
   <block id="a7ecf6e9de3b493515ff606fc0532227" category="list-text">下载<block ref="b3f8a8564bd91efeacbc3b6197426c6e" category="inline-link-rx"></block></block>
   <block id="b0e1fb1b9093a23db84f9fe9ec414a05" category="paragraph">您必须为MetroCluster IP配置中的每个交换机生成并安装RCF文件。</block>
   <block id="5f6300d6cef757d6670c2170d0ee50fb" category="list-text">为MetroCluster IP生成Cisco RCC文件。</block>
-  <block id="f0af72ee7b95606742238881f6d3d746" category="list-text">使用<block ref="0dea99cd92a8ce54e8bf65bd553a3e89" prefix=" " category="inline-code"></block>、<block ref="05f7f2ea3536c78a494ee9ec91b6fef9" prefix=" " category="inline-code"></block>和<block ref="1fb1e9c05efc96eb745333b035ce6d59" prefix=" " category="inline-code"></block> 命令验证所有连接在所有接口上均正常工作。</block>
   <block id="164748ab1cab79cb53ebb8d067fb41df" category="paragraph"><block ref="3b73cc9aa0167fa80aa8a786a4871e88" prefix="" category="inline-code"></block></block>
   <block id="8c8de216c09126479bba8f0a636ceac7" category="paragraph"><block ref="34b1158d44c89ca8031563bdf424ba84" prefix="" category="inline-code"></block></block>
   <block id="711aa9967b438e020ee72c9773739e5d" category="paragraph"><block ref="c7462aa9b4e3acfeadac46864ab81636" prefix="" category="inline-code"></block></block>
@@ -13584,7 +13563,6 @@
   <block id="ed8c1f612253f0c38c2a68c1be34ff71" category="inline-xref">子步骤b.</block>
   <block id="27efb084ea8cfb0b1acbce0b33637bf2" category="cell"><block ref="310c42a30486c061e617f12669b1cb31" category="inline-xref-macro-rx"></block></block>
   <block id="667c8b04e1c765d2ac10d6029d6c4a67" category="cell">使用其他主端口</block>
-  <block id="97508d4e4a3b7631b6c05c3f42e9f3c7" category="cell"><block ref="177a8a15f5f4315b71d3ece7c721a178" category="inline-xref-macro-rx"></block></block>
   <block id="d19c71c5a36e79bee005548e97a3430a" category="list-text">[[controller_manual_upgrade prepare_network_ports_2b]]修改集群间Lifs以使用其他主端口：</block>
   <block id="ecc099ad90b879286453572c6448dca3" category="paragraph"><block ref="7d49fda2e15c7e56a195e4a13068da53" prefix="" category="inline-code"></block></block>
   <block id="67feed2eb0a24db24a92109ddf08b1d3" category="list-text">验证所有集群间的SIFs是否都位于其新的主端口上：</block>
@@ -13594,7 +13572,6 @@
   <block id="39b8c0f5fb5a1532d766cc2a0500ae92" category="paragraph">对不在主端口上的每个集群间LIF重复此命令。</block>
   <block id="270f1324a7b7f1a7e5f85816e9ee67a1" category="list-text">[[controller_manual_upgrade prepare_network_ports_3]]将旧控制器上所有数据LI的主端口分配给新旧控制器模块上相同的通用端口。</block>
   <block id="fc655e61a175b85fccd1c37c00f3ccaa" category="cell"><block ref="ea90f75ed68d4ddf4266e92157cc0fae" category="inline-xref-macro-rx"></block></block>
-  <block id="b0b6d9c342452ad19a9b24e1caf2ff35" category="cell"><block ref="e7896f2437c8c50a74bfea383fc26eb3" category="inline-xref-macro-rx"></block></block>
   <block id="3872acc735c86484cf5289e6f36d9d09" category="list-text">[[controller_REPLACE _UPREPREPARE NETWORM_ports_2b]]修改集群间LI以使用其他主端口：</block>
   <block id="bd14e125f8f9035fe1f7a46be559035d" category="list-text">[[controller_Replace _upgrade prepare_network_ports_3]]将旧控制器上所有数据LI的主端口分配给新旧控制器模块上相同的通用端口。</block>
   <block id="bf8ab32fb11672e6514cae71dc5fafe7" category="paragraph">从ONTAP 9.6开始、使用受支持交换机的MetroCluster IP配置可以为交换机间链路(Inter-Switch Link、ISL)共享现有网络、而不是使用专用的MetroCluster ISL。此拓扑称为_shared Layer 2 networks_。</block>
@@ -13883,13 +13860,7 @@
   <block id="95232b2668851dd7e6d065abeee1ed20" category="inline-link-macro">使用系统管理器执行切换和切回(仅限MetroCluster IP配置)</block>
   <block id="94728a8f449ff84b5ac878653ab4ad67" category="paragraph">执行中的步骤<block ref="5b3a204b8bc535419d3d88f0ef6f3046" category="inline-link-macro-rx"></block>。</block>
   <block id="a4d7653998b91da503a24fc71e65ad4f" category="list-text">验证是否已启用自动切换功能：</block>
-  <block id="b03614d885f56be6dafeebbbaa010a5f" category="paragraph">您遵循的过程取决于您使用的是ONTAP系统管理器还是命令行界面。</block>
-  <block id="26ed02718973e705cd69ee6e109400e0" category="open-title">System Manager</block>
-  <block id="a8f22e0a130b300278ead25d693a43d5" category="paragraph">使用System Manager修改IP地址、网络掩码和网关属性。</block>
-  <block id="7cdf282c18fa11c6df4d9d55af90d450" category="paragraph">更新每个节点和接口的IP地址、网络掩码和网关。</block>
   <block id="91af5705f16502125e8b2187e64202c0" category="open-title">命令行界面</block>
-  <block id="f9a65892b48ad466104ac3eb33403881" category="paragraph">使用命令行界面修改IP地址、网络掩码和网关属性。</block>
-  <block id="0efcd0c9061820674001fdd91f087bf1" category="admonition">这些命令用于更改特定端口的特定节点上的配置。要还原完整的网络连接，需要在其他端口上使用类似的命令。同样，网络交换机也需要更新其配置。例如，如果网关已更新，则理想情况下，它会在 HA 对的两个节点上进行更改，因为它们是相同的。连接到这些节点的交换机还需要更新其网关。</block>
   <block id="1e7bea8d62062fd522d5f5c2523a3c72" category="summary">了解如何验证MetroCluster组件是否运行正常。</block>
   <block id="f505230c63d40beb8fbcb47fba267ed7" category="list-text">在MetroCluster IP和FC配置中、您可以使用命令行界面运行运行状况检查命令并验证MetroCluster组件的状态。</block>
   <block id="8b0de0e20dd0b02520681f56e79ebae0" category="list-text">在运行ONTAP 9™8或更高版本的MetroCluster IP配置中，您还可以使用ONTAP系统管理器来监控运行状况检查警报并对其进行故障排除。</block>
@@ -13927,12 +13898,6 @@
   <block id="7ee58ef1472684aca1fe0fe874b6d592" category="paragraph">在某些情况下、当MetroCluster集群关闭或集群之间的连接关闭时、ONTAP会自动启动切换、以便仍在运行的集群处理已关闭的集群的数据处理职责。</block>
   <block id="97ea4ec8c53cbd7aa2f77e41af35214d" category="paragraph">在其他情况下、如果ONTAP无法确定其中一个集群的状态、则正在工作的站点的系统管理员将启动切换、以控制另一站点的数据处理职责。</block>
   <block id="b04fc1c1a947340b6295bca4e15296fa" category="paragraph">对于任何类型的切换操作步骤，都会使用 _switchback_ 进程将数据服务功能返回到集群。</block>
-  <block id="3a6a5031743305019642718d6b386a76" category="paragraph">您可以对 ONTAP 9.7 和 9.8 执行不同的切换和切回过程：</block>
-  <block id="e6930e280c751418022003bf9fa97d63" category="inline-xref">在ONTAP 9.7中使用System Manager进行切换和切回</block>
-  <block id="fbb89290a9f0639df9fd99dd91afccee" category="list-text"><block ref="256c277ba57abb095e4dc34a115bfd87" category="inline-xref-macro-rx"></block></block>
-  <block id="90984242656b59b4ec4bc8b2dc652b47" category="inline-xref">在ONTAP 9.8中使用System Manager进行切换和切回</block>
-  <block id="7bf20936df7319e027dcb25cf3be240e" category="list-text"><block ref="b26721d6058aa62e04e032c9956f0274" category="inline-xref-macro-rx"></block></block>
-  <block id="84e994bcb8ec0880899d43da827eb4f8" category="list-text">登录到ONTAP 9.7中的System Manager。</block>
   <block id="ef676a956a1111a97c4b6d5a5313ec0c" category="list-text">单击 * （返回经典版本） * 。</block>
   <block id="c6b17260f6c04748cb3b263e07841d9c" category="list-text">单击 * 配置 &gt; MetroCluster * 。</block>
   <block id="9512c15d06f8ebc094a9ff5468e46042" category="paragraph">System Manager 将验证是否可以进行协商切换。</block>
@@ -13944,24 +13909,19 @@
   <block id="47cb9ca4992d157c03e7725803af8e2a" category="list-text">如果验证失败、并且站点B已关闭、则很可能出现连接问题。验证站点B是否已关闭，然后执行中的步骤<block ref="fb6c16196bc2d21511884d5617718b51" category="inline-link-macro-rx"></block>。</block>
   <block id="f40d6676f14af4f7006dc55f7866a8cc" category="list-text">单击 * 从站点 B 切换到站点 A* 以启动切换过程。</block>
   <block id="3fa63b2ebfe34a52015afed9c4be0676" category="list-text">单击 * 切换到新体验 * 。</block>
-  <block id="a0bbb21498df4682785de3ad118d2112" category="section-title">执行计划内切换（ ONTAP 9.8 ）</block>
-  <block id="7032cb0fb8b2c734e0b3330b170287a8" category="list-text">登录到ONTAP 9.8中的System Manager。</block>
   <block id="d86b98757fa72a3091b65699a17b3724" category="list-text">选择 * 信息板 * 。在 * MetroCluster 集群 * 部分中，两个集群显示有一个连接。</block>
   <block id="b7833a52299d966f41b82417259c5239" category="inline-image-macro">" 串器 " 图标</block>
   <block id="6b466076a02d34c371b188caa9b5a5ea" category="list-text">在本地集群(如左侧所示)中，单击 <block ref="2f6e127087f9ef4b927e204474c5d0b2" category="inline-image-macro-rx" type="image"></block>，然后选择*将远程数据服务切换到本地站点*。</block>
   <block id="aa0bfd6a3a3db9e5b0409213f48708d9" category="paragraph">验证切换请求后、控制权将从远程站点传输到本地站点。本地站点会为两个集群执行数据服务请求。</block>
   <block id="3c8328130d9ea4793e2bc9f3551b90e0" category="paragraph">远程集群重新启动，但存储组件未处于活动状态，并且集群不会处理数据请求。现在，它可用于计划内维护。</block>
   <block id="6f83354e8ce958bae1f9ffca3c39c278" category="admonition">在执行切回之前，不应使用远程集群进行数据服务。</block>
-  <block id="defaf88320e88f259a284fdbcd5986c2" category="section-title">执行计划外切换（ ONTAP 9.8 ）</block>
   <block id="ef7ccb5f4ce99dc2e349e8c6c47a3d17" category="paragraph">ONTAP 可能会自动启动计划外切换。如果 ONTAP 无法确定是否需要切回，则仍在运行的 MetroCluster 站点的系统管理员将通过以下步骤启动切换：</block>
   <block id="612770839809215b203a58fa260be49e" category="list-text">选择 * 信息板 * 。</block>
   <block id="940768454917470cad252dfa341a9bae" category="paragraph">在* MetroCluster *部分中，两个集群之间的连接显示有一个"X"。这意味着无法检测到连接、并且连接或集群已关闭。</block>
   <block id="0b85c3b32c8fd95dfef8906dc740c0b2" category="paragraph">如果切换失败并出现错误、请单击错误消息中的"查看详细信息"链接并确认计划外切换。</block>
   <block id="b2a8c150e46a4d6da48aa21c7035a5ec" category="paragraph">必须先修复集群，然后才能使其重新联机。</block>
   <block id="dacd599c11508c590c3afe8309bc777e" category="admonition">远程集群联机后、在执行切回之前、不应使用它来提供数据服务。</block>
-  <block id="b7066bce35bcdc9bde30393cfe83bbdd" category="section-title">执行切回（ ONTAP 9.8 ）</block>
   <block id="83d20468f433e569baf2f41de2670745" category="paragraph">如果远程集群因计划内维护或灾难而关闭、则它现在应已启动且正在运行、并等待切回。</block>
-  <block id="a91ed0fc67b86b9a97667032dc887550" category="list-text">在本地集群上，登录到 ONTAP 9.8 中的 System Manager 。</block>
   <block id="e722eda52729a565e292380da3b9cd9e" category="paragraph">在 * MetroCluster 集群 * 部分中，显示了两个集群。</block>
   <block id="3964a12029e4869f90c22d4b7b86e4d7" category="list-text">在本地集群(如左侧所示)中，单击 <block ref="2f6e127087f9ef4b927e204474c5d0b2" category="inline-image-macro-rx" type="image"></block>，然后选择*收回控制权*。</block>
   <block id="9650db837519c6f15dca6f446f677c65" category="paragraph">首先、会_heed-heALed.以验证数据是否已在两个集群之间同步和镜像。</block>
@@ -14131,7 +14091,6 @@
   <block id="5dfed22feb54647dbd9e9ae827290f6b" category="paragraph"><block ref="67611e9f528c6078257c414670af6b52" prefix="" category="inline-code"></block></block>
   <block id="1225fe0de146a130add7eeefae9e0925" category="list-text">验证灾难集群上的同步源SVM是否已启动且正在运行：</block>
   <block id="ad29c49a8377862a59f9aae0ab4431cd" category="paragraph">验证LIF放置是否正确。然后、删除旧控制器上的VLAN和接口组、并以物理方式卸载这些控制器。</block>
-  <block id="253982549e381b6f58f66b3e289a0a83" category="admonition">如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<block ref="45cc57eb3654a2ae89efabc6fb9d271a" category="inline-xref-macro-rx"></block>。</block>
   <block id="ae359c5763df3f6130f697d17d090551" category="admonition">在执行切回之前、您必须验证新节点上的数据SIFs位置是否正确。切回配置时、ONTAP会尝试恢复由这些LUN使用的主端口上的流量。如果主端口与交换机端口和VLAN的连接不正确、则可能会发生I/O故障。</block>
   <block id="1c780702501fd89538731057505e0a04" category="list-text">在切回之前、请验证是否已在相应的节点和端口上托管了这些文件。</block>
   <block id="bc12d3bc2a2c1526b655930b56efc183" category="list-text">显示LIF、并确认每个数据LIF使用的主端口正确无误：</block>
@@ -14139,7 +14098,6 @@
   <block id="823bc5ae6e724dd8994efcc4dbeb49d2" category="paragraph">如果此命令返回错误、您可以覆盖端口配置：</block>
   <block id="ec14487a214982a1ea6572636724761f" category="paragraph"><block ref="afdc229346561af3e5aba3a6d67eea09" prefix="" category="inline-code"></block></block>
   <block id="c9ba655979127851f6a6f01489815e47" category="list-text">确认现在所有数据Sifs都位于正确的主端口上：</block>
-  <block id="ef1038ce81a2c9d70181057dd381a59a" category="admonition">如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<block ref="186451ebe57c46550834233237ebac90" category="inline-xref-macro-rx"></block>。</block>
   <block id="3432abc562d1049e115fc0bcb6f569ab" category="list-text">[[uelds_assisted_without _匹配_ports]]修改广播域以删除需要删除的VLAN和物理端口：</block>
   <block id="07bfa9093a8ef293dfd6099e38fde255" category="list-text">验证是否已正确配置MetroCluster。检查节点状态：</block>
   <block id="d64694bac02c7b4eea890e175a53a0c7" category="paragraph">在继续执行自动切回操作之前、请验证是否已在相应节点上托管了此类文件。</block>
@@ -14446,7 +14404,6 @@
   <block id="cd171858353ac5afefcde1a10ecc4d2b" category="paragraph">有关新节点上的端口分布和分配，请参阅<block ref="e8018b6e740a667345f4bcc94e4023fc" category="inline-link-rx"></block>。</block>
   <block id="609705d960d3eb8865688141bee64514" category="list-text">还原不在主端口上的任何生命周期：</block>
   <block id="2c33fd0cf23bb7e3394bbefc985bb336" category="paragraph">对不在主端口上的每个集群间LIF重复此命令。</block>
-  <block id="5d017d18dffe9ea2002cf58c5028e761" category="paragraph">包括SAN和NAS在内的所有数据生命周期都由管理员启动、操作也会关闭、因为这些生命周期在切换站点(cluster A)启动。</block>
   <block id="6f4692f84dcb13549704950c86285bed" category="paragraph">有关平台型号的端口使用情况、请参见<block ref="5e0886f1b46d76ea4adb1e1719b4ddb5" category="inline-link-rx"></block></block>
   <block id="404849d025b51f7a9b000948be830642" category="list-text">[[U台 升级_MANUAL_without _匹配_ports]]修改广播域以删除需要删除的VLAN和物理端口：</block>
   <block id="b5232e117010c63512e6646cdcc5b782" category="list-text">暂停节点并显示<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block>提示符：</block>
@@ -14648,4 +14605,33 @@
   <block id="f6c5a69060b62d046efbd190570cf383" category="admonition">此示例显示了配置RC框架 所需的最低信息、在应用RC框架 后、可以配置其他选项。例如、您可以在应用RCP后配置SNMPv3、NTP或SCP或SFTP。</block>
   <block id="6ca034f6a518722187e6a10bfc2df9e6" category="admonition">在启动控制器之前、请勿打开磁盘架电源。这样可以防止控制器意外启动到ONTAP。</block>
   <block id="604b473cd250fb4d83bbbab434f091fb" category="paragraph">此示例显示了用于使运行ONTAP的控制器的plexes脱机的命令。</block>
+  <block id="936bfa47a2c0392f1aef9da55dad3561" category="paragraph">四个或八个^1^</block>
+  <block id="28f44037af103f0c930309365629f8ef" category="paragraph">* 注释 *</block>
+  <block id="a4bfae8e34cf1d1bbf19c5b03ef542b9" category="list-text">查看八节点MetroCluster IP配置的以下注意事项：</block>
+  <block id="b00f9fea7b2da4a95f4ab93fed2362de" category="admonition">创建MetroCluster IP接口时、请勿使用169.254.17.x或169.254.18.x IP地址、以避免与系统自动生成的同一范围内的接口IP地址冲突。</block>
+  <block id="bd9583bc7d13557a4fd4255bd92c14c6" category="paragraph">您执行的切换和切回过程取决于您的ONTAP版本：</block>
+  <block id="701536f308a46b56b600117d2f954760" category="inline-xref">在ONTAP 9.6或9.7中使用System Manager进行切换和切回</block>
+  <block id="c5ae21487220da0e90bc5df3979248c6" category="list-text"><block ref="40e2b7a5ccaae357ec2a83e7dbfc7121" category="inline-xref-macro-rx"></block></block>
+  <block id="a5d16be6688eb5e01f6f153d46483384" category="inline-xref">在ONTAP 9.8或更高版本中使用System Manager进行切换和切回</block>
+  <block id="96d0b994840dcc9602e98d75b1d7dc37" category="list-text"><block ref="d169c24aedb9d9132bec54ece222a51c" category="inline-xref-macro-rx"></block></block>
+  <block id="6aafb5589dbe30793ebafd1bf5623b9f" category="list-text">登录到ONTAP 9.6或9.7中的System Manager。</block>
+  <block id="988579e6530038a6bc87a8dffa9be811" category="section-title">执行计划内切换(ONTAP 9.8或更高版本)</block>
+  <block id="33fef937840ce57f6a4070e352228fd4" category="list-text">在ONTAP 9.8或更高版本中登录到System Manager。</block>
+  <block id="70de6eed617bf2598c428ab602bacd20" category="section-title">执行计划外切换(ONTAP 9.8或更高版本)</block>
+  <block id="2441e03051d41aa2f6f9d9e39c577a3e" category="section-title">执行切回(ONTAP 9.8或更高版本)</block>
+  <block id="2a6e3f78c9b73af2855a7bc5191bf5b1" category="list-text">在本地集群上、登录到ONTAP 9.8或更高版本中的System Manager。</block>
+  <block id="22049fef22b0ddad50caf9ded819a4f1" category="paragraph"><block ref="22049fef22b0ddad50caf9ded819a4f1" category="inline-link-macro-rx"></block></block>
+  <block id="a6a86c7d4711a3d450ec4121102de402" category="list-text">如果要升级到的系统不在下表中、请验证MetroCluster IP接口是否使用受支持的IP地址。</block>
+  <block id="8210c1e569b4a7f0d685a838881f7f66" category="cell">AFF和ASA系统</block>
+  <block id="d5d4923aa83e46af2152de920946ba41" category="cell">FAS 系统</block>
+  <block id="fa8ce860967d0ec751385e3e150d223a" category="list-text">验证旧控制器上MetroCluster接口的IP地址：</block>
+  <block id="09542928ac9f09905359ce0cdc32a079" category="inline-link-macro">知识库文章“How to Modify the properties of a MetroCluster IP interface (如何修改Internet IP接口的属性)”</block>
+  <block id="f80e9f0a9fba665f77ab307a250b7fd3" category="list-text">如果MetroCluster接口使用的是169.254.17.x或169.254.18.x IP地址、请在继续升级之前、请参见<block ref="d1c038803b45479df32bbfd628b2e8b5" category="inline-link-macro-rx"></block>以修改接口IP地址。</block>
+  <block id="400bb3d32423e6384fb4cfe6867b0ccc" category="admonition">如果为MetroCluster接口配置了169.254.17.x或169.254.18.x IP地址、则不支持升级到表中未列出的任何系统。</block>
+  <block id="e7997597817a3facf42bc030e3a35309" category="cell"><block ref="92a96fa95be44bd76fa573ac0e371c6f" category="inline-xref-macro-rx"></block></block>
+  <block id="6165ea79c58238b8f7f4d2edcab21f29" category="admonition">如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<block ref="19d16029d22befc9cf5c2bffaac61331" category="inline-xref-macro-rx"></block>。</block>
+  <block id="abcdb4b4b1872daf29ecc9031115f937" category="paragraph">包括SAN和NAS在内的所有数据生命周期都由管理员启动、操作也会关闭、因为这些生命周期在切换站点(cluster A)启动。</block>
+  <block id="6750be268fde99a8fc70da3cae96763b" category="cell"><block ref="dc13cd459e510658615266395ba927b0" category="inline-xref-macro-rx"></block></block>
+  <block id="3485285ca38e1ca4c0a680f9bcf47989" category="admonition">如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<block ref="d2fd743661c244ff041df8d51a55b2b7" category="inline-xref-macro-rx"></block>。</block>
+  <block id="57e1aa86ef1214c6b5a618674a806136" category="paragraph">包括SAN和NAS在内的所有数据`都将由管理员管理"` up `d"、在操作上为"` own "、因为这些数据在切换站点(cluster A)上处于启动状态。</block>
 </blocks>

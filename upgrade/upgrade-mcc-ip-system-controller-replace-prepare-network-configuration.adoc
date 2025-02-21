@@ -28,6 +28,51 @@ summary: 收集信息并恢复操作后、自动化操作将继续执行切换�
 +
 `boot_ontap`
 
+. 如果要升级到的系统不在下表中、请验证MetroCluster IP接口是否使用受支持的IP地址。
++
+|===
+
+
+| AFF和ASA系统 | FAS 系统 
+
+
+ a| 
+** AFF A150、ASA A150
+** AFF A220
+** AFF C250、ASA C250
+** AFF A250、ASA A250
+** AFF A300
+** AFF A320
+** AFF C400、ASA C400
+** AFF A400、ASA A400
+** AFF A700
+** AFF C800、ASA C800
+** AFF A800、ASA A800
+** AFF A900、ASA A900
+
+ a| 
+** FAS2750
+** FAS500f
+** FAS8200
+** FAS8300
+** FAS8700
+** FAS9000
+** FAS9500
+
+
+|===
++
+.. 验证旧控制器上MetroCluster接口的IP地址：
++
+`MetroCluster configuration-settings interface show`
+
+.. 如果MetroCluster接口使用的是169.254.17.x或169.254.18.x IP地址、请在继续升级之前、请参见link:https://kb.netapp.com/on-prem/ontap/mc/MC-KBs/How_to_modify_the_properties_of_a_MetroCluster_IP_interface["知识库文章“How to Modify the properties of a MetroCluster IP interface (如何修改Internet IP接口的属性)”"^]以修改接口IP地址。
++
+
+CAUTION: 如果为MetroCluster接口配置了169.254.17.x或169.254.18.x IP地址、则不支持升级到表中未列出的任何系统。
+
+
+
 . 修改旧控制器上的集群间LUN、使其使用与新控制器上用于HA互连或MetroCluster IP DR互连的端口不同的主端口。
 +
 
@@ -56,7 +101,7 @@ NOTE: 要成功升级、需要执行此步骤。
 | 使用相同的主端口 | <<controller_replace_upgrade_prepare_network_ports_2b,子步骤b.>> 
 
 
-| 使用其他主端口 | <<controller_replace_upgrade_prepare_network_ports_3,第 3 步>> 
+| 使用其他主端口 | <<controller_replace_upgrade_prepare_network_ports_3,第 4 步>> 
 |===
 .. [[controller_REPLACE _UPREPREPARE NETWORM_ports_2b]]修改集群间LI以使用其他主端口：
 +
@@ -81,7 +126,7 @@ NOTE: 要成功升级、需要执行此步骤。
 . [[controller_Replace _upgrade prepare_network_ports_3]]将旧控制器上所有数据LI的主端口分配给新旧控制器模块上相同的通用端口。
 +
 
-CAUTION: 如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<<upgrades_assisted_without_matching_ports,第 4 步>>。
+CAUTION: 如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<<upgrades_assisted_without_matching_ports,第 5 步>>。
 
 +
 .. 显示 LIF ：
@@ -89,7 +134,7 @@ CAUTION: 如果旧控制器和新控制器没有通用端口、则不需要修�
 `network interface show`
 
 +
-包括 SAN 和 NAS 在内的所有数据 LIF 都将为 admin "`up` " 和 Operationally "`down` " ，因为这些 LIF 在切换站点（ cluster_A ）上已启动。
+包括SAN和NAS在内的所有数据`都将由管理员管理"` up `d"、在操作上为"` own "、因为这些数据在切换站点(cluster A)上处于启动状态。
 
 .. 查看输出以查找未用作集群端口的旧控制器和新控制器上相同的通用物理网络端口。
 +
