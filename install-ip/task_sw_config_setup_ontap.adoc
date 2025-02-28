@@ -17,7 +17,7 @@ summary: 启动每个节点后，系统将提示您执行基本节点和集群�
 * 您必须已为 MetroCluster 配置布线。
 
 
-如果需要通过网络启动新控制器，请参阅 link:../upgrade/task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback_mcc_ip.html#netboot-the-new-controllers["通过网络启动新控制器模块"]。
+如果需要通过网络启动新控制器，请参阅 link:../upgrade/upgrade-mcc-ip-prepare-system.html#netboot-the-new-controllers["通过网络启动新控制器模块"]。
 
 .关于此任务
 必须对 MetroCluster 配置中的两个集群执行此任务。

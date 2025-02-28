@@ -4311,7 +4311,7 @@ FC1
 
 
 
-== 运行 ONTAP 9.1 或更高版本的 MetroCluster 配置中八节点配置中 ISL 的 Cisco 端口使用情况
+== 运行ONTAP 9.1或更高版本的八节点MetroCluster配置中的Cisco端口使用情况
 
 下表显示了 ISL 端口使用情况。此配置中的所有交换机上的 ISL 端口使用情况均相同。
 

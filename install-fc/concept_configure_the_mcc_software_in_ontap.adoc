@@ -3021,6 +3021,9 @@ Priv Protocol [DES(1)/noPriv(2)/AES128(3)/AES256(4)]): (2..2) [3]
 
 在监控 MetroCluster 配置中的组件之前，必须执行一些特殊的配置步骤。
 
+
+NOTE: 为了提高安全性、NetApp建议您配置SNMPv2或SNMPv3以监控交换机运行状况。
+
 .关于此任务
 这些任务仅适用于具有 FC-SAS 网桥的系统。
 
@@ -3049,7 +3052,7 @@ NetApp仅支持使用以下工具监控MetroCluster FC配置中的组件：
 在光纤连接的 MetroCluster 配置中，您必须执行一些额外的配置步骤来监控 FC 交换机。
 
 
-NOTE: 从 ONTAP 9.8 开始， `storage switch` 命令将替换为 `ssystem switch` 。以下步骤显示了 `storage switch` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 `ssystem switch` 命令。
+NOTE: 从ONTAP 9.8开始，此 `storage switch`命令将替换为 `system switch fibre-channel`。以下步骤显示了 `storage switch`命令、但如果您运行的是ONTAP 9.8或更高版本、 `system switch fibre-channel`则首选使用命令。
 
 .步骤
 . 将具有 IP 地址的交换机添加到每个 MetroCluster 节点：

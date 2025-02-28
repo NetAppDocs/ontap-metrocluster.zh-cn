@@ -174,7 +174,6 @@
   <block id="15fe2b61bbdb206c7e56441ae3b5eecc" category="admonition">如果将 SAS 缆线插入错误的端口，则在从 SAS 端口拔下缆线时，必须至少等待 120 秒，然后再将缆线插入其他 SAS 端口。如果您未能执行此操作，系统将无法识别此缆线已移至其他端口。</block>
   <block id="42fceed144d93d382eb9bdcc9b1254d2" category="list-text">正确接地。</block>
   <block id="a1e17a608717456a082fab3c68a4b947" category="list-text">从任一控制器模块的控制台中，检查您的系统是否已启用磁盘自动分配：</block>
-  <block id="128d6bb86b0214622ee2f48931f27dc8" category="paragraph">` * 存储磁盘选项 show*`</block>
   <block id="cc58aaf6bb4c79c51d1a584a4df98f85" category="paragraph">自动分配列指示是否已启用磁盘自动分配。</block>
   <block id="2e5b19f30c3e19c3f087bc837d8ecf1f" category="list-text">禁用新堆栈的交换机端口。</block>
   <block id="02e4e593d1da4e8af8c93f47f9152ee9" category="list-text">如果配置为带内管理，请使用缆线从 FibreBridge RS -232 串行端口连接到个人计算机上的串行（ COM ）端口。</block>
@@ -369,7 +368,6 @@
   <block id="f7a6db45ff24ce0a158fab57e41dfafb" category="list-text">返回到交换机提示符，验证交换机固件版本：</block>
   <block id="ab762a0f70f0be63da9e88e925540f7b" category="list-text">模拟切换操作：</block>
   <block id="f20ec4a663953b8413f93cdcbc65817b" category="paragraph">当系统提示您继续进入高级模式并显示高级模式提示符（ * &gt; ）时，您需要使用 ` * y*` 进行响应。</block>
-  <block id="87576e79d18b52132e5cb37d09d7cf8b" category="list-text">返回到管理权限级别： + ` * 设置 -privilege admin*`</block>
   <block id="b974604035f7175a0ad2f478b81c3613" category="list-text">对第二个交换机网络结构重复上述步骤。</block>
   <block id="4868aa5e5fc13bb8953ff0f45bcf7ca8" category="paragraph">重复执行这些步骤后，所有四个交换机均已升级，并且 MetroCluster 配置运行正常。</block>
   <block id="11c88611295bbd4991975499f28e409a" category="summary">支持使用 FibreBridge 7500N 网桥替代 FibreBridge 6500N 网桥，或者在向 MetroCluster 配置添加新存储时使用此网桥。支持的配置具有分区要求，并存在有关使用网桥 FC 端口以及堆栈和存储架限制的限制。</block>
@@ -537,8 +535,6 @@
   <block id="5cbc856360b7f465a0b074d28f0718d0" category="paragraph">下表显示了使用 ONTAP 9.0 时 FC 交换机的端口分配。</block>
   <block id="0f03e15eba6bd2b5d72c3bf12b9e6464" category="summary">如果要在不降低性能的情况下增加存储，可以热添加磁盘架。</block>
   <block id="c7c3f6690f29780dcaae9a3466cbb181" category="doc">热添加磁盘架</block>
-  <block id="85c019b69442635697fc1b5b3f6cfad3" category="inline-xref-macro">准备热添加 SAS 磁盘架</block>
-  <block id="5c96ab4a94ce2c03e50e3170dc50e8be" category="list-text">要热添加磁盘架，您的环境必须满足以下情形之一：</block>
   <block id="dc7e96665a67891a688cad5299c9216d" category="list-text">您已将两个 FibreBridge 7500N 网桥连接到一个 SAS 磁盘架堆栈。</block>
   <block id="bbe46ae98258b21267300cd00fda2d33" category="list-text">此操作步骤用于将磁盘架热添加到堆栈中的最后一个磁盘架。</block>
   <block id="de765cbcb90d504e6ac736ad12d5610f" category="paragraph">编写此操作步骤时，假设堆栈中的最后一个磁盘架是从 IOM A 连接到网桥 A 以及从 IOM B 连接到网桥 B 的</block>
@@ -547,17 +543,10 @@
   <block id="4854106a7e78843664930c4dc2100549" category="admonition">每对 FibreBridge 7500N 或 7600N 网桥最多可支持四个堆栈。</block>
   <block id="2d0d17a81f0643f24076c9d6053d77c6" category="admonition">热添加磁盘架要求您在高级模式下运行 `storage disk firmware update` 命令，以更新热添加磁盘架上的磁盘驱动器固件。如果系统中现有磁盘驱动器上的固件版本较旧，则运行此命令可能会造成中断。</block>
   <block id="6cf82bfa742937a27072b88c527e1707" category="list-text">从任一控制器的系统控制台验证磁盘架连接：</block>
-  <block id="14eed54cda8c3aab4e76c858751a1903" category="paragraph">` * sysconfig -v*`</block>
   <block id="e9a0680136bcf6c65f2b08336c359725" category="paragraph">输出类似于以下内容：</block>
   <block id="71acbd7b99f4163d9bdf49cc4896c1d8" category="list-text">每个网桥都位于一条单独的行上，并位于其可见的每个 FC 端口下；例如，将磁盘架热添加到一组 FibreBridge 7500N 网桥会生成以下输出：</block>
   <block id="ee60b9bc622c703e1065f07dcdc02e73" category="list-text">每个磁盘架在其可见的每个 FC 端口下的单独行上：</block>
   <block id="4f4cc17134e7a0dec2fd6c91d9961c0e" category="list-text">每个磁盘驱动器在其可见的每个 FC 端口下的单独行上：</block>
-  <block id="12c600f2f4991508e5f17240b49e8493" category="list-text">检查您的系统是否已从任一控制器的控制台启用磁盘自动分配：</block>
-  <block id="3afff8040872589b8f259af1b1b02113" category="paragraph">自动分配策略显示在自动分配列中。</block>
-  <block id="37ecabf9d8255c1ef714fdd4b6878eb6" category="list-text">如果您的系统未启用磁盘自动分配，或者同一堆栈中的磁盘驱动器由两个控制器所有，请将磁盘驱动器分配给相应的池。</block>
-  <block id="21dc7cf52756619aa7572059edd48927" category="paragraph">如果要在两个控制器之间拆分一个磁盘架堆栈，则必须在分配磁盘所有权之前禁用磁盘自动分配；否则，在分配任何一个磁盘驱动器时，其余磁盘驱动器可能会自动分配给同一个控制器和池。</block>
-  <block id="c6a74b565a0bfaf4ae27e4430afa45d3" category="paragraph">`storage disk option modify -node _node-name_ -autosassign off` 命令可禁用磁盘自动分配。</block>
-  <block id="5b63e4a9bc611666d00f442d845ec5c6" category="admonition">在更新磁盘驱动器和磁盘架固件之前，不得将磁盘驱动器添加到聚合或卷中。</block>
   <block id="03aa0e95dbfb628416dcdc56332bc6b4" category="paragraph">您可以从任一控制器的系统控制台中运行操作步骤中的命令。</block>
   <block id="70a0e75e35d9914b9a2f7708da941117" category="list-text">安装磁盘架并为其布线：</block>
   <block id="28f13ef1be475bc18398b06c9ee9c0ad" category="paragraph">请勿强制将连接器插入端口。迷你 SAS 缆线具有方向性；正确连接到 SAS 端口时， SAS 缆线会卡入到位，磁盘架 SAS 端口 LNK LED 会呈绿色亮起。对于磁盘架，您可以插入 SAS 缆线连接器，拉片朝上（位于连接器的顶部）。</block>
@@ -568,15 +557,12 @@
   <block id="414b35b7f0918196aa1be1723514bab1" category="paragraph">此缆线的另一端仍连接到网桥 B</block>
   <block id="56beeff85a5bf6777fb64089e64c8286" category="list-text">通过将新磁盘架 IOM 端口（ IOM A 和 IOM B ）连接到最后一个磁盘架 IOM 端口（ IOM A 和 IOM B ），以菊花链方式连接新磁盘架。</block>
   <block id="345e380efa5afa2a2afb3abe3096922a" category="list-text">从系统控制台将磁盘驱动器固件更新为最新版本。</block>
-  <block id="7c4d248493f91032503b9fa1ff16b78a" category="list-text">更改为高级权限级别： + ` * 设置 -privilege advanced*`</block>
-  <block id="0ffb0a1b769b7a5cb0f4a4adc97d95ff" category="list-text">从系统控制台将磁盘驱动器固件更新为最新版本： + ` * 存储磁盘固件更新 *`</block>
   <block id="06157b5d60c5ad595acb6690d509af40" category="list-text">对另一个控制器重复上述子步骤。</block>
   <block id="ec11092b67907b66d4042a24bc8b71b3" category="list-text">检查系统是否为多路径：</block>
   <block id="fa634ad56afbbccc6627976c9b99f372" category="paragraph">` * 节点 run -node _node-name_ sysconfig -A*`</block>
   <block id="a3aad362c66ece842fa5a6d6c7fa3c74" category="list-text">显示 MetroCluster 检查的结果：</block>
   <block id="72fef016a314fe19829bf53a238ef0d5" category="paragraph">` * MetroCluster check show*`</block>
   <block id="aceb21053b1dbe01f756b4609f49187c" category="list-text">检查交换机上是否存在任何运行状况警报（如果存在）：</block>
-  <block id="b6c8d49615b2216ec73c49f38815ee2b" category="list-text">如果要热添加多个磁盘架，请对要热添加的每个磁盘架重复上述步骤。</block>
   <block id="409af61506044b29e17ba065ed936a41" category="summary">您可能需要将根卷移动到双节点或四节点 MetroCluster 配置中的另一个根聚合。</block>
   <block id="751d545fc5bc71e5b2323bef5e403749" category="doc">何时将根卷迁移到新目标</block>
   <block id="00aa76fa0ef150ad11418ea2b694ba07" category="section-title">在双节点 MetroCluster 配置中迁移根卷</block>
@@ -1086,7 +1072,6 @@
   <block id="3db30a6fa1c05224aef86dc9b48a9085" category="cell">Cisco 9250i*</block>
   <block id="7454ecd5190b690ccf9ee77f2e438c0c" category="section-title">运行 ONTAP 9.1 或更高版本的 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况</block>
   <block id="f656d69f7bbae519056da03a8e9e50d0" category="cell">Cisco 9250i</block>
-  <block id="4968e1c4a92e0df27646933918f92be2" category="section-title">运行 ONTAP 9.1 或更高版本的 MetroCluster 配置中八节点配置中 ISL 的 Cisco 端口使用情况</block>
   <block id="81cc761cd2e2757421a8e9242e8e12cc" category="paragraph">下表显示了 ISL 端口使用情况。此配置中的所有交换机上的 ISL 端口使用情况均相同。</block>
   <block id="10ca333ef19b78048d2fedd61c4432e9" category="paragraph">ISL 1</block>
   <block id="d13ad1889e4cd054285464f94de707e7" category="paragraph">ISL 2.</block>
@@ -1415,7 +1400,6 @@
   <block id="f8ab0ac0bcb20f9074bb5111e4de500b" category="section-title">从 ONTAP 管理 FibreBridge 网桥</block>
   <block id="bbd74b9d635efcc9eced3467fe12b324" category="list-text">在 `storage bridge run-cli` 命令中运行适用的 FibreBridge 命令：</block>
   <block id="09792e5e867bb3fa1654982ccf93f3e4" category="paragraph">以下命令从 ONTAP 提示符处运行 FibreBridge `SasportDisable` 命令，以禁用网桥上的 SAS 端口 b ：</block>
-  <block id="5cb7ce670094889d3c954b543759f688" category="summary">准备热添加 SAS 磁盘架包括下载文档以及磁盘驱动器和磁盘架固件。</block>
   <block id="64974d0b5eb2e258428a89835ce229c9" category="list-text">在新 SAS 端口上启动新堆栈（如果网桥对支持）。</block>
   <block id="ad45a06e82c1f0983fdfd0e3d30dc8f8" category="list-text">在另一个网桥对上启动新堆栈。</block>
   <block id="8e916218cb72668e639a5859eade4041" category="list-text">适用于您的磁盘架型号的安装指南 _ 。</block>
@@ -9560,7 +9544,6 @@
   <block id="8d07a21c40606b1098d1a2ff5a5b5f1c" category="sidebar">将 SAS 磁盘架堆栈热添加到一对现有 FibreBridge 7500N 网桥中</block>
   <block id="8780e2c60443de7cb84cd78e41b4b572" category="sidebar">将 SAS 磁盘架和网桥堆栈热添加到 MetroCluster 系统</block>
   <block id="404bb11b70239a316af681095fbdeff7" category="sidebar">将 SAS 磁盘架热添加到 SAS 磁盘架堆栈中</block>
-  <block id="46738ba3e846392ff7b6408dfb3589f6" category="sidebar">热添加磁盘架</block>
   <block id="26efac9be7856206ad935a9151a6a64c" category="sidebar">在桥接 MetroCluster 配置中，将 IOM12 磁盘架热添加到 IOM6 磁盘架堆栈中</block>
   <block id="cabfdbae66cbee4984c63ed2d5544390" category="sidebar">从 MetroCluster FC 配置中热删除存储</block>
   <block id="40a09e232a862af1f1a00bbe4b0defb8" category="sidebar">在延伸型 MetroCluster 配置中无中断更换磁盘架</block>
@@ -10793,8 +10776,6 @@
   <block id="d7bfe70794b33ffd8c90fd65c603c05e" category="list-text">使用 `storage aggregate plex delete -aggregate _aggr_name_ -plex _plex_name_` 命令删除丛。</block>
   <block id="ea2d02575786a7fa133f48cd51fc230e" category="paragraph">丛定义丛名称，例如 "`plex3` " 或 "`plex6` " 。</block>
   <block id="3e364a62394cf176526399560d023208" category="paragraph">从 ONTAP 9.5 开始，您可以使用 ONTAP 命令行界面将 FibreBridge 命令传递到网桥并显示这些命令的结果。</block>
-  <block id="e57ca4b3df83a88b6254675613163df0" category="list-text">系统必须满足中的所有要求 <block ref="08d6c3cbf42a81a0c26843f87c874545" category="inline-link-macro-rx"></block>。</block>
-  <block id="680f2c91c58cc6532106b87cb564cc68" category="admonition">在此步骤中，您只能完成链接中提供的说明的下载部分。您需要按照中的步骤进行操作 <block ref="47adb28a466429763b049bd78d160e0f" category="inline-link-macro-rx"></block> 有关安装磁盘架的章节。</block>
   <block id="b2d9f80a5c71fe34bed7839914c2fd68" category="paragraph">如果新网桥与配对网桥的类型相同，请升级到与配对网桥相同的固件。如果新网桥与配对网桥的类型不同，请升级到该网桥支持的最新固件以及 ONTAP 版本。请参见 _FibreBridge MetroCluster 维护 _ 中的 " 更新 FibreBridge 网桥上的固件 " 一节。</block>
   <block id="3240aad2738f70e3ab16c6dadcff4f64" category="list-text">更新网桥固件：</block>
   <block id="befb8d9c3b9caecfce0121a43afa3ce1" category="admonition">从 ATTO 固件版本 2.95 开始，网桥将自动重新启动，不需要执行此步骤。</block>
@@ -10882,7 +10863,6 @@
   <block id="e2090ebbf2ac14963bfb6c9602cbc750" category="paragraph">此操作步骤中使用的示例： site_A</block>
   <block id="49ed603bb0e65ebf6cbe5de7d5a6e0c6" category="paragraph">此操作步骤中使用的示例： controller_A_1</block>
   <block id="4e0ca507efddc63c28aeb3319df00d5d" category="paragraph">此操作步骤中使用的示例： controller_A_2</block>
-  <block id="51070538b9cde5e5b54a8cbc07f43009" category="admonition">从 ONTAP 9.8 开始， `storage switch` 命令将替换为 `ssystem switch` 。以下步骤显示了 `storage switch` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 `ssystem switch` 命令。</block>
   <block id="d483490d3082f02c6057abcd983c34e6" category="list-text">使用中的协商切换，修复和切回过程<block ref="218502de673c582fbc556024d0b3de54" category="inline-link-rx"></block></block>
   <block id="f1573b913aebef18602249e23e196f67" category="paragraph"><block ref="09965663397032e7c8c3dcc98b9deca2" category="inline-link-rx"></block> 包含追加信息。</block>
   <block id="3b60cd7b393721dca2be281ca53a4351" category="paragraph">从 ONTAP 9.2 开始，您可以在以下情况下使用 ISL 共享：</block>
@@ -13144,7 +13124,6 @@
   <block id="bc8be72fdc9d6054f356bb2b7f80fd12" category="inline-link">NetApp 互操作性表</block>
   <block id="769db6797bc8c70f9ceb0ea238fcfef2" category="list-text"><block ref="769db6797bc8c70f9ceb0ea238fcfef2" category="inline-link-rx"></block></block>
   <block id="c9dd6bad4c7d561872f2e2d498a990bf" category="inline-link-macro">互操作性表工具（ IMT ）</block>
-  <block id="520ac91f29d97371c4fac829efc70617" category="admonition">如果您的系统运行的是受支持的 ONTAP 版本，则在同一个堆栈中支持混合使用 IOM12 模块和 IOM6 模块。要确定您的ONTAP版本是否支持磁盘架混合、请参见 <block ref="cd3982462c40dc1b1a511ada7c72bab9" category="inline-link-macro-rx"></block>。如果您的ONTAP版本不受支持、并且您无法升级或降级现有堆栈或要添加到受支持的IOM模块组合的新磁盘架上的IOM模块、则需要执行以下操作之一：</block>
   <block id="c5dcd35af16918a17ee9c3a5c153f0af" category="inline-link">IMT</block>
   <block id="24d65add9a27d74b80e9a9cebdfc8e56" category="paragraph">您的 ONTAP 版本必须支持混用磁盘架。请参见互操作性表工具（ IMT ），了解您的 ONTAP 版本是否支持混用磁盘架。<block ref="30796bf173a80af0dc9c120f98ffaed6" category="inline-link-rx"></block></block>
   <block id="8872b0d09737dfd9b6fcafd4e8c2356b" category="list-text"><block ref="8872b0d09737dfd9b6fcafd4e8c2356b" category="inline-link-rx"></block></block>
@@ -13603,7 +13582,6 @@
   <block id="f411a218519aacec5088cc5a3d23eb64" category="paragraph">旧的和新的系统ID在中进行了标识 <block ref="372daca62ea6308294fd70c00fcc8af2" category="inline-link-macro-rx"></block>。</block>
   <block id="04e334293a29a0fcdf98b56004e27edc" category="section-title">符合MetroCluster的交换机与经过NetApp验证的交换机</block>
   <block id="5c5c34d5e7843e9424f3ca2380ae18ea" category="list-text"><block ref="5c5c34d5e7843e9424f3ca2380ae18ea" category="inline-link-macro-rx"></block></block>
-  <block id="a629fe794ff2e51df541a99e4468ebb2" category="paragraph">如果需要通过网络启动新控制器，请参阅 <block ref="a7e3b7fa9390de21e9e66df9d4048c53" category="inline-link-macro-rx"></block>。</block>
   <block id="910d0f6661c3968f4e7402c808d31b3f" category="list-text"><block ref="910d0f6661c3968f4e7402c808d31b3f" category="inline-link-macro-rx"></block></block>
   <block id="740c0d0f6d37afa212fad2bd272a4212" category="list-text">Tieb破碎 机1.6仅支持SNMPv3。</block>
   <block id="a98720fe58fe46f2a22c59d172b69fbf" category="list-text">尽管Tieb破碎 机1.5和1.4支持SNMPv1和SNMPv3、但NetApp强烈建议您配置SNMPv3以获得最佳安全性。</block>
@@ -14578,7 +14556,6 @@
   <block id="391ee14bc6581827dc4f2d88ff91afcf" category="paragraph">您可以按照相同模式使用端口33到40为第二个DR组或第二个MetroCluster配置连接其他网桥。</block>
   <block id="785ca789cd5d47a1b40d11e4fa3a608a" category="paragraph">您可以按照相同模式使用端口25到48为第二个DR组或第二个MetroCluster配置连接其他网桥。</block>
   <block id="3914736797bebae05c8e9387dd6727f0" category="paragraph">下表显示了仅使用一个FC端口(FC1或FC2)的光纤桥接器的500N或7600N网桥的网桥端口使用情况。对于使用一个FC端口的光纤桥接500N或7600N网桥、您可以使用缆线将FC1或FC2连接到指示为FC1的端口。您还可以使用端口25-48连接其他网桥。</block>
-  <block id="8e92988c7461b180dbee8d97f92e6742" category="paragraph">您可以按照相同模式使用端口25到48连接其他网桥。</block>
   <block id="23a48f21ed38a9e3df523f469f325385" category="paragraph">下表显示了Cisco 9132T交换机上的端口使用情况。</block>
   <block id="b38a704e8751bf228cfb309f0668b3e1" category="section-title">使用同时使用两个FC端口(FC1和FC2)的光纤网桥7500N或7600N的控制器配置</block>
   <block id="2d98516f0953aef9ad21de45b1d6ed89" category="paragraph">下表显示了同时使用两个FC端口(FC1和FC2)的使用光纤桥500N或7600N的控制器配置。下表显示了在两个DR组中使用四个和八个控制器模块时支持的最大配置。</block>
@@ -14634,4 +14611,36 @@
   <block id="6750be268fde99a8fc70da3cae96763b" category="cell"><block ref="dc13cd459e510658615266395ba927b0" category="inline-xref-macro-rx"></block></block>
   <block id="3485285ca38e1ca4c0a680f9bcf47989" category="admonition">如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<block ref="d2fd743661c244ff041df8d51a55b2b7" category="inline-xref-macro-rx"></block>。</block>
   <block id="57e1aa86ef1214c6b5a618674a806136" category="paragraph">包括SAN和NAS在内的所有数据`都将由管理员管理"` up `d"、在操作上为"` own "、因为这些数据在切换站点(cluster A)上处于启动状态。</block>
+  <block id="10a71a5f735ab2b1b550a2d004b57ffb" category="paragraph">您可以按照相同模式使用端口25到48连接其他网桥。</block>
+  <block id="937a8da9d8c2c67fd94deda08131bfdd" category="section-title">运行ONTAP 9.1或更高版本的八节点MetroCluster配置中的Cisco端口使用情况</block>
+  <block id="3940782c6ee1e8e37bce75ab000a6d7d" category="admonition">为了提高安全性、NetApp建议您配置SNMPv2或SNMPv3以监控交换机运行状况。</block>
+  <block id="0d81f0b5554e85bb5f4956551639b630" category="admonition">从ONTAP 9.8开始，此<block ref="688266bc53c9ead911ef4b45027ac96a" prefix=" " category="inline-code"></block>命令将替换为<block ref="07a3b9d70f925392ee8d0581b56ebc10" prefix=" " category="inline-code"></block>。以下步骤显示了<block ref="688266bc53c9ead911ef4b45027ac96a" prefix=" " category="inline-code"></block>命令、但如果您运行的是ONTAP 9.8或更高版本、<block ref="07a3b9d70f925392ee8d0581b56ebc10" prefix=" " category="inline-code"></block>则首选使用命令。</block>
+  <block id="c8b1f4f0bee22e8e9a9aaaca29899782" category="paragraph">如果需要通过网络启动新控制器，请参阅 <block ref="afb88e8c89f7c0d7fb7d1ebfbdc283e2" category="inline-link-macro-rx"></block>。</block>
+  <block id="a6aee16f598d71d2363e2ad405b96904" category="section-title">第1步：准备热添加SAS磁盘架</block>
+  <block id="cd4905b4e7a5872ce137a31e09bec11f" category="paragraph">要准备热添加SAS磁盘架、您需要下载文档以及磁盘驱动器和磁盘架固件。</block>
+  <block id="1078b9b6fada180d5d2977e8dc4eb310" category="list-text">确认您的系统配置受支持、并且运行的是受支持的ONTAP版本。</block>
+  <block id="a68f0e2c7746e4949e616e09deefa430" category="list-text">验证系统中的所有磁盘驱动器和磁盘架是否都运行最新版本的固件。</block>
+  <block id="658991cef9031aff484b78a0f664f5f0" category="paragraph">在添加磁盘架之前、您可能需要更新整个MetroCluster配置中的磁盘和磁盘架固件。</block>
+  <block id="7cbe99d38a9a2492f41bfc34788b6fac" category="paragraph">如果您的系统运行的是受支持的ONTAP版本、则支持在同一堆栈中混合使用IOM12模块和IOM6模块。要确定您的ONTAP版本是否支持混用磁盘架，请参阅<block ref="cd3982462c40dc1b1a511ada7c72bab9" category="inline-link-macro-rx"></block>。如果您的ONTAP版本不受支持、并且您无法升级或降级现有堆栈或要添加到受支持的IOM模块组合的新磁盘架上的IOM模块、则需要执行以下操作之一：</block>
+  <block id="918d32b75f0ab883abba3a8dc0c3ae8d" category="inline-link">互操作性表工具</block>
+  <block id="5ea32bc696ea7fb5909f26eb6fb24417" category="list-text"><block ref="5ea32bc696ea7fb5909f26eb6fb24417" category="inline-link-rx"></block></block>
+  <block id="0f0f148d21dd2972977d97fb2e7ff5e9" category="paragraph"><block ref="0f0f148d21dd2972977d97fb2e7ff5e9" category="inline-link-rx"></block></block>
+  <block id="8645e21bfe6e4af4b86dc7f347ff1ad6" category="inline-xref">热添加磁盘架</block>
+  <block id="b3394ffae831094f34a567e6f5658dfb" category="admonition">在此步骤中、您只需完成说明的下载部分。您需要按照中的步骤<block ref="bd373ad10590b532f39995f449879640" category="inline-xref-macro-rx"></block>安装磁盘架。</block>
+  <block id="cbeb50ea11dcfbcf2a36bc8effcd7514" category="section-title">第2步：热添加磁盘架</block>
+  <block id="c206cf1f63422466bcc0a56ffa34123c" category="paragraph">使用以下过程将磁盘架热添加到堆栈中。</block>
+  <block id="d465e46678961f39056474479053b77c" category="inline-xref">准备热添加SAS磁盘架</block>
+  <block id="28c3aa6a67e1038d45e0f61906e2d210" category="list-text">验证系统是否满足中的所有要求<block ref="c0573ce1dde2ba325b85f674f143ecea" category="inline-xref-macro-rx"></block>。</block>
+  <block id="0c91ecf1246b9e97873b4360209bb137" category="list-text">在热添加磁盘架之前、请验证您的环境是否满足以下情形之一：</block>
+  <block id="9fec734595e2181d9080ae32be062c8e" category="paragraph">如果将SAS缆线插入错误的端口、则在从SAS端口拔下缆线后、必须等待至少120秒、然后才能将缆线插入其他SAS端口。如果您未能这样做、系统将无法识别您已将缆线移至其他端口。</block>
+  <block id="6d23583b72982551e4b1285062f3285d" category="list-text">从任一控制器的控制台检查您的系统是否已启用磁盘自动分配：</block>
+  <block id="109bce5ec1f0d60b99a07c70667f9ec6" category="paragraph">自动分配策略将显示在自动分配列中。</block>
+  <block id="d34edb1bb0aabf3ee05da705ddbc6721" category="list-text">如果您的系统未启用磁盘自动分配、或者如果同一堆栈中的磁盘驱动器由两个控制器所有、请将磁盘驱动器分配给相应的池。</block>
+  <block id="d5d63af17881e8ca258c6181c1cfda6f" category="list-text">如果要在两个控制器之间拆分单个磁盘架堆栈、则在分配磁盘所有权之前必须禁用磁盘自动分配；否则、在分配任一磁盘驱动器时、其余磁盘驱动器可能会自动分配给同一控制器和池。</block>
+  <block id="dbde8ddb53b3da1d0f1fca94208162fb" category="paragraph">此<block ref="525fe6a472b1a0c1313c938f9357b6f3" prefix=" " category="inline-code"></block>命令将禁用磁盘自动分配。</block>
+  <block id="f8133ef8bfee82369ae5763e817990e8" category="list-text">只有在更新磁盘驱动器和磁盘架固件之后、才能向聚合或卷添加驱动器。</block>
+  <block id="13985cb259a6148e54b3c766e90f12d3" category="list-text">更改为高级权限级别：+<block ref="0581d0d071ad835f74bf419081ce5d75" prefix=" " category="inline-code"></block></block>
+  <block id="1925007e066bed6950af241a5bb2641e" category="list-text">从系统控制台将磁盘驱动器固件更新为最新版本：+<block ref="da6a6b7cd3f4972b2a5426b567597f96" prefix=" " category="inline-code"></block></block>
+  <block id="0dfe9ec4ea6b3d29900dd8df5b21179e" category="list-text">运行Active IQ Config Advisor。</block>
+  <block id="c4d48c87201e87b08fdc19bd686fd707" category="list-text">如果要热添加多个磁盘架、请对要热添加的每个磁盘架重复上述步骤。</block>
 </blocks>

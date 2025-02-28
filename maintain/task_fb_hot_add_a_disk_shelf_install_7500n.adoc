@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, hot, add, disk, shelf 
 summary: 如果要在不降低性能的情况下增加存储，可以热添加磁盘架。 
 ---
-= 热添加磁盘架
+= 将 SAS 磁盘架热添加到 SAS 磁盘架堆栈中
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,14 +13,79 @@ summary: 如果要在不降低性能的情况下增加存储，可以热添加�
 [role="lead"]
 如果要在不降低性能的情况下增加存储，可以热添加磁盘架。
 
-* 系统必须满足中的所有要求 link:task_fb_hot_add_shelf_prepare_7500n.html["准备热添加 SAS 磁盘架"]。
-* 要热添加磁盘架，您的环境必须满足以下情形之一：
+
+
+== 第1步：准备热添加SAS磁盘架
+
+要准备热添加SAS磁盘架、您需要下载文档以及磁盘驱动器和磁盘架固件。
+
+.开始之前
+* 确认您的系统配置受支持、并且运行的是受支持的ONTAP版本。
+* 验证系统中的所有磁盘驱动器和磁盘架是否都运行最新版本的固件。
++
+在添加磁盘架之前、您可能需要更新整个MetroCluster配置中的磁盘和磁盘架固件。
+
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["升级，还原或降级"]
+
+
+
+[NOTE]
+====
+如果您的系统运行的是受支持的ONTAP版本、则支持在同一堆栈中混合使用IOM12模块和IOM6模块。要确定您的ONTAP版本是否支持混用磁盘架，请参阅link:https://imt.netapp.com/matrix/["互操作性表工具（ IMT ）"^]。如果您的ONTAP版本不受支持、并且您无法升级或降级现有堆栈或要添加到受支持的IOM模块组合的新磁盘架上的IOM模块、则需要执行以下操作之一：
+
+* 在新 SAS 端口上启动新堆栈（如果网桥对支持）。
+* 在另一个网桥对上启动新堆栈。
+
+
+====
+.步骤
+. 从 NetApp 支持站点下载或查看以下文档：
++
+** https://mysupport.netapp.com/matrix["互操作性表工具"]
+** 适用于您的磁盘架型号的安装指南 _ 。
+
+
+. 验证您要热添加的磁盘架是否受支持。
++
+https://mysupport.netapp.com/matrix["互操作性表工具"^]
+
+. 下载最新的磁盘和磁盘架固件：
++
+
+NOTE: 在此步骤中、您只需完成说明的下载部分。您需要按照中的步骤<<step_2_hot_add_shelf,热添加磁盘架>>安装磁盘架。
+
++
+.. 下载磁盘固件并为磁盘固件说明创建一份副本，以供日后参考。
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"^]
+
+.. 下载磁盘架固件并为磁盘架固件说明创建一份副本，以供日后参考。
++
+https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp 下载：磁盘架固件"^]
+
+
+
+
+
+
+
+== 第2步：热添加磁盘架
+
+使用以下过程将磁盘架热添加到堆栈中。
+
+.开始之前
+* 验证系统是否满足中的所有要求<<prepare_to_hot_add_disk,准备热添加SAS磁盘架>>。
+* 在热添加磁盘架之前、请验证您的环境是否满足以下情形之一：
 +
 ** 您已将两个 FibreBridge 7500N 网桥连接到一个 SAS 磁盘架堆栈。
 ** 您有两个连接到SAS磁盘架堆栈的光纤桥接7600N。
 ** 您有一个连接到SAS磁盘架堆栈的光纤桥接器7500N网桥和一个光纤桥7600N网桥。
 
 
+
+
+.关于此任务
 * 此操作步骤用于将磁盘架热添加到堆栈中的最后一个磁盘架。
 +
 编写此操作步骤时，假设堆栈中的最后一个磁盘架是从 IOM A 连接到网桥 A 以及从 IOM B 连接到网桥 B 的
@@ -29,22 +94,22 @@ summary: 如果要在不降低性能的情况下增加存储，可以热添加�
 * 您应在每个站点热添加相同数量的磁盘架。
 * 如果要热添加多个磁盘架，则必须一次热添加一个磁盘架。
 +
-
-NOTE: 每对 FibreBridge 7500N 或 7600N 网桥最多可支持四个堆栈。
-
+每对 FibreBridge 7500N 或 7600N 网桥最多可支持四个堆栈。
 
 
 
-IMPORTANT: 热添加磁盘架要求您在高级模式下运行 `storage disk firmware update` 命令，以更新热添加磁盘架上的磁盘驱动器固件。如果系统中现有磁盘驱动器上的固件版本较旧，则运行此命令可能会造成中断。
+[CAUTION]
+====
+热添加磁盘架要求您在高级模式下运行 `storage disk firmware update` 命令，以更新热添加磁盘架上的磁盘驱动器固件。如果系统中现有磁盘驱动器上的固件版本较旧，则运行此命令可能会造成中断。
 
+如果将SAS缆线插入错误的端口、则在从SAS端口拔下缆线后、必须等待至少120秒、然后才能将缆线插入其他SAS端口。如果您未能这样做、系统将无法识别您已将缆线移至其他端口。
 
-IMPORTANT: 如果将 SAS 缆线插入错误的端口，则在从 SAS 端口拔下缆线时，必须至少等待 120 秒，然后再将缆线插入其他 SAS 端口。如果您未能执行此操作，系统将无法识别此缆线已移至其他端口。
-
+====
 .步骤
 . 正确接地。
 . 从任一控制器的系统控制台验证磁盘架连接：
 +
-` * sysconfig -v*`
+`ssysconfig -v`
 
 +
 输出类似于以下内容：
@@ -74,12 +139,12 @@ cisco_A_1-1:9.126L2   : NETAPP   X421_HCOBD450A10 NA01 418.0GB (879097968 520B/s
 ----
 
 
-. 检查您的系统是否已从任一控制器的控制台启用磁盘自动分配：
+. 从任一控制器的控制台检查您的系统是否已启用磁盘自动分配：
 +
-` * 存储磁盘选项 show*`
+`s存储磁盘选项 show`
 
 +
-自动分配策略显示在自动分配列中。
+自动分配策略将显示在自动分配列中。
 
 +
 [listing]
@@ -91,22 +156,21 @@ node_A_1             on           on           on           default
 node_A_2             on           on           on           default
 2 entries were displayed.
 ----
-. 如果您的系统未启用磁盘自动分配，或者同一堆栈中的磁盘驱动器由两个控制器所有，请将磁盘驱动器分配给相应的池。
+. 如果您的系统未启用磁盘自动分配、或者如果同一堆栈中的磁盘驱动器由两个控制器所有、请将磁盘驱动器分配给相应的池。
 +
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
 +
 [NOTE]
 ====
-如果要在两个控制器之间拆分一个磁盘架堆栈，则必须在分配磁盘所有权之前禁用磁盘自动分配；否则，在分配任何一个磁盘驱动器时，其余磁盘驱动器可能会自动分配给同一个控制器和池。
+** 如果要在两个控制器之间拆分单个磁盘架堆栈、则在分配磁盘所有权之前必须禁用磁盘自动分配；否则、在分配任一磁盘驱动器时、其余磁盘驱动器可能会自动分配给同一控制器和池。
++
+此 `storage disk option modify -node <node-name> -autoassign off`命令将禁用磁盘自动分配。
 
-`storage disk option modify -node _node-name_ -autosassign off` 命令可禁用磁盘自动分配。
+** 只有在更新磁盘驱动器和磁盘架固件之后、才能向聚合或卷添加驱动器。
+
 
 ====
-+
-
-NOTE: 在更新磁盘驱动器和磁盘架固件之前，不得将磁盘驱动器添加到聚合或卷中。
-
 . 按照所下载固件的说明将磁盘架固件更新为最新版本。
 +
 您可以从任一控制器的系统控制台中运行操作步骤中的命令。
@@ -143,12 +207,14 @@ NOTE: 您必须重新启动磁盘架，并保持整个存储系统中每个 SAS 
 https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 下载：磁盘驱动器固件"]
 
 +
-.. 更改为高级权限级别： + ` * 设置 -privilege advanced*`
+.. 更改为高级权限级别：+
+`set -privilege advanced`
 +
 当系统提示您继续进入高级模式并显示高级模式提示符（ * > ）时，您需要使用 ` * y*` 进行响应。
 
-.. 从系统控制台将磁盘驱动器固件更新为最新版本： + ` * 存储磁盘固件更新 *`
-.. 返回到管理权限级别： + ` * 设置 -privilege admin*`
+.. 从系统控制台将磁盘驱动器固件更新为最新版本：+
+`storage disk firmware update`
+.. 返回到管理权限级别： + `set -privilege admin`
 .. 对另一个控制器重复上述子步骤。
 
 
@@ -156,25 +222,25 @@ https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp
 +
 .. 检查系统是否为多路径：
 +
-` * 节点 run -node _node-name_ sysconfig -A*`
+`node run -node <node-name> sysconfig -a`
 
-.. 检查两个集群上是否存在任何运行状况警报： + ` * system health alert show*`
-.. 确认 MetroCluster 配置以及操作模式是否正常： + ` * MetroCluster show*`
-.. 执行 MetroCluster 检查： + ` * MetroCluster check run*`
+.. 检查两个集群上是否存在任何运行状况警报： + `ssystem health alert show`
+.. 确认 MetroCluster 配置以及操作模式是否正常： + MetroCluster show`
+.. 执行 MetroCluster check ： + MetroCluster check run`
 .. 显示 MetroCluster 检查的结果：
 +
-` * MetroCluster check show*`
+MetroCluster check show`
 
 .. 检查交换机上是否存在任何运行状况警报（如果存在）：
 +
-` * 存储交换机显示 *`
+`s存储开关显示`
 
-.. 运行 Config Advisor 。
+.. 运行Active IQ Config Advisor。
 +
 https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp 下载： Config Advisor"]
 
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
 
-. 如果要热添加多个磁盘架，请对要热添加的每个磁盘架重复上述步骤。
+. 如果要热添加多个磁盘架、请对要热添加的每个磁盘架重复上述步骤。
 

@@ -77,11 +77,7 @@ entries:
       - title: 将 SAS 磁盘架和网桥堆栈热添加到 MetroCluster 系统
         url: "/maintain/task_fb_hot_add_stack_of_shelves_and_bridges.html"
       - title: 将 SAS 磁盘架热添加到 SAS 磁盘架堆栈中
-        entries:
-        - title: 准备热添加 SAS 磁盘架
-          url: "/maintain/task_fb_hot_add_shelf_prepare_7500n.html"
-        - title: 热添加磁盘架
-          url: "/maintain/task_fb_hot_add_a_disk_shelf_install_7500n.html"
+        url: "/maintain/task_fb_hot_add_a_disk_shelf_install_7500n.html"
       - title: 在桥接 MetroCluster 配置中，将 IOM12 磁盘架热添加到 IOM6 磁盘架堆栈中
         url: "/maintain/task_hot_add_an_iom12_disk_shelf_to_a_stack_of_iom6_disk_shelves.html"
   - title: 从 MetroCluster FC 配置中热删除存储
