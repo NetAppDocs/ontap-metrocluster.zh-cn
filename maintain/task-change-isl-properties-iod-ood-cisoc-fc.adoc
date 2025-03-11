@@ -1,0 +1,288 @@
+---
+permalink: maintain/task-change-isl-properties-iod-ood-ciso-fc.html 
+sidebar: sidebar 
+keywords: metrocluster, maintain, service, change, isl, properties, isl, ports, iod, ood,configuration, cisco, switch 
+summary: '您可以在Cisco FC交换机上添加交换机间链路(ISL)、更改ISL速度以及重新配置按顺序交付(IOD)或无序交付(OD)设置。' 
+---
+= 更改Cisco FC交换机上的ISL属性和IOD/ood配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以在Cisco FC交换机上添加交换机间链路(ISL)、更改ISL速度以及重新配置按顺序交付(IOD)或无序交付(OD)设置。
+
+
+
+== 将Cisco添加到集群模式FC交换机
+
+如果您要添加或升级硬件、例如添加或升级到速度更快的控制器或交换机、则可能需要向交换机添加ISL。
+
+.关于此任务
+对网络结构中的两台交换机执行以下步骤、以验证ISL连接。
+
+.步骤
+. 禁用要在网络结构中的两个交换机上添加的 ISL 端口：
++
+`FC_switch_A_1#config t`
+
++
+输入以下配置命令、每行一个。输入所有配置命令后、输入CTRL-Z。
+
++
+[listing]
+----
+
+	FC_switch_A_1(config)# interface fc1/36
+	FC_switch_A_1(config-if)# shut
+	FC_switch_A_1(config)# end
+----
+. 将SFP插入要添加为ISL端口的端口，并按照进行布线link:../install-fc/task_configure_the_mcc_hardware_components_fabric.html["为光纤连接的 MetroCluster 配置布线"]。
++
+验证这些端口是否已在要添加到的交换机型号的布线文档中列出。
+
+. 按照中的步骤配置ISL端口link:../install-fc/task_cable_the_isl_between_the_mcc_sites_fabric_config.html["为 MetroCluster 站点之间的 ISL 布线"]。
+. 在网络结构中的两个交换机上启用所有 ISL 端口（如果未启用）：
++
+`FC_switch_A_1# config t`
+
++
+输入以下配置命令、每行一个。输入完所有配置命令后，以 CTRL-Z 结尾。
+
++
+[listing]
+----
+
+ FC_switch_A_1# interface fc1/36
+	FC_switch_A_1(config-if)# no shut
+	FC_switch_A_1(config)# end
+----
+. 验证是否已在两个交换机之间建立 ISL ：
++
+`show topology isl`
+
+. 对第二个网络结构重复此操作步骤：
++
+[listing]
+----
+--------------------------------------------------------------------------------
+	__________Local_________ _________Remote_________ VSAN Cost I/F  PC    I/F  Band
+	 PC Domain SwName   Port  Port   SwName Domain PC          Stat Stat Speed width
+	--------------------------------------------------------------------------------
+	  1   0x11 cisco9 fc1/36  fc1/36 cisco9 0xbc    1    1   15 up   up    16g   64g
+	  1   0x11 cisco9 fc1/40  fc1/40 cisco9 0xbc    1    1   15 up   up    16g   64g
+	  1   0x11 cisco9 fc1/44  fc1/44 cisco9 0xbc    1    1   15 up   up    16g   64g
+	  1   0x11 cisco9 fc1/48  fc1/48 cisco9 0xbc    1    1   15 up   up    16g   64g
+----
+
+
+
+
+== 更改Cisco FC交换机上的ISL端口速度
+
+您可以更改交换机上ISL端口的速度以提高ISL的质量、例如、降低传输距离较远的ISL的速度。
+
+.关于此任务
+对网络结构中的两台交换机执行以下步骤、以验证ISL连接。
+
+.步骤
+. 禁用网络结构中两个交换机上要更改速度的ISL的ISL端口：
++
+`FC_switch_A_1# config t`
+
++
+输入以下配置命令、每行一个。输入完所有配置命令后，以 CTRL-Z 结尾。
+
++
+[listing]
+----
+
+ FC_switch_A_1(config)# interface fc1/36
+	FC_switch_A_1(config-if)# shut
+	FC_switch_A_1(config)# end
+----
+. 更改网络结构中两个交换机上 ISL 端口的速度：
++
+`FC_switch_A_1# config t`
+
++
+输入以下配置命令、每行一个。输入完所有配置命令后，以 CTRL-Z 结尾。
+
++
+[listing]
+----
+
+ FC_switch_A_1(config)# interface fc1/36
+	FC_switch_A_1(config-if)# switchport speed 16000
+----
++
+
+NOTE: 端口的速度为16 = 16、000 Gbps、8 = 8、000 Gbps和4 = 4、000 Gbps。
+
++
+验证交换机的ISL端口是否已在中列出link:../install-fc/index.html["安装光纤连接的MetroCluster配置"]。
+
+. 在网络结构中的两个交换机上启用所有 ISL 端口（如果未启用）：
++
+`FC_switch_A_1# config t`
+
++
+输入以下配置命令、每行一个。输入完所有配置命令后，以 CTRL-Z 结尾。
+
++
+[listing]
+----
+
+ FC_switch_A_1(config)# interface fc1/36
+	FC_switch_A_1(config-if)# no shut
+	FC_switch_A_1(config)# end
+----
+. 验证是否已在两个交换机之间建立 ISL ：
++
+`show topology isl`
+
++
+[listing]
+----
+--------------------------------------------------------------------------------
+	__________Local_________ _________Remote_________ VSAN Cost I/F  PC    I/F  Band
+	 PC Domain SwName   Port  Port   SwName Domain PC          Stat Stat Speed width
+	--------------------------------------------------------------------------------
+	  1   0x11 cisco9 fc1/36  fc1/36 cisco9 0xbc    1    1   15 up   up    16g   64g
+	  1   0x11 cisco9 fc1/40  fc1/40 cisco9 0xbc    1    1   15 up   up    16g   64g
+	  1   0x11 cisco9 fc1/44  fc1/44 cisco9 0xbc    1    1   15 up   up    16g   64g
+	  1   0x11 cisco9 fc1/48  fc1/48 cisco9 0xbc    1    1   15 up   up    16g   64g
+----
+. 对第二个交换机网络结构重复操作步骤。
+
+
+
+
+== 重新配置VSAN以保证帧的IOD或OD
+
+建议使用标准 IOD 设置。您只应在必要时重新配置ood。
+
+
+
+=== 重新配置IOD
+
+执行以下步骤以重新配置帧的IOD。
+
+.步骤
+. 进入配置模式：
++
+`配置`
+
+. 为 VSAN 启用按顺序交换保证：
++
+`in-order-guarantee vsan <vsan-ID>`
+
++
+
+IMPORTANT: 对于 FC-VI VSAN （ FCVI_1_10 和 FCVI_2_30 ），只能在 VSAN 10 上启用帧和交换的按顺序保证。
+
++
+.. 为 VSAN 启用负载平衡：
++
+`vsan <vsan-ID> loadbalancing src-dst-id`
+
+.. 退出配置模式：
++
+`结束`
+
+.. 将 running-config 复制到 startup-config ：
++
+`copy running-config startup-config`
+
++
+用于在FC_switch_A_1上为帧配置IOD的命令如下：
+
++
+[listing]
+----
+FC_switch_A_1# config t
+FC_switch_A_1(config)# in-order-guarantee vsan 10
+FC_switch_A_1(config)# vsan database
+FC_switch_A_1(config-vsan-db)# vsan 10 loadbalancing src-dst-id
+FC_switch_A_1(config-vsan-db)# end
+FC_switch_A_1# copy running-config startup-config
+----
++
+用于在FC_switch_B_1上为帧配置IOD的命令如下：
+
++
+[listing]
+----
+FC_switch_B_1# config t
+FC_switch_B_1(config)# in-order-guarantee vsan 10
+FC_switch_B_1(config)# vsan database
+FC_switch_B_1(config-vsan-db)# vsan 10 loadbalancing src-dst-id
+FC_switch_B_1(config-vsan-db)# end
+FC_switch_B_1# copy running-config startup-config
+----
+
+
+
+
+
+
+=== 重新配置ood
+
+执行以下步骤重新配置帧的ood。
+
+.步骤
+. 进入配置模式：
++
+`配置`
+
+. 禁用 VSAN 的按顺序交换保证：
++
+`no in-order-guarantee vsan <vsan-ID>`
+
+. 为 VSAN 启用负载平衡：
++
+`vsan <vsan-ID> loadbalancing src-dst-id`
+
+. 退出配置模式：
++
+`结束`
+
+. 将 running-config 复制到 startup-config ：
++
+`copy running-config startup-config`
+
++
+用于在FC_switch_A_1上配置帧的ood的命令如下：
+
++
+[listing]
+----
+FC_switch_A_1# config t
+FC_switch_A_1(config)# no in-order-guarantee vsan 10
+FC_switch_A_1(config)# vsan database
+FC_switch_A_1(config-vsan-db)# vsan 10 loadbalancing src-dst-id
+FC_switch_A_1(config-vsan-db)# end
+FC_switch_A_1# copy running-config startup-config
+----
++
+用于在FC_switch_B_1上配置帧的ood的命令如下：
+
++
+[listing]
+----
+FC_switch_B_1# config t
+FC_switch_B_1(config)# no in-order-guarantee vsan 10
+FC_switch_B_1(config)# vsan database
+FC_switch_B_1(config-vsan-db)# vsan 10 loadbalancing src-dst-id
+FC_switch_B_1(config-vsan-db)# end
+FC_switch_B_1# copy running-config startup-config
+----
++
+
+NOTE: 在控制器模块上配置 ONTAP 时，必须在 MetroCluster 配置中的每个控制器模块上明确配置 OOD 。
+
++
+link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software["了解如何在ONTAP软件上配置帧的IOD或OD"](英文)
+
+

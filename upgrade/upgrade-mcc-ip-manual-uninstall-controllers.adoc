@@ -23,11 +23,46 @@ summary: 将数据LIP移动到通用端口、删除旧控制器上的VLAN和接�
 +
 `boot_ontap`
 
-. 如果要升级到的系统不在下表中、请验证MetroCluster IP接口是否使用受支持的IP地址。
+. 如果要升级到的系统使用*共享集群/HA端口*，请验证MetroCluster IP接口是否使用支持的IP地址。
 +
+使用以下信息确定新系统是否使用共享集群/HA端口：
+
++
+[role="tabbed-block"]
+====
+.共享集群/HA端口
+--
+下表中列出的系统使用共享集群/HA端口：
+
+[cols="2*"]
 |===
+| AFF和ASA系统 | FAS 系统 
 
 
+ a| 
+** AFF A20
+** AFF A30
+** AFF C30
+** AFF A50
+** AFF C60
+** AFF C80
+** AFF A70
+** AFF A90
+** AFF A1K
+
+ a| 
+** FAS70
+** FAS90
+
+
+|===
+--
+.共享的MetroCluster或HA端口
+--
+下表中列出的系统使用共享的MetroCluster HA/HA端口：
+
+[cols="2*"]
+|===
 | AFF和ASA系统 | FAS 系统 
 
 
@@ -56,6 +91,8 @@ summary: 将数据LIP移动到通用端口、删除旧控制器上的VLAN和接�
 
 
 |===
+--
+====
 +
 .. 验证旧控制器上MetroCluster接口的IP地址：
 +
@@ -64,7 +101,7 @@ summary: 将数据LIP移动到通用端口、删除旧控制器上的VLAN和接�
 .. 如果MetroCluster接口使用的是169.254.17.x或169.254.18.x IP地址、请在继续升级之前、请参见link:https://kb.netapp.com/on-prem/ontap/mc/MC-KBs/How_to_modify_the_properties_of_a_MetroCluster_IP_interface["知识库文章“How to Modify the properties of a MetroCluster IP interface (如何修改Internet IP接口的属性)”"^]以修改接口IP地址。
 +
 
-CAUTION: 如果为MetroCluster接口配置了169.254.17.x或169.254.18.x IP地址、则不支持升级到表中未列出的任何系统。
+CAUTION: 如果MetroCluster接口配置有169.254.17.x或169.254.18.x IP地址，则不支持升级到使用*共享群集/HA端口*的任何系统。
 
 
 

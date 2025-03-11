@@ -68,15 +68,42 @@ summary: 更新新平台的交换机RCF、并在控制器模块上设置MetroClu
 
 * 您设置的MetroCluster启动程序值取决于新系统使用的是共享集群/HA端口还是共享MetroCluster或HA端口。
 +
-下表中列出的系统使用*共享的MetroCluster HA/HA端口*。
+[role="tabbed-block"]
+====
+.共享集群/HA端口
+--
+下表中列出的系统使用共享集群/HA端口：
 
-+
-所有其他系统均使用*共享集群/HA端口*。
-
-+
 [cols="2*"]
 |===
-| 使用共享MetroCluster或HA端口的AFF和ASA系统 | 使用共享MetroCluster或HA端口的FAS系统 
+| AFF和ASA系统 | FAS 系统 
+
+
+ a| 
+** AFF A20
+** AFF A30
+** AFF C30
+** AFF A50
+** AFF C60
+** AFF C80
+** AFF A70
+** AFF A90
+** AFF A1K
+
+ a| 
+** FAS70
+** FAS90
+
+
+|===
+--
+.共享的MetroCluster或HA端口
+--
+下表中列出的系统使用共享的MetroCluster HA/HA端口：
+
+[cols="2*"]
+|===
+| AFF和ASA系统 | FAS 系统 
 
 
  a| 
@@ -104,6 +131,8 @@ summary: 更新新平台的交换机RCF、并在控制器模块上设置MetroClu
 
 
 |===
+--
+====
 
 
 .步骤

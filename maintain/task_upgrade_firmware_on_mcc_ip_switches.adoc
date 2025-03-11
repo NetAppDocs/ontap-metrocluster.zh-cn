@@ -13,6 +13,62 @@ summary: 升级 MetroCluster IP 交换机上的固件。
 [role="lead"]
 您可能需要升级 MetroCluster IP 交换机上的固件。
 
+
+
+== 验证RC框架 是否受支持
+
+更改ONTAP版本或交换机固件版本时、您应验证是否具有该版本支持的参考配置文件(Reference Configuration File、RCF)。如果使用link:https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator"^]工具、则会为您的配置生成正确的RCIF。
+
+.步骤
+. 从交换机使用以下命令验证RC框架 的版本：
++
+[cols="30,70"]
+|===
+
+
+| 从此交换机 ... | 问题描述此命令 ... 
+
+
+ a| 
+Broadcom交换机
+ a| 
+` （ IP_switch_A_1 ） # show clibanner`
+
+
+
+ a| 
+Cisco 交换机
+ a| 
+`IP_switch_A_1# show banner motd`
+
+
+
+ a| 
+NVIDIA SN2100交换机
+ a| 
+`cumulus@mcc1:mgmt:~$ nv config find message`
+
+|===
++
+在命令输出中找到指示RCF版本的行。例如、Cisco交换机的以下输出指示RCF版本为"`v1．0"`。
+
++
+....
+Filename : NX3232_v1.80_Switch-A2.txt
+....
+. 要检查特定ONTAP版本、交换机和平台支持哪些文件，请使用link:https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["适用于 MetroCluster IP 的 RcfFileGenerator"^]。如果您可以为已有或要升级到的配置生成RCN、则它受支持。
+. 要验证是否支持交换机固件，请参阅以下内容：
++
+** https://hwu.netapp.com["Hardware Universe"]
+** https://imt.netapp.com/matrix/["NetApp 互操作性表"^]
+
+
+
+
+
+
+== 升级交换机固件
+
 .关于此任务
 您必须连续对每个交换机重复此任务。
 

@@ -11,63 +11,17 @@ summary: 您可能需要升级 MetroCluster IP 交换机上的 RCF 文件。例�
 
 
 [role="lead"]
-您可能需要升级 MetroCluster IP 交换机上的 RCF 文件。例如、如果交换机上运行的RCF文件版本不受ONTAP版本、交换机固件版本或这两者的支持。
+您可能需要升级MetroCluster IP交换机上的参考配置文件(Reference Configuration File、RCF)文件。例如、如果ONTAP版本和/或交换机固件版本不支持在交换机上运行的RCIF版本。
 
+.开始之前
+* 如果要安装新的交换机固件，则必须先安装交换机固件，然后再升级 RCF 文件。
+* 在升级RC框架 之前，link:task_upgrade_firmware_on_mcc_ip_switches.html["验证RC框架 是否受支持"]。
+* link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
 
-
-== 验证RCF文件是否受支持
-
-如果要更改ONTAP版本或交换机固件版本、则应验证您是否具有该版本支持的RCF文件。如果使用 RCF 生成器，则会为您生成正确的 RCF 文件。
-
-.步骤
-. 使用交换机上的以下命令验证 RCF 文件的版本：
-+
-[cols="30,70"]
-|===
-
-
-| 从此交换机 ... | 问题描述此命令 ... 
-
-
- a| 
-Broadcom交换机
- a| 
-` （ IP_switch_A_1 ） # show clibanner`
-
-
-
- a| 
-Cisco 交换机
- a| 
-`IP_switch_A_1# show banner motd`
-
-|===
-+
-对于任一交换机，请在输出中找到指示 RCF 文件版本的行。例如，以下输出来自 Cisco 交换机，表示 RCF 文件版本为 "`v1.80` " 。
-
-+
-....
-Filename : NX3232_v1.80_Switch-A2.txt
-....
-. 要检查特定 ONTAP 版本，交换机和平台支持哪些文件，请使用 RcfFileGenerator 。如果您可以为所拥有或要升级到的配置生成 RCF 文件，则支持此文件。
-. 要验证是否支持交换机固件，请参阅以下内容：
-+
-** https://hwu.netapp.com["Hardware Universe"]
-** https://imt.netapp.com/matrix/["NetApp 互操作性表"^]
-
-
-
-
-
-
-== 升级 RCF 文件
-
-如果要安装新的交换机固件，则必须先安装交换机固件，然后再升级 RCF 文件。
 
 .关于此任务
-* 此操作步骤会中断升级 RCF 文件的交换机上的流量。应用新 RCF 文件后，流量将恢复。
+* 此操作步骤会中断升级 RCF 文件的交换机上的流量。应用新RCF文件后、流量将恢复。
 * 按以下顺序逐个交换机执行这些步骤：Switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。
-* link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
 
 
 .步骤
