@@ -23,6 +23,7 @@ ONTAP 调解器与每个站点之间的连接必须是两个单独的故障域�
 
 * ONTAP 调解器服务最多可同时支持五个 MetroCluster 配置。
 * ONTAP 9.7 及更高版本支持自动计划外切换。
+* ONTAP调解器不支持IPv6。
 
 
 
@@ -89,19 +90,38 @@ ONTAP 调解器使用多个端口与特定服务进行通信。
 
 下表列出了防火墙中必须允许的端口：
 
+[NOTE]
+====
+* 只有在MetroCluster IP配置中才需要iSCSI端口。
+* 正常操作不需要22/TCP端口、但您可以临时启用该端口进行维护、并在维护会话完成后将其禁用。
 
-NOTE: 只有在MetroCluster IP配置中才需要iSCSI端口。
 
+====
 |===
 
 
-| 端口 / 服务 | 源 | 目标 | 目的 
+| 端口 / 服务 | 源 | 方向 | 目标 | 目的 
+
+
+ a| 
+22 TCP
+ a| 
+管理主机
+ a| 
+入站
+ a| 
+ONTAP 调解器
+ a| 
+SSH / ONTAP调解器管理
+
 
 
  a| 
 31784/TCP
  a| 
-ONTAP 集群管理接口
+集群管理 LIF
+ a| 
+入站
  a| 
 ONTAP 调解器 Web 服务器
  a| 
@@ -112,7 +132,9 @@ REST API （ HTTPS ）
  a| 
 3260 TCP
  a| 
-ONTAP 集群(数据LIF或数据管理LIF)
+集群管理 LIF
+ a| 
+双向
  a| 
 ONTAP 调解器 iSCSI 目标
  a| 

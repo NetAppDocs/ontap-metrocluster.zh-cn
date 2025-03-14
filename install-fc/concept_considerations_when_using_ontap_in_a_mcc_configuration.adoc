@@ -74,7 +74,11 @@ link:https://docs.netapp.com/us-en/ontap/flexcache/index.html["使用命令行�
 +
 此空间可以是默认 IP 空间，也可以是管理员创建的 IP 空间。此 IP 空间将用于 FabricPool 对象存储配置设置。
 
-* 对于选定 IP 空间，每个集群都必须定义一个可访问外部对象存储的集群间 LIF
+* 对于选定IP空间、每个集群都必须定义一个可访问外部对象存储的集群间LIF。
+* 如果源或目标为MetroCluster集群、则FabricPool不支持SVM迁移。
++
+link:https://docs.netapp.com/us-en/ontap/svm-migrate/index.html["详细了解SVM数据移动性"^](英文)
+
 
 
 

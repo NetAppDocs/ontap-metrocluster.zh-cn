@@ -34,6 +34,8 @@ link:enable-console-logging-before-maintenance.html["启用控制台日志记录
 
 从Fabric OS 9.0.0开始、Brocade交换机不支持SNMPv2。如果升级到Fabric OS 9.0.1或更高版本、则必须使用SNMPv3进行运行状况监控。有关详细信息，请参见 link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-snmpv3-in-a-metrocluster-configuration["在 MetroCluster 配置中配置 SNMPv3"]。
 
+如果要升级到Fabric OS v9.2.x或更高版本、则必须安装Brocade TruFOS证书、有关详细信息、请参见。link:https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-software-upgrade/9-2-x/Obtaining-Firmware/download-prerequisites-new/brocade-trufos-certificates.html["Brocade光纤操作系统软件升级指南、9.2.x"^]
+
 必须连续对每个交换机网络结构执行此任务，以使所有交换机运行相同版本的固件。
 
 

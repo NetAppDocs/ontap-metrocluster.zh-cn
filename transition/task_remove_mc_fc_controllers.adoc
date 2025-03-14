@@ -366,6 +366,118 @@ Run "debug vreport show" to address remaining aggregate or volume issues.
 
 cluster_B::>
 ....
+. 如果此配置使用 FC-SAS 网桥或 FC 后端交换机，请断开连接并将其卸下。
++
+[role="tabbed-block"]
+====
+.删除FC-SAS网桥
+--
+.. 确定网桥：
++
+`system bridge show`
+
+.. 卸下网桥：
++
+`system bridge remove -name <bridge_name>`
+
+.. 确认网桥已删除：
++
+`system bridge show`
+
+
+
+以下示例显示网桥已删除：
+
+.示例
+[%collapsible]
+=====
+[listing]
+----
+cluster1::> system bridge remove -name ATTO_10.226.197.16
+cluster1::> system bridge show
+                                                                Is        Monitor
+    Bridge     Symbolic Name Vendor  Model     Bridge WWN       Monitored Status
+    ---------- ------------- ------- --------- ---------------- --------- -------
+    ATTO_FibreBridge6500N_1
+               Bridge Number 16
+                             Atto    FibreBridge 6500N
+                                               2000001086603824 false     -
+    ATTO_FibreBridge6500N_2
+               Not Set       Atto    FibreBridge 6500N
+                                               20000010866037e8 false     -
+    ATTO_FibreBridge6500N_3
+               Not Set       Atto    FibreBridge 6500N
+                                               2000001086609e0e false     -
+    ATTO_FibreBridge6500N_4
+               Not Set       Atto    FibreBridge 6500N
+                                               2000001086609c06 false     -
+    4 entries were displayed.
+----
+=====
+--
+.删除FC交换机
+--
+.. 识别交换机：
++
+`system switch fibre-channel show`
+
+.. 卸下交换机：
++
+`system switch fibre-channel remove -switch-name <switch_name>`
+
+.. 确认交换机已删除：
++
+`system switch fibre-channel show`
+
+
+
+.示例
+[%collapsible]
+=====
+[listing]
+----
+cluster1::> system switch fibre-channel show
+                Symbolic                                     Is        Monitor
+    Switch      Name     Vendor  Model      Switch WWN       Monitored Status
+    ----------- -------- ------- ---------- ---------------- --------- -------
+    Cisco_10.226.197.34
+                mcc-cisco-8Gb-fab-4
+                         Cisco   DS-C9148-16P-K9
+                                            2000547fee78f088 true      ok
+    mcc-cisco-8Gb-fab-1
+                mcc-cisco-8Gb-fab-1
+                         Cisco   -          -                false     -
+    mcc-cisco-8Gb-fab-2
+                mcc-cisco-8Gb-fab-2
+                         Cisco   -          -                false     -
+    mcc-cisco-8Gb-fab-3
+                mcc-cisco-8Gb-fab-3
+                         Cisco   -          -                false     -
+    4 entries were displayed.
+cluster1::> system switch fibre-channel remove -switch-name Cisco_10.226.197.34
+cluster1::> system switch fibre-channel show
+                Symbolic                                     Is        Monitor
+    Switch      Name     Vendor  Model      Switch WWN       Monitored Status
+    ----------- -------- ------- ---------- ---------------- --------- -------
+    mcc-cisco-8Gb-fab-4
+                mcc-cisco-8Gb-fab-4
+                         Cisco
+                                 -          -                false     -
+    mcc-cisco-8Gb-fab-1
+                mcc-cisco-8Gb-fab-1
+                         Cisco   -          -                false     -
+    mcc-cisco-8Gb-fab-2
+                mcc-cisco-8Gb-fab-2
+                         Cisco   -          -                false     -
+    mcc-cisco-8Gb-fab-3
+                mcc-cisco-8Gb-fab-3
+                         Cisco   -          -                false     -
+    4 entries were displayed
+cluster1::>
+----
+=====
+--
+====
 . 关闭 MetroCluster FC 控制器模块和存储架。
 . 断开并卸下 MetroCluster FC 控制器模块和存储架。
 
