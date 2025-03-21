@@ -387,6 +387,8 @@ IP_switch_A_1#
 
 https://hwu.netapp.com["NetApp Hardware Universe"]
 
+如果您使用的是QSFP-SFP+适配器、则可能需要将ISL端口配置为本机速度模式、而不是分支速度模式。请参见交换机供应商文档以确定ISL端口速度模式。
+
 有四个 RCF 文件， MetroCluster IP 配置中的四个交换机中的每个交换机一个。您必须为所使用的交换机型号使用正确的 RCF 文件。
 
 |===
