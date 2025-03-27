@@ -168,17 +168,6 @@ ONTAP 9.11.1
 
 
  a| 
-在MetroCluster IP配置中配置第3层MetroCluster IP地址
- a| 
-您可以编辑第3层配置中节点的MetroCluster IP地址、网络掩码和网关。
-
-https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_modify_ip_netmask_gateway_properties.html["修改 MetroCluster IP 中的地址，网络掩码和网关"]
- a| 
-ONTAP 9.10.1
-
-
-
- a| 
 简化了MetroCluster FC配置中节点的控制器升级
  a| 
 通过切换和切回执行升级过程的升级操作步骤已得到简化。
