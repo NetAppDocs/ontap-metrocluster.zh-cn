@@ -101,16 +101,43 @@ dr_group_2-new
 
 
 ====
-.支持的AFF和FAS MetroCluster IP扩展组合
-下表显示了在MetroCluster IP配置中扩展AFF或FAS系统时支持的平台组合：
-
-image::../media/mccip_expand_ip_8node_9161-updated.png[适用于8节点配置的平台组合]
-
-* *注1*：这些组合需要ONTAP 9.9.1或更高版本(或平台支持的最低ONTAP 版本)。
-* *注2*：这些组合需要ONTAP 9.13.1或更高版本(或平台支持的最低ONTAP 版本)。
 
 
-.支持的ASA MetroCluster IP扩展组合
+=== 支持的AFF和FAS MetroCluster IP扩展组合
+
+下表显示了在MetroCluster IP配置中扩展AFF或FAS系统时支持的平台组合。这些表分为两组：
+
+* *组1*显示了AFF A150、AFF A20、FAS2750、FAS8300、FAS500f、AFF C250、AFF A250、FAS50、AFF C30、AFF A30、FAS8200、AFF C400、AFF A400、AFF A220、AFF A300、AFF A320和FAS8700系统的组合。
+* *组2*显示了AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF C800、AFF A800、AFF A90、AFF A900、AFF C80、FAS90、FAS9500和AFF A1K系统的组合。
+
+
+以下注意事项同时适用于这两组：
+
+* 注1：这些组合需要9.9.1 9.9.1或更高版本(或平台支持的最低ONTAP版本)。
+* 注2：这些组合需要9.13.1 9.13.1或更高版本(或平台支持的最低ONTAP版本)。
+
+
+[role="tabbed-block"]
+====
+.AFF和FAS组合组1
+--
+查看AFF A150、AFF A20、FAS2750、AFF A220、FAS500f、AFF C250、FAS8200、FAS50、AFF C30、AFF A30、AFF A250、AFF C400、AFF A400、FAS8300、AFF A300、AFF A320和FAS8700系统的扩展组合。
+
+image:../media/expand-ip-group-1.png[""]
+
+--
+.AFF和FAS组合组2
+--
+查看AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF A900、AFF、AFF A90、AFF C800、AFF A800 C80、FAS90、FAS9500和AFF A1K系统的扩展组合。
+
+image:../media/expand-ip-group-2.png[""]
+
+--
+====
+
+
+=== 支持的ASA MetroCluster IP扩展组合
+
 下表显示了在MetroCluster IP配置中扩展ASA系统时支持的平台组合：
 
 image::../media/8node_comb_ip_asa.png[适用于8节点配置的平台组合]

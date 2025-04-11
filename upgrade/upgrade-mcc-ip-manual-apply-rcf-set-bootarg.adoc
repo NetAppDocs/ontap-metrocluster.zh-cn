@@ -91,6 +91,7 @@ summary: 更新新平台的交换机RC框架 文件、并在控制器模块上�
 ** AFF A1K
 
  a| 
+** FAS50
 ** FAS70
 ** FAS90
 

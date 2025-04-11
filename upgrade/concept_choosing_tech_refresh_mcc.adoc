@@ -24,14 +24,42 @@ summary: 您使用的刷新操作步骤 取决于平台型号、升级范围和M
 * 请参见 link:https://hwu.netapp.com["Hardware Universe"^] 平台限制。
 
 
-.支持的AFF和FAS MetroCluster IP技术更新组合
-下表显示了在MetroCluster IP配置中刷新AFF或FAS系统时支持的平台组合：
 
-image::../media/mcc-ip-techrefresh-comb-9161.png[MetroCluster IP技术更新组合]
 
-*注1：*此组合需要ONTAP 9.13.1.或更高版本。
+=== 支持的AFF和FAS MetroCluster IP技术更新组合
 
-.支持的ASA MetroCluster IP技术更新组合
+下表显示了在MetroCluster IP配置中刷新AFF或FAS系统时支持的平台组合。这些表分为两组：
+
+* *组1*显示了AFF A150、AFF A20、FAS2750、FAS8300、FAS500f、AFF C250、AFF A250、FAS50、AFF C30、AFF A30、FAS8200、AFF C400、AFF A400、AFF A220、AFF A300、AFF A320和FAS8700系统的组合。
+* *组2*显示了AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF C800、AFF A800、AFF A90、AFF A900、AFF C80、FAS90、FAS9500和AFF A1K系统的组合。
+
+
+以下注意事项同时适用于这两组：
+
+* 注1：此组合需要9.13.1 9.13.1.或更高版本。
+
+
+[role="tabbed-block"]
+====
+.AFF和FAS组合组1
+--
+查看AFF A150、AFF A20、FAS2750、AFF A220、FAS500f、AFF C250、FAS8200、FAS50、AFF C30、AFF A400 A30、AFF A250、AFF C400、AFF、FAS8300、AFF A300、AFF A320和FAS8700系统的系统更新组合。
+
+image:../media/tech-refresh-ip-group-1.png[""]
+
+--
+.AFF和FAS组合组2
+--
+查看AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF A900、AFF、AFF A90、AFF C800、AFF A800 C80、FAS90、FAS9500和AFF A1K系统的系统更新组合。
+
+image:../media/tech-refresh-ip-group-2.png[""]
+
+--
+====
+
+
+=== 支持的ASA MetroCluster IP技术更新组合
+
 下表显示了在MetroCluster IP配置中刷新ASA系统时支持的平台组合：
 
 image::../media/mcc-ip-techrefresh-asa-9161.png[MetroCluster IP ASA技术更新组合]
@@ -47,12 +75,18 @@ image::../media/mcc-ip-techrefresh-asa-9161.png[MetroCluster IP ASA技术更新�
 * 请参见 link:https://hwu.netapp.com["Hardware Universe"^] 平台限制。
 
 
-.支持的AFF和FAS MetroCluster FC技术更新组合
+
+
+=== 支持的AFF和FAS MetroCluster FC技术更新组合
+
 下表显示了在MetroCluster FC配置中刷新AFF或FAS系统时支持的平台组合：
 
 image::../media/metrocluster_fc_tech_refresh.png[MetroCluster FC技术更新]
 
-.支持的ASA MetroCluster FC技术更新组合
+
+
+=== 支持的ASA MetroCluster FC技术更新组合
+
 下表显示了在MetroCluster FC配置中刷新ASA系统时支持的平台组合：
 
 [cols="3*"]

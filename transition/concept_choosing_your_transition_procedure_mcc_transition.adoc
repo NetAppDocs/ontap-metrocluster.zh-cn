@@ -31,19 +31,48 @@ summary: 您必须根据现有 MetroCluster FC 配置选择过渡操作步骤。
 
 
 ====
-.支持的AFF和FAS过渡组合
-下表显示了支持的平台组合。您可以从左侧列中的平台过渡到右侧列中列出的受支持平台、如彩色表单元格所示。
+
+
+=== 支持的AFF和FAS过渡组合
+
+下表显示了支持的平台组合。您可以从第一列中的平台过渡到右侧列中列为受支持的平台、如彩色表格单元格所示。
 
 例如，支持从包含 AFF8060 控制器模块的 MetroCluster FC 配置过渡到包含 AFF A400 控制器模块的 IP 配置。
 
-image::../media/mcc_transition_comb_9161-updated.png[显示了IP到FC过渡支持的平台组合]
+这些表分为两组：
+
+* *组1*显示了过渡到AFF A150、AFF A20、FAS2750、FAS8300、FAS500f、AFF C250、AFF A250、FAS50、AFF C30、AFF A30、FAS8200、AFF C400、AFF A400、AFF A220、AFF A300、AFF A320和FAS8700系统的组合。
+* *组2*显示了过渡到AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF C800、AFF、AFF A90、AFF A900、AFF A800 C80、FAS90、FAS9500和AFF A1K系统的组合。
+
+
+以下注意事项同时适用于这两组：
 
 * 注1：此平台组合需要ONTAP 9.11.1或更高版本。
 * 注2：FC节点上的本地集群接口必须具有40GbE接口。
 * 注3：FC节点上的本地集群接口必须具有100GbE接口。
 
 
-.支持的ASA过渡平台组合
+[role="tabbed-block"]
+====
+.AFF和FAS组合组1
+--
+查看过渡到AFF A150、AFF A20、FAS2750、AFF A220、FAS500f、AFF C250、FAS8200、FAS50、AFF C30、AFF A30、AFF A250、AFF C400、AFF A400、FAS8300、AFF A300、AFF A320和FAS8700系统时支持的组合。
+
+image:../media/transition-combinations-group-1.png["显示了组1平台支持的过渡"]
+
+--
+.AFF和FAS组合组2
+--
+查看支持过渡到AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF A900、AFF、AFF A90、AFF C800、AFF A800 C80、FAS90、FAS9500和AFF A1K系统的组合。
+
+image:../media/transition-combinations-group-2.png["显示了组2平台支持的过渡"]
+
+--
+====
+
+
+=== 支持的ASA过渡平台组合
+
 下表显示了ASA系统支持的平台组合。
 
 [cols="3*"]

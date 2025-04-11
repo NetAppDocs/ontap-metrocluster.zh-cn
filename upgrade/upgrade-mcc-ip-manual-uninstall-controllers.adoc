@@ -51,6 +51,7 @@ summary: 将数据LIP移动到通用端口、删除旧控制器上的VLAN和接�
 ** AFF A1K
 
  a| 
+** FAS50
 ** FAS70
 ** FAS90
 

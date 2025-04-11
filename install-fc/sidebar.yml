@@ -218,6 +218,8 @@ entries:
       url: "/install-fc/concept_example_of_a_four_node_mcc_configuration_with_disks_and_array_luns.html"
 - title: 如何使用 Active IQ Unified Manager 和 ONTAP 系统管理器进行进一步配置和监控
   entries:
+  - title: 了解如何使用Active IQ Unified Manager和System Manager进行进一步配置和监控
+    url: "/install-fc/concept-fc-oncommand-management.html"
   - title: 使用 NTP 同步系统时间
     url: "/install-fc/task_synchronize_the_system_time_us_ntp.html"
 - title: 在 MetroCluster 配置中使用 ONTAP 时的注意事项

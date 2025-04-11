@@ -91,6 +91,7 @@ summary: 更新新平台的交换机RCF、并在控制器模块上设置MetroClu
 ** AFF A1K
 
  a| 
+** FAS50
 ** FAS70
 ** FAS90
 

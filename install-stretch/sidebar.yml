@@ -78,7 +78,7 @@ entries:
   url: "/install-stretch/concept_considerations_when_removing_mcc_configurations.html"
 - title: 如何使用 Active IQ Unified Manager 和 ONTAP 系统管理器进行进一步配置和监控
   entries:
-  - title: 概述
+  - title: 了解如何使用Active IQ Unified Manager和System Manager进行进一步配置和监控
     url: "/install-stretch/concept_using_the_oncommand_management_tools_for_further_configuration_and_monitoring.html"
   - title: 使用 NTP 同步系统时间
     url: "/install-stretch/task_synchronize_the_system_time_us_ntp.html"

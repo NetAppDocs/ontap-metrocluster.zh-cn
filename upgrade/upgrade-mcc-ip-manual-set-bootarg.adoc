@@ -24,6 +24,7 @@ summary: 升级到9.15.1 9.151或更高版本中引入的系统需要先设置�
 * AFF C80
 * AFF A50、AFF A20、AFF A30
 * AFF C30、AFF C60
+* FAS50
 
 
 
@@ -50,13 +51,13 @@ CAUTION: 如果要升级到列出的任何系统，则在执行升级之前，*�
 | 从AFF A220到AFF 2020 | `bootarg.siw.interop_enabled` 
 
 
-| 所有其他受支持的AFF A70、AFF A90、AFF A1K、FAS70、FAS90、AFF C80、AFF A50、AFF 2020、AFF A30、AFF C30或AFF C60系统升级 | `hw.cxgbe.toe_keepalive_disable` 
+| 所有其他受支持的AFF A70、AFF A90、AFF A1K、FAS70、FAS90、AFF C80、AFF A50、AFF 2020、AFF A30、AFF C30、AFF C60或FAS50系统升级 | `hw.cxgbe.toe_keepalive_disable` 
 |===
 
 
 == 第2步：在旧控制器上设置所需的启动程序
 
-只有在升级到AFF A70、AFF A90、AFF A1K、FAS70、FAS90、AFF C80、AFF A50、AFF 2020、AFF A30、AFF C30或AFF C60系统时、*才需要执行此任务。
+只有在升级到AFF A70、AFF A90、AFF A1K、FAS70、FAS90、AFF C80、AFF A50、AFF 2020、AFF A30、AFF C30、AFF C60或FAS50系统时、*才需要执行此任务。
 
 .步骤
 . 暂停每个站点上的一个节点、并允许其HA配对节点对该节点执行存储接管：

@@ -2,7 +2,7 @@
 permalink: install-fc/task_synchronize_the_system_time_us_ntp.html 
 sidebar: sidebar 
 keywords: metrocluster, fabric, installation, synchronize, system, time, ntp 
-summary: 每个集群都需要自己的网络时间协议（ NTP ）服务器来同步节点与其客户端之间的时间。您可以使用 System Manager 中的编辑日期时间对话框配置 NTP 服务器。 
+summary: 每个集群都需要自己的网络时间协议（ NTP ）服务器来同步节点与其客户端之间的时间。 
 ---
 = 使用 NTP 同步系统时间
 :allow-uri-read: 
@@ -11,29 +11,55 @@ summary: 每个集群都需要自己的网络时间协议（ NTP ）服务器来
 
 
 [role="lead"]
-每个集群都需要自己的网络时间协议（ Network Time Protocol ， NTP ）服务器来同步节点与其客户端之间的时间。您可以使用 System Manager 中的编辑日期时间对话框配置 NTP 服务器。
-
-.开始之前
-您必须已下载并安装 System Manager 。可以从 NetApp 支持站点获取 System Manager 。
+每个集群都需要自己的网络时间协议（ Network Time Protocol ， NTP ）服务器来同步节点与其客户端之间的时间。
 
 .关于此任务
 * 发生接管后，您无法修改故障节点或配对节点的时区设置。
 * MetroCluster FC 配置中的每个集群都应具有自己的单独 NTP 服务器，或该 MetroCluster 站点上的节点， FC 交换机和 FC-SAS 网桥使用的服务器。
-+
-如果您使用的是 MetroCluster Tiebreaker 软件，则该软件还应具有自己单独的 NTP 服务器。
+* 如果您使用的是 MetroCluster Tiebreaker 软件，则该软件还应具有自己单独的 NTP 服务器。
 
 
+根据您的ONTAP版本，您可以从System Manager用户界面中的*Cluster*或*洞察力*选项卡配置NTP。
+
+[role="tabbed-block"]
+====
+.集群
+--
+在System Manager中，您可以使用两个不同的选项从*Cluster*选项卡配置NTP，具体取决于您的ONTAP版本：
+
+.ONTAP 9.8 或更高版本
+使用以下步骤从ONTAP 9.8或更高版本中的*Cluster*选项卡同步NTP。
 
 .步骤
-. 在主页中，双击相应的存储系统。
-. 在左侧导航窗格中展开 * 集群 * 层次结构。
-. 在导航窗格中，单击 * 配置 * > * 系统工具 * > * 日期时间 * 。
-. 单击 * 编辑 * 。
-. 选择时区。
-. 指定时间服务器的 IP 地址，然后单击 * 添加 * 。
-+
-您必须将 NTP 服务器添加到时间服务器列表中。域控制器可以是权威服务器。
+. 转到*集群>概述*
+. 然后选择image:icon-more-kebab-blue-bg.jpg["更多"]选项并选择*Edit*。
+. 在*编辑集群详细信息*窗口中，选择NTP服务器下面的*+Add*选项。
+. 添加时间服务器的名称、位置并指定IP地址。
+. 然后，选择*Save*。
+. 对任何其他时间服务器重复上述步骤。
 
-. 单击 * 确定 * 。
-. 验证您在 * 日期和时间 * 窗口中对日期和时间设置所做的更改。
 
+.9.11.1 9.11.1或更高版本：
+在9.11.1 9.11.1或更高版本中，使用以下步骤从*Cluster*选项卡中的*洞察力*窗口同步NTP。
+
+.步骤
+. 转到*集群>概述*
+. 向下滚动到页面上的*洞察力*窗口，找到*配置的NTP服务器太少*，然后选择*Fix It*。
+. 指定时间服务器的IP地址，然后选择*Save*。
+. 对任何其他时间服务器重复上述步骤。
+
+
+--
+.洞察力
+--
+在9.11.1 9.11.1或更高版本中，您还可以使用System Manager中的*洞察力*选项卡配置NTP：
+
+.步骤
+. 转到System Manager用户界面中的*洞察力*选项卡。
+. 向下滚动到*配置的NTP服务器太少*，然后选择*修复*。
+. 指定时间服务器的IP地址，然后选择*Save*。
+. 对任何其他时间服务器重复上述步骤。
+
+
+--
+====

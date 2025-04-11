@@ -72,7 +72,7 @@ System Manager 会自动发现集群中的其余节点。
 单击 * 提交 * 后，请等待创建和配置集群。然后，将执行验证过程。
 
 .下一步是什么？
-设置、初始化和配置两个集群后、执行[Set up MetroCluster IP peering]过程。
+在设置、初始化和配置两个集群后、执行此link:../install-ip/set-up-mcc-peering-system-manager.html["设置MetroCluster IP对等"]过程。
 
 
 

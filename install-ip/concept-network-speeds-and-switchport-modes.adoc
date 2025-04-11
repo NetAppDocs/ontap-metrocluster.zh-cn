@@ -15,7 +15,11 @@ summary: 如果您使用的是符合MetroCluster的交换机、则应了解特�
 
 下表提供了MetroCluster兼容交换机的平台特定网络速度和交换机端口模式。您应根据表配置交换机端口模式。
 
+[NOTE]
+====
+* 缺少值表示此平台无法与MetroCluster兼容的交换机结合使用。
+* AFF A30、AFF C30、AFF C60和FAS50系统需要在控制器上的卡中安装QSFP-SFP+适配器、才能支持25 Gbps网络速度。
 
-NOTE: 缺少值表示此平台无法与MetroCluster兼容的交换机结合使用。
 
-image:../media/mcc-compliant-network-speed-9161.png["显示了MetroCluster兼容交换机的平台特定网络速度和交换机端口模式。"]
+====
+image:../media/mccip-compliant-network-speed-switchport-mode-fas50.png["显示了MetroCluster兼容交换机的平台特定网络速度和交换机端口模式。"]

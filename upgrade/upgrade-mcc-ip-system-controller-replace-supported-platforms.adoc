@@ -30,10 +30,17 @@ summary: 开始升级MetroCluster IP控制器之前、您需要验证您的升�
 * MetroCluster配置中的所有节点(旧节点和新节点)都必须运行相同版本的ONTAP。有关您的组合支持的最低ONTAP版本、请参见link:https://hwu.netapp.com["Hardware Universe"^]。
 
 
-.支持的AFF和FAS MetroCluster IP控制器升级
-下表显示了在MetroCluster IP配置中使用system controller Replace命令升级AFF或FAS系统时支持的平台组合：
 
-image:../media/mccip_assisted_controller_upgrade_comb.png["显示了使用system controller Replace命令升级MetroCluster IP时支持的平台组合。"]
+
+== 支持的AFF和FAS MetroCluster IP控制器升级
+
+下表显示了在MetroCluster IP配置中使用system controller Replace命令升级AFF或FAS系统时支持的平台组合、这些命令分为两组。
+
+* *组1*显示了升级到AFF A150、AFF A20、FAS2750、FAS8300、FAS500f、AFF C250、AFF A250、FAS50、AFF C30、AFF A30、FAS8200、AFF C400、AFF A400、AFF A220、AFF A300、AFF A320和FAS8700系统的组合。
+* *组2*显示了升级到AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF C800、AFF、AFF A90、AFF A900、AFF A800 C80、FAS90、FAS9500和AFF A1K系统的组合。
+
+
+以下注意事项同时适用于这两组：
 
 * 注1：运行ONTAP 9.131或更高版本的系统支持控制器升级。
 * 注2：目标平台必须在控制器升级完成后才能具有内部驱动器。您可以在升级后添加内部驱动器。
@@ -41,7 +48,27 @@ image:../media/mccip_assisted_controller_upgrade_comb.png["显示了使用system
 * 注4：需要使用IOM模块将旧控制器转换为外部SAS磁盘架。有关支持的IOM模块、请参见link:https://hwu.netapp.com/["Hardware Universe"^]。
 
 
-.支持的ASA MetroCluster IP控制器升级
+[role="tabbed-block"]
+====
+.AFF和FAS组合组1
+--
+查看升级到AFF A150、AFF A20、FAS2750、AFF A220、FAS500f、AFF C250、FAS8200、FAS50、AFF C30、AFF A30、AFF A250、AFF C400、AFF A400、FAS8300、AFF A300、AFF A320和FAS8700系统时支持的组合。
+
+image:../media/assisted-group-1.png[""]
+
+--
+.AFF和FAS组合组2
+--
+查看升级到AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF A900、AFF、AFF A90、AFF C800、AFF A800 C80、FAS90、FAS9500和AFF A1K系统时支持的组合。
+
+image:../media/assisted-group-2.png[""]
+
+--
+====
+
+
+== 支持的ASA MetroCluster IP控制器升级
+
 不支持在ASA系统上使用命令升级控制器 `system controller replace` 。
 
 有关其他步骤、请参见link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"]。

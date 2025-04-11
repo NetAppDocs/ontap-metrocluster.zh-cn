@@ -56,9 +56,9 @@ entries:
       url: "/install-ip/using_rcf_generator.html"
     - title: Cisco 3132Q-V 交换机的平台端口分配
       url: "/install-ip/port_usage_3132q.html"
-    - title: Cisco 3232C 或 Cisco 9336C 交换机的平台端口分配
+    - title: Cisco 3232C 或 Cisco 9336C-FX2 交换机的平台端口分配
       url: "/install-ip/port_usage_3232c_9336c.html"
-    - title: Cisco 9334C－拧动共享交换机的平台端口分配
+    - title: 连接NS224存储的Cisco 9336A-拧 动交换机的平台端口分配
       url: "/install-ip/port_usage_9336c_shared.html"
     - title: 为 Broadcom 支持的 BES-53248 IP 交换机分配平台端口
       url: "/install-ip/port_usage_bes53248.html"
@@ -138,5 +138,11 @@ entries:
   url: "/install-ip/concept_considerations_when_removing_mcc_configurations.html"
 - title: 在 MetroCluster 配置中使用 ONTAP 时的注意事项
   url: "/install-ip/concept_considerations_when_using_ontap_in_a_mcc_configuration.html"
+- title: 如何使用 Active IQ Unified Manager 和 ONTAP 系统管理器进行进一步配置和监控
+  entries:
+  - title: 了解如何使用Active IQ Unified Manager和System Manager进行进一步配置和监控
+    url: "/install-ip/concept_using_the_oncommand_management_tools_for_further_configuration_and_monitoring.html"
+  - title: 使用 NTP 同步系统时间
+    url: "/install-ip/task-synchronize-the-system-time-us-ntp.html"
 - title: 从何处查找追加信息
   url: "/install-ip/reference_where_to_find_additional_information_mccip_icg.html"
