@@ -166,7 +166,7 @@ ONTAP 9.8
 
 
  a| 
-同一个NVIDIA SN2100交换机上有多个MC IP配置
+同一台NVIDIA SN2100交换机上有多个MetroCluster IP配置
  a| 
 ONTAP 9.14.1
 

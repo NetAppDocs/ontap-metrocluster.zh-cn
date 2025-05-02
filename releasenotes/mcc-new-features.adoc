@@ -11,7 +11,9 @@ summary:
 
 
 [role="lead"]
-了解MetroCluster的新增功能。
+ONTAP 9数据管理软件的每个版本都提供了一些新增功能和增强功能、可提高ONTAP MetroCluster配置的功能、易管理性和性能。
+
+有关影响ONTAP MetroCluster配置的已知问题、限制和升级注意事项的详细信息、请参阅 https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["《 ONTAP 9 发行说明》"^]。您必须使用NetApp帐户登录或创建帐户才能访问发行说明。
 
 [cols="20,65,15"]
 |===
@@ -24,6 +26,33 @@ summary:
 如果服务器需要使用凭据下载固件包、您可以使用凭据更新此网桥上的固件。
 
 link:../maintain/task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["更新 FibreBridge 网桥上的固件"]
+ a| 
+ONTAP 9.16.1.
+
+
+
+ a| 
+支持迁移MetroCluster配置的SVM数据移动性
+ a| 
+ONTAP支持以下MetroCluster SVM迁移：
+
+* 在非MetroCluster HA对和MetroCluster IP配置之间迁移SVM
+* 在两个MetroCluster IP配置之间迁移SVM
+* 在MetroCluster FC配置和MetroCluster IP配置之间迁移SVM
+
+
+link:https://docs.netapp.com/us-en/ontap/svm-migrate/index.html["SVM 数据移动性"^]
+ a| 
+ONTAP 9.16.1.
+
+
+
+ a| 
+为BGP对等组提供MD5身份验证支持
+ a| 
+ONTAP支持对BGP对等组进行MD5身份验证、以保护BGP会话。启用MD5后、只能在授权对等方之间建立和处理BGP会话、从而防止未经授权的行为者可能中断会话。
+
+link:https://docs.netapp.com/us-en/ontap/networking/configure_virtual_ip_@vip@_lifs.html["配置虚拟 IP （ VIP ） LIF"^]
  a| 
 ONTAP 9.16.1.
 
@@ -55,6 +84,17 @@ ONTAP 9.15.1.
 
 
  a| 
+NVMe的MetroCluster IP支持
+ a| 
+四节点MetroCluster IP配置支持NVMe/TCP前端主机协议。
+
+link:https://docs.netapp.com/us-en/ontap/san-admin/san-config-mcc-concept.html["MetroCluster 环境中的SAN配置"^]
+ a| 
+ONTAP 9.15.1.
+
+
+
+ a| 
 提高AFF A900系统上四节点MetroCluster IP配置的卷限制
  a| 
 在四节点MetroCluster IP配置中、AFF A900系统的以下卷限制已增加：
@@ -63,6 +103,28 @@ ONTAP 9.15.1.
 * 每个节点的最大FlexVol卷数从800增加到1250。
 * 每个高可用性(HA)对的最大FlexVol卷数从1600个增加到2500个。
 
+ a| 
+ONTAP 9.14.1
+
+
+
+ a| 
+镜像和未镜像聚合上的S3对象存储支持
+ a| 
+您可以在MetroCluster IP和FC配置中的镜像或未镜像聚合中的SVM上启用S3对象存储服务器。
+
+https://docs.netapp.com/us-en/ontap/s3-config/ontap-version-support-s3-concept.html#s3-support-with-metrocluster["MetroCluster支持S3"^]
+ a| 
+ONTAP 9.14.1
+
+
+
+ a| 
+支持在MetroCluster集群中的镜像和未镜像聚合上配置S3存储分段
+ a| 
+您可以在MetroCluster配置中的镜像或未镜像聚合上创建分段。
+
+link:https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-mcc-task.html#process-to-create-buckets["在MetroCluster配置中的镜像或未镜像聚合上创建ONTAP S3存储分段"^]
  a| 
 ONTAP 9.14.1
 
@@ -84,7 +146,7 @@ ONTAP 9.13.1
  a| 
 您可以无系统地将工作负载和数据从现有八节点MetroCluster FC配置过渡到新的MetroCluster IP配置。
 
-https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html["无系统地从MetroCluster FC过渡到MetroCluster IP配置"]
+https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html["无故障从MetroCluster FC过渡到MetroCluster IP配置"]
  a| 
 ONTAP 9.13.1
 
@@ -150,7 +212,29 @@ MetroCluster IP配置中未镜像聚合上的SVM上的S3
  a| 
 您可以在MetroCluster IP配置中未镜像聚合的SVM上启用ONTAP简单存储服务(S3)对象存储服务器。
 
-https://docs.netapp.com/us-en/ontap/s3-config/index.html#s3-configuration-with-system-manager-and-the-ontap-cli["使用System Manager和ONTAP 命令行界面进行S3配置"]
+https://docs.netapp.com/us-en/ontap/s3-config/ontap-version-support-s3-concept.html#s3-support-with-metrocluster["MetroCluster支持S3"^]
+ a| 
+ONTAP 9.12.1
+
+
+
+ a| 
+NVMe的MetroCluster IP支持
+ a| 
+四节点MetroCluster IP配置支持NVMe/FC协议。
+
+link:https://docs.netapp.com/us-en/ontap/san-admin/san-config-mcc-concept.html["MetroCluster 环境中的SAN配置"^]
+ a| 
+ONTAP 9.12.1
+
+
+
+ a| 
+IPSEC支持在MetroCluster IP和MetroCluster光纤连接配置中使用前端主机协议
+ a| 
+在MetroCluster IP和MetroCluster光纤连接配置中、可以为前端主机协议(例如NFS和iSCSI)提供IPSEC支持。
+
+https://docs.netapp.com/us-en/ontap/networking/configure_ip_security_@ipsec@_over_wire_encryption.html["通过线缆加密配置 IP 安全性（ IP security ， IPsec ）"^]
  a| 
 ONTAP 9.12.1
 
@@ -162,6 +246,17 @@ ONTAP 9.12.1
 您可以从MetroCluster FC配置过渡到AFF A250或FAS500f MetroCluster IP配置。
 
 https://docs.netapp.com/us-en/ontap-metrocluster/transition/task_move_cluster_connections.html#which-connections-to-move["移动本地集群连接"]
+ a| 
+ONTAP 9.11.1
+
+
+
+ a| 
+一致性组
+ a| 
+MetroCluster配置支持一致性组。
+
+https://docs.netapp.com/us-en/ontap/consistency-groups/index.html#multi-admin-verification-support-for-consistency-groups["MetroCluster 配置中的一致性组"^]
  a| 
 ONTAP 9.11.1
 
@@ -190,111 +285,12 @@ ONTAP 9.9.1
 
 
  a| 
-支持8节点集群
+支持八节点MetroCluster配置
  a| 
-IP和光纤连接配置支持永久8节点集群。
+IP和光纤连接MetroCluster配置支持永久八节点集群。
 
 https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_install_and_cable_the_mcc_components.html["安装 MetroCluster 组件并为其布线"]
  a| 
 ONTAP 9.9.1
-
-
-
- a| 
-简化了使用System Manager管理IP MetroCluster操作的界面
- a| 
-您可以使用System Manager管理IP MetroCluster操作、包括设置IP MetroCluster站点、对站点配对以及配置集群。
-
-https://docs.netapp.com/us-en/ontap/concept_metrocluster_manage_nodes.html["管理 MetroCluster 站点"]
- a| 
-ONTAP 9.8
-
-
-
- a| 
-使用System Manager执行IP MetroCluster切换和切回
- a| 
-您可以使用System Manager对IP MetroCluster配置执行计划内或计划外切换和切回过程的所有步骤。
-
-https://docs.netapp.com/us-en/ontap/task_metrocluster_switchover_switchback.html["MetroCluster 切换和切回"]
- a| 
-ONTAP 9.8
-
-
-
- a| 
-从 MetroCluster FC 过渡到 MetroCluster IP 配置
- a| 
-支持将工作负载和数据从现有四节点MetroCluster FC配置过渡到新的MetroCluster IP配置。
-
-https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["升级、刷新或扩展MetroCluster 配置"]
-
-https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_choosing_your_transition_procedure_mcc_transition.html["从 MetroCluster FC 过渡到 MetroCluster IP"]
- a| 
-ONTAP 9.8
-
-
-
- a| 
-新的升级和刷新过程
- a| 
-支持对四节点MetroCluster FC和IP配置进行硬件升级或刷新。
-
-https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["升级、刷新或扩展MetroCluster 配置"]
-
-https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_choosing_your_transition_procedure_mcc_transition.html["从 MetroCluster FC 过渡到 MetroCluster IP"]
- a| 
-ONTAP 9.8
-
-
-
- a| 
-未镜像聚合
- a| 
-MetroCluster IP配置支持未镜像聚合。
-
-https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/considerations_unmirrored_aggrs.html["未镜像聚合的注意事项"]
- a| 
-ONTAP 9.8
-
-
-
- a| 
-符合MetroCluster的交换机
- a| 
-MetroCluster IP配置可以支持未经NetApp验证的交换机、但前提是它们符合NetApp规范。
-
-https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_mc_compliant_switches.html["使用符合 MetroCluster 的交换机的注意事项"]
- a| 
-ONTAP 9.7
-
-
-
- a| 
-专用第2层网络共享
- a| 
-使用受支持的Cisco交换机的MetroCluster IP配置可以共享现有的网络、而不是使用专用的Cisco MetroCluster。早期的 ONTAP 版本需要专用 ISL 。
-
-MetroCluster IP交换机专用于MetroCluster配置、不能共享。只有 MetroCluster IP 交换机上的 MetroCluster ISL 端口才能连接到共享交换机。
-
-[CAUTION]
-====
-如果使用共享网络，则客户负责满足共享网络中的 MetroCluster 网络要求。
-
-====
-https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/index.html["MetroCluster IP 安装和配置"]
- a| 
-ONTAP 9.6
-
-
-
- a| 
-MetroCluster 切换和切回
- a| 
-您可以允许一个集群站点接管另一个集群站点的任务。通过此功能，您可以方便地进行维护或从灾难中恢复。
-
-https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster 切换和切回"]
- a| 
-ONTAP 9.6
 
 |===

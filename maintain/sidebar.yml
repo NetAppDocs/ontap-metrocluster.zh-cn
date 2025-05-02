@@ -2,9 +2,11 @@
 section: maintain
 title: 维护 MetroCluster 组件
 entries:
+- title: 了解MetroCluster维护
+  url: "/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html"
 - title: 准备MetroCluster维护
   entries:
-  - title: 在执行维护任务之前启用控制台日志记录
+  - title: 启用控制台日志记录
     url: "/maintain/enable-console-logging-before-maintenance.html"
   - title: 在执行维护任务之前，请删除 ONTAP 调解器或 Tiebreaker 监控
     url: "/maintain/concept_remove_mediator_or_tiebreaker_when_performing_maintenance_tasks.html"
@@ -12,8 +14,6 @@ entries:
     url: "/maintain/reference_mcc_failure_scenarios.html"
   - title: 如何使用互操作性表工具查找 MetroCluster 信息
     url: "/maintain/concept_using_the_interoperability_matrix_tool_to_find_mcc_information.html"
-  - title: 从何处查找 MetroCluster 维护任务的过程
-    url: "/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html"
 - title: MetroCluster FC配置的维护过程
   entries:
   - title: 修改交换机或ATto网桥IP地址以进行运行状况监控

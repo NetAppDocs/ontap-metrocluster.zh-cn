@@ -697,7 +697,6 @@
   <block id="7c4cfbca51d6a2e90bd12e0b0ff1e088" category="list-text">检查两个集群上是否存在任何运行状况警报：</block>
   <block id="04b27eafbc0a06c60b08558174c0b3bd" category="paragraph">` * 系统运行状况警报 show*`</block>
   <block id="240a6a449012d1ff29bd7a375366249a" category="summary">在执行 MetroCluster 硬件维护任务时，您应确保选择正确的操作步骤。</block>
-  <block id="4888a1163bab7e13f5a9de829f599dba" category="doc">从何处查找 MetroCluster 维护任务的过程</block>
   <block id="240d3868b181a0a12e2128654b07f892" category="inline-link-macro">《 MetroCluster 升级和扩展指南》</block>
   <block id="d9e0ae80d8049bf1926e0854d28137da" category="cell">MetroCluster 类型（ FC 或 IP ）</block>
   <block id="eaeb30f9f18e0c50b178676f3eaef45f" category="cell">任务</block>
@@ -12821,15 +12820,12 @@
   <block id="3447b91e516e4fc6b5dba827fcb68bee" category="paragraph">ONTAP 9.7</block>
   <block id="b9893a4b8d000616198b04d3642b5fb8" category="paragraph">ONTAP 9.6P3</block>
   <block id="0fcf2ee62acd9eae83b609a0e7ecaa72" category="paragraph">ONTAP 9.5</block>
-  <block id="bce17534235ea414fd168aec560670ba" category="doc">MetroCluster配置中的新增功能支持ONTAP功能</block>
   <block id="f5b97315b83664b2fb6d5828cead7c04" category="cell">MetroCluster配置中支持的功能</block>
   <block id="983ef706fb7088bc127ca2ea08447cd2" category="paragraph">镜像和未镜像聚合上的S3对象存储支持</block>
   <block id="9200b87f425cf8ffb4a16ea10431a73e" category="paragraph">您可以在MetroCluster IP和FC配置中的镜像或未镜像聚合中的SVM上启用S3对象存储服务器。</block>
-  <block id="c89f9fd1a8019dc4d7a2559a982d3aa8" category="inline-link">S3配置概述</block>
   <block id="8020ad245e7cbc2ac49c84b7f4ace684" category="paragraph">ONTAP 9.14.1</block>
   <block id="1e4cf16edaf417e94a695644f4089a2f" category="paragraph">支持在MetroCluster集群中的镜像和未镜像聚合上配置S3存储分段</block>
   <block id="54c9cab829044acca6994285d3185409" category="paragraph">您可以在MetroCluster配置中的镜像或未镜像聚合上创建分段。</block>
-  <block id="ea0c90724ad3d5959704fb91a048c28c" category="inline-link">在MetroCluster配置中的镜像或未镜像聚合上创建分段</block>
   <block id="594e1ec3daa27e540baa061f731f028f" category="paragraph">ONTAP 9.12.1</block>
   <block id="6eaae443849a6746c6ace7f4204bd085" category="paragraph">IPSEC支持在MetroCluster IP和MetroCluster光纤连接配置中使用前端主机协议</block>
   <block id="d70d383ef18fafd59eb655545c1017bd" category="paragraph">在MetroCluster IP和MetroCluster光纤连接配置中、可以为前端主机协议(例如NFS和iSCSI)提供IPSEC支持。</block>
@@ -12837,11 +12833,6 @@
   <block id="b59cced8914a5ae4b2997c54c8cfeb8d" category="paragraph">ONTAP 9.11.1</block>
   <block id="6165c4352e1504dbaeef34d0cc50c187" category="paragraph">一致性组</block>
   <block id="3fb697436dcc4f2ae2cdd29dc91fd043" category="paragraph">MetroCluster配置支持一致性组。</block>
-  <block id="7b25d54164390a979173c966708bcd3e" category="paragraph">MetroCluster 配置上的 FabricPool 镜像</block>
-  <block id="456a60d3d7f70b899491cde66c53e366" category="paragraph">您可以在MetroCluster配置上设置镜像FabricPool、以便将冷数据分层到两个不同的故障分区。</block>
-  <block id="50adf775e4799022cdc6de484f49f3f1" category="inline-link">在 MetroCluster 配置中为 FabricPool 设置对象存储</block>
-  <block id="4bac6a2c11bf11dd13d68729ea0a8869" category="paragraph">SVM 灾难恢复</block>
-  <block id="757efaf9f255f5bc7d684262790601ff" category="paragraph">MetroCluster配置中的活动Storage Virtual Machine (SVM)可用作SnapMirror SVM灾难恢复功能的源。</block>
   <block id="47d81ac708cab22da7ea952550b6f757" category="summary">每个版本都提供了ONTAP 调解器的新功能。  下面是新增功能。</block>
   <block id="3261bd656e2112e78b0313c87c039420" category="doc">ONTAP调解器支持中的新增功能</block>
   <block id="9d01d502466559c8d4ff8682b3e00d92" category="paragraph">每个版本都对ONTAP 调解器进行了新的增强。  下面是新增功能。</block>
@@ -12849,11 +12840,8 @@
   <block id="63b6c1d0d10ce89604932c62d9b6f4d7" category="doc">MetroCluster功能中的新增功能</block>
   <block id="3100460fa3d7ba2ea001abefda93f3bc" category="cell">问题描述 以及从何处了解更多信息</block>
   <block id="677eca4ee8daca8d2b9156735c70729b" category="paragraph">使用MetroCluster IP和以太网连接存储的共享交换机从MetroCluster FC过渡到MetroCluster IP</block>
-  <block id="9b9a95d11d51a9dc8ad8f89b7072a66d" category="paragraph"><block ref="9b9a95d11d51a9dc8ad8f89b7072a66d" category="inline-link-rx"></block></block>
   <block id="c8c7ff2d320bb817b5265b97fc451f0b" category="paragraph">从八节点MetroCluster FC配置无中断过渡到MetroCluster IP配置</block>
   <block id="5b9e0c49b03f990a762696dc03ba2d75" category="paragraph">您可以无系统地将工作负载和数据从现有八节点MetroCluster FC配置过渡到新的MetroCluster IP配置。</block>
-  <block id="01040b05589b1144c8bc3e40d5ea5c26" category="inline-link">无系统地从MetroCluster FC过渡到MetroCluster IP配置</block>
-  <block id="6a542f8c97dec2202fc9175dffd6bfb4" category="paragraph"><block ref="6a542f8c97dec2202fc9175dffd6bfb4" category="inline-link-rx"></block></block>
   <block id="473923750a8b861aba12a03eef005b32" category="paragraph">通过切换和切回升级四节点MetroCluster IP配置</block>
   <block id="511f52f2a9874038d0730dcea8df8663" category="paragraph">您可以使用切换和切回升级四节点MetroCluster IP配置中的控制器<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 命令</block>
   <block id="ac725f3c9959f745d971d1c4af95544e" category="inline-link">升级四节点MetroCluster IP配置中的控制器</block>
@@ -12862,63 +12850,27 @@
   <block id="8a6db987355c97228c7eda746c7aab92" category="paragraph">如果一个站点因环境关闭而正常关闭、则会触发MAUSO。</block>
   <block id="2baf765df55a69e9c032792bec126f2c" category="paragraph">支持八节点MetroCluster IP配置</block>
   <block id="5e3aa18041f614fb450ca9a1c9ff1a5b" category="paragraph">您可以通过将八节点MetroCluster IP配置扩展为临时十二节点配置、然后删除旧的DR组来升级该配置中的控制器和存储。</block>
-  <block id="ee794ce3325c3c2b6f8e58083826be5a" category="paragraph"><block ref="ee794ce3325c3c2b6f8e58083826be5a" category="inline-link-rx"></block></block>
   <block id="117c4d63306680989486fb689a87e954" category="paragraph">将MetroCluster IP配置转换为共享存储MetroCluster交换机配置</block>
   <block id="8cbc10058d52d83f095c5e9f4f0e7163" category="paragraph">您可以将MetroCluster IP配置转换为共享存储MetroCluster交换机配置。</block>
-  <block id="fd60e91c0a23b684d9542fc4b71afedc" category="paragraph"><block ref="fd60e91c0a23b684d9542fc4b71afedc" category="inline-link-rx"></block></block>
   <block id="f9a53f3d74b05e12c790f44f7befc006" category="paragraph">MetroCluster IP配置中的MetroCluster自动强制切换功能</block>
   <block id="df40423b91d8f5580bf9273c58f9b677" category="paragraph">您可以在MetroCluster IP配置中启用MetroCluster自动强制切换功能。此功能是调解器辅助计划外切换(MAUSO)功能的扩展。</block>
   <block id="413fbf2b200b0928cca102b1a4ec778b" category="inline-link">自动切换限制</block>
   <block id="a7a1dcf05ac1a96ad6f234699be20abf" category="paragraph"><block ref="a7a1dcf05ac1a96ad6f234699be20abf" category="inline-link-rx"></block></block>
   <block id="d360f541ca25e1873e9d4a8b54ae8934" category="paragraph">MetroCluster IP配置中未镜像聚合上的SVM上的S3</block>
   <block id="4e1e81f02f6df5acb5f22c116f354c5e" category="paragraph">您可以在MetroCluster IP配置中未镜像聚合的SVM上启用ONTAP简单存储服务(S3)对象存储服务器。</block>
-  <block id="ebe82213f65d472c79a3846e6c8ee62e" category="inline-link">使用System Manager和ONTAP 命令行界面进行S3配置</block>
-  <block id="6e0af3dea79051e350502451cc600f87" category="paragraph"><block ref="6e0af3dea79051e350502451cc600f87" category="inline-link-rx"></block></block>
-  <block id="1f9fcd1010f1e0dd33b166603da0ce84" category="paragraph">从MetroCluster FC配置过渡到AFF A250或FAS500f MetroCluster IP配置</block>
   <block id="56d5901b9c1bf4f73e626ae675e092f1" category="paragraph">您可以从MetroCluster FC配置过渡到AFF A250或FAS500f MetroCluster IP配置。</block>
   <block id="082e2199f2e8e7e6ff724185b8487f99" category="paragraph"><block ref="082e2199f2e8e7e6ff724185b8487f99" category="inline-link-rx"></block></block>
   <block id="cdafe0852c5285bf1f5846616c50f62d" category="paragraph">简化了MetroCluster FC配置中节点的控制器升级</block>
   <block id="407ce0bae822f5f1b99e4d9c2a25b062" category="paragraph">通过切换和切回执行升级过程的升级操作步骤已得到简化。</block>
-  <block id="f897370f92c3d8ec5324c468747e4210" category="paragraph"><block ref="f897370f92c3d8ec5324c468747e4210" category="inline-link-rx"></block></block>
   <block id="8cdd736be069554622c436a2c599a593" category="paragraph">第3层共享链路的IP支持</block>
   <block id="691914a2d679340737342aafb1bffe11" category="paragraph">MetroCluster IP配置可通过IP路由(第3层)后端连接来实施。</block>
   <block id="45186ad241074d94a133e683abb6f70a" category="paragraph"><block ref="45186ad241074d94a133e683abb6f70a" category="inline-link-rx"></block></block>
   <block id="74eb178224c5fa701fbcd96998feaafe" category="paragraph">ONTAP 9.9.1</block>
-  <block id="e31476825cd043b784508d2973f3d14a" category="paragraph">支持8节点集群</block>
-  <block id="60d69de6171dd30823b37f82c71230f8" category="paragraph">IP和光纤连接配置支持永久8节点集群。</block>
-  <block id="40d7404018dc8febaca6bd91e9b48ba8" category="inline-link">安装 MetroCluster 组件并为其布线</block>
-  <block id="6af2dc37753a5e6e029fb0ae7fc66f1a" category="paragraph"><block ref="6af2dc37753a5e6e029fb0ae7fc66f1a" category="inline-link-rx"></block></block>
-  <block id="0e0332eeed51af7c88c71e42325f06d2" category="paragraph">简化了使用System Manager管理IP MetroCluster操作的界面</block>
-  <block id="3d8c9252712eac4aee5f46e1eaf70281" category="paragraph">您可以使用System Manager管理IP MetroCluster操作、包括设置IP MetroCluster站点、对站点配对以及配置集群。</block>
-  <block id="d73a7b2e9d0b560c8788684e080bfb89" category="inline-link">管理 MetroCluster 站点</block>
-  <block id="7aec141904db9fbd637afcee9e7edf50" category="paragraph"><block ref="7aec141904db9fbd637afcee9e7edf50" category="inline-link-rx"></block></block>
-  <block id="2fb515b84203369df8a6c693c7612d7a" category="paragraph">使用System Manager执行IP MetroCluster切换和切回</block>
-  <block id="0a96686e2876927129d1d5aef0571af3" category="paragraph">您可以使用System Manager对IP MetroCluster配置执行计划内或计划外切换和切回过程的所有步骤。</block>
-  <block id="bb1a898150cba9c435ba241d8cba4ec7" category="inline-link">MetroCluster 切换和切回</block>
-  <block id="d39d075b61e472ef8c54018caefa8511" category="paragraph"><block ref="d39d075b61e472ef8c54018caefa8511" category="inline-link-rx"></block></block>
-  <block id="8e9be644315ddadb5944dcbc8bf1384e" category="paragraph">支持将工作负载和数据从现有四节点MetroCluster FC配置过渡到新的MetroCluster IP配置。</block>
-  <block id="a9824cae56fb744858ebac6acf84c1e6" category="paragraph"><block ref="a9824cae56fb744858ebac6acf84c1e6" category="inline-link-rx"></block></block>
-  <block id="1a68d4a78f68931df0fce4010d4df302" category="paragraph">新的升级和刷新过程</block>
-  <block id="b3288bd86ff4e4636941ad1ebfeb011c" category="paragraph">支持对四节点MetroCluster FC和IP配置进行硬件升级或刷新。</block>
-  <block id="1beabd2bf8c89043837550cdc3d49b42" category="paragraph">未镜像聚合</block>
-  <block id="44852896b9c6d494436e90ceaa1b720f" category="paragraph">MetroCluster IP配置支持未镜像聚合。</block>
-  <block id="0900886d76d15efaa0e570bd07d1dc1b" category="paragraph"><block ref="0900886d76d15efaa0e570bd07d1dc1b" category="inline-link-rx"></block></block>
-  <block id="e8bfb35048c0270a42b5363420d8d06e" category="paragraph">符合MetroCluster的交换机</block>
-  <block id="dda2ae45f83910f519a8c4d7c9f92c9c" category="paragraph">MetroCluster IP配置可以支持未经NetApp验证的交换机、但前提是它们符合NetApp规范。</block>
-  <block id="e86b2272e3f7c48e112d32e70c0b4f1c" category="paragraph"><block ref="e86b2272e3f7c48e112d32e70c0b4f1c" category="inline-link-rx"></block></block>
-  <block id="b4f5e35865c61d6fc5091755a3ab97ea" category="paragraph">专用第2层网络共享</block>
-  <block id="8975f88edd1882cbd2188fe69d435802" category="paragraph">使用受支持的Cisco交换机的MetroCluster IP配置可以共享现有的网络、而不是使用专用的Cisco MetroCluster。早期的 ONTAP 版本需要专用 ISL 。</block>
-  <block id="83e1d9204a2f1962f867f2b891422e9b" category="paragraph">MetroCluster IP交换机专用于MetroCluster配置、不能共享。只有 MetroCluster IP 交换机上的 MetroCluster ISL 端口才能连接到共享交换机。</block>
-  <block id="8ac8df48acb2ee9b6d05e12a33e47a64" category="paragraph">如果使用共享网络，则客户负责满足共享网络中的 MetroCluster 网络要求。</block>
-  <block id="684d63e7608a9651e2d8bee21d68cf7f" category="paragraph"><block ref="684d63e7608a9651e2d8bee21d68cf7f" category="inline-link-rx"></block></block>
-  <block id="19aa48eac8765adacdffd4326cf95a85" category="paragraph">您可以允许一个集群站点接管另一个集群站点的任务。通过此功能，您可以方便地进行维护或从灾难中恢复。</block>
-  <block id="5b8155e42c3d2db8152488c62b6cf9ea" category="paragraph"><block ref="5b8155e42c3d2db8152488c62b6cf9ea" category="inline-link-rx"></block></block>
   <block id="5575ad3a333d0c5383b802ef33e4e17a" category="cell">Broadcom IP交换机</block>
   <block id="a28a8f1b6ed98f7c514003193e44ac48" category="cell">Cisco IP交换机</block>
   <block id="f0936c8d947d6fc9958bb86b9f3f74f8" category="paragraph">Nexus 9336C-x2</block>
   <block id="aff36115ba8ba0cb671d3dfa2208bed1" category="paragraph">933966</block>
   <block id="ef0b6886d8755e5cb21c0bd5f9f81c01" category="cell">NVIDIA交换机</block>
-  <block id="d4acd79e74a2b88899e53bc903561aae" category="paragraph">同一个NVIDIA SN2100交换机上有多个MC IP配置</block>
   <block id="155bba03249764c61fd72335fd0c56c8" category="paragraph">SN2100</block>
   <block id="0aa28fce3490c51be9c1cc5c337f1c9d" category="cell">MetroCluster FC配置中支持的平台</block>
   <block id="f0291c0e14447de291af4fef3e275d43" category="paragraph">ASA AFF A700和ASA AFF A400</block>
@@ -13015,7 +12967,6 @@
   <block id="0523cf29ce37abad9282f80ffd3f533e" category="paragraph"><block ref="0523cf29ce37abad9282f80ffd3f533e" category="inline-link-macro-rx"></block></block>
   <block id="f09a5dc7d9c973e1f6ab3e9ffa36921c" category="paragraph">四节点MetroCluster IP配置支持NVMe/FC协议。</block>
   <block id="581b029a5b5e612bbb2ff34e6b1ff9ad" category="paragraph"><block ref="581b029a5b5e612bbb2ff34e6b1ff9ad" category="inline-link-rx"></block></block>
-  <block id="629ea23148e9d8c2d0f002e89411b05a" category="paragraph">了解MetroCluster的新增功能。</block>
   <block id="efd20e2b544e4614b2e657ac6783ec0a" category="paragraph">MetroCluster IP支持端到端加密</block>
   <block id="4a4b85199291f3e23fc84fb47fb5ca30" category="paragraph">AFF A400、FAS9300和FAS4700系统支持端到端加密、用于加密MetroCluster IP配置中站点之间的后端流量、例如NVlog和存储复制数据。</block>
   <block id="a9734ca6d9ffb317f9b6a802b2dbb3aa" category="inline-link-macro">在MetroCluster IP配置中配置端到端加密</block>
@@ -13039,7 +12990,6 @@
   <block id="c1604d057494bf6abab3a40147fecf7c" category="paragraph"><block ref="eea57ee5f23bab30ed50dbeb23a75f4f" prefix="" category="inline-code"></block></block>
   <block id="bd000f3bd62ff510f9146882628ce226" category="paragraph">如果启用了加密、则会显示以下输出：</block>
   <block id="98db7bcad911ca4f97f6c512fd15dba5" category="admonition">请参见 <block ref="21cf3ec43c40018cebe1c66cf55306b2" category="inline-link-macro-rx"></block> 适用于受支持的系统。</block>
-  <block id="03e22cbc7470f9e3b1bc635479554ca9" category="sidebar">MetroCluster中的新增功能对ONTAP功能的支持</block>
   <block id="89753eb00eabd16383d2c616cc908230" category="sidebar">MetroCluster IP平台和交换机支持中的新增功能</block>
   <block id="1a8f5be2d2808b5d69a091661c1fdb57" category="paragraph"><block ref="1a8f5be2d2808b5d69a091661c1fdb57" category="inline-link-macro-rx"></block></block>
   <block id="d8654b161561461c8ec014d5d660db0d" category="list-text">验证存储是否可见。</block>
@@ -14043,10 +13993,7 @@
   <block id="1066b653c05c9422872505d252585c67" category="list-text">在非MetroCluster HA对和MetroCluster IP配置之间迁移SVM</block>
   <block id="5816bf9644a6b97b7fab54df8e6d7b87" category="list-text">在两个MetroCluster IP配置之间迁移SVM</block>
   <block id="f2e68eb15ce94074c593f47c4551c279" category="list-text">在MetroCluster FC配置和MetroCluster IP配置之间迁移SVM</block>
-  <block id="3216bae762aaea90ccbe2d5d66257bd4" category="paragraph"><block ref="3216bae762aaea90ccbe2d5d66257bd4" category="inline-link-rx"></block></block>
-  <block id="880eaa973bb0ff52dbc4df4784ed8c3c" category="paragraph"><block ref="880eaa973bb0ff52dbc4df4784ed8c3c" category="inline-link-rx"></block></block>
   <block id="6b4b294441005b502ad66f4e60a001a3" category="paragraph"><block ref="6b4b294441005b502ad66f4e60a001a3" category="inline-link-rx"></block></block>
-  <block id="9bebdd73a8a23cb6bb096e8f8b057db5" category="paragraph"><block ref="9bebdd73a8a23cb6bb096e8f8b057db5" category="inline-link-rx"></block></block>
   <block id="3ced15298365cc7265357bcef11cbe1f" category="paragraph">AFF A20、AFF A30、AFF A50、AFF C30、AFF C60、AFF C80</block>
   <block id="8643f1ec20c68bd9122a5e9c431fe6fe" category="paragraph">FAS70、FAS90</block>
   <block id="cf937098cb61f15ebce14d9fb043e796" category="paragraph">ONTAP 9.15.1P3</block>
@@ -14780,4 +14727,29 @@
   <block id="0fd6026f96835994e1e5d178235825d6" category="list-text">对要升级的一个或多个DR组中的所有节点重复上述步骤。</block>
   <block id="29a7afcbdc44731ef5db6482e263bc76" category="paragraph">要升级到9.15.1 9.151或更高版本中引入的系统、您需要先在旧控制器上设置启动程序、然后才能开始升级。</block>
   <block id="ffb8d6643ebe516c638a6ca5b500299d" category="list-text">对要升级的DR组中的所有四个节点重复上述步骤。</block>
+  <block id="d91bce8efd531c677e67c52eb81908cc" category="doc">了解MetroCluster维护</block>
+  <block id="8f618269f9967b96ce33544121035a9a" category="paragraph">了解如何为MetroCluster维护任务做准备、并为您的配置选择正确的维护过程。</block>
+  <block id="8e6a6bb2a11b393a9057f7dbe3020eb5" category="section-title">准备执行维护任务</block>
+  <block id="2f88ee06f39dab40731582574999f455" category="paragraph">在执行任何维护过程之前、请查看中的信息<block ref="5a8b1a02a6386170f533536223bf98d5" category="inline-link-macro-rx"></block>。</block>
+  <block id="fd7c141e5668b744255a1dd7a90f41c4" category="admonition">在执行维护任务之前、您必须启用控制台日志记录并删除ONTAP调解器或Tieb破碎 机监控。</block>
+  <block id="b80ae8ea59efa256f4a5f942715a890c" category="paragraph">同一台NVIDIA SN2100交换机上有多个MetroCluster IP配置</block>
+  <block id="95f1bb399dfbeed60895657cbcc52513" category="inline-link">MetroCluster支持S3</block>
+  <block id="e99dbc843da5e3a0670e4a0f25d0ac06" category="paragraph"><block ref="e99dbc843da5e3a0670e4a0f25d0ac06" category="inline-link-rx"></block></block>
+  <block id="ead106879beaea3e163b3107feef2e78" category="inline-link-macro">在MetroCluster配置中的镜像或未镜像聚合上创建ONTAP S3存储分段</block>
+  <block id="02d7d8d32db9a7cc636933b822e44d81" category="paragraph"><block ref="02d7d8d32db9a7cc636933b822e44d81" category="inline-link-macro-rx"></block></block>
+  <block id="a0b47fb89b5abf26de89a08da113da06" category="paragraph"><block ref="a0b47fb89b5abf26de89a08da113da06" category="inline-link-rx"></block></block>
+  <block id="4fef202bd5cfe67a95fe547260ffbbf1" category="inline-link">无故障从MetroCluster FC过渡到MetroCluster IP配置</block>
+  <block id="b906747e620a17381dba7bbb539db79b" category="paragraph"><block ref="b906747e620a17381dba7bbb539db79b" category="inline-link-rx"></block></block>
+  <block id="62b2173b522c676cd5b204899e871332" category="inline-link">刷新四节点 MetroCluster IP 配置</block>
+  <block id="982930ac8fbf4a67945efdee68cd51a9" category="paragraph"><block ref="982930ac8fbf4a67945efdee68cd51a9" category="inline-link-rx"></block></block>
+  <block id="bf8027982a2773871f133f6df59c6ddc" category="inline-link">更换 IP 交换机</block>
+  <block id="9843a2cfc38823fe057e20a590f7c8d5" category="paragraph"><block ref="9843a2cfc38823fe057e20a590f7c8d5" category="inline-link-rx"></block></block>
+  <block id="2cf1e90be4fa4450d57dab069599bee3" category="paragraph">从MetroCluster FC配置过渡到AFF A250或FAS500f MetroCluster IP配置</block>
+  <block id="d55368c3594f410657be0f2ce08d4263" category="inline-link">MetroCluster 配置中的一致性组</block>
+  <block id="74f7144c1e56934be6456fafbd118a96" category="paragraph"><block ref="74f7144c1e56934be6456fafbd118a96" category="inline-link-rx"></block></block>
+  <block id="9d11e1781fbe5b44456d1d295cddc92b" category="inline-link">使用切换和切回升级 MetroCluster FC 配置中的控制器</block>
+  <block id="a78d0a3000a64a87d913b2ca0d0a0663" category="paragraph"><block ref="a78d0a3000a64a87d913b2ca0d0a0663" category="inline-link-rx"></block></block>
+  <block id="47c5dc57c727f22af1ac884b3169ca06" category="paragraph">支持八节点MetroCluster配置</block>
+  <block id="61c5b898fb73fa93fc5e839741da576e" category="paragraph">IP和光纤连接MetroCluster配置支持永久八节点集群。</block>
+  <block id="0f58a32a1bffeb9bb247bbf5ce1a2f3f" category="paragraph"><block ref="0f58a32a1bffeb9bb247bbf5ce1a2f3f" category="inline-link-rx"></block></block>
 </blocks>

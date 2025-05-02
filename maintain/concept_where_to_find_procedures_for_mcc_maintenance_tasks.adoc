@@ -4,22 +4,37 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, find, procedures, maintenance, tasks 
 summary: 在执行 MetroCluster 硬件维护任务时，您应确保选择正确的操作步骤。 
 ---
-= 从何处查找 MetroCluster 维护任务的过程
+= 了解MetroCluster维护
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-在执行 MetroCluster 硬件维护任务时，您应确保选择正确的操作步骤。
+了解如何为MetroCluster维护任务做准备、并为您的配置选择正确的维护过程。
 
-.不同类型MetroCluster配置的维护过程
+
+
+== 准备执行维护任务
+
+在执行任何维护过程之前、请查看中的信息link:enable-console-logging-before-maintenance.html["准备MetroCluster维护"]。
+
+
+NOTE: 在执行维护任务之前、您必须启用控制台日志记录并删除ONTAP调解器或Tieb破碎 机监控。
+
+
+
+== 不同类型MetroCluster配置的维护过程
+
 * 如果您使用的是MetroCluster IP配置，请查看中的过程link:task-modify-ip-netmask-properties.html["MetroCluster IP配置的维护过程"]。
 * 如果您使用的是MetroCluster FC配置，请查看中的过程link:task_modify_switch_or_bridge_ip_address_for_health_monitoring.html["MetroCluster FC配置的维护过程"]。
 * 如果在特定章节中找不到适用于您的配置的过程，请查看中的过程link:task_replace_a_shelf_nondisruptively_in_a_stretch_mcc_configuration.html["所有MetroCluster配置的维护过程"]。
 
 
-.所有其他维护程序
+
+
+== 所有其他维护程序
+
 下表提供了上述三节中未介绍的与MetroCluster维护相关的步骤的链接：
 
 |===
