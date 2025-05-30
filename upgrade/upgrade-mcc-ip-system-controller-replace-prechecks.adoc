@@ -117,7 +117,7 @@ NOTE: 您应按以下顺序更新交换机：switch_A_1、switch_B_1、switch_A_
 
 == 执行系统预检
 
-在启动预检之前、如果安装了ONTAP 调解器、则会自动检测并删除该调解器。要确认删除、系统会提示您输入用户名和密码。完成升级后，或者如果预检失败或您选择不继续升级，则必须手动执行link:../install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["重新配置ONTAP调解器服务"]。
+在启动预检之前、如果安装了ONTAP 调解器、则会自动检测并删除该调解器。要确认删除、系统会提示您输入用户名和密码。完成升级后，或者如果预检失败或您选择不继续升级，则必须手动执行link:../install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["重新配置 ONTAP 调解器"]。
 
 在升级期间的任何阶段，您都可以从站点 A 运行 `ssystem controller replace show` 或 `ssystem controller replace show-details` 命令来检查状态。如果这些命令返回空白输出，请等待几分钟，然后重新运行此命令。
 

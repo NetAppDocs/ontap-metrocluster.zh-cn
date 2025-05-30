@@ -1,23 +1,23 @@
 ---
 permalink: install-ip/task_remove_unconfigure_mediator.html 
 sidebar: sidebar 
-keywords: ontap, mediator, service, assist, remove, unconfigure, requirements, mediator requirements 
-summary: 您可以从ONTAP IP配置中删除MetroCluster 调解器服务。 
+keywords: ontap, mediator, assist, remove, unconfigure, requirements, mediator requirements 
+summary: 您可以从 MetroCluster IP 配置中删除 ONTAP 调解器。 
 ---
-= 从MetroCluster IP配置中取消配置ONTAP 调解器服务
+= 从 MetroCluster IP 配置中取消配置 ONTAP 调解器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您可以从MetroCluster IP配置取消配置ONTAP 调解器服务。
+您可以从 MetroCluster IP 配置中取消配置 ONTAP 调解器。
 
 .开始之前
-您必须已在两个ONTAP 站点均可访问的网络位置上成功安装和配置MetroCluster 调解器。
+您必须已在两个 MetroCluster 站点均可访问的网络位置上成功安装和配置 ONTAP 调解器。
 
 .步骤
-. 使用以下命令取消配置ONTAP 调解器服务：
+. 使用以下命令取消配置 ONTAP 调解器：
 +
 `MetroCluster configuration-settings mediator remove`
 
@@ -26,7 +26,7 @@ summary: 您可以从ONTAP IP配置中删除MetroCluster 调解器服务。
 
 +
 
-NOTE: 如果ONTAP调解器已关闭、则 `metrocluster configuration-settings mediator remove` 命令仍会提示您输入ONTAP调解器管理员用户帐户的用户名和密码、并从MetroCluster配置中删除ONTAP调解器服务。
+NOTE: 如果 ONTAP 调解器发生故障，  `metrocluster configuration-settings mediator remove`命令仍会提示您输入 ONTAP Mediator 管理员用户帐户的用户名和密码，并从 MetroCluster 配置中删除 ONTAP Mediator。
 
 +
 .. 使用以下命令检查是否存在任何损坏的磁盘：
@@ -42,7 +42,7 @@ There are no entries matching your query.
 ....
 
 
-. 在两个集群上运行以下命令、以确认ONTAP 调解器服务已从MetroCluster 配置中删除：
+. 通过在两个集群上运行以下命令，确认 ONTAP 调解器已从 MetroCluster 配置中删除：
 +
 .. `metrocluster configuration-settings mediator show`
 +

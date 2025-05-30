@@ -2,24 +2,24 @@
 permalink: install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html 
 sidebar: sidebar 
 keywords: metrocluster, mediator, configure 
-summary: 必须在 ONTAP 节点上配置 ONTAP 调解器服务，才能在 MetroCluster IP 配置中使用。 
+summary: 必须在 ONTAP 节点上配置 ONTAP 调解器才能在 MetroCluster IP 配置中使用。 
 ---
-= 从 MetroCluster IP 配置配置 ONTAP 调解器服务
+= 通过 MetroCluster IP 配置来配置 ONTAP 调解器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-必须在 ONTAP 节点上配置 ONTAP 调解器服务，才能在 MetroCluster IP 配置中使用。
+必须在 ONTAP 节点上配置 ONTAP 调解器才能在 MetroCluster IP 配置中使用。
 
 .开始之前
 * ONTAP 调解器必须已成功安装在两个 MetroCluster 站点均可访问的网络位置上。
 +
-link:https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ONTAP 调解器服务"^]
+link:https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ONTAP 调解器"^]
 
-* 您必须具有运行 ONTAP 调解器服务的主机的 IP 地址。
-* 您必须具有 ONTAP 调解器服务的用户名和密码。
+* 您必须拥有运行 ONTAP Mediator 的主机的 IP 地址。
+* 您必须拥有 ONTAP Mediator 的用户名和密码。
 * MetroCluster IP 配置的所有节点都必须联机。
 
 
@@ -29,11 +29,11 @@ CAUTION: 从ONTAP 9.12.1开始、您可以在MetroCluster IP配置中启用Metro
 .关于此任务
 * 默认情况下，此任务会启用自动计划外切换。
 * 此任务可在 MetroCluster IP 配置中任何节点的 ONTAP 接口上执行。
-* 一次安装 ONTAP 调解器服务时，最多可以配置五个 MetroCluster IP 配置。
+* ONTAP Mediator 的单个安装最多可以配置五个 MetroCluster IP 配置。
 
 
 .步骤
-. 将 ONTAP 调解器服务添加到 ONTAP ：
+. 将 ONTAP 调解器添加到 ONTAP：
 +
 MetroCluster configuration-settings mediator add -mediate-address _ip-address-fo-medier-host_`
 

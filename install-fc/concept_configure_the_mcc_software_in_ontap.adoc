@@ -2920,6 +2920,10 @@ Controller_A_1::> security login create -user-or-group-name snmpv3user -applicat
 ----
 . 根据需要在您的站点上响应以下提示：
 +
+
+NOTE: 对于 EngineID，按 *ENTER* 分配默认值。
+
++
 [listing]
 ----
 

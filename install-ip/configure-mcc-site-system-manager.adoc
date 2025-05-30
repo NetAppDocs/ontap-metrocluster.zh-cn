@@ -37,7 +37,7 @@ summary: 从System Manager-8开始、您可以使用ONTAP 9管理器管理MetroC
 . 单击 * 配置 MetroCluster * 。在此窗口中、执行以下步骤：
 +
 .. 此时将显示 MetroCluster 配置中每个集群的节点。使用下拉列表选择本地集群中要与远程集群中的节点成为灾难恢复配对节点的节点。
-.. 如果要配置ONTAP调解器服务、请单击此复选框。请参阅。 link:./task-sm-mediator.html["配置 ONTAP 调解器服务"]
+.. 如果要配置 ONTAP 调解器，请单击该复选框。请参阅。 link:./task-sm-mediator.html["配置 ONTAP 调解器"]
 .. 如果两个集群都有用于启用加密的许可证，则会显示 * 加密 * 部分。
 +
 要启用加密，请输入密码短语。

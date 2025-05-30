@@ -604,7 +604,7 @@ aggr_data_a2
 您必须将新的 DR 组加入 MetroCluster 配置，并在新节点上创建镜像数据聚合。
 
 .步骤
-. 根据MetroCluster 具有单个或多个数据聚合来配置它：
+. 根据两个集群上是否有单个或多个数据聚合来配置 MetroCluster：
 +
 |===
 
@@ -613,7 +613,7 @@ aggr_data_a2
 
 
  a| 
-多个数据聚合
+两个集群上的多个数据聚合
  a| 
 从任何节点的提示符处，配置 MetroCluster ：
 
@@ -625,7 +625,7 @@ NOTE: 您必须运行 `MetroCluster configure` 和 * 不 * `MetroCluster configu
 
 
  a| 
-一个镜像数据聚合
+两个集群上的单个镜像数据聚合
  a| 
 .. 在任何节点的提示符处，更改为高级权限级别：
 +

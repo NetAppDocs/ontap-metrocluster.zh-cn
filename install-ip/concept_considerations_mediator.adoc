@@ -19,7 +19,7 @@ summary: 各种 MetroCluster 配置在所需组件方面存在主要差异。
 +
 在这些配置中，如果控制器发生故障，但存储（和网桥，如果存在）仍可运行，则会启动 AUSO 。
 
-* * 使用 ONTAP 调解器服务的 MetroCluster IP 配置（ ONTAP 9.7 及更高版本） *
+* *使用 ONTAP Mediator 的 MetroCluster IP 配置（ONTAP 9.7 及更高版本）*
 +
 在这些配置中， MAUSO 会在与 AUSO 相同的情况下启动，如上所述，也会在站点完全发生故障（控制器，存储和交换机）后启动。
 

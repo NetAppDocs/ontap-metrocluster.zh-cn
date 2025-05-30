@@ -64,21 +64,42 @@ e0b ， e0d
 | 交换机型号 | MetroCluster IP 节点型号 | 交换机端口 | 连接到 
 
 
-.2+| Cisco 3132Q-V、3232C或9336C-x2 .2+| 任意  a| 
-5.
+| Cisco 3132Q-V  a| 
+任意
+ a| 
+5、6
  a| 
 FC节点上的本地集群接口
 
 
 
  a| 
-6.
+思科 3232C 或 9336C-FX2
+ a| 
+任意
+ a| 
+5、6 或 13、14
+
+*注意：*仅当您选择两种速度模式时才能使用交换机端口 13 和 14。
  a| 
 FC节点上的本地集群接口
 
 
 
-.6+| Broadcom BES-53248  a| 
+ a| 
+思科 9336C-FX2 共享
+ a| 
+任意
+ a| 
+3、4 或 11、12
+
+*注意：*仅当您选择两种速度模式时才能使用交换机端口 11 和 12。
+ a| 
+FC节点上的本地集群接口
+
+
+
+.3+| Broadcom BES-53248  a| 
 FAS500f/A250
  a| 
 1 - 6
@@ -100,6 +121,19 @@ FC节点上的本地集群接口
 FAS8300/A400/FAS8700
  a| 
 1 - 6
+ a| 
+FC节点上的本地集群接口
+
+
+
+ a| 
+NVIDIA SN2100
+ a| 
+任意
+ a| 
+5、6或11、12
+
+*注意：*仅当您选择两种速度模式时才能使用交换机端口 11 和 12。
  a| 
 FC节点上的本地集群接口
 
@@ -271,20 +305,23 @@ link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安�
 您应使用 MetroCluster IP 节点支持的最新固件。
 
 +
-*** link:../install-ip/task_switch_config_broadcom.html["下载并安装 Broadcom 交换机 EFOS 软件"]
-*** link:../install-ip/task_switch_config_cisco.html["下载并安装 Cisco 交换机 NX-OS 软件"]
+*** link:../install-ip/task_switch_config_broadcom.html["下载并安装Broadcom交换机EFOS软件"]
+*** link:../install-ip/task_switch_config_cisco.html["下载并安装Cisco交换机NX-OS软件"]
+*** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-cumulus-software["下载并安装 NVIDIA Cumulus 软件"]
 
 
 .. 准备 IP 交换机以应用新的 RCF 文件。
 +
-*** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"] *
-*** link:../install-ip/task_switch_config_cisco.html["将 Cisco IP 交换机重置为出厂默认值"]
+*** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"]
+*** link:../install-ip/task_switch_config_cisco.html["将Cisco IP交换机重置为出厂默认值"]
+*** link:../install-ip/task_switch_config_nvidia.html#reset-the-nvidia-ip-sn2100-switch-to-factory-defaults["将NVIDIA IP SN2100交换机重置为出厂默认值"]
 
 
 .. 根据交换机供应商的不同，下载并安装 IP RCF 文件。
 +
 *** link:../install-ip/task_switch_config_broadcom.html["下载并安装 Broadcom IP RCF 文件"]
 *** link:../install-ip/task_switch_config_cisco.html["下载并安装 Cisco IP RCF 文件"]
+*** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["下载并安装NVIDIA RCF文件"]
 
 
 

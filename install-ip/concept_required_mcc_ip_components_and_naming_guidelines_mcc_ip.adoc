@@ -122,7 +122,17 @@ NOTE: 板载端口内置在控制器硬件(插槽0)中、无法更换、因此�
 | 平台型号 | 需要千兆以太网适配器 | 适配器所需的插槽 | 端口 
 
 
-| AFF A900、ASA A900和FAS9500 | X91146A | 插槽 5 ，插槽 7 | e5b ， e7b 
+ a| 
+AFF A900、ASA A900和FAS9500
+ a| 
+X91146A
+ a| 
+插槽 5 ，插槽 7
+ a| 
+e5b ， e7b
+
+*注意：*端口 e5a 和 e7a 仅可用于集群间 LIF。不能将这些端口用于数据 LIF。
+
 
 
  a| 
@@ -284,7 +294,10 @@ link:concept_considerations_drive_assignment.html["了解MetroCluster IP配置�
 
 在支持的最低配置中，每个站点至少需要一个磁盘架。
 
-MetroCluster 配置支持 RAID-DP 和 RAID4 。
+MetroCluster 配置支持 RAID-DP、RAID4 和 RAID-TEC。
+
+
+NOTE: 从ONTAP 9.4开始、MetroCluster IP配置支持使用自动磁盘分配和ADP (高级驱动器分区)进行新安装。有关详细信息、请参见 link:../install-ip/concept_considerations_drive_assignment.html["自动驱动器分配和 ADP 系统的注意事项"] 。
 
 
 

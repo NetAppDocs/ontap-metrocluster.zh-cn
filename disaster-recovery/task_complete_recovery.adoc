@@ -448,13 +448,13 @@ cluster_A::>
 
 
 
-== 重新配置 ONTAP 调解器服务（ MetroCluster IP 配置）
+== 重新配置 ONTAP 调解器（MetroCluster IP 配置）
 
-如果您的 MetroCluster IP 配置已配置 ONTAP 调解器服务，则必须删除并重新配置与调解器的关联。
+如果您具有使用 ONTAP 调解器配置的 MetroCluster IP 配置，则必须删除并重新配置与 ONTAP 调解器的关联。
 
 .开始之前
-* 您必须具有 ONTAP 调解器服务的 IP 地址，用户名和密码。
-* 必须在 Linux 主机上配置 ONTAP 调解器服务并使其正常运行。
+* 您必须拥有 ONTAP Mediator 的 IP 地址、用户名和密码。
+* ONTAP Mediator 必须在 Linux 主机上配置并运行。
 
 
 .步骤
@@ -554,7 +554,7 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 
 
 
-. 对于使用 ONTAP 调解器服务的 MetroCluster IP 配置，请确认调解器服务已启动且正在运行。
+. 对于使用 ONTAP 调解器的 MetroCluster IP 配置，请确认 ONTAP 调解器已启动并正在运行。
 +
 .. 检查调解器磁盘是否对系统可见：
 +

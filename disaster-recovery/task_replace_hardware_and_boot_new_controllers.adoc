@@ -282,7 +282,7 @@ dr-group-id cluster    node      node-systemid dr-partner-systemid
 ----
 
 
-. 对于使用 ONTAP 调解器服务的 MetroCluster IP 配置，请获取 ONTAP 调解器服务的 IP 地址：
+. 对于使用 ONTAP 调解器的 MetroCluster IP 配置，获取 ONTAP 调解器的 IP 地址：
 +
 `storage iscsi-initiator show -node * -label mediator`
 

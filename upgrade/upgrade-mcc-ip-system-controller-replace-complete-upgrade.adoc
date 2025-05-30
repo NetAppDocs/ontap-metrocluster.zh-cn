@@ -59,7 +59,7 @@ summary: 通过验证网络可访问性并还原任何监控配置来完成自�
 
 手动配置在开始升级之前自动删除的ONTAP 调解器。
 
-. 使用中的步骤 link:../install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"]。
+. 使用中的步骤link:../install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["通过 MetroCluster IP 配置来配置 ONTAP 调解器"]。
 
 
 

@@ -11,9 +11,9 @@ summary: 每个版本都提供了ONTAP 调解器的新功能。  下面是新增
 
 
 [role="lead"]
-每个版本都对ONTAP 调解器进行了新的增强。  下面是新增功能。
+每个版本都提供了对 ONTAP Mediator 的新增强功能。下面是新增功能。
 
-有关在MetroCluster配置中安装或升级ONTAP调解器的详细信息、请访问 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html["准备安装 ONTAP 调解器服务"^]。
+有关在 MetroCluster 配置中安装或升级 ONTAP 调解器的详细信息，您可以访问link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html["准备安装 ONTAP 调解器"^] 。
 
 [cols="75,25"]
 |===
@@ -34,7 +34,7 @@ ONTAP 9.13.1
 
 
  a| 
-最初支持在MetroCluster IP配置中使用ONTAP调解器服务
+MetroCluster IP 配置中对 ONTAP 调解器的初步支持
  a| 
 ONTAP 9.7
 

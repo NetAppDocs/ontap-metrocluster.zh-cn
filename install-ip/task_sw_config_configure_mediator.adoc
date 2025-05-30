@@ -16,11 +16,11 @@ summary: 您可以从第三个站点下载并安装 MetroCluster Tiebreaker 软�
 .开始之前
 您必须有一个可用的 Linux 主机，该主机可通过网络连接到 MetroCluster 配置中的两个集群。具体要求请参见 MetroCluster Tiebreaker 或 ONTAP 调解器文档。
 
-如果要连接到现有 Tiebreaker 或 ONTAP 调解器实例，则需要 Tiebreaker 或调解器服务的用户名，密码和 IP 地址。
+如果您要连接到现有的 Tiebreaker 或 ONTAP Mediator 实例，则需要 Tiebreaker 或 Mediator 的用户名、密码和 IP 地址。
 
 如果您必须安装新的 ONTAP 调解器实例，请按照说明安装和配置软件。
 
-link:concept_mediator_requirements.html["为计划外自动切换配置 ONTAP 调解器服务"]
+link:concept_mediator_requirements.html["配置 ONTAP 调解器以实现计划外自动切换"]
 
 如果您必须安装 Tiebreaker 软件的新实例，请按照执行操作 link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["安装和配置软件的说明"]。
 
@@ -30,9 +30,9 @@ link:concept_mediator_requirements.html["为计划外自动切换配置 ONTAP �
 link:../install-ip/concept_considerations_mediator.html["使用 ONTAP 调解器或 MetroCluster Tiebreaker 的注意事项"]
 
 .步骤
-. 配置 ONTAP 调解器服务或 Tiebreaker 软件：
+. 配置 ONTAP Mediator 或 Tiebreaker 软件：
 +
-** 如果使用的是现有的 ONTAP 调解器实例，请将 ONTAP 调解器服务添加到 ONTAP ：
+** 如果您正在使用 ONTAP 调解器的现有实例，请将 ONTAP 调解器添加到 ONTAP：
 +
 MetroCluster configuration-settings mediator add -mediate-address ip-address-o-o-medier-host`
 

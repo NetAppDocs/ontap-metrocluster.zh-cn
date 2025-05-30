@@ -191,7 +191,7 @@ link:https://software.cisco.com/download/home["Cisco 软件下载"^]
 `copy sftp ： //root@server-IP-address/tftpboot/NX-os-file-name bootflash ： vRF management`
 
 +
-在此示例中， nxos.7.0.3.I4.6.bin 文件将从 SFTP 服务器 10.10.99.99 复制到本地 bootflash ：
+在本例中，nxos.7.0.3.I4.6.bin 文件和 EPLD 映像从 SFTP 服务器 10.10.99.99 复制到本地 Bootflash：
 
 +
 [listing]
@@ -205,6 +205,18 @@ Fetching /tftpboot/nxos.7.0.3.I4.6.bin to /bootflash/nxos.7.0.3.I4.6.bin
 /tftpboot/nxos.7.0.3.I4.6.bin                 100%  666MB   7.2MB/s   01:32
 sftp> exit
 Copy complete, now saving to disk (please wait)...
+Copy complete.
+
+IP_switch_A_1# copy sftp://root@10.10.99.99/tftpboot/n9000-epld.9.3.5.img bootflash: vrf management
+root@10.10.99.99's password: password
+sftp> progress
+Progress meter enabled
+sftp> get   /tftpboot/n9000-epld.9.3.5.img  /bootflash/n9000-epld.9.3.5.img
+Fetching /tftpboot/n9000-epld.9.3.5.img to /bootflash/n9000-epld.9.3.5.img
+/tftpboot/n9000-epld.9.3.5.img                 161MB   9.5MB/s   00:16
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+Copy complete.
 ----
 . 在每个交换机上验证交换机 NX-OS 文件是否位于每个交换机的 bootflash 目录中：
 +
@@ -369,6 +381,47 @@ plugin
   Core Plugin, Ethernet Plugin
 IP_switch_A_1#
 ----
+. 升级 EPLD 映像并重新启动交换机。
++
+[listing]
+----
+IP_switch_A_1# install epld bootflash:n9000-epld.9.3.5.img module 1
+Compatibility check:
+Module        Type         Upgradable    Impact      Reason
+------  ------------------ ------------- ----------- -----------------
+     1         SUP         Yes           disruptive  Module Upgradable
+
+Retrieving EPLD versions.... Please wait.
+Images will be upgraded according to following table:
+Module  Type   EPLD              Running-Version   New-Version  Upg-Required
+------- ------ ----------------- ----------------- ------------ ------------
+     1  SUP    MI FPGA           0x07              0x07         No
+     1  SUP    IO FPGA           0x17              0x19         Yes
+     1  SUP    MI FPGA2          0x02              0x02         No
+The above modules require upgrade.
+The switch will be reloaded at the end of the upgrade
+Do you want to continue (y/n) ?  [n] y
+
+Proceeding to upgrade Modules.
+
+Starting Module 1 EPLD Upgrade
+
+Module 1 : IO FPGA [Programming] : 100.00% (     64 of      64 sectors)
+Module 1 EPLD upgrade is successful.
+Module   Type  Upgrade-Result
+-------- ----- --------------
+     1   SUP   Success
+
+EPLDs upgraded.
+
+Module 1 EPLD upgrade is successful.
+----
+
+
+. 在交换机重新启动后，再次登录并验证是否已成功加载新版本的 EPLD 。
++
+`show version module 1 epld`
+
 . 对 MetroCluster IP 配置中的其余三个 IP 交换机重复上述步骤。
 
 

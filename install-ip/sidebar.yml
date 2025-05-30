@@ -77,9 +77,23 @@ entries:
       - title: 在 Cisco 9336C 交换机上配置 MACsec 加密
         url: "/install-ip/task_switch_config_cisco_macsec.html"
     - title: 配置NVIDIA IP交换机
-      url: "/install-ip/task_switch_config_nvidia.html"
-    - title: 配置MetroCluster IP交换机以进行运行状况监控
-      url: "/install-ip/task_config_switch_health.html"
+      entries:
+      - title: 配置NVIDIA SN2100交换机
+        url: "/install-ip/task_switch_config_nvidia.html"
+      - title: 安装CSHM文件
+        url: "/install-ip/task-nvidia-health-monitoring.html"
+  - title: 监控 MetroCluster IP 交换机的运行状况
+    entries:
+    - title: 了解 MetroCluster IP 配置中的交换机运行状况监控
+      url: "/install-ip/configure-cshm-mccip.html"
+    - title: 在 MetroCluster IP 交换机上配置 SNMPv3
+      url: "/install-ip/config-snmpv3.html"
+    - title: 在 MetroCluster IP 交换机上配置日志收集
+      url: "/install-ip/task-configure-log-collection-mccip.html"
+    - title: 管理以太网交换机监控
+      url: "/install-ip/manage-monitor.html"
+    - title: 验证以太网交换机监控
+      url: "/install-ip/task-monitor-verify-mccip.html"
 - title: 在 ONTAP 中配置 MetroCluster 软件
   entries:
   - title: 使用命令行界面配置MetroCluster软件
@@ -118,19 +132,19 @@ entries:
       url: "/install-ip/set-up-mcc-peering-system-manager.html"
     - title: 配置MetroCluster IP站点
       url: "/install-ip/configure-mcc-site-system-manager.html"
-- title: 为计划外自动切换配置 ONTAP 调解器服务
+- title: 配置 ONTAP 调解器以实现计划外自动切换
   entries:
-  - title: 准备安装 ONTAP 调解器服务
+  - title: 准备安装 ONTAP 调解器
     url: "/install-ip/concept_mediator_requirements.html"
-  - title: 从 MetroCluster IP 配置配置 ONTAP 调解器服务
+  - title: 从 MetroCluster IP 配置配置 ONTAP 调解器
     url: "/install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html"
-  - title: 从MetroCluster IP配置中取消配置ONTAP 调解器服务
+  - title: 从 MetroCluster IP 配置中取消配置 ONTAP 调解器
     url: "/install-ip/task_remove_unconfigure_mediator.html"
   - title: 将 MetroCluster 配置连接到其他 ONTAP 调解器实例
     url: "/install-ip/task_connecting_mcc_to_different_mediator_instance.html"
   - title: ONTAP 调解器如何支持自动计划外切换
     url: "/install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html"
-  - title: 使用系统管理器管理ONTAP调解器
+  - title: 使用系统管理器管理 ONTAP 调解器
     url: "/install-ip/task-sm-mediator.html"
 - title: 测试 MetroCluster 配置
   url: "/install-ip/task_test_the_mcc_configuration.html"

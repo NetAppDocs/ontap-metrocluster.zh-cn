@@ -2,23 +2,23 @@
 permalink: install-ip/task-sm-mediator.html 
 sidebar: sidebar 
 keywords: system manager, mediator, metrocluster, mcc, 8-node, ip, configure, remove, mauso, mediator-assisted automatic switchover, switchover, switchback, health 
-summary: 您可以使用System Manager执行任务来管理调解器。 
+summary: 使用系统管理器，您可以执行管理调解器的任务。 
 ---
-= 使用System Manager管理ONTAP调解器
+= 使用系统管理器管理 ONTAP 调解器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您可以使用System Manager执行管理ONTAP调解器的任务。
+使用系统管理器，您可以执行管理 ONTAP 调解器的任务。
 
 .关于这些任务
 从System Manager-8开始、您可以使用ONTAP 9作为管理四节点MetroCluster IP配置的简化界面、其中可以包括安装在第三个位置的ONTAP调解器。
 
 从System Manager.14.1开始、您还可以使用ONTAP 9对八节点MetroCluster IP站点执行这些操作。尽管您无法使用System Manager设置或扩展八节点系统、但如果您已设置八节点MetroCluster IP系统、则可以执行这些操作。
 
-执行以下任务以管理ONTAP调解器。
+执行以下任务来管理 ONTAP 调解器。
 
 [cols="30,70"]
 |===
@@ -28,7 +28,7 @@ summary: 您可以使用System Manager执行任务来管理调解器。
 
 
  a| 
-配置调解器服务
+配置 ONTAP 调解器
  a| 
 MetroCluster 站点上的两个集群都应已启动并建立对等关系。
 
@@ -36,12 +36,12 @@ MetroCluster 站点上的两个集群都应已启动并建立对等关系。
 . 在 ONTAP 9.8 的 System Manager 中，选择 * 集群 > 设置 * 。
 . 在*调解 器*部分中，单击image:icon_gear.gif["操作图标"]。
 . 在 * 配置调解器 * 窗口中，单击 * 添加 +* 。
-. 输入 ONTAP 调解器的配置详细信息。
+. 输入 ONTAP Mediator 的配置详细信息。
 +
-在使用System Manager配置ONTAP调解器时、您可以输入以下详细信息。
+您可以在使用系统管理器配置 ONTAP 调解器时输入以下详细信息。
 
 +
-** 调解器的IP地址。
+** ONTAP 调解器的 IP 地址。
 ** 用户名。
 ** 密码。
 
@@ -61,14 +61,14 @@ MetroCluster 站点上的两个集群都应已启动并建立对等关系。
 . 输入管理员用户名和密码，然后单击*Enable*或*Disable"。
 +
 
-NOTE: 如果可以访问调解器且两个站点均处于"`Normal`"模式、则可以启用或禁用此调解器。如果MetroCluster系统运行状况良好、则在启用或禁用MAUSO后、仍可访问调解器。
+NOTE: 当 ONTAP 调解器可以访问且两个站点均处于“正常”模式时，您可以启用或禁用它。如果 MetroCluster 系统运行正常，则在启用或禁用 MAUSO 时，ONTAP 调解器仍然可以访问。
 
 
 
 
 
  a| 
-从MetroCluster配置中删除调解器
+从 MetroCluster 配置中删除 ONTAP 调解器
  a| 
 .步骤
 . 在 System Manager 中，单击 * 信息板 * 。
@@ -81,7 +81,7 @@ NOTE: 如果可以访问调解器且两个站点均处于"`Normal`"模式、则�
 
 
  a| 
-检查调解器的运行状况
+检查 ONTAP 调解器的运行状况
  a| 
 执行中的System Manager特定步骤link:../maintain/verify-health-mcc-config.html["验证MetroCluster配置的运行状况"]。
 

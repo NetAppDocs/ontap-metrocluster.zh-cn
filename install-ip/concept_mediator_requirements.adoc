@@ -1,10 +1,10 @@
 ---
 permalink: install-ip/concept_mediator_requirements.html 
 sidebar: sidebar 
-keywords: ontap, mediator, service, assist, metrocluster, ip, configuration, perform, automatic, unplan, switchover, physical, repository, status, information, configuring, configure, install, configuring, configure, mtu size, packet loss, bandwidth, firewall, rhel, centos, linux, revert, kernal, upgrade, latency 
-summary: 从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信息提供物理上独立的存储库来协助 MetroCluster IP 配置执行自动计划外切换。 
+keywords: ontap, mediator, assist, metrocluster, ip, configuration, perform, automatic, unplan, switchover, physical, repository, status, information, configuring, configure, install, configuring, configure, mtu size, packet loss, bandwidth, firewall, rhel, centos, linux, revert, kernal, upgrade, latency 
+summary: 从 ONTAP 9.7 开始，ONTAP Mediator 可以通过提供物理上独立的状态信息存储库来帮助 MetroCluster IP 配置执行自动计划外切换。 
 ---
-= 准备安装 ONTAP 调解器服务
+= 准备安装 ONTAP 调解器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,22 +15,22 @@ summary: 从 ONTAP 9.7 开始， ONTAP 调解器服务可以通过为状态信�
 
 以下要求适用于一个灾难恢复组(DR组)。了解更多信息 link:concept_parts_of_an_ip_mcc_configuration_mcc_ip.html#disaster-recovery-dr-groups["DR 组"]。
 
-* 如果您计划更新 Linux 版本，请在安装最新的 ONTAP 调解器服务之前执行此操作。
-* ONTAP 调解器服务和 MetroCluster Tiebreaker 软件不应同时使用相同的 MetroCluster 配置。
-* ONTAP 调解器必须安装在与 MetroCluster 站点不同的 Linux 主机上。
+* 如果您计划更新 Linux 版本，请在安装最新版本的 ONTAP Mediator 之前进行更新。
+* ONTAP Mediator 和 MetroCluster Tiebreaker 软件不应同时与相同的 MetroCluster 配置一起使用。
+* ONTAP 调解器必须安装在与 MetroCluster 站点不同位置的 Linux 主机上。
 +
 ONTAP 调解器与每个站点之间的连接必须是两个单独的故障域。
 
-* ONTAP 调解器服务最多可同时支持五个 MetroCluster 配置。
+* ONTAP Mediator 最多可同时支持五个 MetroCluster 配置。
 * ONTAP 9.7 及更高版本支持自动计划外切换。
 * ONTAP调解器不支持IPv6。
 
 
 
 
-== 在 MetroCluster 配置中使用调解器的网络要求
+== 在 MetroCluster 配置中使用 ONTAP 调解器的网络要求
 
-要在MetroCluster 配置中安装ONTAP 调解器服务、您必须确保此配置满足多个网络要求。
+要在 MetroCluster 配置中安装 ONTAP 调解器，您必须确保该配置满足多个网络要求。
 
 * 延迟
 +
@@ -49,7 +49,7 @@ MTU 大小必须至少为 1400 。
 
 * 带宽
 +
-调解器服务与一个DR组之间的链路必须至少具有20Mbps的带宽。
+ONTAP 调解器和一个 DR 组之间的链接必须至少具有 20Mbps 的带宽。
 
 * 独立连接
 +
@@ -59,7 +59,7 @@ MTU 大小必须至少为 1400 。
 
 
 
-== MetroCluster 配置中ONTAP 调解器的主机要求
+== MetroCluster 配置中 ONTAP 调解器的主机要求
 
 您必须确保配置满足多个主机要求。
 
@@ -143,15 +143,15 @@ ONTAP 调解器 iSCSI 目标
 |===
 
 
-== 在 MetroCluster 配置中升级 ONTAP 调解器的准则
+== 在 MetroCluster 配置中升级 ONTAP 调解器的指南
 
-如果要升级 ONTAP 调解器，则必须满足 Linux 版本要求并遵循升级准则。
+如果要升级 ONTAP Mediator，则必须满足 Linux 版本要求并遵循升级指南。
 
-* 可以将调解器服务从早期版本升级到当前版本。
+* ONTAP Mediator 可以从前一个版本升级到当前版本。
 * 运行 ONTAP 9.7 或更高版本的 MetroCluster IP 配置支持所有调解器版本。
 
 
-link:https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ONTAP 调解器服务"^]
+link:https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ONTAP 调解器"^]
 
 
 

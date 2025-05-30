@@ -1458,7 +1458,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metro
  a| 
 调解器
  a| 
-link:../install-ip/concept_mediator_requirements.html["从 MetroCluster IP 配置配置 ONTAP 调解器服务"] 在 _IP MetroCluster 安装和配置 _ 部分中。
+link:../install-ip/concept_mediator_requirements.html["通过 MetroCluster IP 配置来配置 ONTAP 调解器"]在“MetroCluster IP 安装和配置”部分中。
 
 
 

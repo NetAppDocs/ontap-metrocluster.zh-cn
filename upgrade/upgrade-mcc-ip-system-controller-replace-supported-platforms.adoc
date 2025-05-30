@@ -54,14 +54,14 @@ summary: 开始升级MetroCluster IP控制器之前、您需要验证您的升�
 --
 查看升级到AFF A150、AFF A20、FAS2750、AFF A220、FAS500f、AFF C250、FAS8200、FAS50、AFF C30、AFF A30、AFF A250、AFF C400、AFF A400、FAS8300、AFF A300、AFF A320和FAS8700系统时支持的组合。
 
-image:../media/assisted-group-1.png[""]
+image:../media/assisted-group-1.png["显示 AFF 和 FAS 升级组合组 1"]
 
 --
 .AFF和FAS组合组2
 --
 查看升级到AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF A900、AFF、AFF A90、AFF C800、AFF A800 C80、FAS90、FAS9500和AFF A1K系统时支持的组合。
 
-image:../media/assisted-group-2.png[""]
+image:../media/assisted-group-2-updated.png["显示 AFF 和 FAS 升级组合组 2"]
 
 --
 ====

@@ -20,24 +20,23 @@ summary: 如果要在 MetroCluster IP 配置中使用新的 IP 交换机，则�
 . 安装新 IP 交换机并将其装入机架。
 . 准备 IP 交换机以应用新的 RCF 文件。
 +
-按照中适用于您的交换机供应商的一节中的步骤进行操作 link:../install-ip/using_rcf_generator.html["MetroCluster IP 安装和配置"]
+按照适用于您的交换机供应商的部分中的步骤进行操作：
 
 +
-** link:../install-ip/task_switch_config_broadcom.html["将 Broadcom IP 交换机重置为出厂默认值"]
-** link:../install-ip/task_switch_config_cisco.html["将 Cisco IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["将 Broadcom IP 交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_cisco.html#resetting-the-cisco-ip-switch-to-factory-defaults["将Cisco IP交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_nvidia.html#reset-the-nvidia-ip-sn2100-switch-to-factory-defaults["将NVIDIA IP SN2100交换机重置为出厂默认值"]
 
 
 . 如有必要，将交换机上的固件更新为支持的版本。
 . 使用 RCF 生成器工具根据交换机供应商和平台型号创建 RCF 文件，然后使用该文件更新交换机。
 +
-按照 _IP MetroCluster 安装和配置 _ 中适用于您的交换机供应商一节中的步骤进行操作。
+按照适用于您的交换机供应商的部分中的步骤进行操作：
 
 +
-link:../install-ip/concept_considerations_differences.html["MetroCluster IP 安装和配置"]
-
-+
-** link:../install-ip/task_switch_config_broadcom.html["下载并安装 Broadcom IP RCF 文件"]
-** link:../install-ip/task_switch_config_cisco.html["下载并安装 Cisco IP RCF 文件"]
+** link:../install-ip/task_switch_config_broadcom.html["下载并安装Broadcom IP RC框架 文件"]
+** link:../install-ip/task_switch_config_cisco.html["下载并安装Cisco IP RCC文件"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-cumulus-software["下载并安装NVIDIA RCF文件"]
 
 
 

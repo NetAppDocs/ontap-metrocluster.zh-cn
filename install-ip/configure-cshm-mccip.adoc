@@ -1,0 +1,24 @@
+---
+permalink: install-ip/configure-cshm-mccip.html 
+sidebar: sidebar 
+keywords: ip, switch, connection, configuring, configure, snmp, health, monitoring 
+summary: 您可以将IP交换机配置为使用SNMPv3进行运行状况监控。 
+---
+= MetroCluster IP 配置中的交换机运行状况监控概述
+:allow-uri-read: 
+
+
+[role="lead"]
+以太网交换机运行状况监控器(CSHM)负责确保集群和存储网络交换机的运行状况、并收集交换机日志以进行调试。
+
+
+
+== 在 MetroCluster IP 配置中配置 CSHM 的重要注意事项
+
+本节包含在 Cisco、Broadcom 和 NVIDIA SN2100 交换机上配置 SNMPv3 和日志收集的通用步骤。您必须遵循 MetroCluster IP 配置支持的交换机固件版本的步骤。请参阅link:https://hwu.netapp.com/["Hardware Universe"^]验证支持的固件版本。
+
+在 MetroCluster 配置中，仅在本地集群交换机上配置运行状况监控。
+
+对于使用 Broadcom 和 Cisco 交换机收集日志的情况，应在交换机上为每个启用了日志收集功能的集群创建一个新用户。在 MetroCluster 配置中，这意味着 MetroCluster 1、MetroCluster 2、MetroCluster 3 和 MetroCluster 4 都需要在交换机上配置单独的用户。这些交换机不支持同一用户使用多个SSH密钥。执行的任何其他日志收集设置都会覆盖用户的任何已有SSH密钥。
+
+在配置 CSHM 之前，您应该禁用未使用的 ISL 以避免任何不必要的 ISL 警报。

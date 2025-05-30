@@ -16,6 +16,15 @@
 
 
  a| 
+link:https://www.netapp.com/pdf.html?item=/media/13481-tr4689.pdf["MetroCluster IP 解决方案架构和设计， TR-4689"]
+ a| 
+* MetroCluster IP 配置和操作的技术概述。
+* MetroCluster IP 配置的最佳实践。
+
+
+
+
+ a| 
 link:../install-fc/index.html["光纤连接的 MetroCluster 安装和配置"]
  a| 
 * 光纤连接的 MetroCluster 架构
