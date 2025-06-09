@@ -11,8 +11,7 @@ summary: 您可以将IP交换机配置为使用SNMPv3进行运行状况监控。
 [role="lead"]
 在MetroCluster IP配置中、您可以将SNMPv3配置为监控IP交换机的运行状况。
 
-.关于此任务
-此任务显示在交换机上配置 SNMPv3 的通用步骤。列出的某些交换机固件版本可能不受 MetroCluster IP 配置支持。
+此过程显示在交换机上配置 SNMPv3 的通用步骤。列出的某些交换机固件版本可能不受 MetroCluster IP 配置支持。
 
 您必须按照 MetroCluster IP 配置支持的交换机固件版本的步骤操作。请参阅link:https://hwu.netapp.com["Hardware Universe"^]验证支持的固件版本。
 

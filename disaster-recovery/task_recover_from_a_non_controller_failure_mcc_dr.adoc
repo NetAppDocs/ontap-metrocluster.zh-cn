@@ -186,11 +186,34 @@ mcc1A::> metrocluster operation show
 ====
 . 节点启动完成后、验证根聚合是否已镜像。
 +
-如果两个丛都存在，则任何重新同步都将自动启动。如果丛出现故障、请销毁该丛、然后使用以下命令重新创建镜像、以重新建立镜像关系：
+[role="tabbed-block"]
+====
+.如果 plex 发生故障：
+--
+.. 摧毁失败的 plex：
++
+`storage aggregate plex delete -aggregate <aggregate_name> -plex <plex_name>`
 
+.. 通过重新创建镜像来重新建立镜像关系：
 +
 `storage aggregate mirror -aggregate <aggregate-name>`
 
+
+
+--
+.如果丛处于脱机状态：
+--
+在线丛：
+
+`storage aggregate plex online -aggregate <aggregate_name> -plex <plex_name>`
+
+--
+.如果两个丛都存在：
+--
+重新同步将自动启动。
+
+--
+====
 . 模拟切回操作：
 +
 .. 在任一正常运行的节点的提示符处，更改为高级权限级别：
