@@ -56,9 +56,11 @@ entries:
       url: "/install-ip/using_rcf_generator.html"
     - title: Cisco 3132Q-V 交换机的平台端口分配
       url: "/install-ip/port_usage_3132q.html"
-    - title: Cisco 3232C 或 Cisco 9336C-FX2 交换机的平台端口分配
+    - title: Cisco 3232C 或 36 端口 Cisco 9336C-FX2 交换机的平台端口分配
       url: "/install-ip/port_usage_3232c_9336c.html"
-    - title: 连接NS224存储的Cisco 9336A-拧 动交换机的平台端口分配
+    - title: 12 端口 Cisco 9336C-FX2 交换机的平台端口分配
+      url: "/install-ip/port-usage-9336c-fx-2-12-port.html"
+    - title: 连接 NS224 存储的 36 端口 Cisco 9336C-FX2 交换机的平台端口分配
       url: "/install-ip/port_usage_9336c_shared.html"
     - title: 为 Broadcom 支持的 BES-53248 IP 交换机分配平台端口
       url: "/install-ip/port_usage_bes53248.html"

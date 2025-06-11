@@ -17,11 +17,17 @@ summary: 您必须了解如何使用端口表中的信息正确生成 RCF 文件
 在使用表之前，请查看以下注意事项：
 
 * 下表显示了站点 A 的端口使用情况站点 B 使用相同的布线方式
-* 不能为交换机配置速度不同的端口（例如， 100 Gbps 端口和 40 Gbps 端口的混合）。
-* 跟踪 MetroCluster 端口组（ MetroCluster 1 ， MetroCluster 2 等）。使用 RcfFileGenerator 工具时需要此信息，如此配置操作步骤后面所述。
+* 您不能为交换机配置不同速度的端口（例如，100 Gbps 端口和 40 Gbps 端口的混合）。
+* 跟踪 MetroCluster 端口组（ MetroCluster 1 ， MetroCluster 2 等）。在使用 RcfFileGenerator 工具时您将需要此信息，如本配置过程后面所述。
 * 您应以相同方式为所有节点布线。如果有不同的端口组合选项可用于为节点布线、则所有节点都应使用相同的端口组合。例如、应将node1上的e1a和node2上的e1a连接到一个交换机。同样、两个节点的第二个端口应连接到第二个交换机。
 *  https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["适用于 MetroCluster IP 的 RcfFileGenerator"^]还提供了每个交换机的每端口布线概览。使用此布线概述来验证布线情况。
 
+
+
+
+== 使用缆线将两个 MetroCluster 配置连接到交换机
+
+将多个 MetroCluster 配置布线到交换机时，请根据相应的表格为每个 MetroCluster 布线。例如，如果要将 FAS2750 和 AFF A700 布线到同一台交换机，则应按照表 1 中的“MetroCluster 1”为 FAS2750 布线，按照表 2 中的“MetroCluster 2”或“MetroCluster 3”为 AFF A700 布线。您不能将FAS2750和AFF A700以物理方式连接为MetroCluster 1。
 
 
 
@@ -30,7 +36,7 @@ summary: 您必须了解如何使用端口表中的信息正确生成 RCF 文件
 对于运行 ONTAP 9.8 及更早版本的 MetroCluster 配置，为过渡升级而执行的某些过程要求在配置中再添加一个四节点 DR 组，以创建临时八节点配置。  从ONTAP 9.9.1开始、支持永久八节点MetroCluster配置。
 
 .关于此任务
-对于此类配置，请使用上述相同方法。您需要为另一个四节点 DR 组布线，而不是为另一个 MetroCluster 布线。
+对于八节点配置，使用与上面描述的相同的方法。您需要为另一个四节点 DR 组布线，而不是为另一个 MetroCluster 布线。
 
 例如，您的配置包括以下内容：
 

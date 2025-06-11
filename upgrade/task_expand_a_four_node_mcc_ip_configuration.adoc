@@ -17,6 +17,68 @@ summary: 您可以将四个新节点作为第二个 DR 组添加到 MetroCluster
 
 从 ONTAP 9.1.1 开始，您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。
 
+.重要信息
+在过渡、刷新、八节点安装和四节点扩展过程中，您可能会向 MetroCluster 配置中添加新的平台模型。在这些过程的任何阶段，如果现有 MetroCluster 配置包含使用 *共享集群/HA 端口* 的平台，则您必须将 ONTAP 版本升级到 ONTAP 9.15.1P11 或 ONTAP 9.16.1P4 或更高版本，才能将使用 *共享 MetroCluster/HA 端口* 的平台添加到配置中。
+
+在决定使用此过程之前，请仔细查看下表中的信息。如果第一列列出了您现有的平台，而第二列列出了要添加到配置中的平台，则配置中的所有节点都必须运行 ONTAP 9.15.1P11 或 ONTAP 9.16.1P4 或更高版本才能支持此过程。
+
+
+CAUTION: 现有平台和要添加到配置中的平台必须都运行 ONTAP 9.15.1P11 或 ONTAP 9.16.1P4 或更高版本。
+
+[cols="20,20,20,20,20"]
+|===
+2+| 如果您现有的 MetroCluster 包含... 2+| 您要添加的平台是... | 那么 ... 
+
+
+ a| 
+使用*共享集群/HA 端口*的 AFF 系统：
+
+* AFF A20
+* AFF A30
+* AFF C30
+* AFF A50
+* AFF C60
+* AFF C80
+* AFF A70
+* AFF A90
+* AFF A1K
+
+ a| 
+使用*共享集群/HA 端口*的 FAS 系统：
+
+* FAS50
+* FAS70
+* FAS90
+
+ a| 
+使用*共享 MetroCluster/HA 端口*的 AFF 系统：
+
+* AFF A150、ASA A150
+* AFF A220
+* AFF C250、ASA C250
+* AFF A250、ASA A250
+* AFF A300
+* AFF A320
+* AFF C400、ASA C400
+* AFF A400、ASA A400
+* AFF A700
+* AFF C800、ASA C800
+* AFF A800、ASA A800
+* AFF A900、ASA A900
+
+ a| 
+使用*共享 MetroCluster/HA 端口*的 FAS 系统：
+
+* FAS2750
+* FAS500f
+* FAS8200
+* FAS8300
+* FAS8700
+* FAS9000
+* FAS9500
+
+| 在将新平台添加到现有 MetroCluster 配置之前，请将现有配置和新配置中的所有节点升级到 ONTAP 9.15.1P11 或 ONTAP 9.16.1P4 或更高版本。 
+|===
 .开始之前
 * 新旧节点必须运行相同版本的 ONTAP 。
 * 本操作步骤介绍了向现有MetroCluster IP配置添加一个四节点DR组所需的步骤。如果要刷新八节点配置、则必须对每个DR组重复整个操作步骤、一次添加一个。
