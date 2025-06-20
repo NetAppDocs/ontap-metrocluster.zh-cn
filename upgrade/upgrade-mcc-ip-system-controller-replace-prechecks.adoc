@@ -115,25 +115,37 @@ NOTE: 您应按以下顺序更新交换机：switch_A_1、switch_B_1、switch_A_
 
 
 
-== 执行系统预检
+== 开始控制器更换操作
 
-在启动预检之前、如果安装了ONTAP 调解器、则会自动检测并删除该调解器。要确认删除、系统会提示您输入用户名和密码。完成升级后，或者如果预检失败或您选择不继续升级，则必须手动执行link:../install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["重新配置 ONTAP 调解器"]。
+当您启动自动控制器更换操作时，该操作会发出一系列预检查，然后暂停，以便您可以手动收集与配置相关的信息。
+
+.关于此任务
+在 MetroCluster 检查开始之前，如果已安装 ONTAP 调解器，系统会自动检测并移除它。要确认删除、系统会提示您输入用户名和密码。升级完成后，如果预检失败，或者您选择不继续升级，则必须手动link:../install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["重新配置ONTAP调解器服务"] 。
 
 在升级期间的任何阶段，您都可以从站点 A 运行 `ssystem controller replace show` 或 `ssystem controller replace show-details` 命令来检查状态。如果这些命令返回空白输出，请等待几分钟，然后重新运行此命令。
 
 .步骤
-. 从站点 A 启动自动控制器更换操作步骤，以更换站点 B 的控制器：
+. 从站点 A 运行以下命令来更换站点 B 的控制器：
 +
 `system controller replace start -nso true`
 
 +
-自动操作将执行预检。如果未发现任何问题，此操作将暂停，以便您可以手动收集与配置相关的信息。
-
-+
 [NOTE]
 ====
-** 如果不运行 `system controller replace start -nso true` 命令时、控制器升级操作步骤 会选择基于NSO的自动切换和切回作为MetroCluster IP系统上的默认操作步骤。
-** 此时将显示当前源系统和所有兼容的目标系统。如果您将源控制器更换为 ONTAP 版本不同或平台不兼容的控制器，则在启动新节点后，自动化操作将暂停并报告错误。要将集群恢复为运行状况良好的状态，您需要按照手动恢复操作步骤进行操作。
+** 如果你不使用 `-nso true`命令中的参数，控制器升级过程选择基于 NSO 的自动切换和切回作为 MetroCluster IP 系统上的默认过程。
+** 如果您在一个站点上重复此过程，并且已在另一个站点上更换控制器，则会由于两个站点上的节点不匹配而出现错误。当两个站点上的平台型号不同时，这是预期行为。
++
+如果仅返回不匹配错误，则可以使用 `-skip-metrocluster-check true`选项 `system controller replace start`命令跳过 MetroCluster 检查。
+
+
+
+====
++
+自动化操作执行检查。如果未发现任何问题，此操作将暂停，以便您可以手动收集与配置相关的信息。
+
++
+此时将显示当前源系统和所有兼容的目标系统。如果您将源控制器替换为具有不同 ONTAP 版本或不兼容平台的控制器，则自动化操作将在新节点启动后停止并报告错误。要使集群恢复正常状态，请按照手动恢复过程操作。
+
 +
 `scontroller replace start` 命令可能会报告以下预检错误：
 
@@ -148,9 +160,6 @@ Node-A-1    Failed         MetroCluster check failed. Reason : MCC check showed 
 +
 检查此错误是否是由于未镜像聚合或其他聚合问题描述而发生的。验证所有镜像聚合是否运行正常，并且未降级或镜像降级。如果此错误仅由未镜像聚合引起，则可以通过在 `ssystem controller replace start` 命令中选择 ` skip-metrocluster-check true` 选项来覆盖此错误。如果可以访问远程存储，则未镜像聚合会在切换后联机。如果远程存储链路发生故障，未镜像的聚合将无法联机。
 
-
-
-====
 . `s站点 B 并按照控制台消息中列出的命令在` system controller replace show `s或` system controller replace show-details 命令下手动收集配置信息。
 
 

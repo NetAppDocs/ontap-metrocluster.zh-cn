@@ -113,15 +113,18 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 
 
 
-== 正在准备升级
+== 准备升级。
 
 在对现有 MetroCluster 配置进行任何更改之前，您必须检查此配置的运行状况，准备新平台并执行其他各种任务。
 
 
 
-=== 验证 MetroCluster 配置的运行状况
+=== 验证 MetroCluster 配置的运行状况。
 
-在执行升级之前，您必须验证 MetroCluster 配置的运行状况和连接。
+在执行升级之前，您需要验证 MetroCluster 配置的运行状况和连接性。
+
+
+CAUTION: 在升级第一个站点的控制器之后、升级第二个站点的控制器之前，运行 `metrocluster check run`其次是 `metrocluster check show`返回错误 `config-replication`字段。此错误表示每个站点的节点之间的 NVRAM 大小不匹配，并且当两个站点上的平台型号不同时，这是预期行为。您可以忽略此错误，直到灾难恢复组中的所有节点的控制器升级完成。
 
 .步骤
 . 在 ONTAP 中验证 MetroCluster 配置的运行情况：
@@ -231,7 +234,7 @@ e0a ， e0b
  a| 
 e3a ， e3b
  a| 
-没有匹配的端口。升级后、重新创建集群端口。link:task_prepare_cluster_ports_on_the_exist_controller.html["正在准备现有控制器模块上的集群端口"]
+没有匹配的端口。升级后、重新创建集群端口。link:task_prepare_cluster_ports_on_the_exist_controller.html["准备现有控制器模块上的集群端口"]
 
 
 
@@ -400,7 +403,7 @@ SAN
 
 
 
-=== 升级前收集信息
+=== 在升级之前收集信息
 
 在升级之前、您必须收集每个旧节点的信息、并在必要时调整网络广播域、删除所有VLAN和接口组以及收集加密信息。
 
@@ -746,7 +749,7 @@ network port ifgrp remove-port -node node1 -ifgrp a1a -port e0d
 
 
 
-== 删除旧平台
+== 移除旧平台
 
 必须从配置中删除旧控制器。
 
@@ -1055,7 +1058,7 @@ MCC
 .关于此任务
 此任务在维护模式下执行。
 
-旧系统 ID 在中进行了标识 link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["升级前收集信息"]。
+旧系统ID在中标识 link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["在升级之前收集信息"]。
 
 此操作步骤中的示例使用具有以下系统 ID 的控制器：
 
@@ -1355,7 +1358,7 @@ Rebooting to load the restored env file...
 
 .. 根据需要向广播域添加任何端口。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["从广播域添加或删除端口"]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["在广播域中添加或删除端口"]
 
 .. 将用于托管集群间 LIF 的物理端口添加到相应的广播域。
 .. 修改集群间 LIF 以使用新的物理端口作为主端口。
@@ -1371,10 +1374,10 @@ link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#peering-the-
 VLAN 和接口组成员资格可能与旧节点不同。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["创建 VLAN"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["创建VLAN"^]
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["组合物理端口以创建接口组"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["将物理端口组合在一起以创建接口组"^]
 
 
 
@@ -1557,14 +1560,14 @@ Failed to validate the node and cluster components before the switchover operati
 
 
 
-== 升级 cluster_A 上的节点
+== 升级cluster-A上的节点
 
 您必须对 cluster_A 重复升级任务
 
 .步骤
-. 从开始，重复上述步骤升级 cluster_A 上的节点 link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["正在准备升级"]。
+. 重复上述步骤以升级cluster-A上的节点，从开始link:task_upgrade_controllers_in_a_four_node_fc_mcc_us_switchover_and_switchback_mcc_fc_4n_cu.html["准备升级。"]。
 +
-在执行任务时，对集群和节点的所有示例引用都将反转。例如，如果提供了从 cluster_A 切换的示例，则您将从 cluster_B 切换
+当您重复该过程时，所有对集群和节点的示例引用都将被逆转。例如，如果提供了从 cluster_A 切换的示例，则您将从 cluster_B 切换
 
 
 
@@ -1588,9 +1591,9 @@ Failed to validate the node and cluster components before the switchover operati
 
 
 
-== 正在还原 Tiebreaker 监控
+== 还原 Tiebreaker 监控
 
 如果先前已将 MetroCluster 配置配置为由 Tiebreaker 软件监控，则可以还原 Tiebreaker 连接。
 
-. 使用中的步骤 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-7259BCA4-104C-49C6-BAD0-1068CA2A3DA5.html["正在添加 MetroCluster 配置"^] 在 MetroCluster Tiebreaker 安装和配置 _ 中。
+. 使用 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-7259BCA4-104C-49C6-BAD0-1068CA2A3DA5.html["添加 MetroCluster 配置"^]在《MetroCluster Tiebreaker 安装和配置》中。
 

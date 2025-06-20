@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: metrocluster, ip configuration, platform, support 
 summary:  
 ---
-= MetroCluster IP平台支持中的新增功能
+= MetroCluster IP平台和交换机支持中的新增功能
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-了解MetroCluster IP平台支持中的新增功能。
+了解 MetroCluster IP 平台和交换机支持的新功能。
 
 
 

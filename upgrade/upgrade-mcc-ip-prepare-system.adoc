@@ -423,7 +423,10 @@ The node must be rebooted to start using the newly installed software. Do you wa
 
 == 在站点升级之前验证 MetroCluster 运行状况
 
-在执行升级之前，您必须验证 MetroCluster 配置的运行状况和连接。
+在执行升级之前，您需要验证 MetroCluster 配置的运行状况和连接性。
+
+
+CAUTION: 在升级第一个站点的控制器之后、升级第二个站点的控制器之前，运行 `metrocluster check run`其次是 `metrocluster check show`返回错误 `config-replication`字段。此错误表示每个站点的节点之间的 NVRAM 大小不匹配，并且当两个站点上的平台型号不同时，这是预期行为。您可以忽略此错误，直到灾难恢复组中的所有节点的控制器升级完成。
 
 .步骤
 . 在 ONTAP 中验证 MetroCluster 配置的运行情况：

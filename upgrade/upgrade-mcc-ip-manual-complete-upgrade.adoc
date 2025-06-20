@@ -64,7 +64,7 @@ MetroCluster check show`
 .步骤
 . 重复上述步骤以升级cluster-A上的节点，从开始link:upgrade-mcc-ip-manual-requirements.html["准备升级。"]。
 +
-在执行任务时，对集群和节点的所有示例引用都将反转。例如，如果提供了从 cluster_A 切换的示例，则您将从 cluster_B 切换
+当您重复该过程时，所有对集群和节点的示例引用都将被逆转。例如，如果提供了从 cluster_A 切换的示例，则您将从 cluster_B 切换
 
 
 

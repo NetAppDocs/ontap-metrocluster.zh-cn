@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controllers, switchover, switchback, fc, configuration, net, boot, root, aggregate, system, commands, mcc 
 summary: 您可以使用此引导式自动 MetroCluster 切换操作对四节点 MetroCluster FC 配置执行无中断控制器升级。 
 ---
-= 使用切换和切回命令使用 system controller replace 升级四节点 MetroCluster FC 配置中的控制器（ ONTAP 9.10.1 及更高版本）
+= 使用带有system controller Replace命令的切换和切回升级四节点MetroCluster FC配置中的控制器(ONTAP 9.10.1及更高版本)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -20,7 +20,7 @@ summary: 您可以使用此引导式自动 MetroCluster 切换操作对四节点
 * 有关支持的平台升级组合的信息、请查看中的MetroCluster FC升级表  link:concept_choosing_controller_upgrade_mcc.html#supported-metrocluster-fc-controller-upgrades["选择控制器升级操作步骤"]。
 
 
-请参见 link:concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"] 以了解其他过程。
+有关其他步骤、请参见link:concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"]。
 
 
 
@@ -93,23 +93,32 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 
 
 
-== 正在准备升级
+== 准备升级。
 
 要为控制器升级做准备，您需要执行系统预检并收集配置信息。
 
 在升级期间的任何阶段，您都可以从站点 A 运行 `ssystem controller replace show` 或 `ssystem controller replace show-details` 命令来检查状态。如果这些命令返回空白输出，请等待几分钟，然后重新运行此命令。
 
 .步骤
-. 从站点 A 启动自动控制器更换操作步骤，以更换站点 B 的控制器：
+. 从站点 A 运行以下命令来更换站点 B 的控制器：
 +
 `s系统控制器更换 start`
 
 +
-自动操作将执行预检。如果未发现任何问题，此操作将暂停，以便您可以手动收集与配置相关的信息。
+[NOTE]
+====
+** 如果您在一个站点上重复此过程，并且已在另一个站点上更换控制器，则会由于两个站点上的节点不匹配而出现错误。当两个站点上的平台型号不同时，这是预期行为。
++
+如果仅返回不匹配错误，则可以使用 `-skip-metrocluster-check true`选项 `system controller replace start`命令跳过 MetroCluster 检查。
+
+
+
+====
++
+自动化操作执行检查。如果未发现任何问题，此操作将暂停，以便您可以手动收集与配置相关的信息。
 
 +
-
-NOTE: 此时将显示当前源系统和所有兼容的目标系统。如果您将源控制器更换为 ONTAP 版本不同或平台不兼容的控制器，则在启动新节点后，自动化操作将暂停并报告错误。要将集群恢复为运行状况良好的状态，您需要按照手动恢复操作步骤进行操作。
+此时将显示当前源系统和所有兼容的目标系统。如果您将源控制器替换为具有不同 ONTAP 版本或不兼容平台的控制器，则自动化操作将在新节点启动后停止并报告错误。要使集群恢复正常状态，请按照手动恢复过程操作。
 
 +
 `scontroller replace start` 命令可能会报告以下预检错误：
@@ -130,7 +139,7 @@ Node-A-1    Failed         MetroCluster check failed. Reason : MCC check showed 
 
 
 
-=== 升级前收集信息
+=== 在升级之前收集信息
 
 在升级之前，如果根卷已加密，则必须收集备份密钥和其他信息以使用旧的加密根卷启动新控制器。
 
@@ -282,7 +291,7 @@ dr-group-id cluster    node          node-systemid dr-partner-systemid
 
 .关于此任务
 * 必须对每个旧节点执行此任务。
-* 您将使用中收集的信息 <<正在准备升级>>。
+* 您将使用中收集的信息 <<准备升级。>>。
 
 
 .步骤
@@ -602,7 +611,7 @@ FC
 .关于此任务
 此任务在维护模式下执行。
 
-旧系统 ID 在中进行了标识 link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_fc.html#gathering-information-before-the-upgrade["升级前收集信息"]。
+旧系统ID在中标识 link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_fc.html#gather-information-before-the-upgrade["在升级之前收集信息"]。
 
 此操作步骤中的示例使用具有以下系统 ID 的控制器：
 
@@ -836,7 +845,7 @@ Rebooting to load the restored env file...
 
 .. 根据需要向广播域添加任何端口。
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["从广播域添加或删除端口"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-003BDFCD-58A3-46C9-BF0C-BA1D1D1475F9.html["在广播域中添加或删除端口"^]
 
 .. 将用于托管集群间LIF的物理端口添加到相应的广播域中。
 .. 修改集群间 LIF 以使用新的物理端口作为主端口。
@@ -852,10 +861,10 @@ link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#peering-the-
 VLAN 和接口组成员资格可能与旧节点不同。
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["创建 VLAN"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-8929FCE2-5888-4051-B8C0-E27CAF3F2A63.html["创建VLAN"^]
 
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["组合物理端口以创建接口组"^]
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EAB7-430A-A773-4E3420EE2AA1.html["将物理端口组合在一起以创建接口组"^]
 
 .. 验证配对集群是否可访问、以及配置是否已在配对集群上成功重新同步：
 +
@@ -903,7 +912,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 
 
-== 正在完成升级
+== 完成升级
 
 此自动化操作将运行验证系统检查，然后暂停，以便您可以验证网络可访问性。验证后，将启动资源重新获取阶段，自动化操作将在站点 A 执行切回，并在升级后检查时暂停。恢复自动化操作后，它将执行升级后检查，如果未检测到错误，则会将升级标记为完成。
 
@@ -930,9 +939,22 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 
 
+== 升级cluster-A上的节点
+
+要升级站点A上的cluster-A上的节点、必须重复执行升级任务
+
+.步骤
+. 重复上述步骤以升级cluster-A上的节点，从开始<<fc_controller_replace_prepare,准备升级>>。
++
+当您重复该过程时，所有对集群和节点的示例引用都将被逆转。
+
+
+
+
+
 === 正在还原 Tiebreaker 监控
 
 如果先前已将 MetroCluster 配置配置为由 Tiebreaker 软件监控，则可以还原 Tiebreaker 连接。
 
-. 使用中的步骤 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-7259BCA4-104C-49C6-BAD0-1068CA2A3DA5.html["正在添加 MetroCluster 配置"]。
+. 使用中的步骤 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.hw-metrocluster-tiebreaker/GUID-7259BCA4-104C-49C6-BAD0-1068CA2A3DA5.html["添加 MetroCluster 配置"]。
 

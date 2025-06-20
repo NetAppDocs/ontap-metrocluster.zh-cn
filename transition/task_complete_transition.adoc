@@ -15,7 +15,7 @@ summary: 要为过渡准备配置，请将新节点添加到现有 MetroCluster 
 
 . 验证 MetroCluster IP 配置。
 +
-您必须在每个集群上执行此步骤。
+您必须在高级权限模式下在每个集群上执行此步骤。
 
 +
 以下示例显示了 cluster_A 的输出
@@ -25,7 +25,7 @@ summary: 要为过渡准备配置，请将新节点添加到现有 MetroCluster 
 cluster_A::> cluster show
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  ------------
-node_A_1-IP          true    true          true
+node_A_1-IP          true    true          false
 node_A_2-IP          true    true          false
 2 entries were displayed.
 
@@ -39,7 +39,7 @@ cluster_A::>
 cluster_B::> cluster show
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  ------------
-node_B_1-IP          true    true          true
+node_B_1-IP          true    true          false
 node_B_2-IP          true    true          false
 2 entries were displayed.
 
