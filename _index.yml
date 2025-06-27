@@ -1,6 +1,7 @@
 ---
 indexpage:
   title: MetroCluster 文档
+  summary: NetApp MetroCluster配置将基于阵列的集群与同步复制相结合、可提供持续可用性、从而立即按事务复制所有任务关键型数据。MetroCluster配置增强了NetApp硬件和ONTAP存储软件的内置高可用性和无中断运行、为整个存储和主机环境提供了额外的保护层。
   keywords: metrocluster configuration, array-based, clustering, synchronous, replication,
     duplicating, mission critical data
   lead: NetApp MetroCluster配置将基于阵列的集群与同步复制相结合、可提供持续可用性、从而立即按事务复制所有任务关键型数据。MetroCluster配置增强了NetApp硬件和ONTAP存储软件的内置高可用性和无中断运行、为整个存储和主机环境提供了额外的保护层。
