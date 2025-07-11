@@ -162,5 +162,18 @@ NOTE: 要成功升级、必须在所有受影响的端口上设置此值。
 . 收集环境变量： `printenv`
 
 
+
+
+== 从新控制器的机箱中移除内部驱动器
+
+当您从仅有外部驱动器的系统升级到具有外部和内部驱动器（同一机箱中的磁盘和控制器）的系统时，您需要从新系统中删除或取消安装所有内部驱动器，直到升级完成。
+
+
+CAUTION: 此任务对于受影响系统上的控制器成功升级是必需的。
+
+要确定您的升级组合是否受到影响，请参阅link:upgrade-mcc-ip-system-controller-replace-supported-platforms.html["支持使用system controller Replace命令升级MetroCluster IP控制器"] 。如果您的升级组合标有*注释 2*，则必须从新系统中移除或移除内部驱动器。
+
+完成此任务后，任何内部驱动器都不应可访问。您将在稍后的步骤中将这些驱动器添加到新的控制器。
+
 .下一步是什么？
 link:upgrade-mcc-ip-system-controller-replace-apply-rcf-set-bootarg.html["更新交换机RC框架 文件并设置MetroCluster IP启动程序值"](英文)

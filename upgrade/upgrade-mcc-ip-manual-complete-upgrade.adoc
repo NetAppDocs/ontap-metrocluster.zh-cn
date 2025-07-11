@@ -70,6 +70,17 @@ MetroCluster check show`
 
 
 
+== 将内部驱动器重新添加到新控制器
+
+如果您从仅具有外部驱动器的系统升级到具有外部和内部驱动器（磁盘和控制器位于同一机箱中）的系统，则可以添加或重新安装从新系统的内部插槽中移除或取消安装的磁盘。您可以在两个站点的升级完成且集群处于正常状态后随时执行此操作。
+
+重新添加或重新安装驱动器后，即可根据需要在ONTAP中使用它们。
+
+
+NOTE: 此任务仅适用于某些升级组合。有关详细信息、请参见 link:upgrade-mcc-ip-manual-hba-set-ha.html#remove-internal-drives-from-the-chassis-on-the-new-controller["从新控制器的机箱中移除内部驱动器"] 。
+
+
+
 == 还原 Tiebreaker 或调解器监控
 
 完成 MetroCluster 配置升级后，您可以使用 Tiebreaker 或调解器实用程序恢复监控。
