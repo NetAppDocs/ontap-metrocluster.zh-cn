@@ -1,18 +1,8 @@
 ---
 permalink: install-fc/concept_considerations_7mt.html 
-sidebar: sidebar 
-keywords: preparing, prepare, metrocluster, mcc, installation, install, differences, configurations, between, considerations, all, san, array, asa, cluster, peering, prerequisites, dedicated, ports, sharing, data, ports, native, disk, shelves, array, luns, transitions, 7-mode, isls, tdm/wdm, fabric-attached, iod, ood, encryption, devices, unmirrored, aggregates, maintenance, requiring, power, shutdown, firewall, hardware, racking, cabling, setup, checklist, all san array, asa 
-summary: 在准备 MetroCluster 安装时，您应了解 MetroCluster 硬件架构和所需的组件。 
+redirect: ontap-metrocluster/index.html 
 ---
-= 从 7- 模式过渡到 ONTAP 时的注意事项
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-在使用过渡工具将数据从 7- 模式 MetroCluster 配置移动到 ONTAP 配置之前，您必须已对新的 MetroCluster 配置进行全面配置并使其正常运行。如果 7- 模式配置使用 Brocade 6510 交换机，则新配置可以共享现有网络结构，以降低硬件要求。
-
-如果您使用的是 Brocade 6510 交换机并计划在 7- 模式网络结构 MetroCluster 和 ONTAP 中运行的 MetroCluster 之间共享交换机网络结构，则必须使用特定的操作步骤来配置 MetroCluster 组件。
-
-link:task_fmc_mcc_transition_configure_the_mcc_hardware_for_share_a_7_mode_brocade_6510_fc_fabric_dure_transition.html["配置 MetroCluster 硬件以在过渡期间共享 7- 模式 Brocade 6510 FC 网络结构"]

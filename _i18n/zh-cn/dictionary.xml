@@ -509,7 +509,6 @@
   <block id="a8a2bf560173c2071776e7eb62881e05" category="paragraph">下表显示了使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配。</block>
   <block id="dbe4a4387a11d1625ae218ef9f43a996" category="cell">MetroCluster 1 或 DR 组 1</block>
   <block id="d151432733d339221bd143c714a56a84" category="cell">连接到 FC 交换机 ...</block>
-  <block id="b23f9c7f7d005f5b0859bf207898cd47" category="cell">连接到交换机端口 ...</block>
   <block id="85e2ca58f06c6fc43bb1278027917574" category="paragraph">controller_x_1</block>
   <block id="65698eca856b16c1879cd89757f6c190" category="paragraph">FC-VI 端口 A</block>
   <block id="c4ca4238a0b923820dcc509a6f75849b" category="paragraph">1.</block>
@@ -762,7 +761,6 @@
   <block id="d645920e395fedad7bbbed0eca3fe2e0" category="cell">40</block>
   <block id="f7177163c833dff4b38fc8d2872f1ec6" category="cell">44</block>
   <block id="642e92efb79421734881b53e1e1b18b6" category="cell">48</block>
-  <block id="4389b93bd76334095ae6f5fdb926d4ee" category="paragraph">端口 40 到 48 是 10 GbE 端口，不会在 MetroCluster 配置中使用。</block>
   <block id="4bfd66c37cd5ce244e0dfdd30c499d83" category="list-text">开始之前，请检查站点上的任何非镜像聚合是否已脱机。</block>
   <block id="edc7b16c34c41ad12b6699da441a1e45" category="paragraph">此操作可能需要几分钟才能完成。</block>
   <block id="0829264e645ef456fedfb9d7d6e189a9" category="paragraph">在 MetroCluster FC 配置中，只有当聚合中的远程磁盘可访问时，未镜像聚合才会在切换后联机。如果 ISL 发生故障，本地节点可能无法访问未镜像远程磁盘中的数据。聚合故障可能会导致本地节点重新启动。</block>
@@ -1013,12 +1011,6 @@
   <block id="d82c8d1619ad8176d665453cfb2e55f0" category="paragraph">53.</block>
   <block id="a684eceee76fc522773286a895bc8436" category="paragraph">54</block>
   <block id="b53b3a3d6ab90ce0268229151c9bde11" category="paragraph">55</block>
-  <block id="f5ab0ecfb91169073465c75b07499fce" category="cell">Brocade 交换机型号 6505 ， 6510 ， 6520 ， 7810 ， 7840 ， G610 ， G620 ， G620-1 ， G630 ， G630-1 ， 和 DCX 8510-8</block>
-  <block id="d67bdc8865becf65979a7e07c7541fe7" category="cell">Brocade 交换机 G720</block>
-  <block id="b662e152b43011e1e0296b8084a2d147" category="paragraph">12*</block>
-  <block id="4fcb10feecff8bf153e2155f987003d3" category="paragraph">13 星</block>
-  <block id="6d8c2a2025c082966f6b8171ae6d840e" category="paragraph">14*</block>
-  <block id="f5edf414716a52037ee3226c67a63760" category="paragraph">15*</block>
   <block id="f140d3cb033a0d8cb337abc8ffd37e35" category="section-title">运行 ONTAP 9.1 或更高版本的 MetroCluster 配置中 ISL 的 Brocade 端口使用情况</block>
   <block id="31140865c6da8bd64c2cc352591fd97f" category="paragraph">下表显示了 Brocade 交换机的 ISL 端口使用情况。</block>
   <block id="16efd6bef533569cdadd01e7d8f034c9" category="admonition">AFF A700 或 FAS9000 系统最多支持八个 ISL 以提高性能。Brocade 6510 和 G620 交换机支持八个 ISL 。</block>
@@ -1052,13 +1044,9 @@
   <block id="12bb1d11ead6c73227745725e5d0bfd7" category="paragraph">Brocade G610</block>
   <block id="1cb639581481681dd0b3dd79349c9623" category="paragraph">Brocade G620 ， G620-1 ， G630 ， G630-1 ， G720</block>
   <block id="d85e6b2239cc6bf654493edd06de0604" category="section-title">运行 ONTAP 9.4 或更高版本的 MetroCluster 配置中控制器的 Cisco 端口使用情况</block>
-  <block id="3748d9307fea4a17476891841b1c77f8" category="paragraph">下表显示了支持的最大配置，其中两个 DR 组包含八个控制器模块。对于较小的配置，请忽略其他控制器模块对应的行。</block>
   <block id="913aa541dca049189d5c94b434fcd5e4" category="cell">Cisco 9396S</block>
   <block id="9e56f2203627e1f0f852b03165f1f73c" category="cell">Cisco 9148S</block>
-  <block id="4d5ea9cc493e38f0bd25ce9f073330be" category="cell">Cisco 9132T</block>
-  <block id="0f39a39e2e8a1309b826dae2289dd8fb" category="cell">MDS 模块 1</block>
   <block id="14f265c9ad9a81b21c667b4042fc7575" category="admonition">下表显示了具有两个 FC-VI 端口的系统。AFF A700 和 FAS9000 系统具有四个 FC-VI 端口（ a ， b ， c 和 d ）。如果使用的是 AFF A700 或 FAS9000 系统，则端口分配会移动一个位置。例如， FC-VI 端口 c 和 d 转到交换机端口 2 ， HBA 端口 a 和 b 转到交换机端口 3 。</block>
-  <block id="3db30a6fa1c05224aef86dc9b48a9085" category="cell">Cisco 9250i*</block>
   <block id="7454ecd5190b690ccf9ee77f2e438c0c" category="section-title">运行 ONTAP 9.1 或更高版本的 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况</block>
   <block id="f656d69f7bbae519056da03a8e9e50d0" category="cell">Cisco 9250i</block>
   <block id="81cc761cd2e2757421a8e9242e8e12cc" category="paragraph">下表显示了 ISL 端口使用情况。此配置中的所有交换机上的 ISL 端口使用情况均相同。</block>
@@ -1069,10 +1057,6 @@
   <block id="d218ff19674f8525bccde81cb4f28d00" category="paragraph">ISL 4.</block>
   <block id="26657d5ff9020d2abefe558796b99584" category="paragraph">96</block>
   <block id="670a9fef898ab1cd3ff1896d659f86f0" category="paragraph">具有 24 端口许可证的 Cisco 9250i</block>
-  <block id="8b55f988e917813fe6beb8fdb5bd7199" category="paragraph">MDS 模块 1 端口 13</block>
-  <block id="1d1d1c73cc531c7d72d9f4366c2896d6" category="paragraph">MDS 模块 1 端口 14</block>
-  <block id="efeb11e85e07a24cb0d088e6f9190e1e" category="paragraph">MDS 模块 1 端口 15</block>
-  <block id="f18a998f4fcf5bb3410843686e56a3b4" category="paragraph">MDS 模块 1 端口 16</block>
   <block id="69f9c4eafc141c6e8f88cca6eafe90b6" category="summary">如果要添加或升级硬件，例如其他或更快的控制器或交换机，则可能需要向交换机添加 ISL 。</block>
   <block id="36f6b87ea2124f694dc64f15934fcf53" category="doc">更改 Brocade 交换机上的 ISL 属性， ISL 端口或 IOD/OOD 配置</block>
   <block id="469d35ee2356ac7866ba1f33ad4ca9bb" category="paragraph">确保系统已正确配置，所有网络结构交换机均正常运行，并且不存在任何错误。</block>
@@ -1148,7 +1132,6 @@
   <block id="5c399963772634ba1fc18f52ce25b7d5" category="list-text">持久启用交换机：</block>
   <block id="328809e93421c332a5773a41c7dbc7c5" category="section-title">验证切换，修复和切回</block>
   <block id="a1bf01274d938e19b1e43eb57fc3c557" category="paragraph">您应验证 MetroCluster 配置的切换，修复和切回操作。</block>
-  <block id="3771e54725752637c5b1cf7cce911622" category="list-text">使用 _RAID MetroCluster 管理和灾难恢复指南 _ 中提到的协商切换，修复和切回过程。</block>
   <block id="85d4b8c862a1b165b7ccb85636649d25" category="summary">您应了解 MetroCluster 配置如何响应不同的故障事件。</block>
   <block id="a20544b3db3eacb724cbbcfc89016dc4" category="doc">MetroCluster 故障和恢复场景</block>
   <block id="a4ecfc70574394990cf17bd83df499f7" category="cell">事件</block>
@@ -2058,7 +2041,6 @@
   <block id="f6065aa4b898691ab4eb065db8775ac0" category="paragraph">必须使用缆线将新控制器模块的 FC-VI 端口和 HBA （主机总线适配器）连接到站点 FC 交换机。</block>
   <block id="0f0db6d55e9bbb84af3413a7e8b1da70" category="list-text">按照您的配置和交换机型号对应的表，为 FC-VI 端口和 HBA 端口布线。</block>
   <block id="b330eebf161ca27c703eccf6e8e36d29" category="summary">您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。</block>
-  <block id="0cd02877aca872fed2b891e70e7d6d9d" category="doc">将四节点 MetroCluster IP 配置扩展为八节点配置</block>
   <block id="44e7e75e628cd7549a2dac175d45b418" category="list-text">新旧节点必须运行相同版本的 ONTAP 。</block>
   <block id="1ba701b5ad5528986d9e0eb838638aae" category="section-title">此操作步骤中的命名示例</block>
   <block id="a9b1d4be69539e9b95a2c6672035550c" category="paragraph">此操作步骤会在整个过程中使用示例名称来标识涉及的 DR 组，节点和交换机。</block>
@@ -2196,11 +2178,9 @@
   <block id="694290c25a244f58ab505874661e84b7" category="list-text">在本地 FC 交换机上，从现有控制器模块的 HBA ， FC-VI 和 ATTO 网桥的端口上拔下缆线。</block>
   <block id="bf2497e5dbebaf427ad038e5a165371f" category="summary">您可以选择为不需要 MetroCluster 配置提供的冗余镜像的数据创建未镜像数据聚合。</block>
   <block id="3bb62bd0db01d5a91a87b5aad29c21cf" category="doc">创建未镜像的数据聚合</block>
-  <block id="e8918a09def2aeb7defc8280332cfebd" category="list-text">您应了解新聚合将使用哪些驱动器或阵列 LUN 。</block>
   <block id="397974d0ae4f4d3b113de9be111199f8" category="list-text">如果系统中有多种驱动器类型（异构存储），则应了解如何验证是否选择了正确的驱动器类型。</block>
   <block id="7ef4b332b4b48ccab13ab1bb737930c5" category="paragraph">在 MetroCluster IP 配置中，切换后无法访问未镜像的远程聚合</block>
   <block id="e9634520326541bac31db4b18c1f9afb" category="admonition">未镜像聚合必须位于其所属节点的本地。</block>
-  <block id="fb5b647ceadafa64bdabb02e963b9224" category="list-text">驱动器和阵列 LUN 归特定节点所有；创建聚合时，该聚合中的所有驱动器都必须归同一节点所有，该节点将成为该聚合的主节点。</block>
   <block id="1f28277756aaed1f919fd03c2fa92a26" category="list-text">启用未镜像聚合部署：</block>
   <block id="8b7b059c92f4f38b7b88f2770bc9e405" category="list-text">验证是否已禁用磁盘自动分配：</block>
   <block id="99202cf08ee605465b048d280b130030" category="list-text">安装要包含未镜像聚合的磁盘架并为其布线。</block>
@@ -2209,8 +2189,6 @@
   <block id="9b8cdeec74c28d73d6a8e9f5a416d181" category="list-text">创建聚合：</block>
   <block id="6d6f602efa1b388ca6264b6013787a0e" category="paragraph">如果您已通过集群管理界面登录到集群，则可以在集群中的任何节点上创建聚合。要验证是否已在特定节点上创建聚合，应使用 -node 参数或指定该节点所拥有的驱动器。</block>
   <block id="c867a6fd725cedea57bb7663de5a37c2" category="paragraph">此外，还必须确保仅在聚合中包含未镜像磁盘架上的驱动器。</block>
-  <block id="a6480a829f17700a2c732897b3a46dd7" category="list-text">要添加到聚合的特定驱动器或阵列 LUN 的列表</block>
-  <block id="ad222f1b99fd82273d6e96c71c66a371" category="list-text">可包含在 RAID 组中的驱动器或阵列 LUN 的最大数量</block>
   <block id="0c14f54e968697b22703046426aae7f1" category="paragraph">以下命令将创建一个包含 10 个磁盘的未镜像聚合：</block>
   <block id="4e75faadc19bd6bd8fe9f36b43a6dc7c" category="list-text">禁用未镜像聚合部署：</block>
   <block id="62127648214ef0c407c0c4bc108b0b80" category="list-text">验证是否已启用磁盘自动分配：</block>
@@ -3688,7 +3666,6 @@
   <block id="659e0582c65f61e8b4d3a9e29353485a" category="section-title">未镜像聚合和分层命名空间的注意事项</block>
   <block id="ce02e334c176443baacfb1d15850936c" category="paragraph">如果您使用的是分层命名空间，则应配置接合路径，以使该路径中的所有卷要么仅位于镜像聚合上，要么仅位于未镜像聚合上。在接合路径中混合配置未镜像聚合和镜像聚合可能会阻止在切换操作后访问未镜像聚合。</block>
   <block id="bb00fbc514d8616f8f15c47e99d5a5cb" category="section-title">未镜像聚合和 CRS 元数据卷以及数据 SVM 根卷的注意事项</block>
-  <block id="794fb422ed7feaa8e2fd8e01503528af" category="paragraph">配置复制服务（ CRS ）元数据卷和数据 SVM 根卷必须位于镜像聚合上。您不能将这些卷移动到未镜像聚合。如果它们位于未镜像聚合上，则协商切换和切回操作将被否决。此时， MetroCluster check 命令会发出警告。</block>
   <block id="8d0403b9deec1058b07790ba46b5072c" category="section-title">未镜像聚合和 SVM 的注意事项</block>
   <block id="2bdd511f4580eff308a5d77e78e121e5" category="paragraph">SVM 只能在镜像聚合上配置，也只能在未镜像聚合上配置。配置未镜像聚合和镜像聚合可能会导致切换操作超过 120 秒，如果未镜像聚合未联机，则会导致数据中断。</block>
   <block id="708d7124490b473687f7923a27935eab" category="section-title">未镜像聚合和 SAN 的注意事项</block>
@@ -4006,7 +3983,6 @@
   <block id="56fd520ce25840b9ef58f91a32184982" category="paragraph">支持 ADP</block>
   <block id="8f5c309995e5ddcf857afca4860e9894" category="paragraph">支持本地 HA</block>
   <block id="a43cff4f46ece5ce4e0cdb1c7a0fd40e" category="paragraph">支持未镜像聚合</block>
-  <block id="3a7525345e0b5c609b38b98f11a46394" category="paragraph">支持阵列 LUN</block>
   <block id="5679e05fd5a83a4470281f9a9fff0881" category="paragraph">支持 ONTAP 调解器</block>
   <block id="c14e505d04b15e11337934ec4262ec2b" category="paragraph">支持 MetroCluster Tiebreaker</block>
   <block id="f002a8ca79e81570742f83664f1ef8c0" category="paragraph">是（不与 ONTAP 调解器结合使用）</block>
@@ -4061,33 +4037,8 @@
   <block id="ed047f67ef60ac18f59b00defcbe2e63" category="list-text">验证交换机是否联机以及所有设备是否均已正确登录：</block>
   <block id="f2a62a2226a776063a92a12ed167e429" category="paragraph">您可以忽略与流量隔离（ TI ）分区和中继相关的错误。</block>
   <block id="ee964d83d74573b3328048ead7b3c04e" category="list-text">对第二个交换机网络结构重复执行这些任务。</block>
-  <block id="538b94639e6cbcf51578ca8e73fa1108" category="summary">在规划用于磁盘和阵列 LUN 的 MetroCluster 配置时，必须考虑各种因素，例如设置存储访问权限的顺序，根聚合位置以及 FC 启动程序端口，交换机和 FC-SAS 网桥的使用情况。</block>
-  <block id="510ef9f96e237cda2b6cc4ad3c1ead0f" category="doc">使用磁盘和阵列 LUN 实施 MetroCluster 配置时的注意事项</block>
-  <block id="94bbfdcfaed5ce2a4bd4fda59231e633" category="paragraph">在规划配置时，请考虑下表中的信息：</block>
-  <block id="1424e9d02955a063766be77a82c6d273" category="cell">注意事项</block>
   <block id="a3928106022ce5ea0abce2ce87ea7487" category="cell">准则</block>
-  <block id="6862765a8295e08416a8dec36208faf0" category="paragraph">设置存储访问权限的顺序</block>
-  <block id="4a72767bf087b503af409e5bc1b0c8be" category="paragraph">您可以先设置对磁盘或阵列 LUN 的访问权限。您必须完成此类型存储的所有设置，并验证是否已正确设置，然后再设置其他类型的存储。</block>
-  <block id="566a6125da9a04a1062506e783e3c147" category="paragraph">根聚合的位置</block>
-  <block id="d0d3305da640b52679a3566b8de7dfe3" category="list-text">如果要设置同时包含磁盘和阵列 LUN 的 _new_ MetroCluster 部署，则必须在原生磁盘上创建根聚合。</block>
-  <block id="6ae15bf56376ed9cca59e060d3cd9ce5" category="paragraph">执行此操作时，请确保在每个站点上至少设置了一个磁盘架（具有 24 个磁盘驱动器）。</block>
-  <block id="d94f4daf8b9866dbbf5b2f6780afa978" category="list-text">如果要将原生磁盘添加到 MetroCluster 使用阵列 LUN 的 _exist_LUN 配置中，则根聚合可以保留在阵列 LUN 上。</block>
-  <block id="e667b860cf8d51a6b38cec65edf15da9" category="paragraph">使用交换机和 FC-SAS 网桥</block>
-  <block id="2cf96570d05093e79354fdebf6a25c6f" category="paragraph">在四节点配置和双节点光纤连接配置中，需要使用 FC-SAS 网桥才能通过交换机将 ONTAP 系统连接到磁盘架。</block>
-  <block id="f1b073b17d11b6a85cff8fafe775f23e" category="paragraph">您必须使用相同的交换机连接到存储阵列和 FC-SAS 网桥。</block>
-  <block id="209a28f98adf7a11fd98e407f778da76" category="paragraph">使用 FC 启动程序端口</block>
-  <block id="db08f81e8313778dec890ddaca5cb3d3" category="inline-xref-macro">使用阵列 LUN 的四节点 MetroCluster 配置中的交换机分区示例</block>
-  <block id="207c024d1855ef3c7e08eb0a0aceac8f" category="inline-xref-macro">使用阵列 LUN 的八节点 MetroCluster 配置中的交换机分区示例</block>
-  <block id="a9ed40443a225cecce5742ada138b243" category="inline-xref-macro">安装 FC-SAS 网桥和 SAS 磁盘架</block>
-  <block id="257df35fd3fbc9a63102dd0f6f026234" category="summary">您必须确保交换机间链路（ ISL ）位于同一端口组中，并为 MetroCluster 配置配置配置分区以成功共享交换机网络结构。</block>
-  <block id="0d5aa6202df4a0c6cdd0be57f7686057" category="doc">确保 ISL 位于同一端口组中并配置分区</block>
-  <block id="7c696c89bb9e1077a5f5aa7f1aa1cdac" category="paragraph">您必须确保交换机间链路（ ISL ）位于同一端口组中，并为 MetroCluster 配置配置配置分区以成功共享交换机网络结构。</block>
-  <block id="14038cfc02361d0022c1b06e91cf2e65" category="list-text">如果 ISL 不在同一端口组中，请将其中一个 ISL 端口移至与另一个 ISL 端口相同的端口组。</block>
-  <block id="025d4fdb30387e506bc23ebe1a2b948c" category="paragraph">您可以使用除 32 到 45 之外的任何可用端口，这些端口将由新的 MetroCluster 配置使用。建议的 ISL 端口为 46 和 47 。</block>
   <block id="e0be7ea022244db5d1c1da820a4f5ad8" category="inline-xref-macro">在 Brocade FC 交换机上配置分区</block>
-  <block id="b5b548972cd6ad9de463f417a7b88d65" category="inline-xref-macro">在 Brocade FC 交换机上配置 E 端口（ ISL 端口）</block>
-  <block id="f9fb6c5e4b8031455acc4725fedc46e3" category="inline-xref-macro">在 Brocade 交换机上配置非 E 端口</block>
-  <block id="e94a402556eac1e8c6946a1a93250c32" category="paragraph">以下示例显示了用于创建分区的命令和系统输出：</block>
   <block id="a3661db3c5039bc04c7fae548c92950e" category="summary">您必须将交换机操作系统文件和 RCF 文件下载到 MetroCluster 网络结构配置中的每个交换机。</block>
   <block id="bfa98b16040a9e239a71e4da0eb6a7b1" category="doc">下载并安装 Cisco FC 交换机 NX-OS 软件</block>
   <block id="ef545bde15915b6b99166cb4b02c5f33" category="paragraph">此任务需要使用文件传输软件，例如 FTP ， TFTP ， SFTP 或 SCP ， 将文件复制到交换机。</block>
@@ -4242,19 +4193,6 @@
   <block id="c1d50ad8e54ad7ad72d2e892269af189" category="paragraph">您可以修改卷，以便在发生 MetroCluster 切换时在卷上设置 NVFAIL 标志。NVFAIL 标志会使卷无法进行任何修改。对于需要处理的卷，这是必需的，就好像在切换后丢失了对卷提交的写入一样。</block>
   <block id="5bd3adf5a1870b916a8c5aa5af9f7d92" category="admonition">在 ONTAP 9.0 之前的版本中，每次切换都会使用 NVFAIL 标志。在 ONTAP 9.0 及更高版本中，使用计划外切换（ USO ）。</block>
   <block id="a0672ab43d6a3c035ef982f4bbdf4ec8" category="paragraph">` * vol modify -vserver _vserver-name_ -volume _volume-name_ -dr-force-nvfail on*`</block>
-  <block id="326883a949c64d870c3948f5ef42eb94" category="summary">您必须将存储阵列连接到 FC 交换机，以便 MetroCluster 配置中的 ONTAP 系统可以通过至少两个路径访问特定阵列 LUN 。</block>
-  <block id="6f2e49325d4369f56d3fd8abdc32fecd" category="doc">使用缆线将存储阵列连接到 MetroCluster 配置中的 FC 交换机</block>
-  <block id="2cf27dfe3b49602bd7cbe0f68237179e" category="list-text">必须对存储阵列进行设置，以便向 ONTAP 提供阵列 LUN 。</block>
-  <block id="dfdd5e97717bb8a40f71d55c0c79448a" category="list-text">ONTAP 控制器必须连接到 FC 交换机。</block>
-  <block id="8ee39baac7c1da189386fc75fe841bdb" category="list-text">必须在 MetroCluster 站点的 FC 交换机之间使用缆线连接 ISL 。</block>
-  <block id="ae6dfff9523938f205e9cf68c702f717" category="list-text">您必须对两个 MetroCluster 站点上的每个存储阵列重复此任务。</block>
-  <block id="71dcc8069f5f74b92ceef1d5c9db2841" category="list-text">您必须通过 FC 交换机将 MetroCluster 配置中的控制器连接到存储阵列。</block>
-  <block id="03e323a28bbe7c699090507bcdefa17d" category="list-text">将存储阵列端口连接到 FC 交换机端口。</block>
-  <block id="030467ecaf0ffcaec3cc6f902037c1d1" category="paragraph">在每个站点上，将存储阵列中的冗余端口对连接到备用网络结构上的 FC 交换机。这样可以在访问阵列 LUN 的路径中提供冗余。</block>
-  <block id="4a2fdc22a1eb9a68e0facd6612db20d8" category="inline-xref-macro">使用阵列 LUN 的 MetroCluster 配置中的交换机分区</block>
-  <block id="706480a61d9e0992be9182b5010a6f28" category="inline-xref-macro">在双节点 MetroCluster 配置中使用缆线将存储阵列端口连接到 FC 交换机的示例</block>
-  <block id="1addc2812f42a224a528766398234c1c" category="inline-xref-macro">在四节点 MetroCluster 配置中使用缆线将存储阵列端口连接到 FC 交换机的示例</block>
-  <block id="81af25de9f68ba8cc7b0883b71b9d3cb" category="inline-xref-macro">在八节点 MetroCluster 配置中使用缆线将存储阵列端口连接到 FC 交换机的示例</block>
   <block id="5482b27fb601c9d5069a7533e0dd1b02" category="summary">配置 Brocade FC 交换机时，您可以安装交换机配置文件，这些文件可为某些配置提供完整的交换机设置。</block>
   <block id="c2a1b1aaf420fd5fc4e694faa94de89f" category="doc">安装 Brocade FC 交换机 RCF 文件</block>
   <block id="2d6424f21b7898ba895ef0e70f5c13c8" category="list-text">启动下载和配置过程：</block>
@@ -4348,101 +4286,17 @@
   <block id="827782113c613dee6a1aabc786e39335" category="list-text">从下载交换机的 RCF 文件<block ref="7a2a5b3ce34e84b17e1e6ffcc479aaa8" category="inline-link-rx"></block> 页面。</block>
   <block id="af833d07deb3fe26ff9462cdf18f37ab" category="paragraph">这些文件必须放置在可传输到交换机的位置。构成双交换机网络结构的四个交换机中的每个交换机都有一个单独的文件。</block>
   <block id="6141173db52bd750748a18081d69700e" category="list-text">对配置中的每个交换机重复上述步骤。</block>
-  <block id="c2b6b0e868d1d64740864a0e6e2839e1" category="summary">要使用原生磁盘和阵列 LUN 实施 MetroCluster 配置，必须确保此配置中使用的 ONTAP 系统可以连接到存储阵列。</block>
-  <block id="16a5724d7c98fb4a344abbd866c29d17" category="doc">实施同时包含磁盘和阵列 LUN 的 MetroCluster 配置</block>
-  <block id="8d567693df21dd007bca2cab1786c41e" category="paragraph">包含磁盘和阵列 LUN 的 MetroCluster 配置可以具有两个或四个节点。虽然四节点 MetroCluster 配置必须采用光纤连接，但双节点配置可以采用延伸型或光纤连接。</block>
-  <block id="0ef1bc9fe8d1512f00aec0835ae1b38a" category="inline-xref-macro">使用磁盘和阵列 LUN 的双节点光纤连接 MetroCluster 配置示例</block>
-  <block id="ecc31eabe27d6246e7698a7bf860c23b" category="inline-xref-macro">包含磁盘和阵列 LUN 的四节点 MetroCluster 配置示例</block>
-  <block id="7d327c8684dadf853cfb8ee6a8c362c8" category="summary">为 MetroCluster 配置创建详细计划有助于您了解在存储阵列上使用 LUN 的 MetroCluster 配置的独特要求。安装 MetroCluster 配置涉及到连接和配置多个设备，这些操作可能由不同的人员完成。因此，该计划还有助于您与参与安装的其他人员进行通信。</block>
-  <block id="a3d19320c14020f923dda13e7501b231" category="doc">规划使用阵列 LUN 的 MetroCluster 配置</block>
-  <block id="33cb94ec8653b1f632148976c8a040cd" category="doc">规划和安装使用阵列 LUN 的 MetroCluster 配置</block>
-  <block id="85b8c51389720a3d7d709e4a1462d7ae" category="summary">您必须根据是否使用 FlexArray LUN ， MetroCluster 配置中的节点数以及是否共享 7- 模式光纤 MetroCluster 使用的现有 FC 交换机网络结构来选择正确的安装操作步骤。</block>
   <block id="c4680bcc4ac229ac4b7d5d145927a0ea" category="doc">为您的配置选择正确的安装操作步骤</block>
-  <block id="1d82097ca48b595918af9c2a939393d9" category="image-alt">工作流选择 MetroCluster 配置网络结构</block>
   <block id="76d06141fa1529c2e8193f48995d1030" category="cell">此安装类型 ...</block>
   <block id="0f59b15f885e3a80b7effe6a49fde4a8" category="cell">使用以下过程 ...</block>
-  <block id="9a7522c7f21e36b291f1a44da46f7bcb" category="paragraph">使用 NetApp （原生）磁盘的光纤连接配置</block>
   <block id="a1350ff79863130a11a81a4223c96e8c" category="inline-xref-macro">为光纤连接的 MetroCluster 配置布线</block>
   <block id="780b12826a73e1109ad45282f1b731dc" category="inline-xref-macro">在 ONTAP 中配置 MetroCluster 软件</block>
-  <block id="7979981215c4c0559046a0fa0a757edd" category="paragraph">与现有 FC 交换机网络结构共享时的光纤连接配置</block>
-  <block id="cb83c34f31283467f133410ad28c7f21" category="paragraph">此配置仅支持作为使用 Brocade 6510 交换机的 7- 模式光纤 MetroCluster 配置的临时配置。</block>
-  <block id="448dad771b84bd40298b25d3b34702b9" category="inline-xref-macro">配置 MetroCluster 硬件以在过渡期间共享 7- 模式 Brocade 6510 FC 网络结构</block>
   <block id="3da8861d57a1131794010a43bb8c0022" category="summary">在八节点或四节点 MetroCluster 配置中，必须为每个站点的本地控制器模块之间的集群互连布线。</block>
   <block id="26a54024c23fd925658f9c07af7f45f3" category="doc">为八节点或四节点配置中的集群互连布线</block>
   <block id="a5a5f58f8b4f49c67db8ac8769e18a9e" category="paragraph">双节点 MetroCluster 配置不需要执行此任务。</block>
   <block id="16e7e199c1100a98976f044e1707cf71" category="paragraph">必须在两个 MetroCluster 站点上执行此任务。</block>
   <block id="eb952ac83e127d9e9c609c32989ebbf0" category="list-text">使用缆线将集群互连从一个控制器模块连接到另一个控制器模块，或者如果使用了集群互连交换机，则使用缆线将每个控制器模块连接到交换机。</block>
-  <block id="e7c51f571509030a8b7301dc8bc8a7fe" category="summary">在使用阵列 LUN 的 MetroCluster 配置中设置 ONTAP 系统之前，存储阵列管理员必须准备用于 ONTAP 的存储。</block>
-  <block id="0298c9d72aff4562d5434fe4a448c6a1" category="doc">准备用于 ONTAP 系统的存储阵列</block>
-  <block id="6ceeef6f6fdaf06b95cae87e460cfe9b" category="paragraph">您计划在配置中使用的存储阵列，固件和交换机必须受特定 ONTAP 版本支持。</block>
-  <block id="567997ebab95ad5c797a8c2164e69988" category="paragraph">要在存储阵列上执行此任务，您必须与存储阵列管理员进行协调。</block>
-  <block id="c6d70523707016c24377e7ebb500eef1" category="list-text">根据 MetroCluster 配置中的节点数在存储阵列上创建 LUN 。</block>
-  <block id="b30da40dcd4e32f00364fe223122c3ab" category="paragraph">MetroCluster 配置中的每个节点都需要为根聚合，数据聚合和备用磁盘配置阵列 LUN 。</block>
-  <block id="4040897121df220e5ae9b68b9fe58f41" category="list-text">在存储阵列上配置使用 ONTAP 所需的参数。</block>
-  <block id="2e97596bf006ab4a63eb1ab1532e9166" category="inline-link">第三方存储的 FlexArray 虚拟化实施</block>
-  <block id="ea99f1dcf0d09ce14e57dde04d25f1dc" category="list-text"><block ref="ea99f1dcf0d09ce14e57dde04d25f1dc" category="inline-link-rx"></block></block>
-  <block id="82d37cddebcbc53beaf89f22ddf1f310" category="inline-link">适用于 NetApp E 系列存储的 FlexArray 虚拟化实施</block>
-  <block id="6dbb334cbf32f0f174c61a77a3bd9cf8" category="list-text"><block ref="6dbb334cbf32f0f174c61a77a3bd9cf8" category="inline-link-rx"></block></block>
-  <block id="d3eeac5beb8e07b719903a04da02d1bc" category="summary">在使用阵列 LUN 的 MetroCluster 配置中，必须将构成冗余端口对的存储阵列端口连接到备用 FC 交换机。</block>
-  <block id="3273b13a598da7072827c4fff2c6e3ee" category="paragraph">以下参考图显示了使用阵列 LUN 的四节点 MetroCluster 配置中存储阵列和 FC 交换机之间的连接：</block>
-  <block id="4d1045be17a65ed688137aab3deb80b5" category="image-alt">此图显示了使用阵列 LUN 的 MetroCluster 配置示例。图周围的文字对此图进行了说明。</block>
-  <block id="e6609ef3b852f1384712b8ac719fa7df" category="admonition">如果您计划在 MetroCluster 配置中除使用阵列 LUN 外还使用磁盘，则必须使用为包含磁盘的配置指定的交换机端口。</block>
-  <block id="4ab4d970fb8af5d1f4c1e0cb6fd926a7" category="paragraph">在图中，两个站点的冗余阵列端口对如下：</block>
-  <block id="c332d936b257145c1cc3454af2388c2d" category="list-text">站点 A 的存储阵列：</block>
-  <block id="285e7ae75fae6bfd987ed78b335b0664" category="list-text">端口 1A 和 2A</block>
-  <block id="031886a195833ebbc083c70b7bf434fe" category="list-text">端口 1B 和 2B</block>
-  <block id="079411045cab825a55a4a50c281aa6d9" category="list-text">端口 1C 和 2C</block>
-  <block id="be723993aaa605c3e026f84bcf88cfa9" category="list-text">端口 1D 和 2D</block>
-  <block id="b52ad2a7748e6376363173eb3d2f5fd8" category="list-text">站点 B 的存储阵列：</block>
-  <block id="a6379b6cb1c8208cb3ace060d4d79291" category="list-text">端口 1A' 和 2A'</block>
-  <block id="8403f1370fb633d5e2f10178316c5125" category="list-text">端口 1B' 和 2B'</block>
-  <block id="2309541e9a6d2f4f4fe79a9494b03443" category="list-text">端口 1C' 和 2C'</block>
-  <block id="eed21cf5c84291c909da461e812530d7" category="list-text">端口 1D' 和 2D'</block>
-  <block id="6c9261f39674f261af1b4c72a79e0bc9" category="paragraph">站点 A 上的 FC_switch_A_1 和站点 B 上的 FC_switch_B_1 已连接，形成 fabric_1 。同样，站点 A 上的 FC_switch_A_2 和 FC_switch_B_2 也会连接起来以形成 fabric_2 。</block>
-  <block id="2da198d4f6d2f72b9d990176ae47c5ed" category="paragraph">下表列出了 MetroCluster 图中存储阵列端口和 FC 交换机之间的连接：</block>
-  <block id="ed468bfcdad1cc2741071425248f75c7" category="cell">阵列 LUN 端口</block>
-  <block id="e67c6ed583012dd4f53d11eeb663f51e" category="cell">FC 交换机端口</block>
-  <block id="7fd8cd91ebe95d1e1d1f678239e69f78" category="cell">交换机网络结构</block>
-  <block id="62d022aa0f823c217b7e899a703898ae" category="paragraph">* 站点 A*</block>
-  <block id="0723dfd10075aee37a1804a728349dc3" category="paragraph">1a.</block>
-  <block id="59c0034d2d9d0fe621407c76cd223cfa" category="paragraph">FC_switch_A_1 ，端口 7</block>
-  <block id="9eee8129e6d14b921514cf91712c4c3a" category="paragraph">fabric_1</block>
-  <block id="5f5468d54f2b86e7e60fac196581d7d0" category="paragraph">2a.</block>
-  <block id="aba66caaab3de396f32af719231f2413" category="paragraph">FC_switch_A_2 ，端口 11</block>
-  <block id="046ec0714cdd1970caf1ae1431468d24" category="paragraph">fabric_2</block>
-  <block id="aeaf67915b97d360e4d26f0659dd9b2a" category="paragraph">1b.</block>
-  <block id="e6015ff43e98b5a572875fc519f9abdf" category="paragraph">FC_switch_A_1 ，端口 8</block>
-  <block id="49ba7582631e47241f284a64b40e5a06" category="paragraph">2 亿</block>
-  <block id="deadeb2e7290916fb160d7e5719fe4cc" category="paragraph">FC_switch_A_2 ，端口 10</block>
-  <block id="c1bf41d82adc8c5d53cce0ede0c16bbc" category="paragraph">1c</block>
-  <block id="d8b7c6b1c310f122ea66021cb1f3cf36" category="paragraph">FC_switch_A_1 ，端口 9</block>
-  <block id="4754db5769c907992ef049f3e46ab107" category="paragraph">2c</block>
-  <block id="1e4491af51148429c32657e5c9b737cc" category="paragraph">FC_switch_A_2 ，端口 9</block>
-  <block id="f149c23cf5b13e619e76d9f013ca0d5e" category="paragraph">一维</block>
-  <block id="dca96968aedf5e8f8f269d63910400ad" category="paragraph">FC_switch_A_1 ，端口 10</block>
-  <block id="8c94134f25efe7680f9743b2774e8e1f" category="paragraph">二维</block>
-  <block id="049576c6d6f621038ae59f92574a2859" category="paragraph">FC_switch_A_2 ，端口 8</block>
-  <block id="42f816081f37ac884d6c90c0e99ec036" category="paragraph">* 站点 B*</block>
-  <block id="6979db78a9a662e2fbb4b2e0b6b8263b" category="paragraph">1A'</block>
-  <block id="b7692c2449d6631289728f44611a701f" category="paragraph">FC_switch_B_1 ，端口 7</block>
-  <block id="8242137e048583013e5ef4e7ab1807bb" category="paragraph">2A'</block>
-  <block id="7372b1dfc54767cd6edc9fae878bf133" category="paragraph">FC_switch_B_2 ，端口 11</block>
-  <block id="1fa13f8170bb3e4edd56a10609265afc" category="paragraph">1B'</block>
-  <block id="2f1b3b18be838c3d25904fbe68c4e779" category="paragraph">FC_switch_B_1 ，端口 8</block>
-  <block id="0e2193fc06e659bc886d6d30bb3e3f42" category="paragraph">2 亿</block>
-  <block id="03cf313d0b727563bff93017f0c613cc" category="paragraph">FC_switch_B_2 ，端口 10</block>
-  <block id="5a6fe8791caa69a2e616883aaa276b66" category="paragraph">1C'</block>
-  <block id="b545dbe2381a07e6fd7252d18c829008" category="paragraph">FC_switch_B_1 ，端口 9</block>
-  <block id="141a8908bae6697438460e5309d01d54" category="paragraph">2C'</block>
-  <block id="dafd2efa90620ebf28016d4d5f8de8f0" category="paragraph">FC_switch_B_2 ，端口 9</block>
-  <block id="475c4d5fd174cf47065b7660550ebae9" category="paragraph">1d'</block>
-  <block id="db106db5cbbf033794be16d74552d5e7" category="paragraph">FC_switch_B_1 ，端口 10</block>
-  <block id="594f3713c946f8f145b1b0fe9347dfcc" category="paragraph">2D'</block>
-  <block id="893b12a1608cb12c1decd0a94ca1f909" category="paragraph">FC_switch_B_2 ，端口 8</block>
   <block id="4c9e12fec4832bc4e599f3f834b24296" category="summary">在准备 MetroCluster 安装时，您应了解 MetroCluster 硬件架构和所需的组件。</block>
-  <block id="7ca3f4cc3e8719be42bc9af9a1f301e9" category="doc">从 7- 模式过渡到 ONTAP 时的注意事项</block>
-  <block id="d217125741b05656b3f76b2c03bf99c5" category="paragraph">在使用过渡工具将数据从 7- 模式 MetroCluster 配置移动到 ONTAP 配置之前，您必须已对新的 MetroCluster 配置进行全面配置并使其正常运行。如果 7- 模式配置使用 Brocade 6510 交换机，则新配置可以共享现有网络结构，以降低硬件要求。</block>
-  <block id="f75b95c3a1dfa9ff587686284536247d" category="paragraph">如果您使用的是 Brocade 6510 交换机并计划在 7- 模式网络结构 MetroCluster 和 ONTAP 中运行的 MetroCluster 之间共享交换机网络结构，则必须使用特定的操作步骤来配置 MetroCluster 组件。</block>
   <block id="29262d4c1e8420636829557b35f0fad4" category="summary">在安装新软件版本和 RCF 文件之前，您必须擦除当前交换机配置并执行基本配置。</block>
   <block id="23e45cf3abd0aff81c5f4280c3e76000" category="paragraph">您必须对 MetroCluster 网络结构配置中的每个 FC 交换机重复这些步骤。</block>
   <block id="ecf2a44121ee7d3795e168cc225f660b" category="list-text">以管理员身份登录到交换机。</block>
@@ -4452,57 +4306,12 @@
   <block id="1711fdcc6944bbeddd35a626101f4b4d" category="list-text">验证交换机是否正在使用动态端口按需（ Port on Demand ， POD ）方法。</block>
   <block id="2f3d07c01cbdac4d395d3a14b661150c" category="admonition">对于 8.0 之前的 Brocade Fabric OS 版本，您可以以 admin 身份运行以下命令；对于 8.0 及更高版本，您可以以 root 身份运行这些命令。</block>
   <block id="d63c14f8f4da1b2f3355284117aa43d6" category="list-text">如果 root 用户已被 Brocade 禁用，请启用此用户。</block>
-  <block id="79d1eabb3b4c3024eae6de87ff7920f8" category="summary">在集群模式 ONTAP MetroCluster 配置中的每个控制器上，必须使用缆线将 FC-VI 适配器和 HBA 连接到现有 FC 交换机上的特定端口。</block>
-  <block id="2afb7d32516fb529a3e53b6573b3f8f5" category="doc">使用缆线将新的 MetroCluster 控制器连接到现有 FC 网络结构</block>
-  <block id="2d010e96fad956349ccad086ca0223ca" category="list-text">按照下表为 FC-VI 和 HBA 端口布线：</block>
   <block id="564a95e2696af68aa1c3a4953ecd1ce9" category="cell">站点 A</block>
   <block id="bb713afeab82bcb45a45d3cc1411e3eb" category="cell">站点 B</block>
-  <block id="acbfb20c99ccdab992cc5a41ff38ea28" category="cell">连接此站点 A 组件和端口 ...</block>
-  <block id="8d6c98cf7663854efe9bfe3134475fe2" category="cell">FC_switch_A_1 端口 ...</block>
-  <block id="081a8a034abff5e8a3aee345aa959d6e" category="cell">连接此站点 B 组件和端口 ...</block>
-  <block id="a0360cedb3a8fbc0f04ad6df5db7bd47" category="cell">FC_switch_B_1 端口 ...</block>
-  <block id="e8e28248fd91c46dc9fe5215a6735b33" category="paragraph">controller_A_1 FC-VI 端口 1</block>
-  <block id="c460339807572a76cb3f01377f95cb34" category="paragraph">controller_B_1 FC-VI 端口 1</block>
-  <block id="898bb68e58a290882a9b0d524367bb15" category="paragraph">controller_A_1 HBA 端口 1</block>
-  <block id="b0efbb5d6facee6761f5cbf2e18177f2" category="paragraph">controller_B_1 HBA 端口 1</block>
-  <block id="62a6bacf4457b79667d0da60ac3ccb58" category="paragraph">controller_A_1 HBA 端口 2</block>
-  <block id="1bf582444829b829b9f1b8aed9ad54c5" category="paragraph">controller_B_1 HBA 端口 2</block>
-  <block id="617e42580d959b131d81bde3a43fbe81" category="paragraph">controller_A_2 FC-VI 端口 1</block>
-  <block id="7db50023c9c431e8534499409c8db4d2" category="paragraph">controller_B_2 FC-VI 端口 1</block>
-  <block id="21bb8913cacd0e92a9b024599ca51b29" category="paragraph">controller_A_2 HBA 1</block>
-  <block id="26192731c7e8c8bb6fe12832bc0c0232" category="paragraph">controller_B_2 HBA 1</block>
-  <block id="a042cc00f31537d30813f04d24803dcc" category="paragraph">controller_A_2 HBA 2.</block>
-  <block id="78ccb51c280c2b69d82288d2e5397072" category="paragraph">controller_B_2 HBA 2.</block>
-  <block id="c3cb0a9a37a1b24a86667c16a44f6dc2" category="list-text">使用缆线将第一个交换机网络结构中的每个 FC-SAS 网桥连接到 FC 交换机。</block>
-  <block id="998b92bcb83db7f3d9b63a4bba6f97f4" category="paragraph">网桥数量因 SAS 存储堆栈数量而异。</block>
-  <block id="c46ab491f3f1db2ee40af91120c6721e" category="cell">使用缆线连接此站点 A 网桥 ...</block>
-  <block id="45cf5e837e53f8bad95e757f9b00492b" category="cell">使用缆线连接此站点 B 网桥 ...</block>
-  <block id="d8d2978490c3f3e8bc40e631c3b313ab" category="paragraph">bridge_A_1_38</block>
-  <block id="3138a30dec63b4e834c6c55ecbbdf6d4" category="paragraph">Bridge_B_1_38</block>
-  <block id="cd6e62aee1c72b6bbc41d2930b4212e3" category="paragraph">bridge_A_1_39</block>
-  <block id="43a95c4514832adb75c72ca204f48d8d" category="paragraph">Bridge_B_1_39</block>
-  <block id="383a7a87beac37121647140257311536" category="list-text">使用缆线将第二个交换机网络结构中的每个网桥连接到 FC 交换机。</block>
-  <block id="5a5eae0a504aa3e55d62526d8bb6c817" category="cell">FC_switch_A_2 端口 ...</block>
-  <block id="7ff2efb4c48f80117173d90c6b431c0c" category="cell">FC_switch_B_2 端口 ...</block>
-  <block id="98df66de367366cf8d26c5d44eb29cd9" category="paragraph">Bridge_A_2_38</block>
-  <block id="afe5ba613963e18d8a7550d3db8483e8" category="paragraph">Bridge_B_2_38</block>
-  <block id="00df76c8f3daf21fd37b30cb58f87196" category="paragraph">Bridge_A_2_39</block>
-  <block id="2724870f9e9182322144fd6f560d824f" category="paragraph">Bridge_B_2_39</block>
   <block id="10f945412d3c12928d4e6dc1b7107119" category="doc">ONTAP MetroCluster 配置之间的差异</block>
   <block id="e68271ab52464fb615c82825f7290749" category="doc">准备 MetroCluster 安装</block>
-  <block id="00d4cbf182edd341649687e5a604f3be" category="summary">您必须在每个节点上创建数据聚合，并实施和验证 MetroCluster 配置。</block>
-  <block id="7be9a52451d19cd9d90976cf283647b2" category="doc">在 MetroCluster 配置上创建，实施和验证数据聚合</block>
-  <block id="f53bbb5c5322a9297f53af7bd98a2d9f" category="list-text">在每个节点上创建数据聚合：</block>
   <block id="9245afe84f46306a811d61036f2f5698" category="inline-xref-macro">配置 MetroCluster FC 交换机以进行运行状况监控</block>
-  <block id="0a7ce847789e8e3505b0d6b947a9a554" category="list-text">检查并验证配置：</block>
   <block id="4978301a508dcc7f7e8778cdb2401e04" category="inline-xref-macro">保护配置备份文件</block>
-  <block id="0e4e5f5b554c7c950c50cf7c70e283f3" category="summary">要设置使用原生磁盘和阵列 LUN 的四节点 MetroCluster 配置，必须使用 FC-SAS 网桥通过 FC 交换机将 ONTAP 系统与磁盘架连接起来。您可以通过 FC 交换机将阵列 LUN 连接到 ONTAP 系统。</block>
-  <block id="28e93f86c8423ba4281e1a3fe65f7edd" category="paragraph">要使 ONTAP 系统同时连接到原生磁盘和阵列 LUN ，至少需要八个启动程序端口。</block>
-  <block id="226d65578ffcfe4912277bbf0f5b32f0" category="paragraph">下图显示了使用磁盘和阵列 LUN 的 MetroCluster 配置示例。它们表示相同的 MetroCluster 配置；磁盘和阵列 LUN 的表示仅为简化而分开。</block>
-  <block id="c66b146c7ac8e4bd0dc36455f8c17999" category="paragraph">下图显示了 ONTAP 系统与磁盘之间的连接，其中 HBA 端口 1a 到 1d 用于通过 FC-SAS 网桥与磁盘连接：</block>
-  <block id="bdeabf77afacd398dedff72c9d8d51e6" category="image-alt">使用磁盘和阵列 LUN 的 MCC 配置 1.</block>
-  <block id="df0ddc6b2606b325169b0db05e673efc" category="paragraph">下图显示了 ONTAP 系统与阵列 LUN 之间的连接，其中 HBA 端口 0a 到 0d 用于与阵列 LUN 连接，因为端口 1a 到 1d 用于与磁盘连接：</block>
-  <block id="ec31df7d1f18c6948a41ebc1330adb9e" category="image-alt">此图显示了一个 MetroCluster 配置示例。图周围的文字对此进行了说明。</block>
   <block id="2f02a7617f22d45dd2c91c2ad0c9bf2b" category="summary">MetroCluster 配置中的两个集群通过客户提供的集群对等网络建立对等关系。集群对等支持站点之间 Storage Virtual Machine （ SVM ，以前称为 Vservers\ ）的同步镜像。</block>
   <block id="274ba3154fdc5a121a46d74734a9cb60" category="doc">集群对等网络的图示</block>
   <block id="9d8d4038d4269eed7e1b12e49d6821ca" category="paragraph">MetroCluster 配置中的两个集群通过客户提供的集群对等网络建立对等关系。集群对等支持站点之间的 Storage Virtual Machine （ SVM ，以前称为 Vserver ）的同步镜像。</block>
@@ -4514,77 +4323,8 @@
   <block id="59a45a7f051ccc97450bfc85a22e3683" category="inline-xref-macro">配置集群对等的注意事项</block>
   <block id="63ffe4f1eeb56d0485132cbf234244c7" category="inline-xref-macro">为集群对等连接布线</block>
   <block id="c95d70c32e5010f3058d5fdd6c2ed694" category="inline-xref-macro">为集群建立对等关系</block>
-  <block id="300a0492b022851e50376a948b5ecdca" category="summary">如果要配置 ONTAP 以与阵列 LUN 结合使用，则必须配置根聚合和根卷，为诊断和恢复操作预留空间以及设置集群。</block>
-  <block id="6a478f2c1aa3b5c071c7350c437211ff" category="doc">在仅使用阵列 LUN 的系统上配置 ONTAP</block>
-  <block id="d1b9838e152135ce9ffe100e6014cb3a" category="list-text">ONTAP 系统必须连接到存储阵列。</block>
-  <block id="38319872cf169982110419df88248d72" category="list-text">存储阵列管理员必须已创建 LUN 并将其提供给 ONTAP 。</block>
-  <block id="6b32da1f7cce9cb3998793b8ef2e7d47" category="list-text">存储阵列管理员必须已配置 LUN 安全性。</block>
-  <block id="7750f529ccd4dfc7797bfc40a22ade86" category="paragraph">您必须配置要与阵列 LUN 结合使用的每个节点。如果节点位于 HA 对中，则必须先在一个节点上完成配置过程，然后再在配对节点上继续进行配置。</block>
-  <block id="a98eb1e6d9dfd94b037faeb2a3d5ee4a" category="paragraph">此时将显示可供 ONTAP 使用的阵列 LUN 的列表。此外，还指定了创建根卷所需的阵列 LUN 大小。创建根卷所需的大小因 ONTAP 系统而异。</block>
-  <block id="232ff69144efec75e69fe200f1be2c22" category="list-text">如果先前未分配任何阵列 LUN ，则 ONTAP 会检测并显示可用的阵列 LUN ，如以下示例所示：</block>
-  <block id="b7e852993928c4e804ad159f81b18dd3" category="list-text">如果先前已通过维护模式分配阵列 LUN ，则这些阵列 LUN 会在可用阵列 LUN 列表中标记为 local 或 partner ，具体取决于这些阵列 LUN 是从安装 ONTAP 的节点中选择的，还是从其 HA 配对节点中选择的：</block>
-  <block id="d079f2e30de913d73887a98d1cee68af" category="list-text">选择与要分配为根卷的阵列 LUN 对应的索引编号。</block>
-  <block id="0a6510897dc1ff3e4879e54d5d9b1945" category="paragraph">阵列 LUN 的大小必须足以创建根卷。</block>
-  <block id="f92afc3b026d78a33abacb0eee1d4b6b" category="paragraph">在以下示例中，索引编号为 3 的阵列 LUN 会标记为用于创建根卷：</block>
-  <block id="19a35567fb97930c9e7468e6db094640" category="list-text">选择与要分配以在诊断和恢复选项中使用的阵列 LUN 对应的索引编号。</block>
-  <block id="a49550c8bd50a25526042b3f4e8eee41" category="paragraph">阵列 LUN 的大小必须足以用于诊断和恢复选项。如果需要，您还可以选择多个阵列 LUN ，这些阵列 LUN 的总大小可以大于或等于指定大小。要选择多个条目，必须输入与要为诊断和恢复选项选择的阵列 LUN 对应的所有索引编号的逗号分隔值。</block>
-  <block id="c58db60c9a8af2206e008f65968c9335" category="paragraph">以下示例显示了为创建根卷以及为诊断和恢复选项选择的阵列 LUN 的列表：</block>
-  <block id="a56ca1bced28ab8c76d1e02d951c4242" category="admonition">选择 "`no` " 将清除 LUN 选择。</block>
-  <block id="576cf228c62281f16ae7e9209f20e477" category="list-text">在系统提示时输入 ` * y*` 继续安装过程。</block>
-  <block id="e79badcaf0b3c7829bf21e2008722e24" category="paragraph">此时将创建根聚合和根卷，其余安装过程将继续进行。</block>
-  <block id="e6db32df0d7371b10a45ab8ee955ef22" category="list-text">输入所需的详细信息以创建节点管理接口。</block>
-  <block id="e054c18e078c1fcdf1a17bbe019cf061" category="paragraph">以下示例显示了节点管理接口屏幕，其中包含一条消息，用于确认创建节点管理接口：</block>
   <block id="1a9dbc3089b2c22ecdefe28bf423258a" category="inline-link">软件设置</block>
   <block id="49fd6eac557fd3205a3431ae072641b8" category="paragraph"><block ref="49fd6eac557fd3205a3431ae072641b8" category="inline-link-rx"></block></block>
-  <block id="70894d5c0a41692947485c0d0a19e60a" category="inline-link">FlexArray 虚拟化安装要求和参考</block>
-  <block id="cefd59017a4a065f49d52af021a7df7a" category="paragraph"><block ref="cefd59017a4a065f49d52af021a7df7a" category="inline-link-rx"></block></block>
-  <block id="864a46879aea9e809b12d7e54e89e27a" category="summary">交换机分区用于定义已连接节点之间的路径。通过配置分区，您可以定义特定 ONTAP 系统可以查看哪些阵列 LUN 。</block>
-  <block id="0bf5a919f9397252a1fb8ee826f70bcb" category="doc">使用阵列 LUN 的双节点 MetroCluster 配置中的交换机分区示例</block>
-  <block id="eee9ac9add755308c95d6b192ee994a9" category="paragraph">在为使用阵列 LUN 的双节点光纤连接 MetroCluster 配置确定分区时，可以使用以下示例作为参考：</block>
-  <block id="ff03fa1ec9a5368dacb089cc3ddf3a5b" category="image-alt">对连接的双节点 MCC 网络结构进行分区</block>
-  <block id="a1a6f8d15b87bea02a0b382a7103d7bb" category="paragraph">此示例显示了 MetroCluster 配置的单启动程序到单目标分区。示例中的线表示分区，而不是连接；每条线都标有分区编号。</block>
-  <block id="ec2e1b253e1f2bc7fe575feec245f8af" category="paragraph">在此示例中，阵列 LUN 在每个存储阵列上分配。大小相等的 LUN 会在两个站点的存储阵列上进行配置，这是 SyncMirror 的一项要求。每个 ONTAP 系统都有两个指向阵列 LUN 的路径。存储阵列上的端口为冗余端口。</block>
-  <block id="8865e044b5cae9c361459da496941229" category="paragraph">两个站点的冗余阵列端口对如下：</block>
-  <block id="c981fbe146de912c1d6ac296cc97304b" category="paragraph">每个存储阵列上的冗余端口对构成备用路径。因此，端口对的两个端口均可访问相应存储阵列上的 LUN 。</block>
-  <block id="226fdabe43814b487f6bc80ba78ce7f8" category="paragraph">下表显示了图中的分区：</block>
-  <block id="f8f6ae4305722fa58dcdf70d9c4ece5d" category="cell">ONTAP 控制器和启动程序端口</block>
-  <block id="bf4e8b9b80fd765928f4b38fe78a6032" category="cell">存储阵列端口</block>
-  <block id="06f47b6f3cf41b8d50ffeed35c737172" category="paragraph">* FC_switch_A_1*</block>
-  <block id="3b770ebe9b04f171f0ead0e07d8e2882" category="paragraph">Z1</block>
-  <block id="01b6a9b037a9428eeaa993882b105ea0" category="paragraph">控制器 A ：端口 0a</block>
-  <block id="937bc752933a1d2f43140d6838632208" category="paragraph">端口 1A</block>
-  <block id="a61d1457beb4684e254ce60379c8ae7b" category="paragraph">Z3</block>
-  <block id="15833fe7a86a64ec49a86a5cc7a13229" category="paragraph">控制器 A ：端口 0c</block>
-  <block id="8ed7b758790091dc0f03580dc8cbdb2f" category="paragraph">端口 1A'</block>
-  <block id="198a488c4e17ea8598f0627cd6cca5e7" category="paragraph">* FC_switch_A_2*</block>
-  <block id="5cb7e380d019de63c643aef55b8534d0" category="paragraph">Z2</block>
-  <block id="fcd4a1ee1dde89868898e398385930b1" category="paragraph">控制器 A ：端口 0b</block>
-  <block id="5233a229e5b7e573f46134d360071ce3" category="paragraph">端口 2A'</block>
-  <block id="8ed54f04419ffb305225370abdaba82d" category="paragraph">Z4</block>
-  <block id="9d7686f1afdd5a4a71976e17e2761fb3" category="paragraph">控制器 A ：端口 0d</block>
-  <block id="9fb5ee9a2670bac76369240ae031e209" category="paragraph">端口 2A</block>
-  <block id="59064ad2a8c60c028df6bae1d172ef67" category="paragraph">* FC_switch_B_1*</block>
-  <block id="4afbd36dfbe0916ea993c5ca93ffedb5" category="paragraph">Z5</block>
-  <block id="c07d80f37d7e1a9223132980e54397c1" category="paragraph">控制器 B ：端口 0a</block>
-  <block id="81b11478027607d054c32ad485519ce5" category="paragraph">端口 1B'</block>
-  <block id="9ab4c1b5e09f493aa9b452766cddb7ee" category="paragraph">Z7</block>
-  <block id="c3d510481d7702ec023d4a0221727e22" category="paragraph">控制器 B ：端口 0c</block>
-  <block id="13b92750c8ca93b93261b23d974fd8b2" category="paragraph">端口 1B</block>
-  <block id="cac05c8971d13247d1cd68d3070748db" category="paragraph">* FC_switch_B_2*</block>
-  <block id="4d0ce1d0c3837c91f11658e2cf303259" category="paragraph">Z6</block>
-  <block id="156dcc3e764a085bc3e61528c9eb5be4" category="paragraph">控制器 B ：端口 0b</block>
-  <block id="8e3deb9fe51ba100136489ababfe5b68" category="paragraph">端口 2B</block>
-  <block id="298a60807e4f1433233c2dc093f01258" category="paragraph">Z8.</block>
-  <block id="e5d71b14db9c42a420aacb199eb2012e" category="paragraph">控制器 B ：端口 0d</block>
-  <block id="87bb16d42cbb629fcc2c1d47ed8db016" category="paragraph">端口 2B'</block>
-  <block id="934ad02d03684df4e01cc1007f8491ce" category="paragraph">下表显示了 FC-VI 连接的分区：</block>
-  <block id="1f3c57dd04ac52fd92f3346ca51f00ec" category="paragraph">ZX</block>
-  <block id="ca5db0cf62275a7a7a7dfb94149dd7df" category="paragraph">控制器 A ：端口 FC-VI A</block>
-  <block id="f48c79e2ae4ebf22cc206ee1cbd36607" category="paragraph">ZY</block>
-  <block id="d909a5c4df40fcfae94b0192fb76e4fa" category="paragraph">控制器 A ：端口 FC-VI b</block>
-  <block id="0b663693f1c571e72e27497183e38ee4" category="paragraph">控制器 B ：端口 FC-VI A</block>
-  <block id="32b2837586f2ffaf3da8eb6441d53979" category="paragraph">控制器 B ：端口 FC-VI b</block>
-  <block id="67d003a4abde4b84eb28863c6288534e" category="inline-xref-macro">使用阵列 LUN 的 MetroCluster 配置中的交换机分区要求</block>
   <block id="feda56ed0396074f051138ea4466f982" category="doc">测试 MetroCluster 配置</block>
   <block id="7e756142ca24020ffa4d2170bdd9c135" category="paragraph">您可以测试故障情形，以确认 MetroCluster 配置是否正常运行。</block>
   <block id="397065d1ea76a7267c1165f18aff1479" category="section-title">验证协商的切换</block>
@@ -4646,67 +4386,6 @@
   <block id="0a890ce71dbbafb17504c250b826bdcb" category="list-text">物理关闭选定磁盘架的电源。</block>
   <block id="0db01fbbc1108003a80e147287126b45" category="list-text">物理启动磁盘架。</block>
   <block id="0baa4dc27d38f6e540aacf8ad8946509" category="paragraph">重新同步将自动启动。</block>
-  <block id="2800f662942cd56689afae5d423911a1" category="summary">如果要设置使用阵列 LUN 的双节点光纤连接 MetroCluster 配置，则必须使用缆线将 FC-VI 端口和 HBA 端口连接到交换机端口。</block>
-  <block id="c05e9825d7228d49f8ffdac3e463c19a" category="doc">在使用阵列 LUN 的双节点光纤连接 MetroCluster 配置中为 FC-VI 和 HBA 端口布线</block>
-  <block id="0730001c1b3a9bf182126b7bfb9845ab" category="list-text">您必须对两个 MetroCluster 站点上的每个控制器重复此任务。</block>
-  <block id="0b330ff5d92560115255d72e2d65164b" category="list-text">如果您计划在 MetroCluster 配置中除了使用阵列 LUN 外还使用磁盘，则必须使用为使用磁盘配置而指定的 HBA 端口和交换机端口。</block>
-  <block id="a951c887d9b704391ce2444ecd9583e9" category="list-text">使用缆线将控制器中的 FC-VI 端口连接到备用交换机端口。</block>
-  <block id="5925a6a5a52b3caca8a0d82899ad4e16" category="list-text">在两个 MetroCluster 站点上执行控制器到交换机的布线。</block>
-  <block id="1501a34a02832e5f146e25f23420d129" category="paragraph">您必须确保从控制器到交换机的连接具有冗余性。因此，对于站点上的每个控制器，您必须确保同一端口对中的两个 HBA 端口都连接到备用 FC 交换机。</block>
-  <block id="7ed6e41f08166c60018119e5afcdd18e" category="paragraph">以下示例显示了控制器 A 上的 HBA 端口与 FC_switch_A_1 和 FC_switch_A_2 上的端口之间的连接：</block>
-  <block id="f7c3bc386fad56fdbb486f0f05eaa8df" category="image-alt">双节点 MCC HBA 连接</block>
-  <block id="fd1aa96777bed25bc9d45ab892b63ddd" category="paragraph">下表列出了图中 HBA 端口与 FC 交换机端口之间的连接：</block>
-  <block id="0805ade74966c90f6faa083e6ffe0944" category="cell">HBA 端口</block>
-  <block id="dc3310fe82b8aa736508dff9756c1c6a" category="cell">交换机端口</block>
-  <block id="d77a4b02f2c33715a9263c3d71973023" category="paragraph">* 端口对 *</block>
-  <block id="172f431672cad316a2d2d9b742a2304d" category="paragraph">端口 A</block>
-  <block id="7f54d1f2cabbe35f245d99c2ed8ea123" category="paragraph">FC_switch_A_1 ，端口 2</block>
-  <block id="5721d2a077bcdadb83ea5006178fe7ed" category="paragraph">端口 d</block>
-  <block id="8e86f45147ccf0ac737f7026c2a9a07d" category="paragraph">FC_switch_A_2 ，端口 3</block>
-  <block id="64f3d4edf5527de7d3dd7136af076a41" category="paragraph">端口 b</block>
-  <block id="db3e9838cac655d970657aee4aa91c64" category="paragraph">FC_switch_A_2 ，端口 2</block>
-  <block id="60178183a41a41298abe58fd5982c3e1" category="paragraph">端口 c</block>
-  <block id="82e7b6a00c7f7bfea586ccd977a765ed" category="paragraph">FC_switch_A_1 ，端口 3</block>
-  <block id="de3a9779bda95b68b0ba21de688db620" category="paragraph">您应使用缆线连接 MetroCluster 站点中 FC 交换机之间的 ISL 。</block>
-  <block id="753f32245e09a5cb3c0f8ea57c219e5d" category="summary">如果 7- 模式光纤 MetroCluster 配置使用 Brocade 6510 交换机，则可以与新的集群模式 MetroCluster 配置共享现有交换机网络结构。共享交换机网络结构意味着新的 MetroCluster 配置不需要单独的新交换机网络结构。只有 Brocade 6510 交换机才支持此临时配置，以便进行过渡。</block>
-  <block id="5a567289b578af5903f3224cb335d3fb" category="doc">配置硬件以在过渡期间共享 Brocade 6510 FC 网络结构</block>
-  <block id="27e6c2849190239762206fcf113f7086" category="list-text">7- 模式光纤 MetroCluster 必须使用 Brocade 6510 交换机。</block>
-  <block id="87628103a6b8c7eaf8360ed724a64ebf" category="paragraph">如果 MetroCluster 配置当前未使用 Brocade 6510 交换机，则必须先将交换机升级到 Brocade 6510 ，然后再使用此操作步骤。</block>
-  <block id="a050d7522cdf278d0ebc45dfd612aa47" category="list-text">7- 模式光纤 MetroCluster 配置必须仅使用 SAS 存储架。</block>
-  <block id="eba3539147e0d862df33659bc68c3062" category="paragraph">如果现有配置包含 FC 存储架（例如 DS14mk4 FC ），则不支持 FC 交换机网络结构共享。</block>
-  <block id="d64f0a03e0ff9a67e55d8cbd83c6dc5c" category="list-text">新的集群模式 MetroCluster 配置所使用的交换机端口上的 SFP 必须支持 16-Gbps 的速率。</block>
-  <block id="0216568f67e5d703868ec3f45bbaaa79" category="paragraph">现有的 7- 模式光纤 MetroCluster 仍可连接到使用 8-Gbps 或 16-Gbps SFP 的端口。</block>
-  <block id="05d631d42f259bf07f58147a7f7c98d4" category="list-text">在四个 Brocade 6510 交换机中的每一个交换机上，端口 24 到 45 必须可用于连接新 MetroCluster 组件的端口。</block>
-  <block id="a009195558b1c4cd3b61cdf61cb6fb25" category="list-text">您应验证现有交换机间链路（ ISL ）是否位于端口 46 和 47 上。</block>
-  <block id="121789800a2a17c2b44944d1aba6cec3" category="paragraph">共享网络结构并完成 MetroCluster 配置后，您可以从 7- 模式网络结构 MetroCluster 配置过渡数据。</block>
-  <block id="d66138e7de87b53a340e87e48042957d" category="summary">MetroCluster 配置中使用的 ONTAP 系统，存储阵列和 FC 交换机必须满足此类配置的要求。此外，还必须考虑使用阵列 LUN 的 MetroCluster 配置的 SyncMirror 要求。</block>
-  <block id="aea48cdfc5800125bb39de01bb53c503" category="doc">使用阵列 LUN 的 MetroCluster 配置的要求</block>
-  <block id="0d2543656d3d6ee0d0708750b1227727" category="section-title">ONTAP 系统的要求</block>
-  <block id="31c7601b3ddd76c89bdb9c7f651e6565" category="list-text">必须确定 ONTAP 系统支持 MetroCluster 配置。</block>
-  <block id="8f16a0302e18449a6fe9801e318a21ac" category="admonition">您必须参考与您在互操作性表中选择的任何配置相关的警报详细信息。</block>
-  <block id="b0a79d0ab79284c3f2f69466e99e3562" category="list-text">MetroCluster 配置中的所有 ONTAP 系统必须使用相同型号。</block>
-  <block id="1ed1490f1fedbec3aa46979875437d66" category="list-text">根据型号的不同，必须在每个 ONTAP 系统的相应插槽中安装 FC-VI 适配器。</block>
-  <block id="d3e1f29d5998c9fd1a893993c7c437fc" category="section-title">存储阵列的要求</block>
-  <block id="7c9e25bb04a28bc816b0d1b3f80cb8a3" category="list-text">必须确定存储阵列受 MetroCluster 配置支持。</block>
-  <block id="7a7c50dc3d480e65fc0fc47e93a949d3" category="list-text">MetroCluster 配置中的存储阵列必须对称：</block>
-  <block id="90a3b4e9946334088a78dea287724e93" category="list-text">这两个存储阵列必须来自相同受支持的供应商系列，并且安装的固件版本必须相同。</block>
-  <block id="98c912a8ebc7fe33bb468aeb86b73d0d" category="list-text">两个存储阵列上用于镜像存储的磁盘类型（例如 SATA ， SSD 或 SAS ）必须相同。</block>
-  <block id="a5c2b9a46f707221354fce1142ddb350" category="list-text">用于配置存储阵列的参数（例如 RAID 类型和分层）在两个站点上必须相同。</block>
-  <block id="4fde1977c0712026d27420be2b851917" category="section-title">FC 交换机的要求</block>
-  <block id="d729ae9faac07f81f2be521fde99983b" category="list-text">必须确定交换机和交换机固件受 MetroCluster 配置支持。</block>
-  <block id="efe2f1a5b22c4c08760a2c8298133cbc" category="list-text">每个网络结构必须有两个 FC 交换机。</block>
-  <block id="633329c29defa71e64bad7e22f7391d6" category="list-text">每个 ONTAP 系统都必须使用冗余组件连接到存储，以便在发生设备和路径故障时提供冗余。</block>
-  <block id="00cf1532f7b3f1f9e9e57c27005e5afe" category="paragraph">交换机必须使用 MetroCluster 基本交换机配置， ISL 设置和 FC-VI 配置。</block>
-  <block id="bc8f1fcb589a975f8303117094ef8f50" category="section-title">SyncMirror 要求</block>
-  <block id="3e033f133aa9e3ec8a824c1f70405edc" category="list-text">MetroCluster 配置需要使用 SyncMirror 。</block>
-  <block id="faa2c24aa0bff134c46b610cc5cad1bc" category="list-text">镜像存储需要两个单独的存储阵列，每个站点一个。</block>
-  <block id="620e8832cbaba361ae8b2c33837fb80f" category="list-text">需要两组阵列 LUN 。</block>
-  <block id="019169cff6a8d33215c0a9ba8e769d33" category="paragraph">本地存储阵列（ pool0 ）上的聚合需要一组，而远程存储阵列需要另一组用于聚合的镜像（聚合的另一丛， pool1 ）。</block>
-  <block id="44bfd90bf25fc1afc744f3b97ad23cac" category="paragraph">要镜像聚合，阵列 LUN 的大小必须相同。</block>
-  <block id="84607472aeb104b5de394a50678b1615" category="list-text">MetroCluster 配置也支持未镜像聚合。</block>
-  <block id="7ba040de83fb2facf86a7f32503e4830" category="paragraph">发生站点灾难时，它们不受保护。</block>
-  <block id="478ccac00464b99572734ae91318d07a" category="summary">要设置使用阵列 LUN 的 MetroCluster 配置，您必须使用缆线将存储控制器连接到 FC 交换机，并为 ISL 布线以链接站点。此外，您还必须使用缆线将存储阵列连接到 FC 交换机。</block>
-  <block id="3ca39819e2e07c2104732811215f1a97" category="doc">在使用阵列 LUN 的配置中安装 MetroCluster 组件并为其布线</block>
   <block id="93ba9bcaf75f3b305567eed2f5797513" category="summary">在向配置添加新存储时，您需要安装 ATTO FibreBridge 网桥和 SAS 磁盘架并为其布线。</block>
   <block id="a2d4b828805dc92004efb97c8e85045a" category="paragraph">对于从工厂收到的系统， FC-SAS 网桥已进行预配置，不需要进行其他配置。</block>
   <block id="22352eb03ff7e6b8795e4f237f27d8d1" category="paragraph">编写此操作步骤时假定您使用的是建议的网桥管理界面： ATTO ExpressNAV 图形用户界面和 ATTO QuickNAV 实用程序。</block>
@@ -4788,23 +4467,6 @@
   <block id="6ccf095006c1d816e28e52dc0e9bd0f6" category="paragraph">请参见适用于您的 ONTAP 版本的端口分配。</block>
   <block id="62610238a732474c3b050bbde67a6d1e" category="list-text">对配对站点的网桥重复上述步骤。</block>
   <block id="92ce9352258f4fd51a93e19057e163df" category="list-text">在 ONTAP 9.7 及更早版本中，在 ATTO FibreBridge 上运行 `securebridge` 命令可能无法正确更新配对集群上的网桥状态。如果发生这种情况，请从配对集群运行 `securebridge` 命令。</block>
-  <block id="e3ae9940fbffd31f3b022a7e38fc3a88" category="summary">如果要设置使用阵列 LUN 的四节点光纤连接 MetroCluster 配置，则必须使用缆线将 FC-VI 端口和 HBA 端口连接到交换机端口。</block>
-  <block id="fe5772d11639aff667f09bb55dd4726b" category="doc">在使用阵列 LUN 的四节点光纤连接 MetroCluster 配置中为 FC-VI 和 HBA 端口布线</block>
-  <block id="ac806aec6265809634e09b30a4132e8d" category="list-text">使用缆线将每个控制器中的 FC-VI 端口连接到备用 FC 交换机上的端口。</block>
-  <block id="839bbab9c47b80ce59f376113ae51b46" category="paragraph">以下示例显示了站点 A 上 FC-VI 端口和交换机端口之间的连接：</block>
-  <block id="7f555680e47e89a10d18c1bd7deca2a2" category="image-alt">四节点 MCC fc vi 交换机连接</block>
-  <block id="76463ab3a4ce7f9fd7d1af70740c4fdb" category="paragraph">以下示例显示了站点 A 的 HBA 端口和交换机端口之间的连接：</block>
-  <block id="3d02e71d3b6a29bc047a2e8e35939912" category="image-alt">四节点 MCC HBA 交换机连接</block>
-  <block id="e183b31085bae0f246bfc28900f575fa" category="paragraph">下表列出了图中 controller_A_1 上的 HBA 端口与 FC 交换机端口之间的连接：</block>
-  <block id="36478ff48487a66154cdd1525efbfc6f" category="paragraph">下表列出了图中 controller_A_2 上的 HBA 端口与 FC 交换机端口之间的连接：</block>
-  <block id="235974f690166b5a37673990c904136b" category="paragraph">FC_switch_A_1 ，端口 5</block>
-  <block id="cd5de81b330bab5c5937507e7754a4bd" category="paragraph">FC_switch_A_2 ，端口 6</block>
-  <block id="425a8d79e9e6167c4f1a26cbad37adfa" category="paragraph">FC_switch_A_2 ，端口 5</block>
-  <block id="c2fc34aee5387e476c0c882dba132312" category="paragraph">FC_switch_A_1 ，端口 6</block>
-  <block id="4c8abe61a9f555c472220dec3b18291c" category="inline-xref-macro">使用阵列 LUN 的 MetroCluster 配置所需的交换机端口</block>
-  <block id="90ca2ba118d725d3d2c212d37d698f66" category="summary">您必须镜像 MetroCluster 配置中的根聚合，以确保数据保护。</block>
-  <block id="0e4fdb537ab94dcc88ee68afa6872a59" category="paragraph">您必须对 MetroCluster 配置中的每个控制器重复此任务。</block>
-  <block id="eab8b55bcdb4287e02366668fee8df5a" category="paragraph">根聚合使用 pool1 中的阵列 LUN 进行镜像。</block>
   <block id="7e853595389f6b90dc22efe3da872888" category="summary">如果您采用八节点或四节点 MetroCluster 配置，并且 HA 对中的存储控制器位于不同的机箱中，则必须为控制器之间的 HA 互连布线。</block>
   <block id="c1c364c532b2c947b4b100558d68dfe9" category="list-text">此任务不适用于双节点 MetroCluster 配置。</block>
   <block id="e92a4b2abadfb9a6a4c24279d1fd0c9e" category="list-text">只有当 HA 对中的存储控制器位于单独的机箱中时，才必须为 HA 互连布线。</block>
@@ -4884,7 +4546,6 @@
   <block id="faf844ce6ce8135dec1b710eb9763ba5" category="paragraph">成对位置</block>
   <block id="8d3eb4cb77ea2bbd21bb7417b5cacaca" category="paragraph">网桥对中的网桥。一对网桥连接到特定的堆栈组。</block>
   <block id="f7957f4fad1ef92794a3f4763851bc70" category="paragraph">a 或 b</block>
-  <block id="70367474f34c61043e3966733d8833ab" category="summary">在 MetroCluster 配置中配置存储系统时，必须确保控制器模块和机箱组件的高可用性状态为 mcc 或 mcc-2n ，以便这些组件可以正常启动。</block>
   <block id="23d8ab4e8486ac34b4198e32edee8347" category="doc">在维护模式下验证和配置组件的 HA 状态</block>
   <block id="5c6c610b9df037c3c93893e9123552e5" category="paragraph">从工厂收到的系统不需要执行此任务。</block>
   <block id="01418c86fa72d40961ea4cb3a1aab570" category="paragraph">正确的 HA 状态取决于您的 MetroCluster 配置。</block>
@@ -4902,11 +4563,6 @@
   <block id="b687dd86b8db3b030c46a3fbc2a2d024" category="paragraph">`ha-config modify chassis mccip`</block>
   <block id="a557db64e7a1a7811ee58be8f70a14b6" category="list-text">将节点启动至 ONTAP ：</block>
   <block id="49eb5704f61afb2484b6cc1439fa40de" category="list-text">对 MetroCluster 配置中的每个节点重复上述步骤。</block>
-  <block id="a9376b40838c95dc0e4da39abdfa72b0" category="summary">您必须通过交换机间链路（ ISL ）跨站点连接 FC 交换机，以便在使用阵列 LUN 的 MetroCluster 配置中形成交换机网络结构。</block>
-  <block id="54ac487d2d6ff680a517207a9eced839" category="doc">为使用阵列 LUN 的 MetroCluster 配置中的 ISL 布线</block>
-  <block id="ba35d7d9c18ec17168ae6aa733de311d" category="paragraph">您必须通过交换机间链路（ ISL ）跨站点连接 FC 交换机，以便在使用阵列 LUN 的 MetroCluster 配置中形成交换机网络结构。</block>
-  <block id="86104e2083d4e42f39e08b4bf231db53" category="list-text">使用表中与您的配置和交换机型号对应的布线方式，将每个站点的交换机连接到 ISL 或 ISL 。</block>
-  <block id="246805b2f5e8b3611b6b0467b8adcb2f" category="paragraph">可用于 FC ISL 的交换机端口号如下：</block>
   <block id="d317c258d79fc562775a50cf1a5a6ece" category="summary">在开始配置 MetroCluster 站点之前，您应收集所需的配置信息。</block>
   <block id="3951cf3a9a587c843554ac26e7752f92" category="doc">FC 交换机和 FC-SAS 网桥的配置工作表</block>
   <block id="373ea37ba723150abb88f58c48ffcdae" category="paragraph">在开始配置 MetroCluster 站点之前，您可以使用以下工作表记录站点信息：</block>
@@ -4914,9 +4570,6 @@
   <block id="79b482a227e1595f7ab841ee8be94f5a" category="paragraph"><block ref="79b482a227e1595f7ab841ee8be94f5a" category="inline-link-macro-rx"></block></block>
   <block id="96bbb7fffd6c295d8680b093897365fc" category="inline-link-macro">站点 B 工作表</block>
   <block id="bd9a676bb80dff5cc6dc6052bee08f56" category="paragraph"><block ref="bd9a676bb80dff5cc6dc6052bee08f56" category="inline-link-macro-rx"></block></block>
-  <block id="81f0867bac9efadacfd599f0fb66c839" category="summary">MetroCluster 配置仅支持安装原生（ NetApp ）磁盘架，仅安装阵列 LUN 或同时安装这两者。</block>
-  <block id="8e98ddf5c7184de31606d8ca05864c67" category="doc">使用原生磁盘架或阵列 LUN 的 MetroCluster 配置的注意事项</block>
-  <block id="b75a46fc53502d73a9aba497366b09e6" category="paragraph">AFF 系统不支持阵列 LUN 。</block>
   <block id="5fbb52ab0ccc2914c72b1ce04d94f538" category="summary">每个交换机网络结构都包含连接站点的交换机间链路（ ISL ）。数据通过 ISL 从站点复制到站点。每个交换机网络结构都必须位于不同的物理路径上，以实现冗余。</block>
   <block id="ec25303fa6412309bf87b276dbbd7a8c" category="paragraph">每个交换机网络结构都包含用于连接站点的交换机间链路（ ISL ）。数据通过 ISL 从站点复制到站点。每个交换机网络结构都必须位于不同的物理路径上，以实现冗余。</block>
   <block id="09011b1854f3ff9c194f9a18281f450c" category="image-alt">MCC 硬件架构交换机网络结构</block>
@@ -5895,13 +5548,8 @@
   <block id="c6d7a629c5e04881bf417a6aa090bdff" category="paragraph">必须对两个 MetroCluster 站点上的每个新控制器重复执行此任务。</block>
   <block id="8c9ca8086755018358ea4d5d0c638cf9" category="paragraph">您可以将控制器和集群交换机管理端口连接到网络中的现有交换机或新的专用网络交换机，例如 NetApp CN1601 集群管理交换机。</block>
   <block id="258ba3377e43df3da3fbda0611fd8b0c" category="list-text">使用缆线将控制器的管理和数据端口连接到本地站点的管理和数据网络。</block>
-  <block id="6e1085c3a7f7f5dad713d84dc9829d1d" category="summary">您必须确保使用阵列 LUN 设置 MetroCluster 配置所需的硬件组件已正确装入机架。</block>
-  <block id="38d158f9e55938f2b0dc9dd64167a8f9" category="doc">使用阵列 LUN 的 MetroCluster 配置中的硬件组件机架安装</block>
-  <block id="06b34b4d4fbdbda5eda4c6c60b4a50aa" category="paragraph">您必须在两个 MetroCluster 站点上执行此任务。</block>
   <block id="fbe01200b5d7a3c4261e8ea34a15d550" category="list-text">规划 MetroCluster 组件的定位。</block>
-  <block id="099521a7112509edbce04bcd0ca911e7" category="paragraph">机架空间取决于存储控制器的平台型号，交换机类型以及配置中的磁盘架堆栈数量。</block>
   <block id="e300e2842dc7659854d8d05584277804" category="list-text">在机架或机柜中安装存储控制器。</block>
-  <block id="173460488dce7240a263945ff8eca309" category="admonition">阵列 LUN 不支持 AFF 系统。</block>
   <block id="c8c3719034d9b9b752000ca4d3b5b2c2" category="list-text">在机架或机柜中安装 FC 交换机。</block>
   <block id="46921e96d32ca8da20b383833d3a4a04" category="list-text">MetroCluster 配置中使用的 DCX 8510-8 交换机必须从 NetApp 购买。</block>
   <block id="0ea858176a453f0d6d0d985f851b3c41" category="list-text">为了实现可扩展性，如果在 4x48 端口模块中仅为两个 MetroCluster 布线，则应在 MetroCluster 配置之间保留一个端口块。这样，您就可以在不重新布线的情况下扩展 MetroCluster 配置中的端口使用情况。</block>
@@ -5945,22 +5593,10 @@
   <block id="529a2302cffad8d858ddf8cfd8a1235a" category="paragraph">必须同时对两个交换机网络结构执行此操作。</block>
   <block id="bf626de442bc8fa734370a57351ba540" category="list-text">使用表中与您的配置和交换机型号对应的布线方式，将每个站点的 FC 交换机连接到所有 ISL 。</block>
   <block id="1c2ac66406fbd86dae3a5ebc91801648" category="inline-xref-macro">ISL 注意事项</block>
-  <block id="c88edc4c15fee94b757ac367781bb561" category="paragraph">一个八节点 MetroCluster 配置由两个四节点 DR 组组成。第一个 DR 组由以下节点组成：</block>
   <block id="ba7daf8fded06fad682c0b21342ef324" category="list-text">controller_A_1</block>
   <block id="821112d274dff3c10c6b7992b0b8bec2" category="list-text">controller_A_2</block>
   <block id="6c2ebeeadae60a51adac94985a1504d9" category="list-text">controller_B_1</block>
   <block id="0ba28e6c417f9ee65cd8ef23f2064a5d" category="list-text">controller_B_2</block>
-  <block id="6873448bb983f2d98dc888336e992a66" category="paragraph">第二个 DR 组由以下节点组成：</block>
-  <block id="eed30f9d99bbd7faa235645e344fed96" category="list-text">controller_A_3</block>
-  <block id="978805a3a6abf9261e8e019354261f30" category="list-text">controller_A_4</block>
-  <block id="16bcaa3538e88b0ec91eb7bc2706f2b9" category="list-text">controller_B_3</block>
-  <block id="96ea41d688f79c1f69453f2e11f526d4" category="list-text">controller_B_4</block>
-  <block id="8664664e713a383e7208ad181c9a1484" category="paragraph">要为第一个 DR 组的阵列端口布线，您可以使用第一个 DR 组的四节点 MetroCluster 配置的布线示例。</block>
-  <block id="3e50d9cbf27f15e843e5239619287ac0" category="paragraph">要为第二个 DR 组连接阵列端口，请按照相同的示例进行操作，并对属于第二个 DR 组中控制器的 FC-VI 端口和 FC 启动程序端口进行推断。</block>
-  <block id="98c5e9ced1b91fd70bc3cbf2050260a7" category="paragraph">下图显示了使用阵列 LUN 的双节点光纤连接 MetroCluster 配置中存储阵列和 FC 交换机之间的连接：</block>
-  <block id="fe5c83ba1ba3a36ad5d4ca3acb30c79e" category="image-alt">双节点光纤连接 MCC 配置</block>
-  <block id="926641fa5f513d7cc22f4efc08afd65a" category="paragraph">使用阵列 LUN 的双节点 MetroCluster 配置的延伸型和光纤连接型两种配置的存储阵列端口和 FC 交换机端口之间的连接都类似。</block>
-  <block id="d2dda80f1fff01d0e113ebb44b5f1ed8" category="paragraph">下表列出了示例 MetroCluster 图中存储阵列端口和 FC 交换机之间的连接：</block>
   <block id="eb2d15265b5fd439593bf6b8ee75d9aa" category="paragraph">Hardware Universe 工具提供了一些有关使用光纤连接 MetroCluster 配置时，时分多路复用（ TDM ）或波长分多路复用（ WDM ）设备必须满足的要求的说明。这些说明还包括有关各种配置的信息，这些信息有助于您确定何时使用帧的按顺序交付（ IOD ）或帧的无序交付（ OOD ）。</block>
   <block id="d4beb857c0f68f166b4edd79f0380640" category="paragraph">例如， TDM/WDM 设备必须支持具有路由策略的链路聚合（中继）功能。帧的交付顺序（ IOD 或 OOD ）在交换机中保持不变，并由有效的路由策略确定。</block>
   <block id="23b60dee7343d297c876d8c492d80b28" category="paragraph">下表提供了包含 Brocade 交换机和 Cisco 交换机的配置的路由策略：</block>
@@ -5993,30 +5629,11 @@
   <block id="e17ca788f6c66549a66b7b032db9b795" category="list-text">由于加密而增加的延迟不应超过 10 微秒。</block>
   <block id="cbbfaef273014b8355328497ea2a64a8" category="summary">FC-SAS 网桥可在 SAS 连接的磁盘和 FC 交换机网络结构之间提供协议桥接。</block>
   <block id="6ae03157542266ed3043d8026451ccf4" category="image-alt">MCC 硬件架构磁盘架堆栈</block>
-  <block id="5fd8df07f07be8ba9b4318226aef95c2" category="summary">您可以设置包含阵列 LUN 的 MetroCluster 配置。支持延伸型配置和光纤连接配置。阵列 LUN 不支持 AFF 系统。</block>
-  <block id="d7d568faf1e89736369daad49b871f32" category="doc">支持使用阵列 LUN 的 MetroCluster 配置</block>
-  <block id="5bb8727e41ba71e243518e25b55701c5" category="paragraph">MetroCluster 配置支持的功能因配置类型而异。下表列出了使用阵列 LUN 的不同类型的 MetroCluster 配置支持的功能：</block>
-  <block id="754122881e650d3d6c0d6e0a7e765f05" category="cell">光纤连接配置</block>
   <block id="4250e51248bc5d54f8b7bf7f3f4a57f6" category="cell">八节点</block>
   <block id="95e351a6be60cc62a4dd8db3ec98a00f" category="cell">四节点</block>
-  <block id="a8729440d8cdaab0e3c51cb11e55074a" category="cell">双节点</block>
   <block id="baca0ca6729684fd54206793ae4b5bd5" category="paragraph">八个</block>
-  <block id="3a0a89576bfaaff699e1f3de4f7b9103" category="paragraph">支持自动切换</block>
   <block id="eed818e49f4e9b9c4ed8931067fb0efd" category="inline-xref-macro">ONTAP MetroCluster 配置之间的差异</block>
   <block id="5cb3cc1fd9bc99df65b069b73f3c4f22" category="summary">MetroCluster 配置中的集群必须处于对等关系中，以便它们可以彼此通信并执行对 MetroCluster 灾难恢复至关重要的数据镜像。</block>
-  <block id="5da1ba53dad54d5e6efca627cd4e913f" category="summary">您必须删除交换机网络结构上的现有 TI 分区并重新配置按顺序交付 \ （ IOD\ ）设置。</block>
-  <block id="bda671bafb9e307e601d1f48d41ee87e" category="doc">删除 TI 分区并配置 IOD 设置</block>
-  <block id="393345450fdab1c4a8707cdc5ac357e1" category="paragraph">您必须删除交换机网络结构上的现有 TI 分区并重新配置按顺序交付（ IOD ）设置。</block>
-  <block id="9593ac79e77c9f1bdc7761a29356b43b" category="list-text">确定在网络结构上配置的 TI 分区：</block>
-  <block id="e76a2e6193256d5905ebdad93c975dac" category="paragraph">以下示例显示了分区 FCVI_TI_FAB_2 。</block>
-  <block id="872fd99863394fd03b49ac281e05c37f" category="list-text">删除 TI 分区：</block>
-  <block id="d541030421372525eadee31c0c3196d3" category="paragraph">以下示例显示了删除区域 FCVI_TI_FAB_2 的情况。</block>
-  <block id="8dd2ba92d37be5f033feede59afb1372" category="list-text">确认分区已删除：</block>
-  <block id="ac0321498317235c480942be9e861d45" category="list-text">启用按顺序交付：</block>
-  <block id="4f3c80eb4c7058a48ce3a8802614c67e" category="list-text">选择高级性能调整（ APT ）策略 1 ，即基于端口的路由策略：</block>
-  <block id="34ba78cbd58ca4736a4ec9afcd4a2529" category="summary">设置集群包括设置每个节点，在第一个节点上创建集群以及将任何剩余节点加入集群。</block>
-  <block id="b418e6f88f4c95341a5b126a8b9b98f9" category="doc">设置集群</block>
-  <block id="713771fbe82877a6f1defe1e3ba7da98" category="summary">您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。使用原生磁盘架的系统的步骤与使用阵列 LUN 的系统的步骤稍有不同。</block>
   <block id="ed9e684b86d9ba9268bfa7bb05da68e3" category="image-alt">工作流高级节点和集群配置软件</block>
   <block id="b61b723aeb336bf526bd087862b1716a" category="paragraph">在开始配置过程之前，您需要收集控制器模块所需的 IP 地址。</block>
   <block id="0e10a4686c50286be43ddc081aadc85a" category="section-title">站点 A 的 IP 网络信息工作表</block>
@@ -6286,13 +5903,8 @@
   <block id="3b82e46bb2d614a665de9e2c8b9c5e7c" category="list-text">对 cluster_B 重复上述步骤</block>
   <block id="d9487fb21c3cdb2e352b1aa4a5e30efd" category="paragraph"><block ref="d9487fb21c3cdb2e352b1aa4a5e30efd" category="inline-link-rx"></block></block>
   <block id="afc362bb21237b3cf262e5bb73c2e7ce" category="paragraph">您可以通过指定一个远程 URL （ HTTP 或 FTP ）来为集群配置备份文件提供额外保护，除了本地集群中的默认位置之外，还可以将配置备份文件上传到该远程 URL 。</block>
-  <block id="882861c4cbc2720bbf7b9b7ae1dbada9" category="doc">删除 MetroCluster 配置时的注意事项</block>
-  <block id="0ea00d4fc48d7eb7ff02d29820696767" category="paragraph">您可以从 MetroCluster 配置中的所有节点或灾难恢复（ DR ）组中的所有节点中删除 MetroCluster 配置。删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。</block>
   <block id="4f06b4d64acae1e487dfeee6d05acf87" category="doc">MetroCluster 站点上的防火墙使用情况</block>
-  <block id="babbebe817de4ac640d017ba3dca7743" category="summary">MetroCluster 组件必须在两个地理站点上进行物理安装，布线和配置。与使用阵列 LUN 的系统相比，使用原生磁盘架的系统的步骤略有不同。</block>
   <block id="da677daf9723918166ed931256a804a8" category="image-alt">工作流硬件安装和配置 4 节点或 2 节点网络结构</block>
-  <block id="e8d525684cd5e49193aace5d41cf9819" category="paragraph">要配置交换机分区，您可以使用第一个 DR 组的四节点 MetroCluster 配置的分区示例。</block>
-  <block id="3ef6acae51a1b36c66c78b51d4585513" category="paragraph">要为第二个 DR 组配置分区，请按照与第二个 DR 组中控制器所属的 FC 启动程序端口和阵列 LUN 相同的示例和要求进行操作。</block>
   <block id="a8c0ae0c364bde84c9214317e190e454" category="summary">您必须确定 MetroCluster 配置中每个 FC 交换机网络结构需要多少 ISL 。</block>
   <block id="2a1b839749077dc05c0c73ce07bd0c59" category="paragraph">您必须确定 MetroCluster 配置中每个 FC 交换机网络结构需要多少 ISL 。从 ONTAP 9.2 开始，在某些情况下，您可以共享相同的四个交换机，而不是为每个 MetroCluster 配置使用专用的 FC 交换机和 ISL 。</block>
   <block id="621686dbcc8ca98fb9bec2e3260afa78" category="section-title">ISL 共享注意事项（ ONTAP 9.2 ）</block>
@@ -6323,113 +5935,9 @@
   <block id="da7f70f0d336d8136bbf9793f9953df9" category="list-text">如果 DR 组 1 包含四个 AFF A700 系统，则需要六个 ISL 。</block>
   <block id="a4909c9a8501be1b83be0e99627fbac1" category="list-text">如果 DR 组 2 包含四个 FAS8200 系统，则需要两个 ISL 。</block>
   <block id="f1112ee4c5c62e63ac5c07e89a792360" category="list-text">交换机网络结构的建议 ISL 总数为八个。</block>
-  <block id="37e9679eddc91b6127c75399d29f2bd4" category="summary">交换机分区用于定义已连接节点之间的路径。通过配置分区，您可以定义特定 ONTAP 系统可以查看哪些阵列 LUN 。</block>
-  <block id="d9308227a30c606613f4fa3412e37ce9" category="paragraph">在为使用阵列 LUN 的四节点 MetroCluster 配置确定分区时，可以使用以下示例作为参考。此示例显示了 MetroCluster 配置的单启动程序到单目标分区。以下示例中的行表示分区，而不是连接；每行都标有分区编号：</block>
-  <block id="c148ee17ac2c6ca06fe9e799a4345ca2" category="image-alt">此图显示了使用阵列 LUN 的示例 MetroCluster 配置中的交换机分区。图周围的文字对此图进行了说明。</block>
-  <block id="1d01bb12bbd3ba0f599885c78fe9f103" category="paragraph">在图中，阵列 LUN 会在每个存储阵列上为 MetroCluster 配置分配。大小相等的 LUN 会在两个站点的存储阵列上进行配置，这是 SyncMirror 的一项要求。每个 ONTAP 系统都有两个指向阵列 LUN 的路径。存储阵列上的端口为冗余端口。</block>
-  <block id="028f2b49f446d208a687c241fe0e8daf" category="paragraph">controller_A_1 ：端口 0a</block>
-  <block id="5e8fd592b1a82470ec63db47be9f4741" category="paragraph">controller_A_1 ：端口 0c</block>
-  <block id="3e33ad5ebf04c4a12ec2f4748e6b2002" category="paragraph">controller_A_2 ：端口 0a</block>
-  <block id="bb8b604f83bef79b7a51f5f757fc1401" category="paragraph">controller_A_2 ：端口 0c</block>
-  <block id="7ec0e9c61514dd4136c437463f0215a2" category="paragraph">controller_A_1 ：端口 0b</block>
-  <block id="24c46c09a44df294142a98187e64b907" category="paragraph">controller_A_1 ：端口 0d</block>
-  <block id="3a37195aa888a33ccb894eccf8aecd71" category="paragraph">controller_A_2 ：端口 0b</block>
-  <block id="840b0d10d6134ca37eb25e7c6b72b7d9" category="paragraph">controller_A_2 ：端口 0d</block>
-  <block id="1fde6c364c9c1516fd4e14b266863cd6" category="paragraph">z9</block>
-  <block id="83f43352c70a43e4c94460322053d520" category="paragraph">controller_B_1 ：端口 0a</block>
-  <block id="8a7c2aa0bcfbcd3b3db1a51373e911e5" category="paragraph">端口 1C'</block>
-  <block id="dfcc19b25601ee11aa171e7ea9a985eb" category="paragraph">Z11</block>
-  <block id="08a6b244dbd521e4118d1f87826a36bf" category="paragraph">controller_B_1 ：端口 0c</block>
-  <block id="0786a53a28b0fabd58ea34b6fd56f1c4" category="paragraph">端口 1C</block>
-  <block id="8e1f7d9525fb0fcbfd0942397a892b6f" category="paragraph">Z13</block>
-  <block id="5647278de7cea4bad4f55da433713a4d" category="paragraph">controller_B_2 ：端口 0a</block>
-  <block id="823a6aedb3b721942a09edfaf29a95ac" category="paragraph">端口 1D'</block>
-  <block id="50a146fe02adea49f66d85b5c0dc1d1a" category="paragraph">Z15</block>
-  <block id="ca1b1a191c8fe348e8effff7dc7c3f44" category="paragraph">controller_B_2 ：端口 0c</block>
-  <block id="452f196c5b73b7bbe9fee407ba02c7a5" category="paragraph">端口 1D</block>
-  <block id="71b743082db14682f473f43d4540a5d0" category="paragraph">z10</block>
-  <block id="72320c5074125979dc10f75936de77c8" category="paragraph">controller_B_1 ：端口 0b</block>
-  <block id="c8551f217c315bd77dd0be859adf3b09" category="paragraph">端口 2C</block>
-  <block id="1cfd85b4b16bd74555013b09a732afbd" category="paragraph">Z12</block>
-  <block id="34cdcdc6c5ba02b62b5cf3dfe9a2f25f" category="paragraph">controller_B_1 ：端口 0d</block>
-  <block id="28aa98cc9da8d95b3582775cfe2d95aa" category="paragraph">端口 2C'</block>
-  <block id="e91c0434f606153c3646f60e4c52fa61" category="paragraph">z14</block>
-  <block id="1ee24aa1696fef4e47195ad72926cdb5" category="paragraph">controller_B_2 ：端口 0b</block>
-  <block id="fb69a17305c61b25876dda372f59d99b" category="paragraph">端口 2D</block>
-  <block id="bf73b5318257eb20d832e72af8b83eca" category="paragraph">Z16</block>
-  <block id="4dc68403e9770c97674af560295ee1b9" category="paragraph">controller_B_2 ：端口 0d</block>
-  <block id="fc3b457225fd8e608f075aa7fc9a72b5" category="paragraph">端口 2D'</block>
-  <block id="710f465b190acd2b3eaa58df7ef07228" category="section-title">站点 A 上 FC-VI 连接的分区</block>
-  <block id="a3b9005346e50e7b1b754b4bbb8499a4" category="cell">ONTAP 控制器和 FC 启动程序端口</block>
-  <block id="1430685283edcfd3c27aa67406bde7fa" category="paragraph">controller_A_1 ：端口 FC-VI A</block>
-  <block id="ed7dfe40a73d09564f0297a5570b5df3" category="paragraph">controller_A_1 ：端口 FC-VI b</block>
-  <block id="ccdaaaa8fea5344bdff3988854ee5d0d" category="paragraph">controller_A_2 ：端口 FC-VI A</block>
-  <block id="13fe4be471f6120acdff84d95d02a458" category="paragraph">controller_A_2 ：端口 FC-VI b</block>
-  <block id="9518d05b4d3b9ea347fd7aea2307cd60" category="section-title">站点 B 上 FC-VI 连接的分区</block>
-  <block id="83db2b1266b3a9bec7a67961d39abec9" category="paragraph">controller_B_1 ：端口 FC-VI A</block>
-  <block id="575e1ed1d3138b38fdd685736a6a47b9" category="paragraph">controller_B_1 ：端口 FC-VI b</block>
-  <block id="e48060ce0dce850ba08838b0bbacf939" category="paragraph">controller_B_2 ：端口 FC-VI A</block>
-  <block id="05d031d4d0c0ba6aad9ddd1f447198d6" category="paragraph">controller_B_2 ：端口 FC-VI b</block>
-  <block id="06064d055f6d7447dfd3dcd333779a7c" category="summary">要设置使用原生磁盘和阵列 LUN 的双节点光纤连接 MetroCluster 配置，必须使用 FC-SAS 网桥通过 FC 交换机将 ONTAP 系统与磁盘架连接起来。您可以通过 FC 交换机将阵列 LUN 连接到 ONTAP 系统。</block>
-  <block id="80e82def12ca4d8fe60bc7a3e4a368e0" category="paragraph">下图显示了使用磁盘和阵列 LUN 的双节点光纤连接 MetroCluster 配置示例。它们表示相同的 MetroCluster 配置；磁盘和阵列 LUN 的表示仅为简化而分开。</block>
-  <block id="463edce3dc5dcbbb41e7db373b98fdc2" category="paragraph">下图显示了 ONTAP 系统与磁盘之间的连接，其中 HBA 端口 1a 到 1d 用于通过 FC-SAS 网桥与磁盘连接：</block>
-  <block id="49c1b21db78bd2699cc6cdc18d922d3a" category="image-alt">双节点 MCC 组合阵列磁盘</block>
-  <block id="263427407c4a9482adc0747a4e1c97cb" category="paragraph">下图显示了 ONTAP 系统与阵列 LUN 之间的连接，其中 HBA 端口 0a 到 0d 用于与阵列 LUN 连接，因为端口 1a 到 1d 用于与磁盘连接：</block>
-  <block id="accc2dacc412db66a942735964423c25" category="image-alt">双节点 MCC 组合阵列</block>
-  <block id="76612d8038518e7aa7b303db3045593f" category="summary">在使用阵列 LUN 的 MetroCluster 配置中使用交换机分区时，必须确保满足某些基本要求。</block>
-  <block id="5163480f9a9877452e514b2b8e14d3b9" category="paragraph">使用阵列 LUN 的 MetroCluster 配置中的交换机分区要求如下：</block>
-  <block id="84a9505accf67e9e387d354ed58a7611" category="list-text">MetroCluster 配置必须遵循单启动程序到单目标分区方案。</block>
-  <block id="57f1c6242da9740173e005e0cdb2561d" category="paragraph">单启动程序到单目标分区会将每个分区限制为一个 FC 启动程序端口和一个目标端口。</block>
-  <block id="2b2c8f585b721e9343a9f5be4b8c163a" category="list-text">FC-VI 端口必须在网络结构中进行端到端分区。</block>
-  <block id="9377aa6f276f8ec401ff97cad8c3288f" category="list-text">与单个目标端口共享多个启动程序端口可能会出现发生原因性能问题。</block>
-  <block id="4213e2e4219d8c646fb0d77e759bd1e7" category="paragraph">同样，与一个启动程序端口共享多个目标端口也可能会出现发生原因性能问题。</block>
-  <block id="a97092f773742097739d9703f62392b9" category="list-text">您必须已对 MetroCluster 配置中使用的 FC 交换机执行基本配置。</block>
-  <block id="8d37a99e8b575522e0a290291ef1d44a" category="section-title">为使用阵列 LUN 的 MetroCluster 配置提供共享启动程序和共享目标支持</block>
-  <block id="45b7bd1bce2e60e45d43effa073a2382" category="paragraph">能够共享给定的 FC 启动程序端口或目标端口对于希望最大程度地减少所用启动程序或目标端口数量的组织非常有用。例如，如果企业希望 FC 启动程序端口或目标端口的 I/O 使用率较低，则可能更愿意共享 FC 启动程序端口或目标端口，而不是将每个 FC 启动程序端口专用于一个目标端口。</block>
-  <block id="6ee4ac48a4e5ef238551d28b737ce993" category="paragraph">但是，共享启动程序或目标端口可能会对性能产生不利影响。</block>
-  <block id="d41c1579eb4eae4520d18e1d89c0324f" category="inline-link">如何在 MetroCluster 环境中支持使用阵列 LUN 的共享启动程序和共享目标配置</block>
-  <block id="7f983eabd66fb53d7d43c6cfad62b74d" category="paragraph"><block ref="7f983eabd66fb53d7d43c6cfad62b74d" category="inline-link-rx"></block></block>
-  <block id="362e2d2a6e8982e15e2256010f520f95" category="summary">交换机配置过程和命令因交换机供应商而异。</block>
-  <block id="752420a765705b56e0d18f0c93527266" category="summary">阵列 LUN 必须归节点所有，才能添加到聚合中用作存储。</block>
-  <block id="53f2462178712ede2ca2861f93c1e5d5" category="doc">分配阵列 LUN 的所有权</block>
-  <block id="65938c3330bedaa6834bdda7ac520511" category="list-text">必须完成后端配置测试（测试 ONTAP 系统后端设备的连接和配置）。</block>
-  <block id="309ab14cd8f12cb8629f1c861eca199b" category="list-text">要分配的阵列 LUN 必须提供给 ONTAP 系统。</block>
-  <block id="88627428a34504bf05af531d65851c29" category="paragraph">您可以分配具有以下特征的阵列 LUN 的所有权：</block>
-  <block id="d57ac8a739fe5a79b6d6e918dae44d1e" category="list-text">它们是无所有者的。</block>
-  <block id="40603ec338b8ba195bb067fc323eb998" category="list-text">它们没有存储阵列配置错误，例如：</block>
-  <block id="d24963140562f725a6ebfc5013c135f3" category="list-text">阵列 LUN 小于或大于 ONTAP 支持的大小。</block>
-  <block id="077c35822587e579b6f9f7bf8dd018aa" category="list-text">LDEV 仅映射到一个端口。</block>
-  <block id="c080299df472c3b3d98b2e86c3cdbfb8" category="list-text">为 LDEV 分配的 LUN ID 不一致。</block>
-  <block id="55d3dc722242b02d84ab2478e409889c" category="list-text">LUN 只能在一个路径上使用。</block>
-  <block id="90728b906a78c507b1e15fe5090db627" category="paragraph">如果您尝试分配具有后端配置错误的阵列 LUN 的所有权，而此错误会干扰 ONTAP 系统和存储阵列一起运行，则 ONTAP 会发出一条错误消息。您必须先修复此类错误，然后才能继续分配阵列 LUN 。</block>
-  <block id="f2ff71670cd376e228a30b5ba452b8c5" category="paragraph">如果您尝试分配存在冗余错误的阵列 LUN ，则 ONTAP 会向您发出警报：例如，指向此阵列 LUN 的所有路径都连接到同一控制器，或者只有一个路径连接到阵列 LUN 。您可以在分配 LUN 所有权之前或之后修复冗余错误。</block>
-  <block id="fa1d5846fb86ab7458fc7fb29c179947" category="summary">在将 ONTAP 系统连接到 FC 交换机以设置使用阵列 LUN 的 MetroCluster 配置时，必须将每个控制器中的 FC-VI 和 HBA 端口连接到特定交换机端口。</block>
-  <block id="ef420f89026ee115708305b6c2890190" category="paragraph">如果在 MetroCluster 配置中同时使用阵列 LUN 和磁盘，则必须确保将控制器端口连接到为使用磁盘配置而建议的交换机端口，然后使用其余端口配置阵列 LUN 。</block>
-  <block id="21cc04de9b4e43b74a0ebdb43d82128a" category="paragraph">下表列出了在使用阵列 LUN 的八节点 MetroCluster 配置中必须将不同控制器端口连接到的特定 FC 交换机端口。</block>
-  <block id="c70273bf25434e94ddf0a0a169f3ce69" category="section-title">阵列 LUN 的总体布线准则</block>
-  <block id="c6d0df845a3b8a38a01661bcc6106c57" category="list-text">FAS8200 存储系统可以订购两个 FC-VI 连接选项之一：</block>
-  <block id="6db2108e71ff83caaec94293aa2cf458" category="list-text">FAS9000 存储系统需要四个 FC-VI 端口。下表显示了每个控制器上具有四个 FC-VI 端口的 FC 交换机的布线情况。</block>
-  <block id="f4ea8e671475f27580e6f99503c8a19c" category="section-title">MetroCluster 配置中控制器的 Brocade 端口使用情况</block>
-  <block id="d46eb15689b894ebe07f0a4793cadbf8" category="paragraph">下表显示了 Brocade 交换机上的端口使用情况。下表显示了支持的最大配置，其中两个 DR 组包含八个控制器模块。对于较小的配置，请忽略其他控制器模块对应的行。请注意， Brocade 6510 和 G620 交换机支持八个 ISL 。</block>
-  <block id="aba82c87f118329e288f10e6f42dbe23" category="admonition">未显示八节点 MetroCluster 配置中 Brocade 6505 交换机的端口使用情况。由于端口数量有限，必须根据控制器模块型号以及所使用的 ISL 和网桥对的数量逐个站点分配端口。</block>
-  <block id="1814dedb1c790c23078fe46b6940b212" category="paragraph">下表显示了第一个 DR 组的布线：</block>
-  <block id="2611efab71dc5ad5e6a3700e648dc52b" category="cell">Brocade 6520 ， 6510 ， 6505 ， G620 ， G610 ， 或 7840 交换机</block>
   <block id="b4244340f0935c1a99a9f6b1a5c587ed" category="cell">* 组件 *</block>
   <block id="5ddcf17f54788a5bb9148e8671562c06" category="cell">* 端口 *</block>
-  <block id="72be3cab576c552263b273dfbaea5e16" category="cell">* 交换机 1*</block>
-  <block id="bb12412086f61c678c1c222a3af43eca" category="cell">* 交换机 2*</block>
-  <block id="8e0f977b7c0c1dee57d9b995dabcdbfc" category="paragraph">下表显示了第二个 DR 组的布线：</block>
-  <block id="813a305fd70f4862aee889950c31f869" category="cell">Brocade 6510</block>
   <block id="1dde0a938f669adb0ba03f105ef1eb58" category="cell">Brocade G620</block>
-  <block id="42fcd78062a81a04d2e4877d8f54bccf" category="cell">* ISL *</block>
-  <block id="7722ff24296d2f8d65961c1711971328" category="paragraph">ISL 5.</block>
-  <block id="589bdc08f2808f49e7f406733b5df633" category="paragraph">ISL 6.</block>
-  <block id="51727c22119966c8bba12291937d46b6" category="paragraph">ISL 7.</block>
-  <block id="e6022c6ed129f3537ce8c59725dbe8e6" category="paragraph">ISL 8.</block>
-  <block id="bae1aad05f778b08fcdd54d3fd3ea761" category="cell">* MDS 模块 2*</block>
-  <block id="4efb93e6e74e61398b92661ce23351c2" category="summary">如果要设置使用阵列 LUN 的八节点光纤连接 MetroCluster 配置，则必须使用缆线将 FC-VI 端口和 HBA 端口连接到交换机端口。</block>
-  <block id="3b3f9b1e3b78cf5c7c6c5dd771ebcbe6" category="doc">在使用阵列 LUN 的八节点光纤连接 MetroCluster 配置中为 FC-VI 和 HBA 端口布线</block>
-  <block id="99fa0f82949c7aac46618689ac0fcdbe" category="summary">通过配置交换机分区，您可以定义 MetroCluster 配置中的特定 ONTAP 系统可以查看哪些阵列 LUN 。</block>
   <block id="62f7ef95a1a4f5a1e459930846582588" category="list-text">您希望使用命令行界面（ CLI ），而不是自动化脚本编写工具。</block>
   <block id="cf9793806e6e4a04213f68a860b2fd56" category="summary">要配置 Cisco FC 交换机，您必须将交换机设置重置为出厂默认值，安装交换机软件，并下载并应用参考配置 \ （ RCF\ ）文件，这些文件可为某些配置提供完整的交换机设置。</block>
   <block id="64fb3fc78b6d09b80f739c2efaebdd9d" category="doc">使用 RCF 文件配置 Cisco FC 交换机</block>
@@ -6439,21 +5947,8 @@
   <block id="fcb4142ffdb8bfcc1710889b0ed529d6" category="paragraph">参考配置文件（ RCF ）不支持使用八个 ISL 的配置。如果您使用的是八个 ISL ，则必须手动配置交换机。</block>
   <block id="3d1d2171594b743d57aea4950c25e08d" category="paragraph">RCF 适用于双节点，四节点和八节点 MetroCluster 配置。默认情况下，这些文件会为网络结构配置按顺序交付（ IOD ）。</block>
   <block id="ebac59afd8758611eb5f58946397378e" category="paragraph">RCF 下载页面指示不同交换机型号支持的节点数。</block>
-  <block id="7b831eb812dd2b6fede966eed2e6593d" category="summary">您必须禁用其中一个交换机网络结构，才能修改其配置。完成配置并重新启用交换机网络结构后，您将在另一个网络结构上重复此过程。</block>
-  <block id="5a9d27de0e81ed1e9c65c8ae1bb271cb" category="doc">禁用其中一个交换机网络结构</block>
-  <block id="3da36f821e9896cb94c0304f348f247a" category="paragraph">您必须已对现有 7- 模式光纤 MetroCluster 配置运行 FMC_dc 实用程序，并在开始配置过程之前解决了所有问题。</block>
-  <block id="403fffa2cd931d0a9c1d44aa728210c6" category="paragraph">为确保 MetroCluster 配置的持续运行，在禁用第一个网络结构时，不能禁用第二个网络结构。</block>
-  <block id="b126157cb6dc26c65104d970cf85bb9e" category="paragraph">如果此命令不可用，请使用 `sswitchDisable` 命令。</block>
   <block id="3cf3eae7898bc6f0eec737e6a68a9cec" category="paragraph">以下示例显示了对 FC_switch_A_1 发出的命令：</block>
   <block id="fdf602b3f6a177da696cbba4294a693a" category="paragraph">以下示例显示了对 FC_switch_B_1 发出的命令：</block>
-  <block id="a147ba77b587976b23efb0cab251ec49" category="list-text">使用冗余网络结构确保 7- 模式 MetroCluster 配置正常运行：</block>
-  <block id="a84d3843dc1716053ed4001478a35595" category="summary">您必须在要与阵列 LUN 结合使用的每个 MetroCluster 节点上安装 V_StorageAttach 许可证。在安装许可证之前，您不能在聚合中使用阵列 LUN 。</block>
-  <block id="9d61f0176cee0faa3e591c2beb64eb10" category="doc">安装许可证以在 MetroCluster 配置中使用阵列 LUN</block>
-  <block id="6dce6a8d34576d6e6d2f961c8b413963" category="list-text">必须安装集群。</block>
-  <block id="46828fa53ffc65db6a237d68a35398f5" category="list-text">您必须具有 V_StorageAttach 许可证的许可证密钥。</block>
-  <block id="4075d07234c68dc30461eda09f77ca39" category="paragraph">您必须为要安装 V_StorageAttach 许可证的每个节点使用单独的许可证密钥。</block>
-  <block id="0e6c46605ec1bda2ec4ae95381224c25" category="paragraph">对要安装许可证的每个集群节点重复此步骤。</block>
-  <block id="c4f2ecfddbca137434d6171dc1d881dd" category="paragraph">以下示例输出显示了 V_StorageAttach 许可证已安装在 cluster_A 的节点上：</block>
   <block id="4efd0f534426cd87bd38f908ed343b5f" category="summary">在规划 MetroCluster 配置时，您应了解硬件组件及其互连方式。</block>
   <block id="a34704fddd968b075e961a99c962b021" category="doc">光纤 MetroCluster 配置的组成部分</block>
   <block id="78284c790a6f1ac15ed5405d7d992f0b" category="section-title">灾难恢复（ DR ）组</block>
@@ -6540,7 +6035,6 @@
   <block id="7fa8c692d2fa9493453528081a86e668" category="image-alt">MCC IP LIF 使用情况</block>
   <block id="86983ba76f02422a54a19be9cff0fcaa" category="inline-xref-macro">MetroCluster IP 配置的注意事项</block>
   <block id="671efdba76635acb6680428e6178d845" category="image-alt">MCC IP 硬件架构集群对等网络</block>
-  <block id="dc4f0f08d29c6f89700794f3a34384f2" category="paragraph"><block ref="dc4f0f08d29c6f89700794f3a34384f2" category="inline-link-macro-rx"></block></block>
   <block id="31c38f64e60770065e856442e98e7930" category="section-title">ONTAP 限制</block>
   <block id="d1a4fac9e86db09ae269d00dbc37e4d4" category="section-title">在 MetroCluster 配置中使用此第 3 层解决方案的准则</block>
   <block id="426935cb277802e33f3b6af9b3badb1a" category="summary">您必须将 Cisco IP 交换机配置为用作集群互连以及用于后端 MetroCluster IP 连接。</block>
@@ -6634,9 +6128,6 @@
   <block id="2820fb4a624285c62742b62da6679fb8" category="paragraph">必须对 MetroCluster IP 配置中的每个交换机重复执行此任务。</block>
   <block id="1ff36fa740a0902025854b326dfe57e6" category="list-text">等待交换机重新启动。</block>
   <block id="8dbef93c578a2dd1a148ce7a8e7ed428" category="list-text">对其他三个交换机中的每一个交换机重复上述步骤，确保将匹配的 RCF 文件复制到相应的交换机。</block>
-  <block id="2ac5b29f2d20bbfbdc32651d31618463" category="summary">一个八节点配置将包含两个 DR 组。使用本节中的任务配置第一个 DR 组。</block>
-  <block id="146d142d8ea797f93d593a6fe9556787" category="doc">处理八节点配置</block>
-  <block id="dd42913fad72868b65fced98cfecfcd6" category="paragraph">然后，执行中的任务 <block ref="3e70f7d1f526cf6dd7a89a97c88d0cc8" category="inline-link-macro-rx"></block></block>
   <block id="1a03f6720968dfb968df6cc034114444" category="list-text">MTU</block>
   <block id="6b55a3ff2ffe6275beb9e73d58d08007" category="paragraph">MTU 大小必须至少为 1400 。</block>
   <block id="64ddceb2cbf941d1fc93373ce9219a1f" category="list-text">数据包丢失</block>
@@ -6669,7 +6160,6 @@
   <block id="7bf01dfda199e49dbeb5eb6dd646e3ef" category="paragraph">以下配置需要执行此步骤：</block>
   <block id="44e0561305155b5596b612d75429cf1d" category="list-text">MetroCluster FC 配置。</block>
   <block id="d9b28109e44813c3f87cac379a91c67b" category="list-text">运行 ONTAP 9.4 或更早版本的 MetroCluster IP 配置。以下示例显示了命令的成功完成：</block>
-  <block id="fdf0e783eca74a7abe3d6795a4f8efc9" category="doc">未镜像聚合的注意事项</block>
   <block id="e229d395b1fbe6b50f6d7c10696e4b23" category="summary">如果您未收到出厂时预配置的系统，则可能需要手动分配池 0 驱动器。根据平台型号以及系统是否使用 ADP ，您必须为 MetroCluster IP 配置中的每个节点手动将驱动器分配到池 0 。您使用的操作步骤取决于所使用的 ONTAP 版本。</block>
   <block id="109a1f0f213be873d0671ba7010786cf" category="doc">手动将驱动器分配给池 0</block>
   <block id="47cddb2505555934cf2fd79d3c617351" category="paragraph">如果系统在出厂时尚未进行预配置，并且不满足自动驱动器分配的要求，则必须手动分配池 0 驱动器。</block>
@@ -6722,10 +6212,6 @@
   <block id="87ac6ecba347afc9b3bfcf5a25512ddc" category="paragraph">Broadcom 支持的 BES-53248 交换机</block>
   <block id="ac00d0051561ed303dd8e72e72447f4f" category="paragraph">原生端口</block>
   <block id="93f0d165366aa023f16e11d7c9adcd64" category="paragraph">分支缆线</block>
-  <block id="6e951796cc7b3ef0b3cbdf6750702b5c" category="doc">使用未镜像聚合</block>
-  <block id="691a1c982701a36663600612625b18c0" category="paragraph">在 ONTAP 9.1.1 之前的版本中， LUN 不应位于未镜像聚合上。在未镜像聚合上配置 LUN 可能会导致切换操作超过 120 秒并导致数据中断。</block>
-  <block id="aeaa739c92ec82faf927b61679580290" category="section-title">为未镜像聚合添加存储架的注意事项</block>
-  <block id="88e934baa541b7e8fd87cf4d8e9c9b2d" category="admonition">如果要添加要用于 MetroCluster IP 配置中未镜像聚合的磁盘架，则必须执行以下操作：</block>
   <block id="927220faf715f335c59c7c344c29fee5" category="list-text">按照操作步骤中的步骤添加磁盘架。</block>
   <block id="35c50a09a26e56387485279edaeb468a" category="list-text">手动将新磁盘架中的所有磁盘分配给将拥有未镜像聚合的节点。</block>
   <block id="fea810a7a02c4d40cd3c6c1a77cb926d" category="summary">如果要将 MetroCluster 节点连接到其他 ONTAP 调解器实例，则必须在 ONTAP 软件中取消配置调解器连接，然后重新配置该连接。</block>
@@ -6816,7 +6302,6 @@
   <block id="5526d75deed345c5b83d6ead8ab0bdad" category="paragraph">重复上述任务以配置第二个 DR 组中的节点。</block>
   <block id="ccc25c1a9a6f63d4acf6c9390b850b64" category="section-title">正在完成 ONTAP 配置</block>
   <block id="938a9f49acfde2902a8737d1aadbf6a1" category="paragraph">配置，启用和检查 MetroCluster 配置后，您可以根据需要添加其他 SVM ，网络接口和其他 ONTAP 功能，从而继续完成集群配置。</block>
-  <block id="e60d9e6a9fb9bfbe61031a7440923aa7" category="paragraph"><block ref="e60d9e6a9fb9bfbe61031a7440923aa7" category="inline-link-rx"></block></block>
   <block id="89e65a2d93c278fd151107cff24c1e27" category="section-title">配置 MetroCluster Tiebreaker 或 ONTAP 调解器软件</block>
   <block id="860e1e683db2fc2e67aeec00dc74b357" category="paragraph">您必须有一个可用的 Linux 主机，该主机可通过网络连接到 MetroCluster 配置中的两个集群。具体要求请参见 MetroCluster Tiebreaker 或 ONTAP 调解器文档。</block>
   <block id="9d4b44162692abd2769e8e0a1c1f0155" category="paragraph">如果您必须安装新的 ONTAP 调解器实例，请按照说明安装和配置软件。</block>
@@ -6879,7 +6364,6 @@
   <block id="cc1b37b4c1dcf92c7509c109eb4c4d7d" category="paragraph">不支持要求将本地集群连接到交换机的任何配置或功能。例如，不支持以下配置和过程：</block>
   <block id="9998da0c6596ccc4b44b68b91eee576b" category="list-text">八节点 MetroCluster 配置</block>
   <block id="5b97f056c47eb55f7ac2ec585e184dd9" category="summary">您必须了解如何使用端口表中的信息正确生成 RCF 文件。</block>
-  <block id="673f5a3eeb8366a43231216d5889b9fc" category="doc">在 RcfFileGenerator 工具或多个 MetroCluster 配置中使用端口表</block>
   <block id="d74c7ca1ea000f4f70f344a02c2ae570" category="paragraph">在使用表之前，请查看以下注意事项：</block>
   <block id="bbea4b02ce438e1ae0146e4c5cabb671" category="list-text">下表显示了站点 A 的端口使用情况站点 B 使用相同的布线方式</block>
   <block id="ebd9fb85557b54bcafec3d1a1ac1c292" category="inline-link">适用于 MetroCluster IP 的 RcfFileGenerator</block>
@@ -7096,16 +6580,12 @@
   <block id="4db2eceaa8145339affc67a0413885ce" category="image-alt">连接了工作流硬件安装和配置 2 节点网桥</block>
   <block id="d586ec387c0055e963a635281f66e10f" category="list-text">安装磁盘架，打开其电源并设置磁盘架 ID 。</block>
   <block id="6f7a8a97b46876b455b0d276c8af4c1e" category="paragraph">有关安装的详细信息和插图，请参见适用于您的网桥型号的 _ATTO FibreBridge 安装和操作手册 _ 。</block>
-  <block id="e754262d6877963456252dcb8071c9a7" category="image-alt">工作流选择 MetroCluster 配置延伸型</block>
   <block id="4925c3e92cbc558459ac4884fe1553e3" category="paragraph">采用 FC-SAS 网桥的双节点延伸型配置</block>
   <block id="4e1b527248877ce00ab35be64a482680" category="list-text"><block ref="4e1b527248877ce00ab35be64a482680" category="inline-link-macro-rx"></block></block>
   <block id="358a1869f6f880774e4bc077827b15a6" category="list-text"><block ref="358a1869f6f880774e4bc077827b15a6" category="inline-link-macro-rx"></block></block>
   <block id="427173fb02da33c03f2d6549b04b93e9" category="paragraph">采用直连 SAS 布线的双节点延伸型配置</block>
   <block id="09856c1072ca086e89cf2b213c6273c6" category="inline-link-macro">为双节点 SAS 连接的延伸型 MetroCluster 配置布线</block>
   <block id="0c0fa1382f3ba1efffa3113209ab5940" category="list-text"><block ref="0c0fa1382f3ba1efffa3113209ab5940" category="inline-link-macro-rx"></block></block>
-  <block id="8630c587ad199d5d6526081d02e02b77" category="paragraph">使用阵列 LUN 进行安装</block>
-  <block id="4af4320fd946843f703662b771726b60" category="inline-link-macro">使用阵列 LUN 的延伸型 MetroCluster 配置中的连接</block>
-  <block id="1447ee27cf944008f8e33d4ce56f25cb" category="paragraph"><block ref="1447ee27cf944008f8e33d4ce56f25cb" category="inline-link-macro-rx"></block></block>
   <block id="006a6750e464737f9052137881e80f96" category="list-text">您希望了解配置延伸型 MetroCluster 配置的要求和最佳实践。</block>
   <block id="ba47f416cbc346bd4f20db246cb5ea02" category="summary">确保系统满足 " 准备安装 " 一节中的所有要求后，您可以安装新系统。</block>
   <block id="38ea63f076c0bd36ef351f7ea1e1c655" category="list-text">验证修复是否已完成：</block>
@@ -7124,10 +6604,6 @@
   <block id="e3bcb1dd199e173baff9f3244488e1b4" category="list-text">验证是否正在提供数据，以及所有卷是否仍处于联机状态：</block>
   <block id="e73e987a985cc1e7a46164f6521d1814" category="list-text">验证重新同步是否已启动：</block>
   <block id="7001d57a05856bddbff27dde2f392419" category="list-text">监控聚合以确认重新同步已完成：</block>
-  <block id="4de79eb6151b19b810b541965efd86d3" category="summary">在使用 E 系列存储阵列 LUN 的延伸型 MetroCluster 配置中，您可以直接连接存储控制器和存储阵列。与其他阵列 LUN 不同，不需要 FC 交换机。</block>
-  <block id="3abc441c70e965211102be1acce8f4a1" category="doc">使用 E 系列存储阵列的延伸型 MetroCluster 配置示例</block>
-  <block id="0ec188bebf461562e9c65ab306049b07" category="inline-link-macro">通过 NetApp E 系列阵列为延伸型 MetroCluster 配置提供直接连接支持</block>
-  <block id="3194674804f66d71138f3d227b29f143" category="paragraph">。 <block ref="58ed8621fbf888b6b052231ede94da3e" category="inline-link-macro-rx"></block> 知识库文章提供了使用 E 系列阵列 LUN 的配置示例。</block>
   <block id="00ff4e56e2d862a9b4fecd2d5cbdc838" category="summary">在规划 MetroCluster 配置时，您必须了解所需的和支持的硬件和软件组件。为了方便和清晰起见，您还应了解整个文档中的示例中用于组件的命名约定。例如，一个站点称为站点 A ，另一个站点称为站点 B</block>
   <block id="813045b360f361be6e1c786a357f044b" category="doc">双节点桥接延伸型配置所需的 MetroCluster 硬件组件和命名约定</block>
   <block id="16a5fcb632e7038e216bc0acccbe7d8e" category="section-title">MetroCluster 配置中的硬件冗余</block>
@@ -7156,8 +6632,6 @@
   <block id="3045f5f4f1093cf13cd0757dba1576cb" category="list-text">shelf_B_1_1</block>
   <block id="1a10354dd8ac3ce1f01a352c0c19ac1d" category="list-text">shelf_B_1_2</block>
   <block id="e5e4a159b56e91f667faa79be11c280f" category="paragraph">有关混用磁盘架的更多详细信息，请参见：<block ref="96c52bfd2d59063b848ae852888ce36d" category="inline-link-rx"></block></block>
-  <block id="b38ee4e0ef85030df13c9983cc2db8fe" category="summary">在使用阵列 LUN 的延伸型 MetroCluster 配置中，您必须在控制器之间连接 FC-VI 端口。控制器和 E 系列存储阵列之间支持直接连接。对于所有其他阵列 LUN 配置，您必须在配置中使用 FC 交换机。</block>
-  <block id="3d13d30ef61321e1bd349933232825f8" category="paragraph">您还可以设置同时包含磁盘和阵列 LUN 的延伸型 MetroCluster 配置。在此类配置中，您必须使用 FC-SAS 网桥或 SAS 光缆将控制器连接到磁盘。</block>
   <block id="43441b39bffebee3ed9f59ea9dc91306" category="image-alt">工作流硬件安装和配置已连接 2 节点 SAS</block>
   <block id="ddf918e608a58c3b0c2df0a692f71750" category="doc">FC-SAS 网桥的信息收集工作表</block>
   <block id="6c2eb0b63b45b567206da19bd494e72c" category="section-title">站点 A ， FC-SAS 网桥 1 （ FC_bridge_A_1a ）</block>
@@ -7183,12 +6657,6 @@
   <block id="ff11debab177e4fd3158af3d75f8753d" category="list-text">安装磁盘架，以菊花链方式连接每个堆栈中的磁盘架，打开磁盘架电源并设置磁盘架 ID 。</block>
   <block id="69608c2ceb31fca5fdb927683327f5d0" category="paragraph">有关以菊花链方式连接磁盘架和设置磁盘架 ID 的信息，请参见适用于您的磁盘架型号的相应指南。</block>
   <block id="b7d2754cdbe9c97a2528e9763625cb55" category="admonition">每个 MetroCluster DR 组（包括两个站点）中的每个 SAS 磁盘架的磁盘架 ID 必须是唯一的。手动设置磁盘架 ID 时，必须重新启动磁盘架。</block>
-  <block id="ef9c0fffdd4221e0f411cf0eb8571a76" category="doc">使用阵列 LUN 的延伸型 MetroCluster 配置示例</block>
-  <block id="0ffc0e2ae7ba61a77fa089b0c2d828c4" category="paragraph">下图显示了在延伸型 MetroCluster 配置中通过缆线连接到控制器 A 和 B 的 FC-VI 端口：</block>
-  <block id="cfb8ca2ced7d2725056a8a692aebe95e" category="image-alt">FC VI 连接园区</block>
-  <block id="9adf86b613b71705284eb2183a603ee7" category="admonition">FAS9000 存储系统控制器模块各使用四个 FC-VI 端口。</block>
-  <block id="d7b5e0a93ac97158d874e410a750d532" category="paragraph">对于使用 E 系列阵列 LUN 的配置，您可以直接连接 E 系列 LUN 。</block>
-  <block id="534cf18dc088a1002737c913b7090410" category="paragraph"><block ref="534cf18dc088a1002737c913b7090410" category="inline-link-rx"></block></block>
   <block id="489a36de5fc8a9824314b5b3d0c0c069" category="admonition">您选择的 FCDataRate 速度限制为网桥端口所连接的控制器模块的网桥和 FC 端口均支持的最大速度。布线距离不得超过 SFP 和其他硬件的限制。</block>
   <block id="6d6d091bdd8c4127ee8d80f23b429e80" category="list-text">完成 MetroCluster 配置后，使用 `flashimages` 命令检查您的 FibreBridge 固件版本，如果网桥未使用支持的最新版本，请更新配置中所有网桥上的固件。</block>
   <block id="db7c7fcb177be4b76e7cfd3b25b6911b" category="summary">您应熟悉配置 MetroCluster 对等关系的前提条件和准则。</block>
@@ -7210,11 +6678,9 @@
   <block id="090182ab3424eee2fbfc86e2a955ec1d" category="paragraph">存储控制器使用 SAS 缆线直接连接到存储。</block>
   <block id="ec7770ca503ad90a46ee5c3850ef8ae5" category="list-text">SAS 铜缆可用于较短距离。</block>
   <block id="e510f66049d1338325f0a62dd3ffc0f4" category="list-text">SAS 光缆可用于较长的距离。</block>
-  <block id="6262d156e479edd8f826ba586e43575b" category="admonition">在使用 E 系列阵列 LUN 的系统中，存储控制器可以直接连接到 E 系列存储阵列。对于其他阵列 LUN ，需要通过 FC 交换机进行连接。</block>
   <block id="1d1fa4befa7e2188095e2cc64c17fc9e" category="list-text">检查 SAS 缆线是否松动，或者通过将磁盘架重新连接到网桥来更正 SAS 布线。</block>
   <block id="2d5ce426423eeeead4f35769cd8b1b27" category="inline-xref">第 3 步</block>
   <block id="9edea398610f8b9e7bf8eb4d72f75daa" category="summary">您可以从灾难恢复 \ （ DR\ ）组中的所有节点中删除 MetroCluster 配置。删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。</block>
-  <block id="9a220a3f22f8641906ad7cfa0dd3502b" category="paragraph">您可以从灾难恢复（ DR ）组中的所有节点中删除 MetroCluster 配置。删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。</block>
   <block id="49dd354628164ed50d81f89bd4e4f0b6" category="list-text">如果系统是从工厂收到的，请确认磁盘架分配：</block>
   <block id="c0733073fff8f3c7ab3cd47d2775efb1" category="section-title">验证组件的 HA 状态</block>
   <block id="2b376aac1e7dcf4390e11b46a4e6e913" category="list-text">在维护模式下，查看控制器模块和机箱的 HA 状态：</block>
@@ -7244,13 +6710,6 @@
   <block id="00045154249cbebb0c448b3f16b85947" category="list-text">从交换机提示符处为交换机配置 SNMPv3 ：</block>
   <block id="c3ba99ea78fe878c8116f93f8bc6caea" category="paragraph">在运行 ONTAP 9.8 之前版本的系统中，如果您的配置包含 FC-SAS 网桥，则必须执行一些特殊的配置步骤来监控 MetroCluster 配置中的 FC-SAS 网桥。</block>
   <block id="e46fed6c592057d60a87fb3d38fe0bdf" category="list-text">验证是否已添加此网桥并已正确配置：</block>
-  <block id="966e300bc237c2583e3926b37d7a021b" category="summary">要设置使用原生磁盘和阵列 LUN 的延伸型 MetroCluster 配置，必须使用 FC-SAS 网桥或 SAS 光缆将 ONTAP 系统连接到磁盘架。必须使用 FC 交换机将阵列 LUN 连接到 ONTAP 系统。</block>
-  <block id="766c566dbd5b91e42bf430eaa1f8283e" category="doc">使用磁盘和阵列 LUN 的双节点延伸型 MetroCluster 配置示例</block>
-  <block id="6a948ca671c2d574b369b36c9b564cfe" category="image-alt">双节点 MCC 组合式萤火虫</block>
-  <block id="61b0bed0c90072afb0d78607c64b82d6" category="image-alt">双节点 MCC 组合 armadillo</block>
-  <block id="aec5f0d4a94e162c2240aba8a39d6d3b" category="paragraph">下图显示了具有阵列 LUN 连接的双节点延伸型 MetroCluster 配置：</block>
-  <block id="4af712bd642e4d41dbe4210b1548a13d" category="image-alt">双节点 MCC 组合阵列 LUN</block>
-  <block id="8f00d8c4d67b46b0db1826d8ba6477c7" category="admonition">如果需要，您还可以使用相同的 FC 交换机将原生磁盘和阵列 LUN 连接到 MetroCluster 配置中的控制器。</block>
   <block id="4e588a29bf7a5758c2948246b9400ed6" category="summary">在光纤连接的 MetroCluster 配置中，节点位于不同位置。这种地理差异可提高灾难保护能力。要从延伸型 MetroCluster 配置过渡到光纤连接的 配置，您必须在配置中添加 FC 交换机以及 FC-SAS 网桥（如果需要）。</block>
   <block id="1042cc8a57642a50cc069324d117567c" category="doc">从延伸型 MetroCluster 配置过渡到光纤连接的 配置</block>
   <block id="77da0b255bbf07aaa19b29bc45d3d9f7" category="list-text">您必须已关闭节点。</block>
@@ -8060,7 +7519,6 @@
   <block id="d5bca41ec2c9b2bc82b68b782983610c" category="sidebar">安装 MetroCluster IP 配置</block>
   <block id="06800b31fe5394b22e1a11163137b326" category="sidebar">在 ONTAP 调解器和 MetroCluster Tiebreaker 之间确定</block>
   <block id="4ae1141d3ba10797d5f82641406d5702" category="sidebar">ONTAP 9.4 及更高版本中的驱动器自动分配和 ADP 系统</block>
-  <block id="d3afb6862c8b819caa7f03082d2af919" category="sidebar">MetroCluster IP 配置中的未镜像聚合</block>
   <block id="b8e55c88d2ead2425b022ce67ac4bb75" category="sidebar">将硬件组件装入机架</block>
   <block id="5a4d16a157dad9438b527caaa9b4b2ab" category="sidebar">为 MetroCluster IP 交换机布线</block>
   <block id="833257310be655b5629aa019a7efd47c" category="sidebar">为控制器数据和管理端口布线</block>
@@ -8086,10 +7544,6 @@
   <block id="c941b5c4cf46259dd41b222aa38a58f3" category="paragraph">`sswitchcfgpersistentenable`</block>
   <block id="f22c92f3b10744efbd0e82db9d85f42a" category="paragraph">`sswitchshow`</block>
   <block id="bad3a2380613a08cffd8b317771de374" category="list-text">运行 fmc_dc 实用程序以确保 7- 模式网络结构 MetroCluster 正常运行。</block>
-  <block id="da94a7db0f9882c4b3c67c4b02d65a87" category="paragraph"><block ref="da94a7db0f9882c4b3c67c4b02d65a87" category="inline-link-macro-rx"></block></block>
-  <block id="6e2b6e2786426e2aeed4db0ecc5b8890" category="paragraph"><block ref="6e2b6e2786426e2aeed4db0ecc5b8890" category="inline-link-macro-rx"></block></block>
-  <block id="5d80f4634e8ee066c641d17f726ec994" category="paragraph"><block ref="5d80f4634e8ee066c641d17f726ec994" category="inline-link-macro-rx"></block></block>
-  <block id="853e75cf2478dbfaa7c7c69dda1f99f1" category="list-text">请勿删除后端交换机中已存在的分区或分区集（对于 7- 模式网络结构 MetroCluster ），但中的流量隔离（ TI ）分区除外 <block ref="bcf6119e8b5b0fd52fe08bbf1a5147d1" category="inline-xref-macro-rx"></block>。</block>
   <block id="e824a21e3028938aa47fe624ef80f849" category="paragraph">可以从 ONTAP 界面上的 ONTAP interface `storage bridge run-cli -name _bridge_name_ -command _bridge_command_name_` 命令发出网桥命令行界面命令。</block>
   <block id="4f8b49fd2c78185a429537ccca6bc9b8" category="paragraph">`set closePort none`</block>
   <block id="ffdbfa0a92ef89961619af0cb24c5631" category="paragraph">`saveConfiguration`</block>
@@ -8131,8 +7585,6 @@
   <block id="def2bebf11566298ccfc0636cb9cff59" category="paragraph">`cluster_A&gt; storage bridge run-cli -bridge bridge_A_1 -command firmwarerestart`</block>
   <block id="c022e2c952252114af09b9b4a57622ae" category="paragraph">您必须使用 `setup` 命令或在发出 `reload` 命令后指定基本设置。</block>
   <block id="5f8a45ca57172ced1169e3976bdce692" category="paragraph"><block ref="5f8a45ca57172ced1169e3976bdce692" category="inline-link-macro-rx"></block></block>
-  <block id="865ddca429147e4550622a4faf410a07" category="paragraph">`zone -show`</block>
-  <block id="bf3eac6d426cdce2672ed22591953fd5" category="paragraph">`zone -delete _zone-name_`</block>
   <block id="7cca3aa0690568dbd959faace4d4bde1" category="paragraph">`iodshow`</block>
   <block id="431f5b1374f309f2d879bfefd088097b" category="paragraph">`aptpolicy`</block>
   <block id="1e70080b98ddae7448b1d47e364336a4" category="paragraph">`dlsshow`</block>
@@ -8255,20 +7707,12 @@
   <block id="d459dc1ddad8d856203ba30b84fd6675" category="list-text">为配置备份文件设置远程目标的 URL ：</block>
   <block id="267f48079d5a0c20b3bac37bdeae2c4e" category="paragraph">`s系统配置备份设置 modify _url-of-destination_s`</block>
   <block id="4028a8e16d4b841012a85c08963c7c51" category="paragraph">`sswitchcfgpersistentdisable`</block>
-  <block id="c5a261fd95941fcb6c642a92e85a9c7f" category="list-text">确认控制器故障转移运行状况良好： + `cf status`</block>
-  <block id="303ac55e6ca0222f3e4f7511c42b6d50" category="list-text">确认磁盘可见： + `storage show disk – p`</block>
-  <block id="a4624bf4e4cb6a15bc97fd7c39d6b621" category="list-text">确认聚合运行状况良好： + `aggr status`</block>
   <block id="b392ae8268e3acac3f8918c2f70f55fe" category="admonition">此时，请勿为要包含未镜像聚合的磁盘架布线。您必须等到 MetroCluster 配置完成后再部署用于未镜像聚合的磁盘架，并且只能在使用 `MetroCluster modify -enable-unmirrored-aggr-deployment true` 命令后再部署这些磁盘架。</block>
   <block id="8d3d41bad87a31195e4ce8080361725c" category="paragraph">根据您的 ONTAP 版本，您必须在节点 SVM 中配置 BGP 对等 LIF ，而不是在系统或数据 SVM 中配置 BGP 对等 LIF 。在 ONTAP 9.8 中， BGP LIF 显示在集群（系统） SVM 中，节点 SVM 不再存在。</block>
   <block id="b310c02e6f3ce7879b405d0b4fabd46d" category="paragraph">BGP 的可靠更新过程可以使 LIF 迁移更顺畅，因为它们速度稍快，并且对某些客户端的中断几率较低</block>
   <block id="2b93070a46a84c0954f4fe7f1e6920d9" category="paragraph">暂停节点。</block>
   <block id="56d9ec4c28d3901ce1d9efd0668aff81" category="paragraph">等待节点返回 LOADER 提示符。</block>
-  <block id="ef12494cb70befc7ca544b62bf01bf89" category="paragraph">用于连接到 FC-SAS 网桥的启动程序端口必须与用于连接到交换机的端口不同，这些端口会连接到存储阵列。</block>
-  <block id="3ebd69be8f45faaa179163c252992c0c" category="paragraph">要将 ONTAP 系统同时连接到磁盘和阵列 LUN ，至少需要八个启动程序端口。</block>
   <block id="30f60d67f457bb040dffde52197a54da" category="list-title">相关信息</block>
-  <block id="0bcabcdf892c04cd4dc85578329f2f27" category="paragraph"><block ref="0bcabcdf892c04cd4dc85578329f2f27" category="inline-link-macro-rx"></block></block>
-  <block id="bc9a0903e5b84a09704b1124717ea8e7" category="paragraph"><block ref="bc9a0903e5b84a09704b1124717ea8e7" category="inline-link-macro-rx"></block></block>
-  <block id="f0237c84831c6f90ee896e4e970c25aa" category="list-text">交换机分区用于定义已连接节点之间的路径。通过配置分区，您可以定义特定 ONTAP 系统可以查看哪些阵列 LUN 。</block>
   <block id="8dc21fc84b0da6d36b0ff79fb6495c7b" category="paragraph">例如， SVM vs1 （缓存）和 vs2 （原始）位于 site_A 上这些 SVM 已建立对等关系。</block>
   <block id="685fd8e4740bc36c11367ec44db4636f" category="paragraph">切换后， SVM"VS1-MC" 和 "VS2-MC" 将在配对站点（ site_B ）上激活。必须手动重复这些设置， FlexCache 才能使用 `vserver peer repeer` 命令运行。</block>
   <block id="bf9ed55fade58e6d12b08126597ad127" category="list-text">FlexCache 的一端（ vs1 上的 cache_1 ）位于 MetroCluster site_A 上</block>
@@ -8282,37 +7726,14 @@
   <block id="5249dbc8eb004a9fbac1419d22d7bcd0" category="section-title">在 MetroCluster 切换后， storage aggregate plex show 命令的输出不确定</block>
   <block id="b3597a38069ce88bd5e71904ddba930d" category="paragraph">在 MetroCluster 切换后运行 `storage aggregate plex show` 命令时，切换后的根聚合的 plex0 状态不确定，并显示为 " 失败 " 。在此期间，切换后的根不会更新。只有在 MetroCluster 修复阶段之后才能确定此丛的实际状态。</block>
   <block id="15036251faefea85ea9b6ffa4f283c29" category="list-text">通过将 `vol -dr-force-nvfail` 参数设置为 "on" ，启用 MetroCluster 配置以在切换时触发 NVFAIL ：</block>
-  <block id="3d46a6eeb65ebe391571feddc1cc5164" category="paragraph"><block ref="3d46a6eeb65ebe391571feddc1cc5164" category="inline-link-macro-rx"></block></block>
-  <block id="9eecc3d31e1dca8ff5a3adf6988fa6d7" category="paragraph"><block ref="9eecc3d31e1dca8ff5a3adf6988fa6d7" category="inline-link-macro-rx"></block></block>
-  <block id="2740d289d4d49097464e045111134762" category="paragraph"><block ref="2740d289d4d49097464e045111134762" category="inline-link-macro-rx"></block></block>
   <block id="c860f7f0a8aaf5b10a9ec71f48b87682" category="inline-link-macro">配置虚拟 IP LIF</block>
-  <block id="64d6dcdca907cf2218bf062bdef6f301" category="paragraph">要设置双节点光纤连接 MetroCluster 配置或使用原生磁盘和阵列 LUN 的四节点 MetroCluster 配置，必须使用 FC-SAS 网桥通过 FC 交换机将 ONTAP 系统与磁盘架连接起来。您可以通过 FC 交换机将阵列 LUN 连接到 ONTAP 系统。</block>
-  <block id="133e5cbc5686e035d77f84f694299e20" category="paragraph"><block ref="133e5cbc5686e035d77f84f694299e20" category="inline-link-macro-rx"></block></block>
-  <block id="a2a2dcbf66bceb16c822e146bfd4ee0d" category="paragraph"><block ref="a2a2dcbf66bceb16c822e146bfd4ee0d" category="inline-link-macro-rx"></block></block>
-  <block id="12b05343ddb9ee449eb02e9df256be16" category="list-text"><block ref="12b05343ddb9ee449eb02e9df256be16" category="inline-link-macro-rx"></block></block>
-  <block id="60bd1a2e6e7581b5d37f41673f11b0bf" category="list-text"><block ref="60bd1a2e6e7581b5d37f41673f11b0bf" category="inline-link-macro-rx"></block></block>
-  <block id="15fde4f082e6ff5ca3488be202f0dbcb" category="list-text"><block ref="15fde4f082e6ff5ca3488be202f0dbcb" category="inline-link-macro-rx"></block></block>
-  <block id="a011aa6047381b9696e67c3b40f1802e" category="inline-link">NetApp 互操作性（ IMT ）</block>
   <block id="fb60c06f4120cd75fc9ac39720fd32d8" category="paragraph"><block ref="fb60c06f4120cd75fc9ac39720fd32d8" category="inline-link-macro-rx"></block></block>
-  <block id="b8a418bfdd11bf6855f54b269c217252" category="list-text">在每个节点上创建镜像数据聚合：</block>
   <block id="f6a27c7799db7275b366d6aa5824f156" category="inline-link-macro">镜像根聚合：</block>
-  <block id="4b7160ab170e2ce4f8b900945b99bba0" category="paragraph"><block ref="9be599aa0e226aea6f088a2fa4d362aa" category="inline-link-macro-rx"></block>。</block>
   <block id="2c406d90770788a5a37dd44ddf644295" category="inline-link-macro">在每个节点上创建镜像数据聚合</block>
-  <block id="f87dd08c00f70b3a575fa9699d2f3d13" category="paragraph"><block ref="89893a7120b70c9352d55ab698293fc3" category="inline-link-macro-rx"></block>。</block>
   <block id="cf2536b9d0ad43a511c5a32c1e924ea9" category="inline-link-macro">实施 MetroCluster 配置</block>
-  <block id="0c7efc3f8f259556bd2f3da69ebf54d7" category="list-text"><block ref="8f08cb1055cdb4a369896e616b0773db" category="inline-link-macro-rx"></block>。</block>
-  <block id="cbc27474ad8404f4ab4c0b0d46510f3f" category="inline-link-macro">配置 MetroCluster FC 交换机以进行运行状况监控</block>
-  <block id="51f74944bdea22bdfce54f66e54c71c8" category="list-text"><block ref="bbfeae7503afad1c4e0a2cd3684b1825" category="inline-link-macro-rx"></block>。</block>
   <block id="0686a40a013d93595f8f86de2753f9f5" category="inline-link-macro">检查 MetroCluster 配置</block>
-  <block id="18030bfb91f5e4d63267e26fb1ebcff8" category="list-text"><block ref="5c7e447fa493cc50fe35282654f2e1be" category="inline-link-macro-rx"></block>。</block>
   <block id="862af1b6897b484b4c8140d8ad62c5f4" category="inline-link-macro">使用 Config Advisor 检查 MetroCluster 配置错误</block>
-  <block id="8c947225988c013e9d09a9c97527a784" category="list-text"><block ref="305e316eb8a443f60a624c250c5e15ea" category="inline-link-macro-rx"></block>。</block>
   <block id="9759ad3dfabdb9631ec5fba47d71c313" category="inline-link-macro">验证切换，修复和切回</block>
-  <block id="2081e48017a6ee75217a36fd8b2f7d8a" category="list-text"><block ref="769446b4dc032ab58f2f17b2a80ec492" category="inline-link-macro-rx"></block>。</block>
-  <block id="2d938722cbdc0e27f1bf8a4621b922c8" category="list-text">安装和配置 MetroCluster Tiebreaker 软件：</block>
-  <block id="dfbddd6e1165ec700e2c766fc53a826c" category="inline-link-macro">安装 Tiebreaker 软件</block>
-  <block id="f4435460af1eceef12baf7f16d269716" category="inline-link-macro">配置 Tiebreaker 软件</block>
-  <block id="922d574d4eea7d46f1335f2c544e277e" category="list-text">设置配置备份文件的目标：</block>
   <block id="de45266e760bc51404ead34f9f895183" category="inline-link-macro">保护配置备份文件</block>
   <block id="ee4d8ac218c460dfd7125a49735b885d" category="paragraph"><block ref="ee4d8ac218c460dfd7125a49735b885d" category="inline-link-macro-rx"></block></block>
   <block id="17b763891dc41f73db80a8c33a9fe082" category="paragraph"><block ref="17b763891dc41f73db80a8c33a9fe082" category="inline-link-macro-rx"></block></block>
@@ -8320,15 +7741,6 @@
   <block id="c49e3aaaa51f771668bea65f43e92229" category="paragraph"><block ref="c49e3aaaa51f771668bea65f43e92229" category="inline-link-macro-rx"></block></block>
   <block id="8bd0cd6715687fc71d09455137c040b9" category="paragraph"><block ref="8bd0cd6715687fc71d09455137c040b9" category="inline-link-macro-rx"></block></block>
   <block id="2cc78fe607addfc425964003bfef4c37" category="paragraph"><block ref="2cc78fe607addfc425964003bfef4c37" category="inline-link-macro-rx"></block></block>
-  <block id="96cede592ba750ee2979e747848a4443" category="list-text">打开主节点的电源，并在控制台上看到以下消息时按 Ctrl-C 中断启动过程：</block>
-  <block id="5a6b0c07d1959bfdcc4073773ad61d4e" category="paragraph">`按 CTRL-C 可查看特殊启动菜单。`</block>
-  <block id="83e35738db40dde0a1373bf0ccffd063" category="list-text">在启动菜单上选择选项 *4 （ Clean configuration and initialize all disks ） * 。</block>
-  <block id="b1a8f267ececa17f8208e3711d27356c" category="paragraph">在此示例中，索引编号为 3 和 6 的阵列 LUN 将标记为 local ，因为它们以前是从此特定节点分配的：</block>
-  <block id="726f5d4cf933f75d16ab4a8cab070408" category="paragraph">为创建根卷而选择的阵列 LUN 将标记为 " 本地（根） " 。</block>
-  <block id="42852d7e6ae9d60030cef736173c2dc5" category="inline-link">集群设置过程</block>
-  <block id="34d298a9dd158abbbe5e88976e2de31e" category="paragraph">在要与阵列 LUN 结合使用的所有节点上配置 ONTAP 后，您应完成<block ref="062e8840bdcbe73415320ae1d4fd5e29" category="inline-link-rx"></block></block>
-  <block id="f4b10c0ed251e84acdbc56fffb876121" category="paragraph"><block ref="f4b10c0ed251e84acdbc56fffb876121" category="inline-link-macro-rx"></block></block>
-  <block id="18f32fa11e73a9fe745c10d58cd7d052" category="list-text">在使用阵列 LUN 的 MetroCluster 配置中使用交换机分区时，必须确保满足某些基本要求。</block>
   <block id="30213cf83510ed46c6f69c37af7fb3aa" category="list-text">验证所有聚合是否均已镜像：</block>
   <block id="7264088d4f9d193f30e9a2464dab74fb" category="list-text">从灾难站点启动节点。</block>
   <block id="c10eeba0526766cc3188d9039a9c0ba2" category="list-text">确认节点的状态：</block>
@@ -8354,58 +7766,21 @@
   <block id="5f54259a5f9e2ed501dcd8fc387862ef" category="cell">* Brocade 6505 ， 6510 或 DCX 8510-8*</block>
   <block id="6977c96a61a5177850b42609237488c3" category="cell">* FC_switch_x_1*</block>
   <block id="0b2c75644662ed2b76683bc2b8eaf012" category="cell">* FC_switch_x_2*</block>
-  <block id="f7c6b8ed8135f0c2d169fb0831e7a0c0" category="paragraph"><block ref="f7c6b8ed8135f0c2d169fb0831e7a0c0" category="inline-link-macro-rx"></block></block>
-  <block id="7c9ce51ecda69bd6b8e4f23c6195b311" category="paragraph">您必须确保满足使用阵列 LUN 的 MetroCluster 配置的 SyncMirror 要求。请参见<block ref="dde9fbc727f8cd4c9b4ba4b7030d98ee" category="inline-link-macro-rx"></block>。</block>
-  <block id="213c74678d0f02b098b6031dd389187f" category="list-text">镜像未镜像的根聚合：</block>
   <block id="82107984563a4d014cd48345b86ec376" category="doc">为 HA 互连布线</block>
-  <block id="37d5ffce46489714232e65f691577fa4" category="paragraph">在 MetroCluster 配置中配置存储系统时，您必须确保控制器模块和机箱组件的高可用性（ HA ）状态为 "mcc" 或 "mcc-2n" ，以便这些组件可以正常启动。</block>
   <block id="6fc1a0c4ecbbd59364bf4b20f10bd0b6" category="paragraph">* 注 * ： Brocade 7840 交换机支持每个交换机使用两个 40 Gbps VE 端口或最多四个 10 Gbps VE 端口来创建 FCIP ISL 。</block>
-  <block id="013d9d1788f79068cc17e1128a0db3ad" category="cell">交换机型号</block>
-  <block id="051877dc61179a5af3a2aea7072b0a87" category="cell">* Cisco 9250i 交换机对 ISL 使用 FCIP 端口。使用 FCIP 端口时存在某些限制和过程。</block>
   <block id="72b3f4df9ba178ac37c68c3130df2a2c" category="list-text"><block ref="72b3f4df9ba178ac37c68c3130df2a2c" category="inline-link-macro-rx"></block></block>
   <block id="51af5f9273b0bde121a10742b4065824" category="list-text">必须为 MetroCluster 配置中的每个 Brocade DCX 8510-8 交换机正确配置 ISL 端口和存储连接。有关端口使用情况，请参见以下部分： <block ref="fb60c06f4120cd75fc9ac39720fd32d8" category="inline-link-macro-rx"></block>。</block>
   <block id="69e92926786e575346dbd083b8dec2f2" category="paragraph"><block ref="69e92926786e575346dbd083b8dec2f2" category="inline-link-macro-rx"></block></block>
-  <block id="21c13c7f9394de1842ff80b5397e9e79" category="paragraph"><block ref="21c13c7f9394de1842ff80b5397e9e79" category="inline-link-macro-rx"></block></block>
-  <block id="dcd39c14ed9181b99eedc066ac1d65c1" category="list-text">使用中的操作步骤配置集群间 LIF</block>
-  <block id="0690a5c4248a898ac79d4ea42b64f808" category="list-text">使用中的操作步骤创建集群对等关系</block>
   <block id="60e70e31928f915722e922383e40f330" category="list-text">如有必要，明确将所连接磁盘架上的磁盘分配给相应的池：</block>
   <block id="a5f5afcf03d082b62f3f1d573d337a84" category="paragraph">`d磁盘分配`</block>
   <block id="7beedda8cb5d2fb431ddb232b7ee7fe0" category="summary">您可以从 MetroCluster 配置中的所有节点或灾难恢复 \ （ DR\ ）组中的所有节点中删除 MetroCluster 配置。</block>
-  <block id="a90e829037a5fa8775e3eae393aa9ee4" category="paragraph"><block ref="a90e829037a5fa8775e3eae393aa9ee4" category="inline-link-macro-rx"></block></block>
-  <block id="468c4e31b83836c58547baa1d09db6fc" category="paragraph">下表显示了此示例的分区：</block>
-  <block id="0050758146bf0e40ef606abb0aa7e067" category="section-title">FC_switch_A_1 的分区</block>
-  <block id="24a276862acd14eb7c7208da4e845d52" category="section-title">FC_switch_A_2 的分区</block>
-  <block id="e1cd84eb6479ce1c4e21561421bdf4c5" category="section-title">FC_switch_B_1 的分区</block>
-  <block id="ce01dade681445bf0352e4096f1cc5d1" category="section-title">FC_switch_B_2 的分区</block>
-  <block id="ed167884ebcfbf8e54d556f8a50a60c2" category="list-text">交换机分区用于定义已连接节点之间的路径。通过配置分区，您可以定义特定 ONTAP 系统可以查看哪些阵列 LUN 。</block>
-  <block id="17abf9dec5e60d6f3fa370163fa1392c" category="list-text">查看尚未分配给节点的阵列 LUN ：</block>
   <block id="93b4c54527bd19b6e0c8b5146ea23761" category="paragraph">`storage disk show -container-type unassigned`</block>
-  <block id="374f507736292301c0def9697bcbea95" category="list-text">将阵列 LUN 分配给此节点：</block>
-  <block id="5f13d85a2947066162a034c5f8f6ca1b" category="paragraph">`s存储磁盘分配 -disk _array_lun_name_ -owner _nodename_`</block>
-  <block id="290408f07cabf51b8bcef2a4892e46e9" category="paragraph">如果要在分配磁盘后而非之前修复冗余错误，则必须在 storage disk assign 命令中使用 ` -force` 参数。</block>
-  <block id="673fe878b4e386d90c155e4e3a9dd011" category="section-title">Cisco 9396S 端口使用情况</block>
-  <block id="309e1f2c9f2c466159e70783bd606770" category="section-title">Cisco 9148S 端口使用情况</block>
-  <block id="b3442e9eecb3975a759a9ce14ac644c4" category="section-title">Cisco 9132T 端口使用情况</block>
-  <block id="9903cabc0b19b07a1afc7f881e87d454" category="section-title">Cisco 9250 端口使用情况</block>
-  <block id="84025710c8716672d86db32fd2ba79ca" category="cell">八节点 MetroCluster 配置不支持 Cisco 9250i 交换机。</block>
-  <block id="db45d2962a244516b91cdcdb10eabed7" category="list-text">使用缆线将每个控制器中的 FC-VI 端口和 HBA 端口连接到备用 FC 交换机上的端口。请参见下表：</block>
-  <block id="c53f3bcfbfbf43639df7a126107c5b72" category="section-title">使用两个 FC 端口为 FibreBridge 7500N 或 7600N 布线配置</block>
-  <block id="01b947c9660f7bd492362c0e04ea9733" category="cell">* 端口 12 到 15 是为 Brocade 7840 交换机上的第二个 MetroCluster 或 DR 组预留的。</block>
-  <block id="fc2aa4a46638845f6620a574d1499700" category="cell">* 注 * ：可以使用缆线将其他网桥连接到 G620 ， G630 ， G620-1 和 G630-1 交换机中的端口 16 ， 17 ， 20 和 21 。</block>
-  <block id="ec983aa599aee0ee199ad40c258bab91" category="section-title">Cisco 9250i 的布线配置</block>
-  <block id="a7ee2c4a10e1570860b0601ec209e4e8" category="list-text">安装 V_StorageAttach 许可证。</block>
-  <block id="5da2b156280daaa1fc2fe1cb2772416f" category="paragraph">`s系统许可证添加`</block>
-  <block id="b2b6e23ab57653d1006049cf37bfed5b" category="list-text">验证是否已在集群中所有必需的节点上安装 V_StorageAttach 许可证。</block>
   <block id="f52d44aaa981f34fa588225f9d4cc820" category="paragraph">`s系统许可证显示`</block>
   <block id="4cd1110435955b3b14ac2d145c6baae1" category="paragraph">每个 MetroCluster 站点都配置为其配对站点的对等站点。您应熟悉配置对等关系以及决定是否为这些关系使用共享端口或专用端口的前提条件和准则。</block>
   <block id="f515fca759b029639b19b471d7a2c1ed" category="inline-link">MetroCluster IP 解决方案架构和设计， TR-4689</block>
   <block id="8d4727f84fc5ba727eb23a4ce93c87c2" category="list-text">MetroCluster IP 配置和操作的技术概述。</block>
   <block id="8aec6a2bcfb78af1fffa4f2c52dfe49d" category="paragraph">Active IQ 数字顾问文档</block>
   <block id="cab785737f7e01bc6cf334a3297e22c3" category="cell">Cisco 9250i 注：八节点 MetroCluster 配置不支持 Cisco 9250i 交换机。</block>
-  <block id="affc2dad5d0c570ef33673937b9be675" category="list-text">按照中的步骤进行操作 <block ref="3165f1b1a2826f5bf149f919c95e9838" category="inline-link-macro-rx"></block> 部分以启用中继和 QoS 区域。</block>
-  <block id="a33a00ea9f83279f39be404461d06dc1" category="paragraph">共享网络结构时的端口号与一节中显示的端口号不同。共享时，请使用端口 46 和 47 作为 ISL 端口。如果移动了 ISL 端口，则需要在中使用操作步骤 <block ref="57ce78b7c8c4db3fb44a8dbd447a3f1f" category="inline-link-macro-rx"></block> 部分以配置端口。</block>
-  <block id="978310327d2cf95049892dccc0c3977b" category="list-text">【第 3 步 _zones 】按照中的步骤进行操作 <block ref="b87ab593768bb285307eccf2a018cf92" category="inline-link-macro-rx"></block> 部分以配置非 E 端口。</block>
-  <block id="e330f533c615c9f14ec2e4e50d325424" category="list-text">按照中的步骤进行操作 <block ref="57ce78b7c8c4db3fb44a8dbd447a3f1f" category="inline-link-macro-rx"></block> 一节，将新 MetroCluster 所需的分区添加到现有分区集。</block>
   <block id="25e406bace0d04355538052e51cb9463" category="admonition">确保此配置所需的所有组件均位于中<block ref="ae0acc7a1cf35a69eb7b42685c902841" category="inline-link-rx"></block>。有关支持的配置的信息，请阅读互操作性表工具中的注释部分。</block>
   <block id="b4d7baf41cc0c5cafe8cdf28d3c7d4a9" category="paragraph">本指南中使用的示例： controller_A_1</block>
   <block id="30cb34cdda07b18f5f18a14a97f5b6c6" category="paragraph">如果使用双节点 MetroCluster 配置（每个站点一个节点），则不需要此配置。</block>
@@ -8461,10 +7836,6 @@
   <block id="384bb33c884dd5c4aed5b1cef7c99c53" category="list-text">验证是否已正确设置 IP 地址：</block>
   <block id="02ee20582f5402cb93dc58e4e8522d9e" category="paragraph">`ipAddrShow`</block>
   <block id="3992d3498e9be76c791c721bcb2d8537" category="paragraph">如果需要，可以使用以下命令设置 IP 地址：</block>
-  <block id="970a6efa6508b55722a891bc57572c0d" category="list-text">如果需要，请创建未镜像的数据聚合：</block>
-  <block id="aa746e8f9884e017b8a2cf95d83c6f98" category="list-text"><block ref="6a656079a634d1dbb37fdd6960f90ddd" category="inline-link-macro-rx"></block>。</block>
-  <block id="287644c0dd9dfb3768d110055e197bde" category="list-text"><block ref="bfaa51242e41c04376a31866ee30c54d" category="inline-link-macro-rx"></block>。</block>
-  <block id="7edc9ae22c0cf875e5a35338bef1bdef" category="paragraph"><block ref="07c84706bf0793d59796fc2be1470117" category="inline-link-macro-rx"></block>。</block>
   <block id="e56418bb842bd172c1bf2aaff54451fd" category="paragraph">`FCPortDisable port-number`</block>
   <block id="b937671578dea012b5d9e0ca996417fc" category="list-text">保护网桥：</block>
   <block id="cf574293b8ab8a752912f9e7ad222e6b" category="paragraph">`securebridge`</block>
@@ -8810,7 +8181,6 @@
   <block id="eebbe813481cbe4f60e344ccada6591f" category="paragraph">在以下示例中，选择磁盘架 ID 31 失败。</block>
   <block id="7507e31e7c001014454813d7b49c44bb" category="paragraph">受影响聚合的 RAID 状态应为 "resyning" ，如以下示例所示：</block>
   <block id="ec88ce5186c357a0bc7a0b6036c98881" category="paragraph">受影响的聚合的 RAID 状态应为 "Normal" ，如以下示例所示：</block>
-  <block id="8e1b87e111c6a25dd28266989f14eb98" category="paragraph">配置复制服务（ CRS ）元数据卷和数据 SVM 根卷必须位于镜像聚合上。您不能将这些卷移动到未镜像聚合。如果它们位于未镜像聚合上，则协商切换和切回操作将被否决。此时，` MetroCluster check` 命令会发出警告。</block>
   <block id="fdae3324d19034e1e1308ccde69ec68b" category="paragraph">要确定您的系统是否需要手动分配磁盘，应查看 <block ref="e40d6a178d9137d254eca9144fcc5d3c" category="inline-link-macro-rx"></block>。</block>
   <block id="f04ccee1003dbd5f1c9c6351af3f0b4e" category="list-text">在维护模式下，手动为节点上的本地聚合分配驱动器：</block>
   <block id="b067ff15634ee127c0e9368bdd50693d" category="paragraph">`ddisk assign _disk-id_ -p 0 -s _local-node-sysid_`</block>
@@ -8924,25 +8294,15 @@
   <block id="def4f4e87a159ca662e15a890598d539" category="paragraph">您还应在协商（计划内）切换或切回操作之前执行检查。</block>
   <block id="24ee0b1ca6a6bb24b7f88b8b0f675d6a" category="paragraph">上图是所需布线的典型表示形式。具体的 FC-VI 端口因控制器模块而异。</block>
   <block id="c1a8925cd94231ee4e464e61451fd6d4" category="paragraph">机架空间取决于配置中存储控制器的平台型号，交换机类型和磁盘架堆栈数量。</block>
-  <block id="e0dd1e85604316427a557d67b3079843" category="summary">您必须根据是否使用 FlexArray LUN 以及存储控制器如何连接到存储架来选择正确的安装操作步骤。</block>
   <block id="45cf701b8697cab4c349ec98dae373d6" category="admonition">灾难恢复（ DR ）组中的所有磁盘都必须使用相同类型的连接，并且对灾难恢复组中的所有节点都可见，而不管用于镜像聚合或非镜像聚合的磁盘是什么。</block>
   <block id="85977d467dedfc86d900cfc49456f320" category="paragraph">您可以测试协商（计划内）切换操作，以确认数据不会中断。</block>
   <block id="c1fb8df06920f0b1e36ed0e97db05891" category="paragraph">最佳做法是，将组件中的每个电源设备（ PSU ）连接到单独的电源。如果两个 PSU 都连接到同一个配电单元（ PDU ），并且发生电气中断，则站点可能会关闭，并且整个磁盘架可能不可用。测试一条电源线故障，以确认没有布线不匹配，从而发生原因可能导致服务中断。</block>
-  <block id="56d23b4bd36ea7e836bbc1283db551b3" category="paragraph">在使用 E 系列存储阵列 LUN 的延伸型 MetroCluster 配置中，您可以直接连接存储控制器和存储阵列。与其他阵列 LUN 不同，不需要 FC 交换机。</block>
   <block id="5ddac338fa0803205a82e38309aa44f9" category="list-text">发生接管后，您无法修改故障节点或配对节点的时区设置。</block>
-  <block id="3abb76413b81aeec2b1531b8193b98d1" category="paragraph">在使用阵列 LUN 的延伸型 MetroCluster 配置中，您必须在控制器之间连接 FC-VI 端口。控制器和 E 系列存储阵列之间支持直接连接。对于所有其他 LUN 配置阵列，您必须在配置中使用 FC 交换机。</block>
   <block id="e3e199b7ae425cf085e49fc59cee2346" category="paragraph">您可以将控制器和集群交换机管理端口连接到网络中的现有交换机。此外，您还可以将控制器连接到新的专用网络交换机，例如 NetApp CN1601 集群管理交换机。</block>
   <block id="c0d749550ddde23cbac88b531b9ece57" category="list-text">使用标准的车间实践操作电气设备，确保已正确接地。</block>
-  <block id="4edc653428a721030056cbd92bbca350" category="summary">在使用阵列 LUN 的延伸型 MetroCluster 配置中，必须使用缆线连接 FC-VI 端口，以便在控制器之间直接连接。此外，您还必须使用缆线将每个控制器 HBA 端口连接到相应 FC 交换机上的交换机端口。与阵列 LUN 的布线方式与光纤连接 MetroCluster 中的布线方式相同，但 E 系列阵列 LUN 除外，该阵列 LUN 可以直接连接。</block>
-  <block id="eb4c2154e73813f8ea66d1960d562b2e" category="paragraph">除了连接 FC-VI 端口之外，此操作步骤的其余部分用于设置使用未使用 E 系列阵列 LUN 的阵列 LUN 的 MetroCluster 配置。这就要求 FC 交换机与在光纤连接配置中使用阵列 LUN 相同。</block>
   <block id="f42de1b08d2be30deb3f92505955941e" category="paragraph">如果要使用网桥的带内管理而不是 IP 管理，则可以跳过配置以太网端口和 IP 设置的步骤。</block>
   <block id="f0b56d16950bab81d00cfeaf82d6183a" category="paragraph">此串行连接将用于初始配置。然后，可以使用 ONTAP 和 FC 端口的带内管理来监控和管理网桥。</block>
   <block id="3fff43b275954b2824b3aee6836ae256" category="paragraph">`sasargets` 命令输出显示了连接到网桥的设备（磁盘和磁盘架）。输出行按顺序编号，以便您可以快速统计设备数量。</block>
-  <block id="9c99fef0430bb16c4a28d231ae5f8299" category="paragraph">要设置使用原生磁盘和阵列 LUN 的延伸型 MetroCluster 配置，必须使用 FC-SAS 网桥或 SAS 光缆将 ONTAP 系统连接到磁盘架。此外，还必须使用 FC 交换机将阵列 LUN 连接到 ONTAP 系统。</block>
-  <block id="f1ab023e5e9e9bdeb7a934c85edec3d1" category="paragraph">要使 ONTAP 系统同时连接到原生磁盘和阵列 LUN ，至少需要八个 HBA 端口。</block>
-  <block id="920da881cae411ea78d6cb953a970a64" category="paragraph">以下示例显示了使用磁盘和阵列 LUN 的双节点延伸型 MetroCluster 配置，其中， HBA 端口 0a 到 0d 用于连接阵列 LUN 。HBA 端口 1a 到 1d 用于连接原生磁盘。</block>
-  <block id="cd05172187157436bfb2ba5bf1f04694" category="paragraph">下图显示了双节点延伸型 MetroCluster 配置，其中，原生磁盘使用 SAS 光缆连接到 ONTAP 系统：</block>
-  <block id="ea8debab29aa9d3caee7fdbdd472b388" category="paragraph">下图显示了双节点延伸型 MetroCluster 配置，其中，原生磁盘使用 FC-SAS 网桥连接到 ONTAP 系统：</block>
   <block id="f889df12ea9fb88367e834a6ea3528cf" category="list-text">您必须通过运行 MetroCluster modify -auto-switchover-failure-domain auto-disabled` 命令在两个集群上禁用自动切换。</block>
   <block id="a2b91b36fe2f171ecdfe2293a4dedbcb" category="paragraph">上图是典型的典型缆线连接。具体的 FC-VI 端口因控制器模块而异。</block>
   <block id="f6c4685383c21cd45ac1dd62ff0d2357" category="list-text">板载端口 0e 和 0f 配置为 FC-VI 模式。</block>
@@ -9292,7 +8652,6 @@
   <block id="99dc2e42eb5cbad5dfa0fe00d5193924" category="list-text">创建包含聚合的 FabricPool 镜像，如中所述<block ref="d80da76762d0e5fadaefb2c12eee2740" category="inline-link-rx"></block></block>
   <block id="9f1e892e838f85f0b4330fcfad0f245a" category="paragraph">请参见中的 "`复制 SVM 配置` " 一节 <block ref="eedeed859392052ace3070cab5bd7d76" category="inline-link-macro-rx"></block> 有关配置 SVM DR 关系的详细信息。</block>
   <block id="06eff1ae70df860b6c817c9ab3858d3d" category="list-text">使用中所述的协商切换，修复和切回过程<block ref="6d6ef49fcb406c2ba2bda06977913f53" category="inline-link-rx"></block>。</block>
-  <block id="76171250896c5dfe6901a6c8c3fb3f68" category="paragraph"><block ref="76171250896c5dfe6901a6c8c3fb3f68" category="inline-link-macro-rx"></block></block>
   <block id="10fb6eda16d44576f048cbbd98a21f49" category="sidebar">准备 MetroCluster 安装</block>
   <block id="e42ae5049bd4441f35fc1a5c789393b6" category="sidebar">如何在 RcfFileGenerator 工具或多个 MetroCluster 配置中使用端口表</block>
   <block id="b25308b36735da11e4a37c52a93d5b81" category="sidebar">在 ONTAP 中配置 MetroCluster 软件</block>
@@ -9455,7 +8814,6 @@
   <block id="7dc9e3aa635e299178bab6d9a48bf453" category="sidebar">将 Linux iSCSI 主机从 MetroCluster FC 移动到 MetroCluster IP 节点</block>
   <block id="52ce4442255e41018df454294b3648fd" category="sidebar">为光纤连接的 MetroCluster 配置布线</block>
   <block id="52d560f5b6575a3dfa8df66e28e9d3d0" category="sidebar">为 MetroCluster 站点之间的 ISL 布线</block>
-  <block id="c57c9eb0f376e2aa407c1ab2c90aa9b4" category="sidebar">为八节点或四节点配置中的集群互连布线</block>
   <block id="d6467b2ffdd24b6a7c9602e4a3965668" category="sidebar">如有必要，为 HA 互连布线</block>
   <block id="e7408290c726a494ea225eebcc1cdff7" category="sidebar">配置 FC 交换机</block>
   <block id="2b747976a95b28cafe22f97ba37e8062" category="sidebar">使用 RCF 文件配置 Brocade FC 交换机</block>
@@ -9467,32 +8825,6 @@
   <block id="04feb40ba41d7f08a0ed11c320036b50" category="sidebar">下载并安装 Cisco FC 交换机 NX-OS 软件</block>
   <block id="3c25e8c40f06568b29ce946fd777d561" category="sidebar">下载并安装 Cisco FC RCF 文件</block>
   <block id="9ee7e057ce8f87d9c6d58a3ac45b4a14" category="sidebar">手动配置 Cisco FC 交换机</block>
-  <block id="a843b71ec15aadada63575eb83031c0b" category="sidebar">配置硬件，以便在过渡期间共享 Brocade 6510 FC 网络结构</block>
-  <block id="7a624101744abdf7e3500edd9f2b8245" category="sidebar">查看 Brocade 许可证要求</block>
-  <block id="bf3919a06ddf0ec27a0504fe47bad7b2" category="sidebar">使用缆线将新的 MetroCluster 控制器连接到现有 FC 网络结构</block>
-  <block id="7bd89e108931ce636e15123e89248e50" category="sidebar">在 7- 模式和集群模式 MetroCluster 配置之间配置交换机网络结构共享</block>
-  <block id="1c2eab36143e7d0d27484d242e30fa69" category="sidebar">禁用其中一个交换机网络结构</block>
-  <block id="6dcbc3ddfa4366cb8ba086eccc404332" category="sidebar">删除 TI 分区并配置 IOD 设置</block>
-  <block id="a0d866aecd15331d9714ca9e4532bbc9" category="sidebar">确保 ISL 位于同一端口组中并配置分区</block>
-  <block id="cd6d15e2b46d3e2f47014c4828615a8e" category="sidebar">重新启用交换机网络结构并验证其运行情况</block>
-  <block id="80f976c9a0f2d21f314ed374e33cd352" category="sidebar">规划并安装使用阵列 LUN 的 MetroCluster 配置</block>
-  <block id="c8b19b92d4a50bed297998d47df26051" category="sidebar">规划包含阵列 LUN 的 MetroCluster 配置</block>
-  <block id="93a308f93d8d5ca19cae9d08e22adb09" category="sidebar">在使用阵列 LUN 的配置中安装 MetroCluster 组件并为其布线</block>
-  <block id="fee2d524a67123cd96bfd7853ae5408a" category="sidebar">使用阵列 LUN 将 MetroCluster 配置中的硬件组件装入机架</block>
-  <block id="70c598f8277affd6e17085bb627890ca" category="sidebar">准备用于 ONTAP 系统的存储阵列</block>
-  <block id="da4b9b1e8c5a8c0384dc20493d174c59" category="sidebar">为使用阵列 LUN 的 MetroCluster 配置中的 FC-VI 和 HBA 端口布线</block>
-  <block id="d017c47eb70c050107462722a35d0b3a" category="sidebar">使用阵列 LUN 连接双节点光纤连接 MetroCluster 配置中的 FC-VI 和 HBA 端口</block>
-  <block id="f804d68a8997c439232d5fdd9ef960d8" category="sidebar">使用阵列 LUN 连接四节点光纤连接 MetroCluster 配置中的 FC-VI 和 HBA 端口</block>
-  <block id="6f735fbd16bebf7e5bc182e7c89a7f5c" category="sidebar">在使用阵列 LUN 的八节点光纤连接 MetroCluster 配置中，为 FC-VI 和 HBA 端口布线</block>
-  <block id="08e9dda3455a57aa7a1a245e6ea0f304" category="sidebar">为使用阵列 LUN 的 MetroCluster 配置中的 ISL 布线</block>
-  <block id="b98d15dba7d8fefd8d980d63a4e11a61" category="sidebar">使用缆线将存储阵列连接到 MetroCluster 配置中的 FC 交换机</block>
-  <block id="8226496b91995cbdb411fc748863b4a9" category="sidebar">在使用阵列 LUN 的 MetroCluster 配置中设置 ONTAP</block>
-  <block id="e23243448b3ec49d7f5b13275d7f6335" category="sidebar">设置集群</block>
-  <block id="731325ca2f2fc3bced1b8025aca12524" category="sidebar">安装在 MetroCluster 配置中使用阵列 LUN 的许可证</block>
-  <block id="273c4b6f5e2cdfbb64c441af81ec9535" category="sidebar">分配阵列 LUN 的所有权</block>
-  <block id="34e36cd434217e95f9efd2a4ff5396a5" category="sidebar">为集群建立对等关系</block>
-  <block id="58a2e0468310e7617d4e119676028f57" category="sidebar">在 MetroCluster 配置上创建，实施和验证数据聚合</block>
-  <block id="625658dcf56e073788050ba3b314f569" category="sidebar">实施同时包含磁盘和阵列 LUN 的 MetroCluster 配置</block>
   <block id="8b3aeec8c25c17c966b0b882195c6050" category="sidebar">使用 NTP 同步系统时间</block>
   <block id="d80db6731d8005aabd1dad8b4bd740b7" category="paragraph">在安装期间，最多可以自动对 96 个驱动器进行分区。您可以在初始安装后添加额外的驱动器。</block>
   <block id="1585a90fdb49dfda6655494b11d96dcd" category="paragraph">第 1 季度：托架 0-11</block>
@@ -10031,7 +9363,6 @@
   <block id="fcc1179d9dc8927679bbc81b610ebfe5" category="list-text">验证所有组件是否已根据您的配置正确布线。</block>
   <block id="45a90cf1797a736ff538fdca7b5c8902" category="list-text"><block ref="45a90cf1797a736ff538fdca7b5c8902" category="inline-link-macro-rx"></block></block>
   <block id="4e3b6dac43e0506da50eaa98573ccb1c" category="inline-link-macro">MetroCluster 光纤连接配置</block>
-  <block id="e1b883336b514336526e9cd258980864" category="list-text"><block ref="e1b883336b514336526e9cd258980864" category="inline-link-macro-rx"></block></block>
   <block id="f4d1718476f238773172cc8143587c05" category="paragraph"><block ref="f4d1718476f238773172cc8143587c05" category="inline-link-rx"></block></block>
   <block id="31adf6c46538c00d916f0a1f7acc11f5" category="list-text">有关 FabricPool 配置的详细信息，请参见 <block ref="35c3ebb4e6a9e3c67e4d7c35a500b0be" category="inline-link-macro-rx"></block>。</block>
   <block id="1340a5b41b84e7246a789cfe5e1eb1a7" category="list-text">按照中的操作步骤 " 更换 MetroCluster 配置上的 FabricPool 镜像 " 进行操作 <block ref="35c3ebb4e6a9e3c67e4d7c35a500b0be" category="inline-link-macro-rx"></block>。</block>
@@ -10758,7 +10089,6 @@
   <block id="39589e51e55e8de5e8ef15bb661355d7" category="list-text">将控制 TCP 连接配置为 48 ，将数据连接配置为 26 ，以标记该差分服务代码点（ DSCP ）值上的所有数据包：</block>
   <block id="62e6ef0d9ca5ed550d07c950fb908783" category="list-text">将控制 TCP 连接配置为 48 ，将数据连接配置为 26 ，以标记该差分服务代码点（ DSCP ）值上的所有数据包：</block>
   <block id="cae6c8fdb4bf6ec6d4303accb806c01e" category="list-text">使用以下配置文件名称配置 FCIP 配置文件：</block>
-  <block id="186580027a6082f2b0bf52acc31fef23" category="list-text">验证 IOD 设置：</block>
   <block id="d805df154de0ed954114c0b8a30d6cf0" category="list-text">每个节点的非易失性缓存的 SyncMirror 镜像和灾难恢复镜像均在运行，并且在发生故障时，缓存和镜像将保持同步。</block>
   <block id="539aa46206b59c007151f02f46d35617" category="list-text">运行正常的站点上的节点均未处于接管状态。</block>
   <block id="9630e0ae86014261ce835fe1e1ffcd0e" category="paragraph">您必须连续对每个交换机重复此任务。</block>
@@ -10802,8 +10132,6 @@
   <block id="a6bcf63661955f7af02bb69a2cd4d604" category="section-title">将磁盘架添加到现有配置中</block>
   <block id="9d8f122e284d64a31d50c5040fe4f338" category="section-title">要移动哪些连接</block>
   <block id="508763c5ecfa3096ab25520f14c971f5" category="paragraph">使用中所述的端口 <block ref="10769c5348734bed7e40370eea435ab1" category="inline-xref-macro-rx"></block>。</block>
-  <block id="dd23316b696cd08f3479c6e2d7baadc0" category="inline-link">AFF 或 FAS 系统的安装过程</block>
-  <block id="17959b19c1c128d5d74608a22de28cf9" category="paragraph"><block ref="17959b19c1c128d5d74608a22de28cf9" category="inline-link-rx"></block></block>
   <block id="e5303b615c196a6ae1c68873f1d05073" category="sidebar">手动配置 Brocade FC 交换机</block>
   <block id="2e7e413d490de09cb96837b5567b668c" category="paragraph"><block ref="2e7e413d490de09cb96837b5567b668c" category="inline-link-macro-rx"></block></block>
   <block id="97f70489df0d405722087f0f98dc7c3f" category="paragraph"><block ref="97f70489df0d405722087f0f98dc7c3f" category="inline-link-macro-rx"></block></block>
@@ -10820,9 +10148,7 @@
   <block id="76c06c220bafe4dc7e175b4584717344" category="paragraph"><block ref="76c06c220bafe4dc7e175b4584717344" category="inline-link-macro-rx"></block></block>
   <block id="2445f74267948c10619896a5e47cd3d6" category="paragraph">执行中的步骤 <block ref="0e3caa859006182753aee07c6f57c3cf" category="inline-link-macro-rx"></block>。</block>
   <block id="b0f85a0199d1b83b2b8a32a5f34bdd8d" category="paragraph">如果您使用的是现有交换机，请继续执行 <block ref="4da30401760153ceb5481ac559dbe601" category="inline-link-macro-rx"></block>。</block>
-  <block id="f44903a02a813582e3877d0c017bdfcb" category="paragraph"><block ref="f44903a02a813582e3877d0c017bdfcb" category="inline-link-macro-rx"></block></block>
   <block id="255e6fa1222b0f5f7521f1965844c1bf" category="paragraph">规划第 3 层解决方案时，请查看以下准则和图示。有关在 ONTAP 中实施 VIP 和 BGP 的详细信息，请参见 <block ref="245303d2c60ac1935683ed89eb13f165" category="inline-link-macro-rx"></block>。</block>
-  <block id="bc08b638ff7480a2fa85e0dcdee0d692" category="paragraph"><block ref="bc08b638ff7480a2fa85e0dcdee0d692" category="inline-link-macro-rx"></block></block>
   <block id="26ae7bdd1d6fb8c4886e6fde8d12601c" category="list-text">延迟</block>
   <block id="a825d9b135e0604b1a8244aa950f4952" category="paragraph">FC节点上的本地集群接口</block>
   <block id="32e69a0f5d950aefcb7cefee34c73d19" category="paragraph">FAS500f/A250</block>
@@ -10880,13 +10206,11 @@
   <block id="4382ff0992965ffdabb9c638b6f2ecf2" category="list-text">AFF A900或FAS9500存储系统需要八个FC-VI端口。如果您使用的是AFF A900或FAS9500、则需要使用八端口配置。如果配置包括其他存储系统型号，请使用表中所示的布线方式，但忽略不需要的 FC-VI 端口的布线方式。</block>
   <block id="649ae78fb315c7c5f6a700dfdf86f4bb" category="doc">AFF A900或FAS9500-运行ONTAP 9.10.1或更高版本的MetroCluster 配置中八节点配置中ISL的Cisco端口使用情况</block>
   <block id="a0bc38f50488b4f686bd2fe145def041" category="inline-link-macro">如何从MetroCluster 配置中删除节点—解决指南。</block>
-  <block id="8b54a6608c7aceee8d4dfde954124547" category="admonition">您不能反转 MetroCluster 取消配置。此过程只能在技术支持的协助下完成。请联系NetApp技术支持、并参考中适用于您的配置的相应指南 <block ref="c2ef60fcbce343052d34da400cf98089" category="inline-link-macro-rx"></block></block>
   <block id="8ec1014b27ed523596c5c910443b0827" category="paragraph">AFF A900和FAS9500</block>
   <block id="87ba2462050ce75d6d9915d834efe9b7" category="doc">AFF A900或FAS9500-运行ONTAP 9.10.1或更高版本的MetroCluster 配置中ISL的Brocade端口使用情况</block>
   <block id="801938c63db0b16215aa712c6d1fd12c" category="paragraph">下表显示了AFF A900或FAS9500系统中Brocade交换机的ISL端口使用情况。</block>
   <block id="1dcd768f9d116bda4a2253d295e01fb8" category="doc">运行ONTAP 9.10.1或更高版本的MetroCluster 配置中AFF A900或FAS9500控制 器的Brocade端口使用情况</block>
   <block id="e33ab3eabb81d3db08bba17fee6ed399" category="paragraph">下表显示了 Brocade 交换机上的端口使用情况。下表显示了支持的最大配置，其中四个 DR 组包含八个控制器模块。AFF A900和FAS9500系统具有八个FC-VI端口(FC-VI-1和FC-VI-2的A、b、c和d)</block>
-  <block id="e0477011a5767f5250fc49bfe9ab153c" category="list-text">AFF A700、FAS9000、AFF A900和FAS9500存储 系统每个网络结构最多支持八个ISL。其他存储系统型号支持每个网络结构最多四个 ISL 。</block>
   <block id="f7326e6cfc29ebefdb936677ae7dd110" category="doc">运行ONTAP 9.10.1或更高版本的MetroCluster 配置中AFF A900或FAS9500控制 器的Cisco端口使用情况</block>
   <block id="dfed8939b1f16a32e24cbf7db94e77b4" category="paragraph">下表显示了一个DR组中包含八个AFF A900或FAS9500控制 器模块时支持的最大配置。</block>
   <block id="850f7b79a5d7e3532f3461f2abbf9036" category="list-text">下表显示了具有八个 FC-VI 端口的系统。AFF A900和FAS9500具有八个FC-VI端口(FC-VI-1和FC-VI-2的A、b、c和d)。</block>
@@ -11508,7 +10832,6 @@
   <block id="3e0a52646b307379f47860044c088d60" category="paragraph">每个外部磁盘架上的驱动器分为两个相等的组（半个）。每个半架会自动分配给一个单独的池。</block>
   <block id="8e65b308ba381d7e7d885330e749b55d" category="list-text">如果您使用缆线连接两个类型为AFF A700的四节点MetroCluster 配置、请连接AFF A700表中显示为MetroCluster 1的第一个MetroCluster 和显示为MetroCluster 2的第二个MetroCluster。</block>
   <block id="e5c3d25338f9cf52b0644af8df5dd491" category="admonition">端口13和14可以在支持40 Gbps和100 Gbps的原生 速度模式下使用、也可以在分支模式下使用以支持4×25 Gbps或4×10 Gbps。如果它们使用本机速度模式、则表示为端口13和14。如果它们使用分支模式4×25 Gbps或4×10 Gbps、则表示为端口13s0-3和14s0-3。</block>
-  <block id="52d00daf67aaaf387590e09043aff43a" category="list-text"><block ref="52d00daf67aaaf387590e09043aff43a" category="inline-link-macro-rx"></block></block>
   <block id="49cc90fa19d302674a7ac32a31b7a0c8" category="list-text"><block ref="49cc90fa19d302674a7ac32a31b7a0c8" category="inline-link-macro-rx"></block></block>
   <block id="566b66a4b36764e94944f56424f3b3ca" category="paragraph">运行命令：<block ref="fdb848f6761ac46e0ea7678b5269bd3c" prefix=" " category="inline-code"></block></block>
   <block id="65cc666ecd4a5bdf3c624b12e425c91f" category="admonition">要更改配置、必须重新启动控制器。</block>
@@ -11744,7 +11067,6 @@
   <block id="3c8938b87b13dff113f84a2814ddff39" category="paragraph"><block ref="f7fd6058274b87da3f8cba419f53bb7e" prefix="" category="inline-code"></block></block>
   <block id="1ad5a70ead9bdd722df6000495e21c24" category="list-text">如果您运行的是Fabric OS 8.2.x及更早版本、则必须将许可证方法更改为动态：</block>
   <block id="7fafa568d6f3c9a0ee98323f64b1c01c" category="admonition">在Fabric OS 9.0及更高版本中、默认情况下、许可证方法是动态的。不支持静态许可证方法。</block>
-  <block id="0b6c4085e3a8dba280dd11e4bbbbeee1" category="paragraph">您可以使用"license"命令验证是否已安装这些许可证。</block>
   <block id="6c05b41ac12af301a1c1201b16997220" category="paragraph">您必须同时从两个站点执行此操作步骤中的步骤。</block>
   <block id="a934aebb7868eacad4999d15212ac85f" category="list-text">对于四节点或八节点MetroCluster配置、请使用<block ref="1f019d491fcfc3956d780ccfd54601ba" prefix=" " category="inline-code"></block> 和<block ref="6c99881ddd2f188436900ed8d41d99ba" prefix=" " category="inline-code"></block> 参数：</block>
   <block id="28289de886d4bf23487d962fb6a696a3" category="summary">您可以将SAS磁盘架堆栈热添加到具有可用端口的一对现有的光纤桥7600N或7500 N网桥中。</block>
@@ -12064,7 +11386,6 @@
   <block id="7d04b9af5dfbfc78c7040183f68afdc4" category="cell">Red Hat 8.1 - 8.7</block>
   <block id="003d136e5089a4f9ae0f1df3f6fc37fa" category="cell">多石Linux 9.0</block>
   <block id="c422062a1c7b3d9ed9b2282378699dc7" category="paragraph"><block ref="c422062a1c7b3d9ed9b2282378699dc7" category="inline-link-macro-rx"></block></block>
-  <block id="f54824b249675e35c90a450877126d13" category="inline-link-macro">手动配置Brocade FC交换机</block>
   <block id="94d0fc55d9356d3d18534836cae75c1d" category="doc">FC交换机配置概述</block>
   <block id="67af9bc4271944d43da3bdca5451bf73" category="paragraph">您可以使用RCC文件配置Cisco和Brocade FC交换机、也可以根据需要手动配置交换机。</block>
   <block id="02d80d458a48a16bd927a203d6bb2c73" category="list-text">验证分区配置：</block>
@@ -12627,7 +11948,6 @@
   <block id="06aef4d1d6158c53520054dd04cc3a52" category="inline-link-macro">安装Tieb破碎 锤1.4</block>
   <block id="bd7d740c7178aa2df12a81e3a095cf7a" category="paragraph"><block ref="bd7d740c7178aa2df12a81e3a095cf7a" category="inline-link-macro-rx"></block></block>
   <block id="afd755a1fe90c01febccbd2e397b9780" category="summary">在主机Linux操作系统上全新安装或升级到Tieb破碎 机1.6以监控MetroCluster配置。</block>
-  <block id="92cf4933e9c8bfb818863f455e477af5" category="paragraph"><block ref="92cf4933e9c8bfb818863f455e477af5" category="inline-link-macro-rx"></block></block>
   <block id="00395061ba5a721f2a906e4ac75f9fde" category="inline-link-macro">在 MetroCluster 配置中为 FabricPool 设置对象存储</block>
   <block id="e0e300856a5e4a2a419fdf0d5fb20e62" category="admonition">在配置聚合之前、必须按照中所述设置对象存储 <block ref="bf6f1feb5dfb0381998cf99478ab26ea" category="inline-link-macro-rx"></block>。</block>
   <block id="39998026607048d04a8bc09fac18fa8f" category="paragraph">从ONTAP 9.11.1开始、 <block ref="7a1a77fa3bd3a175233cd6cdfe493836" category="inline-link-macro-rx"></block> 在MetroCluster 配置中受支持。</block>
@@ -12871,7 +12191,6 @@
   <block id="c9dd6bad4c7d561872f2e2d498a990bf" category="inline-link-macro">互操作性表工具（ IMT ）</block>
   <block id="c5dcd35af16918a17ee9c3a5c153f0af" category="inline-link">IMT</block>
   <block id="24d65add9a27d74b80e9a9cebdfc8e56" category="paragraph">您的 ONTAP 版本必须支持混用磁盘架。请参见互操作性表工具（ IMT ），了解您的 ONTAP 版本是否支持混用磁盘架。<block ref="30796bf173a80af0dc9c120f98ffaed6" category="inline-link-rx"></block></block>
-  <block id="8872b0d09737dfd9b6fcafd4e8c2356b" category="list-text"><block ref="8872b0d09737dfd9b6fcafd4e8c2356b" category="inline-link-rx"></block></block>
   <block id="80d79e74efb3cf7c2ad45e7e1c96223d" category="inline-link-macro">将NVIDIA IP SN2100交换机重置为出厂默认值</block>
   <block id="9dce4db3e352a666d92ce25dd5f94a51" category="list-text"><block ref="9dce4db3e352a666d92ce25dd5f94a51" category="inline-link-macro-rx"></block></block>
   <block id="59908dc1540a829f2e5b2241e8bda0cd" category="inline-link-macro">下载并安装NVIDIA IP RCP文件</block>
@@ -13388,7 +12707,6 @@
   <block id="330acb0fa4964235e5dabc85b0488f57" category="list-text">重复此整个过程以验证MetroCluster配置中每个节点上的HA状态。</block>
   <block id="84afb0fe12dfc2a5fa1e2e978393b33c" category="paragraph">在MetroCluster FC配置中配置存储系统时、必须确保控制器模块和机箱组件的高可用性(HA)状态为MCC或MCC－2n、以便这些组件可以正常启动。尽管此值应在从工厂收到的系统上进行预配置、但您仍应验证设置、然后再继续。</block>
   <block id="cbc29e9b371b7013e6625c2fa3c7ec20" category="paragraph">在MetroCluster IP配置中、您必须验证控制器和机箱组件的ha-config状态是否设置为`mCCIP`、以使其正常启动。尽管此值应在从工厂收到的系统上进行预配置、但您仍应验证设置、然后再继续。</block>
-  <block id="b6eb7f38a057c8f63ffc29f23e6be071" category="sidebar">如何配置八节点配置</block>
   <block id="37887b7927053bae8056fe215242ac04" category="list-text">在MetroCluster IP配置中，按照中的步骤进行操作<block ref="e39e92837d61810422f20d9c0acf650b" category="inline-link-macro-rx"></block>。</block>
   <block id="654458233d1a8772886f997ae2b46c7c" category="paragraph">v0a (v0b等)的存在会持续验证连接、从而保证LIF迁移或故障转移成功(与L2不同、L2只有在中断后才会显示损坏的配置)。</block>
   <block id="705abb444ac66e0442a9ae4646471061" category="list-text">通过在两个交换机上运行以下命令来禁用新交换机：</block>
@@ -14169,9 +13487,6 @@
   <block id="f4c0383379a5ae93d0b5e4c4f8586e47" category="open-title">使用共享集群/HA端口的系统</block>
   <block id="fce1683696c48d3d34e98e19d634ae19" category="open-title">使用共享的MetroCluster或HA端口的系统</block>
   <block id="d28dfcbdf9345468d87d930393f61e28" category="list-text">在每个灾难站点节点的提示符处<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block>、根据您的平台型号是使用共享集群/HA端口还是共享MetroCluster /HA端口设置启动程序值：</block>
-  <block id="e29199cddef5792300b3b221f3ce1de2" category="paragraph">在ONTAP MetroCluster配置中的每个控制器上、必须使用缆线将FC-VI适配器和HBA连接到现有FC交换机上的特定端口。</block>
-  <block id="7c18898ad95897990e485c3e2e9a3d5a" category="list-text">Brocade 6510交换机必须运行7-模式光纤MetroCluster和ONTAP MetroCluster配置均支持的FOS固件版本。</block>
-  <block id="f408004d3c0a89f19911c0f8ff32d59b" category="paragraph">过渡数据后、您可以移除7-模式光纤MetroCluster布线、如果需要、可将ONTAP MetroCluster布线移至先前用于7-模式MetroCluster布线的编号较低的端口。"查看四节点MetroCluster的FC交换机端口分配"一节显示了这些端口。您必须为重新排列的端口调整分区。</block>
   <block id="f6c5a69060b62d046efbd190570cf383" category="admonition">此示例显示了配置RC框架 所需的最低信息、在应用RC框架 后、可以配置其他选项。例如、您可以在应用RCP后配置SNMPv3、NTP或SCP或SFTP。</block>
   <block id="6ca034f6a518722187e6a10bfc2df9e6" category="admonition">在启动控制器之前、请勿打开磁盘架电源。这样可以防止控制器意外启动到ONTAP。</block>
   <block id="604b473cd250fb4d83bbbab434f091fb" category="paragraph">此示例显示了用于使运行ONTAP的控制器的plexes脱机的命令。</block>
@@ -14664,7 +13979,6 @@
   <block id="ca243f374acfb56a77236e0d30935f7f" category="list-text">用户必须能够访问交换机<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> 命令。如果这些权限不可用、请创建一个新用户并向该用户授予必要的权限。</block>
   <block id="8d36506446d5ad8477c75d9150e6528f" category="list-text">必须为交换机启用交换机运行状况监控。通过确保<block ref="83bb5774e6e4dc96959b12bfa4334f18" prefix=" " category="inline-code"></block>字段在输出中设置为 *true* <block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block>命令。</block>
   <block id="40b03f9635c63b20aade0ff8145eafb8" category="list-text">要使用Broadcom和Cisco交换机收集日志、请执行以下操作：</block>
-  <block id="89f1dd995a5c07ea1e13abc5993d9d59" category="list-text">用户必须具有网络管理员Privileges。</block>
   <block id="60f743043272b873831b17c5e7290445" category="list-text">应在交换机上为启用了日志收集的每个集群设置创建一个新用户。这些交换机不支持同一用户使用多个SSH密钥。执行的任何其他日志收集设置都会覆盖用户的任何已有SSH密钥。</block>
   <block id="c1433b541d8d99faed86a93460cb0bad" category="list-text">要使用NVIDIA交换机收集支持日志、必须允许用于收集日志的_user_运行<block ref="c85737d6a0d20328583b59ea7320a5ef" prefix=" " category="inline-code"></block>命令、而无需提供密码。要允许使用此命令、请运行以下命令：</block>
   <block id="a0379ee208b1ca86b0ce11e60c0e73eb" category="paragraph"><block ref="83e3f80a08612b0113ac48e3b9a3432e" prefix="" category="inline-code"></block></block>
@@ -14981,4 +14295,32 @@
   <block id="b8aa75f85ab89774f69f787c3912bd4a" category="section-title">将内部驱动器重新添加到新控制器</block>
   <block id="a5418696f5bd16fb72497595b65b899d" category="admonition">此任务仅适用于某些升级组合。有关详细信息、请参见 <block ref="63ae90b2306cb4f5a770ba51c50d383a" category="inline-link-macro-rx"></block> 。</block>
   <block id="f98f4af1e88acc06b614726a822ddb15" category="paragraph">要确定您的升级组合是否受到影响，请参阅<block ref="dacebae6fb4b9a09422729435aff82d1" category="inline-link-macro-rx"></block> 。如果您的升级组合标有*注释 2*，则必须从新系统中移除或移除内部驱动器。</block>
+  <block id="39e8057e214765dae86d121a785344c8" category="list-text"><block ref="39e8057e214765dae86d121a785344c8" category="inline-link-macro-rx"></block></block>
+  <block id="e499949cff5b1814cf723856fb14bc68" category="summary">您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。</block>
+  <block id="1015149d257695c82b3ee87b4d5e55b7" category="list-text">确认您知道新聚合中将使用哪些驱动器。</block>
+  <block id="f4aae2f587ce3bbaed06f1f3e8edfafe" category="paragraph">如果需要删除 MetroCluster 配置，请联系技术支持。</block>
+  <block id="cadbbddc821f7f9f40f0ee060234d48b" category="paragraph">联系NetApp技术支持并参考适合您配置的指南<block ref="c2ef60fcbce343052d34da400cf98089" category="inline-link-macro-rx"></block></block>
+  <block id="8acdc5308983b14f48ef0491a4b7dca2" category="admonition">您不能反转 MetroCluster 取消配置。此过程只能在技术支持的协助下完成。删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。</block>
+  <block id="34dbe0f08a22a7e96d372d8f047dd0aa" category="summary">MetroCluster 组件必须在两个地理站点上进行物理安装，布线和配置。</block>
+  <block id="c5ec40ca0858141f1dfc6090c1afe26a" category="section-title">配置八节点MetroCluster IP 配置</block>
+  <block id="baf389d8079bcd40a8512f15620a6504" category="inline-link-macro">将四节点MetroCluster IP 配置扩展为八节点配置</block>
+  <block id="da5260de1bd80de8e37a9ab8f4f2535c" category="paragraph">一个八节点 MetroCluster 配置包含两个 DR 组。要配置第一个 DR 组，请完成本节中的任务。配置第一个 DR 组后，您可以按照以下步骤<block ref="ca181c37200e98f54ddb8db46d698258" category="inline-link-macro-rx"></block> 。</block>
+  <block id="bc538e17b00371638bfeff8aa7231dc1" category="doc">了解MetroCluster IP 配置中的非镜像聚合</block>
+  <block id="bfc0c2345be1e56a7198a484e17e4342" category="section-title">非镜像聚合和分层命名空间</block>
+  <block id="26a653ff364d1b6a39f4759a824c3c1a" category="section-title">非镜像聚合和需要关闭电源的维护</block>
+  <block id="c714c7e022d3dca698d41798c7772c9e" category="paragraph">如果您执行协商切换以进行维护，而该维护需要关闭整个站点的电源，则应首先手动将灾难站点拥有的任何未镜像的聚合脱机。</block>
+  <block id="b948fd74f64e5338e8ffa07d28662207" category="paragraph">如果您未将灾难站点所拥有的未镜像聚合脱机，则正常运行的站点上的节点可能会由于多磁盘崩溃而关闭。如果由于断电或 ISL 丢失导致与灾难站点上的存储连接中断，切换的未镜像聚合脱机或丢失，则可能会发生这种情况。</block>
+  <block id="499fa42e89a3bcf83d69094c44340ab1" category="section-title">未镜像聚合、CRS 元数据卷和数据 SVM 根卷</block>
+  <block id="56ea87073f92be67542e7a1d2954ab40" category="paragraph">配置复制服务（ CRS ）元数据卷和数据 SVM 根卷必须位于镜像聚合上。您不能将这些卷移动到未镜像聚合。如果它们位于非镜像聚合上，则协商切换和切回操作将被否决，并且<block ref="76dc6201d136e34774708961e9b61505" prefix=" " category="inline-code"></block>命令返回警告。</block>
+  <block id="abdaef6a3d1ec476877395bc542ad2eb" category="section-title">未镜像聚合和 SVM</block>
+  <block id="a74f73bf026b4aedceebc15d2a039449" category="paragraph">您应该仅在镜像聚合或未镜像聚合上配置 SVM。在未镜像聚合和镜像聚合上混合配置 SVM 可能会导致切换操作超过 120 秒。如果未镜像聚合无法联机，则可能会导致数据中断。</block>
+  <block id="2c19869470daf1847ae41e2fd8e9afed" category="section-title">非镜像聚合和 SAN</block>
+  <block id="a2b50dd773b41712ce2e75c040d9bb4d" category="paragraph">在ONTAP 9.9.1 之前，LUN 不应位于未镜像的聚合上。在未镜像聚合上配置 LUN 可能会导致切换操作超过 120 秒并导致数据中断。</block>
+  <block id="2fc694052b4d0c9fddb171c279d9ff41" category="section-title">为未镜像的聚合添加存储架</block>
+  <block id="340ee9c6b389308075f20882f44ee863" category="paragraph">如果您添加磁盘架并希望将其用于MetroCluster IP 配置中的未镜像聚合，则必须执行以下操作：</block>
+  <block id="fb945b959f6754639fad6c6e9e9469b9" category="list-text">本地用户必须具有网络管理员权限。</block>
+  <block id="5ea27988b4071e332e850721389e951a" category="doc">选择正确的MetroCluster IP 交换机配置过程</block>
+  <block id="b9b3d7865c01f9cccab728c6d2bb7296" category="paragraph">您必须配置IP交换机以提供后端MetroCluster IP连接。您遵循的程序取决于您的交换机供应商。</block>
+  <block id="528aafe8fc362d0088ddcc230e89b62a" category="doc">如何将端口表与多个MetroCluster IP 配置一起使用</block>
+  <block id="760419501f92fb637e39b91dbfd2ea18" category="summary">您必须根据存储控制器与存储架的连接方式选择正确的安装程序。</block>
 </blocks>

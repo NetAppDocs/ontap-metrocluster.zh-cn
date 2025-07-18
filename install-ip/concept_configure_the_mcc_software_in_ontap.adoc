@@ -16,3 +16,9 @@ summary: 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，�
 如果在配置期间控制器模块发生故障、请参见 link:../disaster-recovery/concept_choosing_the_correct_recovery_procedure_parent_concept.html#controller-module-failure-scenarios-during-metrocluster-installation["MetroCluster 安装期间的控制器模块故障场景"]。
 
 image::../media/workflow_mcc_ip_high_level_node_and_cluster_configuration_software.svg[Workflow MCC IP 高级节点和集群配置软件]
+
+
+
+== 配置八节点MetroCluster IP 配置
+
+一个八节点 MetroCluster 配置包含两个 DR 组。要配置第一个 DR 组，请完成本节中的任务。配置第一个 DR 组后，您可以按照以下步骤link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["将四节点MetroCluster IP 配置扩展为八节点配置"] 。

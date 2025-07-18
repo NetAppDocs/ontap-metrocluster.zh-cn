@@ -1,7 +1,7 @@
 ---
 permalink: install-ip/concept-considerations-layer-2-layer-3.html 
 sidebar: sidebar 
-keywords: differences, eight-node, four-node, fabric-attached, stretch, metrocluster ip, storage, bridges, fc-to-sas, atto, fibrebridge, SAS, local HA, auso, automatic unplanned switchover, array luns, mediator, tiebreaker 
+keywords: differences, eight-node, four-node, fabric-attached, stretch, metrocluster ip, storage, bridges, fc-to-sas, atto, fibrebridge, SAS, local HA, auso, automatic unplanned switchover, mediator, tiebreaker 
 summary: 根据您的要求、您可以使用共享的第2层或第3层网络来部署MetroCluster。 
 ---
 = 在共享的第2层或第3层网络中部署MetroCluster时的注意事项

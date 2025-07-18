@@ -26,10 +26,6 @@ MetroCluster 配置包括以下主要硬件元素：
 ** SAS 铜缆可用于较短距离。
 ** SAS 光缆可用于较长的距离。
 +
-
-NOTE: 在使用 E 系列阵列 LUN 的系统中，存储控制器可以直接连接到 E 系列存储阵列。对于其他阵列 LUN ，需要通过 FC 交换机进行连接。
-
-+
 https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 
 +

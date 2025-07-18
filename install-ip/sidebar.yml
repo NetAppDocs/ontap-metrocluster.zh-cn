@@ -36,7 +36,7 @@ entries:
       url: "/install-ip/concept-network-speeds-and-switchport-modes.html"
     - title: 交换机端口配置示例
       url: "/install-ip/concept-configure-mcc-compliant-switches.html"
-  - title: MetroCluster IP 配置中的未镜像聚合
+  - title: 了解MetroCluster IP 配置中的非镜像聚合
     url: "/install-ip/concept_considerations_unmirrored_aggrs.html"
   - title: MetroCluster 站点上的防火墙使用情况
     url: "/install-ip/concept_considerations_firewalls.html"
@@ -70,6 +70,8 @@ entries:
     url: "/install-ip/task_cable_other_connections.html"
   - title: 配置 MetroCluster IP 交换机
     entries:
+    - title: 选择正确的MetroCluster IP 交换机配置过程
+      url: "/install-ip/task_install_and_cable_the_mcc_components.html"
     - title: 配置 Broadcom IP 交换机
       url: "/install-ip/task_switch_config_broadcom.html"
     - title: 配置 Cisco IP 交换机
@@ -102,8 +104,6 @@ entries:
     entries:
     - title: 概述
       url: "/install-ip/concept_configure_the_mcc_software_in_ontap.html"
-    - title: 如何配置八节点配置
-      url: "/install-ip/task_sw_config_8n.html"
     - title: 收集所需信息
       url: "/install-ip/task_sw_config_gather_info.html"
     - title: 标准集群和 MetroCluster 配置之间的相似之处和不同之处
@@ -120,8 +120,6 @@ entries:
       url: "/install-ip/task_sw_config_configure_clusters.html"
     - title: 配置端到端加密
       url: "/install-ip/task-configure-end-to-end-encryption.html"
-    - title: 验证切换，修复和切回
-      url: "/install-ip/task_sw_config_verify_switchover.html"
     - title: 配置 MetroCluster Tiebreaker 或 ONTAP 调解器软件
       url: "/install-ip/task_sw_config_configure_mediator.html"
     - title: 保护配置备份文件
@@ -150,7 +148,7 @@ entries:
     url: "/install-ip/task-sm-mediator.html"
 - title: 测试 MetroCluster 配置
   url: "/install-ip/task_test_the_mcc_configuration.html"
-- title: 删除 MetroCluster 配置时的注意事项
+- title: 删除 MetroCluster 配置
   url: "/install-ip/concept_considerations_when_removing_mcc_configurations.html"
 - title: 在 MetroCluster 配置中使用 ONTAP 时的注意事项
   url: "/install-ip/concept_considerations_when_using_ontap_in_a_mcc_configuration.html"

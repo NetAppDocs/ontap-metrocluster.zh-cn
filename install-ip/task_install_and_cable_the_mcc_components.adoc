@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: ip, switch, configuring 
 summary: 您必须配置IP交换机以提供后端MetroCluster IP连接。 
 ---
-= 配置交换机
+= 选择正确的MetroCluster IP 交换机配置过程
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您必须配置IP交换机以提供后端MetroCluster IP连接。
+您必须配置IP交换机以提供后端MetroCluster IP连接。您遵循的程序取决于您的交换机供应商。
 
 * link:../install-ip/task_switch_config_broadcom.html["配置 Broadcom IP 交换机"]
 * link:../install-ip/task_switch_config_cisco.html["配置 Cisco IP 交换机"]

@@ -160,21 +160,6 @@ summary: 各种 MetroCluster 配置在所需组件方面存在主要差异。
 
 
  a| 
-支持阵列 LUN
- a| 
-否
- a| 
-是的。
- a| 
-是的。
- a| 
-是的。
- a| 
-是的。
-
-
-
- a| 
 支持 ONTAP 调解器
  a| 
 是（从 ONTAP 9.7 开始）

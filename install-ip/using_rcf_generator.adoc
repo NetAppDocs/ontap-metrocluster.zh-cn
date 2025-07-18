@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cabling, cable, component, link, site, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure, rcf, file, generator, RcfFileGenerator 
 summary: 您必须了解如何使用端口表中的信息正确生成 RCF 文件。 
 ---
-= 在 RcfFileGenerator 工具或多个 MetroCluster 配置中使用端口表
+= 如何将端口表与多个MetroCluster IP 配置一起使用
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -2,7 +2,7 @@
 permalink: install-fc/task_sw_config_verify_switchover.html 
 sidebar: sidebar 
 keywords: configure, configuring, metrocluster, software, ontap 
-summary: 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。使用原生磁盘架的系统的步骤与使用阵列 LUN 的系统的步骤稍有不同。 
+summary: 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。 
 ---
 = 在 ONTAP 中配置 MetroCluster 软件
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，�
 
 
 [role="lead"]
-您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。使用原生磁盘架的系统的步骤与使用阵列 LUN 的系统的步骤稍有不同。
+您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。
 
 image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[工作流高级节点和集群配置软件]
 
@@ -2602,9 +2602,9 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["逻�
 您必须在 DR 组中的每个节点上创建镜像数据聚合。
 
 .开始之前
-* 您应了解新聚合将使用哪些驱动器或阵列 LUN 。
+* 确认您知道新聚合中将使用哪些驱动器。
 * 如果系统中有多种驱动器类型（异构存储），则应了解如何确保选择正确的驱动器类型。
-* 驱动器和阵列 LUN 归特定节点所有；创建聚合时，该聚合中的所有驱动器都必须归同一节点所有，该节点将成为该聚合的主节点。
+* 驱动器由特定节点拥有；创建聚合时，该聚合中的所有驱动器都必须由同一节点拥有，该节点将成为该聚合的主节点。
 * 聚合名称应符合您在规划 MetroCluster 配置时确定的命名方案。请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^]。
 
 
@@ -2622,7 +2622,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["逻�
 
 +
 ** 聚合的主节点（即在正常操作下拥有聚合的节点）
-** 要添加到聚合的特定驱动器或阵列 LUN 的列表
+** 要添加到聚合的特定驱动器的列表
 ** 要包含的驱动器数量
 +
 
@@ -2633,7 +2633,7 @@ NOTE: 在最低支持配置中，可用驱动器数量有限，您必须使用 f
 ** 要使用的驱动器大小
 ** 要使用的驱动器速度
 ** 聚合上 RAID 组的 RAID 类型
-** 可包含在 RAID 组中的驱动器或阵列 LUN 的最大数量
+** 可包含在 RAID 组中的最大驱动器数
 ** 是否允许使用 RPM 不同的驱动器
 +
 有关这些选项的详细信息，请参见 `storage aggregate create` 手册页。
@@ -2664,7 +2664,7 @@ cluster_A::> storage aggregate create aggr1_node_A_1 -diskcount 10 -node node_A_
 您可以选择为不需要 MetroCluster 配置提供的冗余镜像的数据创建未镜像数据聚合。
 
 .开始之前
-* 您应了解新聚合将使用哪些驱动器或阵列 LUN 。
+* 确认您知道新聚合中将使用哪些驱动器。
 * 如果系统中有多种驱动器类型（异构存储），则应了解如何验证是否选择了正确的驱动器类型。
 
 
@@ -2679,7 +2679,7 @@ IMPORTANT: 在 MetroCluster FC 配置中，只有当聚合中的远程磁盘可�
 NOTE: 未镜像聚合必须位于其所属节点的本地。
 
 --
-* 驱动器和阵列 LUN 归特定节点所有；创建聚合时，该聚合中的所有驱动器都必须归同一节点所有，该节点将成为该聚合的主节点。
+* 驱动器由特定节点拥有；创建聚合时，该聚合中的所有驱动器都必须由同一节点拥有，该节点将成为该聚合的主节点。
 * 聚合名称应符合您在规划 MetroCluster 配置时确定的命名方案。
 * _Disks and aggregates management_ 包含有关镜像聚合的详细信息。
 
@@ -2701,14 +2701,14 @@ NOTE: 未镜像聚合必须位于其所属节点的本地。
 
 +
 ** 聚合的主节点（即在正常操作下拥有聚合的节点）
-** 要添加到聚合的特定驱动器或阵列 LUN 的列表
+** 要添加到聚合的特定驱动器的列表
 ** 要包含的驱动器数量
 ** 要用于聚合的校验和模式
 ** 要使用的驱动器类型
 ** 要使用的驱动器大小
 ** 要使用的驱动器速度
 ** 聚合上 RAID 组的 RAID 类型
-** 可包含在 RAID 组中的驱动器或阵列 LUN 的最大数量
+** 可包含在 RAID 组中的最大驱动器数
 ** 有关这些选项的详细信息，请参见 `storage aggregate create` 手册页。
 +
 以下命令将创建一个包含 10 个磁盘的未镜像聚合：

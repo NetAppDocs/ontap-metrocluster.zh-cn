@@ -2,7 +2,7 @@
 permalink: install-fc/task_configure_the_mcc_hardware_components_fabric.html 
 sidebar: sidebar 
 keywords: metrocluster, fabric, installation, cable, configuration 
-summary: MetroCluster 组件必须在两个地理站点上进行物理安装，布线和配置。与使用阵列 LUN 的系统相比，使用原生磁盘架的系统的步骤略有不同。 
+summary: MetroCluster 组件必须在两个地理站点上进行物理安装，布线和配置。 
 ---
 = 为光纤连接的 MetroCluster 配置布线
 :allow-uri-read: 
@@ -11,6 +11,6 @@ summary: MetroCluster 组件必须在两个地理站点上进行物理安装，�
 
 
 [role="lead"]
-MetroCluster 组件必须在两个地理站点上进行物理安装，布线和配置。与使用阵列 LUN 的系统相比，使用原生磁盘架的系统的步骤略有不同。
+MetroCluster 组件必须在两个地理站点上进行物理安装，布线和配置。
 
 image::../media/workflow_hardware_installation_and_configuration_4_node_or_2_node_fabric.gif[工作流硬件安装和配置 4 节点或 2 节点网络结构]
