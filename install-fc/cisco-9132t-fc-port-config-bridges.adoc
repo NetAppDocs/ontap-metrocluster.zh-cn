@@ -1,0 +1,276 @@
+---
+permalink: install-fc/cisco-9132t-fc-port-config-bridges.html 
+sidebar: sidebar 
+keywords: ONTAP, FAS, FC, Cisco, metrocluster 
+summary: 了解使用两个 FC 端口将Cisco 9132T FC 交换机连接到 FC 到 SAS 网桥所需的端口分配。 
+---
+= MetroCluster FC 配置中 FC 到 SAS 网桥的Cisco 9132T 端口使用情况
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+了解使用两个 FC 端口将Cisco 9132T FC 交换机连接到 FC 到 SAS 网桥所需的端口分配。
+
+
+NOTE: 使用带有 1xLEM 模块的Cisco 9132T 交换机仅支持一 (1) 个桥接堆栈。
+
+
+
+== MetroCluster 1或DR组1
+
+下表显示了使用Cisco 9132T 交换机上的两个 FC 端口（FC1 和 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 1 或 DR 组 1 中支持的机架配置。使用此配置表时，您应该注意以下事项：
+
+* 在四节点配置中，您可以将额外的网桥连接到带有 2xLEM 的Cisco 9132T 交换机上的端口 LEM2-1 至 LEM2-8。
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a"]
+|===
+2+| * 组件 * | * 端口 * | *连接到 FC_switch...* | *9132T 1x LEM（四节点）* | *9132T 2x LEM（四节点）* | *9132T 2x LEM（八节点）* 
+
+
+ a| 
+堆栈 1
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+1.
+ a| 
+LEM1-13
+ a| 
+LEM1-13
+ a| 
+LEM1-9
+
+
+
+ a| 
+FC2
+ a| 
+2.
+ a| 
+LEM1-13
+ a| 
+LEM1-13
+ a| 
+LEM1-9
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+1.
+ a| 
+LEM1-14
+ a| 
+LEM1-14
+ a| 
+LEM1-10
+
+
+
+ a| 
+FC2
+ a| 
+2.
+ a| 
+LEM1-14
+ a| 
+LEM1-14
+ a| 
+LEM1-10
+
+
+
+ a| 
+堆栈 2
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+1.
+ a| 
+不适用
+ a| 
+LEM1-15
+ a| 
+LEM1-11
+
+
+
+ a| 
+FC2
+ a| 
+2.
+ a| 
+不适用
+ a| 
+LEM1-15
+ a| 
+LEM1-11
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+1.
+ a| 
+不适用
+ a| 
+LEM1-16
+ a| 
+LEM1-12
+
+
+
+ a| 
+FC2
+ a| 
+2.
+ a| 
+不适用
+ a| 
+LEM1-16
+ a| 
+LEM1-12
+
+|===
+
+
+== MetroCluster 2或DR组2
+
+下表显示了使用Cisco 9132T 交换机上的两个 FC 端口（FC1 和 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 2 或 DR 组 2 中支持的机架配置。使用此配置表时，您应该注意以下事项：
+
+* 在八节点配置中，您可以将额外的网桥连接到带有 2x LEM 的Cisco 9132T 交换机上的端口 LEM2-13 至 LEM2-16。
+
+
+[cols="2a,2a,2a,2a,2a,2a,2a"]
+|===
+2+| * 组件 * | * 端口 * | *连接到 FC_switch...* | *9132T 1x LEM（四节点）* | *9132T 2x LEM（四节点）* | *9132T 2x LEM（八节点）* 
+
+
+ a| 
+堆栈 1
+ a| 
+bridge_x_1a
+ a| 
+FC1
+ a| 
+1.
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+LEM1-9
+
+
+
+ a| 
+FC2
+ a| 
+2.
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+LEM1-9
+
+
+
+ a| 
+bridge_x_1b
+ a| 
+FC1
+ a| 
+1.
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+LEM1-10
+
+
+
+ a| 
+FC2
+ a| 
+2.
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+LEM1-10
+
+
+
+ a| 
+堆栈 2
+ a| 
+bridge_x_2a
+ a| 
+FC1
+ a| 
+1.
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+LEM1-11
+
+
+
+ a| 
+FC2
+ a| 
+2.
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+LEM1-11
+
+
+
+ a| 
+bridge_x_2b
+ a| 
+FC1
+ a| 
+1.
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+LEM1-12
+
+
+
+ a| 
+FC2
+ a| 
+2.
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+LEM1-12
+
+|===

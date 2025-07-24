@@ -1,0 +1,62 @@
+---
+permalink: install-fc/fc-switch-port-assignment-overview.html 
+sidebar: sidebar 
+keywords: ONTAP, FAS, FC, Brocade, ISL, Cisco, metrocluster, switch, cabling, port, assignment 
+summary: 您需要验证在连接 FC 交换机时是否使用了指定的端口分配。 
+---
+= MetroCluster FC 交换机的端口分配
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您需要验证在连接 FC 交换机时是否使用了指定的端口分配。
+
+您可以将未用于连接启动器端口、FC-VI 端口或 ISL 的端口重新配置为存储端口。但是，如果您使用的是受支持的 RCF，则必须相应地更改分区。
+
+如果您使用受支持的 RCF，ISL 端口可能无法连接到所示的相同端口，并且可能需要手动重新配置。
+
+如果您使用ONTAP 9 的端口分配配置了交换机，则可以继续使用旧分配。但是，运行ONTAP 9.1 或更高版本的新配置应使用此处显示的端口分配。
+
+
+
+== 总体布线准则
+
+使用布线表时，应注意以下准则：
+
+* Brocade 和 Cisco 交换机使用不同的端口编号：
++
+** 在 Brocade 交换机上，第一个端口编号为 0 。
+** 在 Cisco 交换机上，第一个端口编号为 1 。
+
+
+* 交换机网络结构中的每个 FC 交换机的布线方式相同。
+* 您可以为AFF A300和FAS8200存储系统订购以下两种FC-VI连接选项之一：
++
+** 在 FC-VI 模式下配置的板载端口 0e 和 0f 。
+** 插槽 1 中 FC-VI 卡上的端口 1a 和 1b 。
+
+
+* AFF A700 和 FAS9000 存储系统需要四个 FC-VI 端口。下表显示了除 Cisco 9250i 交换机外每个控制器上具有四个 FC-VI 端口的 FC 交换机的布线情况。
++
+对于其他存储系统，请使用表中所示的布线方式，但忽略 FC-VI 端口 c 和 d 的布线方式
+
++
+您可以将这些端口留空。
+
+* AFF A400 和 FAS8300 存储系统使用端口 2a 和 2b 进行 FC-VI 连接。
+* 如果两个 MetroCluster 配置共享 ISL ，请使用与八节点 MetroCluster 布线相同的端口分配。
+* 所布线的 ISL 数量可能因站点要求而异。
+* 请参见有关 ISL 注意事项的章节。
++
+link:concept_considerations_isls_mcfc.html["ISL 注意事项"]
+
+
+
+
+
+== AFF A900和FAS9500布线指南
+
+* AFF A900或FAS9500存储系统需要八个FC-VI端口。如果您使用的是AFF A900或FAS9500、则需要使用八端口配置。如果配置包括其他存储系统型号，请使用表中所示的布线方式，但忽略不需要的 FC-VI 端口的布线方式。
+

@@ -21,6 +21,51 @@ ONTAP 9数据管理软件的每个版本都提供了一些新增功能和增强�
 
 
  a| 
+MetroCluster IP支持端到端加密
+ a| 
+以下系统支持端到端加密，以加密MetroCluster IP 配置中的站点之间的后端流量，例如 NVlog 和存储复制数据。
+
+* AFF A800和AFF C800
+* AFF A20、 AFF A30、 AFF C30、 AFF A50、 AFF C60
+* AFF A70、AFF A90、AFF A1K、AFF C80
+* FAS50、FAS70、FAS90
+
+
+link:../maintain/task-configure-encryption.html["在MetroCluster IP配置中配置端到端加密"]
+ a| 
+ONTAP 9.17.1
+
+
+
+ a| 
+限制MetroCluster IP 配置的更改
+ a| 
+ONTAP 9.17.1 包括针对四节点MetroCluster IP 配置的以下限制更新：
+
+* AFF C800、 AFF A800、 AFF A900、 AFF A90和AFF A1K系统具有以下更新的限制：
++
+** 每个节点的FlexVol volume限制：1250
+** SVM 限制：每个集群 64 个 SVM
+** LIF 数量：每个集群 256 个 LIF
+
+
+* AFF A400、 AFF C400、 ASA A400、 ASA C400、 AFF C80、 AFF A70和AFF A50 系统具有以下更新的限制：
++
+** 每个聚合体（单个或多个）的FlexVol volume限制：625
+** 每个节点的FlexVol volume限制：1250
+** 每个高可用性 (HA) 对的FlexVol volume限制：2500
+** 每个MetroCluster集群的FlexVol volume限制：5000
+** SVM 限制：每个集群 64 个 SVM
+** LIF 数量：每个集群 256 个 LIF
+
+
+
+ a| 
+ONTAP 9.17.1
+
+
+
+ a| 
 使用凭据更新光纤桥固件
  a| 
 如果服务器需要使用凭据下载固件包、您可以使用凭据更新此网桥上的固件。
@@ -76,7 +121,7 @@ ONTAP 9.15.1.
 
 * 每个聚合的最大FlexVol卷数从200增加到625。
 * 每个节点的最大FlexVol卷数从800增加到1250。
-* 每个高可用性(HA)对的最大FlexVol卷数从1600个增加到2500个。
+* 每个 HA 对的最大FlexVol卷数从 1600 个增加到 2500 个。
 
  a| 
 ONTAP 9.15.1.
@@ -101,7 +146,7 @@ ONTAP 9.15.1.
 
 * 每个聚合的最大FlexVol卷数从200增加到625。
 * 每个节点的最大FlexVol卷数从800增加到1250。
-* 每个高可用性(HA)对的最大FlexVol卷数从1600个增加到2500个。
+* 每个 HA 对的最大FlexVol卷数从 1600 个增加到 2500 个。
 
  a| 
 ONTAP 9.14.1

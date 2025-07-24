@@ -1,0 +1,148 @@
+---
+permalink: install-fc/cisco-fc-port-config-isls.html 
+sidebar: sidebar 
+keywords: ONTAP, FAS, FC, Cisco, metrocluster 
+summary: 了解将Cisco 9124V、9148S、9148V、9250i 和 9396S FC 交换机连接到 ISL 所需的端口分配。 
+---
+= MetroCluster FC 配置中 ISL 的Cisco端口使用情况
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+了解将Cisco 9124V、9148S、9148V、9250i 和 9396S FC 交换机连接到 ISL 所需的端口分配。
+
+下表显示了 ISL 端口使用情况。此配置中的所有交换机上的 ISL 端口使用情况均相同。
+
+[NOTE]
+====
+* 对于Cisco 9132T，请参阅link:cisco-9132t-fc-port-config-isls.html["MetroCluster FC 配置中 ISL 的Cisco 9132T 端口使用情况"] 。
+* Cisco 9250i 交换机需要 24 端口许可证。
+
+
+====
+[cols="2a,2a,2a,2a,2a,2a"]
+|===
+| ISL 端口 | *9124V端口* | *9148S 端口* | *9148V端口* | *9250i 端口* | *9396S 端口* 
+
+
+ a| 
+ISL 端口 1
+ a| 
+9
+ a| 
+20
+ a| 
+9
+ a| 
+12
+ a| 
+44
+
+
+
+ a| 
+ISL 端口 2
+ a| 
+10
+ a| 
+24
+ a| 
+10
+ a| 
+16.
+ a| 
+48
+
+
+
+ a| 
+ISL 端口 3
+ a| 
+11.
+ a| 
+44
+ a| 
+11.
+ a| 
+20
+ a| 
+92.
+
+
+
+ a| 
+ISL 端口 4
+ a| 
+12
+ a| 
+48
+ a| 
+12
+ a| 
+24
+ a| 
+96
+
+
+
+ a| 
+ISL 端口 5
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+33
+ a| 
+不适用
+ a| 
+不适用
+
+
+
+ a| 
+ISL 端口 6
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+34
+ a| 
+不适用
+ a| 
+不适用
+
+
+
+ a| 
+ISL 端口 7
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+35
+ a| 
+不适用
+ a| 
+不适用
+
+
+
+ a| 
+ISL 端口 8
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+36
+ a| 
+不适用
+ a| 
+不适用
+
+|===

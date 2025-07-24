@@ -355,7 +355,6 @@
   <block id="6ab8d2ea7c4ab8de2d0240533675a5ba" category="list-text">在机架中安装新交换机。</block>
   <block id="9db38090d74d3c900ffdd688465bb5e8" category="image-alt">Brocade 与 G620 的升级取代了 A 1</block>
   <block id="d0ec9e05561bfe12c0306959eddf56c8" category="list-text">使用建议的端口分配为新交换机布线。</block>
-  <block id="9eecb7c801dc57fbe6e2bb323f2ab061" category="inline-xref-macro">使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配</block>
   <block id="98865fdc5c9769318f840c5f626b7ec2" category="list-text">在配对 MetroCluster 站点上重复这些子步骤，以更换第一个交换机网络结构中的第二个交换机。</block>
   <block id="5a5070abc66ad4ba93c9599236c17675" category="paragraph">已更换网络结构 1 中的两个交换机。</block>
   <block id="9359b4d4c7ebe7a35b725df2addeaf7b" category="image-alt">Brocade 与 G620 的升级已取代 b 1.</block>
@@ -506,9 +505,6 @@
   <block id="9684ced23869ffd0ef90656a6aa83c1d" category="paragraph">` * 存储网桥 run-cli -bridge _bridge-name_ -command firmwarerestart*`</block>
   <block id="0d70078385b01668ecfcc33dcc7785e4" category="summary">您可以使用每个网络结构的一个启动程序端口和每个控制器的两个启动程序端口来配置 FAS8020 ， AFF8020 ， FAS8200 和 AFF A300 系统。</block>
   <block id="8db12a7f598538a4f3273d8beec78fa9" category="doc">使用两个启动程序端口的系统的端口分配</block>
-  <block id="a8a2bf560173c2071776e7eb62881e05" category="paragraph">下表显示了使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配。</block>
-  <block id="dbe4a4387a11d1625ae218ef9f43a996" category="cell">MetroCluster 1 或 DR 组 1</block>
-  <block id="d151432733d339221bd143c714a56a84" category="cell">连接到 FC 交换机 ...</block>
   <block id="85e2ca58f06c6fc43bb1278027917574" category="paragraph">controller_x_1</block>
   <block id="65698eca856b16c1879cd89757f6c190" category="paragraph">FC-VI 端口 A</block>
   <block id="c4ca4238a0b923820dcc509a6f75849b" category="paragraph">1.</block>
@@ -521,7 +517,6 @@
   <block id="72fc9b1e8ffc61731d7824be381214d9" category="paragraph">HBA 端口 b</block>
   <block id="95dc5e452301ef2f5c0dc48127c29ff7" category="paragraph">HBA 端口 c</block>
   <block id="a75f5a8b24cb45b85b6d1e13d5616073" category="paragraph">HBA 端口 d</block>
-  <block id="5cbc856360b7f465a0b074d28f0718d0" category="paragraph">下表显示了使用 ONTAP 9.0 时 FC 交换机的端口分配。</block>
   <block id="0f03e15eba6bd2b5d72c3bf12b9e6464" category="summary">如果要在不降低性能的情况下增加存储，可以热添加磁盘架。</block>
   <block id="c7c3f6690f29780dcaae9a3466cbb181" category="doc">热添加磁盘架</block>
   <block id="dc7e96665a67891a688cad5299c9216d" category="list-text">您已将两个 FibreBridge 7500N 网桥连接到一个 SAS 磁盘架堆栈。</block>
@@ -684,9 +679,6 @@
   <block id="cb7dd255a00caeb3656fc12d26dfd266" category="list-text">完全按照旧交换机的布线方式为替代交换机布线。</block>
   <block id="0b8991fc8b1b16fde79b335d5036fc22" category="list-text">打开新 FC 交换机的电源。</block>
   <block id="5b691943b638699219228555b1403d22" category="paragraph">如果要启用 ISL 加密，则需要完成以下任务：</block>
-  <block id="b8deab374054d584aa802931724a1fd8" category="list-text">设置有效负载</block>
-  <block id="a08221f97ef0613d8a038c614b3853e9" category="list-text">设置身份验证策略</block>
-  <block id="f1ab300d72ead487f13159fa63426873" category="list-text">在 Brocade 交换机上启用 ISL 加密</block>
   <block id="eefcede87e8886dbea647e95a660f850" category="list-text">完成新交换机的配置：</block>
   <block id="5441e0807607c2a0bbc771e2fb427115" category="list-text">启用连接到 FC 网桥的存储端口。</block>
   <block id="227e826d18f89115d726442eaecb6fbf" category="list-text">启用存储， HBA 和 FC-VI 端口。</block>
@@ -720,7 +712,6 @@
   <block id="b15b631599ae22ec3fadef4714275d7b" category="paragraph"><block ref="b15b631599ae22ec3fadef4714275d7b" category="inline-link-macro-rx"></block></block>
   <block id="ff8f31b4f55a0b3e8f6ce5aaecf788eb" category="inline-xref-macro">热更换发生故障的电源模块</block>
   <block id="29a14686d79f5076a368c0039ffef9c5" category="paragraph">FC 交换机</block>
-  <block id="2688c925fec0ab4e936ae385ba142c24" category="paragraph">不用于连接启动程序端口， FC-VI 端口或 ISL 的端口可以重新配置为用作存储端口。但是，如果正在使用受支持的 RCF ，则必须相应地更改分区。</block>
   <block id="a45eb6ab149dfb9c88ab3dcd2184e695" category="section-title">总体布线准则</block>
   <block id="c41d521acb0fc63853fafb5270777e87" category="paragraph">使用布线表时，应注意以下准则：</block>
   <block id="85efea09b8971fa839b814e34e5b06b9" category="list-text">Brocade 和 Cisco 交换机使用不同的端口编号：</block>
@@ -733,7 +724,6 @@
   <block id="1679091c5a880faf6fb5e6087eb1b2dc" category="cell">6.</block>
   <block id="8f14e45fceea167a5a36dedd4bea2543" category="cell">7.</block>
   <block id="f65c08d82a4d03d0ccfe8c069b7a950f" category="cell">controller_x_4</block>
-  <block id="de8504b73ea228d0ea9bbce69752092e" category="cell">网桥</block>
   <block id="c74d97b01eae257e44aa9d5bade97baf" category="cell">16.</block>
   <block id="5f3d7a8eab09d202517da1abc99331dc" category="cell">bridge_x_3b</block>
   <block id="b2f10ca95ea95e075db7adc2d019047e" category="cell">bridge_x_4a</block>
@@ -980,26 +970,14 @@
   <block id="666408818b617858e00b40c2eb3d365a" category="paragraph">您可能需要升级 MetroCluster IP 交换机上的固件。</block>
   <block id="a755a72f514254c41e2fe4747c117fd7" category="list-text">在第一台交换机上安装软件。</block>
   <block id="220d6c1bfe741784a72c631856e0b298" category="list-text">对每个交换机重复上述步骤。</block>
-  <block id="8fa3ff2a6684e6aa12c0df1acfb993a7" category="summary">如果使用的是 ONTAP 9.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。</block>
-  <block id="f4ace2d74922a56d6954c4cdcc593514" category="doc">使用 ONTAP 9.1 或更高版本时 FC 交换机的端口分配</block>
-  <block id="1f4464840c2d203f1ec68e9cad46e18f" category="paragraph">如果您使用 ONTAP 9 的端口分配配置了交换机，则可以继续使用旧的分配。但是，运行 ONTAP 9.1 或更高版本的新配置应使用此处所示的端口分配。</block>
   <block id="17f7fd76f6e7b1f621872307ce959576" category="list-text">AFF A700 和 FAS9000 存储系统需要四个 FC-VI 端口。下表显示了除 Cisco 9250i 交换机外每个控制器上具有四个 FC-VI 端口的 FC 交换机的布线情况。</block>
   <block id="f1a80fbfabe7f95b17770c38c466c2d4" category="paragraph">对于其他存储系统，请使用表中所示的布线方式，但忽略 FC-VI 端口 c 和 d 的布线方式</block>
   <block id="07b5749c33833d737c3d6ecc5b49605b" category="paragraph">您可以将这些端口留空。</block>
   <block id="ad9247c5063d371cbeae77c052764316" category="list-text">AFF A400 和 FAS8300 存储系统使用端口 2a 和 2b 进行 FC-VI 连接。</block>
   <block id="5accdde0d283f37f6ecfa6339938cadf" category="list-text">如果两个 MetroCluster 配置共享 ISL ，请使用与八节点 MetroCluster 布线相同的端口分配。</block>
   <block id="ebfae2d3948048a9601c4d22e5b3e877" category="paragraph">请参见有关 ISL 注意事项的章节。</block>
-  <block id="f52aa4eb5a4ffb67854f161a49692e68" category="section-title">运行 ONTAP 9.1 或更高版本的 MetroCluster 配置中控制器的 Brocade 端口使用情况</block>
-  <block id="cc7661e50a302a4dca954cd3d5b1345e" category="paragraph">下表显示了 Brocade 交换机上的端口使用情况。下表显示了支持的最大配置，其中两个 DR 组包含八个控制器模块。对于较小的配置，请忽略其他控制器模块对应的行。请注意，只有 Brocade 6510 ， Brocade DCX 8510-8 ， G620 ， G630 ， G620-1 ， G630-1 和 G720 交换机。</block>
-  <block id="fcfaf6ac87b8961e0ed64190d5d0371a" category="list-text">未显示八节点 MetroCluster 配置中 Brocade 6505 和 Brocade G610 交换机的端口使用情况。由于端口数量有限，必须根据控制器模块型号以及所使用的 ISL 和网桥对的数量逐个站点分配端口。</block>
   <block id="e9b5c48d343ae71e6b37dc8ebad61866" category="list-text">Brocade DCX 8510-8 交换机可以使用与 6510 交换机 * 或 _* 7840 交换机相同的端口布局。</block>
-  <block id="36fc2959d3a1c97d86b1331aa7ad751f" category="cell">MetroCluster 2 或 DR 组 2</block>
-  <block id="dd8bf985111cb958a0114d6fab888dfb" category="cell">Brocade 交换机型号</block>
-  <block id="28eb6ba701b729e5df3fbc86e28c4f9a" category="cell">连接到 FC_switch...</block>
-  <block id="76cbfe30b2ad6750afe58491b0fc5142" category="cell">6510 ， DCX 8510-8</block>
   <block id="80fee67c8a4c4989bf8a580b4bbb0cd2" category="cell">6520</block>
-  <block id="2046068284134580db959759e035db76" category="cell">7840 ， DCX 8510-8</block>
-  <block id="dcbe97b426f669f9827aa9af89d67017" category="cell">G620 ， G620-1 ， G630 ， G630-1</block>
   <block id="cf65f95fa367a2305970ced3f3532b96" category="cell">G720</block>
   <block id="8e296a067a37563370ded05f5a3bf3ec" category="paragraph">25.</block>
   <block id="f457c545a9ded88f18ecee47145a72c0" category="paragraph">49</block>
@@ -1011,9 +989,6 @@
   <block id="d82c8d1619ad8176d665453cfb2e55f0" category="paragraph">53.</block>
   <block id="a684eceee76fc522773286a895bc8436" category="paragraph">54</block>
   <block id="b53b3a3d6ab90ce0268229151c9bde11" category="paragraph">55</block>
-  <block id="f140d3cb033a0d8cb337abc8ffd37e35" category="section-title">运行 ONTAP 9.1 或更高版本的 MetroCluster 配置中 ISL 的 Brocade 端口使用情况</block>
-  <block id="31140865c6da8bd64c2cc352591fd97f" category="paragraph">下表显示了 Brocade 交换机的 ISL 端口使用情况。</block>
-  <block id="16efd6bef533569cdadd01e7d8f034c9" category="admonition">AFF A700 或 FAS9000 系统最多支持八个 ISL 以提高性能。Brocade 6510 和 G620 交换机支持八个 ISL 。</block>
   <block id="e71a6bc9da9d285c521501e596936972" category="cell">交换机型号</block>
   <block id="68fac66b44be174fb115574547203ed5" category="cell">交换机端口</block>
   <block id="67c6a1e7ce56d3d6fa748ab6d9af3fd7" category="paragraph">47</block>
@@ -1036,27 +1011,14 @@
   <block id="2dfde955a5c1370edb596a721713e819" category="paragraph">GE5 （ 10-Gbps ）</block>
   <block id="f78b26114789afe03f4c6c9ed2c4ad38" category="paragraph">ge6 （ 10-Gbps ）</block>
   <block id="46c7a2d5e4e53c2d36981c49348c1637" category="paragraph">ge7 （ 10-Gbps ）</block>
-  <block id="eeccf7f36c3dfb3972605d539dced738" category="paragraph">Brocade 7840</block>
   <block id="974b84080d7a27f07b7022b14041d6fc" category="paragraph">ge0 （ 40-Gbps ）或 ge2 （ 10-Gbps ）</block>
   <block id="bd489b1b0ced1fd7ea33e249a59f65f8" category="paragraph">ge1 （ 40-Gbps ）或 ge3 （ 10-Gbps ）</block>
   <block id="6d7e8e0a21c6f160db390b67a024d441" category="paragraph">ge10 （ 10-Gbps ）</block>
   <block id="bb03fb8535b0f15cb7573f343198a826" category="paragraph">ge11 （ 10-Gbps ）</block>
-  <block id="12bb1d11ead6c73227745725e5d0bfd7" category="paragraph">Brocade G610</block>
   <block id="1cb639581481681dd0b3dd79349c9623" category="paragraph">Brocade G620 ， G620-1 ， G630 ， G630-1 ， G720</block>
-  <block id="d85e6b2239cc6bf654493edd06de0604" category="section-title">运行 ONTAP 9.4 或更高版本的 MetroCluster 配置中控制器的 Cisco 端口使用情况</block>
-  <block id="913aa541dca049189d5c94b434fcd5e4" category="cell">Cisco 9396S</block>
-  <block id="9e56f2203627e1f0f852b03165f1f73c" category="cell">Cisco 9148S</block>
-  <block id="14f265c9ad9a81b21c667b4042fc7575" category="admonition">下表显示了具有两个 FC-VI 端口的系统。AFF A700 和 FAS9000 系统具有四个 FC-VI 端口（ a ， b ， c 和 d ）。如果使用的是 AFF A700 或 FAS9000 系统，则端口分配会移动一个位置。例如， FC-VI 端口 c 和 d 转到交换机端口 2 ， HBA 端口 a 和 b 转到交换机端口 3 。</block>
-  <block id="7454ecd5190b690ccf9ee77f2e438c0c" category="section-title">运行 ONTAP 9.1 或更高版本的 MetroCluster 配置中 FC-SAS 网桥的 Cisco 端口使用情况</block>
-  <block id="f656d69f7bbae519056da03a8e9e50d0" category="cell">Cisco 9250i</block>
   <block id="81cc761cd2e2757421a8e9242e8e12cc" category="paragraph">下表显示了 ISL 端口使用情况。此配置中的所有交换机上的 ISL 端口使用情况均相同。</block>
-  <block id="10ca333ef19b78048d2fedd61c4432e9" category="paragraph">ISL 1</block>
-  <block id="d13ad1889e4cd054285464f94de707e7" category="paragraph">ISL 2.</block>
-  <block id="f2e301b218b62fc21a28a8720dff5e99" category="paragraph">ISL 3.</block>
   <block id="92cc227532d17e56e07902b254dfad10" category="paragraph">92.</block>
-  <block id="d218ff19674f8525bccde81cb4f28d00" category="paragraph">ISL 4.</block>
   <block id="26657d5ff9020d2abefe558796b99584" category="paragraph">96</block>
-  <block id="670a9fef898ab1cd3ff1896d659f86f0" category="paragraph">具有 24 端口许可证的 Cisco 9250i</block>
   <block id="69f9c4eafc141c6e8f88cca6eafe90b6" category="summary">如果要添加或升级硬件，例如其他或更快的控制器或交换机，则可能需要向交换机添加 ISL 。</block>
   <block id="36f6b87ea2124f694dc64f15934fcf53" category="doc">更改 Brocade 交换机上的 ISL 属性， ISL 端口或 IOD/OOD 配置</block>
   <block id="469d35ee2356ac7866ba1f33ad4ca9bb" category="paragraph">确保系统已正确配置，所有网络结构交换机均正常运行，并且不存在任何错误。</block>
@@ -4038,7 +4000,6 @@
   <block id="f2a62a2226a776063a92a12ed167e429" category="paragraph">您可以忽略与流量隔离（ TI ）分区和中继相关的错误。</block>
   <block id="ee964d83d74573b3328048ead7b3c04e" category="list-text">对第二个交换机网络结构重复执行这些任务。</block>
   <block id="a3928106022ce5ea0abce2ce87ea7487" category="cell">准则</block>
-  <block id="e0be7ea022244db5d1c1da820a4f5ad8" category="inline-xref-macro">在 Brocade FC 交换机上配置分区</block>
   <block id="a3661db3c5039bc04c7fae548c92950e" category="summary">您必须将交换机操作系统文件和 RCF 文件下载到 MetroCluster 网络结构配置中的每个交换机。</block>
   <block id="bfa98b16040a9e239a71e4da0eb6a7b1" category="doc">下载并安装 Cisco FC 交换机 NX-OS 软件</block>
   <block id="ef545bde15915b6b99166cb4b02c5f33" category="paragraph">此任务需要使用文件传输软件，例如 FTP ， TFTP ， SFTP 或 SCP ， 将文件复制到交换机。</block>
@@ -4573,7 +4534,6 @@
   <block id="5fbb52ab0ccc2914c72b1ce04d94f538" category="summary">每个交换机网络结构都包含连接站点的交换机间链路（ ISL ）。数据通过 ISL 从站点复制到站点。每个交换机网络结构都必须位于不同的物理路径上，以实现冗余。</block>
   <block id="ec25303fa6412309bf87b276dbbd7a8c" category="paragraph">每个交换机网络结构都包含用于连接站点的交换机间链路（ ISL ）。数据通过 ISL 从站点复制到站点。每个交换机网络结构都必须位于不同的物理路径上，以实现冗余。</block>
   <block id="09011b1854f3ff9c194f9a18281f450c" category="image-alt">MCC 硬件架构交换机网络结构</block>
-  <block id="5d0d3aae2229d219e319065b67183178" category="doc">手动配置 Brocade FC 交换机</block>
   <block id="0e08aa01426827fb0ba8dd3c64010d0e" category="paragraph">您必须配置 MetroCluster 配置中的每个 Brocade 交换机网络结构。</block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="list-title">开始之前</block>
   <block id="be6d4fd9ef5a89a5a97f30ce5723e2c7" category="list-text">您必须拥有可通过 Telnet 或安全 Shell （ SSH ）访问 FC 交换机的 PC 或 UNIX 工作站。</block>
@@ -4594,14 +4554,12 @@
   <block id="697ea025ecb303d4f40d1bf3a8b4bde0" category="inline-link">NetApp 互操作性表工具（ IMT ）</block>
   <block id="b54ac66ca0ca34c593eeed1fe8cd4e03" category="list-text">不支持 Brocade 虚拟网络结构（ VF ）功能。</block>
   <block id="c51b448f36df4e8b4b68e7af4df4c6b8" category="list-text">支持基于域端口的 FC 分区，但不支持基于全球通用名称（ WWN ）的分区。</block>
-  <block id="1895119723122826713ca9b3d616a96b" category="section-title">查看 Brocade 许可证要求</block>
   <block id="c283e6d33e5ab7ba05309d0bdb85144e" category="paragraph">MetroCluster 配置中的交换机需要特定许可证。您必须在所有四台交换机上安装这些许可证。</block>
   <block id="020376a3fd370a6b9dfc23a3f92f2cba" category="paragraph">MetroCluster 配置具有以下 Brocade 许可证要求：</block>
   <block id="f8be51f3f662dda8b5a8214d2d88adfe" category="list-text">建议使用多个 ISL 的系统使用中继许可证。</block>
   <block id="e7acec6ea00d47c0f7752735341c6bb3" category="list-text">Extended Fabric 许可证（适用于 6 公里以上的 ISL 距离）</block>
   <block id="9095235ccbae1acead09e083fb7b20dd" category="list-text">适用于具有多个 ISL 且 ISL 距离超过 6 公里的站点的企业许可证</block>
   <block id="c447450429c7aa0c8fa978a8c7ab1f67" category="paragraph">企业许可证包括 Brocade Network Advisor 以及除其他端口许可证之外的所有许可证。</block>
-  <block id="29beb95dbfa349b40c8e018564927306" category="section-title">将 Brocade FC 交换机值设置为出厂默认值</block>
   <block id="bc9a8f24ac7c37a611a7d6eccad46c1a" category="paragraph">您必须将交换机设置为出厂默认值，以确保配置成功。您还必须为每个交换机分配一个唯一的名称。</block>
   <block id="3744ff2a3bc1a90b0f8d4c247c723bba" category="paragraph">在此操作步骤的示例中，网络结构由 BrocadeSwitchA 和 BrocadeSwitchB 组成。</block>
   <block id="2aafc0e78e657c4c62ca362fd66838f9" category="list-text">建立控制台连接并登录到一个网络结构中的两个交换机。</block>
@@ -4613,7 +4571,6 @@
   <block id="65a8c533943bd0e2dad9bda4444a0e8f" category="paragraph">以下示例显示了对 FC_switch_B_1 执行的命令：</block>
   <block id="12ccb91a4ceccae1e3b8c44106ab77e3" category="paragraph">以下示例显示了对 FC_switch_A_1 执行的命令：</block>
   <block id="a8c9e7711ddb8925dcf8c9f60b236e70" category="paragraph">以下示例显示了对 FC_switch_B_1 执行的命令：</block>
-  <block id="41f75670bd6513f25d1942c68f417ebb" category="section-title">配置基本交换机设置</block>
   <block id="b5200136ba99d499e1f31b6fc5df9dcc" category="paragraph">您必须为 Brocade 交换机配置基本全局设置，包括域 ID 。</block>
   <block id="402d1d9024cb07a63926bd7becbf4af3" category="paragraph">此任务包含必须在两个 MetroCluster 站点的每个交换机上执行的步骤。</block>
   <block id="53fcfa0383947fa34e7a95d871d5584c" category="paragraph">在此操作步骤中，您可以为每个交换机设置唯一的域 ID ，如以下示例所示。在此示例中，域 ID 5 和 7 构成 fabric_1 ，域 ID 6 和 8 构成 fabric_2 。</block>
@@ -4645,7 +4602,6 @@
   <block id="b1398f0ec1ab6f110b2b054dcbd970f4" category="list-text">将高级性能调整（ APT ）策略设置为 3 ：</block>
   <block id="9157f6f9ad659d140aac1994cee26e61" category="paragraph">`aptpolicy 3`</block>
   <block id="53989b83805e7661f392318f958a6584" category="admonition">在控制器模块上配置 ONTAP 时，必须在 MetroCluster 配置中的每个控制器模块上明确配置 OOD 。</block>
-  <block id="555d0eb5e8f5efea1f9923360c2e1807" category="paragraph"><block ref="555d0eb5e8f5efea1f9923360c2e1807" category="inline-link-rx"></block></block>
   <block id="8e6415ee4068075bb4d9b0908c9e0ba1" category="list-text">验证交换机是否正在使用动态端口许可方法。</block>
   <block id="39c3f713772acf06f906fa354070ccae" category="admonition">Brocade FabricOS 8.0 之前的版本运行以下命令，因为 admin 和 8.0 及更高版本以 root 身份运行这些命令。</block>
   <block id="bb455cc655a37d9370a7b572be5c356a" category="list-text">启用 root 用户。</block>
@@ -4666,7 +4622,6 @@
   <block id="a211b71e1f024e68733a28ffda5d2276" category="list-text">重新启动交换机：</block>
   <block id="a0aba6ae1d604e993dbdc4de925448a0" category="paragraph">`re启动`</block>
   <block id="84117eb1eed626f2e4befab9d64a8de3" category="paragraph">`sswitchcfgpersistentenable`</block>
-  <block id="ffdc5cae0a16300c812b579b6e79a52f" category="section-title">在 Brocade DCX 8510-8 交换机上配置基本交换机设置</block>
   <block id="d60e69c7c22761403ce10ecb1e758088" category="paragraph">您必须对两个 MetroCluster 站点的每个交换机执行这些步骤。在此操作步骤中，您可以为每个交换机设置域 ID ，如以下示例所示：</block>
   <block id="366484bf5f1172659a2137faedacb7f6" category="paragraph">在上一示例中，域 ID 5 和 7 构成 fabric_1 ，域 ID 6 和 8 构成 fabric_2 。</block>
   <block id="6dfc9c3bc75f83debd37e9025c164b18" category="admonition">如果每个站点仅使用一个 DCX 8510-8 交换机，则也可以使用此操作步骤配置交换机。</block>
@@ -4689,7 +4644,6 @@
   <block id="5708c57518293fee3e7483972ef15222" category="paragraph">`lscfg -config fabricID -slot slot -port lowest-port - Highest-port`</block>
   <block id="1898627ff004308e407f57912594fc3a" category="admonition">构成逻辑网络结构的刀片式服务器（例如 交换机 1 刀片式服务器 1 和交换机 3 刀片式服务器 1 ）需要具有相同的网络结构 ID 。</block>
   <block id="abe33df3535e13a3617386203a1efcee" category="inline-xref-macro">使用 Brocade DCX 8510-8 交换机的要求</block>
-  <block id="b331597dfd8949b795485e607b086f34" category="section-title">使用 FC 端口在 Brocade FC 交换机上配置 E 端口</block>
   <block id="a1beeca3f671a399d79fdf9dd080dc2f" category="paragraph">对于使用 FC 端口配置交换机间链路（ ISL ）的 Brocade 交换机，必须在连接 ISL 的每个交换机网络结构上配置交换机端口。这些 ISL 端口也称为 E 端口。</block>
   <block id="5a2cebf8cdac8012983c6feab1664a29" category="list-text">FC 交换机网络结构中的所有 ISL 都必须配置相同的速度和距离。</block>
   <block id="8353dac27cce0695c3f55842205bacaa" category="list-text">交换机端口和小型可插拔（ Small Form-Factor Pluggable ， SFP ）的组合必须支持此速度。</block>
@@ -4763,7 +4717,6 @@
   <block id="36e4088fba42f5536c7db99b9e4f73c4" category="list-text">验证是否已成功创建所有电路：</block>
   <block id="ebc158918c39cac81b5edec3fcbd6552" category="paragraph">`portShow fcipcircuit all`</block>
   <block id="479ad00e4e26651f0d510a5473c4bc0f" category="paragraph">以下命令显示电路及其状态：</block>
-  <block id="13fdbeed3dbd65fea7cf159f43b1c7c8" category="section-title">在 Brocade 7810 和 7840 FC 交换机上配置 40 Gbps VE 端口</block>
   <block id="9a9d25cf726fc7bdc9432debe16c7592" category="paragraph">如果要对 ISL 使用两个 40 GbE VE 端口（使用 FCIP ），则必须在每个端口上创建 IP 接口，并在每个通道中配置 FCIP 通道和电路。</block>
   <block id="ba42e5d021a14dc3a0181cd37e790201" category="paragraph">此操作步骤中的示例使用两个交换机：</block>
   <block id="ea8a03c3c0c4e09ce10edab5726c6db6" category="list-text">为网络结构中两台交换机上的 40 Gbps 端口创建 IP 接口（ ipif ）地址：</block>
@@ -4783,7 +4736,6 @@
   <block id="e2888e6a387844312506cc21988bd68a" category="paragraph">`portcfg fcipcircuit 24 create 1 -S source-ip-address -D destination-ip-address -min-comm-rate 10000000 -max-comm-rate 10000000`</block>
   <block id="18dc0fe59569e711bfa00eacf9be1c19" category="paragraph">以下命令会在交换机 FC_switch_B_1 上为 DP1 创建一个电路：</block>
   <block id="75bb42b43550c6f4c4f45dd215a6e916" category="paragraph">以下示例列出了这些电路，并显示其 OpStatus 为 up ：</block>
-  <block id="63954a6bf5ff3a5f86ce48e3e3ddeca9" category="section-title">在 Brocade 交换机上配置非 E 端口</block>
   <block id="6cc9e317e29f9919b47b275cb1f06ee6" category="paragraph">您必须在 FC 交换机上配置非 E 端口。在 MetroCluster 配置中，这些端口用于将交换机连接到 HBA 启动程序， FC-VI 互连和 FC-SAS 网桥。必须对每个端口执行这些步骤。</block>
   <block id="68f8217df4d4a62af0ef1860555b65aa" category="paragraph">在以下示例中，这些端口用于连接 FC-SAS 网桥：</block>
   <block id="7ba38760507f3ea411dc7d0eea1ced60" category="list-text">站点 A 的 FC_FC_switch_A_1 上的端口 6</block>
@@ -4797,7 +4749,6 @@
   <block id="71e35ac1088e2928b93b7396384ec9a1" category="list-text">连接的 HBA 最大速度为 16 GB 。在这种情况下，最高通用速度为 16 GB ，因此应将端口的速度配置为 16 GB 。</block>
   <block id="70ccad21ddf44bd527e619885d14f9b9" category="paragraph">`portcfgshow`</block>
   <block id="3edba8ef83110c63b2c8997300817d45" category="paragraph">在示例输出中，端口 6 具有以下设置；速度设置为 16G ：</block>
-  <block id="7e90af18bded5877b54bf70d5afe26d6" category="section-title">在 Brocade G620 交换机的 ISL 端口上配置数据压缩</block>
   <block id="d43359da21a9d67928755ce1d77ace83" category="paragraph">如果您使用的是 Brocade G620 交换机并在 ISL 上启用了数据压缩，则必须在交换机上的每个 E 端口上对其进行配置。</block>
   <block id="3731120fdfeba2922e43774a5cdf8e8f" category="paragraph">必须使用 ISL 对两个交换机上的 ISL 端口执行此任务。</block>
   <block id="7982dcd2197d5e9c1968156a58309942" category="list-text">禁用要配置数据压缩的端口：</block>
@@ -4896,7 +4847,6 @@
   <block id="73069b1c01c2bd24cbe1ce7d08f51283" category="section-title">网桥命名</block>
   <block id="6ac3ebc05b8cdd56c4904aff99967340" category="section-title">DR 组 1 — Site_A 上的堆栈 1</block>
   <block id="1eb1ef295df992c6014ca6e1028e6634" category="paragraph">* DR 组 1 ： MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC1 ： *</block>
-  <block id="a4fbb62b4b37689fce8a8f06a9424092" category="cell">Brocade 6505 ， 6510 ， 6520 ， G620 或 G610 交换机端口</block>
   <block id="14ec94fd0c476c4bd7018cb6d4fa2d08" category="cell">controller_A_1 端口 0a</block>
   <block id="2731de8db009036146d408fbd8eb9ef1" category="cell">controller_A_1 端口 0c</block>
   <block id="38501d9fd0cf6b30fe0f3d8c0661d5d8" category="cell">controller_A_2 端口 0a</block>
@@ -4931,7 +4881,6 @@
   <block id="7deb3b288f41c3d2063c6c45fc567baa" category="cell">6 ， 2 ； 6 ， 3 ； 6 ， 6 ； 6 ， 7 ； 8 ， 2 ； 8 ， 3 ； 8 ， 6 ； 8 ， 7 ； 6 ， 9</block>
   <block id="ab5b296da7d3953c47f497911d584d4c" category="section-title">DR 组 1 — Site_B 上的堆栈 1</block>
   <block id="ac8974a058fdc5f9347a89da6c986c1d" category="paragraph">* MC1_INIT_GRP_1_SITE_B_STK_GRP_1_TOP_FC1 ： *</block>
-  <block id="d6fcfc633d11152371d4270aab5c3914" category="cell">Brocade 6505 ， 6510 ， 6520 ， G620 或 G610 交换机</block>
   <block id="a5ae6e111cf4b3ff85940fa8a84a0b8d" category="cell">bridge_B_1a FC1</block>
   <block id="26ca7608e70fea938d8647c736a25785" category="cell">MC1_INIT_GRP_1_SITE_B_STK_GRP_1_TOP_FC1</block>
   <block id="4c4c88b6c80549b73030b5e3dce2ca3a" category="cell">5 ， 2 ； 5 ， 3 ； 5 ， 6 ； 5 ， 7 ； 7 ， 2 ； 7 ， 3 ； 7 ， 6 ； 7 ， 7 ； 7 ， 8</block>
@@ -4956,13 +4905,10 @@
   <block id="4cefff4e058c741f9f182f8d97f39da1" category="list-text">四个 HBA 启动程序端口（每个控制器一个连接）</block>
   <block id="87066f22c3b6b44dea00a2e227d37331" category="paragraph">这些示例显示了两对网桥，用于连接每个站点的两个堆栈组。由于每个网桥使用一个 FC 端口，因此每个网络结构共有八个存储分区（总共十六个）。</block>
   <block id="763b7699a7efae656cdc98f0083c04a3" category="paragraph">网桥对中的网桥。一对网桥连接到特定堆栈组。</block>
-  <block id="5b64307da6d102d4578562dfb0285d03" category="cell">6505/6510/G610/G620 端口</block>
   <block id="578424ee26e9f9f40830941c7d319c58" category="paragraph">5 ， 2 ； 5 ， 6 ； 7 ， 2 ； 7 ， 6 ； 5 ， 8</block>
   <block id="56dd5898b5b26ba0128b8d925c3fa4ee" category="paragraph">* DR 组 1 ： MC1_INIT_GRP_2_SITE_A_STK_GRP_1_TOP_FC1 ： *</block>
-  <block id="795529eca9940387b728f02f14d2d32b" category="cell">6505/6510/G610 端口</block>
   <block id="a6e22114737cb5bbd7a59aed8a5d802a" category="paragraph">MC1_INIT_GRP_2_SITE_A_STK_GRP_1_BOT_FC1</block>
   <block id="6608353d1c8916d4afa2c66437fde092" category="paragraph">5 ， 3 ； 5 ， 7 ； 7 ， 3 ； 7 ， 7 ； 5 ， 9</block>
-  <block id="b106e97acb697fbd87f3500dea6d8608" category="cell">6505/6510/G610</block>
   <block id="c694e0a8e38ad7060b3f58faa164a3c6" category="paragraph">bridge_A_1a FC2</block>
   <block id="b9bf9caa4975dbe459de10443ee27ff0" category="paragraph">MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC2</block>
   <block id="cef9ae476f0c17fbb2c8e69d051a1d70" category="paragraph">6 ， 2 ； 6 ， 6 ； 8 ， 2 ； 8 ， 6 ； 6 ， 8</block>
@@ -5026,14 +4972,12 @@
   <block id="fdfb2ee8d87e73a8d026737045b7cf3e" category="paragraph">`cfgsave`</block>
   <block id="1b7b10d17a55b8e0d5de70aab62c36c2" category="list-text">验证分区配置：</block>
   <block id="6b641bd213f3598b418df528bf39204a" category="paragraph">`zone -validate`</block>
-  <block id="0f125e34df5493e0ac69ad88c9812972" category="section-title">在 Brocade 6510 或 G620 交换机上设置 ISL 加密</block>
   <block id="dbfd245648c5a87ea34a2a2a21bdf92b" category="paragraph">在 Brocade 6510 或 G620 交换机上，您可以选择在 ISL 连接上使用 Brocade 加密功能。如果要使用加密功能，必须对 MetroCluster 配置中的每个交换机执行其他配置步骤。</block>
   <block id="6deac9c8727545b07ef6dc1aec14bf89" category="list-text">您必须具有 Brocade 6510 或 G620 交换机。</block>
   <block id="3a4dae143b7f6ea094523ac94bc48c69" category="admonition">只有 ONTAP 9.4 及更高版本才支持在 Brocade G620 交换机上使用 ISL 加密。</block>
   <block id="48fad1aaa24226c554ad5a9b9c420612" category="list-text">您必须已从同一网络结构中选择两个交换机。</block>
   <block id="166bda82da37718bae11abdc8d92df7d" category="list-text">您必须已查看适用于您的交换机和网络结构操作系统版本的 Brocade 文档，以确认带宽和端口限制。</block>
   <block id="d1399dea786744d88b8b5d939a008024" category="paragraph">必须对同一网络结构中的两个交换机执行这些步骤。</block>
-  <block id="d7e77d64eaaa173b1a6b7cf41ddaea33" category="section-title">正在禁用虚拟网络结构</block>
   <block id="2c1f3089ca89ab9aec4ef8cfdbf4fe11" category="paragraph">要设置 ISL 加密，必须在 MetroCluster 配置中使用的所有四个交换机上禁用虚拟网络结构。</block>
   <block id="b8f512d291b08df4ae80d48046b4aeb0" category="list-text">在交换机控制台中输入以下命令，以禁用虚拟网络结构：</block>
   <block id="5540ee395fe7bc02c087b1f739c0e21c" category="list-text">重新启动交换机。</block>
@@ -5629,8 +5573,6 @@
   <block id="e17ca788f6c66549a66b7b032db9b795" category="list-text">由于加密而增加的延迟不应超过 10 微秒。</block>
   <block id="cbbfaef273014b8355328497ea2a64a8" category="summary">FC-SAS 网桥可在 SAS 连接的磁盘和 FC 交换机网络结构之间提供协议桥接。</block>
   <block id="6ae03157542266ed3043d8026451ccf4" category="image-alt">MCC 硬件架构磁盘架堆栈</block>
-  <block id="4250e51248bc5d54f8b7bf7f3f4a57f6" category="cell">八节点</block>
-  <block id="95e351a6be60cc62a4dd8db3ec98a00f" category="cell">四节点</block>
   <block id="baca0ca6729684fd54206793ae4b5bd5" category="paragraph">八个</block>
   <block id="eed818e49f4e9b9c4ed8931067fb0efd" category="inline-xref-macro">ONTAP MetroCluster 配置之间的差异</block>
   <block id="5cb3cc1fd9bc99df65b069b73f3c4f22" category="summary">MetroCluster 配置中的集群必须处于对等关系中，以便它们可以彼此通信并执行对 MetroCluster 灾难恢复至关重要的数据镜像。</block>
@@ -6925,7 +6867,6 @@
   <block id="b04cfca24a6159d3846c140fb98e810d" category="summary">如果您更换了灾难站点中的 FC 交换机，则必须使用供应商专用的过程对其进行配置。</block>
   <block id="861537da733c3c33390e1bb718e7d543" category="doc">配置 FC 交换机（仅限 MetroCluster FC 配置）</block>
   <block id="6fc1ae41ce34d8dbe0674eae90086def" category="paragraph">如果您更换了灾难站点中的 FC 交换机，则必须使用供应商专用的过程对其进行配置。您必须配置一个交换机，验证运行正常的站点上的存储访问不受影响，然后配置第二个交换机。</block>
-  <block id="0984e83667fc512bfc1adc48478ded1c" category="paragraph"><block ref="0984e83667fc512bfc1adc48478ded1c" category="inline-link-macro-rx"></block></block>
   <block id="ebfcfc0cdc71cf93176408da80c45caa" category="section-title">在站点灾难后配置 Brocade FC 交换机</block>
   <block id="550c787ba4aa16cc8545b89a8c4aaf2f" category="paragraph">您必须使用此 Brocade 专用的操作步骤配置替代交换机并启用 ISL 端口。</block>
   <block id="9cd24631c8e8a5c743856849d29d48fd" category="paragraph">此操作步骤中的示例基于以下假设：</block>
@@ -7727,7 +7668,6 @@
   <block id="b3597a38069ce88bd5e71904ddba930d" category="paragraph">在 MetroCluster 切换后运行 `storage aggregate plex show` 命令时，切换后的根聚合的 plex0 状态不确定，并显示为 " 失败 " 。在此期间，切换后的根不会更新。只有在 MetroCluster 修复阶段之后才能确定此丛的实际状态。</block>
   <block id="15036251faefea85ea9b6ffa4f283c29" category="list-text">通过将 `vol -dr-force-nvfail` 参数设置为 "on" ，启用 MetroCluster 配置以在切换时触发 NVFAIL ：</block>
   <block id="c860f7f0a8aaf5b10a9ec71f48b87682" category="inline-link-macro">配置虚拟 IP LIF</block>
-  <block id="fb60c06f4120cd75fc9ac39720fd32d8" category="paragraph"><block ref="fb60c06f4120cd75fc9ac39720fd32d8" category="inline-link-macro-rx"></block></block>
   <block id="f6a27c7799db7275b366d6aa5824f156" category="inline-link-macro">镜像根聚合：</block>
   <block id="2c406d90770788a5a37dd44ddf644295" category="inline-link-macro">在每个节点上创建镜像数据聚合</block>
   <block id="cf2536b9d0ad43a511c5a32c1e924ea9" category="inline-link-macro">实施 MetroCluster 配置</block>
@@ -7759,17 +7699,9 @@
   <block id="bfdae250f2b83258ca4329559623480d" category="paragraph">`storage aggregate show -r -node node_A_2 ！ * root`</block>
   <block id="66edbe3b99033472367f932eea8c1068" category="paragraph">驱动器位于已关闭电源架上的聚合应具有 " 已降级 " RAID 状态，而受影响丛上的驱动器应具有 " 故障 " 状态，如以下示例所示：</block>
   <block id="be4390855c7255687268115d7024953b" category="cell">* MetroCluster 1 或 DR 组 1*</block>
-  <block id="12504d160a257d30aeee1aa86bcd4320" category="cell">* Brocade 交换机型号 6505 ， 6510 ， 6520 ， 7840 ， G620 ， G610 和 DCX 8510-8*</block>
   <block id="0617e4d07d12b0af8212c27b7e1c91bc" category="cell">* 连接到 FC 交换机 ...*</block>
   <block id="7194695af22d9907d88793ccd2044dec" category="cell">* 连接到交换机端口 ...*</block>
-  <block id="b038f1001ec881b2fc953981da4334de" category="cell">* MetroCluster 双节点配置 *</block>
-  <block id="5f54259a5f9e2ed501dcd8fc387862ef" category="cell">* Brocade 6505 ， 6510 或 DCX 8510-8*</block>
-  <block id="6977c96a61a5177850b42609237488c3" category="cell">* FC_switch_x_1*</block>
-  <block id="0b2c75644662ed2b76683bc2b8eaf012" category="cell">* FC_switch_x_2*</block>
   <block id="82107984563a4d014cd48345b86ec376" category="doc">为 HA 互连布线</block>
-  <block id="6fc1a0c4ecbbd59364bf4b20f10bd0b6" category="paragraph">* 注 * ： Brocade 7840 交换机支持每个交换机使用两个 40 Gbps VE 端口或最多四个 10 Gbps VE 端口来创建 FCIP ISL 。</block>
-  <block id="72b3f4df9ba178ac37c68c3130df2a2c" category="list-text"><block ref="72b3f4df9ba178ac37c68c3130df2a2c" category="inline-link-macro-rx"></block></block>
-  <block id="51af5f9273b0bde121a10742b4065824" category="list-text">必须为 MetroCluster 配置中的每个 Brocade DCX 8510-8 交换机正确配置 ISL 端口和存储连接。有关端口使用情况，请参见以下部分： <block ref="fb60c06f4120cd75fc9ac39720fd32d8" category="inline-link-macro-rx"></block>。</block>
   <block id="69e92926786e575346dbd083b8dec2f2" category="paragraph"><block ref="69e92926786e575346dbd083b8dec2f2" category="inline-link-macro-rx"></block></block>
   <block id="60e70e31928f915722e922383e40f330" category="list-text">如有必要，明确将所连接磁盘架上的磁盘分配给相应的池：</block>
   <block id="a5f5afcf03d082b62f3f1d573d337a84" category="paragraph">`d磁盘分配`</block>
@@ -7780,7 +7712,6 @@
   <block id="f515fca759b029639b19b471d7a2c1ed" category="inline-link">MetroCluster IP 解决方案架构和设计， TR-4689</block>
   <block id="8d4727f84fc5ba727eb23a4ce93c87c2" category="list-text">MetroCluster IP 配置和操作的技术概述。</block>
   <block id="8aec6a2bcfb78af1fffa4f2c52dfe49d" category="paragraph">Active IQ 数字顾问文档</block>
-  <block id="cab785737f7e01bc6cf334a3297e22c3" category="cell">Cisco 9250i 注：八节点 MetroCluster 配置不支持 Cisco 9250i 交换机。</block>
   <block id="25e406bace0d04355538052e51cb9463" category="admonition">确保此配置所需的所有组件均位于中<block ref="ae0acc7a1cf35a69eb7b42685c902841" category="inline-link-rx"></block>。有关支持的配置的信息，请阅读互操作性表工具中的注释部分。</block>
   <block id="b4d7baf41cc0c5cafe8cdf28d3c7d4a9" category="paragraph">本指南中使用的示例： controller_A_1</block>
   <block id="30cb34cdda07b18f5f18a14a97f5b6c6" category="paragraph">如果使用双节点 MetroCluster 配置（每个站点一个节点），则不需要此配置。</block>
@@ -7820,7 +7751,6 @@
   <block id="c501e60a6e35ce752f0f81fbb7711249" category="paragraph">`d的 bootflash ：`</block>
   <block id="e98444d7d3279149fb170762eaa09685" category="paragraph">`copy bootflash ： __switch-specific-RCF__.txt running-config`</block>
   <block id="8ba14fdefa2d1c4e74a7235016d36d36" category="list-text">重新加载交换机：</block>
-  <block id="46bbf7d1bdaf2d46301fc4945e69d890" category="paragraph">如果您计划仅使用 FibreBridge 网桥上的一个 FC 端口，请按照一节中的说明手动配置后端光纤通道交换机。 <block ref="fb60c06f4120cd75fc9ac39720fd32d8" category="inline-link-macro-rx"></block>。</block>
   <block id="9ad6b2546f4ac428c5e8f4b45a01c9af" category="list-text">禁用 Brocade 虚拟网络结构（ VF ）功能：</block>
   <block id="1a81ddb24cea9bbdfadc63273aab083e" category="paragraph">`fosconfig 选项`</block>
   <block id="4e1c0374c204c8d9a850c69d69affb66" category="list-text">禁用配置：</block>
@@ -7876,7 +7806,6 @@
   <block id="520e3be654124586a91040d1f3f6ad99" category="paragraph">`portCfgEncrypt —启用 12`</block>
   <block id="81ec4b613ecae165b1957e588d03a221" category="list-text">从端口删除许可证：</block>
   <block id="c410870763ab138b1bb332e084940bf9" category="paragraph">此任务的示例使用以下命名约定：</block>
-  <block id="201493476a4a8eafce0cb8596c732440" category="paragraph">如果使用的是 ONTAP 9.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。请参见 <block ref="fb60c06f4120cd75fc9ac39720fd32d8" category="inline-link-macro-rx"></block></block>
   <block id="a03c39da2d1b1ed17db1d6007949ef4e" category="paragraph">`d` assign -shelf local-switch-name ： shelf-name.port -p pool</block>
   <block id="72f3c55c79c5c3713292f0ab302f417d" category="paragraph">`disk assign -shelf local-switch-namelf-name -p pool`</block>
   <block id="42ec1151bc3506b679e500df023c1328" category="paragraph">`d` assign -shelf shelf-name -p pool</block>
@@ -7910,8 +7839,6 @@
   <block id="e5365d20f1684376de1caa0543ccf275" category="paragraph">由于 MetroCluster 配置中的硬件冗余，因此每个站点都有两个组件。随机地为站点分配字母 A 和 B ，并为各个组件分配编号 1 和 2 。</block>
   <block id="e780d6fd3faaa96969ab3f2de3539248" category="list-text">【第 3 步 _fc_aggr_healing 】如果一个或多个丛保持脱机状态，则需要执行其他步骤来重建镜像。</block>
   <block id="0df5d8d33632f22c2f5aa57180686c50" category="admonition">在四节点 MetroCluster 配置中，系统通过将 site_A 中系统 ID 最低的节点与 site_B 中系统 ID 最低的节点配对来确定 DR 配对关系由于系统 ID 会发生变化，因此在完成控制器更换后， DR 对可能会与发生灾难之前不同。</block>
-  <block id="4ba7b2148c0c37b3307983c474a84cab" category="paragraph">如果使用受支持的 RCF ， ISL 端口可能无法连接到所示的相同端口，因此可能需要手动重新配置。</block>
-  <block id="d532a0e00e8b45b9e829639739e4a87d" category="paragraph">根据站点的要求，您连接的 ISL 数量可能会有所不同。</block>
   <block id="1177ce2d22c07bbd50d26ba5478b5b1d" category="paragraph">下表显示了两个 DR 组中包含八个控制器模块时支持的最大配置。对于较小的配置，请忽略其他控制器模块对应的行。</block>
   <block id="47d08f1ee3648c79c4b4429ec089e0ad" category="paragraph">所有组件的 HA 状态均应为 "mcc" 。</block>
   <block id="66930ebad5217524682489282d1ad783" category="paragraph">如果系统处于维护模式，请问题描述 `halt` 命令退出维护模式，然后问题描述从加载程序提示符处运行以下命令：</block>
@@ -9096,7 +9023,6 @@
   <block id="7b3f395dfaa27c58576d75c624d2acd9" category="section-title">验证 LIF 配置</block>
   <block id="23331dcb3c2ad6b3d014807669c00671" category="image-alt">四节点 MetroCluster</block>
   <block id="641ef094fd6e3f18fc8a62270dc2b543" category="section-title">还原 Tiebreaker 监控</block>
-  <block id="ec976e4d69eacba58f181f263322d975" category="paragraph">使用 ONTAP 9.1 及更高版本为 FC 交换机布线时，需要验证是否使用了指定的端口分配。</block>
   <block id="198c714a4bb6842827adc2e8110de106" category="summary">要安装延伸型 MetroCluster 配置，必须按正确顺序执行多个过程。</block>
   <block id="714ba9270e253d9f6653c910f28c6d51" category="list-text"><block ref="714ba9270e253d9f6653c910f28c6d51" category="inline-link-macro-rx"></block></block>
   <block id="ccf5fe3db16f3b78ede335fc8f0785d7" category="inline-link-macro">选择正确的安装操作步骤</block>
@@ -9111,32 +9037,16 @@
   <block id="bd3d9b1a42269f70b6fcebe5b0cf78b6" category="paragraph"><block ref="bd3d9b1a42269f70b6fcebe5b0cf78b6" category="inline-link-rx"></block></block>
   <block id="a8125364ced10d8a90aedca98aa02032" category="paragraph"><block ref="a8125364ced10d8a90aedca98aa02032" category="inline-link-macro-rx"></block></block>
   <block id="f352cbf1ebb01c90cd667f55932f9c18" category="paragraph">链接： ./transition/concept_choosing_your_transition_procedure_mcc_transition.html</block>
-  <block id="dac255183ddd968b772755feaa9b4cd7" category="summary">下表显示了 ISL 端口使用情况。</block>
-  <block id="83e876af5f485a9a733864cbf5a3e21b" category="cell">Cisco 9132T ， 1 个 LEM</block>
-  <block id="629f8f8fa5cb9442f2cf5a2289a1e051" category="cell">ISL1</block>
   <block id="e7e6eebc5253d1872205b3e8e4fe67cb" category="cell">LEM1-15</block>
-  <block id="223cdfda01976fdfe10e4f0b9d72aaf3" category="cell">ISL2</block>
   <block id="84c88c7fdb171c136ff58d7835e46603" category="cell">LEM1-16</block>
-  <block id="ed225b3337a5893f671e29d15e0e6464" category="cell">具有 2 个 LEM 的 Cisco 9132T</block>
   <block id="0dddffd8cf99c04ddb89559281d8d451" category="cell">LEM2-9</block>
   <block id="61034ea4c48aeebf00c78c16ee398c07" category="cell">LEM2-10</block>
-  <block id="7c2a40fb2c7847a883176b97db0e798f" category="cell">ISL3</block>
   <block id="8082164e318ca645ecef714ee3200c01" category="cell">LEM2-11</block>
-  <block id="2f4ec157f97271fb7d3e4db69ca7acea" category="cell">ISL4</block>
   <block id="e08ecbf668ccff5a3408dc6d75c437a0" category="cell">LEM2-12</block>
-  <block id="e8a8b9a6b3babd9f619213d9328c5ec4" category="cell">ISL5.</block>
   <block id="1e0cb8a22f3dd13fd9f1e5bb52ccec58" category="cell">LEM2-13</block>
-  <block id="d127bd9ff97d620b3194f68dfd2f7499" category="cell">ISL6</block>
   <block id="491cfbee8f9edd7629dbc08caf6344f9" category="cell">LEM2-14</block>
-  <block id="0c33dddb48935b133ef0b1895b47f87e" category="cell">ISL7.</block>
   <block id="53b92dc74faa6cb21d248d206f657cf3" category="cell">LEM2-15</block>
-  <block id="8ea7d7250e65620033ebe8e6de7604db" category="cell">ISL8.</block>
   <block id="a443a45b4f59f90651355f5e7502dd6d" category="cell">LEM2-16</block>
-  <block id="96cf9ddcf3fc08fd3054be11d6e19c44" category="summary">下表显示了一个 DR 组中包含八个 AFF A900 控制器模块时支持的最大配置。</block>
-  <block id="f537ff78df4afb387541f1166be1d417" category="list-text">9132T 交换机不支持 MetroCluster 2 或 DR 2 。</block>
-  <block id="e0c3bd3b17898f5fa1d870e22fd0b2a7" category="cell">Cisco 交换机型号</block>
-  <block id="105a26504e48c255c684a48adb3a654d" category="cell">9132T （ 1 个 LEM ）</block>
-  <block id="def5ab424d21e2182ae0eb3e2ecba26b" category="cell">9132T （ 2 个 LEM ）</block>
   <block id="8c93e327aae0010e180a20a21a38697d" category="cell">FC-VI-1 端口 A</block>
   <block id="8c8c9f29da894a1180db67fad874400a" category="cell">LEM1-1</block>
   <block id="92c2443c832f44e0514098816d1316ae" category="cell">FC-VI-1 端口 b</block>
@@ -9159,29 +9069,16 @@
   <block id="b43852712ee192a8abd1d919fb8d9216" category="cell">LEM1-12</block>
   <block id="ec2f4d9ba560ba3daa62615538e094a1" category="cell">LEM1-13</block>
   <block id="31ce3f4d7fa2f27464e1a39018fcc70a" category="cell">LEM1-14</block>
-  <block id="d3aabbdfcbd11eeefb0a59700e2f86e4" category="cell">LEM1-15</block>
   <block id="8ec9827d0870cf533674a47e0e45c905" category="cell">LEM2-1</block>
   <block id="9135f01e21f3378e93e8e79d77b55ba9" category="cell">LEM2-2</block>
   <block id="fab602535b4be80321a95b9f39dfb023" category="cell">LEM2-3</block>
   <block id="9886bd0d1558f3c4c6b4b7c6ccd6d4ca" category="cell">LEM2-4</block>
-  <block id="a2529b9a22421965b80dca74f0e8ac35" category="list-text">使用具有 1 个 LEM 模块的 9132T 交换机时，仅支持一（ 1 ）个网桥堆栈。</block>
-  <block id="99a578284ada1b8807f86cb25b927d6b" category="inline-link-macro">使用 AFF A900 系统时 FC 交换机的端口分配</block>
-  <block id="5383551238fc98d2f75e63be48523c04" category="list-text"><block ref="5383551238fc98d2f75e63be48523c04" category="inline-link-macro-rx"></block></block>
-  <block id="6a3afd8e0bd4d7b0e5cc9f66134c7c8d" category="summary">下表显示了 AFF A900 系统的 Brocade 交换机上的端口使用情况</block>
-  <block id="56e8146206df37b2e114695d0ee8d127" category="cell">6505 ， G610</block>
-  <block id="6468480fd8b1a2f75ef118118bd03a58" category="cell">G620 ， G620-1</block>
-  <block id="81df3dccd5bcac9f92dc3ce6a45f1ac2" category="cell">G630 ， G630-1</block>
-  <block id="ab68570d864607486c1180cfc078bffe" category="admonition">可以使用缆线将其他网桥连接到 6510 交换机中的端口 16-19 。</block>
-  <block id="4666df6ebbda163e6f057c4b31891b34" category="admonition">MetroCluster 2 或 DR 2 仅支持使用 6510 交换机的两（ 2 ）个网桥堆栈。</block>
-  <block id="e0053b8c93593c200bdc54f5bb00c037" category="admonition">6505 ， G610 交换机不支持 MetroCluster 2 或 DR 2 。</block>
-  <block id="00034e5e10fbaeb9189d2ff4061517d7" category="cell">MetroCluster 3 或 DR 组 3</block>
   <block id="38b4de1c2368cfc9d297e81801968302" category="cell">controller_x_5</block>
   <block id="ea5d2f1c4608232e07d3aa3d998e5135" category="cell">64</block>
   <block id="fc490ca45c00b1249bbe3554a4fdf6fb" category="cell">65</block>
   <block id="3045acc0b412f30b1cac4aff7c2b57e2" category="cell">controller_x_6</block>
   <block id="a3f390d88e4c41f2747bfa2f1b5f87db" category="cell">68</block>
   <block id="14bfa6bb14875e45bba028a21ed38046" category="cell">69</block>
-  <block id="6c0f7d9b39283d0bc397ed2f4859a99d" category="cell">MetroCluster 4 或 DR 组 4</block>
   <block id="0462f04ffe605f44b782254855cd652a" category="cell">controller_x_7</block>
   <block id="3295c76acbf4caaed33c36b1b5fc2cb1" category="cell">66</block>
   <block id="735b90b4568125ed6c3f678819b6e058" category="cell">67</block>
@@ -9207,13 +9104,6 @@
   <block id="f2b75487be86fe362165761ed32f9169" category="list-text"><block ref="d8800598dd130bed5c7eb4a12dcecf69" category="inline-link-macro-rx"></block>。</block>
   <block id="11be15880eab3352c16856fa1475d4db" category="list-text"><block ref="11be15880eab3352c16856fa1475d4db" category="inline-link-macro-rx"></block></block>
   <block id="29ad4be139be5b3e7f2133bef476991d" category="list-text"><block ref="29ad4be139be5b3e7f2133bef476991d" category="inline-link-macro-rx"></block></block>
-  <block id="aef9e13f2797744b62209b58e52a9a40" category="paragraph">如果使用的是 ONTAP 9.10.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。</block>
-  <block id="72fa0ea37e0389a6c2e6107de6bbcbe8" category="summary">下表显示了 AFF A900 系统中 Brocade 交换机的 ISL 端口使用情况。</block>
-  <block id="f3089a69f0cb0a583fab7f5c1ea7226c" category="cell">6505 ， G610</block>
-  <block id="b6d684e18fbacf209337f80ec1a6dbd2" category="sidebar">运行 ONTAP 9.10.1 或更高版本的控制器的 AFF A900 Brocade 端口使用情况</block>
-  <block id="20be931e6a91f7361d271248d9c2f477" category="sidebar">运行 ONTAP 9.10.1 或更高版本的 ISL 的 AFF A900 Brocade 端口使用情况</block>
-  <block id="224ad006d44a9886d7665e4aad6a905c" category="sidebar">运行 ONTAP 9.10.1 或更高版本的 AFF A900 Cisco 端口使用控制器</block>
-  <block id="0cf55ee73ddb0d8fbba68a1054b00154" category="sidebar">运行 ONTAP 9.10.1 或更高版本的 ISL 的 AFF A900 Cisco 端口使用情况</block>
   <block id="8d34b4267d2886cdba19cbddeba8d3ad" category="list-text">擦除现有配置：</block>
   <block id="cfd72c932abb8432b8e6b711659ed1d7" category="list-text">重新加载交换机软件：</block>
   <block id="c9a17ec2040643341ace6129457a7441" category="paragraph">系统将重新启动并进入配置向导。在启动期间，如果您收到提示 "`Abort Auto Provisioning and continue with normal setup ？（是 / 否） [n]` " ，您应回答 `是` 以继续。</block>
@@ -10202,18 +10092,9 @@
   <block id="c24d2fcd8511c8b51a6aef773200e0d8" category="paragraph">在执行切回操作之前、您必须为新控制器安装许可证。</block>
   <block id="07beb3f4161a6f204edf78213ee21dd3" category="list-text"><block ref="07beb3f4161a6f204edf78213ee21dd3" category="inline-link-macro-rx"></block></block>
   <block id="42f4edc2efb2c786550a905c38a8416c" category="admonition">如果没有LOADER提示符、请记录错误消息。如果系统显示启动菜单，请重新启动并再次尝试中断启动过程。</block>
-  <block id="8d9fb55ee32f6df582d661812847c467" category="doc">使用AFF A900或FAS9500系统时FC交换机的端口分配</block>
   <block id="4382ff0992965ffdabb9c638b6f2ecf2" category="list-text">AFF A900或FAS9500存储系统需要八个FC-VI端口。如果您使用的是AFF A900或FAS9500、则需要使用八端口配置。如果配置包括其他存储系统型号，请使用表中所示的布线方式，但忽略不需要的 FC-VI 端口的布线方式。</block>
-  <block id="649ae78fb315c7c5f6a700dfdf86f4bb" category="doc">AFF A900或FAS9500-运行ONTAP 9.10.1或更高版本的MetroCluster 配置中八节点配置中ISL的Cisco端口使用情况</block>
   <block id="a0bc38f50488b4f686bd2fe145def041" category="inline-link-macro">如何从MetroCluster 配置中删除节点—解决指南。</block>
   <block id="8ec1014b27ed523596c5c910443b0827" category="paragraph">AFF A900和FAS9500</block>
-  <block id="87ba2462050ce75d6d9915d834efe9b7" category="doc">AFF A900或FAS9500-运行ONTAP 9.10.1或更高版本的MetroCluster 配置中ISL的Brocade端口使用情况</block>
-  <block id="801938c63db0b16215aa712c6d1fd12c" category="paragraph">下表显示了AFF A900或FAS9500系统中Brocade交换机的ISL端口使用情况。</block>
-  <block id="1dcd768f9d116bda4a2253d295e01fb8" category="doc">运行ONTAP 9.10.1或更高版本的MetroCluster 配置中AFF A900或FAS9500控制 器的Brocade端口使用情况</block>
-  <block id="e33ab3eabb81d3db08bba17fee6ed399" category="paragraph">下表显示了 Brocade 交换机上的端口使用情况。下表显示了支持的最大配置，其中四个 DR 组包含八个控制器模块。AFF A900和FAS9500系统具有八个FC-VI端口(FC-VI-1和FC-VI-2的A、b、c和d)</block>
-  <block id="f7326e6cfc29ebefdb936677ae7dd110" category="doc">运行ONTAP 9.10.1或更高版本的MetroCluster 配置中AFF A900或FAS9500控制 器的Cisco端口使用情况</block>
-  <block id="dfed8939b1f16a32e24cbf7db94e77b4" category="paragraph">下表显示了一个DR组中包含八个AFF A900或FAS9500控制 器模块时支持的最大配置。</block>
-  <block id="850f7b79a5d7e3532f3461f2abbf9036" category="list-text">下表显示了具有八个 FC-VI 端口的系统。AFF A900和FAS9500具有八个FC-VI端口(FC-VI-1和FC-VI-2的A、b、c和d)。</block>
   <block id="756d409209ace98589705774b5011aa0" category="paragraph">FAS9500</block>
   <block id="dd6721b9055a32492dda0434480da44d" category="admonition">不支持在下载后修改RCF文件。</block>
   <block id="03b9eedf57c55a2eb9b4feaa990c85f6" category="list-text">使用适用于MetroCluster IP的RcfFileGenerator为您的配置生成RCF文件。</block>
@@ -10698,8 +10579,6 @@
   <block id="690f8ff3b8b65da4f1bc779fb507da9d" category="sidebar">MetroCluster Tiebreaker事件日志文件</block>
   <block id="fd8a65566a0bac859d93882f20cc0c7d" category="paragraph"><block ref="fd8a65566a0bac859d93882f20cc0c7d" category="inline-link-macro-rx"></block></block>
   <block id="43119522ff803c1f1fa88bdbaffe20b7" category="admonition">只有在MetroCluster IP配置中才需要iSCSI端口。</block>
-  <block id="fd9b3eaeebb236fdcf40b5456ccc900e" category="admonition">AFF A900和FAS9500系统支持八个ISL。Brocade 6510、G620、G620-1、G630、G630-1、和G720交换机。</block>
-  <block id="81d4bf20c117cfe06c727511dd63382b" category="paragraph">6510、G620、G620-1、G630、G630-1、G720</block>
   <block id="64cdec386f8cc50c2a2ec9316633b629" category="paragraph">运行前<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block>、未启用HA模式和DR镜像、您可能会看到与此预期行为相关的错误消息。稍后在运行命令时启用HA模式和DR镜像<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block> 以实施配置。</block>
   <block id="5ffd33f8dea25274cffabd9b7ab1c36e" category="paragraph">您必须回答<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> 当系统提示您继续进入高级模式时、您会看到高级模式提示符(*)。</block>
   <block id="1fd3081a4bf2b2b1ccafeb89c824a5d2" category="admonition">最佳做法是、具有多个镜像数据聚合。如果只有一个镜像聚合、则保护程度较低、因为元数据卷位于同一个聚合上、而不是位于不同的聚合上。</block>
@@ -11319,15 +11198,7 @@
   <block id="af8a69aa12393a4d9b6992e884f1c919" category="sidebar">MetroCluster 文档</block>
   <block id="b8b5370c063dd2b4ce4021558a49ac07" category="paragraph">对于运行 ONTAP 9.8 及更早版本的 MetroCluster 配置，为过渡升级而执行的某些过程要求在配置中再添加一个四节点 DR 组，以创建临时八节点配置。  从ONTAP 9.9.1开始、支持永久八节点MetroCluster配置。</block>
   <block id="0abe9117fda19697d2dbf1bd1d754e02" category="list-text">本操作步骤介绍了向现有MetroCluster IP配置添加一个四节点DR组所需的步骤。如果要刷新八节点配置、则必须对每个DR组重复整个操作步骤、一次添加一个。</block>
-  <block id="84d04e0c7f711ba6800f8d3bd5bc0847" category="inline-xref">运行ONTAP 9.4或更高版本的MetroCluster配置中的Cisco 9132T端口使用情况</block>
-  <block id="ccdfc130a534c248f558d6495323cb02" category="admonition">有关Cisco 9132T、请参见 <block ref="3db7a367aafc64164b814f36e8341eaa" category="inline-xref-macro-rx"></block>。</block>
-  <block id="da1fe90f1a7c8d5426c9fb653143159c" category="inline-xref">运行ONTAP 9.1或更高版本的MetroCluster配置中用于Cisco 9132T的ISL端口使用情况</block>
-  <block id="ebaff03f6ed502f4a413a1ce08e7b523" category="admonition">有关Cisco 9132T、请参见 <block ref="745f667c2207ac60e33bebf6a26d4908" category="inline-xref-macro-rx"></block>。</block>
-  <block id="b6adc54642d6ea9466bf5956bfd90921" category="section-title">运行ONTAP 9.4及更高版本的MetroCluster四节点和八节点配置中的Cisco 9132T端口使用情况</block>
   <block id="65ac5210a13e16ff0c09cc508d39f010" category="admonition">对于八节点配置、由于未提供RCF、您必须手动执行分区。</block>
-  <block id="148fa39b011d75fbf87b5c6a6e4eb7ac" category="list-text">在四节点配置中、您可以使用2个LEM使用缆线将其他网桥连接到9132T交换机中的端口LEM2-5至LEM2-8。</block>
-  <block id="1b3edf8d6e61a53c159f115111d76631" category="list-text">在八节点配置中、您可以使用2个LEM使用缆线将其他网桥连接到9132T交换机中的端口LEM2-13至LEM2-16。</block>
-  <block id="7aff2de5bc0a96f53245830100b31a76" category="section-title">运行ONTAP 9.1或更高版本的MetroCluster配置中四节点和八节点配置中用于ISL的Cisco 9132T端口使用情况</block>
   <block id="e919df0feb57e826b9f8b6224efe2e04" category="paragraph">下表显示了Cisco 9132T交换机的ISL端口使用情况。</block>
   <block id="a261c053c0fcf9998b34ce893b64a413" category="paragraph"><block ref="c0d0f2b19dc6b7f887420d5bf33adaba" prefix="" category="inline-code"></block></block>
   <block id="8eca95447c2280ec1cef00c74fbdd026" category="paragraph"><block ref="08781b24c8be1fcc1ac4a86a67a6752f" prefix="" category="inline-code"></block></block>
@@ -11335,7 +11206,6 @@
   <block id="bd0d55b78c7361cb6bee641b1a3f51f1" category="paragraph">输出应显示<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> 。<block ref="555bf8344ca0caf09b42f55e185526d8" prefix=" " category="inline-code"></block> 字段。</block>
   <block id="a52d9220769f6761bf129d7261ce8c50" category="list-text">确认连接到新加入的MetroCluster IP节点的所有磁盘均存在：</block>
   <block id="31fd58e5bb5b343f46192bb2a5c46678" category="list-text">运行以下命令、验证MetroCluster配置的运行状况：</block>
-  <block id="0684ea3076044d6489f161fa34d1768f" category="list-text">您可以使用缆线将其他网桥连接到具有2个LEM模块的9132T交换机中的端口LEM2-5至LEM2-8。</block>
   <block id="2f446d31523b281d945a5fb6d94e09f7" category="cell">MetroCluster FC配置状态</block>
   <block id="b25919189b4340e1b84dd00de09921d3" category="cell">MetroCluster IP配置状态</block>
   <block id="e402ac65c66b96e2f07562ac550c53d8" category="paragraph">脱机(注释1)</block>
@@ -11781,11 +11651,6 @@
   <block id="a4ee4d0f79fa6f1bac894cfc957089d6" category="paragraph">如果您使用的是仅使用两个FC端口之一的光纤桥接7500 N或7600N、则需要为这些网桥端口创建存储分区。在配置分区之前，您应了解分区和关联的端口。</block>
   <block id="7e95951a529361ac1e326cd54359d011" category="paragraph"><block ref="7e95951a529361ac1e326cd54359d011" category="inline-link-macro-rx"></block></block>
   <block id="4c79922838c9f8d530f20efcd3382822" category="cell">仅使用一个FC端口(FC1或FC2)的光纤网桥7500N或7600N的配置</block>
-  <block id="3a4842c9952a7c657d04e55a3d69b1a4" category="cell">使用两个FC端口的光纤桥7500 N或7600N</block>
-  <block id="126b9e3a8501d897a2356aba96828af6" category="cell">使用一个FC端口的光纤桥接7500 N或7600N网桥</block>
-  <block id="69abf6cf7deeba7ace2f747f7661208f" category="cell">使用一个FC端口的光纤桥7500 N或7600N</block>
-  <block id="0351289236b3260f9d0c35b64f62689c" category="paragraph">您只能使用一个FC端口(FC1或FC2)来完成对光纤桥接500N或7600N网桥的布线。请仅连接两个启动程序，而不使用四个启动程序，并将连接到交换机端口的另外两个启动程序留空。</block>
-  <block id="4883312b6c36aa2f1d5ce2e2f17638bd" category="paragraph">如果是手动执行分区、请遵循使用一个FC端口(FC1或FC2)的FBRIDBRIDGKIP 7500N或7600N网桥所使用的分区。在这种情况下，每个网络结构的每个分区成员都会添加一个启动程序端口，而不是两个。</block>
   <block id="7f921cbd9f23de85fa3d483b640e428b" category="open-title">如果节点已关闭：</block>
   <block id="5f4eaac69c780a3f8ab154192e4a1a26" category="paragraph">启动节点。</block>
   <block id="2900f8420dafccee0a2692e48506c6cb" category="open-title">如果节点位于加载程序提示符处：</block>
@@ -12120,7 +11985,6 @@
   <block id="250f3098aa37d3a08b48b8157db8a62e" category="open-title">Cisco switches</block>
   <block id="6204028fd0e3ba079ca2fce4bb224e24" category="paragraph"><block ref="010303eb2e404f6eb49cc314fc8aa294" prefix="" category="inline-code"></block></block>
   <block id="a1032909a057927264a07294a53b91b5" category="paragraph">如果您需要RO访问权限、请在"User (ro)："之后指定"smpv3user"。以下示例将使用Brocade交换机：</block>
-  <block id="b4656d073f9b3064260089f7e9a12e66" category="paragraph">从ONTAP 9.15.1开始、您可以配置端到端加密、以加密MetroCluster IP配置中站点之间的后端流量、例如NVlog和存储复制数据。</block>
   <block id="ddaa39224424042ba35394afbe714a70" category="list-text">您必须是集群管理员才能执行此任务。</block>
   <block id="ffe47e3eda7ee0a88fa1a1b82a09899e" category="inline-link-macro">配置外部密钥管理</block>
   <block id="ca6ec36bc37ffec6b208710049cf5f93" category="list-text">在配置端到端加密之前、您必须先配置 <block ref="16044a12704308be53c493c61be8d30c" category="inline-link-macro-rx"></block>。</block>
@@ -12150,7 +12014,6 @@
   <block id="cbd27762af6b4c6335bac75a098542ce" category="paragraph">在四节点MetroCluster IP配置中、AFF A800和AFF C800系统的以下卷限制已增加：</block>
   <block id="2c18214fb090b3346dccf036f48c7f39" category="list-text">每个聚合的最大FlexVol卷数从200增加到625。</block>
   <block id="3f35c7e20a8d7d81feeb64eb6d5afa09" category="list-text">每个节点的最大FlexVol卷数从800增加到1250。</block>
-  <block id="b30d9c31e8ee4ad2f0b8474d6a8c7b5d" category="list-text">每个高可用性(HA)对的最大FlexVol卷数从1600个增加到2500个。</block>
   <block id="34211e4d6128da1dfdf7db696c0d2aad" category="paragraph">提高AFF A900系统上四节点MetroCluster IP配置的卷限制</block>
   <block id="84e9aa8f760c1f5f0f19cf4fc3153c4b" category="paragraph">在四节点MetroCluster IP配置中、AFF A900系统的以下卷限制已增加：</block>
   <block id="69cd959e02d2a7b70720f5426f4f0888" category="list-text">如果原始系统已配置端到端加密、请在每个替代节点的加载程序提示符处设置以下启动程序：</block>
@@ -12181,8 +12044,6 @@
   <block id="0ab751f551b18333e82474f5ca9b4122" category="list-text">验证MetroCluster IP接口端口是否联机。</block>
   <block id="124ba57298a92342f8aec06ebcfb6415" category="inline-link-macro">确定旧控制器模块的系统ID</block>
   <block id="3ac27de4b4347c98785ff06870fe7221" category="paragraph"><block ref="3ac27de4b4347c98785ff06870fe7221" category="inline-link-macro-rx"></block></block>
-  <block id="9e667988f536ce55f0a4c5cf0908d042" category="cell">具有2个LEM和1个四节点MetroCluster或DR组的Cisco 9132T</block>
-  <block id="7d83eb0736445dbf18519e99146d2fff" category="cell">具有两个四节点MetroCluster或一个具有两个DR组的八节点MetroCluster的Cisco 9132T</block>
   <block id="a786547181c9c8f446791420d2be691f" category="paragraph">您的 ONTAP 版本必须支持混用磁盘架。请参见<block ref="f93341e63c1888be05256ff042174623" category="inline-link-rx"></block> 查看您的 ONTAP 版本是否支持混用磁盘架。</block>
   <block id="27211cf5d485f8491ca9b566aefe2d6d" category="paragraph">从ONTAP 9.4开始、MetroCluster IP配置支持使用自动磁盘分配和ADP (高级驱动器分区)进行新安装。</block>
   <block id="e528d26e96f91b34e70a35c4661d620d" category="list-text">要在AFF和ASA系统上将ADP与MetroCluster IP配置结合使用、需要使用ONTAP 9.4及更高版本。</block>
@@ -13446,42 +13307,20 @@
   <block id="11174a5afd588b4b0362df983b5f76c6" category="sidebar">使用切换和切回将MetroCluster IP中的控制器(AFF A700到AFF A900、FAS9000到FAS9500)升级(9.10.1 9.10.1或更高版本)</block>
   <block id="9154ca816ab69e291b499f5a2579f66c" category="sidebar">使用切换和切回(9.10.1 9.10.1或更高版本)升级MetroCluster FC配置中的控制器(AFF A700到AFF A900、FAS9000到FAS9500)</block>
   <block id="3931310703263c726d52a1768504781f" category="list-text">按照中的Brocade过程配置新交换机<block ref="8891b6de7b2070c584bdeb67b522b51b" category="inline-link-macro-rx"></block>。</block>
-  <block id="a01a953cf57a4a3591be7c4dd9dd14fa" category="list-text">要启用ISL加密，请参见<block ref="fb6e086ddbfd6d800d2c601996554df4" category="inline-link-macro-rx"></block>。</block>
-  <block id="180e0613653267779e5c48b1089eec2b" category="paragraph">您可以将不用于连接启动程序端口、FC-VI端口或ISO的端口重新配置为存储端口。但是、如果正在使用受支持的RCF、则必须相应地更改分区。</block>
   <block id="29c89e3d0b280775787b67d96a4087d3" category="list-text">您可以为AFF A300和FAS8200存储系统订购以下两种FC-VI连接选项之一：</block>
-  <block id="731feab1fd0d4fca6b5d978a166b21f9" category="section-title">使用光纤桥接500N或7600N网桥的控制器配置</block>
-  <block id="e840d63b8d91be60055156853f6cb3c0" category="paragraph">下表显示了使用光纤桥接500N或7600N的控制器的Brocade端口使用情况。</block>
-  <block id="0dae6454bb8066f80d3cee1de6e36505" category="cell">Brocade交换机型号端口连接</block>
-  <block id="536d2d681b1289cbeefda0c9fdcc09f3" category="cell">G720、G730</block>
   <block id="3aeb504465245afd2f26ab0917c07244" category="section-title">仅使用一个FC端口(FC1或FC2)的使用光纤桥的500N或7600N的磁盘架配置</block>
   <block id="50c0f59cb89ba3dd0b9b105da94810f5" category="paragraph-title">MetroCluster 1或DR组1</block>
-  <block id="d7628d9cfe849878c0b1b626bda3e165" category="paragraph">下表显示了MetroCluster 1或DR组1中仅使用一个FC端口(FC1或FC2)且使用的FIRBridge 7500 N或7600N支持的磁盘架配置。使用此配置表时、应注意以下事项：</block>
-  <block id="9fc34d6bbec9982b1e0510d6a6fef0a1" category="list-text">在6510和DCX 8510-8交换机上、您可以使用缆线将其他网桥连接到端口16-19。</block>
-  <block id="9678df63e5e138898c1a3a9d745f250a" category="list-text">在6520交换机上、您可以使用缆线将其他网桥连接到端口16-21和24-45。</block>
   <block id="1938afd24289f82f1eccb1f5fc03bee0" category="paragraph">堆栈 4</block>
   <block id="b02ceda2473562359e0f31ddee5b9fd7" category="paragraph">堆栈 5</block>
   <block id="d6dc0baaa910da78635865e2a526300a" category="paragraph">堆栈 6</block>
   <block id="384b8992b8f33d81d1be8af75815ce43" category="paragraph">堆栈 7</block>
   <block id="d711b8d9ad84315aa5329b39f947dedd" category="paragraph">堆栈 8</block>
   <block id="3692c9ba1350a63df24145cf798b7a8d" category="paragraph-title">MetroCluster 2或DR组2</block>
-  <block id="3931538ae618e65321b4b3317e9b03d1" category="paragraph">下表显示了MetroCluster 2或DR组2中仅使用一个FC端口(FC1或FC2)的光纤桥接器的支持磁盘架配置。使用此配置表时、应注意以下事项：</block>
-  <block id="2903ceed0cbc44b8b559bfff7873b906" category="list-text">在6520交换机上、您可以使用缆线将其他网桥连接到端口64-69和72-93。</block>
-  <block id="90630a6ca649afd90e4b45c9af3d157d" category="paragraph">下表显示了在使用两个FC端口(FC1或FC2)的FIRbridge 7500N或7600N网桥的MetroCluster 2或DR组2中支持的磁盘架配置。使用此配置表时、应注意以下事项：</block>
-  <block id="742bcddd5d6452c898c549e1b60cd513" category="paragraph">您可以按照相同模式使用端口17到40以及57到88连接其他网桥。</block>
-  <block id="391ee14bc6581827dc4f2d88ff91afcf" category="paragraph">您可以按照相同模式使用端口33到40为第二个DR组或第二个MetroCluster配置连接其他网桥。</block>
-  <block id="785ca789cd5d47a1b40d11e4fa3a608a" category="paragraph">您可以按照相同模式使用端口25到48为第二个DR组或第二个MetroCluster配置连接其他网桥。</block>
-  <block id="3914736797bebae05c8e9387dd6727f0" category="paragraph">下表显示了仅使用一个FC端口(FC1或FC2)的光纤桥接器的500N或7600N网桥的网桥端口使用情况。对于使用一个FC端口的光纤桥接500N或7600N网桥、您可以使用缆线将FC1或FC2连接到指示为FC1的端口。您还可以使用端口25-48连接其他网桥。</block>
-  <block id="23a48f21ed38a9e3df523f469f325385" category="paragraph">下表显示了Cisco 9132T交换机上的端口使用情况。</block>
-  <block id="b38a704e8751bf228cfb309f0668b3e1" category="section-title">使用同时使用两个FC端口(FC1和FC2)的光纤网桥7500N或7600N的控制器配置</block>
   <block id="2d98516f0953aef9ad21de45b1d6ed89" category="paragraph">下表显示了同时使用两个FC端口(FC1和FC2)的使用光纤桥500N或7600N的控制器配置。下表显示了在两个DR组中使用四个和八个控制器模块时支持的最大配置。</block>
   <block id="24ce95dff7cdbe82f47d82b0c5e3c3bd" category="paragraph">LEM2-5</block>
   <block id="d1219ba7b45f6028da9ef53dc1d962dc" category="paragraph">LEM2-6</block>
   <block id="d72635ed8e78c8bf248888485d54fefc" category="paragraph">LEM2-7</block>
   <block id="bf56acff15a22deda5e2b827afffd42e" category="paragraph">LEM2-8</block>
-  <block id="ebbda15a69930ca8edcac4149ee0cd6b" category="section-title">Cisco 9132T、带1个LEM和1个四节点MetroCluster或DR组</block>
-  <block id="d1d3effcd2e3b543a6d69f1de82ab93f" category="paragraph">下表显示了具有1个LEM和1个四节点MetroCluster或DR组的Cisco 9132T交换机的端口使用情况。</block>
-  <block id="59bea19cbabb48065c7357317b97432c" category="paragraph">下表显示了具有2个LEM和1个四节点MetroCluster或DR组的Cisco 9132T交换机的端口使用情况。</block>
-  <block id="71b8d98cdcca6f6c9703e8e704b1bc15" category="paragraph">下表显示了具有两个四节点MetroCluster或一个具有两个DR组的八节点MetroCluster的Cisco 9132T交换机的端口使用情况。</block>
   <block id="9fc6290b0188dfeebf0e0bc3aa659923" category="list-text">您设置的MetroCluster启动程序值取决于新系统使用的是共享集群/HA端口还是共享MetroCluster或HA端口。使用以下信息确定系统的端口。</block>
   <block id="9e6ae12e9968c12ca89b65cbfc98c1a6" category="paragraph">根据您的平台型号使用的是共享集群/HA端口还是共享MetroCluster端口、命令输出会有所不同。</block>
   <block id="f4c0383379a5ae93d0b5e4c4f8586e47" category="open-title">使用共享集群/HA端口的系统</block>
@@ -13516,8 +13355,6 @@
   <block id="6750be268fde99a8fc70da3cae96763b" category="cell"><block ref="dc13cd459e510658615266395ba927b0" category="inline-xref-macro-rx"></block></block>
   <block id="3485285ca38e1ca4c0a680f9bcf47989" category="admonition">如果旧控制器和新控制器没有通用端口、则不需要修改数据RIF。跳过此步骤并直接转到<block ref="d2fd743661c244ff041df8d51a55b2b7" category="inline-xref-macro-rx"></block>。</block>
   <block id="57e1aa86ef1214c6b5a618674a806136" category="paragraph">包括SAN和NAS在内的所有数据`都将由管理员管理"` up `d"、在操作上为"` own "、因为这些数据在切换站点(cluster A)上处于启动状态。</block>
-  <block id="10a71a5f735ab2b1b550a2d004b57ffb" category="paragraph">您可以按照相同模式使用端口25到48连接其他网桥。</block>
-  <block id="937a8da9d8c2c67fd94deda08131bfdd" category="section-title">运行ONTAP 9.1或更高版本的八节点MetroCluster配置中的Cisco端口使用情况</block>
   <block id="3940782c6ee1e8e37bce75ab000a6d7d" category="admonition">为了提高安全性、NetApp建议您配置SNMPv2或SNMPv3以监控交换机运行状况。</block>
   <block id="0d81f0b5554e85bb5f4956551639b630" category="admonition">从ONTAP 9.8开始，此<block ref="688266bc53c9ead911ef4b45027ac96a" prefix=" " category="inline-code"></block>命令将替换为<block ref="07a3b9d70f925392ee8d0581b56ebc10" prefix=" " category="inline-code"></block>。以下步骤显示了<block ref="688266bc53c9ead911ef4b45027ac96a" prefix=" " category="inline-code"></block>命令、但如果您运行的是ONTAP 9.8或更高版本、<block ref="07a3b9d70f925392ee8d0581b56ebc10" prefix=" " category="inline-code"></block>则首选使用命令。</block>
   <block id="c8b1f4f0bee22e8e9a9aaaca29899782" category="paragraph">如果需要通过网络启动新控制器，请参阅 <block ref="afb88e8c89f7c0d7fb7d1ebfbdc283e2" category="inline-link-macro-rx"></block>。</block>
@@ -13645,7 +13482,6 @@
   <block id="027e94eee8bf21f30bcb532977a993c1" category="paragraph"><block ref="4f1415de9c82b1c8c8506139320b0115" prefix="" category="inline-code"></block></block>
   <block id="fdb1649f24689923739f1476888a8957" category="list-text">确认交换机已删除：</block>
   <block id="02637489efdd2722934159348bf04810" category="section-title">使用同时使用两个FC端口(FC1和FC2)的光纤网桥7500N或7600N的磁盘架配置</block>
-  <block id="19c5470fc0cd91ca38fde0aea868fce3" category="paragraph">下表显示了同时使用两个FC端口(FC1和FC2)的光纤桥接器在MetroCluster 1或DR组1中支持的磁盘架配置。使用此配置表时、应注意以下事项：</block>
   <block id="844fb1aaef97c4328b587658a21a78d2" category="paragraph">如果您使用的是QSFP-SFP+适配器、则可能需要将ISL端口配置为本机速度模式、而不是分支速度模式。请参见交换机供应商文档以确定ISL端口速度模式。</block>
   <block id="1894908b5d36f7ab21f7b1b1afcc630c" category="list-text">以下Brocade FC交换机支持对MetroCluster FC后端网络结构进行WAN ISL加密和压缩：</block>
   <block id="0df6785d5da501ba31bbeb3f6ee67c24" category="list-text">Brocade G630</block>
@@ -14323,4 +14159,205 @@
   <block id="b9b3d7865c01f9cccab728c6d2bb7296" category="paragraph">您必须配置IP交换机以提供后端MetroCluster IP连接。您遵循的程序取决于您的交换机供应商。</block>
   <block id="528aafe8fc362d0088ddcc230e89b62a" category="doc">如何将端口表与多个MetroCluster IP 配置一起使用</block>
   <block id="760419501f92fb637e39b91dbfd2ea18" category="summary">您必须根据存储控制器与存储架的连接方式选择正确的安装程序。</block>
+  <block id="ef78e28e8b4e7855b7b5095e4cbd705a" category="paragraph">从ONTAP 9.15.1 开始，您可以在支持的系统上配置端到端加密，以加密MetroCluster IP 配置中的站点之间的后端流量，例如 NVlog 和存储复制数据。</block>
+  <block id="ea1ad38d91c2e87ef2e9571bd55654fd" category="paragraph">ONTAP 9.17.1</block>
+  <block id="4aa636d0c8e798111a1395c5cf44abef" category="list-text">AFF A800和AFF C800</block>
+  <block id="d29f60ae06680289bfe22ab30d654095" category="list-text">AFF A20、 AFF A30、 AFF C30、 AFF A50、 AFF C60</block>
+  <block id="28fb49ef5a1c34b423f9e9450932ddd8" category="list-text">AFF A70、 AFF A90、 AFF A1K、 AFF C80</block>
+  <block id="973a6b26175b423fb0a4f4dc634c5595" category="inline-link-macro">FC 交换机的端口分配</block>
+  <block id="33749a4c2032d71184be94c72f9614ff" category="paragraph"><block ref="33749a4c2032d71184be94c72f9614ff" category="inline-link-macro-rx"></block></block>
+  <block id="75169829fcf3d13846621c36c893c338" category="summary">下表显示了Brocade交换机上的端口使用情况。</block>
+  <block id="e12a85c23a32c6e40e9495c669d34500" category="doc">MetroCluster FC 配置中 FC 到 SAS 桥接器的Brocade端口使用情况</block>
+  <block id="e3f486dbe2a6f716cd5e55f61d1287e5" category="paragraph">了解将Brocade FC 交换机连接到 FC-SAS 网桥所需的端口分配。端口分配取决于网桥使用一个还是两个 FC 端口。</block>
+  <block id="f8c77306f72c386cb2cc2a57898dd287" category="admonition">Brocade 7810 交换机仅支持一个 DR 组。</block>
+  <block id="1ba3ed3163aabf09306cddf57fc55f1c" category="section-title">使用 FibreBridge 7500N 或 7600N 网桥的机架配置，同时使用两个 FC 端口（FC1 和 FC2）</block>
+  <block id="abd326f192450495e3403be5ef139fd0" category="paragraph">下表显示了使用Brocade交换机上的两个 FC 端口（FC1 和 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 1 或 DR 组 1 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：</block>
+  <block id="d8ba4be44646d369564696383d55404f" category="list-text">在Brocade 6505、G610、G710、G620、G620-1、G630 和 G630-1 交换机上，您可以将额外的网桥连接到端口 12-15。</block>
+  <block id="534d8b7bdf4ca2d198fae23cc3c45936" category="list-text">在Brocade 6510 和 DCX 8510-8 交换机上，您可以将额外的网桥连接到端口 12-19。</block>
+  <block id="2f9db2a251c4a12e14fe21437be45a84" category="list-text">在Brocade 6520 交换机上，您可以将额外的网桥连接到端口 12-21 和 24-45。</block>
+  <block id="fb5207adf531a5d74567d43d983b2b24" category="list-text">在Brocade 7810 和 7840 交换机上， MetroCluster 1 或 DR 组 1 仅支持两个桥接堆栈。</block>
+  <block id="de0b05ff24a07fc641e1a94bae600264" category="list-text">在Brocade G720 和 G730 交换机上，您可以将额外的网桥连接到端口 16-21。</block>
+  <block id="cb7386637328b93b6e9999fd699bf9f5" category="cell">*6505、G610、G710 端口*</block>
+  <block id="192f9f6332f071c1c43d2b01d5313154" category="cell">*6510、DCX 8510-8 端口*</block>
+  <block id="960455452c0b3ed8547fc0a0ea491e21" category="cell">6520端口</block>
+  <block id="85e1344c500bb044742454415e5b3f9f" category="cell">*7810 端口*</block>
+  <block id="bd158107f7d5da708f42677cabbaef13" category="cell">*7840 端口*</block>
+  <block id="6ba5bcc340303f1a24a0870e678237ee" category="cell">*G620、G620-1、G630、G630-1 端口*</block>
+  <block id="0532d1084b82473d2ec4e7781a5cb9e3" category="cell">*G720、G730 端口*</block>
+  <block id="00ed6b41199d0b08f19fcca96f702590" category="paragraph">下表显示了使用Brocade交换机上的两个 FC 端口（FC1 和 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 2 或 DR 组 2 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：</block>
+  <block id="32858bc372a5417fedbd1aad6b465663" category="list-text">在Brocade 6510、DCX 8510-8 和 7840 交换机上， MetroCluster 2 或 DR 组 2 仅支持两个桥接堆栈。</block>
+  <block id="936c5313bce7f2e31a21146b7908f5c0" category="list-text">在Brocade 6520 交换机上，您可以将额外的网桥连接到端口 60-69 和 72-93。</block>
+  <block id="00e407a97c44ac9daf53d3d4a4e4abec" category="list-text">在Brocade G620、G620-1、G630 和 G630-1 交换机上，您可以将额外的网桥连接到端口 32-35。</block>
+  <block id="436e0635a5c0438fc32b4d930570e390" category="list-text">在Brocade G720 和 G730 交换机上，您可以将额外的网桥连接到端口 36-39。</block>
+  <block id="088ef638cce47e0e69ac0a5bd047b269" category="list-text">八节点MetroCluster配置中Brocade 6505、G610 和 G710 交换机的端口使用情况未显示。由于端口数量有限，您需要根据控制器型号以及所使用的 ISL 和桥接对的数量，逐个站点地分配端口。</block>
+  <block id="274b68192b056e268f128ff63bfcd4a4" category="paragraph">不适用</block>
+  <block id="b6c6a6f7bf18f912e536a46277e3cc30" category="section-title">MetroCluster 3 或 DR 组 3</block>
+  <block id="c8154ee20c7c57c37f25d674a21bc3de" category="paragraph">下表显示了使用Brocade交换机上的两个 FC 端口（FC1 和 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 3 或 DR 组 3 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：</block>
+  <block id="4cf00342088c406cc006b65d067ae860" category="list-text">在Brocade G630 和 G630-1 交换机上，您可以将额外的网桥连接到端口 60-63。</block>
+  <block id="a19614fe61c689287113f025fb2a9341" category="list-text">在Brocade G730 交换机上，您可以将额外的网桥连接到端口 64、65、68 和 69。</block>
+  <block id="acede4f3a519c957d0080f4ff6e8a119" category="cell">*G630、G630-1 端口*</block>
+  <block id="5fdd3323bf58d9d63489996cf3ff0fc4" category="cell">G730 端口</block>
+  <block id="102fc69a57fe4073ee1cc96a47ea5822" category="section-title">MetroCluster 4 或 DR 组 4</block>
+  <block id="ca09aa52324244f6259bc162f54dd485" category="paragraph">下表显示了使用Brocade交换机上的两个 FC 端口（FC1 和 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 4 或 DR 组 4 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：</block>
+  <block id="b7c9c5f46040127042888d27aa3dc682" category="list-text">在Brocade G630 和 G630-1 交换机上，您可以将额外的网桥连接到端口 80-83。</block>
+  <block id="4d84d81cd54a387cb67211d5435c9409" category="list-text">在Brocade G730 交换机上，您可以将额外的网桥连接到端口 84-95。</block>
+  <block id="f6abe3ad540a98d1f7107d422600f876" category="paragraph">下表显示了使用 FibreBridge 7500N 或 7600N 以及Brocade交换机上仅一个 FC 端口（FC1 或 FC2）的MetroCluster 1 或 DR 组 1 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：</block>
+  <block id="ba3a0fd672b6de7fa25e13df0e7e0e32" category="list-text">在Brocade 6505、G610、G710、G620、G620-1、G630 和 G630-1 交换机上，附加网桥端口 12-15。</block>
+  <block id="4ab229866f65e0d5d38ff56141d203bd" category="list-text">在Brocade 6520 交换机上，您可以将额外的网桥连接到端口 16-21 和 24-45。</block>
+  <block id="19e21692f0353afdfb9e6993fc84c91c" category="list-text">在Brocade G720 和 G730 交换机上，您可以将额外的网桥连接到端口 16-21。</block>
+  <block id="5996cf3be07521c49c5c7ce7e81243b3" category="paragraph">下表显示了使用Brocade交换机上的一个 FC 端口（FC1 或 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 2 或 DR 组 2 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：</block>
+  <block id="41c0495e949efa120632beb8647bf45c" category="list-text">在Brocade G620、G620-1、G630、G630-1 交换机上，您可以将额外的网桥连接到端口 32-35。</block>
+  <block id="0f30723303f5142c77e206ef6d8c81cd" category="paragraph">下表显示了使用Brocade交换机上的一个 FC 端口（FC1 或 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 3 或 DR 组 3 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：</block>
+  <block id="02e05becadc975293e78a79d8ef65dfe" category="list-text">在Brocade G730 交换机上，您可以将额外的网桥连接到端口 64、65、68、69。</block>
+  <block id="528ac8847278382d2e61595e966e0665" category="paragraph">下表显示了使用Brocade交换机上的一个 FC 端口（FC1 或 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 4 或 DR 组 4 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：</block>
+  <block id="ecee2db9c391f0cf695a482b393e860a" category="list-text">在Brocade G730 交换机上，您可以将额外的网桥连接到端口 84-95。</block>
+  <block id="7c35e4bcc45255dd28973dfb6bc092e8" category="summary">下表显示了Brocade交换机上的端口使用情况。表中显示了支持的最大配置，每个 DR 组有 4 个控制器模块。</block>
+  <block id="04ca0955bf0432f214d97bf4155460a6" category="doc">MetroCluster FC 配置中控制器的Brocade端口使用情况</block>
+  <block id="9b38dc5d5eebe42d871aca5978ac8c01" category="paragraph">了解将Brocade FC 交换机连接到控制器所需的端口分配。</block>
+  <block id="6c78a3e22fc0b508564ffbc7875429ee" category="paragraph">下表显示了支持的最大配置，每个灾难恢复组包含四个控制器模块。对于较小的配置，请忽略附加控制器模块的行。请注意，只有Brocade 6510、 Brocade DCX 8510-8、G620、G630、G620-1、G630-1、G720 和 G730 交换机支持八个 ISL。</block>
+  <block id="98158532aa9902a4c45eecc32259d7fd" category="paragraph">在使用这些表格之前，请查看以下信息：</block>
+  <block id="9e162df39d45c70dd1a9ef6e5f0f9f5a" category="list-text">未显示八节点MetroCluster配置中Brocade 6505、G610 和 G710 交换机的端口使用情况。由于端口数量有限，必须根据控制器模块型号以及使用的 ISL 和桥接对数量，逐个站点地进行端口分配。</block>
+  <block id="c9b0f40fd7ed63e362523c53f9b60034" category="list-text">使用八个 FC-VI 端口（ AFF A900和FAS9500系统）的系统不支持Brocade 6520、7810 和 7840 交换机。</block>
+  <block id="6639b99f7d6bc630b1fe27bd494e8ef5" category="paragraph">下表显示了Brocade交换机上的MetroCluster 1 或 DR 组 1 中支持的控制器配置。</block>
+  <block id="1b1296238d82362d7bc3879f7a860f9c" category="paragraph">下表显示了Brocade交换机上的MetroCluster 2 或 DR 组 2 中支持的控制器配置。</block>
+  <block id="4556c3836df21c2b779af9c592086a7d" category="paragraph">下表显示了Brocade交换机上的MetroCluster 3 或 DR 组 3 中支持的控制器配置。</block>
+  <block id="97cea14251c34ae796de98b29c609155" category="paragraph">下表显示了Brocade交换机上的MetroCluster 4 或 DR 组 4 中支持的控制器配置。</block>
+  <block id="066ddccbcec755351e94d462b9bfc6f4" category="doc">MetroCluster FC 配置中 ISL 的Brocade端口使用情况</block>
+  <block id="137828143b4d97f557c847a0d63d1ab8" category="paragraph">了解将Brocade FC 交换机连接到 ISL 所需的端口分配。</block>
+  <block id="2e6614d3d86c8dd2665d62393cbf3e6d" category="list-text">AFF A900和FAS9500系统支持八条 ISL。BrocadeBrocade 、G620、G620-1、G630、G630-1、G720 和 G730 交换机支持八条 ISL</block>
+  <block id="44085db2c9c912fa11bf5f9e214f39c4" category="list-text">Brocade 6520 交换机支持八条 ISL，但不支持AFF A900和FAS9500系统。</block>
+  <block id="34d3c50b5df90678ffad3adb88036855" category="cell">ISL 端口</block>
+  <block id="110199ce8c9e41e7a9043ca63029964d" category="cell">7840（10-Gbps）端口</block>
+  <block id="02856897ce584b64806e6644b744629d" category="cell">7840（40 Gbps）端口</block>
+  <block id="28f9c26734be91d2267500e23b81b5a0" category="cell">*6510、G620、G620-1、G630、G630-1、G720、G730 端口*</block>
+  <block id="df3d777f1328292fcdeba16660b5b8f4" category="paragraph">ge2</block>
+  <block id="e75ac9994da166118cb97bc8f3a9d2c5" category="paragraph">ge0</block>
+  <block id="634e17b415a24a66736acb108dcbc482" category="paragraph">ge3</block>
+  <block id="4ad977318914c1602e0bef281007cbc3" category="paragraph">ge1</block>
+  <block id="4c41bcd47076a2465cf860270ba825d8" category="paragraph">ge4</block>
+  <block id="a38350c12fe0a53569f3e01e74ddbe10" category="paragraph">ge10</block>
+  <block id="15e8a75834a70404958ba71a09f7bc39" category="paragraph">ge5</block>
+  <block id="8b8278d099e7c8bc7476ba252363116f" category="paragraph">ge11</block>
+  <block id="b1b22d3d0ad784f5fb624d20b0d1aaf5" category="paragraph">ge6</block>
+  <block id="1e5b8a9fc432259fc7f690b710a2a783" category="paragraph">ge7</block>
+  <block id="f4b9ec30ad9f68f89b29639786cb62ef" category="paragraph">94</block>
+  <block id="35c62b607885ce330b046b4c4c25d432" category="summary">了解使用两个 FC 端口将Cisco 9132T FC 交换机连接到 FC 到 SAS 网桥所需的端口分配。</block>
+  <block id="56ab6416564ba264205838c8d99b988a" category="doc">MetroCluster FC 配置中 FC 到 SAS 网桥的Cisco 9132T 端口使用情况</block>
+  <block id="02316aeafe3ffaef70eae274a0ffcf70" category="admonition">使用带有 1xLEM 模块的Cisco 9132T 交换机仅支持一 (1) 个桥接堆栈。</block>
+  <block id="0e59e2fa2fbd6da7a44ef7047fdd8b22" category="paragraph">下表显示了使用Cisco 9132T 交换机上的两个 FC 端口（FC1 和 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 1 或 DR 组 1 中支持的机架配置。使用此配置表时，您应该注意以下事项：</block>
+  <block id="6a3bcf00f947d18cc38e11a54c60f748" category="list-text">在四节点配置中，您可以将额外的网桥连接到带有 2xLEM 的Cisco 9132T 交换机上的端口 LEM2-1 至 LEM2-8。</block>
+  <block id="60a0cc2ca3fac754f1e302f3ec0511db" category="cell">*连接到 FC_switch...*</block>
+  <block id="72620a0e5508b07e86bc62ace781a36f" category="cell">*9132T 1x LEM（四节点）*</block>
+  <block id="5aa76a17f018d889962e9e4176df4c02" category="cell">*9132T 2x LEM（四节点）*</block>
+  <block id="7c82dbb68df3b7b1441ac19e565175b6" category="cell">*9132T 2x LEM（八节点）*</block>
+  <block id="2cbddf47cae4ae3b81473f3a1ef728f3" category="paragraph">下表显示了使用Cisco 9132T 交换机上的两个 FC 端口（FC1 和 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 2 或 DR 组 2 中支持的机架配置。使用此配置表时，您应该注意以下事项：</block>
+  <block id="1980ae472da2763212721ebb0d5d3ae4" category="list-text">在八节点配置中，您可以将额外的网桥连接到带有 2x LEM 的Cisco 9132T 交换机上的端口 LEM2-13 至 LEM2-16。</block>
+  <block id="1299fad6f0b50301794653cbdb70917c" category="summary">了解将Cisco 9132T FC 交换机连接到控制器所需的端口分配。</block>
+  <block id="1ddf53f884a8f63645cb8f979db407ec" category="doc">MetroCluster FC 配置中控制器的Cisco 9132T 端口使用情况</block>
+  <block id="97bb088e2bc1ea4fb3055f582f8c3c9c" category="paragraph">下表显示了Cisco 9132T 交换机上MetroCluster 1 或 DR 组 1 支持的控制器配置。使用此配置表时，您应该注意以下事项：</block>
+  <block id="bb219e301578bfa9d60000f47dffdc69" category="list-text">AFF A900和FAS9500系统有八个 FC-VI 端口（FC-VI-1 和 FC-VI-2 分别为 a、b、c 和 d）。</block>
+  <block id="d65de277d287f1f63013cbb6420f5c7e" category="paragraph">下表显示了Cisco 9132T 交换机上的MetroCluster 2 或 DR 组 2 支持的Cisco 9132T 控制器配置。使用此配置表时，应注意以下事项：</block>
+  <block id="8603bd481185ead75394e22a8729fc66" category="list-text">AFF A900和FAS9500系统的Cisco 9132T 交换机不支持MetroCluster 2 或 DR 组 2。</block>
+  <block id="220812c41e9ead6b356318521a2d0ed9" category="list-text">MetroCluster 2 或 DR 组 2 仅在八节点MetroCluster配置中受支持</block>
+  <block id="2baa0dc9f32f8e851abd52550f49a83e" category="summary">了解将Cisco 9132T FC 交换机连接到 ISL 所需的端口分配。</block>
+  <block id="d5c1e6dea84f9936fa53bede45b168fd" category="doc">MetroCluster FC 配置中 ISL 的Cisco 9132T 端口使用情况</block>
+  <block id="e94cac7e2fa07773c5666a1456ca5ec6" category="summary">了解将Cisco 9124V、9148S、9148V、9250i 和 9396S FC 交换机连接至 FC 到 SAS 网桥所需的端口分配。</block>
+  <block id="da5350efa43bdbe43ac41af094f3b075" category="doc">MetroCluster FC 配置中 FC 到 SAS 桥接器的Cisco端口使用情况</block>
+  <block id="8a0c778a1dfbc5963919678c4b1be670" category="paragraph">了解将Cisco9124V、9148S、9148V、9250i 和 9396S FC 交换机连接到 FC-SAS 网桥所需的端口分配。端口分配取决于网桥使用一个还是两个 FC 端口。</block>
+  <block id="61d8da56c7dfb983f6fc2c5209926e54" category="inline-link-macro">MetroCluster FC 配置中 FC 到 SAS 网桥的Cisco 9132t 端口使用情况</block>
+  <block id="740edfedde29aa500e1b2c6e62b6bfa9" category="admonition">对于Cisco 9132T，请参阅<block ref="1102c4869b2ac52eccc6ed033152f390" category="inline-link-macro-rx"></block> 。</block>
+  <block id="0563604beb831d28c2a03632b3eb45a9" category="paragraph">下表显示了MetroCluster 1 或 DR 组 1 中使用 FibreBridge 7500N 或 7600N 网桥以及Cisco交换机（9132T 除外）上的两个 FC 端口（FC1 和 FC2）支持的磁盘架配置。使用此配置表时，您应该注意以下事项：</block>
+  <block id="27a0870b0eadade107d795b8343f3cea" category="list-text">在Cisco 9124V 和 9148V 交换机上，您可以将额外的MetroCluster 1 或 DR 组 1 网桥连接到端口 21-24。</block>
+  <block id="8b4f66daec6bb64dee84e9f3bff2c36b" category="list-text">在Cisco 9250i 交换机上，您可以将额外的MetroCluster 1 或 DR 组 1 网桥连接到端口 17-40。</block>
+  <block id="8380580c6c773450839151b10655f779" category="list-text">在Cisco 9396S 交换机上，您可以将额外的MetroCluster 1 或 DR 组 1 网桥连接到端口 17-32。</block>
+  <block id="d8d9c726ed1dbaaa319dbaeb5cc221d9" category="cell">*9124V端口*</block>
+  <block id="15fd9fbf739edf8bb19e249d108fec8d" category="cell">*9148S 端口*</block>
+  <block id="fb095f517048f850d8c0f2a432193607" category="cell">*9148V端口*</block>
+  <block id="83344f2c2be4f7d65b6210b16a0513a1" category="cell">*9250i 端口*</block>
+  <block id="bc820fd7c4489b456648d614cd582363" category="cell">*9396S 端口*</block>
+  <block id="cc110b0d32f154624d6a8701b256148e" category="paragraph">下表显示了使用 FibreBridge 7500N 或 7600N 以及Cisco交换机（不包括 9132T）上的两个 FC 端口（FC1 和 FC2）的MetroCluster 2 或 DR 组 2 中支持的磁盘架配置。使用布线表时，应注意以下事项：</block>
+  <block id="2fa8b10602ef83d3db5802e430a7b823" category="list-text">八节点MetroCluster配置不支持Cisco 9124V 和 9250i 交换机</block>
+  <block id="1ff52bd220af0ed442fe60501dd9a4dd" category="list-text">在Cisco 9148V 交换机上，您可以将额外的MetroCluster 2（DR 组 2）网桥连接到端口 45-48。</block>
+  <block id="4ad78f3c5a5f97a5e8272e4c4bc26d50" category="list-text">在Cisco 9396S 交换机上，您可以将额外的MetroCluster 2（DR 组 2）网桥连接到端口 65-80。</block>
+  <block id="83445047ad163ad67b87b846a01587b9" category="paragraph">下表显示了使用Cisco交换机（不包括 9132T）上的一个 FC 端口（FC1 或 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 1 或 DR 组 1 中支持的机架配置。参考配置文件 (RCF) 不支持 FibreBridge 网桥上的一个 FC 端口，因此您必须手动配置后端光纤通道交换机。</block>
+  <block id="386cc47615db5ce48b5c404c6eea225c" category="paragraph">使用布线表时应注意以下事项：</block>
+  <block id="bc777ffe08cd674bdc3359a52b9fb780" category="paragraph">下表显示了在Cisco交换机（不包括 9132T）上使用一个 FC 端口（FC1 或 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 2 或 DR 组 2 中支持的机架配置。使用此配置表时，您应该注意以下事项：</block>
+  <block id="1e146fea5111ab418168eb4c45ec07b3" category="list-text">八节点MetroCluster配置不支持Cisco 9124V 和 9250i 交换机。</block>
+  <block id="e0ef9d346792785ec9cd13ea2bec5466" category="list-text">在Cisco 9148V 交换机上，您可以将额外的MetroCluster 2 或 DR 组 2 网桥连接到端口 45-48。</block>
+  <block id="62ca2163e57a9e289cffdf64df962520" category="list-text">在Cisco 9396S 交换机上，您可以将额外的MetroCluster 2 或 DR 组 2 网桥连接到端口 65-80。</block>
+  <block id="534943aa74fec8ca87b27eadb1b21265" category="summary">了解如何将Cisco 9124V、9148S、9148V、9250i 和 9396S FC 交换机连接到控制器。</block>
+  <block id="1e9316dece6d131851d2c13d7fbd2589" category="doc">MetroCluster FC 配置中控制器的Cisco端口使用情况</block>
+  <block id="1fe08027caebd89506854d0ded6ecca5" category="paragraph">了解将Cisco 9124V、9148S、9148V、9250i 和 9396S FC 交换机连接到控制器所需的端口分配。</block>
+  <block id="624be4321648a3a3bfb79af4d4edf752" category="list-text">对于Cisco 9132T，请参阅<block ref="c436bcac3df72f1f5a61a77d8f2b10b3" category="inline-link-macro-rx"></block> 。</block>
+  <block id="3cfc60f7aebb0681869ca719fc198a9f" category="list-text">八节点MetroCluster配置不支持Cisco 9124V 和 9250i 交换机。</block>
+  <block id="f8aa3022f754800c7ee15f2a8230fb8a" category="paragraph">下表显示了Cisco交换机（不包括 9132T）上的MetroCluster 1 或 DR 组 1 中支持的控制器配置。</block>
+  <block id="e74d1350ff25573a9ce1cffab4845ede" category="paragraph">下表显示了Cisco交换机（不包括 9132T）上MetroCluster 2 或 DR 组 2 中支持的控制器配置。</block>
+  <block id="b75fa4bac47c908e6d933a7d59e278ea" category="summary">了解将Cisco 9124V、9148S、9148V、9250i 和 9396S FC 交换机连接到 ISL 所需的端口分配。</block>
+  <block id="53b7de75a7b8bff61718b5b8491ec9b1" category="doc">MetroCluster FC 配置中 ISL 的Cisco端口使用情况</block>
+  <block id="ebae98863f530f12d5543aa741db5149" category="list-text">对于Cisco 9132T，请参阅<block ref="1a628121665a8df5523955e5258ce6e8" category="inline-link-macro-rx"></block> 。</block>
+  <block id="4b4406a8a0ced8e1c35f6b11c92bf04a" category="list-text">Cisco 9250i 交换机需要 24 端口许可证。</block>
+  <block id="472c07eb3fa2f73960a80e6ff02e65a9" category="list-text">MetroCluster配置中的每台Brocade DCX 8510-8 交换机都必须正确配置 ISL 端口和存储连接。有关端口使用情况，请参阅以下部分： <block ref="9281602316965ab108ebb4b3e24c2e1a" category="inline-link-macro-rx"></block> 。</block>
+  <block id="ddeb395837d97d20c515df993777b6fa" category="paragraph">您可以使用每个结构的单个启动器端口和每个控制器的两个启动器端口来配置FAS8200和AFF A300系统。</block>
+  <block id="a7bcae5400d91e898a936b6613fbcf1a" category="paragraph">您可以按照 FibreBridge 7600N 网桥的布线方法，仅使用一个 FC 端口（FC1 或 FC2）。无需使用四个启动器，只需连接两个启动器，并将连接到交换机端口的另外两个启动器留空。</block>
+  <block id="a244f8c648b858e99297df169be16fbe" category="paragraph">如果手动执行分区，则请遵循使用一个 FC 端口（FC1 或 FC2）的 FibreBridge 7600N 网桥的分区方法。在这种情况下，每个网络结构中的每个区域成员都会添加一个启动器端口，而不是两个。</block>
+  <block id="746888951c0c0c068fe0ecb423bc3647" category="paragraph">下表显示了当每个结构使用一个启动器端口并且每个控制器使用两个启动器端口时Brocade FC 交换机的端口分配。</block>
+  <block id="8cda044a83a93a8694b82c69f07472b8" category="paragraph">*6505、6510、6520、7840、G620、G630、G610、G710、G720、G730 和 DCX 8510-8*</block>
+  <block id="2962e17ae4f065d8bdf06bd568d735fe" category="summary">您需要验证在连接 FC 交换机时是否使用了指定的端口分配。</block>
+  <block id="bbbad8b5461f0f1902f847c2533d5d10" category="doc">MetroCluster FC 交换机的端口分配</block>
+  <block id="9cca88f85e7d8fa6ed049464eccda25a" category="paragraph">您可以将未用于连接启动器端口、FC-VI 端口或 ISL 的端口重新配置为存储端口。但是，如果您使用的是受支持的 RCF，则必须相应地更改分区。</block>
+  <block id="d18fbf8af3ac1bbccb6f8e18401b26bc" category="paragraph">如果您使用受支持的 RCF，ISL 端口可能无法连接到所示的相同端口，并且可能需要手动重新配置。</block>
+  <block id="c65a3f3a9ad7f6fb95c5c0c9c2f60f04" category="paragraph">如果您使用ONTAP 9 的端口分配配置了交换机，则可以继续使用旧分配。但是，运行ONTAP 9.1 或更高版本的新配置应使用此处显示的端口分配。</block>
+  <block id="ff4a35aa4ee768c93c0ab25dfcf33191" category="list-text">所布线的 ISL 数量可能因站点要求而异。</block>
+  <block id="b39821ed319840f31d0be0c4ae8cfd9d" category="section-title">AFF A900和FAS9500布线指南</block>
+  <block id="225164626c35447b3e92828638545188" category="list-text"><block ref="225164626c35447b3e92828638545188" category="inline-link-macro-rx"></block></block>
+  <block id="9281602316965ab108ebb4b3e24c2e1a" category="list-text"><block ref="9281602316965ab108ebb4b3e24c2e1a" category="inline-link-macro-rx"></block></block>
+  <block id="83203a7d47efc86f2bd5ef6d13fbed5d" category="paragraph">如果您计划仅使用 FibreBridge 网桥上的一个 FC 端口，请按照本节中的说明手动配置后端光纤通道交换机， <block ref="9281602316965ab108ebb4b3e24c2e1a" category="inline-link-macro-rx"></block> 。</block>
+  <block id="7a624101744abdf7e3500edd9f2b8245" category="section-title">审查Brocade许可证要求</block>
+  <block id="a0514b0eaae24deaa163425bb252002a" category="section-title">将Brocade FC 交换机值设置为出厂默认值</block>
+  <block id="3561a7e149ea2ddff2f76e7be9f49628" category="section-title">配置基本交换机设置</block>
+  <block id="0aa9c793fa7f1fcc118a282b94f54f30" category="inline-link">在ONTAP软件上配置帧的按序传送或无序传送</block>
+  <block id="cad2bf87303d43b36bd15c02f70b9ae5" category="paragraph"><block ref="cad2bf87303d43b36bd15c02f70b9ae5" category="inline-link-rx"></block></block>
+  <block id="adbeb89dc96320420692ebdd1b629865" category="section-title">在Brocade DCX 8510-8 交换机上配置基本交换机设置</block>
+  <block id="f212064f164fdbfa18222ba76b79ebf2" category="section-title">使用 FC 端口在Brocade FC 交换机上配置 E 端口</block>
+  <block id="ca6b37b231dd9c9149ee7e02a33849f5" category="cell">BrocadeG610、G710</block>
+  <block id="5358190ead6d3dea762b96f6645e7238" category="section-title">在Brocade 7810 和 7840 FC 交换机上配置 40 Gbps VE 端口</block>
+  <block id="43d662d1662ba1cceb003ccdab3e6f96" category="section-title">配置Brocade交换机上的非 E 端口</block>
+  <block id="3cef333ca3e4e98d22444149f0792bd8" category="section-title">在Brocade G620 交换机上的 ISL 端口上配置压缩</block>
+  <block id="e3946c52fbbde777b77a7c581a5fbddb" category="section-title">在Brocade FC 交换机上配置分区</block>
+  <block id="5bc6f92d36054f446f4349568be67c5d" category="section-title">对 FC-VI 端口进行分区</block>
+  <block id="2213a2a5601f7a1cd4f4deb2431665e7" category="section-title">使用一个 FC 端口的区域 FibreBridge 7500N 或 7600N 网桥</block>
+  <block id="5cf728d1859b2ad0a8336e72b84e0298" category="cell">Brocade 6505、6510、6520、G620、G610 或 G710 交换机端口</block>
+  <block id="1397e60d228d717bb0a7a23c75956b8e" category="cell">Brocade 6505、6510、6520、G620、G610 或 G710 交换机</block>
+  <block id="10ca51cc895493fb81a3329ff788f13a" category="section-title">使用两个 FC 端口的区域 FibreBridge 7500N 网桥</block>
+  <block id="0d05a8e80e8873105e8d49c2b0b39c2f" category="cell">6505 / 6510 / G610 / G710 / G620 端口</block>
+  <block id="c221af1e22a3ba5250ea3e4880fcde46" category="cell">6505/6510/G610/G710端口</block>
+  <block id="abdc6cd37ae142d01247e456cde4ba0e" category="cell">6505 / 6510 / G610 / G710</block>
+  <block id="2f68cf40b9da9404a5af380678ac3afd" category="section-title">对Brocade FC 交换机进行分区</block>
+  <block id="5adfaf472d45117dbae7720aa1d0e7cd" category="section-title">在Brocade 6510 或 G620 交换机上设置 ISL 加密</block>
+  <block id="84bd4d33c6c4c4c0caef9d37b13d0240" category="section-title">禁用虚拟结构</block>
+  <block id="e24e67332454ba142d36a4b5d5e0b512" category="paragraph">在连接 FC 交换机时，需要验证是否使用了指定的端口分配。请参阅<block ref="9281602316965ab108ebb4b3e24c2e1a" category="inline-link-macro-rx"></block></block>
+  <block id="f60acd2a26821f2d2c220ec2a4aa9154" category="list-text">要启用 ISL 加密，请参阅<block ref="86b16351dbd120be1801efdebd06973d" category="inline-link-macro-rx"></block> 。</block>
+  <block id="eeb430d3bc018806b9ef6143d11130ff" category="paragraph">G710</block>
+  <block id="4214529c36f622a91e27a5d3bf07d42b" category="paragraph">以下系统支持端到端加密，以加密MetroCluster IP 配置中的站点之间的后端流量，例如 NVlog 和存储复制数据。</block>
+  <block id="c233a85eb73b71147110728c6ea138b0" category="paragraph">限制MetroCluster IP 配置的更改</block>
+  <block id="94c7b5632b2258cfb4caff7ce69a46fc" category="paragraph">ONTAP 9.17.1 包括针对四节点MetroCluster IP 配置的以下限制更新：</block>
+  <block id="1d45c357dffa07d4d43a5f9ba15da5c3" category="list-text">AFF C800、 AFF A800、 AFF A900、 AFF A90和AFF A1K系统具有以下更新的限制：</block>
+  <block id="e93bc32a64acd9280eef6044bf07e7f6" category="list-text">每个节点的FlexVol volume限制：1250</block>
+  <block id="3f51737f77066219e4ef03091fb5b85d" category="list-text">SVM 限制：每个集群 64 个 SVM</block>
+  <block id="9c57f3673465ed59c3b08ebac2be1ed3" category="list-text">LIF 数量：每个集群 256 个 LIF</block>
+  <block id="ddb7605ec5049e970ab35c9ad2ff89fc" category="list-text">AFF A400、 AFF C400、 ASA A400、 ASA C400、 AFF C80、 AFF A70和AFF A50 系统具有以下更新的限制：</block>
+  <block id="c5053b59fbc1700ab606b123bbd97a75" category="list-text">每个聚合体（单个或多个）的FlexVol volume限制：625</block>
+  <block id="fe57c6f7ead75bdf60c675612c2792a2" category="list-text">每个高可用性 (HA) 对的FlexVol volume限制：2500</block>
+  <block id="f7411497578d3c715ce980056c9a3dc5" category="list-text">每个MetroCluster集群的FlexVol volume限制：5000</block>
+  <block id="e012362a4f10b2d00ba77a0342c80c6d" category="list-text">每个 HA 对的最大FlexVol卷数从 1600 个增加到 2500 个。</block>
+  <block id="6dea0f46f4307533bbff7dfe880a75ea" category="sidebar">了解如何使用 FC 交换机的端口分配表</block>
+  <block id="ae6b17a796a400159e3071c16b88da41" category="sidebar">控制器的Brocade端口使用情况</block>
+  <block id="fce2ba1c56eeaddb6aa1390cdcfff6a9" category="sidebar">FC-SAS 桥接器的Brocade端口使用情况</block>
+  <block id="c21019da4f3d26c9393362cd3ab9d36a" category="sidebar">ISL 的Brocade端口使用情况</block>
+  <block id="73129fdee8e44c819b858c9086a408a8" category="sidebar">控制器的Cisco端口使用情况（不包括Cisco 9132T）</block>
+  <block id="ae8bca833180d714a6eceac516392b83" category="sidebar">FC-SAS 网桥的Cisco端口使用情况（不包括Cisco 9132T）</block>
+  <block id="71fb98471e3a7909163e01fb92f917b4" category="sidebar">ISL 的Cisco端口使用情况（不包括Cisco 9132T）</block>
+  <block id="3099965dec41589836e8937197d5c208" category="sidebar">控制器的Cisco 9132T 端口使用情况</block>
+  <block id="25e9b3ef06577abf9b26600f0c390fc3" category="sidebar">FC-SAS 网桥的Cisco 9132T 端口使用情况</block>
+  <block id="b25c20328b0418f22f0fbc4d47e42988" category="sidebar">Cisco 9132T ISL 端口使用情况</block>
 </blocks>

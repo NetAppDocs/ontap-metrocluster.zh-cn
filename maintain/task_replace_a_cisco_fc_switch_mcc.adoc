@@ -60,7 +60,7 @@ ISL 连接
 
 您的交换机端口使用情况应遵循建议的分配。
 
-* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
+* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["FC 交换机的端口分配"]
 
 
 .步骤

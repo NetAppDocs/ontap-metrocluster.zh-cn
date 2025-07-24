@@ -682,9 +682,9 @@ IMPORTANT: 分区完成之前，不应使用缆线连接 FibreBridge 7500N 网�
 
 
 .相关信息
-如果使用的是 ONTAP 9.1 及更高版本，则在为 FC 交换机布线时，您需要验证是否正在使用指定的端口分配。
+您需要验证在连接 FC 交换机时是否使用了指定的端口分配。
 
-link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
+link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["FC 交换机的端口分配"]
 
 
 

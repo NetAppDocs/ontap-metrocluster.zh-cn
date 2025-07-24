@@ -16,7 +16,7 @@ summary: 必须使用缆线将新控制器模块的 FC-VI 端口和 HBA （主�
 .步骤
 . 按照您的配置和交换机型号对应的表，为 FC-VI 端口和 HBA 端口布线。
 +
-** link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
+** link:../install-fc/concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["FC 交换机的端口分配"]
 ** link:../install-fc/concept_port_assignments_for_systems_using_two_initiator_ports.html["使用两个启动程序端口的系统的端口分配"]
 
 

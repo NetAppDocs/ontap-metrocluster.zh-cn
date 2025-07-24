@@ -64,7 +64,7 @@ FC_switch_A_1:admin> switchCfgPersistentDisable
 ----
 .. 使用建议的端口分配为新交换机布线。
 +
-link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
+link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["FC 交换机的端口分配"]
 
 .. 在配对 MetroCluster 站点上重复这些子步骤，以更换第一个交换机网络结构中的第二个交换机。
 +

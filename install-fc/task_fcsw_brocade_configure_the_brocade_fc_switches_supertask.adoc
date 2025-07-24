@@ -66,7 +66,7 @@ Metro-E 表示以太网帧传输或信号传输在城域范围内以本机方式
 
 
 
-== 查看 Brocade 许可证要求
+== 审查Brocade许可证要求
 
 MetroCluster 配置中的交换机需要特定许可证。您必须在所有四台交换机上安装这些许可证。
 
@@ -104,7 +104,7 @@ MetroCluster 配置具有以下 Brocade 许可证要求：
 
 
 
-== 将 Brocade FC 交换机值设置为出厂默认值
+== 将Brocade FC 交换机值设置为出厂默认值
 
 您必须将交换机设置为出厂默认值，以确保配置成功。您还必须为每个交换机分配一个唯一的名称。
 
@@ -473,7 +473,7 @@ FC_switch_A_1:admin> iodshow
 NOTE: 在控制器模块上配置 ONTAP 时，必须在 MetroCluster 配置中的每个控制器模块上明确配置 OOD 。
 
 +
-https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software["在 ONTAP 软件上配置帧的按顺序交付或无序交付"]
+https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software["在ONTAP软件上配置帧的按序传送或无序传送"]
 
 
 
@@ -660,7 +660,7 @@ FC_switch_B_1:admin> switchcfgpersistentenable
 
 
 
-== 在 Brocade DCX 8510-8 交换机上配置基本交换机设置
+== 在Brocade DCX 8510-8 交换机上配置基本交换机设置
 
 您必须为 Brocade 交换机配置基本全局设置，包括域 ID 。
 
@@ -760,7 +760,7 @@ link:concept_prepare_for_the_mcc_installation.html["使用 Brocade DCX 8510-8 �
 
 
 
-== 使用 FC 端口在 Brocade FC 交换机上配置 E 端口
+== 使用 FC 端口在Brocade FC 交换机上配置 E 端口
 
 对于使用 FC 端口配置交换机间链路（ ISL ）的 Brocade 交换机，必须在连接 ISL 的每个交换机网络结构上配置交换机端口。这些 ISL 端口也称为 E 端口。
 
@@ -912,7 +912,7 @@ ge11 （ 10-Gbps ）
 
 
 
-.4+| Brocade G610  a| 
+.4+| BrocadeG610、G710  a| 
 ISL 端口 1
  a| 
 20
@@ -1259,7 +1259,7 @@ FC_switch_B_1:admin> trunkshow
 
 
 .相关信息
-link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
+link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["FC 交换机的端口分配"]
 
 
 
@@ -1419,7 +1419,7 @@ FC_switch_A_1:root> portshow fcipcircuit all
 
 
 
-== 在 Brocade 7810 和 7840 FC 交换机上配置 40 Gbps VE 端口
+== 在Brocade 7810 和 7840 FC 交换机上配置 40 Gbps VE 端口
 
 如果要对 ISL 使用两个 40 GbE VE 端口（使用 FCIP ），则必须在每个端口上创建 IP 接口，并在每个通道中配置 FCIP 通道和电路。
 
@@ -1572,7 +1572,7 @@ FC_switch_A_1:root> portshow fcipcircuit all
 
 
 
-== 在 Brocade 交换机上配置非 E 端口
+== 配置Brocade交换机上的非 E 端口
 
 您必须在 FC 交换机上配置非 E 端口。在 MetroCluster 配置中，这些端口用于将交换机连接到 HBA 启动程序， FC-VI 互连和 FC-SAS 网桥。必须对每个端口执行这些步骤。
 
@@ -1662,7 +1662,7 @@ Non-DFE                             ..  ..  ..  ..  ..  ..  ..  ..  ..
 
 
 
-== 在 Brocade G620 交换机的 ISL 端口上配置数据压缩
+== 在Brocade G620 交换机上的 ISL 端口上配置压缩
 
 如果您使用的是 Brocade G620 交换机并在 ISL 上启用了数据压缩，则必须在交换机上的每个 E 端口上对其进行配置。
 
@@ -1724,13 +1724,13 @@ Port   Configured    Active   Configured   Active  Speed
 ----
 
 
-== 在 Brocade FC 交换机上配置分区
+== 在Brocade FC 交换机上配置分区
 
 您必须将交换机端口分配给不同的分区，以隔离控制器和存储流量。
 
 
 
-=== FC-VI 端口的分区
+=== 对 FC-VI 端口进行分区
 
 对于 MetroCluster 中的每个 DR 组，您必须为 FC-VI 连接配置两个分区，以允许控制器到控制器的流量。这些分区包含连接到控制器模块 FC-VI 端口的 FC 交换机端口。这些分区是服务质量（ QoS ）分区。
 
@@ -1948,7 +1948,7 @@ QOSH2_MC1_FAB_2_FCVI （ 6520 ）
 |===
 
 
-=== 使用一个FC端口的光纤桥接7500 N或7600N网桥的分区
+=== 使用一个 FC 端口的区域 FibreBridge 7500N 或 7600N 网桥
 
 如果您使用的是仅使用两个FC端口之一的光纤桥接7500 N或7600N、则需要为这些网桥端口创建存储分区。在配置分区之前，您应了解分区和关联的端口。
 
@@ -2027,7 +2027,7 @@ a 或 b
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC1 ： *
 
 |===
-| FC 交换机 | 站点 | 交换机域 | Brocade 6505 ， 6510 ， 6520 ， G620 或 G610 交换机端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | Brocade 6505、6510、6520、G620、G610 或 G710 交换机端口 | 连接到 ... 
 
 
 | FC_switch_A_1 | 答 | 5. | 2. | controller_A_1 端口 0a 
@@ -2067,7 +2067,7 @@ a 或 b
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_A_STK_GRP_1_BOT_FC1 ： *
 
 |===
-| FC 交换机 | 站点 | 交换机域 | Brocade 6505 ， 6510 ， 6520 ， G620 或 G610 交换机端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | Brocade 6505、6510、6520、G620、G610 或 G710 交换机端口 | 连接到 ... 
 
 
 | FC_switch_A_1 | 答 | 6. | 2. | controller_A_1 端口 0b 
@@ -2111,7 +2111,7 @@ a 或 b
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_A_STK_GRP_2_TOP_FC1 ： *
 
 |===
-| FC 交换机 | 站点 | 交换机域 | Brocade 6505 ， 6510 ， 6520 ， G620 或 G610 交换机端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | Brocade 6505、6510、6520、G620、G610 或 G710 交换机端口 | 连接到 ... 
 
 
 | FC_switch_A_1 | 答 | 5. | 2. | controller_A_1 端口 0a 
@@ -2151,7 +2151,7 @@ a 或 b
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_A_STK_GRP_2_BOT_FC1 ： *
 
 |===
-| FC 交换机 | 站点 | 交换机域 | Brocade 6505 ， 6510 ， 6520 ， G620 或 G610 交换机端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | Brocade 6505、6510、6520、G620、G610 或 G710 交换机端口 | 连接到 ... 
 
 
 | FC_switch_A_1 | 答 | 6. | 2. | controller_A_1 端口 0b 
@@ -2195,7 +2195,7 @@ a 或 b
 * MC1_INIT_GRP_1_SITE_B_STK_GRP_1_TOP_FC1 ： *
 
 |===
-| FC 交换机 | 站点 | 交换机域 | Brocade 6505 ， 6510 ， 6520 ， G620 或 G610 交换机 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | Brocade 6505、6510、6520、G620、G610 或 G710 交换机 | 连接到 ... 
 
 
 | FC_switch_A_1 | 答 | 5. | 2. | controller_A_1 端口 0a 
@@ -2235,7 +2235,7 @@ a 或 b
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_B_STK_GRP_1_BOT_FC1 ： *
 
 |===
-| FC 交换机 | 站点 | 交换机域 | Brocade 6505 ， 6510 ， 6520 ， G620 或 G610 交换机 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | Brocade 6505、6510、6520、G620、G610 或 G710 交换机 | 连接到 ... 
 
 
 | FC_switch_A_1 | 答 | 6. | 2. | controller_A_1 端口 0b 
@@ -2279,7 +2279,7 @@ a 或 b
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_B_STK_GRP_2_TOP_FC1 ： *
 
 |===
-| FC 交换机 | 站点 | 交换机域 | Brocade 6505 ， 6510 ， 6520 ， G620 或 G610 交换机端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | Brocade 6505、6510、6520、G620、G610 或 G710 交换机端口 | 连接到 ... 
 
 
 | FC_switch_A_1 | 答 | 5. | 2. | controller_A_1 端口 0a 
@@ -2319,7 +2319,7 @@ a 或 b
 * DR 组 1 ： MC1_INIT_GRP_1_SITE_B_STK_GRP_2_BOT_FC1 ： *
 
 |===
-| FC 交换机 | 站点 | 交换机域 | Brocade 6505 ， 6510 ， 6520 ， G620 或 G610 交换机端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | Brocade 6505、6510、6520、G620、G610 或 G710 交换机端口 | 连接到 ... 
 
 
 | FC_switch_A_1 | 答 | 6. | 2. | controller_A_1 端口 0b 
@@ -2391,7 +2391,7 @@ a 或 b
 |===
 
 
-=== 使用两个 FC 端口的 FibreBridge 7500N 网桥的分区
+=== 使用两个 FC 端口的区域 FibreBridge 7500N 网桥
 
 如果您使用的是具有两个 FC 端口的 FibreBridge 7500N 网桥，则需要为网桥端口创建存储分区。在配置分区之前，您应了解分区和关联的端口。
 
@@ -2470,7 +2470,7 @@ a 或 b
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G620 端口 | 6520 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505 / 6510 / G610 / G710 / G620 端口 | 6520 端口 | 连接到 ... 
 
 
  a| 
@@ -2564,7 +2564,7 @@ MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC1
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G710端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
  a| 
@@ -2668,7 +2668,7 @@ MC1_INIT_GRP_2_SITE_A_STK_GRP_1_BOT_FC1
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 | 6520 | G620 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505 / 6510 / G610 / G710 | 6520 | G620 | 连接到 ... 
 
 
  a| 
@@ -2772,7 +2772,7 @@ MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC2
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 | 6520 | G620 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505 / 6510 / G610 / G710 | 6520 | G620 | 连接到 ... 
 
 
  a| 
@@ -2880,7 +2880,7 @@ MC1_INIT_GRP_2_SITE_A_STK_GRP_1_BOT_FC2
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G710端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
  a| 
@@ -2984,7 +2984,7 @@ MC1_INIT_GRP_1_SITE_A_STK_GRP_2_TOP_FC1
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G710端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
  a| 
@@ -3084,7 +3084,7 @@ MC1_INIT_GRP_2_SITE_A_STK_GRP_2_BOT_FC1
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G710端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
  a| 
@@ -3188,7 +3188,7 @@ MC1_INIT_GRP_1_SITE_A_STK_GRP_2_TOP_FC2
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G710端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
  a| 
@@ -3296,7 +3296,7 @@ MC1_INIT_GRP_2_SITE_A_STK_GRP_2_BOT_FC2
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G710端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
  a| 
@@ -3400,7 +3400,7 @@ MC1_INIT_GRP_1_SITE_B_STK_GRP_1_TOP_FC1
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G710端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
  a| 
@@ -3504,7 +3504,7 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_1_BOT_FC1
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G710端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
  a| 
@@ -3606,7 +3606,7 @@ MC1_INIT_GRP_1_SITE_B_STK_GRP_1_TOP_FC2
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G710端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
  a| 
@@ -3714,7 +3714,7 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_1_BOT_FC2
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G710端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
  a| 
@@ -3818,7 +3818,7 @@ MC1_INIT_GRP_1_SITE_B_STK_GRP_2_TOP_FC1
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G710端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
  a| 
@@ -3922,7 +3922,7 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_2_BOT_FC1
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G710端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
  a| 
@@ -4026,7 +4026,7 @@ MC1_INIT_GRP_1_SITE_B_STK_GRP_2_TOP_FC2
 |===
 
 
-| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610 端口 | 6520 端口 | G620 端口 | 连接到 ... 
+| FC 交换机 | 站点 | 交换机域 | 6505/6510/G610/G710端口 | 6520 端口 | G620 端口 | 连接到 ... 
 
 
  a| 
@@ -4280,7 +4280,7 @@ MC1_INIT_GRP_2_SITE_B_STK_GRP_2_BOT_FC2
 |===
 
 
-=== 在 Brocade FC 交换机上配置分区
+=== 对Brocade FC 交换机进行分区
 
 您必须将交换机端口分配给不同的分区，以隔离控制器和存储流量，并为 FC-VI 端口分配分区，为存储端口分配分区。
 
@@ -4399,7 +4399,7 @@ zone: MC1_INIT_GRP_1_SITE_A_STK_GRP_1_TOP_FC1
 
 
 
-== 在 Brocade 6510 或 G620 交换机上设置 ISL 加密
+== 在Brocade 6510 或 G620 交换机上设置 ISL 加密
 
 在 Brocade 6510 或 G620 交换机上，您可以选择在 ISL 连接上使用 Brocade 加密功能。如果要使用加密功能，必须对 MetroCluster 配置中的每个交换机执行其他配置步骤。
 
@@ -4418,7 +4418,7 @@ NOTE: 只有 ONTAP 9.4 及更高版本才支持在 Brocade G620 交换机上使�
 
 
 
-=== 正在禁用虚拟网络结构
+=== 禁用虚拟结构
 
 要设置 ISL 加密，必须在 MetroCluster 配置中使用的所有四个交换机上禁用虚拟网络结构。
 

@@ -19,7 +19,7 @@ summary: 您必须通过光纤交换机间链路（ ISL ）连接每个站点的
 .步骤
 . 使用表中与您的配置和交换机型号对应的布线方式，将每个站点的 FC 交换机连接到所有 ISL 。
 +
-** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
+** link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["FC 交换机的端口分配"]
 
 
 

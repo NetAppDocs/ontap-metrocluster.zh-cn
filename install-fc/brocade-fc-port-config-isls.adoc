@@ -1,0 +1,162 @@
+---
+permalink: install-fc/brocade-fc-port-config-isls.html 
+sidebar: sidebar 
+keywords: ONTAP, FAS, FC, Brocade, metrocluster 
+summary: 下表显示了Brocade交换机上的端口使用情况。 
+---
+= MetroCluster FC 配置中 ISL 的Brocade端口使用情况
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+了解将Brocade FC 交换机连接到 ISL 所需的端口分配。
+
+[NOTE]
+====
+* AFF A900和FAS9500系统支持八条 ISL。BrocadeBrocade 、G620、G620-1、G630、G630-1、G720 和 G730 交换机支持八条 ISL
+* Brocade 6520 交换机支持八条 ISL，但不支持AFF A900和FAS9500系统。
+
+
+====
+[cols="2a,2a,2a,2a,2a,2a,2a"]
+|===
+| ISL 端口 | *6505、G610、G710 端口* | 6520端口 | *7810 端口* | 7840（10-Gbps）端口 | 7840（40 Gbps）端口 | *6510、G620、G620-1、G630、G630-1、G720、G730 端口* 
+
+
+ a| 
+ISL 端口 1
+ a| 
+20
+ a| 
+22.
+ a| 
+ge2
+ a| 
+ge2
+ a| 
+ge0
+ a| 
+40
+
+
+
+ a| 
+ISL 端口 2
+ a| 
+21
+ a| 
+23
+ a| 
+ge3
+ a| 
+ge3
+ a| 
+ge1
+ a| 
+41.
+
+
+
+ a| 
+ISL 端口 3
+ a| 
+22.
+ a| 
+46
+ a| 
+ge4
+ a| 
+ge10
+ a| 
+不适用
+ a| 
+42
+
+
+
+ a| 
+ISL 端口 4
+ a| 
+23
+ a| 
+47
+ a| 
+ge5
+ a| 
+ge11
+ a| 
+不适用
+ a| 
+43
+
+
+
+ a| 
+ISL 端口 5
+ a| 
+不适用
+ a| 
+70
+ a| 
+ge6
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+44
+
+
+
+ a| 
+ISL 端口 6
+ a| 
+不适用
+ a| 
+71.
+ a| 
+ge7
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+45
+
+
+
+ a| 
+ISL 端口 7
+ a| 
+不适用
+ a| 
+94
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+46
+
+
+
+ a| 
+ISL 端口 8
+ a| 
+不适用
+ a| 
+95
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+不适用
+ a| 
+47
+
+|===

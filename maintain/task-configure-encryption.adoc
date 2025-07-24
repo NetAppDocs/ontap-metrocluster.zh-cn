@@ -11,17 +11,27 @@ summary:
 
 
 [role="lead"]
-从ONTAP 9.15.1开始、您可以配置端到端加密、以加密MetroCluster IP配置中站点之间的后端流量、例如NVlog和存储复制数据。
+从ONTAP 9.15.1 开始，您可以在支持的系统上配置端到端加密，以加密MetroCluster IP 配置中的站点之间的后端流量，例如 NVlog 和存储复制数据。
 
 .关于此任务
 * 您必须是集群管理员才能执行此任务。
 * 在配置端到端加密之前、您必须先配置 link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-external-key-management-concept.html["配置外部密钥管理"^]。
 * 查看在MetroCluster IP配置中配置端到端加密所需的受支持系统和最低ONTAP版本：
 +
+[cols="2*"]
 |===
-
-
 | 最低ONTAP版本 | 支持的系统 
+
+
+ a| 
+ONTAP 9.17.1
+ a| 
+** AFF A800和AFF C800
+** AFF A20、 AFF A30、 AFF C30、 AFF A50、 AFF C60
+** AFF A70、 AFF A90、 AFF A1K、 AFF C80
+** FAS50、FAS70、FAS90
+
+
 
 
  a| 

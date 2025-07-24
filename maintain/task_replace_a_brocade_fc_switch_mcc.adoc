@@ -60,7 +60,7 @@ NOTE: 此操作步骤不会造成系统中断，大约需要两小时才能完�
 
 您的交换机端口使用情况应遵循建议的分配。
 
-* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]
+* link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["FC 交换机的端口分配"]
 
 
 .步骤
@@ -146,7 +146,7 @@ FC_switch_B_1:admin> portcfgpersistentdisable 7
 .. 打开新 FC 交换机的电源。
 
 
-. 要启用ISL加密，请参见link:../install-fc/task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html#setting-isl-encryption-on-brocade-6510-or-g620-switches["手动配置 Brocade FC 交换机"]。
+. 要启用 ISL 加密，请参阅link:../install-fc/task_fcsw_brocade_configure_the_brocade_fc_switches_supertask.html#set-isl-encryption-on-brocade-6510-or-g620-switches["手动配置 Brocade FC 交换机"] 。
 +
 如果要启用 ISL 加密，则需要完成以下任务：
 

@@ -1,0 +1,109 @@
+---
+permalink: install-fc/cisco-9132t-fc-port-config-isls.html 
+sidebar: sidebar 
+keywords: ONTAP, FAS, FC, Cisco, metrocluster 
+summary: 了解将Cisco 9132T FC 交换机连接到 ISL 所需的端口分配。 
+---
+= MetroCluster FC 配置中 ISL 的Cisco 9132T 端口使用情况
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+了解将Cisco 9132T FC 交换机连接到 ISL 所需的端口分配。
+
+下表显示了Cisco 9132T交换机的ISL端口使用情况。
+
+[cols="2a,2a,2a,2a"]
+|===
+| ISL 端口 | *9132T 1x LEM（四节点）* | *9132T 2x LEM（四节点）* | *9132T 2x LEM（八节点）* 
+
+
+ a| 
+ISL 端口 1
+ a| 
+LEM1-15
+ a| 
+LEM2-9
+ a| 
+LEM1-13
+
+
+
+ a| 
+ISL 端口 2
+ a| 
+LEM1-16
+ a| 
+LEM2-10
+ a| 
+LEM1-14
+
+
+
+ a| 
+ISL 端口 3
+ a| 
+不适用
+ a| 
+LEM2-11
+ a| 
+LEM1-15
+
+
+
+ a| 
+ISL 端口 4
+ a| 
+不适用
+ a| 
+LEM2-12
+ a| 
+LEM1-16
+
+
+
+ a| 
+ISL 端口 5
+ a| 
+不适用
+ a| 
+LEM2-13
+ a| 
+不适用
+
+
+
+ a| 
+ISL 端口 6
+ a| 
+不适用
+ a| 
+LEM2-14
+ a| 
+不适用
+
+
+
+ a| 
+ISL 端口 7
+ a| 
+不适用
+ a| 
+LEM2-15
+ a| 
+不适用
+
+
+
+ a| 
+ISL 端口 8
+ a| 
+不适用
+ a| 
+LEM2-16
+ a| 
+不适用
+
+|===

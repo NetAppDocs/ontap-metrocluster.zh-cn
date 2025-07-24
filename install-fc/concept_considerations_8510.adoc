@@ -15,7 +15,7 @@ summary: 在准备 MetroCluster 安装时，您应了解 MetroCluster 硬件架�
 
 * MetroCluster 配置中使用的 DCX 8510-8 交换机必须从 NetApp 购买。
 * 为了实现可扩展性，如果在 4x48 端口模块中仅为两个 MetroCluster 布线，则应在 MetroCluster 配置之间保留一个端口块。这样，您就可以在不重新布线的情况下扩展 MetroCluster 配置中的端口使用情况。
-* 必须为 MetroCluster 配置中的每个 Brocade DCX 8510-8 交换机正确配置 ISL 端口和存储连接。有关端口使用情况，请参见以下部分： link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]。
+* MetroCluster配置中的每台Brocade DCX 8510-8 交换机都必须正确配置 ISL 端口和存储连接。有关端口使用情况，请参阅以下部分： link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["FC 交换机的端口分配"] 。
 * ISL 不能共享，每个 MetroCluster 需要为每个网络结构配置两个 ISL 。
 * 用于后端 MetroCluster 连接的 DCX 8510-8 交换机不应用于任何其他连接。
 +

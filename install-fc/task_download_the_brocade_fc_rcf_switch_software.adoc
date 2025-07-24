@@ -16,7 +16,7 @@ summary: 您必须将参考配置 \ （ RCF\ ）文件下载到 MetroCluster 网
 .关于此任务
 要使用这些 RCF 文件，系统必须运行 ONTAP 9.1 或更高版本，并且必须使用 ONTAP 9.1 或更高版本的端口布局。
 
-如果您计划仅使用 FibreBridge 网桥上的一个 FC 端口，请按照一节中的说明手动配置后端光纤通道交换机。 link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["使用 ONTAP 9.1 及更高版本时 FC 交换机的端口分配"]。
+如果您计划仅使用 FibreBridge 网桥上的一个 FC 端口，请按照本节中的说明手动配置后端光纤通道交换机， link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.html["FC 交换机的端口分配"] 。
 
 .步骤
 . 请参阅 Brocade RCF 下载页面上的 RCF 文件表，为您的配置中的每个交换机确定正确的 RCF 文件。
