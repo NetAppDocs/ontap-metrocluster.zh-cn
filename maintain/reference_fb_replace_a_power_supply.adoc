@@ -22,4 +22,4 @@ summary: 如果网桥的电源模块状态发生变化，您可以卸下并安�
 
 NOTE: 适用于您的型号网桥的 _ATTO FibreBridge 安装和操作手册 _ 提供了有关管理接口的详细信息。
 
-您可以使用 ATTO Fibrebridge 问题描述页面上提供的链接访问 ATTO 网站上的此内容以及其他内容。
+您可以使用 ATTO FibreBridge 说明页面上提供的链接访问此内容以及 ATTO 网站上的其他内容。

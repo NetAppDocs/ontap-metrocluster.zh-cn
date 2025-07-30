@@ -18,7 +18,7 @@ summary: 您可以组合使用串行端口， Telnet 和 FTP 来管理 FibreBrid
 
 NOTE: 适用于您的型号网桥的 _ATTO FibreBridge 安装和操作手册 _ 提供了有关管理接口的详细信息。
 
-您可以使用 ATTO Fibrebridge 问题描述页面上提供的链接在 ATTO 网站上访问此文档。
+您可以使用 ATTO FibreBridge 说明页面上提供的链接在 ATTO 网站上访问此文档。
 
 
 

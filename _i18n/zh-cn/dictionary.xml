@@ -964,7 +964,6 @@
   <block id="0ea60b406b044af50baf856e62b54dea" category="paragraph">您可以通过网桥上的 LED 查看电源模块状态的变化。您还可以通过 ExpressNAV 图形用户界面和网桥命令行界面，串行端口或 Telnet 查看电源模块的状态。</block>
   <block id="f9a006e76305c853a36326e90e0bbbd8" category="list-text">此操作步骤无中断运行，大约需要 15 分钟才能完成。</block>
   <block id="31adc96d18cde8c45dc670356d68d2c2" category="admonition">适用于您的型号网桥的 _ATTO FibreBridge 安装和操作手册 _ 提供了有关管理接口的详细信息。</block>
-  <block id="c172b09d1d6e3e38ddabe6e69de61d7e" category="paragraph">您可以使用 ATTO Fibrebridge 问题描述页面上提供的链接访问 ATTO 网站上的此内容以及其他内容。</block>
   <block id="245370f7754738e7db5a3ff87aab25cc" category="summary">升级 MetroCluster IP 交换机上的固件。</block>
   <block id="47471aa588b43c640e780e991822eda9" category="doc">升级 MetroCluster IP 交换机上的固件</block>
   <block id="666408818b617858e00b40c2eb3d365a" category="paragraph">您可能需要升级 MetroCluster IP 交换机上的固件。</block>
@@ -1148,7 +1147,6 @@
   <block id="954cf183768e64d8661262d395f991eb" category="summary">您可以组合使用串行端口， Telnet 和 FTP 来管理 FibreBridge 网桥，而不是使用建议的管理接口。在安装网桥之前，您的系统必须满足相应接口的要求。</block>
   <block id="df54e439b189f0a180ac382a0c0533c3" category="doc">使用其他接口配置和管理 FibreBridge 网桥的要求</block>
   <block id="f9117ecda083d7dbba9bda8b853dfd61" category="paragraph">您可以使用串行端口或 Telnet 来配置网桥和以太网管理 1 端口，并管理网桥。您可以使用 FTP 更新网桥固件。</block>
-  <block id="10efc1f4cdd8df067f8c263803a86181" category="paragraph">您可以使用 ATTO Fibrebridge 问题描述页面上提供的链接在 ATTO 网站上访问此文档。</block>
   <block id="0626485f170944286cfbe3e303f2f1f5" category="section-title">串行端口</block>
   <block id="bac03fd8b856c63b4cd0a766637a03e3" category="paragraph">使用串行端口配置和管理网桥以及配置以太网管理 1 端口时，系统必须满足以下要求：</block>
   <block id="3f75bca71e0ec800ca02ffb657b4c3ab" category="list-text">串行缆线（用于从网桥串行端口连接到要用于设置的计算机上的串行（ COM ）端口）</block>
@@ -12805,8 +12803,6 @@
   <block id="ef78f11e7aec890f1dc53f6a0176cdf4" category="inline-link-macro">配置虚拟 IP （ VIP ） LIF</block>
   <block id="43d93948b7becfd15462e91085fd63cc" category="paragraph"><block ref="43d93948b7becfd15462e91085fd63cc" category="inline-link-macro-rx"></block></block>
   <block id="94ffd34b73e540c50265688d834cea45" category="paragraph">ONTAP 9．1 GA</block>
-  <block id="0cb8709673d91d9b41f7a2d9110be6db" category="paragraph">使用凭据更新光纤桥固件</block>
-  <block id="cca6b3113bea250bb0e5ecb42fcd1f6b" category="paragraph">如果服务器需要使用凭据下载固件包、您可以使用凭据更新此网桥上的固件。</block>
   <block id="7f35c16e72037a8dea668c5bb0e6327d" category="paragraph"><block ref="7f35c16e72037a8dea668c5bb0e6327d" category="inline-link-macro-rx"></block></block>
   <block id="dd5e73f11c8453deab39cc51184b718c" category="admonition">建议在禁用IP访问的情况下使用带内管理、以便通过限制与网桥的物理连接来提高安全性。</block>
   <block id="794172cd90da1900d6103d0859717cae" category="section-title">光纤桥7600N和7500 N网桥限制和连接规则</block>
@@ -13681,16 +13677,12 @@
   <block id="507731d894d9ee976f7066af87b9f8dd" category="list-text">*组2*显示了AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF C800、AFF A800、AFF A90、AFF A900、AFF C80、FAS90、FAS9500和AFF A1K系统的组合。</block>
   <block id="631b6e3500618cca623678eeea878eff" category="list-text">注1：此组合需要9.13.1 9.13.1.或更高版本。</block>
   <block id="abb7cc70e284f0ed722020e127761cca" category="paragraph">查看AFF A150、AFF A20、FAS2750、AFF A220、FAS500f、AFF C250、FAS8200、FAS50、AFF C30、AFF A400 A30、AFF A250、AFF C400、AFF、FAS8300、AFF A300、AFF A320和FAS8700系统的系统更新组合。</block>
-  <block id="59ff548a332288bd57d4f0ca4aa314e6" category="paragraph"><block ref="59ff548a332288bd57d4f0ca4aa314e6" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2c5d494e02cd7d07ceac57455beee52d" category="paragraph">查看AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF A900、AFF、AFF A90、AFF C800、AFF A800 C80、FAS90、FAS9500和AFF A1K系统的系统更新组合。</block>
-  <block id="528441634286ef2ca2ed32e39f67505e" category="paragraph"><block ref="528441634286ef2ca2ed32e39f67505e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a1b5a467b5c765105dcad39cc0ff04c3" category="paragraph">下表显示了在MetroCluster IP配置中扩展AFF或FAS系统时支持的平台组合。这些表分为两组：</block>
   <block id="6252dce29b710e0cb61942b23fc053a5" category="list-text">注1：这些组合需要9.9.1 9.9.1或更高版本(或平台支持的最低ONTAP版本)。</block>
   <block id="2077cee62d2dc819ca10d6e3f6a4f59b" category="list-text">注2：这些组合需要9.13.1 9.13.1或更高版本(或平台支持的最低ONTAP版本)。</block>
   <block id="9bc3cb19080afd7c3475f6c80b5ee013" category="paragraph">查看AFF A150、AFF A20、FAS2750、AFF A220、FAS500f、AFF C250、FAS8200、FAS50、AFF C30、AFF A30、AFF A250、AFF C400、AFF A400、FAS8300、AFF A300、AFF A320和FAS8700系统的扩展组合。</block>
-  <block id="503da6450f4dc7f5885bedbd17199939" category="paragraph"><block ref="503da6450f4dc7f5885bedbd17199939" category="inline-image-macro-rx" type="image"></block></block>
   <block id="99032e371bac241eac644b68481b2c7c" category="paragraph">查看AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF A900、AFF、AFF A90、AFF C800、AFF A800 C80、FAS90、FAS9500和AFF A1K系统的扩展组合。</block>
-  <block id="0bd384b68663640af8e4d0e1b69579ff" category="paragraph"><block ref="0bd384b68663640af8e4d0e1b69579ff" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5667d434150380e4826a9c5749e3611d" category="cell">所有其他受支持的AFF A70、AFF A90、AFF A1K、FAS70、FAS90、AFF C80、AFF A50、AFF 2020、AFF A30、AFF C30、AFF C60或FAS50系统升级</block>
   <block id="1f33c4b21d6c848bec5712e27807c50a" category="paragraph">只有在升级到AFF A70、AFF A90、AFF A1K、FAS70、FAS90、AFF C80、AFF A50、AFF 2020、AFF A30、AFF C30、AFF C60或FAS50系统时、*才需要执行此任务。</block>
   <block id="63856cfb46890240aad0d97a958b298b" category="paragraph">下表显示了在MetroCluster IP配置中使用system controller Replace命令升级AFF或FAS系统时支持的平台组合、这些命令分为两组。</block>
@@ -14348,7 +14340,6 @@
   <block id="ddb7605ec5049e970ab35c9ad2ff89fc" category="list-text">AFF A400、 AFF C400、 ASA A400、 ASA C400、 AFF C80、 AFF A70和AFF A50 系统具有以下更新的限制：</block>
   <block id="c5053b59fbc1700ab606b123bbd97a75" category="list-text">每个聚合体（单个或多个）的FlexVol volume限制：625</block>
   <block id="fe57c6f7ead75bdf60c675612c2792a2" category="list-text">每个高可用性 (HA) 对的FlexVol volume限制：2500</block>
-  <block id="f7411497578d3c715ce980056c9a3dc5" category="list-text">每个MetroCluster集群的FlexVol volume限制：5000</block>
   <block id="e012362a4f10b2d00ba77a0342c80c6d" category="list-text">每个 HA 对的最大FlexVol卷数从 1600 个增加到 2500 个。</block>
   <block id="6dea0f46f4307533bbff7dfe880a75ea" category="sidebar">了解如何使用 FC 交换机的端口分配表</block>
   <block id="ae6b17a796a400159e3071c16b88da41" category="sidebar">控制器的Brocade端口使用情况</block>
@@ -14360,4 +14351,14 @@
   <block id="3099965dec41589836e8937197d5c208" category="sidebar">控制器的Cisco 9132T 端口使用情况</block>
   <block id="25e9b3ef06577abf9b26600f0c390fc3" category="sidebar">FC-SAS 网桥的Cisco 9132T 端口使用情况</block>
   <block id="b25c20328b0418f22f0fbc4d47e42988" category="sidebar">Cisco 9132T ISL 端口使用情况</block>
+  <block id="79af6547f35e1e15ddacae6867176717" category="paragraph">您可以使用 ATTO FibreBridge 说明页面上提供的链接访问此内容以及 ATTO 网站上的其他内容。</block>
+  <block id="545e852011a81da0cd8b5b2d3cc504fd" category="paragraph">您可以使用 ATTO FibreBridge 说明页面上提供的链接在 ATTO 网站上访问此文档。</block>
+  <block id="c95f44b3e8c72a1c6ef8a499c761690a" category="list-text">每个集群的FlexVol volume限制：5000</block>
+  <block id="45fc6e02d529201467decbef1f3eacab" category="paragraph">请参阅<block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block>了解更多信息。</block>
+  <block id="567a833b899417b8be640e2472fc9c60" category="paragraph">使用凭据更新 FibreBridge 固件</block>
+  <block id="5a870516b9d31d269ea6a8afce2ec1e6" category="paragraph">如果服务器需要凭据来下载固件包，您可以使用凭据来更新 FibreBridge 网桥上的固件。</block>
+  <block id="8474060528358956023cd7dd6e922365" category="paragraph"><block ref="8474060528358956023cd7dd6e922365" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b422edb1dc6d4a214adab9c76d2349ad" category="paragraph"><block ref="b422edb1dc6d4a214adab9c76d2349ad" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d75d3909245f6be3f0b1d65e8247b183" category="paragraph"><block ref="d75d3909245f6be3f0b1d65e8247b183" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4c9562556794c6d64ce9c73693133ac9" category="paragraph"><block ref="4c9562556794c6d64ce9c73693133ac9" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>

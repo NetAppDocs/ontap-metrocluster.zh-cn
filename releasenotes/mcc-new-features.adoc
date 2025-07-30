@@ -54,21 +54,23 @@ ONTAP 9.17.1 包括针对四节点MetroCluster IP 配置的以下限制更新：
 ** 每个聚合体（单个或多个）的FlexVol volume限制：625
 ** 每个节点的FlexVol volume限制：1250
 ** 每个高可用性 (HA) 对的FlexVol volume限制：2500
-** 每个MetroCluster集群的FlexVol volume限制：5000
+** 每个集群的FlexVol volume限制：5000
 ** SVM 限制：每个集群 64 个 SVM
 ** LIF 数量：每个集群 256 个 LIF
 
 
 
+
+请参阅link:https://hwu.netapp.com["Hardware Universe"^]了解更多信息。
  a| 
 ONTAP 9.17.1
 
 
 
  a| 
-使用凭据更新光纤桥固件
+使用凭据更新 FibreBridge 固件
  a| 
-如果服务器需要使用凭据下载固件包、您可以使用凭据更新此网桥上的固件。
+如果服务器需要凭据来下载固件包，您可以使用凭据来更新 FibreBridge 网桥上的固件。
 
 link:../maintain/task_update_firmware_on_a_fibrebridge_bridge_parent_topic.html["更新 FibreBridge 网桥上的固件"]
  a| 

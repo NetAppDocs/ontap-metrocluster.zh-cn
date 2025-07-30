@@ -45,14 +45,14 @@ summary: 您使用的刷新操作步骤 取决于平台型号、升级范围和M
 --
 查看AFF A150、AFF A20、FAS2750、AFF A220、FAS500f、AFF C250、FAS8200、FAS50、AFF C30、AFF A400 A30、AFF A250、AFF C400、AFF、FAS8300、AFF A300、AFF A320和FAS8700系统的系统更新组合。
 
-image:../media/tech-refresh-ip-group-1.png[""]
+image:../media/tech-refresh-ip-group-1-updated.png[""]
 
 --
 .AFF和FAS组合组2
 --
 查看AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF A900、AFF、AFF A90、AFF C800、AFF A800 C80、FAS90、FAS9500和AFF A1K系统的系统更新组合。
 
-image:../media/tech-refresh-ip-group-2.png[""]
+image:../media/tech-refresh-ip-group-2-updated.png[""]
 
 --
 ====
