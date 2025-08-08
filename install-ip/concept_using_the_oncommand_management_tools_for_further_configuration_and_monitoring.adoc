@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, ip, installation, active, iq, unified, manager, system, configuration 
 summary: Active IQ Unified Manager 和 ONTAP 系统管理器可用于集群的 GUI 管理和配置监控。 
 ---
-= 使用Active IQ Unified Manager和ONTAP系统管理器进行进一步配置和监控
+= 使用Active IQ Unified Manager和ONTAP System Manager 在MetroCluster IP 配置中进行进一步配置和监控
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
