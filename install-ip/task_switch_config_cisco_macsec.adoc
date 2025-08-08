@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cisco, MACsec encryption 
 summary: 您只能在站点之间运行的 WAN ISL 端口上配置 MACsec 加密。在应用正确的 RCF 文件后，您必须配置 MACsec 。 
 ---
-= 在 Cisco 9336C 交换机上配置 MACsec 加密
+= 在MetroCluster IP 站点中的Cisco 9336C 交换机上配置 MACsec 加密
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

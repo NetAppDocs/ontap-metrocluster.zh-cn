@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, requirements, compliant, configuration 
 summary: 了解各种交换机端口配置。 
 ---
-= 交换机端口配置示例
+= MetroCluster IP 交换机配置示例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

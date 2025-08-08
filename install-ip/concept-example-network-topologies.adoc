@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, requirements, compliant, configuration 
 summary: 从ONTAP 9.6开始、MetroCluster IP配置还支持其他一些网络配置。 
 ---
-= MetroCluster 网络拓扑示例
+= MetroCluster IP 配置网络拓扑示例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

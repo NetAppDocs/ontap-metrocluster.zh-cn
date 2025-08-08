@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cabling, cable, component, sip, isl, link, site, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure 
 summary: MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台类型。 
 ---
-= NVIDIA支持的SN2100 IP交换机的平台端口分配
+= MetroCluster IP 配置中NVIDIA支持的 SN2100 IP 交换机的平台端口分配
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

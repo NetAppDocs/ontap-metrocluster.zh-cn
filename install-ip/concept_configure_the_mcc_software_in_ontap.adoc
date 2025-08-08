@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, configuration, ontap, node-level, configuration, node, site, relationship, configuring, configure, 
 summary: 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。 
 ---
-= 在 ONTAP 中配置 MetroCluster 软件
+= 在MetroCluster IP 配置中设置ONTAP节点和集群
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

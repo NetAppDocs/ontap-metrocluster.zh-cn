@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ip, switch, connection, configuring, configure, broadcom, snmp, health, monitoring 
 summary: 您可以将IP交换机配置为使用SNMPv3进行运行状况监控。 
 ---
-= 在 MetroCluster IP 交换机上配置 SNMPv3
+= 配置 SNMPv3 来监控MetroCluster IP 交换机的运行状况
 :allow-uri-read: 
 
 

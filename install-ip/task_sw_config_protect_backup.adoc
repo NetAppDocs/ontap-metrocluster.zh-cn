@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: backup files, configuration backup 
 summary: 您可以通过指定一个远程 URL （ HTTP 或 FTP ）来为集群配置备份文件提供额外保护，除了本地集群中的默认位置之外，还可以将配置备份文件上传到该远程 URL 。 
 ---
-= 保护配置备份文件
+= MetroCluster IP 配置中的备份集群配置文件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

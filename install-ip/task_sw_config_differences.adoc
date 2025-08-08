@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, configuration, ontap, node-level, configuration, node, site, relationship, configuring, configure, similarities, difference, 
 summary: 在 MetroCluster 配置中，每个集群中的节点配置与标准集群中的节点配置类似。 
 ---
-= 标准集群和 MetroCluster 配置之间的相似之处和不同之处
+= 比较ONTAP标准集群和MetroCluster配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

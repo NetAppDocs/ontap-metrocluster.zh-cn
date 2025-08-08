@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cabling, cable, component, peering, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure 
 summary: 您必须为用于集群对等，管理和数据连接的控制器模块端口布线。 
 ---
-= 为控制器对等，数据和管理端口布线
+= 在MetroCluster IP 配置中连接ONTAP控制器模块端口
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

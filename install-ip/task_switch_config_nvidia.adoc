@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ip, switch, connection, configuring, configure, NVIDIA, factory defaults, MSN2100, SN2100 
 summary: 您必须将NVIDIA IP交换机配置为用作集群互连和后端MetroCluster IP连接。 
 ---
-= 配置NVIDIA IP SN2100交换机
+= 配置NVIDIA IP SN2100 交换机以实现集群互连和后端MetroCluster IP 连接
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

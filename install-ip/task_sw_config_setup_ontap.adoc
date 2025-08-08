@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, ontap, setup 
 summary: 启动每个节点后，系统将提示您执行基本节点和集群配置。配置集群后，您可以返回到 ONTAP 命令行界面以创建聚合并创建 MetroCluster 配置。 
 ---
-= 设置 ONTAP
+= 在MetroCluster IP 配置中设置ONTAP节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -124,7 +124,7 @@ NOTE: 在Tiebreaker安装期间指定的用户帐户必须具有所有这些特�
 
 * 对数据库使用加密
 +
-** 支持空闲数据加密。 link:https://mariadb.com/kb/en/data-at-rest-encryption-overview/["详细了解空闲数据加密"^]
+** 支持静态数据加密。link:https://mariadb.com/docs/server/security/securing-mariadb/securing-mariadb-encryption/encryption-data-at-rest-encryption/data-at-rest-encryption-overview["详细了解空闲数据加密"^]
 ** 传输中的数据未加密。传输中的数据使用本地"SOCs"文件连接。
 ** MariaDB的FIPS兼容性—您不需要在数据库上启用FIPS兼容性。在FIPS兼容模式下安装主机即可。
 +
@@ -148,7 +148,7 @@ link:https://dev.mysql.com/doc/refman/8.0/en/access-control.html["访问控制�
 link:https://dev.mysql.com/doc/refman/8.0/en/security-against-attack.html["使MySQL安全防范攻击者攻击"^]
 
 +
-link:https://mariadb.com/kb/en/securing-mariadb/["保护MariaDB的安全"^]
+link:https://mariadb.com/docs/server/security/securing-mariadb["保护MariaDB的安全"^]
 
 * 保护存储安装的安全
 +

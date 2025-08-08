@@ -4,7 +4,7 @@ permalink: install-ip/configure-mcc-site-system-manager.html
 keywords: metrocluster, configuration, config, mcc, HA, cluster 
 summary: 从System Manager-8开始、您可以使用ONTAP 9管理器管理MetroCluster IP配置操作。其中包括设置、建立对等关系和配置两个集群。 
 ---
-= 配置MetroCluster IP站点
+= 使用ONTAP System Manager 配置MetroCluster IP 站点
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, controller, restore defaults 
 summary: 您必须重置和还原控制器模块上的默认设置，以确保配置清晰。 
 ---
-= 还原控制器模块上的系统默认值
+= 在设置MetroCluster IP 配置之前恢复控制器模块上的系统默认值
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

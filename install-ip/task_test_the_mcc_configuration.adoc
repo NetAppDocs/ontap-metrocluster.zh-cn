@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: test, metrocluster, configuration, failure, correct, operation, metrocluster, verify, negotiate, switchover, heal, manual, switchback, power, line, disruption, loss, single, storage, shelf 
 summary: 您可以测试故障情形，以确认 MetroCluster 配置是否正常运行。 
 ---
-= 测试 MetroCluster 配置
+= 测试MetroCluster IP 配置的ONTAP节点切换
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

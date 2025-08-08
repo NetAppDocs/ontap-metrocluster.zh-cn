@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster ip, metrocluster-compliant switches, metrocluster-compliant, requirements, compliant, limitations 
 summary: 从ONTAP 9.7开始、MetroCluster IP配置可以使用符合MetroCluster的交换机。这些交换机未经NetApp验证、但符合NetApp规格。本主题概述了MetroCluster兼容交换机的一般要求和限制。 
 ---
-= 使用MetroCluster兼容交换机时的要求和限制
+= MetroCluster兼容交换机的要求和限制
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

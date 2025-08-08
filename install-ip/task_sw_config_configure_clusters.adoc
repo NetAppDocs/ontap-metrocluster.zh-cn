@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, setup, metrocluster configuration-settings interface create, pool 0, drive assignment, peer, peering, intercluster lifs, dr group, metrocluster ip interfaces, mcc-ip, mcc-ip interfaces, vlan, pool 1, pool1, pool0 
 summary: 您必须对集群建立对等关系，镜像根聚合，创建镜像数据聚合，然后问题描述命令以实施 MetroCluster 操作。 
 ---
-= 将集群配置为 MetroCluster 配置
+= 在MetroCluster IP 配置中配置ONTAP集群
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

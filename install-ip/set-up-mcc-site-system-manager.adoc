@@ -4,7 +4,7 @@ permalink: install-ip/set-up-mcc-site-system-manager.html
 keywords: system manager, metrocluster, set up, setup, start, initialize, cluster, config, nodes 
 summary: 从ONTAP 9 8开始、您可以使用System Manager设置MetroCluster IP站点。 
 ---
-= 设置MetroCluster IP站点
+= 使用ONTAP System Manager 设置MetroCluster IP 站点
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 

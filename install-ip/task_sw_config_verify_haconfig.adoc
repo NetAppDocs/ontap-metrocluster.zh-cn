@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, ha-config, mccip, haconfig, verify, high-availability 
 summary: 在出厂时未预配置的 MetroCluster IP 配置中，您必须验证控制器和机箱组件的 ha-config 状态是否设置为 mccip ，以便它们可以正常启动。对于从工厂收到的系统，此值是预配置的，您无需对其进行验证。 
 ---
-= 验证组件的 ha-config 状态
+= 验证MetroCluster IP 配置中的控制器和机箱组件的 HA 配置状态
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

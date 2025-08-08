@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: isls, ip, layer 2, layer 3, shared switch 
 summary: 本节提供了验证MetroCluster配置和网络是否满足所有要求所需的信息。 
 ---
-= 经过NetApp验证且符合MetroCluster标准的交换机
+= MetroCluster IP 配置中经过NetApp验证且符合MetroCluster标准的交换机
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

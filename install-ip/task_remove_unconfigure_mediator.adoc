@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ontap, mediator, assist, remove, unconfigure, requirements, mediator requirements 
 summary: 您可以从 MetroCluster IP 配置中删除 ONTAP 调解器。 
 ---
-= 从 MetroCluster IP 配置中取消配置 ONTAP 调解器
+= 从MetroCluster IP 配置中删除ONTAP调解器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

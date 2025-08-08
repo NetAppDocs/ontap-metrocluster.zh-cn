@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: isl, isls, layer 2, layer 3, shared switch 
 summary: '本节介绍在所有MetroCluster IP配置和网络拓扑上传输MetroCluster流量的交换机间链路(ISL)的要求。' 
 ---
-= ISL 注意事项
+= MetroCluster IP 配置上的交换机间链路 (ISL) 要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

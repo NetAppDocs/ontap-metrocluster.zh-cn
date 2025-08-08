@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cabling, cable, component, link, site, management, network, networks, hardware, component, shared, switch, cluster, connection, management, data, configuring, configure 
 summary: MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台类型。 
 ---
-= 连接 NS224 存储的 36 端口 Cisco 9336C-FX2 交换机的平台端口分配
+= 在MetroCluster IP 配置中连接 NS224 存储的 36 端口Cisco 9336C-FX2 交换机的平台端口分配
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
