@@ -22,7 +22,7 @@ summary: 在 MetroCluster 配置中发生故障后，您必须根据故障范围
 
 
  a| 
-* 无硬件故障
+* 无硬件故障（例如电源故障）
 
  a| 
 link:task_recover_from_a_non_controller_failure_mcc_dr.html["从非控制器故障中恢复"]

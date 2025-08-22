@@ -479,23 +479,16 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_configure_th
 
 
 
-. 验证交换机是否正在使用动态端口许可方法。
+. 如果您运行的是 FOS 9.0 之前的版本，请验证交换机是否使用动态按需端口 (POD) 许可方法。
++
+
+NOTE: 在Fabric OS 9.0及更高版本中、默认情况下、许可证方法是动态的。不支持静态许可证方法。
+
 +
 .. 运行 license 命令：
 +
-[role="tabbed-block"]
-====
-.适用于Fabric OS 8.2.x及更早版本
---
-运行命令 `licenseport --show`。
+`licenseport --show`
 
---
-.适用于Fabric OS 9.0及更高版本
---
-运行命令 `license --show -port`。
-
---
-====
 +
 [listing]
 ----
@@ -541,10 +534,6 @@ FC_switch_A_1:admin> licenseport --method dynamic
 The POD method has been changed to dynamic.
 Please reboot the switch now for this change to take effect
 ----
-+
-
-NOTE: 在Fabric OS 9.0及更高版本中、默认情况下、许可证方法是动态的。不支持静态许可证方法。
-
 
 
 . 启用 T11-FC-ZONE-SERVER-MIB 陷阱，以便为 ONTAP 中的交换机提供成功的运行状况监控：

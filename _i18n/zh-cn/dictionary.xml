@@ -4256,7 +4256,6 @@
   <block id="532b4c3808bc2575632f374f483ca98b" category="list-text">断开 ISL 缆线与交换机端口的连接。</block>
   <block id="f66f2933c2717a1cacefad1ec4730aec" category="list-text">将所有端口的端口配置设置为默认值：</block>
   <block id="4461eb2aa0e7be56b07bfd03b50adda3" category="paragraph">您必须为每个端口完成此步骤。</block>
-  <block id="1711fdcc6944bbeddd35a626101f4b4d" category="list-text">验证交换机是否正在使用动态端口按需（ Port on Demand ， POD ）方法。</block>
   <block id="2f3d07c01cbdac4d395d3a14b661150c" category="admonition">对于 8.0 之前的 Brocade Fabric OS 版本，您可以以 admin 身份运行以下命令；对于 8.0 及更高版本，您可以以 root 身份运行这些命令。</block>
   <block id="d63c14f8f4da1b2f3355284117aa43d6" category="list-text">如果 root 用户已被 Brocade 禁用，请启用此用户。</block>
   <block id="564a95e2696af68aa1c3a4953ecd1ce9" category="cell">站点 A</block>
@@ -4594,7 +4593,6 @@
   <block id="b1398f0ec1ab6f110b2b054dcbd970f4" category="list-text">将高级性能调整（ APT ）策略设置为 3 ：</block>
   <block id="9157f6f9ad659d140aac1994cee26e61" category="paragraph">`aptpolicy 3`</block>
   <block id="53989b83805e7661f392318f958a6584" category="admonition">在控制器模块上配置 ONTAP 时，必须在 MetroCluster 配置中的每个控制器模块上明确配置 OOD 。</block>
-  <block id="8e6415ee4068075bb4d9b0908c9e0ba1" category="list-text">验证交换机是否正在使用动态端口许可方法。</block>
   <block id="39c3f713772acf06f906fa354070ccae" category="admonition">Brocade FabricOS 8.0 之前的版本运行以下命令，因为 admin 和 8.0 及更高版本以 root 身份运行这些命令。</block>
   <block id="bb455cc655a37d9370a7b572be5c356a" category="list-text">启用 root 用户。</block>
   <block id="9982799dc107b44357ff54b7e3b835e7" category="paragraph">如果 Brocade 已禁用 root 用户，请启用 root 用户，如以下示例所示：</block>
@@ -7609,7 +7607,6 @@
   <block id="df5566493ce43130608af35ff9c2f4d8" category="paragraph">`s安全性登录 create`</block>
   <block id="34d50950463bd9deb8050c6afe5d8652" category="paragraph">`ssecurity login show`</block>
   <block id="8877f60294cec4f344b4ffc0df4449c3" category="paragraph">`snmpconfig —设置 SNMPv3`</block>
-  <block id="7c36b0e12ce814681762efb6b2ec6cc4" category="paragraph">此示例显示了如何配置只读用户。如果需要，您可以调整 RW 用户。</block>
   <block id="046a4dbe28831449e896740fded1c064" category="paragraph">您还应在未使用的帐户上设置密码，以保护这些帐户的安全，并使用 ONTAP 版本中提供的最佳加密方法。</block>
   <block id="2699745f7ba3417d015d2b62691bd3b8" category="list-text">将具有 IP 地址的交换机添加到每个 MetroCluster 节点：</block>
   <block id="6efb794ecca356d1adc84930ec9dbd7a" category="paragraph">`s存储交换机 add -address ipaddress`</block>
@@ -10920,8 +10917,6 @@
   <block id="21a858f81918f7707fbcd7bef86f8797" category="paragraph">运行命令<block ref="c53664d593e772e240ea0e6fdcfc79e1" prefix=" " category="inline-code"></block>。</block>
   <block id="afff4aa2c1e899c46d499fb894d82ada" category="open-title">适用于Fabric OS 9.0及更高版本</block>
   <block id="39219ac241ea7f4ccb98564b8a02b92c" category="paragraph">运行命令<block ref="ee9cf2be6d80be01f66c5272dabe9164" prefix=" " category="inline-code"></block>。</block>
-  <block id="6662b782a3a75b8e31dda70ebe53c4f0" category="paragraph">运行命令<block ref="c3d759c84d82a17cd2fc31c0bbd2be02" prefix=" " category="inline-code"></block>。</block>
-  <block id="1fb30ffcb217df70eb8b61a9c76f518f" category="paragraph">运行命令<block ref="f7fd6058274b87da3f8cba419f53bb7e" prefix=" " category="inline-code"></block>。</block>
   <block id="3c8938b87b13dff113f84a2814ddff39" category="paragraph"><block ref="f7fd6058274b87da3f8cba419f53bb7e" prefix="" category="inline-code"></block></block>
   <block id="1ad5a70ead9bdd722df6000495e21c24" category="list-text">如果您运行的是Fabric OS 8.2.x及更早版本、则必须将许可证方法更改为动态：</block>
   <block id="7fafa568d6f3c9a0ee98323f64b1c01c" category="admonition">在Fabric OS 9.0及更高版本中、默认情况下、许可证方法是动态的。不支持静态许可证方法。</block>
@@ -10950,7 +10945,6 @@
   <block id="7dd57dad7ab33a64ea80d69dc576695f" category="list-text">您的MetroCluster IP配置可能已直接连接到NS224磁盘架或专用存储交换机。</block>
   <block id="2d27e76da02804de2afe9d209e5cbb1c" category="admonition">建议为镜像聚合至少保留20%的可用空间、以获得最佳存储性能和可用性。虽然建议对非镜像聚合使用10%的空间、但文件系统可以使用额外的10%空间来吸收增量更改。由于ONTAP采用基于Snapshot的写时复制架构、增量更改可提高镜像聚合的空间利用率。不遵守这些最佳实践可能会对性能产生负面影响。</block>
   <block id="0e5e2d82a1039e41c19d2248f3b64787" category="admonition">您可以从任一集群配置 MetroCluster IP 接口。</block>
-  <block id="6212a1ad66c5ad9d3c50380aa91aab6a" category="list-text">无硬件故障</block>
   <block id="2af958a8143c65676390b5e251abe90a" category="list-text">验证是否已<block ref="a78608714add699f555f2a66df0ee249" prefix=" " category="inline-code"></block> 软件包安装在Linux主机上。这样可以避免<block ref="b0c94f1494e22d963244e235719a2582" prefix=" " category="inline-code"></block> 使用重新扫描Linux主机以查找新映射的LUN时出错<block ref="685ca42026debec2f3691cc5faae67d5" prefix=" " category="inline-code"></block> 命令：</block>
   <block id="1f52bd2314f9805b0a0098b0f56a0dc4" category="paragraph">这可能需要重新启动节点。</block>
   <block id="ab85fd4f549c390675df901a8ef3f78e" category="list-text">在IP节点上为所有SAN SVM创建FC IF/接口。(可选)验证新创建的FC SIFs中的WWPN是否已登录到FC SAN交换机</block>
@@ -11956,10 +11950,8 @@
   <block id="bd7a871cd772a6f8f044f086ccc3ed68" category="list-text">如果您的系统支持端到端加密、您可以 <block ref="2fd1db8c2a0ebb290526de8f46b28acd" category="inline-link-macro-rx"></block> 在新DR组上。</block>
   <block id="0088c1e15cccccdb2e3dc23e762335e0" category="list-text">如果启用了端到端加密、请按照步骤执行 <block ref="8a6f29aee2b87dab72caa4c63be583f5" category="inline-link-macro-rx"></block>。</block>
   <block id="7b27e86dbf07563fca6c99e2fca83549" category="list-text">如果您在添加新节点之前禁用了端到端加密、则可以按照中的步骤重新启用它 <block ref="2fd1db8c2a0ebb290526de8f46b28acd" category="inline-link-macro-rx"></block>。</block>
-  <block id="149bff96621a57d63b9a824d96957df7" category="open-title">Brocade交换机</block>
   <block id="250f3098aa37d3a08b48b8157db8a62e" category="open-title">Cisco switches</block>
   <block id="6204028fd0e3ba079ca2fce4bb224e24" category="paragraph"><block ref="010303eb2e404f6eb49cc314fc8aa294" prefix="" category="inline-code"></block></block>
-  <block id="a1032909a057927264a07294a53b91b5" category="paragraph">如果您需要RO访问权限、请在"User (ro)："之后指定"smpv3user"。以下示例将使用Brocade交换机：</block>
   <block id="ddaa39224424042ba35394afbe714a70" category="list-text">您必须是集群管理员才能执行此任务。</block>
   <block id="ffe47e3eda7ee0a88fa1a1b82a09899e" category="inline-link-macro">配置外部密钥管理</block>
   <block id="ca6ec36bc37ffec6b208710049cf5f93" category="list-text">在配置端到端加密之前、您必须先配置 <block ref="16044a12704308be53c493c61be8d30c" category="inline-link-macro-rx"></block>。</block>
@@ -14397,4 +14389,15 @@
   <block id="25849b8ea5119a6ccbe0ef06d8e35773" category="doc">测试MetroCluster IP 配置的ONTAP节点切换</block>
   <block id="7282d891d20cd1520e021b2ba6c78e20" category="list-text">支持静态数据加密。<block ref="6774dcdb02085dead82047685ca775f1" category="inline-link-macro-rx"></block></block>
   <block id="f42ec02236cb8b0134435967892ad733" category="paragraph"><block ref="f42ec02236cb8b0134435967892ad733" category="inline-link-macro-rx"></block></block>
+  <block id="929f699475d2ee16cffb5df619460281" category="list-text">无硬件故障（例如电源故障）</block>
+  <block id="8e7bac68088266dc4f6ea54160a86aa8" category="open-title">Brocade交换机（FOS 9.0 及更高版本）</block>
+  <block id="bbf1d4b45eed310475529b62acce8abc" category="paragraph"><block ref="5c14098cbb5e352eab3dbedad51645c3" prefix="" category="inline-code"></block></block>
+  <block id="fb9a60f6eec8993cd6b4f12e486c000c" category="open-title">Brocade交换机（FOS 8.x 及更早版本）</block>
+  <block id="c713289c1b13431b23b477490f615275" category="paragraph">该示例显示如何配置只读用户。如果需要，您可以调整 RW 用户。如果需要 RO 访问权限，请在“用户 (ro)：”后指定“snmpv3user”。</block>
+  <block id="da9939718fb44905950716c648f7501d" category="list-text">如果您运行的是 FOS 9.0 之前的版本，请验证交换机是否使用动态按需端口 (POD) 许可方法。</block>
+  <block id="2fc05e860677e088c66d18d9fe3bb918" category="paragraph"><block ref="c3d759c84d82a17cd2fc31c0bbd2be02" prefix="" category="inline-code"></block></block>
+  <block id="56df97178d6ee4000ee0e436cc180453" category="list-text">如果您运行的是早于 FOS 9.0 的版本，请验证交换机是否使用动态按需端口 (POD) 方法。</block>
+  <block id="6eb6a2663a1f73cd3119f3cb6f287206" category="paragraph"><block ref="c3d759c84d82a17cd2fc31c0bbd2be02" prefix="" category="inline-code"></block> 。</block>
+  <block id="5667ca92a697e03bc95d429bfe20fda5" category="inline-link">系统交换机以太网配置-健康-监控</block>
+  <block id="a7692359e6ab53408219d1f4fbab4614" category="paragraph">查看<block ref="e8f3e733a7456e37aaeb3c329fac3e94" category="inline-link-rx"></block>命令以了解更多详细信息。</block>
 </blocks>

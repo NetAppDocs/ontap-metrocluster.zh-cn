@@ -2982,21 +2982,17 @@ node_A_1 SVM 4 snmpv3user     snmp        usm                   10.10.10.13
 +
 [role="tabbed-block"]
 ====
-.Brocade交换机
+.Brocade交换机（FOS 9.0 及更高版本）
+--
+`snmpconfig --add snmpv3 -index <index> -user <user_name> -groupname <rw/ro> -auth_proto <auth_protocol> -auth_passwd <auth_password> -priv_proto <priv_protocol> -priv_passwd <priv_password>`
+
+--
+.Brocade交换机（FOS 8.x 及更早版本）
 --
 `snmpconfig —设置 SNMPv3`
 
---
-.Cisco switches
---
-`snmp-server user <user_name>  auth [md5/sha/sha-256] <auth_password> priv (aes-128) <priv_password>`
+该示例显示如何配置只读用户。如果需要，您可以调整 RW 用户。如果需要 RO 访问权限，请在“用户 (ro)：”后指定“snmpv3user”。
 
---
-====
-+
-如果您需要RO访问权限、请在"User (ro)："之后指定"smpv3user"。以下示例将使用Brocade交换机：
-
-+
 [listing]
 ----
 Switch-A1:admin> snmpconfig --set snmpv3
@@ -3010,11 +3006,16 @@ User (ro): [snmpuser2] snmpv3user
 Auth Protocol [MD5(1)/SHA(2)/noAuth(3)]: (1..3) [2]
 Priv Protocol [DES(1)/noPriv(2)/AES128(3)/AES256(4)]): (2..2) [3]
 ----
-+
-此示例显示了如何配置只读用户。如果需要，您可以调整 RW 用户。
+--
+.Cisco switches
+--
+`snmp-server user <user_name>  auth [md5/sha/sha-256] <auth_password> priv (aes-128) <priv_password>`
 
+--
+====
 +
-您还应在未使用的帐户上设置密码，以保护这些帐户的安全，并使用 ONTAP 版本中提供的最佳加密方法。
+
+NOTE: 您还应在未使用的帐户上设置密码，以保护这些帐户的安全，并使用 ONTAP 版本中提供的最佳加密方法。
 
 . 根据需要在站点上的其余交换机用户上配置加密和密码。
 
