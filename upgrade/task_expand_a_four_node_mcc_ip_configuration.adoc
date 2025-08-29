@@ -1138,7 +1138,7 @@ aggr_data_a2
 +
 `set -privilege advanced`
 
-.. 刷新任一节点上的MetroCluster配置：
+.. 刷新任何新添加的节点上的MetroCluster配置：
 +
 [cols="30,70"]
 |===

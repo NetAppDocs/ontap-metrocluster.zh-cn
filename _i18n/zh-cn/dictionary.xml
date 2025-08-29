@@ -12515,7 +12515,6 @@
   <block id="07b3edb46d2774fa411b0f9a1b01bead" category="sidebar">准备MetroCluster维护</block>
   <block id="053564114ce5591908a1b29312289c15" category="sidebar">使用共享存储MetroCluster交换机向MetroCluster IP配置添加磁盘架</block>
   <block id="59a029b0a65d8928b8afd42fd7a5bfe2" category="admonition">每个站点必须至少创建一个镜像数据聚合。建议在 MetroCluster IP 节点上为每个站点配置两个镜像数据聚合以托管 MDV 卷，但支持每个站点一个聚合（但不建议这样做）。MetroCluster的一个站点具有一个镜像数据聚合、而另一个站点具有多个镜像数据聚合、这是可以接受的。</block>
-  <block id="478e4322f0111cf3e7bdad12bea24701" category="list-text">刷新任一节点上的MetroCluster配置：</block>
   <block id="4ad402ea3fb0bcfdc921fd3083047f45" category="paragraph">从任何节点的提示符处、运行：</block>
   <block id="28d0a71b806dfc9c57cc495498c72954" category="paragraph">一个或两个站点上的一个镜像数据聚合</block>
   <block id="d419812c67afb77388be54f4cb41eb86" category="paragraph">在任一节点的提示符处、使用<block ref="d972f8bbe9b04d39b8b96b699cf921e9" prefix=" " category="inline-code"></block>参数配置MetroCluster：</block>
@@ -14400,4 +14399,5 @@
   <block id="6eb6a2663a1f73cd3119f3cb6f287206" category="paragraph"><block ref="c3d759c84d82a17cd2fc31c0bbd2be02" prefix="" category="inline-code"></block> 。</block>
   <block id="5667ca92a697e03bc95d429bfe20fda5" category="inline-link">系统交换机以太网配置-健康-监控</block>
   <block id="a7692359e6ab53408219d1f4fbab4614" category="paragraph">查看<block ref="e8f3e733a7456e37aaeb3c329fac3e94" category="inline-link-rx"></block>命令以了解更多详细信息。</block>
+  <block id="d2d6100dc04e04ad658d21c2678b2c9e" category="list-text">刷新任何新添加的节点上的MetroCluster配置：</block>
 </blocks>
