@@ -102,13 +102,4 @@ IP
  a| 
 https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.html["维护 DS460C DS224C 和 DS212C 磁盘架"^]
 
-
-
- a| 
-两者
- a| 
-将 IOM12 磁盘架热添加到 IOM6 磁盘架堆栈中
- a| 
-https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-mix-hotadd/home.html["将带有 IOM12 模块的磁盘架热添加到带有 IOM6 模块的磁盘架堆栈中"^]
-
 |===

@@ -54,7 +54,7 @@ CAUTION: 如果要升级到列出的任何系统，则在执行升级之前，*�
 | 从AFF A220到AFF 2020 | `bootarg.siw.interop_enabled` 
 
 
-| 所有其他受支持的AFF A70、AFF A90、AFF A1K、FAS70、FAS90、AFF C80、AFF A50、AFF 2020、AFF A30、AFF C30、AFF C60或FAS50系统升级 | `hw.cxgbe.toe_keepalive_disable` 
+| 所有其他支持升级到AFF A70、 AFF A90、 AFF A1K、FAS70、FAS90、 AFF C80、 AFF A50、 AFF A30、 AFF C30、 AFF C60 或 FAS50 系统 | `hw.cxgbe.toe_keepalive_disable` 
 |===
 
 

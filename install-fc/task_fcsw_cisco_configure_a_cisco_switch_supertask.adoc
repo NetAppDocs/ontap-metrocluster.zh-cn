@@ -2418,7 +2418,7 @@ exit
 .关于此任务
 必须对两个 FC 交换机网络结构执行这些步骤。
 
-以下步骤使用四节点 MetroCluster 配置中的 FibreBridge 7500N 分区一节中所述的分区。请参见 link:task_fcsw_cisco_configure_a_cisco_switch_supertask.html#configuring-fcip-ports-for-a-dual-isl-on-cisco-9250i-fc-switches["FC-VI 端口的分区"]。
+以下步骤使用四节点MetroCluster配置中的 FibreBridge 7500N 分区部分中描述的分区。
 
 .步骤
 . 清除现有分区和分区集（如果存在）。

@@ -25,7 +25,6 @@ NOTE: 灾难恢复（ DR ）组中的所有磁盘都必须使用相同类型的�
 +
 https://hwu.netapp.com["NetApp Hardware Universe"]
 
-* 不支持在同一存储堆栈中混合使用 IOM12 模块和 IOM3 模块。如果您的系统运行的是受支持的 ONTAP 版本，则可以在同一存储堆栈中混合使用 IOM12 模块和 IOM6 模块。
 
 
 [NOTE]

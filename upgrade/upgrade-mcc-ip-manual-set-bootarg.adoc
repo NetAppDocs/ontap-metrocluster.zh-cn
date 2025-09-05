@@ -11,29 +11,43 @@ summary: 升级到9.15.1 9.151或更高版本中引入的系统需要先设置�
 
 
 [role="lead"]
-要对9.15.1 9.151或更高版本中引入的系统进行控制器升级、需要先在旧控制器上设置启动程序、然后才能开始升级。
+如果要升级到ONTAP 9.15.1 或更高版本中引入的系统，通常需要在旧控制器上设置 bootarg 才能开始升级。
 
 
-NOTE: 在开始升级之前、您必须在两个站点的所有旧节点上设置所需的启动程序。
-
-
-
-== 第1步：确定需要在旧控制器上设置的启动程序
-
-以下系统的所有受支持升级都要求您在执行控制器升级之前、在旧控制器上设置一个启动程序：
-
-* AFF A70、AFF A90、AFF A1K
-* FAS70、FAS90
-* AFF C80
-* AFF A50、AFF A20、AFF A30
-* AFF C30、AFF C60
-* FAS50
+NOTE: 如果您的升级组合受到影响，则需要在所有旧控制器上设置启动参数才能成功升级。仔细阅读本节中的信息，检查您的升级组合是否要求您设置启动参数，以及如何为您的组合设置正确的启动参数。
 
 
 
-CAUTION: 如果要升级到列出的任何系统，则在执行升级之前，*必须*在现有系统上设置所需的启动程序。对于所有其他升级，您可以跳过此任务并直接转到 link:upgrade-mcc-ip-prepare-system.html["准备系统以进行升级"]。
+== 步骤 1：确定是否需要在旧控制器上设置 bootarg
 
-9.15.1 9.151或更高版本中引入的大多数系统升级都要求在旧控制器上设置 `hw.cxgbe.toe_keepalive_disable`启动程序。但是、某些升级路径要求您设置 `bootarg.siw.interop_enabled`布塔格。
+使用以下信息检查在开始升级之前是否需要设置所需的 bootarg：
+
+* 除非另有说明，否则您*必须*在旧控制器上设置启动参数才能支持以下系统的升级：
++
+** AFF A70、AFF A90、AFF A1K
+** FAS70、FAS90
+** AFF C80
+** AFF A50、AFF A20、AFF A30
+** AFF C30、AFF C60
+** FAS50
+
+
+* 如果您的升级是以下组合之一，则您不需要在旧控制器上设置任何启动参数：
++
+** 从AFF A70系统到AFF A90系统
+** 从 FAS70 系统到 FAS90 系统
+
+
+
+
+
+CAUTION: 如果你的升级不需要设置任何启动参数，你可以跳过此任务并直接转到link:upgrade-mcc-ip-prepare-system.html["准备系统以进行升级"]。
+
+
+
+== 步骤 2：确定需要在旧控制器上设置的启动参数
+
+大多数受影响的升级需要您设置 `hw.cxgbe.toe_keepalive_disable`旧控制器上的 bootarg。但是，某些升级路径要求您设置 `bootarg.siw.interop_enabled`而是使用 bootarg。
 
 使用下表确定您需要为特定升级组合设置的bootarg。
 
@@ -54,13 +68,20 @@ CAUTION: 如果要升级到列出的任何系统，则在执行升级之前，*�
 | 从AFF A220到AFF 2020 | `bootarg.siw.interop_enabled` 
 
 
-| 所有其他受支持的AFF A70、AFF A90、AFF A1K、FAS70、FAS90、AFF C80、AFF A50、AFF 2020、AFF A30、AFF C30、AFF C60或FAS50系统升级 | `hw.cxgbe.toe_keepalive_disable` 
+ a| 
+对AFF A70、 AFF A90、 AFF A1K、FAS70、FAS90、 AFF C80、 AFF A50、 AFF A30、 AFF C30、 AFF C60 或 FAS50 系统的所有其他升级
+
+*注意：*如果从AFF A70升级到AFF A90系统或从 FAS70 升级到 FAS90 系统，则无需设置任何引导参数。
+| `hw.cxgbe.toe_keepalive_disable` 
 |===
 
 
-== 第2步：在旧控制器上设置所需的启动程序
+== 步骤 3：在旧控制器上设置所需的启动参数
 
-只有在升级到AFF A70、AFF A90、AFF A1K、FAS70、FAS90、AFF C80、AFF A50、AFF 2020、AFF A30、AFF C30、AFF C60或FAS50系统时、*才需要执行此任务。
+确定升级组合所需的 bootarg 后，按照步骤在旧控制器上设置 bootarg。此任务*仅*适用于受影响的升级。
+
+
+NOTE: 在开始升级之前，必须在两个站点的所有旧节点上设置 bootarg。
 
 .步骤
 . 暂停两个站点上的一个节点、并允许其HA配对节点对该节点执行存储接管：

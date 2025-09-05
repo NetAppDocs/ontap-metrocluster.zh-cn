@@ -82,7 +82,7 @@ image:../media/manual-upgrade-combination-group-1.png["显示了组1平台支持
 --
 查看升级到AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF A900、AFF、AFF A90、AFF C800、AFF A800 C80、FAS90、FAS9500和AFF A1K系统时支持的组合。
 
-image:../media/manual-upgrade-combination-group-2-updated.png["显示了组2平台支持的升级组合"]
+image:../media/manual-upgrade-combination-group-2-a90-fas90.png["显示了组2平台支持的升级组合"]
 
 --
 ====
