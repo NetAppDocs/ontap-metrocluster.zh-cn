@@ -60,7 +60,7 @@ entries:
       url: "/install-ip/port_usage_3232c_9336c.html"
     - title: 12 端口 Cisco 9336C-FX2 交换机的平台端口分配
       url: "/install-ip/port-usage-9336c-fx-2-12-port.html"
-    - title: 连接 NS224 存储的 36 端口 Cisco 9336C-FX2 交换机的平台端口分配
+    - title: 连接 NS224 存储的 36 端口Cisco 9336C-FX2 交换机的平台端口分配
       url: "/install-ip/port_usage_9336c_shared.html"
     - title: 为 Broadcom 支持的 BES-53248 IP 交换机分配平台端口
       url: "/install-ip/port_usage_bes53248.html"

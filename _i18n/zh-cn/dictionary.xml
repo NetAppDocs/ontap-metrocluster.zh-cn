@@ -2428,26 +2428,17 @@
   <block id="ac5b83bcd716e4f73dc30fdc6a4c5c55" category="paragraph">每个控制器模块上至少应使用两个端口建立集群对等关系。</block>
   <block id="0fb6c3d63792ef7dc83798e7407f80e4" category="paragraph">端口和网络连接的建议最小带宽为 1 GbE 。</block>
   <block id="5206bcb346755220c00fbc45647faca6" category="list-text">确定至少两个端口并为其布线以建立集群对等关系，然后验证它们是否与配对集群建立了网络连接。</block>
-  <block id="cba784dbb6dad30cadc1fcb2d1b5ee81" category="paragraph"><block ref="cba784dbb6dad30cadc1fcb2d1b5ee81" category="inline-link-rx"></block></block>
   <block id="19df577c80891b37cfa2f1b29c518f6e" category="paragraph">八节点配置包括八个节点，这些节点按两个四节点 DR 组进行组织。</block>
-  <block id="e66e23247af7503f663027daef188754" category="paragraph">通过删除 DR 组，配置中仍保留四个节点。</block>
-  <block id="1c08e40b56822a43e7877e2eb26a97fd" category="section-title">从每个集群中删除 DR 组节点</block>
   <block id="50c188ed93e1182ae7f08e39dbbb2ec5" category="list-text">您必须在两个集群上执行此步骤。</block>
   <block id="f2bf546b53e3f6cc54f274876ab2cb36" category="list-text">只有 ONTAP 9.8 及更高版本才支持 `MetroCluster remove-dr-group` 命令。</block>
-  <block id="cdfb112bdd5ad036d9715bddf30e7912" category="list-text">如果尚未删除 DR 组，请做好删除准备。</block>
   <block id="95e7c6b72cfdf5397dbe8a6653bdc7c1" category="list-text">将所有数据卷移动到另一个 DR 组。</block>
-  <block id="92cccd899142da5e06923ac8991bc5fc" category="list-text">删除 DR 组中要删除的所有数据聚合，如以下示例所示：</block>
   <block id="73f68d9b46d6064cae47a18da8004723" category="admonition">不会删除根聚合。</block>
-  <block id="0eb68bef79fda0557a1bd86cd43b0afa" category="paragraph">节点管理和集群间 LIF 不会迁移。</block>
   <block id="85d38d4ee3b9248e142229cf9e215620" category="list-text">如果需要，将 epsilon 传输到另一个 DR 组中的节点。</block>
   <block id="aac7ac3bfa9117ebc1368d396b746e00" category="list-text">确定并删除 DR 组。</block>
   <block id="c31e08573cdaea3b8de26a9f74105469" category="paragraph">以下示例显示了如何删除 cluster_A 上的 DR 组配置</block>
-  <block id="4ed5c490b4a22cb265bc48e25109096a" category="list-text">如果采用 MetroCluster IP 配置，请删除旧 DR 组节点上的 MetroCluster 连接。</block>
-  <block id="a64d27abe280b12e33befc92f146357d" category="paragraph">这些命令可以从任一集群发出，并应用于跨越两个集群的整个 DR 组。</block>
   <block id="8d3c998ce16ecd4cdc06e3ddd8c757e6" category="list-text">取消加入旧 DR 组中的节点。</block>
   <block id="b30c893d5895266607a2a417b5123132" category="paragraph">您必须在每个集群上执行此步骤。</block>
   <block id="ff6434ad658fa9ed7826817a3f9f0dff" category="paragraph">对旧 DR 组中的另一个本地节点重复此步骤。</block>
-  <block id="47b7f94ac9af47dcafeea8d4a5f0d377" category="list-text">在新 DR 组中重新启用集群 HA ：</block>
   <block id="8917e80351843363583600f118c2fa84" category="list-text">暂停，关闭并卸下旧控制器模块和存储架。</block>
   <block id="88360ff6d6d5e3d5d618e2ab14b30049" category="summary">安装 Tiebreaker 软件后，您可以添加或修改 MetroCluster 配置，或者将其从 Tiebreaker 软件中删除。</block>
   <block id="84b5999a36db8b18180d5b58bd61c503" category="doc">配置 Tiebreaker 软件</block>
@@ -4456,7 +4447,6 @@
   <block id="89a000b961d78cc03e60a01f6562e2c8" category="section-title">部分填充的磁盘架的驱动器位置注意事项</block>
   <block id="93d2c0db4f12f10c56f582f82171c52b" category="paragraph">要在使用半填充磁盘架（ 24 驱动器磁盘架中有 12 个驱动器）时正确地自动分配驱动器，驱动器应位于插槽 0-5 和 18-23 中。</block>
   <block id="7bf8ecae55a24d61a71e36a03be28010" category="paragraph">在磁盘架部分填充的配置中，驱动器必须均匀分布在磁盘架的四个象限中。</block>
-  <block id="2ad434ab593fd445c83cdbf1d5d00216" category="section-title">在一个堆栈中混用 IOM12 和 IOM 6 模块</block>
   <block id="2577b62ff20a44feeb798ea94e578a0b" category="section-title">网桥命名约定</block>
   <block id="3c140973dafbe403da4d648de7fb7d10" category="paragraph">网桥使用以下命名示例： bridge_site_stack groupocation in pair</block>
   <block id="c7b1954faa9797acca58b04da6fc79bb" category="cell">名称的这一部分 ...</block>
@@ -7981,19 +7971,15 @@
   <block id="43de0767f9174a53083becb427ee5902" category="paragraph">`setenv partner-sysid _sysID_of_new_controller_`</block>
   <block id="89f1ff2375d86ec697867899f17d2149" category="paragraph">`setenv partner-sysid _sysID_of_existing_controller_`</block>
   <block id="25898a6422d7ded47f2936026a1df6c1" category="list-text">删除要删除的 DR 组中可能存在的所有 MDV_aud 元数据卷。</block>
-  <block id="29771e568737c4148ab90cda182257df" category="list-text">将所有数据 LIF 迁移到另一个 DR 组中的主节点。+ `network interface show -home-node _old_node_s`</block>
   <block id="6922b002b7c8c168a04ce8ef0feeaaff" category="paragraph">`network interface modify -vserver _svm-name_ -lif _data-lif_ -home-port _port-id_`</block>
   <block id="4ed819934d8eb4ecfa162dc35324fc32" category="list-text">将集群管理 LIF 迁移到另一个 DR 组中的主节点。</block>
   <block id="91f41d8c6028070fa5f4cd7a2c56f7be" category="paragraph">`network interface show -role cluster-mgmt`</block>
   <block id="b32745668eaff06c12feb45539c339e0" category="list-text">确定要删除的正确 DR 组：</block>
   <block id="0373e81430a1cc22dafabd61d4a3cd0e" category="list-text">删除 DR 组节点： + MetroCluster remove-dr-group -dr-group-id 1`</block>
   <block id="d172777a2cbbb0c3ec9b70dc45780c5f" category="list-text">断开连接：</block>
-  <block id="08a665929056fef6a8490b5b0b04f474" category="paragraph">MetroCluster configuration-settings connection disconnect _dr-group-id_`</block>
   <block id="e18600ad5da962c033022e8657b0fab3" category="list-text">删除旧 DR 组节点上的 MetroCluster 接口：</block>
   <block id="eb5c2cb295b7a9fd5ee2ed559f176f9e" category="paragraph">MetroCluster configuration-settings interface delete`</block>
   <block id="deba5df0dea3cbba9463f219100e5ba4" category="list-text">删除旧 DR 组的配置。+ MetroCluster configuration-settings dr-group delete`</block>
-  <block id="cdab15f9840a783bfc35d8f8baa514e9" category="list-text">Unjoin the node ： + `cluster unjoin -node _node-name_`</block>
-  <block id="06b28530123c83dfb519d35b8e3e11f5" category="list-text">设置管理员权限级别： + `set -privilege admin`</block>
   <block id="d82e4b6cc46afb567474f7178afb5796" category="list-text">切换，修复和切回</block>
   <block id="70a6af377eaf4da39eb5c40bd123522b" category="list-text">强制切换</block>
   <block id="0ece35432200ec94e379aeb1ce68db94" category="list-text">从多控制器或存储故障中恢复</block>
@@ -8436,7 +8422,6 @@
   <block id="776259e77c1e67fef13df14be8a5ad8e" category="list-text">在两个集群中，使受影响磁盘架堆栈上的所有磁盘丛脱机：</block>
   <block id="b88127542a36dbd88f1d9b0eb0e66dc0" category="paragraph">ONTAP 当前支持 AES-128 加密。</block>
   <block id="ffdcbc12bcb9d9c0dfcda96a2a729863" category="list-text">从广播域中删除 VLAN 和接口组端口：</block>
-  <block id="ed2e5c7ebbd6b2c749bdb92415d9787c" category="list-text">禁用存储故障转移：</block>
   <block id="8c0de6fd10d37074888575e8bb234409" category="list-text">从 EFOS 3.4.x.x 升级到 EFOS 3.7.x.x 或更高版本时，交换机必须运行 EFOS 3.4.4.6 （或更高版本 3.4.x.x ）。如果您运行的是之前的版本，请先将交换机升级到 EFOS 3.4.4.6 （或更高版本 3.4.x.x ），然后再将交换机升级到 EFOS 3.7.x.x 或更高版本。</block>
   <block id="3e500c172d59004ad7f8a56f2af9021e" category="list-text">EFOS 3.4.x.x 和 3.7.x.x 或更高版本的配置有所不同。要将 EFOS 版本从 3.4.x.x 更改为 3.7.x.x 或更高版本，或者反之，则需要将交换机重置为出厂默认值，并重新应用相应 EFOS 版本的 RCF 文件。此操作步骤需要通过串行控制台端口进行访问。</block>
   <block id="40613ace69e06cacd37d3181d20fb498" category="cell">不符合 FIPS 的 3.7.x.x 或更高版本</block>
@@ -10043,9 +10028,7 @@
   <block id="03b9eedf57c55a2eb9b4feaa990c85f6" category="list-text">使用适用于MetroCluster IP的RcfFileGenerator为您的配置生成RCF文件。</block>
   <block id="52ad3b024ecc6eae02e8415cef1140ba" category="summary">您必须配置IP交换机以提供后端MetroCluster IP连接。</block>
   <block id="9e93b10c56fcff9e0d1564e5ad629c03" category="doc">配置交换机</block>
-  <block id="8c6cfac074d0567f4c5a941062f42343" category="paragraph">ONTAP 9.8 及更高版本支持此操作步骤。对于运行ONTAP 9.7或更早版本的系统、请参见知识库文章</block>
   <block id="d5d6932337b2af2eda1bd96fd5aa3832" category="inline-link-macro">如何从MetroCluster 配置中删除DR组</block>
-  <block id="44fa5f61d97cbf15ad67ee9c5aedc1c6" category="paragraph"><block ref="44fa5f61d97cbf15ad67ee9c5aedc1c6" category="inline-link-macro-rx"></block></block>
   <block id="240e83062f934da5c217268779ad19cc" category="inline-link-macro">如果现有FAS8020或AFF8020节点上的FCVI连接使用端口1c和1d、则升级控制器。</block>
   <block id="7d52f2b0abe5122410e02b6a1f5063c2" category="admonition">如果原始或新平台是使用FC-VI模式下端口1c和1d的FAS8020或AFF8020系统、请参见知识库文章 <block ref="932e72f00053653311064be7a28a435b" category="inline-link-macro-rx"></block></block>
   <block id="0304fb1b1795f11d66da6052c99f1cca" category="list-text">两个站点的许可证必须匹配。您可以从获取新许可证 <block ref="3bd7a72b5bb22d07b50aba30cd6fdbe6" category="inline-link-macro-rx"></block>。</block>
@@ -10292,7 +10275,6 @@
   <block id="ec8b479c503bdd6824b5e3505ef1d0df" category="paragraph">以下示例显示了要脱机的聚合aggr_data_A1：</block>
   <block id="aa8cd184e817ada870c8b763be695d0b" category="paragraph">以下示例显示了要删除的聚合aggr_data_A1。</block>
   <block id="d2038b70348bcc50135596de145913db" category="admonition">按以下顺序更新交换机：switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2</block>
-  <block id="f6d453c97574893aee9bca0a4faee686" category="paragraph">`storage failover modify -node _node-name_-enable false`</block>
   <block id="f91adcd268075ddcfabf631a5a33611e" category="list-text">使每个数据聚合脱机、然后将其删除：</block>
   <block id="d4fbfd12406441eb6b750cde2dcb9137" category="list-text">验证站点间交换机间链路(ISL)是否已启动且端口通道是否正常运行：</block>
   <block id="0e199c470dcfb3a63ccc62156cd2085f" category="paragraph">在以下示例中、对于远程站点链路、ISL端口"Eth1/15"到"Eth1/20"配置为"Po10"、而对于本地集群ISL、"Eth1/7"到"Eth1/8"的配置为"PO1"。"Eth1/15"到"Eth1/20"、"Eth1/7"到"Eth1/8"、"Po10"和"PO1"的状态应为"up"。</block>
@@ -10404,9 +10386,6 @@
   <block id="a417bfe3b0e85c20658fe71357feb3ef" category="paragraph">有关完整的命令语法，请参见手册页。以下示例将创建集群间 LIF cluster01_icl01 和 cluster01_icl02 ：</block>
   <block id="0074a60c2f111fa09e324bfc6f086bfd" category="paragraph">运行命令：<block ref="08fd4296d1145ee217b3ba481add0899" prefix=" " category="inline-code"></block></block>
   <block id="bb084c29063404b6611bde28d4ed57d3" category="paragraph">运行命令：<block ref="4686e63f75ecbb5593b9aac27ab89dd7" prefix=" " category="inline-code"></block></block>
-  <block id="3c01c02ef0bb0d39aaf5f9cbc5c8ea4b" category="paragraph"><block ref="6b5ac3bb2bcffd222567cf972f8a2548" prefix="" category="inline-code"></block></block>
-  <block id="f7967c2b46538ede39d7960526ce1fa4" category="list-text">将数据LIF重新联机。<block ref="c5b63f9c60f25a11e5c1cde65fb540f1" prefix=" " category="inline-code"></block></block>
-  <block id="f677111a20e676139c4a865021fafa0d" category="paragraph"><block ref="850d7b5cf3d569632a8982fc791023b0" prefix="" category="inline-code"></block></block>
   <block id="00b7088169fa7f91ce7c54fd96b41d7b" category="list-text">将用于托管集群间LIF的物理端口添加到相应的广播域中。</block>
   <block id="e64aaeac172dbd7d324ded015d3b620f" category="list-text">验证配对集群是否可访问、以及配置是否已在配对集群上成功重新同步：</block>
   <block id="e3c9aa07778be11d3bb374e3a6486e23" category="paragraph"><block ref="982b6fd5e36acd031c5af800a9951ed1" prefix="" category="inline-code"></block></block>
@@ -10533,7 +10512,6 @@
   <block id="6a9c67444d70fbe1484e9983092ffff8" category="admonition">您必须确保执行中的步骤 <block ref="b6e3e97b1b6ab70165db8088036aef95" category="inline-link-macro-rx"></block> 在每个控制器(包括替代控制器)上、验证先前的配置是否已删除。</block>
   <block id="779a44ac931df50e9ba3ac26bbca035e" category="list-text">如果<block ref="3b3242ced99842a6c2c16f489b78e773" prefix=" " category="inline-code"></block> 命令成功完成、然后控制器模块出现故障、请使用上表确定正确的恢复操作步骤。</block>
   <block id="57c5f3148ec34d732973b7f905f1ca84" category="section-title">MetroCluster FC-IP过渡期间的控制器模块故障场景</block>
-  <block id="b79001d76282bba800ccc9b5187d2ad4" category="list-text">将数据LIF置于脱机状态。<block ref="58d060d8bc95409e743c7b8e95e72710" prefix=" " category="inline-code"></block></block>
   <block id="467f07382f2568a4248a6dee67437d64" category="paragraph"><block ref="467f07382f2568a4248a6dee67437d64" category="inline-link-macro-rx"></block></block>
   <block id="d570f5d821344a6838aaa260987eafc8" category="inline-link-macro">高可用性对管理</block>
   <block id="519460f530eb0c6817aeafcaef72fd69" category="paragraph">在四节点 MetroCluster 配置中，此故障可能会导致受损节点的自动接管或协商接管，具体取决于发生故障的组件。中介绍了数据恢复 <block ref="098c4bee7c591ea5429ed6be6c4ddd42" category="inline-link-macro-rx"></block> 。</block>
@@ -11200,7 +11178,6 @@
   <block id="9dc72cfc812a43dbca6ba4e6357b2b04" category="paragraph">从ONTAP 9.13.1开始、您可以临时扩展八节点MetroCluster配置以刷新控制器和存储。请参见 <block ref="df5e6373f54c9330727709bb1055a079" category="inline-link-macro-rx"></block> 有关详细信息 ...</block>
   <block id="e6f19b92e0e69fc5d74e94088b442a26" category="inline-link-macro">刷新四节点或八节点MetroCluster IP配置</block>
   <block id="ae236ebe2cd05ce4da7fe73d504f4946" category="list-text">如果您是 <block ref="54f4a86aff0fc5aba4d6e37b225734c0" category="inline-link-macro-rx"></block>新节点必须具有足够的存储空间来容纳旧节点的数据、并具有足够的磁盘来容纳根聚合和备用磁盘。</block>
-  <block id="30db39dffca5d3a3ab759b48303153b1" category="list-text">如果要删除的DR组包含负载共享镜像卷、则无法移动这些卷。  在另一个DR组中重新创建所有负载共享镜像卷、然后删除要删除的DR组中的负载共享镜像卷。</block>
   <block id="0108924065f583138162139c8d2325c4" category="list-text">按以下顺序逐个交换机执行这些步骤：Switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。</block>
   <block id="61cdeb097cfdf5250ae69244ebf01a62" category="list-text">如果您使用xWDM配置、则可能需要对这些ISL进行其他设置。有关详细信息、请参见xWDM供应商文档。</block>
   <block id="91debec19d39d0379223807f0659efab" category="section-title">修复MetroCluster配置中的配置</block>
@@ -11975,13 +11952,11 @@
   <block id="0ab751f551b18333e82474f5ca9b4122" category="list-text">验证MetroCluster IP接口端口是否联机。</block>
   <block id="124ba57298a92342f8aec06ebcfb6415" category="inline-link-macro">确定旧控制器模块的系统ID</block>
   <block id="3ac27de4b4347c98785ff06870fe7221" category="paragraph"><block ref="3ac27de4b4347c98785ff06870fe7221" category="inline-link-macro-rx"></block></block>
-  <block id="a786547181c9c8f446791420d2be691f" category="paragraph">您的 ONTAP 版本必须支持混用磁盘架。请参见<block ref="f93341e63c1888be05256ff042174623" category="inline-link-rx"></block> 查看您的 ONTAP 版本是否支持混用磁盘架。</block>
   <block id="27211cf5d485f8491ca9b566aefe2d6d" category="paragraph">从ONTAP 9.4开始、MetroCluster IP配置支持使用自动磁盘分配和ADP (高级驱动器分区)进行新安装。</block>
   <block id="e528d26e96f91b34e70a35c4661d620d" category="list-text">要在AFF和ASA系统上将ADP与MetroCluster IP配置结合使用、需要使用ONTAP 9.4及更高版本。</block>
   <block id="bc8be72fdc9d6054f356bb2b7f80fd12" category="inline-link">NetApp 互操作性表</block>
   <block id="769db6797bc8c70f9ceb0ea238fcfef2" category="list-text"><block ref="769db6797bc8c70f9ceb0ea238fcfef2" category="inline-link-rx"></block></block>
   <block id="c5dcd35af16918a17ee9c3a5c153f0af" category="inline-link">IMT</block>
-  <block id="24d65add9a27d74b80e9a9cebdfc8e56" category="paragraph">您的 ONTAP 版本必须支持混用磁盘架。请参见互操作性表工具（ IMT ），了解您的 ONTAP 版本是否支持混用磁盘架。<block ref="30796bf173a80af0dc9c120f98ffaed6" category="inline-link-rx"></block></block>
   <block id="80d79e74efb3cf7c2ad45e7e1c96223d" category="inline-link-macro">将NVIDIA IP SN2100交换机重置为出厂默认值</block>
   <block id="9dce4db3e352a666d92ce25dd5f94a51" category="list-text"><block ref="9dce4db3e352a666d92ce25dd5f94a51" category="inline-link-macro-rx"></block></block>
   <block id="59908dc1540a829f2e5b2241e8bda0cd" category="inline-link-macro">下载并安装NVIDIA IP RCP文件</block>
@@ -13974,7 +13949,6 @@
   <block id="c82f2ff1cbd6e1d62e65daba43978db4" category="paragraph">Cisco 9336C-FX2共享（36端口）</block>
   <block id="d44a3adbc7ddf926ace3174c29e594fe" category="paragraph">*注意：*要使用交换机端口 11 和 12，您必须选择两种速度模式。</block>
   <block id="22e6a6026dec5bb5059565b00cc3631c" category="paragraph">在过渡、刷新、八节点安装和四节点扩展过程中，您可能会向 MetroCluster 配置中添加新的平台模型。在这些过程的任何阶段，如果现有 MetroCluster 配置包含使用 *共享集群/HA 端口* 的平台，则您必须将 ONTAP 版本升级到 ONTAP 9.15.1P11 或 ONTAP 9.16.1P4 或更高版本，才能将使用 *共享 MetroCluster/HA 端口* 的平台添加到配置中。</block>
-  <block id="29c802ab86e25c329e4ce82ab207d848" category="sidebar">12 端口 Cisco 9336C-FX2 交换机的平台端口分配</block>
   <block id="a65cd2f2d334d9927f9c0f2a89dbb2d0" category="paragraph">了解 MetroCluster IP 平台和交换机支持的新功能。</block>
   <block id="cf42f488bd58e2f8f8819f7c720b93a1" category="paragraph">您必须在高级权限模式下在每个集群上执行此步骤。</block>
   <block id="c836d30393b0f25c968423f5df80b134" category="paragraph">将 MetroCluster FC 配置的集群接口移动到 IP 交换机。</block>
@@ -14373,4 +14347,56 @@
   <block id="ada21e32b58b8c3670abec0c9bd43b39" category="paragraph">确定升级组合所需的 bootarg 后，按照步骤在旧控制器上设置 bootarg。此任务*仅*适用于受影响的升级。</block>
   <block id="5c60cc2ba2a9eb0236f0d3ba52d42179" category="admonition">在开始升级之前，必须在两个站点的所有旧节点上设置 bootarg。</block>
   <block id="51e9ae39fa32c368d27f8e565c6a0512" category="cell">所有其他支持升级到AFF A70、 AFF A90、 AFF A1K、FAS70、FAS90、 AFF C80、 AFF A50、 AFF A30、 AFF C30、 AFF C60 或 FAS50 系统</block>
+  <block id="9f0a4554064856ae78dbf1c08bc876ce" category="doc">从MetroCluster配置中删除 DR 组</block>
+  <block id="2f5075fd2401e26a07990d72f3087874" category="paragraph">从ONTAP 9.8 开始，您可以从八节点MetroCluster配置中删除灾难恢复 (DR) 组，以创建四节点MetroCluster配置。</block>
+  <block id="73ac4183b96cb40ebb14a9dc72a13298" category="admonition">您可以在过渡和系统刷新工作流程期间使用这些步骤。</block>
+  <block id="a17f6afa75b317e25d154b29624badd3" category="section-title">从每个集群中删除 DR 组节点</block>
+  <block id="b928a73ca232c9fc08d935ad673557de" category="paragraph">从ONTAP 9.8 开始支持此过程。对于运行ONTAP 9.7 或更早版本的系统，请参阅知识库文章：<block ref="806d9b447def65eba3e3e2e790c033b4" category="inline-link-macro-rx"></block> 。</block>
+  <block id="622b8cea53ef096337834121912a63f3" category="paragraph">删除 DR 组时，配置中仍保留四个节点。</block>
+  <block id="c1e5c91114c66e4b9a57d82fcc652acd" category="list-text">如果尚未删除 DR 组，请准备删除该组。</block>
+  <block id="8ab89d8f614450ad9b0a76ce08cf67b8" category="list-text">如果要移除的 DR 组具有负载共享镜像卷，则在另一个 DR 组中重新创建所有负载共享镜像卷，并将其从要移除的 DR 组中删除。</block>
+  <block id="a59820a1c3cb9db44ad34809c30b9b83" category="list-text">删除要移除的 DR 组中的所有数据聚合：</block>
+  <block id="18fa955273f3f4dcd76a502f9692c60d" category="list-text">将用于 NFS 和 CIFS (SMB) 的所有 NAS 数据 LIF 迁移到另一个 DR 组中的主节点。+ <block ref="7317cdd2b96cce163d969aceb2ba0c1d" prefix=" " category="inline-code"></block></block>
+  <block id="8e0e33777ea372d5fe416dcfc835ca44" category="paragraph"><block ref="8eceacf63a83bbfbc3898284abfafa5f" prefix="" category="inline-code"></block></block>
+  <block id="2b3b2e728783f7895871de7434a53e12" category="list-text">将数据 LIF 移动到另一个 DR 组中的新主节点。<block ref="80e0d406ea5fcb2ea137507fb844b0fb" prefix=" " category="inline-code"></block></block>
+  <block id="a91858ed54f0d68645cd08be7b25782c" category="paragraph"><block ref="e5bd5c510f2d91722adf52ff19bb0ab9" prefix="" category="inline-code"></block></block>
+  <block id="d92e3b22372c2adfe757906a8734d8f4" category="list-text">节点管理和集群间 LIF 不会迁移。根据需要在 DR 组的节点上创建新的节点管理和集群间 LIF。</block>
+  <block id="6a16ef52c4b06b07d8c8d1060e0d49d8" category="list-text">您无法在节点之间迁移或移动用于块访问 (SAN) 的 FCP 接口。根据需要创建新的 FCP 接口。</block>
+  <block id="e4abc9f15e37b97db879c5cf483a2d4b" category="list-text">需要先关闭 iSCSI SAN LIF，然后才能更新主节点和主端口。</block>
+  <block id="8f13be73804a56335a7ee2724f13e633" category="list-text">在旧 DR 组的节点上禁用存储故障转移：</block>
+  <block id="696370864f4b1ce13a84661501b202e5" category="paragraph"><block ref="8c709b243402dd4272dff4833554f25c" prefix="" category="inline-code"></block></block>
+  <block id="05b39754e7e99ec7d60818c2d3ef5bba" category="list-text">如果您处于MetroCluster IP 配置中，请执行以下步骤删除根聚合的远程丛并删除旧 DR 组节点上的磁盘所有权。</block>
+  <block id="fd413373865c0b35424cdf1d99f3c10f" category="paragraph">需要对每个站点的 HA 对中的两个节点执行这些步骤。</block>
+  <block id="84822d6e81d1f35f15b06141981b397f" category="list-text">显示要删除的 DR 组中节点上的根聚合的远程丛：</block>
+  <block id="0bd15b64439187d8dac987c630d7df6d" category="paragraph"><block ref="1bb66b043b34f4120f55cc168b2da3dc" prefix="" category="inline-code"></block></block>
+  <block id="eab2196a69a6fdade5e5bf5d4f300856" category="list-text">删除远程 plex：</block>
+  <block id="7e159c5d7c595db32d7b3fef9000ac19" category="paragraph"><block ref="9f7f42d9161c2d3ca3716315c375f827" prefix="" category="inline-code"></block></block>
+  <block id="fe068f70e1fc61243b2a0632bd6f34cb" category="list-text">识别 DR 组中节点拥有的远程磁盘。</block>
+  <block id="15ce741616536c482daa7a0532c76ca8" category="paragraph">您使用的命令取决于您使用的是分区/共享磁盘还是整个磁盘：</block>
+  <block id="176b8742a87f8e897cb6ea9548977e72" category="admonition">使用逗号分隔列表<block ref="0953dae02add83b063cc8af7a6dbbff8" prefix=" " category="inline-code"></block>字段指定要删除的 DR 组中的节点名称。</block>
+  <block id="4bb92469cfa95bb7785c0e8c0cdc02eb" category="open-title">分区/共享磁盘：</block>
+  <block id="0279e95982eb46292810910c2a4325ef" category="list-text">显示远程磁盘：</block>
+  <block id="3c1f3ce500e52cec2b93fb29390a174e" category="paragraph"><block ref="749c9bcb383ea88a6558e404e0fa8cb5" prefix="" category="inline-code"></block></block>
+  <block id="52bb09b18cdb1e6dd2fb3324062c1c47" category="open-title">整个磁盘：</block>
+  <block id="0d1726dab779821975a9ad578a9f0677" category="paragraph"><block ref="6e0d34e5eb1c8ece221755c754743354" prefix="" category="inline-code"></block></block>
+  <block id="3e9c37ca50692bcf4d950da60ba31dd1" category="list-text">禁用磁盘自动分配：</block>
+  <block id="b2bd91ffa581589b010f7b0cee5b040a" category="paragraph"><block ref="c24efecdd42a886db73de2bcc158cbdc" prefix="" category="inline-code"></block></block>
+  <block id="b06a58f7c6886b9c75c2b66e25e3b03c" category="list-text">删除每个要删除的 DR 组节点上的 pool1 磁盘的所有权。在每个要删除的节点上执行以下步骤。</block>
+  <block id="e352d5e820576fb81acd295d2fa6b382" category="list-text">转到 nodeshell：</block>
+  <block id="48b6c5e6c91f5afdf4db95fdce26e45f" category="paragraph"><block ref="1bdb752f72609d817a6beb669061c8b6" prefix="" category="inline-code"></block></block>
+  <block id="0d5dee87e76c9a9f9127dd55f7b1e2eb" category="list-text">识别pool1磁盘：</block>
+  <block id="7cb1b8282d7b16c1d998b3403dc7a91f" category="paragraph"><block ref="978a127cc866f54e1830776b846eb9b8" prefix="" category="inline-code"></block></block>
+  <block id="c0b861216beaceb3d375fd9c6df6e6c3" category="paragraph">显示所有备用磁盘，包括节点拥有的pool0和pool1备用磁盘。</block>
+  <block id="6e07f225393b79b609cb8fc3d86279bf" category="list-text">删除每个 pool1 备用磁盘的磁盘所有权：</block>
+  <block id="8d0b8b84becd485c7891597b01240458" category="paragraph"><block ref="a2548e43cec4e94df11e259aa9a83a68" prefix="" category="inline-code"></block></block>
+  <block id="c218a756cd011fd52e8951a24e6900e7" category="paragraph">对于分区磁盘，删除分区所有权，然后删除容器磁盘所有权。</block>
+  <block id="096ee0b68ed0c4989612306aa1e3fbb5" category="list-text">如果您处于MetroCluster IP 配置中，请删除旧 DR 组节点上的MetroCluster连接。</block>
+  <block id="bac7003f0be2f7c1ffe91ec5e8146e9e" category="paragraph">这些命令可以从任一集群发出，并适用于跨越两个集群的整个 DR 组。</block>
+  <block id="d30c3b2671a8fe1038b0b3608133c703" category="paragraph"><block ref="6864950bb23886bbe435bbce576bc0d6" prefix="" category="inline-code"></block></block>
+  <block id="b1bd9ffb7ba04ba41a6ed8fd479dceb1" category="admonition">必须在 DR 组的每个节点上重复此步骤。</block>
+  <block id="d321eb0a25003ddc996afe17a7149d6f" category="paragraph">在每个集群上执行此步骤。</block>
+  <block id="5dd0fc60033d456ae0a90e5edc267878" category="list-text">退出节点：+<block ref="1f9e5247574dddf29bedc560cf209d11" prefix=" " category="inline-code"></block></block>
+  <block id="e1bde148bbf0582fd279d9a3c915b31a" category="list-text">设置管理员权限级别：</block>
+  <block id="5465fc7f055cf03040fda6f777f9a2da" category="list-text">检查新 DR 组中是否启用了集群 HA。如果需要，重新启用集群 HA：</block>
+  <block id="4e7f0491b8337902ce9619e04977796b" category="sidebar">连接 NS224 存储的 36 端口Cisco 9336C-FX2 交换机的平台端口分配</block>
 </blocks>

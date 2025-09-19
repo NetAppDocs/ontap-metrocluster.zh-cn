@@ -4,28 +4,17 @@ sidebar: sidebar
 keywords:  
 summary: 从 ONTAP 9.8 开始，您可以从八节点 MetroCluster 配置中删除 DR 组，以创建四节点 MetroCluster 配置。 
 ---
-= 删除灾难恢复组
+= 从MetroCluster配置中删除 DR 组
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-从 ONTAP 9.8 开始，您可以从八节点 MetroCluster 配置中删除 DR 组，以创建四节点 MetroCluster 配置。
+从ONTAP 9.8 开始，您可以从八节点MetroCluster配置中删除灾难恢复 (DR) 组，以创建四节点MetroCluster配置。
 
-ONTAP 9.8 及更高版本支持此操作步骤。对于运行ONTAP 9.7或更早版本的系统、请参见知识库文章
 
-link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_a_DR-Group_from_a_MetroCluster["如何从MetroCluster 配置中删除DR组"]
-
-https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"]
-
-八节点配置包括八个节点，这些节点按两个四节点 DR 组进行组织。
-
-image::../media/mcc_dr_groups_8_node.gif[MCC DR 组 8 个节点]
-
-通过删除 DR 组，配置中仍保留四个节点。
-
-image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
+NOTE: 您可以在过渡和系统刷新工作流程期间使用这些步骤。
 
 
 
@@ -45,19 +34,30 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 
 == 从每个集群中删除 DR 组节点
 
+从ONTAP 9.8 开始支持此过程。对于运行ONTAP 9.7 或更早版本的系统，请参阅知识库文章：link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_a_DR-Group_from_a_MetroCluster["如何从MetroCluster 配置中删除DR组"^] 。
+
+.关于此任务
+八节点配置包括八个节点，这些节点按两个四节点 DR 组进行组织。
+
+image::../media/mcc_dr_groups_8_node.gif[MCC DR 组 8 个节点]
+
+删除 DR 组时，配置中仍保留四个节点。
+
+image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
+
 .开始之前
 * 您必须在两个集群上执行此步骤。
 * 只有 ONTAP 9.8 及更高版本才支持 `MetroCluster remove-dr-group` 命令。
 
 
 .步骤
-. 如果尚未删除 DR 组，请做好删除准备。
+. 如果尚未删除 DR 组，请准备删除该组。
 +
 .. 将所有数据卷移动到另一个 DR 组。
-.. 如果要删除的DR组包含负载共享镜像卷、则无法移动这些卷。  在另一个DR组中重新创建所有负载共享镜像卷、然后删除要删除的DR组中的负载共享镜像卷。
+.. 如果要移除的 DR 组具有负载共享镜像卷，则在另一个 DR 组中重新创建所有负载共享镜像卷，并将其从要移除的 DR 组中删除。
 .. 按照将所有MV_CRS元数据卷移动到另一个DR组 link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_move_a_metadata_volume_in_mcc_configurations.html["在 MetroCluster 配置中移动元数据卷"] 操作步骤
 .. 删除要删除的 DR 组中可能存在的所有 MDV_aud 元数据卷。
-.. 删除 DR 组中要删除的所有数据聚合，如以下示例所示：
+.. 删除要移除的 DR 组中的所有数据聚合：
 +
 [listing]
 ----
@@ -70,24 +70,29 @@ ClusterB::> aggr delete -aggregate aggregate_name
 
 NOTE: 不会删除根聚合。
 
-.. 将数据LIF置于脱机状态。
-`network interface modify -vserver _svm-name_ -lif _data-lif_ -status-admin down`
-.. 将所有数据 LIF 迁移到另一个 DR 组中的主节点。+ `network interface show -home-node _old_node_s`
+.. 将用于 NFS 和 CIFS (SMB) 的所有 NAS 数据 LIF 迁移到另一个 DR 组中的主节点。+ 
+`network interface show -home-node <old_node>`
 +
-`network interface modify -vserver _svm-name_ -lif _data-lif_ -home-node _new_node_ -home-port _port-id_`
+`network interface migrate -vserver <svm_name> -lif <data_lif> -destination-node <new_node> -destination-port <port>`
 
-.. 将数据LIF重新联机。
-`network interface modify -vserver _svm-name_ -lif _data-lif_ -status-admin up`
+.. 将数据 LIF 移动到另一个 DR 组中的新主节点。
+`network interface modify -vserver <svm-name> -lif <data-lif> -home-node <new_node> -home-port <port>`
 .. 将集群管理 LIF 迁移到另一个 DR 组中的主节点。
 +
 `network interface show -role cluster-mgmt`
 
 +
-`network interface modify -vserver _svm-name_ -lif _cluster_mgmt_ -home-node _new_node_ -home-port _port-id_`
+`network interface modify -vserver <svm-name> -lif <cluster_mgmt> -home-node <new_node> -home-port <port-id>`
 
 +
-节点管理和集群间 LIF 不会迁移。
+[NOTE]
+====
+*** 节点管理和集群间 LIF 不会迁移。根据需要在 DR 组的节点上创建新的节点管理和集群间 LIF。
+*** 您无法在节点之间迁移或移动用于块访问 (SAN) 的 FCP 接口。根据需要创建新的 FCP 接口。
+*** 需要先关闭 iSCSI SAN LIF，然后才能更新主节点和主端口。
 
+
+====
 .. 如果需要，将 epsilon 传输到另一个 DR 组中的节点。
 +
 [listing]
@@ -117,6 +122,9 @@ ClusterB::*> set admin
 以下示例显示了如何删除 cluster_A 上的 DR 组配置
 
 +
+.示例
+[%collapsible]
+====
 [listing]
 ----
 cluster_A::*>
@@ -150,19 +158,127 @@ Do you want to continue? {y|n}: y
 
 cluster_A::*>
 ----
+====
 
 
 . 在配对集群上重复上述步骤。
-. 如果采用 MetroCluster IP 配置，请删除旧 DR 组节点上的 MetroCluster 连接。
+. 在旧 DR 组的节点上禁用存储故障转移：
 +
-这些命令可以从任一集群发出，并应用于跨越两个集群的整个 DR 组。
+`storage failover modify -node <node-name> -enable false`
+
+. 如果您处于MetroCluster IP 配置中，请执行以下步骤删除根聚合的远程丛并删除旧 DR 组节点上的磁盘所有权。
++
+需要对每个站点的 HA 对中的两个节点执行这些步骤。
+
++
+.. 显示要删除的 DR 组中节点上的根聚合的远程丛：
++
+`storage aggregate plex show -aggregate <root_aggr_name> -pool 1`
+
+.. 删除远程 plex：
++
+`storage aggregate plex delete -aggregate <root_aggr_name> -plex <plex_from_previous_step>`
+
+.. 识别 DR 组中节点拥有的远程磁盘。
++
+您使用的命令取决于您使用的是分区/共享磁盘还是整个磁盘：
+
++
+
+NOTE: 使用逗号分隔列表 `-owner <node_names>`字段指定要删除的 DR 组中的节点名称。
+
++
+[role="tabbed-block"]
+====
+.分区/共享磁盘：
+--
+... 将权限级别设置为高级：
++
+`set advanced`
+
+... 显示远程磁盘：
++
+`storage disk show -pool Pool1 -owner <node_names> -partition-ownership`
+
+
+
+--
+.整个磁盘：
+--
+... 将权限级别设置为高级：
++
+`set advanced`
+
+... 显示远程磁盘：
++
+`storage disk show -pool Pool1 -owner <node_names>`
+
+
+
+--
+====
+.. 禁用磁盘自动分配：
++
+`disk option modify -node <node_names_in_the_DR_group_to_be_deleted>  -autoassign off`
+
+.. 删除每个要删除的 DR 组节点上的 pool1 磁盘的所有权。在每个要删除的节点上执行以下步骤。
++
+... 转到 nodeshell：
++
+`run -node <node_name>`
+
+... 识别pool1磁盘：
++
+`aggr status -s`
+
++
+显示所有备用磁盘，包括节点拥有的pool0和pool1备用磁盘。
+
+... 删除每个 pool1 备用磁盘的磁盘所有权：
++
+`disk remove_ownership <disk_name>`
+
++
+对于分区磁盘，删除分区所有权，然后删除容器磁盘所有权。
+
+
+
+
+
+. 如果您处于MetroCluster IP 配置中，请删除旧 DR 组节点上的MetroCluster连接。
++
+这些命令可以从任一集群发出，并适用于跨越两个集群的整个 DR 组。
 
 +
 .. 断开连接：
 +
-MetroCluster configuration-settings connection disconnect _dr-group-id_`
+`metrocluster configuration-settings connection disconnect -dr-group-id <dr_group_id>`
 
++
+.示例
+[%collapsible]
+====
+[listing]
+----
+cluster_A::*> metrocluster configuration-settings connection disconnect -dr-group-id 1
+
+Warning: For the nodes in the DR group 1, this command will remove the existing connections that are used to mirror NV logs and access remote storage.
+Do you want to continue? {y|n}: y
+
+Warning: Before proceeding with disconnect, you must verify the following:
+      1. Unmirrored aggregates do not have disks in remote plexes.
+      2. Aggregates are not mirrored.
+      3. No disks are assigned in Pool1.
+      4. Storage failover is not enabled.
+      Follow the "MetroCluster Installation and Configuration guide" for detailed instructions to verify this.
+Do you want to continue? {y|n}: y
+----
+====
 .. 删除旧 DR 组节点上的 MetroCluster 接口：
++
+
+NOTE: 必须在 DR 组的每个节点上重复此步骤。
+
 +
 MetroCluster configuration-settings interface delete`
 
@@ -171,30 +287,30 @@ MetroCluster configuration-settings interface delete`
 
 . 取消加入旧 DR 组中的节点。
 +
-您必须在每个集群上执行此步骤。
+在每个集群上执行此步骤。
 
 +
 .. 设置高级权限级别：
 +
 `set -privilege advanced`
 
-.. 禁用存储故障转移：
-+
-`storage failover modify -node _node-name_-enable false`
-
-.. Unjoin the node ： + `cluster unjoin -node _node-name_`
+.. 退出节点：+
+`cluster unjoin -node <node-name>`
 +
 对旧 DR 组中的另一个本地节点重复此步骤。
 
-.. 设置管理员权限级别： + `set -privilege admin`
+.. 设置管理员权限级别：
++
+`set -privilege admin`
 
 
-. 在新 DR 组中重新启用集群 HA ：
+
+. 检查新 DR 组中是否启用了集群 HA。如果需要，重新启用集群 HA：
 +
 `cluster ha modify -configured true`
 
 +
-您必须在每个集群上执行此步骤。
+在每个集群上执行此步骤。
 
 . 暂停，关闭并卸下旧控制器模块和存储架。
 

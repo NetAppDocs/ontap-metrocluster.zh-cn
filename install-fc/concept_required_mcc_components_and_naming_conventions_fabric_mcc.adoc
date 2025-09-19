@@ -152,12 +152,6 @@ MetroCluster 配置支持 RAID-DP 和 RAID4 。
 
 
 
-== 在一个堆栈中混用 IOM12 和 IOM 6 模块
-
-您的 ONTAP 版本必须支持混用磁盘架。请参见互操作性表工具（ IMT ），了解您的 ONTAP 版本是否支持混用磁盘架。 https://imt.netapp.com/matrix/["IMT"^]
-
-
-
 == 网桥命名约定
 
 网桥使用以下示例命名：
