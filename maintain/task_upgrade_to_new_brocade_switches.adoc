@@ -31,7 +31,7 @@ https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"^]
 
 此操作步骤结束时，所有四个交换机都将升级到新交换机。
 
-image::../media/brocade_upgr_to_g620_replacement_completed.gif[Brocade 与 G620 的升级更换已完成]
+image::../media/brocade_upgr_to_g620_replacement_completed.gif[完成后Brocade升级至G620]
 
 .步骤
 . 禁用第一个交换机网络结构：
@@ -44,14 +44,14 @@ image::../media/brocade_upgr_to_g620_replacement_completed.gif[Brocade 与 G620 
 FC_switch_A_1:admin> switchCfgPersistentDisable
 ----
 +
-image::../media/brocade_upgr_to_g620_fab_1_down.gif[Brocade 与 G620 Fab 1 的升级已关闭]
+image::../media/brocade_upgr_to_g620_fab_1_down.gif[Brocade升级至 G620，Fabric 1 被取消]
 
 . 更换一个 MetroCluster 站点上的旧交换机。
 +
 .. 拔下已禁用交换机的缆线并将其卸下。
 .. 在机架中安装新交换机。
 +
-image::../media/brocade_upgr_to_g620_replaced_a_1.gif[Brocade 与 G620 的升级取代了 A 1]
+image::../media/brocade_upgr_to_g620_replaced_a_1.gif[Brocade升级至 G620 并更换 A1]
 
 .. 通过在两个交换机上运行以下命令来禁用新交换机：
 +
@@ -71,7 +71,7 @@ link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.htm
 已更换网络结构 1 中的两个交换机。
 
 +
-image::../media/brocade_upgr_to_g620_replaced_b_1.gif[Brocade 与 G620 的升级已取代 b 1.]
+image::../media/brocade_upgr_to_g620_replaced_b_1.gif[Brocade升级至 G620 并更换 B1]
 
 
 
@@ -174,4 +174,4 @@ https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 
 重复执行这些步骤后，所有四个交换机均已升级，并且 MetroCluster 配置运行正常。
 
-image::../media/brocade_upgr_to_g620_replacement_completed.gif[Brocade 与 G620 的升级更换已完成]
+image::../media/brocade_upgr_to_g620_replacement_completed.gif[Brocade G620 交换机更换和升级完成后的MetroCluster工作流程]

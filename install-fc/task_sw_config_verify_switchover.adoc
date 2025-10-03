@@ -13,7 +13,7 @@ summary: 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，�
 [role="lead"]
 您必须在 ONTAP 中设置 MetroCluster 配置中的每个节点，包括节点级别配置以及将节点配置到两个站点。您还必须在两个站点之间实施 MetroCluster 关系。
 
-image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[工作流高级节点和集群配置软件]
+image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[ONTAP中的工作流高级节点和集群配置]
 
 
 

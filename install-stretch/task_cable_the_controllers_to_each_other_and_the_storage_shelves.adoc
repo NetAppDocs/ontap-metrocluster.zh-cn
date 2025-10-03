@@ -18,7 +18,7 @@ summary: 控制器 FC-VI 适配器必须直接连接到彼此。必须使用缆�
 .步骤
 . 为 FC-VI 端口布线。
 +
-image::../media/mcc_cabling_fc_vi_controller_to_partner.gif[通过 MCC 将 fc vi 控制器连接到配对节点]
+image::../media/mcc_cabling_fc_vi_controller_to_partner.gif[MetroCluster将 FC VI 控制器连接到合作伙伴]
 
 +
 上图是典型的典型缆线连接。具体的 FC-VI 端口因控制器模块而异。
@@ -39,6 +39,6 @@ image::../media/mcc_cabling_fc_vi_controller_to_partner.gif[通过 MCC 将 fc vi
 下图显示了连接。根据控制器模块上可用的 SAS 和 FC-VI 端口，您的端口使用情况可能会有所不同。
 
 +
-image::../media/mcc_two_node_optical_sas_space_configuration.png[MCC 双节点光纤 SAS 空间配置]
+image::../media/mcc_two_node_optical_sas_space_configuration.png[双节点光纤 SAS 配置]
 
 

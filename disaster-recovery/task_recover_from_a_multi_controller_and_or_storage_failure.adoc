@@ -37,6 +37,6 @@ link:task_perform_a_forced_switchover_after_a_disaster.html#performing-a-forced-
 
 此操作步骤使用以下工作流：
 
-image::../media/workflow_smoking_crater_recovery.png[工作流冒烟弹口恢复]
+image::../media/workflow_smoking_crater_recovery.png[多控制器故障恢复的工作流程]
 
 在发生故障时处于过渡中的系统上执行恢复时，可以使用此操作步骤。在这种情况下，您必须按照操作步骤中的说明在准备切回时执行相应的步骤。

@@ -650,7 +650,7 @@ cluster01-02
 
 NOTE: 创建灾难恢复组后，无法更改灾难恢复关系。
 
-image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
+image::../media/mcc_dr_groups_4_node.gif[四节点配置中的MetroCluster DR 组]
 
 .步骤
 . 在每个节点上输入以下命令，以验证节点是否已准备好创建 DR 组：

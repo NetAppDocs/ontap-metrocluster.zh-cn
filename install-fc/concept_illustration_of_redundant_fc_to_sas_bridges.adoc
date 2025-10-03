@@ -13,7 +13,7 @@ summary: FC-SAS 网桥可在 SAS 连接的磁盘和 FC 交换机网络结构之�
 [role="lead"]
 FC-SAS 网桥可在 SAS 连接的磁盘和 FC 交换机网络结构之间提供协议桥接。
 
-image::../media/mcc_hw_architecture_shelf_stacks.gif[MCC 硬件架构磁盘架堆栈]
+image::../media/mcc_hw_architecture_shelf_stacks.gif[FC-SAS 桥接器，其硬件架构显示货架堆栈]
 
 .相关信息
 link:concept_illustration_of_the_local_ha_pairs_in_a_mcc_configuration.html["MetroCluster 配置中的本地 HA 对示意图"]

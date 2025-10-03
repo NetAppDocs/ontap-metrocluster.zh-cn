@@ -25,11 +25,11 @@ summary: 在规划 MetroCluster 配置时，您应了解硬件组件及其互连
 
 下图显示了八节点 MetroCluster 配置中的节点组织：
 
-image::../media/mcc_dr_groups_8_node.gif[MCC DR 组 8 个节点]
+image::../media/mcc_dr_groups_8_node.gif[MetroCluster DR 组 8 个节点]
 
 下图显示了四节点 MetroCluster 配置中的节点组织：
 
-image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
+image::../media/mcc_dr_groups_4_node.gif[MetroCluster DR 组四个节点]
 
 
 
@@ -83,11 +83,11 @@ SVM 配置会通过集群对等网络进行复制。
 
 下图显示了一个简化的四节点光纤 MetroCluster 配置视图。对于某些连接，单线表示组件之间的多个冗余连接。未显示数据和管理网络连接。
 
-image::../media/mcc_hardware_architecture_both_clusters.gif[MCC 硬件架构两个集群]
+image::../media/mcc_hardware_architecture_both_clusters.gif[两个集群的四节点结构MetroCluster配置]
 
 下图显示了单个 MetroCluster 集群中连接的更详细视图（两个集群的配置相同）：
 
-image::../media/mcc_hardware_architecture_cluster_a_with_7500n.gif[采用 7500n 的 MCC 硬件架构集群 A]
+image::../media/mcc_hardware_architecture_cluster_a_with_7500n.gif[MetroCluster集群 A 与 FibreBridge 7500N 网桥的连接]
 
 
 
@@ -95,7 +95,7 @@ image::../media/mcc_hardware_architecture_cluster_a_with_7500n.gif[采用 7500n 
 
 下图显示了双节点光纤 MetroCluster 配置的简化视图。对于某些连接，单线表示组件之间的多个冗余连接。未显示数据和管理网络连接。
 
-image::../media/mcc_hardware_architecture_both_clusters_2_node_fabric.gif[MCC 硬件架构两个集群的双节点网络结构]
+image::../media/mcc_hardware_architecture_both_clusters_2_node_fabric.gif[双节点结构MetroCluster配置两个集群]
 
 双节点配置由两个集群组成，每个集群位于不同地理位置的站点上。cluster_A 位于第一个 MetroCluster 站点。cluster_B 位于第二个 MetroCluster 站点。每个站点都有一个 SAS 存储堆栈。支持更多存储堆栈，但每个站点仅显示一个存储堆栈。
 
@@ -104,7 +104,7 @@ NOTE: 在双节点配置中，节点不会配置为 HA 对。
 
 下图显示了单个 MetroCluster 集群中连接的更详细视图（两个集群的配置相同）：
 
-image::../media/mcc_hardware_architecture_cluster_a_2_node_with_7500n.gif[MCC 硬件架构集群 A 2 节点，含 7500n]
+image::../media/mcc_hardware_architecture_cluster_a_2_node_with_7500n.gif[双节点MetroCluster集群 A 与 FibreBridge 7500N 网桥的连接]
 
 双节点配置包括以下连接：
 

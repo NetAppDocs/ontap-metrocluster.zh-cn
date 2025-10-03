@@ -16,4 +16,4 @@ summary: 要为切回操作准备 MetroCluster IP 配置，您必须执行某些
 .关于此任务
 nbsp ；
 
-image::../media/workflow_preparing_for_switchback_in_mcc_ip_dr.gif[在 MCC IP DR 中为切回做准备的工作流]
+image::../media/workflow_preparing_for_switchback_in_mcc_ip_dr.gif[MetroCluster IP 灾难恢复中的切回准备工作流]

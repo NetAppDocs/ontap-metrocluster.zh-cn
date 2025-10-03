@@ -357,14 +357,14 @@ NOTE: 即使源 SVM 已关闭，但如果目标 SVM 中具有相同 IP 空间和
 下图显示了 SVM 在稳定状态下的灾难恢复行为：
 
 +
-image::../media/svm_dr_normal_behavior.gif[SVM DR 正常行为]
+image::../media/svm_dr_normal_behavior.gif[稳定状态运行期间的 SVM 灾难恢复]
 
 * 如果 sync-source SVM 是 SVM DR 关系的源，则源 SVM DR 关系信息将复制到 MetroCluster 配对节点。
 +
 这样， SVM 灾难恢复更新就可以在切换后继续进行，如下图所示：
 
 +
-image::../media/svm_dr_image_2.gif[SVM DR 映像 2]
+image::../media/svm_dr_image_2.gif[切换后 SVM 更新]
 
 * 在切换和切回过程中，复制到 SVM DR 目标可能会失败。
 +
@@ -382,7 +382,7 @@ image::../media/svm_dr_image_2.gif[SVM DR 映像 2]
 
 在重新同步期间，源 SVM （ cluster_A ）会暂时用作目标 SVM ，如下图所示：
 
-image::../media/svm_dr_resynchronization.gif[SVM DR 重新同步]
+image::../media/svm_dr_resynchronization.gif[SVM 灾难恢复重新同步]
 
 
 

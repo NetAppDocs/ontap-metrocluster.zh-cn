@@ -40,13 +40,13 @@ link:../install-stretch/concept_considerations_differences.html["延伸型 Metro
 * 此操作步骤会造成系统中断，大约需要四小时才能完成。
 * 在执行此操作步骤之前， MetroCluster FC 配置包含两个单节点集群：
 +
-image::../media/mcc_dr_groups_2_node.gif[MCC DR 组 2 个节点]
+image::../media/mcc_dr_groups_2_node.gif[扩展前具有两个节点的MetroCluster FC 配置]
 
 +
 完成此操作步骤后， MetroCluster FC 配置包含两个 HA 对，每个站点一个：
 
 +
-image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
+image::../media/mcc_dr_groups_4_node.gif[扩展后具有四个节点的MetroCluster FC 配置]
 
 * 这两个站点必须均衡扩展。
 +
@@ -59,4 +59,4 @@ MetroCluster 配置不能包含数量不等的节点。
 * 此操作步骤使用以下工作流：
 
 
-image::../media/workflow_mcc_2_to_4_node_expansion_high_level.gif[工作流 MCC 2 到 4 节点扩展高级别]
+image::../media/workflow_mcc_2_to_4_node_expansion_high_level.gif[MetroCluster FC 2 节点到 4 节点扩展的工作流程]

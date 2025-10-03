@@ -60,7 +60,7 @@ summary: 根据您的要求、您可以使用共享的第2层或第3层网络来
 
 MetroCluster后端交换机连接到客户网络。
 
-image::../media/MCC_layer2.png[MCC层2.]
+image::../media/MCC_layer2.png[MetroCluster第 2 层网络配置]
 
 客户提供的中间交换机必须满足以下要求：
 
@@ -101,7 +101,7 @@ NOTE: 上面列出的系统可能是使用VLAN 100及以下配置的。但是、
 
 MetroCluster 后端交换机连接到路由的 IP 网络，可以直接连接到路由器（如以下简化示例所示），也可以通过其他中间交换机进行连接。
 
-image::../media/mcc_layer3_backend.png[MCC layer3 后端]
+image::../media/mcc_layer3_backend.png[MetroCluster第 3 层后端网络配置]
 
 MetroCluster 环境作为标准 MetroCluster IP 配置进行配置和布线，如中所述 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_parts_of_an_ip_mcc_configuration_mcc_ip.html["配置 MetroCluster 硬件组件"]。在执行操作步骤安装和布线时、必须执行特定于第3层配置的步骤。以下适用场景第3层配置：
 
@@ -138,11 +138,11 @@ MetroCluster 环境作为标准 MetroCluster IP 配置进行配置和布线，�
 
 下图概述了使用经过NetApp验证的Cisco交换机时所需的设置：
 
-image::../media/switch_traffic_with_cisco_switches.png[Cisco 交换机的交换机流量]
+image::../media/switch_traffic_with_cisco_switches.png[使用NetApp验证的Cisco交换机进行MetroCluster流量时所需的设置]
 
 下图概述了外部交换机为Broadcom IP交换机时共享网络所需的设置。
 
-image::../media/switch_traffic_with_broadcom_switches.png[使用 Broadcom 交换机传输交换机流量]
+image::../media/switch_traffic_with_broadcom_switches.png[使用 Broadcom IP 交换机时共享网络所需的设置]
 
 在此示例中，将为 MetroCluster 流量创建以下策略和映射：
 

@@ -41,4 +41,4 @@ NOTE: 并非所有系统都支持此配置。
 * 此任务使用以下工作流：
 
 
-image::../media/workflow_mcc_2_to_4_node_expansion_adding_nodes.gif[工作流 MCC 2 到 4 节点扩展添加节点]
+image::../media/workflow_mcc_2_to_4_node_expansion_adding_nodes.gif[在MetroCluster 2 节点到 4 节点扩展中添加新控制器模块的工作流程]

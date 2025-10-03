@@ -28,7 +28,7 @@ link:enable-console-logging-before-maintenance.html["启用控制台日志记录
 如果您要将发生故障的交换机更换为相同类型的交换机、则只需更换发生故障的交换机即可。如果要升级或降级交换机、必须调整同一网络中的两个交换机。如果两个交换机通过交换机间链路(ISL)连接、并且不位于同一站点、则这两个交换机位于同一网络中。例如、网络1包括IP_switch_A_1和IP_switch_B_1、网络2包括IP_switch_A_2和IP_switch_B_1、如下图所示：
 
 +
-image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[MCC IP 硬件架构 IP 互连]
+image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[MetroCluster IP 硬件架构展示了交换机间链路和交换机类型]
 
 +
 
@@ -64,7 +64,7 @@ NOTE: 如果您更换了交换机或升级到不同的交换机、则可以通�
 * 蓝色：新连接的端口。
 
 
-image:../media/mcc_port_usage_workflow.png[""]
+image:../media/mcc_port_usage_workflow.png["交换机更换期间MetroCluster IP 端口使用和布线更改的工作流程"]
 
 .步骤
 . [[all_Step1]]检查配置的运行状况。

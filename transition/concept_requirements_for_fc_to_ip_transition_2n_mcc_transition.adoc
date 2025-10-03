@@ -83,7 +83,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 这可能需要额外的存储架，如下图所示。
 
 +
-image::../media/transition_2n_4_new_ip_nodes_on_the_shelves.png[过渡磁盘架上的 4 个新 IP 节点]
+image::../media/transition_2n_4_new_ip_nodes_on_the_shelves.png[在现有机架上使用四个新 IP 节点进行过渡]
 
 +
 第三个和第四个控制器（ node_A_2-IP 和 node_B_2-IP ）需要另外配置 14 - 18 个驱动器：
@@ -112,7 +112,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 在准备过渡时，请规划站点之间的差旅。请注意，在对远程节点进行机架安装和布线后，您需要对这些节点进行串行终端访问。只有在配置节点后，才能访问服务处理器。
 
-image::../media/workflow_2n_transition_bsaic.png[工作流 2n 过渡 bsaic]
+image::../media/workflow_2n_transition_bsaic.png[双节点过渡的工作流程]
 
 
 

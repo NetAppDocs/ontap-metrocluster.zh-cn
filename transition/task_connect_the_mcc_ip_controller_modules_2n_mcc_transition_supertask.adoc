@@ -30,7 +30,7 @@ summary: 您必须将四个新控制器模块以及任何其他存储架添加�
 
 在以下示例中，每个站点额外添加了两个存储架，用于提供存储以容纳新控制器模块。
 
-image::../media/transition_2n_4_new_ip_nodes_and_shelves.png[过渡 2n 4 个新 IP 节点和磁盘架]
+image::../media/transition_2n_4_new_ip_nodes_and_shelves.png[为过渡布线新的 IP 节点和机架]
 
 .步骤
 . 根据需要规划新控制器模块和存储架的位置。
@@ -588,7 +588,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 * node_B_2-ip
 
 
-image::../media/transition_2n_booting_a_2_and_b_2.png[过渡 2n 启动 a 2 和 b 2.]
+image::../media/transition_2n_booting_a_2_and_b_2.png[在过渡期间启动新的 IP 节点]
 
 .步骤
 . 使用启动选项 "`9c` " 启动新节点。
@@ -802,7 +802,8 @@ node_A_1-IP
              Data: interface_reachable
              ICMP: interface_reachable true       true            true
 node_A_2-IP
-           cluster_B                   node_B_1-IP
+
+image::../media/transition_2n_booting_a_2_and_b_2.png["Booting new IP nodes during transition"]
              Data: interface_reachable
              ICMP: interface_reachable true       true            true
                                        node_B_2-IP

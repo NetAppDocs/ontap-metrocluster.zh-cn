@@ -15,7 +15,7 @@ MetroCluster 配置中的两个集群通过客户提供的集群对等网络建�
 
 必须在 MetroCluster 配置中的每个节点上配置集群间 LIF ，并且必须为集群配置对等关系。具有集群间 LIF 的端口将连接到客户提供的集群对等网络。通过配置复制服务在此网络上执行 SVM 配置复制。
 
-image::../media/mcc_hw_architecture_cluster_peering.gif[MCC 硬件架构集群对等]
+image::../media/mcc_hw_architecture_cluster_peering.gif[显示MetroCluster配置中的集群对等网络的硬件架构]
 
 .相关信息
 link:concept_illustration_of_the_local_ha_pairs_in_a_mcc_configuration.html["MetroCluster 配置中的本地 HA 对示意图"]

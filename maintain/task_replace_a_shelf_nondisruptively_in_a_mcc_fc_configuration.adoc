@@ -64,7 +64,7 @@ Cluster_A_2::> storage aggregate show -aggr dataA_2_data
 以下示例显示了一对连接单个 SAS 堆栈的网桥，该堆栈包含目标磁盘架：
 
 +
-image::../media/mcc_shelf_replacement_bridges_with_a_single_stack.gif[MCC 磁盘架更换网桥，具有一个堆栈]
+image::../media/mcc_shelf_replacement_bridges_with_a_single_stack.gif[单层货架更换桥]
 
 +
 每个交换机上的交换机端口 8 和 9 将网桥连接到网络。
@@ -106,7 +106,7 @@ FC_switch_A_2(config)# end
 以下示例显示了连接四个 SAS 堆栈的一对网桥。SAS 堆栈 2 包含目标磁盘架：
 
 +
-image::../media/mcc_shelf_replacement_bridges_with_four_stacks.gif[具有四个堆栈的 MCC 磁盘架更换网桥]
+image::../media/mcc_shelf_replacement_bridges_with_four_stacks.gif[带有四个堆叠的货架更换桥]
 
 +
 SAS 端口 B 将网桥连接到目标磁盘架。通过仅禁用两个磁盘架上的 SAS 端口 B ，其他 SAS 堆栈可以在更换操作步骤期间继续提供数据。

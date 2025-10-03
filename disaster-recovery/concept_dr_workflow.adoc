@@ -13,4 +13,4 @@ summary: 使用工作流执行灾难恢复。
 [role="lead"]
 使用工作流执行灾难恢复。
 
-image::../media/workflow_disaster_recovery.svg[工作流灾难恢复]
+image::../media/workflow_disaster_recovery.svg[灾难恢复工作流]

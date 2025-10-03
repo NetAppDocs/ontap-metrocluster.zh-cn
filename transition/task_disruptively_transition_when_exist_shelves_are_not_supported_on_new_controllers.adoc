@@ -93,7 +93,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 在准备过渡时，请规划站点之间的差旅。请注意，在对远程节点进行机架安装和布线后，您需要对这些节点进行串行终端访问。只有在配置节点后，才能访问服务处理器。
 
-image::../media/workflow_2n_transition_old_shelves_not_supported.png[不支持工作流 2n 过渡旧磁盘架]
+image::../media/workflow_2n_transition_old_shelves_not_supported.png[旧货架不受支持时的过渡工作流程]
 
 
 
@@ -115,7 +115,7 @@ image::../media/workflow_2n_transition_old_shelves_not_supported.png[不支持�
 .关于此任务
 下图显示了连接到 MetroCluster FC 配置的新磁盘架。
 
-image::../media/transition_2n_unsupported_old_new_shelves_to_old_controllers.png[将不支持的 2 个新旧磁盘架过渡到旧控制器]
+image::../media/transition_2n_unsupported_old_new_shelves_to_old_controllers.png[过渡期间将新机架布线到旧控制器]
 
 .步骤
 . 在 node_A_1-FC 和 node_A_2-FC 上禁用磁盘自动分配：

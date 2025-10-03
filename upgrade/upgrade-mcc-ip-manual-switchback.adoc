@@ -13,7 +13,7 @@ summary: 执行切回操作以使MetroCluster配置恢复正常运行。site_A �
 [role="lead"]
 执行切回操作以使MetroCluster配置恢复正常运行。site_A 上的节点仍在等待升级。
 
-image::../media/mcc_upgrade_cluster_a_switchback.png[MCC 升级集群 A 切回]
+image::../media/mcc_upgrade_cluster_a_switchback.png[MetroCluster切换后，Site_A 等待升级]
 
 .步骤
 . 在 site_B 上执行 `MetroCluster node show` 命令并检查输出。问题描述

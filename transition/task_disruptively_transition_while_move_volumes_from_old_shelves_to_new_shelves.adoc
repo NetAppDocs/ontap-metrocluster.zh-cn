@@ -94,7 +94,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 在准备过渡时，请规划站点之间的差旅。请注意，在对远程节点进行机架安装和布线后，您需要对这些节点进行串行终端访问。只有在配置节点后，才能访问服务处理器。
 
-image::../media/workflow_2n_transition_moving_data_to_new_shelves.png[工作流 2n 过渡将数据移动到新磁盘架]
+image::../media/workflow_2n_transition_moving_data_to_new_shelves.png[过渡期间将数据移动到新架子的工作流程]
 
 
 

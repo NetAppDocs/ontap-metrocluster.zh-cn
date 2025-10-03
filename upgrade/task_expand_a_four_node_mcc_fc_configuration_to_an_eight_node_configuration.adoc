@@ -28,11 +28,11 @@ summary: 要将四节点 MetroCluster FC 配置扩展为八节点 MetroCluster F
 
 在执行此操作步骤之前， MetroCluster FC 配置由四个节点组成，每个站点一个 HA 对：
 
-image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
+image::../media/mcc_dr_groups_4_node.gif[扩展前具有四个节点的MetroCluster FC 配置]
 
 此操作步骤结束时， MetroCluster FC 配置在每个站点上包含两个 HA 对：
 
-image::../media/mcc_dr_groups_8_node.gif[MCC DR 组 8 个节点]
+image::../media/mcc_dr_groups_8_node.gif[扩展后具有八个节点的MetroCluster FC 配置]
 
 这两个站点必须均衡扩展。MetroCluster FC 配置不能包含数量不均的节点。
 

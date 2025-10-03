@@ -39,11 +39,11 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 .关于此任务
 八节点配置包括八个节点，这些节点按两个四节点 DR 组进行组织。
 
-image::../media/mcc_dr_groups_8_node.gif[MCC DR 组 8 个节点]
+image::../media/mcc_dr_groups_8_node.gif[两个 DR 组中八个节点的MetroCluster配置]
 
 删除 DR 组时，配置中仍保留四个节点。
 
-image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
+image::../media/mcc_dr_groups_4_node.gif[DR 组移除后具有四个节点的MetroCluster配置]
 
 .开始之前
 * 您必须在两个集群上执行此步骤。

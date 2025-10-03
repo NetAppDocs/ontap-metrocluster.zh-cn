@@ -351,4 +351,4 @@ cluster1::>
 
 此时， MetroCluster FC 控制器已被移除，磁盘架已与所有控制器断开连接。
 
-image::../media/transition_2n_remove_fc_nodes.png[过渡 2n 会删除 FC 节点]
+image::../media/transition_2n_remove_fc_nodes.png[在过渡期间删除 FC 节点]

@@ -16,7 +16,7 @@ summary: 每个控制器的 FC-VI 适配器都必须直接连接到其配对节�
 .步骤
 . 为 FC-VI 端口布线。
 +
-image::../media/mcc_cabling_fc_vi_controller_to_partner.gif[通过 MCC 将 fc vi 控制器连接到配对节点]
+image::../media/mcc_cabling_fc_vi_controller_to_partner.gif[MetroCluster将 FC VI 控制器连接到合作伙伴]
 
 +
 上图是所需布线的典型表示形式。具体的 FC-VI 端口因控制器模块而异。

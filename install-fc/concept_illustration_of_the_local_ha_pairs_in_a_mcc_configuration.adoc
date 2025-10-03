@@ -15,7 +15,7 @@ summary: 在八节点或四节点 MetroCluster 配置中，每个站点都包含
 
 本地 HA 故障转移和交还操作可使用 storage failover 命令执行，与非 MetroCluster 配置的方式相同。
 
-image::../media/mcc_hw_architecture_local_ha.gif[MCC 硬件架构本地 ha]
+image::../media/mcc_hw_architecture_local_ha.gif[MetroCluster硬件架构本地 HA 对]
 
 .相关信息
 link:concept_illustration_of_redundant_fc_to_sas_bridges.html["冗余 FC-SAS 网桥的图示"]

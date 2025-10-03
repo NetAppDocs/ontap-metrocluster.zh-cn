@@ -17,7 +17,7 @@ summary: 从 ONTAP 9.5 开始， ONTAP 支持使用虚拟 IP （ VIP\ ）和边�
 
 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-A8EF6D34-1717-4813-BBFA-AA33E104CF6F.html["* 配置虚拟 IP （ VIP ） LIF*"]
 
-image::../media/vip_and_bgp_in_metrocluster_2.png[MetroCluster 2 中的 VIP 和 BGP]
+image::../media/vip_and_bgp_in_metrocluster_2.png[MetroCluster中的虚拟 IP 和边界网关协议]
 
 * ONTAP 限制 *
 

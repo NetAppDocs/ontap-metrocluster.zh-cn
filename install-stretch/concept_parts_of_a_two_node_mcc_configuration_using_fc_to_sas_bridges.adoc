@@ -34,7 +34,7 @@ FC-SAS 网桥可将 SAS 存储堆栈连接到控制器上的 FC 启动程序端�
 
 下图显示了 MetroCluster 配置的简化视图。对于某些连接，单线表示组件之间的多个冗余连接。未显示数据和管理网络连接。
 
-image::../media/mcc_hardware_architecture_both_clusters_2_node_atto.gif[MCC 硬件架构两个集群的双节点 ATTO]
+image::../media/mcc_hardware_architecture_both_clusters_2_node_atto.gif[双节点MetroCluster硬件架构，两个集群均配备 FC 至 SAS 桥接器]
 
 * 此配置包含两个单节点集群。
 * 每个站点都有一个或多个 SAS 存储堆栈。

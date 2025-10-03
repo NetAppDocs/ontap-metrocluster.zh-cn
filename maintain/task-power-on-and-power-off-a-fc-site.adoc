@@ -17,7 +17,7 @@ summary: 您必须了解如何在MetroCluster FC配置中关闭和启动单个�
 
 下图显示了 MetroCluster 配置。cluster_B已关闭以进行维护。
 
-image::power-on-off-data-center.gif[关闭数据中心]
+image::power-on-off-data-center.gif[MetroCluster集群因维护而关闭]
 
 
 

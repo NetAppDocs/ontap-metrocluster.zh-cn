@@ -24,7 +24,7 @@ summary: 在向配置添加新存储时，您需要安装 ATTO FibreBridge 网�
 
 此操作步骤使用以下工作流：
 
-image::../media/workflow_bridge_installation_and_configuration.gif[工作流网桥安装和配置]
+image::../media/workflow_bridge_installation_and_configuration.gif[工作流程 FC 至 SAS 桥接器的安装和配置]
 
 
 
@@ -524,7 +524,7 @@ NOTE: 每个堆栈可以使用不同型号的 IOM ，但一个堆栈中的所有
 
 下图显示了连接到一对 FibreBridge 7600N 或 7500N 网桥的磁盘架：
 
-image::../media/mcc_cabling_bridge_and_sas3_stack_with_7500n_and_multiple_stacks.gif[MCC 使用缆线连接网桥和具有 7500n 和多个堆栈的 SAS3 堆栈]
+image::../media/mcc_cabling_bridge_and_sas3_stack_with_7500n_and_multiple_stacks.gif[具有多个 SAS3 堆栈的 FibreBridge 的MetroCluster布线]
 
 --
 

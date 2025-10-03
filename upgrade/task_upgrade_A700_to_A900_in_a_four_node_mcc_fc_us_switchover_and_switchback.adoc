@@ -493,7 +493,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-met
 
 完成此任务后， site_A 处于活动状态，并为两个站点提供数据。site_B 处于非活动状态，并已准备好开始升级过程，如下图所示。(此图还显示了适用场景 将FAS9000升级到FAS9500控制 器。)
 
-image::../media/mcc_upgrade_cluster_a_in_switchover_A900.png[切换 A900 中的 MCC 升级集群 A]
+image::../media/mcc_upgrade_cluster_a_in_switchover_A900.png[Site_B 处于非活动状态并准备升级]
 
 .步骤
 . 将 MetroCluster 配置切换到 site_A ，以便可升级 site_B 的节点：

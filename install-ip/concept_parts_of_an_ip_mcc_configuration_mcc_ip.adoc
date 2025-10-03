@@ -41,7 +41,7 @@ MetroCluster IP 配置包括以下关键硬件元素：
 
 
 
-image::../media/mcc_ip_hardware_architecture_mcc_ip.gif[MCC IP 硬件架构 MCC IP]
+image::../media/mcc_ip_hardware_architecture_mcc_ip.gif[MetroCluster IP 硬件架构]
 
 
 
@@ -51,7 +51,7 @@ MetroCluster IP 配置由一个 DR 组组成，该 DR 组由四个节点组成�
 
 下图显示了四节点 MetroCluster 配置中的节点组织：
 
-image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
+image::../media/mcc_dr_groups_4_node.gif[四节点配置中的MetroCluster DR 组]
 
 
 
@@ -61,7 +61,7 @@ image::../media/mcc_dr_groups_4_node.gif[MCC DR 组 4 节点]
 
 本地 HA 故障转移和交还操作可使用 storage failover 命令执行，与非 MetroCluster 配置的方式相同。
 
-image::../media/mcc_ip_hardware_architecture_ha_pairs.gif[MCC IP 硬件架构 ha 对]
+image::../media/mcc_ip_hardware_architecture_ha_pairs.gif[MetroCluster IP 硬件架构 HA 对]
 
 .相关信息
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["ONTAP 概念"]
@@ -72,7 +72,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["
 
 ONTAP 集群通常包含一个集群互连网络，用于传输集群中节点之间的流量。在 MetroCluster IP 配置中，此网络还用于在 MetroCluster 站点之间传输数据复制流量。
 
-image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[MCC IP 硬件架构 IP 互连]
+image::../media/mcc_ip_hardware_architecture_ip_interconnect.png[MetroCluster IP 硬件架构 IP 互连]
 
 MetroCluster IP配置中的每个节点都有专用接口、用于连接到后端IP网络：
 
@@ -82,7 +82,7 @@ MetroCluster IP配置中的每个节点都有专用接口、用于连接到后�
 
 下图显示了这些接口。显示的端口使用情况适用于 AFF A700 或 FAS9000 系统。
 
-image::../media/mcc_ip_lif_usage.gif[MCC IP LIF 使用情况]
+image::../media/mcc_ip_lif_usage.gif[MetroCluster IP LIF 使用情况]
 
 .相关信息
 link:concept_considerations_mcip.html["MetroCluster IP 配置的注意事项"]
@@ -95,7 +95,7 @@ MetroCluster 配置中的两个集群通过客户提供的集群对等网络建�
 
 必须在 MetroCluster 配置中的每个节点上配置集群间 LIF ，并且必须为集群配置对等关系。具有集群间 LIF 的端口将连接到客户提供的集群对等网络。通过配置复制服务在此网络上执行 SVM 配置复制。
 
-image::../media/mcc_ip_hardware_architecture_cluster_peering_network.gif[MCC IP 硬件架构集群对等网络]
+image::../media/mcc_ip_hardware_architecture_cluster_peering_network.gif[MetroCluster IP 硬件架构集群对等网络]
 
 .相关信息
 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集群和 SVM 对等快速配置"]

@@ -13,4 +13,4 @@ summary: MetroCluster 组件必须在两个地理站点上进行物理安装，�
 [role="lead"]
 MetroCluster 组件必须在两个地理站点上进行物理安装，布线和配置。
 
-image::../media/workflow_hardware_installation_and_configuration_2_node_bridge_attached.gif[连接了工作流硬件安装和配置 2 节点网桥]
+image::../media/workflow_hardware_installation_and_configuration_2_node_bridge_attached.gif[工作流程硬件设置双节点桥接配置]

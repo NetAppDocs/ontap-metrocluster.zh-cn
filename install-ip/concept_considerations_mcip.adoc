@@ -29,7 +29,7 @@ summary: 您应了解控制器如何访问远程存储以及 MetroCluster IP 地
 
 在 MetroCluster IP 配置中， HA 对和 DR 配对节点之间的存储和非易失性缓存复制是通过 MetroCluster IP 网络结构中的高带宽专用链路执行的。iSCSI 连接用于存储复制。IP 交换机还用于本地集群中的所有集群内流量。MetroCluster 流量通过使用单独的 IP 子网和 VLAN 与集群内流量分开。MetroCluster IP 网络结构与集群对等网络截然不同。
 
-image::../media/mcc_ip_ip_subnets.gif[MCC IP IP 子网]
+image::../media/mcc_ip_ip_subnets.gif[MetroCluster IP 子网和 VLAN 分离]
 
 MetroCluster IP 配置要求每个节点上有两个为后端 MetroCluster IP 网络结构预留的 IP 地址。在初始配置期间，预留的 IP 地址会分配给 MetroCluster IP 逻辑接口（ LIF ），并具有以下要求：
 

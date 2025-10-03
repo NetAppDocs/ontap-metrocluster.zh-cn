@@ -15,7 +15,7 @@ summary: 从 ONTAP 9.8 开始，您可以将工作负载和数据从现有双节
 
 下图提供了此过渡操作步骤前后配置的简化视图。
 
-image::../media/transition_2n_begin_to_end.png[过渡 2n 将开始结束]
+image::../media/transition_2n_begin_to_end.png[从双节点 FC 配置过渡到四节点 IP 配置]
 
 * 运行 ONTAP 9.8 及更高版本的系统支持此操作步骤。
 * 此操作步骤会造成系统中断。

@@ -567,7 +567,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-met
 
 完成此任务后， cluster_A 将处于活动状态，并为两个站点提供数据。cluster_B 处于非活动状态，并已准备好开始升级过程，如下图所示。
 
-image::../media/mcc_upgrade_cluster_a_in_switchover.png[MCC 升级集群 A 处于切换状态]
+image::../media/mcc_upgrade_cluster_a_in_switchover.png[MetroCluster切换后，Site_B 处于非活动状态并准备升级]
 
 .步骤
 . 将 MetroCluster 配置切换到 site_A ，以便可升级 site_B 的节点：
@@ -1462,7 +1462,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 .关于此任务
 在此任务中，您将执行切回操作，使 MetroCluster 配置恢复正常运行。site_A 上的节点仍在等待升级。
 
-image::../media/mcc_upgrade_cluster_a_switchback.png[MCC 升级集群 A 切回]
+image::../media/mcc_upgrade_cluster_a_switchback.png[MetroCluster切换后，Site_A 等待升级]
 
 .步骤
 . 在 site_B 上执行 `MetroCluster node show` 命令并检查输出。问题描述

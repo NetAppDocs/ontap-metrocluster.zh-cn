@@ -78,7 +78,7 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 
 您可以使用工作流图帮助您规划升级任务。
 
-image::../media/workflow_ip_upgrade.png[工作流 IP 升级]
+image::../media/workflow_ip_upgrade.png[MetroCluster IP 配置中升级控制器的工作流程]
 
 
 
@@ -438,7 +438,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-met
 
 完成此任务后， site_A 处于活动状态，并为两个站点提供数据。site_B 处于非活动状态，并已准备好开始升级过程。
 
-image::../media/mcc_upgrade_cluster_a_in_switchover_A900.png[切换 A900 中的 MCC 升级集群 A]
+image::../media/mcc_upgrade_cluster_a_in_switchover_A900.png[MetroCluster切换后，Site_B 处于非活动状态并准备升级]
 
 .步骤
 . 将 MetroCluster 配置切换到 site_A ，以便可升级 site_B 的节点：
@@ -493,7 +493,7 @@ MetroCluster switchover -controller-replacement true`
 +
 .. Slide the orange button on the cam handle downward until it unlocks.
 +
-image::../media/drw_9500_remove_PCM.png[控制器模块]
+image::../media/drw_9500_remove_PCM.png[从机箱中移除控制器模块：解锁并滑出]
 
 +
 |===
@@ -524,7 +524,7 @@ image::../media/drw_9500_remove_PCM.png[控制器模块]
 .. Rotate the cam latch down until it is in a horizontal position.NVS 从机箱中分离并移动几英寸。
 .. 拉动模块侧面的拉片，将 NVS 从机箱中卸下。
 +
-image::../media/drw_a900_move-remove_NVRAM_module.png[删除模块]
+image::../media/drw_a900_move-remove_NVRAM_module.png[从机箱中移除NVRAM模块：解锁并拉出标签]
 
 +
 |===
@@ -559,7 +559,7 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[删除模块]
 . 将 NVS 与插槽 6 中机箱开口的边缘对齐。
 . 将 NVS 轻轻滑入插槽，直到带字母和编号的 I/O 凸轮闩锁开始与 I/O 凸轮销啮合，然后将 I/O 凸轮闩锁一直向上推，以将 NVS 锁定到位。
 +
-image::../media/drw_a900_move-remove_NVRAM_module.png[删除模块]
+image::../media/drw_a900_move-remove_NVRAM_module.png[将NVRAM模块安装到机箱中：对齐并锁定到位]
 
 +
 |===
@@ -583,7 +583,7 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[删除模块]
 . Firmly push the controller module into the chassis until it meets the midplane and is fully seated.控制器模块完全就位后，锁定闩锁会上升。注意：为避免损坏连接器，请勿在将控制器模块滑入机箱时用力过大。
 . 使用缆线将管理和控制台端口连接到控制器模块。
 +
-image::../media/drw_9500_remove_PCM.png[控制器模块]
+image::../media/drw_9500_remove_PCM.png[将控制器模块安装到机箱中：对齐、安装和连接电缆]
 
 +
 |===
@@ -1320,7 +1320,7 @@ https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_create_
 
 在此任务中，您将执行切回操作， MetroCluster 配置将恢复正常运行。site_A 上的节点仍在等待升级。
 
-image::../media/mcc_upgrade_cluster_a_switchback_A900.png[MCC 升级集群 A 切回 A900]
+image::../media/mcc_upgrade_cluster_a_switchback_A900.png[MetroCluster切换后，Site_A 等待升级]
 
 .步骤
 . 从 site_B 运行 `MetroCluster node show` 命令并检查输出。问题描述

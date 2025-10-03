@@ -33,7 +33,7 @@ MetroCluster 配置使用两个物理隔离的镜像集群来保护数据。每�
 
 下图显示了 MetroCluster FC 配置。MetroCluster IP 配置中的 HA 功能相同，只是 HA 互连由集群交换机提供。
 
-image::../media/mcc_hw_architecture_local_ha.gif[MCC 硬件架构本地 ha]
+image::../media/mcc_hw_architecture_local_ha.gif[MetroCluster配置中的本地 HA]
 
 .相关信息
 link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["高可用性配置"^]
@@ -83,11 +83,11 @@ NOTE: MetroCluster 配置中的目标 SVM 的名称会自动附加后缀 "` -mc`
 
 
 
-image::../media/mcc_mirroring_of_svms.gif[SVM 的 MCC 镜像]
+image::../media/mcc_mirroring_of_svms.gif[SVM 的MetroCluster镜像]
 
 如果发生切换，则正常运行的集群上的远程丛会联机，并且二级 SVM 会开始提供数据。
 
-image::../media/mcc_svms_after_switchover.gif[切换后的 MCC SVM]
+image::../media/mcc_svms_after_switchover.gif[切换后的MetroCluster SVM]
 
 切换后远程丛的可用性取决于 MetroCluster 配置类型：
 
@@ -163,7 +163,7 @@ NOTE: 切换后，如果未镜像聚合位于 DR 配对节点上，并且交换�
 
 IMPORTANT: 如果使用混合聚合，则在 SyncMirror 丛因固态磁盘（ SSD ）层填满而发生故障后，性能可能会下降。
 
-image::../media/mcc_mirroring_of_pools.gif[池的 MCC 镜像]
+image::../media/mcc_mirroring_of_pools.gif[MetroCluster存储池镜像]
 
 
 
@@ -185,9 +185,9 @@ image::../media/mcc_mirroring_of_pools.gif[池的 MCC 镜像]
 
 
  a| 
-image:../media/mcc_nvram_quartering.gif[""]
+image:../media/mcc_nvram_quartering.gif["MetroCluster配置中的非易失性缓存四分之一"]
  a| 
-image:../media/mcc_nvram_split_in_non_mcc_ha_pair.gif[""]
+image:../media/mcc_nvram_split_in_non_mcc_ha_pair.gif["非MetroCluster HA 对中的非易失性缓存拆分"]
 
 |===
 非易失性缓存存储以下内容：
@@ -212,7 +212,7 @@ DR 辅助配对节点是本地节点的 DR 配对节点的 HA 配对节点。如
 
 例如，节点（ node_A_1 ）的本地缓存会在 MetroCluster 站点上进行本地和远程镜像。下图显示 node_A_1 的本地缓存已镜像到 HA 配对节点（ node_A_2 ）和 DR 配对节点（ node_B_1 ）：
 
-image::../media/mcc_nvram_mirroring_example.gif[MCC NVRAM 镜像示例]
+image::../media/mcc_nvram_mirroring_example.gif[MetroCluster NVRAM镜像示例]
 
 
 
@@ -222,7 +222,7 @@ image::../media/mcc_nvram_mirroring_example.gif[MCC NVRAM 镜像示例]
 
 例如， node_B_1 发生故障，由 node_B_2 接管。node_A_1 的本地缓存无法再镜像到 node_B_1 。镜像将切换到 DR 辅助配对节点 node_B_2 。
 
-image::../media/mcc_nvram_mirroring_example_dynamic_dr_aux.gif[MCC NVRAM 镜像示例动态灾难恢复辅助]
+image::../media/mcc_nvram_mirroring_example_dynamic_dr_aux.gif[具有 DR 辅助功能的MetroCluster NVRAM镜像]
 
 
 
@@ -557,7 +557,7 @@ MetroCluster 配置中磁盘的原始所有者的 ID 。
 |===
 下图和表举例说明了实际位于 cluster_B 的 node_A_1 磁盘池 1 中的磁盘所有权如何变化
 
-image::../media/mcc_disk_ownership.gif[MCC 磁盘所有权]
+image::../media/mcc_disk_ownership.gif[MetroCluster磁盘所有权]
 
 |===
 
@@ -839,7 +839,7 @@ link:../manage/task_verifiy_that_your_system_is_ready_for_a_switchover.html["修
 
 运行 ONTAP 9.4 及更早版本的 MetroCluster IP 配置仍需要手动修复命令。
 
-image::../media/mcc_so_sb_with_autoheal.gif[具有自动修复功能的 MCC SO sb]
+image::../media/mcc_so_sb_with_autoheal.gif[MetroCluster切换和切换回自动修复]
 
 
 
@@ -865,7 +865,7 @@ MetroCluster FC 配置不支持在计划外切换后自动修复，在运行 ONT
 
 
 
-image::../media/mcc_uso_with_autoheal.gif[具有自动修复功能的 MCC uso]
+image::../media/mcc_uso_with_autoheal.gif[MetroCluster具有自动修复功能的计划外切换]
 
 
 
