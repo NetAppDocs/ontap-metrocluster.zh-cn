@@ -56,10 +56,8 @@ indexpage:
       url: "/disaster-recovery/concept_dr_workflow.html"
   - title: ATTO 网桥固件
     links:
-    - title: FibreBridge 7600N
-      url: https://mysupport.netapp.com/NOW/cgi-bin/software/?product=Protocol+Bridge&platform=ATTO+FibreBridge+7600N
-    - title: 光纤桥接7500 N
-      url: https://mysupport.netapp.com/NOW/cgi-bin/software/?product=Protocol+Bridge&platform=ATTO+FibreBridge+7500N
+    - title: ATTO FibreBridge 固件下载
+      url: https://mysupport.netapp.com/site/products/all/details/atto-fibrebridge/downloads-tab
   - title: 更多资源
     links:
     - title: NetApp Config Advisor

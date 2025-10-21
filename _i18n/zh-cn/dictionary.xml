@@ -4203,7 +4203,6 @@
   <block id="7e756142ca24020ffa4d2170bdd9c135" category="paragraph">您可以测试故障情形，以确认 MetroCluster 配置是否正常运行。</block>
   <block id="397065d1ea76a7267c1165f18aff1479" category="section-title">验证协商的切换</block>
   <block id="03daa0db748f01eb3873a439b3ee1ab5" category="paragraph">您可以测试协商（计划内）切换操作，以确认无中断数据可用性。</block>
-  <block id="3b84985a3046a49bcea85f56e3a28bac" category="paragraph">此测试通过将集群切换到第二个数据中心来验证数据可用性不受影响（ Microsoft 服务器消息块（ SMB ）和 Solaris 光纤通道协议除外）。</block>
   <block id="224eed3317652f7fd4510c7cd1f9c926" category="paragraph">此测试需要大约 30 分钟。</block>
   <block id="962f0cdcd4aeaa5d7a845c907458b869" category="paragraph">此操作步骤具有以下预期结果：</block>
   <block id="1faa3b4e66d97f34777f91b4ea9930d9" category="list-text">`MetroCluster switchover` 命令将显示警告提示符。</block>
@@ -5721,7 +5720,6 @@
   <block id="5b40bcb2b8f219e462b2be259c9f9ca0" category="paragraph">在运行 ONTAP 9.8 之前版本的系统中，您必须执行一些特殊的配置步骤来监控 MetroCluster 配置中的 FC-SAS 网桥。</block>
   <block id="2e520a1b682a16f2dd769ccc659bb91f" category="paragraph">`storage bridge add -address 0.0.0.0 -managed-by in-band -name bridge-name`</block>
   <block id="619f93caa0c27ba9b6068c4c105a7868" category="paragraph">`storage bridge add -address bridge-ip-address -name bridge-name`</block>
-  <block id="2e012ade7bab556f0392337c78739376" category="paragraph">以下示例显示了运行正常的四节点 MetroCluster 配置的 MetroCluster check cluster show 命令输出。它表示集群已准备好在必要时执行协商切换。</block>
   <block id="f6593cf23130819e409398933f0aaaf0" category="section-title">验证本地 HA 操作</block>
   <block id="1fc888e4b44a770160a429e97648d3ee" category="paragraph">如果您使用的是四节点 MetroCluster 配置，则应验证 MetroCluster 配置中本地 HA 对的运行情况。对于双节点配置，不需要执行此操作。</block>
   <block id="225a700989ad161efc2f148c77ec5bf3" category="paragraph">双节点 MetroCluster 配置不包含本地 HA 对，此任务不适用。</block>
@@ -7171,8 +7169,6 @@
   <block id="f697b3488e8c346fc3a6e11a2ee8761b" category="list-text">启动 MetroCluster FC 节点。</block>
   <block id="dc883740b10089cb91865f7c96fc5ac5" category="paragraph">您必须在两个 MetroCluster FC 节点上执行这些步骤。</block>
   <block id="f433c39c3c339b913b2223e31d633f9d" category="list-text">返回维护模式。</block>
-  <block id="b89bea07847accf12561ace475459c4d" category="list-text">将节点启动至维护：</block>
-  <block id="fd02d447099008ddc827133dc034246f" category="paragraph">`mode ： boot_ontap maint`</block>
   <block id="77036813f81882d81f97721da98db74b" category="list-text">halt the nodes ： + `halt`</block>
   <block id="6b94bbc1027af03d0236cf3e340aaee9" category="list-text">节点启动后，验证节点的状态：</block>
   <block id="0161fa0543afb66faaedd2d30421113b" category="inline-link-macro">在 MetroCluster IP 配置中准备切回</block>
@@ -11764,8 +11760,6 @@
   <block id="daf3fcb291d6eb9e42a7777197caa458" category="sidebar">将MetroCluster FC转换为MetroCluster IP</block>
   <block id="822970998ef8866cd59ed6ba8d63af83" category="sidebar">升级 MetroCluster IP RCF 文件</block>
   <block id="b7c02f1bc7ffc889ddb9e99702663c56" category="sidebar">ATTO 网桥固件</block>
-  <block id="ddac5beff5f77bf22595caa98bac08f9" category="sidebar">FibreBridge 7600N</block>
-  <block id="dcb741f9e6e5d6050aeb3d8fd347e9fd" category="sidebar">光纤桥接7500 N</block>
   <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">更多资源</block>
   <block id="fa0344a10c89a05b4e9232391d5feb01" category="sidebar">NetApp Config Advisor</block>
   <block id="3f2b90ec5a9b43745b9c8c9fedf48d8d" category="sidebar">NetApp 支持知识库</block>
@@ -13815,7 +13809,6 @@
   <block id="912e887f8c2036c3f03ac7df63957dfd" category="paragraph">9336C-FX2（36端口）</block>
   <block id="5f972a786e3a36fb039bc945267e120a" category="paragraph">3132Q-V</block>
   <block id="f403fff2bbc7f3e506dae47b9dff52fc" category="paragraph">3232C</block>
-  <block id="addb9e70976c2f94b8ccfc3736a31888" category="paragraph-title">重要信息</block>
   <block id="38c9e66a6eb25313e0ea3390ba7ee1fc" category="cell">如果您现有的 MetroCluster 包含...</block>
   <block id="afe6ad7caef50aaad15afb83c6f40ca0" category="cell">您要添加的平台是...</block>
   <block id="12f30f47d5034530ccaa816ade9953fc" category="paragraph">使用*共享集群/HA 端口*的 AFF 系统：</block>
@@ -14423,4 +14416,11 @@
   <block id="55eb6bfcca1bd3820b0fdab3d788f833" category="image-alt">将NVRAM模块安装到机箱中：对齐并锁定到位</block>
   <block id="40a8cc8505d7467bde3321410a6e4017" category="image-alt">将控制器模块安装到机箱中：对齐、安装和连接电缆</block>
   <block id="ede06bff35d481aeb275fc59e8e85067" category="image-alt">MetroCluster切换后，Site_A 等待升级</block>
+  <block id="cee412eec19a9c7ecf8848f3e299f815" category="list-text">将节点启动到维护模式：</block>
+  <block id="a9efd65de6ec4fcf881629fcb763598c" category="paragraph">此测试验证了将集群切换到第二个数据中心后数据可用性不会受到影响（SMB 和光纤通道协议除外）。</block>
+  <block id="85d885cec8ed47ee2262192224675e42" category="paragraph-title">如果您要添加较旧的平台模型，则需要注意以下重要信息</block>
+  <block id="5176f2410e7713f8043052235a3684ca" category="inline-link-macro">设置所需的启动参数</block>
+  <block id="101589f08b3d384effc16cfe928ff010" category="admonition">*每次升级控制器时，都必须按照说明执行此过程。*当新平台发布时，可能会有新的或修改后的步骤需要遵循。例如，升级到ONTAP 9.15.1 或更高版本中引入的平台时，您必须 <block ref="c06c0a0b6c863a89cb5464010bbb6325" category="inline-link-macro-rx"></block> 并执行其他附加步骤以确保升级成功。</block>
+  <block id="362bfa10bf4c8597f25d4428db1f1ff6" category="admonition">*每次升级控制器时，都必须按照说明执行此过程。*当新平台发布时，可能会有新的或修改后的步骤需要遵循。例如，升级到ONTAP 9.15.1 或更高版本中引入的平台时，您必须 <block ref="cecfc2493a1700137e5c8906925909ad" category="inline-link-macro-rx"></block> 并执行其他附加步骤以确保升级成功。</block>
+  <block id="8fe05c00237e990eab631a7b042cf93c" category="sidebar">ATTO FibreBridge 固件下载</block>
 </blocks>

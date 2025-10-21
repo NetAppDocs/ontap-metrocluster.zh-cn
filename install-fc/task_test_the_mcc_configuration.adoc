@@ -20,7 +20,7 @@ summary:
 您可以测试协商（计划内）切换操作，以确认无中断数据可用性。
 
 .关于此任务
-此测试通过将集群切换到第二个数据中心来验证数据可用性不受影响（ Microsoft 服务器消息块（ SMB ）和 Solaris 光纤通道协议除外）。
+此测试验证了将集群切换到第二个数据中心后数据可用性不会受到影响（SMB 和光纤通道协议除外）。
 
 此测试需要大约 30 分钟。
 
@@ -100,8 +100,6 @@ Remote: cluster_B               not-reachable          -
 +
 [listing]
 ----
-cluster_A::>  metrocluster operation show
-
 cluster_A::> metrocluster operation show
   Operation: switchover
       State: successful
@@ -142,7 +140,7 @@ Group Cluster Node               State          Mirroring Mode
               node_A_1         configured     enabled   heal roots completed
       cluster_B
               node_B_2         unreachable    -         switched over
-42 entries were displayed.metrocluster operation show
+42 entries were displayed.
 ----
 . 验证所有聚合是否均已镜像：
 +
