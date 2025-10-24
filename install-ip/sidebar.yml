@@ -95,7 +95,7 @@ entries:
     - title: 在 MetroCluster IP 交换机上配置日志收集
       url: "/install-ip/task-configure-log-collection-mccip.html"
     - title: 管理以太网交换机监控
-      url: "/install-ip/manage-monitor.html"
+      url: "/install-ip/monitor-manage.html"
     - title: 验证以太网交换机监控
       url: "/install-ip/task-monitor-verify-mccip.html"
 - title: 在 ONTAP 中配置 MetroCluster 软件

@@ -1,5 +1,5 @@
 ---
-permalink: install-ip/manage-monitor.html 
+permalink: install-ip/monitor-manage.html 
 sidebar: sidebar 
 keywords: ip, switch, connection, manage, broadcom, snmp, health, monitoring 
 summary: '在大多数情况下、以太网交换机会由ONTAP自动发现并由CSHM进行监控。应用于交换机的参考配置文件(Reference Configuration File、RCF)等功能可启用Cisco发现协议(CDP)和/或链路层发现协议(Link Layer Discovery Protocol、LDP)。' 
