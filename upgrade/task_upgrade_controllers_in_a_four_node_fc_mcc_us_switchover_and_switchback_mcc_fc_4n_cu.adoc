@@ -521,7 +521,7 @@ dr-group-id cluster    node      node-systemid dr-partner-systemid
 .步骤
 . 从 Tiebreaker 软件中删除现有 MetroCluster 配置。
 +
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["删除 MetroCluster 配置"]
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#remove-metrocluster-configurations["删除 MetroCluster 配置"]
 
 . 从可以启动切换的任何第三方应用程序中删除现有 MetroCluster 配置。
 +

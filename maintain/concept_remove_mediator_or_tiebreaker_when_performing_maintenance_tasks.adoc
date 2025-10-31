@@ -59,7 +59,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for
  a| 
 Tiebreaker
  a| 
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["正在添加 MetroCluster 配置"] 在 _Tiebreaker MetroCluster 安装和配置 _ 部分。
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#add-metrocluster-configurations["正在添加 MetroCluster 配置"] 在_MetroCluster Tiebreaker 安装和配置_部分。
 
 
 

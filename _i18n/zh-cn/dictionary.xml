@@ -2411,8 +2411,6 @@
   <block id="ff6434ad658fa9ed7826817a3f9f0dff" category="paragraph">对旧 DR 组中的另一个本地节点重复此步骤。</block>
   <block id="8917e80351843363583600f118c2fa84" category="list-text">暂停，关闭并卸下旧控制器模块和存储架。</block>
   <block id="88360ff6d6d5e3d5d618e2ab14b30049" category="summary">安装 Tiebreaker 软件后，您可以添加或修改 MetroCluster 配置，或者将其从 Tiebreaker 软件中删除。</block>
-  <block id="84b5999a36db8b18180d5b58bd61c503" category="doc">配置 Tiebreaker 软件</block>
-  <block id="1f160d9eb389f42ea44f6394967f985f" category="section-title">启动 Tiebreaker 软件 CLI</block>
   <block id="cd3614b020be0845e7a33285fe90290c" category="paragraph">安装 NetApp MetroCluster Tiebreaker 软件后，您可以添加更多 MetroCluster 配置，一次添加一个。</block>
   <block id="e7ccea983819dc5e04e8b68f81f8a388" category="paragraph">您必须已在 ONTAP 环境中安装 MetroCluster 配置并启用软件中的设置。</block>
   <block id="f0bf65c9ebf2ae0ce4c6c368cb9675d2" category="list-text">使用 Tiebreaker 命令行界面（ CLI ） monitor add 命令添加 MetroCluster 配置。</block>
@@ -2712,7 +2710,6 @@
   <block id="6410f0d1620d7d4196d6077993f01436" category="list-text">执行 MetroCluster 检查： `MetroCluster check run`</block>
   <block id="405d6a60969fe89f9bb73650236f1000" category="list-text">显示 MetroCluster 检查的结果： `MetroCluster check show`</block>
   <block id="822be451b556a7c02b3348482df40b17" category="list-text">检查交换机上是否存在任何运行状况警报（如果存在）： `storage switch show`</block>
-  <block id="99121f5c6ebd942309c1151523466608" category="paragraph"><block ref="99121f5c6ebd942309c1151523466608" category="inline-link-macro-rx"></block></block>
   <block id="4ea1c1dde743edfd6ad32e1b314bc50b" category="summary">如果要在 MetroCluster IP 配置中使用新的 IP 交换机，则必须使用自定义 RCF 文件配置这些交换机。</block>
   <block id="8410fa3c644dd4944c83d54534146970" category="doc">生成 RCF 并将其应用于新的 IP 交换机</block>
   <block id="a912eb9ea94a61a941a8ab99a7048c7c" category="paragraph">如果使用的是新交换机，则需要执行此任务。</block>
@@ -8764,7 +8761,6 @@
   <block id="3536088a256cc132e9bb50bb6b37d844" category="section-title">升级 site_A 上的节点</block>
   <block id="be30a56e6d2717e49b1a24ec4b5435b9" category="paragraph">您必须对 site_A 重复升级任务</block>
   <block id="98c99ee34c8774fa11a9a533fe708618" category="paragraph">在执行任务时，对站点和节点的所有示例引用都将反转。例如，如果提供了从 site_A 切换的示例，则您将从 site_B 切换</block>
-  <block id="0c429b26fd1db8d4b7bb104d284c1cea" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block> 在 _Tiebreaker MetroCluster 安装和配置 _ 部分。</block>
   <block id="8a51355d335889c9ddb7276ab9a129ab" category="paragraph">升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。您不能在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
   <block id="b93e6d7c2789cd393ddbb5ccdfac4676" category="paragraph">您不能同时升级配置中的其他组件，例如存储架或交换机。</block>
   <block id="0dc490dd8b5efdca7b88c08cca2f094e" category="list-text">ONTAP 9.10.1 及更高版本支持四节点和八节点配置。</block>
@@ -9614,7 +9610,6 @@
   <block id="56bf84e32d22ab8fb694fbc5332432dc" category="paragraph">如果您手动配置了 FC 交换机，则必须确保新控制器模块的启动程序连接的分区正确无误。请参见中有关分区的章节 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block>。</block>
   <block id="dedcc0638aa1bf3276ae388ea4613c81" category="summary">从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配置扩展为临时八节点配置，然后删除旧的灾难恢复（ Disaster Recovery ， DR ）组来升级四节点 IP 配置中的控制器和存储。</block>
   <block id="75aa8d2f84e0be26d2847e91f37f74e2" category="list-text">要防止自动生成支持案例，请发送一条 AutoSupport 消息以指示升级正在进行中。</block>
-  <block id="f0c5b568bbaab2490082e4d2aaf08123" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block> 在 _MetroCluster Tiebreaker 安装和配置 _ 中。</block>
   <block id="7965e118387157e57593becb6ae60117" category="list-text">使用中的操作步骤 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block> 用于将新存储系统，磁盘架和 FC-SAS 网桥装入机架。</block>
   <block id="bd583895c72d99233af8746d9463ab07" category="list-text">使用中的操作步骤 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block> 要为您的交换机类型创建布线布局，请使用八节点 MetroCluster 配置的端口使用情况。</block>
   <block id="7215f927afe2ef194199487494b76dd7" category="paragraph">FC 交换机端口使用情况必须与操作步骤中所述的使用情况匹配，才能使用参考配置文件（ Reference Configuration Files ， RCF ）。</block>
@@ -9738,7 +9733,6 @@
   <block id="679c1dc70b523e1092eb2a7b3129711d" category="paragraph">验证是否已为端口和广播域正确设置 MTU 设置并进行更改。</block>
   <block id="dd29cf7134047c7a311edc4776b9021e" category="paragraph">如果您使用的是双节点 MetroCluster FC 配置，请参见 <block ref="ef88855c7d052c0aa5ce46e187d01954" category="inline-link-macro-rx"></block>。</block>
   <block id="2912e0eba45e116506958546503977b9" category="paragraph"><block ref="2912e0eba45e116506958546503977b9" category="inline-link-macro-rx"></block></block>
-  <block id="7efa6fc838c006d396e42638b4ff25d1" category="paragraph"><block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block></block>
   <block id="bc77bf857b365d445270101e2d7ce03f" category="list-text">在 MetroCluster FC 工作流中，切换，修复和切回步骤是 MetroCluster FC 配置所使用的步骤。</block>
   <block id="58f51e86971b6d1d53b59f46792a926c" category="list-text">在 MetroCluster IP 工作流中，切换，修复和切回步骤是 MetroCluster IP 配置所使用的步骤。</block>
   <block id="be841ef50614c5c74b8d6a685c367458" category="cell">协商切换使用此工作流 ...</block>
@@ -9881,9 +9875,6 @@
   <block id="c988e8ca5d6e6bb62b67254721e13586" category="paragraph">`no MACsec keychain keychain-name policy policy-name`</block>
   <block id="8d0f34f00997c62960ad51adbe64457d" category="list-text"><block ref="8d0f34f00997c62960ad51adbe64457d" category="inline-link-rx"></block></block>
   <block id="d84d4239724af43bfdc3b74836c335fe" category="paragraph">配置后、v0a (v0b等)的存在将持续验证连接、从而保证LIF迁移或故障转移成功(与L2不同、L2仅在中断后才会显示损坏的配置)。</block>
-  <block id="222561f9cba21343a81a9b2ee1890d68" category="paragraph"><block ref="222561f9cba21343a81a9b2ee1890d68" category="inline-link-macro-rx"></block></block>
-  <block id="81fe00b955881476878ae80a1ff92b24" category="list-text">使用中的步骤： <block ref="7efa6fc838c006d396e42638b4ff25d1" category="inline-link-macro-rx"></block> 在 _Tiebreaker MetroCluster 安装和配置 _ 部分。</block>
-  <block id="61324fd73aeb16a8318bff07556941ad" category="paragraph"><block ref="222561f9cba21343a81a9b2ee1890d68" category="inline-link-macro-rx"></block> 在 _Tiebreaker MetroCluster 安装和配置内容 _ 中</block>
   <block id="1fe9ee738ca0e6e9e3aeec4c7902cb67" category="paragraph">下图显示了 MetroCluster 配置。cluster_B已关闭以进行维护。</block>
   <block id="04609bc4c74d3a1d83089f636a27a4b0" category="paragraph">从ONTAP 9.11.1开始、MetroCluster 配置中的两个站点都可以作为与FAS 或AFF 目标集群的SVM DR关系的源、如下图所示。</block>
   <block id="66a9b9ac77fa7e18f707ae56e903dd9c" category="inline-image-macro">SVM DR新拓扑</block>
@@ -11515,7 +11506,6 @@
   <block id="3929d13da5d4b97eff76f8a6ec8c5501" category="list-text">访问 <block ref="a42716fdd3c80ae75cadfb8024b65de0" category="inline-link-macro-rx"></block> 下载用于执行系统网络启动的文件。</block>
   <block id="94416aa661a92cc8d67b1bd6459ef472" category="list-text">有关支持的平台升级组合的信息、请查看中的MetroCluster FC升级表  <block ref="9595cfad5a4deb04d4a443245fae3f76" category="inline-link-macro-rx"></block>。</block>
   <block id="332fe4e638c485c04f214b0a13747f6d" category="list-text">您可以使用此操作步骤通过基于 NSO 的自动切换和切回升级四节点 MetroCluster FC 配置中的控制器。如果要使用聚合重新定位（ Aggregate Relocation ， ARL ）执行控制器升级，请参见 <block ref="0fe967effd4f0eaf84576f897dbfd368" category="inline-link-macro-rx"></block>。建议使用基于 NSO 的自动化操作步骤。</block>
-  <block id="75132a926df50e23a26bd72dde0371b7" category="list-text"><block ref="46f4c9c8d582aa241b60c75ea3bcb2c9" category="inline-link-macro-rx"></block> 来自 Tiebreaker 软件。</block>
   <block id="0b22fb8d0feec85055f45c8c4a298766" category="list-text">如果系统提示您继续执行操作步骤、请输入<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>，当系统提示您输入软件包时，输入URL：</block>
   <block id="84ea00dba7c6a1cf0426e58385307e4f" category="paragraph"><block ref="5b9047ebb0d87499d679fd69fbda42cf" prefix="" category="inline-code"></block></block>
   <block id="b57c06e6dad65cb8a7fb01050706349f" category="paragraph">您可以使用ONTAP系统管理器、将Web浏览器指向集群管理IP地址(\https://172.17.12.153).</block>
@@ -12823,7 +12813,6 @@
   <block id="92f5715a55706897a1d8dd41533ea2ad" category="paragraph">要升级站点A上的cluster-A上的节点、必须重复执行升级任务</block>
   <block id="c0d421f4948fca7693af31b81667650d" category="list-text">重复上述步骤以升级cluster-A上的节点，从开始<block ref="fdc81b8422a2d3a4dc8579b364ffd7ac" category="inline-link-macro-rx"></block>。</block>
   <block id="9708813a6edf75a072848cc8c19d1d0b" category="inline-link-macro">添加 MetroCluster 配置</block>
-  <block id="1452de87b0c5b157dc8a7594223b5265" category="paragraph"><block ref="9b8797650089db2aa56d22b65e4ec45b" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="337d2ccc4953efb0209e4bf2012ca1be" category="summary">在执行控制器升级之前、请在设备上启用控制台日志记录。</block>
   <block id="ec75a12b665b34d0cdc8d12746fc8cfa" category="doc">在升级MetroCluster IP控制器之前启用控制台日志记录</block>
   <block id="f31a964269837fa383f7baad3584db47" category="inline-link-macro">设置所需的启动程序(用于升级到引入9.15.1或更高版本的系统)</block>
@@ -13836,7 +13825,6 @@
   <block id="a787053687877f10051bad9d8a2c320b" category="paragraph">在执行升级之前，您需要验证 MetroCluster 配置的运行状况和连接性。</block>
   <block id="ac471314e8ba72086a54a227b4a6abe8" category="paragraph">没有匹配的端口。升级后、重新创建集群端口。<block ref="c40693a26d31adda8e50d2bd3c959775" category="inline-link-macro-rx"></block></block>
   <block id="02f80d1409d40adabdcd4b00959239b0" category="inline-link-macro">删除 MetroCluster 配置</block>
-  <block id="c4a00ba197c84f92cac51496436d38e3" category="paragraph"><block ref="c4a00ba197c84f92cac51496436d38e3" category="inline-link-macro-rx"></block></block>
   <block id="9950d05faf2c2104ac64b2891c5a8822" category="section-title">移除旧平台</block>
   <block id="d723056ef76e64c3b3faae704eb71dd4" category="paragraph">旧系统ID在中标识 <block ref="6b24ae8f1e4581fe7e87c8c4194af177" category="inline-link-macro-rx"></block>。</block>
   <block id="75a193e4d11dd894af19600ff20d5c03" category="paragraph"><block ref="75a193e4d11dd894af19600ff20d5c03" category="inline-link-rx"></block></block>
@@ -14425,4 +14413,25 @@
   <block id="1e2cb5bcdb8947c91d9b70a1c5ee21c0" category="list-text">所需的最低 ISL 速度取决于平台型号：</block>
   <block id="fe25d0e834bbf213fee0bc910f4a7054" category="list-text">在AFF A1K和AFF A90系统上，ISL 速度必须至少为 100Gbps。使用不同的 ISL 速度需要功能产品差异请求 (FPVR)。要提交 FPVR，请联系您的销售团队。</block>
   <block id="9260215cd28aa0daaf49857a4307ca43" category="list-text">在所有其他平台上，ISL 速度必须至少为 10Gbps。</block>
+  <block id="d1de43c2b2a882d5549ca6caea0cd796" category="paragraph"><block ref="5659c81fbc5304275ab0c57df4fa5e4d" category="inline-link-macro-rx"></block> 在_MetroCluster Tiebreaker 安装和配置_部分。</block>
+  <block id="e91d78e049c73a532e8c4014365c7f0d" category="doc">配置MetroCluster决胜软件</block>
+  <block id="2369e844c90397a4181ffafd2f64be4a" category="section-title">启动 Tiebreaker 软件 CLI</block>
+  <block id="157265493f45de2399bb80a595184137" category="section-title">进口证书</block>
+  <block id="d300dfa20523cd7fb435a3f19eeaa42c" category="paragraph">要在 Tiebreaker 1.6 或更高版本中启用无缝监控，您需要将服务器安全套接字层 (SSL) 证书、中间证书（如果存在）和根证书从ONTAP导入到 Java 虚拟机 (JVM) 中的密钥库。</block>
+  <block id="0516bb5d84f5cf404394a670c34b9a44" category="list-text">此任务在 Tiebreaker 1.6 或更高版本中是必需的。</block>
+  <block id="f6484eb9f6332a380224c51c4ff965b5" category="list-text">成功将MetroCluster配置添加到 Tiebreaker 后，或者证书过期后，您需要执行此任务。</block>
+  <block id="637b609978ba2d910c8867550742b9e9" category="list-text">对需要导入的每个证书（SSL 服务器证书、中间证书或根证书）运行以下命令。</block>
+  <block id="31a3f75f34ce843c2ab3b773d9072924" category="paragraph"><block ref="599a2d70deb4d0bbc781269687e6189f" prefix="" category="inline-code"></block></block>
+  <block id="ffcde617fee5d26e3005c8a089c3ecd6" category="list-text">这<block ref="b8b954588c74798aed8b6a1a5c867bec" prefix=" " category="inline-code"></block> value 指定要导入的证书的文件名。</block>
+  <block id="eb2fdb57a4efd845d6aeb1d9d0f9042f" category="list-text">这<block ref="1f4e0d0417f12bfdf15fa538de9f9f9a" prefix=" " category="inline-code"></block> value 指定将证书导入 JVM 后要存储的名称。</block>
+  <block id="61946575308b3d651099211c764d921e" category="paragraph">以下示例展示了如何导入文件名为“root certificate”的根证书。<block ref="a62f7df2640c2a527e31c848f274ea05" prefix=" " category="inline-code"></block> 以及文件名为<block ref="ca11bb462642b431904085550b5375b6" prefix=" " category="inline-code"></block>：</block>
+  <block id="7efb1ea0d372ab5c16aca840df49ca79" category="paragraph"><block ref="7efb1ea0d372ab5c16aca840df49ca79" category="inline-link-macro-rx"></block></block>
+  <block id="5659c81fbc5304275ab0c57df4fa5e4d" category="paragraph"><block ref="5659c81fbc5304275ab0c57df4fa5e4d" category="inline-link-macro-rx"></block></block>
+  <block id="a212e7395bb60258b12e96d4b25f0a25" category="paragraph"><block ref="5659c81fbc5304275ab0c57df4fa5e4d" category="inline-link-macro-rx"></block> 在_MetroCluster决胜规则安装和配置_中。</block>
+  <block id="67431d9e5972e3763ce39925ca6172fe" category="paragraph"><block ref="67431d9e5972e3763ce39925ca6172fe" category="inline-link-macro-rx"></block></block>
+  <block id="34e872e7651a932e20637ef1b9ef55f0" category="list-text">请按照以下步骤操作： <block ref="5659c81fbc5304275ab0c57df4fa5e4d" category="inline-link-macro-rx"></block> 在_MetroCluster Tiebreaker 安装和配置_部分。</block>
+  <block id="c8e5fb4095abed5cb973a724e5e4cca7" category="paragraph"><block ref="67431d9e5972e3763ce39925ca6172fe" category="inline-link-macro-rx"></block> 在_MetroCluster Tiebreaker 安装和配置内容_</block>
+  <block id="50579aa28b2b0ac01c180e6e07119273" category="paragraph"><block ref="50579aa28b2b0ac01c180e6e07119273" category="inline-link-macro-rx"></block></block>
+  <block id="9a1a464601bee502d12616aa9be06bb3" category="list-text"><block ref="d77847ddf2a5535e4974575f39191ae2" category="inline-link-macro-rx"></block> 来自决胜软件。</block>
+  <block id="ba13dd5c52c50f7bb5ef919e4d340c98" category="paragraph"><block ref="83029083d25b0153769c6039afb8beb5" category="inline-link-macro-rx"></block>。</block>
 </blocks>

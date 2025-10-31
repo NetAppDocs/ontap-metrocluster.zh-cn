@@ -447,7 +447,7 @@ dr-group-id cluster    node           node-systemid ha-partner-systemid dr-partn
 .步骤
 . 从 Tiebreaker 软件中删除现有 MetroCluster 配置。
 +
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["删除 MetroCluster 配置"]
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#remove-metrocluster-configurations["删除 MetroCluster 配置"]
 
 . 从可以启动切换的任何第三方应用程序中删除现有 MetroCluster 配置。
 +
@@ -1408,5 +1408,5 @@ Cluster_A:: node_A_1 (non-overridable veto): DR partner NVLog mirroring is not o
 
 如果先前已将 MetroCluster 配置配置为由 Tiebreaker 软件监控，则可以还原 Tiebreaker 连接。
 
-. 使用中的步骤： link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["正在添加 MetroCluster 配置"] 在 _Tiebreaker MetroCluster 安装和配置 _ 部分。
+. 请按照以下步骤操作： link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#add-metrocluster-configurations["正在添加 MetroCluster 配置"] 在_MetroCluster Tiebreaker 安装和配置_部分。
 

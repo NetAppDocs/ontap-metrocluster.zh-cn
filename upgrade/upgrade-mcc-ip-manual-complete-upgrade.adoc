@@ -95,7 +95,7 @@ NOTE: 此任务仅适用于某些升级组合。有关详细信息、请参见 l
  a| 
 Tiebreaker
  a| 
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["添加 MetroCluster 配置"](英文)
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#add-metrocluster-configurations["添加 MetroCluster 配置"]。
 
 
 

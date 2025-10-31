@@ -382,7 +382,7 @@ dr-group-id cluster     node     node-systemid ha-partner-systemid dr-partner-sy
  a| 
 Tiebreaker
  a| 
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["删除 MetroCluster 配置"] 在 _Tiebreaker MetroCluster 安装和配置内容 _ 中
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#remove-metrocluster-configurations["删除 MetroCluster 配置"] 在_MetroCluster Tiebreaker 安装和配置内容_
 
 
 
@@ -1454,7 +1454,7 @@ MetroCluster check show`
  a| 
 Tiebreaker
  a| 
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#adding-metrocluster-configurations["正在添加 MetroCluster 配置"] 在 _Tiebreaker MetroCluster 安装和配置 _ 部分。
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#add-metrocluster-configurations["正在添加 MetroCluster 配置"] 在_MetroCluster Tiebreaker 安装和配置_部分。
 
 
 

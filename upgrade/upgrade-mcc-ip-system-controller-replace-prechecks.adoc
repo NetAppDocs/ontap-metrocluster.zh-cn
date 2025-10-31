@@ -303,7 +303,7 @@ dr-group-id cluster    node          node-systemid dr-partner-systemid
 如果使用 MetroCluster Tiebreaker 配置或其他可启动切换的第三方应用程序（例如 ClusterLion ）监控现有配置，则在更换旧控制器之前，必须先从 Tiebreaker 或其他软件中删除 MetroCluster 配置。
 
 .步骤
-. link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#removing-metrocluster-configurations["删除现有 MetroCluster 配置"] 来自 Tiebreaker 软件。
+. link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#remove-metrocluster-configurations["删除现有 MetroCluster 配置"] 来自决胜软件。
 . 从可以启动切换的任何第三方应用程序中删除现有 MetroCluster 配置。
 +
 请参见该应用程序的文档。
