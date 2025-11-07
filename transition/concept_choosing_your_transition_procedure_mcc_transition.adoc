@@ -113,9 +113,15 @@ image:../media/transition-combinations-group-2.png["显示了组2平台支持的
  a| 
 无中断
  a| 
-新平台支持新存储架。
+新平台上需要新的储物架。过渡完成后，旧的控制器、机架和磁盘将从集群中移除。
  a| 
 link:concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html["指向操作步骤 的链接"]
+
+*注意：*此流程支持以下 FC 到 IP 的转换：
+
+* 从四节点MetroCluster FC 配置到四节点MetroCluster IP 配置
+* 从八节点MetroCluster FC 配置到八节点MetroCluster IP 配置
+
 
 
 

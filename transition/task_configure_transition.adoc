@@ -223,6 +223,15 @@ Do you want to use this configuration? {yes, no} [yes]: yes
 
 
 . 重复上述步骤、将node_B_3-IP和node_B_4-IP加入cluster_B
+. 如果您使用的是板载密钥管理器，请在添加了新节点的集群中执行以下步骤：
++
+.. 同步密钥管理器配置：
++
+`sSecurity key-manager 板载同步`
+
+.. 出现提示时，请输入机载密钥管理器密码。
+
+
 
 
 

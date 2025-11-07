@@ -110,6 +110,10 @@ link:concept_risks_and_limitation_of_using_mcc_tiebreaker_in_active_mode.html["�
 ----
 
 
+. 重启决胜程序软件：
++
+`systemctl restart netapp-metrocluster-tiebreaker-software`
+
 
 
 

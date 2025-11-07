@@ -15,9 +15,9 @@ summary: 从ONTAP 9.13.1开始、您可以将工作负载和数据从现有八�
 
 从ONTAP 9.13.1开始、MetroCluster IP配置支持此操作步骤、其中MetroCluster和驱动器架连接到相同的IP交换机(共享存储交换机配置)。
 
-从ONTAP 9.13.1开始、您可以将工作负载和数据从现有八节点MetroCluster FC配置无中断过渡到新的MetroCluster IP配置。
+从ONTAP 9.13.1 开始，您可以将工作负载和数据从现有的八节点MetroCluster FC 配置无中断地迁移到新的八节点MetroCluster IP 配置。您可以使用此过程转换一个四节点 FC DR 组，删除空的 FC DR 组，然后对第二个 FC DR 组重复此过程。 
 
-从ONTAP 9.8开始、您可以将工作负载和数据从现有四节点MetroCluster FC配置无中断过渡到新的MetroCluster IP配置。
+从ONTAP 9.8 开始，您可以将工作负载和数据从现有的四节点MetroCluster FC 配置无中断地迁移到新的四节点MetroCluster IP 配置。完成过渡后，如果需要，您可以扩展到八节点MetroCluster IP 配置。看link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["扩展MetroCluster IP配置"]。
 
 * 此操作步骤无中断。
 +
@@ -28,6 +28,10 @@ summary: 从ONTAP 9.13.1开始、您可以将工作负载和数据从现有八�
 如果您使用的是双节点 MetroCluster FC 配置，请参见 link:concept_choosing_your_transition_procedure_mcc_transition.html["选择过渡操作步骤"]。
 
 * 本操作步骤 介绍了过渡一个四节点FC DR组所需的步骤。如果您使用的是八节点配置(两个FC DR组)、则必须对每个FC DR组重复整个操作步骤。
++
+
+NOTE: 当您按照此流程添加或删除 DR 组时，必须先验证 DR 组的添加或删除是否成功，然后再添加或删除另一个 DR 组。
+
 * 您必须满足所有要求并按照操作步骤中的所有步骤进行操作。
 
 
