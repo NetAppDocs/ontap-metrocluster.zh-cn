@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: drive auto-assignment, drive, adp, advanced disk partitioning, root disk, unmirrored root, data partition, root partition, shelf-by-shelf, AFF A320, AFF A220, AFF A250, C250, AFF A300, AFF A400, C400, AFF A700, AFF A800, FAS2750, FAS8200, FAS500f, FAS9000 
 summary: 从 ONTAP 9.4 开始， MetroCluster IP 配置支持使用 ADP （高级驱动器分区）对 AFF 系统进行新安装。 
 ---
-= 自动驱动器分配和 ADP 系统的MetroCluster IP 注意事项
+= MetroCluster 的IP 要求，用于自动驱动分配和 ADP 系统
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,7 @@ summary: 从 ONTAP 9.4 开始， MetroCluster IP 配置支持使用 ADP （高�
 [role="lead"]
 从ONTAP 9.4开始、MetroCluster IP配置支持使用自动磁盘分配和ADP (高级驱动器分区)进行新安装。
 
-在将ADP与MetroCluster IP配置结合使用时、您应注意以下注意事项：
+使用ADP进行MetroCluster IP配置时，应注意以下事项：
 
 * 要在AFF和ASA系统上将ADP与MetroCluster IP配置结合使用、需要使用ONTAP 9.4及更高版本。
 * MetroCluster IP配置支持ADPv2。
@@ -238,9 +238,11 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁�
 
 NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个驱动器都分区为 P1 ， P2 和 P3 分区。根聚合使用 P3 分区创建。
 
-您必须满足受支持驱动器数量上限的 MetroCluster 限制以及其他准则。
+使用表格前，请先阅读以下要求：
 
-https://hwu.netapp.com["NetApp Hardware Universe"]
+* 您必须满足MetroCluster对最大支持的驱动器数量和其他准则的限制。请参阅 https://hwu.netapp.com["NetApp Hardware Universe"]。
+* 如果您要重复使用外部磁盘柜，请在将其连接到控制器之前确认已移除外部磁盘柜上的磁盘所有权。参考link:https://docs.netapp.com/us-en/ontap/disks-aggregates/remove-ownership-disk-task.html["从磁盘中移除ONTAP所有权"^]。
+
 
 
 
@@ -839,6 +841,60 @@ AFF C250和AFF A250系统的磁盘分配准则和规则同样适用于FAS500f系
 支持的最小驱动器数（每个站点）
  a| 
 24 个驱动器
+ a| 
+驱动器分为四个相等的组。每个四分之一架会自动分配给一个单独的池。
+ a| 
+不适用
+
+|===
+
+
+=== 在配备闪存缓存的 FAS50 系统上进行磁盘分配
+
+从ONTAP 9.18.1 开始，FAS50 系统在MetroCluster IP 配置中支持 Flash Cache。
+
+[CAUTION]
+====
+* 内部机架上的闪存缓存驱动器不能同时拥有数据聚合和根聚合。
+* 插槽 0 和 23 用于闪存缓存驱动器。
+* 如果您要重复使用外部磁盘柜，请在将其连接到控制器之前确认已移除外部磁盘柜上的磁盘所有权。参考link:https://docs.netapp.com/us-en/ontap/disks-aggregates/remove-ownership-disk-task.html["从磁盘中移除ONTAP所有权"]。
+
+
+====
+|===
+
+
+| 准则 | 每个站点的驱动器数 | 驱动器分配规则 | 根分区的 ADP 布局 
+
+
+.2+| 建议的最小驱动器数（每个站点）  a| 
+48个驱动器(仅外部驱动器、无内部驱动器)
+ a| 
+每个外部磁盘架上的驱动器分为两个相等的组（半个）。每个半架会自动分配给一个单独的池。
+ a| 
+不适用
+
+
+
+ a| 
+36 个硬盘（12 个内部硬盘和 24 个外部硬盘——数据聚合位于外部硬盘架上，根聚合位于内部硬盘架上）
+ a| 
+内部驱动器分为四个相等的组（四分之一）。每个季度都会自动分配到一个单独的资金池中。外部机架上的驱动器分为四个相等的组（四分之一）。每个四分之一架会自动分配给一个单独的池。
+
+*笔记：*
+
+* 如果您同时使用内部和外部驱动器，则首先需要安装ONTAP并仅使用内部驱动器配置本地集群。安装或设置完成后，您需要手动连接外部搁架。
+* 根聚合至少需要 12 个内部驱动器。您应该将根内部驱动器安装在插槽 1 中。例如，对于 12 个内部驱动器，请使用插槽 1-3、6-8、12-14 和 18-20。
+
+ a| 
+不适用
+
+
+
+ a| 
+支持的最小驱动器数（每个站点）
+ a| 
+24个外置硬盘
  a| 
 驱动器分为四个相等的组。每个四分之一架会自动分配给一个单独的池。
  a| 

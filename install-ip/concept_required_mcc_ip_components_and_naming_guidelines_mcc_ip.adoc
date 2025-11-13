@@ -274,8 +274,6 @@ link:concept_considerations_drive_assignment.html["了解MetroCluster IP配置�
 
 == 池和驱动器要求（支持的最低要求）
 
-建议使用八个 SAS 磁盘架（每个站点四个磁盘架），以允许每个磁盘架拥有磁盘所有权。
-
 四节点 MetroCluster IP 配置要求每个站点至少配置以下内容：
 
 * 每个节点在站点上至少有一个本地池和一个远程池。

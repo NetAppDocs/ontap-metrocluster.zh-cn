@@ -6256,7 +6256,6 @@
   <block id="7b1967ab8b38aa7f5c2c50d91fb6d616" category="section-title">MetroCluster IP 配置中系统的 ADP 和磁盘分配差异</block>
   <block id="a9a5083f94ce7d550f0b47f6cc2c908f" category="paragraph">在 MetroCluster IP 配置中，高级驱动器分区（ ADP ）的操作和自动磁盘分配会因系统型号而异。</block>
   <block id="d28feffd6ede91f566713f192c5dfd64" category="admonition">在使用 ADP 的系统中，聚合是使用分区创建的，其中每个驱动器都分区为 P1 ， P2 和 P3 分区。根聚合使用 P3 分区创建。</block>
-  <block id="bfaf3f06462f8d34cf668e3270ad1d65" category="paragraph">您必须满足受支持驱动器数量上限的 MetroCluster 限制以及其他准则。</block>
   <block id="81c8a8438f05c7253ddb8e89ac70d5d9" category="section-title">AFF A320 系统上的 ADP 和磁盘分配</block>
   <block id="c62a718b8f06da8fda597def926b5514" category="cell">每个站点的磁盘架数</block>
   <block id="ca9524243098a6f3c33c4b62f722e672" category="cell">驱动器分配规则</block>
@@ -8012,7 +8011,6 @@
   <block id="317d0fe753c44e0c763e684785e3b0bd" category="list-text">为了避免非易失性内存镜像可能出现的问题，请重新启动四个节点中的每个节点：</block>
   <block id="0a61a44a1765390d027f85da70024fd8" category="list-text">在两个集群上运行 `MetroCluster show` 命令以再次验证配置。问题描述</block>
   <block id="43a86ca9910ac10add49d293714b50f6" category="section-title">在八节点配置中配置第二个 DR 组</block>
-  <block id="1645e08f0bfdf72de9dd9cf2ec8208de" category="admonition">系统将提示您输入调解器管理员用户帐户的用户名和密码。</block>
   <block id="241c04bf46a427ee9559a37db9cfc64c" category="list-text">显示调解器虚拟磁盘：</block>
   <block id="549e9ae28a978e7598586f13c962b013" category="paragraph">`storage disk show -container-type mediator`</block>
   <block id="e0a63c2d875daa748729bbc9b043b578" category="list-text">将权限模式设置为高级：</block>
@@ -10020,7 +10018,6 @@
   <block id="d4fda9bf787c3a38a379763f5d621600" category="paragraph">每个站点与ONTAP 调解器之间需要独立连接。一个站点发生故障不能中断其他两个不受影响站点之间的IP连接。</block>
   <block id="fec21bcdc858f42f1c942fd943d09de4" category="paragraph">您必须确保配置满足多个主机要求。</block>
   <block id="aecf60a0046b893cbed6332405eb3aa3" category="list-text">ONTAP 调解器必须安装在与两个ONTAP 集群物理隔离的外部站点上。</block>
-  <block id="6f044e53b0f973c21b9f45e9f29dd890" category="list-text">ONTAP 调解器最多支持五个MetroCluster 配置。</block>
   <block id="00dcc4021e9b5b5c4107ab832d8a3b22" category="list-text">ONTAP 调解器对CPU和内存(RAM)的要求不超过主机操作系统的最低要求。</block>
   <block id="3238177a17500506d8e25597811d95a1" category="list-text">除了主机操作系统的最低要求之外、还必须至少提供30 GB的额外可用磁盘空间。</block>
   <block id="d87323d7c443195bdfe43686953d17da" category="list-text">每个DR组最多需要200 MB的磁盘空间。</block>
@@ -10964,7 +10961,6 @@
   <block id="fdf5e2eb479f201de0c9c62e9a32e769" category="paragraph">向不具有默认广播域的现有集群添加新节点时、系统会使用通用唯一标识符(UID)(而不是预期名称)为新节点创建节点管理生命周期。有关详细信息、请参见知识库文章<block ref="4808e3ddae1b3b2c14dc148b67bd36ea" category="inline-link-rx"></block>。</block>
   <block id="f6410291c32fa961402f5a821c332f6c" category="list-text">验证是否支持使用新旧平台型号进行平台混合。</block>
   <block id="e220a628f1c5f8fb65824aaeb387520e" category="list-text">确认新旧平台型号均受IP交换机支持。</block>
-  <block id="72a38a5af8be1c706e478add3356ba90" category="paragraph">在将ADP与MetroCluster IP配置结合使用时、您应注意以下注意事项：</block>
   <block id="959bb45d9851a2b3efaeb05db74e0a80" category="list-text">MetroCluster IP配置支持ADPv2。</block>
   <block id="a393732e5defe7b7a921a586e53ec51d" category="list-text">对于两个站点上的所有节点、根聚合必须位于分区3中。</block>
   <block id="9ef6aecb7d030435d81fe80cacca477e" category="list-text">在初始配置MetroCluster站点期间、系统会自动执行分区和磁盘分配。</block>
@@ -11657,8 +11653,6 @@
   <block id="6165c4352e1504dbaeef34d0cc50c187" category="paragraph">一致性组</block>
   <block id="3fb697436dcc4f2ae2cdd29dc91fd043" category="paragraph">MetroCluster配置支持一致性组。</block>
   <block id="47d81ac708cab22da7ea952550b6f757" category="summary">每个版本都提供了ONTAP 调解器的新功能。  下面是新增功能。</block>
-  <block id="3261bd656e2112e78b0313c87c039420" category="doc">ONTAP调解器支持中的新增功能</block>
-  <block id="e8467e9b509c4924668c01eb7ab2adde" category="cell">ONTAP 版本</block>
   <block id="63b6c1d0d10ce89604932c62d9b6f4d7" category="doc">MetroCluster功能中的新增功能</block>
   <block id="3100460fa3d7ba2ea001abefda93f3bc" category="cell">问题描述 以及从何处了解更多信息</block>
   <block id="677eca4ee8daca8d2b9156735c70729b" category="paragraph">使用MetroCluster IP和以太网连接存储的共享交换机从MetroCluster FC过渡到MetroCluster IP</block>
@@ -13205,7 +13199,6 @@
   <block id="d98545518df18c073a4a75d72759ddfe" category="list-text">如果源或目标为MetroCluster集群、则FabricPool不支持SVM迁移。</block>
   <block id="de60962ea114e8e20b41343aa7431cbf" category="inline-link-macro">详细了解SVM数据移动性</block>
   <block id="cb692d9778a8fa1464d6b442ab90722f" category="paragraph"><block ref="53c488ccbc80272b509e45a126fd033b" category="inline-link-macro-rx"></block>(英文)</block>
-  <block id="b4911e786bbd878f489a84835fcee570" category="list-text">ONTAP调解器不支持IPv6。</block>
   <block id="d247a27201590148c4ea6bf493729fd1" category="list-text">正常操作不需要22/TCP端口、但您可以临时启用该端口进行维护、并在维护会话完成后将其禁用。</block>
   <block id="02674a4ef33e11c879283629996c8ff8" category="cell">方向</block>
   <block id="c5df47f9068f6d11f238ec77908abf18" category="paragraph">22 TCP</block>
@@ -13484,7 +13477,6 @@
   <block id="a02702c70aea42098864f08e7416a2d3" category="list-text">如果您计划更新 Linux 版本，请在安装最新版本的 ONTAP Mediator 之前进行更新。</block>
   <block id="c53d5657445f71b92e34d86103a86f85" category="list-text">ONTAP Mediator 和 MetroCluster Tiebreaker 软件不应同时与相同的 MetroCluster 配置一起使用。</block>
   <block id="059b37c83fb6387899a2deb16d02458f" category="list-text">ONTAP 调解器必须安装在与 MetroCluster 站点不同位置的 Linux 主机上。</block>
-  <block id="857725e43c3ed86c03193f33f6382417" category="list-text">ONTAP Mediator 最多可同时支持五个 MetroCluster 配置。</block>
   <block id="c9ffad835642fcae631d9df1be00fc38" category="section-title">在 MetroCluster 配置中使用 ONTAP 调解器的网络要求</block>
   <block id="4f7415d27a43620353acfcd34858e996" category="paragraph">要在 MetroCluster 配置中安装 ONTAP 调解器，您必须确保该配置满足多个网络要求。</block>
   <block id="f96926f4c01d2573af8b25445cc69961" category="paragraph">ONTAP 调解器和一个 DR 组之间的链接必须至少具有 20Mbps 的带宽。</block>
@@ -13650,8 +13642,6 @@
   <block id="c9c78db1df5763fa1ed9a33d8364ecd6" category="list-text">ONTAP 调解器必须已成功安装在两个 MetroCluster 站点均可访问的网络位置上。</block>
   <block id="f3a4ed516d3573c05bec448b098ee829" category="list-text">您必须拥有运行 ONTAP Mediator 的主机的 IP 地址。</block>
   <block id="81526f6b8e9033c7824d444ad8950ae4" category="list-text">您必须拥有 ONTAP Mediator 的用户名和密码。</block>
-  <block id="c69fdc77c5b94d40ff8bd9d1129290c3" category="list-text">ONTAP Mediator 的单个安装最多可以配置五个 MetroCluster IP 配置。</block>
-  <block id="5954e0574dae3d22be232db113f0f328" category="list-text">将 ONTAP 调解器添加到 ONTAP：</block>
   <block id="fffcc6d8d0cf061a4a3bb3e984bed6a4" category="summary">您可以从 MetroCluster IP 配置中删除 ONTAP 调解器。</block>
   <block id="7f0eed44b544654d8519a5ce7f8a8e69" category="doc">从 MetroCluster IP 配置中取消配置 ONTAP 调解器</block>
   <block id="0ca0841611aff3d2fa5059343e27e7fa" category="paragraph">您可以从 MetroCluster IP 配置中取消配置 ONTAP 调解器。</block>
@@ -13674,8 +13664,6 @@
   <block id="11e389769edd0ffd96bc52520e736666" category="paragraph">如果要重命名网络中的两个交换机，请在每个交换机上使用相同的命令。</block>
   <block id="daf179095240111942b292cddbac4271" category="list-text">您需要管理员密码以及对 HTTP、FTP 或简单文件传输协议 (TFTP) 服务器的访问权限。</block>
   <block id="dfd2868dd5a4b44891e23870faf6ecda" category="list-text"><block ref="dfd2868dd5a4b44891e23870faf6ecda" category="inline-link-macro-rx"></block></block>
-  <block id="54485326fb6c0b4a273ca75c003d6a9d" category="paragraph">每个版本都提供了对 ONTAP Mediator 的新增强功能。下面是新增功能。</block>
-  <block id="0294813eff3958ef43f353e390bb4729" category="paragraph">有关在 MetroCluster 配置中安装或升级 ONTAP 调解器的详细信息，您可以访问<block ref="f7ab7b3d6222d761ab5a933510823b89" category="inline-link-macro-rx"></block> 。</block>
   <block id="3114aeea55539bf595af1665b8572d3a" category="paragraph"><block ref="3114aeea55539bf595af1665b8572d3a" category="inline-link-rx"></block></block>
   <block id="f818e428c62e3fad315884b1e49da0dc" category="paragraph">MetroCluster IP 配置中对 ONTAP 调解器的初步支持</block>
   <block id="8fa6539999f2d3aff134c30600c80e41" category="inline-link-macro">下载并安装NVIDIA RCF文件</block>
@@ -13714,7 +13702,6 @@
   <block id="0eaedccc418ca7fe214ff0e2f2fb9d4f" category="sidebar">在 MetroCluster IP 交换机上配置日志收集</block>
   <block id="fa19a8bee183bfbc767660e140eae8dc" category="sidebar">管理以太网交换机监控</block>
   <block id="eb781ca5db4579a64062bcf161d91cbe" category="sidebar">验证以太网交换机监控</block>
-  <block id="3ef38a7332e8a3a92f8540dfdb80708d" category="sidebar">从 MetroCluster IP 配置配置 ONTAP 调解器</block>
   <block id="84e085c408a358fe4e512066e45c3837" category="sidebar">使用系统管理器管理 ONTAP 调解器</block>
   <block id="d2dfa94f0ec6119f137b05b65f72b726" category="open-title">如果 plex 发生故障：</block>
   <block id="a3d50ad07bbec0a08b055954bb66cfcb" category="list-text">摧毁失败的 plex：</block>
@@ -14113,7 +14100,6 @@
   <block id="dbbd0d3a920fcce3e934fa0740097c19" category="doc">MetroCluster IP 配置上的交换机间链路 (ISL) 要求</block>
   <block id="e7a6b008ef2ebf568f593e71d5f62762" category="doc">在MetroCluster IP 配置中设置ONTAP节点和集群</block>
   <block id="c6929b82d09d520230d3410f013a4beb" category="doc">ONTAP MetroCluster配置支持矩阵</block>
-  <block id="26e7329446b9653c1afcd63d2340cfbf" category="doc">自动驱动器分配和 ADP 系统的MetroCluster IP 注意事项</block>
   <block id="a2e3b015ada3007372f3890d911b3685" category="doc">MetroCluster IP 配置的防火墙端口要求</block>
   <block id="1bcaecfd01f4e5a2ce59bf09e79ab95f" category="doc">了解如何将虚拟 IP 和边界网关协议与MetroCluster IP 配置结合使用</block>
   <block id="75ab17da123365d00f2ec499305169d8" category="doc">了解远程存储和MetroCluster IP 配置</block>
@@ -14444,4 +14430,55 @@
   <block id="d134f3e8bbc2dfac90ce02f2d628c649" category="list-text">如果您使用的是板载密钥管理器，请在添加了新节点的集群中执行以下步骤：</block>
   <block id="87f7e23221d5cdfbe745a1b00fcf1068" category="list-text">同步密钥管理器配置：</block>
   <block id="65ce095af1b3ce283b41ed1ff6456ed9" category="list-text">出现提示时，请输入机载密钥管理器密码。</block>
+  <block id="2105de6863814cadf13f4a5adf30bcf8" category="doc">MetroCluster 的IP 要求，用于自动驱动分配和 ADP 系统</block>
+  <block id="8407092afa5cdc22ea9a94ffac556a37" category="paragraph">使用ADP进行MetroCluster IP配置时，应注意以下事项：</block>
+  <block id="a88e04c5993ff7e8b685db2d115453a3" category="paragraph">使用表格前，请先阅读以下要求：</block>
+  <block id="28b8efa498ff52a7274720a8171ce1d8" category="list-text">您必须满足MetroCluster对最大支持的驱动器数量和其他准则的限制。请参阅<block ref="ed4326c3351d8ac0e334b8b4d9b37c82" category="inline-link-rx"></block>。</block>
+  <block id="d13c49a2255fa0364f3eb44e91f11a98" category="inline-link-macro">从磁盘中移除ONTAP所有权</block>
+  <block id="207c7128f49aebfb0e6e2a985d7331f7" category="list-text">如果您要重复使用外部磁盘柜，请在将其连接到控制器之前确认已移除外部磁盘柜上的磁盘所有权。参考<block ref="472eb82215883a6679f6be68392349e7" category="inline-link-macro-rx"></block>。</block>
+  <block id="2c3b5a5bcad371b696f81fddf09453f4" category="section-title">在配备闪存缓存的 FAS50 系统上进行磁盘分配</block>
+  <block id="10d1ab0c8cf052d4ea0d37de04e41090" category="paragraph">从ONTAP 9.18.1 开始，FAS50 系统在MetroCluster IP 配置中支持 Flash Cache。</block>
+  <block id="6b3168d94d2d3e334f52748aea390dba" category="list-text">内部机架上的闪存缓存驱动器不能同时拥有数据聚合和根聚合。</block>
+  <block id="653607d5d7d3af18614ca6042833ed8a" category="list-text">插槽 0 和 23 用于闪存缓存驱动器。</block>
+  <block id="8e61d02677cd63addf1b7c325e4f7ac0" category="list-text">如果您要重复使用外部磁盘柜，请在将其连接到控制器之前确认已移除外部磁盘柜上的磁盘所有权。参考<block ref="a28575c3c82c68e34920359e77fd18f4" category="inline-link-macro-rx"></block>。</block>
+  <block id="da0670d9828b0c4a39fd70e8176cd286" category="paragraph">36 个硬盘（12 个内部硬盘和 24 个外部硬盘——数据聚合位于外部硬盘架上，根聚合位于内部硬盘架上）</block>
+  <block id="13825b1621d2d8ab9420fd458a556917" category="paragraph">内部驱动器分为四个相等的组（四分之一）。每个季度都会自动分配到一个单独的资金池中。外部机架上的驱动器分为四个相等的组（四分之一）。每个四分之一架会自动分配给一个单独的池。</block>
+  <block id="fcbd19b726fdd6160dfe2ab43f285a55" category="paragraph">*笔记：*</block>
+  <block id="db7a2b68018b688d638484b17a61fde8" category="list-text">如果您同时使用内部和外部驱动器，则首先需要安装ONTAP并仅使用内部驱动器配置本地集群。安装或设置完成后，您需要手动连接外部搁架。</block>
+  <block id="f1839293460380c463f11487c07a0a03" category="list-text">根聚合至少需要 12 个内部驱动器。您应该将根内部驱动器安装在插槽 1 中。例如，对于 12 个内部驱动器，请使用插槽 1-3、6-8、12-14 和 18-20。</block>
+  <block id="ebe553e3b0c5ac8c6b06cd6914cd1875" category="paragraph">24个外置硬盘</block>
+  <block id="8fe5d17841821de914d5209eef34ab37" category="list-text">从ONTAP 9.18.1 和ONTAP Mediator 1.11 开始，单个ONTAP Mediator 实例可以同时管理多达 10 个MetroCluster配置。在早期版本中， ONTAP Mediator 可以同时支持最多五个MetroCluster配置。</block>
+  <block id="ed0eda41e396ef5ea6f36bac23db4825" category="list-text">从ONTAP 9.18.1 开始，在MetroCluster IP 配置中， ONTAP Mediator 1.11 或更高版本支持 IPv6。</block>
+  <block id="760ee33a4b5ef0f8b6e53de05243e44d" category="paragraph">要在MetroCluster IP 配置中使用ONTAP Mediator，必须在ONTAP节点上配置 ONTAP Mediator。</block>
+  <block id="f0fe71516e304fd8465b87447ccb2410" category="list-text">将ONTAP Mediator 添加到ONTAP。具体步骤取决于您要使用 IPv4 地址还是 IPv6 地址。</block>
+  <block id="2123705c6998ca910a5e950a54dcbe12" category="list-text">要使用 IPv6，您必须运行ONTAP 9.18.1 或更高版本以及ONTAP Mediator 1.11 或更高版本。</block>
+  <block id="fa66e734e4c55bd261d853e5039fbe1f" category="list-text">如果在集群上启用 IPv6，则以后无法禁用。</block>
+  <block id="3b84df93f9af27f6e1ffc9a619bab72d" category="open-title">使用 IPv4</block>
+  <block id="a1c25aeecadb66052deb23e0403a5921" category="list-text">运行以下命令添加ONTAP中介器：</block>
+  <block id="43af59b9fd4e41413d9a6f0348be897c" category="paragraph"><block ref="d795c90e620cf7aa453d5e920147531a" prefix="" category="inline-code"></block></block>
+  <block id="6abf1e89985863ce5f318d51791232d7" category="admonition">系统会提示您输入 Mediator 管理员用户帐户的用户名和密码。</block>
+  <block id="5be30efa94af9b795d71ee2d7b145d2b" category="open-title">使用 IPv6</block>
+  <block id="612061c2bc2a413707af3751bd332876" category="list-text">在两个集群上运行以下命令：</block>
+  <block id="d957a10f1dd8c769f317478657c276ae" category="paragraph"><block ref="a9f92466cd774c45f91bfd0c0a18c08e" prefix="" category="inline-code"></block></block>
+  <block id="36aef5098db9d54c0f3f8908f76cf3f9" category="list-text">在所有四个节点上配置节点管理 IP 地址，使用 IPv6 地址。</block>
+  <block id="a5ae27866152c64d13caa7491b407c4f" category="list-text">添加ONTAP中介器：</block>
+  <block id="3bd8e4fdfb5d625cdaa4c9ff27e8ce16" category="paragraph"><block ref="26623cc20cef21441276d0bbf177cf0e" prefix="" category="inline-code"></block></block>
+  <block id="6ed3fcc536a033a1e0dbf1249734de16" category="paragraph">了解MetroCluster FC 平台和交换机支持方面的新特性。</block>
+  <block id="29a236ce865da06e20bbbd8ea0ab52a7" category="doc">ONTAP Mediator 对MetroCluster的支持有哪些新特性</block>
+  <block id="5bf7798853f8a5c7ca4569ca703439aa" category="paragraph">了解MetroCluster为ONTAP Mediator 支持带来的新功能和增强功能。</block>
+  <block id="7f29812fdda9b63b5432343e48888f3e" category="inline-link-macro">ONTAP Mediator 的新增功能</block>
+  <block id="ddb6a6aeab3697bf98a9f8ec6246d66d" category="paragraph">有关ONTAP Mediator 每个版本的功能和增强特性的详细信息，请参阅：<block ref="e9f46c418b00d5917fe7eb2e94490962" category="inline-link-macro-rx"></block> 。</block>
+  <block id="0812efe70fdb78c8000d6ba26954775e" category="paragraph">在MetroCluster IP 配置中， ONTAP Mediator 1.11 或更高版本支持 IPv6。</block>
+  <block id="f2048d473088527114dc19a006677413" category="paragraph"><block ref="f2048d473088527114dc19a006677413" category="inline-link-macro-rx"></block></block>
+  <block id="e48e73e576f724fd4213ab1eca7edb4a" category="paragraph">ONTAP 9.18.1</block>
+  <block id="9e56101ef16e61af6d774b1081c9574f" category="paragraph">ONTAP Mediator 1.11 增加了对使用单个ONTAP Mediator 实例管理多达 10 个MetroCluster IP 配置的支持。</block>
+  <block id="6cd038268950ad67448da19d251b8b00" category="inline-link-macro">准备在MetroCluster IP 配置中安装ONTAP Mediator</block>
+  <block id="1089521b875f07ae57f1135eb98b2377" category="paragraph"><block ref="1089521b875f07ae57f1135eb98b2377" category="inline-link-macro-rx"></block></block>
+  <block id="112400235efe61457dd84a5025980501" category="paragraph">MetroCluster IP 配置中 FAS50 系统的闪存缓存支持</block>
+  <block id="d29d70f24544dd96e722beaa46df1aab" category="paragraph">在MetroCluster IP 配置中，FAS50 系统支持闪存缓存。</block>
+  <block id="05d0c37c094748aa6cfa52ca49f7fc2a" category="paragraph"><block ref="05d0c37c094748aa6cfa52ca49f7fc2a" category="inline-link-macro-rx"></block></block>
+  <block id="cef6c5c1ddb810d5c9674f38a9521196" category="sidebar">准备安装MetroCluster FC</block>
+  <block id="163074dbb0b4f8b495d1b19b615e87eb" category="sidebar">准备进行MetroCluster IP 安装</block>
+  <block id="42f362146dbe8748970967efe562f3c8" category="sidebar">配置ONTAP Mediator 以进行MetroCluster IP 配置</block>
+  <block id="9ac9cffddfe08e79e2955f5af452fef4" category="sidebar">准备进行MetroCluster扩展安装</block>
 </blocks>

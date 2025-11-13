@@ -5,6 +5,7 @@ entries:
 - title: 概述
   url: "/install-fc/index.html"
 - title: 准备 MetroCluster 安装
+  pdf-filename: 准备安装MetroCluster FC
   entries:
   - title: ONTAP MetroCluster 配置之间的差异
     url: "/install-fc/concept_considerations_differences.html"

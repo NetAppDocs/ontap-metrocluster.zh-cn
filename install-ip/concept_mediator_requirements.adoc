@@ -21,9 +21,9 @@ summary: 从 ONTAP 9.7 开始，ONTAP Mediator 可以通过提供物理上独立
 +
 ONTAP 调解器与每个站点之间的连接必须是两个单独的故障域。
 
-* ONTAP Mediator 最多可同时支持五个 MetroCluster 配置。
 * ONTAP 9.7 及更高版本支持自动计划外切换。
-* ONTAP调解器不支持IPv6。
+* 从ONTAP 9.18.1 和ONTAP Mediator 1.11 开始，单个ONTAP Mediator 实例可以同时管理多达 10 个MetroCluster配置。在早期版本中， ONTAP Mediator 可以同时支持最多五个MetroCluster配置。
+* 从ONTAP 9.18.1 开始，在MetroCluster IP 配置中， ONTAP Mediator 1.11 或更高版本支持 IPv6。
 
 
 
@@ -64,7 +64,6 @@ ONTAP 调解器和一个 DR 组之间的链接必须至少具有 20Mbps 的带�
 您必须确保配置满足多个主机要求。
 
 * ONTAP 调解器必须安装在与两个ONTAP 集群物理隔离的外部站点上。
-* ONTAP 调解器最多支持五个MetroCluster 配置。
 * ONTAP 调解器对CPU和内存(RAM)的要求不超过主机操作系统的最低要求。
 * 除了主机操作系统的最低要求之外、还必须至少提供30 GB的额外可用磁盘空间。
 +

@@ -5,6 +5,7 @@ entries:
 - title: 概述
   url: "/install-stretch/index.html"
 - title: 准备 MetroCluster 安装
+  pdf-filename: 准备进行MetroCluster扩展安装
   entries:
   - title: ONTAP MetroCluster 配置之间的差异
     url: "/install-stretch/concept_considerations_differences.html"

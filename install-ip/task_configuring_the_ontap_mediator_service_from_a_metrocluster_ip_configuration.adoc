@@ -11,7 +11,7 @@ summary: 必须在 ONTAP 节点上配置 ONTAP 调解器才能在 MetroCluster I
 
 
 [role="lead"]
-必须在 ONTAP 节点上配置 ONTAP 调解器才能在 MetroCluster IP 配置中使用。
+要在MetroCluster IP 配置中使用ONTAP Mediator，必须在ONTAP节点上配置 ONTAP Mediator。
 
 .开始之前
 * ONTAP 调解器必须已成功安装在两个 MetroCluster 站点均可访问的网络位置上。
@@ -29,18 +29,54 @@ CAUTION: 从ONTAP 9.12.1开始、您可以在MetroCluster IP配置中启用Metro
 .关于此任务
 * 默认情况下，此任务会启用自动计划外切换。
 * 此任务可在 MetroCluster IP 配置中任何节点的 ONTAP 接口上执行。
-* ONTAP Mediator 的单个安装最多可以配置五个 MetroCluster IP 配置。
+* 从ONTAP 9.18.1 和ONTAP Mediator 1.11 开始，单个ONTAP Mediator 实例可以同时管理多达 10 个MetroCluster配置。在早期版本中， ONTAP Mediator 可以同时支持最多五个MetroCluster配置。
 
 
 .步骤
-. 将 ONTAP 调解器添加到 ONTAP：
+. 将ONTAP Mediator 添加到ONTAP。具体步骤取决于您要使用 IPv4 地址还是 IPv6 地址。
 +
-MetroCluster configuration-settings mediator add -mediate-address _ip-address-fo-medier-host_`
+[NOTE]
+====
+** 要使用 IPv6，您必须运行ONTAP 9.18.1 或更高版本以及ONTAP Mediator 1.11 或更高版本。
+** 如果在集群上启用 IPv6，则以后无法禁用。
+
+
+====
++
+[role="tabbed-block"]
+====
+.使用 IPv4
+--
+.. 运行以下命令添加ONTAP中介器：
++
+`metrocluster configuration-settings mediator add -mediator-address <mediator_host_ip_address>`
 
 +
 
-NOTE: 系统将提示您输入调解器管理员用户帐户的用户名和密码。
+NOTE: 系统会提示您输入 Mediator 管理员用户帐户的用户名和密码。
 
+
+
+--
+.使用 IPv6
+--
+.. 在两个集群上运行以下命令：
++
+`network options ipv6 modify -enabled true`
+
+.. 在所有四个节点上配置节点管理 IP 地址，使用 IPv6 地址。
+.. 添加ONTAP中介器：
++
+`metrocluster configuration-settings mediator add -mediator-address <mediator_host_ipv6_ip_address>`
+
++
+
+NOTE: 系统会提示您输入 Mediator 管理员用户帐户的用户名和密码。
+
+
+
+--
+====
 . 验证是否已启用自动切换功能：
 +
 `MetroCluster show`

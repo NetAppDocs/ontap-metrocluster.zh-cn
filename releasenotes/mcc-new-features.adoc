@@ -21,6 +21,17 @@ ONTAP 9数据管理软件的每个版本都提供了一些新增功能和增强�
 
 
  a| 
+MetroCluster IP 配置中 FAS50 系统的闪存缓存支持
+ a| 
+在MetroCluster IP 配置中，FAS50 系统支持闪存缓存。
+
+link:../install-ip/concept_considerations_drive_assignment.html#disk-assignment-on-fas50-systems-with-flash-cache["在配备闪存缓存的 FAS50 系统上进行磁盘分配"]
+ a| 
+ONTAP 9.18.1
+
+
+
+ a| 
 MetroCluster IP支持端到端加密
  a| 
 以下系统支持端到端加密，以加密MetroCluster IP 配置中的站点之间的后端流量，例如 NVlog 和存储复制数据。
