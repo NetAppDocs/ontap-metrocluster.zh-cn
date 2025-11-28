@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: metrocluster, mediator, new, release, update, install, 
 summary: 每个版本都提供了ONTAP 调解器的新功能。  下面是新增功能。 
 ---
-= ONTAP Mediator 对MetroCluster的支持有哪些新特性
+= ONTAP Mediator 对MetroCluster IP 的支持有哪些新特性
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-了解MetroCluster为ONTAP Mediator 支持带来的新功能和增强功能。
+了解MetroCluster IP 的新功能和增强功能，以支持ONTAP Mediator。
 
 有关ONTAP Mediator 每个版本的功能和增强特性的详细信息，请参阅：link:https://docs.netapp.com/us-en/ontap/mediator/whats-new-concept.html["ONTAP Mediator 的新增功能"^] 。
 

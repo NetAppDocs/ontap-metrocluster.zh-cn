@@ -8,7 +8,7 @@ entries:
   url: "/releasenotes/mcc-ip-config-platform-support.html"
 - title: MetroCluster FC平台和交换机支持中的新增功能
   url: "/releasenotes/mcc-fc-config-platform-support.html"
-- title: ONTAP调解器支持中的新增功能
+- title: ONTAP Mediator 对MetroCluster IP 的支持有哪些新特性
   url: "/releasenotes/mcc-mediator-whats-new.html"
 - title: MetroCluster Tieb破碎 机支持中的新增功能
   url: "/releasenotes/mcc-tiebreaker-whats-new.html"

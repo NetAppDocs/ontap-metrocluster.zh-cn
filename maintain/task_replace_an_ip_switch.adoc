@@ -240,6 +240,10 @@ NOTE: 如果要升级或降级网络，请对第二个网络重复所有步骤�
 ----
 network interface modify -vserver <vserver_name> -lif <lif_name> -auto-revert true
 ----
+. 将所有当前不在原端口上的集群 LIF 恢复到其原端口：
++
+`network interface revert -vserver * -lif *`
+
 . (可选)移动NS224磁盘架。
 +
 如果要重新配置的MetroCluster IP配置未将NS224磁盘架连接到MetroCluster IP交换机、请使用相应的操作步骤 添加或移动NS224磁盘架：
