@@ -782,10 +782,22 @@ NOTE: 请忽略以下消息： `HA 对上的无中断升级不支持此操作步
 
 . 完成以下子步骤以重新启动控制器模块：
 +
-.. 出现以下提示时，输入 `n` 以跳过备份恢复： `do you want to restore the backup configuration now ？｛ y|n ｝`
-.. 出现以下提示时，输入 `y` 以重新启动： `必须重新启动节点才能开始使用新安装的软件。是否要立即重新启动？｛ y|n ｝`
+.. 进入 `n` 当您看到以下提示时，请跳过备份恢复：
++
+[listing]
+----
+Do you want to restore the backup configuration now? {y|n} n
+----
+.. 进入 `y` 当看到以下提示时，请重新启动：
++
+`The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n} y`
+
 +
 控制器模块重新启动，但停留在启动菜单处，因为启动设备已重新格式化，并且需要还原配置数据。
+
++
+
+NOTE: 您必须重启节点才能使用新安装的软件。
 
 
 

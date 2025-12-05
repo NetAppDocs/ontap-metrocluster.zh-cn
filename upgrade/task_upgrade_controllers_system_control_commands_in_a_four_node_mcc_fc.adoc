@@ -470,16 +470,20 @@ https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 ....
 Enter username/password if applicable, or press Enter to continue.
 ....
-. 当您看到类似以下内容的提示时，请务必输入 `n` 以跳过备份恢复：
+. 进入 `n` 当您看到类似以下的提示时，请跳过备份恢复：
 +
 ....
-Do you want to restore the backup configuration now? {y|n}
+Do you want to restore the backup configuration now? {y|n} n
 ....
 . 当您看到类似以下内容的提示时，输入 `y` 以重新启动：
 +
 ....
-The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}
+The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n} y
 ....
++
+
+NOTE: 您必须重启节点才能使用新安装的软件。
+
 
 
 

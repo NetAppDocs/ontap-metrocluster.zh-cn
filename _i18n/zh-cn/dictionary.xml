@@ -1708,7 +1708,6 @@
   <block id="58680ae2aa956ad9b6c8f5bd2e4a4191" category="paragraph">`netboot \http://web_server_ip/path_to_web-accessible_directory/ontap-version_image.tgz`</block>
   <block id="9a8c20fab9267090fe0211c579b8d259" category="list-text">从启动菜单中，选择选项 * （ 7 ） Install new software first* ，将新软件映像下载并安装到启动设备。</block>
   <block id="94b4038bc962a8ff7acafad652850e68" category="list-text">如果系统提示您继续运行操作步骤，请输入 `y` ，然后在系统提示您输入软件包时，输入映像文件的 URL ： ` \http://web_server_ip/path_to_web-accessible_directory/ontap-version_image.tgz`</block>
-  <block id="f59d590a38cf457fb44a857365a2aec4" category="list-text">当您看到类似以下内容的提示时，请务必输入 `n` 以跳过备份恢复：</block>
   <block id="4c311f4de89068c42d4731e90025eefc" category="list-text">当您看到类似以下内容的提示时，输入 `y` 以重新启动：</block>
   <block id="a8635badf0c3725452ad27dcb306f849" category="paragraph">根据控制器模块中是否存在 HBA 卡以及 HBA 卡的配置，您需要根据站点的使用情况正确配置这些卡。</block>
   <block id="8afdaf07ff0e43cdf1c5459d3d9ff0e6" category="list-text">在维护模式下，为系统中的任何 HBA 配置设置：</block>
@@ -8702,8 +8701,6 @@
   <block id="2653300b079109b65a613fd185414faa" category="list-text">从启动菜单中，选择选项 `` （ 7 ） Install new software first.`` 此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。注意：请忽略以下消息： `HA 对上的无中断升级不支持此操作步骤。` 本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。</block>
   <block id="f7462137da4e89b12e82937bb5da165f" category="paragraph">请始终使用 netboot 将新节点更新为所需映像。如果您使用其他方法在新控制器上安装映像，则可能会安装不正确的映像。此问题描述适用场景所有 ONTAP 版本。</block>
   <block id="7b3f6c26774d36cd594edf297f0f8f57" category="list-text">完成以下子步骤以重新启动控制器模块：</block>
-  <block id="61ee95ecb870c833ca0f73515cef5bce" category="list-text">出现以下提示时，输入 `n` 以跳过备份恢复： `do you want to restore the backup configuration now ？｛ y|n ｝`</block>
-  <block id="d7672ee0e4d46e194ae0b844a3cf32ad" category="list-text">当您看到以下提示时，输入 ``y 以重新启动： `必须重新启动节点才能开始使用新安装的软件。是否要立即重新启动？｛ y|n ｝`` 控制器模块重新启动，但停留在启动菜单处，因为启动设备已重新格式化，并且需要还原配置数据。</block>
   <block id="963f89f538a2fcd5d086c865807c540a" category="list-text">在提示符处，运行 `wipeconfig` 命令以清除启动介质上先前的任何配置：</block>
   <block id="c9c4b352c210e485b70af0c63a95e7fa" category="list-text">当您看到以下消息时，问题解答 `yes` ： `此操作将删除关键系统配置，包括集群成员资格。警告：不要在已被接管的 HA 节点上运行此选项。确实要继续？：`</block>
   <block id="d9942055ef69c8d0b4c6c187ca017527" category="list-text">节点将重新启动以完成 `wipeconfig` ，然后停留在启动菜单处。</block>
@@ -8811,7 +8808,6 @@
   <block id="3e740d926a40d82c2fcc72ee1fb84e5b" category="list-text">在节点 1 上执行 `netboot` ： `netboot<block ref="489fdc1c448bf7fbb7b53d2ad099b1ec" category="inline-link-rx"></block>` &lt;path_to_the_web-accessible_directory&gt;` 应指向您在中下载 ` &lt;ontap_version&gt;_image.tgz` 的位置 <block ref="28cd24b5ecf937229eb419cc55587b9d" category="inline-xref-macro-rx"></block>。</block>
   <block id="188edb9f514b65304cf0a3564a7bc692" category="list-text">从启动菜单中，选择选项 ` （ 7 ） Install new software first` 。此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。</block>
   <block id="81ff6a54875aaf720a2c324484bc2178" category="admonition">请忽略以下消息： `HA 对上的无中断升级不支持此操作步骤。` 本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。请始终使用 netboot 将新节点更新为所需映像。如果您使用其他方法在新控制器上安装映像，则可能会安装不正确的映像。此问题描述适用场景所有 ONTAP 版本。</block>
-  <block id="e127fec27e4f62227f578ce3dd283c35" category="list-text">出现以下提示时，输入 `y` 以重新启动： `必须重新启动节点才能开始使用新安装的软件。是否要立即重新启动？｛ y|n ｝`</block>
   <block id="504d065328326a8677a260e4447bea63" category="paragraph">控制器模块重新启动，但停留在启动菜单处，因为启动设备已重新格式化，并且需要还原配置数据。</block>
   <block id="f02a9a7436db38c9278de96d8940fedc" category="list-text">当您看到以下消息时，问题解答 `yes` ： `此操作将删除关键系统配置，包括集群成员资格。警告：不要在已被接管的 HA 节点上运行此选项。确实要继续？：`</block>
   <block id="e3dcb6e98d703b4041ac7a4b6d40412e" category="list-text">从启动菜单中选择选项 `5` 以转到维护模式。按问题解答 `yes` 显示提示，直到节点在维护模式和命令提示符 ` * &gt;` 停止。</block>
@@ -14483,4 +14479,9 @@
   <block id="4154034eef64dfe94bce158c1c207659" category="doc">ONTAP Mediator 对MetroCluster IP 的支持有哪些新特性</block>
   <block id="f0dceba3fe3c3556e6c20da7fc8c7520" category="paragraph">了解MetroCluster IP 的新功能和增强功能，以支持ONTAP Mediator。</block>
   <block id="25deb3b52bcb888e53232afb4a495c12" category="sidebar">ONTAP Mediator 对MetroCluster IP 的支持有哪些新特性</block>
+  <block id="a01beec0f6ce0a2dd45c8f1d5aa3e76c" category="list-text">进入<block ref="7b8b965ad4bca0e41ab51de7b31363a1" prefix=" " category="inline-code"></block> 当您看到类似以下的提示时，请跳过备份恢复：</block>
+  <block id="a3a51b9a15e7e6561d57fb2b986eca21" category="admonition">您必须重启节点才能使用新安装的软件。</block>
+  <block id="7043cc5b7b924f62a8af6f3d2e706c77" category="list-text">进入<block ref="7b8b965ad4bca0e41ab51de7b31363a1" prefix=" " category="inline-code"></block> 当您看到以下提示时，请跳过备份恢复：</block>
+  <block id="78531eca4abf30d4c07d610d913a17b4" category="list-text">进入<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> 当看到以下提示时，请重新启动：</block>
+  <block id="6b5a6f62b70ef753e19336e7f4298c82" category="paragraph"><block ref="dc1cb730bc2868b03f1ab6ee685b8beb" prefix="" category="inline-code"></block></block>
 </blocks>
