@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
 summary: 在主机Linux操作系统上全新安装或升级到Tieb破碎 机1.6以监控MetroCluster配置。 
 ---
-= 安装Tieb破碎 机1.6或更高版本
+= 安装 Tiebreaker 1.6 或 1.6P1
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -62,7 +62,7 @@ sh MetroClusterTiebreakerInstall-1.6P1
 
 +
 .示例
-[%collapsible%open]
+[%collapsible]
 =====
 [listing]
 ----
@@ -262,7 +262,7 @@ sh MetroClusterTiebreakerInstall-1.6P1
 
 +
 .示例
-[%collapsible%open]
+[%collapsible]
 =====
 [listing]
 ----
@@ -379,7 +379,7 @@ sh MetroClusterTiebreakerInstall-1.6P1
 
 +
 .示例
-[%collapsible%open]
+[%collapsible]
 =====
 [listing]
 ----
@@ -578,7 +578,7 @@ sh MetroClusterTiebreakerInstall-1.6P1
 
 +
 .示例
-[%collapsible%open]
+[%collapsible]
 =====
 [listing]
 ----
@@ -810,7 +810,7 @@ sh MetroClusterTiebreakerInstall-1.6
 
 +
 .示例
-[%collapsible%open]
+[%collapsible]
 =====
 [listing]
 ----
@@ -1007,7 +1007,7 @@ sh MetroClusterTiebreakerInstall-1.6
 
 +
 .示例
-[%collapsible%open]
+[%collapsible]
 =====
 [listing]
 ----
@@ -1206,7 +1206,7 @@ sh MetroClusterTiebreakerInstall-1.6
 
 +
 .示例
-[%collapsible%open]
+[%collapsible]
 =====
 [listing]
 ----

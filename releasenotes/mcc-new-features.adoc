@@ -119,7 +119,7 @@ ONTAP 9.16.1.
  a| 
 MetroCluster IP支持端到端加密
  a| 
-AFF A400、FAS9300和FAS4700系统支持端到端加密、用于加密MetroCluster IP配置中站点之间的后端流量、例如NVlog和存储复制数据。
+AFF A400、 AFF C400、 FAS8300和FAS8700系统支持端到端加密，用于加密MetroCluster IP 配置中站点之间的后端流量，例如 NVlog 和存储复制数据。
 
 link:../maintain/task-configure-encryption.html["在MetroCluster IP配置中配置端到端加密"]
  a| 

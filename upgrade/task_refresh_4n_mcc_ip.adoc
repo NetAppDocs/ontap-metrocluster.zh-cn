@@ -402,7 +402,7 @@ MetroCluster check show`
  a| 
 Tiebreaker
  a| 
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#add-metrocluster-configurations["正在添加 MetroCluster 配置"] 在_MetroCluster决胜规则安装和配置_中。
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#add-mcc-config-tb["正在添加 MetroCluster 配置"] 在_MetroCluster决胜规则安装和配置_中。
 
 
 

@@ -25,7 +25,7 @@ summary: 完成 MetroCluster 配置的过渡后，您可以使用 Tiebreaker 或
  a| 
 Tiebreaker
  a| 
-link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#add-metrocluster-configurations["正在添加 MetroCluster 配置"]
+link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#add-mcc-config-tb["正在添加 MetroCluster 配置"]
 
 
 

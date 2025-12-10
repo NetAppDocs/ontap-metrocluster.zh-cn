@@ -121,6 +121,9 @@ NOTE: 只有在从Tiebreaker 1.4版升级时、才能升级到Tiebreaker 1.5版�
 NOTE: 在安装期间出现提示时、请提供您先前创建并分配给的非root用户 `mcctbgrp` 组。
 
 +
+.示例
+[%collapsible]
+=====
 [listing]
 ----
 Verifying...                          ################################# [100%]
@@ -158,6 +161,7 @@ Started NetApp MetroCluster Tiebreaker software services
 Successfully installed NetApp MetroCluster Tiebreaker software version 1.5.
 
 ----
+=====
 
 
 --
@@ -203,6 +207,9 @@ HA Enabled      false
 成功升级后，系统将显示以下输出：
 
 +
+.示例
+[%collapsible]
+=====
 [listing]
 ----
 
@@ -242,6 +249,7 @@ Successfully upgraded NetApp MetroCluster Tiebreaker software to version 1.5.
 Cleaning up / removing...
    2:NetApp-MetroCluster-Tiebreaker-So################################# [100%]
 ----
+=====
 
 
 --

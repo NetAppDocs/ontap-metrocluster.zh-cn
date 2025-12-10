@@ -21,9 +21,16 @@ summary: 您遵循的Tieb破碎 机安装操作步骤取决于您正在安装的
 
 
  a| 
-Tieb破碎 机1.6或更高版本
+决胜局 1.7
  a| 
-link:tb-16-install.html["安装Tieb破碎 机1.6或更高版本"]
+link:tb-17-install.html["安装 Tiebreaker 1.7"]
+
+
+
+ a| 
+平局决胜 1.6 或 1.6P1
+ a| 
+link:tb-16-install.html["安装 Tiebreaker 1.6 或 1.6P1"]
 
 
 
