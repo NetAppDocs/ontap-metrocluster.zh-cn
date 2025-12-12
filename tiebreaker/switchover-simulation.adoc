@@ -11,7 +11,7 @@ summary: 从 Tiebreaker 1.7 开始，您可以模拟切换来验证 Tiebreaker �
 
 
 [role="lead"]
-从 Tiebreaker 1.7 开始，您可以模拟切换来测试MetroCluster Tiebreaker 切换功能。
+从MetroCluster Tiebreaker 1.7 开始，您可以模拟切换来测试 Tiebreaker 切换功能。
 
 .关于此任务
 * 这 `monitor switchover-simulate`该命令仅在 Tiebreaker 1.7 或更高版本中受支持。

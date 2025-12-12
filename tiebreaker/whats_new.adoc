@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
 summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，它还会在发生节点连接问题和站点灾难时发送 SNMP 通知。 
 ---
-= 新增功能
+= MetroCluster Tieb破碎 机支持中的新增功能
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
