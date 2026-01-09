@@ -26,8 +26,8 @@ summary: '本节介绍在所有MetroCluster IP配置和网络拓扑上传输Metr
 * 这些ISL必须具有相同的拓扑。例如、它们都应为直接链路、或者如果配置使用WDM、则它们都必须使用WDM。
 * 所需的最低 ISL 速度取决于平台型号：
 +
-** 在AFF A1K和AFF A90系统上，ISL 速度必须至少为 100Gbps。使用不同的 ISL 速度需要功能产品差异请求 (FPVR)。要提交 FPVR，请联系您的销售团队。
-** 在所有其他平台上，ISL 速度必须至少为 10Gbps。
+** 从ONTAP 9.18.1 开始， MetroCluster IP 后端端口速度为 100G 的平台需要最低 100Gbps 的 ISL 链路速度。使用不同的 ISL 速度需要功能变更请求 (FPVR)。要提交 FPVR，请联系您的NetApp销售团队。
+** 在其他所有平台上，最低支持的 ISL 链路速度为 10Gbps。
 
 
 * 每个网络结构必须至少有一个10 Gbps ISL端口。
