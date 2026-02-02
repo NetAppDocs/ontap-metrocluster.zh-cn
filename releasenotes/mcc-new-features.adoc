@@ -21,6 +21,28 @@ ONTAP 9数据管理软件的每个版本都提供了一些新增功能和增强�
 
 
  a| 
+SnapMirror 云支持 MetroCluster FlexGroup 卷
+ a| 
+SnapMirror cloud 支持在 MetroCluster 配置中对 FlexGroup 卷进行备份和恢复操作。
+
+link:https://docs.netapp.com/us-en/ontap/data-protection/cloud-backup-with-snapmirror-task.html#delete-a-snapmirror-cloud-relationship["使用 ONTAP SnapMirror 将数据备份到云"^]
+ a| 
+ONTAP 9.18.1GA
+
+
+
+ a| 
+使用 `system controller replace` 命令进行 MetroCluster IP 控制器升级的新支持升级组合
+ a| 
+增加了对在 MetroCluster IP 配置中使用 `system controller replace`命令将 AFF A70 升级到 AFF A90 系统或将 FAS70 升级到 FAS90 系统的支持。
+
+link:../upgrade/upgrade-mcc-ip-system-controller-replace.html["使用"system controller Replace (system controller Replace)"命令通过切换和切回升级四节点MetroCluster IP中的控制器(ONTAP 9.13.1及更高版本)"]
+ a| 
+ONTAP 9.18.1GA
+
+
+
+ a| 
 MetroCluster IP 配置中 FAS50 系统的闪存缓存支持
  a| 
 在MetroCluster IP 配置中，FAS50 系统支持闪存缓存。

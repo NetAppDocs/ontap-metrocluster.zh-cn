@@ -44,8 +44,9 @@ summary: 开始升级MetroCluster IP控制器之前、您需要验证您的升�
 
 * 注1：运行ONTAP 9.131或更高版本的系统支持控制器升级。
 * 注2：目标平台必须在控制器升级完成后才能具有内部驱动器。您可以在升级后添加内部驱动器。
-* 注3：需要更换控制器模块。
-* 注4：需要使用IOM模块将旧控制器转换为外部SAS磁盘架。有关支持的IOM模块、请参见link:https://hwu.netapp.com/["Hardware Universe"^]。
+* 注 3：集成系统（同一机箱中的磁盘和控制器）的升级需要更换控制器模块，同时保留现有的机箱和磁盘。
+* 注 4：需要 IOM 模块将旧控制器转换为外部 SAS 架。有关支持的 IOM 模块，请参见 link:https://hwu.netapp.com/["Hardware Universe"^]。
+* 注 5：需要 ONTAP 9.18.1GA 或更高版本。
 
 
 [role="tabbed-block"]
@@ -61,7 +62,7 @@ image:../media/assisted-group-1.png["显示 AFF 和 FAS 升级组合组 1"]
 --
 查看升级到AFF C60、AFF A50、FAS70、FAS9000、AFF A700、AFF A70、AFF A900、AFF、AFF A90、AFF C800、AFF A800 C80、FAS90、FAS9500和AFF A1K系统时支持的组合。
 
-image:../media/assisted-group-2-updated.png["显示 AFF 和 FAS 升级组合组 2"]
+image:../media/assisted-group-2-a70-a90-updated.png["显示 AFF 和 FAS 升级组合组 2"]
 
 --
 ====
