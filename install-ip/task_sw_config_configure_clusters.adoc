@@ -1799,6 +1799,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["逻�
 +
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"]
 
+* 聚合名称必须在 MetroCluster 站点中唯一。这意味着您不能在站点 A 和站点 B 上具有相同名称的两个不同聚合。
 
 
 .步骤

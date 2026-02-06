@@ -201,7 +201,7 @@ entries:
       - title: 实施 MetroCluster 配置
         url: "/upgrade/task_implement_the_mcc_configuration_mcc_refresh_mcc_expansion.html"
       - title: 在每个节点上创建镜像数据聚合
-        url: "/upgrade/task_create_a_mirrored_data_aggregate_on_each_node_mcc.html"
+        url: "/upgrade/task-expand-four-to-eight-mcc-fc.html"
       - title: 配置 FC-SAS 网桥以进行运行状况监控
         url: "/upgrade/task_configure_the_fc_to_sas_bridges_for_health_monitor.html"
       - title: 在 MetroCluster 配置中移动元数据卷

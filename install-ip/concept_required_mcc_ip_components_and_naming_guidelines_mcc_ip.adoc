@@ -281,6 +281,10 @@ link:concept_considerations_drive_assignment.html["了解MetroCluster IP配置�
 +
 在每个节点具有一个镜像数据聚合的四节点 MetroCluster 配置中，站点上的最低配置需要 24 个磁盘。
 
++
+
+NOTE: 聚合名称必须在 MetroCluster 站点中唯一。这意味着您不能在站点 A 和站点 B 上具有相同名称的两个不同聚合。
+
 
 
 在支持的最低配置中，每个池都具有以下驱动器布局：
