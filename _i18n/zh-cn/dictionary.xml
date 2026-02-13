@@ -13112,7 +13112,6 @@
   <block id="6c7e3200049198face0d2648e9d1a27d" category="paragraph">入站</block>
   <block id="58dc7db50a2e11a9de9e6cc092c59d4d" category="paragraph">ONTAP 调解器</block>
   <block id="348d25e332990b97eda5823a9561cd76" category="paragraph">SSH / ONTAP调解器管理</block>
-  <block id="abd4328c725637aabedbd02d3b7ffd40" category="paragraph">双向</block>
   <block id="7df18ff4393ac59f9af7b68478828591" category="inline-link-macro">Brocade光纤操作系统软件升级指南、9.2.x</block>
   <block id="81095da37e6499e1af51ce2d0316b8c1" category="paragraph">如果要升级到Fabric OS v9.2.x或更高版本、则必须安装Brocade TruFOS证书、有关详细信息、请参见。<block ref="0c25af31b20d46ca79e55fb8f6beb4c9" category="inline-link-macro-rx"></block></block>
   <block id="b2fe7ec3c609e490e177268be9c6a2c7" category="open-title">删除FC-SAS网桥</block>
@@ -13669,10 +13668,8 @@
   <block id="ca2ba184117d249efe6f978511379d06" category="paragraph">如果您有 12 端口 Cisco 9336C-FX2 交换机，请使用<block ref="67221021aed93298a4f5ea2fd779fba0" category="inline-link-macro-rx"></block> 。</block>
   <block id="045ecf3a2dbe25ed7ed0298e865ad8aa" category="paragraph">如果您有 36 端口 Cisco 9336C-FX2 交换机，并且至少一个 MetroCluster 配置或 DR 组将 NS224 机架连接到 MetroCluster 交换机，请使用<block ref="0bde9be66bb65d34d39560c7bec9f5ff" category="inline-link-macro-rx"></block> 。</block>
   <block id="24a2b83846d1cc0fd499ffd7c44a8766" category="list-text">当至少一个 MetroCluster 配置或 DR 组将 NS224 架连接到 MetroCluster 交换机时，本节中的表格适用于 36 端口 Cisco 9336C-FX2 交换机。</block>
-  <block id="be04f167387be19d404ab8525e42eb36" category="paragraph">如果您有 36 端口 Cisco 9336C-FX2 交换机，但未连接 NS224 存储，请使用<block ref="5e1610ecd3627713f0895c655a667651" category="inline-link-macro-rx"></block> 。</block>
   <block id="67f1cdced842853dcaa748f1574de4a2" category="inline-link-macro">12 端口 Cisco 9336C-FX2 交换机的平台端口分配</block>
   <block id="38f841f1e9d996375153a7c10a011d16" category="paragraph">如果您有 12 端口 Cisco 9336C-FX2 交换机，请使用<block ref="ce9e67085330d921aaa0fff0495dc70b" category="inline-link-macro-rx"></block> 。</block>
-  <block id="01c9231aeeef68ed3519963715841bfa" category="list-text">使用线缆连接 Cisco 9336C-FX2 交换机和 NS224 存储时，最多只能有两个 MetroCluster 配置或灾难恢复组。至少一个 MetroCluster 配置或灾难恢复组必须将 NS224 磁盘架连接到 MetroCluster 交换机。您只能将未连接交换机连接的 NS224 磁盘架的平台连接为第二个 MetroCluster 配置或第二个灾难恢复组。</block>
   <block id="674e97a0c22c1388979c98f80b98f4b5" category="inline-xref">未连接交换机连接的 NS224 机架的控制器的布线表</block>
   <block id="93a0ba86005851fcdd55129adf1c0b46" category="paragraph">如果您的第二个 MetroCluster 或 DR 组未将 NS224 磁盘架连接到 MetroCluster 交换机，请按照<block ref="b9dbe6880b7454d3bcbbe8f7d7793db4" category="inline-xref-macro-rx"></block> 。</block>
   <block id="b3e24b8d0d23855e43550444290c1574" category="list-text">跟踪 MetroCluster 端口组（ MetroCluster 1 ， MetroCluster 2 等）。在使用 RcfFileGenerator 工具时您将需要此信息，如本配置过程后面所述。</block>
@@ -14006,7 +14003,6 @@
   <block id="75ab17da123365d00f2ec499305169d8" category="doc">了解远程存储和MetroCluster IP 配置</block>
   <block id="1d4d3b05fa1ffe4d168028cb764f168a" category="doc">MetroCluster IP 配置中的集群对等连接要求</block>
   <block id="a6fa9144699b7827d36eaf11a183930c" category="doc">使用MetroCluster IP 配置的ONTAP操作的要求和注意事项</block>
-  <block id="3ad5bf8bede2de85749104cd1c558a70" category="doc">准备在MetroCluster IP 配置中安装ONTAP调解器</block>
   <block id="5f41d8cf5282355fa3aefb7176c3f60e" category="paragraph">集群管理和节点管理 LIF</block>
   <block id="adcf0c2ac79e72965c57c716ea214337" category="paragraph">节点管理 LIF</block>
   <block id="5450af98b7b980559b29b88b2f4d9081" category="doc">了解MetroCluster IP 配置中的硬件组件互连</block>
@@ -14445,7 +14441,6 @@
   <block id="18b24a167aecf15b34fd1d9c3134070d" category="paragraph"><block ref="18b24a167aecf15b34fd1d9c3134070d" category="inline-link-macro-rx"></block></block>
   <block id="d1deb46a10dc3123edfe76c7a47cbee1" category="paragraph">ONTAP 9.18.1GA</block>
   <block id="38fc12d8890f30afa1b180ca8bd43d52" category="paragraph">使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 命令进行 MetroCluster IP 控制器升级的新支持升级组合</block>
-  <block id="04b6e0caeafa8afd1fddb03f2837eb91" category="paragraph">增加了对在 MetroCluster IP 配置中使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令将 AFF A70 升级到 AFF A90 系统或将 FAS70 升级到 FAS90 系统的支持。</block>
   <block id="7c876b2b1c29ab7cbf4dd35f76fe9601" category="paragraph"><block ref="7c876b2b1c29ab7cbf4dd35f76fe9601" category="inline-link-macro-rx"></block></block>
   <block id="b4043feb827ed258b03c0dc9d5c7e979" category="list-text">注 4：集成系统（同一机箱中的磁盘和控制器）的升级需要更换控制器模块，同时保留现有的机箱和磁盘。</block>
   <block id="4232872ec24791a771e26762eb9729a1" category="paragraph"><block ref="4232872ec24791a771e26762eb9729a1" category="inline-image-macro-rx" type="image"></block></block>
@@ -14469,4 +14464,8 @@
   <block id="55417ec59fd4af1a5afffacb42333c5a" category="paragraph">此过程中使用的示例：controller_B_1</block>
   <block id="1acb751c22e164e9d61c762caf509e82" category="paragraph">本过程中使用的示例：controller_B_2</block>
   <block id="eccb3ce2fe6ad5d172a57438aae17dae" category="doc">在每个 MetroCluster FC 节点上创建镜像数据聚合</block>
+  <block id="b5fd13a9bac03ffc7e9ccde70adc8242" category="doc">ONTAP Mediator 安装要求适用于 MetroCluster IP 配置</block>
+  <block id="e5287e41bb7b528f560b85847eb683be" category="paragraph">如果您有一个 36 端口的 Cisco 9336C-FX2 交换机，并且您不打算将 NS224 存储连接到该交换机，请使用 <block ref="5e1610ecd3627713f0895c655a667651" category="inline-link-macro-rx"></block> 中的表。</block>
+  <block id="096faa4efe64cfbabf158d3e14db33d7" category="list-text">当您对连接 NS224 存储的 Cisco 9336C-FX2 交换机进行布线时，最多只能有两个 MetroCluster 配置或 DR 组。必须至少有一个 MetroCluster 配置或 DR 组将 NS224 盘架连接到该 MetroCluster 交换机。如果其中一个 MetroCluster 配置或 DR 组是不支持 NS224 盘架的系统，则它只能作为第二个 MetroCluster 配置或 DR 组连接。</block>
+  <block id="b68398936049bd282794c33831e2aea9" category="paragraph">支持在 MetroCluster IP 配置中使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令进行 AFF A70 到 AFF A90 和 FAS70 到 FAS90 系统升级。</block>
 </blocks>

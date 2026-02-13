@@ -17,7 +17,7 @@ MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台�
 
 * 当至少一个 MetroCluster 配置或 DR 组将 NS224 架连接到 MetroCluster 交换机时，本节中的表格适用于 36 端口 Cisco 9336C-FX2 交换机。
 +
-如果您有 36 端口 Cisco 9336C-FX2 交换机，但未连接 NS224 存储，请使用link:port_usage_3232c_9336c.html["Cisco 3232C 或 36 端口 Cisco 9336C-FX2 交换机的平台端口分配"] 。
+如果您有一个 36 端口的 Cisco 9336C-FX2 交换机，并且您不打算将 NS224 存储连接到该交换机，请使用 link:port_usage_3232c_9336c.html["Cisco 3232C 或 36 端口 Cisco 9336C-FX2 交换机的平台端口分配"] 中的表。
 
 +
 如果您有 12 端口 Cisco 9336C-FX2 交换机，请使用link:port-usage-9336c-fx-2-12-port.html["12 端口 Cisco 9336C-FX2 交换机的平台端口分配"] 。
@@ -26,7 +26,7 @@ MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台�
 
 NOTE: 12 端口 Cisco 9336C-FX2 交换机不支持将 NS224 架连接到 MetroCluster 交换机。
 
-* 使用线缆连接 Cisco 9336C-FX2 交换机和 NS224 存储时，最多只能有两个 MetroCluster 配置或灾难恢复组。至少一个 MetroCluster 配置或灾难恢复组必须将 NS224 磁盘架连接到 MetroCluster 交换机。您只能将未连接交换机连接的 NS224 磁盘架的平台连接为第二个 MetroCluster 配置或第二个灾难恢复组。
+* 当您对连接 NS224 存储的 Cisco 9336C-FX2 交换机进行布线时，最多只能有两个 MetroCluster 配置或 DR 组。必须至少有一个 MetroCluster 配置或 DR 组将 NS224 盘架连接到该 MetroCluster 交换机。如果其中一个 MetroCluster 配置或 DR 组是不支持 NS224 盘架的系统，则它只能作为第二个 MetroCluster 配置或 DR 组连接。
 +
 如果您的第二个 MetroCluster 或 DR 组未将 NS224 磁盘架连接到 MetroCluster 交换机，请按照<<tables_not_connecting_ns224,未连接交换机连接的 NS224 机架的控制器的布线表>> 。
 

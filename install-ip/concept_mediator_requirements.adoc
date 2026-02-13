@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ontap, mediator, assist, metrocluster, ip, configuration, perform, automatic, unplan, switchover, physical, repository, status, information, configuring, configure, install, configuring, configure, mtu size, packet loss, bandwidth, firewall, rhel, centos, linux, revert, kernal, upgrade, latency 
 summary: 从 ONTAP 9.7 开始，ONTAP Mediator 可以通过提供物理上独立的状态信息存储库来帮助 MetroCluster IP 配置执行自动计划外切换。 
 ---
-= 准备在MetroCluster IP 配置中安装ONTAP调解器
+= ONTAP Mediator 安装要求适用于 MetroCluster IP 配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -133,7 +133,7 @@ REST API （ HTTPS ）
  a| 
 节点管理 LIF
  a| 
-双向
+入站
  a| 
 ONTAP 调解器 iSCSI 目标
  a| 
