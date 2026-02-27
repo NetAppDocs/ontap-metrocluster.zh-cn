@@ -1,0 +1,42 @@
+---
+permalink: install-ip/update-mediator-timeout.html 
+sidebar: sidebar 
+keywords: ontap, metrocluster, mediator, timeout, settings, change, update, default, value 
+summary:  
+---
+= 增加 MetroCluster IP 配置中的默认 ONTAP Mediator 邮箱超时
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MetroCluster IP 节点可以使用 iSCSI 会话访问 ONTAP Mediator 邮箱磁盘，其默认连接超时为 10 秒，包括 5 秒后的单次重试。根据您的 ONTAP 版本和环境，您可以将邮箱超时时间最多增加到 60 秒，以避免中断调解器辅助的计划外切换（MAUSO）。
+
+NetApp 建议您在使用网络冗余协议（如 HSRP 或 VRRP）、环路避免协议（如 STP）或环境中的网络延迟超过默认超时值 10 秒时，增加默认邮箱连接超时值。
+
+.开始之前
+您应评估停电窗口，即将 MetroCluster IP 节点重新连接到 ONTAP Mediator 所需的时间。如果需要超过 10 秒钟，则应将超时值设置为比重新连接 MetroCluster IP 节点所需的时间多几秒钟。
+
+如果从每个站点独立维护连接，并且一个站点的中断不会影响从正常运行的站点到 ONTAP Mediator 的连接，则默认值 10 秒就足够了，您不应更改邮箱超时。
+
+.关于此任务
+* 以下 ONTAP 版本支持增加 ONTAP Mediator 邮箱超时：
++
+** ONTAP 9.18.1GA 或更高版本
+** ONTAP 9.17.1P3 或更高版本的 ONTAP 9.17.1 补丁
+** ONTAP 9.16.1P10 或更高版本的 ONTAP 9.16.1 补丁版本
+** ONTAP 9.15.1P16 或更高版本的 ONTAP 9.15.1 补丁版本
+
+
+* 所有版本的 ONTAP Mediator 都支持增加邮箱超时。
+* 超时值的支持范围为 10 到 60 秒。如果指定超出范围的值，ONTAP 会自动将其更改回默认值 10 秒。
+* 如果 MetroCluster 节点重新连接到 ONTAP Mediator 所需的时间超过 10 秒，则应将超时值设置为比节点连接所需的时间长几秒钟。
+
+
+.步骤
+. 要增加默认 ONTAP Mediator 邮箱超时，请参见 link:https://kb.netapp.com/on-prem/ontap/mc/MC-KBs/How_to_Increase_Mediator_Mailbox_Timeout_for_environments_where_network_latency_exceeds_10_seconds["NetApp 知识库文章：如何在网络延迟超过 10 秒的环境中增加 Mediator 邮箱超时"^]
+
+
+.相关信息
+link:concept-ontap-mediator-supports-automatic-unplanned-switchover.html["详细了解 ONTAP Mediator 如何支持 MetroCluster IP 配置中的自动计划外切换。"]

@@ -145,6 +145,8 @@ entries:
     url: "/install-ip/task_connecting_mcc_to_different_mediator_instance.html"
   - title: ONTAP 调解器如何支持自动计划外切换
     url: "/install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html"
+  - title: 增加默认 ONTAP Mediator 邮箱超时
+    url: "/install-ip/update-mediator-timeout.html"
   - title: 使用系统管理器管理 ONTAP 调解器
     url: "/install-ip/task-sm-mediator.html"
 - title: 测试 MetroCluster 配置

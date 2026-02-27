@@ -10521,7 +10521,6 @@
   <block id="338b3842cbe6f0ae991509f38e7d0cca" category="list-text">您必须先完成技术更新操作步骤 、然后才能添加新负载。</block>
   <block id="c38f34e2c50bf5ed2113077f8269019c" category="list-text">如果目标平台限制低于MetroCluster 限制、则必须先将MetroCluster 重新配置为等于或低于目标平台限制、然后才能添加新节点。</block>
   <block id="49782ec67fb4809f5d138aa07412fd9d" category="list-text">此表中的组合仅适用于常规或永久八节点配置。</block>
-  <block id="ea95591996a43e78cc0b5f96cb4d8f1c" category="list-text">如果您使用的是过渡或刷新过程，则此表中的平台组合*不*适用。</block>
   <block id="08d29117f113494cf7bd34ddc0d0a7e0" category="doc">更换IP交换机或更改现有MetroCluster IP交换机的使用</block>
   <block id="2454620eb6c11598ab9b657181cc0f55" category="paragraph">您可能需要更换发生故障的交换机、升级或降级交换机或更改现有MetroCluster IP交换机的使用。</block>
   <block id="057120c40cd4c9c1a072526b368d97f4" category="paragraph">此操作步骤 支持以下转换：</block>
@@ -13670,7 +13669,6 @@
   <block id="67f1cdced842853dcaa748f1574de4a2" category="inline-link-macro">12 端口 Cisco 9336C-FX2 交换机的平台端口分配</block>
   <block id="38f841f1e9d996375153a7c10a011d16" category="paragraph">如果您有 12 端口 Cisco 9336C-FX2 交换机，请使用<block ref="ce9e67085330d921aaa0fff0495dc70b" category="inline-link-macro-rx"></block> 。</block>
   <block id="674e97a0c22c1388979c98f80b98f4b5" category="inline-xref">未连接交换机连接的 NS224 机架的控制器的布线表</block>
-  <block id="93a0ba86005851fcdd55129adf1c0b46" category="paragraph">如果您的第二个 MetroCluster 或 DR 组未将 NS224 磁盘架连接到 MetroCluster 交换机，请按照<block ref="b9dbe6880b7454d3bcbbe8f7d7793db4" category="inline-xref-macro-rx"></block> 。</block>
   <block id="b3e24b8d0d23855e43550444290c1574" category="list-text">跟踪 MetroCluster 端口组（ MetroCluster 1 ， MetroCluster 2 等）。在使用 RcfFileGenerator 工具时您将需要此信息，如本配置过程后面所述。</block>
   <block id="b8b3268e24f1bc7df35cfea685b9683b" category="paragraph">将多个 MetroCluster 配置布线到交换机时，请根据相应的表格为每个 MetroCluster 布线。例如，如果要将 FAS2750 和 AFF A700 布线到同一台交换机，则应按照表 1 中的“MetroCluster 1”为 FAS2750 布线，按照表 2 中的“MetroCluster 2”或“MetroCluster 3”为 AFF A700 布线。您不能将FAS2750和AFF A700以物理方式连接为MetroCluster 1。</block>
   <block id="663e9f366c9d01f8e5aae5c69a84c421" category="paragraph">对于八节点配置，使用与上面描述的相同的方法。您需要为另一个四节点 DR 组布线，而不是为另一个 MetroCluster 布线。</block>
@@ -14464,9 +14462,38 @@
   <block id="eccb3ce2fe6ad5d172a57438aae17dae" category="doc">在每个 MetroCluster FC 节点上创建镜像数据聚合</block>
   <block id="b5fd13a9bac03ffc7e9ccde70adc8242" category="doc">ONTAP Mediator 安装要求适用于 MetroCluster IP 配置</block>
   <block id="e5287e41bb7b528f560b85847eb683be" category="paragraph">如果您有一个 36 端口的 Cisco 9336C-FX2 交换机，并且您不打算将 NS224 存储连接到该交换机，请使用 <block ref="5e1610ecd3627713f0895c655a667651" category="inline-link-macro-rx"></block> 中的表。</block>
-  <block id="096faa4efe64cfbabf158d3e14db33d7" category="list-text">当您对连接 NS224 存储的 Cisco 9336C-FX2 交换机进行布线时，最多只能有两个 MetroCluster 配置或 DR 组。必须至少有一个 MetroCluster 配置或 DR 组将 NS224 盘架连接到该 MetroCluster 交换机。如果其中一个 MetroCluster 配置或 DR 组是不支持 NS224 盘架的系统，则它只能作为第二个 MetroCluster 配置或 DR 组连接。</block>
   <block id="b68398936049bd282794c33831e2aea9" category="paragraph">支持在 MetroCluster IP 配置中使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令进行 AFF A70 到 AFF A90 和 FAS70 到 FAS90 系统升级。</block>
   <block id="2cc15add30dea4377769b3b77d052707" category="list-text">从 ONTAP 9.18.1 开始，MetroCluster IP 后端端口速度为 100Gbps 的平台要求最低 ISL 链路速度为 100Gbps。使用不同的 ISL 速度需要功能产品差异请求 (FPVR)。要提交 FPVR，请联系您的 NetApp 销售团队。</block>
   <block id="2691309e1710cb6a0083f4722ac33e8d" category="admonition">在当前不符合 100Gbps ISL 要求的平台上升级到 ONTAP 9.18.1 及更高版本不会被阻止，可以继续进行。但是，NetApp 强烈建议客户过渡到 100Gbps ISL 连接，以保持预期的性能和可用性水平。</block>
   <block id="2424b4c07e55bece1d1a95007a6782a8" category="list-text">每个交换矩阵必须至少有一个 10Gbps ISL 端口。</block>
+  <block id="925adb23a78386992d24bff6e6e1b4e2" category="list-text">当您对连接 NS224 存储的 Cisco 9336C-FX2 交换机进行布线时，最多只能有两个 MetroCluster 配置或 DR 组。必须至少有一个 MetroCluster 配置或 DR 组将 NS224 盘架连接到该 MetroCluster 交换机。</block>
+  <block id="13baaedd5f262910c30e90b130030634" category="paragraph">如果其中一个 MetroCluster 配置或 DR 组未将 NS224 盘架连接到 MetroCluster 交换机，请按照 <block ref="b9dbe6880b7454d3bcbbe8f7d7793db4" category="inline-xref-macro-rx"></block> 进行操作。</block>
+  <block id="2b4028f1ab41ecd91ee89bedc51fffa6" category="list-text">如果要扩展不支持交换机连接的 NS224 存储的常规 MetroCluster 配置，并且要添加具有交换机连接的 NS224 存储的 MetroCluster 配置，请查看以下信息：</block>
+  <block id="3db561d9980a9a0ff52dc6f6b5be80fb" category="list-text">在 <block ref="46a459674905c476821f71bc8486a4ba" category="inline-link-macro-rx"></block> 工具中，您必须首先选择支持交换机连接的 NS224 存储的平台，然后选择不支持交换机连接的 NS224 存储的平台。</block>
+  <block id="88ecaca9811ed8ee2d07d6be6c37393b" category="paragraph">这意味着，为新配置生成 RCF 时，可能需要按以下顺序在 RcfFileGenerator 工具中选择平台：</block>
+  <block id="e1560ebf4cdefb3656321c70615b070a" category="list-text">从*第二个下拉字段*中选择支持交换机连接 NS224 存储的平台。</block>
+  <block id="6671def4e7da861590fb38e5fc66314e" category="list-text">从*第一个下拉字段*中选择不支持交换机连接的 NS224 存储的平台。</block>
+  <block id="ddbce4d78273fadb6714307de4be2067" category="doc">增加 MetroCluster IP 配置中的默认 ONTAP Mediator 邮箱超时</block>
+  <block id="2782611b81a323af0ab55dcdc0bed9b0" category="paragraph">MetroCluster IP 节点可以使用 iSCSI 会话访问 ONTAP Mediator 邮箱磁盘，其默认连接超时为 10 秒，包括 5 秒后的单次重试。根据您的 ONTAP 版本和环境，您可以将邮箱超时时间最多增加到 60 秒，以避免中断调解器辅助的计划外切换（MAUSO）。</block>
+  <block id="dc2661dcef8886857b7dbbc6bea4baa5" category="paragraph">NetApp 建议您在使用网络冗余协议（如 HSRP 或 VRRP）、环路避免协议（如 STP）或环境中的网络延迟超过默认超时值 10 秒时，增加默认邮箱连接超时值。</block>
+  <block id="5989de7ef1290d3b1851ce9197407a9a" category="paragraph">您应评估停电窗口，即将 MetroCluster IP 节点重新连接到 ONTAP Mediator 所需的时间。如果需要超过 10 秒钟，则应将超时值设置为比重新连接 MetroCluster IP 节点所需的时间多几秒钟。</block>
+  <block id="96da1e735aedafb1dcf6dc852a630b69" category="paragraph">如果从每个站点独立维护连接，并且一个站点的中断不会影响从正常运行的站点到 ONTAP Mediator 的连接，则默认值 10 秒就足够了，您不应更改邮箱超时。</block>
+  <block id="d7960d10ef798af16bf54c0dcc02e80b" category="list-text">以下 ONTAP 版本支持增加 ONTAP Mediator 邮箱超时：</block>
+  <block id="123f02f9538b2fc159c78abd1e853311" category="list-text">ONTAP 9.18.1GA 或更高版本</block>
+  <block id="a49f67215d7a6a3f09571abddad1d41c" category="list-text">ONTAP 9.17.1P3 或更高版本的 ONTAP 9.17.1 补丁</block>
+  <block id="6b33f2be2b796fc142d718a21fd6a8ff" category="list-text">ONTAP 9.16.1P10 或更高版本的 ONTAP 9.16.1 补丁版本</block>
+  <block id="9fe94930ff0a57045423e79a5e25449a" category="list-text">ONTAP 9.15.1P16 或更高版本的 ONTAP 9.15.1 补丁版本</block>
+  <block id="4d04adddbc72295aa68205bbc8f6786c" category="list-text">所有版本的 ONTAP Mediator 都支持增加邮箱超时。</block>
+  <block id="24603857f2efae5cf55e16b55938b6b5" category="list-text">超时值的支持范围为 10 到 60 秒。如果指定超出范围的值，ONTAP 会自动将其更改回默认值 10 秒。</block>
+  <block id="e4cb371c390096f714ceed8442047927" category="list-text">如果 MetroCluster 节点重新连接到 ONTAP Mediator 所需的时间超过 10 秒，则应将超时值设置为比节点连接所需的时间长几秒钟。</block>
+  <block id="a55d539df04c511897b2f380e0ac7016" category="inline-link-macro">NetApp 知识库文章：如何在网络延迟超过 10 秒的环境中增加 Mediator 邮箱超时</block>
+  <block id="19bdf8ebd14921517ed1d7a25d8a75ea" category="list-text">要增加默认 ONTAP Mediator 邮箱超时，请参见 <block ref="62f56fc028db49a6a2d1454ab4af167a" category="inline-link-macro-rx"></block></block>
+  <block id="9fc7fb3687729fad941f1ef4dbe24e25" category="inline-link-macro">详细了解 ONTAP Mediator 如何支持 MetroCluster IP 配置中的自动计划外切换。</block>
+  <block id="36cd1be7aa7565ea1576f3aac82e7ad3" category="paragraph"><block ref="36cd1be7aa7565ea1576f3aac82e7ad3" category="inline-link-macro-rx"></block></block>
+  <block id="f8a1c16bdd95a9caf5d835623891bbb2" category="list-text">如果使用过渡或刷新程序，则此表中的平台组合*不*适用。</block>
+  <block id="28e3056e4a107de00bb911453b54b512" category="list-text">检查 partner-sysid 是否正确：</block>
+  <block id="a7c6b23966d68e108e7f06035568671e" category="paragraph">请按照 <block ref="c2cec781ec7263394dd955380787b572" category="inline-link-macro-rx"></block> 中的步骤操作。</block>
+  <block id="33e1bc7f8120f8d7e792eda1953f5c0d" category="list-text">验证 partner-sysid 是否正确：</block>
+  <block id="d9e511ce59427a6a6f5e2d82b3caa85c" category="list-text">集群间 LIF 启动后，请检查集群对等状态，并根据需要重新建立集群对等。</block>
+  <block id="9aadb95a414b8c0423f92f9ec9df69d8" category="sidebar">增加默认 ONTAP Mediator 邮箱超时</block>
 </blocks>
