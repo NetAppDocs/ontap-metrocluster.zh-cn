@@ -11149,7 +11149,6 @@
   <block id="f530740ac9e609fc21d073ac7a1005eb" category="list-text">设置第5步</block>
   <block id="905698c568b08ffae010badfede2c3d9" category="list-text">可选：整形速率可达20Gbps</block>
   <block id="6f9086eed365c3a2db1521fa98bb7fad" category="list-text">iSCSI流量分类：</block>
-  <block id="bfee253ff06448698780744ab1762cba" category="list-text">Match：TCP端口62500、源、目标或两者</block>
   <block id="b6b4cd52ee0814cd111c7646f3ec71cf" category="list-text">可选匹配项：cos 4</block>
   <block id="bc0161255c709f2bfdb09ade9fbc1364" category="list-text">可选匹配项：DSCP 32</block>
   <block id="18b58e1c9302e2acb18218c02c62dab7" category="list-text">设置DSCP 32</block>
@@ -14475,7 +14474,6 @@
   <block id="6671def4e7da861590fb38e5fc66314e" category="list-text">从*第一个下拉字段*中选择不支持交换机连接的 NS224 存储的平台。</block>
   <block id="ddbce4d78273fadb6714307de4be2067" category="doc">增加 MetroCluster IP 配置中的默认 ONTAP Mediator 邮箱超时</block>
   <block id="2782611b81a323af0ab55dcdc0bed9b0" category="paragraph">MetroCluster IP 节点可以使用 iSCSI 会话访问 ONTAP Mediator 邮箱磁盘，其默认连接超时为 10 秒，包括 5 秒后的单次重试。根据您的 ONTAP 版本和环境，您可以将邮箱超时时间最多增加到 60 秒，以避免中断调解器辅助的计划外切换（MAUSO）。</block>
-  <block id="dc2661dcef8886857b7dbbc6bea4baa5" category="paragraph">NetApp 建议您在使用网络冗余协议（如 HSRP 或 VRRP）、环路避免协议（如 STP）或环境中的网络延迟超过默认超时值 10 秒时，增加默认邮箱连接超时值。</block>
   <block id="5989de7ef1290d3b1851ce9197407a9a" category="paragraph">您应评估停电窗口，即将 MetroCluster IP 节点重新连接到 ONTAP Mediator 所需的时间。如果需要超过 10 秒钟，则应将超时值设置为比重新连接 MetroCluster IP 节点所需的时间多几秒钟。</block>
   <block id="96da1e735aedafb1dcf6dc852a630b69" category="paragraph">如果从每个站点独立维护连接，并且一个站点的中断不会影响从正常运行的站点到 ONTAP Mediator 的连接，则默认值 10 秒就足够了，您不应更改邮箱超时。</block>
   <block id="d7960d10ef798af16bf54c0dcc02e80b" category="list-text">以下 ONTAP 版本支持增加 ONTAP Mediator 邮箱超时：</block>
@@ -14496,4 +14494,8 @@
   <block id="33e1bc7f8120f8d7e792eda1953f5c0d" category="list-text">验证 partner-sysid 是否正确：</block>
   <block id="d9e511ce59427a6a6f5e2d82b3caa85c" category="list-text">集群间 LIF 启动后，请检查集群对等状态，并根据需要重新建立集群对等。</block>
   <block id="9aadb95a414b8c0423f92f9ec9df69d8" category="sidebar">增加默认 ONTAP Mediator 邮箱超时</block>
+  <block id="27a4277d57a9c4676312c7a5013a9b75" category="list-text">匹配：TCP 端口 65200、源、目标或两者兼有</block>
+  <block id="e2bba64dd4e20eb5cd27b969fbf8dbce" category="paragraph">NetApp 建议您增加默认邮箱连接超时值，如果以下任一情况适用于您的环境：</block>
+  <block id="d57bb94baa67d066f16fc9fc5b6def7e" category="list-text">您正在使用网络冗余协议（例如 HSRP 或 VRRP）或环路避免协议（例如 STP）。</block>
+  <block id="29c1e5df7e26dbc34a0230732d8e3a0c" category="list-text">网络重新收敛时间（例如，路由协议稳定或重新选举后 HSRP/VRRP 变为活动状态）可以超过默认超时 10 秒。</block>
 </blocks>
