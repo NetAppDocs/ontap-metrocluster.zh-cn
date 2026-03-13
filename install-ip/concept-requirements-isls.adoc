@@ -17,7 +17,7 @@ summary: '本节介绍在所有MetroCluster IP配置和网络拓扑上传输Metr
 
 == MetroCluster ISL 要求
 
-所有IP配置上的以下适用场景MetroCluster：
+以下要求适用于所有 MetroCluster IP 配置上的 ISL：
 
 * 两个网络结构必须具有相同数量的CRL。
 * 一个网络结构上的所有ISO都必须具有相同的速度和长度。
@@ -26,7 +26,7 @@ summary: '本节介绍在所有MetroCluster IP配置和网络拓扑上传输Metr
 * 这些ISL必须具有相同的拓扑。例如、它们都应为直接链路、或者如果配置使用WDM、则它们都必须使用WDM。
 * 所需的最低 ISL 速度取决于平台型号：
 +
-** 从 ONTAP 9.18.1 开始，MetroCluster IP 后端端口速度为 100Gbps 的平台要求最低 ISL 链路速度为 100Gbps。使用不同的 ISL 速度需要功能产品差异请求 (FPVR)。要提交 FPVR，请联系您的 NetApp 销售团队。
+** 从 ONTAP 9.18.1 开始，MetroCluster IP 后端端口速度为 100Gbps 的平台要求最低 ISL 链路速度为 100Gbps。使用不同的 ISL 速度需要功能策略差异请求 (FPVR)。要提交 FPVR，请联系您的 NetApp 销售团队。
 +
 
 CAUTION: 在当前不符合 100Gbps ISL 要求的平台上升级到 ONTAP 9.18.1 及更高版本不会被阻止，可以继续进行。但是，NetApp 强烈建议客户过渡到 100Gbps ISL 连接，以保持预期的性能和可用性水平。
@@ -49,7 +49,6 @@ CAUTION: 在当前不符合 100Gbps ISL 要求的平台上升级到 ONTAP 9.18.1
 * 丢包率必须小于或等于0.01%。最大数据包丢失量等于MetroCluster节点之间路径上所有链路的所有丢失量与本地MetroCluster IP接口的丢失量之和。
 * 支持的往返抖动值为3毫秒(或单向抖动为1.5毫秒)。
 * 网络应分配并保持MetroCluster流量所需的SLA带宽量、而不管流量中的微突发和峰值如何。
-* 如果您使用的是ONTAP 9.7或更高版本、则两个站点之间的中间网络必须为MetroCluster IP配置提供4.5Gbps的最小带宽。
 
 
 

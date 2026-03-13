@@ -11,12 +11,12 @@ summary: 您必须先关闭整个 MetroCluster IP 配置以及所有设备，然
 
 
 [role="lead"]
-您必须先关闭整个 MetroCluster IP 配置以及所有设备，然后才能开始维护或重新定位。
+在开始维护或搬迁之前，请关闭整个 MetroCluster IP 配置和所有设备的电源。
 
 
 NOTE: 从 ONTAP 9.8 开始， ` * storage switch*` 命令将替换为 ` * system switch*` 。以下步骤显示了 ` * storage switch*` 命令，但如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 ` * system switch*` 命令。
 
-. 从 MetroCluster 配置中的两个站点验证 MetroCluster 配置。
+. 验证两个站点的 MetroCluster 配置。
 +
 .. 确认 MetroCluster 配置和操作模式正常。+ ` * MetroCluster show*`
 .. 运行以下命令： + ` * MetroCluster interconnect show*`
@@ -42,7 +42,7 @@ cluster_A_site_A::*>metrocluster modify -auto-switchover-failure-domain auso-dis
 ----
 +
 
-NOTE: 在 MetroCluster IP 配置中， AUSO 故障域已设置为 "auso-disabled" ，除非此配置已配置 ONTAP 调解器。
+NOTE: 在 MetroCluster IP 配置中，除非配置使用 ONTAP Mediator，否则 AUSO Failure Domain 已设置为 'auso-disabled'。
 
 . 使用命令验证更改
 +
@@ -59,14 +59,12 @@ NOTE: 在 MetroCluster IP 配置中， AUSO 故障域已设置为 "auso-disabled
         End Time: 4/25/2020 20:20:36
           Errors: -
 ----
-. 暂停节点：
-+
-` * 暂停 *`
-
+. 暂停两个站点上的节点：
 +
 [listing]
 ----
-system node halt -node node1_SiteA -inhibit-takeover true -ignore-quorum-warnings true
+cluster_A::*>system node halt -node * -inhibit-takeover true -ignore-quorum-warnings true
+cluster_B::*>system node halt -node * -inhibit-takeover true -ignore-quorum-warnings true
 ----
 . 关闭站点上的以下设备：
 +

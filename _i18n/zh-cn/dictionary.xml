@@ -640,16 +640,13 @@
   <block id="cdb3ffc955b34e17efd898def0d320a2" category="list-text">执行 MetroCluster 检查：</block>
   <block id="d0ea3e97351e29ab748322bd6e653120" category="paragraph">` * MetroCluster check run*`</block>
   <block id="f323ad60392fa7c75997f3419493d6c3" category="summary">您必须先关闭整个 MetroCluster IP 配置以及所有设备，然后才能开始维护或重新定位。</block>
-  <block id="5c79413a4833df0080080fe8fe2e7c15" category="doc">关闭整个 MetroCluster IP 配置</block>
   <block id="5a862a97aa2605f3cbb2987eba34c9a9" category="list-text">确认 MetroCluster 配置和操作模式正常。+ ` * MetroCluster show*`</block>
   <block id="33e5d783a7a408bca6f492d5b41c67ce" category="list-text">运行以下命令： + ` * MetroCluster interconnect show*`</block>
   <block id="7795bdbe14dd71c83b1053288d7744df" category="list-text">运行以下命令： + ` * network interface show*`</block>
   <block id="5127f26b0a13d7da193f0d35dc16f4a0" category="list-text">运行以下命令： + ` * network device-discovery show*`</block>
   <block id="32f7947faaa0b39c98413d31ab51eae6" category="list-text">运行以下命令： + ` * MetroCluster configuration-settings interface show*`</block>
   <block id="37458c869049da196f1df7bf07fb1855" category="list-text">如有必要，请将 AUSO 故障域修改为以禁用 AUSO</block>
-  <block id="b31a46a4ba6004f2ed3fd6632565a448" category="admonition">在 MetroCluster IP 配置中， AUSO 故障域已设置为 "auso-disabled" ，除非此配置已配置 ONTAP 调解器。</block>
   <block id="baf620aab7b9758c307a3f0ac247ab7f" category="list-text">暂停节点：</block>
-  <block id="f30bf82bc8eafa66c54fa40dcf42ea44" category="paragraph">` * 暂停 *`</block>
   <block id="c74361f8919e393c4955920ffabda5b7" category="list-text">MetroCluster IP 交换机</block>
   <block id="6c007491e186c6d6762c4c70985ea0d0" category="summary">您必须使用此 Brocade 专用操作步骤来更换发生故障的交换机。</block>
   <block id="84452876be406f671586db5dd2e7d620" category="doc">更换 Brocade FC 交换机</block>
@@ -11063,7 +11060,6 @@
   <block id="b6c12395a961cf95058c6e4d4412ac09" category="paragraph">下表提供了MetroCluster兼容交换机的平台特定网络速度和交换机端口模式。您应根据表配置交换机端口模式。</block>
   <block id="8c425f952493015588fb91113b5b2dd8" category="summary">本节介绍在所有MetroCluster IP配置和网络拓扑上传输MetroCluster流量的交换机间链路(ISL)的要求。</block>
   <block id="422a6c8c8d23cb29ed822adac0da8cd9" category="paragraph">在所有MetroCluster IP配置和网络拓扑上传输MetroCluster流量的交换机间链路(inter-Switch Link、ISL)具有特定要求。这些要求适用于传输MetroCluster流量的所有CRL、无论这些CRL是直接传输还是在客户交换机之间共享。</block>
-  <block id="a5c426f5b72cbfd96a6dec4a6e3046d2" category="paragraph">所有IP配置上的以下适用场景MetroCluster：</block>
   <block id="f2fe3be43c081827bf52c1013416d414" category="list-text">两个网络结构必须具有相同数量的CRL。</block>
   <block id="baf55d93093b54950152b6be3f9bfec2" category="list-text">一个网络结构上的所有ISO都必须具有相同的速度和长度。</block>
   <block id="4b00dc01ca120693f1539bf736f11069" category="list-text">两个网络结构中的ISO必须具有相同的速度和长度。</block>
@@ -11074,7 +11070,6 @@
   <block id="22380478e64b8062eb70d91ccdd67ce7" category="list-text">丢包率必须小于或等于0.01%。最大数据包丢失量等于MetroCluster节点之间路径上所有链路的所有丢失量与本地MetroCluster IP接口的丢失量之和。</block>
   <block id="0b2575167b6e71da84f0682066aa5c0d" category="list-text">支持的往返抖动值为3毫秒(或单向抖动为1.5毫秒)。</block>
   <block id="b1bbb8c0e7431a301e05959762cb6be0" category="list-text">网络应分配并保持MetroCluster流量所需的SLA带宽量、而不管流量中的微突发和峰值如何。</block>
-  <block id="db5dfb006abd3b92e48ae138fe185ffb" category="list-text">如果您使用的是ONTAP 9.7或更高版本、则两个站点之间的中间网络必须为MetroCluster IP配置提供4.5Gbps的最小带宽。</block>
   <block id="8feeeb8c24b7a524af9a025841262932" category="section-title">收发器和电缆注意事项</block>
   <block id="667735c31f9e3d4e69adccaa68e87206" category="paragraph">MetroCluster ISL 支持设备供应商支持的任何 SFP 或 QSFP 。交换机和交换机固件必须支持NetApp或设备供应商提供的SFP和QSFP。</block>
   <block id="887966b0ad45d1598b4a9517835a9477" category="paragraph">在将控制器连接到交换机和本地集群时、必须将NetApp提供的收发器和缆线与MetroCluster一起使用。</block>
@@ -14462,7 +14457,6 @@
   <block id="b5fd13a9bac03ffc7e9ccde70adc8242" category="doc">ONTAP Mediator 安装要求适用于 MetroCluster IP 配置</block>
   <block id="e5287e41bb7b528f560b85847eb683be" category="paragraph">如果您有一个 36 端口的 Cisco 9336C-FX2 交换机，并且您不打算将 NS224 存储连接到该交换机，请使用 <block ref="5e1610ecd3627713f0895c655a667651" category="inline-link-macro-rx"></block> 中的表。</block>
   <block id="b68398936049bd282794c33831e2aea9" category="paragraph">支持在 MetroCluster IP 配置中使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令进行 AFF A70 到 AFF A90 和 FAS70 到 FAS90 系统升级。</block>
-  <block id="2cc15add30dea4377769b3b77d052707" category="list-text">从 ONTAP 9.18.1 开始，MetroCluster IP 后端端口速度为 100Gbps 的平台要求最低 ISL 链路速度为 100Gbps。使用不同的 ISL 速度需要功能产品差异请求 (FPVR)。要提交 FPVR，请联系您的 NetApp 销售团队。</block>
   <block id="2691309e1710cb6a0083f4722ac33e8d" category="admonition">在当前不符合 100Gbps ISL 要求的平台上升级到 ONTAP 9.18.1 及更高版本不会被阻止，可以继续进行。但是，NetApp 强烈建议客户过渡到 100Gbps ISL 连接，以保持预期的性能和可用性水平。</block>
   <block id="2424b4c07e55bece1d1a95007a6782a8" category="list-text">每个交换矩阵必须至少有一个 10Gbps ISL 端口。</block>
   <block id="925adb23a78386992d24bff6e6e1b4e2" category="list-text">当您对连接 NS224 存储的 Cisco 9336C-FX2 交换机进行布线时，最多只能有两个 MetroCluster 配置或 DR 组。必须至少有一个 MetroCluster 配置或 DR 组将 NS224 盘架连接到该 MetroCluster 交换机。</block>
@@ -14498,4 +14492,10 @@
   <block id="e2bba64dd4e20eb5cd27b969fbf8dbce" category="paragraph">NetApp 建议您增加默认邮箱连接超时值，如果以下任一情况适用于您的环境：</block>
   <block id="d57bb94baa67d066f16fc9fc5b6def7e" category="list-text">您正在使用网络冗余协议（例如 HSRP 或 VRRP）或环路避免协议（例如 STP）。</block>
   <block id="29c1e5df7e26dbc34a0230732d8e3a0c" category="list-text">网络重新收敛时间（例如，路由协议稳定或重新选举后 HSRP/VRRP 变为活动状态）可以超过默认超时 10 秒。</block>
+  <block id="fdee122f655bcc29473b91ef1ae580b7" category="paragraph">以下要求适用于所有 MetroCluster IP 配置上的 ISL：</block>
+  <block id="c3dce11df95ca3b74ddf51996b7b87e2" category="list-text">从 ONTAP 9.18.1 开始，MetroCluster IP 后端端口速度为 100Gbps 的平台要求最低 ISL 链路速度为 100Gbps。使用不同的 ISL 速度需要功能策略差异请求 (FPVR)。要提交 FPVR，请联系您的 NetApp 销售团队。</block>
+  <block id="3f6fd3cf871a70252cd684eb0d12b602" category="paragraph">在开始维护或搬迁之前，请关闭整个 MetroCluster IP 配置和所有设备的电源。</block>
+  <block id="a79e1c21f0beaf2ed51b7aec418f4f70" category="list-text">验证两个站点的 MetroCluster 配置。</block>
+  <block id="108a4ad72df5c318a77dad90928d8770" category="admonition">在 MetroCluster IP 配置中，除非配置使用 ONTAP Mediator，否则 AUSO Failure Domain 已设置为 'auso-disabled'。</block>
+  <block id="6ba9661e38afca32fe30fec08ca5c4ab" category="list-text">暂停两个站点上的节点：</block>
 </blocks>
