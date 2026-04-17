@@ -15,7 +15,7 @@ summary: 您可以将IP交换机配置为使用SNMPv3进行运行状况监控。
 CAUTION: 在 Broadcom 和 Cisco 交换机上，每个具有日志收集功能的集群都需要一个新用户。例如，MetroCluster 1、MetroCluster 2、MetroCluster 3 和 MetroCluster 4 均需要在交换机上配置单独的用户。不支持为同一用户配置多个 SSH 密钥。
 
 .关于此任务
-以太网交换机运行状况监控器(CSHM)负责确保集群和存储网络交换机的运行状况、并收集交换机日志以进行调试。此过程将指导您完成设置收集、请求详细的*Support*日志以及启用每小时收集AutoSupport收集的*定期*数据的过程。
+以太网交换机健康监视器（CSHM）负责确保网络交换机的运行健康，并收集交换机日志以进行调试。此过程指导您完成设置收集、请求详细的 *Support* 日志以及启用每小时收集由 AutoSupport 收集的 *Periodic* 数据的过程。
 
 *注：*如果启用FIPS模式，则必须完成以下操作：
 

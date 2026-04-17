@@ -305,7 +305,7 @@ image::../media/8node_comb_ip_asa.png[适用于8节点配置的平台组合]
 
 
 
-== 验证 MetroCluster 配置的运行状况
+== 验证 MetroCluster 配置的运行状况。
 
 在执行扩展之前、您必须验证MetroCluster配置的运行状况和连接性。
 
@@ -486,7 +486,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for
 
 
 
-== 准备新控制器模块
+== 准备新的控制器模块
 
 您必须准备四个新的 MetroCluster 节点并安装正确的 ONTAP 版本。
 
@@ -512,7 +512,22 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for
 .. link:../install-ip/task_sw_config_assign_pool0.html#manually-assigning-drives-for-pool-0-ontap-9-4-and-later["手动为池0分配驱动器(ONTAP 9.4及更高版本)"]
 
 
-. 在维护模式下，问题描述 halt 命令退出维护模式，然后问题描述 boot_ontap 命令启动系统并进入集群设置。
+. 在维护模式下，发出 halt 命令以退出维护模式：
++
+`halt`
+
+. 检查 partner-sysid 是否正确：
++
+`printenv partner-sysid`
+
+. 如果 partner-sysid 不正确，请将其设置为：
++
+`setenv partner-sysid <partner-sysID>`
+
+. 启动系统并进入集群设置：
++
+`boot_ontap`
+
 +
 此时请勿完成集群向导或节点向导。
 
@@ -689,7 +704,7 @@ Do you want to use this configuration? {yes, no} [yes]: yes
 
 
 
-== 配置集群间 LIF ，创建 MetroCluster 接口以及镜像根聚合
+== 配置群集间 LIF，创建 MetroCluster 接口，镜像根聚合
 
 您必须创建集群对等 LIF ，并在新的 MetroCluster IP 节点上创建 MetroCluster 接口。
 

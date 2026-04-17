@@ -1983,7 +1983,6 @@
   <block id="98aac6693f8a0dda166a1ba85d8167f6" category="list-text">验证所有集群 LIF 是否均已启动且正常运行：</block>
   <block id="91271938ac44f690cd5a064a6a92425f" category="paragraph">每个集群 LIF 应为 "Is Home" 显示 true ，并且状态为 "Admin/Oper" 为 "up/up"</block>
   <block id="e74ba48b87be882bffe68906351b713a" category="list-text">验证是否已在所有集群 LIF 上启用自动还原：</block>
-  <block id="0bc247e1fb33acc5636986c990aa1e9a" category="section-title">从监控应用程序中删除配置</block>
   <block id="ae81bff40f90f640ae14eb37aaf345ea" category="paragraph">如果使用 MetroCluster Tiebreaker 软件， ONTAP 调解器或可启动切换的其他第三方应用程序（例如 ClusterLion ）监控现有配置，则必须在升级之前从监控软件中删除 MetroCluster 配置。</block>
   <block id="dbdccf881e62a812392682de3b418def" category="list-text">从 Tiebreaker ，调解器或其他可启动切换的软件中删除现有 MetroCluster 配置。</block>
   <block id="3cf98495d2d0556357fd3275c2ff1c80" category="cell">使用此操作步骤 ...</block>
@@ -2034,7 +2033,6 @@
   <block id="900a1c5621c4209a92d13274e1b23272" category="list-text">镜像根聚合：</block>
   <block id="2494cf3ea6304f13d911614b50a2449f" category="admonition">您必须在每个 MetroCluster IP 节点上完成此步骤。</block>
   <block id="4fbb06a55d361d0cd8cf430f9a799e67" category="list-text">验证根聚合是否已镜像：</block>
-  <block id="6c46e592d5f16891d3a16e5f364e031b" category="section-title">完成新节点的添加</block>
   <block id="756f29d7bcbe7decf6b979c0706fc9a1" category="paragraph">您必须将新的 DR 组加入 MetroCluster 配置，并在新节点上创建镜像数据聚合。</block>
   <block id="b24de9180a5deb759a394eebcd1a0305" category="list-text">在每个新 MetroCluster 节点上创建镜像数据聚合：</block>
   <block id="7062dd7205e5ed0cba84efd4203bc9cc" category="paragraph">以下示例显示了如何在 node_A_1-new 上创建聚合。</block>
@@ -12544,10 +12542,6 @@
   <block id="be4fd0012ddc006ea303591c9df6f76d" category="paragraph"><block ref="39b06b9a26b49c3db6d9409a6abaa9d8" prefix="" category="inline-code"></block></block>
   <block id="9e1d9b9e8b88355df08194559af6865a" category="summary">在切换期间、不应执行某些操作。</block>
   <block id="fa33dcb38c0cd6e15dd757f1ef3072ee" category="doc">MetroCluster配置处于切换状态时的限制</block>
-  <block id="5722cde27dfa05f795a5466b6d0859c9" category="paragraph">当系统处于切换状态时、不应执行某些操作。了解系统处于切换状态时的受限操作。</block>
-  <block id="b72a4837907e7fef0771c42da901c811" category="section-title">切换中的操作受限</block>
-  <block id="1b5f91752d52b3bac4319cf07ea0efb8" category="paragraph">当系统处于切换状态时、不支持以下操作：</block>
-  <block id="272c8dfc8e0821088d85ed5d0fe037a8" category="list-text">创建或删除聚合和卷</block>
   <block id="d825dd35fde2fe33a56ef95c52f545a0" category="list-text">创建或删除SVM</block>
   <block id="8c120d60e412429a6f43b748c02dc233" category="list-text">正在创建或删除此文件</block>
   <block id="9cc6607cba1650bc799439425f9b085e" category="list-text">添加或删除磁盘(仅当在恢复过程中更换磁盘时)</block>
@@ -13435,7 +13429,6 @@
   <block id="4e4facc560c88d40d47ce2b1369d5552" category="doc">在 MetroCluster IP 交换机上配置日志收集</block>
   <block id="d5a5c9619599da12d87af6daeab1ece6" category="paragraph">在 MetroCluster IP 配置中，您可以配置日志收集以收集交换机日志以用于调试目的。</block>
   <block id="7c51c84110459cf460a444094be133c4" category="admonition">在 Broadcom 和 Cisco 交换机上，每个具有日志收集功能的集群都需要一个新用户。例如，MetroCluster 1、MetroCluster 2、MetroCluster 3 和 MetroCluster 4 均需要在交换机上配置单独的用户。不支持为同一用户配置多个 SSH 密钥。</block>
-  <block id="8ac20e3719b6b58e94e5a4385e87b52e" category="paragraph">以太网交换机运行状况监控器(CSHM)负责确保集群和存储网络交换机的运行状况、并收集交换机日志以进行调试。此过程将指导您完成设置收集、请求详细的*Support*日志以及启用每小时收集AutoSupport收集的*定期*数据的过程。</block>
   <block id="2ded3ff3862adfc6f54d2a2f3ebf1147" category="paragraph">*注：*如果启用FIPS模式，则必须完成以下操作：</block>
   <block id="81f0d5b127adfd87f50ce10bc85e1e65" category="list-text">按照供应商说明在交换机上重新生成SSH密钥。</block>
   <block id="a60a00967db7342947b326a8f7618f52" category="list-text">使用在ONTAP中重新生成SSH密钥<block ref="c079360670e0f4f9441a54ac1d262788" prefix=" " category="inline-code"></block></block>
@@ -14499,4 +14492,15 @@
   <block id="108a4ad72df5c318a77dad90928d8770" category="admonition">在 MetroCluster IP 配置中，除非配置使用 ONTAP Mediator，否则 AUSO Failure Domain 已设置为 'auso-disabled'。</block>
   <block id="6ba9661e38afca32fe30fec08ca5c4ab" category="list-text">暂停两个站点上的节点：</block>
   <block id="f759ce596ef74c921d7bddaf277a11c8" category="paragraph">*注：* 25 GbE 速度需要 MAM1Q00A-QSA28 收发器适配器。</block>
+  <block id="316fa55db721e45107647fc0de79704f" category="paragraph">以太网交换机健康监视器（CSHM）负责确保网络交换机的运行健康，并收集交换机日志以进行调试。此过程指导您完成设置收集、请求详细的 *Support* 日志以及启用每小时收集由 AutoSupport 收集的 *Periodic* 数据的过程。</block>
+  <block id="4526d2820ba573572df0eafdc557014c" category="paragraph">当系统处于切换状态时，NetApp 建议您避免执行某些操作。</block>
+  <block id="6efa43350457e5d9dbe5d6c555eb32f9" category="paragraph">当系统处于切换状态时，不建议执行以下操作，并且只能在 NetApp 支持人员的指导下执行：</block>
+  <block id="9ea78d85c08becd89d5d23daef8687fa" category="list-text">创建或删除聚合</block>
+  <block id="56f10876ae2bed5f3da63c125772429f" category="list-text">创建或删除卷（包括加密卷）</block>
+  <block id="6e05136dba32fad75bd64f601602c77e" category="section-title">从监控应用程序中删除配置</block>
+  <block id="a8b426026583d79d39676c969bdc3456" category="section-title">准备新的控制器模块</block>
+  <block id="af8fde2f19f4ba506d9bb950533f5776" category="list-text">在维护模式下，发出 halt 命令以退出维护模式：</block>
+  <block id="b8bbebbdaa85ea395d4339565372cafe" category="list-text">启动系统并进入集群设置：</block>
+  <block id="e219586e70791b35867f7d4dc343163f" category="section-title">配置群集间 LIF，创建 MetroCluster 接口，镜像根聚合</block>
+  <block id="8780af330d271744603135da4ae91fd9" category="section-title">完成新节点的添加</block>
 </blocks>
