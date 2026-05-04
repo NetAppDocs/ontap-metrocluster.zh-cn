@@ -704,9 +704,284 @@ Do you want to use this configuration? {yes, no} [yes]: yes
 
 
 
-== 配置群集间 LIF，创建 MetroCluster 接口，镜像根聚合
+== 为集群对等配置集群间 LIF
 
-您必须创建集群对等 LIF ，并在新的 MetroCluster IP 节点上创建 MetroCluster 接口。
+您必须在用于 MetroCluster 配对集群之间通信的端口上创建集群间 LIF 。您可以使用专用端口或也具有数据流量的端口。
+
+[role="tabbed-block"]
+====
+.在专用端口上配置集群间 LIF
+--
+您可以在专用端口上配置集群间 LIF 。这样做通常会增加复制流量的可用带宽。
+
+.步骤
+. 列出集群中的端口：
++
+`network port show`
+
++
+有关完整的命令语法，请参见 link:https://docs.netapp.com/us-en/ontap-cli["ONTAP 命令参考"^]。
+
++
+以下示例显示了 "cluster01" 中的网络端口：
+
++
+[listing]
+----
+
+cluster01::> network port show
+                                                             Speed (Mbps)
+Node   Port      IPspace      Broadcast Domain Link   MTU    Admin/Oper
+------ --------- ------------ ---------------- ----- ------- ------------
+cluster01-01
+       e0a       Cluster      Cluster          up     1500   auto/1000
+       e0b       Cluster      Cluster          up     1500   auto/1000
+       e0c       Default      Default          up     1500   auto/1000
+       e0d       Default      Default          up     1500   auto/1000
+       e0e       Default      Default          up     1500   auto/1000
+       e0f       Default      Default          up     1500   auto/1000
+cluster01-02
+       e0a       Cluster      Cluster          up     1500   auto/1000
+       e0b       Cluster      Cluster          up     1500   auto/1000
+       e0c       Default      Default          up     1500   auto/1000
+       e0d       Default      Default          up     1500   auto/1000
+       e0e       Default      Default          up     1500   auto/1000
+       e0f       Default      Default          up     1500   auto/1000
+----
+. 确定哪些端口可专用于集群间通信：
++
+`network interface show -fields home-port ， curr-port`
+
++
+有关完整的命令语法，请参见 link:https://docs.netapp.com/us-en/ontap-cli["ONTAP 命令参考"^]。
+
++
+以下示例显示尚未为端口 e0e 和 e0f 分配 LIF ：
+
++
+[listing]
+----
+
+cluster01::> network interface show -fields home-port,curr-port
+vserver lif                  home-port curr-port
+------- -------------------- --------- ---------
+Cluster cluster01-01_clus1   e0a       e0a
+Cluster cluster01-01_clus2   e0b       e0b
+Cluster cluster01-02_clus1   e0a       e0a
+Cluster cluster01-02_clus2   e0b       e0b
+cluster01
+        cluster_mgmt         e0c       e0c
+cluster01
+        cluster01-01_mgmt1   e0c       e0c
+cluster01
+        cluster01-02_mgmt1   e0c       e0c
+----
+. 为专用端口创建故障转移组：
++
+`network interface failover-groups create -vserver <system_svm> -failover-group <failover_group> -targets <physical_or_logical_ports>`
+
++
+以下示例将端口 "e0e" 和 "e0f" 分配给 SVM "cluster01" 上的故障转移组 "intercluster01"：
+
++
+[listing]
+----
+cluster01::> network interface failover-groups create -vserver cluster01 -failover-group
+intercluster01 -targets
+cluster01-01:e0e,cluster01-01:e0f,cluster01-02:e0e,cluster01-02:e0f
+----
+. 验证是否已创建故障转移组：
++
+`network interface failover-groups show`
+
++
+有关完整的命令语法，请参见 link:https://docs.netapp.com/us-en/ontap-cli["ONTAP 命令参考"^]。
+
++
+[listing]
+----
+cluster01::> network interface failover-groups show
+                                  Failover
+Vserver          Group            Targets
+---------------- ---------------- --------------------------------------------
+Cluster
+                 Cluster
+                                  cluster01-01:e0a, cluster01-01:e0b,
+                                  cluster01-02:e0a, cluster01-02:e0b
+cluster01
+                 Default
+                                  cluster01-01:e0c, cluster01-01:e0d,
+                                  cluster01-02:e0c, cluster01-02:e0d,
+                                  cluster01-01:e0e, cluster01-01:e0f
+                                  cluster01-02:e0e, cluster01-02:e0f
+                 intercluster01
+                                  cluster01-01:e0e, cluster01-01:e0f
+                                  cluster01-02:e0e, cluster01-02:e0f
+----
+. 在系统 SVM 上创建集群间 LIF 并将其分配给故障转移组。
++
+`network interface create -vserver <system_svm> -lif <lif_name> -service-policy default-intercluster -home-node <node_name> -home-port <port_name> -address <port_ip_address> -netmask <netmask_address> -failover-group <failover_group>`
+
++
+以下示例将在故障转移组 "intercluster01" 中创建集群间 LIF "cluster01_icl01" 和 "cluster01_icl02" ：
+
++
+[listing]
+----
+cluster01::> network interface create -vserver cluster01 -lif cluster01_icl01 -service-
+policy default-intercluster -home-node cluster01-01 -home-port e0e -address 192.168.1.201
+-netmask 255.255.255.0 -failover-group intercluster01
+
+cluster01::> network interface create -vserver cluster01 -lif cluster01_icl02 -service-
+policy default-intercluster -home-node cluster01-02 -home-port e0e -address 192.168.1.202
+-netmask 255.255.255.0 -failover-group intercluster01
+----
+. 验证是否已创建集群间 LIF ：
++
+`network interface show -service-policy default-intercluster`
+
++
+[listing]
+----
+cluster01::> network interface show -service-policy default-intercluster
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+cluster01
+            cluster01_icl01
+                       up/up      192.168.1.201/24   cluster01-01  e0e     true
+            cluster01_icl02
+                       up/up      192.168.1.202/24   cluster01-02  e0e     true
+----
+. 验证集群间 LIF 是否冗余：
++
+`network interface show -service-policy default-intercluster -failover`
+
++
+以下示例显示端口 "e0e" 上的集群间 LIF "cluster01_icl01" 和 "cluster01_icl02" 将故障转移到端口 "e0f"。
+
++
+[listing]
+----
+cluster01::> network interface show -service-policy default-intercluster -failover
+         Logical         Home                  Failover        Failover
+Vserver  Interface       Node:Port             Policy          Group
+-------- --------------- --------------------- --------------- --------
+cluster01
+         cluster01_icl01 cluster01-01:e0e   local-only      intercluster01
+                            Failover Targets:  cluster01-01:e0e,
+                                               cluster01-01:e0f
+         cluster01_icl02 cluster01-02:e0e   local-only      intercluster01
+                            Failover Targets:  cluster01-02:e0e,
+                                               cluster01-02:e0f
+----
+
+
+--
+.在共享数据端口上配置集群间 LIF
+--
+您可以在与数据网络共享的端口上配置集群间 LIF 。这样可以减少集群间网络连接所需的端口数量。
+
+.步骤
+. 列出集群中的端口：
++
+`network port show`
+
++
+有关完整的命令语法，请参见 link:https://docs.netapp.com/us-en/ontap-cli["ONTAP 命令参考"^]。
+
++
+以下示例显示了 "cluster01" 中的网络端口：
+
++
+[listing]
+----
+
+cluster01::> network port show
+                                                             Speed (Mbps)
+Node   Port      IPspace      Broadcast Domain Link   MTU    Admin/Oper
+------ --------- ------------ ---------------- ----- ------- ------------
+cluster01-01
+       e0a       Cluster      Cluster          up     1500   auto/1000
+       e0b       Cluster      Cluster          up     1500   auto/1000
+       e0c       Default      Default          up     1500   auto/1000
+       e0d       Default      Default          up     1500   auto/1000
+cluster01-02
+       e0a       Cluster      Cluster          up     1500   auto/1000
+       e0b       Cluster      Cluster          up     1500   auto/1000
+       e0c       Default      Default          up     1500   auto/1000
+       e0d       Default      Default          up     1500   auto/1000
+----
+. 在系统 SVM 上创建集群间 LIF ：
++
+`network interface create -vserver <system_svm> -lif <lif_name> -service-policy default-intercluster -home-node <node_name> -home-port <port_name> -address <port_ip_address> -netmask <netmask>`
+
++
+以下示例将创建集群间 LIF "cluster01_icl01" 和 "cluster01_icl02" ：
+
++
+[listing]
+----
+
+cluster01::> network interface create -vserver cluster01 -lif cluster01_icl01 -service-
+policy default-intercluster -home-node cluster01-01 -home-port e0c -address 192.168.1.201
+-netmask 255.255.255.0
+
+cluster01::> network interface create -vserver cluster01 -lif cluster01_icl02 -service-
+policy default-intercluster -home-node cluster01-02 -home-port e0c -address 192.168.1.202
+-netmask 255.255.255.0
+----
+. 验证是否已创建集群间 LIF ：
++
+`network interface show -service-policy default-intercluster`
+
++
+您应该会看到类似以下示例的输出：
+
++
+[listing]
+----
+cluster01::> network interface show -service-policy default-intercluster
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+cluster01
+            cluster01_icl01
+                       up/up      192.168.1.201/24   cluster01-01  e0c     true
+            cluster01_icl02
+                       up/up      192.168.1.202/24   cluster01-02  e0c     true
+----
+. 验证集群间 LIF 是否冗余：
++
+`network interface show -service-policy default-intercluster -failover`
+
++
+以下示例显示 "e0c" 端口上的集群间 LIF"cluster01_icl01" 和 "cluster01_icl02" 将故障转移到 "e0d" 端口。
+
++
+[listing]
+----
+cluster01::> network interface show -service-policy default-intercluster -failover
+         Logical         Home                  Failover        Failover
+Vserver  Interface       Node:Port             Policy          Group
+-------- --------------- --------------------- --------------- --------
+cluster01
+         cluster01_icl01 cluster01-01:e0c   local-only         Default
+                            Failover Targets: cluster01-01:e0c,
+                                              cluster01-01:e0d
+         cluster01_icl02 cluster01-02:e0c   local-only         Default
+                            Failover Targets: cluster01-02:e0c,
+                                              cluster01-02:e0d
+----
+
+
+--
+====
+
+
+== 创建 MetroCluster 接口并镜像根聚合
+
+必须在新 MetroCluster IP 节点上创建 MetroCluster 接口并镜像根聚合。
 
 .关于此任务
 * 示例中使用的主端口是特定于平台的。您应使用特定于MetroCluster IP节点平台的主端口。
@@ -714,12 +989,18 @@ Do you want to use this configuration? {yes, no} [yes]: yes
 
 
 .步骤
-. 在新的 MetroCluster IP 节点上，使用以下过程配置集群间 LIF ：
+. 在每个站点上，将新的集群间 LIF 添加到对等关系中。
 +
-link:../install-ip/task_sw_config_configure_clusters.html#peering-the-clusters["在专用端口上配置集群间 LIF"]
+从 cluster_A 中，运行以下命令：
 
 +
-link:../install-ip/task_sw_config_configure_clusters.html#peering-the-clusters["在共享数据端口上配置集群间 LIF"]
+`cluster peer modify -cluster cluster_B -peer-addrs <node_B_1-old IC port_ip_address>,<node_B_2-old IC port_ip_address>,<node_B_1-new IC port_ip_address>,<node_B_2-new IC port_ip_address>`
+
++
+从 cluster_B 中，运行以下命令：
+
++
+`cluster peer modify -cluster cluster_A -peer-addrs <node_A_1-old IC port_ip_address>,<node_A_2-old IC port_ip_address>,<node_A_1-new IC port_ip_address>,<node_A_2-new IC port_ip_address>`
 
 . 在每个站点上，验证是否已配置集群对等：
 +
@@ -735,6 +1016,7 @@ cluster_A:> cluster peer show
 Peer Cluster Name         Cluster Serial Number Availability   Authentication
 ------------------------- --------------------- -------------- --------------
 cluster_B                 1-80-000011           Available      ok
+cluster_A::>
 ----
 +
 以下示例显示了 cluster_B 上的集群对等配置：

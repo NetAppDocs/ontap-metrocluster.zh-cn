@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: snmp, tiebreaker, software, configure, setting 
 summary: 要在 Tiebreaker 软件中使用 SNMP ，必须配置 SNMP 设置。 
 ---
-= 为 Tiebreaker 软件配置 SNMP 设置
+= 配置 MetroCluster Tiebreaker 软件的 SNMP 设置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -83,3 +83,6 @@ Successfully sent SNMP trap for event TEST_SNMP_CONFIG
 NetApp MetroCluster Tiebreaker :>
 ....
 
+
+.下一步是什么？
+link:concept_monitoring_the_mcc_configuration.html["监控 MetroCluster 配置"]

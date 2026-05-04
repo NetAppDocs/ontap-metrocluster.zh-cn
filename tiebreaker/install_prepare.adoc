@@ -119,3 +119,8 @@ ONTAP 9.1到ONTAP 9.9.1
 
 
 
+
+.下一步是什么？
+* 如果要安装或升级到 Tiebreaker 1.5 或更高版本，link:install_security.html["确保Tieb破碎 机主机和数据库安装的安全"]。
+* 如果要安装或升级到 Tiebreaker 1.4，link:install-dependencies-14.html["安装MetroCluster Tieb破碎 机1.4依赖关系"]。
+

@@ -36,14 +36,18 @@ entries:
         url: "/tiebreaker/install-dependencies-14.html"
       - title: 安装软件包
         url: "/tiebreaker/install-tiebreaker-package-14.html"
+- title: 配置 Tiebreaker 软件
+  entries:
+  - title: Tiebreaker 配置工作流程
+    url: "/tiebreaker/configure-tb-workflow.html"
+  - title: 配置 Tiebreaker 软件
+    url: "/tiebreaker/concept_configuring_the_tiebreaker_software.html"
+  - title: 为 Tiebreaker 软件配置 SNMP 设置
+    url: "/tiebreaker/task_configure_snmp_setts_for_tiebreaker_software.html"
+  - title: 监控 MetroCluster 配置
+    url: "/tiebreaker/concept_monitoring_the_mcc_configuration.html"
 - title: 升级主机
   url: "/tiebreaker/upgrade_host.html"
-- title: 配置 Tiebreaker 软件
-  url: "/tiebreaker/concept_configuring_the_tiebreaker_software.html"
-- title: 为 Tiebreaker 软件配置 SNMP 设置
-  url: "/tiebreaker/task_configure_snmp_setts_for_tiebreaker_software.html"
-- title: 监控 MetroCluster 配置
-  url: "/tiebreaker/concept_monitoring_the_mcc_configuration.html"
 - title: 在主动模式下使用 MetroCluster Tiebreaker 的风险和限制
   url: "/tiebreaker/concept_risks_and_limitation_of_using_mcc_tiebreaker_in_active_mode.html"
 - title: MetroCluster Tiebreaker 的防火墙要求

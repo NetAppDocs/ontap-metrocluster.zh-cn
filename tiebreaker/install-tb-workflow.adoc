@@ -4,7 +4,7 @@ permalink: tiebreaker/install-tb-workflow.html
 keywords: install, upgrade, tiebreaker, workflow, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, upgrade 
 summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，它还会在发生节点连接问题和站点灾难时发送 SNMP 通知。 
 ---
-= Tieb破碎 机安装工作流
+= MetroCluster Tiebreaker 安装工作流
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

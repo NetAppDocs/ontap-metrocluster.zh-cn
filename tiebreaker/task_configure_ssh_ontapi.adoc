@@ -23,3 +23,6 @@ summary: 您可以配置对ONTAP API和SSH的管理员访问权限。
 NOTE: link:https://docs.netapp.com/us-en/ontap/concepts/administrator-authentication-rbac-concept.html["管理员身份验证和 RBAC"^] 已实施。
 
 
+
+.下一步是什么？
+link:install_dependencies.html["安装依赖项"]。
