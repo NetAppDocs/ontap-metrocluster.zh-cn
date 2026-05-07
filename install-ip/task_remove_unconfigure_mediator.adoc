@@ -42,21 +42,6 @@ There are no entries matching your query.
 ....
 
 
-. 如果您使用的是使用 HTTPS 进行通信的 ONTAP Mediator，请在删除 ONTAP Mediator 后删除 CA 证书：
-+
-.. 显示已安装的 CA 证书：
-+
-`security certificate show -common-name ONTAPMediatorCA`
-
-.. 删除已安装的根证书和中间证书：
-+
-`security certificate delete -vserver cluster-A -common-name ONTAPMediatorCA -cert-name <root_certificate_name> -type server-ca -ca "ONTAP Mediator CA"`
-
-+
-`security certificate delete -vserver cluster-A -common-name ONTAPMediatorCA -cert-name <intermediate_certificate_name> -type server-ca -ca "ONTAP Mediator CA"`
-
-
-
 . 通过在两个群集上运行以下命令，确认已从 MetroCluster 配置中删除 ONTAP Mediator：
 +
 .. `metrocluster configuration-settings mediator show`
@@ -67,6 +52,15 @@ There are no entries matching your query.
 [listing]
 ----
 This table is currently empty.
+----
+.. `storage iscsi-initiator show -label mediator`
++
+* 示例 *
+
++
+[listing]
+----
+There are no entries matching your query.
 ----
 
 

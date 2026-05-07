@@ -13,9 +13,6 @@ summary:
 [role="lead"]
 MetroCluster IP 节点可以使用 iSCSI 会话访问 ONTAP Mediator 邮箱磁盘，其默认连接超时为 10 秒，包括 5 秒后的单次重试。根据您的 ONTAP 版本和环境，您可以将邮箱超时时间最多增加到 60 秒，以避免中断调解器辅助的计划外切换（MAUSO）。
 
-
-NOTE: 此任务仅适用于使用 iSCSI 配置的 ONTAP Mediator。此任务不适用于使用 HTTPS 的 ONTAP Mediator。
-
 NetApp 建议您增加默认邮箱连接超时值，如果以下任一情况适用于您的环境：
 
 * 您正在使用网络冗余协议（例如 HSRP 或 VRRP）或环路避免协议（例如 STP）。
