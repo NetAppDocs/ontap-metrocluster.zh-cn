@@ -13,6 +13,9 @@ summary: 使用系统管理器，您可以执行管理调解器的任务。
 [role="lead"]
 使用系统管理器，您可以执行管理 ONTAP 调解器的任务。
 
+
+NOTE: 只能使用 CLI 配置使用 HTTPS 的 ONTAP Mediator。不支持 System Manager。有关详细信息，请参阅 link:concept_mediator_requirements.html#select-a-communication-protocol-for-ontap-mediator["选择 ONTAP Mediator 的通信协议"]。
+
 .关于这些任务
 从System Manager-8开始、您可以使用ONTAP 9作为管理四节点MetroCluster IP配置的简化界面、其中可以包括安装在第三个位置的ONTAP调解器。
 
