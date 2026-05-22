@@ -79,7 +79,7 @@ entries:
       entries:
       - title: 配置基本设置
         url: "/install-ip/task_switch_config_cisco.html"
-      - title: 在 Cisco 9336C 交换机上配置 MACsec 加密
+      - title: 在 Cisco 9336C 交换机上配置 MACsec 加密（可选）
         url: "/install-ip/task_switch_config_cisco_macsec.html"
     - title: 配置NVIDIA IP交换机
       entries:
