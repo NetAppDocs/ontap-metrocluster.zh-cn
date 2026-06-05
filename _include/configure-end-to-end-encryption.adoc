@@ -103,7 +103,7 @@ system health alert show
 +
 [source, cli]
 ----
-security key-manager external show-status
+security key-manager external show
 ----
 . 为每个DR组启用端到端加密：
 +
@@ -217,7 +217,7 @@ system health alert show
 +
 [source, cli]
 ----
-security key-manager external show-status
+security key-manager external show
 ----
 . 在每个DR组上禁用端到端加密：
 +

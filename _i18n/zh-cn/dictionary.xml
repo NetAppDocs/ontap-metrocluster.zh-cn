@@ -1635,11 +1635,6 @@
   <block id="5d71f5f1513a5a67bb10323070ec1983" category="list-text">`fcp interface show -instance`</block>
   <block id="2fdab4f50b91e9173d8fd09c9243b0c3" category="list-text">`iscsi interface show`</block>
   <block id="5344ecb990fb0b0e60a7b979eeca26cd" category="list-text">`ucadmin show`</block>
-  <block id="8b1a6434b118fdab6cffd5eef984796d" category="list-text">如果根卷已加密，请收集并保存用于 key-manager 的密码短语：</block>
-  <block id="0c41288b073bc8667b15931457adf7c0" category="list-text">如果 MetroCluster 节点对卷或聚合使用加密，请复制有关密钥和密码短语的信息。</block>
-  <block id="db8057baa0e3040863709dc299c0a2b6" category="inline-link">手动备份板载密钥管理信息</block>
-  <block id="353024e475a7604e40871e8aa07253b1" category="paragraph">对于追加信息，请参见<block ref="17c328b6561af0ba38f0debcfa14ec48" category="inline-link-rx"></block>。</block>
-  <block id="b9284138ad08224a8431291e2a54805d" category="paragraph">您稍后将在升级操作步骤中需要此密码短语。</block>
   <block id="0680bb5259d11fc9085b95eff42515e4" category="section-title">从 Tiebreaker 或其他监控软件中删除现有配置</block>
   <block id="996ae2958095991e77250398220eb3d5" category="paragraph">如果使用 MetroCluster Tiebreaker 配置或可启动切换的其他第三方应用程序（例如 ClusterLion ）监控现有配置，则必须在过渡之前从 Tiebreaker 或其他软件中删除 MetroCluster 配置。</block>
   <block id="8db7c34118d5425403025b6210cacb71" category="list-text">从 Tiebreaker 软件中删除现有 MetroCluster 配置。</block>
@@ -2216,7 +2211,6 @@
   <block id="7ceccece33628eb60e24f0bbce323e85" category="paragraph">f03cb63c-9a7e-11e7-b68b-00a098908039</block>
   <block id="287479c19201793bc9fad832c5e65ee3" category="paragraph">node_A_2</block>
   <block id="83eb9244384a0bbfba085187f05dfe78" category="paragraph">aa9a7a7a-9a81-11e7-a4e9-00a098908c35</block>
-  <block id="6127871d3f874c72ca0ba6835dd78bce" category="list-text">如果配置了企业密钥管理（ KMIP ），请问题描述执行以下命令：</block>
   <block id="fb46345d4cd3f7e829969de1d6aa05e7" category="list-text">收集现有节点的系统 ID ：</block>
   <block id="6f439aaac5a6f2528f54f717e0c55a39" category="paragraph">以下输出显示了重新分配的驱动器。</block>
   <block id="8721fdb505c6c36bb5be2e19130e698c" category="paragraph">升级平台之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。</block>
@@ -7724,9 +7718,6 @@
   <block id="76ca0a669d54e112624a4faa696217a7" category="paragraph">您应在每个集群上问题描述此命令。您可以使用 `cluster date` 命令配置时间和时区。</block>
   <block id="11296fd304884401545d64cadeb2cb58" category="list-text">确认 MetroCluster 配置，并且操作模式为 `normal` ： + MetroCluster show`</block>
   <block id="58dfd7290fdd7167fe8b6aba631a611f" category="list-text">确认显示所有预期节点： + MetroCluster node show`</block>
-  <block id="934c2fba3eda4a063dd4bc3693527e81" category="paragraph">`security key-manager backup show`</block>
-  <block id="5dd8e2bcd1fdeaf6207d2362484a454c" category="list-text">如果配置了板载密钥管理器： + `security key-manager on板 载 show-backup`</block>
-  <block id="009130140f2855cf19e7630eb5284573" category="paragraph">`security key-manager external show -instance` `security key-manager key query`</block>
   <block id="0f08c117fa6e12343d030b7741d1d666" category="paragraph">`maintenance-window-in-hours` 参数指定维护窗口的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：</block>
   <block id="84662b9fedef1d258fb8d10005e76090" category="list-text">对 cluster_A 执行问题描述以下命令：</block>
   <block id="10e690310a4775deb6bc703a3d667b8c" category="paragraph">MetroCluster switchover -controller-replacement true`</block>
@@ -7766,7 +7757,6 @@
   <block id="814a61c853e0924925006646c354415b" category="list-text">从启动菜单中，选择 "` （ 6 ） Update flash from backup config` " 。</block>
   <block id="54e8ddb7f828b5837090d07ce05e08c3" category="admonition">选项 6 将重新启动节点两次，然后再完成</block>
   <block id="f3201d3871f5963f615afc28ccf4d91a" category="paragraph">对系统 ID 更改提示回答 `y` 。等待第二条重新启动消息：</block>
-  <block id="d477a37d10aff8dfb1c93b1fa5e33de8" category="paragraph">`sSecurity key-manager external restore -vserver _svm_ -node _node_-key-server _host_name_ip_address ： port_ -key-id key_id -key-tag key_tag _node-name_`</block>
   <block id="dd90e8a9a6ec169f911d6de53840e5b0" category="list-text">覆盖端口配置以确保 LIF 放置正确：</block>
   <block id="fd6749a20a942d2125b164a12dde1996" category="paragraph">`vserver config override -command "network interface modify -vserver _vserver_name_ -home-port _active_port_after_upgrade_-lif _lif_name_ -home-node _new_node_name_"`</block>
   <block id="99f4b5df4f6dc50627e069f95f4b85eb" category="paragraph">`network interface revert * -vserver _vserver-name_`</block>
@@ -8019,10 +8009,7 @@
   <block id="d0a21ff59a32489a592aeb50ea891e1c" category="list-text">验证配置中是否没有损坏的磁盘：</block>
   <block id="9c2ea476b2663febaae7e92749da7877" category="paragraph">`storage disk show -broken`</block>
   <block id="23a6830e0b1f38beb4090d86d31d8532" category="list-text">验证两个站点上的时区和时间设置是否正确：</block>
-  <block id="696b64bc323bdd13e4a324fd384d294c" category="list-text">如果配置了板载密钥管理器：</block>
   <block id="c497a6b930105164567b744840c21e94" category="paragraph">`s安全密钥管理器板载 show-backup`</block>
-  <block id="1b8b021695a2698fadae5c009b0b6295" category="paragraph">`security key-manager external show -instance`</block>
-  <block id="2a4a9d693caa859153f77cf2204d30cc" category="paragraph">`s安全密钥管理器密钥查询`</block>
   <block id="996bebf7afd4ff3c1c2c76a361bb12a0" category="list-text">修复数据聚合。</block>
   <block id="b784ced918e2a1928ccd95f5122fb01c" category="paragraph">`MetroCluster heal data-aggregates`</block>
   <block id="64a2c948ff5f5a4a19945315df55d3f1" category="list-text">您将使用中收集的信息 <block ref="1ed1cd4ef8bd2fcdaf4ac61e442842fa" category="inline-link-macro-rx"></block>。</block>
@@ -8175,7 +8162,6 @@
   <block id="01fcad9722b76bf721bf3e62d6025311" category="list-text">显示用于捕获备份密钥和其他信息的命令：</block>
   <block id="8005ab9a73c38cc367636a0ec9e8fa35" category="paragraph">`ssystem controller replace show`</block>
   <block id="a0e8bd8a19cc4080f31b71bf720b5cea" category="paragraph">从配对集群运行 `show` 命令下列出的命令。</block>
-  <block id="f6ab51154cdfc097564bafa164ac20be" category="paragraph">对于追加信息，请参见<block ref="9c5418b86e38fd117e0f48c25b2c7372" category="inline-link-rx"></block>。</block>
   <block id="e62705f78105356bbf7fa312e78e684a" category="list-text">收集完配置信息后，恢复此操作：</block>
   <block id="d6fd449bc639f92f27b747fd5b40361d" category="paragraph">`s系统控制器更换恢复`</block>
   <block id="7080e7642990f343422154f3680f5f54" category="paragraph">如果使用 MetroCluster Tiebreaker 配置或其他可启动切换的第三方应用程序（例如 ClusterLion ）监控现有配置，则在更换旧控制器之前，必须先从 Tiebreaker 或其他软件中删除 MetroCluster 配置。</block>
@@ -8186,11 +8172,9 @@
   <block id="76947da623011473e258bcef85f2724d" category="paragraph">请参见 <block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block> 有关 FC-VI 卡的插槽信息。</block>
   <block id="664faa773b897771d732ec0de99d505a" category="paragraph">使用先前收集的 `sysids` 将根聚合磁盘重新分配给新控制器模块</block>
   <block id="bfb74093c695212150621f6bdf9a4d2e" category="paragraph">您可以重新配置 VLAN 和接口组。如果需要，请在使用 `ssystem controller replace resume` 命令恢复操作之前手动修改集群 LIF 的端口和广播域详细信息。</block>
-  <block id="045153dd32979a83552dc18f97eb10d7" category="list-text">如果使用根加密，请为密钥管理配置选择启动菜单选项。</block>
   <block id="15f46bcb6931f7562d903b4ad6dd6724" category="cell">选择此启动菜单选项 ...</block>
   <block id="178098baf7cc420884cc556dea26c7ca" category="paragraph">选项 `10`</block>
   <block id="6f5ca753326737c7593f401e5c5d7859" category="paragraph">选项 `11`</block>
-  <block id="628ec0782add3a1eca1d1b88c88303f8" category="list-text">如果使用根加密，请为密钥管理配置再次选择启动菜单选项。</block>
   <block id="1a483f94c29c1132f258efc379367329" category="paragraph"><block ref="1a483f94c29c1132f258efc379367329" category="inline-link-rx"></block></block>
   <block id="4bffe29d6d1104677dcfeb9e99ac549e" category="paragraph"><block ref="4bffe29d6d1104677dcfeb9e99ac549e" category="inline-link-rx"></block></block>
   <block id="7b79bd2b52b89f70edfedac8da540bb3" category="paragraph"><block ref="7b79bd2b52b89f70edfedac8da540bb3" category="inline-link-rx"></block></block>
@@ -8288,10 +8272,7 @@
   <block id="9a0dfb0af7717632c4b3bc7de1ff2fff" category="paragraph"><block ref="9a0dfb0af7717632c4b3bc7de1ff2fff" category="inline-link-rx"></block></block>
   <block id="8891488ccf0af3b6c4a946824e6f0cdc" category="admonition">当前仅支持一个 SNMP 陷阱主机。</block>
   <block id="4ab496c462bc9a729fe703221c683545" category="paragraph"><block ref="4ab496c462bc9a729fe703221c683545" category="inline-link-macro-rx"></block></block>
-  <block id="1ba2ae150e1cee5c2dbe25aa1a0e18b0" category="paragraph">按照提示提供恢复和还原密钥管理器配置所需的输入。</block>
-  <block id="9cf18883abd310f0e24341194095b229" category="list-text">如果使用根加密，则根据您使用的 ONTAP 版本，选择启动菜单选项或问题描述启动菜单命令以用于密钥管理配置。</block>
   <block id="716a92112769d0f62895dc8c3a9fe47f" category="list-text">从 ONTAP 9.8 开始，选择启动菜单选项。</block>
-  <block id="2d9e786c47fe4bbb5d2cec20e0f373eb" category="list-text">如果使用根加密，则根据您使用的 ONTAP 版本，为您的密钥管理配置选择启动菜单选项或再次选择问题描述启动菜单命令。</block>
   <block id="1739256103cb7d112712a588fb2f6506" category="inline-link-macro">设置 ONTAP</block>
   <block id="fa60d55773bc424e586a8c4898b4bc9f" category="inline-link-macro">磁盘和聚合管理</block>
   <block id="a722c96220981ad0bb2bcff8ce41fc72" category="inline-link">使用 CLI 进行数据保护</block>
@@ -8569,9 +8550,6 @@
   <block id="9c1a38eb049be04bc1fa9147e20650b3" category="list-text">收集每个节点的以下命令输出：</block>
   <block id="7a712cf65b51315015ead79fa1c04bb4" category="list-text">收集 site_B （当前正在升级其平台的站点）的 UUID ： `MetroCluster node show -fields node-cluster-uuid ， node-uuid`</block>
   <block id="fd86e8b040cc38b3481aa4ca1a66fdc3" category="paragraph">必须在新的 site_B 控制器模块上准确配置这些值，以确保成功升级。将这些值复制到文件，以便稍后在升级过程中将其复制到正确的命令中。+ 以下示例显示了包含 UUID 的命令输出：</block>
-  <block id="17d958aeb34005de78d5f16c3fb8d4d0" category="list-text">如果根卷已加密，请收集并保存用于 key-manager 的密码短语： `security key-manager backup show`</block>
-  <block id="4e6bb29fad09442b6758473a381112e2" category="list-text">如果 MetroCluster 节点对卷或聚合使用加密，请复制有关密钥和密码短语的信息。对于追加信息，请参见<block ref="0abbdd13a8c045ec09bd7c54eb2d0bef" category="inline-link-rx"></block>。</block>
-  <block id="bebcf28331e2ef1173754b217ce3b9d4" category="list-text">如果配置了板载密钥管理器： `security key-manager on板 载 show-backup` + 您稍后将在升级操作步骤中需要密码短语。</block>
   <block id="10a7f52b07c24ded6796ce7b186bcafe" category="list-text">收集现有节点的系统 ID ： `MetroCluster node show -fields node-systemID ， ha-partner-systemID ， dr-partner-systemID ， dr-auxiliary-systemID`</block>
   <block id="1cefe6fb0bd3a21a29c31cc3652723ce" category="section-title">删除调解器或 Tiebreaker 监控</block>
   <block id="2c8c38da3af9290bc8367a776b867b51" category="section-title">在维护之前发送自定义 AutoSupport 消息</block>
@@ -8667,8 +8645,6 @@
   <block id="02e8a6935997050f797cf96450dbce29" category="list-text">从维护模式提示符处显示 node_B_1-A900 上的磁盘：</block>
   <block id="5199ebe33b0d6ce55d2b8445fe9d6980" category="list-text">验证是否已正确重新分配根聚合中的磁盘 old-remove ：</block>
   <block id="77ea5d16a16f95bff985aa89f73f5ed3" category="section-title">启动新控制器</block>
-  <block id="77eb63f0ebfdd7e3f0339c99d94d75d8" category="paragraph">选项 10 ，然后按照提示提供所需的输入以恢复或还原密钥管理器配置</block>
-  <block id="f1c846bcc7483d91b8753952833cfe0b" category="paragraph">选项 11 ，然后按照提示提供所需的输入以恢复或还原密钥管理器配置</block>
   <block id="4164f680d252cb689f614cf976bcc203" category="list-text">从启动菜单中，选择 ` （ 6 ） Update flash from backup config` 。</block>
   <block id="a90679f6ecce7659e21997990155707f" category="list-text">中断自动启动以停止加载程序上的控制器。</block>
   <block id="91eea79b3297ad2732fd614ffc48335c" category="admonition">在每个节点上，检查中设置的 bootarg <block ref="c3652d8371e8759d3786637bc5f1c8bc" category="inline-link-macro-rx"></block> 并更正任何不正确的值。请仅在检查 bootarg 值后再移至下一步。</block>
@@ -8712,7 +8688,6 @@
   <block id="a0efecab010293ebd247221cd9cca871" category="list-text">node_A_2-A700 ： 537407030</block>
   <block id="c5c663e6628e19ffabcbcb01ecaa23e3" category="list-text">node_B_1-A700 ： 0537407114</block>
   <block id="447b7bdefc8e750f8d7dab18bb9172ea" category="list-text">node_B_2-A700 ： 537035354</block>
-  <block id="50d704bfae735cf9f8824da705413abc" category="paragraph">对于追加信息，请参见<block ref="0abbdd13a8c045ec09bd7c54eb2d0bef" category="inline-link-rx"></block>。</block>
   <block id="fbb702216c9d47455a0b8dbde9a6a6ca" category="paragraph">您必须从配置中删除旧控制器。</block>
   <block id="594c103f2c6e04c3d8ab059f031e0c1a" category="inline-image-macro">控制器</block>
   <block id="5370787e20e547791ddb1e14849b2cd9" category="paragraph"><block ref="5370787e20e547791ddb1e14849b2cd9" category="inline-image-macro-rx" type="image"></block></block>
@@ -8757,12 +8732,9 @@
   <block id="b4886ce49c161e4611a0f92229f5ca00" category="list-text">检查是否已按预期重新分配所有磁盘： `disk show`</block>
   <block id="315d002f039b19ee1ed5b40bb772bde1" category="list-text">显示聚合状态： `aggr status`</block>
   <block id="b62c51c801aebbaf695e6746676c0668" category="list-text">在配对节点（ node_B_2-A900 ）上重复上述步骤。</block>
-  <block id="a0a7d863d75d1083974d54de25a20b2b" category="list-text">如果使用根加密，请对密钥管理配置使用问题描述启动菜单命令。</block>
-  <block id="efe5387363cb0a162d3144e7be598e40" category="paragraph">选项 11 ，然后按照提示提供所需的输入以恢复或还原密钥管理器配置</block>
   <block id="f4874a68e6d7f49851ee24731ec354c8" category="list-text">仔细检查 partner-sysid 是否正确： `printenv partner-sysid`</block>
   <block id="a011695a667d4d881a8eb17cebc6796a" category="paragraph">如果 partner-sysid 不正确，请将其设置为： `setenv partner-sysid _partner-sysID_`</block>
   <block id="ecb784a0d718480cf2373a1c93d92d6b" category="list-text">如果使用根加密，问题描述请针对您的密钥管理配置重新输入启动菜单命令。</block>
-  <block id="2a6e010933dcb7b2124653ec9e7aa06f" category="paragraph">选项 11 ，然后按照提示提供所需的输入以恢复或还原密钥管理器配置</block>
   <block id="e6e35a3f4ac372a4d2b484e43408358d" category="paragraph">您可能需要在启动菜单提示符处多次问题描述 `re封装 _xxxxxxxx_keymanager` 命令，直到节点完全启动为止。</block>
   <block id="4dbc5bd19b9fd833f99647d4bbc60473" category="list-text">启动节点： `boot_ontap`</block>
   <block id="3bfc27192d723c105da2c9242eca6d00" category="inline-link-macro">在广播域中添加或删除端口</block>
@@ -9498,8 +9470,6 @@
   <block id="a4aa69385ab0a1b92a7a5635cdb2f2b2" category="paragraph"><block ref="903819e2154a41f8227f7c0192db71f6" category="inline-link-macro-rx"></block>。</block>
   <block id="bc13f269b8fcdbac7ef84f083e616363" category="paragraph">有关 MetroCluster 配置设置和连接的详细信息，请参见以下内容：</block>
   <block id="c09c91c40853cc803259a2c27d8fa946" category="paragraph">对系统 ID 更改提示回答 "`y` " 。等待第二条重新启动消息：</block>
-  <block id="f1318dc614d34488bcb6f8bef3e32bff" category="paragraph">选项 "`11` "</block>
-  <block id="37ef00a03e6b4bacbc26b2ee369f838f" category="paragraph">根据密钥管理器设置，执行恢复操作步骤的方法是选择选项 "`10` " 或选项 "`11` " ，然后在第一个启动菜单提示符处选择选项 `6` 。要完全启动节点，您可能需要重复恢复操作步骤，然后选择 "`1` " （正常启动）。</block>
   <block id="9dc1904e0c3ace141704b477cd9b345d" category="inline-link-macro">网络管理</block>
   <block id="84c335ab98bb834a85c89e20e223e638" category="paragraph">有关您的平台的默认端口角色列表，请参见<block ref="a9613e1dbacf145285c45df4264fe797" category="inline-link-rx"></block></block>
   <block id="4b921a602b7b9dfd3ef2bf07ef52ad90" category="paragraph">在以下示例中，端口 "`e0a` " ， "`e0b` " ， "`e0c` " 和 "`e0d` " 必须更改为集群端口：</block>
@@ -9510,7 +9480,6 @@
   <block id="06dd50ba0fbb8fe8e1275ce3a8f1780c" category="paragraph">包括 SAN 和 NAS 在内的所有数据 LIF 都将为 admin "`up` " 和 Operationally "`down` " ，因为这些 LIF 在切换站点（ cluster_A ）上已启动。</block>
   <block id="e5d9bbeb62634011317a03db540cbd41" category="paragraph">例如， "`e0d` " 是旧控制器上的物理端口，也存在于新控制器上。"`e0d` " 不会用作集群端口，也不会在新控制器上使用。</block>
   <block id="8e2361467ff0169a4533484be16883d8" category="paragraph">在以下示例中，此值为 "`e0d` " 。</block>
-  <block id="cc5eb1ddd782b52c5fabe965793bc6f4" category="paragraph">选项 "`10` "</block>
   <block id="ebfd098b07a4e0eedf482c0b87be6e89" category="list-text">如果启用了自动启动，请按 Ctrl-C 中断自动启动</block>
   <block id="e230d4e771549b231a7eda2894a670a5" category="list-text">从启动菜单中，运行选项 "`6` " 。</block>
   <block id="4c3c853efc0864d6f85e88e17a282dba" category="admonition">选项 "`6` " 将在完成前重新启动节点两次。</block>
@@ -11903,7 +11872,6 @@
   <block id="32c64742b195a65781738c8b44e4a352" category="paragraph"><block ref="6292300caa922eb09cdd1732fcc043df" prefix="" category="inline-code"></block></block>
   <block id="00c407fe45f64374369a1722aa8f9a72" category="paragraph"><block ref="1c8d45cfa7c093e5e83aa2b0c6f041ba" prefix="" category="inline-code"></block></block>
   <block id="81c0cfa4d81a326f65d742ed4d1ee46b" category="paragraph"><block ref="ab36db401b8d98490b7c51ef5a618243" prefix="" category="inline-code"></block></block>
-  <block id="fdf8e4fe9b3e05181cd8befb0c17897f" category="paragraph"><block ref="a8dfa60f338d6757ce57f0b05c861249" prefix="" category="inline-code"></block></block>
   <block id="fb0d5feb3def76f90b6408f32f99f4b7" category="list-text">如果为新升级的控制器上的数据端口创建了新的广播域、请删除此广播域：</block>
   <block id="8cb8d05546274856c8c2cb56b7cd62ac" category="paragraph"><block ref="7bbb7f17a19e67be5ebaaa8410749ad2" prefix="" category="inline-code"></block></block>
   <block id="a51de836d51a26774e16aa7066519185" category="paragraph"><block ref="6a6db1083e2f8c53b07cc196dec3cafb" prefix="" category="inline-code"></block></block>
@@ -11931,7 +11899,6 @@
   <block id="b18f9742d77912f838f8a0bc859bbf11" category="list-text">在提示符处<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> 、为管理LIF配置网络启动连接：</block>
   <block id="7c9dbc13c4af0588948dc0974ad07931" category="paragraph">运行命令后、请等待、直到节点停留在提示符处<block ref="82b8350d28f0a14e36de1958b3be9205" prefix=" " category="inline-code"></block> 。</block>
   <block id="c200b51f243e6499b1e4aff027683496" category="paragraph"><block ref="4ce4e1d2d83eceacd4a0a0cf1bad8e14" prefix="" category="inline-code"></block></block>
-  <block id="c848af1101f629db69baafb2b08b9915" category="paragraph"><block ref="ce889b95687da5aee0c3d9ec48e819b4" prefix="" category="inline-code"></block></block>
   <block id="2d425665af37b9989f89179649650990" category="section-title">完成升级</block>
   <block id="7bf9d1ef7aeb37de6171f77014cb7475" category="paragraph">某些平台使用 VLAN 作为 MetroCluster IP 接口。默认情况下，这两个端口中的每个端口都使用不同的 VLAN ： 10 和 20 。</block>
   <block id="b676a1207e184308799f51c46b2c49b4" category="paragraph">+如果支持、您还可以使用命令中的参数指定一个高于100 (介于101和4095之间)的其他(非默认) VLAN<block ref="6790c40b1680557da1f80536ae186301" prefix=" " category="inline-code"></block><block ref="f2986433c79fe84ff207e72d4ed9fd6f" prefix=" " category="inline-code"></block> 。</block>
@@ -12829,10 +12796,8 @@
   <block id="2bd6f53f70717822994364eab0bf6cbb" category="paragraph">必须在新的 site_B 控制器模块上准确配置这些值，以确保成功升级。将值复制到文件、以便稍后在升级过程中将其复制到命令中。</block>
   <block id="ed2b77aa370645814dafbf5dd8aef15f" category="paragraph">NetApp建议您将这些UID记录在如下表中：</block>
   <block id="6bfdd861df764d52de7823dd5958fab3" category="paragraph">收集以下命令的输出：</block>
-  <block id="f3f4fd8fb847fe1a5ad11aacd71b5fad" category="list-text">如果根卷已加密、请收集并保存用于密钥管理器的密码短语：</block>
   <block id="3c3a3838848890665c5d4969e896b405" category="inline-link">手动备份板载密钥管理信息</block>
   <block id="a99b2b056456bd0991317c897eb6b8b6" category="paragraph">有关更多信息，请参见<block ref="3c8480dc65ec7d91021d4d612b6bf420" category="inline-link-rx"></block>。</block>
-  <block id="a1f17dd5bd9c97697b58a9f90f8bfe7d" category="paragraph">您需要在稍后的升级过程中提供密码短语。</block>
   <block id="e6790e163decf815ae94c9137d60eb13" category="paragraph"><block ref="766cba2090a16f1ed1bcf4bf4dada91b" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="b52a41eb513dc979f4cf2a4a13686ecd" category="summary">更新新平台的交换机RCF、并在控制器模块上设置MetroCluster IP启动程序值。</block>
   <block id="bad868fbc306571d732100a7612b6381" category="list-text">您需要中先前升级过程中确定的UID和系统ID<block ref="aacd1fc1f619acd6603cbd45ee223ad9" category="inline-link-macro-rx"></block>。</block>
@@ -12858,7 +12823,6 @@
   <block id="cb990f25bc5eb8215bf8eb74c16807f3" category="summary">要为控制器升级做准备、请执行系统预检并收集配置信息。</block>
   <block id="c458b5225672f84c61d5b9931863ae60" category="paragraph">要为控制器升级做准备、您可能需要根据新旧平台型号升级交换机参考配置文件(RCF)。然后、您可以执行系统预检、收集配置信息并删除现有监控软件。</block>
   <block id="0c21b75966b293902f32e19c44cfee40" category="list-text">交换机RC框架 配置不是最低版本。</block>
-  <block id="2592dc8685229c73a77e91741c837a63" category="paragraph">有关更多信息，请参见<block ref="8d2708bcc3f1eaf7281ec3a4227ab734" category="inline-link-rx"></block>。</block>
   <block id="0db7751284ee845ba2b1c67a8d8704db" category="section-title">从Tieb破碎 机或其他监控软件中删除现有配置</block>
   <block id="0cd4dc9ba4eb47708afdb2049d98c13a" category="paragraph">在开始升级之前、请从Tieb破碎 机或其他监控软件中删除现有配置。</block>
   <block id="63176d27bda1b994565a28492ed02e97" category="paragraph"><block ref="209008f8360496ff2e8d9d6e8b8625cb" category="inline-link-macro-rx"></block>(英文)</block>
@@ -14561,7 +14525,6 @@
   <block id="ab84d029506bbf94968a8439506e5c7f" category="paragraph"><block ref="386c9422b8a78bb2663b14ec5cff7d1e" category="inline-link-macro-rx"></block>。</block>
   <block id="ea7f38fbe84ac28be0f7c90cca730a69" category="paragraph">ONTAP 9.19.1</block>
   <block id="65e78b09746a9ca4025a1c248d42a1bb" category="list-text">验证您可以使用系统访问 HTTP 服务器。</block>
-  <block id="b91a26ac8a9beeea2dbb082ebcc79563" category="list-text">AFF A30、AFF C30、AFF C60 和 FAS50 系统需要控制器卡中的 QSFP 到 SFP 适配器，以支持 25Gbps 的网络速度。</block>
   <block id="68ce146fd9ae3ad96c5895b1c1869059" category="cell">网络速度 (Gbps)</block>
   <block id="0ec1914fce58a6a4d1748f3ace018fa1" category="cell">交换机端口模式</block>
   <block id="9903737bdb8c33503d4677b804a93bb3" category="paragraph">100Gbps</block>
@@ -14586,4 +14549,34 @@
   <block id="3b1fc3e7f78026e75788d28bc49ca81d" category="list-text">MACsec 加密只能应用于站点之间运行的 WAN ISL 端口。</block>
   <block id="68bddd16e24ef3e862d1cb8ff822ad2a" category="list-text">配置 Cisco 9336C 交换机时，配置 MACsec 加密是可选的。</block>
   <block id="95c3b415a470d1839fa2fedd54783abb" category="sidebar">在 Cisco 9336C 交换机上配置 MACsec 加密（可选）</block>
+  <block id="4b0a97a6b0bdcb156b3f67e9848a9112" category="list-text">AFF A30、AFF C30、AFF C60 和 FAS50 系统需要控制器卡中的 QSFP 至 SFP+ 适配器，以支持 25Gbps 的网络速度。</block>
+  <block id="c6281cb9e12957678935280493ecbf9b" category="list-text">如果 MetroCluster 节点配置了管理 SVM（集群）的外部密钥管理器，请将密钥服务器信息复制到安全位置。如果已配置板载密钥管理器，请将备份信息和密码复制到安全位置。</block>
+  <block id="a32dd2ca79d8d8a0056821cb37fed7f4" category="open-title">板载密钥管理器</block>
+  <block id="02d53c29cf140abcd193b9c1723fdf54" category="list-text">运行以下命令来显示 Onboard Key Manager 备份：</block>
+  <block id="f230e34fbade37cb7e2748f14b011a55" category="paragraph">稍后在升级过程中，您还需要最新的板载密钥管理器密码。</block>
+  <block id="e147253c0010bdd5968cb9b4b9ddf7dc" category="open-title">外部密钥管理器</block>
+  <block id="27c1c525fcac8be97773845c4153016f" category="paragraph">收集稍后在过程中还原密钥管理器配置所需的外部密钥管理信息。</block>
+  <block id="27fd7163d866930d288c0f5e2344ad6f" category="list-text">显示管理 SVM（集群）的名称。</block>
+  <block id="04e9e74e2055e2de638ade039733bad9" category="paragraph"><block ref="2f710df81fb8b58c1792ebb010c82902" prefix="" category="inline-code"></block></block>
+  <block id="c8bc490435fa03382fb48cab3f4fb2ef" category="paragraph">在此示例中，管理 SVM 名称为 cluster_B：</block>
+  <block id="5a9ce7a88c085f9363a2b74570d95da4" category="list-text">获取与 admin SVM（集群）上配置的外部密钥管理器关联的主密钥服务器的地址和端口号：</block>
+  <block id="fc545d3a1dcf807591f5390fe6c19c38" category="list-text">管理 SVM 最多可以有四个主密钥服务器，但您只需要其中一个主密钥服务器的端口号和地址，即可在后面的过程中还原密钥管理配置。</block>
+  <block id="99a70d62e06533053186703c4fa1612a" category="list-text">如果与所选主密钥服务器关联有用户名和密码，则还需要该信息用于恢复过程。</block>
+  <block id="710b0b4bdec68210bf595836065945d1" category="paragraph"><block ref="e25e9ed12a510a32b3dd7ba5e30c99bd" prefix="" category="inline-code"></block></block>
+  <block id="950c88730c61d3aaba629ef95167a4d0" category="list-text">如果运行的是 ONTAP 9.16.1 或更高版本，请获取管理 SVM 的密钥库 UUID。</block>
+  <block id="8fa8e4c1d8f1eddf4b3ed33d3f762581" category="paragraph"><block ref="aca7cb102916cf251ebebf80d39fb590" prefix="" category="inline-code"></block></block>
+  <block id="fbb82e5f47d565d7d6f73034eaf2db90" category="list-text">将您收集的信息保存在安全的位置，以便稍后在程序中使用。您现在应该已经收集了以下信息：</block>
+  <block id="84613aa0a239d9f90644829a81e8a1c1" category="list-text">管理 SVM 的一个主密钥服务器的端口号和地址</block>
+  <block id="75d00576e854524567e7012ae7dba6d1" category="list-text">用户名和密码（如果与所选主密钥服务器关联）</block>
+  <block id="53fc62bfc038a4e8f537285cac249b99" category="list-text">管理 SVM 的密钥库 UUID（ONTAP 9.16.1 或更高版本中必需）</block>
+  <block id="fc96c3a221edb7e2daa363e45683eee9" category="list-text">如果 MetroCluster 系统的管理 SVM 配置了密钥管理器，请为您的密钥管理配置选择正确的启动菜单选项。</block>
+  <block id="8cfe2cd4decf0bb731981d68dc28786e" category="paragraph">按照提示提供以下输入，以恢复和还原密钥管理器配置：</block>
+  <block id="1037f0f4833f6675008fa17acab37754" category="list-text">板载密钥管理器备份和密码</block>
+  <block id="a1689d086474886da6e670c56be9b271" category="list-text">用户名和密码（如果与所选主密钥服务器关联）</block>
+  <block id="e50b141f57c3a9e77277ff3473436277" category="paragraph">*注意：*虽然管理 SVM 最多可以有四个主密钥服务器，但在恢复过程中只能指定一个主密钥服务器的信息。</block>
+  <block id="13c770359b6f10114b42ba39fdc8a43a" category="paragraph"><block ref="9a1bb06317d9933868db18de7bf4db37" prefix="" category="inline-code"></block></block>
+  <block id="b46ce2316c689c599dffa14540ae053b" category="list-text">如果使用根卷加密，请为密钥管理配置再次选择引导菜单选项。</block>
+  <block id="caf6332dea07cf4b950c8d71d7e45e42" category="list-text">如果使用根卷加密，请根据您使用的 ONTAP 版本，选择引导菜单选项或为密钥管理配置再次发出引导菜单命令。</block>
+  <block id="b0fbf352a8f099c3b53b0641730683b8" category="paragraph">根据密钥管理器类型，通过选择选项 "`10`" 或选项 "`11`" 来执行恢复过程，然后在第一个启动菜单提示符处选择选项<block ref="1679091c5a880faf6fb5e6087eb1b2dc" prefix=" " category="inline-code"></block>。要完全引导节点，您可能需要重复选项 "`1`"（正常引导）继续的恢复过程。</block>
+  <block id="ded8f2620d58acfd69775bc49e48b168" category="list-text">如果在 admin SVM 上启用了加密，请使用正确的密钥管理配置命令恢复密钥。</block>
 </blocks>

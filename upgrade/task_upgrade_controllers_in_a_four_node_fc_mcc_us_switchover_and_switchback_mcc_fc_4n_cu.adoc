@@ -485,31 +485,99 @@ dr-group-id cluster    node      node-systemid dr-partner-systemid
 ** `ucadmin show`
 
 
-. 如果根卷已加密，请收集并保存用于 key-manager 的密码短语：
+. 如果 MetroCluster 节点配置了管理 SVM（集群）的外部密钥管理器，请将密钥服务器信息复制到安全位置。如果已配置板载密钥管理器，请将备份信息和密码复制到安全位置。
 +
-`security key-manager backup show`
-
-. 如果 MetroCluster 节点对卷或聚合使用加密，请复制有关密钥和密码短语的信息。
-+
-对于追加信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-1677AE0A-FEF7-45FA-8616-885AA3283BCF.html["手动备份板载密钥管理信息"]。
-
-+
-.. 如果配置了板载密钥管理器：
+[role="tabbed-block"]
+====
+.板载密钥管理器
+--
+.. 运行以下命令来显示 Onboard Key Manager 备份：
 +
 `s安全密钥管理器板载 show-backup`
 
 +
-您稍后将在升级操作步骤中需要此密码短语。
-
-.. 如果配置了企业密钥管理（ KMIP ），请问题描述执行以下命令：
-+
-`security key-manager external show -instance`
+稍后在升级过程中，您还需要最新的板载密钥管理器密码。
 
 +
-`s安全密钥管理器密钥查询`
+有关更多信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-1677AE0A-FEF7-45FA-8616-885AA3283BCF.html["手动备份板载密钥管理信息"]。
 
 
 
+--
+.外部密钥管理器
+--
+收集稍后在过程中还原密钥管理器配置所需的外部密钥管理信息。
+
+.. 显示管理 SVM（集群）的名称。
++
+`vserver show -type admin`
+
++
+在此示例中，管理 SVM 名称为 cluster_B：
+
++
+[listing]
+----
+cluster_B::*> vserver show -type admin
+                               Admin      Operational Root
+Vserver     Type    Subtype    State      State       Volume     Aggregate
+----------- ------- ---------- ---------- ----------- ---------- ----------
+cluster_B
+            admin   -          -          -           -          -
+----
+.. 获取与 admin SVM（集群）上配置的外部密钥管理器关联的主密钥服务器的地址和端口号：
++
+[NOTE]
+====
+*** 管理 SVM 最多可以有四个主密钥服务器，但您只需要其中一个主密钥服务器的端口号和地址，即可在后面的过程中还原密钥管理配置。
+*** 如果与所选主密钥服务器关联有用户名和密码，则还需要该信息用于恢复过程。
+
+
+====
++
+`security key-manager external show -instance -vserver <admin_svm_name>`
+
++
+[listing]
+----
+cluster_B::> security key-manager external show -instance -vserver cluster_B
+
+                  Vserver: cluster_B
+       Client Certificate: NTAPKM_C
+   Server CA Certificates: NTAPKM_I, NTAPKM_R
+       Primary Key Server: 172.18.27.34:12014
+                  Timeout: 25
+                 Username:
+              Policy name: -
+    Secondary Key Servers: -
+    Create/Remove Timeout: 10
+
+----
+.. 如果运行的是 ONTAP 9.16.1 或更高版本，请获取管理 SVM 的密钥库 UUID。
++
+`security key-manager show-key-store -vserver <admin_svm_name> -fields uuid`
+
++
+[listing]
+----
+cluster_B::*>  security key-manager show-key-store -vserver cluster_B -fields uuid
+vserver         uuid
+--------------- ------------------------------------
+cluster_B        f281aa55-d635-11f0-93bc-005056bb68f2
+
+cluster_B::*
+----
+.. 将您收集的信息保存在安全的位置，以便稍后在程序中使用。您现在应该已经收集了以下信息：
++
+*** 管理 SVM 的一个主密钥服务器的端口号和地址
+*** 用户名和密码（如果与所选主密钥服务器关联）
+*** 管理 SVM 的密钥库 UUID（ONTAP 9.16.1 或更高版本中必需）
+
+
+
+
+--
+====
 
 
 
@@ -1199,7 +1267,7 @@ aggr0_node_b_1-root    online      raid_dp, aggr    root, nosnap=on,
 +
 `boot_ontap 菜单`
 
-. 如果使用根加密，则根据您使用的 ONTAP 版本，选择启动菜单选项或问题描述启动菜单命令以用于密钥管理配置。
+. 如果 MetroCluster 系统的管理 SVM 配置了密钥管理器，请为您的密钥管理配置选择正确的启动菜单选项。
 +
 [role="tabbed-block"]
 ====
@@ -1216,18 +1284,28 @@ aggr0_node_b_1-root    online      raid_dp, aggr    root, nosnap=on,
  a| 
 板载密钥管理
  a| 
-选项 "`10` "
+选项 `10`
 
-按照提示提供恢复和还原密钥管理器配置所需的输入。
+按照提示提供以下输入，以恢复和还原密钥管理器配置：
+
+** 板载密钥管理器备份和密码
+
 
 
 
  a| 
 外部密钥管理
  a| 
-选项 "`11` "
+选项 `11`
 
-按照提示提供恢复和还原密钥管理器配置所需的输入。
+按照提示提供以下输入，以恢复和还原密钥管理器配置：
+
+** 管理 SVM 的一个主密钥服务器的端口号和地址
+** 用户名和密码（如果与所选主密钥服务器关联）
+** 管理 SVM 的密钥库 UUID（ONTAP 9.16.1 或更高版本中必需）
+
+
+*注意：*虽然管理 SVM 最多可以有四个主密钥服务器，但在恢复过程中只能指定一个主密钥服务器的信息。
 
 |===
 --
@@ -1282,7 +1360,7 @@ Rebooting to load the restored env file...
 +
 `setenv partner-sysid _partner-sysID_`
 
-. 如果使用根加密，则根据您使用的 ONTAP 版本，为您的密钥管理配置选择启动菜单选项或再次选择问题描述启动菜单命令。
+. 如果使用根卷加密，请根据您使用的 ONTAP 版本，选择引导菜单选项或为密钥管理配置再次发出引导菜单命令。
 +
 [role="tabbed-block"]
 ====
@@ -1299,22 +1377,30 @@ Rebooting to load the restored env file...
  a| 
 板载密钥管理
  a| 
-选项 "`10` "
+选项 `10`
 
-按照提示提供恢复和还原密钥管理器配置所需的输入。
+按照提示提供以下输入，以恢复和还原密钥管理器配置：
+
+** 板载密钥管理器备份和密码
+
 
 
 
  a| 
 外部密钥管理
  a| 
-选项 "`11` "
+选项 `11`
 
-按照提示提供恢复和还原密钥管理器配置所需的输入。
+按照提示提供以下输入，以恢复和还原密钥管理器配置：
+
+** 管理 SVM 的一个主密钥服务器的端口号和地址
+** 用户名和密码（如果与所选主密钥服务器关联）
+** 管理 SVM 的密钥库 UUID（ONTAP 9.16.1 或更高版本中必需）
+
+
+*注意：*虽然管理 SVM 最多可以有四个主密钥服务器，但在恢复过程中只能指定一个主密钥服务器的信息。
 
 |===
-根据密钥管理器设置，执行恢复操作步骤的方法是在第一个启动菜单提示符处选择选项 "`10` " 或选项 "`11` " ，然后选择选项 "`6` " 。要完全启动节点，您可能需要重复恢复操作步骤，然后选择 "`1` " （正常启动）。
-
 --
 .ONTAP 9.7及更早版本
 --
@@ -1405,7 +1491,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
  a| 
 外部密钥管理
  a| 
-`sSecurity key-manager external restore -vserver _svm_ -node _node_-key-server _host_name_ip_address ： port_ -key-id key_id -key-tag key_tag _node-name_`
+`security key-manager external restore -vserver <admin-svm> -key-server <host_name|IP_address:port>`
 
 有关详细信息，请参见 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/GUID-32DA96C3-9B04-4401-92B8-EAF323C3C863.html["还原外部密钥管理加密密钥"^]。
 
