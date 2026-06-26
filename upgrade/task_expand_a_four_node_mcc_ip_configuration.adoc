@@ -1197,6 +1197,10 @@ cluster_A::>
 ----
 . 确认已正确建立连接： `MetroCluster configuration-settings connection show`
 +
+
+NOTE: 以下命令的输出可能会因平台型号而异： `metrocluster configuration-settings connection show`例如，在某些平台上，HA Partner 的行不会显示在输出中。
+
++
 [listing]
 ----
 cluster_A::> metrocluster configuration-settings connection show

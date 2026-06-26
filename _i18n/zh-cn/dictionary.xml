@@ -14579,4 +14579,5 @@
   <block id="caf6332dea07cf4b950c8d71d7e45e42" category="list-text">如果使用根卷加密，请根据您使用的 ONTAP 版本，选择引导菜单选项或为密钥管理配置再次发出引导菜单命令。</block>
   <block id="b0fbf352a8f099c3b53b0641730683b8" category="paragraph">根据密钥管理器类型，通过选择选项 "`10`" 或选项 "`11`" 来执行恢复过程，然后在第一个启动菜单提示符处选择选项<block ref="1679091c5a880faf6fb5e6087eb1b2dc" prefix=" " category="inline-code"></block>。要完全引导节点，您可能需要重复选项 "`1`"（正常引导）继续的恢复过程。</block>
   <block id="ded8f2620d58acfd69775bc49e48b168" category="list-text">如果在 admin SVM 上启用了加密，请使用正确的密钥管理配置命令恢复密钥。</block>
+  <block id="594c07221c5565837dffd5ce4580e7bb" category="admonition">以下命令的输出可能会因平台型号而异：<block ref="e7acb1ae14be0e5233d619851263fdae" prefix=" " category="inline-code"></block>例如，在某些平台上，HA Partner 的行不会显示在输出中。</block>
 </blocks>
