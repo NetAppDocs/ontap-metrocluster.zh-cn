@@ -15,6 +15,9 @@ summary: 如果要在 MetroCluster IP 配置中使用新的 IP 交换机，则�
 
 如果使用的是新交换机，则需要执行此任务。
 
+
+NOTE: 如果要执行四节点 FC 到八节点 IP 的转换，则可以在添加第二个 DR 组之前应用四节点 FC 到八节点 IP 的 RCF。您不必先应用四节点 FC 到四节点 IP 的 RCF。
+
 如果您使用的是现有交换机，请继续执行 link:task_move_cluster_connections.html["移动本地集群连接"]。
 
 . 安装新 IP 交换机并将其装入机架。

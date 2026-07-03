@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, upgrade, downgrade, firmware, brocade, fc, switch 
 summary: 要升级或降级 Brocade FC 交换机上的固件，必须使用 Brocade 专用命令禁用交换机，执行并验证固件更改，然后重新启动并重新启用交换机。 
 ---
-= 升级或降级 Brocade FC 交换机上的固件
+= 升级或降级 Brocade MetroCluster FC 交换机上的固件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,6 +12,24 @@ summary: 要升级或降级 Brocade FC 交换机上的固件，必须使用 Broc
 
 [role="lead"]
 要升级或降级 Brocade FC 交换机上的固件，必须使用 Brocade 专用命令禁用交换机，执行并验证固件更改，然后重新启动并重新启用交换机。
+
+.开始之前
+在使用本程序之前，请仔细阅读以下信息：
+
+* 从 Fabric OS 10.x 开始，Brocade 仅支持将 SHA-512 用于 SNMP 身份验证。ONTAP 目前不支持 SHA-512，仅支持 SHA-256。
++
+如果将 MetroCluster FC 交换机固件升级到 Fabric OS 10.x，ONTAP 的 SNMP 监控可见性将丢失。这会增加故障排除时的风险，并导致主动警报丢失。
+
++
+如果您升级到或从 Fabric OS 10.x 降级，则必须执行 link:https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-software-upgrade/10-0-x/Upgrading-and-Downgrading-Firmware/v24512876.html["Brocade Fabric OS 软件升级指南，10.0.x - 升级或降级前提条件"^] 中概述的强制性任务。
+
++
+
+CAUTION: 在继续升级到或降级自 Fabric OS 10.x 或更高版本之前，必须仔细考虑这些限制。
+
+* 从 Fabric OS 9.0.1 开始，Brocade 交换机不支持 SNMPv2。如果升级到 Fabric OS 9.0.1 或更高版本，则必须使用 SNMPv3 进行运行状况监控。有关详细信息，请参见 link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#snmpv3-mcc-fc["在 MetroCluster 配置中配置 SNMPv3"]。
+* 如果要升级到 Fabric OS 9.2.x 或更高版本，则必须安装 Brocade TruFOS 证书。有关详细信息，请参见 link:https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-software-upgrade/9-2-x/Obtaining-Firmware/download-prerequisites-new/brocade-trufos-certificates.html["Brocade光纤操作系统软件升级指南、9.2.x"^]。
+
 
 .关于此任务
 确认您已为您的配置检查并执行以下任务：
@@ -32,10 +50,6 @@ link:enable-console-logging-before-maintenance.html["启用控制台日志记录
 
 
 在固件升级或降级期间，交换机网络结构将被禁用， MetroCluster 配置将依靠第二个网络结构继续运行。
-
-从Fabric OS 9.0.0开始、Brocade交换机不支持SNMPv2。如果升级到Fabric OS 9.0.1或更高版本、则必须使用SNMPv3进行运行状况监控。有关详细信息，请参见 link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#configuring-snmpv3-in-a-metrocluster-configuration["在 MetroCluster 配置中配置 SNMPv3"]。
-
-如果要升级到Fabric OS v9.2.x或更高版本、则必须安装Brocade TruFOS证书、有关详细信息、请参见。link:https://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-software-upgrade/9-2-x/Obtaining-Firmware/download-prerequisites-new/brocade-trufos-certificates.html["Brocade光纤操作系统软件升级指南、9.2.x"^]
 
 必须连续对每个交换机网络结构执行此任务，以使所有交换机运行相同版本的固件。
 

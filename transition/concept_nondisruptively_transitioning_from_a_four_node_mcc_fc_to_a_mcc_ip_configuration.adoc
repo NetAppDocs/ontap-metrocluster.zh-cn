@@ -35,7 +35,59 @@ NOTE: 当您按照此流程添加或删除 DR 组时，必须先验证 DR 组的
 * 您必须满足所有要求并按照操作步骤中的所有步骤进行操作。
 
 
-.如果您要添加较旧的平台模型，则需要注意以下重要信息
+
+
+== 此过程支持的过渡方案
+
+请查看下表，了解此过程支持的过渡方案。
+
+
+NOTE: 在所有过渡方案中，一次只能添加或删除一个 DR 组。DR 组添加或删除成功后，您需要验证 MetroCluster 是否运行正常，然后再继续操作。
+
+[cols="2*"]
+|===
+| 对于此过渡场景…… | 请执行以下操作…… 
+
+
+ a| 
+四节点 FC 到四节点 IP 配置
+ a| 
+请按照所写的步骤操作。
+
+
+
+ a| 
+四节点 FC 到八节点 IP 配置
+ a| 
+需要添加一个 MetroCluster IP DR 组。添加第一个 MetroCluster IP DR 组后，请检查集群的整体运行状况，然后对第二个 MetroCluster IP DR 组重复这些步骤。
+
+
+
+ a| 
+八节点 FC 到四节点 IP 配置
+ a| 
+按照所写的步骤进行操作。在过渡期间，MetroCluster 配置将从八个节点扩展到十二个节点。过渡完成后，所有 MetroCluster FC 节点均已取消加入，最终配置为四节点 MetroCluster IP 配置。
+
+
+
+ a| 
+八节点FC到八节点IP配置
+ a| 
+此转换需要向集群添加一个 MetroCluster IP DR 组。
+
+确认十二节点配置的运行状况后，将数据和 LIF（根据需要）从一个 MetroCluster FC DR 组移动到 MetroCluster IP DR 组。当其中一个 MetroCluster FC DR 组为空时，删除该 DR 组并取消加入这些节点。由此产生的配置是一个由一个 MetroCluster FC 和一个 MetroCluster IP DR 组组成的八节点集群。
+
+然后，将第二个 MetroCluster IP DR 组添加到集群并转换数据和 LIF（根据需要）。当最后剩余的 MetroCluster FC DR 组为空时，将其删除并取消加入这些节点。
+
+在过渡期间，MetroCluster 配置中的节点数量不超过十二个。
+
+|===
+有关详细信息，请参见 link:concept_transition_workflow_fc_to_ip_transition.html["无中断 MetroCluster 过渡的工作流"]。
+
+
+
+== 添加旧平台模型时的重要信息
+
 以下指导针对一种不常见的情况，即您需要将较旧的平台模型（ ONTAP 9.15.1 之前发布的平台）添加到包含较新平台模型（ ONTAP 9.15.1 或更高版本中发布的平台）的现有MetroCluster配置中。对于八节点 FC 到 IP 的过渡，如果您已将第一个 FC DR 组过渡到ONTAP 9.15.1 或更高版本中引入的平台模型，并计划将第二个 DR 组过渡到ONTAP 9.15.1 之前引入的平台，则本指南适用。
 
 如果您现有的MetroCluster配置包含使用 *共享集群/HA 端口* 的平台（ ONTAP 9.15.1 或更高版本中发布的平台），则如果不将配置中的所有节点升级到ONTAP 9.15.1P11 或ONTAP 9.16.1P4 或更高版本，则无法添加使用 *共享MetroCluster/HA 端口* 的平台（ ONTAP 9.15.1 之前发布的平台）。

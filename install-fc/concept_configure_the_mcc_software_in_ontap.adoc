@@ -2901,14 +2901,21 @@ mcc4-b2      mlx4_0          IB      Up     false     192.0.2.10  	ib2b
 
 
 
-=== 在 MetroCluster 配置中配置 SNMPv3
+=== 在 MetroCluster FC 配置中配置 SNMPv3
 
 .开始之前
 交换机和 ONTAP 系统上的身份验证和隐私协议必须相同。
 
 .关于此任务
-ONTAP 当前支持 AES-128 加密。
+ONTAP 目前支持使用 AES-128 进行隐私保护（加密），使用 SHA-256 进行身份验证。
 
+[CAUTION]
+====
+* 在 Fabric OS 10.x 及更高版本中，Brocade 仅支持将 SHA-512 用于 SNMP 身份验证。ONTAP 目前不支持 SHA-512，仅支持 SHA-256。
+* 如果 MetroCluster FC 交换机运行的是 Fabric OS 10.x 或更高版本，则无法配置 SNMP，也无法将这些交换机添加到 ONTAP 健康监控中。如果要降级交换机固件，可以按照 link:../maintain/task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html["升级或降级 Brocade FC 交换机上的固件"] 中的步骤进行操作。
+
+
+====
 .步骤
 . 在控制器提示符处为每个交换机创建一个 SNMP 用户：
 +
@@ -2983,7 +2990,7 @@ node_A_1 SVM 4 snmpv3user     snmp        usm                   10.10.10.13
 +
 [role="tabbed-block"]
 ====
-.Brocade交换机（FOS 9.0 及更高版本）
+.Brocade 交换机（FOS 9.x）
 --
 `snmpconfig --add snmpv3 -index <index> -user <user_name> -groupname <rw/ro> -auth_proto <auth_protocol> -auth_passwd <auth_password> -priv_proto <priv_protocol> -priv_passwd <priv_password>`
 
@@ -3033,7 +3040,7 @@ NOTE: 为了提高安全性、NetApp建议您配置SNMPv2或SNMPv3以监控交�
 .关于此任务
 这些任务仅适用于具有 FC-SAS 网桥的系统。
 
-从Fabric OS 9.0.0开始、不支持使用SNMPv2监控Brocade交换机的运行状况、您必须改用SNMPv3。如果您使用的是SNMPv3、则必须先在ONTAP中配置SNMPv3、然后再继续下一节。有关详细信息，请参见 <<在 MetroCluster 配置中配置 SNMPv3>>。
+从 Fabric OS 9.0.1 开始，Brocade 交换机上的运行状况监控不支持 SNMPv2，必须改用 SNMPv3。如果使用 SNMPv3，则必须在 ONTAP 中配置 SNMPv3，然后再继续执行以下部分。有关更多详细信息，请参见<<snmpv3-mcc-fc,在 MetroCluster FC 配置中配置 SNMPv3>>。
 
 [NOTE]
 ====
