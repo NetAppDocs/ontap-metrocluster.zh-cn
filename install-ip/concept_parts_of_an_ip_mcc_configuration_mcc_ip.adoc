@@ -15,6 +15,7 @@ summary: 在规划 MetroCluster IP 配置时，您应了解硬件组件及其互
 
 
 
+[[key-hardware-elements]]
 == 关键硬件要素
 
 MetroCluster IP 配置包括以下关键硬件元素：
@@ -45,6 +46,7 @@ image::../media/mcc_ip_hardware_architecture_mcc_ip.gif[MetroCluster IP 硬件�
 
 
 
+[[disaster-recovery-dr-groups]]
 == 灾难恢复（ DR ）组
 
 MetroCluster IP 配置由一个 DR 组组成，该 DR 组由四个节点组成。
@@ -55,6 +57,7 @@ image::../media/mcc_dr_groups_4_node.gif[四节点配置中的MetroCluster DR �
 
 
 
+[[illustration-of-the-local-ha-pairs-in-a-metrocluster-configuration]]
 == MetroCluster 配置中的本地 HA 对示意图
 
 每个 MetroCluster 站点都包含配置为 HA 对的存储控制器。这样可以实现本地冗余，以便在一个存储控制器发生故障时，其本地 HA 配对节点可以接管。可以在不执行 MetroCluster 切换操作的情况下处理此类故障。
@@ -68,6 +71,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["
 
 
 
+[[illustration-of-the-metrocluster-ip-and-cluster-interconnect-network]]
 == MetroCluster IP 和集群互连网络图示
 
 ONTAP 集群通常包含一个集群互连网络，用于传输集群中节点之间的流量。在 MetroCluster IP 配置中，此网络还用于在 MetroCluster 站点之间传输数据复制流量。
@@ -89,6 +93,7 @@ link:concept_considerations_mcip.html["MetroCluster IP 配置的注意事项"]
 
 
 
+[[illustration-of-the-cluster-peering-network]]
 == 集群对等网络的图示
 
 MetroCluster 配置中的两个集群通过客户提供的集群对等网络建立对等关系。集群对等支持站点之间的 Storage Virtual Machine （ SVM ，以前称为 Vserver ）的同步镜像。

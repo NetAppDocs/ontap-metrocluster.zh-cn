@@ -15,6 +15,7 @@ summary: 您可以在 NetApp 的丰富文档中了解有关 MetroCluster 配置�
 
 
 
+[[metrocluster-and-miscellaneous-information]]
 == MetroCluster 和其他信息
 
 |===
@@ -32,7 +33,7 @@ link:../index.html["MetroCluster 文档"]
 
 
  a| 
-https://www.netapp.com/pdf.html?item=/media/13482-tr4375pdf.pdf["NetApp 技术报告 4375 ：《适用于 ONTAP 9.3 的 NetApp MetroCluster 》"^]
+https://www.netapp.com/pdf.html?item=/media/13482-tr4375.pdf["NetApp 技术报告 4375 ：《适用于 ONTAP 9.3 的 NetApp MetroCluster 》"^]
  a| 
 * MetroCluster 配置和操作的技术概述。
 * MetroCluster 配置最佳实践。

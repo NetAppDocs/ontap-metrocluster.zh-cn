@@ -29,12 +29,9 @@ CAUTION: 从ONTAP 9.12.1开始、您可以在MetroCluster IP配置中启用Metro
 .关于此任务
 * 默认情况下，此任务会启用自动计划外切换。
 * 您可以在 MetroCluster IP 配置中任何节点的 ONTAP 接口上执行此任务。
-* 从 ONTAP 9.18.1 和 ONTAP Mediator 1.11 开始，使用 iSCSI 配置的单个 ONTAP Mediator 实例可以同时管理多达十个 MetroCluster 配置。在 ONTAP 9.17.1 和 ONTAP Mediator 1.10 及更早版本中，配置了 iSCSI 的 ONTAP Mediator 最多可以同时支持五个 MetroCluster 配置。
 * 从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以安装支持 iSCSI 和 HTTPS 或仅支持 HTTPS 的 ONTAP Mediator。如果仅为 HTTPS 安装了 ONTAP Mediator，则无法使用 iSCSI 配置 Mediator。
 * 如果您未在 `-type`参数中指定 `metrocluster configuration-settings mediator add`命令，则默认使用 iSCSI 协议。
-* 如果使用 HTTPS 配置 ONTAP Mediator，则单个 ONTAP Mediator 实例只能监控一个 MetroCluster IP 配置。当使用 HTTPS 配置 ONTAP Mediator 时，不支持同时监控多个 MetroCluster IP 配置。
-* 如果您需要使用 HTTPS 配置 ONTAP Mediator 来监控多个 MetroCluster IP 配置，则必须为每个 MetroCluster IP 配置配置单独的 ONTAP Mediator 实例。在选择使用 HTTPS 为 MetroCluster IP 配置 ONTAP Mediator 之前，必须仔细评估 MetroCluster IP 环境的要求。
-* 如果要使用单个 ONTAP Mediator 实例来监视多个 MetroCluster IP 配置，则应使用 iSCSI 而不是 HTTPS 配置 ONTAP Mediator。
+* 使用单个 ONTAP Mediator 实例监控多个 MetroCluster IP 配置的支持取决于您是使用 HTTPS 还是 iSCSI 配置 ONTAP Mediator。有关详细信息，请参阅 link:concept_mediator_requirements.html#mediator-multiple-mccip["使用 ONTAP Mediator 监控多个 MetroCluster IP 配置"]。
 
 
 [role="tabbed-block"]

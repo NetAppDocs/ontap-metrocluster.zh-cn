@@ -24,6 +24,7 @@ summary: 了解如何将Cisco 9124V、9148S、9148V、9250i 和 9396S FC 交换�
 ====
 
 
+[[metrocluster-1-or-dr-group-1]]
 == MetroCluster 1或DR组1
 
 下表显示了Cisco交换机（不包括 9132T）上的MetroCluster 1 或 DR 组 1 中支持的控制器配置。
@@ -446,6 +447,7 @@ HBA 端口 d
 |===
 
 
+[[metrocluster-2-or-dr-group-2]]
 == MetroCluster 2或DR组2
 
 下表显示了Cisco交换机（不包括 9132T）上MetroCluster 2 或 DR 组 2 中支持的控制器配置。

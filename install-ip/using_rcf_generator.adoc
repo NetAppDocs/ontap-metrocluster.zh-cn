@@ -25,12 +25,14 @@ summary: 您必须了解如何使用端口表中的信息正确生成 RCF 文件
 
 
 
+[[cabling-two-metrocluster-configurations-to-the-switches]]
 == 使用缆线将两个 MetroCluster 配置连接到交换机
 
 将多个 MetroCluster 配置布线到交换机时，请根据相应的表格为每个 MetroCluster 布线。例如，如果要将 FAS2750 和 AFF A700 布线到同一台交换机，则应按照表 1 中的“MetroCluster 1”为 FAS2750 布线，按照表 2 中的“MetroCluster 2”或“MetroCluster 3”为 AFF A700 布线。您不能将FAS2750和AFF A700以物理方式连接为MetroCluster 1。
 
 
 
+[[cabling-eight-node-metrocluster-configurations]]
 == 为八节点 MetroCluster 配置布线
 
 对于运行 ONTAP 9.8 及更早版本的 MetroCluster 配置，为过渡升级而执行的某些过程要求在配置中再添加一个四节点 DR 组，以创建临时八节点配置。  从ONTAP 9.9.1开始、支持永久八节点MetroCluster配置。

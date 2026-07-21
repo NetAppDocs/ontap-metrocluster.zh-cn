@@ -15,6 +15,7 @@ summary: 在配置了 ADP 的系统上，您必须验证是否已自动分配池
 
 
 
+[[verifying-drive-assignment-of-pool-0-drives-on-adp-systems-at-the-disaster-site-metrocluster-ip-systems]]
 == 验证灾难站点（ MetroCluster IP 系统）上 ADP 系统上池 0 驱动器的驱动器分配
 
 如果在灾难站点上更换了驱动器，并且系统配置了 ADP ，则必须确认远程驱动器对节点可见且已正确分配。
@@ -72,6 +73,7 @@ node_A_2:0n.43   -          0     43  SSD-NVM unassigned  -         -
 
 
 
+[[assigning-pool-0-drives-on-non-adp-systems-at-the-disaster-site-metrocluster-ip-configurations]]
 == 在灾难站点的非 ADP 系统上分配池 0 驱动器（ MetroCluster IP 配置）
 
 如果已在灾难站点上更换驱动器，并且系统未配置 ADP ，则需要手动将新驱动器分配到池 0 。

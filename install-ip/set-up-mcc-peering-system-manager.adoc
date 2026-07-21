@@ -25,6 +25,7 @@ summary: 从ONTAP 9。8开始、您可以使用System Manager管理MetroCluster 
 
 
 
+[[perform-the-peering-process-from-site-a]]
 == 从站点A执行对等过程
 
 此过程由站点 A 的系统管理员执行
@@ -45,6 +46,7 @@ summary: 从ONTAP 9。8开始、您可以使用System Manager管理MetroCluster 
 
 
 
+[[perform-the-peering-process-from-site-b]]
 == 从站点B执行对等过程
 
 此过程由站点 B 的系统管理员执行

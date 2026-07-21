@@ -21,6 +21,7 @@ summary: 在灾难站点上的设备进行了任何必要的维护或更换，�
 
 
 
+[[enable-console-logging]]
 == 启用控制台日志记录
 
 NetApp强烈建议您在使用的设备上启用控制台日志记录、并在执行此过程时执行以下操作：
@@ -35,6 +36,7 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 
 
 
+[[healing-the-configuration-in-a-metrocluster-configuration]]
 == 修复MetroCluster配置中的配置
 
 在MetroCluster FC配置中、您可以按特定顺序执行修复操作、以便在切换后还原MetroCluster功能。
@@ -57,6 +59,7 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 
 
 
+[[healing-the-data-aggregates]]
 === 修复数据聚合
 
 修复并更换灾难站点上的任何硬件后，您必须修复数据聚合。此过程会重新同步数据聚合，并使（现已修复）灾难站点做好正常运行的准备。在修复根聚合之前，您必须修复数据聚合。
@@ -124,6 +127,7 @@ aggr_b2   227.1GB  227.1GB   0%    online  0      mcc1-a2      raid_dp, mirrored
 
 
 
+[[healing-the-root-aggregates-after-a-disaster]]
 === 发生灾难后修复根聚合
 
 修复数据聚合之后，您必须修复根聚合，以便为切回操作做好准备。
@@ -164,6 +168,7 @@ mcc1A::> metrocluster operation show
 
 
 
+[[verifying-that-your-system-is-ready-for-a-switchback]]
 == 验证您的系统是否已做好切回准备
 
 如果您的系统已处于切换状态，您可以使用 ` -simulate` 选项预览切回操作的结果。
@@ -241,6 +246,7 @@ mcc1A::> metrocluster operation show
 
 
 
+[[example-of-verification-results]]
 === 验证结果示例
 
 以下示例显示了对切回操作的成功验证：
@@ -272,6 +278,7 @@ Job ID Name                 Vserver    Node           State
 ----
 
 
+[[performing-a-switchback]]
 == 执行切回
 
 修复 MetroCluster 配置后，您可以执行 MetroCluster 切回操作。MetroCluster 切回操作会将配置恢复到其正常运行状态，灾难站点上的 sync-source Storage Virtual Machine （ SVM ）处于活动状态，并从本地磁盘池提供数据。
@@ -372,6 +379,7 @@ Remote: cluster_A         Configuration state configured
 
 
 
+[[verifying-a-successful-switchback]]
 == 验证切回是否成功
 
 执行切回后，您需要确认所有聚合和 Storage Virtual Machine （ SVM ）均已切回并联机。
@@ -469,6 +477,7 @@ vs1a           data    sync-source
 
 
 
+[[deleting-stale-aggregate-listings-after-switchback]]
 == 在切回后删除陈旧的聚合列表
 
 在某些情况下，切回后，您可能会注意到存在 _stal_ 聚合。陈旧的聚合是指已从 ONTAP 中删除但其信息仍记录在磁盘上的聚合。陈旧的聚合会使用 `nodeshell aggr status -r` 命令显示，但不会使用 `storage aggregate show` 命令显示。您可以删除这些记录，使其不再显示。

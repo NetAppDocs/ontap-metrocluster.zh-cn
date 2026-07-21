@@ -27,10 +27,12 @@ MetroCluster 站点由两个集群组成。通常，集群位于不同的地理�
 
 
 
+[[assign-a-node-management-ip-address]]
 == 分配节点管理 IP 地址
 
 
 
+[[windows-system]]
 === Windows 系统
 
 您应将 Windows 计算机连接到与控制器相同的子网。此操作会自动为您的系统分配节点管理IP地址。
@@ -42,6 +44,7 @@ MetroCluster 站点由两个集群组成。通常，集群位于不同的地理�
 
 
 
+[[other-systems]]
 === 其他系统
 
 您应为集群中的一个节点配置节点管理 IP 地址。您可以使用此节点管理 IP 地址启动集群设置向导。
@@ -50,6 +53,7 @@ MetroCluster 站点由两个集群组成。通常，集群位于不同的地理�
 
 
 
+[[initialize-and-configure-the-cluster]]
 == 初始化和配置集群
 
 您可以通过设置集群的管理密码以及设置集群管理和节点管理网络来初始化集群。您还可以配置域名服务器(DNS)等服务来解析主机名、并配置NTP服务器来同步时间。
@@ -76,6 +80,7 @@ System Manager 会自动发现集群中的其余节点。
 
 
 
+[[configure-ontap-on-a-new-cluster-video]]
 == 在新的集群视频上配置 ONTAP
 
 video::PiX41bospbQ[youtube,width=848,height=480]

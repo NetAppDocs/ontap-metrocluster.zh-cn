@@ -19,6 +19,7 @@ summary: 您必须遵循特定工作流，以确保成功实现无中断过渡�
 
 
 
+[[four-node-fc-configuration-transition-workflow]]
 == 四节点FC配置过渡工作流
 
 过渡过程从运行正常的四节点 MetroCluster FC 配置开始。
@@ -35,6 +36,7 @@ image::../media/transition_dr_group_2_ip.png[过渡 DR 组 2 IP 节点]
 
 
 
+[[eight-node-fc-configuration-transition-workflow]]
 == 八节点FC配置过渡工作流
 
 过渡过程从运行正常的八节点MetroCluster FC配置开始。
@@ -62,6 +64,7 @@ image::../media/mcc_dr_group_c6.png[过渡后的八节点MetroCluster IP 配置]
 
 
 
+[[transition-process-workflow]]
 == 过渡流程工作流
 
 您将使用以下工作流过渡 MetroCluster 配置。

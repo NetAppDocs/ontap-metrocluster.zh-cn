@@ -15,6 +15,7 @@ summary: 您必须确保 IP 交换机受支持。如果原始 MetroCluster FC �
 
 
 
+[[supported-switches]]
 == 支持的交换机
 
 您必须使用 NetApp 提供的交换机。

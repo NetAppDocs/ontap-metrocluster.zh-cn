@@ -15,6 +15,7 @@ summary: 升级控制器模块后、请执行必要的任务以完成控制器�
 
 
 
+[[check-the-health-of-the-metrocluster-configuration]]
 == 检查 MetroCluster 配置的运行状况
 
 升级控制器模块后，您必须验证 MetroCluster 配置的运行状况。
@@ -57,6 +58,7 @@ MetroCluster check show`
 
 
 
+[[upgrade-the-nodes-on-clustera]]
 == 升级cluster-A上的节点
 
 要升级站点A上的cluster-A上的节点、必须重复执行升级任务
@@ -70,6 +72,7 @@ MetroCluster check show`
 
 
 
+[[re-add-the-internal-drives-to-the-new-controller]]
 == 将内部驱动器重新添加到新控制器
 
 如果您从仅具有外部驱动器的系统升级到具有外部和内部驱动器（磁盘和控制器位于同一机箱中）的系统，则可以添加或重新安装从新系统的内部插槽中移除或取消安装的磁盘。您可以在两个站点的升级完成且集群处于正常状态后随时执行此操作。
@@ -81,6 +84,7 @@ NOTE: 此任务仅适用于某些升级组合。有关详细信息、请参见 l
 
 
 
+[[restore-tiebreaker-or-mediator-monitoring]]
 == 还原 Tiebreaker 或调解器监控
 
 完成 MetroCluster 配置升级后，您可以使用 Tiebreaker 或调解器实用程序恢复监控。
@@ -116,6 +120,7 @@ link:../install-ip/concept_mediator_requirements.html["通过 MetroCluster IP �
 
 
 
+[[send-a-custom-autosupport-message-after-maintenance]]
 == 维护后发送自定义 AutoSupport 消息
 
 完成升级后，您应发送一条 AutoSupport 消息，指示维护结束，以便可以恢复自动创建案例。
@@ -131,6 +136,7 @@ link:../install-ip/concept_mediator_requirements.html["通过 MetroCluster IP �
 
 
 
+[[configure-end-to-end-encryption]]
 == 配置端到端加密
 
 如果系统支持、则可以对MetroCluster IP站点之间的后端流量(例如NVlog和存储复制数据)进行加密。请参见 link:../maintain/task-configure-encryption.html["配置端到端加密"] 有关详细信息 ...

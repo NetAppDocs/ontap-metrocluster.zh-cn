@@ -15,6 +15,7 @@ summary: 在开始过渡过程之前，您必须确保配置满足要求。
 
 
 
+[[enable-console-logging]]
 == 启用控制台日志记录
 
 NetApp强烈建议您在使用的设备上启用控制台日志记录、并在执行此过程时执行以下操作：
@@ -29,6 +30,7 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 
 
 
+[[general-requirements-for-disruptive-fc-to-ip-transition]]
 == 中断 FC-IP 过渡的一般要求
 
 现有 MetroCluster FC 配置必须满足以下要求：
@@ -52,12 +54,14 @@ link:../install-stretch/concept_considerations_differences.html["延伸型 Metro
 
 
 
+[[drive-shelf-reuse-and-drive-requirements-for-disruptive-fc-to-ip-transition]]
 == 驱动器架重复使用和驱动器要求，实现有中断的 FC-IP 过渡
 
 您必须确保存储架上具有足够的备用驱动器和根聚合空间。
 
 
 
+[[reusing-the-existing-storage-shelves]]
 === 重复使用现有存储架
 
 使用此操作步骤时，现有存储架会保留以供新配置使用。删除 node_A_1-FC 和 node_B_1-FC 后，现有驱动器架将连接到 cluster_A 上的 node_A_1-IP 和 node_A_2-IP ，以及 cluster_B 上的 node_B_1-IP 和 node_B_2-IP
@@ -74,6 +78,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 
 
+[[storage-requirements-for-the-additional-controllers]]
 === 附加控制器的存储要求
 
 如果需要，必须添加额外的存储以容纳两个额外的控制器（ node_A_2-IP 和 node_B_2-IP ），因为配置正在从双节点配置更改为四节点配置。
@@ -106,6 +111,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 
 
+[[workflow-for-disruptive-transition]]
 == 用于中断过渡的工作流
 
 您必须遵循特定工作流以确保成功过渡。
@@ -116,6 +122,7 @@ image::../media/workflow_2n_transition_bsaic.png[双节点过渡的工作流程]
 
 
 
+[[mapping-ports-from-the-metrocluster-fc-nodes-to-the-metrocluster-ip-nodes]]
 == 将端口从 MetroCluster FC 节点映射到 MetroCluster IP 节点
 
 您必须调整 MetroCluster FC 节点的端口和 LIF 配置，使其与要替换它的 MetroCluster IP 节点的端口和 LIF 配置兼容。
@@ -566,6 +573,7 @@ SAN
 
 
 
+[[preparing-the-metrocluster-ip-controllers]]
 == 准备 MetroCluster IP 控制器
 
 您必须准备四个新的 MetroCluster IP 节点并安装正确的 ONTAP 版本。
@@ -687,6 +695,7 @@ wipeconfig 操作完成后，节点将自动返回到启动菜单。
 
 
 
+[[verifying-the-health-of-the-metrocluster-fc-configuration]]
 == 验证 MetroCluster FC 配置的运行状况
 
 在执行过渡之前，您必须验证 MetroCluster FC 配置的运行状况和连接
@@ -734,6 +743,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 
 
+[[removing-the-existing-configuration-from-the-tiebreaker-or-other-monitoring-software]]
 == 从 Tiebreaker 或其他监控软件中删除现有配置
 
 如果使用 MetroCluster Tiebreaker 配置或可启动切换的其他第三方应用程序（例如 ClusterLion ）监控现有配置，则必须在过渡之前从 Tiebreaker 或其他软件中删除 MetroCluster 配置。

@@ -15,6 +15,7 @@ summary: 从启动菜单重新启动控制器以更新控制器闪存映像。�
 
 
 
+[[boot-the-new-controllers]]
 == 启动新控制器
 
 启动新控制器、验证bootarg变量是否正确、如果需要、请执行加密恢复步骤。
@@ -246,6 +247,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 
 
+[[verify-and-restore-lif-configuration]]
 == 验证并还原 LIF 配置
 
 在继续执行自动切回操作之前、请验证是否已在相应节点上托管了此类文件。

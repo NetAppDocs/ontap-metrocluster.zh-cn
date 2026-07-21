@@ -15,6 +15,7 @@ summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，
 
 
 
+[[enhancements]]
 == 增强功能
 
 [cols="25,75"]
@@ -70,6 +71,7 @@ summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，
 |===
 
 
+[[os-support-matrix]]
 == 操作系统支持列表
 
 下表列出了每个Tieb破碎 机版本支持的操作系统。

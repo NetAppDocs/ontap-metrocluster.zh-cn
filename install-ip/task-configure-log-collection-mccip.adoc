@@ -29,6 +29,7 @@ CAUTION: 在 Broadcom 和 Cisco 交换机上，每个具有日志收集功能的
 ====
 
 
+[[before-you-begin]]
 == 开始之前
 
 * 用户必须能够访问交换机 `show` 命令。如果这些权限不可用、请创建一个新用户并向该用户授予必要的权限。
@@ -47,6 +48,7 @@ CAUTION: 在 Broadcom 和 Cisco 交换机上，每个具有日志收集功能的
 
 
 
+[[steps]]
 == 步骤
 
 [role="tabbed-block"]

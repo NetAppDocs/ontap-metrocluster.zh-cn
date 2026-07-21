@@ -24,6 +24,7 @@ summary: 您可能需要使用共享 Storage MetroCluster 交换机将 NS224 磁
 
 
 
+[[sending-a-custom-autosupport-message-prior-to-maintenance]]
 == 在维护之前发送自定义 AutoSupport 消息
 
 在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
@@ -54,6 +55,7 @@ summary: 您可能需要使用共享 Storage MetroCluster 交换机将 NS224 磁
 
 
 
+[[verifying-the-health-of-the-metrocluster-configuration]]
 == 验证 MetroCluster 配置的运行状况
 
 在执行过渡之前，您必须验证 MetroCluster 配置的运行状况和连接。
@@ -191,6 +193,7 @@ cluster_A::>
 
 
 
+[[applying-the-new-rcf-file-to-the-switches]]
 == 将新的 RCF 文件应用于交换机
 
 
@@ -203,6 +206,7 @@ NOTE: 如果您的交换机配置正确，您可以跳过下面这些部分并�
 
 
 
+[[upgrading-rcf-files-on-metrocluster-ip-switches]]
 === 升级 MetroCluster IP 交换机上的 RCF 文件
 
 如果要安装新的交换机固件，则必须先安装交换机固件，然后再升级 RCF 文件。
@@ -258,6 +262,7 @@ volumes             ok
 
 
 
+[[resetting-the-cisco-ip-switch-to-factory-defaults]]
 === 将 Cisco IP 交换机重置为出厂默认值
 
 在安装新软件版本和 RCF 之前，必须擦除 Cisco 交换机配置并执行基本配置。
@@ -384,6 +389,7 @@ IP_switch-A-1# reload
 
 
 
+[[downloading-and-installing-the-cisco-switch-nx-os-software]]
 === 下载并安装 Cisco 交换机 NX-OS 软件
 
 您必须将交换机操作系统文件和 RCF 文件下载到 MetroCluster IP 配置中的每个交换机。
@@ -579,6 +585,7 @@ IP_switch_A_1#
 
 
 
+[[configuring-macsec-encryption-on-cisco-9336c-switches]]
 == 在 Cisco 9336C 交换机上配置 MACsec 加密
 
 如果需要，您可以在站点之间运行的 WAN ISL 端口上配置 MACsec 加密。在应用正确的 RCF 文件后，您必须配置 MACsec 。
@@ -588,12 +595,14 @@ NOTE: MACsec 加密只能应用于 WAN ISL 端口。
 
 
 
+[[licensing-requirements-for-macsec]]
 === MAC 的许可要求
 
 MACsec 需要安全许可证。有关 Cisco NX-OS 许可方案以及如何获取和申请许可证的完整说明，请参见 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/nx-os/licensing/guide/b_Cisco_NX-OS_Licensing_Guide/b_Cisco_NX-OS_Licensing_Guide_chapter_01.html["《 Cisco NX-OS 许可指南》"]
 
 
 
+[[enabling-cisco-macsec-encryption-wan-isls-in-metrocluster-ip-configurations]]
 === 在 MetroCluster IP 配置中启用 Cisco MACsec 加密 WAN ISL
 
 您可以在 MetroCluster IP 配置中为 WAN ISL 上的 Cisco 9336C 交换机启用 MACsec 加密。
@@ -621,6 +630,7 @@ IP_switch_A_1(config)# copy running-config startup-config
 
 
 
+[[disabling-cisco-macsec-encryption]]
 === 禁用 Cisco MAC 秒加密
 
 在 MetroCluster IP 配置中，您可能需要对 WAN ISL 上的 Cisco 9336C 交换机禁用 MACsec 加密。
@@ -672,12 +682,14 @@ IP_switch_A_1(config)# copy running-config startup-config
 
 
 
+[[configuring-a-macsec-key-chain-and-keys]]
 === 配置 MACsec 密钥链和密钥
 
 有关配置 MACsec 密钥链的详细信息，请参见适用于您的交换机的 Cisco 文档。
 
 
 
+[[connecting-the-new-ns224-shelf]]
 == 连接新的 NS224 磁盘架
 
 .步骤

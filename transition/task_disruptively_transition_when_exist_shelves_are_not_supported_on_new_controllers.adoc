@@ -25,6 +25,7 @@ summary: 从 ONTAP 9.8 开始，您可以中断过渡双节点 MetroCluster FC �
 
 
 
+[[enable-console-logging]]
 == 启用控制台日志记录
 
 NetApp强烈建议您在使用的设备上启用控制台日志记录、并在执行此过程时执行以下操作：
@@ -39,6 +40,7 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 
 
 
+[[requirements-for-transition-when-shelves-are-not-supported-on-the-new-nodes]]
 == 新节点不支持磁盘架时的过渡要求
 
 在开始过渡过程之前，您必须确保配置满足要求。
@@ -87,6 +89,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 
 
+[[workflow-for-disruptive-transition-when-shelves-are-not-supported-by-new-controllers]]
 == 当新控制器不支持磁盘架时用于中断过渡的工作流
 
 如果新平台型号不支持现有磁盘架型号，则必须将新磁盘架连接到旧配置，将数据移动到新磁盘架上，然后过渡到新配置。
@@ -97,6 +100,7 @@ image::../media/workflow_2n_transition_old_shelves_not_supported.png[旧货架�
 
 
 
+[[preparing-the-new-controller-modules]]
 == 准备新控制器模块
 
 您必须清除新控制器模块和新存储架上的配置和磁盘所有权。
@@ -108,6 +112,7 @@ image::../media/workflow_2n_transition_old_shelves_not_supported.png[旧货架�
 
 
 
+[[attaching-the-new-disk-shelves-to-the-existing-metrocluster-fc-controllers]]
 == 将新磁盘架连接到现有 MetroCluster FC 控制器
 
 在过渡到 MetroCluster IP 配置之前，您必须将新驱动器架连接到现有控制器模块。
@@ -136,6 +141,7 @@ image::../media/transition_2n_unsupported_old_new_shelves_to_old_controllers.png
 
 
 
+[[migrate-root-aggregates-and-move-data-to-the-new-disk-shelves]]
 == 迁移根聚合并将数据移动到新磁盘架
 
 您必须将根聚合从旧驱动器架移至 MetroCluster IP 节点将使用的新驱动器架。
@@ -490,6 +496,7 @@ MetroCluster check show`
 
 
 
+[[transitioning-the-configuration]]
 == 正在过渡配置
 
 您必须遵循详细的过渡操作步骤。

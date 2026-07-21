@@ -22,6 +22,7 @@ NOTE: 适用于您的型号网桥的 _ATTO FibreBridge 安装和操作手册 _ �
 
 
 
+[[serial-port]]
 == 串行端口
 
 使用串行端口配置和管理网桥以及配置以太网管理 1 端口时，系统必须满足以下要求：
@@ -38,6 +39,7 @@ NOTE: 适用于您的型号网桥的 _ATTO FibreBridge 安装和操作手册 _ �
 
 
 
+[[telnet]]
 == Telnet
 
 使用 Telnet 配置和管理网桥时，系统必须满足以下要求：
@@ -56,6 +58,7 @@ NOTE: 适用于您的型号网桥的 _ATTO FibreBridge 安装和操作手册 _ �
 
 
 
+[[ftp]]
 == FTP
 
 使用 FTP 更新网桥固件时，您的系统必须满足以下要求：

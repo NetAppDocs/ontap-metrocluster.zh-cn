@@ -19,6 +19,7 @@ summary: 修改MetroCluster FC后端交换机或ATto网桥的IP地址后、更�
 
 
 
+[[modify-a-switch-ip-address]]
 == 修改交换机IP地址
 
 更换MetroCluster FC后端交换机的旧运行状况监控IP地址。
@@ -54,6 +55,7 @@ summary: 修改MetroCluster FC后端交换机或ATto网桥的IP地址后、更�
 
 
 
+[[modify-an-atto-bridge-ip-address]]
 == 修改ATto网桥IP地址
 
 替换ATto网桥的旧运行状况监控IP地址。

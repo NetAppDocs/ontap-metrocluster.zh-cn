@@ -15,6 +15,7 @@ summary: 您使用的刷新操作步骤 取决于平台型号、升级范围和M
 
 
 
+[[supported-metrocluster-ip-tech-refresh-combinations]]
 == 支持的MetroCluster IP技术更新组合
 
 * 您必须先完成技术更新操作步骤 、然后才能添加新负载。
@@ -26,6 +27,7 @@ summary: 您使用的刷新操作步骤 取决于平台型号、升级范围和M
 
 
 
+[[supported-aff-and-fas-metrocluster-ip-tech-refresh-combinations]]
 === 支持的AFF和FAS MetroCluster IP技术更新组合
 
 下表显示了在MetroCluster IP配置中刷新AFF或FAS系统时支持的平台组合。这些表分为两组：
@@ -58,6 +60,7 @@ image:../media/tech-refresh-ip-group-2-updated.png["AFF和FAS第 2 组平台的�
 ====
 
 
+[[supported-asa-metrocluster-ip-tech-refresh-combinations]]
 === 支持的ASA MetroCluster IP技术更新组合
 
 下表显示了在MetroCluster IP配置中刷新ASA系统时支持的平台组合：
@@ -66,6 +69,7 @@ image::../media/mcc-ip-techrefresh-asa-9161.png[MetroCluster IP ASA技术更新�
 
 
 
+[[supported-metrocluster-fc-tech-refresh-combinations]]
 == 支持的MetroCluster FC技术更新组合
 
 * 您必须先完成技术更新操作步骤 、然后才能添加新负载。
@@ -77,6 +81,7 @@ image::../media/mcc-ip-techrefresh-asa-9161.png[MetroCluster IP ASA技术更新�
 
 
 
+[[supported-aff-and-fas-metrocluster-fc-tech-refresh-combinations]]
 === 支持的AFF和FAS MetroCluster FC技术更新组合
 
 下表显示了在MetroCluster FC配置中刷新AFF或FAS系统时支持的平台组合：
@@ -85,6 +90,7 @@ image::../media/metrocluster_fc_tech_refresh.png[MetroCluster FC 技术更新支
 
 
 
+[[supported-asa-metrocluster-fc-tech-refresh-combinations]]
 === 支持的ASA MetroCluster FC技术更新组合
 
 下表显示了在MetroCluster FC配置中刷新ASA系统时支持的平台组合：
@@ -107,6 +113,7 @@ image::../media/metrocluster_fc_tech_refresh.png[MetroCluster FC 技术更新支
 |===
 
 
+[[choose-a-refresh-procedure]]
 == 选择刷新过程
 
 从下表中选择适用于您的配置的刷新过程：

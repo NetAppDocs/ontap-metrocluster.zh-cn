@@ -25,6 +25,7 @@ summary:
 
 
 
+[[preparing-to-hot-add-a-stack-of-sas-disk-shelves-and-bridges]]
 == 准备热添加 SAS 磁盘架和网桥堆栈
 
 要准备热添加 SAS 磁盘架堆栈和一对网桥，需要下载文档以及磁盘驱动器和磁盘架固件。
@@ -124,6 +125,7 @@ https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp
 
 
 
+[[hot-adding-a-stack-of-sas-disk-shelves-and-bridges]]
 == 热添加 SAS 磁盘架和网桥堆栈
 
 您可以热添加 SAS 磁盘架和网桥堆栈以增加网桥的容量。

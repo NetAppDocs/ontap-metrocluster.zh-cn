@@ -22,13 +22,13 @@ summary: 从 ONTAP 9.7 开始，ONTAP Mediator 可以通过提供物理上独立
 ONTAP 调解器与每个站点之间的连接必须是两个单独的故障域。
 
 * ONTAP 9.7 及更高版本支持自动计划外切换。
-* 从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以配置使用 HTTPS 而不是 iSCSI 进行通信的 ONTAP Mediator。当 ONTAP Mediator 配置有 HTTPS 时，每个 ONTAP Mediator 实例只能监控一个 MetroCluster IP 配置。有关详细信息，请参见 <<选择 ONTAP Mediator 的通信协议>>。
-* 从 ONTAP 9.18.1 和 ONTAP Mediator 1.11 开始，使用 iSCSI 配置的单个 ONTAP Mediator 实例可以同时管理多达十个 MetroCluster 配置。在 ONTAP 9.17.1 和 ONTAP Mediator 1.10 及更早版本中，配置了 iSCSI 的 ONTAP Mediator 最多可以同时支持五个 MetroCluster 配置。
+* 从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以配置使用 HTTPS 而不是 iSCSI 进行通信的 ONTAP Mediator。有关详细信息，请参见<<选择 ONTAP Mediator 的通信协议>>。
 * 从ONTAP 9.18.1 开始，在MetroCluster IP 配置中， ONTAP Mediator 1.11 或更高版本支持 IPv6。
 
 
 
 
+[[network-requirements-for-using-ontap-mediator-in-a-metrocluster-configuration]]
 == 在 MetroCluster 配置中使用 ONTAP 调解器的网络要求
 
 要在 MetroCluster 配置中安装 ONTAP 调解器，您必须确保该配置满足多个网络要求。
@@ -60,6 +60,7 @@ ONTAP 调解器和一个 DR 组之间的链接必须至少具有 20Mbps 的带�
 
 
 
+[[host-requirements-for-ontap-mediator-in-a-metrocluster-configuration]]
 == MetroCluster 配置中 ONTAP 调解器的主机要求
 
 您必须确保配置满足多个主机要求。
@@ -75,26 +76,79 @@ ONTAP 调解器和一个 DR 组之间的链接必须至少具有 20Mbps 的带�
 
 
 
+[[select-a-communication-protocol-for-ontap-mediator]]
 == 选择 ONTAP Mediator 的通信协议
 
 默认情况下，MetroCluster IP 节点使用 iSCSI 会话访问 ONTAP Mediator 邮箱 LUN。ONTAP Mediator 依靠 SCST 包提供 iSCSI。iSCSI 会话使用挑战握手身份验证协议 (CHAP) 进行身份验证，并使用混淆的机器生成的预共享密钥，但未完全加密。
 
 从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以配置使用 HTTPS 而不是 iSCSI 进行通信的 ONTAP Mediator 实例。HTTPS 是一种安全的通信协议，使用 SSL/TLS 对整个会话进行加密，与 iSCSI 相比，安全性更高。
 
+您可以安装支持 iSCSI 和 HTTPS 或仅支持 HTTPS 的 ONTAP Mediator。有关详细信息，请参见 link:https://docs.netapp.com/us-en/ontap/mediator/index.html#https-iscsi-installation["适用于 ONTAP Mediator 的 HTTPS 和 iSCSI 安装选项"^]。
+
+您可以使用 iSCSI 或 HTTPS 配置 ONTAP Mediator，但不能同时使用两者。不支持在部署中混合使用协议。
+
 只能使用 CLI 配置使用 HTTPS 的 ONTAP Mediator。不支持 System Manager。
 
-[CAUTION]
-====
-* 如果使用 HTTPS 配置 ONTAP Mediator，则单个 ONTAP Mediator 实例只能监控一个 MetroCluster IP 配置。不支持同时监控多个 MetroCluster IP 配置。
-* 如果您需要使用 HTTPS 配置 ONTAP Mediator 来监控多个 MetroCluster IP 配置，则必须为每个 MetroCluster IP 配置配置单独的 ONTAP Mediator 实例。在选择使用 HTTPS 为 MetroCluster IP 配置 ONTAP Mediator 之前，必须仔细评估 MetroCluster IP 环境的要求。
-* 如果要使用单个 ONTAP Mediator 实例来监视多个 MetroCluster IP 配置，则应使用 iSCSI 而不是 HTTPS 配置 ONTAP Mediator。
-
-
-====
-有关详细信息，请参见 link:https://docs.netapp.com/us-en/ontap/mediator/index.html#https-iscsi-installation["适用于 ONTAP Mediator 的 HTTPS 和 iSCSI 安装选项"^]。
+监控多个 MetroCluster IP 配置的支持取决于您是针对 iSCSI 还是 HTTPS 配置 ONTAP Mediator。有关详细信息，请参见 <<使用 ONTAP Mediator 监控多个 MetroCluster IP 配置>>。
 
 
 
+[[use-ontap-mediator-to-monitor-multiple-metrocluster-ip-configurations]]
+[[mediator-multiple-mccip]]
+== 使用 ONTAP Mediator 监控多个 MetroCluster IP 配置
+
+ONTAP Mediator 可用于同时监控多个 MetroCluster IP 配置。支持取决于您是使用 iSCSI 还是 HTTPS 配置 ONTAP Mediator。
+
+
+
+[[ontap-mediator-configured-with-https]]
+=== 使用 HTTPS 配置的 ONTAP Mediator
+
+从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以配置使用 HTTPS 而不是 iSCSI 进行通信的 ONTAP Mediator 实例。本节概述了使用一个 HTTPS ONTAP Mediator 实例监控多个配置的支持。
+
+
+CAUTION: 不支持尝试添加超出本节所述限制的多个 HTTPS ONTAP Mediator 实例。
+
+.监控多个 MetroCluster IP 配置
+使用 HTTPS 配置的 ONTAP Mediator 对监控多个 MetroCluster IP 配置具有以下支持。支持取决于 ONTAP Mediator 版本、主机操作系统规格以及 MetroCluster IP 配置是四节点还是八节点。
+
+[cols="1,2,1,1"]
+|===
+| ONTAP Mediator 版本 | 主机操作系统要求 | 四节点 MetroCluster IP 配置 | 八节点 MetroCluster IP 配置 
+
+
+| 1.12 | 不适用 | 1. | 1. 
+
+
+.2+| 1.12.1 及更高版本 | CPU内核少于8个且RAM至少为8GB的主机 | 1. | 1. 
+
+
+| 具有至少 8 个 CPU 内核和至少 16GB RAM 的主机 | 10 | 5. 
+|===
+.监控 MetroCluster IP 和 SnapMirror 活动同步配置
+从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以使用相同的 ONTAP Mediator 实例同时监控四节点 MetroCluster IP 配置和 SnapMirror 活动同步集群对等关系。您的配置必须满足以下要求：
+
+* ONTAP Mediator 1.12.1 或更高版本安装在具有双核 CPU 的主机操作系统上
+* 使用 HTTPS 协议配置 ONTAP Mediator 实例
+
+
+
+NOTE: 您只能使用相同的 ONTAP Mediator 实例监视一个四节点 MetroCluster IP 配置和一个 SnapMirror 活动同步对等关系。
+
+link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["了解 ONTAP SnapMirror 活动同步"^]。
+
+
+
+[[ontap-mediator-configured-with-iscsi]]
+=== 使用 iSCSI 配置的 ONTAP Mediator
+
+* 从 ONTAP 9.18.1 和 ONTAP Mediator 1.11 开始，使用 iSCSI 配置的单个 ONTAP Mediator 实例可以同时管理多达十个 MetroCluster 配置。
+* 在 ONTAP 9.17.1 和 ONTAP Mediator 1.10 及更早版本中，配置了 iSCSI 的 ONTAP Mediator 最多可以同时支持五个 MetroCluster 配置。
+
+
+
+
+[[guidelines-for-upgrading-ontap-mediator-in-a-metrocluster-configuration]]
 == 在 MetroCluster 配置中升级 ONTAP 调解器的指南
 
 如果要升级 ONTAP Mediator，则必须满足 Linux 版本要求并遵循升级指南。
@@ -107,6 +161,7 @@ link:https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ON
 
 
 
+[[after-the-upgrade]]
 == 升级后
 
 完成调解器和操作系统升级后，您应使用问题描述 `storage iscsi-initiator show` 命令确认调解器连接已启动。

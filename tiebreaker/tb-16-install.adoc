@@ -23,6 +23,7 @@ NOTE: 安装 Tiebreaker 1.6 或更高版本后，您需要link:concept_configuri
 
 
 
+[[install-or-upgrade-to-tiebreaker-1-6p1]]
 == 安装或升级到Tieb破碎 机1.6P1
 
 您可以安装Tieb破碎 机1.6P1、也可以从Tieb破碎 机1.6、1.5或1.4升级到Tieb破碎 机1.6P1。
@@ -771,6 +772,7 @@ Cleaning up / removing...
 
 
 
+[[install-or-upgrade-to-tiebreaker-1-6]]
 == 安装或升级到Tieb破碎 机1.6
 
 您可以安装Tieb破碎 机1.6、也可以从Tieb破碎 机1.5或1.4升级到Tieb破碎 机1.6。

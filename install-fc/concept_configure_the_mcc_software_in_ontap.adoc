@@ -17,12 +17,14 @@ image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[
 
 
 
+[[gathering-required-information]]
 == 收集所需信息
 
 在开始配置过程之前，您需要收集控制器模块所需的 IP 地址。
 
 
 
+[[ip-network-information-worksheet-for-site-a]]
 === 站点 A 的 IP 网络信息工作表
 
 在配置系统之前，您必须从网络管理员处获取第一个 MetroCluster 站点（站点 A ）的 IP 地址和其他网络信息。
@@ -322,6 +324,7 @@ HTTP ， HTTPS 或 SMTP
 |===
 
 
+[[ip-network-information-worksheet-for-site-b]]
 === 站点 B 的 IP 网络信息工作表
 
 在配置系统之前，您必须从网络管理员处获取第二个 MetroCluster 站点（站点 B ）的 IP 地址和其他网络信息。
@@ -619,6 +622,7 @@ HTTP ， HTTPS 或 SMTP
 |===
 
 
+[[similarities-and-differences-between-standard-cluster-and-metrocluster-configurations]]
 == 标准集群和 MetroCluster 配置之间的相似之处和不同之处
 
 在 MetroCluster 配置中，每个集群中的节点配置与标准集群中的节点配置类似。
@@ -674,6 +678,7 @@ MetroCluster 配置基于两个标准集群构建。在物理上，配置必须�
 |===
 
 
+[[verifying-and-configuring-the-ha-state-of-components-in-maintenance-mode]]
 == 在维护模式下验证和配置组件的 HA 状态
 
 在MetroCluster FC配置中配置存储系统时、必须确保控制器模块和机箱组件的高可用性(HA)状态为MCC或MCC－2n、以便这些组件可以正常启动。尽管此值应在从工厂收到的系统上进行预配置、但您仍应验证设置、然后再继续。
@@ -790,6 +795,7 @@ mccip
 
 
 
+[[restoring-system-defaults-and-configuring-the-hba-type-on-a-controller-module]]
 == 还原系统默认值并在控制器模块上配置 HBA 类型
 
 .关于此任务
@@ -927,6 +933,7 @@ Please choose one of the following:
 --
 
 
+[[configuring-fc-vi-ports-on-a-x1132a-r6-quad-port-card-on-fas8020-systems]]
 == 在 FAS8020 系统上的 X1132A-R6 四端口卡上配置 FC-VI 端口
 
 如果在 FAS8020 系统上使用 X1132A-R6 四端口卡，则可以进入维护模式来配置 1a 和 1b 端口以供 FC-VI 和启动程序使用。从工厂收到的 MetroCluster 系统不需要执行此操作，这些端口已根据您的配置进行了相应设置。
@@ -1033,6 +1040,7 @@ controller_B_1
 
 
 
+[[verifying-disk-assignment-in-maintenance-mode-in-an-eight-node-or-a-four-node-configuration]]
 == 验证八节点或四节点配置中维护模式下的磁盘分配
 
 在将系统完全启动到 ONTAP 之前，您可以选择启动到维护模式并验证节点上的磁盘分配。应分配这些磁盘以创建完全对称的主动 - 主动配置，其中每个池分配的磁盘数量相等。
@@ -1232,6 +1240,7 @@ controller_B_1
 
 
 
+[[assigning-disk-ownership-in-non-aff-systems]]
 === 在非 AFF 系统中分配磁盘所有权
 
 如果 MetroCluster 节点未正确分配磁盘，或者您在配置中使用的是 DS460C 磁盘架，则必须按磁盘架为 MetroCluster 配置中的每个节点分配磁盘。您将创建一种配置，其中每个节点的本地和远程磁盘池中的磁盘数相同。
@@ -1389,6 +1398,7 @@ HA 配对节点池 1 的 DR 配对节点
 
 
 
+[[assigning-disk-ownership-in-aff-systems]]
 === 在 AFF 系统中分配磁盘所有权
 
 如果在具有镜像聚合的配置中使用 AFF 系统，并且节点未正确分配磁盘（ SSD ），则应将每个磁盘架上一半的磁盘分配给一个本地节点，另一半磁盘分配给其 HA 配对节点。您应创建一种配置，使每个节点在其本地和远程磁盘池中具有相同数量的磁盘。
@@ -1505,6 +1515,7 @@ HA 配对节点池 1 的 DR 配对节点
 
 
 
+[[verifying-disk-assignment-in-maintenance-mode-in-a-two-node-configuration]]
 == 验证双节点配置中维护模式下的磁盘分配
 
 在将系统完全启动到 ONTAP 之前，您可以选择将系统启动到维护模式并验证节点上的磁盘分配。应分配磁盘以创建完全对称的配置，其中两个站点都拥有自己的磁盘架并提供数据，其中每个节点和每个池都分配了相同数量的镜像磁盘。
@@ -1622,6 +1633,7 @@ DR 配对节点的池 1
 
 
 
+[[setting-up-ontap]]
 == 设置 ONTAP
 
 您必须在每个控制器模块上设置 ONTAP 。
@@ -1635,6 +1647,8 @@ DR 配对节点的池 1
 
 
 
+[[setting-up-ontap-in-a-two-node-metrocluster-configuration]]
+[[setup_ontap_2node_MCC]]
 === 在双节点 MetroCluster 配置中设置 ONTAP
 
 在双节点 MetroCluster 配置中，您必须在每个集群上启动节点，退出集群设置向导，然后使用 cluster setup 命令将节点配置为单节点集群。
@@ -1731,6 +1745,8 @@ cluster1-01           true    true
 
 
 
+[[setting-up-ontap-in-an-eight-node-or-four-node-metrocluster-configuration]]
+[[setup_ontap_8node_4node_MCC]]
 === 在八节点或四节点 MetroCluster 配置中设置 ONTAP
 
 启动每个节点后，系统会提示您运行 System Setup 工具来执行基本节点和集群配置。配置集群后，您可以返回到 ONTAP 命令行界面以创建聚合并创建 MetroCluster 配置。
@@ -1864,6 +1880,7 @@ NOTE: 您可以在稍后的任务中创建镜像聚合。
 
 
 
+[[configuring-the-clusters-into-a-metrocluster-configuration]]
 == 将集群配置为 MetroCluster 配置
 
 您必须对集群建立对等关系，镜像根聚合，创建镜像数据聚合，然后问题描述命令以实施 MetroCluster 操作。
@@ -1873,12 +1890,14 @@ NOTE: 您可以在稍后的任务中创建镜像聚合。
 
 
 
+[[peering-the-clusters]]
 === 为集群建立对等关系
 
 MetroCluster 配置中的集群必须处于对等关系中，以便它们可以彼此通信并执行对 MetroCluster 灾难恢复至关重要的数据镜像。
 
 
 
+[[configuring-intercluster-lifs]]
 === 配置集群间 LIF
 
 您必须在用于 MetroCluster 配对集群之间通信的端口上创建集群间 LIF 。您可以使用专用端口或也具有数据流量的端口。
@@ -1890,6 +1909,7 @@ MetroCluster 配置中的集群必须处于对等关系中，以便它们可以�
 
 
 
+[[config_LIFs_dedicated]]
 ==== 在专用端口上配置集群间 LIF
 
 您可以在专用端口上配置集群间 LIF 。这样做通常会增加复制流量的可用带宽。
@@ -2106,6 +2126,7 @@ link:concept_prepare_for_the_mcc_installation.html["使用专用端口时的注�
 
 
 
+[[config_LIFs_shared_data]]
 ==== 在共享数据端口上配置集群间 LIF
 
 您可以在与数据网络共享的端口上配置集群间 LIF 。这样可以减少集群间网络连接所需的端口数量。
@@ -2246,6 +2267,7 @@ link:concept_prepare_for_the_mcc_installation.html["共享数据端口时的注�
 
 
 
+[[creating-a-cluster-peer-relationship]]
 === 创建集群对等关系
 
 您必须在 MetroCluster 集群之间创建集群对等关系。
@@ -2463,6 +2485,7 @@ cluster01-02
 
 
 
+[[mirroring-the-root-aggregates]]
 === 镜像根聚合
 
 您必须镜像根聚合以提供数据保护。
@@ -2501,6 +2524,7 @@ link:https://docs.netapp.com/us-en/ontap/volumes/index.html["使用 CLI 进行�
 
 
 
+[[creating-a-mirrored-data-aggregate-on-each-node]]
 === 在每个节点上创建镜像数据聚合
 
 您必须在 DR 组中的每个节点上创建镜像数据聚合。
@@ -2564,6 +2588,7 @@ cluster_A::> storage aggregate create aggr1_node_A_1 -diskcount 10 -node node_A_
 
 
 
+[[creating-unmirrored-data-aggregates]]
 === 创建未镜像的数据聚合
 
 您可以选择为不需要 MetroCluster 配置提供的冗余镜像的数据创建未镜像数据聚合。
@@ -2637,6 +2662,7 @@ link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["磁盘和�
 
 
 
+[[implementing-the-metrocluster-configuration]]
 === 实施 MetroCluster 配置
 
 要在 MetroCluster 配置中启动数据保护，必须运行 `MetroCluster configure` 命令。
@@ -2792,6 +2818,7 @@ Remote: cluster_A         Configuration state configured
 
 
 
+[[configuring-in-order-delivery-or-out-of-order-delivery-of-frames-on-ontap-software]]
 === 在 ONTAP 软件上配置帧的按顺序交付或无序交付
 
 您必须根据光纤通道（ FC ）交换机配置来配置帧的按顺序交付（ IOD ）或无序交付（ OOD ）。
@@ -2901,6 +2928,8 @@ mcc4-b2      mlx4_0          IB      Up     false     192.0.2.10  	ib2b
 
 
 
+[[configuring-snmpv3-in-a-metrocluster-fc-configuration]]
+[[snmpv3-mcc-fc]]
 === 在 MetroCluster FC 配置中配置 SNMPv3
 
 .开始之前
@@ -3030,6 +3059,7 @@ NOTE: 您还应在未使用的帐户上设置密码，以保护这些帐户的�
 
 
 
+[[configuring-metrocluster-components-for-health-monitoring]]
 === 配置 MetroCluster 组件以进行运行状况监控
 
 在监控 MetroCluster 配置中的组件之前，必须执行一些特殊的配置步骤。
@@ -3204,6 +3234,7 @@ ATTO_10.10.20.13  atto04        true          ok              Atto   FibreBridge
 
 
 
+[[checking-the-metrocluster-configuration]]
 === 正在检查 MetroCluster 配置
 
 您可以检查 MetroCluster 配置中的组件和关系是否工作正常。
@@ -3340,6 +3371,7 @@ link:https://docs.netapp.com/us-en/ontap/network-management/index.html["网络�
 
 
 
+[[checking-for-metrocluster-configuration-errors-with-config-advisor]]
 == 使用 Config Advisor 检查 MetroCluster 配置错误
 
 您可以访问 NetApp 支持站点并下载 Config Advisor 工具以检查常见配置错误。
@@ -3360,6 +3392,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 
 
+[[verifying-local-ha-operation]]
 == 验证本地 HA 操作
 
 如果您使用的是四节点 MetroCluster 配置，则应验证 MetroCluster 配置中本地 HA 对的运行情况。对于双节点配置，不需要执行此操作。
@@ -3468,6 +3501,7 @@ link:https://docs.netapp.com/us-en/ontap/cloud/high-availability-concept.html["�
 
 
 
+[[verifying-switchover-healing-and-switchback]]
 == 验证切换，修复和切回
 
 您应验证 MetroCluster 配置的切换，修复和切回操作。
@@ -3478,6 +3512,7 @@ link:https://docs.netapp.com/us-en/ontap/cloud/high-availability-concept.html["�
 
 
 
+[[protecting-configuration-backup-files]]
 == 保护配置备份文件
 
 您可以通过指定一个远程 URL （ HTTP 或 FTP ）来为集群配置备份文件提供额外保护，除了本地集群中的默认位置之外，还可以将配置备份文件上传到该远程 URL 。

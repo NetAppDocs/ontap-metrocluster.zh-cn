@@ -15,6 +15,7 @@ summary: 在通过网络启动控制器之前设置新控制器、以确认新�
 
 
 
+[[set-up-the-new-controllers]]
 == 设置新控制器
 
 您必须将新控制器装入机架并进行布线。
@@ -114,6 +115,7 @@ https://docs.netapp.com/us-en/ontap-systems/index.html["ONTAP硬件系统文档"
 
 
 
+[[netboot-the-new-controllers]]
 == 通过网络启动新控制器
 
 安装新节点后，您需要通过网络启动来确保新节点运行的 ONTAP 版本与原始节点相同。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。
@@ -172,6 +174,7 @@ NOTE: 您必须重启节点才能使用新安装的软件。
 
 
 
+[[clear-the-configuration-on-a-controller-module]]
 == 清除控制器模块上的配置
 
 在 MetroCluster 配置中使用新控制器模块之前，必须清除现有配置。

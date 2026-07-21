@@ -18,10 +18,12 @@ NOTE: Brocade 7810 交换机仅支持一个 DR 组。
 
 
 
+[[shelf-configurations-using-fibrebridge-7500n-or-7600n-bridges-using-both-fc-ports-fc1-and-fc2]]
 == 使用 FibreBridge 7500N 或 7600N 网桥的机架配置，同时使用两个 FC 端口（FC1 和 FC2）
 
 
 
+[[metrocluster-1-or-dr-group-1]]
 === MetroCluster 1或DR组1
 
 下表显示了使用Brocade交换机上的两个 FC 端口（FC1 和 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 1 或 DR 组 1 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：
@@ -219,6 +221,7 @@ FC2
 |===
 
 
+[[metrocluster-2-or-dr-group-2]]
 === MetroCluster 2或DR组2
 
 下表显示了使用Brocade交换机上的两个 FC 端口（FC1 和 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 2 或 DR 组 2 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：
@@ -416,6 +419,7 @@ FC2
 |===
 
 
+[[metrocluster-3-or-dr-group-3]]
 === MetroCluster 3 或 DR 组 3
 
 下表显示了使用Brocade交换机上的两个 FC 端口（FC1 和 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 3 或 DR 组 3 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：
@@ -530,6 +534,7 @@ FC2
 |===
 
 
+[[metrocluster-4-or-dr-group-4]]
 === MetroCluster 4 或 DR 组 4
 
 下表显示了使用Brocade交换机上的两个 FC 端口（FC1 和 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 4 或 DR 组 4 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：
@@ -644,10 +649,12 @@ FC2
 |===
 
 
+[[shelf-configurations-using-fibrebridge-7500n-or-7600n-using-one-fc-port-fc1-or-fc2-only]]
 == 仅使用一个FC端口(FC1或FC2)的使用光纤桥的500N或7600N的磁盘架配置
 
 
 
+[[metrocluster-1-or-dr-group-1]]
 === MetroCluster 1或DR组1
 
 下表显示了使用 FibreBridge 7500N 或 7600N 以及Brocade交换机上仅一个 FC 端口（FC1 或 FC2）的MetroCluster 1 或 DR 组 1 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：
@@ -840,6 +847,7 @@ bridge_x_4b
 |===
 
 
+[[metrocluster-2-or-dr-group-2]]
 === MetroCluster 2或DR组2
 
 下表显示了使用Brocade交换机上的一个 FC 端口（FC1 或 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 2 或 DR 组 2 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：
@@ -1032,6 +1040,7 @@ bridge_x_4b
 |===
 
 
+[[metrocluster-3-or-dr-group-3]]
 === MetroCluster 3 或 DR 组 3
 
 下表显示了使用Brocade交换机上的一个 FC 端口（FC1 或 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 3 或 DR 组 3 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：
@@ -1142,6 +1151,7 @@ bridge_x_4b
 |===
 
 
+[[metrocluster-4-or-dr-group-4]]
 === MetroCluster 4 或 DR 组 4
 
 下表显示了使用Brocade交换机上的一个 FC 端口（FC1 或 FC2）的 FibreBridge 7500N 或 7600N 网桥在MetroCluster 4 或 DR 组 4 中支持的磁盘架配置。使用此配置表时，您应该注意以下事项：

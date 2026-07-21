@@ -22,12 +22,14 @@ image::../media/workflow_high_level_node_and_cluster_configuration_software.gif[
 
 
 
+[[ip-network-information-worksheet-for-site-a]]
 == 站点 A 的 IP 网络信息工作表
 
 在配置系统之前，您必须从网络管理员处获取第一个 MetroCluster 站点（站点 A ）的 IP 地址和其他网络信息。
 
 
 
+[[site-a-cluster-creation-information]]
 === 站点 A 集群创建信息
 
 首次创建集群时，您需要以下信息：
@@ -69,6 +71,7 @@ DNS 名称服务器
 |===
 
 
+[[site-a-node-information]]
 === 站点 A 节点信息
 
 对于集群中的每个节点，您都需要一个管理 IP 地址，一个网络掩码和一个默认网关。
@@ -100,6 +103,7 @@ DNS 名称服务器
 |===
 
 
+[[site-a-lifs-and-ports-for-cluster-peering]]
 === 用于集群对等的站点 A LIF 和端口
 
 对于集群中的每个节点，您需要两个集群间 LIF 的 IP 地址，包括网络掩码和默认网关。集群间 LIF 用于为集群建立对等关系。
@@ -129,6 +133,7 @@ DNS 名称服务器
 |===
 
 
+[[site-a-time-server-information]]
 === 站点 A 时间服务器信息
 
 您必须同步时间，这需要一个或多个 NTP 时间服务器。
@@ -158,6 +163,7 @@ NTP 服务器 2.
 |===
 
 
+[[site-a-nbsp-autosupport-information]]
 === 站点A nbsp；AutoSupport 信息
 
 您必须在每个节点上配置 AutoSupport ，这需要以下信息：
@@ -217,6 +223,7 @@ HTTP ， HTTPS 或 SMTP
 |===
 
 
+[[site-a-sp-information]]
 === 站点 A SP 信息
 
 您必须启用对每个节点的服务处理器（ Service Processor ， SP ）的访问，以便进行故障排除和维护。这需要每个节点的以下网络信息：
@@ -236,12 +243,14 @@ HTTP ， HTTPS 或 SMTP
 |===
 
 
+[[ip-network-information-worksheet-for-site-b]]
 == 站点 B 的 IP 网络信息工作表
 
 在配置系统之前，您必须从网络管理员处获取第二个 MetroCluster 站点（站点 B ）的 IP 地址和其他网络信息。
 
 
 
+[[site-b-cluster-creation-information]]
 === 站点 B 集群创建信息
 
 首次创建集群时，您需要以下信息：
@@ -283,6 +292,7 @@ DNS 名称服务器
 |===
 
 
+[[site-b-node-information]]
 === 站点 B 节点信息
 
 对于集群中的每个节点，您都需要一个管理 IP 地址，一个网络掩码和一个默认网关。
@@ -314,6 +324,7 @@ DNS 名称服务器
 |===
 
 
+[[site-b-lifs-and-ports-for-cluster-peering]]
 === 用于集群对等的站点 B LIF 和端口
 
 对于集群中的每个节点，您需要两个集群间 LIF 的 IP 地址，包括网络掩码和默认网关。集群间 LIF 用于为集群建立对等关系。
@@ -343,6 +354,7 @@ DNS 名称服务器
 |===
 
 
+[[site-b-time-server-information]]
 === 站点 B 时间服务器信息
 
 您必须同步时间，这需要一个或多个 NTP 时间服务器。
@@ -372,6 +384,7 @@ NTP 服务器 2.
 |===
 
 
+[[site-b-nbsp-autosupport-information]]
 === 站点B nbsp；AutoSupport 信息
 
 您必须在每个节点上配置 AutoSupport ，这需要以下信息：
@@ -431,6 +444,7 @@ HTTP ， HTTPS 或 SMTP
 |===
 
 
+[[site-b-nbsp-sp-information]]
 === 站点B nbsp；SP信息
 
 您必须启用对每个节点的服务处理器（ Service Processor ， SP ）的访问以进行故障排除和维护，这要求每个节点具有以下网络信息：
@@ -450,6 +464,7 @@ HTTP ， HTTPS 或 SMTP
 |===
 
 
+[[similarities-and-differences-between-standard-cluster-and-metrocluster-configurations]]
 == 标准集群和 MetroCluster 配置之间的相似之处和不同之处
 
 在 MetroCluster 配置中，每个集群中的节点配置与标准集群中的节点配置类似。
@@ -518,6 +533,7 @@ MetroCluster 配置基于两个标准集群构建。在物理上，配置必须�
 |===
 
 
+[[restoring-system-defaults-and-configuring-the-hba-type-on-a-controller-module]]
 == 还原系统默认值并在控制器模块上配置 HBA 类型
 
 要确保 MetroCluster 安装成功，请重置和还原控制器模块上的默认值。
@@ -652,6 +668,7 @@ Please choose one of the following:
 
 
 
+[[configuring-fc-vi-ports-on-a-x1132a-r6-quad-port-card-on-fas8020-systems]]
 == 在 FAS8020 系统上的 X1132A-R6 四端口卡上配置 FC-VI 端口
 
 如果在 FAS8020 系统上使用 X1132A-R6 四端口卡，则可以进入维护模式来配置 1a 和 1b 端口以供 FC-VI 和启动程序使用。从工厂收到的 MetroCluster 系统不需要执行此操作，这些端口已根据您的配置进行了相应设置。
@@ -758,6 +775,7 @@ controller_B_1
 
 
 
+[[verifying-disk-assignment-in-maintenance-mode-in-a-two-node-configuration]]
 == 验证双节点配置中维护模式下的磁盘分配
 
 在将系统完全启动到 ONTAP 之前，您可以选择将系统启动到维护模式并验证节点上的磁盘分配。应分配磁盘以创建完全对称的配置，其中两个站点都拥有自己的磁盘架并提供数据，其中每个节点和每个池都分配了相同数量的镜像磁盘。
@@ -909,6 +927,7 @@ DR 配对节点的池 1
 
 
 
+[[verifying-the-ha-state-of-components]]
 == 验证组件的 HA 状态
 
 在出厂时未预配置的延伸型 MetroCluster 配置中，您必须验证控制器和机箱组件的 HA 状态是否设置为 `mcc-2n` ，以便它们可以正常启动。对于从工厂收到的系统，此值是预配置的，您无需对其进行验证。
@@ -943,6 +962,7 @@ DR 配对节点的池 1
 
 
 
+[[setting-up-ontap-in-a-two-node-metrocluster-configuration]]
 == 在双节点 MetroCluster 配置中设置 ONTAP
 
 在双节点 MetroCluster 配置中，您必须在每个集群上启动节点，退出集群设置向导，然后使用 `cluster setup` 命令将节点配置为单节点集群。
@@ -1039,12 +1059,14 @@ cluster1-01           true    true
 
 
 
+[[configuring-the-clusters-into-a-metrocluster-configuration]]
 == 将集群配置为 MetroCluster 配置
 
 您必须对集群建立对等关系，镜像根聚合，创建镜像数据聚合，然后问题描述命令以实施 MetroCluster 操作。
 
 
 
+[[peering-the-clusters]]
 === 为集群建立对等关系
 
 MetroCluster 配置中的集群必须处于对等关系中，以便它们可以彼此通信并执行对 MetroCluster 灾难恢复至关重要的数据镜像。
@@ -1681,6 +1703,7 @@ cluster01-02
 
 
 
+[[mirroring-the-root-aggregates]]
 === 镜像根聚合
 
 您必须镜像根聚合以提供数据保护。
@@ -1719,6 +1742,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/home.html["
 
 
 
+[[creating-a-mirrored-data-aggregate-on-each-node]]
 === 在每个节点上创建镜像数据聚合
 
 您必须在 DR 组中的每个节点上创建镜像数据聚合。
@@ -1788,6 +1812,7 @@ cluster_A::> storage aggregate create aggr1_node_A_1 -diskcount 10 -node node_A_
 
 
 
+[[creating-unmirrored-data-aggregates]]
 === 创建未镜像的数据聚合
 
 您可以选择为不需要 MetroCluster 配置提供的冗余镜像的数据创建未镜像数据聚合。
@@ -1858,6 +1883,7 @@ controller_A_1::> storage aggregate create aggr1_controller_A_1 -diskcount 10 -n
 
 
 
+[[implementing-the-metrocluster-configuration]]
 === 实施 MetroCluster 配置
 
 要在 MetroCluster 配置中启动数据保护，必须运行 `MetroCluster configure` 命令。
@@ -1996,6 +2022,7 @@ Remote: cluster_A         Configuration state configured
 
 
 
+[[configuring-fc-to-sas-bridges-for-health-monitoring]]
 === 配置 FC-SAS 网桥以进行运行状况监控
 
 在运行 ONTAP 9.8 之前版本的系统中，如果您的配置包含 FC-SAS 网桥，则必须执行一些特殊的配置步骤来监控 MetroCluster 配置中的 FC-SAS 网桥。
@@ -2064,6 +2091,7 @@ ATTO_10.10.20.13  atto04        true          ok              Atto   FibreBridge
 
 
 
+[[checking-the-metrocluster-configuration]]
 === 正在检查 MetroCluster 配置
 
 您可以检查 MetroCluster 配置中的组件和关系是否工作正常。您应在初始配置后以及对 MetroCluster 配置进行任何更改后执行检查。您还应在协商（计划内）切换或切回操作之前执行检查。
@@ -2198,6 +2226,7 @@ link:https://docs.netapp.com/us-en/ontap/network-management/index.html["网络�
 
 
 
+[[checking-for-metrocluster-configuration-errors-with-config-advisor]]
 == 使用 Config Advisor 检查 MetroCluster 配置错误
 
 您可以访问 NetApp 支持站点并下载 Config Advisor 工具以检查常见配置错误。
@@ -2216,6 +2245,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 
 
+[[verifying-switchover-healing-and-switchback]]
 == 验证切换，修复和切回
 
 您应验证 MetroCluster 配置的切换，修复和切回操作。
@@ -2225,6 +2255,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 
 
+[[protecting-configuration-backup-files]]
 == 保护配置备份文件
 
 您可以通过指定一个远程 URL （ HTTP 或 FTP ）来为集群配置备份文件提供额外保护，除了本地集群中的默认位置之外，还可以将配置备份文件上传到该远程 URL 。

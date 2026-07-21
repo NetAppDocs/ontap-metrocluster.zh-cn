@@ -15,6 +15,7 @@ summary: 从ONTAP 9.7开始、MetroCluster IP配置可以使用符合MetroCluste
 
 
 
+[[metrocluster-compliant-versus-netapp-validated-switches]]
 == 符合MetroCluster的交换机与经过NetApp验证的交换机
 
 如果交换机满足以下要求、则会通过NetApp验证：
@@ -34,6 +35,7 @@ NOTE: NetApp不会为任何未经验证的MetroCluster兼容交换机提供故�
 
 
 
+[[general-requirements-for-metrocluster-compliant-switches]]
 == MetroCluster兼容交换机的一般要求
 
 连接MetroCluster IP接口的交换机必须满足以下一般要求：
@@ -64,6 +66,7 @@ NOTE: NetApp不会为任何未经验证的MetroCluster兼容交换机提供故�
 
 
 
+[[limitations-when-using-metrocluster-compliant-switches]]
 == 使用MetroCluster兼容交换机时的限制
 
 您不能使用任何需要将本地集群连接到交换机的配置或功能。例如、您不能对符合MetroCluster的交换机使用以下配置和过程：

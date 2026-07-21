@@ -15,6 +15,7 @@ summary: 如果需要更换驱动器或磁盘架模块，则首先需要确定�
 
 
 
+[[identification-of-local-and-remote-shelves]]
 == 标识本地和远程磁盘架
 
 从 MetroCluster 站点查看磁盘架信息时，所有远程驱动器均位于 0m 上，即虚拟 iSCSI 主机适配器。这意味着驱动器可通过 MetroCluster IP 接口进行访问。所有其他驱动器均为本地驱动器。
@@ -32,6 +33,7 @@ https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-ds-sas3-service/home.ht
 
 
 
+[[example-of-sysconfig-a-output]]
 == sysconfig -a 输出示例
 
 以下示例使用 `ssysconfig -a` 命令显示 MetroCluster IP 配置中某个节点上的设备。此节点连接了以下磁盘架和设备：

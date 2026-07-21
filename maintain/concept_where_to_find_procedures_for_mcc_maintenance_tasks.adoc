@@ -15,6 +15,7 @@ summary: 在执行 MetroCluster 硬件维护任务时，您应确保选择正确
 
 
 
+[[prepare-for-maintenance-tasks]]
 == 准备执行维护任务
 
 在执行任何维护过程之前、请查看中的信息link:enable-console-logging-before-maintenance.html["准备MetroCluster维护"]。
@@ -24,6 +25,7 @@ NOTE: 在执行维护任务之前、您必须启用控制台日志记录并删�
 
 
 
+[[maintenance-procedures-for-different-types-of-metrocluster-configurations]]
 == 不同类型MetroCluster配置的维护过程
 
 * 如果您使用的是MetroCluster IP配置，请查看中的过程link:task-modify-ip-netmask-properties.html["MetroCluster IP配置的维护过程"]。
@@ -33,6 +35,7 @@ NOTE: 在执行维护任务之前、您必须启用控制台日志记录并删�
 
 
 
+[[all-other-maintenance-procedures]]
 == 所有其他维护程序
 
 下表提供了上述三节中未介绍的与MetroCluster维护相关的步骤的链接：

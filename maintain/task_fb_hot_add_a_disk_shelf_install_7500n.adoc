@@ -15,6 +15,8 @@ summary: 如果要在不降低性能的情况下增加存储，可以热添加�
 
 
 
+[[step-1-prepare-to-hot-add-a-sas-disk-shelf]]
+[[prepare_to_hot_add_disk]]
 == 第1步：准备热添加SAS磁盘架
 
 要准备热添加SAS磁盘架、您需要下载文档以及磁盘驱动器和磁盘架固件。
@@ -61,6 +63,8 @@ https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["NetApp
 
 
 
+[[step-2-hot-add-a-disk-shelf]]
+[[step_2_hot_add_shelf]]
 == 第2步：热添加磁盘架
 
 使用以下过程将磁盘架热添加到堆栈中。

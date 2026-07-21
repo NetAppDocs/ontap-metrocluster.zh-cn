@@ -15,6 +15,7 @@ summary: 安装 Tiebreaker 软件后，您可以添加或修改 MetroCluster 配
 
 
 
+[[launch-the-tiebreaker-software-cli]]
 == 启动 Tiebreaker 软件 CLI
 
 安装Tiebreaker软件后、您必须启动其命令行界面来配置该软件。
@@ -28,6 +29,7 @@ summary: 安装 Tiebreaker 软件后，您可以添加或修改 MetroCluster 配
 
 
 
+[[add-metrocluster-configurations]]
 == 添加 MetroCluster 配置
 
 安装 NetApp MetroCluster Tiebreaker 软件后，您可以添加更多 MetroCluster 配置，一次添加一个。
@@ -169,6 +171,8 @@ link:concept_risks_and_limitation_of_using_mcc_tiebreaker_in_active_mode.html["�
 
 
 
+[[import-certificates]]
+[[import-certificates-tb17]]
 == 进口证书
 
 要在 Tiebreaker 1.6 或更高版本中启用无缝监控，您需要将服务器安全套接字层 (SSL) 证书、中间证书（如果存在）和根证书从ONTAP导入到 Java 虚拟机 (JVM) 中的密钥库。
@@ -349,6 +353,7 @@ Successfully triggered Switchover Simulation. Please check the status of the Swi
 ====
 
 
+[[commands-for-modifying-metrocluster-tiebreaker-configurations]]
 == 用于修改 MetroCluster Tiebreaker 配置的命令
 
 您可以在需要更改设置时修改 MetroCluster 配置。
@@ -448,6 +453,7 @@ update-mcctb-password
 |===
 
 
+[[remove-metrocluster-configurations]]
 == 删除 MetroCluster 配置
 
 如果您不再需要监控 MetroCluster 配置，则可以删除 Tiebreaker 软件正在监控的 MetroCluster 配置。

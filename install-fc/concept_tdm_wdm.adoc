@@ -60,6 +60,7 @@ FCVI 指定的 VSAN 的策略：
 |===
 
 
+[[when-to-use-iod]]
 == 何时使用 IOD
 
 如果链接支持 IOD ，则最好使用它。以下配置支持 IOD ：
@@ -71,6 +72,7 @@ FCVI 指定的 VSAN 的策略：
 
 
 
+[[when-to-use-ood]]
 == 何时使用 OOD
 
 * 您可以对不支持 IOD 的所有配置使用 OOD 。
@@ -79,6 +81,7 @@ FCVI 指定的 VSAN 的策略：
 
 
 
+[[using-encryption-devices]]
 == 使用加密设备
 
 在 ISL 上使用专用加密设备或在 MetroCluster 配置中对 WDM 设备使用加密时，必须满足以下要求：

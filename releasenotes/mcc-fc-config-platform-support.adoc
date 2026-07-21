@@ -15,6 +15,7 @@ summary:
 
 
 
+[[platform-support]]
 == 平台支持
 
 [cols="2*"]
@@ -51,6 +52,7 @@ ONTAP 9.5
 |===
 
 
+[[switch-support]]
 == 交换机支持
 
 [cols="2*"]

@@ -32,6 +32,7 @@ summary: 开始升级MetroCluster IP控制器之前、您需要验证您的升�
 
 
 
+[[supported-aff-and-fas-metrocluster-ip-controller-upgrades]]
 == 支持的AFF和FAS MetroCluster IP控制器升级
 
 下表显示了在MetroCluster IP配置中使用system controller Replace命令升级AFF或FAS系统时支持的平台组合、这些命令分为两组。
@@ -68,6 +69,7 @@ image:../media/assisted-group-2-a70-a90-updated.png["显示 AFF 和 FAS 升级�
 ====
 
 
+[[supported-asa-metrocluster-ip-controller-upgrades]]
 == 支持的ASA MetroCluster IP控制器升级
 
 不支持在ASA系统上使用命令升级控制器 `system controller replace` 。

@@ -15,6 +15,7 @@ summary: 您必须确定 MetroCluster 配置中每个 FC 交换机网络结构�
 
 
 
+[[isl-sharing-considerations-ontap-9-2]]
 == ISL 共享注意事项（ ONTAP 9.2 ）
 
 从 ONTAP 9.2 开始，您可以在以下情况下使用 ISL 共享：
@@ -47,6 +48,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 
 
+[[platform-specific-isl-considerations]]
 == 平台特定的 ISL 注意事项
 
 建议的 ISL 数量因平台型号而异。下表按平台型号显示了每个网络结构的 ISL 要求。它假定每个 ISL 都具有 16 Gbps 的容量。

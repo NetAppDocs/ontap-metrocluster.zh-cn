@@ -15,6 +15,7 @@ summary: 在规划 MetroCluster 配置时，您应了解硬件组件及其互连
 
 
 
+[[disaster-recovery-dr-groups]]
 == 灾难恢复（ DR ）组
 
 一个光纤 MetroCluster 配置包含一个或两个 DR 组，具体取决于 MetroCluster 配置中的节点数。每个 DR 组包含四个节点。
@@ -33,6 +34,7 @@ image::../media/mcc_dr_groups_4_node.gif[MetroCluster DR 组四个节点]
 
 
 
+[[key-hardware-elements]]
 == 关键硬件要素
 
 MetroCluster 配置包括以下关键硬件元素：
@@ -57,6 +59,7 @@ FC 交换机可在两个站点之间提供远程输送主干 ISL 。FC 交换机
 
 
 
+[[eight-node-fabric-metrocluster-configuration]]
 == 八节点光纤 MetroCluster 配置
 
 一个八节点配置由两个集群组成，每个集群位于不同地理位置的站点上。cluster_A 位于第一个 MetroCluster 站点。cluster_B 位于第二个 MetroCluster 站点。每个站点都有一个 SAS 存储堆栈。支持更多存储堆栈，但每个站点仅显示一个存储堆栈。HA 对配置为无交换机集群，而不使用集群互连交换机。支持有交换机配置，但不会显示此配置。
@@ -79,6 +82,7 @@ SVM 配置会通过集群对等网络进行复制。
 
 
 
+[[four-node-fabric-metrocluster-configuration]]
 == 四节点光纤 MetroCluster 配置
 
 下图显示了一个简化的四节点光纤 MetroCluster 配置视图。对于某些连接，单线表示组件之间的多个冗余连接。未显示数据和管理网络连接。
@@ -91,6 +95,7 @@ image::../media/mcc_hardware_architecture_cluster_a_with_7500n.gif[MetroCluster�
 
 
 
+[[two-node-fabric-metrocluster-configuration]]
 == 双节点光纤 MetroCluster 配置
 
 下图显示了双节点光纤 MetroCluster 配置的简化视图。对于某些连接，单线表示组件之间的多个冗余连接。未显示数据和管理网络连接。

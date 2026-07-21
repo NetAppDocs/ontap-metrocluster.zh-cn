@@ -21,6 +21,7 @@ image::power-on-off-data-center.gif[MetroCluster集群因维护而关闭]
 
 
 
+[[power-off-a-metrocluster-site]]
 == 关闭MetroCluster站点
 
 必须先关闭站点和所有设备，然后才能开始站点维护或重新定位。
@@ -341,6 +342,7 @@ NOTE: 对包含集群A远程磁盘的所有丛执行此步骤
 
 
 
+[[relocating-the-powered-off-site-of-the-metrocluster]]
 == 重新定位 MetroCluster 的已关闭站点
 
 关闭站点后，您可以开始维护工作。无论 MetroCluster 组件是在同一数据中心内重新定位还是重新定位到不同数据中心，操作步骤都是相同的。
@@ -548,6 +550,7 @@ switch_A_1# copy running-config startup-config
 
 
 
+[[powering-on-the-metrocluster-configuration-and-returning-to-normal-operation]]
 == 启动 MetroCluster 配置并恢复正常运行
 
 完成维护或移动站点后，您必须启动站点并重新建立 MetroCluster 配置。

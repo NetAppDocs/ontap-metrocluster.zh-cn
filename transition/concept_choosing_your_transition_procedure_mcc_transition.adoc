@@ -17,6 +17,7 @@ summary: 您必须根据现有 MetroCluster FC 配置选择过渡操作步骤。
 
 
 
+[[supported-platform-combinations]]
 == 支持的平台组合
 
 * 除非注释中另有说明或各个平台需要、否则过渡过程都需要使用ONTAP 9.8或更高版本。
@@ -33,6 +34,7 @@ summary: 您必须根据现有 MetroCluster FC 配置选择过渡操作步骤。
 ====
 
 
+[[supported-aff-and-fas-transition-combinations]]
 === 支持的AFF和FAS过渡组合
 
 下表显示了支持的平台组合。您可以从第一列中的平台过渡到右侧列中列为受支持的平台、如彩色表格单元格所示。
@@ -71,6 +73,7 @@ image:../media/transition-combinations-group-2.png["显示了组2平台支持的
 ====
 
 
+[[supported-asa-transition-platform-combinations]]
 === 支持的ASA过渡平台组合
 
 下表显示了ASA系统支持的平台组合。
@@ -93,6 +96,7 @@ image:../media/transition-combinations-group-2.png["显示了组2平台支持的
 |===
 
 
+[[choose-your-transition-procedure]]
 == 选择过渡操作步骤
 
 您必须根据现有 MetroCluster FC 配置选择过渡操作步骤。

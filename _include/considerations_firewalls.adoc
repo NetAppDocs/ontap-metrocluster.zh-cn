@@ -4,6 +4,7 @@
 
 
 
+[[considerations-for-firewall-usage-at-metrocluster-sites]]
 == MetroCluster 站点上使用防火墙的注意事项
 
 如果您在 MetroCluster 站点上使用防火墙，则必须确保能够访问所需的端口。

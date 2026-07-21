@@ -16,6 +16,7 @@ ONTAP 调解器提供邮箱 LUN 来存储有关 MetroCluster IP 节点的状态�
 
 NOTE: MetroCluster FC 配置不支持 MAUSO 。
 
+[[default_scenarios]]
 当节点检测到需要切换的站点故障时，它会执行相应的步骤来确认切换是否合适，如果是，则会执行切换。默认情况下、在以下情况下会启动MAUSO：
 
 * 每个节点的非易失性缓存的 SyncMirror 镜像和灾难恢复镜像均在运行，并且在发生故障时，缓存和镜像将保持同步。

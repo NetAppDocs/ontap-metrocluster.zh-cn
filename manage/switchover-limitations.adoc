@@ -27,6 +27,7 @@ summary: 在切换期间、不应执行某些操作。
 
 
 
+[[hardware-replacement-in-switchover]]
 == 切换时更换硬件
 
 在系统处于切换状态时、请使用以下过程更换控制器硬件：

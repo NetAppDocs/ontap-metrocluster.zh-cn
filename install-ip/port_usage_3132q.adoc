@@ -20,6 +20,7 @@ MetroCluster IP 配置中的端口使用情况取决于交换机型号和平台�
 
 
 
+[[choose-the-correct-cabling-table-for-your-configuration]]
 == 为您的配置选择正确的布线表
 
 使用下表确定您应遵循的布线表。
@@ -39,16 +40,19 @@ FAS2750、AFF A220
 
 | AFF A800、ASA A800 | <<table_3_cisco_3132q,Cisco 3132Q-V平台端口分配(第3组)>> 
 |===
+[[table_1_cisco_3132q]]
 .Cisco 3132Q-V平台端口分配(组1)
 查看使用缆线将FAS2750或AFF A220系统连接到Cisco 3132Q-V交换机的平台端口分配：
 
 image::../media/mcc-ip-cabling-a-fas2750-or-a220-to-a-cisco-3132q-v-switch.png[显示了Cisco 3132Q-V平台端口分配]
 
+[[table_2_cisco_3132q]]
 .Cisco 3132Q-V平台端口分配(第2组)
 查看使用缆线将FAS9000或AFF A700系统连接到Cisco 3132Q-V交换机的平台端口分配：
 
 image::../media/mcc-ip-cabling-a-fas9000-or-aff-a700-to-a-cisco-3132q-v-switch.png[显示了Cisco 3132Q-V平台端口分配]
 
+[[table_3_cisco_3132q]]
 .Cisco 3132Q-V平台端口分配(第3组)
 查看将AFF A800或ASA A800系统连接到Cisco 3132Q-V交换机所需的平台端口分配：
 

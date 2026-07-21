@@ -18,6 +18,7 @@ NOTE: 此操作步骤仅适用于光纤连接的 MetroCluster 配置。
 
 
 
+[[disabling-access-to-the-shelf]]
 == 禁用对磁盘架的访问
 
 在更换磁盘架模块之前，您必须禁用对磁盘架的访问。
@@ -160,6 +161,7 @@ FC_switch_A_2# show interface fc1/6
 
 
 
+[[replacing-the-shelf]]
 == 更换磁盘架
 
 在插入新磁盘架和磁盘架模块并为其布线之前，您必须物理移除所有缆线和磁盘架。
@@ -176,6 +178,7 @@ FC_switch_A_2# show interface fc1/6
 
 
 
+[[reenabling-access-and-verifying-the-operation]]
 == 重新启用访问并验证操作
 
 更换磁盘架后，您需要重新启用访问并验证新磁盘架是否正常运行。

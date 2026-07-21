@@ -15,6 +15,7 @@ MetroCluster 配置需要多种硬件组件。为了方便和清晰起见， Met
 
 
 
+[[supported-software-and-hardware]]
 == 支持的软件和硬件
 
 MetroCluster FC 配置必须支持硬件和软件。
@@ -25,12 +26,14 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 
 
+[[hardware-redundancy-in-the-metrocluster-configuration]]
 == MetroCluster 配置中的硬件冗余
 
 由于 MetroCluster 配置中的硬件冗余，因此每个站点都有两个组件。随机地为站点分配字母 A 和 B ，并为各个组件分配编号 1 和 2 。
 
 
 
+[[two-single-node-ontap-clusters]]
 == 两个单节点 ONTAP 集群
 
 SAS 连接的延伸型 MetroCluster 配置需要两个单节点 ONTAP 集群。
@@ -45,6 +48,7 @@ SAS 连接的延伸型 MetroCluster 配置需要两个单节点 ONTAP 集群。
 
 
 
+[[two-storage-controller-modules]]
 == 两个存储控制器模块
 
 SAS 连接的延伸型 MetroCluster 配置需要两个存储控制器模块。
@@ -74,6 +78,7 @@ SAS 连接的延伸型 MetroCluster 配置需要两个存储控制器模块。
 
 
 
+[[at-least-four-sas-disk-shelves-recommended]]
 == 至少四个 SAS 磁盘架（建议）
 
 SAS 连接的延伸型 MetroCluster 配置至少需要两个 SAS 磁盘架。建议使用四个 SAS 磁盘架。

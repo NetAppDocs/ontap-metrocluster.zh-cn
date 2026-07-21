@@ -15,6 +15,7 @@ summary: 通过 MetroCluster Tiebreaker 软件，您可以监控 MetroCluster �
 
 
 
+[[configuring-autosupport]]
 == 正在配置 AutoSupport
 
 默认情况下， AutoSupport 消息会在安装 Tiebreaker 软件后一周发送给 NetApp 。触发 AutoSupport 通知的事件包括 Tiebreaker 软件崩溃，检测 MetroCluster 配置上的灾难情况或未知 MetroCluster 配置状态。
@@ -130,6 +131,7 @@ Autosupport configuration deleted successfully.
 
 
 
+[[snmp-events-and-traps]]
 === SNMP 事件和陷阱
 
 NetApp MetroCluster Tiebreaker 软件使用 SNMP 陷阱向您通知重大事件。这些陷阱是 NetApp MIB 文件的一部分。每个陷阱都包含以下信息：陷阱名称，严重性，影响级别，时间戳和消息。
@@ -187,6 +189,7 @@ SNMP 测试陷阱
 |===
 
 
+[[displaying-the-status-of-monitoring-operations]]
 == 显示监控操作的状态
 
 您可以显示 MetroCluster 配置的监控操作的整体状态。
@@ -286,6 +289,7 @@ MetroCluster: cluster_B
 
 
 
+[[displaying-metrocluster-configuration-information]]
 == 显示 MetroCluster 配置信息
 
 您可以显示 Tiebreaker 软件中所有 MetroCluster 配置实例的监控器名称和 IP 地址。
@@ -309,6 +313,7 @@ MetroCluster: North America
 
 
 
+[[creating-dump-files]]
 == 正在创建转储文件
 
 您可以将 Tiebreaker 软件的整体状态保存到转储文件中，以便进行调试。
@@ -329,6 +334,7 @@ MetroCluster Tiebreaker status successfully dumped in file /var/log/netapp/mcctb
 
 
 
+[[disable-tiebreaker-observer-mode]]
 == 禁用决胜局观察者模式
 
 您可以禁用 Tiebreaker 软件的观察者模式，使其在检测到站点故障后自动启动切换。

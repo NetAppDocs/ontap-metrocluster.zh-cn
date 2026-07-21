@@ -15,6 +15,7 @@ summary: 添加新节点后，您必须完成过渡步骤并配置 MetroCluster 
 
 
 
+[[configuring-the-metrocluster-ip-nodes-and-disabling-transition]]
 == 配置 MetroCluster IP 节点并禁用过渡
 
 您必须实施 MetroCluster IP 连接，刷新 MetroCluster 配置并禁用过渡模式。
@@ -208,6 +209,7 @@ CAUTION: 创建MetroCluster IP接口时、请勿使用169.254.17.x或169.254.18.
 
 
 
+[[setting-up-data-lifs-on-the-new-nodes]]
 == 在新节点上设置数据 LIF
 
 您必须在新节点 node_A_2-IP 和 node_B_2-IP 上配置数据 LIF 。
@@ -271,6 +273,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 
 
+[[bringing-up-the-svms]]
 == 正在启动 SVM
 
 由于 LIF 配置发生更改，您必须在新节点上重新启动 SVM 。
@@ -297,6 +300,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 
 
+[[moving-a-system-volume-to-the-new-nodes]]
 == 将系统卷移动到新节点
 
 要提高故障恢复能力，应将系统卷从控制器 node_A_1-IP 移至控制器 node_A_2-IP ，并将系统卷从 node_B_1-IP 移至 node_B_2-IP 。您必须在系统卷的目标节点上创建镜像聚合。

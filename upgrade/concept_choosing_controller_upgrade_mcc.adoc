@@ -21,18 +21,21 @@ summary: 您使用的升级操作步骤 取决于平台型号。
 
 
 
+[[supported-controller-upgrades]]
 == 支持的控制器升级
 
 了解支持的MetroCluster IP和FC控制器升级组合。
 
 
 
+[[supported-metrocluster-ip-controller-upgrades-using-system-controller-replace-commands]]
 === 支持使用system controller Replace命令升级MetroCluster IP控制器
 
 有关支持的平台、请参见中的表 link:task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html["使用带有system controller Replace命令的切换和切回升级四节点MetroCluster IP配置中的控制器(ONTAP 9.13.1及更高版本)"] 。
 
 
 
+[[all-other-supported-metrocluster-ip-controller-upgrades]]
 === 所有其他受支持的MetroCluster IP控制器升级
 
 从本节的MetroCluster控制器升级表中查找您的*Source*平台。如果*Source*平台行与*Target*平台列的交叉点为空，则不支持升级。
@@ -99,6 +102,7 @@ image:../media/mcc-ip-upgrade-asa-comb-9161.png["显示了ASA支持的MetroClust
 
 
 
+[[supported-metrocluster-fc-controller-upgrades]]
 === 支持的MetroCluster FC控制器升级
 
 从本节的MetroCluster控制器升级表中查找您的*Source*平台。如果*Source*平台行与*Target*平台列的交叉点为空，则不支持升级。
@@ -168,6 +172,7 @@ image::../media/metrocluster_fc_upgrade_table_aff_fas.png[MetroCluster FC 控制
 
 
 
+[[choose-a-procedure-that-uses-the-switchover-and-switchback-process]]
 == 选择一个使用切换和切回过程的过程
 
 查看支持的升级组合后、请为您的配置选择正确的控制器升级过程。
@@ -246,6 +251,7 @@ link:task_upgrade_controllers_in_a_four_node_ip_mcc_us_switchover_and_switchback
 |===
 
 
+[[choosing-a-procedure-using-aggregate-relocation]]
 == 使用聚合重新定位选择操作步骤
 
 在基于 ARL 的控制器升级操作步骤中，聚合重新定位操作用于无中断地将数据从旧配置移动到升级后的新配置。

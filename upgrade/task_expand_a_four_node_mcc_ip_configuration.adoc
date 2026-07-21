@@ -103,6 +103,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 
 
+[[enable-console-logging]]
 == 启用控制台日志记录
 
 NetApp强烈建议您在使用的设备上启用控制台日志记录、并在执行此过程时执行以下操作：
@@ -117,6 +118,7 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 
 
 
+[[example-naming-in-this-procedure]]
 == 此操作步骤中的命名示例
 
 此操作步骤会在整个过程中使用示例名称来标识涉及的 DR 组，节点和交换机。
@@ -154,6 +156,7 @@ dr_group_2-new
 |===
 
 
+[[supported-platform-combinations-when-adding-a-second-dr-group]]
 == 添加第二个DR组时支持的平台组合
 
 下表显示了八节点MetroCluster IP配置支持的平台组合。
@@ -169,6 +172,7 @@ dr_group_2-new
 ====
 
 
+[[supported-aff-and-fas-metrocluster-ip-expansion-combinations]]
 === 支持的AFF和FAS MetroCluster IP扩展组合
 
 下表显示了在MetroCluster IP配置中扩展AFF或FAS系统时支持的平台组合。这些表分为两组：
@@ -202,6 +206,7 @@ image:../media/expand-ip-group-2-updated.png["MetroCluster IP 中AFF和FAS组 2 
 ====
 
 
+[[supported-asa-metrocluster-ip-expansion-combinations]]
 === 支持的ASA MetroCluster IP扩展组合
 
 下表显示了在MetroCluster IP配置中扩展ASA系统时支持的平台组合：
@@ -210,6 +215,7 @@ image::../media/8node_comb_ip_asa.png[适用于8节点配置的平台组合]
 
 
 
+[[send-a-custom-autosupport-message-prior-to-maintenance]]
 == 在维护之前发送自定义 AutoSupport 消息
 
 在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
@@ -240,6 +246,7 @@ image::../media/8node_comb_ip_asa.png[适用于8节点配置的平台组合]
 
 
 
+[[considerations-for-vlans-when-adding-a-new-dr-group]]
 == 添加新DR组时VLAN的注意事项
 
 * 扩展MetroCluster IP配置时、需要考虑以下VLAN注意事项：
@@ -305,6 +312,7 @@ image::../media/8node_comb_ip_asa.png[适用于8节点配置的平台组合]
 
 
 
+[[verify-the-health-of-the-metrocluster-configuration]]
 == 验证 MetroCluster 配置的运行状况。
 
 在执行扩展之前、您必须验证MetroCluster配置的运行状况和连接性。
@@ -442,6 +450,7 @@ cluster_A::>
 
 
 
+[[remove-the-configuration-from-monitoring-applications]]
 == 从监控应用程序中删除配置
 
 如果使用 MetroCluster Tiebreaker 软件， ONTAP 调解器或可启动切换的其他第三方应用程序（例如 ClusterLion ）监控现有配置，则必须在升级之前从监控软件中删除 MetroCluster 配置。
@@ -486,6 +495,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for
 
 
 
+[[prepare-the-new-controller-modules]]
 == 准备新的控制器模块
 
 您必须准备四个新的 MetroCluster 节点并安装正确的 ONTAP 版本。
@@ -535,6 +545,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#commands-for
 
 
 
+[[upgrade-rcf-files]]
 == 升级 RCF 文件
 
 如果要安装新的交换机固件，则必须先安装交换机固件，然后再升级 RCF 文件。
@@ -621,6 +632,7 @@ NOTE: 如果您使用的是L2共享或L3网络配置、则可能需要调整中�
 
 
 
+[[join-the-new-nodes-to-the-clusters]]
 == 将新节点加入集群
 
 您必须将四个新的 MetroCluster IP 节点添加到现有 MetroCluster 配置中。
@@ -704,6 +716,7 @@ Do you want to use this configuration? {yes, no} [yes]: yes
 
 
 
+[[configure-intercluster-lifs-for-cluster-peering]]
 == 为集群对等配置集群间 LIF
 
 您必须在用于 MetroCluster 配对集群之间通信的端口上创建集群间 LIF 。您可以使用专用端口或也具有数据流量的端口。
@@ -979,6 +992,7 @@ cluster01
 ====
 
 
+[[create-the-metrocluster-interfaces-and-mirror-root-aggregates]]
 == 创建 MetroCluster 接口并镜像根聚合
 
 必须在新 MetroCluster IP 节点上创建 MetroCluster 接口并镜像根聚合。
@@ -1432,6 +1446,7 @@ aggr_data_a2
 
 
 
+[[finalize-the-addition-of-the-new-nodes]]
 == 完成新节点的添加
 
 您必须将新的 DR 组加入 MetroCluster 配置，并在新节点上创建镜像数据聚合。

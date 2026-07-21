@@ -15,6 +15,7 @@ summary: 您必须将四个新控制器模块以及任何其他存储架添加�
 
 
 
+[[setting-up-the-new-controllers]]
 == 设置新控制器
 
 您必须将新的 MetroCluster IP 控制器安装到先前连接到 MetroCluster FC 控制器的存储架上并使用缆线连接。
@@ -126,12 +127,14 @@ https://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 
 
+[[connecting-and-booting-up-nodea1-ip-and-nodeb1-ip]]
 == 连接并启动 node_A_1-IP 和 node_B_1-IP
 
 连接 MetroCluster IP 控制器和 IP 交换机后，您可以过渡并启动 node_A_1-IP 和 node_B_1-IP 。
 
 
 
+[[bringing-up-nodea1-ip]]
 === 正在启动 node_A_1-IP
 
 您必须使用正确的过渡选项启动节点。
@@ -218,6 +221,7 @@ MetroCluster Transition: Please confirm if this is the correct value [yes|no]:? 
 
 
 
+[[recovering-key-management-if-the-root-volume-is-encrypted]]
 === 如果根卷已加密，则恢复密钥管理
 
 如果根卷已加密，则必须使用特殊的启动命令来还原密钥管理。
@@ -373,6 +377,7 @@ Enter the cluster-wide passphrase for onboard key management in Vserver "cluster
 
 
 
+[[creating-the-network-configuration]]
 === 正在创建网络配置
 
 您必须在 FC 节点上创建与配置匹配的网络配置。这是因为 MetroCluster IP 节点在启动时会重放相同的配置，这意味着在 node_A_1-IP 和 node_B_1-IP 启动时， ONTAP 将尝试在 node_A_1-FC 和 node_B_1-FC 上使用的相同端口上托管 LIF 。
@@ -428,6 +433,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 
 
+[[setting-up-cluster-ports-and-cluster-lifs]]
 === 设置集群端口和集群 LIF
 
 您必须设置集群端口和 LIF 。需要在使用根聚合启动的站点 A 节点上执行以下步骤。
@@ -497,6 +503,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 
 
+[[verifying-lif-configuration]]
 === 验证 LIF 配置
 
 从旧控制器移动存储后，节点管理 LIF ，集群管理 LIF 和集群间 LIF 仍将存在。如有必要，您必须将 LIF 移动到相应的端口。
@@ -569,12 +576,14 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 
 
+[[bringing-up-nodea2-ip-and-nodeb2-ip]]
 == 正在启动 node_A_2-IP 和 node_B_2-IP
 
 您必须在每个站点启动并配置新的 MetroCluster IP 节点，从而在每个站点中创建一个 HA 对。
 
 
 
+[[bringing-up-nodea2-ip-and-nodeb2-ip]]
 === 正在启动 node_A_2-IP 和 node_B_2-IP
 
 您必须使用启动菜单中的正确选项一次启动一个新控制器模块。
@@ -749,6 +758,7 @@ join
 
 
 
+[[verifying-mtu-settings]]
 === 验证 MTU 设置
 
 验证是否已为端口和广播域正确设置 MTU 设置并进行更改。
@@ -766,6 +776,7 @@ join
 
 
 
+[[configuring-intercluster-lifs]]
 === 配置集群间 LIF
 
 配置集群对等所需的集群间 LIF 。
@@ -778,6 +789,7 @@ join
 
 
 
+[[verifying-cluster-peering]]
 === 验证集群对等关系
 
 确认 cluster_A 和 cluster_B 已建立对等关系，并且每个集群上的节点可以彼此通信。

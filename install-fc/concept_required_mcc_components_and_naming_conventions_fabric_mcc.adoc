@@ -15,6 +15,7 @@ summary: 在规划 MetroCluster FC 配置时，您必须了解所需的和支持
 
 
 
+[[supported-software-and-hardware]]
 == 支持的软件和硬件
 
 MetroCluster FC 配置必须支持硬件和软件。
@@ -28,12 +29,14 @@ NOTE: MetroCluster 存储交换机不支持长波 SFP 。有关支持的 MetroCl
 
 
 
+[[hardware-redundancy-in-the-metrocluster-fc-configuration]]
 == MetroCluster FC 配置中的硬件冗余
 
 由于 MetroCluster FC 配置中的硬件冗余，因此每个站点上的每个组件都有两个。随机地为站点分配字母 A 和 B ，并为各个组件分配编号 1 和 2 。
 
 
 
+[[requirement-for-two-ontap-clusters]]
 == 两个 ONTAP 集群的要求
 
 光纤连接的 MetroCluster FC 配置需要两个 ONTAP 集群，每个 MetroCluster 站点一个。
@@ -48,6 +51,7 @@ NOTE: MetroCluster 存储交换机不支持长波 SFP 。有关支持的 MetroCl
 
 
 
+[[requirement-for-four-fc-switches]]
 == 四个 FC 交换机的要求
 
 光纤连接的 MetroCluster FC 配置需要四个 FC 交换机（支持的 Brocade 或 Cisco 型号）。
@@ -58,6 +62,7 @@ NOTE: MetroCluster 存储交换机不支持长波 SFP 。有关支持的 MetroCl
 
 
 
+[[requirement-for-two-four-or-eight-controller-modules]]
 == 需要两个，四个或八个控制器模块
 
 光纤连接的 MetroCluster FC 配置需要两个，四个或八个控制器模块。
@@ -91,6 +96,7 @@ NOTE: MetroCluster 存储交换机不支持长波 SFP 。有关支持的 MetroCl
 
 
 
+[[requirement-for-four-cluster-interconnect-switches]]
 == 四个集群互连交换机的要求
 
 光纤连接的 MetroCluster FC 配置需要四个集群互连交换机（如果您不使用双节点无交换机集群）
@@ -99,6 +105,7 @@ NOTE: MetroCluster 存储交换机不支持长波 SFP 。有关支持的 MetroCl
 
 
 
+[[requirement-for-fc-to-sas-bridges]]
 == FC-SAS 网桥的要求
 
 光纤连接的 MetroCluster FC 配置要求每个 SAS 磁盘架堆栈组使用一对 FC-SAS 网桥。
@@ -115,6 +122,7 @@ NOTE: 运行 ONTAP 9.8 及更高版本的配置不支持 FibreBridge 6500N 网�
 
 
 
+[[pool-and-drive-requirements-minimum-supported]]
 == 池和驱动器要求（支持的最低要求）
 
 建议使用八个 SAS 磁盘架（每个站点四个磁盘架），以允许每个磁盘架拥有磁盘所有权。
@@ -144,6 +152,7 @@ MetroCluster 配置支持 RAID-DP 和 RAID4 。
 
 
 
+[[drive-location-considerations-for-partially-populated-shelves]]
 == 部分填充的磁盘架的驱动器位置注意事项
 
 要在使用半填充磁盘架（ 24 驱动器磁盘架中有 12 个驱动器）时正确地自动分配驱动器，驱动器应位于插槽 0-5 和 18-23 中。
@@ -152,6 +161,7 @@ MetroCluster 配置支持 RAID-DP 和 RAID4 。
 
 
 
+[[bridge-naming-conventions]]
 == 网桥命名约定
 
 网桥使用以下示例命名：

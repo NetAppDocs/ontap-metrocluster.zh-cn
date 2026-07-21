@@ -15,6 +15,7 @@ summary: 在查看所有要求并为过渡做准备之后，您可以执行过�
 
 
 
+[[step-1-move-the-cluster-connections-on-the-metrocluster-fc-nodes]]
 == 步骤 1：移动 MetroCluster FC 节点上的集群连接
 
 将 MetroCluster FC 节点上的集群连接移至 IP 交换机。您遵循的步骤取决于您使用的是现有 IP 交换机还是新的 IP 交换机。
@@ -25,6 +26,7 @@ summary: 在查看所有要求并为过渡做准备之后，您可以执行过�
 
 
 
+[[which-connections-to-move]]
 === 要移动哪些连接
 
 以下任务假设控制器模块使用两个端口进行集群连接。某些控制器模块型号使用四个或更多端口进行集群连接。在本例中，端口被分为两组，并在两组之间交替使用端口。
@@ -155,6 +157,7 @@ FC节点上的本地集群接口
 |===
 
 
+[[move-the-local-cluster-connections-when-using-new-ip-switches]]
 === 使用新的 IP 交换机时移动本地集群连接
 
 如果您使用新的 IP 交换机，则可以将现有 MetroCluster FC 节点的集群连接物理移动到新的交换机。
@@ -278,6 +281,7 @@ cluster_A::*>
 
 
 
+[[move-the-local-cluster-connections-when-reusing-existing-ip-switches]]
 === 重复使用现有 IP 交换机时移动本地集群连接
 
 如果您要重复使用现有的 IP 交换机，则需要更新固件，使用正确的参考配置文件 (RCF) 重新配置交换机，然后逐个交换机地将连接移动到正确的端口。
@@ -409,6 +413,7 @@ Cluster-A::*>
 
 
 
+[[step-2-verify-that-the-cluster-connections-are-moved-and-the-cluster-is-healthy]]
 == 步骤 2：验证集群连接是否已移动且集群是否健康
 
 为了确保连接正确且配置已准备好继续过渡过程，请验证集群连接是否正确移动、集群交换机是否被识别以及集群是否健康。

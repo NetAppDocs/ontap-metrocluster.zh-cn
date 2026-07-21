@@ -52,6 +52,7 @@ NOTE: 从 ONTAP 9.4 升级到 9.5 时，系统会识别现有的磁盘分配。
 
 
 
+[[automatic-partitioning]]
 == 自动分区
 
 ADP会在系统初始配置期间自动执行。
@@ -74,6 +75,7 @@ NOTE: 从ONTAP 9.5开始、必须使用启用磁盘自动分配 `storage disk op
 ====
 
 
+[[how-shelf-by-shelf-automatic-assignment-works]]
 == 磁盘架自动分配的工作原理
 
 如果每个站点有四个外部磁盘架，则会将每个磁盘架分配给不同的节点和不同的池，如以下示例所示：
@@ -90,6 +92,8 @@ NOTE: 从ONTAP 9.5开始、必须使用启用磁盘自动分配 `storage disk op
 
 
 
+[[how-to-populate-partially-full-shelves]]
+[[populate-partially-full-shelves]]
 == 如何填充部分满的磁盘架
 
 如果您的配置使用的磁盘架未完全填充（驱动器托架为空），则必须根据磁盘分配策略在磁盘架中均匀分布驱动器。磁盘分配策略取决于每个 MetroCluster 站点上的磁盘架数量。
@@ -172,6 +176,7 @@ NOTE: 从ONTAP 9.5开始、必须使用启用磁盘自动分配 `storage disk op
 
 
 
+[[manual-drive-assignment-ontap-9-5]]
 == 手动分配驱动器（ ONTAP 9.5 ）
 
 在 ONTAP 9.5 中，具有以下磁盘架配置的系统需要手动分配驱动器：
@@ -190,6 +195,7 @@ NOTE: 从ONTAP 9.5开始、必须使用启用磁盘自动分配 `storage disk op
 
 
 
+[[manual-drive-assignment-ontap-9-4]]
 == 手动分配驱动器（ ONTAP 9.4 ）
 
 在 ONTAP 9.4 中，具有以下磁盘架配置的系统需要手动分配驱动器：
@@ -218,6 +224,7 @@ NOTE: 从ONTAP 9.5开始、必须使用启用磁盘自动分配 `storage disk op
 
 
 
+[[adding-shelves-to-an-existing-configuration]]
 == 将磁盘架添加到现有配置中
 
 自动驱动器分配支持向现有配置对称添加磁盘架。
@@ -231,6 +238,8 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁�
 
 
 
+[[adp-and-disk-assignment-differences-by-system-in-metrocluster-ip-configurations]]
+[[adp-disk-assign]]
 == MetroCluster IP 配置中系统的 ADP 和磁盘分配差异
 
 在 MetroCluster IP 配置中，高级驱动器分区（ ADP ）的操作和自动磁盘分配会因系统型号而异。
@@ -246,6 +255,7 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 
 
 
+[[adp-and-disk-assignment-on-aff-a320-systems]]
 === AFF A320 系统上的 ADP 和磁盘分配
 
 |===
@@ -289,6 +299,7 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 |===
 
 
+[[adp-and-disk-assignment-on-aff-a150-asa-a150-and-aff-a220-systems]]
 === AFF A150、ASA A150和AFF A220系统上的ADP和磁盘分配
 
 |===
@@ -350,6 +361,7 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 |===
 
 
+[[adp-and-disk-assignment-on-aff-a250-aff-c250-asa-a250-asa-c250-fas500f-aff-a20-aff-a30-and-aff-c30-systems]]
 === AFF A250、AFF C250、AFF、AFF、FAS500f、ASA A250 A20、ASA C250 A30和AFF C30系统上的ADP和磁盘分配
 
 |===
@@ -405,6 +417,7 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 |===
 
 
+[[adp-and-disk-assignment-on-aff-a50-and-aff-c60-systems]]
 === AFF A50和AFF C60系统上的ADP和磁盘分配
 
 |===
@@ -460,6 +473,7 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 |===
 
 
+[[adp-and-disk-assignment-on-aff-a300-systems]]
 === AFF A300 系统上的 ADP 和磁盘分配
 
 |===
@@ -503,6 +517,7 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 |===
 
 
+[[adp-and-disk-assignment-on-aff-c400-aff-a400-asa-c400-and-asa-a400-systems]]
 === AFF C400、AFF A400、ASA C400和ASA A400系统上的ADP和磁盘分配
 
 |===
@@ -544,6 +559,7 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 |===
 
 
+[[adp-and-disk-assignment-on-aff-a700-systems]]
 === AFF A700 系统上的 ADP 和磁盘分配
 
 |===
@@ -585,6 +601,7 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 |===
 
 
+[[adp-and-disk-assignment-on-aff-c800-asa-c800-asa-a800-and-aff-a800-systems]]
 === AFF C800、ASA C800、ASA A800和AFF A800系统上的ADP和磁盘分配
 
 |===
@@ -630,6 +647,7 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 |===
 
 
+[[adp-and-disk-assignment-on-aff-a70-aff-a90-and-aff-c80-systems]]
 === AFF A70、AFF A90和AFF C80系统上的ADP和磁盘分配
 
 |===
@@ -671,6 +689,7 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 |===
 
 
+[[adp-and-disk-assignment-on-aff-a900-asa-a900-and-aff-a1k-systems]]
 === AFF A900、ASA A900和AFF A1K系统上的ADP和磁盘分配
 
 |===
@@ -712,6 +731,7 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 |===
 
 
+[[disk-assignment-on-fas2750-systems]]
 === 在 FAS2750 系统上分配磁盘
 
 |===
@@ -743,6 +763,7 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 |===
 
 
+[[disk-assignment-on-fas8200-systems]]
 === 在 FAS8200 系统上分配磁盘
 
 |===
@@ -774,12 +795,14 @@ NOTE: 在使用 ADP 的系统中，聚合是使用分区创建的，其中每个
 |===
 
 
+[[disk-assignment-on-fas500f-systems]]
 === FAS500f 系统上的磁盘分配
 
 AFF C250和AFF A250系统的磁盘分配准则和规则同样适用于FAS500f系统。有关FAS500f系统上的磁盘分配、请参见 <<ADP_FAS500f>> 表。
 
 
 
+[[disk-assignment-on-fas9000-fas9500-fas70-and-fas90-systems]]
 === FAS9000、FAS9500、FAS70和FAS90系统上的磁盘分配
 
 |===
@@ -811,6 +834,7 @@ AFF C250和AFF A250系统的磁盘分配准则和规则同样适用于FAS500f系
 |===
 
 
+[[disk-assignment-on-fas50-systems]]
 === 在FAS50系统上分配磁盘
 
 |===
@@ -849,6 +873,7 @@ AFF C250和AFF A250系统的磁盘分配准则和规则同样适用于FAS500f系
 |===
 
 
+[[disk-assignment-on-fas50-systems-with-flash-cache]]
 === 在配备闪存缓存的 FAS50 系统上进行磁盘分配
 
 从ONTAP 9.18.1 开始，FAS50 系统在MetroCluster IP 配置中支持 Flash Cache。

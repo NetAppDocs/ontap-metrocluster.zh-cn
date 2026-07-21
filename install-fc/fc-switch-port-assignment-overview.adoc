@@ -21,6 +21,7 @@ summary: 您需要验证在连接 FC 交换机时是否使用了指定的端口�
 
 
 
+[[overall-cabling-guidelines]]
 == 总体布线准则
 
 使用布线表时，应注意以下准则：
@@ -56,6 +57,7 @@ link:concept_considerations_isls_mcfc.html["ISL 注意事项"]
 
 
 
+[[aff-a900-and-fas9500-cabling-guidelines]]
 == AFF A900和FAS9500布线指南
 
 * AFF A900或FAS9500存储系统需要八个FC-VI端口。如果您使用的是AFF A900或FAS9500、则需要使用八端口配置。如果配置包括其他存储系统型号，请使用表中所示的布线方式，但忽略不需要的 FC-VI 端口的布线方式。

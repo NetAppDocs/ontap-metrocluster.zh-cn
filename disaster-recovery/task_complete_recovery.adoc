@@ -15,6 +15,7 @@ summary: 如果 FabricPool 镜像中的某个对象存储与 MetroCluster 灾难
 
 
 
+[[reestablishing-object-stores-for-fabricpool-configurations]]
 == 为 FabricPool 配置重新建立对象存储
 
 如果 FabricPool 镜像中的某个对象存储与 MetroCluster 灾难站点位于同一位置并被销毁，则必须重新建立对象存储和 FabricPool 镜像。
@@ -30,6 +31,7 @@ summary: 如果 FabricPool 镜像中的某个对象存储与 MetroCluster 灾难
 
 
 
+[[verifying-licenses-on-the-replaced-nodes]]
 == 验证已更换节点上的许可证
 
 如果受损节点正在使用需要标准（节点锁定）许可证的 ONTAP 功能，则必须为更换节点安装新许可证。对于具有标准许可证的功能，集群中的每个节点都应具有自己的功能密钥。
@@ -116,6 +118,7 @@ NOTE: 系统会自动生成所需的新许可证密钥，并将其发送到文�
 
 
 
+[[restoring-key-management]]
 == 正在还原密钥管理
 
 如果数据卷已加密，则必须还原密钥管理。如果根卷已加密，则必须恢复密钥管理。
@@ -152,6 +155,7 @@ NOTE: 系统会自动生成所需的新许可证密钥，并将其发送到文�
 
 
 
+[[performing-a-switchback]]
 == 执行切回
 
 修复 MetroCluster 配置后，您可以执行 MetroCluster 切回操作。MetroCluster 切回操作会将配置恢复到其正常运行状态，灾难站点上的 sync-source Storage Virtual Machine （ SVM ）处于活动状态，并从本地磁盘池提供数据。
@@ -249,6 +253,7 @@ Remote: cluster_A         Configuration state configured
 
 
 
+[[verifying-a-successful-switchback]]
 == 验证切回是否成功
 
 执行切回后，您需要确认所有聚合和 Storage Virtual Machine （ SVM ）均已切回并联机。
@@ -344,6 +349,7 @@ vs1a           data    sync-source
 
 
 
+[[mirroring-the-root-aggregates-of-the-replacement-nodes]]
 == 镜像替代节点的根聚合
 
 如果更换了磁盘，则必须镜像灾难站点上新节点的根聚合。
@@ -448,6 +454,7 @@ cluster_A::>
 
 
 
+[[reconfiguring-ontap-mediator-metrocluster-ip-configurations]]
 == 重新配置 ONTAP 调解器（MetroCluster IP 配置）
 
 如果您具有使用 ONTAP 调解器配置的 MetroCluster IP 配置，则必须删除并重新配置与 ONTAP 调解器的关联。
@@ -470,6 +477,7 @@ cluster_A::>
 
 
 
+[[verifying-the-health-of-the-metrocluster-configuration]]
 == 验证 MetroCluster 配置的运行状况
 
 您应检查 MetroCluster 配置的运行状况以验证是否正常运行。

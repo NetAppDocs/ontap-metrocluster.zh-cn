@@ -15,12 +15,14 @@ summary: Tiebreaker 软件可为集群存储环境提供监控功能。此外，
 
 
 
+[[secure-the-host]]
 == 保护主机的安全
 
 以下准则介绍了如何保护安装Tiebreaker软件的主机的安全。
 
 
 
+[[user-management-recommendations]]
 === 用户管理建议
 
 * 限制"root"用户的访问。
@@ -52,6 +54,7 @@ NOTE: 非此组成员用户无法访问Tiebreaker软件或命令行界面。您�
 
 
 
+[[baseline-host-security-recommendations]]
 === 基线主机安全建议
 
 * 使用磁盘加密
@@ -101,6 +104,7 @@ NOTE: OpenJDK 19会在启动时检查主机是否安装在FIPS模式下。无需
 
 
 
+[[secure-the-database-installation]]
 == 保护数据库安装的安全
 
 以下准则说明了如何保护和强化MariaDB 10.x数据库安装。

@@ -18,6 +18,7 @@ NOTE: 在过渡和系统刷新工作流程中使用这些步骤。您可能已�
 
 
 
+[[enable-console-logging]]
 == 启用控制台日志记录
 
 NetApp强烈建议您在使用的设备上启用控制台日志记录、并在执行此过程时执行以下操作：
@@ -32,6 +33,7 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 
 
 
+[[remove-the-dr-group-nodes-from-each-cluster]]
 == 从每个集群中删除 DR 组节点
 
 从ONTAP 9.8 开始支持此过程。对于运行ONTAP 9.7 或更早版本的系统，请参阅知识库文章：link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/How_to_remove_a_DR-Group_from_a_MetroCluster["如何从MetroCluster 配置中删除DR组"^] 。

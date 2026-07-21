@@ -20,6 +20,7 @@ NOTE: 如果要与非MetroCluster流量共享ISL、则必须验证MetroCluster�
 
 
 
+[[shared-network-configuration-with-direct-links]]
 == 使用直接链路的共享网络配置
 
 在此拓扑中，两个不同的站点通过直接链路进行连接。这些链路可以位于xWDM和TDM设备或交换机之间。这些的容量不是专用于此MetroCluster流量的、而是与其他非MetroCluster流量共享的。
@@ -28,6 +29,7 @@ image::../media/mcc_ip_networking_with_shared_isls.gif[具有共享 ISL 的Metro
 
 
 
+[[shared-infrastructure-with-intermediate-networks]]
 == 使用中间网络的共享基础架构
 
 在此拓扑中、MetroCluster站点不是直接连接的、而是MetroCluster和主机流量通过网络传输。
@@ -37,6 +39,7 @@ image::../media/mcc_ip_networking_with_intermediate_private_networks.gif[具有�
 
 
 
+[[multiple-metrocluster-configurations-sharing-an-intermediate-network]]
 == 多个MetroCluster配置共享一个中间网络
 
 在此拓扑中，两个单独的 MetroCluster 配置共享同一个中间网络。在此示例中、MetroCluster One switch_A_1和MetroCluster 2 switch_A_1均连接到同一个中间交换机。
@@ -48,6 +51,7 @@ image::../media/mcc_ip_two_mccs_sharing_the_same_shared_network_sx.gif[MetroClus
 
 
 
+[[combination-of-a-metrocluster-configuration-using-netapp-validated-switches-and-a-configuration-using-metrocluster-compliant-switches]]
 == 使用NetApp验证的交换机的MetroCluster配置与使用符合MetroCluster的交换机的配置的组合
 
 两个单独的MetroCluster配置共享同一个中间交换机、其中一个MetroCluster使用共享第2层配置(MetroCluster One)中经过NetApp验证的交换机进行配置、另一个MetroCluster使用直接连接到中间交换机的符合MetroCluster的交换机进行配置(MetroCluster 2)。

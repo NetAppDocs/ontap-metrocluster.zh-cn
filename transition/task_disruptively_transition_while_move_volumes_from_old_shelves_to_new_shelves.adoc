@@ -26,6 +26,7 @@ summary: 从 ONTAP 9.8 开始，您可以在中断的情况下将双节点 Metro
 
 
 
+[[enable-console-logging]]
 == 启用控制台日志记录
 
 NetApp强烈建议您在使用的设备上启用控制台日志记录、并在执行此过程时执行以下操作：
@@ -40,6 +41,7 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 
 
 
+[[requirements-for-transition-when-retiring-old-shelves]]
 == 停用旧磁盘架时的过渡要求
 
 在开始过渡过程之前，您必须确保现有 MetroCluster FC 配置满足要求。
@@ -88,6 +90,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 
 
+[[workflow-for-disruptive-transition-when-moving-data-and-retiring-old-storage-shelves]]
 == 移动数据和停用旧存储架时用于中断过渡的工作流
 
 您必须遵循特定工作流以确保成功过渡。
@@ -98,6 +101,7 @@ image::../media/workflow_2n_transition_moving_data_to_new_shelves.png[过渡期�
 
 
 
+[[transitioning-the-configuration]]
 == 正在过渡配置
 
 您必须遵循详细的过渡操作步骤。
@@ -136,6 +140,7 @@ image::../media/workflow_2n_transition_moving_data_to_new_shelves.png[过渡期�
 
 
 
+[[migrating-the-root-aggregates]]
 == 迁移根聚合
 
 过渡完成后，将剩余的现有根聚合从 MetroCluster FC 配置迁移到 MetroCluster IP 配置中的新磁盘架。
@@ -183,6 +188,7 @@ system node migrate-root -node node_A_1-IP -disklist 3.11.0,3.11.1,3.11.2 -raid-
 
 
 
+[[migrating-the-data-aggregates]]
 == 迁移数据聚合
 
 在新磁盘架上创建数据聚合，然后使用卷移动将数据卷从旧磁盘架传输到新磁盘架上的聚合。
@@ -195,6 +201,7 @@ http://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/GUID-
 
 
 
+[[retiring-shelves-moved-from-nodea1-fc-and-nodea2-fc]]
 == 停用从 node_A_1-FC 和 node_A_2-FC 移动的磁盘架
 
 您可以从原始 MetroCluster FC 配置中停用旧存储架。这些磁盘架最初由 node_A_1-FC 和 node_A_2-FC 所有。
@@ -274,6 +281,7 @@ cluster_B::>
 
 
 
+[[completing-transition]]
 == 正在完成过渡
 
 删除旧控制器模块后，您可以完成过渡过程。

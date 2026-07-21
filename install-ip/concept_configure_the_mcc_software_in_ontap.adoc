@@ -19,6 +19,7 @@ image::../media/workflow_mcc_ip_high_level_node_and_cluster_configuration_softwa
 
 
 
+[[configure-eight-node-metrocluster-ip-configurations]]
 == 配置八节点MetroCluster IP 配置
 
 一个八节点 MetroCluster 配置包含两个 DR 组。要配置第一个 DR 组，请完成本节中的任务。配置第一个 DR 组后，您可以按照以下步骤link:../upgrade/task_expand_a_four_node_mcc_ip_configuration.html["将四节点MetroCluster IP 配置扩展为八节点配置"] 。

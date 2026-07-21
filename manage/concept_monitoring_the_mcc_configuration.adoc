@@ -15,6 +15,7 @@ summary: 您可以使用 ONTAP MetroCluster 命令和 Active IQ Unified Manager 
 
 
 
+[[checking-the-metrocluster-configuration]]
 == 正在检查 MetroCluster 配置
 
 您可以检查 MetroCluster 配置中的组件和关系是否工作正常。您应在初始配置后以及对 MetroCluster 配置进行任何更改后执行检查。您还应在协商（计划内）切换或切回操作之前执行检查。
@@ -127,12 +128,14 @@ mccint-fas9000-0304
 
 
 
+[[commands-for-checking-and-monitoring-the-metrocluster-configuration]]
 == 用于检查和监控 MetroCluster 配置的命令
 
 您可以使用特定的 ONTAP 命令来监控 MetroCluster 配置和检查 MetroCluster 操作。
 
 
 
+[[commands-for-checking-metrocluster-operations]]
 === 用于检查 MetroCluster 操作的命令
 
 |===
@@ -186,6 +189,7 @@ mccint-fas9000-0304
 |===
 
 
+[[commands-for-monitoring-the-metrocluster-interconnect]]
 === 用于监控 MetroCluster 互连的命令
 
 |===
@@ -202,6 +206,7 @@ mccint-fas9000-0304
 |===
 
 
+[[commands-for-monitoring-metrocluster-svms]]
 === 用于监控 MetroCluster SVM 的命令
 
 |===
@@ -218,6 +223,7 @@ mccint-fas9000-0304
 |===
 
 
+[[using-the-metrocluster-tiebreaker-or-ontap-mediator-to-monitor-the-configuration]]
 == 使用 MetroCluster Tiebreaker 或 ONTAP 调解器监控配置
 
 请参见 link:../install-ip/concept_considerations_mediator.html["ONTAP 调解器与 MetroCluster Tiebreaker 之间的区别"] 了解这两种监控 MetroCluster 配置和启动自动切换的方法之间的区别。
@@ -230,6 +236,7 @@ mccint-fas9000-0304
 
 
 
+[[how-the-netapp-metrocluster-tiebreaker-software-detects-failures]]
 == NetApp MetroCluster Tiebreaker 软件如何检测故障
 
 Tiebreaker 软件位于 Linux 主机上。只有当您要从第三个站点监控两个集群及其连接状态时，才需要 Tiebreaker 软件。这样可以使集群中的每个配对节点区分站点间链路关闭时的 ISL 故障与站点故障。
@@ -238,6 +245,7 @@ Tiebreaker 软件位于 Linux 主机上。只有当您要从第三个站点监�
 
 
 
+[[how-the-tiebreaker-software-detects-intersite-connectivity-failures]]
 === Tiebreaker 软件如何检测站点间连接故障
 
 如果站点之间的所有连接都丢失， MetroCluster Tiebreaker 软件将向您发出警报。
@@ -270,6 +278,7 @@ Tiebreaker 软件会定期从节点检索站点间连接的状态。如果 NV �
 
 
 
+[[how-the-tiebreaker-software-detects-site-failures]]
 === Tiebreaker 软件如何检测站点故障
 
 NetApp MetroCluster Tiebreaker 软件会检查 MetroCluster 配置和集群中节点的可访问性，以确定是否发生了站点故障。在某些情况下， Tiebreaker 软件还会触发警报。
@@ -310,6 +319,7 @@ Tiebreaker 软件会触发警报，但 ONTAP 会否决此警报。在这种情�
 
 
 
+[[how-the-ontap-mediator-supports-automatic-unplanned-switchover]]
 === ONTAP 调解器如何支持自动计划外切换
 
 link:../install-ip/concept-ontap-mediator-supports-automatic-unplanned-switchover.html["了解ONTAP调解器如何在MetroCluster IP配置中支持自动计划外切换"]。

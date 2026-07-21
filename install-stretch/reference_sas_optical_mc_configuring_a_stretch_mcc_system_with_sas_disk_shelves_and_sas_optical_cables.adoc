@@ -15,6 +15,7 @@ summary: 存储控制器必须通过缆线连接到存储介质和彼此。此�
 
 
 
+[[before-you-begin-any-procedure-in-this-document]]
 == 开始使用本文档中的任何操作步骤之前
 
 在完成此任务之前，必须满足以下总体要求：
@@ -31,6 +32,7 @@ https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 
 
 
+[[about-this-task]]
 == 关于此任务
 
 * 术语节点和控制器可互换使用。

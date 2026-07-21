@@ -39,6 +39,7 @@ ONTAP 9.15.1.
 
 
 
+[[enable-end-to-end-encryption]]
 == 启用端到端加密
 
 执行以下步骤以启用端到端加密。
@@ -152,6 +153,7 @@ dr-group-id cluster    node      configuration-state is-encryption-enabled
 
 
 
+[[disable-end-to-end-encryption]]
 == 禁用端到端加密
 
 执行以下步骤以禁用端到端加密。

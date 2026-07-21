@@ -28,6 +28,7 @@ image::../media/workflow_bridge_installation_and_configuration.gif[工作流程 
 
 
 
+[[in-band-management-of-the-fc-to-sas-bridges]]
 == FC-SAS 网桥的带内管理
 
 从使用 FibreBridge 7500N 或 7600N 网桥的 ONTAP 9.5 开始，支持使用网桥的带内管理作为网桥 IP 管理的替代方案。从 ONTAP 9.8 开始，已弃用带外管理。
@@ -51,6 +52,7 @@ NOTE: 建议在禁用IP访问的情况下使用带内管理、以便通过限制
 
 
 
+[[fibrebridge-7600n-and-7500n-bridge-limits-and-attachment-rules]]
 == 光纤桥7600N和7500 N网桥限制和连接规则
 
 查看连接光纤桥7600N和7500 N网桥时的限制和注意事项。
@@ -89,6 +91,7 @@ NOTE: 建议在禁用IP访问的情况下使用带内管理、以便通过限制
 |===
 
 
+[[prepare-for-the-installation]]
 == 准备安装
 
 准备在新的 MetroCluster 系统中安装网桥时，必须确保系统满足特定要求，包括满足网桥的设置和配置要求。其他要求包括下载必要的文档， ATTO QuickNAV 实用程序和网桥固件。
@@ -142,6 +145,7 @@ _ATTO 产品发行说明 _ 提供了最新的受支持 Web 浏览器列表。您
 
 
 
+[[install-the-fc-to-sas-bridge-and-sas-shelves]]
 == 安装FC-SAS网桥和SAS磁盘架
 
 确保系统满足 "`准备安装` " 中的所有要求后，您可以安装新系统。
@@ -175,6 +179,7 @@ NOTE: MetroCluster 配置中的 SAS 磁盘架不支持 ACP 布线。
 
 
 
+[[enable-ip-port-access-on-the-fibrebridge-7600n-bridge-if-necessary]]
 === 如有必要，在 FibreBridge 7600N 网桥上启用 IP 端口访问
 
 如果您使用的是 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务（ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。
@@ -235,6 +240,7 @@ SNMP 是唯一需要单独的 enable 命令的协议。
 
 
 
+[[configure-the-fc-to-sas-bridges]]
 === 配置FC-SAS网桥
 
 在为您的 FC-SAS 网桥型号布线之前，您必须在 FibreBridge 软件中配置设置。
@@ -488,6 +494,7 @@ link:../maintain/index.html["维护 MetroCluster 组件"]
 
 
 
+[[cable-a-fibrebridge-7600n-or-7500n-bridge-with-disk-shelves-using-iom12-modules]]
 === 使用缆线将一个光纤桥7600N或7500 N网桥连接到使用IOM12模块的磁盘架
 
 配置网桥后，您可以开始为新系统布线。
@@ -533,6 +540,7 @@ image::../media/mcc_cabling_bridge_and_sas3_stack_with_7500n_and_multiple_stacks
 
 
 
+[[verify-bridge-connectivity-and-cabling-the-bridge-fc-ports]]
 === 验证网桥连接并为网桥FC端口布线
 
 您应验证每个网桥是否可以检测到所有磁盘驱动器，然后使用缆线将每个网桥连接到本地 FC 交换机。
@@ -639,6 +647,7 @@ link:concept_port_assignments_for_fc_switches_when_using_ontap_9_1_and_later.htm
 
 
 
+[[secure-or-unsecure-the-fibrebridge-bridge]]
 == 保护或取消保护 FibreBridge 网桥
 
 要轻松禁用网桥上可能不安全的以太网协议，从 ONTAP 9.5 开始，您可以保护网桥。此操作将禁用网桥的以太网端口。您还可以重新启用以太网访问。

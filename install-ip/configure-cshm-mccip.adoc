@@ -13,6 +13,7 @@ summary: 您可以将IP交换机配置为使用SNMPv3进行运行状况监控。
 
 
 
+[[important-notes-for-configuring-cshm-in-a-metrocluster-ip-configuration]]
 == 在 MetroCluster IP 配置中配置 CSHM 的重要注意事项
 
 本节包含在 Cisco、Broadcom 和 NVIDIA SN2100 交换机上配置 SNMPv3 和日志收集的通用步骤。您必须遵循 MetroCluster IP 配置支持的交换机固件版本的步骤。请参阅link:https://hwu.netapp.com/["Hardware Universe"^]验证支持的固件版本。

@@ -37,6 +37,7 @@ NOTE: 当您按照此流程添加或删除 DR 组时，必须先验证 DR 组的
 
 
 
+[[transition-scenarios-supported-by-this-procedure]]
 == 此过程支持的过渡方案
 
 请查看下表，了解此过程支持的过渡方案。
@@ -86,6 +87,7 @@ NOTE: 在所有过渡方案中，一次只能添加或删除一个 DR 组。DR �
 
 
 
+[[important-information-when-adding-an-older-platform-model]]
 == 添加旧平台模型时的重要信息
 
 以下指导针对一种不常见的情况，即您需要将较旧的平台模型（ ONTAP 9.15.1 之前发布的平台）添加到包含较新平台模型（ ONTAP 9.15.1 或更高版本中发布的平台）的现有MetroCluster配置中。对于八节点 FC 到 IP 的过渡，如果您已将第一个 FC DR 组过渡到ONTAP 9.15.1 或更高版本中引入的平台模型，并计划将第二个 DR 组过渡到ONTAP 9.15.1 之前引入的平台，则本指南适用。

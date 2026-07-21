@@ -15,6 +15,7 @@ summary: 本节提供了验证MetroCluster配置和网络是否满足所有要�
 
 
 
+[[netapp-validated-switches]]
 == 经过NetApp验证的交换机
 
 如果交换机满足以下要求、则会通过NetApp验证：
@@ -29,6 +30,7 @@ summary: 本节提供了验证MetroCluster配置和网络是否满足所有要�
 
 
 
+[[metrocluster-compliant-switches]]
 == 符合MetroCluster的交换机
 
 MetroCluster兼容的交换机未经过NetApp验证、但如果符合特定要求和配置准则、则可在MetroCluster IP配置中使用。

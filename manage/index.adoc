@@ -10,6 +10,7 @@ summary: 您可以在计划内维护操作或发生灾难时执行 MetroCluster 
 
 
 
+[[perform-switchover-healing-and-switchback]]
 == 执行切换，修复和切回
 
 [role="lead"]

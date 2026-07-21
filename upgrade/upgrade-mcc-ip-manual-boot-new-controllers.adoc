@@ -15,6 +15,7 @@ summary: 启动新控制器、并验证是否已在适当的节点和端口上�
 
 
 
+[[boot-the-new-controllers]]
 == 启动新控制器
 
 您必须启动新控制器，并注意确保 bootarg 变量正确无误，如果需要，请执行加密恢复步骤。
@@ -216,6 +217,7 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-nmg/GUID-DBC9DEE2-EA
 
 
 
+[[verify-and-restore-lif-configuration]]
 == 验证并还原 LIF 配置
 
 验证 LIF 是否托管在升级操作步骤开始时映射的相应节点和端口上。

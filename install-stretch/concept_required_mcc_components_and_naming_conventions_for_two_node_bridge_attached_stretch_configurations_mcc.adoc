@@ -15,6 +15,7 @@ summary: 在规划 MetroCluster 配置时，您必须了解所需的和支持的
 
 
 
+[[supported-software-and-hardware]]
 == 支持的软件和硬件
 
 MetroCluster FC 配置必须支持硬件和软件。
@@ -25,12 +26,14 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 
 
+[[hardware-redundancy-in-the-metrocluster-configuration]]
 == MetroCluster 配置中的硬件冗余
 
 由于 MetroCluster 配置中的硬件冗余，因此每个站点上的每个组件都有两个。随机地为站点分配字母 A 和 B ，并为各个组件分配编号 1 和 2 。
 
 
 
+[[requirement-for-two-single-node-ontap-clusters]]
 == 两个单节点 ONTAP 集群的要求
 
 桥接延伸型 MetroCluster 配置需要两个单节点 ONTAP 集群。
@@ -45,6 +48,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 
 
+[[requirement-for-two-storage-controller-modules]]
 == 需要两个存储控制器模块
 
 桥接延伸型 MetroCluster 配置需要两个存储控制器模块。
@@ -76,6 +80,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 
 
+[[requirement-for-fc-to-sas-bridges]]
 == FC-SAS 网桥的要求
 
 网桥连接的延伸型 MetroCluster 配置要求每个站点上有两个或更多 FC-SAS 网桥。
@@ -113,6 +118,7 @@ NOTE: 运行 ONTAP 9.8 及更高版本的配置不支持 FibreBridge 6500N 网�
 
 
 
+[[requirement-for-at-least-four-sas-shelves-recommended]]
 == 至少需要四个 SAS 磁盘架（建议）
 
 桥接延伸型 MetroCluster 配置至少需要两个 SAS 磁盘架。但是，建议每个站点使用两个磁盘架，以便每个磁盘架都有磁盘所有权，总共四个 SAS 磁盘架。

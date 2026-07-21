@@ -15,6 +15,7 @@ summary: 更新新平台的交换机RC框架 文件、并在控制器模块上�
 
 
 
+[[update-the-switch-rcfs-to-accommodate-the-new-platforms]]
 == 更新交换机RCF以适应新平台
 
 您必须将交换机更新为支持新平台型号的配置。
@@ -49,6 +50,7 @@ summary: 更新新平台的交换机RC框架 文件、并在控制器模块上�
 
 
 
+[[set-the-metrocluster-ip-bootarg-variables]]
 == 设置 MetroCluster IP bootarg 变量
 
 您必须在新控制器模块上配置某些MetroCluster IP启动程序值。这些启动程序值必须与旧控制器模块上配置的值匹配。

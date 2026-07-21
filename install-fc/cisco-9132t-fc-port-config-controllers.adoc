@@ -20,6 +20,7 @@ NOTE: 对于八节点配置、由于未提供RCF、您必须手动执行分区�
 
 
 
+[[metrocluster-1-or-dr-group-1]]
 == MetroCluster 1或DR组1
 
 下表显示了Cisco 9132T 交换机上MetroCluster 1 或 DR 组 1 支持的控制器配置。使用此配置表时，您应该注意以下事项：
@@ -349,6 +350,7 @@ LEM1-8.
 |===
 
 
+[[metrocluster-2-or-dr-group-2]]
 == MetroCluster 2或DR组2
 
 下表显示了Cisco 9132T 交换机上的MetroCluster 2 或 DR 组 2 支持的Cisco 9132T 控制器配置。使用此配置表时，应注意以下事项：

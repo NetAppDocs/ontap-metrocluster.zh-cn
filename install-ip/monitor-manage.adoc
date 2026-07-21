@@ -13,6 +13,7 @@ summary: '在大多数情况下、以太网交换机会由ONTAP自动发现并�
 
 
 
+[[create-a-switch-entry-so-that-ontap-can-monitor-it]]
 == 创建一个交换机条目、以便ONTAP可以对其进行监控
 
 .关于此任务
@@ -26,6 +27,7 @@ system switch ethernet create -device DeviceName -address 1.2.3.4 -snmp-version 
 
 
 
+[[disable-monitoring-without-deleting-the-switch]]
 == 禁用监控而不删除交换机
 
 如果要暂停或停止监控某个交换机、但仍保留该交换机以供将来监控、请修改其参数、而不是将其 `is-monitoring-enabled-admim`删除。
@@ -40,6 +42,7 @@ system switch ethernet modify -device DeviceName -is-monitoring-enabled-admin fa
 
 
 
+[[remove-a-switch-you-no-longer-need]]
 == 删除不再需要的交换机
 
  `system switch ethernet delete`用于删除已断开连接或不再需要的交换机：

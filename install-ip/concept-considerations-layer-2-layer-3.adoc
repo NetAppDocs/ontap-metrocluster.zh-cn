@@ -25,6 +25,7 @@ summary: 根据您的要求、您可以使用共享的第2层或第3层网络来
 ====
 
 
+[[isl-requirements-for-layer-2-and-layer-3-networks]]
 == 第2层和第3层网络的ISL要求
 
 以下适用场景第2层和第3层网络：
@@ -56,6 +57,7 @@ summary: 根据您的要求、您可以使用共享的第2层或第3层网络来
 
 
 
+[[considerations-for-layer-2-networks]]
 == 第2层网络的注意事项
 
 MetroCluster后端交换机连接到客户网络。
@@ -97,6 +99,7 @@ NOTE: 上面列出的系统可能是使用VLAN 100及以下配置的。但是、
 
 
 
+[[considerations-for-layer-3-networks]]
 == 第3层网络的注意事项
 
 MetroCluster 后端交换机连接到路由的 IP 网络，可以直接连接到路由器（如以下简化示例所示），也可以通过其他中间交换机进行连接。
@@ -132,6 +135,7 @@ MetroCluster 环境作为标准 MetroCluster IP 配置进行配置和布线，�
 
 
 
+[[required-settings-for-intermediate-switches]]
 == 中间交换机所需的设置
 
 当MetroCluster流量遍历中间网络中的ISL时、您应验证中间交换机的配置是否可确保MetroCluster流量(RDMA和存储)在MetroCluster站点之间的整个路径中满足所需的服务级别。

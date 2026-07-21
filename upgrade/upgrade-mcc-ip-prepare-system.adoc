@@ -15,6 +15,7 @@ summary: 在对现有 MetroCluster 配置进行任何更改之前，您必须检
 
 
 
+[[update-the-metrocluster-switch-rcfs-before-upgrading-controllers]]
 == 在升级控制器之前更新MetroCluster交换机RCF
 
 根据新旧平台型号、您可能需要在升级控制器之前更新MetroCluster交换机参考配置文件(RCF)。
@@ -115,6 +116,7 @@ NOTE: 您应按以下顺序更新交换机：switch_A_1、switch_B_1、switch_A_
 
 
 
+[[map-ports-from-the-old-nodes-to-the-new-nodes]]
 == 将端口从旧节点映射到新节点
 
 您必须验证NODE_A_1-Oold上的物理端口是否正确映射到NODE_A_1-NEW上的物理端口。这样、在升级后、NODE_A_1-NEW便可与集群中的其他节点以及网络进行通信。
@@ -304,6 +306,7 @@ SAN
 
 
 
+[[netboot-the-new-controllers]]
 == 通过网络启动新控制器
 
 安装新节点后，您需要通过网络启动来确保新节点运行的 ONTAP 版本与原始节点相同。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。
@@ -386,6 +389,7 @@ NOTE: 您必须重启节点才能使用新安装的软件。
 
 
 
+[[clear-the-configuration-on-a-controller-module]]
 == 清除控制器模块上的配置
 
 在 MetroCluster 配置中使用新控制器模块之前，必须清除现有配置。
@@ -425,6 +429,7 @@ NOTE: 您必须重启节点才能使用新安装的软件。
 
 
 
+[[verify-metrocluster-health-before-site-upgrade]]
 == 在站点升级之前验证 MetroCluster 运行状况
 
 在执行升级之前，您需要验证 MetroCluster 配置的运行状况和连接性。
@@ -501,6 +506,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 
 
+[[gather-information-before-the-upgrade]]
 == 在升级之前收集信息
 
 在升级之前，您必须收集每个节点的信息，并在必要时调整网络广播域，删除任何 VLAN 和接口组以及收集加密信息。
@@ -737,6 +743,7 @@ dr-group-id cluster     node     node-systemid ha-partner-systemid dr-partner-sy
 
 
 
+[[remove-mediator-or-tiebreaker-monitoring]]
 == 删除调解器或 Tiebreaker 监控
 
 升级平台之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。
@@ -780,6 +787,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#remove-metro
 
 
 
+[[send-a-custom-autosupport-message-prior-to-maintenance]]
 == 在维护之前发送自定义 AutoSupport 消息
 
 在执行维护问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。

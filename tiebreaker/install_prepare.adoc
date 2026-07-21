@@ -15,6 +15,7 @@ summary: 在安装和配置Tieb破碎 机软件之前、您应验证您的系统
 
 
 
+[[software-requirements]]
 == 软件要求
 
 您必须满足以下软件要求、具体取决于您要安装的Tieb破碎 机版本。
@@ -101,6 +102,7 @@ ONTAP 9.1到ONTAP 9.9.1
 |===
 
 
+[[additional-requirements]]
 == 其他要求
 
 您必须注意以下附加要求：

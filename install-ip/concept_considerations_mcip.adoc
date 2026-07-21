@@ -15,6 +15,7 @@ summary: 您应了解控制器如何访问远程存储以及 MetroCluster IP 地
 
 
 
+[[access-to-remote-storage-in-metrocluster-ip-configurations]]
 == 访问 MetroCluster IP 配置中的远程存储
 
 在 MetroCluster IP 配置中，本地控制器访问远程存储池的唯一方式是通过远程控制器。IP 交换机连接到控制器上的以太网端口；它们不直接连接到磁盘架。如果远程控制器已关闭，则本地控制器无法访问其远程存储池。
@@ -23,6 +24,7 @@ summary: 您应了解控制器如何访问远程存储以及 MetroCluster IP 地
 
 
 
+[[metrocluster-ip-addresses]]
 == MetroCluster IP 地址
 
 您应了解 MetroCluster IP 地址和接口在 MetroCluster IP 配置中的实施方式以及相关要求。
@@ -140,6 +142,7 @@ MetroCluster IP 接口 2.
 |===
 
 
+[[characteristics-of-metrocluster-ip-interfaces]]
 == MetroCluster IP 接口的特征
 
 MetroCluster IP 接口特定于 MetroCluster IP 配置。它们与其他 ONTAP 接口类型具有不同的特征：

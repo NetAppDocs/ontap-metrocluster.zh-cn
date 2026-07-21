@@ -59,6 +59,7 @@ https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
 
 
 
+[[cisco-switch-license-requirements]]
 == Cisco 交换机许可证要求
 
 在光纤连接 MetroCluster 配置中， Cisco 交换机可能需要某些基于功能的许可证。通过这些许可证，您可以在交换机上使用 QoS 或远程模式信用等功能。您必须在 MetroCluster 配置中的所有四个交换机上安装所需的基于功能的许可证。
@@ -89,6 +90,7 @@ NOTE: Cisco MDS 9250i 交换机具有两个固定的 1/10 GbE IP 存储服务端
 
 
 
+[[setting-the-cisco-fc-switch-to-factory-defaults]]
 == 将 Cisco FC 交换机设置为出厂默认值
 
 要确保配置成功，必须将交换机设置为出厂默认值。这样可确保交换机从全新配置启动。
@@ -137,6 +139,7 @@ FC_Switch_B_1# write erase
 ----
 
 
+[[configure-the-cisco-fc-switch-basic-settings-and-community-string]]
 == 配置 Cisco FC 交换机的基本设置和社区字符串
 
 您必须使用 `setup` 命令或在发出 `reload` 命令后指定基本设置。
@@ -185,6 +188,7 @@ FC_switch_B_1# setup
 
 
 
+[[acquiring-licenses-for-ports]]
 == 获取端口许可证
 
 您不必在一系列连续的端口上使用 Cisco 交换机许可证，而是可以为所使用的特定端口获取许可证，并从未使用的端口中删除许可证。
@@ -249,6 +253,7 @@ FC_switch_B_1# setup
 
 
 
+[[removing-and-acquiring-a-license-on-a-port]]
 === 删除并获取端口上的许可证
 
 此示例显示了从端口 fc1/2 中删除的许可证，使端口 fc1/1 有资格获取许可证以及在端口 fc1/1 上获取的许可证：
@@ -288,6 +293,7 @@ Switch_A_1# show port-resources module 1
 ----
 
 
+[[enabling-ports-in-a-cisco-mds-9148-or-9148s-switch]]
 == 启用 Cisco MDS 9148 或 9148S 交换机中的端口
 
 在 Cisco MDS 9148 或 9148S 交换机中，您必须手动启用 MetroCluster 配置中所需的端口。
@@ -342,6 +348,7 @@ switch(config-if)# end
 
 
 
+[[configuring-the-f-ports-on-a-cisco-fc-switch]]
 == 在 Cisco FC 交换机上配置 F 端口
 
 您必须在 FC 交换机上配置 F 端口。
@@ -422,6 +429,7 @@ FC_switch_B_1# copy running-config startup-config
 ----
 
 
+[[assigning-buffer-to-buffer-credits-to-f-ports-in-the-same-port-group-as-the-isl]]
 == 为与 ISL 位于同一端口组中的 F 端口分配缓冲区到缓冲区信用值
 
 如果 F 端口与 ISL 位于同一端口组中，则必须为其分配缓冲区到缓冲区信用值。如果这些端口没有所需的缓冲区到缓冲区信用值，则 ISL 可能无法运行。
@@ -540,6 +548,7 @@ fc1/39                                      1        8.0 dedicated
 ----
 
 
+[[creating-and-configuring-vsans-on-cisco-fc-switches]]
 == 在 Cisco FC 交换机上创建和配置 VSAN
 
 您必须为 MetroCluster 配置中的每个 FC 交换机上的 FC-VI 端口创建一个 VSAN ，并为存储端口创建一个 VSAN 。
@@ -935,6 +944,7 @@ FC_switch_B_1# copy running-config startup-config
 
 
 
+[[configuring-e-ports]]
 == 配置 E 端口
 
 您必须配置用于连接 ISL 的交换机端口（这些端口为 E 端口）。
@@ -949,6 +959,8 @@ FC_switch_B_1# copy running-config startup-config
 
 
 
+[[configuring-the-e-ports-on-the-cisco-fc-switch]]
+[[config-e-ports-cisco-fc]]
 === 在 Cisco FC 交换机上配置 E 端口
 
 您必须配置用于连接交换机间链路（ ISL ）的 FC 交换机端口。
@@ -1188,6 +1200,8 @@ FC_switch_B_1# copy running-config startup-config
 
 
 
+[[configuring-fcip-ports-for-a-single-isl-on-cisco-9250i-fc-switches]]
+[[config-fcip-ports-single-isl-cisco-9250i]]
 === 为 Cisco 9250i FC 交换机上的单个 ISL 配置 FCIP 端口
 
 您必须通过创建 FCIP 配置文件和接口，然后将其分配给 IPStorage1/1 GbE 接口来配置连接 ISL 的 FCIP 交换机端口（ E 端口）。
@@ -1597,6 +1611,8 @@ FC_switch_B_1# copy running-config startup-config
 
 
 
+[[configuring-fcip-ports-for-a-dual-isl-on-cisco-9250i-fc-switches]]
+[[config-fcip-ports-dual-isl-cisco-9250i]]
 === 在 Cisco 9250i FC 交换机上为双 ISL 配置 FCIP 端口
 
 您必须通过创建 FCIP 配置文件和接口，然后将其分配给 IPStorage1/1 和 IPStorage1/2 GbE 接口来配置连接 ISL 的 FCIP 交换机端口（ E 端口）。
@@ -1614,6 +1630,7 @@ image::../media/fcip_ports_dual_isl.gif[图表显示了每台交换机上具有�
 * <<fabric2_table>>
 
 
+[[fabric1_table]]
 * 阵列 1 配置文件配置表 *
 
 |===
@@ -1761,6 +1778,7 @@ b.b.B.b/3223
 20
 
 |===
+[[fabric2_table]]
 * 网络结构 2 配置文件配置表 *
 
 |===
@@ -2411,6 +2429,7 @@ exit
 ----
 
 
+[[configuring-zoning-on-a-cisco-fc-switch]]
 == 在 Cisco FC 交换机上配置分区
 
 您必须将交换机端口分配给不同的分区，以隔离存储（ HBA ）和控制器（ FC-VI ）流量。
@@ -2689,6 +2708,7 @@ FC_switch_A_1# copy running-config startup-config
 
 
 
+[[ensuring-the-fc-switch-configuration-is-saved]]
 == 确保已保存 FC 交换机配置
 
 您必须确保 FC 交换机配置已保存到所有交换机的启动配置中。

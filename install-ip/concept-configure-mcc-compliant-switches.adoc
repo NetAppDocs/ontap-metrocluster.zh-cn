@@ -130,6 +130,7 @@ NOTE: 如果使用速率限制、则流量应保持*整形*、而不会造成损
 
 
 
+[[examples-for-configuring-switch-ports-connecting-the-metrocluster-controller]]
 == 配置连接MetroCluster控制器的交换机端口的示例
 
 提供的示例命令适用于Cisco NX3232或Cisco NX9336交换机。命令因交换机类型而异。
@@ -157,6 +158,7 @@ The load balancing policy should be set so that order is preserved.
 ----
 
 
+[[examples-for-configuring-classification]]
 == 配置分类的示例
 
 要将RDMA和iSCSI流量映射到相应的类、必须配置访问和类映射。
@@ -223,6 +225,7 @@ class type queuing c-out-8q-q-default
 ----
 
 
+[[examples-for-configuring-the-node-ports]]
 == 节点端口配置示例
 
 您可能需要在分支模式下配置节点端口。在以下示例中、端口25和26配置为4个25 Gbps分支模式。
@@ -272,6 +275,7 @@ fec off
 ----
 
 
+[[examples-of-configuration-of-isl-ports-throughout-the-network]]
 == 在整个网络中配置ISL端口的示例
 
 兼容MetroCluster的交换机被视为中间交换机、即使它直接连接MetroCluster接口也是如此。MetroCluster兼容交换机上传输MetroCluster流量的ISL端口必须与中间交换机上的ISL端口配置相同。请参见 link:concept-considerations-layer-2-layer-3.html#required-settings-for-intermediate-switches["中间交换机上的必需设置"] 以获得指导和示例。

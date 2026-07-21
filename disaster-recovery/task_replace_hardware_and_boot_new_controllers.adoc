@@ -15,6 +15,7 @@ summary: 如果需要更换硬件组件，您必须使用其各自的硬件更�
 
 
 
+[[replace-hardware-at-the-disaster-site]]
 == 更换灾难站点上的硬件
 
 .开始之前
@@ -134,6 +135,7 @@ link:http://docs.netapp.com/platstor/index.jsp["ONTAP硬件系统文档"^]
 
 
 
+[[determine-the-system-ids-and-vlan-ids-of-the-old-controller-modules]]
 == 确定旧控制器模块的系统ID和VLAN ID
 
 在更换灾难站点上的所有硬件后，您必须确定已更换的控制器模块的系统 ID 。在将磁盘重新分配给新控制器模块时，您需要旧系统 ID 。如果系统为 AFF A220 ， AFF A250 ， AFF A400 ， AFF A800 ， FAS2750 ， 对于 FAS500f ， FAS8300 或 FAS8700 型号，您还必须确定 MetroCluster IP 接口使用的 VLAN ID 。
@@ -328,6 +330,7 @@ Node_A_2 Node_A_1 HA      enabled  online
 
 
 
+[[isolate-replacement-drives-from-the-surviving-site-metrocluster-ip-configurations]]
 == 将替代驱动器与运行正常的站点隔离(MetroCluster IP配置)
 
 您必须通过从运行正常的节点断开 MetroCluster iSCSI 启动程序连接来隔离任何替代驱动器。
@@ -367,6 +370,7 @@ site_B::*> storage iscsi-initiator disconnect -node node_B_2 -label *
 
 
 
+[[clear-the-configuration-on-a-controller-module]]
 == 清除控制器模块上的配置
 
 在 MetroCluster 配置中使用新控制器模块之前，必须清除现有配置。
@@ -406,6 +410,7 @@ site_B::*> storage iscsi-initiator disconnect -node node_B_2 -label *
 
 
 
+[[netboot-the-new-controller-modules]]
 == 通过网络启动新控制器模块
 
 如果新控制器模块的 ONTAP 版本与正常运行的控制器模块上的版本不同，则必须通过网络启动新控制器模块。
@@ -486,6 +491,7 @@ NOTE: 您必须重启节点才能使用新安装的软件。
 
 
 
+[[determine-the-system-ids-of-the-replacement-controller-modules]]
 == 确定更换用的控制器模块的系统ID
 
 更换灾难站点上的所有硬件后，您必须确定新安装的存储控制器模块的系统 ID 。
@@ -626,6 +632,7 @@ NOTE: 双节点 MetroCluster 配置不需要执行此步骤。
 
 
 
+[[verify-the-ha-config-state-of-components]]
 == 验证组件的 ha-config 状态
 
 在 MetroCluster 配置中，必须将控制器模块和机箱组件的 ha-config 状态设置为 "mcc" 或 "mcc-2n" ，以便它们可以正常启动。
@@ -732,6 +739,7 @@ MetroCluster IP 配置
 
 
 
+[[determine-if-end-to-end-encryption-was-enabled-on-the-original-systems]]
 == 确定原始系统上是否启用了端到端加密
 
 您应验证原始系统是否配置了端到端加密。

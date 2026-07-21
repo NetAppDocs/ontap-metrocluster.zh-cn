@@ -9,12 +9,14 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/home.html["集
 
 
 
+[[prerequisites-for-cluster-peering]]
 == 集群对等的前提条件
 
 在设置集群对等之前，您应确认满足端口， IP 地址，子网，防火墙和集群命名要求之间的连接。
 
 
 
+[[connectivity-requirements]]
 === 连接要求
 
 本地集群上的每个集群间 LIF 都必须能够与远程集群上的每个集群间 LIF 进行通信。
@@ -36,6 +38,7 @@ NOTE: 通过 ONTAP 9 ，您可以选择在集群间 LIF 上同时使用这两种
 
 
 
+[[port-requirements]]
 === 端口要求
 
 您可以使用专用端口进行集群间通信，也可以共享数据网络使用的端口。端口必须满足以下要求：
@@ -55,6 +58,7 @@ NOTE: 通过 ONTAP 9 ，您可以选择在集群间 LIF 上同时使用这两种
 
 
 
+[[firewall-requirements]]
 === 防火墙要求
 
 防火墙和集群间防火墙策略必须支持以下协议：
@@ -68,6 +72,7 @@ NOTE: 通过 ONTAP 9 ，您可以选择在集群间 LIF 上同时使用这两种
 
 
 
+[[considerations-when-using-dedicated-ports]]
 == 使用专用端口时的注意事项
 
 在确定使用专用端口进行集群间复制是否是正确的集群间网络解决方案时，您应考虑 LAN 类型，可用 WAN 带宽，复制间隔，更改率和端口数等配置和要求。
@@ -85,6 +90,7 @@ NOTE: 通过 ONTAP 9 ，您可以选择在集群间 LIF 上同时使用这两种
 
 
 
+[[considerations-when-sharing-data-ports]]
 == 共享数据端口时的注意事项
 
 在确定共享数据端口以进行集群间复制是否是正确的集群间网络解决方案时，您应考虑 LAN 类型，可用 WAN 带宽，复制间隔，更改率和端口数等配置和要求。

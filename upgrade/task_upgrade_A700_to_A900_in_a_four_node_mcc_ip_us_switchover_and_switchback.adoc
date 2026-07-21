@@ -60,6 +60,7 @@ summary: 升级配对集群上的控制器模块时，您可以使用 MetroClust
 
 
 
+[[enable-console-logging]]
 == 启用控制台日志记录
 
 NetApp强烈建议您在使用的设备上启用控制台日志记录、并在执行此过程时执行以下操作：
@@ -74,6 +75,7 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 
 
 
+[[workflow-for-upgrading-controllers-in-a-metrocluster-ip-configuration]]
 == 用于升级 MetroCluster IP 配置中控制器的工作流
 
 您可以使用工作流图帮助您规划升级任务。
@@ -82,18 +84,22 @@ image::../media/workflow_ip_upgrade.png[MetroCluster IP 配置中升级控制器
 
 
 
+[[prepare-for-the-upgrade]]
+[[upgrade_a700_a900_ip_prepare]]
 == 准备升级。
 
 在对现有 MetroCluster 配置进行任何更改之前，您必须检查此配置的运行状况，准备新平台并执行其他各种任务。
 
 
 
+[[clear-slot-7-on-the-aff-a700-or-fas9000-controller]]
 === 清除AFF A700或FAS9000控制器上的插槽7
 
 AFF A900或FAS9500上的MetroCluster 配置使用插槽5和7中DR卡上的每个端口之一。开始升级之前、如果AFF A700或FAS9000上的插槽7中有卡、则必须将其移动到集群中所有节点的其他插槽中。
 
 
 
+[[update-the-metrocluster-switch-rcf-files-before-upgrading-controllers]]
 === 升级控制器之前，请更新 MetroCluster 交换机 RCF 文件
 
 执行此升级时、您必须更新MetroCluster 交换机上的RCF文件。下表提供了AFF A900/FAS9500VLAN MetroCluster IP配置支持的VLAN范围。
@@ -142,12 +148,15 @@ AFF A900或FAS9500上的MetroCluster 配置使用插槽5和7中DR卡上的每个
 
 
 
+[[map-ports-from-the-old-nodes-to-the-new-nodes]]
+[[upgrade_a700_a900_ip_map]]
 === 将端口从旧节点映射到新节点
 
 从AFF A700升级到AFF A900或从FAS9000升级到FAS9500时、您不会更改数据网络端口、FCP SAN适配器端口以及SAS和NVMe存储端口。数据 LIF 在升级期间和升级后始终保持在原位。因此，您不需要将网络端口从旧节点映射到新节点。
 
 
 
+[[verify-metrocluster-health-before-site-upgrade]]
 === 在站点升级之前验证 MetroCluster 运行状况
 
 在执行升级之前，您需要验证 MetroCluster 配置的运行状况和连接性。
@@ -223,6 +232,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 
 
 
+[[gather-information-before-the-upgrade]]
 === 在升级之前收集信息
 
 在升级之前，您必须收集每个节点的信息，并在必要时调整网络广播域，删除任何 VLAN 和接口组以及收集加密信息。
@@ -443,6 +453,7 @@ dr-group-id cluster     node     node-systemid ha-partner-systemid dr-partner-sy
 
 
 
+[[remove-mediator-or-tiebreaker-monitoring]]
 === 删除调解器或 Tiebreaker 监控
 
 升级平台之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。
@@ -486,6 +497,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#remove-metro
 
 
 
+[[send-a-custom-autosupport-message-prior-to-maintenance]]
 === 在维护之前发送自定义 AutoSupport 消息
 
 在执行维护问题描述之前，您应发送 AutoSupport 消息以通知技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
@@ -510,6 +522,7 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#remove-metro
 
 
 
+[[switch-over-the-metrocluster-configuration]]
 == 切换 MetroCluster 配置
 
 您必须将配置切换到 site_A ，以便可以升级 site_B 上的平台。
@@ -552,6 +565,7 @@ MetroCluster switchover -controller-replacement true`
 
 
 
+[[remove-aff-a700-or-fas9000-platform-controller-module-and-nvs]]
 == 删除AFF A700或FAS9000平台控制器模块和NVS
 
 .关于此任务
@@ -564,6 +578,7 @@ MetroCluster switchover -controller-replacement true`
 
 
 
+[[remove-the-aff-a700-or-fas9000-controller-module]]
 === 卸下AFF A700或FAS9000控制器模块
 
 使用以下操作步骤 删除AFF A700或FAS9000控制器模块
@@ -592,6 +607,7 @@ image::../media/drw_9500_remove_PCM.png[从机箱中移除控制器模块：解�
 
 
 
+[[remove-the-aff-a700-or-fas9000-nvs-module]]
 === 卸下AFF A700或FAS9000 NVS模块
 
 使用以下操作步骤 删除AFF A700或FAS9000 NVS模块。
@@ -623,6 +639,7 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[从机箱中移除NVRAM模
 
 
 
+[[install-the-aff-a900-or-fas9500-nvs-and-controller-modules]]
 == 安装AFF A900或FAS9500NVS和控制器模块
 
 您必须在site_B的两个节点上安装升级套件中提供的AFF A900或FAS9500NVS和控制器模块请勿将核心转储设备从AFF A700或FAS9000 NVS模块移至AFF A900或FAS9500NVS模块。
@@ -632,6 +649,7 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[从机箱中移除NVRAM模
 
 
 
+[[install-the-aff-a900-or-fas9500-nvs]]
 === 安装AFF A900或FAS9500NVS
 
 使用以下操作步骤 在site_B的两个节点的插槽6中安装AFF A900或FAS9500NVS
@@ -655,6 +673,7 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[将NVRAM模块安装到机
 
 
 
+[[install-the-aff-a900-or-fas9500-controller-module]]
 === 安装AFF A900或FAS9500控制器模块。
 
 使用以下操作步骤 安装AFF A900或FAS9500控制 器模块。
@@ -694,6 +713,7 @@ NOTE: 集群中所有节点上的插槽7均应为空、如一节所述 <<upgrade
 
 
 
+[[netboot-nodes-at-siteb]]
 === site_B 上的网络启动节点
 
 在交换AFF A900或FAS9500控制 器模块和NVS之后、您需要通过网络启动AFF A900或FAS9500节点、并安装与集群上运行的相同ONTAP 版本和修补程序级别。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。无法检查AFF A900或FAS9500控制器模块启动介质上安装的ONTAP 版本、除非该模块安装在机箱中并已启动。AFF A900或FAS9500启动介质上的ONTAP 版本必须与要升级的AFF A700或FAS9000系统上运行的ONTAP 版本相同、并且主启动映像和备份启动映像都应匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。
@@ -805,6 +825,7 @@ NOTE: 您必须重启节点才能使用新安装的软件。
 
 
 
+[[restore-the-hba-configuration]]
 === 还原 HBA 配置
 
 根据控制器模块中是否存在 HBA 卡以及 HBA 卡的配置，您需要根据站点的使用情况正确配置这些卡。
@@ -889,6 +910,7 @@ FC
 
 
 
+[[set-the-ha-state-on-the-new-controllers-and-chassis]]
 === 在新控制器和机箱上设置 HA 状态
 
 您必须验证控制器和机箱的 HA 状态，并在必要时更新此状态以匹配您的系统配置。
@@ -922,6 +944,7 @@ FC
 
 
 
+[[update-the-switch-rcf-files-to-accommodate-the-new-platforms]]
 == 更新交换机 RCF 文件以适应新平台
 
 您必须将交换机更新为支持新平台型号的配置。
@@ -956,12 +979,14 @@ FC
 
 
 
+[[configure-the-new-controllers]]
 == 配置新控制器
 
 此时应准备好新控制器并为其布线。
 
 
 
+[[set-the-metrocluster-ip-bootarg-variables]]
 === 设置 MetroCluster IP bootarg 变量
 
 必须在新控制器模块上配置某些 MetroCluster IP bootarg 值。这些值必须与旧控制器模块上配置的值匹配。
@@ -1095,6 +1120,7 @@ setenv bootarg.mcc.dr_partner 537403323
 
 
 
+[[reassign-root-aggregate-disks]]
 === 重新分配根聚合磁盘
 
 使用先前收集的系统将根聚合磁盘重新分配给新控制器模块。
@@ -1206,6 +1232,7 @@ aggr0_node_B_1           online          raid_dp, aggr         root, nosnap=on,
 
 
 
+[[boot-up-the-new-controllers]]
 === 启动新控制器
 
 您必须启动新控制器，并注意确保 bootarg 变量正确无误，如果需要，请执行加密恢复步骤。
@@ -1400,6 +1427,7 @@ https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_create_
 
 
 
+[[verify-and-restore-lif-configuration]]
 === 验证并还原 LIF 配置
 
 验证 LIF 是否托管在升级操作步骤开始时映射的相应节点和端口上。
@@ -1440,6 +1468,7 @@ https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_create_
 
 
 
+[[switch-back-the-metrocluster-configuration]]
 == 切回 MetroCluster 配置
 
 在此任务中，您将执行切回操作， MetroCluster 配置将恢复正常运行。site_A 上的节点仍在等待升级。
@@ -1509,6 +1538,7 @@ Remote: cluster_A         Configuration state configured
 
 
 
+[[check-the-health-of-the-metrocluster-configuration]]
 == 检查 MetroCluster 配置的运行状况
 
 升级控制器模块后，您必须验证 MetroCluster 配置的运行状况。
@@ -1551,6 +1581,7 @@ MetroCluster check show`
 
 
 
+[[upgrade-the-nodes-on-sitea]]
 == 升级 site_A 上的节点
 
 您必须对 site_A 重复升级任务
@@ -1564,6 +1595,7 @@ MetroCluster check show`
 
 
 
+[[restore-tiebreaker-or-mediator-monitoring]]
 == 还原 Tiebreaker 或调解器监控
 
 完成 MetroCluster 配置升级后，您可以使用 Tiebreaker 或调解器实用程序恢复监控。
@@ -1599,6 +1631,7 @@ link:../install-ip/concept_mediator_requirements.html["通过 MetroCluster IP �
 
 
 
+[[send-a-custom-autosupport-message-after-maintenance]]
 == 维护后发送自定义 AutoSupport 消息
 
 完成升级后，您应发送一条 AutoSupport 消息，指示维护结束，以便可以恢复自动创建案例。

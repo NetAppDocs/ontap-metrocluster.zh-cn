@@ -15,6 +15,7 @@ summary: 在控制器模块中配置HBA卡、并验证和设置控制器和机�
 
 
 
+[[restore-the-hba-configuration]]
 == 还原 HBA 配置
 
 根据控制器模块中是否存在HBA卡以及HBA卡的配置、您需要为站点正确配置HBA卡。
@@ -96,6 +97,7 @@ FC
 
 
 
+[[set-the-ha-state-on-the-new-controllers-and-chassis]]
 == 在新控制器和机箱上设置 HA 状态
 
 您必须验证控制器和机箱的 HA 状态，并在必要时更新此状态以匹配您的系统配置。
@@ -164,6 +166,7 @@ NOTE: 要成功升级、必须在所有受影响的端口上设置此值。
 
 
 
+[[remove-internal-drives-from-the-chassis-on-the-new-controller]]
 == 从新控制器的机箱中移除内部驱动器
 
 当您从仅有外部驱动器的系统升级到具有外部和内部驱动器（同一机箱中的磁盘和控制器）的系统时，您需要从新系统中删除或取消安装所有内部驱动器，直到升级完成。

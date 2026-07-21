@@ -15,6 +15,7 @@ summary: '您可以在Cisco FC交换机上添加交换机间链路(ISL)、更改
 
 
 
+[[add-isls-to-a-cisco-fc-switch]]
 == 将Cisco添加到集群模式FC交换机
 
 如果您要添加或升级硬件、例如添加或升级到速度更快的控制器或交换机、则可能需要向交换机添加ISL。
@@ -79,6 +80,7 @@ summary: '您可以在Cisco FC交换机上添加交换机间链路(ISL)、更改
 
 
 
+[[change-isl-port-speeds-on-a-cisco-fc-switch]]
 == 更改Cisco FC交换机上的ISL端口速度
 
 您可以更改交换机上ISL端口的速度以提高ISL的质量、例如、降低传输距离较远的ISL的速度。
@@ -159,12 +161,14 @@ NOTE: 端口的速度为16 = 16、000 Gbps、8 = 8、000 Gbps和4 = 4、000 Gbps
 
 
 
+[[reconfigure-the-vsan-to-guarantee-iod-or-ood-of-frames]]
 == 重新配置VSAN以保证帧的IOD或OD
 
 建议使用标准 IOD 设置。您只应在必要时重新配置ood。
 
 
 
+[[reconfigure-iod]]
 === 重新配置IOD
 
 执行以下步骤以重新配置帧的IOD。
@@ -227,6 +231,7 @@ FC_switch_B_1# copy running-config startup-config
 
 
 
+[[reconfigure-ood]]
 === 重新配置ood
 
 执行以下步骤重新配置帧的ood。

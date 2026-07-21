@@ -15,6 +15,7 @@ summary: 您可以从 NetApp 文档了解有关 MetroCluster 配置和操作的�
 
 
 
+[[metrocluster-and-miscellaneous-information]]
 == MetroCluster 和其他信息
 
 |===

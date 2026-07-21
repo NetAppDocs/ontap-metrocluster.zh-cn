@@ -15,9 +15,22 @@ summary: 每个版本都提供了ONTAP 调解器的新功能。  下面是新增
 
 有关ONTAP Mediator 每个版本的功能和增强特性的详细信息，请参阅：link:https://docs.netapp.com/us-en/ontap/mediator/whats-new-concept.html["ONTAP Mediator 的新增功能"^] 。
 
-[cols="4,2"]
+[cols="4,1"]
 |===
 | ONTAP调解器功能 | 可从一开始使用 
+
+
+ a| 
+从 ONTAP Mediator 1.12.1 开始，配置了 HTTPS 的单个 ONTAP Mediator 实例可以同时监控以下配置：
+
+* 如果安装在具有至少 8 个 CPU 内核和至少 16GB RAM 的主机上，则最多可安装 10 个四节点或 5 个八节点 MetroCluster IP 配置。
+* 一个四节点 MetroCluster IP 配置和一个 SnapMirror 活动同步对等关系（如果安装在具有双核 CPU 的主机操作系统上）。
+
+
+link:../install-ip/concept_mediator_requirements.html#mediator-multiple-mccip["详细了解 ONTAP Mediator 对多个 MetroCluster IP 配置的支持"]。
+ a| 
+ONTAP 9.19.1
+
 
 
  a| 

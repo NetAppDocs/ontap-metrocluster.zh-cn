@@ -15,6 +15,7 @@ summary: 要为控制器升级做准备、请执行系统预检并收集配置�
 
 
 
+[[update-the-metrocluster-switch-rcfs-before-upgrading-controllers]]
 == 在升级控制器之前更新MetroCluster交换机RCF
 
 根据新旧平台型号、您可能需要在升级控制器之前更新MetroCluster交换机参考配置文件(RCF)。
@@ -115,6 +116,7 @@ NOTE: 您应按以下顺序更新交换机：switch_A_1、switch_B_1、switch_A_
 
 
 
+[[start-the-controller-replacement-operation]]
 == 开始控制器更换操作
 
 当您启动自动控制器更换操作时，该操作会发出一系列预检查，然后暂停，以便您可以手动收集与配置相关的信息。
@@ -165,6 +167,7 @@ Node-A-1    Failed         MetroCluster check failed. Reason : MCC check showed 
 
 
 
+[[gather-information-before-the-upgrade]]
 == 在升级之前收集信息
 
 在升级之前，如果根卷已加密，则必须收集备份密钥和其他信息以使用旧的加密根卷启动新控制器。
@@ -364,6 +367,7 @@ cluster_B::*
 
 
 
+[[remove-the-existing-configuration-from-tiebreaker-or-other-monitoring-software]]
 == 从Tieb破碎 机或其他监控软件中删除现有配置
 
 在开始升级之前、请从Tieb破碎 机或其他监控软件中删除现有配置。

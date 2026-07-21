@@ -25,6 +25,7 @@ summary: 下表显示了Brocade交换机上的端口使用情况。表中显示�
 
 
 
+[[metrocluster-1-or-dr-group-1]]
 == MetroCluster 1或DR组1
 
 下表显示了Brocade交换机上的MetroCluster 1 或 DR 组 1 中支持的控制器配置。
@@ -543,6 +544,7 @@ HBA 端口 d
 |===
 
 
+[[metrocluster-2-or-dr-group-2]]
 == MetroCluster 2或DR组2
 
 下表显示了Brocade交换机上的MetroCluster 2 或 DR 组 2 中支持的控制器配置。
@@ -1061,6 +1063,7 @@ HBA 端口 d
 |===
 
 
+[[metrocluster-3-or-dr-group-3]]
 == MetroCluster 3 或 DR 组 3
 
 下表显示了Brocade交换机上的MetroCluster 3 或 DR 组 3 中支持的控制器配置。
@@ -1339,6 +1342,7 @@ HBA 端口 d
 |===
 
 
+[[metrocluster-4-or-dr-group-4]]
 == MetroCluster 4 或 DR 组 4
 
 下表显示了Brocade交换机上的MetroCluster 4 或 DR 组 4 中支持的控制器配置。

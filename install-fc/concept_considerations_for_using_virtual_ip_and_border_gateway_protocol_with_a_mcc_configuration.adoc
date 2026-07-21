@@ -19,6 +19,7 @@ image::../media/vip_and_bgp_in_metrocluster_2.png[MetroCluster中的虚拟 IP �
 
 
 
+[[ontap-limitations]]
 == ONTAP 限制
 
 ONTAP 不会自动验证 MetroCluster 配置的两个站点上的所有节点是否均已配置 BGP 对等。
@@ -29,6 +30,7 @@ ONTAP 不支持 true anycast —集群中只有一个节点提供特定的虚拟
 
 
 
+[[guidelines-for-using-this-layer-3-solution-with-a-metrocluster-configuration]]
 == 在 MetroCluster 配置中使用此第 3 层解决方案的准则
 
 您必须正确配置 BGP 和 VIP 以提供所需的冗余。

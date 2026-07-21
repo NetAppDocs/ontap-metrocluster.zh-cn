@@ -27,6 +27,7 @@ IMPORTANT: 最好不要覆盖任何否决。
 
 
 
+[[example-verification-results]]
 == 示例：验证结果
 
 以下示例显示了在模拟切换操作时遇到的错误：

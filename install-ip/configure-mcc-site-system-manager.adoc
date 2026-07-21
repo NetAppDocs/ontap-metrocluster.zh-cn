@@ -27,6 +27,7 @@ summary: 从System Manager-8开始、您可以使用ONTAP 9管理器管理MetroC
 
 
 
+[[configure-the-connection-between-clusters]]
 == 配置集群之间的连接
 
 .步骤

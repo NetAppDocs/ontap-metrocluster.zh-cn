@@ -15,6 +15,7 @@ summary: 您可以测试故障情形，以确认 MetroCluster 配置是否正常
 
 
 
+[[verifying-negotiated-switchover]]
 == 验证协商的切换
 
 您可以测试协商（计划内）切换操作，以确认数据不会中断。
@@ -111,6 +112,7 @@ cluster_A::> metrocluster operation show
 
 
 
+[[verifying-healing-and-manual-switchback]]
 == 验证修复和手动切回
 
 您可以通过在协商切换后将集群切回原始数据中心来测试修复和手动切回操作，以验证数据可用性不受影响（ SMB 和 Solaris FC 配置除外）。
@@ -239,6 +241,7 @@ cluster_A::> metrocluster operation show
 
 
 
+[[loss-of-a-single-fc-to-sas-bridge]]
 == 丢失一个 FC-SAS 网桥
 
 您可以测试单个 FC-SAS 网桥的故障，以确保不存在单点故障。
@@ -293,6 +296,7 @@ Disk             Error Type        Error Text
 
 
 
+[[verifying-operation-after-power-line-disruption]]
 == 在电源线中断后验证操作
 
 您可以测试 MetroCluster 配置对 PDU 故障的响应。
@@ -347,6 +351,7 @@ Power               Critical condition is detected in storage shelf power supply
 
 
 
+[[verifying-operation-after-loss-of-a-single-storage-shelf]]
 == 在丢失一个存储架后验证操作
 
 您可以测试单个存储架的故障，以验证是否没有单点故障。

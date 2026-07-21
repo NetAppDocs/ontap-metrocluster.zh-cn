@@ -13,6 +13,7 @@ summary: 您可以将IP交换机配置为使用SNMPv3进行运行状况监控。
 
 
 
+[[confirm-monitoring-of-the-connected-ethernet-switches]]
 == 确认监控已连接的以太网交换机
 
 .关于此任务
@@ -33,6 +34,7 @@ system switch ethernet show
 ====
 
 
+[[confirm-firmware-and-rcf-versions-are-up-to-date]]
 == 确认固件和RC框架 版本为最新
 
 确保交换机运行的是受支持的最新固件、并且已应用兼容的参考配置文件(RCF)。有关详细信息，请参见https://mysupport.netapp.com/site/downloads["NetApp支持下载页面"^]。
@@ -50,6 +52,7 @@ NOTE: 有关配置SNMPv3以供使用的详细信息、请参见link:config-snmpv
 
 
 
+[[confirm-management-network-connection]]
 == 确认管理网络连接
 
 验证交换机的管理端口是否已连接到管理网络。

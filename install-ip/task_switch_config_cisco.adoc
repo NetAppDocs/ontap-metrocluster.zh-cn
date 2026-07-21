@@ -18,6 +18,7 @@ summary: 您必须将 Cisco IP 交换机配置为用作集群互连以及用于�
 
 
 
+[[resetting-the-cisco-ip-switch-to-factory-defaults]]
 == 将 Cisco IP 交换机重置为出厂默认值
 
 在安装任何 RCF 文件之前，您必须擦除 Cisco 交换机配置并执行基本配置。如果要在先前安装失败后重新安装同一个 RCF 文件，或者要安装新版本的 RCF 文件，则需要此操作步骤 。
@@ -168,6 +169,7 @@ IP_switch_A_1#
 
 
 
+[[downloading-and-installing-the-cisco-switch-nx-os-software]]
 == 下载并安装 Cisco 交换机 NX-OS 软件
 
 您必须将交换机操作系统文件和 RCF 文件下载到 MetroCluster IP 配置中的每个交换机。
@@ -427,6 +429,7 @@ Module 1 EPLD upgrade is successful.
 
 
 
+[[downloading-and-installing-the-cisco-ip-rcf-files]]
 == 下载并安装 Cisco IP RCF 文件
 
 您必须为MetroCluster IP配置中的每个交换机生成并安装RCF文件。
@@ -606,6 +609,7 @@ IP_switch_A_1# reload
 
 
 
+[[setting-forward-error-correction-for-systems-using-25-gbps-connectivity]]
 == 为使用 25 Gbps 连接的系统设置正向错误更正
 
 如果您的系统配置为使用 25 Gbps 连接，则在应用 RCF 文件后，您需要手动将正向错误更正（ FEC ）参数设置为关闭。RCF 文件不应用此设置。
@@ -653,6 +657,7 @@ IP_switch_A_1# copy running-config startup-config
 
 
 
+[[disable-unused-isl-ports-and-port-channels]]
 == 禁用未使用的ISL端口和端口通道
 
 NetApp建议禁用未使用的ISL端口和端口通道、以避免发出不必要的运行状况警报。

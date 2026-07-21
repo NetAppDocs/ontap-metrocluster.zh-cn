@@ -22,6 +22,7 @@ summary: 如果发生灾难，则必须在切换后对灾难集群和正常运�
 
 
 
+[[fencing-off-the-disaster-site]]
 == 隔离灾难站点
 
 发生灾难后，如果必须更换灾难站点节点，则必须暂停这些节点，以防止站点恢复服务。否则，如果客户端在替换操作步骤完成之前开始访问节点，您将面临数据损坏的风险。
@@ -38,6 +39,7 @@ summary: 如果发生灾难，则必须在切换后对灾难集群和正常运�
 
 
 
+[[performing-a-forced-switchover]]
 == 执行强制切换
 
 除了在测试和维护期间提供无中断操作之外，切换过程还允许您通过一条命令从站点故障中恢复。
@@ -93,12 +95,14 @@ mcc1A::> metrocluster operation show
 
 
 
+[[output-for-the-storage-aggregate-plex-show-command-is-indeterminate-after-a-metrocluster-switchover]]
 == 在 MetroCluster 切换后， storage aggregate plex show 命令的输出不确定
 
 在 MetroCluster 切换后运行 `storage aggregate plex show` 命令时，切换后的根聚合的 plex0 状态不确定，并显示为 failed 。在此期间，切换后的根不会更新。只有在 MetroCluster 修复阶段之后才能确定此丛的实际状态。
 
 
 
+[[accessing-volumes-in-nvfail-state-after-a-switchover]]
 == 在切换后访问处于 NVFAIL 状态的卷
 
 切换后，您必须通过重置 `volume modify` 命令的 ` in-nvfailed-state` 参数来清除 NVFAIL 状态，以取消客户端访问数据的限制。

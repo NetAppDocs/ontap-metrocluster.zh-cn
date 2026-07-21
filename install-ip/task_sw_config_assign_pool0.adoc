@@ -15,6 +15,7 @@ summary: 如果您未收到出厂时预配置的系统，则可能需要手动�
 
 
 
+[[manually-assigning-drives-for-pool-0-ontap-9-4-and-later]]
 == 手动为池 0 分配驱动器（ ONTAP 9.4 及更高版本）
 
 如果系统在出厂时尚未进行预配置，并且不满足自动驱动器分配的要求，则必须手动分配池 0 驱动器。
@@ -118,6 +119,7 @@ Do you want to abort this operation (yes/no)? no
 
 
 
+[[manually-assigning-drives-for-pool-0-ontap-9-3]]
 == 手动为池 0 分配驱动器（ ONTAP 9.3 ）
 
 如果每个节点至少有两个磁盘架，则可以使用 ONTAP 的自动分配功能自动分配本地（池 0 ）磁盘。

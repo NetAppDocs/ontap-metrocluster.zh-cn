@@ -15,6 +15,7 @@ summary: 您必须执行最终配置步骤并将 MetroCluster 配置恢复正常
 
 
 
+[[verifying-metrocluster-operation-and-assigning-drives-after-transition]]
 == 过渡后验证 MetroCluster 操作并分配驱动器
 
 您必须验证 MetroCluster 是否运行正常，并将驱动器分配给第二对新节点（ node_A_2-IP 和 node_B_2-IP ）。
@@ -32,6 +33,7 @@ summary: 您必须执行最终配置步骤并将 MetroCluster 配置恢复正常
 
 
 
+[[installing-licenses-for-the-new-controller-module]]
 == 为新控制器模块安装许可证
 
 您必须为需要标准（节点锁定）许可证的任何 ONTAP 服务添加新控制器模块的许可证。对于具有标准许可证的功能，集群中的每个节点都必须具有自己的功能密钥。
@@ -53,6 +55,7 @@ license_key 的长度为 28 位数。
 
 
 
+[[completing-configuration-of-the-nodes]]
 == 正在完成节点配置
 
 在完成这些过程之前，可以执行其他配置步骤。其中某些步骤是可选的。
@@ -77,6 +80,7 @@ link:../tiebreaker/concept_overview_of_the_tiebreaker_software.html["Tiebreaker 
 
 
 
+[[sending-a-custom-autosupport-message-after-maintenance]]
 == 维护后发送自定义 AutoSupport 消息
 
 完成过渡后，您应发送一条 AutoSupport 消息，指示维护结束，以便可以恢复自动创建案例。

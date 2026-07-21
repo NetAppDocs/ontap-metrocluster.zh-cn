@@ -15,6 +15,7 @@ summary: 在开始配置 MetroCluster 站点之前，您应收集所需的配置
 
 
 
+[[site-a-fc-to-sas-bridge-1-fcbridgea1a]]
 == 站点 A ， FC-SAS 网桥 1 （ FC_bridge_A_1a ）
 
 每个 SAS 堆栈至少需要两个 FC-SAS 网桥。
@@ -46,6 +47,7 @@ Bridge_A_1a 密码
 |===
 
 
+[[site-a-fc-to-sas-bridge-2-fcbridgea1b]]
 == 站点 A ， FC-SAS 网桥 2 （ FC_bridge_A_1b ）
 
 每个 SAS 堆栈至少需要两个 FC-SAS 网桥。
@@ -77,6 +79,7 @@ Bridge_A_1b 密码
 |===
 
 
+[[site-b-fc-to-sas-bridge-1-fcbridgeb1a]]
 == 站点 B ， FC-SAS 网桥 1 （ FC_bridge_B_1a ）
 
 每个 SAS 堆栈至少需要两个 FC-SAS 网桥。
@@ -108,6 +111,7 @@ Bridge_B_1a 密码
 |===
 
 
+[[site-b-fc-to-sas-bridge-2-fcbridgeb1b]]
 == 站点 B ， FC-SAS 网桥 2 （ FC_bridge_B_1b ）
 
 每个 SAS 堆栈至少需要两个 FC-SAS 网桥。

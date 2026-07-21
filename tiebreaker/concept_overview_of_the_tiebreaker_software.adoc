@@ -15,6 +15,7 @@ summary: 了解什么是 NetApp MetroCluster Tiebreaker 软件以及该软件如
 
 
 
+[[detecting-failures-with-netapp-metrocluster-tiebreaker-software]]
 == 使用 NetApp MetroCluster Tiebreaker 软件检测故障
 
 只有当您要从第三个站点监控两个集群及其连接状态时，才需要 Tiebreaker 软件。Tieb破碎 机软件驻留在第三个站点的Linux主机上、可使集群中的每个配对节点区分站点间链路关闭时的ISL故障与站点故障。
@@ -25,12 +26,14 @@ Tieber4软件可以同时监控多达15个MetroCluster配置。它支持MetroClu
 
 
 
+[[how-the-tiebreaker-software-detects-site-failures]]
 == Tiebreaker 软件如何检测站点故障
 
 NetApp MetroCluster Tiebreaker 软件会检查 MetroCluster 配置和集群中节点的可访问性，以确定是否发生了站点故障。在某些情况下， Tiebreaker 软件还会触发警报。
 
 
 
+[[components-monitored-by-the-tiebreaker-software]]
 === Tiebreaker 软件监控的组件
 
 Tiebreaker 软件可通过 IP 网络上托管的节点管理 LIF 和集群管理 LIF 的多条路径建立冗余连接，从而监控 MetroCluster 配置中的每个控制器。
@@ -49,6 +52,7 @@ NOTE: 如果正常运行的集群无法再通过 FC （ NV 互连和存储）和
 
 
 
+[[failure-scenarios-during-which-tiebreaker-software-triggers-an-alert]]
 === Tiebreaker 软件触发警报的故障情形
 
 如果灾难站点上的集群（所有节点）已关闭或无法访问，并且正常运行的站点上的集群指示 "`AllLinksSevered` " 状态，则 Tiebreaker 软件将触发警报。
@@ -68,12 +72,14 @@ link:concept_risks_and_limitation_of_using_mcc_tiebreaker_in_active_mode.html["�
 
 
 
+[[how-the-tiebreaker-software-detects-intersite-connectivity-failures]]
 == Tiebreaker 软件如何检测站点间连接故障
 
 如果站点之间的所有连接都丢失， MetroCluster Tiebreaker 软件将向您发出警报。
 
 
 
+[[types-of-network-paths]]
 === 网络路径的类型
 
 根据配置的不同， MetroCluster 配置中的两个集群之间有三种类型的网络路径：
@@ -94,12 +100,14 @@ link:concept_risks_and_limitation_of_using_mcc_tiebreaker_in_active_mode.html["�
 
 
 
+[[monitoring-intersite-connectivity]]
 === 监控站点间连接
 
 Tiebreaker 软件会定期从节点检索站点间连接的状态。如果 NV 互连连接丢失，并且集群间对等不响应 ping ，则集群会假定站点已隔离， Tiebreaker 软件会触发警报 "`AllLinksSevered` " 。如果集群发现 "`AllLinksSevered` " 状态，而另一个集群无法通过网络访问，则 Tiebreaker 软件将触发警报 `disaster` 。
 
 
 
+[[how-different-disaster-types-affect-tiebreaker-software-detection-time]]
 == 不同的灾难类型如何影响 Tiebreaker 软件检测时间
 
 为了更好地规划灾难恢复， MetroCluster Tiebreaker 软件需要一些时间来检测灾难。此时间为 " `d后测时间` " 。MetroCluster Tiebreaker 软件会在发生灾难后 30 秒内检测站点灾难，并触发灾难恢复操作以通知您发生灾难。
@@ -114,12 +122,14 @@ Tiebreaker 软件会定期从节点检索站点间连接的状态。如果 NV �
 
 
 
+[[power-loss]]
 === 断电
 
 当节点停止运行时， Tiebreaker 软件会立即触发警报。断电后，所有连接和更新都会停止，例如集群间对等， NV 互连和邮箱磁盘。从无法访问集群到检测灾难到触发器所用的时间（包括默认静默时间 5 秒）不应超过 30 秒。
 
 
 
+[[panic]]
 === 崩溃
 
 在MetroCluster FC配置中、如果站点之间的NV互连连接已关闭且正常运行的站点指示"`AllLinksSevered`"状态、则Tiebreaker软件将触发警报。只有在核心转储过程完成后，才会发生这种情况。在这种情况下，从无法访问集群到检测到灾难所用的时间可能会更长，或者大致等于核心转储过程所用的时间。在许多情况下，检测时间超过 30 秒。
@@ -128,18 +138,21 @@ Tiebreaker 软件会定期从节点检索站点间连接的状态。如果 NV �
 
 
 
+[[halt-or-reboot]]
 === 暂停或重新启动
 
 只有当节点关闭且正常运行的站点指示 "`AllLinksSevered` " 状态时， Tiebreaker 软件才会触发警报。从无法访问集群到检测到灾难所用的时间可能超过 30 秒。在这种情况下，检测灾难所需的时间取决于关闭灾难站点上的节点所需的时间。
 
 
 
+[[loss-of-fc-switches-at-the-disaster-site-fabric-attached-metrocluster-configuration]]
 === 灾难站点丢失 FC 交换机（光纤连接 MetroCluster 配置）
 
 当节点停止运行时， Tiebreaker 软件会触发警报。如果 FC 交换机丢失，则节点将尝试恢复磁盘路径约 30 秒。在此期间，节点在对等网络上启动并做出响应。当两个 FC 交换机都关闭且无法恢复磁盘路径时，节点会生成 MultiDiskFailure 错误并暂停。从 FC 交换机故障到节点生成 MultiDiskFailure 错误的次数所用的时间大约延长 30 秒。灾难检测时间必须再增加 30 秒。
 
 
 
+[[about-the-tiebreaker-cli-and-man-pages]]
 == 关于 Tiebreaker 命令行界面和手册页
 
 Tiebreaker 命令行界面提供了一些命令，可用于远程配置 Tiebreaker 软件并监控 MetroCluster 配置。

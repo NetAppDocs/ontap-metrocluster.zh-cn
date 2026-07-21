@@ -81,6 +81,7 @@ link:task_recover_from_a_multi_controller_and_or_storage_failure.html["从多控
 |===
 
 
+[[controller-module-failure-scenarios-during-metrocluster-installation]]
 == MetroCluster 安装期间的控制器模块故障场景
 
 在MetroCluster 配置操作步骤 期间响应控制器模块故障取决于是否 `metrocluster configure` 命令成功完成。
@@ -95,6 +96,7 @@ NOTE: 您必须确保执行中的步骤 link:https://docs.netapp.com/us-en/ontap
 
 
 
+[[controller-module-failure-scenarios-during-metrocluster-fc-to-ip-transition]]
 == MetroCluster FC-IP过渡期间的控制器模块故障场景
 
 如果过渡期间发生站点故障，可以使用恢复操作步骤。但是，只有在配置为稳定的混合配置且 FC DR 组和 IP DR 组均已完全配置的情况下，才能使用此配置。`MetroCluster node show` 命令的输出应显示两个 DR 组以及全部八个节点。
@@ -104,6 +106,7 @@ IMPORTANT: 如果在过渡期间添加或删除节点时发生故障，您必须
 
 
 
+[[controller-module-failure-scenarios-in-eight-node-metrocluster-configurations]]
 == 八节点 MetroCluster 配置中的控制器模块故障情形
 
 故障情形：
@@ -116,6 +119,7 @@ IMPORTANT: 如果在过渡期间添加或删除节点时发生故障，您必须
 
 
 
+[[single-controller-module-failures-in-a-single-dr-group]]
 === 单个 DR 组中的单个控制器模块出现故障
 
 在这种情况下，故障仅限于 HA 对。
@@ -138,6 +142,7 @@ image::../media/mcc_dr_groups_8_node_with_a_single_controller_failure.gif[具有
 
 
 
+[[two-controller-module-failures-in-a-single-dr-group]]
 === 一个 DR 组中的两个控制器模块出现故障
 
 在这种情况下，故障需要切换。您可以使用多控制器模块故障恢复操作步骤。
@@ -150,6 +155,7 @@ image::../media/mcc_dr_groups_8_node_with_a_multi_controller_failure.gif[具有�
 
 
 
+[[single-controller-module-failures-in-separate-dr-groups]]
 === 单独 DR 组中的单个控制器模块出现故障
 
 在这种情况下，故障仅限于单独的 HA 对。
@@ -171,6 +177,7 @@ image::../media/mcc_dr_groups_8_node_with_two_single_controller_failures.gif[八
 
 
 
+[[three-controller-module-failures-spread-across-the-dr-groups]]
 === 三个控制器模块故障分布在 DR 组中
 
 在这种情况下，故障需要切换。您可以对 DR 组 1 使用多控制器模块故障恢复操作步骤。
@@ -185,6 +192,7 @@ image::../media/mcc_dr_groups_8_node_with_a_3_controller_failure.gif[八节点Me
 
 
 
+[[controller-module-failure-scenarios-in-two-node-metrocluster-configurations]]
 == 双节点 MetroCluster 配置中的控制器模块故障情形
 
 您使用的操作步骤取决于故障的程度。
