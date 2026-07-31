@@ -1443,7 +1443,7 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 .. 运行 Config Advisor 后，查看该工具的输出并按照输出中的建议解决发现的任何问题。
 
 
-. 更换部件后，按照套件随附的 RMA 说明将故障部件退回 NetApp 。请参见 link:https://mysupport.netapp.com/site/info/rma["部件退回和放大器；更换"] 第页，了解更多信息。
+. 更换零件后，将故障零件退回 NetApp，如套件附带的 RMA 说明中所述。有关更多信息，请参阅 link:https://mysupport.netapp.com/site/info/rma["部件退回和放大器；更换"^] 页面。
 
 
 .相关信息

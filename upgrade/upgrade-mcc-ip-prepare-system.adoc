@@ -749,6 +749,10 @@ dr-group-id cluster     node     node-systemid ha-partner-systemid dr-partner-sy
 升级平台之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。
 
 .步骤
+. 更改为高级权限级别：
++
+`set -privilege advanced`
+
 . 收集以下命令的输出：
 +
 `storage iscsi-initiator show`

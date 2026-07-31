@@ -882,7 +882,7 @@ AFF C250和AFF A250系统的磁盘分配准则和规则同样适用于FAS500f系
 ====
 * 内部机架上的闪存缓存驱动器不能同时拥有数据聚合和根聚合。
 * 插槽 0 和 23 用于闪存缓存驱动器。
-* 如果您要重复使用外部磁盘柜，请在将其连接到控制器之前确认已移除外部磁盘柜上的磁盘所有权。参考link:https://docs.netapp.com/us-en/ontap/disks-aggregates/remove-ownership-disk-task.html["从磁盘中移除ONTAP所有权"]。
+* 如果您要重复使用外部磁盘柜，请在将其连接到控制器之前确认已移除外部磁盘柜上的磁盘所有权。参考link:https://docs.netapp.com/us-en/ontap/disks-aggregates/remove-ownership-disk-task.html["从磁盘中移除ONTAP所有权"^]。
 
 
 ====

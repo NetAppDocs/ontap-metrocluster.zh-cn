@@ -37,7 +37,7 @@ summary: 您可以使用此引导式自动 MetroCluster 切换操作对四节点
 +
 https://hwu.netapp.com["NetApp Hardware Universe"^]
 
-* 您可以使用此操作步骤通过基于 NSO 的自动切换和切回升级四节点 MetroCluster FC 配置中的控制器。如果要使用聚合重新定位（ Aggregate Relocation ， ARL ）执行控制器升级，请参见 link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"]。建议使用基于 NSO 的自动化操作步骤。
+* 可以使用此过程，通过基于 NSO 的自动切换和切换回来升级四节点 MetroCluster FC 配置中的控制器。如果要使用聚合重定位 (ARL) 执行控制器升级，请参阅 link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"^]。建议使用基于 NSO 的自动化程序。
 * 如果 MetroCluster 站点实际位于两个不同位置，则应使用自动化 NSO 控制器升级操作步骤按顺序升级这两个站点的控制器。
 * 此基于 NSO 的自动控制器升级操作步骤使您能够对 MetroCluster 灾难恢复（ DR ）站点启动控制器更换。一次只能在一个站点启动控制器更换。
 * 要在站点 A 启动控制器更换，您需要从站点 B 运行 controller replacement start 命令此操作仅会指导您更换站点 A 上两个节点的控制器。要更换站点 B 的控制器，您需要从站点 A 运行 controller replacement start 命令此时将显示一条消息，指出要更换控制器的站点。

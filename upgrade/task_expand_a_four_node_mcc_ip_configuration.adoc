@@ -22,13 +22,15 @@ summary: 您可以将四个新节点作为第二个 DR 组添加到 MetroCluster
 
 如果您现有的MetroCluster配置包含使用 *共享集群/HA 端口* 的平台（ ONTAP 9.15.1 或更高版本中发布的平台），则如果不将配置中的所有节点升级到ONTAP 9.15.1P11 或ONTAP 9.16.1P4 或更高版本，则无法添加使用 *共享MetroCluster/HA 端口* 的平台（ ONTAP 9.15.1 之前发布的平台）。
 
+使用下表验证您的组合是否受到影响。如果您现有的平台列在第一列，并且您要添加到配置中的平台列在第二列，则配置中的所有节点必须运行 ONTAP 9.15.1P11 或 ONTAP 9.16.1P4 或更高版本（取决于平台支持的 ONTAP 版本），才能添加新的 DR 组。
+
 [CAUTION]
 ====
-将使用 *共享/ MetroCluster HA 端口* 的旧平台模型添加到包含使用 *共享集群/HA 端口* 的新平台模型的MetroCluster是一种不常见的情况，大多数组合不会受到影响。
+* 将使用*共享 MetroCluster/HA 端口*的旧平台型号添加到包含使用*共享集群/HA 端口*的新平台型号的 MetroCluster 中是一种罕见的情况，大多数组合都不受影响。
+* 下表显示了使用*共享 MetroCluster/HA 端口*和*共享集群/HA 端口*的所有平台型号。并非所有组合都受此程序支持。请参阅<<expand-ip-supported-platforms,支持的平台组合>>以验证您的扩展组合是否受支持。
+
 
 ====
-使用下表来验证您的组合是否受到影响。如果第一列列出了您现有的平台，而第二列列出了要添加到配置中的平台，则配置中的所有节点都必须运行ONTAP 9.15.1P11 或ONTAP 9.16.1P4 或更高版本才能添加新的 DR 组。
-
 [cols="20,20,20,20,20"]
 |===
 2+| 如果您现有的 MetroCluster 包含... 2+| 您要添加的平台是... | 那么 ... 
@@ -157,9 +159,10 @@ dr_group_2-new
 
 
 [[supported-platform-combinations-when-adding-a-second-dr-group]]
+[[expand-ip-supported-platforms]]
 == 添加第二个DR组时支持的平台组合
 
-下表显示了八节点MetroCluster IP配置支持的平台组合。
+下表显示了八节点 MetroCluster IP 配置支持的平台组合。
 
 [IMPORTANT]
 ====

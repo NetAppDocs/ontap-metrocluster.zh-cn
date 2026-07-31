@@ -38,6 +38,9 @@ MetroCluster check show`
 +
 .. 检查 MetroCluster IP 连接：
 +
+`set -privilege advanced`
+
++
 `storage iscsi-initiator show`
 
 .. 检查节点是否正在运行：

@@ -457,7 +457,7 @@ image::../media/svm_dr_image_2.gif[切换后的 SVM 灾难恢复]
 
 
 
-请参见中的 "`复制 SVM 配置` " 一节 link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["使用 CLI 进行数据保护"] 有关配置 SVM DR 关系的详细信息。
+有关配置 SVM DR 关系的详细信息，请参见 link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/home.html["使用 CLI 进行数据保护"^] 中的“`复制 SVM 配置`”部分。
 
 
 

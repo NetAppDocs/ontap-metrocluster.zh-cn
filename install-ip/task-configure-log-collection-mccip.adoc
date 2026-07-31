@@ -14,42 +14,30 @@ summary: 您可以将IP交换机配置为使用SNMPv3进行运行状况监控。
 
 CAUTION: 在 Broadcom 和 Cisco 交换机上，每个具有日志收集功能的集群都需要一个新用户。例如，MetroCluster 1、MetroCluster 2、MetroCluster 3 和 MetroCluster 4 均需要在交换机上配置单独的用户。不支持为同一用户配置多个 SSH 密钥。
 
-.关于此任务
-以太网交换机健康监视器（CSHM）负责确保网络交换机的运行健康，并收集交换机日志以进行调试。此过程指导您完成设置收集、请求详细的 *Support* 日志以及启用每小时收集由 AutoSupport 收集的 *Periodic* 数据的过程。
-
-*注：*如果启用FIPS模式，则必须完成以下操作：
-
-[NOTE]
-====
-. 按照供应商说明在交换机上重新生成SSH密钥。
-. 使用在ONTAP中重新生成SSH密钥 `debug system regenerate-systemshell-key-pair`
-. 使用 `system switch ethernet log setup-password`命令重新运行日志收集设置例程
+.开始之前
+* 如果使用 FIPS 模式，请在设置日志收集之前完成以下操作：
++
+.. 按照供应商说明在交换机上重新生成SSH密钥。
+.. 使用  `debug system regenerate-systemshell-key-pair` 在 ONTAP 中重新生成 SSH 密钥。
+.. 使用 `system switch ethernet log setup-password`命令重新运行日志收集设置。
 
 
-====
-
-
-[[before-you-begin]]
-== 开始之前
-
-* 用户必须能够访问交换机 `show` 命令。如果这些权限不可用、请创建一个新用户并向该用户授予必要的权限。
-* 必须为交换机启用交换机运行状况监控。通过确保 `Is Monitored:`字段在输出中设置为 *true*  `system switch ethernet show`命令。
+* 您必须能够访问交换机 `show`命令。如果没有访问权限，请创建新的交换机用户并授予必要的权限。
+* 必须为交换机启用交换机运行状况监控。通过检查 `Is Monitored:`字段在 `system switch ethernet show`的输出中是否设置为 *true* 来验证。
 * 要使用Broadcom和Cisco交换机收集日志、请执行以下操作：
 +
 ** 本地用户必须具有网络管理员权限。
-** 应在交换机上为启用了日志收集的每个集群设置创建一个新用户。这些交换机不支持同一用户使用多个SSH密钥。执行的任何其他日志收集设置都会覆盖用户的任何已有SSH密钥。
+** 为每个启用了日志收集的集群创建新的交换机用户。这些交换机不支持同一用户使用多个 SSH 密钥，再次运行设置将覆盖现有的 SSH 密钥。
 
 
-* 要使用NVIDIA交换机收集支持日志、必须允许用于收集日志的_user_运行 `cl-support`命令、而无需提供密码。要允许使用此命令、请运行以下命令：
+* 要使用 NVIDIA 交换机支持日志收集，日志收集用户必须能够在没有密码的情况下运行该 `cl-support`命令。要执行此操作，请运行：
 +
 `echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
 
 
 
-
-
-[[steps]]
-== 步骤
+.步骤
+按照适用于您的 ONTAP 版本的步骤设置日志收集，启用定期数据收集，并可选择请求按需支持日志。
 
 [role="tabbed-block"]
 ====

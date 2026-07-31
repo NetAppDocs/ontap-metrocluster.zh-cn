@@ -975,7 +975,7 @@ DR 配对节点的池 1
 
 必须对 MetroCluster 配置中的两个集群执行此任务。
 
-有关设置 ONTAP 的更多常规信息，请参见 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["设置 ONTAP"]
+有关设置 ONTAP 的更多常规信息，请参见 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ssg/home.html["设置 ONTAP"^]
 
 .步骤
 . 打开第一个节点的电源。
@@ -1833,7 +1833,7 @@ NOTE: 未镜像聚合必须位于其所属节点的本地。
 
 * 驱动器由特定节点拥有；创建聚合时，该聚合中的所有驱动器都必须由同一节点拥有，该节点将成为该聚合的主节点。
 * 聚合名称应符合您在规划 MetroCluster 配置时确定的命名方案。
-* 。 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"] 包含有关镜像聚合的详细信息。
+* link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/home.html["磁盘和聚合管理"^] 包含有关镜像聚合的详细信息。
 
 
 .步骤
@@ -2265,6 +2265,6 @@ https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["NetApp
 `s系统配置备份设置修改目标 URL`
 
 +
-。 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["使用 CLI 进行集群管理"] 在 _Manag管理 配置备份 _ 一节下包含追加信息。
+link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["使用 CLI 进行集群管理"^] 在"管理配置备份"部分下包含其他信息。
 
 

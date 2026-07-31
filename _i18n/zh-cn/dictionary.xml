@@ -8281,9 +8281,6 @@
   <block id="bce6e50d132e2d8b90bf22b569c48d10" category="paragraph">您应使用的以下部分中的过程 <block ref="a1fd01e320574c534b3b8a75cd17d943" category="inline-link-macro-rx"></block>：</block>
   <block id="244e3fc26c43465b8d77ffc9aef56cb7" category="inline-link">MetroCluster IP 安装和配置： ONTAP MetroCluster 配置之间的差异</block>
   <block id="c0fe5b8c641b3e2d20403ec4aa244ff8" category="paragraph"><block ref="c0fe5b8c641b3e2d20403ec4aa244ff8" category="inline-link-rx"></block></block>
-  <block id="81d86459e5a3e2353ad75db0c4cc1230" category="paragraph">有关设置 ONTAP 的更多常规信息，请参见 <block ref="b344da29565aaa689911ef5c966296ae" category="inline-link-macro-rx"></block></block>
-  <block id="10b3d9338ce3b44f2aaa4dffc12e92d4" category="list-text">。 <block ref="eb0cf332a63028d1b0cd8a746301e53a" category="inline-link-macro-rx"></block> 包含有关镜像聚合的详细信息。</block>
-  <block id="5af69ae57a9a4e104da0dc7bf9b476fe" category="paragraph">。 <block ref="717caad659837ead96fd39bedd8a12bf" category="inline-link-macro-rx"></block> 在 _Manag管理 配置备份 _ 一节下包含追加信息。</block>
   <block id="947d66eb8e008580a5f22d25145f007c" category="paragraph">172.17.27.12</block>
   <block id="944ba440cff13fbfecd96174fe955503" category="paragraph">替代节点应处于 "`Waiting for switchback recovery` " 模式。如果它们处于 "`normal` " 模式，则可以重新启动替代节点。启动后，节点应处于 "`Waiting for switchback recovery` " 模式。</block>
   <block id="f58c9fb343129eebdf7e4a450f367006" category="paragraph">驱动器架和驱动器布局必须满足中的要求 <block ref="4f1fa11a37282d14661c4d6ddf38eeb2" category="inline-link-macro-rx"></block> 部分 <block ref="4ab496c462bc9a729fe703221c683545" category="inline-link-macro-rx"></block>。</block>
@@ -8317,7 +8314,6 @@
   <block id="e71402603f50c2282d8c7bcc53d63e72" category="paragraph"><block ref="e71402603f50c2282d8c7bcc53d63e72" category="inline-link-macro-rx"></block></block>
   <block id="b42bad79baad4f4f943c81fc37bedccd" category="list-text">使用缆线将 MetroCluster IP 节点连接到 IP 交换机，如所示 <block ref="657bcb6c51639854c4fdede551507755" category="inline-link-macro-rx"></block>。</block>
   <block id="99dc2e42eb5cbad5dfa0fe00d5193924" category="list-text">创建包含聚合的 FabricPool 镜像，如中所述<block ref="d80da76762d0e5fadaefb2c12eee2740" category="inline-link-rx"></block></block>
-  <block id="9f1e892e838f85f0b4330fcfad0f245a" category="paragraph">请参见中的 "`复制 SVM 配置` " 一节 <block ref="eedeed859392052ace3070cab5bd7d76" category="inline-link-macro-rx"></block> 有关配置 SVM DR 关系的详细信息。</block>
   <block id="06eff1ae70df860b6c817c9ab3858d3d" category="list-text">使用中所述的协商切换，修复和切回过程<block ref="6d6ef49fcb406c2ba2bda06977913f53" category="inline-link-rx"></block>。</block>
   <block id="10fb6eda16d44576f048cbbd98a21f49" category="sidebar">准备 MetroCluster 安装</block>
   <block id="e42ae5049bd4441f35fc1a5c789393b6" category="sidebar">如何在 RcfFileGenerator 工具或多个 MetroCluster 配置中使用端口表</block>
@@ -9703,7 +9699,6 @@
   <block id="344fc0c43530ccad90a38944b632b1e4" category="list-text">退出配置模式： `exit`</block>
   <block id="9c0c1022f821ad4ee9fd20c2731bc6f1" category="list-text">强烈建议为每个 MetroCluster DR 组中的每个 SAS 磁盘架使用唯一的磁盘架 ID ，以帮助进行故障排除。</block>
   <block id="6bec966647e1b9c8a03ddd277c8fe864" category="inline-link-macro">部件退回和放大器；更换</block>
-  <block id="844f223d5d27d9ea92473e2d258ee969" category="list-text">更换部件后，按照套件随附的 RMA 说明将故障部件退回 NetApp 。请参见 <block ref="af64d870205b209887217377e716cd40" category="inline-link-macro-rx"></block> 第页，了解更多信息。</block>
   <block id="a6bcf63661955f7af02bb69a2cd4d604" category="section-title">将磁盘架添加到现有配置中</block>
   <block id="9d8f122e284d64a31d50c5040fe4f338" category="section-title">要移动哪些连接</block>
   <block id="508763c5ecfa3096ab25520f14c971f5" category="paragraph">使用中所述的端口 <block ref="10769c5348734bed7e40370eea435ab1" category="inline-xref-macro-rx"></block>。</block>
@@ -10514,7 +10509,6 @@
   <block id="4ceec7a3943b4f4acd458ca89a818798" category="list-text">使用缆线连接本地集群ISO。</block>
   <block id="10fb2fd01be021da5cbd6629a96e24a6" category="list-text">如果本地集群接口*未*连接到交换机：</block>
   <block id="446e9d64184ff722494a9a706bbd9d06" category="inline-link-macro">迁移到交换式 NetApp 集群环境</block>
-  <block id="76424713bb30c73c77e02fc03d7bfa54" category="list-text">使用 <block ref="54de1f7ba3b725e8a672244eb3963d64" category="inline-link-macro-rx"></block> 操作步骤 、用于将无交换机集群转换为有交换机集群。使用中指示的端口 <block ref="69c250b2ff0cdf92dd9f1322bce627cf" category="inline-link-macro-rx"></block> 或RC框架 布线文件以连接本地集群接口。</block>
   <block id="ef28ede8698d6b9355079c76d077c08d" category="list-text">重复执行、以验证MetroCluster 配置是否运行正常 <block ref="78909af09fbcfe8c1bea7d5cc8b7674c" category="inline-xref-macro-rx"></block>。</block>
   <block id="15bac38a5276c64284cc172e6de7c1f3" category="list-text">(可选)移动NS224磁盘架。</block>
   <block id="13c9917203c8c2e988a75ac2cf246dcd" category="paragraph">如果要重新配置的MetroCluster IP配置未将NS224磁盘架连接到MetroCluster IP交换机、请使用相应的操作步骤 添加或移动NS224磁盘架：</block>
@@ -11351,7 +11345,6 @@
   <block id="453251ed281496384c5feb5900cc31ba" category="paragraph">有关支持哪些平台升级组合的信息、请查看中的MetroCluster FC升级表  <block ref="9595cfad5a4deb04d4a443245fae3f76" category="inline-link-macro-rx"></block>。</block>
   <block id="3929d13da5d4b97eff76f8a6ec8c5501" category="list-text">访问 <block ref="a42716fdd3c80ae75cadfb8024b65de0" category="inline-link-macro-rx"></block> 下载用于执行系统网络启动的文件。</block>
   <block id="94416aa661a92cc8d67b1bd6459ef472" category="list-text">有关支持的平台升级组合的信息、请查看中的MetroCluster FC升级表  <block ref="9595cfad5a4deb04d4a443245fae3f76" category="inline-link-macro-rx"></block>。</block>
-  <block id="332fe4e638c485c04f214b0a13747f6d" category="list-text">您可以使用此操作步骤通过基于 NSO 的自动切换和切回升级四节点 MetroCluster FC 配置中的控制器。如果要使用聚合重新定位（ Aggregate Relocation ， ARL ）执行控制器升级，请参见 <block ref="0fe967effd4f0eaf84576f897dbfd368" category="inline-link-macro-rx"></block>。建议使用基于 NSO 的自动化操作步骤。</block>
   <block id="0b22fb8d0feec85055f45c8c4a298766" category="list-text">如果系统提示您继续执行操作步骤、请输入<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>，当系统提示您输入软件包时，输入URL：</block>
   <block id="84ea00dba7c6a1cf0426e58385307e4f" category="paragraph"><block ref="5b9047ebb0d87499d679fd69fbda42cf" prefix="" category="inline-code"></block></block>
   <block id="b57c06e6dad65cb8a7fb01050706349f" category="paragraph">您可以使用ONTAP系统管理器、将Web浏览器指向集群管理IP地址(\https://172.17.12.153).</block>
@@ -11790,7 +11783,6 @@
   <block id="83b4bda1bf654ac13c4188c2487240ab" category="paragraph">下表显示了在MetroCluster FC配置中扩展ASA系统时支持的平台组合：</block>
   <block id="afe02acc345f4f57d38f2922dbfb2be3" category="cell">八节点DR组1</block>
   <block id="561e0dbd4b4b1343ca844c5058cb54e9" category="cell">八节点DR组2</block>
-  <block id="2653fa879e50e7b880dab8fa2e3967ae" category="paragraph">下表显示了八节点MetroCluster IP配置支持的平台组合。</block>
   <block id="573cf4c0aff376944ba2b059e8c7e9c2" category="paragraph-title">支持的AFF和FAS MetroCluster IP扩展组合</block>
   <block id="b1705b27cbcba17a6877fcb4c39148d9" category="paragraph-title">支持的ASA MetroCluster IP扩展组合</block>
   <block id="466ce3655b07eea61b5dbce58f9e9824" category="paragraph">下表显示了在MetroCluster IP配置中扩展ASA系统时支持的平台组合：</block>
@@ -12833,7 +12825,6 @@
   <block id="badf169d1e3a98e87ec699a27e36973e" category="inline-link-macro">设置并通过网络启动新控制器</block>
   <block id="ef981c1c63c22e1055257ab17c228d0d" category="paragraph"><block ref="31bf2e2f0c56e7a2af110bee4998f2d7" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="2d6c2faa1510a1abbf511186d036a809" category="paragraph">旧系统ID在中标识 <block ref="aacd1fc1f619acd6603cbd45ee223ad9" category="inline-link-macro-rx"></block>。</block>
-  <block id="b81de37a349498d964469c412909f544" category="list-text">使用缆线将所有其他连接连接到新控制器模块(FC-VI、存储、集群互连等)。</block>
   <block id="c030f6772f3af36940b46d4c256dc6c7" category="paragraph">命令输出将显示新控制器模块（ 1574774970 ）的系统 ID 。但是，根聚合磁盘仍归旧系统 ID （ 4068741254 ）所有。此示例不会显示MetroCluster配置中其他节点拥有的驱动器。</block>
   <block id="cd3645f6babaf4e4c1171003b3d056f5" category="admonition">如果您的MetroCluster IP系统配置了高级磁盘部分功能、则必须运行命令以包含DR配对系统ID<block ref="1d9572d24113365244a97e4cb81d5a77" prefix=" " category="inline-code"></block>。</block>
   <block id="ef5358bea095b88966697d1cef9aca78" category="paragraph"><block ref="92e7e14dad7d6c754e49f694366186c6" category="inline-link-macro-rx"></block>(英文)</block>
@@ -13272,7 +13263,6 @@
   <block id="47c5dc57c727f22af1ac884b3169ca06" category="paragraph">支持八节点MetroCluster配置</block>
   <block id="61c5b898fb73fa93fc5e839741da576e" category="paragraph">IP和光纤连接MetroCluster配置支持永久八节点集群。</block>
   <block id="0f58a32a1bffeb9bb247bbf5ce1a2f3f" category="paragraph"><block ref="0f58a32a1bffeb9bb247bbf5ce1a2f3f" category="inline-link-rx"></block></block>
-  <block id="62e327d2b6ddff400e7d504d270e8f37" category="paragraph"><block ref="62e327d2b6ddff400e7d504d270e8f37" category="inline-link-macro-rx"></block></block>
   <block id="97c5969afb75d5f5fcf94bd41d9aa879" category="list-text">MetroCluster IP 配置的最佳实践。</block>
   <block id="f14613b83e9dfb7ecf4d15a3e8d4ce71" category="section-title">重新配置 ONTAP 调解器（MetroCluster IP 配置）</block>
   <block id="16b859a14f691774ca3d8870b4291e5a" category="paragraph">如果您具有使用 ONTAP 调解器配置的 MetroCluster IP 配置，则必须删除并重新配置与 ONTAP 调解器的关联。</block>
@@ -13352,15 +13342,8 @@
   <block id="4e4facc560c88d40d47ce2b1369d5552" category="doc">在 MetroCluster IP 交换机上配置日志收集</block>
   <block id="d5a5c9619599da12d87af6daeab1ece6" category="paragraph">在 MetroCluster IP 配置中，您可以配置日志收集以收集交换机日志以用于调试目的。</block>
   <block id="7c51c84110459cf460a444094be133c4" category="admonition">在 Broadcom 和 Cisco 交换机上，每个具有日志收集功能的集群都需要一个新用户。例如，MetroCluster 1、MetroCluster 2、MetroCluster 3 和 MetroCluster 4 均需要在交换机上配置单独的用户。不支持为同一用户配置多个 SSH 密钥。</block>
-  <block id="2ded3ff3862adfc6f54d2a2f3ebf1147" category="paragraph">*注：*如果启用FIPS模式，则必须完成以下操作：</block>
   <block id="81f0d5b127adfd87f50ce10bc85e1e65" category="list-text">按照供应商说明在交换机上重新生成SSH密钥。</block>
-  <block id="a60a00967db7342947b326a8f7618f52" category="list-text">使用在ONTAP中重新生成SSH密钥<block ref="c079360670e0f4f9441a54ac1d262788" prefix=" " category="inline-code"></block></block>
-  <block id="fe85427bc017f31f0f2b913e65e8d888" category="list-text">使用<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block>命令重新运行日志收集设置例程</block>
-  <block id="ca243f374acfb56a77236e0d30935f7f" category="list-text">用户必须能够访问交换机<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> 命令。如果这些权限不可用、请创建一个新用户并向该用户授予必要的权限。</block>
-  <block id="8d36506446d5ad8477c75d9150e6528f" category="list-text">必须为交换机启用交换机运行状况监控。通过确保<block ref="83bb5774e6e4dc96959b12bfa4334f18" prefix=" " category="inline-code"></block>字段在输出中设置为 *true* <block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block>命令。</block>
   <block id="40b03f9635c63b20aade0ff8145eafb8" category="list-text">要使用Broadcom和Cisco交换机收集日志、请执行以下操作：</block>
-  <block id="60f743043272b873831b17c5e7290445" category="list-text">应在交换机上为启用了日志收集的每个集群设置创建一个新用户。这些交换机不支持同一用户使用多个SSH密钥。执行的任何其他日志收集设置都会覆盖用户的任何已有SSH密钥。</block>
-  <block id="c1433b541d8d99faed86a93460cb0bad" category="list-text">要使用NVIDIA交换机收集支持日志、必须允许用于收集日志的_user_运行<block ref="c85737d6a0d20328583b59ea7320a5ef" prefix=" " category="inline-code"></block>命令、而无需提供密码。要允许使用此命令、请运行以下命令：</block>
   <block id="a0379ee208b1ca86b0ce11e60c0e73eb" category="paragraph"><block ref="83e3f80a08612b0113ac48e3b9a3432e" prefix="" category="inline-code"></block></block>
   <block id="4b96de8aec25594d2021f91d86aa38cb" category="open-title">ONTAP 9.15.1 及更高版本</block>
   <block id="09a5c8e72e479c23dfcdb0045312203a" category="list-text">要设置日志收集、请对每个交换机运行以下命令。系统会提示您输入交换机名称、用户名和密码以收集日志。</block>
@@ -14115,8 +14098,6 @@
   <block id="7d75b765033881d6427904f346b2af70" category="image-alt">执行协商切换和切换回的工作流程</block>
   <block id="a9df5c35dc8d16b1357b057f348b9b78" category="paragraph">以下指导针对一种不常见的情况，即您需要将较旧的平台模型（ ONTAP 9.15.1 之前发布的平台）添加到包含较新平台模型（ ONTAP 9.15.1 或更高版本中发布的平台）的现有MetroCluster配置中。对于八节点 FC 到 IP 的过渡，如果您已将第一个 FC DR 组过渡到ONTAP 9.15.1 或更高版本中引入的平台模型，并计划将第二个 DR 组过渡到ONTAP 9.15.1 之前引入的平台，则本指南适用。</block>
   <block id="c8efd71f5dfcaa3170cfb9e870570d0c" category="paragraph">如果您现有的MetroCluster配置包含使用 *共享集群/HA 端口* 的平台（ ONTAP 9.15.1 或更高版本中发布的平台），则如果不将配置中的所有节点升级到ONTAP 9.15.1P11 或ONTAP 9.16.1P4 或更高版本，则无法添加使用 *共享MetroCluster/HA 端口* 的平台（ ONTAP 9.15.1 之前发布的平台）。</block>
-  <block id="bbd4f8afd941a4f9092590e529ea65aa" category="paragraph">将使用 *共享/ MetroCluster HA 端口* 的旧平台模型添加到包含使用 *共享集群/HA 端口* 的新平台模型的MetroCluster是一种不常见的情况，大多数组合不会受到影响。</block>
-  <block id="08d2b7abcd5b6aa419d380eb2e816dae" category="paragraph">使用下表来验证您的组合是否受到影响。如果第一列列出了您现有的平台，而第二列列出了要添加到配置中的平台，则配置中的所有节点都必须运行ONTAP 9.15.1P11 或ONTAP 9.16.1P4 或更高版本才能添加新的 DR 组。</block>
   <block id="21c46632ec731f4be55ce4557663e507" category="image-alt">在现有机架上使用四个新 IP 节点进行过渡</block>
   <block id="1e0490b479cfe90476d9225ca238cf02" category="image-alt">双节点过渡的工作流程</block>
   <block id="305b5ad24ea95dd1803f299dea23021d" category="image-alt">DR 组 1 中的过渡 FC 节点</block>
@@ -14219,7 +14200,6 @@
   <block id="10d1ab0c8cf052d4ea0d37de04e41090" category="paragraph">从ONTAP 9.18.1 开始，FAS50 系统在MetroCluster IP 配置中支持 Flash Cache。</block>
   <block id="6b3168d94d2d3e334f52748aea390dba" category="list-text">内部机架上的闪存缓存驱动器不能同时拥有数据聚合和根聚合。</block>
   <block id="653607d5d7d3af18614ca6042833ed8a" category="list-text">插槽 0 和 23 用于闪存缓存驱动器。</block>
-  <block id="8e61d02677cd63addf1b7c325e4f7ac0" category="list-text">如果您要重复使用外部磁盘柜，请在将其连接到控制器之前确认已移除外部磁盘柜上的磁盘所有权。参考<block ref="a28575c3c82c68e34920359e77fd18f4" category="inline-link-macro-rx"></block>。</block>
   <block id="da0670d9828b0c4a39fd70e8176cd286" category="paragraph">36 个硬盘（12 个内部硬盘和 24 个外部硬盘——数据聚合位于外部硬盘架上，根聚合位于内部硬盘架上）</block>
   <block id="13825b1621d2d8ab9420fd458a556917" category="paragraph">内部驱动器分为四个相等的组（四分之一）。每个季度都会自动分配到一个单独的资金池中。外部机架上的驱动器分为四个相等的组（四分之一）。每个四分之一架会自动分配给一个单独的池。</block>
   <block id="fcbd19b726fdd6160dfe2ab43f285a55" category="paragraph">*笔记：*</block>
@@ -14395,7 +14375,6 @@
   <block id="108a4ad72df5c318a77dad90928d8770" category="admonition">在 MetroCluster IP 配置中，除非配置使用 ONTAP Mediator，否则 AUSO Failure Domain 已设置为 'auso-disabled'。</block>
   <block id="6ba9661e38afca32fe30fec08ca5c4ab" category="list-text">暂停两个站点上的节点：</block>
   <block id="f759ce596ef74c921d7bddaf277a11c8" category="paragraph">*注：* 25 GbE 速度需要 MAM1Q00A-QSA28 收发器适配器。</block>
-  <block id="316fa55db721e45107647fc0de79704f" category="paragraph">以太网交换机健康监视器（CSHM）负责确保网络交换机的运行健康，并收集交换机日志以进行调试。此过程指导您完成设置收集、请求详细的 *Support* 日志以及启用每小时收集由 AutoSupport 收集的 *Periodic* 数据的过程。</block>
   <block id="4526d2820ba573572df0eafdc557014c" category="paragraph">当系统处于切换状态时，NetApp 建议您避免执行某些操作。</block>
   <block id="6efa43350457e5d9dbe5d6c555eb32f9" category="paragraph">当系统处于切换状态时，不建议执行以下操作，并且只能在 NetApp 支持人员的指导下执行：</block>
   <block id="9ea78d85c08becd89d5d23daef8687fa" category="list-text">创建或删除聚合</block>
@@ -14638,4 +14617,28 @@
   <block id="fec849fc6a76787dab045fcdba41b004" category="list-text">一个四节点 MetroCluster IP 配置和一个 SnapMirror 活动同步对等关系（如果安装在具有双核 CPU 的主机操作系统上）。</block>
   <block id="1241530f686624169cbc6250a94efe3b" category="inline-link-macro">详细了解 ONTAP Mediator 对多个 MetroCluster IP 配置的支持</block>
   <block id="93b7a44949c3dc9c153b4a0b58a89938" category="paragraph"><block ref="ec2190c64ae13bbd66508ccf14a8aee4" category="inline-link-macro-rx"></block>。</block>
+  <block id="92f612fac880d74199e14effbb3e97a8" category="paragraph">有关配置 SVM DR 关系的详细信息，请参见 <block ref="14176889f381a7d61946d7924735d77a" category="inline-link-macro-rx"></block> 中的“`复制 SVM 配置`”部分。</block>
+  <block id="c3a86c1ff4ba299946058dc2a774ad3c" category="list-text">如果使用 FIPS 模式，请在设置日志收集之前完成以下操作：</block>
+  <block id="4484a5c96839b02a9c71b4af57881dc1" category="list-text">使用 <block ref="c079360670e0f4f9441a54ac1d262788" prefix=" " category="inline-code"></block> 在 ONTAP 中重新生成 SSH 密钥。</block>
+  <block id="51857e580cc9df32af288c0f2ec0c2d8" category="list-text">使用<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block>命令重新运行日志收集设置。</block>
+  <block id="bffa1a3361b2e88e5c9862c25f21dfae" category="list-text">您必须能够访问交换机<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block>命令。如果没有访问权限，请创建新的交换机用户并授予必要的权限。</block>
+  <block id="36a0cebcb564d852dfd0f969cfd4b30f" category="list-text">必须为交换机启用交换机运行状况监控。通过检查<block ref="83bb5774e6e4dc96959b12bfa4334f18" prefix=" " category="inline-code"></block>字段在<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block>的输出中是否设置为 *true* 来验证。</block>
+  <block id="faa5843ec4ddc65bc98113178a2bc37e" category="list-text">为每个启用了日志收集的集群创建新的交换机用户。这些交换机不支持同一用户使用多个 SSH 密钥，再次运行设置将覆盖现有的 SSH 密钥。</block>
+  <block id="67d16ab92d6c3dc53d71cf57bd013db0" category="list-text">要使用 NVIDIA 交换机支持日志收集，日志收集用户必须能够在没有密码的情况下运行该<block ref="c85737d6a0d20328583b59ea7320a5ef" prefix=" " category="inline-code"></block>命令。要执行此操作，请运行：</block>
+  <block id="b0cab81835967ac01314d22080d536c0" category="paragraph">按照适用于您的 ONTAP 版本的步骤设置日志收集，启用定期数据收集，并可选择请求按需支持日志。</block>
+  <block id="2e14aa157ad73372d9cc2f65b91796cd" category="paragraph">此任务要求使用 FTP、TFTP、SFTP、HTTP 或 SCP 等文件传输软件将文件复制到交换机。</block>
+  <block id="424f0fb38562d43c2b61beeaa601e9a0" category="paragraph">有关设置 ONTAP 的更多常规信息，请参见 <block ref="95a2ad6fc516d3f7074e7d260643f587" category="inline-link-macro-rx"></block></block>
+  <block id="1232a165e8a7370740154d534f06f767" category="list-text"><block ref="a65430c79af53447a6078bbb1ffdf593" category="inline-link-macro-rx"></block> 包含有关镜像聚合的详细信息。</block>
+  <block id="915a6a364deb20dbae913ca1a6a54884" category="paragraph"><block ref="3318585afd9a80331d69c814ca32c976" category="inline-link-macro-rx"></block> 在"管理配置备份"部分下包含其他信息。</block>
+  <block id="ebb6d8f55979a61b08c5f6bec68dc9e9" category="list-text">更换零件后，将故障零件退回 NetApp，如套件附带的 RMA 说明中所述。有关更多信息，请参阅 <block ref="fce425f03b6e5bb936dcc3474dfd00b8" category="inline-link-macro-rx"></block> 页面。</block>
+  <block id="1133e231fd95d23cf0b090a2ae023a0a" category="list-text">使用 <block ref="2a7c1099f37ae8bcd871fa3a433d3da5" category="inline-link-macro-rx"></block> 过程将无交换机集群转换为有交换机集群。使用 <block ref="69c250b2ff0cdf92dd9f1322bce627cf" category="inline-link-macro-rx"></block> 中指示的端口或 RCF 布线文件连接本地集群接口。</block>
+  <block id="020765b53f5b5a9bae58be6efb0832b7" category="paragraph">使用下表验证您的组合是否受到影响。如果您现有的平台列在第一列，并且您要添加到配置中的平台列在第二列，则配置中的所有节点必须运行 ONTAP 9.15.1P11 或 ONTAP 9.16.1P4 或更高版本（取决于平台支持的 ONTAP 版本），才能添加新的 DR 组。</block>
+  <block id="2da16daf711c30ffdccfb00d9124ff3e" category="list-text">将使用*共享 MetroCluster/HA 端口*的旧平台型号添加到包含使用*共享集群/HA 端口*的新平台型号的 MetroCluster 中是一种罕见的情况，大多数组合都不受影响。</block>
+  <block id="9036e4a551e4d8f9c140b331b643bda7" category="inline-link-macro">支持的平台组合</block>
+  <block id="5fef73d29b96ab699c1eb38940de2810" category="list-text">下表显示了使用*共享 MetroCluster/HA 端口*和*共享集群/HA 端口*的所有平台型号。并非所有组合都受此程序支持。请参阅<block ref="8d843f5fbaa6ab545e8dd5557634fad6" category="inline-link-macro-rx"></block>以验证您的过渡组合是否受支持。</block>
+  <block id="6f77dec9774bb68016b5a89bc584139f" category="list-text">下表显示了使用*共享 MetroCluster/HA 端口*和*共享集群/HA 端口*的所有平台型号。并非所有组合都受此程序支持。请参阅<block ref="9823e60a325d02fc2db15489ab93bf24" category="inline-xref-macro-rx"></block>以验证您的扩展组合是否受支持。</block>
+  <block id="94fd46a40c73a3bf69fc419517ec0c3c" category="paragraph">下表显示了八节点 MetroCluster IP 配置支持的平台组合。</block>
+  <block id="2a24c722355bf7db1679e018b746b7b0" category="list-text">下表显示了使用*共享 MetroCluster/HA 端口*和*共享集群/HA 端口*的所有平台型号。并非所有组合都受此程序支持。请参阅<block ref="69c5d8418076cf16192dc8b27a9666cd" category="inline-link-macro-rx"></block>以验证您的刷新组合是否受支持。</block>
+  <block id="04fa61126d631fa1cb66d18aff511858" category="list-text">可以使用此过程，通过基于 NSO 的自动切换和切换回来升级四节点 MetroCluster FC 配置中的控制器。如果要使用聚合重定位 (ARL) 执行控制器升级，请参阅 <block ref="2dcc0fc2978fe358e486022a4ab03dca" category="inline-link-macro-rx"></block>。建议使用基于 NSO 的自动化程序。</block>
+  <block id="f7f3cd01961c53f33c89b788147d8de3" category="list-text">将从旧控制器断开的所有其他连接的电缆连接到新的控制器模块。</block>
 </blocks>

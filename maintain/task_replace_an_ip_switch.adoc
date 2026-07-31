@@ -218,7 +218,7 @@ NOTE: 除管理接口(如果使用)外、请勿*使用缆线连接新交换机�
 
 .. 如果本地集群接口*未*连接到交换机：
 +
-... 使用 link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/migrate-to-2n-switched.html["迁移到交换式 NetApp 集群环境"] 操作步骤 、用于将无交换机集群转换为有交换机集群。使用中指示的端口 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["MetroCluster IP 安装和配置"] 或RC框架 布线文件以连接本地集群接口。
+... 使用 link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/migrate-to-2n-switched.html["迁移到交换式 NetApp 集群环境"^] 过程将无交换机集群转换为有交换机集群。使用 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["MetroCluster IP 安装和配置"] 中指示的端口或 RCF 布线文件连接本地集群接口。
 
 
 
