@@ -87,6 +87,55 @@ vs1a           data    sync-source
 执行 `MetroCluster operation show` 命令输出中建议的修复操作。
 
 |===
+. 执行以下检查，以确认两个集群之间的切换可正常运行：
++
+.. 在DR集群中，检查是否可以从正常运行的集群切换到DR集群：
++
+`MetroCluster switchover -simulate`
+
+.. 在正常运行的集群中，检查是否可以从 DR 集群切换到正常运行的集群：
++
+`MetroCluster switchover -simulate`
+
+.. 验证 MetroCluster 组件是否运行正常：
++
+`MetroCluster check run`
+
++
+[listing]
+----
+cluster_A::*> metrocluster check run
+----
++
+此操作将在后台运行。
+
+.. 在之后 `metrocluster check run` 操作完成、运行：
++
+MetroCluster check show`
+
++
+大约五分钟后，将显示以下结果：
+
++
+[listing]
+----
+cluster_A:::*> metrocluster check show
+
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          ok
+clusters            ok
+connections         ok
+volumes             ok
+7 entries were displayed.
+----
++
+
+NOTE: 在 MetroCluster FC 环境中，"connections"应在命令输出中显示为"not-applicable"。
 
 
-您必须重复前面的部分，以反向执行切回。如果 site_A 已切换 site_B ，请让 site_B 切换 site_A
+
+
