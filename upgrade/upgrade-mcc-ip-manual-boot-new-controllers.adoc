@@ -154,6 +154,10 @@ Rebooting to load the restored env file...
 +
 根据密钥管理器类型，通过选择选项 "`10`" 或选项 "`11`" 来执行恢复过程，然后在第一个启动菜单提示符处选择选项 `6`。要完全引导节点，您可能需要重复选项 "`1`"（正常引导）继续的恢复过程。
 
++
+
+NOTE: 运行启动菜单选项 `6`时，可能需要重置 MetroCluster bootarg 值。请参阅link:upgrade-mcc-ip-manual-apply-rcf-set-bootarg.html#set-the-metrocluster-ip-bootarg-variables["设置 MetroCluster IP bootarg 变量"]。
+
 . 等待已更换的节点启动。
 +
 如果任一节点处于接管模式，请使用 `storage failover giveback` 命令执行交还。

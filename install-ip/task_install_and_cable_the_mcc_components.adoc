@@ -4,16 +4,44 @@ sidebar: sidebar
 keywords: ip, switch, configuring 
 summary: 您必须配置IP交换机以提供后端MetroCluster IP连接。 
 ---
-= 选择正确的MetroCluster IP 交换机配置过程
+= 了解有关配置 MetroCluster IP 交换机的信息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您必须配置IP交换机以提供后端MetroCluster IP连接。您遵循的程序取决于您的交换机供应商。
+您必须配置 IP 交换机以提供后端 MetroCluster IP 连接。您遵循的程序取决于您的交换机供应商，以及您是将交换机配置为全新安装 MetroCluster IP 的一部分，还是配置为其他程序的一部分。
+
+
+
+[[fresh-metrocluster-ip-installation]]
+== 全新 MetroCluster IP 安装
+
+如果要执行全新 MetroCluster IP 安装，请根据交换机供应商选择交换机配置步骤：
 
 * link:../install-ip/task_switch_config_broadcom.html["配置 Broadcom IP 交换机"]
 * link:../install-ip/task_switch_config_cisco.html["配置 Cisco IP 交换机"]
 * link:../install-ip/task_switch_config_nvidia.html["配置NVIDIA IP交换机"]
+
+
+
+
+[[switch-replacement-and-rcf-or-firmware-updates]]
+== 交换机更换和RCF或固件更新
+
+作为其他 MetroCluster IP 过程的一部分，例如交换机更换或升级，您可能需要更新交换机固件、参考配置文件 (RCF) 或两者。在这些情况下，您必须在配置 IP 交换机之前移动集群 LIF。这些场景的高级步骤如下：
+
+
+NOTE: 您必须按照以下顺序更新交换机：Switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。
+
+. link:../install-ip/switch-move-cluster-lifs.html["移动集群 LIF"]
+. 将集群 LIF 移动到合作伙伴交换机后，您可以根据交换机供应商遵循标准配置程序：
++
+** link:../install-ip/task_switch_config_broadcom.html["配置 Broadcom IP 交换机"]
+** link:../install-ip/task_switch_config_cisco.html["配置 Cisco IP 交换机"]
+** link:../install-ip/task_switch_config_nvidia.html["配置NVIDIA IP交换机"]
+
+
+. 在第一个网络结构（Switch_A_1、Switch_B_1）中配置交换机后，必须对第二个网络结构（Switch_A_2、Switch_B_2）重复这些步骤，从 link:../install-ip/switch-move-cluster-lifs.html["移动集群 LIF"] 开始。
 

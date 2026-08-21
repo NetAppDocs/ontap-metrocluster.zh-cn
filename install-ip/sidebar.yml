@@ -71,8 +71,10 @@ entries:
     url: "/install-ip/task_cable_other_connections.html"
   - title: 配置 MetroCluster IP 交换机
     entries:
-    - title: 选择正确的MetroCluster IP 交换机配置过程
+    - title: 了解有关配置 MetroCluster IP 交换机的信息
       url: "/install-ip/task_install_and_cable_the_mcc_components.html"
+    - title: 移动集群 LIF
+      url: "/install-ip/switch-move-cluster-lifs.html"
     - title: 配置 Broadcom IP 交换机
       url: "/install-ip/task_switch_config_broadcom.html"
     - title: 配置 Cisco IP 交换机

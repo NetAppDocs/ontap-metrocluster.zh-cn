@@ -129,13 +129,19 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 NOTE: 如果要升级或降级交换机，则必须配置网络中的所有交换机。
 
 +
-按照中 _Configuring the IP switches_ 一节中的步骤进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["MetroCluster IP 安装和配置。"]
+按照适用于您的交换机供应商的步骤进行操作：
 
++
+** link:../install-ip/task_switch_config_broadcom.html["配置 Broadcom IP 交换机"]
+** link:../install-ip/task_switch_config_cisco.html["配置 Cisco IP 交换机"]
+** link:../install-ip/task_switch_config_nvidia.html["配置NVIDIA IP交换机"]
 +
 确保为交换机 _A_1 ， _A_2 ， _B_1 或 _B_2 应用正确的 RCF 文件。如果新交换机与旧交换机相同，则需要应用相同的 RCF 文件。
 
 +
 如果要升级或降级交换机，请为新交换机应用支持的最新 RCF 文件。
+
+
 
 . 运行 port show 命令查看有关网络端口的信息：
 +
@@ -148,6 +154,11 @@ NOTE: 如果要升级或降级交换机，则必须配置网络中的所有交�
 ----
 network interface modify -vserver <vserver_name> -lif <lif_name> -auto-revert false
 ----
+.. link:../install-ip/switch-move-cluster-lifs.html["移动集群 LIF"]。
++
+
+NOTE: 您必须按以下顺序更新交换机：Switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。在第一个网络结构（Switch_A_1、Switch_B_1）中配置交换机后，必须重复这些步骤，以在第二个网络结构（Switch_A_2、Switch_B_2）上移动集群 LIF。请参阅 link:../install-ip/task_install_and_cable_the_mcc_components.html["了解有关配置 MetroCluster IP 交换机的信息"]。
+
 
 
 . [[existing_Step4]]断开与旧交换机的连接。
@@ -190,7 +201,7 @@ NOTE: 除管理接口(如果使用)外、请勿*使用缆线连接新交换机�
 
 . 为交换机布线。
 +
-您可以按照中的_"Ciping the IP switchs_(为IP交换机布线)"部分中的步骤进行操作 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["MetroCluster IP 安装和配置"]。
+您可以按照 link:../install-ip/using_rcf_generator.html["为 MetroCluster IP 交换机布线"] 中的步骤操作。
 
 +
 按以下顺序为交换机布线(如果需要)：
@@ -225,15 +236,15 @@ NOTE: 除管理接口(如果使用)外、请勿*使用缆线连接新交换机�
 
 . 打开交换机的电源。
 +
-如果新交换机相同，请启动新交换机。如果要升级或降级交换机，请同时启动两个交换机。在更新第二个网络之前，此配置可以在每个站点使用两个不同的交换机运行。
+如果新交换机相同，请接通新交换机的电源。如果要升级或降级交换机，请为两个交换机通电。在更新第二个网络结构之前，配置可以在每个站点使用两个不同的交换机运行。
 
 . 重复执行、以验证MetroCluster 配置是否运行正常 <<all_step1,第 1 步>>。
 +
-如果要升级或降级第一个网络中的交换机，您可能会看到一些与本地集群相关的警报。
+如果您正在升级或降级第一个网络结构中的交换机，您可能会看到一些与本地集群相关的警报。
 
 +
 
-NOTE: 如果要升级或降级网络，请对第二个网络重复所有步骤。
+NOTE: 如果要升级或降级网络结构，请对第二个网络结构重复所有步骤。
 
 . 修改所有集群的Sifs以重新启用自动还原：
 +

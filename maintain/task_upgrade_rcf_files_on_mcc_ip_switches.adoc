@@ -11,16 +11,16 @@ summary: 您可能需要升级 MetroCluster IP 交换机上的 RCF 文件。例�
 
 
 [role="lead"]
-您可能需要升级MetroCluster IP交换机上的参考配置文件(Reference Configuration File、RCF)文件。例如、如果ONTAP版本和/或交换机固件版本不支持在交换机上运行的RCIF版本。
+您可能需要升级 MetroCluster IP 交换机上的参考配置文件 (RCF)。例如，如果交换机上运行的 RCF 版本不受 ONTAP 版本、交换机固件版本或两者的支持。
 
 .开始之前
-* 如果要安装新的交换机固件，则必须先安装交换机固件，然后再升级 RCF 文件。
+* 如果要安装新的交换机固件，则必须在升级 RCF 之前安装交换机固件。
 * 在升级RC框架 之前，link:task_upgrade_firmware_on_mcc_ip_switches.html["验证RC框架 是否受支持"]。
 * link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
 
 
 .关于此任务
-* 此操作步骤会中断升级 RCF 文件的交换机上的流量。应用新RCF文件后、流量将恢复。
+* 此过程会中断升级 RCF 的交换机上的流量。应用新的 RCF 时，流量将恢复。
 * 按以下顺序逐个交换机执行这些步骤：Switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。
 
 
@@ -74,7 +74,8 @@ MetroCluster 操作历史记录显示 -job-id 38`
 
 
 
-. 准备 IP 交换机以应用新的 RCF 文件。
+. link:../install-ip/switch-move-cluster-lifs.html["移动集群 LIF"] 在开始升级之前。
+. 准备IP交换机以应用新RCF。
 +
 按照适用于您的交换机供应商的步骤进行操作：
 
@@ -84,15 +85,20 @@ MetroCluster 操作历史记录显示 -job-id 38`
 ** link:../install-ip/task_switch_config_nvidia.html#reset-the-nvidia-ip-sn2100-switch-to-factory-defaults["将NVIDIA IP SN2100交换机重置为出厂默认值"]
 
 
-. 根据交换机供应商的不同、下载并安装IP RCF文件。
+. 根据您的交换机供应商，下载并安装 IP RCF。
 +
-** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装Broadcom IP RC框架 文件"]
-** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装Cisco IP RCC文件"]
-** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["下载并安装NVIDIA IP RCP文件"]
+** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装 Broadcom IP RCF"]
+** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装Cisco IP RCF"]
+** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["下载并安装NVIDIA IP RCF"]
 +
 
 NOTE: 如果您使用的是L2共享或L3网络配置、则可能需要调整中间/客户交换机上的ISL端口。交换机端口模式可能会从"访问"模式更改为"中继"模式。只有在交换机A_1和B_1之间的网络连接完全正常且网络运行状况良好的情况下、才能继续升级第二个交换机对(A_2、B_2)。
 
 
+
+. 对每个交换机重复上述步骤。
++
+
+NOTE: 在第一个网络结构（Switch_A_1、Switch_B_1）中配置交换机后，必须重复执行相关步骤，以移动第二个网络结构（Switch_A_2、Switch_B_2）上的集群 LIF。请参阅link:../install-ip/task_install_and_cable_the_mcc_components.html["了解有关配置 MetroCluster IP 交换机的信息"]。
 
 

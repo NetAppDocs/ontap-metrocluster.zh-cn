@@ -955,7 +955,7 @@ FC
 当 site_A 上的控制器升级后， site_A 上的交换机将进行升级。
 
 .步骤
-. 准备IP交换机以应用新RCF。
+. 为新参考配置文件 (RCF) 的应用准备 IP 交换机。
 +
 按照适用于您的交换机供应商的部分中的步骤进行操作：
 
@@ -1371,6 +1371,10 @@ NOTE: 在每个节点上，检查中设置的 bootarg link:task_upgrade_controll
 |===
 +
 您需要根据密钥管理器设置和启动菜单提示符处的选项 6 选择选项 10 或选项 11 来执行恢复操作步骤。要完全启动节点，您可能需要执行恢复操作步骤，然后继续执行选项 1 （正常启动）。
+
++
+
+NOTE: 运行启动菜单选项 `6`时，可能需要重置 MetroCluster bootarg 值。请参阅link:task_upgrade_A700_to_A900_in_a_four_node_mcc_ip_us_switchover_and_switchback.html#set-the-metrocluster-ip-bootarg-variables["设置 MetroCluster IP bootarg 变量"]。
 
 . 等待新节点 node_B_1-A900 和 node_B_2-A900 启动。
 +

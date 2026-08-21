@@ -84,9 +84,6 @@
   <block id="140f85d0d849f4cdeb15f3576a478d27" category="list-text">运行 port show 命令查看有关网络端口的信息：</block>
   <block id="664180a50093532dd9d44b1e80f40b72" category="paragraph">` * 网络端口显示 *`</block>
   <block id="39ef49ece238860759e8870c2160120a" category="list-text">打开交换机的电源。</block>
-  <block id="a2ff4a69c8e810edbb5274ee75363ce0" category="paragraph">如果新交换机相同，请启动新交换机。如果要升级或降级交换机，请同时启动两个交换机。在更新第二个网络之前，此配置可以在每个站点使用两个不同的交换机运行。</block>
-  <block id="4d7ea7c5860513bb0b675638d55fcd77" category="paragraph">如果要升级或降级第一个网络中的交换机，您可能会看到一些与本地集群相关的警报。</block>
-  <block id="c997b3e19c99644bd488baf3bfa8890d" category="admonition">如果要升级或降级网络，请对第二个网络重复所有步骤。</block>
   <block id="8b9a7a187e2b48592caca596db2450b8" category="summary">您必须先关闭整个 MetroCluster FC 配置以及所有设备，然后才能开始站点维护或重新定位。</block>
   <block id="5df316ddd8657b8b45d7df6c93ef002a" category="doc">关闭整个 MetroCluster FC 配置</block>
   <block id="c51940ec4a1a519534c78e7d49893068" category="list-text">从 MetroCluster 配置中的两个站点验证 MetroCluster 配置。</block>
@@ -943,7 +940,6 @@
   <block id="47471aa588b43c640e780e991822eda9" category="doc">升级 MetroCluster IP 交换机上的固件</block>
   <block id="666408818b617858e00b40c2eb3d365a" category="paragraph">您可能需要升级 MetroCluster IP 交换机上的固件。</block>
   <block id="a755a72f514254c41e2fe4747c117fd7" category="list-text">在第一台交换机上安装软件。</block>
-  <block id="220d6c1bfe741784a72c631856e0b298" category="list-text">对每个交换机重复上述步骤。</block>
   <block id="17f7fd76f6e7b1f621872307ce959576" category="list-text">AFF A700 和 FAS9000 存储系统需要四个 FC-VI 端口。下表显示了除 Cisco 9250i 交换机外每个控制器上具有四个 FC-VI 端口的 FC 交换机的布线情况。</block>
   <block id="f1a80fbfabe7f95b17770c38c466c2d4" category="paragraph">对于其他存储系统，请使用表中所示的布线方式，但忽略 FC-VI 端口 c 和 d 的布线方式</block>
   <block id="07b5749c33833d737c3d6ecc5b49605b" category="paragraph">您可以将这些端口留空。</block>
@@ -1063,7 +1059,6 @@
   <block id="fd1f71815b5abfc5d58a282353d2ba84" category="section-title">确定新的布线布局</block>
   <block id="0d687993b6b67e20ff0472f32d9693b0" category="paragraph">您必须确定新控制器模块和任何新磁盘架到现有 FC 交换机的布线。</block>
   <block id="6485f9afbf9c5f34e988054e67e3b142" category="paragraph">必须在每个 MetroCluster 站点上执行此任务。</block>
-  <block id="6a82c384f85f037d7996beaa2d1d7d15" category="list-text">找到适用于您的配置的 RCF 文件。</block>
   <block id="ca6b3b9d3521dc913cc6a3273b729760" category="list-text">从现有节点中，验证 FC-VI 端口是否联机：</block>
   <block id="5c399963772634ba1fc18f52ce25b7d5" category="list-text">持久启用交换机：</block>
   <block id="328809e93421c332a5773a41c7dbc7c5" category="section-title">验证切换，修复和切回</block>
@@ -1884,8 +1879,6 @@
   <block id="aa7634a6c4e974b52faf565e007e1b60" category="doc">在光纤连接 MetroCluster 配置中添加控制器模块时为新控制器端口进行分区</block>
   <block id="f1671ac439417f75927f98ad97323bf7" category="paragraph">FC 交换机分区必须支持新的控制器连接。如果您使用 NetApp 提供的参考配置文件（ Reference Configuration Files ， RCF ）配置交换机，则分区是预配置的，您无需进行任何更改。</block>
   <block id="f13350a82ffb5e406781c64809e8f8a8" category="summary">您必须应用 RCF 文件来重新配置分区以容纳新节点。</block>
-  <block id="c0b2ef0c7e8bedc314010fcbe929e544" category="paragraph">对于八节点配置，必须使用与您的交换机型号匹配的 RCF 文件。</block>
-  <block id="93db71f559f17fb1c146361893f3ff36" category="list-text">按照下载页面上的说明应用 RCF 文件，并根据需要调整 ISL 设置。</block>
   <block id="b862528f72ea6d2ddcdf03d59e55fa27" category="list-text">确保已保存交换机配置。</block>
   <block id="9566c6febae9d51d50e73e64dbd10cfe" category="list-text">重新启动 FC 交换机。</block>
   <block id="cc421f36cbb2a622eb7463c75215237e" category="list-text">使用先前创建的布线布局，使用缆线将原有的和新的 FC-SAS 网桥连接到 FC 交换机。</block>
@@ -2178,7 +2171,6 @@
   <block id="2c59a5fac27581359d001c6a429618fa" category="inline-link-macro">将 Cisco IP 交换机重置为出厂默认值</block>
   <block id="d93b7c25b0652bbfad8e295f71218dcb" category="list-text">下载并安装 RCF 文件。</block>
   <block id="69178c95258ab0089e5d81bfed9c36dd" category="inline-link-macro">下载并安装 Broadcom RCF 文件</block>
-  <block id="11a5f8de5dc8fd3561b2b849e4277433" category="inline-link-macro">下载并安装 Cisco IP RCF 文件</block>
   <block id="0d4ad75e0716be856c986b26056dc9e0" category="list-text">规划端口使用情况，并填写下表，以供每个新节点参考。</block>
   <block id="a22d8b3d45a0a714676015f3d6879afe" category="list-text">通过网络启动新控制器：</block>
   <block id="3dcdfa7154959e2158a0ec92a60660c4" category="list-text">从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 `ontap-version_image.tgz` 文件存储在可通过 Web 访问的目录中。</block>
@@ -3695,7 +3687,6 @@
   <block id="aad8b7c11b4aa6bcae4874f577338fdb" category="list-text">检查切回操作的进度： `MetroCluster show`</block>
   <block id="cf7da6064d11b7240c8a90c881c2b0a8" category="paragraph">当输出显示 Waiting for-switchback 时，切回操作仍在进行中：</block>
   <block id="bebab338ce208a8365444e4ebe4efe11" category="list-text">重新建立任何 SnapMirror 或 SnapVault 配置。</block>
-  <block id="6414d473dfb2c6598f8118312a0cc177" category="paragraph">在 ONTAP 8.3 中，您需要在执行 MetroCluster 切回操作后手动重新建立丢失的 SnapMirror 配置。在 ONTAP 9.0 及更高版本中，系统会自动重新建立此关系。</block>
   <block id="7814aadb42b148f35b4d559e400b4895" category="summary">执行切回后，您需要确认所有聚合和 Storage Virtual Machine \ （ SVM\ ）均已切回并联机。</block>
   <block id="a9ca4c629c1e46669a8bc18624424d68" category="doc">验证切回是否成功</block>
   <block id="6a4974bedd0009da69e6a878e12b82bd" category="paragraph">执行切回后，您需要确认所有聚合和 Storage Virtual Machine （ SVM ）均已切回并联机。</block>
@@ -4111,7 +4102,6 @@
   <block id="3943df800bc20bb77a1a12e989c29d6f" category="doc">下载并安装 Cisco FC RCF 文件</block>
   <block id="96d44db22d3fd08538feb9a1879238ff" category="paragraph">此任务需要使用 FTP ，简单文件传输协议（ Trivial File Transfer Protocol ， TFTP ）， SFTP 或安全复制协议（ Secure Copy Protocol ， SCP ）等文件传输软件将文件复制到交换机。</block>
   <block id="8aeaab0b1ea6e8bd8d15f02b7e031b5f" category="paragraph">必须对 MetroCluster 网络结构配置中的每个 Cisco FC 交换机重复执行这些步骤。</block>
-  <block id="d217c29c9e353e853ad6e00612eccbf6" category="paragraph">有四个 RCF 文件， MetroCluster 网络结构配置中的四个交换机中的每个交换机一个。您必须为所使用的交换机型号使用正确的 RCF 文件。</block>
   <block id="ce03f8603301ea51b9ff5d168605b3a2" category="cell">RCF 文件</block>
   <block id="45bce2352f23696f88ef367611555697" category="paragraph">FC_switch_A_1</block>
   <block id="1aece110a2933cbd949f7e3f9cd6c03f" category="paragraph">`NX3232_v1.80% Switch-A1.txt`</block>
@@ -4122,11 +4112,7 @@
   <block id="a3a3a7dd149d92b01df3157c6762c67e" category="paragraph">FC_switch_B_2</block>
   <block id="a323e2cf1a28908546cf8fa814adbd2a" category="paragraph">`NX3232_v1.80% Switch-B2.txt`</block>
   <block id="12e8011a69d75e50d0c2e6c31c958c7d" category="inline-link">MetroCluster RCF 下载页面</block>
-  <block id="6c3c4e2f6a6fa289f415cc08715f355e" category="list-text">从下载 Cisco FC RCF 文件<block ref="47f7dd3b2352c1e61640eee11f081c5a" category="inline-link-rx"></block>。</block>
-  <block id="19a6d9ed6294004d8d6991040db238ff" category="list-text">将 RCF 文件复制到交换机。</block>
-  <block id="4d5890e7ea6dcdaf056d3131f9a1f60f" category="paragraph">在此示例中，将 `NX3232_v1.80% Switch-A1.txt` RCF 文件从 `10.10.99.99` 的 SFTP 服务器复制到本地 bootflash 。您必须使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 文件的文件名。</block>
   <block id="4e6235f5fa957d18f111326f98759ca4" category="list-text">对其他三个交换机中的每一个交换机重复上述子步骤，确保将匹配的 RCF 文件复制到相应的交换机。</block>
-  <block id="f86146750d5caee0dd0ee6f541390137" category="list-text">在每个交换机上验证 RCF 文件是否位于每个交换机的 `bootflash` 目录中：</block>
   <block id="08b3f40c7d81e458f31352fcceb58a09" category="paragraph">以下示例显示文件位于 ip_switch_A_1 上：</block>
   <block id="6eba85a8051babcfbe6e81b8247fda1f" category="list-text">将匹配的 RCF 文件从本地 bootflash 复制到每个交换机上的运行配置：</block>
   <block id="2af5329ac9117b59d220bd51566271b2" category="list-text">将 RCF 文件从正在运行的配置复制到每个交换机上的启动配置：</block>
@@ -4134,12 +4120,7 @@
   <block id="4dd59d9b67094e026acd2050a143c2ec" category="list-text">对 MetroCluster IP 配置中的其他三台交换机重复上述步骤。</block>
   <block id="26c467a24332bb8d92780a3eb059ce38" category="summary">您必须将参考配置 \ （ RCF\ ）文件下载到 MetroCluster 网络结构配置中的每个交换机。</block>
   <block id="4fbbc0ce852ccef3a7adceb0f9bc2c27" category="doc">下载 Brocade FC 交换机 RCF 文件</block>
-  <block id="b5909b79c9831ace5a37a88ecc8d8221" category="paragraph">您必须将参考配置（ RCF ）文件下载到 MetroCluster 网络结构配置中的每个交换机。</block>
-  <block id="d2bd72e53c2a5d47d1f0bb05a3b47e86" category="paragraph">要使用这些 RCF 文件，系统必须运行 ONTAP 9.1 或更高版本，并且必须使用 ONTAP 9.1 或更高版本的端口布局。</block>
-  <block id="842acf8263038e7278a435d288defafa" category="list-text">请参阅 Brocade RCF 下载页面上的 RCF 文件表，为您的配置中的每个交换机确定正确的 RCF 文件。</block>
-  <block id="d7a31e24d4a31d091e030bcf962857a2" category="paragraph">必须将 RCF 文件应用于正确的交换机。</block>
   <block id="28a95a083b2cfe8b9ffb5bddf7064e7b" category="inline-link">MetroCluster RCF 下载</block>
-  <block id="827782113c613dee6a1aabc786e39335" category="list-text">从下载交换机的 RCF 文件<block ref="7a2a5b3ce34e84b17e1e6ffcc479aaa8" category="inline-link-rx"></block> 页面。</block>
   <block id="af833d07deb3fe26ff9462cdf18f37ab" category="paragraph">这些文件必须放置在可传输到交换机的位置。构成双交换机网络结构的四个交换机中的每个交换机都有一个单独的文件。</block>
   <block id="6141173db52bd750748a18081d69700e" category="list-text">对配置中的每个交换机重复上述步骤。</block>
   <block id="c4680bcc4ac229ac4b7d5d145927a0ea" category="doc">为您的配置选择正确的安装操作步骤</block>
@@ -7142,11 +7123,9 @@
   <block id="000918ea512f2105cbb6880aa17027ff" category="paragraph">如果灾难站点节点已被销毁或无法暂停，请关闭节点的电源，在恢复操作步骤中指示之前不要启动替代节点。</block>
   <block id="8d05d7bd3136c1c3d27ce612d1642b55" category="paragraph">除了在测试和维护期间提供无中断操作之外，切换过程还允许您通过一条命令从站点故障中恢复。</block>
   <block id="46244e26ed027de3f7dac5055551ea67" category="list-text">在执行切回操作之前，必须完成所有先前的配置更改。</block>
-  <block id="ca776b7a0f214042bab6636ff7235436" category="admonition">系统会自动删除 SnapMirror 和 SnapVault 配置。</block>
   <block id="7adfea65bac9026340a67e4c4fbc6cf1" category="paragraph">`MetroCluster switchover` 命令可切换 MetroCluster 配置中所有 DR 组中的节点。例如，在八节点 MetroCluster 配置中，它会切换两个 DR 组中的节点。</block>
   <block id="7e2e7baa90ed02c71ec0c1aff8c2f52f" category="list-text">系统提示您继续切换时，请选择问题解答 `y` 。</block>
   <block id="37a919d754d5135e54d0f9a3243827d8" category="paragraph">如果切换被否决，您可以使用 ` -override-vetoes` 选项重新发出 `MetroCluster switchover-forced-on-disaster true` 命令。如果您使用此可选参数，则系统将覆盖阻止切换的任何软否决。</block>
-  <block id="8e2df6a076ab8c2df47dff186e779dab" category="paragraph">需要在切换后重新建立 SnapMirror 关系。</block>
   <block id="3f98066376e4f19519c40bfdf06de035" category="paragraph">在 MetroCluster 切换后运行 `storage aggregate plex show` 命令时，切换后的根聚合的 plex0 状态不确定，并显示为 failed 。在此期间，切换后的根不会更新。只有在 MetroCluster 修复阶段之后才能确定此丛的实际状态。</block>
   <block id="26ae5bd346260cedabbff8836c7dbe90" category="paragraph">设置 ` in-nvfailed-state` 参数需要高级权限。</block>
   <block id="435c84e42126f3721e7aa0fe94d2e1a5" category="list-text">使用 `volume modify` 命令并将 ` in-nvfailed-state` 参数设置为 false ，以恢复卷。</block>
@@ -8295,8 +8274,6 @@
   <block id="3e124f4767179cdcf91533c7d87b883f" category="list-text"><block ref="3e124f4767179cdcf91533c7d87b883f" category="inline-link-macro-rx"></block></block>
   <block id="46c7885131c64f238f576be014b213f0" category="inline-link">维护 DS460C DS224C 和 DS212C 磁盘架</block>
   <block id="3d46a208f060c32c138a0c945efcbbe0" category="paragraph"><block ref="3d46a208f060c32c138a0c945efcbbe0" category="inline-link-rx"></block></block>
-  <block id="0c0a905fe7b3d34fc7c66142e87fa36d" category="inline-link-macro">MetroCluster IP 安装和配置。</block>
-  <block id="bd411d4fdabe28e7276d566979ec2b21" category="paragraph">按照中 _Configuring the IP switches_ 一节中的步骤进行操作 <block ref="6ca94d3c62e2aa037b337bfb7e2a3c37" category="inline-link-macro-rx"></block></block>
   <block id="60add77cd3913e8299d20186ba7ec1e0" category="list-text">如果您的 MetroCluster IP 配置运行的是 ONTAP 9.6 或更高版本，请等待灾难站点丛联机并自动完成修复操作。</block>
   <block id="5b12aa7a5c28a3989c442d88ecafd4b3" category="list-text">根据您的配置和 ONTAP 版本，确定位于灾难站点（ Cluster_B ）的受影响丛并将其脱机。</block>
   <block id="8f6bfa9270e9bb535722312b07c97064" category="paragraph"><block ref="8f6bfa9270e9bb535722312b07c97064" category="inline-link-rx"></block></block>
@@ -9458,7 +9435,6 @@
   <block id="be66634f5c72a17ac1efdaa2b09a1da6" category="paragraph"><block ref="be66634f5c72a17ac1efdaa2b09a1da6" category="inline-link-macro-rx"></block></block>
   <block id="2f4dfa9b4c405812623b1a34ea79a216" category="list-text">所有 MetroCluster 信息</block>
   <block id="7abce9dabe03b4e216be9445267a37a1" category="paragraph"><block ref="7abce9dabe03b4e216be9445267a37a1" category="inline-link-rx"></block></block>
-  <block id="61eb859904ba2d6f08ea80ad772e9aba" category="paragraph">FC 交换机端口使用情况必须与中所述的 MetroCluster 八节点使用情况匹配 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block> 以便可以使用参考配置文件（ Reference Configuration Files ， RCF ）。</block>
   <block id="408d7b2d5acc0ee56e5deef74d263b2e" category="list-text">使用中的操作步骤 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block> 使用先前创建的布线布局为现有控制器和新控制器中的 FC-VI 端口布线。</block>
   <block id="6abf8fcf1209a0e61a34ee20748a726e" category="paragraph">将每个控制器上的集群端口连接到子步骤 b 中标识的集群网络交换机上的端口</block>
   <block id="a8307b4c5fa271005a1338d5b405ca1f" category="paragraph">从 ONTAP 9.1.1 开始，您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。</block>
@@ -9688,7 +9664,6 @@
   <block id="2ab9c070f5e78bc6f7809e89ecd023eb" category="admonition">您必须运行 `MetroCluster configure` 和 * 不 * `MetroCluster configure -refresh true`</block>
   <block id="5382d2282494796171738f35b9361ab8" category="admonition">中间交换机可能需要使用此命令来使用 MPLS 标记等数据包标头（ DMAC ， SMaC ， etype ）。</block>
   <block id="bb7076dff2fa5f0d308e776f5006e07e" category="section-title">验证 MACsec 配置</block>
-  <block id="ffe1f559bee6f65df8232945e7f1517d" category="section-title">为使用 25 Gbps 连接的系统设置正向错误更正</block>
   <block id="250b5ed5389f4260b31c4ede97dea809" category="paragraph">此任务仅限使用 25-Gbps 连接的适用场景 平台：</block>
   <block id="44ebc7deaba92b772a9bf569e1c8ca12" category="list-text">FAS 8200</block>
   <block id="78e08a3638b519a59d38434c6f124b1a" category="list-text">FAS 500f</block>
@@ -9759,7 +9734,6 @@
   <block id="2e5c6d46dc39a1cc71a6f41b56106221" category="list-text">SSH服务(远程支持代理)。</block>
   <block id="4c20f2b5dfebba1daad521c7b3ab4c3b" category="paragraph">完成配置向导后，交换机将重新启动。</block>
   <block id="5582507cb9f874f57ac6bf62db65d371" category="doc">重新配置交换机并对其进行重新配置</block>
-  <block id="6647147ed73881ba6516c57ac1b5fe4a" category="paragraph">如果无法使用RCF文件配置交换机、则必须手动配置交换机。请参见</block>
   <block id="71620bedc8491865816460c55b3cde98" category="list-text"><block ref="71620bedc8491865816460c55b3cde98" category="inline-link-macro-rx"></block></block>
   <block id="3a8190b24d904ae352e54f8a0a3df0bb" category="list-text"><block ref="3a8190b24d904ae352e54f8a0a3df0bb" category="inline-link-macro-rx"></block></block>
   <block id="bee24b783e44923012afab506584e701" category="list-text">SSH 服务（ RSA ）</block>
@@ -9905,13 +9879,7 @@
   <block id="44d9da525f678322921a73864bd0b924" category="paragraph">从RcfFileGenerator 1.4a版开始、有一个新选项可用于更改(升级、降级或更换) Cisco IP交换机上的交换机配置、而无需执行"写入擦除"。</block>
   <block id="0d98f6fd87f88cd68844ee1450081b43" category="paragraph">如果您的配置满足以下要求、则可以使用此方法：</block>
   <block id="cf5d82da1dbb504eeff51105d1c22631" category="list-text">此时将应用标准RCF配置。</block>
-  <block id="6b20882c651017ff72189d2d3ffa3c80" category="list-text">。<block ref="c52b4d12f68853a25c52576697c6b2b5" category="inline-link-rx"></block> 必须能够使用相同的版本和配置(平台、VLAN)创建应用的相同RCF文件。</block>
-  <block id="c37890f623a8fcecb93e9309d3462a5a" category="list-text">对于特殊配置、NetApp未提供应用的RCF文件。</block>
-  <block id="3ff3eb13919d98b8bc5b485dcf074e8a" category="list-text">在应用RCF文件之前、此文件未进行更改。</block>
-  <block id="22bfd0bc1ef7b5ec6b0c3d09a25173dd" category="list-text">在应用当前RCF文件之前、已按照以下步骤将交换机重置为出厂默认值。</block>
   <block id="bdda45d6734a620758197fdb8292141f" category="list-text">应用RCF后、未对交换机(端口)配置进行任何更改。</block>
-  <block id="7db0739314c77bc294505bdbb23e67b7" category="paragraph">如果不满足这些要求、则无法使用在生成RCF文件时创建的CleanUpFiles。但是、您可以利用函数创建通用CleanUpFiles—使用此方法进行清理是从`show running-config`的输出派生的、也是最佳实践。</block>
-  <block id="0e0fe23e527e37b417182290ff6ed374" category="list-text">确定当前RCF文件版本以及使用的端口和VLAN：`IP_switch_A_1# show banner motd`</block>
   <block id="e020d7382ce2a21b56ea6460a45b49c2" category="admonition">您需要从所有四个交换机获取此信息并填写以下信息表。</block>
   <block id="2b6ad2a040294d5c6d9cd85338614383" category="paragraph">在此输出中、您必须收集以下两个表中显示的信息。</block>
   <block id="f144e7b7cc102698f980f9982e2a5e1d" category="cell">通用信息</block>
@@ -9942,15 +9910,8 @@
   <block id="140f6969d5213fd0ece03148e62e461e" category="cell">159.</block>
   <block id="c0e190d8267e36708f955d7ab048990d" category="cell">219.</block>
   <block id="cfa0860e83a4c3a763a7e62d825349f7" category="cell">259.</block>
-  <block id="92b3853ab8f28c919e230db814cc7d3c" category="list-text">【创建-RCF文件和CleanUpFile-or-create-generic-CleanUpFiles]]创建RCF文件和CleanUpFiles、或者为当前配置创建通用CleanUpFiles。</block>
   <block id="8f1cf5ff45cd4e25f9add94959779152" category="paragraph">如果您的配置满足前提条件中所述的要求、请选择*选项1*。如果您的配置*不*满足前提条件中所述的要求、请选择*选项2*。</block>
-  <block id="08593dc75ce732119b98a7568c2bf0f8" category="open-title">选项1：创建RCF文件和CleanUpFiles</block>
   <block id="257583b315f4448eaa8b40d0996d314d" category="paragraph">如果配置满足要求、请使用此操作步骤。</block>
-  <block id="5c4f1865e4bc1d73184e237f9959c388" category="list-text">使用RcfFileGenerator 1.4a (或更高版本)使用步骤1中检索到的信息创建RCF文件。新版RcfFileGenerator可创建一组额外的CleanUpFiles、您可以使用这些文件还原某些配置、并使交换机做好准备以应用新的RCF配置。</block>
-  <block id="65f306707f97b0e6528c632443da6ffa" category="list-text">将横幅motd与当前应用的RCF文件进行比较。平台类型、交换机类型、端口和VLAN使用情况必须相同。</block>
-  <block id="eeca5f39015a896c3fd153b273497470" category="admonition">您必须使用与RCF文件版本相同的CleanUpFiles、并且使用的配置必须完全相同。使用任何CleanUpFile将不起作用、可能需要对交换机进行完全重置。</block>
-  <block id="f7f6e369dd85b855e692642fc45404d1" category="admonition">为其创建RCF文件的ONTAP 版本不相关。只有RCF文件版本很重要。</block>
-  <block id="5ac0010e09da0a19568a51f509b47c9e" category="admonition">RCF文件(即使是同一版本)可能列出的平台数可能会减少或增加。确保您的平台已列出。</block>
   <block id="b801f2818024b60718ab5b68f7b2eb23" category="open-title">选项2：创建通用CleanUpFiles</block>
   <block id="4863f68e17407624559d4ea8f5de6e15" category="paragraph">如果配置*不*满足所有要求、请使用此操作步骤。</block>
   <block id="fb1067b2548231b6038213796f92b520" category="list-text">从每个交换机检索`show running-config`的输出。</block>
@@ -9960,17 +9921,8 @@
   <block id="3dcf0272d83a4c69033ee60eb75d9580" category="list-text">将输出从下部窗口复制到文本文件(此文件为CleanUpFile)。</block>
   <block id="03486ffd0acf93e60ea6875d70823cbf" category="list-text">对配置中的所有交换机重复步骤c、d和e。</block>
   <block id="250543158aeade1deea5f13bbe9c80b5" category="paragraph">此操作步骤 的末尾应包含四个文本文件、每个交换机一个。您可以按照与使用选项1创建的CleanUpFiles相同的方式使用这些文件。</block>
-  <block id="222b8c1d4cb1f6af18d4f87ae8a60226" category="list-text">【创建新的RCF文件针对新配置】为新配置创建新的RCF文件。创建这些文件的方式与上一步创建文件的方式相同、但选择相应的ONTAP 和RCF文件版本除外。</block>
-  <block id="a7d33b18445fe3decdb0f90d8636fbc1" category="paragraph">完成此步骤后、您应该有两组RCF文件、每组包含12个文件。</block>
   <block id="6999307e181dd9c4d01a65b848b47fd3" category="list-text">将文件下载到bootflash。</block>
-  <block id="6b3a86257ee5d114600528fa7f5c7bf4" category="inline-xref">创建RCF文件和CleanUpFiles、或者为当前配置创建通用CleanUpFiles</block>
-  <block id="0f23428de5fb7b85f84bc0371d73292e" category="list-text">下载在中创建的CleanUpFiles <block ref="c8340163884f51bb133b6171f43e6a09" category="inline-xref-macro-rx"></block></block>
-  <block id="72f2778a0cd9028b2b314aa743b0dedb" category="admonition">此CleanUpFile用于当前应用的RCF文件、而*不*用于要升级到的新RCF。</block>
   <block id="1c4d6db343dcde2655f5a2b6fb6a4fc1" category="paragraph">Switch-A1的CleanUpFile示例：`Cleanup_NX9336_v1.81_Switch-A1.txt`</block>
-  <block id="63a80dfd5cc3c6944330a9e459d8284b" category="inline-xref">为新配置创建"新"RCF文件。</block>
-  <block id="c3f65a7773b44ccd20e3e511f5993d75" category="list-text">下载您在中创建的"新"RCF文件 <block ref="59c54752a2fb487390ef8f9f21a2c752" category="inline-xref-macro-rx"></block></block>
-  <block id="17e0fefcaf2813560ada5ff7d65a8d95" category="paragraph">Switch-A1的RCF文件示例：`NX9336_v1.90_Switch-A1.txt`</block>
-  <block id="9bfdc1d8656a6a994323ae166f7f7201" category="list-text">下载在中创建的CleanUpFiles <block ref="59c54752a2fb487390ef8f9f21a2c752" category="inline-xref-macro-rx"></block> 此步骤为可选步骤—您可以在将来使用此文件更新交换机配置。它与当前应用的配置匹配。</block>
   <block id="4dfd3caa3db27470042b1db1ab3290bd" category="paragraph">Switch-A1的CleanUpFile示例：`Cleanup_NX9336_v1.90_Switch-A1.txt`</block>
   <block id="e22c8d95bd31d52b85280c2595f839cf" category="admonition">您必须使用CleanUpFile获取正确(匹配)的RCF版本。如果您对其他RCF版本或其他配置使用CleanUpFile、则清理配置可能无法正常运行。</block>
   <block id="432b7619f02e011863c5b9e1c9903161" category="paragraph">以下示例将这三个文件复制到bootflash：</block>
@@ -9988,9 +9940,6 @@
   <block id="319961110e1d1f6c900b9f842e20c81a" category="list-text">未配置任何服务策略</block>
   <block id="00f4ac9296724f6455056845c09f6cea" category="list-text">未配置端口配置文件</block>
   <block id="459722fc0d9b873b0459e6cc0213fe45" category="list-text">所有以太网接口(mgmt0除外、mgmt0不应显示任何配置、只应配置VLAN 1)。</block>
-  <block id="a7c1dc82620aa47d13a5325a92e48b8b" category="paragraph">如果发现已配置上述任何项、则可能无法应用新的RCF文件配置。但是、您可以通过重新加载交换机*而不*将正在运行的配置保存到启动配置来还原到先前的配置。交换机将显示先前的配置。</block>
-  <block id="b96e894aca032efb6ce18c3fee836f2e" category="list-text">应用RCF文件并验证端口是否联机。</block>
-  <block id="57eec47f7c1d3f7c578a164a838dcb88" category="list-text">应用RCF文件。</block>
   <block id="94f2f59cf614fa38bf778db2f227f97f" category="list-text">应用配置后、使用以下命令之一验证集群和MetroCluster 端口是否联机：`show interface brief`、`show cdp neighbors`或`show LLDP neighbors`</block>
   <block id="36654f0d51aef3cf2ff1ad8320086412" category="admonition">如果您更改了本地集群的VLAN并升级了站点上的第一个交换机、则集群运行状况监控可能不会将此状态报告为"运行状况良好"、因为旧配置和新配置中的VLAN不匹配。更新第二个交换机后、此状态应恢复为运行状况良好。</block>
   <block id="d83d3a40a56d46ffaf1367b944bbd493" category="paragraph">如果未正确应用配置、或者您不希望保留配置、则可以通过重新加载交换机*而不将正在运行的配置保存到启动配置来还原到先前的配置。交换机将显示先前的配置。</block>
@@ -10498,7 +10447,6 @@
   <block id="9c77ce4749e7ce4cb8afcbc4ebd4e32e" category="list-text"><block ref="9c77ce4749e7ce4cb8afcbc4ebd4e32e" category="inline-link-macro-rx"></block></block>
   <block id="45cb34f2cec27064a29ed6e3a54a294f" category="list-text"><block ref="45cb34f2cec27064a29ed6e3a54a294f" category="inline-link-macro-rx"></block></block>
   <block id="3a14a65fbfc927e7fc3c51dcb8d932f8" category="list-text">为交换机布线。</block>
-  <block id="e864e1a0a83c248ec6705eecbb75a2e4" category="paragraph">您可以按照中的_"Ciping the IP switchs_(为IP交换机布线)"部分中的步骤进行操作 <block ref="69c250b2ff0cdf92dd9f1322bce627cf" category="inline-link-macro-rx"></block>。</block>
   <block id="abba6801f76a30e62f42a339319d8046" category="paragraph">按以下顺序为交换机布线(如果需要)：</block>
   <block id="eed332b6efe7c74f805fd4d57a6089fa" category="list-text">使用缆线将此ISL连接到远程站点。</block>
   <block id="c78a73a52795719f0a6c0e4e534be9ef" category="list-text">为MetroCluster IP接口布线。</block>
@@ -10922,9 +10870,6 @@
   <block id="7c05cd1434f77b09211b33f0e3df8f7e" category="list-text">执行中的所有步骤<block ref="6f9da97248de99650a607f2ab8f8c4c5" category="inline-link-rx"></block>。</block>
   <block id="175bbe9b6bd074e923b41baad3944299" category="paragraph"><block ref="175bbe9b6bd074e923b41baad3944299" category="inline-link-macro-rx"></block></block>
   <block id="1af1c128bcb15febcfeae67428ab0606" category="paragraph">您可能需要添加、删除或更改Cisco IP交换机上的ISL端口。您可以将专用ISL端口转换为共享ISL端口、或者更改Cisco IP交换机上ISL端口的速度。</block>
-  <block id="9ef8b8de2a46a8cdf8b96e3433081f97" category="admonition">如果您在连接NS224磁盘架的共享配置中使用Cisco 9336C -拧动交换机、则更改ISO可能需要一个新的RCF文件。如果当前和新的ISL速度分别为40 Gbps和100 Gbps、则不需要新的RCF文件。对ISL速度进行的所有其他更改都需要一个新的RCF文件。例如、将ISL速度从40 Gbps更改为100 Gbps不需要新的RCF文件、但将ISL速度从10 Gbps更改为40 Gbps需要新的RCF文件。</block>
-  <block id="e5a44346ea08417f9c1bb13c971ef4b4" category="inline-link-macro">升级MetroCluster IP交换机上的RCP文件。</block>
-  <block id="6780acd09b7544d9829b3c8c782e7228" category="admonition">如果您要在连接NS224磁盘架的共享配置中使用Cisco 9336C -算 机、并且需要升级RCF文件并为新ISL端口应用新配置、请按照步骤到 <block ref="06d2583ef923bd1ae27cd7aa8a48f582" category="inline-link-macro-rx"></block></block>
   <block id="4f8a3836e9b2b61340340f61f8a1d944" category="list-text">验证是否已在这两台交换机之间建立了此两个交换机的ISL和端口通道：</block>
   <block id="f1ba48098d6a9078f5a1ba8e0141de5b" category="paragraph"><block ref="d975a431de1e74582bd6e6f677a19ad0" prefix="" category="inline-code"></block></block>
   <block id="61f7733093f25bb223a42607ca2406c1" category="list-text">您可以使用能够提升到root访问权限的用户来安装和管理Tiebreaker软件。</block>
@@ -10937,7 +10882,6 @@
   <block id="37c5a21bd601c49050ac3301b684599c" category="list-text">Cisco 9338C－拧动交换机具有两种不同的交换机存储类型，这些存储类型在RC框架 中命名不同。使用下表确定适用于您的配置的正确Cisco 9334c-打 保证存储类型：</block>
   <block id="df31753dd5a463d7868062b7d85b4e56" category="cell">连接以下存储时</block>
   <block id="d78b539282fbd3ab71c056420e27d11d" category="cell">选择Cisco 9334c-打 的存储类型...</block>
-  <block id="b2e9c77dc19c02cc79d1cec1f3ee2fc0" category="cell">示例RCF文件Banner /MOTD</block>
   <block id="4123b977475c9c4828f585782db5cb61" category="list-text">直接连接的SAS磁盘架</block>
   <block id="e8ea5873a1121ec729327255bcb20d9a" category="list-text">直接连接的NVMe磁盘架</block>
   <block id="415f7c0e4d1c31bd8bc9a1c226589d04" category="list-text">连接到专用存储交换机的NVMe磁盘架</block>
@@ -12045,7 +11989,6 @@
   <block id="f411a218519aacec5088cc5a3d23eb64" category="paragraph">旧的和新的系统ID在中进行了标识 <block ref="372daca62ea6308294fd70c00fcc8af2" category="inline-link-macro-rx"></block>。</block>
   <block id="04e334293a29a0fcdf98b56004e27edc" category="section-title">符合MetroCluster的交换机与经过NetApp验证的交换机</block>
   <block id="5c5c34d5e7843e9424f3ca2380ae18ea" category="list-text"><block ref="5c5c34d5e7843e9424f3ca2380ae18ea" category="inline-link-macro-rx"></block></block>
-  <block id="910d0f6661c3968f4e7402c808d31b3f" category="list-text"><block ref="910d0f6661c3968f4e7402c808d31b3f" category="inline-link-macro-rx"></block></block>
   <block id="740c0d0f6d37afa212fad2bd272a4212" category="list-text">Tieb破碎 机1.6仅支持SNMPv3。</block>
   <block id="a98720fe58fe46f2a22c59d172b69fbf" category="list-text">尽管Tieb破碎 机1.5和1.4支持SNMPv1和SNMPv3、但NetApp强烈建议您配置SNMPv3以获得最佳安全性。</block>
   <block id="c93871f59c253b2d1ca21a1ce2a00ff8" category="paragraph"><block ref="5ef546c28db0706808d8d451d5a71029" prefix=" " category="inline-code"></block>命令响应取决于您运行的Tieb破碎 机版本。</block>
@@ -13003,10 +12946,8 @@
   <block id="6402d49dd52ac4a97e3a5b5df13a2b01" category="paragraph">在命令输出中找到指示RCF版本的行。例如、Cisco交换机的以下输出指示RCF版本为"`v1．0"`。</block>
   <block id="372302cd9a52d50f8bbec355aa5caad3" category="list-text">要检查特定ONTAP版本、交换机和平台支持哪些文件，请使用<block ref="3d323bfcd2e7c90d6e420b3bfd1a01ed" category="inline-link-macro-rx"></block>。如果您可以为已有或要升级到的配置生成RCN、则它受支持。</block>
   <block id="5892dc73aeb0908038bb8e9380fb53c4" category="section-title">升级交换机固件</block>
-  <block id="28abab10271202d2140cfed5d173dff5" category="paragraph">您可能需要升级MetroCluster IP交换机上的参考配置文件(Reference Configuration File、RCF)文件。例如、如果ONTAP版本和/或交换机固件版本不支持在交换机上运行的RCIF版本。</block>
   <block id="463c4e9c177d926f8a70723419e27185" category="inline-link-macro">验证RC框架 是否受支持</block>
   <block id="31e4a45ff8bf040780bcaeea92eaf273" category="list-text">在升级RC框架 之前，<block ref="0cb16fc2594f35c2b9b081a93af72ead" category="inline-link-macro-rx"></block>。</block>
-  <block id="72d26e3e5a2756a67ae4a487db269cd2" category="list-text">此操作步骤会中断升级 RCF 文件的交换机上的流量。应用新RCF文件后、流量将恢复。</block>
   <block id="085e87b6ec813d01dd3f597186e26f1e" category="list-text">如果要升级到的系统使用*共享集群/HA端口*，请验证MetroCluster IP接口是否使用支持的IP地址。</block>
   <block id="11f90eb1d0dccabe5ea84d5795fc2ef7" category="paragraph">使用以下信息确定新系统是否使用共享集群/HA端口：</block>
   <block id="fb1ce5d087cc4c4bd39c43bc3af7058b" category="admonition">如果MetroCluster接口配置有169.254.17.x或169.254.18.x IP地址，则不支持升级到使用*共享群集/HA端口*的任何系统。</block>
@@ -13655,8 +13596,6 @@
   <block id="2fc694052b4d0c9fddb171c279d9ff41" category="section-title">为未镜像的聚合添加存储架</block>
   <block id="340ee9c6b389308075f20882f44ee863" category="paragraph">如果您添加磁盘架并希望将其用于MetroCluster IP 配置中的未镜像聚合，则必须执行以下操作：</block>
   <block id="fb945b959f6754639fad6c6e9e9469b9" category="list-text">本地用户必须具有网络管理员权限。</block>
-  <block id="5ea27988b4071e332e850721389e951a" category="doc">选择正确的MetroCluster IP 交换机配置过程</block>
-  <block id="b9b3d7865c01f9cccab728c6d2bb7296" category="paragraph">您必须配置IP交换机以提供后端MetroCluster IP连接。您遵循的程序取决于您的交换机供应商。</block>
   <block id="528aafe8fc362d0088ddcc230e89b62a" category="doc">如何将端口表与多个MetroCluster IP 配置一起使用</block>
   <block id="760419501f92fb637e39b91dbfd2ea18" category="summary">您必须根据存储控制器与存储架的连接方式选择正确的安装程序。</block>
   <block id="ef78e28e8b4e7855b7b5095e4cbd705a" category="paragraph">从ONTAP 9.15.1 开始，您可以在支持的系统上配置端到端加密，以加密MetroCluster IP 配置中的站点之间的后端流量，例如 NVlog 和存储复制数据。</block>
@@ -14648,4 +14587,131 @@
   <block id="5a523817621c85574dfcbf0b11c07075" category="paragraph">在运行 CL 5.4.0 的 NVIDIA Cumulus 交换机上配置 SNMPv3 用户名 SNMPv3_USER：</block>
   <block id="4451c276144ff12f4a59bad51c0a1181" category="open-title">NVIDIA - CL 5.11.0+</block>
   <block id="d1f08b7bd68bdc79984e047bc1939c5d" category="paragraph">在运行 CLI 5.11.0 及更高版本的 NVIDIA Cumulus 交换机上配置 SNMPv3 用户名 SNMPv3_USER：</block>
+  <block id="5c70de9aa6fac7d71c4ddfb2d31ae25a" category="list-text">为新参考配置文件 (RCF) 的应用准备 IP 交换机。</block>
+  <block id="cf638fa08203ce9c082e7eecde22e20f" category="paragraph">必须将参考配置文件 (RCF) 下载到 MetroCluster 结构配置中的每个交换机。</block>
+  <block id="91cd9003fc7afacd92d0952d1578d48b" category="paragraph">共有四个 RCF，分别对应 MetroCluster fabric 配置中的四个交换机。您必须使用适用于您所使用的交换机型号的正确 RCF。</block>
+  <block id="6dcb15f9fb489afb93f692b6b7755f84" category="cell">RCF</block>
+  <block id="2132fe352bf4bb487eaf6927cffd6982" category="list-text">从<block ref="47f7dd3b2352c1e61640eee11f081c5a" category="inline-link-rx"></block>下载 Cisco FC RCF。</block>
+  <block id="39313cc2f6093990d3dca3755297c44e" category="list-text">将 RCF 复制到交换机。</block>
+  <block id="8ca2fa0cdf859df18fecce8122036812" category="list-text">将 RCF 复制到第一个交换机：</block>
+  <block id="99eaec47ed0f56f87ba6c6f107b1d555" category="paragraph">在此示例中，<block ref="334910bbc7198eea40a5718a09788dc1" prefix=" " category="inline-code"></block> RCF 从位于 <block ref="f8a554bd262c1f2aca6545aab6fbbd47" prefix=" " category="inline-code"></block> 的 SFTP 服务器复制到本地引导闪存。您必须使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 的文件名。</block>
+  <block id="2130b5577be1c5b0ecb66a86e0e62b98" category="list-text">对其他三台交换机中的每台交换机重复前面的子步骤，确保将匹配的 RCF 复制到相应的交换机。</block>
+  <block id="9c2d39ef52a63a0bca259adc5598a991" category="list-text">在每台交换机上验证 RCF 是否存在于每台交换机的<block ref="67b5ed08894c07eba0af4a7a7247711e" prefix=" " category="inline-code"></block>目录中：</block>
+  <block id="31809c76013c1e869215736e65c76cff" category="list-text">将匹配的 RCF 从本地引导闪存复制到每台交换机上的运行配置：</block>
+  <block id="9eca16f5df5b1dbd9bc66d21738825d6" category="list-text">将每台交换机上的 RCF 从运行配置复制到启动配置：</block>
+  <block id="29ecb75ab42ddd669cd0f6e92a58cc6b" category="paragraph">要使用这些 RCF，系统必须运行 ONTAP 9.1 或更高版本，并且必须使用 ONTAP 9.1 或更高版本的端口布局。</block>
+  <block id="3503c9d859a9eb3fcbd234a3d5c9a363" category="list-text">请参见 Brocade RCF 下载页面上的 RCF 表，并为配置中的每台交换机确定正确的 RCF。</block>
+  <block id="4171a03473af7f6456c08cdeebe281de" category="paragraph">必须将RCF应用于正确的交换机。</block>
+  <block id="02d4864774f054081d5b074fdab94cda" category="list-text">从<block ref="7a2a5b3ce34e84b17e1e6ffcc479aaa8" category="inline-link-rx"></block>页面下载交换机的 RCF。</block>
+  <block id="5bed49e108466e37517b3a12ea075d7a" category="summary">更新交换机固件或参考配置文件 (RCF) 时，将集群 LIF 移至配对交换机，以便在升级期间实现无中断集群操作。</block>
+  <block id="9b2826e036ff82834f75a0e7a44282ed" category="doc">在更换 MetroCluster IP 交换机、RCF 更改或固件更新之前移动集群 LIF</block>
+  <block id="ba817507ff742e4351352b3d698de081" category="paragraph">更换 MetroCluster IP 交换机或更改交换机固件或参考配置文件 (RCF) 时，需要将集群 LIF 移动到配对交换机以实现无中断集群操作。</block>
+  <block id="b418b4fad97ed4823768d59cc9628c62" category="list-text">必须在升级或降级交换机固件、更换交换机 RCF 或更换 IP 交换机之前执行此任务。</block>
+  <block id="f6ab7b470572966bac3482a56c334dfc" category="admonition">如果是首次配置交换机，则可以跳过此任务，除非执行交换机更换。</block>
+  <block id="a95f710d416a28711f7057a66ef327d5" category="list-text">该任务要求您同时使用 ONTAP 命令和交换机命令；除非另有说明，否则使用 ONTAP 命令。</block>
+  <block id="652d64acba0f102d37b42ef27f23f740" category="list-text">在本过程中使用的示例中，您正在升级 IP_switch_A_1，因此需要将集群 LIF 迁移到 IP_switch_A_2。</block>
+  <block id="83b73f0ed3a170e10c1e7afb1f2de22f" category="list-text">本过程中的命令输出示例显示了 Cisco 交换机的详细信息。输出可能会因您的交换机型号和供应商而异。</block>
+  <block id="c06b2e93c970fd796fa3b646ea0c91e7" category="list-text">显示每个节点上连接到集群交换机的集群端口：</block>
+  <block id="6015ee0c3c4dbc37f534783a65239e72" category="example-title">显示示例</block>
+  <block id="1b75649d1b9ec0a73e309fd9b384b32a" category="list-text">检查每个集群端口的管理和运行状态。</block>
+  <block id="a8a837b1d24982d8fd8c7b71b0da1a7a" category="list-text">验证所有集群端口是否处于正常状态：</block>
+  <block id="1998c6d3154f5a2c373da0aeca0fd3ff" category="paragraph"><block ref="856f897c52a15ad9c779d1f7b82c2593" prefix="" category="inline-code"></block></block>
+  <block id="d9fb568577d38aa5ca1f9412c1a4e107" category="list-text">验证所有集群接口（LIF）都在主端口上：</block>
+  <block id="a2d27af8ce0592e36b8a208c0cb93d3e" category="paragraph"><block ref="fb5130635551fff679ab6d902eaff8d9" prefix="" category="inline-code"></block></block>
+  <block id="98f234e93ec030ce67a050ab46bd6ee6" category="list-text">验证集群是否显示两个集群交换机的信息：</block>
+  <block id="798dfbe36e04e65261e623680213b38d" category="paragraph"><block ref="c57378c3b3bb81c6b42a2b31a30ddda7" prefix="" category="inline-code"></block></block>
+  <block id="aa831e5ed3cf3569aacf417dc10d9847" category="list-text">禁用集群 LIF 上的自动还原。集群 LIF 将故障转移到伙伴集群交换机，并在您对目标交换机执行升级过程时保留在该交换机上：</block>
+  <block id="684818f9d30d8e8936a73d9c92c51cfe" category="admonition">如果要升级第二个交换矩阵，可以跳过此步骤并转到 <block ref="327988adbe3e93c3ffe0ff2abeb91411" category="inline-xref-macro-rx"></block>。</block>
+  <block id="b1046cdb57cd97fe9c20f711ba08bed8" category="paragraph"><block ref="76be4589a0f314371f336c42f473092c" prefix="" category="inline-code"></block></block>
+  <block id="6f80841cf0831aea5bbcbeaff818df5a" category="list-text">[[shut-down-ports]]在集群交换机 IP_switch_A1 上，关闭连接到节点集群端口的端口。</block>
+  <block id="a2fe9051fe051f819bd739ef3e340377" category="open-title">NVIDIA</block>
+  <block id="3dc2e7033e76926da5578cb873563ec1" category="list-text">显示集群接口：</block>
+  <block id="640aabb1d4c1c1f949a0a35374202d42" category="list-text">关闭集群接口端口：</block>
+  <block id="506cbd48c08948901f7b3d2fcf241e24" category="list-text">[[verify_cluster_lif_migration]] 验证集群 LIF 是否已迁移到集群交换机 IP_switch_A2 上托管的端口。这可能需要几秒钟才能完成。</block>
+  <block id="af4fb0eecc11b6a91b245e052b6c0a20" category="paragraph">集群 LIF 迁移到合作伙伴交换机后，您可以按照交换机供应商的标准配置程序完成对目标固件或 RCF 版本的升级：</block>
+  <block id="86e838bf9c0847e26da95e5f1fb7811d" category="admonition">在第一个网络结构中配置交换机后，必须重复在第二个网络结构上移动集群 LIF 的步骤。</block>
+  <block id="ea73d8af7135d7d225784b371375310f" category="doc">了解有关配置 MetroCluster IP 交换机的信息</block>
+  <block id="b398c546b361af58bcc92050d70db2b4" category="paragraph">您必须配置 IP 交换机以提供后端 MetroCluster IP 连接。您遵循的程序取决于您的交换机供应商，以及您是将交换机配置为全新安装 MetroCluster IP 的一部分，还是配置为其他程序的一部分。</block>
+  <block id="92e541a9c70ad67c77b89e2d969764ce" category="section-title">全新 MetroCluster IP 安装</block>
+  <block id="66ae00fed61743cbd269595ede42450e" category="paragraph">如果要执行全新 MetroCluster IP 安装，请根据交换机供应商选择交换机配置步骤：</block>
+  <block id="7a6a9c61a00d805db560ab9153141683" category="section-title">交换机更换和RCF或固件更新</block>
+  <block id="3a5ca636d042ba14163790e15fb14b39" category="paragraph">作为其他 MetroCluster IP 过程的一部分，例如交换机更换或升级，您可能需要更新交换机固件、参考配置文件 (RCF) 或两者。在这些情况下，您必须在配置 IP 交换机之前移动集群 LIF。这些场景的高级步骤如下：</block>
+  <block id="c45b5cac6c505399616694a0b7c6c04d" category="admonition">您必须按照以下顺序更新交换机：Switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。</block>
+  <block id="032e6e8ef98f5ba6f14159f917ab3e15" category="inline-link-macro">移动集群 LIF</block>
+  <block id="b0e11f8bc3115af6f46ef95760b7108a" category="list-text"><block ref="b0e11f8bc3115af6f46ef95760b7108a" category="inline-link-macro-rx"></block></block>
+  <block id="c7d46afd534f9d0360e5628b1907f177" category="list-text">将集群 LIF 移动到合作伙伴交换机后，您可以根据交换机供应商遵循标准配置程序：</block>
+  <block id="3702fa9bc5c3f18bbbeed6b44a352090" category="list-text">在第一个网络结构（Switch_A_1、Switch_B_1）中配置交换机后，必须对第二个网络结构（Switch_A_2、Switch_B_2）重复这些步骤，从 <block ref="b0e11f8bc3115af6f46ef95760b7108a" category="inline-link-macro-rx"></block> 开始。</block>
+  <block id="0d748d04c15c51dc82adaafb202380f8" category="list-text">如果要将这些步骤作为交换机更换或升级等其他过程的一部分，请检查是否需要将集群 LIF 移动到伙伴交换机以启用无中断集群操作。<block ref="9ce2e245234110ff72cc16bc02886cc0" category="inline-link-macro-rx"></block>.</block>
+  <block id="852176ba820381370f520dbeca56dbfa" category="admonition">您必须按以下顺序更新交换机：Switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。如果您的操作步骤要求您移动集群 LIF，则必须在配置第一个网络结构（Switch_A_1、Switch_B_1）中的交换机后，重复在第二个网络结构（Switch_A_2、Switch_B_2）上移动集群 LIF 的步骤。请参阅 <block ref="9ce2e245234110ff72cc16bc02886cc0" category="inline-link-macro-rx"></block>。</block>
+  <block id="cec0c4ac2074d499d97d20ee0fde64ef" category="list-text">验证是否为集群 LIF 启用了自动还原：</block>
+  <block id="a28cce9c0e3ab8ac431128996388bcfd" category="admonition">您必须确保为集群 LIF 启用自动还原。</block>
+  <block id="7a7d7054decebaeb3dba2307d6555fb9" category="list-text">如果未启用自动还原，请修改所有集群 LIF 以启用自动还原：</block>
+  <block id="861865437c84fdf002bbc9c73fb2554f" category="admonition">如果这些步骤是作为其他过程（例如交换机更换或升级）的一部分执行的，则您可能已在执行 <block ref="ff2aaf62543af58cd0f5c49e7e04cef2" category="inline-link-macro-rx"></block> 步骤时禁用了自动还原功能。</block>
+  <block id="90563211213c93906ee730f25ee9143e" category="list-text">重新启用自动还原：</block>
+  <block id="2c70d9b6ebd85a5ee2fff0f363a115ac" category="paragraph"><block ref="bf3c84eda3ab699c2564d177a409447a" prefix="" category="inline-code"></block></block>
+  <block id="268d66b259b50e25cbef3d39885d450f" category="paragraph"><block ref="d4a4086e7952a80201c11ae52219be46" prefix="" category="inline-code"></block></block>
+  <block id="8ed8ddf647d2420b5b9cfef94d1e66ca" category="paragraph">请稍等几分钟，以便 LIF 恢复到其主端口：</block>
+  <block id="9c01e65c2e65b640d8118fe54781309e" category="list-text">确认所有 LIF 都在其主端口上：</block>
+  <block id="052bf57f898d3892d0551c66dc793e8b" category="list-text">确认 MetroCluster 节点的状态：</block>
+  <block id="53c1dca890ccf51d340a7239987710a8" category="list-text">您必须使用支持的交换机软件版本。请参见<block ref="ed4326c3351d8ac0e334b8b4d9b37c82" category="inline-link-rx"></block>。</block>
+  <block id="fdb08440fb03aec95dda7df506525f73" category="list-text">在 MetroCluster IP 配置中其余的三个 IP 交换机上重复上述步骤。</block>
+  <block id="0a87ee4fa6163be20e6bf1d980e5a277" category="paragraph">您必须了解如何使用端口表中的信息来正确生成参考配置文件 (RCF)。</block>
+  <block id="350ebdbb66bf03c8efc403678120e39d" category="admonition">如果要在连接 NS224 磁盘架的共享配置中使用 Cisco 9336C-FX2 交换机，更改 ISL 可能需要新的参考配置文件 (RCF)。如果您当前和新的 ISL 速度为 40 Gbps 和 100 Gbps，则不需要新的 RCF。对 ISL 速度的所有其他更改都需要新的 RCF。例如，将 ISL 速度从 40 Gbps 更改为 100 Gbps 不需要新的 RCF，但将 ISL 速度从 10 Gbps 更改为 40 Gbps 则需要新的 RCF。</block>
+  <block id="6c5a911225660b72c17cb2db5923a54a" category="inline-link-macro">升级 MetroCluster IP 交换机上的 RCF。</block>
+  <block id="69cb6427980eccf80b5d0c17f1aab875" category="admonition">如果您在连接 NS224 磁盘架的共享配置中使用 Cisco 9336C-FX2 交换机，并且需要升级 RCF 并为新的 ISL 端口应用新配置，请按照以下步骤操作：<block ref="c3ee1b38b8c2251d663b314073e9cd8a" category="inline-link-macro-rx"></block></block>
+  <block id="8707fdff465b4f0541eaf591583954a7" category="list-text"><block ref="b0e11f8bc3115af6f46ef95760b7108a" category="inline-link-macro-rx"></block>。</block>
+  <block id="856a04ccf59d2820da6a47984fbd3ea0" category="admonition">您必须按以下顺序更新交换机：Switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。在第一个网络结构（Switch_A_1、Switch_B_1）中配置交换机后，必须重复这些步骤，以在第二个网络结构（Switch_A_2、Switch_B_2）上移动集群 LIF。请参阅 <block ref="5f804b3f3e9acee141e0ae306b7a6f59" category="inline-link-macro-rx"></block>。</block>
+  <block id="8dc1f99634c85a613352ad949b508cf1" category="paragraph">您可以按照 <block ref="7176836221733e9bf6fcbaccc1aa9ffd" category="inline-link-macro-rx"></block> 中的步骤操作。</block>
+  <block id="0d35a64434c5cb583e6703803b6a3251" category="paragraph">如果新交换机相同，请接通新交换机的电源。如果要升级或降级交换机，请为两个交换机通电。在更新第二个网络结构之前，配置可以在每个站点使用两个不同的交换机运行。</block>
+  <block id="acc1856da35d6d8c04024997f2eb6084" category="paragraph">如果您正在升级或降级第一个网络结构中的交换机，您可能会看到一些与本地集群相关的警报。</block>
+  <block id="73d919208b85f9e19c80b7413d6e453e" category="admonition">如果要升级或降级网络结构，请对第二个网络结构重复所有步骤。</block>
+  <block id="73117420b1d3da1446aeff431e81d9c6" category="list-text"><block ref="b0e11f8bc3115af6f46ef95760b7108a" category="inline-link-macro-rx"></block> 在开始升级之前。</block>
+  <block id="19bc1d3a8e5db6fb9ca5ed1d6e53ad7f" category="list-text">对每个交换机重复上述步骤。</block>
+  <block id="31bbe12313f1a40b18eaa501279a0be3" category="admonition">在第一个网络结构（Switch_A_1、Switch_B_1）中配置交换机后，必须重复执行相关步骤，以移动第二个网络结构（Switch_A_2、Switch_B_2）上的集群 LIF。请参阅<block ref="5f804b3f3e9acee141e0ae306b7a6f59" category="inline-link-macro-rx"></block>。</block>
+  <block id="b0eaff36df906302d61d2a732f0bd280" category="paragraph">您可能需要升级 Cisco IP 交换机上的参考配置文件 (RCF)。例如，ONTAP 升级或交换机固件升级都需要新的 RCF。</block>
+  <block id="9a6efb0d6ef62b264d464f9318c33ea5" category="cell">RCF 横幅/MOTD 示例</block>
+  <block id="270442fca75eb1d9b0a0f7fbda94ec91" category="list-text">The<block ref="c52b4d12f68853a25c52576697c6b2b5" category="inline-link-rx"></block> 必须能够使用相同的版本和配置（平台、VLAN）创建所应用的相同 RCF。</block>
+  <block id="9841cae1f3cd8f3083a447c8f51118b2" category="list-text">所应用的 RCF 并非由 NetApp 为特殊配置提供。</block>
+  <block id="9ec3c03b2e25d0fd885e119b26a47209" category="list-text">RCF 在应用前未更改。</block>
+  <block id="7d4a576e62d8fa25121aba113311ce11" category="list-text">在应用当前 RCF 之前，已按照步骤将交换机重置为出厂默认值。</block>
+  <block id="4f9ef492ce457924cabecc16236a4c41" category="paragraph">如果不满足这些要求，则无法使用在生成 RCF 时创建的 CleanUpFiles。但是，您可以利用该函数来创建通用 CleanUpFiles——使用此方法的清理派生自<block ref="d064a73c32d00bf384204782a696a298" prefix=" " category="inline-code"></block>的输出，是最佳实践。</block>
+  <block id="385e6272a2260d5d2074d187f64c13d0" category="list-text">确定当前 RCF 版本以及使用的端口和 VLAN：<block ref="9b0b071cbeedb9bb40e134702701197f" prefix=" " category="inline-code"></block></block>
+  <block id="31a1a5eb41a54f193dee4fcd85f62f3c" category="cell">RCF 版本</block>
+  <block id="d2c73fd480128bba9ad18b2cc35e088a" category="list-text">[[Create-RCF-files-and-CleanUpFiles-or-create-generic-CleanUpFiles]] 为当前配置创建 RCF 和 CleanUpFiles，或创建通用 CleanUpFiles。</block>
+  <block id="2d3daa23f8c1124a7f51b396b2c83599" category="open-title">选项 1：创建 RCF 并 CleanUpFiles</block>
+  <block id="09a9232d68d132ce906d6729982e29da" category="list-text">使用 RcfFileGenerator 1.4a（或更高版本）以及在步骤 1 中检索的信息创建 RCF。新版本的 RcfFileGenerator 会创建一组额外的 CleanUpFiles，可用于还原某些配置并准备交换机以应用新的 RCF 配置。</block>
+  <block id="e978980bdc9465fa0544fbecc209d5f7" category="list-text">将横幅 MOTD 与当前应用的 RCF 进行比较。平台类型、交换机类型、端口和 VLAN 使用情况必须相同。</block>
+  <block id="cbf0859eba1f468560501286f96bce70" category="admonition">您必须使用与 RCF 相同版本且完全相同配置的 CleanUpFiles。使用任何其他 CleanUpFile 将不起作用，并且可能需要完全重置交换机。</block>
+  <block id="bf8da3127630e1672d896214577b32f3" category="admonition">创建 RCF 所针对的 ONTAP 版本无关紧要。只有 RCF 版本才是重要的。</block>
+  <block id="b542d9b58edaa8b0bd2dd3ae2b80c0a7" category="admonition">RCF（即使是相同的版本）可能会列出更少或更多的平台。请确保已列出您的平台。</block>
+  <block id="b79f0a153ad93b9722d2cdc284bd859f" category="list-text">[[Create-the-new-RCF-files-for-the-new-configuration]] 为新配置创建"新" RCF。创建这些文件的方式与上一步中创建文件的方式相同，但需选择相应的 ONTAP 和 RCF 版本。</block>
+  <block id="0b172d151494b14e7fdff735f6e210c6" category="paragraph">完成此步骤后，您应该有两组 RCF，每组由十二个文件组成。</block>
+  <block id="39da313cd3d2efd5a85461c6b18b0e9a" category="inline-xref">创建 RCF 和 CleanUpFiles，或为当前配置创建通用 CleanUpFiles</block>
+  <block id="b34bc751b388df2a26c3d747fe1f39cf" category="list-text">下载您在 <block ref="bce5d5db6b460239ddd9d2efeebaa897" category="inline-xref-macro-rx"></block> 中创建的 CleanUpFiles</block>
+  <block id="e57c406545eb94b55e46fd490e3dcc6f" category="admonition">此 CleanUpFile 适用于当前应用的 RCF，而*不是*您要升级到的新 RCF。</block>
+  <block id="a1fa8ef8fe9fe6945d9a481c566faf1a" category="inline-xref">为新配置创建"新" RCF。</block>
+  <block id="0e19bf9641c612dddacde2528d12e17c" category="list-text">下载您在 <block ref="97f3ac22394457ab69892174bef80b4e" category="inline-xref-macro-rx"></block> 中创建的"新" RCF</block>
+  <block id="19e2eaf9177ade8d5a63d99d3fa7e5e4" category="paragraph">Switch-A1 的示例 RCF：<block ref="fcb7173e7a2e786c277b7ad6470af002" prefix=" " category="inline-code"></block></block>
+  <block id="d72478cb233a7ba8b75d8a2c92a6a6c1" category="list-text">下载您在 <block ref="97f3ac22394457ab69892174bef80b4e" category="inline-xref-macro-rx"></block> 中创建的 CleanUpFiles。此步骤是可选的——您将来可以使用该文件更新交换机配置。它与当前应用的配置匹配。</block>
+  <block id="b4fb6ce79e810065e4af4b50b355268c" category="paragraph">如果发现已配置上述任何项目，则可能无法应用新的 RCF 配置。但是，您可以通过重新加载交换机*而不*将运行配置保存到启动配置来恢复到以前的配置。交换机将采用以前的配置。</block>
+  <block id="39a59a7f698d76b6c515d442d496fc20" category="list-text">应用 RCF 并验证端口是否联机。</block>
+  <block id="b4ff3823ad51690657517a6cc43f5bbc" category="list-text">应用 RCF。</block>
+  <block id="92dce1ba931a31f563746a7fc012ede0" category="list-text">修改所有集群 LIF 以启用自动还原：</block>
+  <block id="7506fa2af11ba55ddb93c46406818219" category="paragraph">您可能需要升级 MetroCluster IP 交换机上的参考配置文件 (RCF)。例如，如果交换机上运行的 RCF 版本不受 ONTAP 版本、交换机固件版本或两者的支持。</block>
+  <block id="0fd7975d8fcd31db8559ed95a3a7ca29" category="list-text">如果要安装新的交换机固件，则必须在升级 RCF 之前安装交换机固件。</block>
+  <block id="5b6e304706a21e319010fab102707c79" category="list-text">此过程会中断升级 RCF 的交换机上的流量。应用新的 RCF 时，流量将恢复。</block>
+  <block id="ef79769a9b12c47ca8e0242e864b2c02" category="list-text">根据您的交换机供应商，下载并安装 IP RCF。</block>
+  <block id="0a7486debceb3d7717c123eee7f53e26" category="inline-link-macro">下载并安装 Broadcom IP RCF</block>
+  <block id="91d44de3771ac094a8fc8ef949f447f1" category="list-text"><block ref="91d44de3771ac094a8fc8ef949f447f1" category="inline-link-macro-rx"></block></block>
+  <block id="e78e0be76deac39685c069c02b9c59b8" category="paragraph">您必须应用参考配置文件 (RCF) 以重新配置分区，从而适应新节点。</block>
+  <block id="b60b2b518843eb58af59ce647217c844" category="paragraph">如果无法使用 RCF 配置交换机，则必须手动配置交换机。请参阅：</block>
+  <block id="880c5e16abd9dabbb6ec7c79be346e14" category="list-text">找到适用于您的配置的 RCF。</block>
+  <block id="f78893de7c74e6fe864a719bc7efc19e" category="paragraph">对于与交换机型号匹配的八节点配置，必须使用 RCF。</block>
+  <block id="59f3d762e99b09ec1becaca961e395a1" category="list-text">应用 RCF，按照下载页面上的说明，根据需要调整 ISL 设置。</block>
+  <block id="0cd61c4c88f15a8971607489f9b6d653" category="paragraph">FC 交换机端口使用情况必须与 <block ref="a9f150ef34b7953b6119f5ac779097fe" category="inline-link-macro-rx"></block> 中所述的 MetroCluster 八节点使用情况相匹配，才能使用 RCF。</block>
+  <block id="eabc5692452c984a6976e8e815a16418" category="admonition">运行启动菜单选项<block ref="1679091c5a880faf6fb5e6087eb1b2dc" prefix=" " category="inline-code"></block>时，可能需要重置 MetroCluster bootarg 值。请参阅<block ref="34d15be42555000516d0cc6b7f35d1c4" category="inline-link-macro-rx"></block>。</block>
+  <block id="74babbf42b11f149a7a363757d584c3b" category="admonition">运行启动菜单选项<block ref="1679091c5a880faf6fb5e6087eb1b2dc" prefix=" " category="inline-code"></block>时，可能需要重置 MetroCluster bootarg 值。请参阅<block ref="06c3fdcb6cd8d64a7d2e8bffb99c9b80" category="inline-link-macro-rx"></block>。</block>
+  <block id="b8c3014a64ccb52cfe10dc2bcccd245f" category="admonition">运行启动菜单选项<block ref="1679091c5a880faf6fb5e6087eb1b2dc" prefix=" " category="inline-code"></block>时，可能需要重置 MetroCluster bootarg 值。请参阅<block ref="c2cec781ec7263394dd955380787b572" category="inline-link-macro-rx"></block>。</block>
+  <block id="9a3f31a7018cf62078b2f2f088863f9b" category="sidebar">了解有关配置 MetroCluster IP 交换机的信息</block>
+  <block id="96e6a3f92b027e80b14698a7b22b316f" category="sidebar">移动集群 LIF</block>
 </blocks>

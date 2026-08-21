@@ -21,7 +21,7 @@ summary: 您可能需要添加，删除或更改 ISL 端口。您可以将专用
 以下操作步骤假定您要将在交换机端口 Eth1/24/1 上连接的一个 10-Gb ISL 替换为连接到交换机端口 17 和 18 的两个 100-Gb ISL 。
 
 
-NOTE: 如果您在连接NS224磁盘架的共享配置中使用Cisco 9336C -拧动交换机、则更改ISO可能需要一个新的RCF文件。如果当前和新的ISL速度分别为40 Gbps和100 Gbps、则不需要新的RCF文件。对ISL速度进行的所有其他更改都需要一个新的RCF文件。例如、将ISL速度从40 Gbps更改为100 Gbps不需要新的RCF文件、但将ISL速度从10 Gbps更改为40 Gbps需要新的RCF文件。
+NOTE: 如果要在连接 NS224 磁盘架的共享配置中使用 Cisco 9336C-FX2 交换机，更改 ISL 可能需要新的参考配置文件 (RCF)。如果您当前和新的 ISL 速度为 40 Gbps 和 100 Gbps，则不需要新的 RCF。对 ISL 速度的所有其他更改都需要新的 RCF。例如，将 ISL 速度从 40 Gbps 更改为 100 Gbps 不需要新的 RCF，但将 ISL 速度从 10 Gbps 更改为 40 Gbps 则需要新的 RCF。
 
 .开始之前
 请参阅的*开关*部分 link:https://hwu.netapp.com/["NetApp Hardware Universe"^] 以验证受支持的收发器。
@@ -59,7 +59,7 @@ switch_B_1#
 . 根据需要更改 ISL 端口。
 +
 
-NOTE: 如果您要在连接NS224磁盘架的共享配置中使用Cisco 9336C -算 机、并且需要升级RCF文件并为新ISL端口应用新配置、请按照步骤到 link:task_upgrade_rcf_files_on_mcc_ip_switches.html["升级MetroCluster IP交换机上的RCP文件。"]
+NOTE: 如果您在连接 NS224 磁盘架的共享配置中使用 Cisco 9336C-FX2 交换机，并且需要升级 RCF 并为新的 ISL 端口应用新配置，请按照以下步骤操作：link:task_upgrade_rcf_files_on_mcc_ip_switches.html["升级 MetroCluster IP 交换机上的 RCF。"]
 
 +
 [cols="30,70"]

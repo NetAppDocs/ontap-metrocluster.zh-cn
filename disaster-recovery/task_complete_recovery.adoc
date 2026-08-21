@@ -245,10 +245,6 @@ Remote: cluster_A         Configuration state configured
 +
 `MetroCluster config-replication resync-status show`
 
-. 重新建立任何 SnapMirror 或 SnapVault 配置。
-+
-在 ONTAP 8.3 中，您需要在执行 MetroCluster 切回操作后手动重新建立丢失的 SnapMirror 配置。在 ONTAP 9.0 及更高版本中，系统会自动重新建立此关系。
-
 
 
 

@@ -48,6 +48,7 @@ NOTE: 应用RCF文件期间发生的所有其他配置更改都将还原到原�
 * 您必须对 MetroCluster IP 配置中的每个 IP 交换机重复这些步骤。
 * 您必须使用串行控制台连接连接到交换机。
 * 此任务将重置管理网络的配置。
+* 如果要将这些步骤作为交换机更换或升级等其他过程的一部分，请检查是否需要将集群 LIF 移动到伙伴交换机以启用无中断集群操作。link:task_install_and_cable_the_mcc_components.html["了解有关配置 MetroCluster IP 交换机的信息"].
 
 
 .步骤
@@ -128,6 +129,7 @@ Enter yes or no: yes
 NOTE: 有关安装Cumulus Linux的详细信息、请参见 link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html#initial-configuration-overview["NVIDIA SN2100交换机安装和配置概述"^]
 
 * 您必须具有`sudo`命令访问权限的root密码。
+* 如果要将这些步骤作为交换机更换或升级等其他过程的一部分，请检查是否需要将集群 LIF 移动到伙伴交换机以启用无中断集群操作。link:task_install_and_cable_the_mcc_components.html["了解有关配置 MetroCluster IP 交换机的信息"].
 
 
 .步骤
@@ -314,10 +316,14 @@ cumulus@cumulus:~$ sudo reboot
 
 NOTE: 如果在重置交换机后以及应用RCF文件之前执行进一步配置、则无法使用此操作步骤。
 
+* 如果要将这些步骤作为交换机更换或升级等其他过程的一部分，请检查是否需要将集群 LIF 移动到伙伴交换机以启用无中断集群操作。link:task_install_and_cable_the_mcc_components.html["了解有关配置 MetroCluster IP 交换机的信息"].
 
 
 .关于此任务
 您必须对MetroCluster IP配置(新安装)中的每个IP交换机或替代交换机(交换机更换)重复上述步骤。
+
+
+NOTE: 您必须按以下顺序更新交换机：Switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。如果您的操作步骤要求您移动集群 LIF，则必须在配置第一个网络结构（Switch_A_1、Switch_B_1）中的交换机后，重复在第二个网络结构（Switch_A_2、Switch_B_2）上移动集群 LIF 的步骤。请参阅 link:task_install_and_cable_the_mcc_components.html["了解有关配置 MetroCluster IP 交换机的信息"]。
 
 如果您使用的是QSFP-SFP+适配器、则可能需要将ISL端口配置为本机速度模式、而不是分支速度模式。请参见交换机供应商文档以确定ISL端口速度模式。
 
@@ -405,6 +411,81 @@ cumulus@IP_switch_A_1:mgmt:~$
 +
 
 NOTE: 如果为多个交换机端口设置了DAC选项、则只需重新启动交换机一次。
+
+. 验证是否为集群 LIF 启用了自动还原：
++
+`network interface show - vserver cluster -fields auto-revert`
+
++
+
+CAUTION: 您必须确保为集群 LIF 启用自动还原。
+
+. 如果未启用自动还原，请修改所有集群 LIF 以启用自动还原：
++
+
+NOTE: 如果这些步骤是作为其他过程（例如交换机更换或升级）的一部分执行的，则您可能已在执行 link:switch-move-cluster-lifs.html["移动集群 LIF"] 步骤时禁用了自动还原功能。
+
++
+.. 重新启用自动还原：
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
++
+[listing]
+----
+cluster_A::*> network interface modify -vserver Cluster -lif * -auto-revert true
+
+Warning: Changes to a cluster LIF can affect the health of the Cluster. Are you
+         sure you want to continue? {y|n}: y
+4 entries were modified.
+
+cluster_A::*>
+----
+.. 将所有当前不在原端口上的集群 LIF 恢复到其原端口：
++
+`network interface revert -vserver Cluster -lif *`
+
++
+请稍等几分钟，以便 LIF 恢复到其主端口：
+
+.. 确认所有 LIF 都在其主端口上：
++
+[listing]
+----
+cluster_A::*> network interface show -role cluster
+            Logical        Status     Network            Current       Current Is
+Vserver     Interface      Admin/Oper Address/Mask       Node          Port    Home
+----------- -------------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node_A_1_clus1 up/up      192.168.204.88/18  node_A_1      e4a     true
+            node_A_1_clus2 up/up      192.168.204.93/18  node_A_1      e4b     true
+            node_A_2_clus1 up/up      192.168.204.96/18  node_A_2      e4a     true
+            node_A_2_clus2 up/up      192.168.204.97/18  node_A_2      e4b     true
+4 entries were displayed.
+----
+.. 确认 MetroCluster 节点的状态：
++
+`MetroCluster node show`
+
++
+[listing]
+----
+cluster_A::*> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1           configured     enabled   normal
+              node_A_2           configured     enabled   normal
+      cluster_B
+              node_B_1           configured     enabled   normal
+              node_B_2           configured     enabled   normal
+4 entries were displayed.
+
+cluster_A::*>
+----
+
 
 
 

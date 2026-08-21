@@ -155,6 +155,7 @@ volumes             ok
 
 
 
+. link:../install-ip/switch-move-cluster-lifs.html["移动集群 LIF"] 在开始升级之前。
 . 在第一台交换机上安装软件。
 +
 
@@ -170,5 +171,9 @@ NOTE: 您必须按以下顺序在交换机上安装交换机软件： switch_A_1
 
 
 . 对每个交换机重复上述步骤。
++
+
+NOTE: 在第一个网络结构（Switch_A_1、Switch_B_1）中配置交换机后，必须重复执行相关步骤，以移动第二个网络结构（Switch_A_2、Switch_B_2）上的集群 LIF。请参阅link:../install-ip/task_install_and_cable_the_mcc_components.html["了解有关配置 MetroCluster IP 交换机的信息"]。
+
 . 重复 <<step_1_fw_upgrade,第 1 步>> 以检查配置的运行状况。
 

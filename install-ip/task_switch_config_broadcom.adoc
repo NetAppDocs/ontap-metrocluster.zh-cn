@@ -31,6 +31,7 @@ NOTE: 在以下情况下、您的配置需要额外的许可证(6个100-GB端口
 * 您必须对 MetroCluster IP 配置中的每个 IP 交换机重复这些步骤。
 * 您必须使用串行控制台连接到交换机。
 * 此任务将重置管理网络的配置。
+* 如果要将这些步骤作为交换机更换或升级等其他过程的一部分，请检查是否需要将集群 LIF 移动到伙伴交换机以启用无中断集群操作。link:task_install_and_cable_the_mcc_components.html["了解有关配置 MetroCluster IP 交换机的信息"].
 
 
 .步骤
@@ -303,6 +304,8 @@ Configuration Saved!
 .关于此任务
 必须对 MetroCluster IP 配置中的每个交换机重复执行此任务。
 
+如果要将这些步骤作为交换机更换或升级等其他过程的一部分，请检查是否需要将集群 LIF 移动到伙伴交换机以启用无中断集群操作。link:task_install_and_cable_the_mcc_components.html["了解有关配置 MetroCluster IP 交换机的信息"].
+
 []
 ====
 * 请注意以下事项： *
@@ -533,6 +536,85 @@ NOTE: 在极少数情况下，交换机可能无法启动。按照 <<使用 ONIE
 
 
 . 对 MetroCluster IP 配置中的其余三个 IP 交换机重复上述步骤。
++
+
+NOTE: 您必须按以下顺序更新交换机：Switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。如果您的操作步骤要求您移动集群 LIF，则必须在配置第一个网络结构（Switch_A_1、Switch_B_1）中的交换机后，重复在第二个网络结构（Switch_A_2、Switch_B_2）上移动集群 LIF 的步骤。请参阅 link:task_install_and_cable_the_mcc_components.html["了解有关配置 MetroCluster IP 交换机的信息"]。
+
+. 验证是否为集群 LIF 启用了自动还原：
++
+`network interface show - vserver cluster -fields auto-revert`
+
++
+
+CAUTION: 您必须确保为集群 LIF 启用自动还原。
+
+. 如果未启用自动还原，请修改所有集群 LIF 以启用自动还原：
++
+
+NOTE: 如果这些步骤是作为其他过程（例如交换机更换或升级）的一部分执行的，则您可能已在执行 link:switch-move-cluster-lifs.html["移动集群 LIF"] 步骤时禁用了自动还原功能。
+
++
+.. 重新启用自动还原：
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
++
+[listing]
+----
+cluster_A::*> network interface modify -vserver Cluster -lif * -auto-revert true
+
+Warning: Changes to a cluster LIF can affect the health of the Cluster. Are you
+         sure you want to continue? {y|n}: y
+4 entries were modified.
+
+cluster_A::*>
+----
+.. 将所有当前不在原端口上的集群 LIF 恢复到其原端口：
++
+`network interface revert -vserver Cluster -lif *`
+
++
+请稍等几分钟，以便 LIF 恢复到其主端口：
+
+.. 确认所有 LIF 都在其主端口上：
++
+[listing]
+----
+cluster_A::*> network interface show -role cluster
+            Logical        Status     Network            Current       Current Is
+Vserver     Interface      Admin/Oper Address/Mask       Node          Port    Home
+----------- -------------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node_A_1_clus1 up/up      192.168.204.88/18  node_A_1      e4a     true
+            node_A_1_clus2 up/up      192.168.204.93/18  node_A_1      e4b     true
+            node_A_2_clus1 up/up      192.168.204.96/18  node_A_2      e4a     true
+            node_A_2_clus2 up/up      192.168.204.97/18  node_A_2      e4b     true
+4 entries were displayed.
+----
+.. 确认 MetroCluster 节点的状态：
++
+`MetroCluster node show`
+
++
+[listing]
+----
+cluster_A::*> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1           configured     enabled   normal
+              node_A_2           configured     enabled   normal
+      cluster_B
+              node_B_1           configured     enabled   normal
+              node_B_2           configured     enabled   normal
+4 entries were displayed.
+
+cluster_A::*>
+----
+
+
 
 
 
@@ -696,6 +778,8 @@ unit 	active 	   backup   current-active  next-active
 
 .关于此任务
 必须对 MetroCluster IP 配置中的每个 IP 交换机重复执行这些步骤。
+
+如果要将这些步骤作为交换机更换或升级等其他过程的一部分，请检查是否需要将集群 LIF 移动到伙伴交换机以启用无中断集群操作。link:task_install_and_cable_the_mcc_components.html["了解有关配置 MetroCluster IP 交换机的信息"].
 
 有四个 RCF 文件， MetroCluster IP 配置中的四个交换机中的每个交换机一个。您必须为所使用的交换机型号使用正确的 RCF 文件。
 
@@ -897,6 +981,85 @@ Are you sure you would like to reset the system? (y/n) y
 IP_switch_A_1# reload
 ----
 . 对 MetroCluster IP 配置中的其他三台交换机重复上述步骤。
++
+
+NOTE: 您必须按以下顺序更新交换机：Switch_A_1、Switch_B_1、Switch_A_2、Switch_B_2。如果您的操作步骤要求您移动集群 LIF，则必须在配置第一个网络结构（Switch_A_1、Switch_B_1）中的交换机后，重复在第二个网络结构（Switch_A_2、Switch_B_2）上移动集群 LIF 的步骤。请参阅 link:task_install_and_cable_the_mcc_components.html["了解有关配置 MetroCluster IP 交换机的信息"]。
+
+. 验证是否为集群 LIF 启用了自动还原：
++
+`network interface show - vserver cluster -fields auto-revert`
+
++
+
+CAUTION: 您必须确保为集群 LIF 启用自动还原。
+
+. 如果未启用自动还原，请修改所有集群 LIF 以启用自动还原：
++
+
+NOTE: 如果这些步骤是作为其他过程（例如交换机更换或升级）的一部分执行的，则您可能已在执行 link:switch-move-cluster-lifs.html["移动集群 LIF"] 步骤时禁用了自动还原功能。
+
++
+.. 重新启用自动还原：
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
++
+[listing]
+----
+cluster_A::*> network interface modify -vserver Cluster -lif * -auto-revert true
+
+Warning: Changes to a cluster LIF can affect the health of the Cluster. Are you
+         sure you want to continue? {y|n}: y
+4 entries were modified.
+
+cluster_A::*>
+----
+.. 将所有当前不在原端口上的集群 LIF 恢复到其原端口：
++
+`network interface revert -vserver Cluster -lif *`
+
++
+请稍等几分钟，以便 LIF 恢复到其主端口：
+
+.. 确认所有 LIF 都在其主端口上：
++
+[listing]
+----
+cluster_A::*> network interface show -role cluster
+            Logical        Status     Network            Current       Current Is
+Vserver     Interface      Admin/Oper Address/Mask       Node          Port    Home
+----------- -------------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node_A_1_clus1 up/up      192.168.204.88/18  node_A_1      e4a     true
+            node_A_1_clus2 up/up      192.168.204.93/18  node_A_1      e4b     true
+            node_A_2_clus1 up/up      192.168.204.96/18  node_A_2      e4a     true
+            node_A_2_clus2 up/up      192.168.204.97/18  node_A_2      e4b     true
+4 entries were displayed.
+----
+.. 确认 MetroCluster 节点的状态：
++
+`MetroCluster node show`
+
++
+[listing]
+----
+cluster_A::*> metrocluster node show
+
+DR                               Configuration  DR
+Group Cluster Node               State          Mirroring Mode
+----- ------- ------------------ -------------- --------- --------------------
+1     cluster_A
+              node_A_1           configured     enabled   normal
+              node_A_2           configured     enabled   normal
+      cluster_B
+              node_B_1           configured     enabled   normal
+              node_B_2           configured     enabled   normal
+4 entries were displayed.
+
+cluster_A::*>
+----
+
+
 
 
 

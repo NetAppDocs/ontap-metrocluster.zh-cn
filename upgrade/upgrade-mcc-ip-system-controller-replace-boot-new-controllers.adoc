@@ -160,6 +160,10 @@ Rebooting to load the restored env file...
 +
 根据密钥管理器设置，执行恢复操作步骤的方法是在第一个启动菜单提示符处选择选项 "`10` " 或选项 "`11` " ，然后选择选项 "`6` " 。要完全启动节点，您可能需要重复恢复操作步骤，然后选择 "`1` " （正常启动）。
 
++
+
+NOTE: 运行启动菜单选项 `6`时，可能需要重置 MetroCluster bootarg 值。请参阅link:upgrade-mcc-ip-system-controller-replace-apply-rcf-set-bootarg.html#set-the-metrocluster-ip-bootarg-variables["设置 MetroCluster IP bootarg 变量"]。
+
 . 启动节点：
 +
 `boot_ontap`

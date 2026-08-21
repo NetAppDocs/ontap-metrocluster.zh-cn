@@ -11,7 +11,7 @@ summary: 您必须将 RCF 文件下载到 MetroCluster 网络结构配置中的�
 
 
 [role="lead"]
-您必须将 RCF 文件下载到 MetroCluster 网络结构配置中的每个交换机。
+必须将参考配置文件 (RCF) 下载到 MetroCluster 结构配置中的每个交换机。
 
 .开始之前
 此任务需要使用 FTP ，简单文件传输协议（ Trivial File Transfer Protocol ， TFTP ）， SFTP 或安全复制协议（ Secure Copy Protocol ， SCP ）等文件传输软件将文件复制到交换机。
@@ -23,12 +23,12 @@ summary: 您必须将 RCF 文件下载到 MetroCluster 网络结构配置中的�
 
 https://hwu.netapp.com["NetApp Hardware Universe"]
 
-有四个 RCF 文件， MetroCluster 网络结构配置中的四个交换机中的每个交换机一个。您必须为所使用的交换机型号使用正确的 RCF 文件。
+共有四个 RCF，分别对应 MetroCluster fabric 配置中的四个交换机。您必须使用适用于您所使用的交换机型号的正确 RCF。
 
 |===
 
 
-| 交换机 | RCF 文件 
+| 交换机 | RCF 
 
 
  a| 
@@ -62,15 +62,15 @@ FC_switch_B_2
 NOTE: 显示的输出适用于 Cisco IP 交换机；但是，这些步骤也适用于 Cisco FC 交换机。
 
 .步骤
-. 从下载 Cisco FC RCF 文件 https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["MetroCluster RCF 下载页面"]。
-. 将 RCF 文件复制到交换机。
+. 从 https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["MetroCluster RCF 下载页面"]下载 Cisco FC RCF。
+. 将 RCF 复制到交换机。
 +
-.. 将 RCF 文件复制到第一个交换机：
+.. 将 RCF 复制到第一个交换机：
 +
 `copy sftp ： //_root@ftp-server-ip-address/tftpboot/switch-specific RCF_ bootflash ： vRF management`
 
 +
-在此示例中，将 `NX3232_v1.80% Switch-A1.txt` RCF 文件从 `10.10.99.99` 的 SFTP 服务器复制到本地 bootflash 。您必须使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 文件的文件名。
+在此示例中， `NX3232_v1.80_Switch-A1.txt` RCF 从位于  `10.10.99.99` 的 SFTP 服务器复制到本地引导闪存。您必须使用 TFTP/SFTP 服务器的 IP 地址以及需要安装的 RCF 的文件名。
 
 +
 [listing]
@@ -86,10 +86,10 @@ sftp> exit
 Copy complete, now saving to disk (please wait)...
 IP_switch_A_1#
 ----
-.. 对其他三个交换机中的每一个交换机重复上述子步骤，确保将匹配的 RCF 文件复制到相应的交换机。
+.. 对其他三台交换机中的每台交换机重复前面的子步骤，确保将匹配的 RCF 复制到相应的交换机。
 
 
-. 在每个交换机上验证 RCF 文件是否位于每个交换机的 `bootflash` 目录中：
+. 在每台交换机上验证 RCF 是否存在于每台交换机的 `bootflash`目录中：
 +
 `d的 bootflash ：`
 
@@ -114,11 +114,11 @@ Usage for bootflash://sup-local
 15018205184 bytes total
 IP_switch_A_1#
 ----
-. 将匹配的 RCF 文件从本地 bootflash 复制到每个交换机上的运行配置：
+. 将匹配的 RCF 从本地引导闪存复制到每台交换机上的运行配置：
 +
 `copy bootflash ： __switch-specific-RCF__.txt running-config`
 
-. 将 RCF 文件从正在运行的配置复制到每个交换机上的启动配置：
+. 将每台交换机上的 RCF 从运行配置复制到启动配置：
 +
 `copy running-config startup-config`
 

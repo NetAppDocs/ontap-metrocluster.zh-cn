@@ -52,9 +52,6 @@ summary: 如果发生灾难，则必须在切换后对灾难集群和正常运�
 
 
 
-
-NOTE: 系统会自动删除 SnapMirror 和 SnapVault 配置。
-
 .关于此任务
 `MetroCluster switchover` 命令可切换 MetroCluster 配置中所有 DR 组中的节点。例如，在八节点 MetroCluster 配置中，它会切换两个 DR 组中的节点。
 
@@ -89,9 +86,6 @@ mcc1A::> metrocluster operation show
 如果切换被否决，您可以使用 ` -override-vetoes` 选项重新发出 `MetroCluster switchover-forced-on-disaster true` 命令。如果您使用此可选参数，则系统将覆盖阻止切换的任何软否决。
 
 
-
-.完成后
-需要在切换后重新建立 SnapMirror 关系。
 
 
 
