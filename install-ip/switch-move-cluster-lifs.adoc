@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ip, switch, configuring, configure, factory defaults, cisco, MACsec encryption, 9336C, 9336, forward error correction, fec 
 summary: '更新交换机固件或参考配置文件 (RCF) 时，将集群 LIF 移至配对交换机，以便在升级期间实现无中断集群操作。' 
 ---
-= 在更换 MetroCluster IP 交换机、RCF 更改或固件更新之前移动集群 LIF
+= 在 MetroCluster IP 配置中进行交换机、RCF 或固件更改之前移动集群 LIF
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

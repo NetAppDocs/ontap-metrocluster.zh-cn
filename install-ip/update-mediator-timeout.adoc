@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ontap, metrocluster, mediator, timeout, settings, change, update, default, value 
 summary:  
 ---
-= 增加 MetroCluster IP 配置中的默认 ONTAP Mediator 邮箱超时
+= 增加 MetroCluster IP 配置中的 ONTAP Mediator 邮箱超时
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

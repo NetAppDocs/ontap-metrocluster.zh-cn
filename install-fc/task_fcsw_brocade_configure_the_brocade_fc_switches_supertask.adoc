@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: MetroCluster configurations 
 summary: 您必须配置 MetroCluster 配置中的每个 Brocade 交换机网络结构。 
 ---
-= 手动配置 Brocade FC 交换机
+= 在 MetroCluster FC 配置中手动配置 Brocade FC 交换机
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

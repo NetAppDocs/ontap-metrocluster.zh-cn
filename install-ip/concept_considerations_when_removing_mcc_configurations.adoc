@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove, removing, metrocluster, configuration, disk, connectivity, interconnect, adjust, support, state, remove, technical, support, consideration, contact 
 summary: 删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。 
 ---
-= 删除 MetroCluster 配置
+= 删除 MetroCluster IP 配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, reset, brocade, fc, switch, factory, defaults 
 summary: 在安装新软件版本和 RCF 文件之前，您必须擦除当前交换机配置并执行基本配置。 
 ---
-= 将 Brocade FC 交换机重置为出厂默认值
+= 在 MetroCluster FC 配置中将 Brocade FC 交换机重置为出厂默认值
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

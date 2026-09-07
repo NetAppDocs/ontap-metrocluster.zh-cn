@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fc, switch, configuring 
 summary: 您必须配置FC交换机以提供后端MetroCluster FC连接。 
 ---
-= 配置交换机
+= 在 MetroCluster FC 配置中配置 FC 交换机
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

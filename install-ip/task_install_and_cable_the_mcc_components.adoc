@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ip, switch, configuring 
 summary: 您必须配置IP交换机以提供后端MetroCluster IP连接。 
 ---
-= 了解有关配置 MetroCluster IP 交换机的信息
+= MetroCluster IP 的交换机配置工作流程
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

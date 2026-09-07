@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, fabric, installation, configure, brocade, switches, cisco 
 summary:  
 ---
-= FC交换机配置概述
+= MetroCluster FC 中的 FC 交换机配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

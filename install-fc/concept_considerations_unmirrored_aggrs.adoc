@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: preparing, prepare, metrocluster, mcc, installation, install, differences, configurations, between, considerations, all, san, array, asa, cluster, peering, prerequisites, dedicated, ports, sharing, data, ports, native, disk, shelves, array, luns, transitions, 7-mode, isls, tdm/wdm, fabric-attached, iod, ood, encryption, devices, unmirrored, aggregates, maintenance, requiring, power, shutdown, firewall, hardware, racking, cabling, setup, checklist, all san array, asa 
 summary: 如果您的配置包含未镜像聚合，则必须注意在执行切换操作后可能出现的访问问题。 
 ---
-= 使用未镜像聚合时的注意事项
+= MetroCluster FC 配置中的未镜像聚合
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

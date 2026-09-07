@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, applicable, configuration, file, nvidia, cluster, switch, health, monitor, ontap 
 summary: 您可以使用此过程为监控NVIDIA SN2100集群交换机的集群交换机运行状况安装适用的配置文件。 
 ---
-= 为NVIDIA SN2100 MetroCluster IP 交换机安装以太网交换机健康监视器配置文件
+= 为 NVIDIA SN2100 MetroCluster IP 交换机安装 CSHM 文件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

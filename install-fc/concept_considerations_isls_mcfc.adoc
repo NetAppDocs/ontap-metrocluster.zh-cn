@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: preparing, prepare, metrocluster, mcc, installation, install, differences, configurations, between, considerations, all, san, array, asa, cluster, peering, prerequisites, dedicated, ports, sharing, data, ports, native, disk, shelves, array, luns, transitions, 7-mode, isls, tdm/wdm, fabric-attached, iod, ood, encryption, devices, unmirrored, aggregates, maintenance, requiring, power, shutdown, firewall, hardware, racking, cabling, setup, checklist, all san array, asa, san 
 summary: 您必须确定 MetroCluster 配置中每个 FC 交换机网络结构需要多少 ISL 。 
 ---
-= ISL 注意事项
+= MetroCluster FC 配置中的 ISL 要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
