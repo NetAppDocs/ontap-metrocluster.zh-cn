@@ -13,11 +13,21 @@ summary: 您可能需要更换发生故障的交换机，或者升级或降级�
 [role="lead"]
 您可能需要更换发生故障的交换机、升级或降级交换机或更改现有MetroCluster IP交换机的使用。
 
+
+CAUTION: 如果需要在 AFF A220、AFF A250 或 FAS2750 平台上执行交换机更换，请参阅 link:https://kb.netapp.com/on-prem/ontap/mc/MC-KBs/Cluster_and_HA_communication_issues_during_back-end_switch_replacement["知识库文章"Cluster and HA communication issues during back-end switch replacement""^]。
+
 .关于此任务
 使用经过 NetApp 验证的交换机时，此操作步骤 适用。如果您使用的是符合 MetroCluster 的交换机，请咨询交换机供应商。
 
 link:enable-console-logging-before-maintenance.html["启用控制台日志记录"] 执行此任务之前。
 
+[NOTE]
+====
+使用 X60134A 网络接口卡的平台不支持混合链路速度。要检查您的平台是否受到影响，请参见 https://hwu.netapp.com/["Hardware Universe"^]。
+
+如果您要在受影响的平台上将使用 25G 端口的交换机替换为使用 100G 端口的新交换机（例如，在 AFF A50 平台上将 BES-53248 交换机替换为 Cisco 9336C 交换机），请参阅 link:https://kb.netapp.com/on-prem/ontap/mc/MC-KBs/100G_link_not_coming_online_during_MetroCluster_back-end_switch_replacement?caseId=2010523490["知识库文章"MetroCluster 后端交换机更换期间 100G 链路未上线""^]。
+
+====
 此操作步骤 支持以下转换：
 
 * 更改交换机供应商、类型或两者。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。

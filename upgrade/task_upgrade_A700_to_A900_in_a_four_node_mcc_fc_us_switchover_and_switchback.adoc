@@ -960,23 +960,50 @@ FC 启动程序
 `ha-config show`
 
 +
-所有组件的 HA 状态均应为 mcc 。
+所有组件的 HA 状态应为 `mcc`。
 
-. 如果显示的控制器或机箱系统状态不正确，请设置 HA 状态：
+. 如果显示的控制器系统状态不正确，请设置控制器模块和机箱的 HA 状态：
 +
 `ha-config modify controller mcc`
 
 +
 `ha-config modify chassis mcc`
 
-. 暂停节点： `halt` 节点应在 `loader>` 提示符处停止。
-. 在每个节点上，检查系统日期，时间和时区： `show date`
-. 如有必要，请使用 UTC 或格林威治标准时间（ GMT ）： `set date <MM/dd/yyy>` 设置日期
-. 在启动环境提示符处使用以下命令检查时间： `show time`
-. 如有必要，请以 UTC 或 GMT 格式设置时间： `set time <hh ： mm ： ss>`
-. 保存设置： `saveenv`
-. 收集环境变量： `printenv`
-. 将节点重新启动到维护模式，以使配置更改生效： `boot_ontap maint`
+. 暂停节点：
++
+`halt`
+
++
+节点应停止在 `loader>` 提示符处。
+
+. 在每个节点上，检查系统日期、时间和时区：
++
+`show date`
+
+. 如有必要，请以 UTC 或格林威治标准时间（GMT）设置日期：
++
+`set date <mm/dd/yyyy>`
+
+. 在引导环境提示符处使用以下命令检查时间：
++
+`show time`
+
+. 如有必要，请以 UTC 或 GMT 设置时间：
++
+`set time <hh:mm:ss>`
+
+. 保存设置：
++
+`saveenv`
+
+. 收集环境变量：
++
+`printenv`
+
+. 将节点启动回维护模式以应用配置更改：
++
+`boot_ontap maint`
+
 . 验证所做的更改是否有效， ucadmin 是否显示 FC 启动程序端口联机。
 +
 |===
@@ -998,9 +1025,13 @@ FC
 `fcadmin show`
 
 |===
-. 验证 ha-config 模式： `ha-config show`
+. 验证 ha-config 模式：
 +
-.. 验证您是否具有以下输出：
+`ha-config show`
+
++
+输出结果应与以下示例类似：
+
 +
 [listing]
 ----
@@ -1008,70 +1039,6 @@ FC
 Chassis HA configuration: mcc
 Controller HA configuration: mcc
 ----
-
-
-
-
-
-
-[[set-the-ha-state-on-the-new-controllers-and-chassis]]
-=== 在新控制器和机箱上设置 HA 状态
-
-您必须验证控制器和机箱的 HA 状态，并在必要时更新此状态以匹配您的系统配置。
-
-.步骤
-. 在维护模式下，显示控制器模块和机箱的 HA 状态：
-+
-`ha-config show`
-
-+
-所有组件的 HA 状态均应为 mcc 。
-
-+
-|===
-
-
-| 如果 MetroCluster 配置 ... | HA 状态应为 ... 
-
-
- a| 
-两个节点
- a| 
-MCC-2n
-
-
-
- a| 
-四个或八个节点
- a| 
-MCC
-
-|===
-. 如果显示的控制器系统状态不正确，请设置控制器模块和机箱的 HA 状态：
-+
-|===
-
-
-| 如果 MetroCluster 配置 ... | 问题描述这些命令 ... 
-
-
- a| 
-* 两个节点 *
- a| 
-`ha-config modify controller mcc-2n`
-
-`ha-config modify chassis mcc-2n`
-
-
-
- a| 
-* 四个或八个节点 *
- a| 
-`ha-config modify controller mcc`
-
-`ha-config modify chassis mcc`
-
-|===
 
 
 

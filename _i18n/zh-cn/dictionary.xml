@@ -8677,15 +8677,9 @@
   <block id="504d065328326a8677a260e4447bea63" category="paragraph">控制器模块重新启动，但停留在启动菜单处，因为启动设备已重新格式化，并且需要还原配置数据。</block>
   <block id="f02a9a7436db38c9278de96d8940fedc" category="list-text">当您看到以下消息时，问题解答 `yes` ： `此操作将删除关键系统配置，包括集群成员资格。警告：不要在已被接管的 HA 节点上运行此选项。确实要继续？：`</block>
   <block id="e3dcb6e98d703b4041ac7a4b6d40412e" category="list-text">从启动菜单中选择选项 `5` 以转到维护模式。按问题解答 `yes` 显示提示，直到节点在维护模式和命令提示符 ` * &gt;` 停止。</block>
-  <block id="9c70e72e74a5beec346c7fba9e09ac77" category="list-text">暂停节点： `halt` 节点应在 `loader&gt;` 提示符处停止。</block>
-  <block id="a9c684b6388493b28c8bae9224fcb530" category="list-text">在每个节点上，检查系统日期，时间和时区： `show date`</block>
-  <block id="19940e0e663b8b77ef5ae9bed0adc639" category="list-text">如有必要，请使用 UTC 或格林威治标准时间（ GMT ）： `set date &lt;MM/dd/yyy&gt;` 设置日期</block>
-  <block id="17cd34e04880fa15bf7da7bdee12d187" category="list-text">将节点重新启动到维护模式，以使配置更改生效： `boot_ontap maint`</block>
   <block id="92864f4a1e3e8b31f329dde898c399e7" category="list-text">验证所做的更改是否有效， ucadmin 是否显示 FC 启动程序端口联机。</block>
   <block id="9be73b3dd95d39ff15e33b30275709d3" category="cell">如果您使用此类型的 HBA…</block>
   <block id="8ad2992d6c032a4514706c63ee5d4d1b" category="cell">使用此命令…</block>
-  <block id="6f991264f748ca5e72084279b6293fcc" category="list-text">验证 ha-config 模式： `ha-config show`</block>
-  <block id="351a906b91969bd3f60ac4f7ef2b51fe" category="list-text">验证您是否具有以下输出：</block>
   <block id="ee4c38ecc362bac1e7f1567f237e818c" category="list-text">从 `LOADER` 提示符处暂停系统并启动到维护模式：</block>
   <block id="1ecb0dfe9a0842837109d6fe31c0a171" category="list-text">显示 node_B_1-A700 拥有的磁盘：</block>
   <block id="241f0ee84bd4513482899f61a24c6961" category="paragraph">示例输出显示了新控制器模块（ 1574774970 ）的系统 ID 。但是，根聚合磁盘仍归旧系统 ID （ 4068741254 ）所有。此示例不显示 MetroCluster 配置中其他节点拥有的驱动器。</block>
@@ -10810,7 +10804,6 @@
   <block id="16d9a40603d44eea561b00730eec3d91" category="paragraph">ONTAP 9.12.1及更高版本</block>
   <block id="4951fe611f97b799b2abaf7474848aa1" category="inline-link-macro">操作系统支持列表</block>
   <block id="30177b72c8d5a1bab13142ff42dfc513" category="paragraph">请参见 <block ref="9f4435e7cf286b329f02bc934ba0dd4b" category="inline-link-macro-rx"></block> 了解详细信息。</block>
-  <block id="e27eee16ff4c1ce2072fea31052ce7d5" category="paragraph">无依赖关系与安装捆绑在一起。</block>
   <block id="4a558332080902b1daf6c9eb900f075a" category="summary">您遵循的Tieb破碎 机安装操作步骤取决于您正在安装的Tieb破碎 机版本。</block>
   <block id="686cbe9ae98dac9e3c34fe747bedda27" category="doc">选择您的安装操作步骤</block>
   <block id="de537937e28d6ff9bfed73c24f238620" category="paragraph">Tieb破碎 机1.6</block>
@@ -14743,4 +14736,23 @@
   <block id="edb9b445f13c3e9e05b61cc6e0b3efdc" category="doc">为 MetroCluster IP 配置配置 NVIDIA IP SN2100 交换机</block>
   <block id="20e757ff864b6acd14ec41e7165a63f9" category="doc">增加 MetroCluster IP 配置中的 ONTAP Mediator 邮箱超时</block>
   <block id="f081a35160d006cd5323e0740d06220e" category="doc">MetroCluster IP 配置的端口表</block>
+  <block id="e0ff38f1490ce2495524f7429045ad81" category="inline-link-macro">知识库文章"Cluster and HA communication issues during back-end switch replacement"</block>
+  <block id="93c539486532bcd2c15f294efff69106" category="admonition">如果需要在 AFF A220、AFF A250 或 FAS2750 平台上执行交换机更换，请参阅 <block ref="3468e696d0ad9ec4d429e1b845c952a7" category="inline-link-macro-rx"></block>。</block>
+  <block id="fe4617c4a015a1feba78882255c11625" category="paragraph">使用 X60134A 网络接口卡的平台不支持混合链路速度。要检查您的平台是否受到影响，请参见<block ref="a9613e1dbacf145285c45df4264fe797" category="inline-link-rx"></block>。</block>
+  <block id="5f0a2538bca6fe75656437edc2b047c7" category="inline-link-macro">知识库文章"MetroCluster 后端交换机更换期间 100G 链路未上线"</block>
+  <block id="657f971f966b2ce2da53f2f9bf9abb4b" category="paragraph">如果您要在受影响的平台上将使用 25G 端口的交换机替换为使用 100G 端口的新交换机（例如，在 AFF A50 平台上将 BES-53248 交换机替换为 Cisco 9336C 交换机），请参阅 <block ref="6b31e2facf5f0ecbaec230ff30732341" category="inline-link-macro-rx"></block>。</block>
+  <block id="2c949cfd6a2e8390ab22577d8fcb8862" category="paragraph">无。OpenJDK 19.0.2 与安装包捆绑在一起。</block>
+  <block id="cbf667b7a6abb8a525741cdc92045f34" category="paragraph">所有组件的 HA 状态应为<block ref="f46f944e351f8b92e40c3308318738a3" prefix=" " category="inline-code"></block>。</block>
+  <block id="de63ff438cd7316a835d354fccfe0c46" category="list-text">在每个节点上，检查系统日期、时间和时区：</block>
+  <block id="3e72511c09e554faf49052f79d627689" category="paragraph"><block ref="7e17e2b336dbdd66c2f45405573b53de" prefix="" category="inline-code"></block></block>
+  <block id="1bf5eb31de796d79cb8b6dfd332d4bb6" category="list-text">如有必要，请以 UTC 或格林威治标准时间（GMT）设置日期：</block>
+  <block id="833ce90830a0406f310191c0da1f76da" category="paragraph"><block ref="ce2b665b5815a9c7e13cdb6fc96a5a98" prefix="" category="inline-code"></block></block>
+  <block id="b6d433a7d610fd177455bd83030adfbf" category="list-text">在引导环境提示符处使用以下命令检查时间：</block>
+  <block id="667f3a6a11750e110d0c1442d2aa20e7" category="paragraph"><block ref="33f065aac47385ce7b7c4bc5d49f430b" prefix="" category="inline-code"></block></block>
+  <block id="3cc2598fed5ed84edf9cf18c5a8293c6" category="list-text">如有必要，请以 UTC 或 GMT 设置时间：</block>
+  <block id="25a249a3cdba620e6eba67639be13589" category="paragraph"><block ref="aa979bf34f52b205295408bd829f28b6" prefix="" category="inline-code"></block></block>
+  <block id="e02ed2f754f906507b04045b6d64c6a8" category="list-text">保存设置：</block>
+  <block id="be169689a01b80888d8e5aa7db10c6e9" category="list-text">收集环境变量：</block>
+  <block id="c464415fe9040cd42442afd5413727d2" category="list-text">验证 ha-config 模式：</block>
+  <block id="bb903f8039d8d74f0348f46c24a33392" category="paragraph">输出结果应与以下示例类似：</block>
 </blocks>

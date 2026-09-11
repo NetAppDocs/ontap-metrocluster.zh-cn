@@ -34,7 +34,7 @@ ONTAP 9.12.1及更高版本
  a| 
 请参见 link:whats_new.html#os-support-matrix["操作系统支持列表"] 了解详细信息。
  a| 
-无依赖关系与安装捆绑在一起。
+无。OpenJDK 19.0.2 与安装包捆绑在一起。
 
 
 
@@ -45,7 +45,7 @@ ONTAP 9.12.1及更高版本
  a| 
 请参见 link:whats_new.html#os-support-matrix["操作系统支持列表"] 了解详细信息。
  a| 
-无依赖关系与安装捆绑在一起。
+无。OpenJDK 19.0.2 与安装包捆绑在一起。
 
 
 
@@ -56,7 +56,7 @@ ONTAP 9.12.1及更高版本
  a| 
 请参见 link:whats_new.html#os-support-matrix["操作系统支持列表"] 了解详细信息。
  a| 
-无依赖关系与安装捆绑在一起。
+无。OpenJDK 19.0.2 与安装包捆绑在一起。
 
 
 
