@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, online, offline, ip, interface port 
 summary: 执行维护时、您可能需要关闭MetroCluster IP接口端口。 
 ---
-= 联机或脱机MetroCluster IP接口端口
+= 在 MetroCluster IP 配置中使接口端口联机或脱机
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

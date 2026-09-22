@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service 
 summary: 您可以在 MetroCluster 配置中维护 MetroCluster 专用的硬件组件。 
 ---
-= 维护 MetroCluster 组件
+= 了解有关维护 MetroCluster 硬件组件的信息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

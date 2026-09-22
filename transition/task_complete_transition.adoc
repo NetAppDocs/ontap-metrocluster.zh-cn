@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Generating and applying RCFs to the new IP switches, review, requirement, preparing, prepare, transition, perform, procedure, order, completing, complete, step, task, moving, move, controller, storage, shelves, shelf, exist, configuration, direct, metrocluster, fc, ip, verify, health, removing, remove, tiebreaker, monitor, software, generating, generate, apply, rcf, switch, controller, configure, prepare, preparing 
 summary: 要为过渡准备配置，请将新节点添加到现有 MetroCluster 配置中，然后将数据移动到新节点。 
 ---
-= 完成过渡
+= 完成 MetroCluster 过渡
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

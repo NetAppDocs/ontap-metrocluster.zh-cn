@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, transition, stretch, fabric, attacjed, configuration 
 summary: 在光纤连接的 MetroCluster 配置中，节点位于不同位置。这种地理差异可提高灾难保护能力。要从延伸型 MetroCluster 配置过渡到光纤连接的 配置，您必须在配置中添加 FC 交换机以及 FC-SAS 网桥（如果需要）。 
 ---
-= 从延伸型 MetroCluster 配置过渡到光纤连接的 配置
+= 将延伸型 MetroCluster 配置升级为光纤连接型
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

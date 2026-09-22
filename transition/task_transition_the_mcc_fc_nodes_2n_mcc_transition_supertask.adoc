@@ -37,7 +37,7 @@ summary: 您必须从现有 MetroCluster FC 节点收集信息，发送 AutoSupp
 | 许可证 | system license show |  
 
 
-| 每个磁盘架中的磁盘架和磁盘数量以及闪存存储详细信息以及内存和 NVRAM 以及网卡 | system node run -node node_name sysconfig |  
+| 每个托架中的托架和磁盘数量以及闪存存储详细信息和内存以及 NVRAM 和网卡 | system node run -node node_name sysconfig |  
 
 
 | 集群网络和节点管理 LIF | system node run -node node_name sysconfig network interface show -role "cluster ， node-mgmt ， data" |  

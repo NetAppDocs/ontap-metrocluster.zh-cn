@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, fc, sas, bridge, disk, shelf 
 summary: 在向配置添加新存储时，您需要安装 ATTO FibreBridge 网桥和 SAS 磁盘架并为其布线。 
 ---
-= 安装 FC-SAS 网桥和 SAS 磁盘架
+= 安装 FC-SAS 网桥和 SAS 磁盘架以进行扩展 MetroCluster 配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

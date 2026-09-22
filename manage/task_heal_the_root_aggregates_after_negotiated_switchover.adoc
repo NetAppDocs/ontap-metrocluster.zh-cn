@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: data, aggregate, heal, root, preparation, switchback, operation, negotiate, switchover 
 summary: 修复数据聚合之后，您必须修复根聚合，以便为切回操作做好准备。 
 ---
-= 在协商切换后修复根聚合
+= 切换后修复 MetroCluster 根聚合
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

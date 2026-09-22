@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, mcc, management, disaster, recover, switchover, switchback 
 summary: 您可以在计划内维护操作或发生灾难时执行 MetroCluster 切换和切回操作。 
 ---
-= MetroCluster ® 管理
+= 了解 MetroCluster 管理
 :allow-uri-read: 
 
 

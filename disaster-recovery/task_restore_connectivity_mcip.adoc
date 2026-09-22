@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, iscsi, connections, disaster, site, surviving, connectivity, restore 
 summary: 您必须从运行正常的节点还原 MetroCluster iSCSI 启动程序连接。 
 ---
-= 将连接从正常运行的节点还原到灾难站点（ MetroCluster IP 配置）
+= 在 MetroCluster IP 配置中恢复与灾难站点的连接
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

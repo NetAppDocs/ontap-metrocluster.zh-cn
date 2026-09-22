@@ -16,7 +16,7 @@ Tiebreaker 软件可为集群存储环境提供监控功能。此外，它还会
 .关于此工作流
 您可以使用此工作流安装或升级Tieb破碎 机软件。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]link:install_prepare.html["准备安装Tieb破碎 机软件"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]link:install_prepare.html["MetroCluster Tiebreaker 安装要求"]
 [role="quick-margin-para"]
 在安装和配置Tieb破碎 机软件之前、请确认您的系统满足特定要求。
 

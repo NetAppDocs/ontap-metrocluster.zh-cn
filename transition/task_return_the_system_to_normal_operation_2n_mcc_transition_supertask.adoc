@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: perform, final, configuration, return, metrocluster, normal, operation, system, verify, assign, drive, transition, install, license, module, complete, completing, node, send, custom, autosupport, message, maintenance 
 summary: 您必须执行最终配置步骤并将 MetroCluster 配置恢复正常运行。 
 ---
-= 使系统恢复正常运行
+= 使 MetroCluster 系统恢复正常运行
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

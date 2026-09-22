@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: switchover, dr, partner, ownership, disk, svm, online, confirm 
 summary: 切换完成后，您应验证 DR 配对节点是否已取得磁盘的所有权，以及配对 SVM 是否已联机。 
 ---
-= 验证SVM是否正在运行且聚合是否联机
+= 验证 MetroCluster 配置中的 SVM 是否正在运行以及聚合是否处于联机状态
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

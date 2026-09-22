@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: power, ip, disaster, site, configuration 
 summary: 您必须打开灾难站点上的磁盘架和 MetroCluster IP 交换机组件的电源。 
 ---
-= 启动灾难站点上的设备（ MetroCluster IP 配置）
+= 在 MetroCluster IP 配置中启动灾难站点上的设备
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

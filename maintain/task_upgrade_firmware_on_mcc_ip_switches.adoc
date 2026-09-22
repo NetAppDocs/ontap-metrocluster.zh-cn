@@ -166,7 +166,7 @@ NOTE: 您必须按以下顺序在交换机上安装交换机软件： switch_A_1
 
 +
 ** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-switch-efos-software["下载并安装Broadcom交换机EFOS软件"]
-** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-switch-nx-os-software["下载并安装Cisco交换机NX-OS软件"]
+** link:../install-ip/task_switch_config_cisco.html#download-and-install-the-cisco-switch-nx-os-software["下载并安装Cisco交换机NX-OS软件"]
 ** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-cumulus-software["下载并安装NVIDIA SN2100交换机Cumulus软件"]
 
 

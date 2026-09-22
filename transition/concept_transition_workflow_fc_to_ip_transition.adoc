@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: follow, workflow, ensure, successful, nondisruptive, transition, metrocluster 
 summary: 您必须遵循特定工作流，以确保成功实现无中断过渡。 
 ---
-= 无中断 MetroCluster 过渡的工作流
+= 无中断 MetroCluster 过渡工作流
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
 summary: 您遵循的Tieb破碎 机安装操作步骤取决于您正在安装的Tieb破碎 机版本。 
 ---
-= 选择您的安装操作步骤
+= 选择您的 MetroCluster Tiebreaker 安装程序
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -30,7 +30,7 @@ link:tb-17-install.html["安装 Tiebreaker 1.7"]
  a| 
 平局决胜 1.6 或 1.6P1
  a| 
-link:tb-16-install.html["安装 Tiebreaker 1.6 或 1.6P1"]
+link:tb-16-install.html["安装 MetroCluster Tiebreaker 1.6 或 1.6P1"]
 
 
 

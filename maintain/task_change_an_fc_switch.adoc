@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, change, fc, switch 
 summary: '您可能需要更改FC交换机的供应商(从Cisco到Brocade或从Brocade到Brocade)、更改交换机型号或同时更改这两者。' 
 ---
-= 更改FC交换机的供应商或型号
+= 在 MetroCluster FC 配置中更改 FC 交换机的供应商或型号
 :allow-uri-read: 
 
 

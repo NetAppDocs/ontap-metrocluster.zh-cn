@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable, console, logging, devices, maintenance, autosupport, cli, 
 summary: 在设备上启用控制台日志记录。 
 ---
-= 启用控制台日志记录
+= 在更换 MetroCluster 硬件之前启用控制台日志记录
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

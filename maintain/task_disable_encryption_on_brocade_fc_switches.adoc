@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, disable, encryption, brocade, fc, switch 
 summary: 您可能需要在 Brocade FC 交换机上禁用加密。 
 ---
-= 在 Brocade FC 交换机上禁用加密
+= 在 MetroCluster FC 配置中禁用 Brocade 交换机上的加密
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

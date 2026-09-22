@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: completing, complete, transition, metrocluster, configuration, resume, monitor, tiebreaker, mediator, utility, restoring, restore 
 summary: 完成 MetroCluster 配置的过渡后，您可以使用 Tiebreaker 或调解器实用程序恢复监控。 
 ---
-= 还原 Tiebreaker 或调解器监控
+= 恢复 Tiebreaker 或 Mediator 对 MetroCluster 的监控
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

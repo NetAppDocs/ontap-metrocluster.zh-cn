@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: transition, cluster connections 
 summary: 在查看所有要求并为过渡做准备之后，您可以执行过渡操作步骤。您必须按顺序执行每个任务，完成每个任务中的所有步骤，然后再转到下一个任务。在发出指示之前，不应将新控制器或存储架连接到现有配置。 
 ---
-= 移动本地集群连接
+= 在 MetroCluster FC 到 IP 转换中移动本地集群连接
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: select, transition, procedure, depend, exist, metrocluster, fc, configuration, choosing, choose 
 summary: 您必须根据现有 MetroCluster FC 配置选择过渡操作步骤。 
 ---
-= 选择过渡操作步骤
+= MetroCluster FC 到 IP 过渡程序选项
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ensure, ip, switch, support, exist, model, metrocluster, fc, configuration, ip, consideration, support 
 summary: 您必须确保 IP 交换机受支持。如果原始 MetroCluster FC 配置和新的 MetroCluster IP 配置都支持现有交换机型号，则可以重复使用现有交换机。 
 ---
-= IP 交换机注意事项
+= MetroCluster 过渡中的 IP 交换机要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

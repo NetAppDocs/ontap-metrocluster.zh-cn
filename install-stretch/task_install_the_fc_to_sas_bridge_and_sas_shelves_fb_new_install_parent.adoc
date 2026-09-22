@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, stretch, installation, install, fc, sas, bridge, shelves 
 summary: '确保系统满足 " 准备安装 " 一节中的所有要求后，您可以安装新系统。' 
 ---
-= 安装 FC-SAS 网桥和 SAS 磁盘架
+= 安装 FC-to-SAS 网桥和 SAS 磁盘架以实现延伸型 MetroCluster 配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin, access, ontapi, ssh, configure 
 summary: 您可以配置对ONTAP API和SSH的管理员访问权限。 
 ---
-= 配置对ONTAP API和SSH的管理员访问权限
+= 配置 ONTAP API 和 SSH 访问以用于 MetroCluster Tiebreaker
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

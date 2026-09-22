@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, maintenance, service, tiebreaker, mediator, ontap mediator 
 summary: 使用 Tiebreaker 或调解器监控软件的配置必须在维护前取消配置该软件 
 ---
-= 在执行维护任务之前，请删除 ONTAP 调解器或 Tiebreaker 监控
+= 在 MetroCluster 维护前移除 ONTAP Mediator 或 Tiebreaker
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

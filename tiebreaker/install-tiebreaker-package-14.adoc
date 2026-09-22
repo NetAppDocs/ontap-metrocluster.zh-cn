@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
 summary: 在主机Linux操作系统上全新安装或升级到Tieb破碎 机1.4、以监控MetroCluster配置。 
 ---
-= 安装或升级到Tieb破碎 机1.4
+= 安装或升级到 MetroCluster Tiebreaker 1.4
 :allow-uri-read: 
 
 

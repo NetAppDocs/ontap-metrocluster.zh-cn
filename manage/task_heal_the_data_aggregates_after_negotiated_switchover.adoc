@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: heal, data, aggregate, completing, complete, maintenance, test, process, resynchronize, prepare, disaster, operation, root, negotiate, switchover 
 summary: 完成任何维护或测试后，您必须修复数据聚合。此过程会重新同步数据聚合，并使灾难站点做好正常运行的准备。在修复根聚合之前，您必须修复数据聚合。 
 ---
-= 在协商切换后修复数据聚合
+= 切换后修复 MetroCluster 数据聚合
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

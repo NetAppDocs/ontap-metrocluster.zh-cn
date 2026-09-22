@@ -98,7 +98,7 @@ NOTE: 您应按以下顺序更新交换机：switch_A_1、switch_B_1、switch_A_
 
 +
 ** link:../install-ip/task_switch_config_broadcom.html#resetting-the-broadcom-ip-switch-to-factory-defaults["将 Broadcom IP 交换机重置为出厂默认值"]
-** link:../install-ip/task_switch_config_cisco.html#resetting-the-cisco-ip-switch-to-factory-defaults["将Cisco IP交换机重置为出厂默认值"]
+** link:../install-ip/task_switch_config_cisco.html#reset-the-cisco-ip-switch-to-factory-defaults["将Cisco IP交换机重置为出厂默认值"]
 ** link:../install-ip/task_switch_config_nvidia.html#reset-the-nvidia-ip-sn2100-switch-to-factory-defaults["将NVIDIA IP SN2100交换机重置为出厂默认值"]
 
 
@@ -108,7 +108,7 @@ NOTE: 您应按以下顺序更新交换机：switch_A_1、switch_B_1、switch_A_
 
 +
 ** link:../install-ip/task_switch_config_broadcom.html#downloading-and-installing-the-broadcom-rcf-files["下载并安装Broadcom RCF"]
-** link:../install-ip/task_switch_config_cisco.html#downloading-and-installing-the-cisco-ip-rcf-files["下载并安装Cisco IP RCF"]
+** link:../install-ip/task_switch_config_cisco.html#download-and-install-the-cisco-ip-rcf-files["下载并安装Cisco IP RCF"]
 ** link:../install-ip/task_switch_config_nvidia.html#download-and-install-the-nvidia-rcf-files["下载并安装NVIDIA IP RCF"]
 
 

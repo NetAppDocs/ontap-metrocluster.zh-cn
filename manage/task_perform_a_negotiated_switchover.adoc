@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: negotiate, switchover, clean, shut, down, partner, site, operation, metrocluster, perform 
 summary: 协商切换会完全关闭配对站点上的进程，然后从配对站点切换操作。您可以使用协商切换在 MetroCluster 站点上执行维护或测试切换功能。 
 ---
-= 执行协商切换
+= 执行协商的 MetroCluster 切换
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

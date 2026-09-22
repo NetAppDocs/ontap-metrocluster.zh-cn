@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, upgrade, downgrade, firmware, brocade, fc, switch 
 summary: 要升级或降级 Brocade FC 交换机上的固件，必须使用 Brocade 专用命令禁用交换机，执行并验证固件更改，然后重新启动并重新启用交换机。 
 ---
-= 升级或降级 Brocade MetroCluster FC 交换机上的固件
+= 在 Brocade FC 交换机上升级或降级 MetroCluster FC 配置中的固件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Transitioning from MetroCluster FC to MetroCluster IP configurations, review, requirement, preparing, prepare, transition, perform, procedure, order, completing, complete, step, task, moving, move, controller, storage, shelves, shelf, exist, configuration, direct, metrocluster, fc, ip, verify, health, removing, remove, tiebreaker, monitor, software, generating, generate, apply, rcf, switch, controller, configure, prepare, preparing 
 summary: 如果使用 MetroCluster Tiebreaker 配置或可启动切换的其他第三方应用程序（例如 ClusterLion ）监控现有配置，则必须在过渡之前从 Tiebreaker 或其他软件中删除 MetroCluster 配置。 
 ---
-= 从 Tiebreaker 或其他监控软件中删除现有配置
+= 从 Tiebreaker 软件中删除 MetroCluster 配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

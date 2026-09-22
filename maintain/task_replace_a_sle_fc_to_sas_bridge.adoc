@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, replace, single, fc, sas, bridge 
 summary: 您可以无中断地将网桥替换为相同型号的网桥或新型号的网桥。 
 ---
-= 更换单个 FC-SAS 网桥
+= 在 MetroCluster FC 配置中更换单个 FC-to-SAS 网桥
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

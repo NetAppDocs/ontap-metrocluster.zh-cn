@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, service, replace, shelf, nondisruptively, fabric, attached, configuration 
 summary: 您可能需要了解如何在光纤连接的 MetroCluster 配置中无中断更换磁盘架。 
 ---
-= 在光纤连接 MetroCluster 配置中无中断更换磁盘架
+= 在光纤连接的 MetroCluster FC 配置中无中断地更换磁盘架
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

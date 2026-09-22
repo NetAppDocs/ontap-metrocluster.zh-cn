@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: perform, certain, task, prepare, metrocluster, ip, fc, configuration, switchback, recovery, during, transition, mix 
 summary: 您必须执行某些任务，以便为切回操作准备混合 MetroCluster IP 和 FC 配置。此操作步骤仅适用于在 MetroCluster FC 到 IP 过渡过程中遇到故障的适用场景配置。 
 ---
-= 在混合配置中准备切回（过渡期间恢复）
+= 准备在过渡期间在混合 MetroCluster 配置中进行切回
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

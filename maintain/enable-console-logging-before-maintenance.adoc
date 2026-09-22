@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, maintain, enable, autosupport, logging, maintenance, service,ip, switch, replacement, rename 
 summary: 在执行维护任务之前、在设备上启用控制台日志记录。 
 ---
-= 在执行维护任务之前启用控制台日志记录
+= 在 MetroCluster 维护前启用控制台日志记录
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

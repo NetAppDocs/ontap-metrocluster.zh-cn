@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, tiebreaker, software, monitor, capabilities, capability, cluster, storage, environment, snmp, notification, event, node, connectivity, issue, site, disaster, system, install, upgrade, upgrading, software, dependencies, dependency, package, ntp, requirements, requirements for tiebreaker, tiebreaker requirements, mysql, mariadb, autostart, database 
 summary: 在安装和配置Tieb破碎 机软件之前、您应验证您的系统是否满足特定要求。 
 ---
-= 准备安装Tieb破碎 机软件
+= MetroCluster Tiebreaker 安装要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -123,6 +123,6 @@ ONTAP 9.1到ONTAP 9.9.1
 
 
 .下一步是什么？
-* 如果要安装或升级到 Tiebreaker 1.5 或更高版本，link:install_security.html["确保Tieb破碎 机主机和数据库安装的安全"]。
+* 如果要安装或升级到 Tiebreaker 1.5 或更高版本，link:install_security.html["保护 MetroCluster Tiebreaker 主机和数据库安装"]。
 * 如果要安装或升级到 Tiebreaker 1.4，link:install-dependencies-14.html["安装MetroCluster Tieb破碎 机1.4依赖关系"]。
 
