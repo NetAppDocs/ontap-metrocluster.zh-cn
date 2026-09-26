@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
 summary: 使用先前收集的系统ID将根聚合磁盘重新分配给新控制器模块。 
 ---
-= 将根聚合磁盘重新分配给新的MetroCluster IP控制器模块
+= 将根聚合磁盘重新分配给新的 MetroCluster IP 控制器
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

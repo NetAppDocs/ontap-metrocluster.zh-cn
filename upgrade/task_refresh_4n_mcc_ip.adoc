@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, refresh, four, node, ip, configuration, add, autosupport 
 summary: 从 ONTAP 9.8 开始，您可以通过将四节点 MetroCluster IP 配置扩展为临时八节点配置，然后删除旧的灾难恢复（ Disaster Recovery ， DR ）组来升级四节点 IP 配置中的控制器和存储。 
 ---
-= 刷新四节点或八节点MetroCluster IP配置(ONTAP 9.8及更高版本)
+= 刷新四节点或八节点 MetroCluster IP 配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

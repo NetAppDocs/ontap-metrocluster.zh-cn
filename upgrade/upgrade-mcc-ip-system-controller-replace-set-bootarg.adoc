@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
 summary: 升级到9.15.1 9.151或更高版本中引入的系统需要先设置启动程序、然后才能继续升级。 
 ---
-= 设置所需的启动程序(对于在9.15.1 9.151或更高版本中引入的系统的MetroCluster IP升级)
+= 为 MetroCluster IP 控制器升级设置所需的引导参数
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

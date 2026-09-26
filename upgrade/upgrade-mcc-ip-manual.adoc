@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controllers, switchover, switchback, ip, configuration, net, boot, root, aggregate, system, commands, mcc 
 summary: 从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。 
 ---
-= 使用切换和切回的MetroCluster IP控制器升级工作流(ONTAP 9.8及更高版本)
+= MetroCluster IP 控制器使用切换和切回的升级工作流程
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

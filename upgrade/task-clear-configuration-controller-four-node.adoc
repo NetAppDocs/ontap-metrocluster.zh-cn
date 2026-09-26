@@ -1,10 +1,10 @@
 ---
-permalink: upgrade/task_clear_the_configuration_on_a_controller_module_mcc.html 
+permalink: upgrade/task-clear-configuration-controller-four-node.html 
 sidebar: sidebar 
 keywords: metrocluster, upgrade, clear, configuration, controller, module 
 summary: 在 MetroCluster 配置中使用新控制器模块之前，必须清除此配置。 
 ---
-= 在双节点 MetroCluster FC 扩展期间清除控制器模块上的配置
+= 在四节点 MetroCluster FC 扩展期间清除控制器模块上的配置
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

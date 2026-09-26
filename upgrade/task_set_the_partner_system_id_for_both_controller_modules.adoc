@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, set, up, partner, system, id, controller, module 
 summary: 您必须在两个控制器模块上设置配对系统 ID ，以便它们可以形成 HA 对。 
 ---
-= 设置两个控制器模块的配对系统 ID
+= 在 MetroCluster FC 扩展期间设置两个控制器模块的配对系统 ID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

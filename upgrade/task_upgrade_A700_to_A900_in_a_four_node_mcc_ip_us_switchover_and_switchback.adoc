@@ -4,12 +4,12 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, controller, ip, configuration, switchover, switchback, workflow, nodes, tiebreaker, verify, bootrage, root, aggregate, disks 
 summary: 升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。 
 ---
-= 使用切换和切回功能将MetroCluster IP配置中的AFF A700/FAS9000控制器升级到AFF A900/FAS9500 (ONTAP 9.10.1或更高版本)
+= 使用切换和切回将 MetroCluster IP 配置中的 AFF A700 升级到 AFF A900 或将 FAS9000 升级到 FAS9500
 :allow-uri-read: 
 
 
 [role="lead"]
-升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。无法在此操作步骤中升级其他组件（例如存储架或交换机）。
+从 ONTAP 9.10.1 开始，您可以使用 MetroCluster 切换操作在升级合作伙伴集群上的控制器模块时为客户端提供无中断服务。其他组件（如存储架或交换机）不能作为此过程的一部分进行升级。
 
 .关于此任务
 * 要将AFF A700控制器模块升级到AFF A900、这些控制器必须运行ONTAP 9.10.1或更高版本。

@@ -1046,7 +1046,6 @@
   <block id="74553544aa9c0c94d16a5a5ed85d6720" category="list-text">验证是否没有运行状况警报：</block>
   <block id="4765d4c84ae977a0d2fd9458912cf094" category="paragraph">Config Advisor 是一款配置验证和运行状况检查工具。您可以将其部署在安全站点和非安全站点上，以便进行数据收集和系统分析。</block>
   <block id="0109999bfef624f78c3dcf4fb94f11ba" category="admonition">对 Config Advisor 的支持是有限的，并且只能联机使用。</block>
-  <block id="fd1f71815b5abfc5d58a282353d2ba84" category="section-title">确定新的布线布局</block>
   <block id="0d687993b6b67e20ff0472f32d9693b0" category="paragraph">您必须确定新控制器模块和任何新磁盘架到现有 FC 交换机的布线。</block>
   <block id="6485f9afbf9c5f34e988054e67e3b142" category="paragraph">必须在每个 MetroCluster 站点上执行此任务。</block>
   <block id="ca6b3b9d3521dc913cc6a3273b729760" category="list-text">从现有节点中，验证 FC-VI 端口是否联机：</block>
@@ -1374,7 +1373,6 @@
   <block id="cb35018d5cef7c3ad9e89b5330f139ef" category="list-text">如果显示的机箱系统状态不正确，请设置机箱的 HA 状态：</block>
   <block id="91815ef3813bb758babf1c11a5114e45" category="list-text">在另一个替代节点上重复上述步骤。</block>
   <block id="31c65a2058e5394cf4f67afa9634685a" category="summary">要将新控制器加入集群，您必须启动每个新控制器模块，并使用 ONTAP 集群设置向导确定要加入的集群。</block>
-  <block id="c97ffd8c62ff7f9d8c843c6e65672330" category="doc">启动新控制器并将其加入集群</block>
   <block id="1fc34dc1a2bf40981cbdbe67372e71b6" category="paragraph">您必须已为 MetroCluster 配置布线。</block>
   <block id="2e296e5ecea65075de45f381533dc47d" category="paragraph">在执行此任务之前，不得配置服务处理器。</block>
   <block id="2238a54f1b4ff094935ad3dd0c8e3822" category="paragraph">必须对 MetroCluster 配置中两个集群上的每个新控制器执行此任务。</block>
@@ -1393,7 +1391,6 @@
   <block id="0086e860c9e46f6ab31793ca6d565c3b" category="list-text">完成 * 集群设置 * 向导并退出后，验证集群是否处于活动状态且节点是否运行正常：</block>
   <block id="dc84e8d14fad94fb8bffb0a3c6dc082a" category="paragraph">以下示例显示了一个集群，其中第一个节点（ cluster1-01 ）运行状况良好且符合参与条件：</block>
   <block id="88577472afb219c41162d2707cb8cbaf" category="summary">您必须将现有控制器模块启动到 ONTAP 。</block>
-  <block id="c7747038c0f1377c3bfb0e109164ae36" category="doc">启动现有控制器模块</block>
   <block id="4dd312d890939484a0937bcf2da10578" category="list-text">在 LOADER 提示符处，将现有控制器模块启动到 ONTAP ：</block>
   <block id="417f42f208ebdfbfbc20d5ad1415a737" category="summary">要将四节点 MetroCluster FC 配置扩展为八节点 MetroCluster FC 配置，需要向每个集群添加两个控制器，以便在每个 MetroCluster 站点上形成第二个 HA 对，然后运行 MetroCluster FC 配置操作。</block>
   <block id="aad7003b864f3b9dee5c96516c4fa6ef" category="doc">将四节点 MetroCluster FC 配置扩展为八节点配置</block>
@@ -1408,7 +1405,6 @@
   <block id="2d5a8c54328bd3846f2c284f8b9f1082" category="paragraph">此操作步骤结束时， MetroCluster FC 配置在每个站点上包含两个 HA 对：</block>
   <block id="2c6c5464685a9a3cd7105cf64524bc6c" category="paragraph">这两个站点必须均衡扩展。MetroCluster FC 配置不能包含数量不均的节点。</block>
   <block id="1ad92a7ca654c056085b209325047d52" category="summary">在向现有 MetroCluster 配置添加控制器模块时，您必须执行一系列特定步骤以通过网络启动并在新控制器模块上安装 ONTAP 操作系统。</block>
-  <block id="384da33b4cbd603222724ebbf50d094a" category="doc">在新控制器模块上通过网络启动和设置 ONTAP</block>
   <block id="6522f3f0b1fdd13f8d8169102bb74c28" category="list-text">此任务将从新控制器模块的 LOADER 提示符处开始。</block>
   <block id="1a7a5933b421fbe41401d8fc6bee6183" category="list-text">此任务包括初始化磁盘。</block>
   <block id="6fb95d556e9f154f208a9006b31a0c57" category="paragraph">初始化磁盘所需的时间量取决于磁盘的大小。</block>
@@ -1438,17 +1434,14 @@
   <block id="5dca607dd5a7a360e09708f79b3f1009" category="paragraph">您可以使用 cluster setup 命令访问集群设置向导以更改为管理 Storage Virtual Machine （ SVM ）或节点 SVM 输入的任何值。</block>
   <block id="5adc53020c4e7b37bca1f991564ef7d6" category="paragraph">以下示例显示了 cluster_A 中两个控制器模块的输出：</block>
   <block id="175b4615309fbb0113d1f10dd724be3b" category="summary">添加控制器模块后，您必须在新控制器模块上安装最新固件，以使控制器模块能够在 ONTAP 中正常运行。</block>
-  <block id="1ceab89bdd9eda8c54a6352619858553" category="doc">添加控制器模块后安装固件</block>
   <block id="add4e5506b41bc939c6b3189a12a2303" category="list-text">下载适用于您的系统的最新版本固件，并按照说明下载和安装新固件。</block>
   <block id="c4b8ea60feaa4bfbad5cf35fa307b871" category="inline-link">NetApp 下载：系统固件和诊断</block>
   <block id="9122e8b1c0b033e688f4fadc21f1fec8" category="paragraph"><block ref="9122e8b1c0b033e688f4fadc21f1fec8" category="inline-link-rx"></block></block>
   <block id="79de9fa3497efd5f7c2e2f6a6682e5cd" category="summary">您应问题描述发送 AutoSupport 消息，以通知 NetApp 技术支持维护已完成。</block>
-  <block id="195ffc9776ee62387ded9a109c150447" category="doc">在将节点添加到 MetroCluster 配置之后发送自定义 AutoSupport 消息</block>
   <block id="1c9d1344f345d75257134d6c79df3402" category="list-text">登录到 Site_A 上的集群</block>
   <block id="049ca5eec54de1a662d5929abfae80b1" category="list-text">调用指示维护结束的 AutoSupport 消息：</block>
   <block id="043433cd6601b119cc11c871f6f3ac48" category="list-text">在配对站点上重复此步骤。</block>
   <block id="c6084eb130de0b018e621dc1c9cf963f" category="summary">在 MetroCluster 配置中使用新控制器模块之前，必须清除此配置。</block>
-  <block id="9d288331dcbf3df246af2a35300324d8" category="doc">清除控制器模块上的配置</block>
   <block id="819817945fea31f0c3596c841e685904" category="paragraph">`halt`</block>
   <block id="70dbb49a6cbad96a6befa2a87cf2c5ce" category="paragraph">`set-defaults`</block>
   <block id="9e3a2189ad08237fac40cc74ecf0cb68" category="list-text">保存环境：</block>
@@ -1461,7 +1454,6 @@
   <block id="2fa38a35d5b9cc8f1b69fd7f9bbe4303" category="paragraph">节点将重新启动，并再次显示启动菜单。</block>
   <block id="01e10c4c054845c383133ebfd17fccdf" category="list-text">在启动菜单中，选择选项 * 5* 将系统启动至维护模式。</block>
   <block id="6a196eaaaf5706d9ce20b734bb2a4c2b" category="summary">您必须向每个站点添加一个新的控制器模块，以便在每个站点中创建一个 HA 对。这是一个多步骤过程，涉及硬件和软件更改，必须在每个站点上按正确顺序执行。</block>
-  <block id="d3256498545f94492ffa6db4eb64e092" category="doc">向每个集群添加新控制器模块</block>
   <block id="952acb04a2bebb1048783e052052fcca" category="list-text">新控制器模块必须作为升级套件的一部分从 NetApp 收到。</block>
   <block id="039dca449d2e1b30a0e89da9337e2213" category="paragraph">您应验证新控制器模块中的 PCIe 卡是否兼容并受新控制器模块支持。</block>
   <block id="4d1fb0cf943e1317ae1ae30ac559e572" category="list-text">升级到单机箱 HA 对（两个控制器模块位于同一机箱中的 HA 对）时，系统必须为新控制器模块提供一个空插槽。</block>
@@ -1475,7 +1467,6 @@
   <block id="824535d62d67c83dfe66d0a3e0a799fa" category="list-text">要添加的控制器模块称为 _new_ 控制器模块；此操作步骤中的示例具有控制台提示符 `new_ctlr&gt;` 。</block>
   <block id="746d86a125d1c5723b1963d9fd563f94" category="list-text">此任务使用以下工作流：</block>
   <block id="0d77268e3447e99f6c69301ff9fc9533" category="summary">准备好网络启动服务器后，您必须将正确的 ONTAP 网络启动映像从 NetApp 支持站点下载到网络启动服务器并记下 IP 地址。</block>
-  <block id="4e4117a464f9bc2997037337f35db8e4" category="doc">准备网络启动服务器以下载映像</block>
   <block id="1b7c1e026899136afbc81c3a69724681" category="list-text">在添加新控制器模块前后，您必须能够从系统访问 HTTP 服务器。</block>
   <block id="87094b6ac7f37a3f621f9b5bbf4268ef" category="list-text">您必须有权访问 NetApp 支持站点，才能下载适用于您的平台和 ONTAP 版本的必要系统文件。</block>
   <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link">NetApp 支持站点</block>
@@ -1493,9 +1484,7 @@
   <block id="b73423aee4baa8b2e3981087f56b1924" category="paragraph">此地址在本操作步骤稍后部分中称为 ` _ip-address-for-existing controller_` 。</block>
   <block id="e55d5b2636e0726a99f7d5e4158359bb" category="list-text">对 ` _ip-address-for-existing controller_` 执行 Ping 操作，以验证 IP 地址是否可访问。</block>
   <block id="6d212900b72ecc3ea28faeef719a987e" category="summary">您必须为新节点安装设备机架。</block>
-  <block id="448b6a1ae7f7f1277a02fda9c0f9fd58" category="doc">将新设备安装在机架中</block>
   <block id="3db118c57a32eeadafa348accaf1b303" category="summary">在向 MetroCluster 配置添加控制器时，您必须镜像根聚合以提供数据保护。</block>
-  <block id="47383a1b5f4ca911eeac439508e5ce41" category="doc">在新控制器上镜像根聚合</block>
   <block id="3e7cdad2c836355d7d9e7434ef0039f1" category="paragraph">必须对新控制器模块执行此任务。</block>
   <block id="51db2980a0fe24d7ac143333233dc8be" category="list-text">镜像根聚合：</block>
   <block id="df48f09d2bf110a410011a8de35fb788" category="paragraph">以下命令镜像 controller_A_1 的根聚合：</block>
@@ -1787,7 +1776,6 @@
   <block id="cf01be10c4ad6c0e087f2447c096712d" category="paragraph">如果先前已将 MetroCluster 配置配置为由 Tiebreaker 软件监控，则可以还原 Tiebreaker 连接。</block>
   <block id="0c3de4f48f152830cf54a3c7110e5b3e" category="inline-link">正在添加 MetroCluster 配置</block>
   <block id="3a3fe29bce41cc439cab768ef6c51ea0" category="summary">您必须使用 storage failover modify 命令在现有控制器模块上设置模式。模式值将在稍后重新启动控制器模块后启用。</block>
-  <block id="b6982e2513cfb04d6a59fdcd3b023101" category="doc">在现有控制器模块上设置 HA 模式</block>
   <block id="63913131852a8828687463e2ffb0a661" category="list-text">将模式设置为 HA ：</block>
   <block id="dfb4df308a635d5a2822f7ec9b92619f" category="summary">您必须在 DR 组中的每个节点上创建镜像数据聚合。</block>
   <block id="753b50d3da78feb017c1085a66d89fb5" category="doc">在每个节点上创建镜像数据聚合</block>
@@ -1834,7 +1822,6 @@
   <block id="f3a7480e0a79ed83429e832d5c0bcfa4" category="paragraph"><block ref="f3a7480e0a79ed83429e832d5c0bcfa4" category="inline-link-rx"></block></block>
   <block id="4f0b7bb576d3c8fa91bf3496e68c038e" category="list-text">镜像聚合的工作原理</block>
   <block id="3b59fd703f187a0c59caedf30eb0cbc5" category="summary">扩展 MetroCluster 配置后，必须重新启动 SVM 。</block>
-  <block id="1555904e898acf7948dfb256ef10c7c9" category="doc">重新启动 SVM</block>
   <block id="111e11006eff2640b4f1e2b27efc3fd9" category="list-text">确定需要重新启动的 SVM ：</block>
   <block id="c700b47ab9116496011db734f6404dd5" category="paragraph">此命令显示两个 MetroCluster 集群上的 SVM 。</block>
   <block id="5c99d052957650c2b7cad9eb2366c185" category="list-text">在第一个集群上重新启动 SVM ：</block>
@@ -1844,7 +1831,6 @@
   <block id="d9b49bc2577d68e37a84f80273248aee" category="list-text">在配对集群上重复上述步骤。</block>
   <block id="6b3e18c08a7344859a02ff8a5941d003" category="list-text">验证 SVM 是否处于运行状况良好的状态：</block>
   <block id="4ffde570a3cb5b347089285f86958195" category="summary">您应问题描述发送 AutoSupport 消息，通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。</block>
-  <block id="f14857e5bc0d17b964ddec1059e6c698" category="doc">在将节点添加到 MetroCluster 配置之前发送自定义 AutoSupport 消息</block>
   <block id="6106a70e4a609987255976e27ce4715c" category="list-text">检查每个集群上是否已配置 MetroCluster 并处于正常模式：</block>
   <block id="ba7cf567c98a90735c5079e05e42e65b" category="list-text">检查是否已在每个节点上启用镜像：</block>
   <block id="c818799e4a2c07b9e7cba8fc00f3962a" category="list-text">检查 MetroCluster 组件是否运行正常：</block>
@@ -1860,7 +1846,6 @@
   <block id="4f231b4fb4fb8bbd617c648b5efd351f" category="paragraph">以下示例显示了运行正常的四节点 MetroCluster 配置的 `MetroCluster check aggregate show` 命令输出：</block>
   <block id="2dd10a99a16640634ad6093b398b6036" category="paragraph">以下示例显示了运行正常的四节点 MetroCluster 配置的 `MetroCluster check cluster show` 命令输出。它表示集群已准备好在必要时执行协商切换。</block>
   <block id="caf5a8c5111f5b0928fbdb96c1e8b81a" category="summary">FC 交换机分区必须支持新的控制器连接。如果您使用 NetApp 提供的参考配置文件 \ （ RCF\ ）配置交换机，则分区是预配置的，不需要进行任何更改。</block>
-  <block id="aa7634a6c4e974b52faf565e007e1b60" category="doc">在光纤连接 MetroCluster 配置中添加控制器模块时为新控制器端口进行分区</block>
   <block id="f1671ac439417f75927f98ad97323bf7" category="paragraph">FC 交换机分区必须支持新的控制器连接。如果您使用 NetApp 提供的参考配置文件（ Reference Configuration Files ， RCF ）配置交换机，则分区是预配置的，您无需进行任何更改。</block>
   <block id="f13350a82ffb5e406781c64809e8f8a8" category="summary">您必须应用 RCF 文件来重新配置分区以容纳新节点。</block>
   <block id="b862528f72ea6d2ddcdf03d59e55fa27" category="list-text">确保已保存交换机配置。</block>
@@ -1878,7 +1863,6 @@
   <block id="f60beade7fb152e563f4685663a1f3bc" category="list-text">验证新控制器模块是否只能看到新 DR 组要使用的存储。</block>
   <block id="ca796e22edd5cbe9d11ee3f044346937" category="paragraph">其他 DR 组使用的任何存储都不应可见。</block>
   <block id="95b65883f84353940114b168cc4a2fb7" category="summary">在通过网络启动完成新控制器模块的配置之前，必须为其分配磁盘。</block>
-  <block id="1ebf9d232c6a6c71ae4c747bbcbc12a6" category="doc">为新控制器模块分配磁盘</block>
   <block id="8e0924168893ae55cb4d00ab91a2d08e" category="paragraph">您必须确保现有聚合中有足够的备用磁盘，未分配磁盘或已分配磁盘。</block>
   <block id="d2ce3eba89b160c4ba6fed76343b58bc" category="paragraph">这些步骤将在现有控制器模块上执行。</block>
   <block id="026c4226bfecb407c0bf92b42cc0ca60" category="list-text">将根磁盘分配给新控制器模块：</block>
@@ -1887,7 +1871,6 @@
   <block id="d20a32683bf81c224fbb1d53ba3d2d82" category="list-text">验证磁盘分配是否正确：</block>
   <block id="f8adf2f217eb36d03b8156f21c50a5bc" category="admonition">确保已将要分配给新节点的所有磁盘分配给此节点。</block>
   <block id="3b889d3c5322b48147e7fc9ac55e9c53" category="summary">向 MetroCluster 配置添加新控制器模块后，必须在两个控制器模块上启用存储故障转移并单独启用集群 HA 。</block>
-  <block id="cfd8867a9479bfcf51fef02d25bc1930" category="doc">在两个控制器模块上启用存储故障转移并启用集群 HA</block>
   <block id="ccdc8d88c83bcf7dad7c92cbf781eee7" category="paragraph">必须事先使用 `MetroCluster configure -refresh true` 命令刷新 MetroCluster 配置。</block>
   <block id="e074d49409c03ef0a3c2592157c3f85f" category="list-text">启用存储故障转移：</block>
   <block id="9ed4621181061d472649276ae0b1db75" category="paragraph">只需一个命令，即可在两个控制器模块上启用存储故障转移。</block>
@@ -1895,7 +1878,6 @@
   <block id="db434f95b1bfefab72a059aaaa54ccfd" category="list-text">启用集群 HA ：</block>
   <block id="c728cd2eb28f6dd9bcef71aa2d0888e9" category="paragraph">如果集群仅包含两个节点且与存储故障转移提供的 HA 不同，则必须在集群中配置集群高可用性（ HA ）。</block>
   <block id="8d6ff276cbe7c1327bc29f95e89536f9" category="summary">您应确定现有控制器并确认它们之间的灾难恢复 \ （ DR\ ）关系，控制器处于正常模式以及聚合已镜像。</block>
-  <block id="49b388dfb89609b843d9a9109622e00c" category="doc">验证 MetroCluster 配置的状态</block>
   <block id="6228e10459ae3618158c27f3c69d26f3" category="paragraph">您应确定现有控制器并确认它们之间的灾难恢复（ DR ）关系，控制器处于正常模式以及聚合已镜像。</block>
   <block id="365b7d53b7c48c8da54af3049c0cd911" category="list-text">显示 MetroCluster 配置中任一节点的节点详细信息：</block>
   <block id="7672382ebd968e2f1906d0ac088d82ed" category="paragraph">以下输出显示此 MetroCluster 配置在每个集群中有一个 DR 组和一个节点。</block>
@@ -1904,7 +1886,6 @@
   <block id="7283128d41b0f2c5bcce7fbaf3cae22c" category="list-text">检查 MetroCluster 配置中每个节点上聚合的状态：</block>
   <block id="224cf26f1f556319905e555894318f36" category="paragraph">以下输出显示 cluster_A 上的聚合已联机并已镜像：</block>
   <block id="2629484c812e864cba4938a84b1d7271" category="summary">您必须在机箱中物理安装新控制器模块，然后为其布线。</block>
-  <block id="e06c32def93f754432d67e40cc7bdb62" category="doc">安装新控制器模块并为其布线</block>
   <block id="11927ea1b82ae05c35c1f1d5c4441652" category="list-text">如果您的系统中有 I/O 扩展模块（ IOXM ），并且要创建单机箱 HA 对，则必须拔下 IOXM 的缆线并将其卸下。</block>
   <block id="024ffec62416c999ed4f91a4b1784fcd" category="paragraph">然后，您可以将空托架用于新控制器模块。但是，新配置不会具有 IOXM 提供的额外 I/O 。</block>
   <block id="681171c5ba221c71d0bdb77ad5ec2710" category="list-text">物理安装新控制器模块，并在必要时安装其他风扇：</block>
@@ -2034,7 +2015,6 @@
   <block id="7954d231078e39daa7e7ed014287f37f" category="list-text">验证您的环境是否满足站点和系统要求。</block>
   <block id="d2f829e728cf15e6e3b1c66326532c9f" category="list-text">收集新控制器模块的所有 IP 地址和其他网络参数。</block>
   <block id="5fbd751582280f91ce87e1e3091600a6" category="summary">在安装新控制器模块之前，您必须在现有控制器模块上配置集群端口，以便集群端口可以提供与新控制器模块的集群通信。</block>
-  <block id="0cee66e2a9015b2699c62369e0e932d9" category="doc">正在准备现有控制器模块上的集群端口</block>
   <block id="eb97bd7738a2e49c0128943fae2ec5de" category="paragraph">如果要创建双节点无交换机集群（无集群网络交换机），则必须启用无交换机集群网络模式。</block>
   <block id="fe80ac998af50b061220368247fabb21" category="list-text">确定应使用哪些端口作为节点的集群端口。</block>
   <block id="79db7943a0c867a932052876b46d752d" category="paragraph">NetApp 支持站点上适用于您的平台的 _Installation and Setup Instructions_包含 有关用于集群网络连接的端口的信息。</block>
@@ -2062,7 +2042,6 @@
   <block id="8feea330ffbe49a50b6488993153a0da" category="doc">配置 FC-SAS 网桥以进行运行状况监控</block>
   <block id="e8cae8409adcb7eb5b686521a6aabf9e" category="list-text">FibreBridge 网桥不支持第三方 SNMP 监控工具。</block>
   <block id="b0223eb63d90d053234b82e3aab3578f" category="summary">您必须从网络结构中的 FC 交换机断开现有控制器模块的连接。</block>
-  <block id="885bcd82f73e0085b7bef0b02fbae9ab" category="doc">断开现有 DR 组与网络结构的连接</block>
   <block id="dae73f4efc19df59fc64a7e73e05a617" category="list-text">禁用将现有控制器模块连接到正在维护的交换机网络结构的 HBA 端口：</block>
   <block id="694290c25a244f58ab505874661e84b7" category="list-text">在本地 FC 交换机上，从现有控制器模块的 HBA ， FC-VI 和 ATTO 网桥的端口上拔下缆线。</block>
   <block id="bf2497e5dbebaf427ad038e5a165371f" category="summary">您可以选择为不需要 MetroCluster 配置提供的冗余镜像的数据创建未镜像数据聚合。</block>
@@ -2082,7 +2061,6 @@
   <block id="4e75faadc19bd6bd8fe9f36b43a6dc7c" category="list-text">禁用未镜像聚合部署：</block>
   <block id="62127648214ef0c407c0c4bc108b0b80" category="list-text">验证是否已启用磁盘自动分配：</block>
   <block id="fe8753414a23e1c716c38aa34fa7dc0b" category="summary">您必须完全关闭现有控制器模块，以验证所有数据是否均已写入磁盘。此外，您还必须断开电源连接。</block>
-  <block id="c65b1410262920c54336649d340cf8db" category="doc">关闭现有控制器模块</block>
   <block id="65ea1bb835bf8710cc97933e0303ecfc" category="paragraph">如果系统提示您继续暂停操作步骤，请在出现提示时输入 `y` ，然后等待系统在 LOADER 提示符处停止。</block>
   <block id="0b470950da6c0a97ec3f2005c12e48cb" category="admonition">在更换系统组件之前，您必须完全关闭系统，以避免丢失 NVRAM 或 NVMEM 中未写入的数据。</block>
   <block id="30ba799d12bc55203e3416a6ec482bf4" category="list-text">如果您尚未接地，请正确接地。</block>
@@ -2118,7 +2096,6 @@
   <block id="b8f4d9367862f5c87fb645221621118e" category="list-text">根据需要使用适用于您的配置的操作步骤还原监控。</block>
   <block id="ed7a4b5d0c8cfc6aae771a5fca62c9d8" category="cell">使用此操作步骤</block>
   <block id="71552d252d208c0142b1ed2ce8951b06" category="summary">启动现有控制器模块和新控制器模块以显示 LOADER 提示符。</block>
-  <block id="ee7374ec7fd19ba02336ce3e2359f57e" category="doc">同时启动两个控制器模块并显示 LOADER 提示符</block>
   <block id="fe99e3f55f6f4b47e223767bb8009489" category="list-text">按照适用于您的配置的步骤启动控制器模块并中断启动过程：</block>
   <block id="f3d045d8e52283bb060515c31566087f" category="cell">控制器模块</block>
   <block id="a72f1b5068d76ead1aa4b9eb39955498" category="paragraph">在同一机箱中</block>
@@ -2240,7 +2217,6 @@
   <block id="c6d8f1ba7d8fdd49dbd2774b5b8bf5b0" category="list-text">检查节点是否正在运行：</block>
   <block id="cd362c3b9348d205eeb9271f7b848b82" category="list-text">检查 MetroCluster IP 接口是否已启动：</block>
   <block id="19c6ec23fb83ad84775f1d2419c27ab9" category="paragraph">完成 MetroCluster 配置升级后，您可以使用 Tiebreaker 或调解器实用程序恢复监控。</block>
-  <block id="07af2bf7709c2fecb5919d2f8d1a3e18" category="doc">在将节点添加到 MetroCluster 配置之前发送自定义 AutoSupport 消息</block>
   <block id="95bcbc09935edc1dfac4e02d6d6f6d1e" category="summary">如果 MetroCluster 节点未正确分配磁盘，或者您在配置中使用的是 DS460C 磁盘架，则必须按磁盘架为 MetroCluster 配置中的每个节点分配磁盘。您将创建一种配置，其中每个节点的本地和远程磁盘池中的磁盘数相同。</block>
   <block id="6e76b55f087d96abf0ec71cdd443d325" category="doc">在非 AFF 系统中分配磁盘所有权</block>
   <block id="1481fa640eeaed51dc3191992b757d35" category="paragraph">存储控制器必须处于维护模式。</block>
@@ -2311,7 +2287,6 @@
   <block id="415eea33dacbefbf4c2e5acffb73798b" category="paragraph">9.5 及更早版本</block>
   <block id="58dd89a9fc4f2484510b0081e39ba581" category="paragraph">`network interface create -vserver system_sVM -lif LIF_name -role intercluster -home-node node -home-port port -address port_ip -netmask netmask -failover-group failover_group`</block>
   <block id="7688820ac2546dab890c57bd3ec0f334" category="summary">您可以通过将四节点 MetroCluster 配置扩展为八节点配置，然后删除旧的灾难恢复 \ （ DR\ ）组来升级四节点 配置中的控制器和存储。</block>
-  <block id="76f5c0ad19e3d42c56b6ba3174176fe1" category="doc">刷新四节点 MetroCluster FC 配置</block>
   <block id="ae20966b5600e8ca93f94853f5c5fb45" category="paragraph">您可以通过将四节点 MetroCluster 配置扩展为八节点配置，然后删除旧的灾难恢复（ DR ）组来升级此配置中的控制器和存储。</block>
   <block id="cb0344550b820e06b780b2e5d8b7b8ed" category="list-text">对您的 MetroCluster 类型执行四节点扩展操作步骤中的所有步骤。</block>
   <block id="adf58506887f695b399bc6e224b5ec19" category="summary">您可以访问 NetApp 支持站点并下载 Config Advisor 工具以检查常见配置错误。</block>
@@ -2319,7 +2294,6 @@
   <block id="0bc21a35b9fa75a32e7824ce87d4baad" category="list-text">转到 Config Advisor 下载页面并下载此工具。</block>
   <block id="dd85c3d7d3adaed9956e1da9f117ac8b" category="list-text">运行 Config Advisor ，查看该工具的输出并按照输出中的建议解决发现的任何问题。</block>
   <block id="780864490b171ee37c989f91c94e4987" category="summary">扩展 MetroCluster 配置时，必须更新现有控制器模块和新控制器模块的 ha-config 设置。您还必须确定新控制器模块的系统 ID 。</block>
-  <block id="42d274ad148eaa63474a2e722577dc11" category="doc">更改现有控制器模块和新控制器模块上的 ha-config 设置</block>
   <block id="d995ff2c2ae18fbf74b51a7969e7486d" category="paragraph">此任务将在现有和新控制器模块的维护模式下执行。</block>
   <block id="7d01b1ce55bfb0cc228fdd5b0845e946" category="list-text">更改现有控制器模块的 ha-config 设置：</block>
   <block id="82679fc2b6beebf43ab224f16a21f438" category="list-text">检索现有控制器模块的系统 ID ：</block>
@@ -2330,7 +2304,6 @@
   <block id="09a9a100aa76808698c1684a11324cad" category="list-text">检索新控制器模块的系统 ID ：</block>
   <block id="51395ed8dcf20694f7b9a62c66a2721c" category="paragraph">记下系统 ID 。在设置配对 ID 并将磁盘分配给新控制器模块时，您需要此 ID 。</block>
   <block id="993ee07ce81369a525c01b07d1c3022c" category="summary">将 MetroCluster 配置从双节点配置扩展为四节点配置时，必须刷新该配置。</block>
-  <block id="70b26a454b25ef7e3123d5ceffffcf4b" category="doc">使用新控制器刷新 MetroCluster 配置</block>
   <block id="f3d8b77f77547ea25d097f549a9adf9a" category="paragraph">以下命令将刷新包含 controller_A_1 的 DR 组中所有节点上的 MetroCluster 配置：</block>
   <block id="3fc44516e07f7c4278d79a805adf2be2" category="list-text">从站点 B 验证配置：</block>
   <block id="dc2d97a05f4493a33fe850c759870e80" category="summary">您使用的升级或刷新操作步骤取决于平台型号，升级范围和 MetroCluster 配置类型。</block>
@@ -2351,7 +2324,6 @@
   <block id="570e0e3e350318c0e6af015d23a5b749" category="paragraph">使用手动 ARL 命令</block>
   <block id="4b8a576fb64d5b6a41905d5d9b5d1568" category="paragraph">9.7 及更早版本</block>
   <block id="14ac4530bc2bbdb5e1f11a09cb300909" category="summary">您必须在两个控制器模块上设置配对系统 ID ，以便它们可以形成 HA 对。</block>
-  <block id="3036fdc134f447cfcf1702b55526a925" category="doc">设置两个控制器模块的配对系统 ID</block>
   <block id="6c313b7512ac803ef9c45f962cc8e8ff" category="paragraph">此任务将在 LOADER 提示符处对两个控制器模块执行。</block>
   <block id="a973a04246ed386a29184edcb15d32c4" category="list-text">在现有控制器模块上，将配对系统 ID 设置为新控制器模块的配对系统 ID ：</block>
   <block id="c420545579329d31f0ab6368d89cb454" category="list-text">在新控制器模块上，将配对系统 ID 设置为现有控制器模块的配对系统 ID ：</block>
@@ -8053,7 +8025,6 @@
   <block id="3dc0d5b9eac0c50a790964bb3a643fa3" category="paragraph">正确连接新磁盘架后， ONTAP 会自动在网络上检测到该磁盘架。</block>
   <block id="f18720a1eb7d7bace925c2a97a20075f" category="list-text">访问<block ref="3725c06f412bedb14ffd610de312875d" category="inline-link-rx"></block> 下载用于执行系统网络启动的文件。</block>
   <block id="c305ce21377f146200c5e9ef13536599" category="summary">您可以使用此引导式自动 MetroCluster 切换操作对四节点 MetroCluster FC 配置执行无中断控制器升级。</block>
-  <block id="66c25daffc009801ab74d25814bedafb" category="paragraph">您可以使用此引导式自动 MetroCluster 切换操作对四节点 MetroCluster FC 配置执行无中断控制器升级。无法在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
   <block id="6cd89c0a24f678f7acedd8c76ccac487" category="list-text">此操作步骤适用场景控制器模块采用四节点 MetroCluster FC 配置。</block>
   <block id="09a0c3b49fdf8f3d3d97fd599ba851dc" category="list-text">这些平台必须运行 ONTAP 9.10.1 或更高版本。</block>
   <block id="2b378caa5145e2c7adf8d8e9a477ac03" category="paragraph">下表显示了控制器升级支持的型号列表。</block>
@@ -8565,7 +8536,6 @@
   <block id="3536088a256cc132e9bb50bb6b37d844" category="section-title">升级 site_A 上的节点</block>
   <block id="be30a56e6d2717e49b1a24ec4b5435b9" category="paragraph">您必须对 site_A 重复升级任务</block>
   <block id="98c99ee34c8774fa11a9a533fe708618" category="paragraph">在执行任务时，对站点和节点的所有示例引用都将反转。例如，如果提供了从 site_A 切换的示例，则您将从 site_B 切换</block>
-  <block id="8a51355d335889c9ddb7276ab9a129ab" category="paragraph">升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。您不能在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
   <block id="b93e6d7c2789cd393ddbb5ccdfac4676" category="paragraph">您不能同时升级配置中的其他组件，例如存储架或交换机。</block>
   <block id="0dc490dd8b5efdca7b88c08cca2f094e" category="list-text">ONTAP 9.10.1 及更高版本支持四节点和八节点配置。</block>
   <block id="4917ae881b859c002a74dd97a85dc1a1" category="admonition">AFF A900 系统仅在 ONTAP 9.10.1 或更高版本中受支持。</block>
@@ -9327,8 +9297,6 @@
   <block id="922511c083015dc29a5735f0502ddd7d" category="paragraph">例如，在四节点集群中，用于集群间通信的子网必须具有四个可用 IP 地址。</block>
   <block id="8385ca59dee772c25d8029fd40151e4e" category="admonition">您必须按以下顺序在交换机上安装交换机软件： switch_A_1 ， switch_B_1 ， switch_A_2 ， switch_B_2 。</block>
   <block id="8b82688b3d28b8ce8fbcbb8c09b13ce3" category="list-text">MetroCluster 配置中的所有磁盘架（现有磁盘架）必须运行相同版本的固件。如果一个或多个磁盘或磁盘架未运行最新固件版本，请在连接新磁盘或磁盘架之前更新固件。</block>
-  <block id="52b86a073bf9ac18b54bb7fb93dbeb18" category="doc">使用缆线将新控制器模块的 FC-VI 和 HBA 端口连接到 FC 交换机</block>
-  <block id="cd6c42f22b0649cda62803cd1b11f14a" category="doc">为新控制器模块的集群对等连接布线</block>
   <block id="b1d3a32a00e7d497fcf31c70542c202e" category="summary">您可以从第三个站点下载并安装 MetroCluster Tiebreaker 软件，或者从 ONTAP 9.7 开始安装 ONTAP 调解器。</block>
   <block id="0e0fb7c8f8c90679b6de81eb83cc9c05" category="paragraph">从 ONTAP 9.7 开始， MetroCluster 配置支持 FlexCache 卷。您应了解切换或切回操作后手动重复的要求。</block>
   <block id="324411cbb41cb55bc8c2f637443ed820" category="paragraph">从 ONTAP 9.6 开始， MetroCluster 配置支持 FlexGroup 卷。</block>
@@ -9949,7 +9917,6 @@
   <block id="fb66ffdb7a65b64035629ded64b78faf" category="sidebar">配置NVIDIA IP交换机</block>
   <block id="344184862169747549deee4b87dc1cf2" category="section-title">支持的平台组合</block>
   <block id="96235e4cabe659a051590175116c1e60" category="paragraph">请参见<block ref="2c4f45f6db308a425e052afade2ba656" category="inline-link-rx"></block> 以了解其他过程。</block>
-  <block id="339aff0aa186e93b68d974842b334cfa" category="doc">从此处开始：在控制器升级、系统刷新或扩展之间进行选择</block>
   <block id="0fa722347ab16c39e7070989619c6d3a" category="list-text">控制器升级过程仅适用于控制器模块。这些控制器将替换为新的控制器型号。</block>
   <block id="d54a35a8f37af3fbffcb482b7998215b" category="list-text">扩展过程会在MetroCluster 配置中添加额外的控制器和磁盘架、而无需删除任何控制器和磁盘架。</block>
   <block id="855a42fae714160495a9f9f355ec5d3e" category="paragraph">您使用的操作步骤 取决于MetroCluster 的类型和现有控制器的数量。</block>
@@ -10069,7 +10036,6 @@
   <block id="c5785d86411f0791086e0d729d92ea59" category="paragraph"><block ref="c5785d86411f0791086e0d729d92ea59" category="inline-link-rx"></block></block>
   <block id="549e0180633c51bff766e9cab2aff418" category="paragraph"><block ref="549e0180633c51bff766e9cab2aff418" category="inline-link-rx"></block></block>
   <block id="64902df2f40b54af9303ee162076af7e" category="summary">您使用的扩展操作步骤 取决于MetroCluster 配置的类型和ONTAP 版本。</block>
-  <block id="1183f26be758aca1cf3787bcad5b2010" category="doc">选择扩展操作步骤</block>
   <block id="81d18a4a40082c66f7427c3072b68b70" category="paragraph">扩展操作步骤 涉及向MetroCluster 配置添加新控制器和存储。扩展必须在每个站点上保持偶数控制器、并且您使用的操作步骤 取决于原始MetroCluster 配置中的节点数。</block>
   <block id="191defc94e935558055aed94783f83cd" category="cell">扩展方法</block>
   <block id="1524ad20c3fd28d8be25c8ad8d2fc9d2" category="paragraph">方法：将双节点MetroCluster FC扩展为四个</block>
@@ -11949,7 +11915,6 @@
   <block id="2f92d909a1337c9b15582940d470ab00" category="list-text">系统中的所有组件运行状况良好。</block>
   <block id="7a8e384268b9400de9a6ef3a88bdf329" category="paragraph">在执行此任务之前、请在设备上启用控制台日志记录。</block>
   <block id="7e850954ab384102f5d4e5df99c6d067" category="summary">您可以在专用端口或共享端口上配置集群间生命周期。</block>
-  <block id="ccee519a1fcde58f406284ffad2387a9" category="paragraph">了解如何在专用端口和共享端口上配置集群间生命周期。</block>
   <block id="50165fcf3d7c35a722bd224b3bf13c54" category="paragraph">您可以在专用端口上配置集群间的Cifs、以增加可用于复制流量的带宽。</block>
   <block id="fd16b3ea934ba7646ac0406aa7920e8e" category="paragraph"><block ref="cbfe237569042c016ace79222e8d1dc9" prefix="" category="inline-code"></block></block>
   <block id="bc67b6197fe081f8d788efcd57f33aa4" category="paragraph"><block ref="321305800246910a9b8518ff256b173e" prefix="" category="inline-code"></block></block>
@@ -12488,7 +12453,6 @@
   <block id="f31a964269837fa383f7baad3584db47" category="inline-link-macro">设置所需的启动程序(用于升级到引入9.15.1或更高版本的系统)</block>
   <block id="df1a5689b1950da5f94321b90393b1dc" category="paragraph">查看中的信息<block ref="2498528fe56bae6c8b4f34c34587ac02" category="inline-link-macro-rx"></block>、确认是否需要在现有系统上设置所需的启动程序。</block>
   <block id="b665e6673f7c6f79f5b7bd74d4529fc0" category="summary">在控制器模块中配置HBA卡、并验证和设置控制器和机箱的HA状态。</block>
-  <block id="c3aa9da1524917943d5c4fc825572ad8" category="doc">还原HBA配置并设置MetroCluster IP控制器和机箱的HA状态</block>
   <block id="e8235ba5b8b549fdd6b720227b5486f3" category="paragraph">根据控制器模块中是否存在HBA卡以及HBA卡的配置、您需要为站点正确配置HBA卡。</block>
   <block id="cb2b2de240ea8ecebe1a6f6aee92c043" category="list-text">在维护模式下、为系统中的任何HBA配置设置：</block>
   <block id="dd14766d881405d86219496a398759b4" category="list-text">将节点启动回维护模式以应用配置更改：</block>
@@ -12507,7 +12471,6 @@
   <block id="05a68831292c395345439b837ba5dc6c" category="inline-link-macro">启动新控制器并还原LIF配置</block>
   <block id="51fd44c59805171ee429c9a8a7467789" category="paragraph"><block ref="52d0c98e53a297315b347a6378a8bd50" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="092dbfab1a4385bfef7e3b497957bdd4" category="summary">在执行控制器升级之前、请验证您的系统是否满足所有要求。</block>
-  <block id="19ad3c72e2594ceb9c300eb26b1ca5b6" category="doc">使用此MetroCluster IP升级过程的要求</block>
   <block id="a874d121d30ef8578b609fd6d3c977dd" category="paragraph">在执行控制器升级之前、请验证您的系统是否满足所有要求。</block>
   <block id="9dce7419ee3cb74caefd7c2519d4d0c2" category="list-text">有关支持的平台升级组合的信息，请查看中的MetroCluster IP升级表<block ref="a934c7831e4c0e5d9741460d2b55f4b9" category="inline-link-macro-rx"></block>。</block>
   <block id="171bdebca93ae21307df67a82a60faeb" category="list-text">两个站点的MetroCluster IP系统必须运行相同版本的ONTAP。</block>
@@ -12517,7 +12480,6 @@
   <block id="85ba24554ef457741ae00adfb30303f5" category="list-text">如果您的系统上已启用、则<block ref="7a9d12e6dbd7c75c145032be8c2b8549" category="inline-link-macro-rx"></block>在执行升级之前。</block>
   <block id="3d8c3985ef8f7b9c50308a5dfab923c4" category="paragraph"><block ref="f85c62a3a981a8b83a61b1dc7959165b" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="ed1dd620ec6ed4baac7e1208e4a9d25d" category="summary">升级到9.15.1 9.151或更高版本中引入的系统需要先设置启动程序、然后才能继续进行控制器升级。</block>
-  <block id="496db1855de52190cc06d85f972a650b" category="doc">设置所需的启动程序(对于在9.15.1 9.151或更高版本中引入的系统的MetroCluster IP升级)</block>
   <block id="724bf3ae18d86521a5b9d77a13fcfddb" category="list-text">AFF C80</block>
   <block id="bf35733b2711515e1aa7614ca7dd1ef0" category="list-text">AFF A50、AFF A20、AFF A30</block>
   <block id="b1a7d02f89c62c97fedf60bb09caa4bc" category="list-text">AFF C30、AFF C60</block>
@@ -12591,7 +12553,6 @@
   <block id="5d77b80fe38db1f45d5d09f27dcd0e59" category="list-text">断开节点B_1-old和节点B_2-old上的存储和网络连接。为缆线贴上标签、以便可以将其重新连接到新节点。</block>
   <block id="babccc809b9a10912d9d8a4de927ba3c" category="paragraph"><block ref="0c4ac37e524073d6c973003f56f3fc6c" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="26574f9e2197dc37d66e8e0dad63c6ca" category="summary">从 ONTAP 9.8 开始，在升级配对集群上的控制器模块时，您可以使用 MetroCluster 切换操作为客户端提供无中断服务。</block>
-  <block id="8958d0af9b9ce2023eb6669c72fdac02" category="doc">使用切换和切回的MetroCluster IP控制器升级工作流(ONTAP 9.8及更高版本)</block>
   <block id="5e37747995982979fde1e791f10c1ccd" category="paragraph">您可以使用此工作流在运行ONTAP 9.8或更高版本的系统上通过切换和切回来升级MetroCluster IP控制器。</block>
   <block id="82107b1d3adefdea392b36f7697a120d" category="inline-link-macro">准备升级</block>
   <block id="c240e88598326f9699f8db139f25d673" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="bdad88c10e021b717a14ac2abd1ce700" category="inline-link-macro-rx"></block></block>
@@ -12701,8 +12662,6 @@
   <block id="cbbc95c0b1d7c5d8feea0d31eafa9a28" category="paragraph">有关其他步骤、请参见<block ref="1547bd533de8078ec6c6f72dc3468122" category="inline-link-macro-rx"></block>。</block>
   <block id="a397b8fc1d64d0e666558911201a9d53" category="inline-link-macro">使用此升级过程的要求</block>
   <block id="97fd50265456f865138d015468645cb7" category="paragraph">查看 <block ref="b26a80311d05e322b17b954a108f547a" category="inline-link-macro-rx"></block>。</block>
-  <block id="e716ba8afd7707b81c0012ca2d240899" category="doc">使用system controller Replace命令升级MetroCluster IP控制器的工作流(9.13.1 9.131或更高版本)</block>
-  <block id="c5b6e762a71a6bb5ff91cfa8e00a4f28" category="paragraph">您可以使用此引导式自动MetroCluster切换操作在运行9.13.1 9.13.1.更高版本的四节点MetroCluster IP配置上执行无中断控制器升级。无法在此操作步骤中升级其他组件（例如存储架或交换机）。</block>
   <block id="6bae23f4c16096f75936d03d366e6ca8" category="paragraph">您可以使用此工作流通过切换和切回命令升级运行9.13.1 9.131或更高版本的MetroCluster IP控制器<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>。</block>
   <block id="95f189c9c3198eedfd091c1c5a66a3ef" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="9f3c427d5d3af6ef2473cbb7eb6963ff" category="inline-link-macro-rx"></block></block>
   <block id="fd59b1a35af432acc6cfe409da3cdc0b" category="paragraph">查看支持的升级组合和要求、并完成必要的任务、为控制器升级做好系统准备。在收集配置信息并删除任何现有监控软件之前、自动控制器升级过程将从一系列预检开始。</block>
@@ -13447,7 +13406,6 @@
   <block id="8758d509fe3fbac15620de0ba380f93d" category="list-text">重复上述步骤以升级cluster-A上的节点，从开始<block ref="0e6ccb461a8e4072917a7db8187a2ba6" category="inline-link-macro-rx"></block>。</block>
   <block id="d6841746fb065917e2837a0dda6d27b5" category="paragraph">当您重复该过程时，所有对集群和节点的示例引用都将被逆转。例如，如果提供了从 cluster_A 切换的示例，则您将从 cluster_B 切换</block>
   <block id="cbc2197d8e356cefd5c16b0e6b12733b" category="list-text">使用<block ref="903dcdb9cff1ed237b5a384a8899e234" category="inline-link-rx"></block>在《MetroCluster Tiebreaker 安装和配置》中。</block>
-  <block id="86c26e1621d0bd8e2c4210c81fd2b539" category="doc">使用带有system controller Replace命令的切换和切回升级四节点MetroCluster FC配置中的控制器(ONTAP 9.10.1及更高版本)</block>
   <block id="eeda2a8f0828294ad51fab60acf4c866" category="paragraph">有关其他步骤、请参见<block ref="8cbfebe03d7025df7187c11c17a18941" category="inline-link-macro-rx"></block>。</block>
   <block id="7767fca1c0d3e02d34e1f2ec3fef20ef" category="list-text">从站点 A 运行以下命令来更换站点 B 的控制器：</block>
   <block id="00799101d1f09c8fafcefe8296b49d8f" category="list-text">如果您在一个站点上重复此过程，并且已在另一个站点上更换控制器，则会由于两个站点上的节点不匹配而出现错误。当两个站点上的平台型号不同时，这是预期行为。</block>
@@ -14048,7 +14006,6 @@
   <block id="42f362146dbe8748970967efe562f3c8" category="sidebar">配置ONTAP Mediator 以进行MetroCluster IP 配置</block>
   <block id="9ac9cffddfe08e79e2955f5af452fef4" category="sidebar">准备进行MetroCluster扩展安装</block>
   <block id="b023032dbbcf1a80203228bb95af2a1d" category="list-text">将所有当前不在原端口上的集群 LIF 恢复到其原端口：</block>
-  <block id="b4ebcf376ab05c920671af65b7daaf8c" category="paragraph"><block ref="985591930e85610706940dd82967bd61" prefix="" category="inline-code"></block></block>
   <block id="4154034eef64dfe94bce158c1c207659" category="doc">ONTAP Mediator 对MetroCluster IP 的支持有哪些新特性</block>
   <block id="f0dceba3fe3c3556e6c20da7fc8c7520" category="paragraph">了解MetroCluster IP 的新功能和增强功能，以支持ONTAP Mediator。</block>
   <block id="25deb3b52bcb888e53232afb4a495c12" category="sidebar">ONTAP Mediator 对MetroCluster IP 的支持有哪些新特性</block>
@@ -14838,4 +14795,81 @@
   <block id="30e48ae2246201137a6fd8989ce0eb22" category="doc">在 MetroCluster 维护后发送自定义 AutoSupport 消息</block>
   <block id="c03207d74bddb6a35beb369c3d096c72" category="cell">每个托架中的托架和磁盘数量以及闪存存储详细信息和内存以及 NVRAM 和网卡</block>
   <block id="d1d510353351f908c66cbab5e768bff6" category="list-text"><block ref="d1d510353351f908c66cbab5e768bff6" category="inline-link-macro-rx"></block></block>
+  <block id="bfd951b1f47bb24762c08b34d658cb61" category="list-text">将所有集群 LIF 恢复到其主端口。</block>
+  <block id="a9bbd392f09c568e4564d56526122bae" category="admonition">在完成所有需要更新的交换机的前面步骤之前，请勿将集群 LIF 恢复到其主端口。</block>
+  <block id="b1db6910025ed7ea73075a61a7064a85" category="list-text">将当前不在其主端口上的所有集群 LIF 手动还原到其主端口：</block>
+  <block id="724f861df9399a40fdd8f69601ca67f4" category="doc">选择 MetroCluster 升级、系统刷新或扩展方法</block>
+  <block id="dd8281fa0c355546f3d472cff82c1e57" category="doc">选择一个 MetroCluster 控制器升级过程</block>
+  <block id="ef991ef98f292eeb6b4b6c72258ab93d" category="doc">选择 MetroCluster 扩展程序</block>
+  <block id="68f1669fdeb7f35298f0a2ed28f5de24" category="doc">选择 MetroCluster 系统刷新过程</block>
+  <block id="d348bc6b73d3fd1e1b7437d170afccef" category="doc">其他 MetroCluster 文档资源</block>
+  <block id="519e6100b48117eb28538a7bf113f2c0" category="doc">在四节点 MetroCluster FC 扩展期间清除控制器模块上的配置</block>
+  <block id="babfc76688ca6c502d2c9cb2506cf6fe" category="doc">在四节点到八节点 MetroCluster FC 扩展期间配置集群间 LIF</block>
+  <block id="a0d1626d5a6c449976b90784e441b9ec" category="paragraph">了解如何在四节点到八节点 MetroCluster FC 扩展期间在专用和共享端口上配置集群间 LIF。</block>
+  <block id="422a9f4448c9173fa4698e7bff17874c" category="doc">在双节点到四节点 MetroCluster FC 扩展期间配置集群间 LIF</block>
+  <block id="0ee3666a5ae8cfabe667417e1b731920" category="paragraph">了解如何在双节点到四节点 MetroCluster FC 扩展期间在专用和共享端口上配置集群间 LIF。</block>
+  <block id="1c4e4773cde6f76db929eca8fd17f509" category="doc">在四节点 MetroCluster FC 扩展之前启用控制台日志记录</block>
+  <block id="2709b1b362225d3c0463f8faaf41d622" category="doc">在双节点 MetroCluster FC 扩展之前启用控制台日志记录</block>
+  <block id="1b5832ff4d40fe0514e82b58d551aed6" category="doc">为每个 MetroCluster FC 集群添加一个新控制器模块</block>
+  <block id="77f84d15761e260cfdc6c31170c68cc3" category="doc">重新布线并重新配置 MetroCluster FC 交换机</block>
+  <block id="ab757597d49096f847cd07875446cb9b" category="doc">在 MetroCluster FC 配置中为 AFF 系统分配磁盘所有权</block>
+  <block id="0f4e56cd88c37bc318be9a4add757a06" category="doc">为非 AFF 系统分配磁盘所有权（在 MetroCluster FC 配置中）</block>
+  <block id="29dc2d6c8ae068066bceab1d8a0d3961" category="doc">将磁盘分配给新的 MetroCluster FC 控制器模块</block>
+  <block id="2e57cbcf52df778e60b821c1aac27910" category="doc">引导现有 MetroCluster FC 控制器模块</block>
+  <block id="63a9964cc9781d31a15d840d4acc861b" category="doc">启动新的控制器并将它们加入 MetroCluster FC 集群</block>
+  <block id="9eba3af44618bc477b818601373a9096" category="doc">为 MetroCluster FC 集群对等连接新控制器模块</block>
+  <block id="a0e454bedc987178e3ed29c1e5093a86" category="doc">使用缆线将FC-VI和HBA端口连接到MetroCluster FC交换机</block>
+  <block id="513f7bf4e0371ee2336ee2ef23e21c29" category="doc">更改现有和新的 MetroCluster FC 控制器上的 ha-config 设置</block>
+  <block id="f8a744afc2345eec0a8e97858a33b844" category="doc">在 MetroCluster FC 扩展后使用 Config Advisor 检查 MetroCluster 配置错误</block>
+  <block id="1a93df4cf5137f137866654db5d3cd01" category="paragraph">完成 MetroCluster FC 扩展后，您可以转到 NetApp 支持站点并下载 Config Advisor 工具以检查常见的配置错误。</block>
+  <block id="a01a1afa3b049a2d73d3348c7693ed0e" category="doc">在 MetroCluster FC 扩展之前使用 Config Advisor 检查 MetroCluster 配置错误</block>
+  <block id="1497a71ab59c8ab1135f3a0ce6dd41eb" category="doc">检查 MetroCluster FC 配置</block>
+  <block id="d92329b7a54ccdcec0a080fb6a0a22c7" category="doc">在双节点 MetroCluster FC 扩展期间清除控制器模块上的配置</block>
+  <block id="060cb31d65dcad8017d91b77ef8a370d" category="doc">配置 MetroCluster FC-to-SAS 网桥以进行运行状况监控</block>
+  <block id="22401a1e837fb96895ed71e1a6a3a12a" category="doc">在 MetroCluster FC 配置中创建未镜像数据聚合</block>
+  <block id="031886c7fefabd72212f416f8ad55e9a" category="doc">确定 MetroCluster FC 扩展的新布线布局</block>
+  <block id="5e552a2a6196e348bac6d255ebbd8239" category="doc">从结构中断开现有 MetroCluster FC DR 组的连接</block>
+  <block id="99a6cb9f39f5436a1d6eaa8c1e35dce4" category="doc">在 MetroCluster FC 控制器模块上启用存储故障转移和集群 HA</block>
+  <block id="2c2da7600c3cd363d717ce6d0224e24f" category="doc">在 MetroCluster FC 配置中的现有控制器模块上设置 HA 模式</block>
+  <block id="563ad35ea3f098853d086e56c205212f" category="doc">实施 MetroCluster FC 配置</block>
+  <block id="bc63c14fc3caaefa7fe69bf6819691e6" category="doc">在 MetroCluster FC 配置中安装新的控制器模块并连接电缆</block>
+  <block id="41d885e33e39dbafe85e6778bfaba037" category="doc">在 MetroCluster FC 配置中添加控制器模块后安装固件</block>
+  <block id="bfcb371c660a38bdb19109b14d85a15c" category="doc">在 MetroCluster FC 配置中为新控制器模块安装许可证</block>
+  <block id="c22ec20b3d9e0e4914afa1f2a284c2b9" category="doc">镜像 MetroCluster FC 配置中的根聚合</block>
+  <block id="025c888719d37d7fe66ef7d6179f2b36" category="doc">在 MetroCluster FC 配置中的新控制器上镜像根聚合</block>
+  <block id="94d5124746188d6fa8e5192f204291bd" category="doc">在 MetroCluster FC 配置中的新控制器模块上进行 Netboot 并设置 ONTAP</block>
+  <block id="42318f03701154f7fee7f8ad365075dd" category="doc">在 MetroCluster FC 配置中打开控制器模块的电源</block>
+  <block id="642bfb1e525cc9f011724b317e45aae3" category="doc">在现有 MetroCluster FC 控制器模块上准备集群端口</block>
+  <block id="bce82fc417a7bcd477789cf43981f039" category="doc">准备向 MetroCluster FC 集群中添加新的控制器模块</block>
+  <block id="d2e30312c1377d97d06f017706fb7809" category="doc">在 MetroCluster FC 配置中准备 netboot 服务器</block>
+  <block id="6b247089d8073b9abbd953e1eb75011a" category="doc">将用于 MetroCluster FC 扩展的新设备安装到机架中</block>
+  <block id="5cb33bcccbf069c83701371b54cc9b84" category="doc">刷新四节点或八节点 MetroCluster IP 配置</block>
+  <block id="00f895d1db3e7f8c5e03f0a326126be5" category="doc">使用新控制器刷新 MetroCluster FC 配置</block>
+  <block id="26965466a8b3aefbba29dc5c86637424" category="doc">在 MetroCluster FC 扩展后重新启动 SVM</block>
+  <block id="9a0dee0bdc09cb349c7666e9514b46e9" category="doc">在四节点到八节点 MetroCluster FC 扩展之后发送自定义 AutoSupport 消息</block>
+  <block id="807f23d357cf4f82b7e128db5500987c" category="doc">在进行四节点到八节点 MetroCluster FC 扩展之前，发送一条自定义 AutoSupport 消息</block>
+  <block id="fb8c149f6f5e8f93945a15685d4b627c" category="doc">在双节点到四节点 MetroCluster FC 扩展之前发送自定义 AutoSupport 消息</block>
+  <block id="82f1613506eb9fac80edf5f84b2a862e" category="doc">在 MetroCluster FC 扩展期间设置两个控制器模块的配对系统 ID</block>
+  <block id="cccc18b58488b1014e00ca6a098d0b49" category="doc">在 MetroCluster FC 扩展期间关闭现有控制器模块</block>
+  <block id="51be0262baf64ceadaabd86274b9fe22" category="doc">使用切换和切回将 MetroCluster FC 配置中的 AFF A700 升级到 AFF A900 或将 FAS9000 升级到 FAS9500</block>
+  <block id="5a43cd7e8e207fca8160968dd99b7798" category="paragraph">从 ONTAP 9.10.1 开始，您可以使用 MetroCluster 切换操作在升级配对集群上的控制器模块时为客户端提供无中断服务。在此过程中，您不能升级其他组件（如存储磁盘架或交换机）。</block>
+  <block id="06f4e50ac4ace36fdb6653f631797d0b" category="doc">使用切换和切回将 MetroCluster IP 配置中的 AFF A700 升级到 AFF A900 或将 FAS9000 升级到 FAS9500</block>
+  <block id="573629180c62da3a97d26ac9eebfdb31" category="paragraph">从 ONTAP 9.10.1 开始，您可以使用 MetroCluster 切换操作在升级合作伙伴集群上的控制器模块时为客户端提供无中断服务。其他组件（如存储架或交换机）不能作为此过程的一部分进行升级。</block>
+  <block id="900a1c095b88cd549b09181a05ef73a7" category="doc">在四节点 MetroCluster FC 配置中使用系统控制器更换功能升级控制器</block>
+  <block id="e628d99c7e9fb7310378f205a58b9afe" category="paragraph">从 ONTAP 9.10.1 开始，您可以使用此引导的自动 MetroCluster 切换过程，使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令在四节点 MetroCluster FC 配置上执行无中断控制器升级。其他组件（如存储架或交换机）不能作为此过程的一部分进行升级。</block>
+  <block id="ca85d7acb7d02bd42055b6d379aaa11a" category="doc">验证 MetroCluster FC 配置中的切换、修复和切回</block>
+  <block id="9f965861adae66e8b84a2782197aa1c9" category="doc">验证 MetroCluster FC 配置中组件的 ha-config 状态</block>
+  <block id="fc0844ebf8e0cdf56554fa83831968af" category="doc">确认 MetroCluster FC 配置的运行状况</block>
+  <block id="18f768eac1ccd0579320ce8970d7288b" category="doc">确认双节点 MetroCluster FC 配置的状态</block>
+  <block id="7dd5f873ed79173585bb7ae5ff72cc1d" category="doc">在连接到结构的 MetroCluster 配置中对新控制器端口进行分区</block>
+  <block id="d8bed4555cd06ccced191987f928f52c" category="doc">还原 HBA 配置并设置 MetroCluster IP 控制器的 HA 状态</block>
+  <block id="26324d76cf923fbb869c0331c7587103" category="doc">MetroCluster IP 控制器升级的要求</block>
+  <block id="c1ad4a9ff37c0e62dd476984df9cb0ae" category="doc">为 MetroCluster IP 控制器升级设置所需的引导参数</block>
+  <block id="bac6d95b1f915ff3ed493573c8f67363" category="doc">MetroCluster IP 控制器使用切换和切回的升级工作流程</block>
+  <block id="876d02c219ba682b17d664e407fe0a39" category="doc">将根聚合磁盘重新分配给新的 MetroCluster IP 控制器</block>
+  <block id="8ea787380cf0fe775f123818be962e2a" category="doc">MetroCluster IP 控制器升级要求</block>
+  <block id="6439a9d44aa51bf2f13b1fd36dd8c02e" category="doc">还原 HBA 配置并在新 MetroCluster IP 控制器上设置 HA 状态</block>
+  <block id="1ccefdf93fe55bc446f1b6e99fbe9845" category="doc">使用系统控制器替换支持的 MetroCluster IP 控制器升级</block>
+  <block id="0036cea7d8ac4a59c7e9634dacc4db95" category="doc">MetroCluster IP 控制器升级工作流（使用系统控制器更换）</block>
+  <block id="4c56afcefbd66060fd1bbdf30dd00b24" category="paragraph">从 ONTAP 9.13.1 开始，您可以使用此引导式自动 MetroCluster 切换过程，通过<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令在四节点 MetroCluster IP 配置上执行无中断控制器升级。其他组件（如存储架或交换机）不能作为此过程的一部分进行升级。</block>
 </blocks>

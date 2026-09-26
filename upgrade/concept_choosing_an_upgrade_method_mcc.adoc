@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, choose, upgrade, refresh, method 
 summary: 您使用的升级或刷新操作步骤取决于平台型号，升级范围和 MetroCluster 配置类型。 
 ---
-= 从此处开始：在控制器升级、系统刷新或扩展之间进行选择
+= 选择 MetroCluster 升级、系统刷新或扩展方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

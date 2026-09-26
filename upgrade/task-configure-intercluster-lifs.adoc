@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: metrocluster, upgrade, configure, intercluster, lif, dedicated, ports, shared 
 summary: 您可以在专用端口或共享端口上配置集群间生命周期。 
 ---
-= 配置集群间 LIF
+= 在双节点到四节点 MetroCluster FC 扩展期间配置集群间 LIF
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-了解如何在专用端口和共享端口上配置集群间生命周期。
+了解如何在双节点到四节点 MetroCluster FC 扩展期间在专用和共享端口上配置集群间 LIF。
 
 [role="tabbed-block"]
 ====

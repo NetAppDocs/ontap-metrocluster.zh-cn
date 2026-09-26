@@ -256,15 +256,23 @@ NOTE: 除管理接口(如果使用)外、请勿*使用缆线连接新交换机�
 
 NOTE: 如果要升级或降级网络结构，请对第二个网络结构重复所有步骤。
 
-. 修改所有集群的Sifs以重新启用自动还原：
+. 将所有集群 LIF 恢复到其主端口。
++
+
+CAUTION: 在完成所有需要更新的交换机的前面步骤之前，请勿将集群 LIF 恢复到其主端口。
+
++
+.. 修改所有集群的Sifs以重新启用自动还原：
 +
 [source, cli]
 ----
 network interface modify -vserver <vserver_name> -lif <lif_name> -auto-revert true
 ----
-. 将所有当前不在原端口上的集群 LIF 恢复到其原端口：
+.. 将当前不在其主端口上的所有集群 LIF 手动还原到其主端口：
 +
-`network interface revert -vserver * -lif *`
+`network interface revert -vserver Cluster -lif *`
+
+
 
 . (可选)移动NS224磁盘架。
 +

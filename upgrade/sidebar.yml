@@ -171,7 +171,7 @@ entries:
   - title: 验证 MetroCluster 配置的运行状况。
     url: "/upgrade/task_verify_the_health_of_the_mcc_configuration.html"
   - title: 使用 Config Advisor 检查 MetroCluster 配置错误
-    url: "/upgrade/task_check_for_mcc_configuration_errors_with_config_advisor.html"
+    url: "/upgrade/task_check_for_mcc_configuration_errors_with_config_advisor_before.html"
   - title: 在将节点添加到 MetroCluster 配置之前，发送自定义 AutoSupport 消息
     url: "/upgrade/task_send_a_custom_autosupport_message_before_add_nodes_to_the_mcc_configuration.html"
   - title: 为新节点重新配置交换机网络结构并对其进行分区
@@ -183,7 +183,7 @@ entries:
   - title: 在新控制器上配置 ONTAP
     entries:
     - title: 清除控制器模块上的配置
-      url: "/upgrade/task_clear_the_configuration_on_a_controller_module_mcc.html"
+      url: "/upgrade/task-clear-configuration-controller-four-node.html"
     - title: 在 AFF 系统中分配磁盘所有权
       url: "/upgrade/task_assign_disk_ownership_in_aff_systems_mcc.html"
     - title: 在非 AFF 系统中分配磁盘所有权

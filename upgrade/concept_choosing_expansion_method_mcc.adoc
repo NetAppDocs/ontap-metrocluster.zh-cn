@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster, expansion, method 
 summary: 您使用的扩展操作步骤 取决于MetroCluster 配置的类型和ONTAP 版本。 
 ---
-= 选择扩展操作步骤
+= 选择 MetroCluster 扩展程序
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
