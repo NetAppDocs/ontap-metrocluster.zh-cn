@@ -2,7 +2,7 @@
 permalink: maintain/task_replace_an_ip_switch.html 
 sidebar: sidebar 
 keywords: metrocluster, maintain, service, replace, ip, switch 
-summary: 您可能需要更换发生故障的交换机，或者升级或降级交换机。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。 
+summary: 您可能需要更换故障交换机，或升级或降级交换机。新交换机可以与旧交换机匹配，也可以更改交换机类型。 
 ---
 = 更换或重新调整 MetroCluster IP 配置中的交换机用途
 :allow-uri-read: 

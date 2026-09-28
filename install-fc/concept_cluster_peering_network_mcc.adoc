@@ -2,7 +2,7 @@
 permalink: install-fc/concept_cluster_peering_network_mcc.html 
 sidebar: sidebar 
 keywords: metrocluster, fabric, installation, illustration, cluster, peering, network 
-summary: MetroCluster 配置中的两个集群通过客户提供的集群对等网络建立对等关系。集群对等支持站点之间 Storage Virtual Machine （ SVM ，以前称为 Vservers\ ）的同步镜像。 
+summary: MetroCluster 配置中的两个集群通过客户提供的集群对等网络进行对等，该网络支持站点之间的 SVM 同步镜像。 
 ---
 = MetroCluster FC 配置中的集群对等网络示意图
 :allow-uri-read: 

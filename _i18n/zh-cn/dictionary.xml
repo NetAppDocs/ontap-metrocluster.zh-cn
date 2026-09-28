@@ -69,7 +69,6 @@
   <block id="ba7c5d6f6ef0b4eeeb3cf2edceb16a5e" category="list-text">检查每个交换机上的固件版本，以确保安装的版本正确：</block>
   <block id="14afcc8b85712a75a7cf7514c1e75983" category="paragraph">` * 显示版本 *`</block>
   <block id="5d0aacff762759dbda6dfa013df2be6e" category="list-text">对第二个交换机网络结构重复此操作步骤。</block>
-  <block id="0f4890949e646d00de6b9e66bd1b1968" category="summary">您可能需要更换发生故障的交换机，或者升级或降级交换机。当交换机发生故障时，新交换机可以与旧交换机相同，也可以更改交换机类型（升级或降级交换机）。</block>
   <block id="5e2a519a0cc2ae15695c5cf1d46f0cc9" category="doc">更换 IP 交换机</block>
   <block id="ab09caec1407f77495e6c20853fcfd75" category="list-text">检查配置的运行状况。</block>
   <block id="439912781979c2137b20f407615e78f8" category="list-text">检查是否已在每个集群上配置 MetroCluster 并使其处于正常模式： ` * MetroCluster show*`</block>
@@ -1325,7 +1324,6 @@
   <block id="22c30c63c3c62191dc99f479a4495c96" category="list-text">使先前脱机的丛联机：</block>
   <block id="620e5ae83bbcc366a09c7f2b1cddd13a" category="paragraph">此示例显示了在运行 cMode 恢复联机的控制器上放置丛的命令。</block>
   <block id="b3c0c4fe077b345cb9de91466a5abe85" category="paragraph">丛开始重新同步。</block>
-  <block id="c58436ceeffb789114ef5d94d2e81161" category="summary">如果您正在使用 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务 \ （ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。</block>
   <block id="ebda0461d9b282997db74027d2c545a7" category="paragraph">如果您使用的是 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务（ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。</block>
   <block id="3ab84e59a44526486a6dc2185cd0b1e7" category="paragraph">如果您 * 不 * 使用带内管理来管理网桥，则需要执行此任务。在这种情况下，您需要通过以太网管理端口配置网桥。</block>
   <block id="a11843c65824a8d5041267708cd15a23" category="list-text">通过将串行缆线连接到 FibreBridge 7600N 网桥上的串行端口来访问网桥的控制台接口。</block>
@@ -1835,7 +1833,6 @@
   <block id="ba7cf567c98a90735c5079e05e42e65b" category="list-text">检查是否已在每个节点上启用镜像：</block>
   <block id="c818799e4a2c07b9e7cba8fc00f3962a" category="list-text">检查 MetroCluster 组件是否运行正常：</block>
   <block id="7b2480c6e9c61e0a66adc3f177095a0d" category="list-text">检查是否没有运行状况警报：</block>
-  <block id="35d676d40251234f334da9cb38c6961c" category="summary">您可以检查 MetroCluster 配置中的组件和关系是否工作正常。您应在初始配置后以及对 MetroCluster 配置进行任何更改后执行检查。您还应在协商切换或切回操作之前执行检查。</block>
   <block id="1a1d676eb137d78d5e010f28f7acfd98" category="doc">正在检查 MetroCluster 配置</block>
   <block id="eab11a9537b1f041fab270b4e4138028" category="paragraph">您可以检查 MetroCluster 配置中的组件和关系是否工作正常。您应在初始配置后以及对 MetroCluster 配置进行任何更改后执行检查。您还应在协商（计划内）切换或切回操作之前执行检查。</block>
   <block id="c75e7ba52d1389df12f5453579e454bd" category="paragraph">如果在任一集群或同时在这两个集群上短时间内发出 `MetroCluster check run` 命令两次，则可能发生冲突，并且此命令可能无法收集所有数据。后续的 `MetroCluster check show` 命令不会显示预期输出。</block>
@@ -1845,7 +1842,6 @@
   <block id="ab3f375bc99623514d0ee5394dabbe3e" category="paragraph">`MetroCluster check show` 命令可显示最新的 `MetroCluster check run` 命令的结果。在使用 `MetroCluster check show` 命令之前，应始终运行 `MetroCluster check run` 命令，以使显示的信息为最新信息。</block>
   <block id="4f231b4fb4fb8bbd617c648b5efd351f" category="paragraph">以下示例显示了运行正常的四节点 MetroCluster 配置的 `MetroCluster check aggregate show` 命令输出：</block>
   <block id="2dd10a99a16640634ad6093b398b6036" category="paragraph">以下示例显示了运行正常的四节点 MetroCluster 配置的 `MetroCluster check cluster show` 命令输出。它表示集群已准备好在必要时执行协商切换。</block>
-  <block id="caf5a8c5111f5b0928fbdb96c1e8b81a" category="summary">FC 交换机分区必须支持新的控制器连接。如果您使用 NetApp 提供的参考配置文件 \ （ RCF\ ）配置交换机，则分区是预配置的，不需要进行任何更改。</block>
   <block id="f1671ac439417f75927f98ad97323bf7" category="paragraph">FC 交换机分区必须支持新的控制器连接。如果您使用 NetApp 提供的参考配置文件（ Reference Configuration Files ， RCF ）配置交换机，则分区是预配置的，您无需进行任何更改。</block>
   <block id="f13350a82ffb5e406781c64809e8f8a8" category="summary">您必须应用 RCF 文件来重新配置分区以容纳新节点。</block>
   <block id="b862528f72ea6d2ddcdf03d59e55fa27" category="list-text">确保已保存交换机配置。</block>
@@ -1877,7 +1873,6 @@
   <block id="9d070d121ee26abdb5d314d6fff4c15c" category="list-text">验证是否已启用存储故障转移：</block>
   <block id="db434f95b1bfefab72a059aaaa54ccfd" category="list-text">启用集群 HA ：</block>
   <block id="c728cd2eb28f6dd9bcef71aa2d0888e9" category="paragraph">如果集群仅包含两个节点且与存储故障转移提供的 HA 不同，则必须在集群中配置集群高可用性（ HA ）。</block>
-  <block id="8d6ff276cbe7c1327bc29f95e89536f9" category="summary">您应确定现有控制器并确认它们之间的灾难恢复 \ （ DR\ ）关系，控制器处于正常模式以及聚合已镜像。</block>
   <block id="6228e10459ae3618158c27f3c69d26f3" category="paragraph">您应确定现有控制器并确认它们之间的灾难恢复（ DR ）关系，控制器处于正常模式以及聚合已镜像。</block>
   <block id="365b7d53b7c48c8da54af3049c0cd911" category="list-text">显示 MetroCluster 配置中任一节点的节点详细信息：</block>
   <block id="7672382ebd968e2f1906d0ac088d82ed" category="paragraph">以下输出显示此 MetroCluster 配置在每个集群中有一个 DR 组和一个节点。</block>
@@ -1911,7 +1906,6 @@
   <block id="fadb571b21e3b8d292a9bfb891aca2ba" category="paragraph">双节点无交换机集群</block>
   <block id="2c2669db831414564c9029bab2a03d8b" category="paragraph">将现有控制器模块上的集群端口直接连接到新控制器模块上的相应集群端口。</block>
   <block id="fdb81c76c6f1da911b1f70e70fa60f4b" category="paragraph">一个有交换机的集群</block>
-  <block id="5cffeffd7092dc5e03f8af98b64d61d6" category="summary">必须使用缆线将新控制器模块的 FC-VI 端口和 HBA （主机总线适配器）连接到站点 FC 交换机。</block>
   <block id="f6065aa4b898691ab4eb065db8775ac0" category="paragraph">必须使用缆线将新控制器模块的 FC-VI 端口和 HBA （主机总线适配器）连接到站点 FC 交换机。</block>
   <block id="0f0db6d55e9bbb84af3413a7e8b1da70" category="list-text">按照您的配置和交换机型号对应的表，为 FC-VI 端口和 HBA 端口布线。</block>
   <block id="b330eebf161ca27c703eccf6e8e36d29" category="summary">您可以将四个新节点作为第二个 DR 组添加到 MetroCluster IP 配置中。这将创建一个八节点 MetroCluster 配置。</block>
@@ -2251,7 +2245,6 @@
   <block id="217e25eec2a8ae116de54929aa35253f" category="doc">配置集群间 LIF</block>
   <block id="744dd62dbddcfc9601b7e3e7d7cfc329" category="summary">您必须对集群建立对等关系，镜像根聚合，创建镜像数据聚合，然后问题描述命令以实施 MetroCluster 操作。</block>
   <block id="7b0d27454ef980cc3577cf44e3462c41" category="doc">将集群配置为 MetroCluster 配置</block>
-  <block id="bda90126d7fab2c2ab178ad2f19829f6" category="summary">您必须为需要标准 \ （节点锁定 \ ）许可证的任何 ONTAP 服务添加新控制器模块的许可证。对于具有标准许可证的功能，集群中的每个节点都必须具有自己的功能密钥。</block>
   <block id="2712c3cca63f22b4763d42ca7bf86de7" category="doc">为新控制器模块安装许可证</block>
   <block id="df2ef58daa49e755e50530b551f462b9" category="paragraph">您必须为需要标准（节点锁定）许可证的任何 ONTAP 服务添加新控制器模块的许可证。对于具有标准许可证的功能，集群中的每个节点都必须具有自己的功能密钥。</block>
   <block id="3995801a90ce2d1b48223a6bace39bcd" category="paragraph">有关许可的详细信息，请参见 NetApp 支持站点上的知识库文章 3013749 ： Data ONTAP 8.2 许可概述和参考以及 _System Administration References 。</block>
@@ -2264,7 +2257,6 @@
   <block id="7ced178921d58fa98f2beae899025618" category="paragraph">默认情况下，根聚合创建为 RAID-DP 类型的聚合。您可以将根聚合从 RAID-DP 更改为 RAID4 类型的聚合。以下命令修改 RAID4 类型聚合的根聚合：</block>
   <block id="f4e28dfbcb20f8bc71420dc961d13368" category="admonition">在非 ADP 系统上，可以在镜像聚合之前或之后将聚合的 RAID 类型从默认 RAID-DP 修改为 RAID4 。</block>
   <block id="e302258adc782b169563ba6892da8ba0" category="list-text">对 MetroCluster 配置中的每个节点重复上述步骤。</block>
-  <block id="a1b11df58600d9eb13a2901f3b33b814" category="summary">如果在具有镜像聚合的配置中使用 AFF 系统，并且节点未正确分配磁盘 \ （ SSD\ ），则应将每个磁盘架上一半的磁盘分配给一个本地节点，另一半磁盘分配给其 HA 配对节点。您应创建一种配置，使每个节点在其本地和远程磁盘池中具有相同数量的磁盘。</block>
   <block id="277ebe31f2e0aa7a8abfc5016cbd5190" category="doc">在 AFF 系统中分配磁盘所有权</block>
   <block id="71588c1d6213698413e60cdf71eea775" category="paragraph">如果在具有镜像聚合的配置中使用 AFF 系统，并且节点未正确分配磁盘（ SSD ），则应将每个磁盘架上一半的磁盘分配给一个本地节点，另一半磁盘分配给其 HA 配对节点。您应创建一种配置，使每个节点在其本地和远程磁盘池中具有相同数量的磁盘。</block>
   <block id="674115cc6f5533905aab5d5ec5a234c7" category="paragraph">这不适用于具有未镜像聚合，主动 / 被动配置或本地和远程池中磁盘数量不等的配置。</block>
@@ -2286,7 +2278,6 @@
   <block id="2edaa2cdda524841d6d6081e49292d26" category="paragraph">`network interface create -vserver system_sVM -lif LIF_name -service-policy default-intercluster -home-node node -home-port port -address port_ip -netmask -failover-group failover_group`</block>
   <block id="415eea33dacbefbf4c2e5acffb73798b" category="paragraph">9.5 及更早版本</block>
   <block id="58dd89a9fc4f2484510b0081e39ba581" category="paragraph">`network interface create -vserver system_sVM -lif LIF_name -role intercluster -home-node node -home-port port -address port_ip -netmask netmask -failover-group failover_group`</block>
-  <block id="7688820ac2546dab890c57bd3ec0f334" category="summary">您可以通过将四节点 MetroCluster 配置扩展为八节点配置，然后删除旧的灾难恢复 \ （ DR\ ）组来升级四节点 配置中的控制器和存储。</block>
   <block id="ae20966b5600e8ca93f94853f5c5fb45" category="paragraph">您可以通过将四节点 MetroCluster 配置扩展为八节点配置，然后删除旧的灾难恢复（ DR ）组来升级此配置中的控制器和存储。</block>
   <block id="cb0344550b820e06b780b2e5d8b7b8ed" category="list-text">对您的 MetroCluster 类型执行四节点扩展操作步骤中的所有步骤。</block>
   <block id="adf58506887f695b399bc6e224b5ec19" category="summary">您可以访问 NetApp 支持站点并下载 Config Advisor 工具以检查常见配置错误。</block>
@@ -3611,7 +3602,6 @@
   <block id="1a315df1b0279300253c5c40dabbec1a" category="list-text">检查 LUN 是否存在任何数据不一致问题并予以解决。</block>
   <block id="32e667ad43d7e0ea921c114adae2fd23" category="paragraph">这可能涉及使用 SnapRestore 在存储控制器上执行基于主机的恢复或恢复。</block>
   <block id="a3cc1cd7736d1feee271cca081cd94fa" category="list-text">恢复 LUN 后使数据库应用程序联机。</block>
-  <block id="1a6f55fe03e8e6aee6ef4856579f7784" category="summary">修复 MetroCluster 配置后，您可以执行 MetroCluster 切回操作。MetroCluster 切回操作会将配置恢复到其正常运行状态，灾难站点上的 sync-source Storage Virtual Machine \ （ SVM\ ）处于活动状态，并从本地磁盘池提供数据。</block>
   <block id="6b7b7e66d759180ae906d8c8f6d5bced" category="doc">执行切回</block>
   <block id="54ceb8c3c8340a985e3abb248850832c" category="paragraph">修复 MetroCluster 配置后，您可以执行 MetroCluster 切回操作。MetroCluster 切回操作会将配置恢复到其正常运行状态，灾难站点上的 sync-source Storage Virtual Machine （ SVM ）处于活动状态，并从本地磁盘池提供数据。</block>
   <block id="fe97a8834adbdb00a1de572477f02a58" category="list-text">灾难集群必须已成功切换到正常运行的集群。</block>
@@ -3627,7 +3617,6 @@
   <block id="aad8b7c11b4aa6bcae4874f577338fdb" category="list-text">检查切回操作的进度： `MetroCluster show`</block>
   <block id="cf7da6064d11b7240c8a90c881c2b0a8" category="paragraph">当输出显示 Waiting for-switchback 时，切回操作仍在进行中：</block>
   <block id="bebab338ce208a8365444e4ebe4efe11" category="list-text">重新建立任何 SnapMirror 或 SnapVault 配置。</block>
-  <block id="7814aadb42b148f35b4d559e400b4895" category="summary">执行切回后，您需要确认所有聚合和 Storage Virtual Machine \ （ SVM\ ）均已切回并联机。</block>
   <block id="a9ca4c629c1e46669a8bc18624424d68" category="doc">验证切回是否成功</block>
   <block id="6a4974bedd0009da69e6a878e12b82bd" category="paragraph">执行切回后，您需要确认所有聚合和 Storage Virtual Machine （ SVM ）均已切回并联机。</block>
   <block id="5a64108d7ac092878672067dc635803d" category="paragraph">在以下示例中，节点 B2 上的 aggr_b2 已切回：</block>
@@ -4051,7 +4040,6 @@
   <block id="2af5329ac9117b59d220bd51566271b2" category="list-text">将 RCF 文件从正在运行的配置复制到每个交换机上的启动配置：</block>
   <block id="d0848afd8553c34945705222a97a4553" category="paragraph">您应看到类似于以下内容的输出：</block>
   <block id="4dd59d9b67094e026acd2050a143c2ec" category="list-text">对 MetroCluster IP 配置中的其他三台交换机重复上述步骤。</block>
-  <block id="26c467a24332bb8d92780a3eb059ce38" category="summary">您必须将参考配置 \ （ RCF\ ）文件下载到 MetroCluster 网络结构配置中的每个交换机。</block>
   <block id="28a95a083b2cfe8b9ffb5bddf7064e7b" category="inline-link">MetroCluster RCF 下载</block>
   <block id="af833d07deb3fe26ff9462cdf18f37ab" category="paragraph">这些文件必须放置在可传输到交换机的位置。构成双交换机网络结构的四个交换机中的每个交换机都有一个单独的文件。</block>
   <block id="6141173db52bd750748a18081d69700e" category="list-text">对配置中的每个交换机重复上述步骤。</block>
@@ -4078,7 +4066,6 @@
   <block id="10f945412d3c12928d4e6dc1b7107119" category="doc">ONTAP MetroCluster 配置之间的差异</block>
   <block id="9245afe84f46306a811d61036f2f5698" category="inline-xref-macro">配置 MetroCluster FC 交换机以进行运行状况监控</block>
   <block id="4978301a508dcc7f7e8778cdb2401e04" category="inline-xref-macro">保护配置备份文件</block>
-  <block id="2f02a7617f22d45dd2c91c2ad0c9bf2b" category="summary">MetroCluster 配置中的两个集群通过客户提供的集群对等网络建立对等关系。集群对等支持站点之间 Storage Virtual Machine （ SVM ，以前称为 Vservers\ ）的同步镜像。</block>
   <block id="274ba3154fdc5a121a46d74734a9cb60" category="doc">集群对等网络的图示</block>
   <block id="9d8d4038d4269eed7e1b12e49d6821ca" category="paragraph">MetroCluster 配置中的两个集群通过客户提供的集群对等网络建立对等关系。集群对等支持站点之间的 Storage Virtual Machine （ SVM ，以前称为 Vserver ）的同步镜像。</block>
   <block id="4df38af8ba790b028d74b6e1ab5848c5" category="paragraph">必须在 MetroCluster 配置中的每个节点上配置集群间 LIF ，并且必须为集群配置对等关系。具有集群间 LIF 的端口将连接到客户提供的集群对等网络。通过配置复制服务在此网络上执行 SVM 配置复制。</block>
@@ -4309,7 +4296,6 @@
   <block id="79b482a227e1595f7ab841ee8be94f5a" category="paragraph"><block ref="79b482a227e1595f7ab841ee8be94f5a" category="inline-link-macro-rx"></block></block>
   <block id="96bbb7fffd6c295d8680b093897365fc" category="inline-link-macro">站点 B 工作表</block>
   <block id="bd9a676bb80dff5cc6dc6052bee08f56" category="paragraph"><block ref="bd9a676bb80dff5cc6dc6052bee08f56" category="inline-link-macro-rx"></block></block>
-  <block id="5fbb52ab0ccc2914c72b1ce04d94f538" category="summary">每个交换机网络结构都包含连接站点的交换机间链路（ ISL ）。数据通过 ISL 从站点复制到站点。每个交换机网络结构都必须位于不同的物理路径上，以实现冗余。</block>
   <block id="ec25303fa6412309bf87b276dbbd7a8c" category="paragraph">每个交换机网络结构都包含用于连接站点的交换机间链路（ ISL ）。数据通过 ISL 从站点复制到站点。每个交换机网络结构都必须位于不同的物理路径上，以实现冗余。</block>
   <block id="0e08aa01426827fb0ba8dd3c64010d0e" category="paragraph">您必须配置 MetroCluster 配置中的每个 Brocade 交换机网络结构。</block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="list-title">开始之前</block>
@@ -5244,7 +5230,6 @@
   <block id="9b347cb6379286ba1cd7bac7435ed0cd" category="section-title">确保已保存 FC 交换机配置</block>
   <block id="15cca06ba2cf6c3ae3aa84e18984c915" category="paragraph">您必须确保 FC 交换机配置已保存到所有交换机的启动配置中。</block>
   <block id="aa3da2977894ededc70174629f42daa7" category="paragraph">对两个 FC 交换机网络结构执行问题描述以下命令：</block>
-  <block id="347d1a24edd39c6b694a17cc073652b1" category="summary">必须使用缆线将 FC-VI 端口和 HBA （主机总线适配器）连接到 MetroCluster 配置中每个控制器模块上的站点 FC 交换机。</block>
   <block id="c1e58eae0c6e51d54fa87f2ad6f0eb1c" category="paragraph">必须使用缆线将 FC-VI 端口和 HBA （主机总线适配器）连接到 MetroCluster 配置中每个控制器模块上的站点 FC 交换机。</block>
   <block id="569760ba13759161ec65d637aab25382" category="summary">如果在 FAS8020 系统上使用 X1132A-R6 四端口卡，则可以进入维护模式来配置 1a 和 1b 端口以供 FC-VI 和启动程序使用。从工厂收到的 MetroCluster 系统不需要执行此操作，这些端口已根据您的配置进行了相应设置。</block>
   <block id="9544d09c034e4962720c1d4afbc460b0" category="doc">在 FAS8020 系统上的 X1132A-R6 四端口卡上配置 FC-VI 端口</block>
@@ -5302,7 +5287,6 @@
   <block id="1b4782ce89069f77ed7b432f97688c96" category="paragraph">最后一组提示符用于完成配置：</block>
   <block id="71719b8daa7d3d081f3e8cdbe57f8b25" category="list-text">重新启动交换机并等待交换机重新加载：</block>
   <block id="f9d1d88dc50b4154bc11fca12fdf231e" category="list-text">对 MetroCluster 网络结构配置中的其他三台交换机重复上述步骤。</block>
-  <block id="e376bd1a00beeb72bd5c4ab256198e27" category="summary">您必须通过光纤交换机间链路（ ISL ）连接每个站点的 FC 交换机，以形成连接 MetroCluster 组件的交换机网络结构。</block>
   <block id="6fde06e36c7ea040984ee2ff8627888d" category="doc">为 MetroCluster 站点之间的 ISL 布线</block>
   <block id="9975aea079146076493a918bda06f349" category="paragraph">您必须通过光纤交换机间链路（ ISL ）连接每个站点的 FC 交换机，以形成连接 MetroCluster 组件的交换机网络结构。</block>
   <block id="529a2302cffad8d858ddf8cfd8a1235a" category="paragraph">必须同时对两个交换机网络结构执行此操作。</block>
@@ -5617,7 +5601,6 @@
   <block id="5ddcf17f54788a5bb9148e8671562c06" category="cell">* 端口 *</block>
   <block id="1dde0a938f669adb0ba03f105ef1eb58" category="cell">Brocade G620</block>
   <block id="62f7ef95a1a4f5a1e459930846582588" category="list-text">您希望使用命令行界面（ CLI ），而不是自动化脚本编写工具。</block>
-  <block id="cf9793806e6e4a04213f68a860b2fd56" category="summary">要配置 Cisco FC 交换机，您必须将交换机设置重置为出厂默认值，安装交换机软件，并下载并应用参考配置 \ （ RCF\ ）文件，这些文件可为某些配置提供完整的交换机设置。</block>
   <block id="02043b3a3b802db01041709dec8e7509" category="paragraph">要配置 Cisco FC 交换机，您必须将交换机设置重置为出厂默认值，安装交换机软件，并下载并应用参考配置（ RCF ）文件，这些文件可为某些配置提供完整的交换机设置。</block>
   <block id="02ca90cf930919983e9f269e2f296903" category="summary">如果要简化配置交换机的过程，您可以下载并应用参考配置文件，这些文件可为某些配置提供完整的交换机设置。</block>
   <block id="fcb4142ffdb8bfcc1710889b0ed529d6" category="paragraph">参考配置文件（ RCF ）不支持使用八个 ISL 的配置。如果您使用的是八个 ISL ，则必须手动配置交换机。</block>
@@ -6316,7 +6299,6 @@
   <block id="e510f66049d1338325f0a62dd3ffc0f4" category="list-text">SAS 光缆可用于较长的距离。</block>
   <block id="1d1fa4befa7e2188095e2cc64c17fc9e" category="list-text">检查 SAS 缆线是否松动，或者通过将磁盘架重新连接到网桥来更正 SAS 布线。</block>
   <block id="2d5ce426423eeeead4f35769cd8b1b27" category="inline-xref">第 3 步</block>
-  <block id="9edea398610f8b9e7bf8eb4d72f75daa" category="summary">您可以从灾难恢复 \ （ DR\ ）组中的所有节点中删除 MetroCluster 配置。删除 MetroCluster 配置后，应将所有磁盘连接和互连调整为受支持状态。如果需要删除 MetroCluster 配置，请联系技术支持。</block>
   <block id="49dd354628164ed50d81f89bd4e4f0b6" category="list-text">如果系统是从工厂收到的，请确认磁盘架分配：</block>
   <block id="c0733073fff8f3c7ab3cd47d2775efb1" category="section-title">验证组件的 HA 状态</block>
   <block id="2b376aac1e7dcf4390e11b46a4e6e913" category="list-text">在维护模式下，查看控制器模块和机箱的 HA 状态：</block>
@@ -6489,7 +6471,6 @@
   <block id="cbbe8bac885878db208555087b4dfeb2" category="list-text">验证接口是否已启用：</block>
   <block id="44ff10d140597f1cb51bd7445d226660" category="paragraph">`s如何使用接口简介`</block>
   <block id="095765c12d32e87f89a41af6772b9e82" category="paragraph">以下示例显示了 Cisco 交换机的输出。</block>
-  <block id="84976775b57e1cc840a09f2c88a286ac" category="summary">如果控制器故障扩展到 MetroCluster 配置中 DR 组一侧的所有控制器模块（包括双节点 MetroCluster 配置中的单个控制器），或者存储已被更换，则必须更换设备并重新分配驱动器的所有权，才能从灾难中恢复。</block>
   <block id="5b15a3f0a5da2641b113bfa00db4f4cd" category="doc">从多控制器或存储故障中恢复</block>
   <block id="24f844bc7daaf81496d7a3c7d46e885b" category="paragraph">如果控制器故障扩展到 MetroCluster 配置中 DR 组一侧的所有控制器模块（包括双节点 MetroCluster 配置中的单个控制器），或者存储已被更换，则必须更换设备并重新分配驱动器的所有权，才能从灾难中恢复。</block>
   <block id="82bbfcee09add33fd33001d4761a8949" category="inline-link-macro">选择正确的恢复操作步骤</block>
@@ -7367,7 +7348,6 @@
   <block id="69e92926786e575346dbd083b8dec2f2" category="paragraph"><block ref="69e92926786e575346dbd083b8dec2f2" category="inline-link-macro-rx"></block></block>
   <block id="60e70e31928f915722e922383e40f330" category="list-text">如有必要，明确将所连接磁盘架上的磁盘分配给相应的池：</block>
   <block id="a5f5afcf03d082b62f3f1d573d337a84" category="paragraph">`d磁盘分配`</block>
-  <block id="7beedda8cb5d2fb431ddb232b7ee7fe0" category="summary">您可以从 MetroCluster 配置中的所有节点或灾难恢复 \ （ DR\ ）组中的所有节点中删除 MetroCluster 配置。</block>
   <block id="93b4c54527bd19b6e0c8b5146ea23761" category="paragraph">`storage disk show -container-type unassigned`</block>
   <block id="f52d44aaa981f34fa588225f9d4cc820" category="paragraph">`s系统许可证显示`</block>
   <block id="4cd1110435955b3b14ac2d145c6baae1" category="paragraph">每个 MetroCluster 站点都配置为其配对站点的对等站点。您应熟悉配置对等关系以及决定是否为这些关系使用共享端口或专用端口的前提条件和准则。</block>
@@ -7882,7 +7862,6 @@
   <block id="e79607baf0b4b92987f246d62a7fb12f" category="list-text">灾难恢复（ DR ）</block>
   <block id="5b4f20357f5eb20eaa770c1503529295" category="list-text">硬件更换或升级。FC-SAS 网桥和 FC 交换机的固件升级过程</block>
   <block id="f2d45f03c22fbeb03b74cbd880d693fe" category="list-text">更换光纤连接或延伸型 MetroCluster FC 配置中灾难恢复站点的硬件</block>
-  <block id="786bcd5bd1b18eea716b58462b00e890" category="summary">如果您正在使用 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务 \ （ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。</block>
   <block id="ef402cf927be6e8ac7911e7437ce8e76" category="paragraph">如果您正在使用 9.5 之前的 ONTAP 版本，或者计划使用 telnet 或其他 IP 端口协议和服务（ FTP ， ExpressNAV ， ICMP 或 QuickNAV ）对 FibreBridge 7600N 网桥进行带外访问，则可以通过控制台端口启用访问服务。</block>
   <block id="12e1a43f9bf6da32583b815f8c9f66e1" category="summary">配置网桥后，您可以开始为系统布线。</block>
   <block id="6fd15be7f6a37829673663b10699e3a1" category="paragraph">对于磁盘架，插入 SAS 缆线连接器，拉片朝下（位于连接器的下侧）。</block>
@@ -9314,7 +9293,6 @@
   <block id="a27983e963a18385eebdc3381062e49b" category="paragraph">是（从 ONTAP 9.8 开始）</block>
   <block id="098fadefd1319cbc560b7d741aa7210e" category="paragraph">是（从 ONTAP 9.7 开始）</block>
   <block id="b9afd1726285b60db7d467ad0820e411" category="list-text">从 ONTAP 9.1.1 开始，支持八节点配置。</block>
-  <block id="e03959092a5c4014e786cb1caa8e7067" category="summary">从 ONTAP 9.5 开始， ONTAP 支持使用虚拟 IP （ VIP\ ）和边界网关协议（ BGP ）的第 3 层连接。前端网络中用于冗余的 VIP 和 BGP 与后端 MetroCluster 冗余相结合，可提供第 3 层灾难恢复解决方案。</block>
   <block id="ca06ae8121f1cc11363fc78862822c7c" category="summary">您可以从 NetApp 文档了解有关 MetroCluster IP 配置和操作的更多信息。</block>
   <block id="cc3e055fb471a8cb2ae09b695769980f" category="paragraph">您可以了解有关 MetroCluster 配置的更多信息。</block>
   <block id="1e9c37d63bd64093dd1167b70b4e684f" category="section-title">MetroCluster 和其他信息</block>
@@ -9383,7 +9361,6 @@
   <block id="d9d4ce74e38cd9efa737a1c3804eaaa7" category="paragraph"><block ref="d9d4ce74e38cd9efa737a1c3804eaaa7" category="inline-link-rx"></block></block>
   <block id="49e8a4f68d0d39a5df4eff350e3763d9" category="admonition">从 ONTAP 9.8 开始， `storage bridge` 命令将替换为 `ssystem bridge` 。以下步骤显示了 `storage bridge` 命令。但是，如果您运行的是 ONTAP 9.8 或更高版本，则首选使用 `ssystem bridge` 命令。</block>
   <block id="a69113d0b82c861ad8eef62d4034cb23" category="paragraph">在运行 ONTAP 9.5 或更高版本的系统中，可以使用带内管理通过 FC 端口而非以太网端口访问网桥。从 ONTAP 9.8 开始，仅支持带内管理，而 SNMP 管理已弃用。</block>
-  <block id="0c3fb4709273fb6106fd5d554214111c" category="summary">此信息介绍如何在延伸型配置中安装和配置 MetroCluster 硬件和软件组件 \ （有时称为 SAS 光纤 MetroCluster 配置 \ ）。</block>
   <block id="6146d4abcde8b1c5aae9b49637ff7f5f" category="paragraph">此信息介绍如何在延伸型配置（有时称为 SAS 光纤 MetroCluster 配置）中安装和配置 MetroCluster 硬件和软件组件。</block>
   <block id="4a5a62259294d97a965d111d8cc932d9" category="paragraph">在以下情况下，应使用此信息规划，安装和配置延伸型 MetroCluster 配置：</block>
   <block id="72587816d0529c74df88340c08237482" category="paragraph">集群名称。此信息中使用的示例： site_A</block>
@@ -9392,7 +9369,6 @@
   <block id="584a1266a63e28724fdcf8d86b6db4c3" category="paragraph">集群名称。此信息中使用的示例： site_B</block>
   <block id="2c2f9287583185d991b13385cfa2fde6" category="paragraph">节点 1 。此信息中使用的示例： controller_B_1</block>
   <block id="67e842a7a11bd51c19efbc8a245f1c63" category="paragraph">此信息中使用的示例： controller_B_2</block>
-  <block id="b36b0e6d0a0719b38c9e504200700edd" category="summary">从 ONTAP 9.5 开始， ONTAP 支持使用虚拟 IP （ VIP\ ）和边界网关协议（ BGP ）的第 3 层连接。前端网络中用于冗余的 VIP 和 BGP 与后端 MetroCluster 冗余相结合，可提供第 3 层灾难恢复解决方案。</block>
   <block id="868944c71a6fcc34da67f93bb82cca40" category="list-text">从开始，继续执行恢复过程的其余任务 <block ref="0dec2797a01bb484ad7c281f21edd45c" category="inline-link-macro-rx"></block>。</block>
   <block id="df0441e5e3944c5699cd0b50ec4b7b1b" category="paragraph">从 ONTAP 9.6 开始，灾难站点节点启动时会自动执行修复操作。不需要使用修复命令。</block>
   <block id="5581ad763c3fba0d3ba6bb38c64a779f" category="paragraph"><block ref="5581ad763c3fba0d3ba6bb38c64a779f" category="inline-link-macro-rx"></block></block>
@@ -12863,7 +12839,6 @@
   <block id="06e57c67e462db7d596c55b9f2ff56c3" category="paragraph">在9.11.1 9.11.1或更高版本中，您还可以使用System Manager中的*洞察力*选项卡配置NTP：</block>
   <block id="a1cabaf7f1a81532beee6190e4628669" category="list-text">转到System Manager用户界面中的*洞察力*选项卡。</block>
   <block id="60ba0fe34a83db3137aaad4ef92a2685" category="list-text">向下滚动到*配置的NTP服务器太少*，然后选择*修复*。</block>
-  <block id="8f331b9c0fe948d4d36e636ae3c61443" category="summary">每个集群都需要自己的网络时间协议（ NTP ）服务器来同步节点与其客户端之间的时间。</block>
   <block id="3053e08077bad755ce68edce5863f6eb" category="paragraph">每个集群都需要自己的网络时间协议（ Network Time Protocol ， NTP ）服务器来同步节点与其客户端之间的时间。</block>
   <block id="f7bbc76208ab5ade611be3b207fc4964" category="paragraph">内部分区分为四个相等的组（四个季度）。每个季度都会自动分配给一个单独的池。外部磁盘架上的驱动器划分为四个相等的组(四分之一)。每个四分之一架会自动分配给一个单独的池。</block>
   <block id="951ecdd1fc2eee9520c3a6959e6b80fd" category="section-title">在FAS50系统上分配磁盘</block>
@@ -14872,4 +14847,23 @@
   <block id="1ccefdf93fe55bc446f1b6e99fbe9845" category="doc">使用系统控制器替换支持的 MetroCluster IP 控制器升级</block>
   <block id="0036cea7d8ac4a59c7e9634dacc4db95" category="doc">MetroCluster IP 控制器升级工作流（使用系统控制器更换）</block>
   <block id="4c56afcefbd66060fd1bbdf30dd00b24" category="paragraph">从 ONTAP 9.13.1 开始，您可以使用此引导式自动 MetroCluster 切换过程，通过<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令在四节点 MetroCluster IP 配置上执行无中断控制器升级。其他组件（如存储架或交换机）不能作为此过程的一部分进行升级。</block>
+  <block id="a456ee5293d8a7a29751e0a20be4dc05" category="summary">如果控制器故障扩展到 DR 组一侧的所有模块（包括在双节点配置中），或者更换了存储，请更换设备并重新分配磁盘所有权以进行恢复。</block>
+  <block id="6daaf6a1a725c2cca02fcdf7dcf6d551" category="summary">MetroCluster 配置中的两个集群通过客户提供的集群对等网络进行对等，该网络支持站点之间的 SVM 同步镜像。</block>
+  <block id="b9e6e4e52311c3db33c84678847f4a37" category="summary">从 ONTAP 9.5 开始，ONTAP 支持使用虚拟 IP （VIP） 和边界网关协议 （BGP） 的第 3 层连接，提供第 3 层灾难恢复解决方案。</block>
+  <block id="977014be01c1da5d8e97c5c5fa7ba63b" category="summary">您可以从 MetroCluster 配置中的所有节点或灾难恢复 (DR) 组中的所有节点中删除 MetroCluster 配置。</block>
+  <block id="36b3a1d2b2ad844d1cd218d61a616b63" category="summary">每个交换机结构都包括连接站点并在它们之间复制数据的交换机间链路 (ISL)。每个交换机结构必须使用不同的物理路径来实现冗余。</block>
+  <block id="23197f65e201d3f36f70090e1c399981" category="summary">要配置 Cisco FC 交换机，请将交换机设置重置为出厂默认设置，安装交换机软件并应用参考配置 (RCF) 文件。</block>
+  <block id="b5909b79c9831ace5a37a88ecc8d8221" category="summary">必须将参考配置 (RCF) 文件下载到 MetroCluster 结构配置中的每个交换机。</block>
+  <block id="39ec26365619809aba88eabe9e933017" category="summary">从 ONTAP 9.5 开始，ONTAP 支持使用虚拟 IP （VIP） 和边界网关协议 （BGP） 的第 3 层连接，提供第 3 层灾难恢复解决方案。</block>
+  <block id="d4646c837bdf223cb573e0df82f56091" category="summary">您可以从 DR 组中的所有节点中删除 MetroCluster 配置，并将磁盘连接和互连调整为受支持的状态。如果您需要帮助，请联系技术支持。</block>
+  <block id="ae1af88699b3a1ba9c46e056fc8976f0" category="summary">此信息介绍了如何以延伸型或 SAS 光纤配置安装和配置 MetroCluster 硬件和软件组件。</block>
+  <block id="e673a28c59f148030d8d6fe7e77d7f96" category="summary">如果您使用早于 9.5 的 ONTAP 版本，或需要使用 telnet 或其他 IP 端口协议通过带外方式访问 FibreBridge 7600N 网桥，请通过控制台端口启用访问服务。</block>
+  <block id="bdedaf393ca472370b58c2395331b073" category="summary">您可能需要更换故障交换机，或升级或降级交换机。新交换机可以与旧交换机匹配，也可以更改交换机类型。</block>
+  <block id="4d9bd7824ed952ced3e1e1f846baa716" category="summary">修复 MetroCluster 配置后，执行切回操作将其恢复到正常运行状态，灾难站点上的同步源 SVM 处于活动状态并提供数据。</block>
+  <block id="ad326239c8c755c67a0d03b21f3e859e" category="summary">如果使用具有镜像聚合的 AFF 系统，并且未正确分配磁盘，请将每个磁盘架上的一半磁盘分配给本地节点，一半分配给其 HA 配对节点。</block>
+  <block id="1befffb272ddd34fc422043ddf181d72" category="summary">必须使用缆线将新控制器模块的 FC-VI 端口和 HBA （主机总线适配器）连接到现场 FC 交换机。</block>
+  <block id="381a9eac3694415cf3bf742ac42b5393" category="summary">在初始设置后、更改后以及协商切换或回切之前，请检查 MetroCluster 配置中的组件和关系是否正常工作。</block>
+  <block id="c86a7aa614f734c9fdfa06956e64bc4e" category="summary">您必须为需要标准（节点锁定）许可证的任何 ONTAP 服务添加新控制器模块的许可证，并为每个节点添加单独的密钥。</block>
+  <block id="ce1691500a09d5ae00b18feeaec042a3" category="summary">您可以升级四节点 MetroCluster 配置中的控制器和存储，方法是将其扩展到八个节点，然后删除旧的灾难恢复 (DR) 组。</block>
+  <block id="ca586a63a242059b7c620a6612b3b1cd" category="summary">FC 交换机分区必须适应新的控制器连接。如果使用了 NetApp 提供的 RCF 文件，则分区已预配置，无需更改。</block>
 </blocks>

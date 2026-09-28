@@ -2,7 +2,7 @@
 permalink: install-fc/task_synchronize_the_system_time_us_ntp.html 
 sidebar: sidebar 
 keywords: metrocluster, fabric, installation, synchronize, system, time, ntp 
-summary: 每个集群都需要自己的网络时间协议（ NTP ）服务器来同步节点与其客户端之间的时间。 
+summary: 每个集群都需要自己的网络时间协议（ Network Time Protocol ， NTP ）服务器来同步节点与其客户端之间的时间。 
 ---
 = 在 MetroCluster FC 配置中使用 NTP 同步系统时间
 :allow-uri-read: 

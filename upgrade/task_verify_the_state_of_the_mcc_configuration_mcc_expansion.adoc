@@ -2,7 +2,7 @@
 permalink: upgrade/task_verify_the_state_of_the_mcc_configuration_mcc_expansion.html 
 sidebar: sidebar 
 keywords: metrocluster, upgrade, verify, state, configuration 
-summary: 您应确定现有控制器并确认它们之间的灾难恢复 \ （ DR\ ）关系，控制器处于正常模式以及聚合已镜像。 
+summary: 您应确定现有控制器并确认它们之间的灾难恢复（ DR ）关系，控制器处于正常模式以及聚合已镜像。 
 ---
 = 确认双节点 MetroCluster FC 配置的状态
 :allow-uri-read: 

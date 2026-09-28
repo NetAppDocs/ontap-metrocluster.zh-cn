@@ -2,7 +2,7 @@
 permalink: upgrade/task_zone_for_the_new_controller_ports_in_a_fabric_attached_mcc_configuration_four_node_expansion.html 
 sidebar: sidebar 
 keywords: metrocluster, upgrade, zone, controller, fabric, attached, ports, add 
-summary: FC 交换机分区必须支持新的控制器连接。如果您使用 NetApp 提供的参考配置文件 \ （ RCF\ ）配置交换机，则分区是预配置的，不需要进行任何更改。 
+summary: FC 交换机分区必须适应新的控制器连接。如果使用了 NetApp 提供的 RCF 文件，则分区已预配置，无需更改。 
 ---
 = 在连接到结构的 MetroCluster 配置中对新控制器端口进行分区
 :allow-uri-read: 

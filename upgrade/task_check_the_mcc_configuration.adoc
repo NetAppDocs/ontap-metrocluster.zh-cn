@@ -2,7 +2,7 @@
 permalink: upgrade/task_check_the_mcc_configuration.html 
 sidebar: sidebar 
 keywords: metrocluster, upgrade, check, configuration 
-summary: 您可以检查 MetroCluster 配置中的组件和关系是否工作正常。您应在初始配置后以及对 MetroCluster 配置进行任何更改后执行检查。您还应在协商切换或切回操作之前执行检查。 
+summary: 在初始设置后、更改后以及协商切换或回切之前，请检查 MetroCluster 配置中的组件和关系是否正常工作。 
 ---
 = 检查 MetroCluster FC 配置
 :allow-uri-read: 

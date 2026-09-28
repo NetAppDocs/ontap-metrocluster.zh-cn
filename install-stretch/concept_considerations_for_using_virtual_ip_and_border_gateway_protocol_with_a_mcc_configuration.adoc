@@ -2,7 +2,7 @@
 permalink: install-stretch/concept_considerations_for_using_virtual_ip_and_border_gateway_protocol_with_a_mcc_configuration.html 
 sidebar: sidebar 
 keywords: metrocluster, stretch, installation, virtual, ip, border, gateway, protocol, configuration 
-summary: 从 ONTAP 9.5 开始， ONTAP 支持使用虚拟 IP （ VIP\ ）和边界网关协议（ BGP ）的第 3 层连接。前端网络中用于冗余的 VIP 和 BGP 与后端 MetroCluster 冗余相结合，可提供第 3 层灾难恢复解决方案。 
+summary: 从 ONTAP 9.5 开始，ONTAP 支持使用虚拟 IP （VIP） 和边界网关协议 （BGP） 的第 3 层连接，提供第 3 层灾难恢复解决方案。 
 ---
 = 延伸型 MetroCluster 配置中的虚拟 IP 和 BGP
 :allow-uri-read: 

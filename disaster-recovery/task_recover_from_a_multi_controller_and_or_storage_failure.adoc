@@ -2,7 +2,7 @@
 permalink: disaster-recovery/task_recover_from_a_multi_controller_and_or_storage_failure.html 
 sidebar: sidebar 
 keywords: controller, failure, extend, module, side, dr, group, metrocluster, configuration, single, controller, two-node, replace, equipment, reassign, equipment, ownership, drive, disaster, recover, multi-controller, storage 
-summary: 如果控制器故障扩展到 MetroCluster 配置中 DR 组一侧的所有控制器模块（包括双节点 MetroCluster 配置中的单个控制器），或者存储已被更换，则必须更换设备并重新分配驱动器的所有权，才能从灾难中恢复。 
+summary: 如果控制器故障扩展到 DR 组一侧的所有模块（包括在双节点配置中），或者更换了存储，请更换设备并重新分配磁盘所有权以进行恢复。 
 ---
 = 从多控制器或存储故障中恢复 MetroCluster
 :allow-uri-read: 
