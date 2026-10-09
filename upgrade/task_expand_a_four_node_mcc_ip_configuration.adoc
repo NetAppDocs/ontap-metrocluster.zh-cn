@@ -1583,10 +1583,10 @@ cluster_A::*>
 +
 .. 显示卷以标识 MDV 卷：
 +
-如果每个站点有一个镜像数据聚合，则将两个 MDV 卷移动到此一个聚合。如果您有两个或更多镜像数据聚合，请将每个 MDV 卷移动到其他聚合。
+如果每个站点有一个镜像数据聚合，则将两个 MDV 卷都移动到此单个聚合。如果您有两个或多个镜像数据聚合，请将每个 MDV 卷移动到不同的聚合。成功扩展（到四节点或八节点配置）后，每个 MetroCluster IP 站点包含两个 MDV 卷。
 
 +
-如果要将四节点MetroCluster配置扩展为永久八节点配置、则应将其中一个MDV卷移动到新的DR组。
+如果要将四节点 MetroCluster 配置扩展为永久八节点配置，则必须将其中一个 MDV 卷移动到新 DR 组中的任何镜像聚合。您移动的 MDV 卷的后缀是 `_A`还是 `_B`，这没有任何区别。
 
 +
 以下示例显示了 `volume show` 输出中的 MDV 卷：
@@ -1642,11 +1642,11 @@ Warning: You are about to modify the system volume
 +
 [listing]
 ----
-cluster_A::*> vol show MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
+cluster_A::*> vol show MDV_CRS_d6b0b313ff5611e9837100a098544e51_A
 Vserver     Volume       Aggregate    State      Type       Size  Available Used%
 ---------   ------------ ------------ ---------- ---- ---------- ---------- -----
-cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_B
-                       aggr_a2      online     RW         10GB     9.50GB    0%
+cluster_A   MDV_CRS_d6b0b313ff5611e9837100a098544e51_A
+                         data_a3      online      RW        10GB     9.50GB    0%
 ----
 
 

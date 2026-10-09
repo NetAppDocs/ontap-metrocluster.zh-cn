@@ -33,17 +33,10 @@ NOTE: 在运行 ONTAP 9.5 的 MetroCluster IP 系统上，会自动执行修复�
 +
 如果系统显示 LOADER 提示符，请运行 `boot_ontap` 命令。
 
-. 执行根聚合修复阶段： `MetroCluster heal root-aggregates`
+. 修复数据聚合。
 +
-[listing]
-----
-cluster_A::> metrocluster heal root-aggregates
-[Job 137] Job succeeded: Heal Root-Aggregates is successful
-----
-+
-如果修复被否决，您可以使用 -override-vetoes 参数重新发出 MetroCluster heal root-aggregates 命令。如果使用此可选参数，则系统将覆盖任何阻止修复操作的软否决。
+MetroCluster 修复聚合`
 
-. 重新同步聚合： `MetroCluster heal aggregates`
 +
 [listing]
 ----
@@ -51,9 +44,22 @@ cluster_A::> metrocluster heal aggregates
 [Job 137] Job succeeded: Heal Aggregates is successful
 ----
 +
-如果修复被否决，您可以使用 -override-vetoes 参数重新发出 MetroCluster heal 命令。如果使用此可选参数，则系统将覆盖任何阻止修复操作的软否决。
+如果修复被否决，您可以使用 ` -override-vetoes` 参数重新发出 `MetroCluster heal` 命令。如果使用此可选参数，则系统将覆盖任何阻止修复操作的软否决。
 
-. 在运行正常的集群上运行 MetroCluster operation show 命令，以确认修复操作已完成：
+. 修复根聚合：
++
+MetroCluster 修复根聚合`
+
++
+[listing]
+----
+cluster_A::> metrocluster heal root-aggregates
+[Job 137] Job succeeded: Heal Root-Aggregates is successful
+----
++
+如果修复操作被否决，您可以选择使用 `metrocluster heal root-aggregates`参数重新发出 `--override-vetoes`命令。如果使用此可选参数，系统将覆盖任何阻止修复操作的软否决。
+
+. 在运行正常的集群上运行 `MetroCluster operation show` 命令，以确认修复操作已完成：
 +
 [listing]
 ----

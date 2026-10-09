@@ -249,7 +249,16 @@ NOTE: 对包含集群A远程磁盘的所有丛执行此步骤
 
 
 
-. 根据交换机类型使ISL交换机端口持久脱机。
+. 将 ISL 交换机端口脱机。为您的交换机类型选择正确的步骤。
++
+以下过程说明了如何禁用未使用的 ISL 端口，作为此过程的一部分，您可以使用相同的命令禁用所有活动的 ISL 端口。
+
++
+** link:../install-ip/task_switch_config_cisco.html#disable-unused-isl-ports-and-port-channels["禁用 Cisco IP 交换机上的 ISL 端口"]
+** link:../install-ip/task_switch_config_broadcom.html#disable-unused-isl-ports-and-port-channels["禁用 Broadcom IP 交换机上的 ISL 端口"]
+** link:../install-ip/task_switch_config_nvidia.html#disable-unused-isl-ports-and-port-channels["禁用 NVIDIA IP 交换机上的 ISL 端口"]
+
+
 . 在每个节点上运行以下命令、以暂停节点：
 +
 `node halt -inhibit-takeover true -skip-lif-migration true -node <node-name>`
