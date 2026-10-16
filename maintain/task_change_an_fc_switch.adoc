@@ -18,7 +18,7 @@ summary: '您可能需要更改FC交换机的供应商(从Cisco到Brocade或从B
 
 
 .步骤
-. [[STEP_1, Step 1]]检查配置的运行状况。
+. [[step_1]]检查配置的运行状况。
 +
 .. 检查是否已在每个集群上配置 MetroCluster 并使其处于正常模式： ` * MetroCluster show*`
 +
@@ -91,6 +91,6 @@ To check if the nodes are ready to do a switchover or switchback operation, run 
 
 
 . 打开交换机电源。
-. 重复执行、以验证MetroCluster 配置是否运行正常 <<第 1 步>>。
+. 通过重复 <<step_1,第 1 步>> 验证 MetroCluster 配置是否正常。
 . 对配置中的第二个网络结构重复步骤1至步骤7。
 
