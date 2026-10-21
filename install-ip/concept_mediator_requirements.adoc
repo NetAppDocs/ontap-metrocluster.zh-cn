@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: ontap, mediator, assist, metrocluster, ip, configuration, perform, automatic, unplan, switchover, physical, repository, status, information, configuring, configure, install, configuring, configure, mtu size, packet loss, bandwidth, firewall, rhel, centos, linux, revert, kernal, upgrade, latency 
 summary: 从 ONTAP 9.7 开始，ONTAP Mediator 可以通过提供物理上独立的状态信息存储库来帮助 MetroCluster IP 配置执行自动计划外切换。 
 ---
-= ONTAP Mediator 安装要求适用于 MetroCluster IP 配置
+= MetroCluster IP 配置的 ONTAP Mediator 配置要求
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您的环境必须满足某些要求。
+要在 MetroCluster IP 配置中配置 ONTAP 调解器，您的环境必须满足某些要求。
 
 以下要求适用于一个灾难恢复组(DR组)。了解更多信息 link:concept_parts_of_an_ip_mcc_configuration_mcc_ip.html#disaster-recovery-dr-groups["DR 组"]。
 
@@ -83,7 +83,7 @@ ONTAP 调解器和一个 DR 组之间的链接必须至少具有 20Mbps 的带�
 
 从 ONTAP 9.19.1 和 ONTAP Mediator 1.12 开始，您可以配置使用 HTTPS 而不是 iSCSI 进行通信的 ONTAP Mediator 实例。HTTPS 是一种安全的通信协议，使用 SSL/TLS 对整个会话进行加密，与 iSCSI 相比，安全性更高。
 
-您可以安装支持 iSCSI 和 HTTPS 或仅支持 HTTPS 的 ONTAP Mediator。有关详细信息，请参见 link:https://docs.netapp.com/us-en/ontap/mediator/index.html#https-iscsi-installation["适用于 ONTAP Mediator 的 HTTPS 和 iSCSI 安装选项"^]。
+您可以安装支持 iSCSI 和 HTTPS 或仅支持 HTTPS 的 ONTAP Mediator。有关详细信息，请参见 link:https://docs.netapp.com/us-en/ontap-mediator/install/prepare-install.html#https-iscsi-installation["适用于 ONTAP Mediator 的 HTTPS 和 iSCSI 安装选项"^]。
 
 您可以使用 iSCSI 或 HTTPS 配置 ONTAP Mediator，但不能同时使用两者。不支持在部署中混合使用协议。
 
@@ -157,7 +157,7 @@ link:https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/index.html["了�
 * 运行 ONTAP 9.7 或更高版本的 MetroCluster IP 配置支持所有调解器版本。
 
 
-link:https://docs.netapp.com/us-en/ontap/mediator/index.html["安装或升级 ONTAP 调解器"^]
+link:https://docs.netapp.com/us-en/ontap-mediator/index.html["安装或升级 ONTAP 调解器"^]
 
 
 

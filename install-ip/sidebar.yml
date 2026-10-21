@@ -2,7 +2,7 @@
 section: install-ip
 title: 安装 MetroCluster IP 配置
 entries:
-- title: 概述
+- title: 安装工作流
   url: "/install-ip/index.html"
 - title: 准备 MetroCluster 安装
   pdf-filename: 准备进行MetroCluster IP 安装
@@ -105,7 +105,7 @@ entries:
   entries:
   - title: 使用命令行界面配置MetroCluster软件
     entries:
-    - title: 概述
+    - title: 了解如何在 ONTAP 中配置 MetroCluster 软件
       url: "/install-ip/concept_configure_the_mcc_software_in_ontap.html"
     - title: 收集所需信息
       url: "/install-ip/task_sw_config_gather_info.html"
@@ -137,7 +137,7 @@ entries:
       url: "/install-ip/configure-mcc-site-system-manager.html"
 - title: 配置 ONTAP 调解器以实现计划外自动切换
   entries:
-  - title: 准备安装 ONTAP 调解器
+  - title: 准备配置 ONTAP 调解器
     url: "/install-ip/concept_mediator_requirements.html"
   - title: 配置ONTAP Mediator 以进行MetroCluster IP 配置
     url: "/install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html"
