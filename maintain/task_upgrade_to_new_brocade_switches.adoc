@@ -76,6 +76,10 @@ image::../media/brocade_upgr_to_g620_replaced_b_1.gif[Brocade升级至 G620 并�
 
 
 . 启动新交换机并让其启动。
+. 返回到交换机提示符，验证交换机固件版本：
++
+`固件`
+
 . 使用以下过程之一配置Brocade FC交换机：
 +
 link:../install-fc/task_reset_the_brocade_fc_switch_to_factory_defaults.html["使用 RCF 文件配置 Brocade FC 交换机"]
@@ -143,16 +147,6 @@ slot 0: FC Host Adapter 0g (QLogic 8324 rev. 2, N-port, <UP>)**<=== Initiator po
 		.
 		.
 ----
-. 返回到交换机提示符，验证交换机固件版本：
-+
-`固件`
-
-+
-交换机必须运行最新支持的固件。
-
-+
-https://mysupport.netapp.com/matrix["NetApp 互操作性表工具"]
-
 . 模拟切换操作：
 +
 .. 在任何节点的提示符处，更改为高级权限级别： + `set -privilege advanced`

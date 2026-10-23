@@ -6587,7 +6587,6 @@
   <block id="8f2e5cc9f165067cebf8dad44f099da8" category="list-text">在光纤连接的 MetroCluster 配置中， ISL 必须在 MetroCluster 站点之间正常运行。</block>
   <block id="5f9bbce01bd9d804a2f72650092a1d3b" category="section-title">修复数据聚合</block>
   <block id="e941c3bfcac66cf5cb47b9d65004602f" category="paragraph">修复并更换灾难站点上的任何硬件后，您必须修复数据聚合。此过程会重新同步数据聚合，并使（现已修复）灾难站点做好正常运行的准备。在修复根聚合之前，您必须修复数据聚合。</block>
-  <block id="0605e801ab1d6a8b30acc6dda60b61a8" category="paragraph">以下示例显示了强制切换，在此可以使已切换的聚合联机。远程集群中的所有配置更新均已成功复制到本地集群。您在此操作步骤中启动灾难站点上的存储，但不会也不能启动灾难站点上的控制器模块。</block>
   <block id="b2a58abb9aa1ce46e4162ec28d9e8484" category="list-text">验证切换是否已完成：</block>
   <block id="1d968d9f43e16ddc5915b3582ba96a36" category="paragraph">`MetroCluster 操作显示`</block>
   <block id="7db001ac93912b8966d9e8ddec02a225" category="list-text">在运行正常的集群中运行以下命令，以重新同步数据聚合：</block>
@@ -14373,7 +14372,6 @@
   <block id="f7f3cd01961c53f33c89b788147d8de3" category="list-text">将从旧控制器断开的所有其他连接的电缆连接到新的控制器模块。</block>
   <block id="2fb65189695e9496f507ebb44d5b6cb6" category="paragraph">在执行切回之前，请验证 LIF 是否托管在适当的节点和端口上。</block>
   <block id="542e234aa223d3b0ecca11dacf8e46ed" category="list-text">在执行切回之前，请验证 LIF 是否托管在相应的节点和端口上。</block>
-  <block id="3dcbbe108abc6bdf7036466d9fe35058" category="admonition">在执行切换之前，必须验证数据 LIF 在新节点上的位置是否正确。切换回配置时，ONTAP 会尝试在 LIF 使用的主端口上恢复流量。如果主端口与交换机端口和 VLAN 的连接不正确，可能会发生 I/O 故障。如果在将 LIF 放置在正确的节点或端口上时遇到任何问题，请勿继续执行切换，并联系 NetApp 技术支持。</block>
   <block id="108f2a315310ceff812cf39f143ca95b" category="list-text">执行以下检查，以确认两个集群之间的切换可正常运行：</block>
   <block id="59a93fe50b25a85e88bed38108e0196c" category="list-text">在DR集群中，检查是否可以从正常运行的集群切换到DR集群：</block>
   <block id="59ded25db2e6cefacbcb41c378e0b709" category="list-text">在正常运行的集群中，检查是否可以从 DR 集群切换到正常运行的集群：</block>
@@ -14879,4 +14877,10 @@
   <block id="706c1d4933d296d42d61b064f4e637ae" category="sidebar">安装工作流</block>
   <block id="8f817e2a0df7ced319cdc0dd9031e535" category="sidebar">了解如何在 ONTAP 中配置 MetroCluster 软件</block>
   <block id="b60d2ca38a2a217c2f194613ae620303" category="sidebar">准备配置 ONTAP 调解器</block>
+  <block id="48787bff378672c516633e53e78867b8" category="summary">在非控制器故障后修复 MetroCluster 配置，并执行回切操作以恢复正常、完全冗余的操作。</block>
+  <block id="3e2ce732c0b76ab6255c0b49aa925eab" category="list-text">在光纤连接和延伸型 MetroCluster 配置中，灾难站点上的节点必须暂停或保持断电状态。在修复过程中，它们不得完全启动。</block>
+  <block id="376deeb1de4a09a5382d17ea2768b1e9" category="paragraph">以下示例显示了强制切换，其中将切换后的聚合联机。远程集群中的所有配置更新都已成功复制到本地集群。作为此过程的一部分，您需要开启灾难站点上的存储电源，但在光纤连接或延伸型 MetroCluster 配置中，您不应也绝不能开启灾难站点上的控制器模块电源。</block>
+  <block id="756bb9840619872518b56de349470f31" category="paragraph">如果修复操作被否决，您可以使用<block ref="5b8353fafaa1c451a58b0b87dede3fc0" prefix=" " category="inline-code"></block>参数重新发出<block ref="c85b4996143a93edc62c1214c1b80d15" prefix=" " category="inline-code"></block>命令，以覆盖任何阻止修复操作的软否决。</block>
+  <block id="4510065cdf938bdc660bae11b415e4ca" category="admonition">在执行切回之前，您必须验证数据 LIF 在新节点上的位置是否正确。当您切回配置时，ONTAP 会尝试在 LIF 使用的主端口上恢复流量。如果主端口与交换机端口和 VLAN 的连接不正确，则可能会发生 I/O 故障。如果在将 LIF 放置到正确的节点或端口上时遇到任何问题，请勿继续执行切回，并联系 NetApp 技术支持。</block>
+  <block id="ded79adea8538afbad271b9f9dc6c6e2" category="admonition">在 MetroCluster FC 环境中，“connections”应在命令输出中显示为“not-applicable”。</block>
 </blocks>

@@ -2,7 +2,7 @@
 permalink: disaster-recovery/task_recover_from_a_non_controller_failure_mcc_dr.html 
 sidebar: sidebar 
 keywords: equipment, disaster, site, undergone, require, maintenance, replacement, controller, replace, process, metrocluster, configuration, data, aggregate, switchback, operation, recover, non-controller, failure, heal, configuration, metrocluster, fc, data, aggregate, root, disaster, verify, system, switchback, verification, result, perform, successful, delete, deleting, stale, listing 
-summary: 在灾难站点上的设备进行了任何必要的维护或更换，但未更换任何控制器后，您可以开始将 MetroCluster 配置恢复为完全冗余状态的过程。其中包括修复配置（首先修复数据聚合，然后修复根聚合）以及执行切回操作。 
+summary: 在非控制器故障后修复 MetroCluster 配置，并执行回切操作以恢复正常、完全冗余的操作。 
 ---
 = 从 MetroCluster 配置中的非控制器故障中恢复
 :allow-uri-read: 
@@ -45,10 +45,7 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 
 .开始之前
 * 必须已执行切换，并且正常运行的站点必须正在提供数据。
-* 灾难站点上的节点必须暂停或保持关闭状态。
-+
-在修复过程中，不能完全启动它们。
-
+* 在光纤连接和延伸型 MetroCluster 配置中，灾难站点上的节点必须暂停或保持断电状态。在修复过程中，它们不得完全启动。
 * 灾难站点上的存储必须可访问（磁盘架已启动，正常运行且可访问）。
 * 在光纤连接的 MetroCluster 配置中，交换机间链路（ ISL ）必须已启动且正在运行。
 * 在四节点 MetroCluster 配置中，运行正常的站点中的节点不能处于 HA 故障转移状态（对于每个 HA 对，所有节点都必须已启动且正在运行）。
@@ -65,7 +62,7 @@ NetApp强烈建议您在使用的设备上启用控制台日志记录、并在�
 修复并更换灾难站点上的任何硬件后，您必须修复数据聚合。此过程会重新同步数据聚合，并使（现已修复）灾难站点做好正常运行的准备。在修复根聚合之前，您必须修复数据聚合。
 
 .关于此任务
-以下示例显示了强制切换，在此可以使已切换的聚合联机。远程集群中的所有配置更新均已成功复制到本地集群。您在此操作步骤中启动灾难站点上的存储，但不会也不能启动灾难站点上的控制器模块。
+以下示例显示了强制切换，其中将切换后的聚合联机。远程集群中的所有配置更新都已成功复制到本地集群。作为此过程的一部分，您需要开启灾难站点上的存储电源，但在光纤连接或延伸型 MetroCluster 配置中，您不应也绝不能开启灾难站点上的控制器模块电源。
 
 .步骤
 . 验证切换是否已完成：
@@ -93,7 +90,7 @@ controller_A_1::> metrocluster heal -phase aggregates
 [Job 130] Job succeeded: Heal Aggregates is successful.
 ----
 +
-如果修复被否决，您可以使用 ` -override-vetoes` 参数重新发出 `MetroCluster heal` 命令。如果使用此可选参数，则系统将覆盖任何阻止修复操作的软否决。
+如果修复操作被否决，您可以使用 `--override-vetoes`参数重新发出 `metrocluster heal`命令，以覆盖任何阻止修复操作的软否决。
 
 . 验证操作是否已完成：
 +
@@ -147,7 +144,7 @@ mcc1A::> metrocluster heal -phase root-aggregates
 [Job 137] Job succeeded: Heal Root Aggregates is successful
 ----
 +
-如果修复被否决，您可以使用 ` -override-vetoes` 参数重新发出 `MetroCluster heal` 命令。如果使用此可选参数，则系统将覆盖任何阻止修复操作的软否决。
+如果修复操作被否决，您可以使用 `--override-vetoes`参数重新发出 `metrocluster heal`命令，以覆盖任何阻止修复操作的软否决。
 
 . 在目标集群上运行以下命令，以确保修复操作已完成：
 +
@@ -217,7 +214,7 @@ mcc1A::> metrocluster operation show
 
 
 
-CAUTION: 在执行切换之前，必须验证数据 LIF 在新节点上的位置是否正确。切换回配置时，ONTAP 会尝试在 LIF 使用的主端口上恢复流量。如果主端口与交换机端口和 VLAN 的连接不正确，可能会发生 I/O 故障。如果在将 LIF 放置在正确的节点或端口上时遇到任何问题，请勿继续执行切换，并联系 NetApp 技术支持。
+CAUTION: 在执行切回之前，您必须验证数据 LIF 在新节点上的位置是否正确。当您切回配置时，ONTAP 会尝试在 LIF 使用的主端口上恢复流量。如果主端口与交换机端口和 VLAN 的连接不正确，则可能会发生 I/O 故障。如果在将 LIF 放置到正确的节点或端口上时遇到任何问题，请勿继续执行切回，并联系 NetApp 技术支持。
 
 
 
@@ -567,7 +564,7 @@ volumes             ok
 ----
 +
 
-NOTE: 在 MetroCluster FC 环境中，"connections"应在命令输出中显示为"not-applicable"。
+NOTE: 在 MetroCluster FC 环境中，“connections”应在命令输出中显示为“not-applicable”。
 
 
 

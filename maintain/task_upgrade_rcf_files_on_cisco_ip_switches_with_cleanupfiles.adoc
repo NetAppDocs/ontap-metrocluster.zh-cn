@@ -261,14 +261,11 @@ NOTE: 系统将提示您指定虚拟路由和转发(VRF)。
 IP_switch_A_1# show running-config diff
 IP_switch_A_1#
 ----
-
-
-. 如果看到系统输出、请将运行配置保存到启动配置：`copy running-config startup-config`
+.. 如果看到系统输出、请将运行配置保存到启动配置：`copy running-config startup-config`
 +
 
 NOTE: 系统输出指示启动配置和运行配置不同、并且待定更改。如果不保存待定更改、则无法通过重新加载交换机进行回滚。
 
-+
 .. 应用CleanUpFile：
 +
 [listing]
@@ -329,6 +326,11 @@ IP_switch_A_1# copy running-config startup-config
 
 IP_switch_A_1# reload
 ----
+. 对每个交换机重复上述步骤。
++
+
+NOTE: 在第一个网络结构（Switch_A_1、Switch_B_1）中配置交换机后，必须重复执行相关步骤，以移动第二个网络结构（Switch_A_2、Switch_B_2）上的集群 LIF。请参阅link:../install-ip/task_install_and_cable_the_mcc_components.html["了解有关配置 MetroCluster IP 交换机的信息"]。
+
 . 修改所有集群 LIF 以启用自动还原：
 +
 .. 重新启用自动还原：
