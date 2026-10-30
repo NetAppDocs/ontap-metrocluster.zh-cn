@@ -1,16 +1,8 @@
 ---
 permalink: maintain/index.html 
-sidebar: sidebar 
-keywords: metrocluster, maintain, service 
-summary: 您可以在 MetroCluster 配置中维护 MetroCluster 专用的硬件组件。 
+redirect: ontap-metrocluster/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html 
 ---
-= 了解有关维护 MetroCluster 硬件组件的信息
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-您可以使用以下过程维护 MetroCluster 配置中的 MetroCluster 专用硬件组件。
-
-MetroCluster 系统的服务过程包括驱动器架， IP 交换机， FC 交换机， FC-SAS 网桥和 SAS 缆线的固件升级和硬件更换过程。

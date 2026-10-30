@@ -200,7 +200,7 @@ cluster_A::>
 NOTE: 如果您的交换机配置正确，您可以跳过下面这些部分并直接转到 <<在 Cisco 9336C 交换机上配置 MACsec 加密>>，如果适用或 <<连接新的 NS224 磁盘架>>。
 
 * 要添加磁盘架，必须更改交换机配置。
-* 您应在查看布线详细信息 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/port_usage_3232c_9336c.html#cabling-a-aff-a800-to-a-cisco-3232c-or-cisco-9336c-switch["平台端口分配"^]。
+* 您应在 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/using_rcf_generator.html["了解有关 MetroCluster IP 交换机布线的信息"^] 查看布线详细信息。
 * 您必须使用 "**RcfFileGenerator ！ " 工具为您的配置创建 RCF 文件。。 link:https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["RcfFileGenerator"^] 此外，还提供了每个交换机的每端口布线概览。请确保选择正确数量的磁盘架。此外，还会创建一些其他文件以及 RCF 文件，这些文件可提供与您的特定选项匹配的详细布线布局。在为新磁盘架布线时，请使用此布线概述来验证布线情况。
 
 

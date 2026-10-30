@@ -49,7 +49,7 @@ link:../install-stretch/concept_considerations_differences.html["延伸型 Metro
 
 
  a| 
-link:../manage/index.html["MetroCluster 管理"]
+link:../manage/task_perform_switchover_for_tests_or_maintenance.html["执行切换以进行测试或维护"]
  a| 
 * 了解 MetroCluster 配置
 * 切换，修复和切回
@@ -68,7 +68,7 @@ link:../disaster-recovery/concept_dr_workflow.html["灾难恢复"]
 
 
  a| 
-link:../maintain/index.html["MetroCluster 维护"]
+link:../maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["MetroCluster 维护"]
  a| 
 * MetroCluster FC 配置维护准则
 * FC-SAS 网桥和 FC 交换机的硬件更换或升级以及固件升级过程

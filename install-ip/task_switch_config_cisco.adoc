@@ -774,7 +774,7 @@ cluster_A::*>
 .关于此任务
 在执行此操作步骤之前，必须为 25 Gbps 端口布线。
 
-link:port_usage_3232c_9336c.html["Cisco 3232C 或 Cisco 9336C 交换机的平台端口分配"]
+link:using_rcf_generator.html["了解有关 MetroCluster IP 交换机布线的信息"]
 
 此任务仅限使用 25-Gbps 连接的适用场景 平台：
 

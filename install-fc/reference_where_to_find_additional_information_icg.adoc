@@ -68,17 +68,24 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_consideratio
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/manage/index.html["MetroCluster 管理和灾难恢复"]
+link:../manage/task_perform_switchover_for_tests_or_maintenance.html["执行切换以进行测试或维护"]
+ a| 
+* 切换，修复和切回
+
+
+
+
+ a| 
+link:../manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html["了解 MetroCluster 数据保护和灾难恢复"]
  a| 
 * 了解 MetroCluster 配置
-* 切换，修复和切回
 * 灾难恢复
 
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["维护 MetroCluster 组件"]
+https://docs.netapp.com/us-en/ontap-metrocluster/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["MetroCluster 维护"]
  a| 
 * MetroCluster FC 配置维护准则
 * FC-SAS 网桥和 FC 交换机的硬件更换或升级以及固件升级过程

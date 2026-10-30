@@ -2,52 +2,115 @@
 permalink: install-ip/using_rcf_generator.html 
 sidebar: sidebar 
 keywords: cabling, cable, component, link, site, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure, rcf, file, generator, RcfFileGenerator 
-summary: 您必须了解如何使用端口表中的信息正确生成 RCF 文件。 
+summary: 您必须了解如何使用端口表中的信息来正确生成 RCF。 
 ---
-= MetroCluster IP 配置的端口表
+= 了解有关 MetroCluster IP 交换机布线的信息
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您必须了解如何使用端口表中的信息来正确生成参考配置文件 (RCF)。
+在开始对 MetroCluster IP 交换机进行布线之前，请查看要求。
 
 .开始之前
-在使用表之前，请查看以下注意事项：
+在连接交换机电缆之前，请查看以下注意事项：
 
-* 下表显示了站点 A 的端口使用情况站点 B 使用相同的布线方式
+* 站点 A 和站点 B 使用相同的布线。
 * 您不能为交换机配置不同速度的端口（例如，100 Gbps 端口和 40 Gbps 端口的混合）。
 * 跟踪 MetroCluster 端口组（ MetroCluster 1 ， MetroCluster 2 等）。在使用 RcfFileGenerator 工具时您将需要此信息，如本配置过程后面所述。
 * 您应以相同方式为所有节点布线。如果有不同的端口组合选项可用于为节点布线、则所有节点都应使用相同的端口组合。例如、应将node1上的e1a和node2上的e1a连接到一个交换机。同样、两个节点的第二个端口应连接到第二个交换机。
-*  https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["适用于 MetroCluster IP 的 RcfFileGenerator"^]还提供了每个交换机的每端口布线概览。使用此布线概述来验证布线情况。
+
+
+
+NOTE: 参考配置文件（RCF）版本不同于用于生成该文件的 RCFfilegenerator 工具的版本。例如，您可以使用 RCFfilegenerator v1.6c 生成 RCF 版本 2.00。
+
+
+
+[[cabling-requirements-based-on-the-switch-type]]
+== 基于交换机类型的布线要求
+
+以下列出了基于特定交换机类型的布线要求。
+
+
+
+[[cisco-3132q-v]]
+=== Cisco 3132Q-V
+
+如果将交换机配置为 MetroCluster FC 到 IP 转换，则可以使用端口 5 或端口 6 连接 MetroCluster FC 节点的本地集群接口。有关此配置布线的详细信息，请参见 link:https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["适用于 MetroCluster IP 的 RcfFileGenerator"^] 和生成的布线文件。
+
+
+
+[[cisco-3232c-or-36-port-cisco-9336c]]
+=== Cisco 3232C 或 36 端口 Cisco 9336C
+
+* 如果将交换机配置为 MetroCluster FC 到 IP 转换，则可以使用端口 5、端口 6、端口 13 或端口 14 连接 MetroCluster FC 节点的本地集群接口。有关此配置布线的详细信息，请参见 link:https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["适用于 MetroCluster IP 的 RcfFileGenerator"^] 和生成的布线文件。
+* 对于受支持平台上的 MetroCluster ISL 的 25G 分支模式，需要 RCF 版本 v2.10 或更高版本。
+* 要在“MetroCluster 4”组中使用 FAS8200 或 AFF A300 以外的平台，需要 ONTAP 9.13.1 或更高版本以及 RCF 2.00 版。
 
 
 
 
-[[cabling-two-metrocluster-configurations-to-the-switches]]
-== 使用缆线将两个 MetroCluster 配置连接到交换机
+[[12-port-cisco-9336c-fx2]]
+=== 12 端口 Cisco 9336C-FX2
 
-将多个 MetroCluster 配置布线到交换机时，请根据相应的表格为每个 MetroCluster 布线。例如，如果要将 FAS2750 和 AFF A700 布线到同一台交换机，则应按照表 1 中的“MetroCluster 1”为 FAS2750 布线，按照表 2 中的“MetroCluster 2”或“MetroCluster 3”为 AFF A700 布线。您不能将FAS2750和AFF A700以物理方式连接为MetroCluster 1。
-
-
-
-[[cabling-eight-node-metrocluster-configurations]]
-== 为八节点 MetroCluster 配置布线
-
-对于运行 ONTAP 9.8 及更早版本的 MetroCluster 配置，为过渡升级而执行的某些过程要求在配置中再添加一个四节点 DR 组，以创建临时八节点配置。  从ONTAP 9.9.1开始、支持永久八节点MetroCluster配置。
-
-.关于此任务
-对于八节点配置，使用与上面描述的相同的方法。您需要为另一个四节点 DR 组布线，而不是为另一个 MetroCluster 布线。
-
-例如，您的配置包括以下内容：
-
-* Cisco 3132Q-V 交换机
-* MetroCluster 1 ： FAS2750 平台
-* MetroCluster 2 ： AFF A700 平台（这些平台将作为第二个四节点 DR 组添加）
+12 端口 Cisco 9336C-FX2 交换机不支持将 NS224 架连接到 MetroCluster 交换机。
 
 
-.步骤
-. 对于 MetroCluster 1 ，使用适用于 FAS2750 平台的表和适用于 MetroCluster 1 接口的行为 Cisco 3132Q-V 交换机布线。
-. 对于 MetroCluster 2 （第二个 DR 组），使用适用于 AFF A700 平台的表和适用于 MetroCluster 2 接口的行为 Cisco 3132Q-V 交换机布线。
 
+[[36-port-cisco-9336c-fx2-switch-connecting-ns224-storage]]
+=== 连接 NS224 存储的 36 端口 Cisco 9336C-FX2 交换机
+
+* 连接一个八节点或两个四节点MetroCluster配置需要使用ONTAP 9.14.1或更高版本。
+* 当您对连接 NS224 存储的 Cisco 9336C-FX2 交换机进行布线时，最多只能有两个 MetroCluster 配置或 DR 组。必须至少有一个 MetroCluster 配置或 DR 组将 NS224 盘架连接到该 MetroCluster 交换机。
+* 只有在选择第一个平台时、RcfFileGenerator才会显示符合条件的平台。
+* 如果要扩展不支持交换机连接的 NS224 存储的常规 MetroCluster 配置，并且要添加具有交换机连接的 NS224 存储的 MetroCluster 配置，请查看以下信息：
++
+在 RcfFileGenerator 工具中，您必须首先选择支持交换机连接 NS224 存储的平台，然后选择不支持交换机连接 NS224 存储的平台。
+
++
+这意味着，为新配置生成 RCF 时，可能需要按以下顺序在 RcfFileGenerator 工具中选择平台：
+
++
+.. 从第二个下拉字段中选择支持交换机连接的 NS224 存储的平台。
+.. 从第一个下拉字段中选择不支持交换机连接的 NS224 存储的平台。
+
+
+
+
+
+
+[[broadcom-bes-53248]]
+=== Broadcom BES-53248
+
+* 您不能使用具有不同速度的远程ISL端口的交换机(例如、连接到10 Gbps ISL端口的25 Gbps端口)。
+* 如果为交换机配置MetroCluster FC到IP过渡、则会根据您选择的目标平台使用以下端口：
++
+[cols="75,25"]
+|===
+| 目标平台 | 端口 
+
+
+| FAS500f、AFF C250、ASA C250、AFF A250、ASA A250、 FAS9300、AFF C400、ASA C400、AFF A400、ASA A400、 或FAS4700平台 | 端口1 - 6、10Gbps 
+
+
+| FAS8200或AFF A300平台 | 端口3 - 4和9 - 12、10 Gbps 
+|===
+* 配置了 Broadcom BES-53248 交换机的 AFF A320 系统可能不支持所有功能。
++
+不支持要求将本地集群连接到交换机的任何配置或功能。例如，不支持以下配置和过程：
+
++
+** 八节点 MetroCluster 配置
+** 从 MetroCluster FC 过渡到 MetroCluster IP 配置
+** 刷新四节点 MetroCluster IP 配置（ ONTAP 9.8 及更高版本）
+
+
+
+
+
+
+[[nvidia-sn2100]]
+=== NVIDIA SN2100
+
+连接一个八节点或两个四节点 MetroCluster 配置需要 ONTAP 9.14.1 或更高版本以及 RCF 版本 2.00 或更高版本。

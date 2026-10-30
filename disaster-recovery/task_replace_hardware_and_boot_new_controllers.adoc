@@ -40,7 +40,7 @@ MetroCluster FC 配置中的 FC 交换机
 .. 安装新交换机。
 .. 为 ISL 链路布线。此时请勿打开 FC 交换机的电源。
 
-| link:../maintain/index.html["维护 MetroCluster 组件"] 
+| link:../maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["维护 MetroCluster 组件"] 
 
 
  a| 

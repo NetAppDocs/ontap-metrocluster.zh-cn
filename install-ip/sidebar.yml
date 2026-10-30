@@ -53,20 +53,10 @@ entries:
     url: "/install-ip/task_rack_hw_components.html"
   - title: 为 MetroCluster IP 交换机布线
     entries:
-    - title: 如何在 RcfFileGenerator 工具或多个 MetroCluster 配置中使用端口表
+    - title: 了解有关 MetroCluster IP 交换机布线的信息
       url: "/install-ip/using_rcf_generator.html"
-    - title: Cisco 3132Q-V 交换机的平台端口分配
-      url: "/install-ip/port_usage_3132q.html"
-    - title: Cisco 3232C 或 36 端口 Cisco 9336C-FX2 交换机的平台端口分配
-      url: "/install-ip/port_usage_3232c_9336c.html"
-    - title: 12 端口 Cisco 9336C-FX2 交换机的平台端口分配
-      url: "/install-ip/port-usage-9336c-fx-2-12-port.html"
-    - title: 连接 NS224 存储的 36 端口Cisco 9336C-FX2 交换机的平台端口分配
-      url: "/install-ip/port_usage_9336c_shared.html"
-    - title: 为 Broadcom 支持的 BES-53248 IP 交换机分配平台端口
-      url: "/install-ip/port_usage_bes53248.html"
-    - title: NVIDIA支持的SN2100 IP交换机的平台端口分配
-      url: "/install-ip/port_usage_sn2100.html"
+    - title: 为 MetoCluster IP 交换机布线
+      url: "/install-ip/cable-mcc-ip-switches.html"
   - title: 为控制器数据和管理端口布线
     url: "/install-ip/task_cable_other_connections.html"
   - title: 配置 MetroCluster IP 交换机

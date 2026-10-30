@@ -488,7 +488,7 @@ SAS Port B has been disabled.
 |===
 . 完成 MetroCluster 配置后，使用 `flashimages` 命令检查您的 FibreBridge 固件版本，如果网桥未使用支持的最新版本，请更新配置中所有网桥上的固件。
 +
-link:../maintain/index.html["维护 MetroCluster 组件"]
+link:../maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["MetroCluster 维护"]
 
 
 

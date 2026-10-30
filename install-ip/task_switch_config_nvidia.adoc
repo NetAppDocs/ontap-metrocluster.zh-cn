@@ -497,7 +497,7 @@ cluster_A::*>
 如果您的系统配置为使用25 Gbps连接、请在应用RCF后手动将正向错误更正(FEC)参数设置为关闭。RC框架 不应用此设置。
 
 .关于此任务
-* 此任务仅适用于使用25 Gbps连接的平台。请参阅 link:../install-ip/port_usage_sn2100.html["NVIDIA支持的SN2100 IP交换机的平台端口分配"]。
+* 本任务仅适用于使用 25-Gbps 连接的平台。请参阅 link:../install-ip/using_rcf_generator.html["了解有关 MetroCluster IP 交换机布线的信息"]。
 * 必须对 MetroCluster IP 配置中的所有四台交换机执行此任务。
 * 您必须单独更新每个交换机端口、但不能在命令中指定多个端口或端口范围。
 

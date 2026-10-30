@@ -155,7 +155,129 @@ volumes             ok
 
 
 
+. 如果 MetroCluster IP 配置已将 NVMe 盘架连接到 MetroCluster IP 交换机，请运行以下命令以验证盘架状态。
++
+.. 显示磁盘架状态：
++
+`storage shelf show`
+
++
+.显示示例
+[%collapsible]
+====
+[listing]
+----
+cluster_A::> storage shelf show
+                                                        Module  Operational
+       Shelf Name Shelf ID Serial Number   Model        Type    Status
+----------------- -------- --------------- ------------ ------- -----------
+              1.0        0 952123456789    NS224NSM100  NSM100  Normal
+              1.2        0 952987654321    NS224NSM100  NSM100  Normal
+cluster_A::>
+----
+====
+.. 显示交换机连接的 NVMe 盘架的盘架连接：
++
+`storage shelf show -shelf <shelf_name> -connectivity`
+
++
+.显示示例
+[%collapsible]
+====
+[listing]
+----
+cluster_A::> storage shelf show -shelf 0 -connectivity
+            Shelf Name: 1.0
+             Stack ID: 1
+             Shelf ID: 0
+            Shelf UID: 00:00:00:00:00:00:00:00
+        Serial Number: 952123456789
+          Module Type: NSM100
+                Model: NS224NSM100
+         Shelf Vendor: NETAPP
+           Disk Count: 24
+      Connection Type: NVMe
+          Shelf State: Online
+               Status: Normal
+Paths:
+
+Controller         Initiator Initiator Side Switch Port Target Side Switch Port    Target Port        TPGN
+------------------ --------- -------------------------- -------------------------- ------------------ ------
+cluster_A-01       0x        -                          0x                         05000005abff0000   67
+cluster_A-02       0x        -                          0x                         030f0005abff0000   44
+
+cluster_A::>
+----
+====
+.. 如果需要，收集远程设备（MetroCluster 交换机）名称：
++
+.显示示例
+[%collapsible]
+====
+[listing]
+----
+cluster_A::> storage shelf port show -fields remote-device
+
+shelf id remote-device
+----- -- -------------
+1.0   0  IP_switch_A_1
+1.0   1  IP_switch_B_1
+1.0   2  IP_switch_A_2
+1.0   3  IP_switch_B_2
+4 entries were displayed
+----
+====
+.. 显示交换机连接的 NVMe 盘架的盘架端口连接：
++
+`storage shelf port show -remote-device <switch name>`
+
++
+.显示示例
+[%collapsible]
+====
+[listing]
+----
+cluster_A::> storage shelf port show -remote-device IP_switch_A_1
+
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.0
+       1 A      connected    false
+       3 B      connected    false
+1.2
+       1 A      connected    false
+       3 B      connected    false
+4 entries were displayed.
+
+cluster_A::>
+----
+====
+
+
 . link:../install-ip/switch-move-cluster-lifs.html["移动集群 LIF"] 在开始升级之前。
+. 如果您正在升级 Cisco 或 Broadcom MetroCluster IP 交换机上的固件，则可以在继续升级之前保存当前交换机配置的副本。
++
+
+NOTE: 如果您的工作流程要求您重置交换机以便在固件升级后升级 RCF，您可以跳过此步骤，因为重置会清除保存的交换机配置。
+
++
+[role="tabbed-block"]
+====
+.Cisco
+--
+保存配置：
+
+`copy running-config startup-config`
+
+--
+.Broadcom
+--
+保存配置：
+
+`写入内存`
+
+--
+====
 . 在第一台交换机上安装软件。
 +
 

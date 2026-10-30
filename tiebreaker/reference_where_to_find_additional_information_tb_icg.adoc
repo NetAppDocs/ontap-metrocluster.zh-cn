@@ -75,7 +75,7 @@ https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_consideratio
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-metrocluster/maintain/index.html["维护 MetroCluster 组件"]
+https://docs.netapp.com/us-en/ontap-metrocluster/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["MetroCluster 维护"]
  a| 
 * MetroCluster 配置中的维护准则
 * FC-SAS 网桥和 FC 交换机的硬件更换或升级以及固件升级过程

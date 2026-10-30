@@ -1,17 +1,8 @@
 ---
 permalink: manage/index.html 
-sidebar: sidebar 
-keywords: metrocluster, mcc, management, disaster, recover, switchover, switchback 
-summary: 您可以在计划内维护操作或发生灾难时执行 MetroCluster 切换和切回操作。 
+redirect: ontap-metrocluster/manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html 
 ---
-= 了解 MetroCluster 管理
+= 
 :allow-uri-read: 
 
 
-
-
-[[perform-switchover-healing-and-switchback]]
-== 执行切换，修复和切回
-
-[role="lead"]
-您可以在计划内维护操作或发生灾难时执行 MetroCluster 切换和切回操作。

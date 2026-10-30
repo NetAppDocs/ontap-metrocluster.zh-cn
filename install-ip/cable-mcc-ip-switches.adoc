@@ -1,0 +1,38 @@
+---
+permalink: install-ip/cable-mcc-ip-switches.html 
+sidebar: sidebar 
+keywords: cabling, cable, component, link, site, management, network, hardware, component, switch, cluster, connection, management, data, configuring, configure, rcf, file, generator, RcfFileGenerator 
+summary: 您必须了解如何使用端口表中的信息正确生成 RCF 文件。 
+---
+= 使用 RCFfilegenerator 工具和 Hardware Universe 为您的 MetroCluster IP 交换机布线
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须了解如何使用 RCFfilegenerator 工具和 NetApp Hardware Universe 中的信息来正确连接交换机。
+
+.开始之前
+在执行此任务之前，请查看 link:using_rcf_generator.html["了解有关 MetroCluster IP 交换机布线的信息"] 中的信息。
+
+.步骤
+. 从 NetApp 支持站点下载并安装 https://mysupport.netapp.com/site/tools/tool-eula/rcffilegenerator["适用于 MetroCluster IP 的 RcfFileGenerator"^]工具。
+. 按照link:https://kb.netapp.com/on-prem/ontap/mc/MC-KBs/How_to_use_the_RCF_Generator_for_MetroCluster_IP["如何使用适用于 MetroCluster IP 的 RCF Generator"^]中的步骤填充配置的字段。
++
+该工具为每个交换机生成每个端口的布线概述。
+
++
+
+NOTE: 只有在选择第一个平台时、RcfFileGenerator才会显示符合条件的平台。
+
+. 导航到 link:https://hwu.netapp.com/DetailViews/Home.aspx["Hardware Universe"^]
+. 从 *产品* 选项卡中选择您的平台类型，然后选择您的特定平台，以及您是要为四节点还是八节点 MetroCluster IP 配置进行布线。
+. 从显示窗口中选择 ONTAP 版本，然后选择 *显示结果*。
+. 选择*支持的连接*，然后选择*存储连接*选项卡
+. 收集配置的控制器端口信息。
++
+
+NOTE: 控制器端口信息不包含在 RcfFileGenerator 工具生成的布线概述中，因此您必须使用 Hardware Universe 来收集此信息。
+
+

@@ -20,14 +20,14 @@ indexpage:
       url: "/install-ip/concept_mediator_requirements.html"
   - title: 维护
     links:
-    - title: FC 交换机
-      url: "/maintain/task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html"
-    - title: IP交换机
-      url: "/maintain/task_replace_an_ip_switch.html"
-    - title: ATTO 网桥
+    - title: 了解MetroCluster维护
+      url: "/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html"
+    - title: FC-SAS 网桥维护
       url: "/maintain/concept_using_fibrebridge_7600n_bridges_in_mcc_configurations.html"
-    - title: 驱动器架
-      url: "/maintain/index.html"
+    - title: FC 交换机维护和更换
+      url: "/maintain/task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html"
+    - title: IP 交换机维护和更换
+      url: "/maintain/task_replace_an_ip_switch.html"
   - title: RCF 文件
     links:
     - title: MetroCluster RCF 文件
