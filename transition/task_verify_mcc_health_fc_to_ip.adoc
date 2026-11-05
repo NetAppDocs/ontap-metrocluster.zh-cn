@@ -11,7 +11,7 @@ summary: 在执行过渡之前，您必须验证 MetroCluster 配置的运行状
 
 
 [role="lead"]
-在执行过渡之前，您必须验证 MetroCluster 配置的运行状况和连接
+在执行过渡之前，您必须验证 MetroCluster 配置的运行状况和连接。
 
 . 在 ONTAP 中验证 MetroCluster 配置的运行情况：
 +

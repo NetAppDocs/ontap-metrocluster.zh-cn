@@ -13,6 +13,7 @@ summary: 协商切换会完全关闭配对站点上的进程，然后从配对�
 [role="lead"]
 协商切换会完全关闭配对站点上的进程，然后从配对站点切换操作。您可以使用协商切换在 MetroCluster 站点上执行维护或测试切换功能。
 
+.开始之前
 * 在执行切回操作之前，必须完成先前的所有配置更改。
 +
 这是为了避免与协商切换或切回操作产生竞争。
@@ -29,11 +30,12 @@ https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/home.html["系�
 * 在创建新的 SnapMirror 关系之前，必须在 MetroCluster 配置中的两个站点上将选项 replication.create_data_protection_rels.enable 设置为 on 。
 * 对于双节点 MetroCluster 配置，如果站点之间的 ONTAP 版本不匹配，则不应在升级期间创建新的 SnapMirror 关系。
 * 对于四节点 MetroCluster 配置，不支持站点之间的 ONTAP 版本不匹配。
+* 在执行协商切换之前，请检查link:switchover-limitations.html["MetroCluster配置处于切换状态时的限制"]。
 
 
 恢复站点可能需要几个小时才能执行切回操作。
 
-MetroCluster switchover 命令可切换 MetroCluster 配置中所有 DR 组中的节点。例如，在八节点 MetroCluster 配置中，它会切换两个 DR 组中的节点。
+`MetroCluster switchover` 命令可切换 MetroCluster 配置中所有 DR 组中的节点。例如，在八节点 MetroCluster 配置中，它会切换两个 DR 组中的节点。
 
 在准备和执行协商切换时，您不能更改任一集群的配置，也不能执行任何接管或交还操作。
 
@@ -47,7 +49,7 @@ MetroCluster switchover 命令可切换 MetroCluster 配置中所有 DR 组中�
 对于 MetroCluster IP 配置：
 
 
-NOTE: 在执行维护任务之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。link:../maintain/concept_remove_mediator_or_tiebreaker_when_performing_maintenance_tasks.html["在执行维护任务之前，请删除 ONTAP 调解器或 Tiebreaker 监控"]
+NOTE: 在执行维护任务之前，如果使用 Tiebreaker 或 Mediator 实用程序监控 MetroCluster 配置，则必须删除监控link:../maintain/concept_remove_mediator_or_tiebreaker_when_performing_maintenance_tasks.html["在执行维护任务之前，请删除 ONTAP 调解器或 Tiebreaker 监控"]。
 
 * 对于 ONTAP 9.4 及更早版本：
 +
@@ -63,13 +65,17 @@ NOTE: 在执行维护任务之前，如果使用 Tiebreaker 或调解器实用�
 * 对于 ONTAP 9.8 及更高版本：
 +
 ** 如果无法访问远程存储，则位于灾难站点的未镜像聚合将不可用。这可能会导致控制器中断。
-+
-... 使用 MetroCluster check run ， MetroCluster check show 和 MetroCluster check config-replication show 命令可确保没有正在进行的或待定的配置更新。通过问题描述访问站点上的这些命令，这些命令将保持正常运行。
-... 在要保持正常运行的站点上，实施切换： `MetroCluster switchover`
+
+
+
+
+.步骤
+. 使用 MetroCluster check run ， MetroCluster check show 和 MetroCluster check config-replication show 命令可确保没有正在进行的或待定的配置更新。通过问题描述访问站点上的这些命令，这些命令将保持正常运行。
+. 在要保持正常运行的站点上，实施切换： `MetroCluster switchover`
 +
 此操作可能需要几分钟才能完成。
 
-... 监控切换完成情况： `MetroCluster operation show`
+. 监控切换完成情况： `MetroCluster operation show`
 +
 [listing]
 ----
@@ -87,9 +93,5 @@ cluster_A::*> metrocluster operation show
    End time: 10/4/2012 19:04:22
      Errors: -
 ----
-... 重新建立任何 SnapMirror 或 SnapVault 配置。
-
-
-
-
+. 重新建立任何 SnapMirror 或 SnapVault 配置。
 

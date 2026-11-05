@@ -27,10 +27,15 @@ summary: '本节介绍在所有MetroCluster IP配置和网络拓扑上传输Metr
 * 这些ISL必须具有相同的拓扑。例如、它们都应为直接链路、或者如果配置使用WDM、则它们都必须使用WDM。
 * 所需的最低 ISL 速度取决于平台型号：
 +
-** 从 ONTAP 9.18.1 开始，MetroCluster IP 后端端口速度为 100Gbps 的平台要求最低 ISL 链路速度为 100Gbps。使用不同的 ISL 速度需要功能策略差异请求 (FPVR)。要提交 FPVR，请联系您的 NetApp 销售团队。
+** 从 ONTAP 9.20.1 开始，您可以在 MetroCluster IP 配置中启用 WAN 交换机间链路（ISL）拥塞控制，以便在 10Gbps、25Gbps 或 40Gbps 等较低或混合带宽下运行的 ISL 可用于 MetroCluster IP 后端端口速度为 100Gbps 的平台。有关详细信息，请参见 link:../install-ip/mcc-congestion-control.html["配置 WAN ISL 拥塞控制"]。
 +
 
-CAUTION: 在当前不符合 100Gbps ISL 要求的平台上升级到 ONTAP 9.18.1 及更高版本不会被阻止，可以继续进行。但是，NetApp 强烈建议客户过渡到 100Gbps ISL 连接，以保持预期的性能和可用性水平。
+CAUTION: 配置 WAN ISL 拥塞控制*不*保证使用较低带宽 ISL 时可能出现的性能问题不会发生。NetApp 强烈建议您过渡到 100Gbps ISL 连接以获得最佳性能。
+
+** 在 ONTAP 9.18.1 和 ONTAP 9.19.1 中，MetroCluster IP 后端端口速度为 100Gbps 的平台要求最低 ISL 链路速度为 100Gbps。在运行这些 ONTAP 版本的受影响平台上使用不同的 ISL 速度需要功能策略差异请求（FPVR）。要提交 FPVR，请联系您的 NetApp 销售团队。
++
+
+CAUTION: 目前不符合 100Gbps ISL 要求的平台上的 ONTAP 软件升级不会被阻止，可以继续。但是，NetApp 强烈建议客户过渡到 100Gbps ISL 连接，以保持预期的性能和可用性水平。
 
 ** 在其他所有平台上，最低支持的 ISL 链路速度为 10Gbps。
 

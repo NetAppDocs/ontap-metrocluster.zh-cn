@@ -1,0 +1,178 @@
+---
+permalink: maintain/mcc-congestion-control.html 
+sidebar: sidebar 
+keywords: metrocluster, ip, congestion, control, flow, network, isl, bandwidths, replication, traffic, throttling, enable, disable, 
+summary: 从 ONTAP 9.20.1 开始，使用 100Gbps 网络适配器的 MetroCluster IP 配置可以跨以较低或混合带宽（如 10Gbps、25Gbps 或 40Gbps）运行的交换机间链路（ISL）进行连接。 
+---
+= 配置 MetroCluster IP WAN ISL 拥塞控制
+:allow-uri-read: 
+
+
+[role="lead"]
+从 ONTAP 9.20.1 开始，您可以在 MetroCluster IP 配置中启用 WAN 交换机间链路（ISL）拥塞控制，以便在较低或混合带宽（如 10Gbps、25Gbps 或 40Gbps）下运行的 ISL 可用于 MetroCluster IP 后端端口速度为 100Gbps 的平台。
+
+100Gbps 适配器生成的复制流量可能会溢出链路速度较低的 ISL，从而导致交换机缓冲区压力、PAUSE 背压、数据包丢失和潜在的复制不稳定性。WAN ISL 拥塞控制通过使用 ISL 带宽和节点数计算出站吞吐量的上限来解决此问题。该上限充当出站吞吐量阈值，用于控制互连传输流量。如果测得的出站吞吐量高于计算的上限，则拒绝传输，从而在互连网络上强制执行出站吞吐量阈值。
+
+
+CAUTION: 配置 WAN ISL 拥塞控制*不*保证使用较低带宽 ISL 时可能出现的性能问题不会发生。NetApp 强烈建议您过渡到 100Gbps ISL 连接以获得最佳性能。
+
+.关于此任务
+* MetroCluster IP 配置必须运行 ONTAP 9.20.1 或更高版本。
+* 默认情况下，WAN ISL 拥塞控制处于禁用状态，您必须显式启用它。
+* 在以下情况下，您需要联系 NetApp 支持部门来配置此功能：
++
+** 如果在尝试启用或刷新该功能时无法自动获取 ISL 信息
+** 如果您有两个四节点 MetroCluster IP 配置连接到相同的交换机
+** 如果在启用此功能后需要修改计算的上限
+
+
+* 如果在启用拥塞控制后拓扑发生变化，则必须刷新拥塞控制配置以计算新上限。例如，如果 ISL 的数量或速度发生变化，或者您向 MetroCluster IP 配置中添加了新节点。
+* 每个站点独立计算其上限。在本地站点上运行 `metrocluster interconnect congestion-control enable`命令时，它会触发以下操作：
++
+** 本地站点准备并计算其上限。
+** 配对站点也会准备并计算上限，独立于运行命令的本地站点。虽然从技术上讲不太可能，但本地站点和配对站点可能会计算出不同的上限。这是预期行为，并不表示出现故障或配置错误。
+** 每个站点将其计算值作为所需状态写入，然后内核将其应用。
+
+
+* 启用后，WAN ISL 拥塞控制将自动运行。
+
+
+
+
+[[enable-congestion-control]]
+== 启用拥塞控制
+
+要启用 WAN ISL 拥塞控制，请在本地集群上完成这些步骤。
+
+
+CAUTION: 如果您有两个四节点 MetroCluster IP 配置连接到相同的交换机，请联系 NetApp 支持人员以启用此功能。
+
+.步骤
+. 在 cluster_A 上启用 WAN ISL 拥塞控制：
++
+[source, cli]
+----
+metrocluster interconnect congestion-control enable
+----
++
+如果命令失败并显示 `MCC_CC_ISL_INFO_UNAVAILABLE`错误，则无法自动获取 ISL 信息，您必须联系 NetApp 技术支持以启用此功能。
+
+. 确认 WAN ISL 拥塞控制已启用：
++
+[source, cli]
+----
+metrocluster interconnect congestion-control show
+----
++
+[listing]
+----
+cluster_A::> metrocluster interconnect congestion-control show
+
+Node            Enabled Ceiling (MiB/s)
+--------------- ------- ---------------
+cluster_A-01    true    1250
+cluster_A-02    true    1250
+2 entries were displayed.
+----
+
+
+
+NOTE: 如果在启用此功能后需要修改计算的上限，请联系 NetApp 支持人员。
+
+
+
+[[refresh-congestion-control]]
+== 刷新拥塞控制
+
+要刷新 WAN ISL 拥塞控制配置，请在本地集群上完成这些步骤。每当拓扑发生变化时，您都必须刷新拥塞控制配置，例如当 ISL 的计数或速度发生变化，或者当新节点添加到 MetroCluster IP 配置时。
+
+.步骤
+. 刷新 cluster_A 上的 WAN ISL 拥塞控制配置：
++
+[source, cli]
+----
+metrocluster interconnect congestion-control refresh
+----
++
+ONTAP 会根据当前网络条件计算新的上限并自动应用。
+
++
+如果命令失败并显示  `MCC_CC_ISL_INFO_UNAVAILABLE` 错误，则无法自动获取 ISL 信息，您必须联系 NetApp 技术支持以刷新配置。
+
+
+
+
+
+[[monitor-wan-isl-congestion-control-activity]]
+== 监控 WAN ISL 拥塞控制活动
+
+您可以使用以下命令来验证拥塞控制是否正常工作：
+
+[source, cli]
+----
+metrocluster interconnect congestion-control show
+----
+启用后，输出应类似于以下示例：
+
+[listing]
+----
+cluster_A::> metrocluster interconnect congestion-control show
+
+Node            Enabled Ceiling (MiB/s)
+--------------- ------- ---------------
+cluster_A-01    true    1250
+cluster_A-02    true    1250
+2 entries were displayed.
+----
+您还可以使用  `-instance` 参数查看每个节点的更多详细信息：
+
+[source, cli]
+----
+metrocluster interconnect congestion-control show -instance
+----
+[listing]
+----
+cluster_A::> metrocluster interconnect congestion-control show -instance
+
+                        Node Name: cluster_A-01
+       Congestion Control Enabled: true
+       Throughput Ceiling (MiB/s): 1250
+
+                        Node Name: cluster_A-02
+       Congestion Control Enabled: true
+       Throughput Ceiling (MiB/s): 1250
+2 entries were displayed.
+----
+
+
+[[disable-congestion-control]]
+== 禁用拥塞控制
+
+.步骤
+. 在 cluster_A 上禁用 WAN ISL 拥塞控制：
++
+[source, cli]
+----
+metrocluster interconnect congestion-control disable
+----
+. 验证该功能是否已禁用：
++
+[source, cli]
+----
+metrocluster interconnect congestion-control show
+----
++
+输出结果应与以下示例类似：
+
++
+[listing]
+----
+cluster_A::> metrocluster interconnect congestion-control show
+
+Node            Enabled Ceiling (MiB/s)
+--------------- ------- ---------------
+cluster_A-01    false   -
+cluster_A-02    false   -
+2 entries were displayed.
+----
+

@@ -647,6 +647,9 @@ link:../tiebreaker/concept_configuring_the_tiebreaker_software.html#remove-metro
 
 image::../media/mcc_upgrade_cluster_a_in_switchover.png[MetroCluster切换后，Site_B 处于非活动状态并准备升级]
 
+
+NOTE: 在执行切换之前，请查看link:../manage/switchover-limitations.html["MetroCluster配置处于切换状态时的限制"]。
+
 .步骤
 . 将 MetroCluster 配置切换到 site_A ，以便可升级 site_B 的节点：
 +

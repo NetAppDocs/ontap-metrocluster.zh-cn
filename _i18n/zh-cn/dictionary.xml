@@ -1918,7 +1918,6 @@
   <block id="98b62c826619c29a4bad696e74f75477" category="list-text">要防止自动生成支持案例，请发送一条 AutoSupport 消息以指示升级正在进行中。</block>
   <block id="7df74d0e0c825c9d4fe156e6bd9676e5" category="list-text">问题描述以下命令：</block>
   <block id="626b3d2c42e820bd7603e0a6c34ff781" category="paragraph">如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：</block>
-  <block id="7e309551053b69f5958f1afe31e831e8" category="paragraph">在执行过渡之前，您必须验证 MetroCluster 配置的运行状况和连接</block>
   <block id="1715d07a24988d9207de94794a6f01cc" category="list-text">验证集群是否运行正常：</block>
   <block id="37ae281d8610415ea665d008e25a738c" category="list-text">验证所有集群端口是否均已启动：</block>
   <block id="98aac6693f8a0dda166a1ba85d8167f6" category="list-text">验证所有集群 LIF 是否均已启动且正常运行：</block>
@@ -3342,7 +3341,6 @@
   <block id="667c25f10eabde939980634b87ffefd4" category="admonition">这仅适用于协商切换。</block>
   <block id="2e74e64d43d016a76bb666ef8d813d63" category="list-text">启动属于灾难站点的 sync-destination SVM 。</block>
   <block id="0218f649d94abd682cea1da48aa9e4d9" category="paragraph">在切换期间， DR 配对节点的根聚合不会联机。</block>
-  <block id="00d5e4814bf92d74ea337d68dfb3deb1" category="paragraph">MetroCluster switchover 命令可切换 MetroCluster 配置中所有 DR 组中的节点。例如，在八节点 MetroCluster 配置中，它会切换两个 DR 组中的节点。</block>
   <block id="c05b3d4aeccf803e0c2f3c7b13cd3b71" category="paragraph">如果您仅将服务切换到远程站点，则应执行协商切换而不隔离站点。如果存储或设备不可靠，则应隔离灾难站点，然后执行计划外切换。隔离功能可防止在磁盘交错启动时进行 RAID 重建。</block>
   <block id="2c7fe6854dcb3aaafaae11fe94e35ade" category="admonition">只有当另一站点稳定且不打算脱机时，才应使用此操作步骤。</block>
   <block id="630068c34f889d10d8c0cfa78675c945" category="section-title">切换期间命令的可用性</block>
@@ -9407,7 +9405,6 @@
   <block id="411fd118744e7bc163c41845c9fedb88" category="paragraph">`s存储故障转移交还`</block>
   <block id="c9616da62905adb15396b653b4d8475b" category="paragraph">您可能需要重新配置集群对等关系。</block>
   <block id="6feea37f7c9ba85a19752c43872c3438" category="inline-link-macro">在执行维护任务之前，请删除 ONTAP 调解器或 Tiebreaker 监控</block>
-  <block id="c53469c0e05ec04d4c7bf601859fd9fb" category="admonition">在执行维护任务之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。<block ref="a0ba112c9c0ab9c29c24131f966b9b69" category="inline-link-macro-rx"></block></block>
   <block id="5713f2c18fca6cff15f3222aca93a2a6" category="summary">使用 Tiebreaker 或调解器监控软件的配置必须在维护前取消配置该软件</block>
   <block id="4a397091a3693a57176ee396010387ca" category="paragraph">在执行维护任务之前，如果使用 Tiebreaker 或调解器实用程序监控 MetroCluster 配置，则必须删除监控。</block>
   <block id="65e494c11bd4a371acff4afdb4808d87" category="paragraph">维护任务包括升级控制器平台，升级 ONTAP 以及执行协商切换和切回。</block>
@@ -11208,7 +11205,6 @@
   <block id="a6c37e682cfc0729046dd2e498ad461c" category="list-text"><block ref="ef78584b865ab255d612a5aa6725b10d" category="inline-xref-macro-rx"></block></block>
   <block id="4d8d9056b62fc01f5cd3f0898c551fde" category="section-title">平台支持</block>
   <block id="9b6c50e7cbf80c446a0078ceb63104d0" category="section-title">交换机支持</block>
-  <block id="9342c35c4399c8e6faf7c07d8bae26c5" category="paragraph">有关影响ONTAP MetroCluster配置的已知问题、限制和升级注意事项的详细信息、请参阅<block ref="6e7f74aa9001f0524a965144f528bbc2" category="inline-link-rx"></block>。您必须使用NetApp帐户登录或创建帐户才能访问发行说明。</block>
   <block id="ab67c4c2b9b0f6070e68d79d3a0b6c63" category="cell">ONTAP调解器功能</block>
   <block id="5793a46a4020e2b9d210afaa14008d67" category="paragraph">在环境关闭时、支持调解器辅助的自动计划外切换(MAUSO)。</block>
   <block id="de09b0e8b75c62ac84c620713e05647b" category="paragraph">您可以使用共享存储交换机从MetroCluster FC无故障过渡到MetroCluster IP配置。</block>
@@ -13668,7 +13664,6 @@
   <block id="1acb751c22e164e9d61c762caf509e82" category="paragraph">本过程中使用的示例：controller_B_2</block>
   <block id="eccb3ce2fe6ad5d172a57438aae17dae" category="doc">在每个 MetroCluster FC 节点上创建镜像数据聚合</block>
   <block id="b68398936049bd282794c33831e2aea9" category="paragraph">支持在 MetroCluster IP 配置中使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令进行 AFF A70 到 AFF A90 和 FAS70 到 FAS90 系统升级。</block>
-  <block id="2691309e1710cb6a0083f4722ac33e8d" category="admonition">在当前不符合 100Gbps ISL 要求的平台上升级到 ONTAP 9.18.1 及更高版本不会被阻止，可以继续进行。但是，NetApp 强烈建议客户过渡到 100Gbps ISL 连接，以保持预期的性能和可用性水平。</block>
   <block id="2424b4c07e55bece1d1a95007a6782a8" category="list-text">每个交换矩阵必须至少有一个 10Gbps ISL 端口。</block>
   <block id="925adb23a78386992d24bff6e6e1b4e2" category="list-text">当您对连接 NS224 存储的 Cisco 9336C-FX2 交换机进行布线时，最多只能有两个 MetroCluster 配置或 DR 组。必须至少有一个 MetroCluster 配置或 DR 组将 NS224 盘架连接到该 MetroCluster 交换机。</block>
   <block id="2b4028f1ab41ecd91ee89bedc51fffa6" category="list-text">如果要扩展不支持交换机连接的 NS224 存储的常规 MetroCluster 配置，并且要添加具有交换机连接的 NS224 存储的 MetroCluster 配置，请查看以下信息：</block>
@@ -13699,7 +13694,6 @@
   <block id="d57bb94baa67d066f16fc9fc5b6def7e" category="list-text">您正在使用网络冗余协议（例如 HSRP 或 VRRP）或环路避免协议（例如 STP）。</block>
   <block id="29c1e5df7e26dbc34a0230732d8e3a0c" category="list-text">网络重新收敛时间（例如，路由协议稳定或重新选举后 HSRP/VRRP 变为活动状态）可以超过默认超时 10 秒。</block>
   <block id="fdee122f655bcc29473b91ef1ae580b7" category="paragraph">以下要求适用于所有 MetroCluster IP 配置上的 ISL：</block>
-  <block id="c3dce11df95ca3b74ddf51996b7b87e2" category="list-text">从 ONTAP 9.18.1 开始，MetroCluster IP 后端端口速度为 100Gbps 的平台要求最低 ISL 链路速度为 100Gbps。使用不同的 ISL 速度需要功能策略差异请求 (FPVR)。要提交 FPVR，请联系您的 NetApp 销售团队。</block>
   <block id="3f6fd3cf871a70252cd684eb0d12b602" category="paragraph">在开始维护或搬迁之前，请关闭整个 MetroCluster IP 配置和所有设备的电源。</block>
   <block id="a79e1c21f0beaf2ed51b7aec418f4f70" category="list-text">验证两个站点的 MetroCluster 配置。</block>
   <block id="108a4ad72df5c318a77dad90928d8770" category="admonition">在 MetroCluster IP 配置中，除非配置使用 ONTAP Mediator，否则 AUSO Failure Domain 已设置为 'auso-disabled'。</block>
@@ -13873,14 +13867,9 @@
   <block id="ded8f2620d58acfd69775bc49e48b168" category="list-text">如果在 admin SVM 上启用了加密，请使用正确的密钥管理配置命令恢复密钥。</block>
   <block id="594c07221c5565837dffd5ce4580e7bb" category="admonition">以下命令的输出可能会因平台型号而异：<block ref="e7acb1ae14be0e5233d619851263fdae" prefix=" " category="inline-code"></block>例如，在某些平台上，HA Partner 的行不会显示在输出中。</block>
   <block id="2348f32e5e421ab4ef22af7e7810041e" category="section-title">在 MetroCluster FC 配置中配置 SNMPv3</block>
-  <block id="f72f4581559ba331ae5b793ab29d815a" category="paragraph">ONTAP 目前支持使用 AES-128 进行隐私保护（加密），使用 SHA-256 进行身份验证。</block>
-  <block id="44a800928beee85aed0fba3a92f2408a" category="list-text">在 Fabric OS 10.x 及更高版本中，Brocade 仅支持将 SHA-512 用于 SNMP 身份验证。ONTAP 目前不支持 SHA-512，仅支持 SHA-256。</block>
-  <block id="f02ccf6c395105226a61800f93771185" category="list-text">如果 MetroCluster FC 交换机运行的是 Fabric OS 10.x 或更高版本，则无法配置 SNMP，也无法将这些交换机添加到 ONTAP 健康监控中。如果要降级交换机固件，可以按照 <block ref="ceeb82cfdbafdefa3498267033925b4d" category="inline-link-macro-rx"></block> 中的步骤进行操作。</block>
   <block id="0555d71723e207adf1d26aacd23fca99" category="open-title">Brocade 交换机（FOS 9.x）</block>
   <block id="52f25e0e1d7123b8e60a485a2591101f" category="paragraph">从 Fabric OS 9.0.1 开始，Brocade 交换机上的运行状况监控不支持 SNMPv2，必须改用 SNMPv3。如果使用 SNMPv3，则必须在 ONTAP 中配置 SNMPv3，然后再继续执行以下部分。有关更多详细信息，请参见<block ref="bccdc4729d6354379109b6753bfdc947" category="inline-xref-macro-rx"></block>。</block>
   <block id="eede7d7d2eb026eb4a46711feb940141" category="paragraph">在使用本程序之前，请仔细阅读以下信息：</block>
-  <block id="8e0da5650cc19161382006e7a36b91eb" category="list-text">从 Fabric OS 10.x 开始，Brocade 仅支持将 SHA-512 用于 SNMP 身份验证。ONTAP 目前不支持 SHA-512，仅支持 SHA-256。</block>
-  <block id="f56c2e751b109490bad7e0eaedf3c300" category="paragraph">如果将 MetroCluster FC 交换机固件升级到 Fabric OS 10.x，ONTAP 的 SNMP 监控可见性将丢失。这会增加故障排除时的风险，并导致主动警报丢失。</block>
   <block id="fded9116e1c7860c9efc9c570fc2b5fb" category="inline-link-macro">Brocade Fabric OS 软件升级指南，10.0.x - 升级或降级前提条件</block>
   <block id="e28259c7fcba5a4f4ea8558015e892ff" category="paragraph">如果您升级到或从 Fabric OS 10.x 降级，则必须执行 <block ref="4c794930872c13dd5a27bee89c2df646" category="inline-link-macro-rx"></block> 中概述的强制性任务。</block>
   <block id="51730b95b3cfe613db659073f7d3e446" category="admonition">在继续升级到或降级自 Fabric OS 10.x 或更高版本之前，必须仔细考虑这些限制。</block>
@@ -14515,4 +14504,99 @@
   <block id="4362ba43074608918c83408e89d7c0ff" category="list-text">如果您正在升级 Cisco 或 Broadcom MetroCluster IP 交换机上的固件，则可以在继续升级之前保存当前交换机配置的副本。</block>
   <block id="b85394c1aa7243bdf5cf7a0f05d8f93f" category="admonition">如果您的工作流程要求您重置交换机以便在固件升级后升级 RCF，您可以跳过此步骤，因为重置会清除保存的交换机配置。</block>
   <block id="498ba59acaecdd7d242002ff07605b27" category="sidebar">为 MetoCluster IP 交换机布线</block>
+  <block id="42d6c69f73be9acd69b8654e26ea10ff" category="doc">启用拥塞控制</block>
+  <block id="ac677683e5498286ab397739377f391a" category="paragraph">从 ONTAP 9.20.1 开始，您可以在 MetroCluster IP 配置中启用 WAN 交换机间链路（ISL）拥塞控制，以便在较低或混合带宽（如 10Gbps、25Gbps 或 40Gbps）下运行的 ISL 可用于 MetroCluster IP 后端端口速度为 100Gbps 的平台。</block>
+  <block id="e5f5bcd84c8aa4d510436c6df8309e92" category="paragraph">100Gbps 适配器生成的复制流量可能会溢出链路速度较低的 ISL，从而导致交换机缓冲区压力、PAUSE 背压、数据包丢失和潜在的复制不稳定性。WAN ISL 拥塞控制通过使用 ISL 带宽和节点数计算出站吞吐量的上限来解决此问题。该上限充当出站吞吐量阈值，用于控制互连传输流量。如果测得的出站吞吐量高于计算的上限，则拒绝传输，从而在互连网络上强制执行出站吞吐量阈值。</block>
+  <block id="f89aef79a9f93b502888c8d69a840492" category="admonition">配置 WAN ISL 拥塞控制*不*保证使用较低带宽 ISL 时可能出现的性能问题不会发生。NetApp 强烈建议您过渡到 100Gbps ISL 连接以获得最佳性能。</block>
+  <block id="cbbe1fb74164a6c0ba99af4db32293a0" category="list-text">MetroCluster IP 配置必须运行 ONTAP 9.20.1 或更高版本。</block>
+  <block id="0c8c25e1dd674f15d2130675d5417381" category="list-text">默认情况下，WAN ISL 拥塞控制处于禁用状态，您必须显式启用它。</block>
+  <block id="9208bc23b61f79106b05413807d297de" category="list-text">在以下情况下，您需要联系 NetApp 支持部门来配置此功能：</block>
+  <block id="c19cab19cba469dc00d3971eb9f9eb9e" category="list-text">如果在尝试启用或刷新该功能时无法自动获取 ISL 信息</block>
+  <block id="1a3a0bc0d36172a1abb8548453f1757c" category="list-text">如果您有两个四节点 MetroCluster IP 配置连接到相同的交换机</block>
+  <block id="1c4ddfddbafc38e158559ea23f2d5487" category="list-text">如果在启用此功能后需要修改计算的上限</block>
+  <block id="fe6af216498295e8662984c5da1d8b80" category="list-text">如果在启用拥塞控制后拓扑发生变化，则必须刷新拥塞控制配置以计算新上限。例如，如果 ISL 的数量或速度发生变化，或者您向 MetroCluster IP 配置中添加了新节点。</block>
+  <block id="8237932ad843b383ee715fce0e65619f" category="list-text">每个站点独立计算其上限。在本地站点上运行<block ref="1d256562c41ab1797590dea25540292f" prefix=" " category="inline-code"></block>命令时，它会触发以下操作：</block>
+  <block id="466d71f85df722213fba611dd91643d9" category="list-text">本地站点准备并计算其上限。</block>
+  <block id="44decfd683d51a563b21d871f714bd4d" category="list-text">配对站点也会准备并计算上限，独立于运行命令的本地站点。虽然从技术上讲不太可能，但本地站点和配对站点可能会计算出不同的上限。这是预期行为，并不表示出现故障或配置错误。</block>
+  <block id="58ecc4d4634e8ce4eb540ecc56b4f2a8" category="list-text">每个站点将其计算值作为所需状态写入，然后内核将其应用。</block>
+  <block id="5885c21f775ac55e4c54186fb78ad3a0" category="list-text">启用后，WAN ISL 拥塞控制将自动运行。</block>
+  <block id="a7429ef620032fd78de314c9a2afedb7" category="paragraph">要启用 WAN ISL 拥塞控制，请在本地集群上完成这些步骤。</block>
+  <block id="9f925ac4a83b17361c09ea44b716231d" category="admonition">如果您有两个四节点 MetroCluster IP 配置连接到相同的交换机，请联系 NetApp 支持人员以启用此功能。</block>
+  <block id="dcbe9371e3861ca7104b3f3c1dc93c26" category="list-text">在 cluster_A 上启用 WAN ISL 拥塞控制：</block>
+  <block id="5e9d3a4332ca40cf6eabe0f4c7eb1dec" category="paragraph">如果命令失败并显示<block ref="a818d7aa56b14e06775c6e446527f287" prefix=" " category="inline-code"></block>错误，则无法自动获取 ISL 信息，您必须联系 NetApp 技术支持以启用此功能。</block>
+  <block id="64bb552b833a58c5718373650dcfdf64" category="list-text">确认 WAN ISL 拥塞控制已启用：</block>
+  <block id="2e21647120066b53d2ddc013382e8fca" category="admonition">如果在启用此功能后需要修改计算的上限，请联系 NetApp 支持人员。</block>
+  <block id="d8e5597c89866d787f9d9a3ae299a7dc" category="section-title">刷新拥塞控制</block>
+  <block id="223bdbb5f58c1f1e6bd8d25eb985d9b2" category="paragraph">要刷新 WAN ISL 拥塞控制配置，请在本地集群上完成这些步骤。每当拓扑发生变化时，您都必须刷新拥塞控制配置，例如当 ISL 的计数或速度发生变化，或者当新节点添加到 MetroCluster IP 配置时。</block>
+  <block id="a2df9680124d6f922e3d4f62d6b072a2" category="list-text">刷新 cluster_A 上的 WAN ISL 拥塞控制配置：</block>
+  <block id="f24196a3aa1f7c6123d550e329f8cac2" category="paragraph">ONTAP 会根据当前网络条件计算新的上限并自动应用。</block>
+  <block id="65839adcf23750a6d4d1050f1d84c33a" category="paragraph">如果命令失败并显示 <block ref="a818d7aa56b14e06775c6e446527f287" prefix=" " category="inline-code"></block> 错误，则无法自动获取 ISL 信息，您必须联系 NetApp 技术支持以刷新配置。</block>
+  <block id="4af4a301876c0e722116c96aa495409e" category="section-title">监控 WAN ISL 拥塞控制活动</block>
+  <block id="229ecca4b12e280681e8f799b3d79ec5" category="paragraph">您可以使用以下命令来验证拥塞控制是否正常工作：</block>
+  <block id="416e975ff8dd076399b5fbf84af09dbf" category="paragraph">启用后，输出应类似于以下示例：</block>
+  <block id="d7e7e606ef57a5a7e59a394475e148d0" category="paragraph">您还可以使用 <block ref="7aef5f885a9c89afe8ef4563814d1889" prefix=" " category="inline-code"></block> 参数查看每个节点的更多详细信息：</block>
+  <block id="91e256e81aff3105a5227b4ca623466f" category="section-title">禁用拥塞控制</block>
+  <block id="ff9f5f43077677b58ad3f21a4206baf3" category="list-text">在 cluster_A 上禁用 WAN ISL 拥塞控制：</block>
+  <block id="49a1a9e0d8ca26f09b1a1879db22ca48" category="list-text">验证该功能是否已禁用：</block>
+  <block id="32713216432104a5d3f3331914536fc1" category="paragraph">从 ONTAP 9.20.1 开始，可以为属于 MetroCluster IP 配置一部分的 SVM 配置存储限制。</block>
+  <block id="d03c58f3a7451c865a64f7b82b747190" category="admonition">您必须确保您的 MetroCluster 配置不超过 <block ref="a9613e1dbacf145285c45df4264fe797" category="inline-link-rx"></block> 中列出的平台限制。</block>
+  <block id="ea430f8dc6fe3d5456ffd33dc0543091" category="list-text">在正常操作期间（未进行切换），您只能在 *同步源 SVM* 上更改存储限制配置。您无法在 *同步目标 SVM* 上启用、禁用或修改存储限制。</block>
+  <block id="79e25b02d395b307562edcae496c7e1c" category="list-text">在切换时，以下限制适用于 *同步目标 SVM*：</block>
+  <block id="eb1f005479417d95bb569fdc7104708a" category="list-text">您无法使用<block ref="038438dd68ee9e64810ea3e86265a863" prefix=" " category="inline-code"></block>命令启用或禁用同步目标 SVM 上的存储限制。也就是说，您不能将值从 0 更改为非零值，也不能将值从非零值更改为 0。命令失败，出现以下错误：</block>
+  <block id="edc1a8d2b0af9a4ef6b7b06e9b8ba457" category="paragraph"><block ref="bec05c498707d99dc469c6fe4aa41116" prefix="" category="inline-code"></block></block>
+  <block id="7c6c7030dd038a78b5993adecd6d738c" category="list-text">您仍然可以将存储限制从一个非零值更改为另一个（例如，从 100TB 更改为 200TB）。此新值在切回后仍会保留。</block>
+  <block id="227f62935717c2fdacc24719e921dc11" category="list-text">要启用或禁用存储限制，请等待切回完成，然后在 *同步源 SVM* 上进行更改。然后，该值将复制到同步目标 SVM。</block>
+  <block id="9082fbfdd5c6b8aed5a4e6065fa3efee" category="inline-link-macro">管理 ONTAP SVM 容量</block>
+  <block id="73f937dcfb7b849185d76ad70e485bc8" category="paragraph">有关详细信息，请参见 <block ref="8ed0219013bd2b19380552e82b55b200" category="inline-link-macro-rx"></block></block>
+  <block id="9db6f037a95538082d20874b21ae8a0d" category="admonition">在执行切换之前，请查看<block ref="dd499f6612b24bcbd1afefc17b1b675f" category="inline-link-macro-rx"></block>。</block>
+  <block id="21ff733b82400d85a5c9ee97a837d734" category="list-text">从 ONTAP 9.20.1 开始，ONTAP 支持用于 SNMP 身份验证的 SHA-512。</block>
+  <block id="65d56fd22812ff023aa1c1a87f75b424" category="list-text">ONTAP 支持以下 SNMP 身份验证和加密协议：</block>
+  <block id="687eddb609350d2638553fa4a4dd8884" category="list-text">隐私（加密）：AES-128</block>
+  <block id="bf65efba49839f3e43b6f7d82340861d" category="list-text">身份验证：</block>
+  <block id="536544d639c91bc6f68cba4a470f0927" category="list-text">SHA-512 （从 ONTAP 9.20.1 开始）</block>
+  <block id="7dcd62e00bddef0a9ef76c9e135e7abb" category="list-text">SHA-256</block>
+  <block id="90dfdba73e7624d99fcb38a1e3473d19" category="list-text">在 Fabric OS 10.x 及更高版本中，Brocade 仅支持将 SHA-512 用于 SNMP 身份验证。</block>
+  <block id="77672775e13e51068da7b29fe5a76957" category="list-text">如果您运行的 ONTAP 版本早于 9.20.1，并且您的 MetroCluster FC 交换机运行的是 Fabric OS 10.x 或更高版本，则无法配置 SNMP，也无法将这些交换机添加到 ONTAP 运行状况监控中。如果要降级交换机固件，可以按照 <block ref="ceeb82cfdbafdefa3498267033925b4d" category="inline-link-macro-rx"></block> 中的步骤进行操作。</block>
+  <block id="00375bb828a3a7af8001182c5540913c" category="paragraph">以下输出仅供参考，您应选择环境中支持的设置。</block>
+  <block id="84b0254762caaf1fa9e4740914691c3c" category="inline-link-macro">配置 WAN ISL 拥塞控制</block>
+  <block id="72862f4131007b0ecf0862fe7a609c82" category="list-text">从 ONTAP 9.20.1 开始，您可以在 MetroCluster IP 配置中启用 WAN 交换机间链路（ISL）拥塞控制，以便在 10Gbps、25Gbps 或 40Gbps 等较低或混合带宽下运行的 ISL 可用于 MetroCluster IP 后端端口速度为 100Gbps 的平台。有关详细信息，请参见 <block ref="462005b2032e79d5709834d981cb3c47" category="inline-link-macro-rx"></block>。</block>
+  <block id="ae3a08b13a76ca7fcaef3877b97f945d" category="list-text">在 ONTAP 9.18.1 和 ONTAP 9.19.1 中，MetroCluster IP 后端端口速度为 100Gbps 的平台要求最低 ISL 链路速度为 100Gbps。在运行这些 ONTAP 版本的受影响平台上使用不同的 ISL 速度需要功能策略差异请求（FPVR）。要提交 FPVR，请联系您的 NetApp 销售团队。</block>
+  <block id="0c26d830b12fdeab820d395993553d8c" category="admonition">目前不符合 100Gbps ISL 要求的平台上的 ONTAP 软件升级不会被阻止，可以继续。但是，NetApp 强烈建议客户过渡到 100Gbps ISL 连接，以保持预期的性能和可用性水平。</block>
+  <block id="6f0bd889ddce327cdae550d46bff38e2" category="section-title">MetroCluster IP 配置中的 SVM 存储限制支持</block>
+  <block id="e7042c041415edd25de8ec2bd84cb395" category="summary">从 ONTAP 9.20.1 开始，使用 100Gbps 网络适配器的 MetroCluster IP 配置可以跨以较低或混合带宽（如 10Gbps、25Gbps 或 40Gbps）运行的交换机间链路（ISL）进行连接。</block>
+  <block id="0af25433a3eca71d2bc083866d8450a4" category="doc">配置 MetroCluster IP WAN ISL 拥塞控制</block>
+  <block id="8eba2d7f997c4a6536c84ace10559941" category="inline-link-macro">刷新 WAN ISL 拥塞控制配置</block>
+  <block id="fe1939e8417a00a5d761222ceeb4eb18" category="list-text">如果您的 MetroCluster IP 配置启用了 WAN ISL 拥塞控制，则必须 <block ref="a3e50b695c7be010ff9602926c301dfa" category="inline-link-macro-rx"></block>。</block>
+  <block id="9a22d1a02e83923e0ed781cd518dd9dd" category="list-text">从 ONTAP 9.20.1 开始，ONTAP 支持使用 SHA-512 进行 SNMP 身份验证。在 Fabric OS 10.x 及更高版本中，Brocade 仅支持使用 SHA-512 进行 SNMP 身份验证。</block>
+  <block id="c6e1f0f269fd9416c2e70509aeaff3b6" category="paragraph">如果您运行的是早于 9.20.1 的 ONTAP 版本，并将您的 MetroCluster FC 交换机固件升级到 Fabric OS 10.x，则将丢失来自 ONTAP 的 SNMP 监控可见性。这会导致故障排除时的风险增加，并导致主动警报丢失。</block>
+  <block id="d81f4037f57e4f3a923789db8df28228" category="paragraph"><block ref="038438dd68ee9e64810ea3e86265a863" prefix="" category="inline-code"></block></block>
+  <block id="fe16a63103d069b69ab7edd2017d9781" category="paragraph">以下限制适用于在 MetroCluster 切换期间启用或禁用存储限制：</block>
+  <block id="68c2cd78b3272547591a73a643ecd0f7" category="list-text">在同步目标 SVM 上，无法使用 <block ref="038438dd68ee9e64810ea3e86265a863" prefix=" " category="inline-code"></block> 命令启用或禁用存储限制。这意味着您不能将值从 0 更改为非零值，也不能将值从非零值更改为 0。命令失败，出现以下错误：</block>
+  <block id="4f30dfd5367fcca4a4e5e32ca9f55de2" category="section-title">切换时更改 SVM 存储限制</block>
+  <block id="c31b617f055e6c28e11672f9cde4797d" category="list-text">在执行协商切换之前，请检查<block ref="5db317e8a025f1d24915c64b6f90e87f" category="inline-link-macro-rx"></block>。</block>
+  <block id="1d8dc9c824a7bb73d2b1c553fee271cb" category="admonition">在执行维护任务之前，如果使用 Tiebreaker 或 Mediator 实用程序监控 MetroCluster 配置，则必须删除监控<block ref="a0ba112c9c0ab9c29c24131f966b9b69" category="inline-link-macro-rx"></block>。</block>
+  <block id="b23e8b5e63c2d90cb50253a71c85d603" category="paragraph">执行切回之前，请查看以下要求：</block>
+  <block id="4ba77248133e309ee5f1f6d49d8a0851" category="summary">了解每个 ONTAP 9 版本中的 MetroCluster 新功能和增强功能。</block>
+  <block id="4ed9c60eb652c76a2c1af593596b0038" category="paragraph">有关影响 ONTAP MetroCluster 配置的已知问题、限制和升级注意事项的详细信息，请参见<block ref="6e7f74aa9001f0524a965144f528bbc2" category="inline-link-rx"></block>。您必须使用您的 NetApp 帐户登录或创建一个帐户才能访问发行说明。</block>
+  <block id="e4839506a4dd27a41c8ec4a400576e42" category="paragraph">支持用于 SNMPv3 身份验证的 SHA-512</block>
+  <block id="b9ba1e1b6edd182e2a330867dda77cdb" category="paragraph">ONTAP 支持在 MetroCluster 交换机上使用 SHA-512 进行 SNMPv3 身份验证。</block>
+  <block id="fa864467d02b35efb5b48d7a1226e621" category="paragraph">ONTAP 9.20.1</block>
+  <block id="3d66d3aa02a315fbb23a1bac20850dfa" category="paragraph">MetroCluster IP 支持 WAN ISL 拥塞控制</block>
+  <block id="47dfa75e3225963c05d7f2d37c76a7c9" category="paragraph">您可以在 MetroCluster IP 配置中启用 WAN 交换机间链路（ISL）拥塞控制，以便在较低或混合带宽（如 10Gbps、25Gbps 或 40Gbps）下运行的 ISL 可用于 MetroCluster IP 后端端口速度为 100Gbps 的平台。</block>
+  <block id="a307c2278fbc8e4cb23921a0f82b3d20" category="inline-link-macro">在 MetroCluster IP 配置中配置拥塞控制</block>
+  <block id="4a7163ded041350eb386235d11c66576" category="paragraph"><block ref="4a7163ded041350eb386235d11c66576" category="inline-link-macro-rx"></block></block>
+  <block id="3dfbc4abcd2dc5223baa3e713d268629" category="paragraph">MetroCluster 支持 SnapMirror S3</block>
+  <block id="e787ce2a42059e5bafb5b86e85a320d9" category="paragraph">您可以创建 SnapMirror S3 关系，这些关系位于 MetroCluster 配置中，在切换和切回期间保持可用，并从活动站点恢复。</block>
+  <block id="4a60b7fef4a95c6a69819ec1105f7cbc" category="inline-link-macro">详细了解 SnapMirror S3</block>
+  <block id="60f020c83ec4be87cd942917cbf527fd" category="paragraph"><block ref="60f020c83ec4be87cd942917cbf527fd" category="inline-link-macro-rx"></block></block>
+  <block id="3f85a822280c700a358c8d4b09ac0917" category="paragraph">MetroCluster 支持 ONTAP S3 存储桶生命周期管理</block>
+  <block id="49819d508ad6d5fbf96df43937292b87" category="paragraph">您可以在 MetroCluster 配置中为原生 S3 存储桶创建 ONTAP S3 存储桶生命周期管理规则。</block>
+  <block id="ff1c4451ae73de7655c2635dffe868fb" category="inline-link">创建 ONTAP S3 存储桶生命周期管理规则</block>
+  <block id="d6837f6be46a885f34bcefc1a964e5ee" category="paragraph"><block ref="d6837f6be46a885f34bcefc1a964e5ee" category="inline-link-rx"></block></block>
+  <block id="97eda9c538679f681ab334965088e974" category="paragraph">MetroCluster IP 对 ONTAP SVM 容量限制的支持</block>
+  <block id="128922b8a646dde62f70fcbd94afb280" category="paragraph">您可以为属于 MetroCluster IP 配置一部分的 SVM 配置存储限制。</block>
+  <block id="43f2553b95ee26a6e9f0fa1b40212bd9" category="inline-link">管理 ONTAP SVM 容量限制</block>
+  <block id="ddfa7b0fce9c19992d2518f83e5178bd" category="paragraph"><block ref="ddfa7b0fce9c19992d2518f83e5178bd" category="inline-link-rx"></block></block>
+  <block id="2cad3e9201231f96baf0aecb159146b8" category="list-text">如果您的 MetroCluster IP 配置启用了 WAN ISL 拥塞控制，则必须 <block ref="84e4437719ed2680822f1999f770e8a1" category="inline-link-macro-rx"></block>。</block>
+  <block id="4ddce8b1a7285d62eebe8f187b9294d6" category="sidebar">ISL 的要求</block>
 </blocks>

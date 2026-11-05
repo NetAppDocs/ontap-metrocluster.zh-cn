@@ -1700,5 +1700,6 @@ node_A_4-new      false
 ----
 
 
+. 如果您的 MetroCluster IP 配置启用了 WAN ISL 拥塞控制，则必须 link:../maintain/mcc-congestion-control.html#refresh-congestion-control["刷新 WAN ISL 拥塞控制配置"]。
 . 如果您的系统支持端到端加密、您可以 link:../maintain/task-configure-encryption.html#enable-end-to-end-encryption["启用端到端加密"] 在新DR组上。
 

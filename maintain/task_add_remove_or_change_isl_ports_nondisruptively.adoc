@@ -136,4 +136,5 @@ Po10         1       eth  trunk  up      none                                a-1
 Po11         1       eth  trunk  up      none                                a-100G(D)  lacp
 ----
 . 对网络结构 2 重复操作步骤。
+. 如果您的 MetroCluster IP 配置启用了 WAN ISL 拥塞控制，则必须 link:mcc-congestion-control.html#refresh-congestion-control["刷新 WAN ISL 拥塞控制配置"]。
 

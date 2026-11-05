@@ -2936,12 +2936,24 @@ mcc4-b2      mlx4_0          IB      Up     false     192.0.2.10  	ib2b
 交换机和 ONTAP 系统上的身份验证和隐私协议必须相同。
 
 .关于此任务
-ONTAP 目前支持使用 AES-128 进行隐私保护（加密），使用 SHA-256 进行身份验证。
+* 从 ONTAP 9.20.1 开始，ONTAP 支持用于 SNMP 身份验证的 SHA-512。
+* ONTAP 支持以下 SNMP 身份验证和加密协议：
++
+** 隐私（加密）：AES-128
+** 身份验证：
++
+*** SHA-512 （从 ONTAP 9.20.1 开始）
+*** SHA-256
+
+
+
+
+
 
 [CAUTION]
 ====
-* 在 Fabric OS 10.x 及更高版本中，Brocade 仅支持将 SHA-512 用于 SNMP 身份验证。ONTAP 目前不支持 SHA-512，仅支持 SHA-256。
-* 如果 MetroCluster FC 交换机运行的是 Fabric OS 10.x 或更高版本，则无法配置 SNMP，也无法将这些交换机添加到 ONTAP 健康监控中。如果要降级交换机固件，可以按照 link:../maintain/task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html["升级或降级 Brocade FC 交换机上的固件"] 中的步骤进行操作。
+* 在 Fabric OS 10.x 及更高版本中，Brocade 仅支持将 SHA-512 用于 SNMP 身份验证。
+* 如果您运行的 ONTAP 版本早于 9.20.1，并且您的 MetroCluster FC 交换机运行的是 Fabric OS 10.x 或更高版本，则无法配置 SNMP，也无法将这些交换机添加到 ONTAP 运行状况监控中。如果要降级交换机固件，可以按照 link:../maintain/task_upgrade_or_downgrad_the_firmware_on_a_brocade_fc_switch_mcc.html["升级或降级 Brocade FC 交换机上的固件"] 中的步骤进行操作。
 
 
 ====
@@ -2961,12 +2973,15 @@ Controller_A_1::> security login create -user-or-group-name snmpv3user -applicat
 NOTE: 对于 EngineID，按 *ENTER* 分配默认值。
 
 +
+以下输出仅供参考，您应选择环境中支持的设置。
+
++
 [listing]
 ----
 
 Enter the authoritative entity's EngineID [remote EngineID]:
 
-Which authentication protocol do you want to choose (none, md5, sha, sha2-256) [none]: sha
+Which authentication protocol do you want to choose (none, md5, sha, sha2-256, sha512) [none]: sha512
 
 Enter the authentication protocol password (minimum 8 characters long):
 

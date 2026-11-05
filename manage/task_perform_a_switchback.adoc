@@ -13,6 +13,9 @@ summary: 修复 MetroCluster 配置后，执行切回操作将其恢复到正常
 [role="lead"]
 修复 MetroCluster 配置后，您可以执行 MetroCluster 切回操作。MetroCluster 切回操作会将配置恢复到其正常运行状态，灾难站点上的 sync-source Storage Virtual Machine （ SVM ）处于活动状态，并从本地磁盘池提供数据。
 
+.关于此任务
+执行切回之前，请查看以下要求：
+
 * 灾难集群必须已成功切换到正常运行的集群。
 * 必须已对数据和根聚合执行修复。
 * 正常运行的集群节点不能处于 HA 故障转移状态（对于每个 HA 对，所有节点都必须已启动且正在运行）。
@@ -20,8 +23,10 @@ summary: 修复 MetroCluster 配置后，执行切回操作将其恢复到正常
 * 必须镜像根聚合。
 * 交换机间链路（ ISL ）必须处于联机状态。
 * 必须在系统上安装所有必需的许可证。
-+
-.. 确认所有节点均处于已启用状态： `MetroCluster node show`
+
+
+.步骤
+. 确认所有节点均处于已启用状态： `MetroCluster node show`
 +
 以下示例显示了处于已启用状态的节点：
 
@@ -41,10 +46,10 @@ Group Cluster Node        State          Mirroring Mode
               node_B_2    configured     enabled   waiting for switchback recovery
 4 entries were displayed.
 ----
-.. 确认所有 SVM 上的重新同步均已完成： `MetroCluster SVM show`
-.. 验证修复操作执行的任何自动 LIF 迁移是否已成功完成： `MetroCluster check lif show`
-.. 执行模拟切回以验证系统是否已准备就绪： `MetroCluster switchback -simulate`
-.. 检查配置：
+. 确认所有 SVM 上的重新同步均已完成： `MetroCluster SVM show`
+. 验证修复操作执行的任何自动 LIF 迁移是否已成功完成： `MetroCluster check lif show`
+. 执行模拟切回以验证系统是否已准备就绪： `MetroCluster switchback -simulate`
+. 检查配置：
 +
 `MetroCluster check run`
 
@@ -76,8 +81,8 @@ clusters            ok
 connections         ok
 6 entries were displayed.
 ----
-.. 从运行正常的集群中的任何节点运行 MetroCluster switchback 命令来执行切回： MetroCluster switchback`
-.. 检查切回操作的进度： `MetroCluster show`
+. 从运行正常的集群中的任何节点运行 MetroCluster switchback 命令来执行切回： MetroCluster switchback`
+. 检查切回操作的进度： `MetroCluster show`
 +
 当输出显示 Waiting for-switchback 时，切回操作仍在进行中：
 
@@ -112,7 +117,5 @@ Remote: cluster_A         Configuration state configured
 ----
 +
 如果切回需要很长时间才能完成，您可以使用 `MetroCluster config-replication resync-status show` 命令检查正在进行的基线的状态。此命令处于高级权限级别。
-
-
 
 

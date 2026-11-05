@@ -2,7 +2,7 @@
 permalink: releasenotes/mcc-new-features.html 
 sidebar: sidebar 
 keywords: new metrocluster features 
-summary:  
+summary: 了解每个 ONTAP 9 版本中的 MetroCluster 新功能和增强功能。 
 ---
 = MetroCluster功能中的新增功能
 :allow-uri-read: 
@@ -13,11 +13,64 @@ summary:
 [role="lead"]
 ONTAP 9数据管理软件的每个版本都提供了一些新增功能和增强功能、可提高ONTAP MetroCluster配置的功能、易管理性和性能。
 
-有关影响ONTAP MetroCluster配置的已知问题、限制和升级注意事项的详细信息、请参阅 https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["《 ONTAP 9 发行说明》"^]。您必须使用NetApp帐户登录或创建帐户才能访问发行说明。
+有关影响 ONTAP MetroCluster 配置的已知问题、限制和升级注意事项的详细信息，请参见 https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["《 ONTAP 9 发行说明》"^]。您必须使用您的 NetApp 帐户登录或创建一个帐户才能访问发行说明。
 
 [cols="20,65,15"]
 |===
 | MetroCluster配置中支持的功能 | 问题描述 以及从何处了解更多信息 | 可从一开始使用 
+
+
+ a| 
+支持用于 SNMPv3 身份验证的 SHA-512
+ a| 
+ONTAP 支持在 MetroCluster 交换机上使用 SHA-512 进行 SNMPv3 身份验证。
+ a| 
+ONTAP 9.20.1
+
+
+
+ a| 
+MetroCluster IP 支持 WAN ISL 拥塞控制
+ a| 
+您可以在 MetroCluster IP 配置中启用 WAN 交换机间链路（ISL）拥塞控制，以便在较低或混合带宽（如 10Gbps、25Gbps 或 40Gbps）下运行的 ISL 可用于 MetroCluster IP 后端端口速度为 100Gbps 的平台。
+
+link:../install-ip/mcc-congestion-control.html["在 MetroCluster IP 配置中配置拥塞控制"]
+ a| 
+ONTAP 9.20.1
+
+
+
+ a| 
+MetroCluster 支持 SnapMirror S3
+ a| 
+您可以创建 SnapMirror S3 关系，这些关系位于 MetroCluster 配置中，在切换和切回期间保持可用，并从活动站点恢复。
+
+link:https://docs.netapp.com/us-en/ontap/s3-snapmirror/index.html#snapmirror-s3-requirements["详细了解 SnapMirror S3"^]
+ a| 
+ONTAP 9.20.1
+
+
+
+ a| 
+MetroCluster 支持 ONTAP S3 存储桶生命周期管理
+ a| 
+您可以在 MetroCluster 配置中为原生 S3 存储桶创建 ONTAP S3 存储桶生命周期管理规则。
+
+https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-lifecycle-rule-task.html["创建 ONTAP S3 存储桶生命周期管理规则"]
+ a| 
+ONTAP 9.20.1
+
+
+
+ a| 
+MetroCluster IP 对 ONTAP SVM 容量限制的支持
+ a| 
+您可以为属于 MetroCluster IP 配置一部分的 SVM 配置存储限制。
+
+https://docs.netapp.com/us-en/ontap/volumes/manage-svm-capacity.html["管理 ONTAP SVM 容量限制"^]
+ a| 
+ONTAP 9.20.1
+
 
 
  a| 

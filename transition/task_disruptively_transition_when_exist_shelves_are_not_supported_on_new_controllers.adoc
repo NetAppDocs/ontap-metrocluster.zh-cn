@@ -149,6 +149,9 @@ image::../media/transition_2n_unsupported_old_new_shelves_to_old_controllers.png
 .关于此任务
 此任务会在现有节点（ node_A_1-FC 和 node_B_1-FC ）过渡之前执行。
 
+
+NOTE: 在执行切换之前，请查看link:../manage/switchover-limitations.html["MetroCluster配置处于切换状态时的限制"]。
+
 .步骤
 . 从控制器 node_B_1-FC 执行协商切换：
 +
