@@ -24,6 +24,10 @@ ONTAP 9数据管理软件的每个版本都提供了一些新增功能和增强�
 支持用于 SNMPv3 身份验证的 SHA-512
  a| 
 ONTAP 支持在 MetroCluster 交换机上使用 SHA-512 进行 SNMPv3 身份验证。
+
+* link:../install-ip/config-snmpv3.html["配置 SNMPv3 来监控MetroCluster IP 交换机的运行状况"]
+* link:../install-fc/concept_configure_the_mcc_software_in_ontap.html#snmpv3-mcc-fc["在 MetroCluster FC 配置中配置 SNMPv3"]
+
  a| 
 ONTAP 9.20.1
 
@@ -56,7 +60,7 @@ MetroCluster 支持 ONTAP S3 存储桶生命周期管理
  a| 
 您可以在 MetroCluster 配置中为原生 S3 存储桶创建 ONTAP S3 存储桶生命周期管理规则。
 
-https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-lifecycle-rule-task.html["创建 ONTAP S3 存储桶生命周期管理规则"]
+https://docs.netapp.com/us-en/ontap/s3-config/create-bucket-lifecycle-rule-task.html["创建 ONTAP S3 存储桶生命周期管理规则"^]
  a| 
 ONTAP 9.20.1
 

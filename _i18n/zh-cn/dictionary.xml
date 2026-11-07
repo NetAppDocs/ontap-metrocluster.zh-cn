@@ -12733,11 +12733,8 @@
   <block id="b00500f501ccb5c8ab2313d810b6ff29" category="list-text">对于采用AES/DES加密的*MD5/SHA身份验证*：</block>
   <block id="ce23d8cb44ce288570eb2dcc49f1f2f7" category="paragraph">以下命令在ONTAP端配置SNMPv3用户名：</block>
   <block id="760c6e9b6b587e6f977e0e7116b69f45" category="paragraph">以下命令将使用CSHM建立SNMPv3用户名：</block>
-  <block id="d3280214c17ea96ca13a6e79765d0b3c" category="list-text">在交换机上设置SNMPv3用户以使用身份验证和加密：</block>
   <block id="8379e83fc1ad68bfb1ad877f1b7fda6b" category="list-text">在ONTAP 端设置SNMPv3用户：</block>
   <block id="6b9f542dd155c40aa5e4484b5ff61711" category="list-text">将CSHM配置为使用新SNMPv3用户进行监控：</block>
-  <block id="f1d85c8d2abe8fba947527035ed0f381" category="list-text">等待 CSHM 轮询期后，验证以太网交换机的序列号是否已填充。</block>
-  <block id="d4d693d9dd779d0daf149c2e448b60b2" category="list-text">确认要使用新创建的SNMPv3用户查询的序列号与CSHM轮询周期完成后上一步中详述的序列号相同。</block>
   <block id="05918726f836c344025fecbcf0275f1b" category="open-title">NVIDIA-CL 5.4.0</block>
   <block id="8ae4eeaa7baed19106cc30ea02483c5e" category="paragraph">以太网交换机运行状况监控器(CSHM)负责确保集群和存储网络交换机的运行状况、并收集交换机日志以进行调试。</block>
   <block id="4ae61f4d1ec2f0efafd8ee4274e49ccf" category="section-title">在 MetroCluster IP 配置中配置 CSHM 的重要注意事项</block>
@@ -13960,10 +13957,7 @@
   <block id="59a93fe50b25a85e88bed38108e0196c" category="list-text">在DR集群中，检查是否可以从正常运行的集群切换到DR集群：</block>
   <block id="59ded25db2e6cefacbcb41c378e0b709" category="list-text">在正常运行的集群中，检查是否可以从 DR 集群切换到正常运行的集群：</block>
   <block id="2c7ea164e9295a29d20e890710cfcc1d" category="admonition">在 MetroCluster FC 环境中，"connections"应在命令输出中显示为"not-applicable"。</block>
-  <block id="706bc34d657098e3dcd81db43d280c53" category="paragraph">在 Cisco Nexus 交换机上配置 SNMPv3 用户名 SNMPv3_USER：</block>
-  <block id="5a523817621c85574dfcbf0b11c07075" category="paragraph">在运行 CL 5.4.0 的 NVIDIA Cumulus 交换机上配置 SNMPv3 用户名 SNMPv3_USER：</block>
   <block id="4451c276144ff12f4a59bad51c0a1181" category="open-title">NVIDIA - CL 5.11.0+</block>
-  <block id="d1f08b7bd68bdc79984e047bc1939c5d" category="paragraph">在运行 CLI 5.11.0 及更高版本的 NVIDIA Cumulus 交换机上配置 SNMPv3 用户名 SNMPv3_USER：</block>
   <block id="5c70de9aa6fac7d71c4ddfb2d31ae25a" category="list-text">为新参考配置文件 (RCF) 的应用准备 IP 交换机。</block>
   <block id="cf638fa08203ce9c082e7eecde22e20f" category="paragraph">必须将参考配置文件 (RCF) 下载到 MetroCluster 结构配置中的每个交换机。</block>
   <block id="91cd9003fc7afacd92d0952d1578d48b" category="paragraph">共有四个 RCF，分别对应 MetroCluster fabric 配置中的四个交换机。您必须使用适用于您所使用的交换机型号的正确 RCF。</block>
@@ -14592,11 +14586,26 @@
   <block id="3f85a822280c700a358c8d4b09ac0917" category="paragraph">MetroCluster 支持 ONTAP S3 存储桶生命周期管理</block>
   <block id="49819d508ad6d5fbf96df43937292b87" category="paragraph">您可以在 MetroCluster 配置中为原生 S3 存储桶创建 ONTAP S3 存储桶生命周期管理规则。</block>
   <block id="ff1c4451ae73de7655c2635dffe868fb" category="inline-link">创建 ONTAP S3 存储桶生命周期管理规则</block>
-  <block id="d6837f6be46a885f34bcefc1a964e5ee" category="paragraph"><block ref="d6837f6be46a885f34bcefc1a964e5ee" category="inline-link-rx"></block></block>
   <block id="97eda9c538679f681ab334965088e974" category="paragraph">MetroCluster IP 对 ONTAP SVM 容量限制的支持</block>
   <block id="128922b8a646dde62f70fcbd94afb280" category="paragraph">您可以为属于 MetroCluster IP 配置一部分的 SVM 配置存储限制。</block>
   <block id="43f2553b95ee26a6e9f0fa1b40212bd9" category="inline-link">管理 ONTAP SVM 容量限制</block>
   <block id="ddfa7b0fce9c19992d2518f83e5178bd" category="paragraph"><block ref="ddfa7b0fce9c19992d2518f83e5178bd" category="inline-link-rx"></block></block>
   <block id="2cad3e9201231f96baf0aecb159146b8" category="list-text">如果您的 MetroCluster IP 配置启用了 WAN ISL 拥塞控制，则必须 <block ref="84e4437719ed2680822f1999f770e8a1" category="inline-link-macro-rx"></block>。</block>
   <block id="4ddce8b1a7285d62eebe8f187b9294d6" category="sidebar">ISL 的要求</block>
+  <block id="e6fb84558de7078767b104ca13b55d79" category="admonition">从 ONTAP 9.20.1 开始，您可以在 Broadcom 交换机上配置 SHA-512 身份验证。</block>
+  <block id="3dbb7476f9c2ebc70cf21948afa0cd9d" category="list-text">对于 *MD5/SHA/SHA-512 身份验证*：</block>
+  <block id="4fc1797aada9784a0d12d54fd394cd62" category="list-text">对于 *使用 AES/DES 加密的 MD5/SHA/SHA-512 身份验证*：</block>
+  <block id="c4ee5379f9ca6f1a0a5bf5cad388ada5" category="list-title">示例步骤</block>
+  <block id="1dae6f6450cde6628715c8de87b21a2a" category="list-text">在交换机上设置 SNMPv3 用户，使用 SHA 身份验证和 AES-128 加密：</block>
+  <block id="df714ebd186f65d53f3ec7b187fc3f1d" category="list-text">等待 CSHM 轮询期后，确认“不监控的原因”设置为“无”。</block>
+  <block id="1ca543b8df71f7fea0988934cb5fbbdb" category="paragraph">在 Cisco Nexus 交换机上配置 SNMPv3 用户名<block ref="1d01e49b925b678020532b8f0e9ee3fa" prefix=" " category="inline-code"></block>。</block>
+  <block id="66192d10cca900d3c24ad9104d86b9e4" category="admonition">从 ONTAP 9.20.1 开始，您可以在 Cisco 交换机上配置 SHA-512 或 SHA-256 身份验证。</block>
+  <block id="aa1770478094ea74329bcba08e9a34b7" category="list-text">对于 *MD5/SHA/SHA-256/SHA-512 身份验证*：</block>
+  <block id="cf4344df088f1ec77d17a3dae71447b4" category="list-text">对于 *使用 AES/DES 加密的 MD5/SHA/SHA-256/SHA-512 身份验证*：</block>
+  <block id="48dbdd390fa480b5eda78d1e7f0d3b54" category="paragraph">在运行 CL 5.4.0 的 NVIDIA Cumulus 交换机上配置 SNMPv3 用户名<block ref="1d01e49b925b678020532b8f0e9ee3fa" prefix=" " category="inline-code"></block>：</block>
+  <block id="7ef0886eac0b0f59b0747fa52398c0c3" category="paragraph">在运行 CLI 5.11.0 及更高版本的 NVIDIA Cumulus 交换机上配置 SNMPv3 用户名<block ref="1d01e49b925b678020532b8f0e9ee3fa" prefix=" " category="inline-code"></block>：</block>
+  <block id="9328157334dc4a57cb65e0b9c3d128e4" category="list-text"><block ref="9328157334dc4a57cb65e0b9c3d128e4" category="inline-link-macro-rx"></block></block>
+  <block id="d767cb0daa2b9f99d4df03c9aab82dcf" category="inline-link-macro">在 MetroCluster FC 配置中配置 SNMPv3</block>
+  <block id="03566696538cfda6a95b84d024de7471" category="list-text"><block ref="03566696538cfda6a95b84d024de7471" category="inline-link-macro-rx"></block></block>
+  <block id="b764b19381cd7173232f5f43720ae5ab" category="paragraph"><block ref="b764b19381cd7173232f5f43720ae5ab" category="inline-link-rx"></block></block>
 </blocks>
